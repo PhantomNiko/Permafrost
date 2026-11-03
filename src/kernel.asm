@@ -1,3 +1,4 @@
+%include "kernel_c.inc"
 ; Permafrost 0.1 — recovered assembly, Pooka's Free Software License.
 ; Fixed virtual addresses preserve compatibility with original raw programs.
 ; at() retains original instruction boundaries when NASM shortens an encoding.
@@ -2138,486 +2139,31 @@ pf_at 0x4f9
 l_kernel_00020c17: mov byte [esi-0x4],0x0
 pf_at 0x4fd
 l_kernel_00020c1b: jmp short 0x20bfd
+; C runtime entry trampolines retain the original native ABI.
 pf_at 0x4ff
-l_kernel_00020c1d: push ebp
-pf_at 0x500
-l_kernel_00020c1e: mov ebp,esp
-pf_at 0x502
-l_kernel_00020c20: push ebx
-pf_at 0x503
-l_kernel_00020c21: push esi
-pf_at 0x504
-l_kernel_00020c22: xor ecx,ecx
-pf_at 0x506
-l_kernel_00020c24: mov edx,[ebp+0x10]
-pf_at 0x509
-l_kernel_00020c27: mov esi,[ebp+0xc]
-pf_at 0x50c
-l_kernel_00020c2a: mov eax,[ebp+0x8]
-pf_at 0x50f
-l_kernel_00020c2d: cmp edx,ecx
-pf_at 0x511
-l_kernel_00020c2f: jz short 0x20c3a
-pf_at 0x513
-l_kernel_00020c31: mov bl,[esi+ecx]
-pf_at 0x516
-l_kernel_00020c34: mov [eax+ecx],bl
-pf_at 0x519
-l_kernel_00020c37: inc ecx
-pf_at 0x51a
-l_kernel_00020c38: jmp short 0x20c2d
-pf_at 0x51c
-l_kernel_00020c3a: pop esi
-pf_at 0x51d
-l_kernel_00020c3b: pop ebx
-pf_at 0x51e
-l_kernel_00020c3c: pop ebp
-pf_at 0x51f
-l_kernel_00020c3d: ret
+l_kernel_00020c1d: jmp pf_memcpy
 pf_at 0x520
-l_kernel_00020c3e: push ebp
-pf_at 0x521
-l_kernel_00020c3f: mov ebp,esp
-pf_at 0x523
-l_kernel_00020c41: push ebx
-pf_at 0x524
-l_kernel_00020c42: push esi
-pf_at 0x525
-l_kernel_00020c43: mov edx,[ebp+0x10]
-pf_at 0x528
-l_kernel_00020c46: mov ecx,[ebp+0xc]
-pf_at 0x52b
-l_kernel_00020c49: mov eax,[ebp+0x8]
-pf_at 0x52e
-l_kernel_00020c4c: cmp eax,ecx
-pf_at 0x530
-l_kernel_00020c4e: setz bl
-pf_at 0x533
-l_kernel_00020c51: test edx,edx
-pf_at 0x535
-l_kernel_00020c53: setz bh
-pf_at 0x538
-l_kernel_00020c56: or bh,bl
-pf_at 0x53a
-l_kernel_00020c58: jz short 0x20c5e
-pf_at 0x53c
-l_kernel_00020c5a: pop esi
-pf_at 0x53d
-l_kernel_00020c5b: pop ebx
-pf_at 0x53e
-l_kernel_00020c5c: pop ebp
-pf_at 0x53f
-l_kernel_00020c5d: ret
-pf_at 0x540
-l_kernel_00020c5e: cmp eax,ecx
-pf_at 0x542
-l_kernel_00020c60: jnc short 0x20c71
-pf_at 0x544
-l_kernel_00020c62: xor esi,esi
-pf_at 0x546
-l_kernel_00020c64: cmp edx,esi
-pf_at 0x548
-l_kernel_00020c66: jz short 0x20c5a
-pf_at 0x54a
-l_kernel_00020c68: mov bl,[ecx+esi]
-pf_at 0x54d
-l_kernel_00020c6b: mov [eax+esi],bl
-pf_at 0x550
-l_kernel_00020c6e: inc esi
-pf_at 0x551
-l_kernel_00020c6f: jmp short 0x20c64
-pf_at 0x553
-l_kernel_00020c71: mov esi,edx
-pf_at 0x555
-l_kernel_00020c73: sub esi,byte +0x1
-pf_at 0x558
-l_kernel_00020c76: jc short 0x20c5a
-pf_at 0x55a
-l_kernel_00020c78: mov bl,[ecx+edx-0x1]
-pf_at 0x55e
-l_kernel_00020c7c: mov [eax+edx-0x1],bl
-pf_at 0x562
-l_kernel_00020c80: mov edx,esi
-pf_at 0x564
-l_kernel_00020c82: jmp short 0x20c73
+l_kernel_00020c3e: jmp pf_memmove
 pf_at 0x566
-l_kernel_00020c84: push ebp
-pf_at 0x567
-l_kernel_00020c85: mov ebp,esp
-pf_at 0x569
-l_kernel_00020c87: push esi
-pf_at 0x56a
-l_kernel_00020c88: mov ecx,[ebp+0x10]
-pf_at 0x56d
-l_kernel_00020c8b: mov eax,[ebp+0x8]
-pf_at 0x570
-l_kernel_00020c8e: mov dl,[ebp+0xc]
-pf_at 0x573
-l_kernel_00020c91: xor esi,esi
-pf_at 0x575
-l_kernel_00020c93: cmp ecx,esi
-pf_at 0x577
-l_kernel_00020c95: jz short 0x20c9d
-pf_at 0x579
-l_kernel_00020c97: mov [eax+esi],dl
-pf_at 0x57c
-l_kernel_00020c9a: inc esi
-pf_at 0x57d
-l_kernel_00020c9b: jmp short 0x20c93
-pf_at 0x57f
-l_kernel_00020c9d: pop esi
-pf_at 0x580
-l_kernel_00020c9e: pop ebp
-pf_at 0x581
-l_kernel_00020c9f: ret
+l_kernel_00020c84: jmp pf_memset
 pf_at 0x582
-l_kernel_00020ca0: push ebp
-pf_at 0x583
-l_kernel_00020ca1: mov ebp,esp
-pf_at 0x585
-l_kernel_00020ca3: push ebx
-pf_at 0x586
-l_kernel_00020ca4: push edi
-pf_at 0x587
-l_kernel_00020ca5: push esi
-pf_at 0x588
-l_kernel_00020ca6: mov ecx,[ebp+0x10]
-pf_at 0x58b
-l_kernel_00020ca9: mov eax,[ebp+0xc]
-pf_at 0x58e
-l_kernel_00020cac: mov esi,[ebp+0x8]
-pf_at 0x591
-l_kernel_00020caf: xor edi,edi
-pf_at 0x593
-l_kernel_00020cb1: cmp ecx,edi
-pf_at 0x595
-l_kernel_00020cb3: jz short 0x20cc8
-pf_at 0x597
-l_kernel_00020cb5: movzx ebx,byte [esi+edi]
-pf_at 0x59b
-l_kernel_00020cb9: movzx edx,byte [eax+edi]
-pf_at 0x59f
-l_kernel_00020cbd: inc edi
-pf_at 0x5a0
-l_kernel_00020cbe: cmp bl,dl
-pf_at 0x5a2
-l_kernel_00020cc0: jz short 0x20cb1
-pf_at 0x5a4
-l_kernel_00020cc2: sub ebx,edx
-pf_at 0x5a6
-l_kernel_00020cc4: mov eax,ebx
-pf_at 0x5a8
-l_kernel_00020cc6: jmp short 0x20cca
-pf_at 0x5aa
-l_kernel_00020cc8: xor eax,eax
-pf_at 0x5ac
-l_kernel_00020cca: pop esi
-pf_at 0x5ad
-l_kernel_00020ccb: pop edi
-pf_at 0x5ae
-l_kernel_00020ccc: pop ebx
-pf_at 0x5af
-l_kernel_00020ccd: pop ebp
-pf_at 0x5b0
-l_kernel_00020cce: ret
+l_kernel_00020ca0: jmp pf_memcmp
 pf_at 0x5b1
-l_kernel_00020ccf: push ebp
-pf_at 0x5b2
-l_kernel_00020cd0: mov ebp,esp
-pf_at 0x5b4
-l_kernel_00020cd2: xor eax,eax
-pf_at 0x5b6
-l_kernel_00020cd4: mov edx,[ebp+0x8]
-pf_at 0x5b9
-l_kernel_00020cd7: xor ecx,ecx
-pf_at 0x5bb
-l_kernel_00020cd9: test edx,edx
-pf_at 0x5bd
-l_kernel_00020cdb: jz short 0x20ce8
-pf_at 0x5bf
-l_kernel_00020cdd: cmp byte [edx+ecx],0x0
-pf_at 0x5c3
-l_kernel_00020ce1: jz short 0x20ce6
-pf_at 0x5c5
-l_kernel_00020ce3: inc ecx
-pf_at 0x5c6
-l_kernel_00020ce4: jmp short 0x20cd9
-pf_at 0x5c8
-l_kernel_00020ce6: mov eax,ecx
-pf_at 0x5ca
-l_kernel_00020ce8: pop ebp
-pf_at 0x5cb
-l_kernel_00020ce9: ret
+l_kernel_00020ccf: jmp pf_strlen
 pf_at 0x5cc
-l_kernel_00020cea: push ebp
-pf_at 0x5cd
-l_kernel_00020ceb: mov ebp,esp
-pf_at 0x5cf
-l_kernel_00020ced: push ebx
-pf_at 0x5d0
-l_kernel_00020cee: push esi
-pf_at 0x5d1
-l_kernel_00020cef: xor ecx,ecx
-pf_at 0x5d3
-l_kernel_00020cf1: mov edx,[ebp+0xc]
-pf_at 0x5d6
-l_kernel_00020cf4: mov esi,[ebp+0x8]
-pf_at 0x5d9
-l_kernel_00020cf7: movzx eax,byte [esi+ecx]
-pf_at 0x5dd
-l_kernel_00020cfb: mov bl,[edx+ecx]
-pf_at 0x5e0
-l_kernel_00020cfe: test eax,eax
-pf_at 0x5e2
-l_kernel_00020d00: jz short 0x20d09
-pf_at 0x5e4
-l_kernel_00020d02: cmp al,bl
-pf_at 0x5e6
-l_kernel_00020d04: jnz short 0x20d09
-pf_at 0x5e8
-l_kernel_00020d06: inc ecx
-pf_at 0x5e9
-l_kernel_00020d07: jmp short 0x20cf7
-pf_at 0x5eb
-l_kernel_00020d09: movzx ecx,bl
-pf_at 0x5ee
-l_kernel_00020d0c: sub eax,ecx
-pf_at 0x5f0
-l_kernel_00020d0e: pop esi
-pf_at 0x5f1
-l_kernel_00020d0f: pop ebx
-pf_at 0x5f2
-l_kernel_00020d10: pop ebp
-pf_at 0x5f3
-l_kernel_00020d11: ret
+l_kernel_00020cea: jmp pf_strcmp
 pf_at 0x5f4
-l_kernel_00020d12: push ebp
-pf_at 0x5f5
-l_kernel_00020d13: mov ebp,esp
-pf_at 0x5f7
-l_kernel_00020d15: pop ebp
-pf_at 0x5f8
-l_kernel_00020d16: jmp near 0x20cea
+l_kernel_00020d12: jmp pf_strcmp_alias
 pf_at 0x5fd
-l_kernel_00020d1b: push ebp
-pf_at 0x5fe
-l_kernel_00020d1c: mov ebp,esp
-pf_at 0x600
-l_kernel_00020d1e: push ebx
-pf_at 0x601
-l_kernel_00020d1f: xor ecx,ecx
-pf_at 0x603
-l_kernel_00020d21: mov edx,[ebp+0xc]
-pf_at 0x606
-l_kernel_00020d24: mov eax,[ebp+0x8]
-pf_at 0x609
-l_kernel_00020d27: mov bl,[edx+ecx]
-pf_at 0x60c
-l_kernel_00020d2a: mov [eax+ecx],bl
-pf_at 0x60f
-l_kernel_00020d2d: inc ecx
-pf_at 0x610
-l_kernel_00020d2e: test bl,bl
-pf_at 0x612
-l_kernel_00020d30: jnz short 0x20d27
-pf_at 0x614
-l_kernel_00020d32: pop ebx
-pf_at 0x615
-l_kernel_00020d33: pop ebp
-pf_at 0x616
-l_kernel_00020d34: ret
+l_kernel_00020d1b: jmp pf_strcpy
 pf_at 0x617
-l_kernel_00020d35: push ebp
-pf_at 0x618
-l_kernel_00020d36: mov ebp,esp
-pf_at 0x61a
-l_kernel_00020d38: push esi
-pf_at 0x61b
-l_kernel_00020d39: mov ecx,[ebp+0xc]
-pf_at 0x61e
-l_kernel_00020d3c: mov eax,[ebp+0x8]
-pf_at 0x621
-l_kernel_00020d3f: movsx edx,cl
-pf_at 0x624
-l_kernel_00020d42: movsx esi,byte [eax]
-pf_at 0x627
-l_kernel_00020d45: test esi,esi
-pf_at 0x629
-l_kernel_00020d47: jz short 0x20d50
-pf_at 0x62b
-l_kernel_00020d49: cmp edx,esi
-pf_at 0x62d
-l_kernel_00020d4b: jz short 0x20d57
-pf_at 0x62f
-l_kernel_00020d4d: inc eax
-pf_at 0x630
-l_kernel_00020d4e: jmp short 0x20d42
-pf_at 0x632
-l_kernel_00020d50: xor edx,edx
-pf_at 0x634
-l_kernel_00020d52: test cl,cl
-pf_at 0x636
-l_kernel_00020d54: cmovnz eax,edx
-pf_at 0x639
-l_kernel_00020d57: pop esi
-pf_at 0x63a
-l_kernel_00020d58: pop ebp
-pf_at 0x63b
-l_kernel_00020d59: ret
+l_kernel_00020d35: jmp pf_strchr
 pf_at 0x63c
-l_kernel_00020d5a: push ebp
-pf_at 0x63d
-l_kernel_00020d5b: mov ebp,esp
-pf_at 0x63f
-l_kernel_00020d5d: push ebx
-pf_at 0x640
-l_kernel_00020d5e: push edi
-pf_at 0x641
-l_kernel_00020d5f: push esi
-pf_at 0x642
-l_kernel_00020d60: sub esp,byte +0xc
-pf_at 0x645
-l_kernel_00020d63: xor esi,esi
-pf_at 0x647
-l_kernel_00020d65: mov edi,[ebp+0xc]
-pf_at 0x64a
-l_kernel_00020d68: mov ebx,[ebp+0x8]
-pf_at 0x64d
-l_kernel_00020d6b: movsx eax,byte [ebx+esi]
-pf_at 0x651
-l_kernel_00020d6f: test eax,eax
-pf_at 0x653
-l_kernel_00020d71: jz short 0x20d87
-pf_at 0x655
-l_kernel_00020d73: sub esp,byte +0x8
-pf_at 0x658
-l_kernel_00020d76: push eax
-pf_at 0x659
-l_kernel_00020d77: push edi
-pf_at 0x65a
-l_kernel_00020d78: call 0x20d35
-pf_at 0x65f
-l_kernel_00020d7d: add esp,byte +0x10
-pf_at 0x662
-l_kernel_00020d80: test eax,eax
-pf_at 0x664
-l_kernel_00020d82: jz short 0x20d87
-pf_at 0x666
-l_kernel_00020d84: inc esi
-pf_at 0x667
-l_kernel_00020d85: jmp short 0x20d6b
-pf_at 0x669
-l_kernel_00020d87: mov eax,esi
-pf_at 0x66b
-l_kernel_00020d89: add esp,byte +0xc
-pf_at 0x66e
-l_kernel_00020d8c: pop esi
-pf_at 0x66f
-l_kernel_00020d8d: pop edi
-pf_at 0x670
-l_kernel_00020d8e: pop ebx
-pf_at 0x671
-l_kernel_00020d8f: pop ebp
-pf_at 0x672
-l_kernel_00020d90: ret
+l_kernel_00020d5a: jmp pf_strspn
 pf_at 0x673
-l_kernel_00020d91: push ebp
-pf_at 0x674
-l_kernel_00020d92: mov ebp,esp
-pf_at 0x676
-l_kernel_00020d94: push edi
-pf_at 0x677
-l_kernel_00020d95: push esi
-pf_at 0x678
-l_kernel_00020d96: mov edi,[ebp+0xc]
-pf_at 0x67b
-l_kernel_00020d99: mov esi,[ebp+0x8]
-pf_at 0x67e
-l_kernel_00020d9c: movsx eax,byte [esi]
-pf_at 0x681
-l_kernel_00020d9f: test eax,eax
-pf_at 0x683
-l_kernel_00020da1: jz short 0x20db7
-pf_at 0x685
-l_kernel_00020da3: sub esp,byte +0x8
-pf_at 0x688
-l_kernel_00020da6: push eax
-pf_at 0x689
-l_kernel_00020da7: push edi
-pf_at 0x68a
-l_kernel_00020da8: call 0x20d35
-pf_at 0x68f
-l_kernel_00020dad: add esp,byte +0x10
-pf_at 0x692
-l_kernel_00020db0: test eax,eax
-pf_at 0x694
-l_kernel_00020db2: jnz short 0x20db9
-pf_at 0x696
-l_kernel_00020db4: inc esi
-pf_at 0x697
-l_kernel_00020db5: jmp short 0x20d9c
-pf_at 0x699
-l_kernel_00020db7: xor esi,esi
-pf_at 0x69b
-l_kernel_00020db9: mov eax,esi
-pf_at 0x69d
-l_kernel_00020dbb: pop esi
-pf_at 0x69e
-l_kernel_00020dbc: pop edi
-pf_at 0x69f
-l_kernel_00020dbd: pop ebp
-pf_at 0x6a0
-l_kernel_00020dbe: ret
+l_kernel_00020d91: jmp pf_strpbrk
 pf_at 0x6a1
-l_kernel_00020dbf: push ebp
-pf_at 0x6a2
-l_kernel_00020dc0: mov ebp,esp
-pf_at 0x6a4
-l_kernel_00020dc2: push ebx
-pf_at 0x6a5
-l_kernel_00020dc3: push esi
-pf_at 0x6a6
-l_kernel_00020dc4: mov ecx,[ebp+0xc]
-pf_at 0x6a9
-l_kernel_00020dc7: mov eax,[ebp+0x8]
-pf_at 0x6ac
-l_kernel_00020dca: cmp byte [ecx],0x0
-pf_at 0x6af
-l_kernel_00020dcd: jz short 0x20dec
-pf_at 0x6b1
-l_kernel_00020dcf: cmp byte [eax],0x0
-pf_at 0x6b4
-l_kernel_00020dd2: jz short 0x20dea
-pf_at 0x6b6
-l_kernel_00020dd4: xor edx,edx
-pf_at 0x6b8
-l_kernel_00020dd6: mov bl,[ecx+edx]
-pf_at 0x6bb
-l_kernel_00020dd9: test bl,bl
-pf_at 0x6bd
-l_kernel_00020ddb: jz short 0x20dec
-pf_at 0x6bf
-l_kernel_00020ddd: lea esi,[edx+0x1]
-pf_at 0x6c2
-l_kernel_00020de0: cmp [eax+edx],bl
-pf_at 0x6c5
-l_kernel_00020de3: mov edx,esi
-pf_at 0x6c7
-l_kernel_00020de5: jz short 0x20dd6
-pf_at 0x6c9
-l_kernel_00020de7: inc eax
-pf_at 0x6ca
-l_kernel_00020de8: jmp short 0x20dcf
-pf_at 0x6cc
-l_kernel_00020dea: xor eax,eax
-pf_at 0x6ce
-l_kernel_00020dec: pop esi
-pf_at 0x6cf
-l_kernel_00020ded: pop ebx
-pf_at 0x6d0
-l_kernel_00020dee: pop ebp
-pf_at 0x6d1
-l_kernel_00020def: ret
+l_kernel_00020dbf: jmp pf_strstr
 pf_at 0x6d2
 l_kernel_00020df0: push ebp
 pf_at 0x6d3
@@ -6702,34 +6248,9 @@ pf_at 0x1d1d
 l_kernel_0002243b: pop ebp
 pf_at 0x1d1e
 l_kernel_0002243c: ret
+; C++ public display entry, retaining the original utility ABI.
 pf_at 0x1d1f
-l_kernel_0002243d: push ebp
-pf_at 0x1d20
-l_kernel_0002243e: mov ebp,esp
-pf_at 0x1d22
-l_kernel_00022440: sub esp,byte +0x8
-pf_at 0x1d25
-l_kernel_00022443: sub esp,byte +0x4
-pf_at 0x1d28
-l_kernel_00022446: push byte +0x1b
-pf_at 0x1d2a
-l_kernel_00022448: push dword 0x55ffff
-pf_at 0x1d2f
-l_kernel_0002244d: push dword 0xaa
-pf_at 0x1d34
-l_kernel_00022452: call 0x21c7a
-pf_at 0x1d39
-l_kernel_00022457: add esp,byte +0x10
-pf_at 0x1d3c
-l_kernel_0002245a: xor eax,eax
-pf_at 0x1d3e
-l_kernel_0002245c: inc eax
-pf_at 0x1d3f
-l_kernel_0002245d: add esp,byte +0x8
-pf_at 0x1d42
-l_kernel_00022460: pop ebp
-pf_at 0x1d43
-l_kernel_00022461: ret
+l_kernel_0002243d: jmp pf_display_night_mode
 pf_at 0x1d44
 l_kernel_00022462: push ebp
 pf_at 0x1d45
@@ -34299,3 +33820,7 @@ section part16 start=0xc8c1 vstart=0x0 align=1
     times 1 db 0
     db 0xdf, 0x9b, 0x57, 0x13
     times 270164 db 0
+
+; Compiled from kernel/runtime.c; no reference binary is required.
+section c_runtime start=0x51000 vstart=0x71000 align=1
+incbin "kernel_c.bin"

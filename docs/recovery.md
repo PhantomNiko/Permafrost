@@ -51,6 +51,14 @@ an ignored build directory. `tools/recover.py` reproduces the initial assembly
 recovery using NASM's disassembler. This is instruction-level recovered source,
 not a recovery of the author's original C identifiers or comments.
 
+`kernel/runtime.c` replaces the routines at 0x20c1d–0x20def with C. Original
+entry addresses contain jumps to newly compiled code after the original memory
+extent (physical 0x71000). `kernel/display.cpp` replaces the public night-mode
+entry at 0x2243d. The generated C module and symbol include are build outputs,
+not copied binary inputs. 523 differential cases against the reference and a
+complete fixture boot pass with the C implementation. Both the original native
+night-mode utility and the SDK-built C++ utility call the replacement successfully.
+
 Both native utilities use `mov eax, address; call eax; ret`:
 
 | Utility | Kernel entry |

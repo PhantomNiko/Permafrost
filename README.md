@@ -22,12 +22,12 @@ legacy BIOS, at least 64 MiB RAM and an IDE disk, for example:
 qemu-system-i386 -m 64 -drive format=raw,file=build/Permafrost-0.1.img,if=ide -serial stdio
 ```
 
-The normal build assembles checked-in source and creates WMFS32 from scratch.
+The normal build compiles C/C++ and assembly and creates WMFS32 from scratch.
 It does not read the reference image, copy its boot sectors, or embed its kernel
-binary. All executable instructions are represented as NASM assembly; data and
-zero-initialized storage are separate. Fixed addresses retain the original
-native-program ABI. The C/C++ rewrite is the next implementation stage; the
-recovered assembly is its executable compatibility baseline.
+binary. The memory/string runtime is now C, and the public night-mode entry is
+C++. The remaining recovered implementation is NASM assembly, with data and
+zero-initialized storage separated. Fixed-address trampolines retain the original
+native-program ABI as functions move to C/C++. The C/C++ rewrite is in progress.
 
 ## Recovery and validation
 
@@ -59,6 +59,16 @@ expected result. This fixture exercises VGA text fallback, disk reads/writes
 and BIOS mode transitions. A full QEMU/hardware boot and graphical VBE output
 have not yet been verified. This is an early-alpha kernel with the behavior
 and limitations inherited from the supplied release.
+
+The rewritten C runtime also passes 523 differential cases against the original
+kernel, including overlap handling, unsigned byte comparisons, empty strings,
+null-tolerant string length, return values and the i386 calling convention:
+
+```sh
+python3 tests/runtime.py img/reference.img
+```
+
+The kernel build requires Clang and Clang++ in addition to NASM and Python 3.
 
 ## SDK
 
