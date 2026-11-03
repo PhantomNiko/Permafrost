@@ -1,4 +1,4 @@
-/* Permafrost 0.3 native compatibility probe. Pooka's Free Software License. */
+/* Permafrost 0.4 native compatibility probe. Pooka's Free Software License. */
 #include <permafrost.h>
 static uint32_t digest = 2166136261U;
 static unsigned char data[1024];
@@ -6,17 +6,17 @@ static uint32_t random_state = 0x5046;
 static unsigned random_byte(void) { random_state=random_state*1664525U+1013904223U; return random_state>>24; }
 static void hash(uint32_t value) { for(unsigned i=0;i<4;++i) { digest=(digest^(value&255))*16777619U;value>>=8; } }
 static void hash_data(void) { for(unsigned i=0;i<sizeof(data);++i) digest=(digest^data[i])*16777619U; }
-#define COPY ((void *(*)(void*,const void*,unsigned))0x20f42)
-#define MOVE ((void *(*)(void*,const void*,unsigned))0x20f63)
-#define SET ((void *(*)(void*,int,unsigned))0x20fa9)
-#define COMPARE ((int (*)(const void*,const void*,unsigned))0x20fc5)
-#define LENGTH ((unsigned (*)(const char*))0x20ff4)
-#define STRCMP ((int (*)(const char*,const char*))0x2100f)
-#define STRCPY ((char *(*)(char*,const char*))0x21040)
-#define SPAN ((unsigned (*)(const char*,const char*))0x2107f)
-#define FIND ((char *(*)(const char*,const char*))0x210b6)
-#define SEARCH ((char *(*)(const char*,const char*))0x210e4)
-#define CHAR ((char *(*)(const char*,int))0x2105a)
+#define COPY ((void *(*)(void*,const void*,unsigned))0x21348)
+#define MOVE ((void *(*)(void*,const void*,unsigned))0x21369)
+#define SET ((void *(*)(void*,int,unsigned))0x213af)
+#define COMPARE ((int (*)(const void*,const void*,unsigned))0x213cb)
+#define LENGTH ((unsigned (*)(const char*))0x213fa)
+#define STRCMP ((int (*)(const char*,const char*))0x21415)
+#define STRCPY ((char *(*)(char*,const char*))0x21446)
+#define SPAN ((unsigned (*)(const char*,const char*))0x21485)
+#define FIND ((char *(*)(const char*,const char*))0x214bc)
+#define SEARCH ((char *(*)(const char*,const char*))0x214ea)
+#define CHAR ((char *(*)(const char*,int))0x21460)
 static uint32_t offset(const void *p) { return p ? (const unsigned char*)p-data+1 : 0; }
 int main(void) {
     const unsigned counts[]={0,1,2,3,7,16,31,64,127,255};

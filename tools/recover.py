@@ -41,7 +41,7 @@ def data_lines(data):
 
 
 def recover(name, blob, ranges, destination, ndisasm):
-    lines = ['; Permafrost 0.3 — recovered assembly, Pooka\'s Free Software License.',
+    lines = ['; Permafrost 0.4 — recovered assembly, Pooka\'s Free Software License.',
              '; Fixed virtual addresses preserve compatibility with original raw programs.',
              '; at() retains original instruction boundaries when NASM shortens an encoding.',
              '%macro pf_at 1', '    times %1 - ($-$$) db 0x90', '%endmacro']
@@ -63,6 +63,10 @@ def recover(name, blob, ranges, destination, ndisasm):
             offset = int(address, 16) - virtual
             if encoded == '660F1F440000':
                 instruction = 'nop word [byte eax+eax+0]'
+            if encoded == '0F1F4000':
+                instruction = 'nop dword [byte eax+0]'
+            if encoded == '8D044DFFFFFFFF':
+                instruction = 'lea eax,[nosplit dword ecx*2-1]'
             if encoded == '8D344501000000':
                 instruction = 'lea esi,[nosplit dword eax*2+1]'
             if bits == 32 and encoded.startswith('66') and re.match(r'mov [desfgs]s,', instruction):
@@ -81,11 +85,12 @@ def main():
     parser.add_argument('image', type=Path)
     parser.add_argument('--ndisasm', default='ndisasm')
     parser.add_argument('--out', type=Path, default=Path('build/recovery'))
+    parser.add_argument('--variant', choices=['i386','IA64'], default='i386')
     parser.add_argument('--brand', action='store_true', help='apply documented fixed-slot Permafrost branding')
     args = parser.parse_args()
     image = args.image.read_bytes()
     files = Image(image).files()
-    layout = json.loads(Path('recovery/layout.json').read_text())
+    layout = json.loads(Path('recovery/layout-IA64.json' if args.variant=='IA64' else 'recovery/layout.json').read_text())
     if args.brand:
         def slot(blob, old, new):
             assert len(new) <= len(old) and old in blob
@@ -94,12 +99,14 @@ def main():
         image = slot(image, b'WinterBoot stage2 failed', b'Permafrost stage2 failed')
         image = slot(image, b'WB2 ', b'PF2 ')
         image = slot(image, b'/WinterBoot-baremetal.bin', b'/Permafrost-kernel.bin')
-        kernel = slot(files['WinterBoot-baremetal.bin'], b'WinterMoon OS v0.4 Beta', b'Permafrost v0.3 Beta')
+        if b'/WinterBoot64-baremetal.bin' in image:
+            image = slot(image, b'/WinterBoot64-baremetal.bin', b'/Permafrost64-kernel.bin')
+        kernel = slot(files['WinterBoot-baremetal.bin'], b'WinterMoon OS v0.4 Beta', b'Permafrost v0.4 Beta')
         kernel = slot(kernel, b'Alpha\0', b'Beta\0')
+        kernel = slot(kernel, b'0.3\0', b'0.4\0')
         files['WinterBoot-baremetal.bin'] = kernel
     recover('boot', image[:512], [(0, 0x40, 16, 0), (0x40, 512, 0, 0)], args.out / 'boot.asm', args.ndisasm)
-    recover('loader', image[512:65*512], [(0, 0x9ef, 16, 0), (0x9ef, 0xa10, 32, 0x89ef),
-                                         (0xa10, 32768, 0, 0)], args.out / 'loader.asm', args.ndisasm)
+    recover('loader', image[512:65*512], layout['loader_ranges'][args.variant], args.out / 'loader.asm', args.ndisasm)
     ranges = [(0, 0x10, 0, 0)]
     segments = layout['bios_ranges'] + [[layout['bios_code_end'], 0]]
     for (start, bits), (end, _) in zip(segments, segments[1:]):

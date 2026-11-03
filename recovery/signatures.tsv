@@ -46,3 +46,4 @@
 45d3d	unsigned int __fastcall recovered_45d3d(unsigned int count);
 45e16	unsigned int __fastcall recovered_45e16(int *container,unsigned int value);
 36180	unsigned int __fastcall recovered_36180(int *container,const char *text);
+2bcf9	unsigned int __fastcall recovered_2bcf9(unsigned int drive,unsigned int base,int data_sector,int sectors_per_cluster,unsigned int cluster_size,int fat,unsigned int cluster_count,unsigned int first,unsigned int size,void **out,int *chain_length);

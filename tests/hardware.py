@@ -25,22 +25,23 @@ def main():
     files = Image(image).files()
     if args.initialize_fpu:
         import struct
-        name = next(name for name, content in files.items() if content[:4] == b'WMLP')
-        kernel = bytearray(files[name])
-        if kernel[0x10] != 0xfc:
-            raise ValueError('unexpected reference entry layout')
-        # Replace only the debug entry prefix; all reference C code stays intact.
-        entry = b'\xdb\xe3\xfc\xe8' + struct.pack('<i', (0x2001f + struct.unpack_from('<i', kernel, 0x1b)[0]) - 0x20018)
-        entry += b'\xfa\xf4\xeb\xfc'
-        kernel[0x10:0x23] = entry.ljust(0x13, b'\x90')
-        files[name] = bytes(kernel)
+        for name, content in list(files.items()):
+            if content[:4] != b'WMLP':
+                continue
+            kernel = bytearray(content)
+            if kernel[0x10] != 0xfc:
+                raise ValueError('unexpected reference entry layout')
+            entry = b'\xdb\xe3\xfc\xe8' + struct.pack('<i', (0x2001f + struct.unpack_from('<i', kernel, 0x1b)[0]) - 0x20018)
+            entry += b'\xfa\xf4\xeb\xfc'
+            kernel[0x10:0x23] = entry.ljust(0x13, b'\x90')
+            files[name] = bytes(kernel)
     # A script on a test copy observes startup loading and the real UART driver.
     files['startup.ws'] = b'serial("PF-HARDWARE-BOOT")\nserial(2 + 3)\nserial("PF-HARDWARE-PASS")\n'
     if args.script:
         files['startup.ws'] = args.script.read_bytes()
     if Image(image).partitions:
         files['startup.ws'] = b'device("mount",4,"WMFS64")\ndevice("target",4)\n' + files['startup.ws']
-    image = repack_image(image, files, sectors=max(8192, len(image) // 512) if Image(image).partitions else max(2048, len(image) // 512))
+    image = repack_image(image, files, sectors=max(16384, len(image) // 512) if Image(image).partitions else max(2048, len(image) // 512))
     with tempfile.TemporaryDirectory(prefix='permafrost-hardware-') as temp:
         root = Path(temp)
         (root / 'disk.img').write_bytes(image)

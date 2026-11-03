@@ -20,7 +20,7 @@ def main():
         files['startup.ws'] = Path('assets/BinaryWriter.ws').read_bytes()
         if Image(raw).partitions:
             files['startup.ws'] = b'device("mount",4,"WMFS64")\ndevice("target",4)\n' + files['startup.ws']
-        raw = repack_image(raw, files, sectors=8192)
+        raw = repack_image(raw, files, sectors=16384)
         machine = Machine(raw, commands)
         output = machine.run(500000000).replace('\r', '')
         print(output)

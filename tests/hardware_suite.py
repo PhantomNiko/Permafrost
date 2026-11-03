@@ -20,18 +20,21 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('reference', type=Path)
     parser.add_argument('candidate', type=Path)
+    parser.add_argument('--variant', choices=['i386','IA64'], default='i386')
     for name in ('bochs', 'bios', 'vgabios'):
         parser.add_argument('--' + name, required=True, type=Path)
     args = parser.parse_args()
     with tempfile.TemporaryDirectory(prefix='permafrost sdk validation ') as temporary:
         root = Path(temporary)
-        sdk = root / 'Permafrost0.3.sdk'
-        shutil.copytree('build/Permafrost0.3.sdk', sdk)
+        sdk = root / 'Permafrost0.4.sdk'
+        shutil.copytree('build/Permafrost0.4.sdk', sdk)
         programs = {}
 
         def compile(name, source, keys=None):
             output = root / (name + '.bin')
-            command = [str(sdk / 'bin/pf-cc'), str(source), '-o', str(output)]
+            command = [str(sdk / 'bin/pf-cc'), str(source), '-o', str(output),'--variant',args.variant]
+            if name=='native-module':command += ['--base','0x240000']
+            if name=='framebuffer':command += ['--base','0x250000']
             if keys is not None:
                 import json
                 command += ['-D', 'PF_KEYS=' + json.dumps(keys).replace('\\u001b', '\\x1b')]
@@ -41,6 +44,8 @@ def main():
         compile('hello', sdk / 'Examples/hello.c')
         compile('nightmode-cpp', sdk / 'Examples/nightmode.cpp')
         compile('native', 'tests/native.c')
+        compile('native-module',sdk/'Examples/native-module.c')
+        compile('framebuffer','tests/framebuffer.c')
         compile('keys-store', 'tests/keyqueue.c', '280000: C3\r\x1b')
         compile('keys-examine', 'tests/keyqueue.c', '280000.280000\r\x1b')
         compile('keys-run', 'tests/keyqueue.c', '280000R\r\x1b')
@@ -56,9 +61,10 @@ def main():
         programs['original-expand.bin'] = original_files['expand-disk.bin']
         compile('keys-lua', 'tests/keyqueue.c', 'exit\r')
         programs['original-lua.bin'] = original_files['lua.bin']
-        programs['lua-port.bin'] = Path('build/lua/lua.bin').read_bytes()
+        programs['lua-port.bin'] = Path('build',args.variant,'lua/lua.bin').read_bytes()
         programs['index.lua'] = Path('tests/lua.lua').read_bytes()
         digests = []
+        framebuffers = []
         for role, path in [('reference', args.reference), ('candidate', args.candidate)]:
             raw = path.read_bytes()
             partition = 2 if Image(raw).partitions else 0
@@ -71,13 +77,13 @@ def main():
             # hardware.py initializes only its entry on an ephemeral test copy.
             init = ['--initialize-fpu'] if role == 'reference' else []
 
-            def run(name, script, marker):
+            def run(name, script, marker, timeout=30):
                 image = root / (role + '-' + name + '.img')
-                image.write_bytes(repack_image(raw, files, partition, sectors=8192))
+                image.write_bytes(repack_image(raw, files, partition, sectors=16384))
                 script_path = root / 'startup.ws'
                 script_path.write_text(script)
                 command = [sys.executable, 'tests/hardware.py', str(image), '--script',
-                           str(script_path), '--expect', marker, '--timeout', '30'] + init
+                           str(script_path), '--expect', marker, '--timeout', str(timeout)] + init
                 for option in ('bochs', 'bios', 'vgabios'):
                     command += ['--' + option, str(getattr(args, option))]
                 result = subprocess.run(command, text=True, stdout=subprocess.PIPE,
@@ -88,6 +94,12 @@ def main():
                 return result.stdout.replace('\r', '')
 
             run('selftest', selftest, 'PF-SELFTEST-PASS')
+            graphics=Path('tests/graphics.ws').read_text()
+            if args.variant=='IA64':graphics='assert(peek($6238)>=2 and peek($6238)<=3,"long entry")\n'+graphics
+            frame_output=run('graphics',graphics,'PF-GRAPHICS-PASS',60)
+            frame_lines=re.findall(r'PF-FRAMEBUFFER [0-9a-f]+ [0-9]+ [0-9]+ [0-9]+',frame_output)
+            if len(frame_lines)!=5:raise SystemExit(role+' framebuffer digests missing')
+            framebuffers.append(frame_lines)
             script = '''assert(runcode("/hello.bin",$200000)==42,"SDK C")
 assert(runcode("/nightmode-cpp.bin",$200000)==1,"SDK C++")
 assert(runcode("/nightmode.bin",$200000)==1,"native utility")
@@ -112,6 +124,10 @@ runFile("current.wsbc")
 assert(runcode("/keys-lua.bin",$200000)==1,"queue Lua exit")
 assert(runcode("/lua-port.bin",$230000)==1,"Lua return")
 assert(read("pf-lua-pass")=="PASS","source-linked Lua checks")
+assert(runcode("/native-module.bin",$240000)==1,"register native callback")
+assert(nativeExample["add"](17,25)==42,"native callback values")
+ok, problem=pcall(nativeExample["add"],"snow",2)
+assert(ok==false,"native callback error")
 serial("PF-NATIVE-PASS")
 '''
             extended_index = files['index.lua']
@@ -131,7 +147,10 @@ serial("PF-NATIVE-PASS")
             print(role + ': full self-test, relocated SDK, native routines, monitor, writer, WSBC, WMFS64 stress and both Lua applications passed')
         if digests[0] != digests[1]:
             raise SystemExit('native behavior differs: ' + ' / '.join(digests))
+        if framebuffers[0]!=framebuffers[1]:
+            raise SystemExit('framebuffer behavior differs: '+str(framebuffers))
         print('Native memory/string digest matches: ' + digests[0])
+        print('Five graphics-depth framebuffer digests match: '+str(framebuffers[0]))
 
 
 if __name__ == '__main__':

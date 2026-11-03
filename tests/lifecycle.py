@@ -46,8 +46,8 @@ def main():
     if Image(bytes(rebooted.disk), 2).files() != on_disk:
         raise SystemExit('grown WMFS64 files changed after reboot')
     damaged = Image(raw).files()
-    kernel_name = next(name for name, data in damaged.items() if data[:4] == b'WMLP')
-    damaged[kernel_name] = b'BAD!' + damaged[kernel_name][4:]
+    for name,data in list(damaged.items()):
+        if data[:4]==b'WMLP':damaged[name]=b'BAD!'+data[4:]
     recovery, output = boot(repack_image(raw, damaged))
     if 'Fallback boot path active.' not in output:
         raise SystemExit('invalid firmware kernel did not trigger recovery')

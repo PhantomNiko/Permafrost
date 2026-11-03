@@ -61,16 +61,18 @@ def rewrite_double_bits(source):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--layout', type=Path, default=Path('recovery/layout.json'))
     parser.add_argument('--notes', type=Path, default=Path('build/decompiled'))
     parser.add_argument('--out', type=Path, default=Path('build/c-rewrite'))
-    parser.add_argument('--manual', type=Path, default=Path('kernel/manual'))
+    parser.add_argument('--manual', type=Path, default=None)
     args = parser.parse_args()
-    layout = json.loads(Path('recovery/layout.json').read_text())
+    layout = json.loads(args.layout.read_text())
     current = layout.get('translation', {})
-    manual = {path.stem: path.read_text() for path in args.manual.glob('*.c')}
+    manual_root=args.manual or Path('kernel/manual',layout.get('variant','i386'))
+    manual = {path.stem: path.read_text() for path in manual_root.glob('*.c')}
     args.out.mkdir(parents=True, exist_ok=True)
     sources = {p.stem: p.read_text() for p in sorted(args.notes.glob('*.c')) if p.stem != 'recovered'}
-    header = ['/* Permafrost 0.3; Pooka\'s Free Software License. */', '#pragma once', '#include "support.h"']
+    header = ['/* Permafrost 0.4; Pooka\'s Free Software License. */', '#pragma once', '#include "support.h"']
     for source in sources.values():
         header.append(signature(source) + ';')
     (args.out / 'functions.h').write_text('\n'.join(header) + '\n')
@@ -113,6 +115,10 @@ def main():
             typename = match[1].strip() + (re.sub(r'\s', '', match[2]) if match[2] else '')
             source = source[:match.start()] + source[match.end():]
             macros.append('#define %s %s' % (name, lvalue(typename, 'frame + %d' % (frame_size + int(offset)))))
+        for name, raw in re.findall(r'\b(stack0x([0-9a-f]{8}))\b', source):
+            offset=int(raw,16)
+            if offset>=0x80000000: offset-=0x100000000
+            macros.append('#define %s (*(uint8_t *)(frame + %d))'%(name,frame_size+offset))
         source = re.sub(r'__(?:fastcall|cdecl|thiscall)\s+', '', source)
         source = re.sub(r'\b(\w+(?:\[[^]\n]+\])?)\.\s*_(\d+)_(\d+)_',
                         lambda m: 'PF_PART%s(%s, %s)' % (m[3], m[1], m[2]), source)
@@ -124,6 +130,8 @@ def main():
         for name in sorted(pointer_names, key=len, reverse=True):
             source = re.sub(r'\(float\)(' + re.escape(name) + r'(?:\[[^]\n]+\])?)(?![\w\[])',
                             r'pf_bits_float((uintptr_t)\1)', source)
+        source = re.sub(r'\(([^()]+\*+)\)\(float\)\(int\)(\w+)',
+                        r'(\1)(uintptr_t)pf_float_bits((float)(int)\2)', source)
         source = re.sub(r'\(([^()]+\*+)\)\(float\)(\w+)',
                         r'(\1)(uintptr_t)pf_float_bits((float)\2)', source)
         seed = current['random_state']
@@ -133,12 +141,18 @@ def main():
             source = re.sub(r'\(ulonglong\)\s*' + name + r'\b', 'pf_double_bits(' + name + ')', source)
         source = rewrite_double_bits(source)
         if address == current['main']:
-            source = re.sub(r'(_DAT_000062[0-9a-f]{2} = )(?:recovered_|FUN_000)([0-9a-f]+);', lambda m: m[1] + '0x' + m[2] + ';', source)
+            source = re.sub(r'(_DAT_0000(?:62|64)[0-9a-f]{2} = )(?:recovered_|FUN_000)([0-9a-f]+);', lambda m: m[1] + '0x' + m[2] + ';', source)
             source = source.replace('(uint)local_580', 'pf_float_bits(local_580)')
+        if address == '29de8':
+            # One shared call site receives 2, 3 or 4 format arguments. Ghidra
+            # exports only three; the four-string RAM status path also passes
+            # the detected-memory string in local_60 (verified in disassembly).
+            source = source.replace('pcVar9,local_40,local_100,pcVar10);',
+                                    'pcVar9,local_40,local_100,pcVar10,local_60);')
         if address == current['error_logger']:
             source = source.replace('\n{', '\n{\n  __builtin_va_list args;', 1)
             source = source.replace('local_10 = &dStack00000010;', '__builtin_va_start(args, format);\n  local_10 = (double *)args;')
-            source = re.sub(r'(recovered_21685\([^;]+;)', r'\1\n  __builtin_va_end(args);', source, count=1)
+            source = re.sub(r'(recovered_21a8b\([^;]+;)', r'\1\n  __builtin_va_end(args);', source, count=1)
         source = re.sub(r'^(  (?:undefined\d*|int|uint|char|byte|ushort|ulonglong|longlong|float10|float|double)\s+\**(?:extraout_\w+|in_EAX|unaff_EBX));$',
                         r'\1 = 0;', source, flags=re.M)
         opening = source.index('\n{') + 2

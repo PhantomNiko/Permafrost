@@ -9,12 +9,13 @@ from capstone import Cs, CS_ARCH_X86, CS_MODE_32
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('kernel', type=Path)
+    parser.add_argument('--layout', type=Path, default=Path('recovery/layout.json'))
     parser.add_argument('--out', type=Path, default=Path('build'))
     args = parser.parse_args()
     decoder = Cs(CS_ARCH_X86, CS_MODE_32)
     decoder.detail = True
     blob = args.kernel.read_bytes()
-    layout = json.loads(Path('recovery/layout.json').read_text())
+    layout = json.loads(args.layout.read_text())
     base, start, end = (layout[key] for key in ('kernel_base', 'text_start', 'text_end'))
     instructions = list(decoder.disasm(blob[start-base:end-base], start))
     hints = {}

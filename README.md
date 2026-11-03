@@ -1,9 +1,9 @@
-# Permafrost 0.3
+# Permafrost 0.4
 
-A C/C++ source reconstruction of the supplied 0.4 Beta release, named
-**Permafrost 0.3 Beta** here. This is the only build target. Earlier releases
-remain available as Git milestones. The reconstructed kernel and host code use
-Pooka's Free Software License; Lua retains its upstream license.
+A C/C++ reconstruction of the supplied 0.5 Beta i386 and IA64 releases, named
+**Permafrost 0.4 Beta**. These two variants are the only build targets. Earlier
+releases remain Git milestones. Reconstructed code uses Pooka's Free Software
+License; external Lua retains its upstream license.
 
 ## Build
 
@@ -16,77 +16,75 @@ python3 tools/build.py
 python3 tools/sdk.py
 ```
 
-Pass `--nasm` or `--lua-source` to select a different tool/source location.
-The outputs are `build/Permafrost-0.3.img`, `build/Permafrost0.3.sdk`, and
-`build/Permafrost0.3.sdk.zip`. The 4 MiB raw disk image uses a legacy x86 BIOS,
-not an Apple disk-image format. It requires an x86 emulator on Apple Silicon.
-For example:
+Outputs:
+
+- `build/Permafrost-0.4-i386.img` — 4 MiB BIOS disk image.
+- `build/Permafrost-0.4-IA64.img` — 8 MiB BIOS disk image.
+- `build/Permafrost0.4.sdk` and `build/Permafrost0.4.sdk.zip` — macOS 15 SDK.
+
+Pass `--nasm`, `--lua-source`, `--out` or `--sectors` to override build inputs.
+The images require an x86 emulator on Apple Silicon. For example:
 
 ```sh
-qemu-system-i386 -m 64 -drive format=raw,file=build/Permafrost-0.3.img,if=ide -serial stdio
+qemu-system-i386 -m 64 -drive format=raw,file=build/Permafrost-0.4-i386.img,if=ide -serial stdio
+qemu-system-x86_64 -m 64 -drive format=raw,file=build/Permafrost-0.4-IA64.img,if=ide -serial stdio
 ```
 
-The image contains WBPT firmware, recovery and user-data partitions. Firmware
-and recovery use WMFS32; the growable user volume uses WMFS64. First boot runs
-the supplied expansion/automount setup. A damaged primary kernel can fall back
-to the recovery partition.
+IA64 is the upstream label for the x86-64 entry variant. Its kernel and native
+applications execute as 32-bit compatibility-mode code. It includes a legacy
+fallback kernel; a capable CPU takes the 64-bit entry before returning to the
+32-bit kernel. The variants have distinct native-service addresses.
 
-The normal build reads checked-in C/C++/assembly and the external Lua source;
-it does not read the reference image or embed its executables. The kernel has
-334 recovered C functions plus reviewed runtime/native-call support and a C++
-display entry. Boot, firmware mode transitions, ABI bridges and nonlocal CPU
-transfers retain assembly. Applications, including Wozmon and the Lua host, are
-built from C/C++. Recovered code preserves fixed data layouts and remains low
-level; it is not the author's original C/C++ source.
+WBPT firmware and recovery partitions use WMFS32. User data uses WMFS64.
+First boot installs the supplied expansion/automount setup. An invalid primary
+kernel can fall back to the recovery volume. Filesystem tools preserve each
+variant's partition geometry when updating a volume.
 
-See [DEPENDENCIES.md](DEPENDENCIES.md) for the external-source policy and
-[dependencies.json](dependencies.json) for the recorded Lua revision. Lua is
-compiled and linked from that checkout, and its copyright/license is included
-in the image. OpenBIOS was not identified in this release; when encountered in
-a future reference, the sibling `../openbios` repository must supply it.
+## Source and interfaces
+
+Normal builds use checked-in C/C++/assembly and external Lua source. They do
+not read reference images or embed reference executables. The i386 and IA64
+layouts contain 365 and 364 recovered C functions, respectively, with shared
+C runtime/compiler support and a C++ display entry. Boot, BIOS mode changes,
+CPU entry and nonlocal transfers retain assembly. Fixed data layouts preserve
+native compatibility; the recovered source remains low level.
+
+WMAP version 2 exposes 16 native services, including WinterScript callback
+registration. The SDK supports both variants with `pf-cc --variant i386` or
+`pf-cc --variant IA64`; both produce i386 application code. Graphics entry,
+exit, drawing, canvas sizing and color-depth controls are available through
+the native/script interfaces. See [docs/sdk.md](docs/sdk.md).
+
+Lua is compiled and linked from the requested sibling repository, with its
+license included in each image. OpenBIOS has not been identified in these
+references. See [DEPENDENCIES.md](DEPENDENCIES.md) and
+[dependencies.json](dependencies.json) for source locations and replacement
+policy when a future release introduces the in-house Lua replacement.
 
 ## Recovery and verification
 
-`recovery/inventory.json` records hashes and files from all three reference
-volumes. `recovery/layout.json` records code/state boundaries. Reference images
-belong in the ignored `img` directory. Optional recovery commands are:
+[recovery/inventory.json](recovery/inventory.json) records both reference hashes
+and all three volume inventories. The two layout manifests record code/state
+boundaries and original native signatures. Reference images belong in ignored
+`img`; decompiler projects and intermediate exports stay outside tracked source.
 
 ```sh
 python3 tools/wmfs.py img/reference.img --partition 2 --extract build/reference-user
-python3 tools/recover.py img/reference.img --out build/recovery
+python3 tools/recover.py img/reference.img --variant i386 --out build/recovery
+python3 tests/hardware_suite.py img/reference.img build/Permafrost-0.4-i386.img \
+  --variant i386 --bochs BOCHS --bios BIOS --vgabios VGABIOS
 ```
 
-The reference kernel and loader reassemble byte-for-byte from the assembly
-recovery. Normal builds do not require the reference, Ghidra or Java.
+Use `--variant IA64` and the corresponding image for the other build. Supply
+local emulator/firmware locations for the uppercase placeholders. The IA64 test
+requires a Bochs build with x86-64 support. Tests use temporary disk copies.
+Reference tests initialize x87 in the entry prefix; reconstructed kernels do
+so themselves. Normal builds need neither Ghidra nor Java.
 
-The complete bundled WinterScript self-test passes under Bochs with its full
-BIOS. The differential suite checks a relocated SDK, original native calls,
-571 memory/string comparisons, Wozmon operations, Binary Writer, WSBC versions
-1 and 6, WMFS64 directory growth/overwrite/deletion, and Lua host services.
-It runs both the reference and reconstructed kernels:
-
-```sh
-python3 tests/hardware_suite.py img/reference.img build/Permafrost-0.3.img \
-  --bochs BOCHS --bios BIOS --vgabios VGABIOS
-```
-
-Supply local emulator and firmware locations for the uppercase placeholders.
-Tests use temporary disk copies. The reference needs x87 initialization with
-this BIOS; the suite changes only its entry prefix on the test copy. The
-reconstructed kernel initializes x87 itself. Reference version variables still
-report 0.3 Alpha despite its 0.4 Beta banner; the derivative consistently uses
-0.3 Beta and updates its self-test's release assertion accordingly.
-
-Unicorn checks also pass 523 original-vs-C runtime cases, interactive WSBC
-1/6 save-and-run round trips, Binary Writer, first-boot setup, persisted WMFS64
-root growth across reboot, and recovery fallback. QEMU and physical hardware
-have not been verified.
-Native programs execute with kernel privileges in a shared address space.
-
-## Development
-
-The SDK includes a flat i386 C/C++ linker, WMAP native-service headers, examples,
-and WMFS32/WMFS64 image tools. See [docs/sdk.md](docs/sdk.md). Lua applications
-can use the bundled Lua interpreter, file I/O and module loader. The VM is
-linked from external source; it will be replaced when a future reference
-actually introduces an in-house replacement.
+Both variants pass the bundled self-test, relocated SDK C/C++ programs, original
+native utilities, Wozmon, Binary Writer, WSBC execution, WMFS64 mutation stress,
+original/source-linked Lua, and native callback success/error checks under a
+complete Bochs BIOS. Graphics diagnostics match the references, including the
+IA64 long entry. Further validation is recorded in [docs/release.md](docs/release.md).
+QEMU and physical hardware have not been verified. Native code shares kernel
+privileges and memory.

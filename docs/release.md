@@ -11,4 +11,17 @@ WMAP version 2 has 76 bytes. The release adds graphics entry/exit, drawing,
 canvas sizing and color-depth APIs, demos and diagnostics.
 
 Reference hashes and all three volume inventories are recorded in
-recovery/inventory.json. Recovery and C/C++ migration are in progress.
+recovery/inventory.json. The source build now replaces the prior release as the sole active target,
+with separate current i386 and IA64 layouts and a shared SDK.
+
+Both recovered 32-bit kernels and loaders reassemble exactly. The source build
+compiles 365 i386 and 364 IA64 functions, shared runtime/compiler support,
+a C++ theme entry, native utilities and source-linked Lua. The IA64 image also
+builds its x86-64 entry wrapper from assembly.
+
+Under Bochs with a complete BIOS, both variants pass the bundled self-test,
+original/native C/C++ tooling, relocated SDK, Wozmon, Binary Writer, WSBC,
+200-file WMFS64 stress, original/source-linked Lua, and successful/failing
+native callbacks. The IA64 long entry is exercised. Five framebuffer digests
+match the originals after color-depth selection, fill, pixel and line drawing:
+`bc5ffdc5`, `9802cdc5`, `e3c37dc5`, `57676dc5`, `57676dc5`.

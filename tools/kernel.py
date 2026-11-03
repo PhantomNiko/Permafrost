@@ -6,14 +6,15 @@ from cc import compile_object
 from elf32 import Object, link
 
 
-def compile_kernel(output):
-    layout = json.loads(Path('recovery/layout.json').read_text())
-    sources = sorted(Path('kernel/core').glob('*.c')) + [Path('kernel/' + name)
+def compile_kernel(output, variant="i386"):
+    output.mkdir(parents=True, exist_ok=True)
+    layout = json.loads(Path('recovery/layout-IA64.json' if variant=='IA64' else 'recovery/layout.json').read_text())
+    sources = sorted(Path('kernel/core', variant).glob('*.c')) + [Path('kernel/' + name)
                 for name in ('runtime.c', 'display.cpp', 'compiler.c')]
     objects = []
     for source in sources:
         target = output / (source.stem + '.o')
-        compile_object(source, target, ['sdk/include', 'kernel', 'kernel/core'], extra_flags=[
+        compile_object(source, target, ['sdk/include', 'kernel', str(Path('kernel/core',variant))], defines=(['PF_TARGET_IA64=1'] if variant=='IA64' else []), extra_flags=[
             '-Wno-int-conversion', '-Wno-incompatible-pointer-types', '-Wno-pointer-sign'])
         objects.append(Object(target.read_bytes()))
     module, symbols, _ = link(objects, base=layout['core_base'], shim=False)
@@ -25,20 +26,18 @@ def compile_kernel(output):
             'core_base': layout['core_base'], 'state_start': layout['text_end'],
             'state_end': layout['state_end'], 'initialized_end': layout['initialized_end'],
             'payload_offset': (layout['initialized_end'] - layout['kernel_base'] + 15) & ~15,
-            'bootstrap_offset': 0x8b7}.items()))
+            'kernel_main': symbols['recovered_%x'%layout['kernel_main']]}.items()))
     (output / 'kernel_c.map.json').write_text(json.dumps(symbols, indent=2) + '\n')
-    compile_object('kernel/state.c', output / 'state.o', ['sdk/include'])
+    compile_object('kernel/state-'+variant+'.c', output / 'state.o', ['sdk/include'])
     state = next(section['data'] for section in Object((output / 'state.o').read_bytes()).sections
                  if section['name'] == '.pf.state')
     if len(state) != layout['state_end'] - layout['text_end']:
         raise ValueError('initial state size changed')
     (output / 'kernel_state.bin').write_bytes(state[:layout['initialized_end'] - layout['text_end']])
-    entries = json.loads(Path('kernel/abi.json').read_text())
+    entries = json.loads(Path('kernel/abi-'+variant+'.json').read_text())
     for name, (address, _) in json.loads(Path('kernel/runtime.json').read_text()).items():
         entries['%x' % address] = dict(symbol=name, arguments=[])
-    entries['2530e'] = dict(symbol='pf_display_night_mode', arguments=[])
-    if any(0x208b7 <= int(address, 16) + 4 and int(address, 16) < 0x208f7 for address in entries):
-        raise ValueError('bootstrap overlaps an ABI entry')
+    entries['25d66' if variant=='IA64' else '25d52'] = dict(symbol='pf_display_night_mode', arguments=[])
     stubs, adapters = ['; Generated from kernel/abi.json. Pooka\'s Free Software License.', 'bits 32'], []
     for text, entry in sorted(entries.items(), key=lambda item: int(item[0], 16)):
         address = int(text, 16)

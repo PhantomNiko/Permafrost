@@ -16,9 +16,9 @@
 int errno;
 jmp_buf pf_lua_exit;
 int pf_lua_status;
-void *malloc(size_t n) { return ((void *(*)(size_t))0x20df4)(n); }
-void free(void *p) { ((void (*)(void *))0x20dfd)(p); }
-void *realloc(void *p,size_t n) { return ((void *(*)(void *,size_t))0x20e83)(p,n); }
+void *malloc(size_t n) { return ((void *(*)(size_t))0x211fa)(n); }
+void free(void *p) { ((void (*)(void *))0x21203)(p); }
+void *realloc(void *p,size_t n) { return ((void *(*)(void *,size_t))0x21289)(p,n); }
 void *calloc(size_t n,size_t size) { if(size && n>SIZE_MAX/size)return 0;size*=n;void *p=malloc(size);if(p)memset(p,0,size);return p; }
 void exit(int status) { pf_lua_status=status;longjmp(pf_lua_exit,1); }
 void abort(void) { pf_puts("Lua runtime aborted\n");exit(1); }

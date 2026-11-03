@@ -1,4 +1,4 @@
-Permafrost 0.3 third-party components
+Permafrost 0.4 third-party components
 
 Lua 5.4.8 is compiled and linked from the external Permafrost branch:
 https://github.com/PhantomNiko/lua/tree/Permafrost
@@ -9,6 +9,6 @@ They are reproduced as LUA-LICENSE.TXT alongside the distributed Lua binary.
 Pooka's Free Software License applies to the reconstructed kernel and host
 integration code; it does not replace Lua's upstream license.
 
-The supplied 0.4 reference did not contain an identified OpenBIOS component.
+The supplied 0.5 references did not contain an identified OpenBIOS component.
 For releases containing OpenBIOS, use https://github.com/PhantomNiko/openbios
 and preserve its applicable licenses rather than decompiling it as project code.

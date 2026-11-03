@@ -1,6 +1,6 @@
-@@ WinterScript self-test for 0.3 beta
+@@ WinterScript self-test for 0.4 beta
 
-assert(WINTER_VERSION == 0.3, "WINTER_VERSION should be 0.3")
+assert(WINTER_VERSION == 0.4, "WINTER_VERSION should be 0.4")
 assert(WINTER_RELEASE == "Beta", "WINTER_RELEASE should be Beta")
 assert(typeOf(not) == "not", "standalone not should be the not value")
 assert(missingValue == not, "missing variables should resolve to not")
@@ -206,6 +206,8 @@ randomD = math["random"](2, 5)
 assert(randomD >= 2 and randomD <= 5, "math random with two arguments should be inclusive")
 
 assert(toNumber("ff", 16) == 255, "toNumber should support bases")
+assert(toString($80000000) == "$80000000", "high-bit hex literals should survive as pointer values")
+assert(toString(toNumber("80000000", 16)) == "$80000000", "toNumber should preserve unsigned 32-bit address values")
 assert(toNumber("nope") == not, "toNumber should return not on failure")
 assert(toString(not) == "not", "toString should render the not value as not")
 
@@ -235,16 +237,39 @@ clockValue = os["clock"]()
 timeValue = os["time"]()
 assert(clockValue >= 0 and timeValue > 0, "os helpers should be available")
 
-tempPath = "/tmp/winterscript-selftest.tmp"
-writer = io["open"](tempPath, "w")
-assert(typeOf(writer) == "table", "io open should return a file table")
-assert(writer["write"]("alpha\nbeta") == true, "file write should succeed")
-assert(writer["close"]() == true, "file close should succeed")
+ramInfo = hardware("ram")
+cpuInfo = hardware("cpu")
+cacheInfo = hardware("cache")
+diskInfo = hardware("disk")
+assert(typeOf(ramInfo) == "table" and typeOf(ramInfo["initialized"]) == "string" and typeOf(ramInfo["detected"]) == "string" and typeOf(ramInfo["free"]) == "string", "hardware ram should return a table of strings")
+assert(typeOf(cpuInfo) == "table" and typeOf(cpuInfo["available"]) == "boolean" and typeOf(cpuInfo["name"]) == "string", "hardware cpu should return a table with a name")
+assert(typeOf(cacheInfo) == "table" and typeOf(cacheInfo["available"]) == "boolean", "hardware cache should return an availability table")
+assert(typeOf(diskInfo) == "table" and typeOf(diskInfo["size"]) == "string" and typeOf(diskInfo["free"]) == "string", "hardware disk should return target capacity info")
 
-reader = io["open"](tempPath, "r")
-assert(reader["read"]() == "alpha", "file read should read one line")
-assert(reader["read"]("*a") == "beta", "file read *a should read the rest of the file")
-assert(reader["close"]() == true, "file close should succeed after reading")
+tempPath = "/tmp/winterscript-selftest.tmp"
+probeWriteOk, probeWriteResult = pcall(write, tempPath, "probe")
+if probeWriteOk and probeWriteResult == true
+	cleanupOk, cleanupResult = pcall(delete, tempPath)
+	assert(cleanupOk and cleanupResult == true, "temp file cleanup should succeed")
+
+	writer = io["open"](tempPath, "w")
+	assert(typeOf(writer) == "table", "io open should return a file table")
+	assert(writer["write"]("alpha\nbeta") == true, "file write should succeed")
+	assert(writer["close"]() == true, "file close should succeed")
+
+	reader = io["open"](tempPath, "r")
+	assert(reader["read"]() == "alpha", "file read should read one line")
+	assert(reader["read"]("*a") == "beta", "file read *a should read the rest of the file")
+	assert(reader["close"]() == true, "file close should succeed after reading")
+
+	finalCleanupOk, finalCleanupResult = pcall(delete, tempPath)
+	assert(finalCleanupOk and finalCleanupResult == true, "temp file cleanup after io should succeed")
+else
+	print("Skipping io file write self-test on an unwritable target")
+	if not probeWriteOk
+		print(probeWriteResult)
+	end
+end
 
 pipe = io["popen"]("printf winter", "r")
 assert(typeOf(pipe) == "table", "io popen should return a pipe table")

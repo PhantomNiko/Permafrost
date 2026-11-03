@@ -1,4 +1,4 @@
-/* Permafrost 0.3; Pooka's Free Software License. */
+/* Permafrost 0.4; Pooka's Free Software License. */
 #pragma once
 #include <stdint.h>
 #include <stddef.h>
@@ -80,9 +80,9 @@ static inline double pf_bits_double(uint64_t value) { union { double f; uint64_t
 static inline uint64_t pf_integer_bits(uint64_t value) { return value; }
 #define PF_RAW64(value) _Generic((value), double: pf_double_bits, default: pf_integer_bits)(value)
 #define FUN_00020023 ((uint (*)(void))0x20023)
-#define FUN_000200ce ((uint (*)(void))0x200ce)
-#define FUN_000201aa ((uint (*)(void))0x201aa)
-#define FUN_000202c9 ((uint (*)(void))0x202c9)
-#define FUN_000203c0 ((uint (*)(void))0x203c0)
-#define FUN_00020537 ((uint (*)(void))0x20537)
-#define FUN_000205bc ((uint (*)(void))0x205bc)
+#define FUN_0002010a ((uint (*)(void))0x2010a)
+#define FUN_00020222 ((uint (*)(void))0x20222)
+#define FUN_0002037d ((uint (*)(void))0x2037d)
+#define FUN_000204b0 ((uint (*)(void))0x204b0)
+#define FUN_0002079d ((uint (*)(void))0x2079d)
+#define FUN_0002085e ((uint (*)(void))0x2085e)

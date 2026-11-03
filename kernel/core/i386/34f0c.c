@@ -1,0 +1,44 @@
+#include "functions.h"
+#undef str_0004765e
+#define str_0004765e (*(char (*)[1])(0x4765eU))
+#undef str_00047792
+#define str_00047792 (*(char (*)[1])(0x47792U))
+#define local_14 (*(int *)(frame + 16))
+/* Recovered working notes; Pooka's Free Software License.
+ * Address: 0x34f0c
+ */
+
+undefined4 recovered_34f0c(uint param_1,int *param_2,int *param_3,int param_4,char *param_5)
+
+{
+  unsigned char frame[68];
+
+  bool bVar1;
+  undefined4 uVar2;
+  char *format;
+
+  local_14 = 0;
+  if (param_2 != (int *)0x0) {
+    if (param_4 == 0) {
+      return 0;
+    }
+    if (param_3 == (int *)0x0) {
+      return 0;
+    }
+    if (*param_2 != 8) {
+      return 0;
+    }
+    bVar1 = recovered_35d8d(param_3,&local_14);
+    recovered_21203(local_14);
+    format = str_00047792;
+    if (bVar1) {
+      uVar2 = recovered_31a48(param_2,param_3,(int *)param_4,1);
+      format = str_0004765e;
+      if ((char)uVar2 != '\0') {
+        return CONCAT31((int3)((uint)uVar2 >> 8),1);
+      }
+    }
+    recovered_30ed3(param_1,param_5,format);
+  }
+  return 0;
+}

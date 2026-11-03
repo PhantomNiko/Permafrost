@@ -12,6 +12,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('baseline', type=Path)
     parser.add_argument('candidate', type=Path)
+    parser.add_argument('--variant', choices=['i386','IA64'], default='i386')
     args = parser.parse_args()
     results = []
     commands = ('NEW\n> serial("PF-BYTECODE")\nSAVEBC /test.wsbc\nNEW\n'
@@ -23,12 +24,12 @@ def main():
         partition = 2 if Image(image).partitions else 0
         files = Image(image, partition).files()
         files['startup.ws'] = Path('tests/conformance.ws').read_bytes()
-        files['hello.bin'] = Path('build/hello.bin').read_bytes()
-        image = repack_image(image, files, partition, sectors=8192)
+        files['hello.bin'] = Path('build',args.variant,'hello.bin').read_bytes()
+        image = repack_image(image, files, partition, sectors=16384)
         if partition:
             firmware = Image(image).files()
             firmware['startup.ws'] = b'device("mount",4,"WMFS64")\ndevice("target",4)\n' + Path('tests/conformance.ws').read_bytes()
-            image = repack_image(image, firmware, sectors=8192)
+            image = repack_image(image, firmware, sectors=16384)
         machine = Machine(image, commands)
         output = machine.run(500000000).replace('\r', '')
         print(output)
