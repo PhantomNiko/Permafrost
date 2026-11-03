@@ -25,3 +25,10 @@ original/native C/C++ tooling, relocated SDK, Wozmon, Binary Writer, WSBC,
 native callbacks. The IA64 long entry is exercised. Five framebuffer digests
 match the originals after color-depth selection, fill, pixel and line drawing:
 `bc5ffdc5`, `9802cdc5`, `e3c37dc5`, `57676dc5`, `57676dc5`.
+
+Final CPU-emulator checks pass interactive WSBC 1/6 save-and-run round trips,
+first-boot setup, persisted WMFS64 directory growth, reboot and recovery for
+both variants. The i386 runtime also passes 523 original-vs-C ABI cases.
+The i386 status renderer restores a fourth variadic string argument lost in
+raw decompilation; this prevents a redraw fault after interactive SAVEBC.
+QEMU and physical hardware remain unverified.

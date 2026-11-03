@@ -85,6 +85,8 @@ Both variants pass the bundled self-test, relocated SDK C/C++ programs, original
 native utilities, Wozmon, Binary Writer, WSBC execution, WMFS64 mutation stress,
 original/source-linked Lua, and native callback success/error checks under a
 complete Bochs BIOS. Graphics diagnostics match the references, including the
-IA64 long entry. Further validation is recorded in [docs/release.md](docs/release.md).
+IA64 long entry. Interactive WSBC 1/6 round trips, persisted directory growth, reboot and
+recovery also pass on both variants; the i386 runtime passes 523 differential
+ABI cases. See [docs/release.md](docs/release.md).
 QEMU and physical hardware have not been verified. Native code shares kernel
 privileges and memory.

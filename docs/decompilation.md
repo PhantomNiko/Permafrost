@@ -27,7 +27,7 @@ conformance, and a boot under a complete BIOS/hardware emulator. Incomplete
 translations remain experimental until these checks pass. The bundled release self-test is the primary oracle for the expanded runtime.
 Current validation results are recorded in README.md. Normal builds require neither Ghidra nor the reference image.
 
-`kernel/abi-i386.json` and `kernel/abi-IA64.json` records the original register/stack locations of arguments.
+`kernel/abi-i386.json` and `kernel/abi-IA64.json` record the original register/stack locations of arguments.
 `tools/kernel.py` generates short jumps at the original addresses and out-of-line
 adapters that marshal register arguments into the C calling convention. The
 public memory and display entries use their reviewed implementations. This

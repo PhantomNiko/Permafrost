@@ -1,4 +1,4 @@
-@@ Permafrost 0.3 WMFS64 growth and persistence checks.
+@@ Permafrost 0.4 WMFS64 growth and persistence checks.
 @@ Pooka's Free Software License.
 for i = 1, 200
     path = "/pf-stress-" + toString(i)
