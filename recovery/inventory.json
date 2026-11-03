@@ -1,7 +1,9 @@
 {
-  "reference_version": "0.6",
-  "bytes": 37182464,
-  "sha256": "0f594da375524c28e5e6e649f223c90973b68db88e3e772dc230b14484caa18b",
+  "reference_version": "0.7",
+  "version": "0.6",
+  "variant": "bios",
+  "bytes": 37243904,
+  "sha256": "68b5013add14de119e7b4f77575a25ac6dd5ef0e053a8f09c9d3ac21335959dd",
   "partitions": [
     {
       "geometry": {
@@ -13,8 +15,8 @@
       },
       "files": {
         "WinterBoot-baremetal.bin": {
-          "bytes": 413696,
-          "sha256": "bd52c2fce0ef15f08375a363322e04598c1c3570e785eaadb24a3af2162c06ed"
+          "bytes": 475136,
+          "sha256": "6487461ebd307fcebdac53814c0d3232c233970485b506c85abe5ced2945911d"
         },
         "bitmap-font.wbf": {
           "bytes": 2060,
@@ -35,13 +37,13 @@
         "name": "recovery",
         "type": 1,
         "start": 2114,
-        "sectors": 828,
+        "sectors": 948,
         "flags": 1
       },
       "files": {
         "WinterBoot-baremetal.bin": {
-          "bytes": 413696,
-          "sha256": "bd52c2fce0ef15f08375a363322e04598c1c3570e785eaadb24a3af2162c06ed"
+          "bytes": 475136,
+          "sha256": "6487461ebd307fcebdac53814c0d3232c233970485b506c85abe5ced2945911d"
         },
         "bitmap-font.wbf": {
           "bytes": 2060,
@@ -57,7 +59,7 @@
       "geometry": {
         "name": "user data",
         "type": 5,
-        "start": 2942,
+        "start": 3062,
         "sectors": 0,
         "flags": 0
       },
@@ -67,8 +69,8 @@
           "sha256": "8edf7f29c228ccec70444fa465365676502c111d6d8f96b28cf7427ae9d76d4c"
         },
         "WinterBoot-baremetal.bin": {
-          "bytes": 413696,
-          "sha256": "bd52c2fce0ef15f08375a363322e04598c1c3570e785eaadb24a3af2162c06ed"
+          "bytes": 475136,
+          "sha256": "6487461ebd307fcebdac53814c0d3232c233970485b506c85abe5ced2945911d"
         },
         "bitmap-font.wbf": {
           "bytes": 2060,
@@ -106,17 +108,13 @@
           "bytes": 22,
           "sha256": "38fc26d8207f6c7077939854feb11836f7bde5ec2dfe2d4c1d15d3c32144a90d"
         },
+        "lua": {
+          "bytes": 315196,
+          "sha256": "a8762dea0715c451e1b7b1d5febfad88eb7aa8abd18538d7129c2fed2e16c27a"
+        },
         "lua-demo-module.lua": {
           "bytes": 130,
           "sha256": "07b3be12e8d5699bdd3263df22dbada287254f0b907b86e3ba8529962e58d59a"
-        },
-        "lua.bin": {
-          "bytes": 143360,
-          "sha256": "ef1ef7940fa440bce5405ab1e8e40be1004a78294127b84cac69bd8d23f6c757"
-        },
-        "lua.ws": {
-          "bytes": 29,
-          "sha256": "5952ed91654e57ac28830f3548947d76b78a8e7dac49b042c5c9d107e94d23e1"
         },
         "nightmode.bin": {
           "bytes": 44,
@@ -130,6 +128,10 @@
           "bytes": 12462,
           "sha256": "d83f0c26e57bd8e3894d4279c4c5d39672053fbdc2454e4d9ef088e85a904801"
         },
+        "rwby": {
+          "bytes": 244152,
+          "sha256": "e59a48960e3a8bd09a6b12364e710b9ab7efea7b8aee0043eb753d864193ab26"
+        },
         "textmode.bin": {
           "bytes": 44,
           "sha256": "4bea5c4b0ae06918815c9025634f6700c2f2c760cb13d493f7579350eac76895"
@@ -137,6 +139,10 @@
         "textmode.ws": {
           "bytes": 43,
           "sha256": "2b90eb800eeb79b3d0e1eacc70e08ce06e38aec2d6423595816c6655a53d779d"
+        },
+        "winterscript": {
+          "bytes": 575668,
+          "sha256": "5d95fa86eb34318e8aa984b92442c95bb1527a596e8a15298073d9e63461f697"
         },
         "winterscript-selftest-helper.ws": {
           "bytes": 139,
@@ -154,13 +160,9 @@
           "bytes": 819,
           "sha256": "169806cbb747f709f97cbf69aa06c8f57402214a2080c8c78533e03abb00abda"
         },
-        "wozmon.bin": {
-          "bytes": 8192,
-          "sha256": "b75d471e982f483b2448b9eb1d44abe25471ecbe4774a99ecb6353ff82ad31f3"
-        },
-        "wozmon.ws": {
-          "bytes": 41,
-          "sha256": "75da0bb5abd37f5bf8a739ab917c8b2de4c4d4e2f9436a08380692bb72753b48"
+        "wozmon": {
+          "bytes": 8556,
+          "sha256": "2ca8cb31913aef4f03983c77bbf3141500cbf90ee5606952104015cd9b2677ca"
         }
       }
     }

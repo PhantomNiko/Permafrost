@@ -1,32 +1,21 @@
-# Permafrost 0.5 recovery
+# Permafrost 0.6 recovery
 
-The supplied 0.6 Beta image becomes Permafrost 0.5. This release has one BIOS
-kernel build. Earlier i386/IA64 release variants remain in Git history.
+The supplied 0.7 Beta BIOS and OpenBIOS images are the references for Permafrost
+0.6. Earlier releases remain milestones in Git history, rather than additional
+build targets. Reference hashes, partition layouts and file hashes are recorded
+in `recovery/inventory.json` and `recovery/openbios-inventory.json`.
 
-The reference is 37182464 bytes, SHA-256
-0f594da375524c28e5e6e649f223c90973b68db88e3e772dc230b14484caa18b.
-WBPT remains at sector 65. Firmware uses 2048 sectors, recovery 828 sectors,
-and the user volume starts at sector 2942. Its type is 5 and its filesystem
-is FAT32. The independent volume tool now reads and rebuilds FAT32 long names,
-root directory chains, data chains, mirrored FATs and filesystem metadata.
+The BIOS reference has 37,243,904 bytes. Its firmware starts at sector 66,
+recovery at 2114 and FAT32 user data at 3062. The OpenBIOS reference has
+6,413,824 bytes, with partitions starting at 66, 4163 and 8259.
 
-The kernel retains WMAP version 2 at 0x6200. Main moves to 0x260ed, C code ends
-at 0x481d0, initialized state ends at 0x4e608, and BSS ends at 0x85000.
-The BIOS prefix through 0x20c83 is unchanged. Lua's binary matches the prior
-release and remains an external source dependency. OpenBIOS is not identified.
-The source build compiles 386 recovered C functions and replaces prior releases
-as the sole target. The reconstructed image and relocated SDK pass the bundled
-self-test, original/native programs, Lua, callbacks and FAT32 mutation checks
-under a complete Bochs BIOS. Five graphics-depth framebuffer digests match.
+This release introduces 32-bit i386 Mach-O MH_PRELOAD applications at 0x200000,
+with LC_SEGMENT and LC_UNIXTHREAD load commands. WMAP version 4 has 124 bytes
+at 0x6200, extending the earlier file/console/display API with allocation and
+interpreter services. The original application symbol tables identify the
+in-house WinterLua 0.2 and WinterRwby 0.1 implementations. External Lua is
+replaced by the in-house interpreter for this milestone.
 
-Final CPU-emulator checks pass 523 original-vs-C ABI cases, interactive WSBC
-1/6 save-and-run round trips, and Binary Writer. Startup, FAT32 root growth,
-persisted files after reboot and recovery fallback pass. The default font/clear
-startup also passes under Bochs. FAT32 scans need a larger instruction budget
-than the prior filesystem fixture.
-
-A relocated SDK inserts files and replaces existing names case-insensitively.
-The reader handles FAT short-name case flags; verification matches short names
-case-insensitively. The mutation suite creates, reads, overwrites and deletes
-24 long-name files. Graphics tests also exercise the BIOS wait bridge. QEMU
-and physical hardware remain unverified.
+OpenBIOS firmware is built from the sibling `../openbios` checkout, pinned in
+`dependencies.json`; its third-party implementation is not reconstructed from
+the firmware binary. Recovery and validation of the current release are ongoing.

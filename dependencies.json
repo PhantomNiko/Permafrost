@@ -1,13 +1,11 @@
 {
-  "lua": {
-    "repository": "https://github.com/PhantomNiko/lua",
-    "branch": "Permafrost",
-    "revision": "d848409d2d06189625ae793d697cf7d81f068235",
-    "checkout": "../lua"
-  },
   "openbios": {
     "repository": "https://github.com/PhantomNiko/openbios",
     "checkout": "../openbios",
-    "condition": "Only when present in the reference release"
+    "revision": "3679a74f2ae99a0717da86a92ebf177dc77f8ac5"
+  },
+  "winterlua": {
+    "implementation": "In-house WinterLua 0.2, recovered from reference 0.7",
+    "replaces": "External Lua dependency"
   }
 }
