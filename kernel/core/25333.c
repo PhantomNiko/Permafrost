@@ -993,7 +993,7 @@ LAB_000268a0:
             uVar10 = recovered_28c0b((int *)&local_10c,0x444c0,4);
             if ((char)uVar10 == '\0') goto LAB_0002716c;
             if (local_48 == (uint ******)0x0) {
-              uVar9 = recovered_4220c((int *)&local_10c);
+              uVar9 = recovered_4220c((int *)&local_10c,(uint)local_68 & 0xffff);
               if ((char)uVar9 == '\0') {
 LAB_00027018:
                 recovered_20dfd(local_104);
@@ -1044,7 +1044,7 @@ LAB_00027183:
               recovered_3ef68((undefined2 *)&local_68);
             }
             else {
-              uVar9 = recovered_4220c((int *)&local_10c);
+              uVar9 = recovered_4220c((int *)&local_10c,6);
               if ((char)uVar9 == '\0') {
 LAB_0002716c:
                 recovered_20dfd(local_104);

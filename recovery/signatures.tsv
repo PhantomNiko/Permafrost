@@ -17,7 +17,7 @@
 4155f	void __fastcall recovered_4155f(int context);
 4060a	int __fastcall recovered_4060a(int *container,int key,const char *value);
 418da	int __fastcall recovered_418da(int *container,unsigned int value);
-4220c	unsigned int __fastcall recovered_4220c(int *context);
+4220c	unsigned int __fastcall recovered_4220c(int *context, unsigned int value);
 208a2	void __cdecl recovered_208a2(void);
 21cab	int __cdecl recovered_21cab(int character);
 21d41	int __cdecl recovered_21d41(const char *text);

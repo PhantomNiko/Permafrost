@@ -15,7 +15,9 @@ def main():
     args = parser.parse_args()
     results = []
     commands = ('NEW\n> serial("PF-BYTECODE")\nSAVEBC /test.wsbc\nNEW\n'
-                'RUNBC /test.wsbc\nserial("PF-CONFORMANCE-DONE")\n')
+                'RUNBC /test.wsbc\nNEW\n> function twice(x)\n> return x * 2\n> end\n'
+                '> serial("PF-BYTECODE6-" + toString(twice(21)))\nSAVEBC /test6.wsbc\nNEW\n'
+                'RUNBC /test6.wsbc\nserial("PF-CONFORMANCE-DONE")\n')
     for path in (args.baseline, args.candidate):
         image = path.read_bytes()
         partition = 2 if Image(image).partitions else 0
@@ -30,7 +32,7 @@ def main():
         machine = Machine(image, commands)
         output = machine.run(500000000).replace('\r', '')
         print(output)
-        if '\nPF-CASES-END\n' not in output or '\nPF-BYTECODE\n' not in output or not machine.idle:
+        if '\nPF-CASES-END\n' not in output or '\nPF-BYTECODE\n' not in output or '\nPF-BYTECODE6-42\n' not in output or not machine.idle:
             raise SystemExit('conformance program did not finish')
         if 'WinterScript error:' in output or 'ERROR:' in output:
             raise SystemExit('conformance program reported an error')

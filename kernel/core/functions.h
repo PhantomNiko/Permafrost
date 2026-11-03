@@ -347,7 +347,7 @@ byte * recovered_4212d(byte *param_1);
 uint recovered_42152(uint count);
 char * recovered_4216f(char *param_1);
 uint recovered_4219a(int param_1,undefined1 *param_2,uint *param_3);
-uint recovered_4220c(int *context);
+uint recovered_4220c(int *context,uint value);
 uint recovered_4222b(int *container,uint value);
 void recovered_42249(int param_1);
 void recovered_4229a(undefined4 param_1,int param_2,uint param_3);

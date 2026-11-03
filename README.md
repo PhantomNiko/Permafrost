@@ -77,8 +77,10 @@ reconstructed kernel initializes x87 itself. Reference version variables still
 report 0.3 Alpha despite its 0.4 Beta banner; the derivative consistently uses
 0.3 Beta and updates its self-test's release assertion accordingly.
 
-Unicorn-based lifecycle, boot, runtime, conformance and interactive writer
-fixtures are also available. QEMU and physical hardware have not been verified.
+Unicorn checks also pass 523 original-vs-C runtime cases, interactive WSBC
+1/6 save-and-run round trips, Binary Writer, first-boot setup, persisted WMFS64
+root growth across reboot, and recovery fallback. QEMU and physical hardware
+have not been verified.
 Native programs execute with kernel privileges in a shared address space.
 
 ## Development

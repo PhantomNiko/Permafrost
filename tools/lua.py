@@ -32,7 +32,7 @@ def compile_lua(output, source=Path('../lua')):
     (output / 'lua.bin').write_bytes(binary)
     # Preserve the actual dependency notice alongside any distributed binary.
     header = (source / 'lua.h').read_text()
-    notice = header[header.index('Copyright (C)'):header.rindex('******************************************************************************/')]
+    notice = header[header.rindex('Copyright (C)'):header.rindex('******************************************************************************/')]
     notice = '\n'.join(line.removeprefix('* ').removeprefix('*') for line in notice.splitlines()).strip()
     (output / 'LUA-LICENSE.TXT').write_text(notice + '\n')
     return binary

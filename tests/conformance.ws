@@ -11,11 +11,11 @@ push(a, 20)
 serial(len(a))
 serial(get(a, 1))
 serial(pop(a))
-t = table()
-set(t, "name", "Permafrost")
-serial(get(t, "name"))
-serial(contains(t, "name"))
-serial(len(keys(t)))
+t = {name: "Permafrost"}
+t["snow"] = 1
+serial(t["name"])
+serial(t["snow"] == 1)
+serial(len(t))
 serial(gsub("ice ice", "ice", "snow"))
 i = 0
 while i < 3

@@ -21,3 +21,12 @@ random-write test, Binary Writer, and Wozmon. Lua is an external source dependen
 see DEPENDENCIES.md. The source-built C kernel passes the complete WinterScript self-test. Lua is
 compiled from the sibling source checkout and its host integration passes
 module, coroutine, formatting, error-handling and file-I/O checks.
+
+Final checks pass on the source-built image: the bundled self-test and original
+native utilities under Bochs, a relocated C/C++ SDK, original and source-linked
+Lua applications, 200-file WMFS64 mutation stress, and 523 differential runtime
+cases. Interactive SAVEBC/RUNBC round trips match the reference for both WSBC 1
+and 6; the recovered 16-bit version writer must retain its EDX argument.
+An independent disk reader recovers an expanded WMFS64 root, and its files
+remain readable after reboot. First-boot setup and primary-kernel recovery
+fallback also pass. Physical hardware and QEMU remain unverified.
