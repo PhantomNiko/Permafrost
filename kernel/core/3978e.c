@@ -15,7 +15,7 @@ bool recovered_3978e(uint param_1,char *param_2,int param_3,int param_4)
   unsigned char frame[64];
 
   undefined1 *puVar1;
-  
+
   if (param_3 != param_4) {
     puVar1 = &DAT_0003f7fb;
     if (param_4 == 1) {
@@ -25,4 +25,3 @@ bool recovered_3978e(uint param_1,char *param_2,int param_3,int param_4)
   }
   return param_3 == param_4;
 }
-

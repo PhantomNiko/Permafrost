@@ -18,16 +18,21 @@ def main():
     args = parser.parse_args()
     args.out.mkdir(parents=True, exist_ok=True)
     compile_kernel(args.out)
-    for part in ('boot', 'loader', 'kernel', 'expand-disk', 'nightmode'):
+    for part in ('boot', 'loader', 'kernel'):
         subprocess.run([args.nasm, '-I', str(args.out) + '/', '-f', 'bin', 'src/' + part + '.asm',
                         '-o', str(args.out / (part + '.bin'))], check=True)
-    compile_object('apps/wozmon.cpp', args.out / 'wozmon.o', ['sdk/include'])
-    monitor, _, _ = link([Object((args.out / 'wozmon.o').read_bytes())], base=0x220000, entry='main')
-    (args.out / 'wozmon.bin').write_bytes(monitor)
+    applications = {}
+    for name, extension, base in [('wozmon', 'cpp', 0x220000),
+                                   ('expand-disk', 'c', 0x200000),
+                                   ('nightmode', 'cpp', 0x200000)]:
+        target = args.out / (name + '.o')
+        compile_object('apps/' + name + '.' + extension, target, ['sdk/include'])
+        binary, _, _ = link([Object(target.read_bytes())], base=base, entry='main')
+        (args.out / (name + '.bin')).write_bytes(binary)
+        applications[name + '.bin'] = binary
     files = {p.name: p.read_bytes() for p in Path('assets').iterdir() if p.is_file()}
-    files.update({'wozmon.bin': monitor, 'Permafrost-kernel.bin': (args.out / 'kernel.bin').read_bytes(),
-                  'expand-disk.bin': (args.out / 'expand-disk.bin').read_bytes(),
-                  'nightmode.bin': (args.out / 'nightmode.bin').read_bytes(),
+    files.update(applications)
+    files.update({'Permafrost-kernel.bin': (args.out / 'kernel.bin').read_bytes(),
                   'LICENSE.TXT': Path('LICENSE.TXT').read_bytes(),
                   'UPSTREAM.TXT': Path('licenses/UPSTREAM.TXT').read_bytes()})
     result = make_image((args.out / 'boot.bin').read_bytes(),

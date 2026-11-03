@@ -11,7 +11,7 @@ void recovered_29c1b(byte param_1,uint param_2,char param_3)
 
   int *piVar1;
   undefined4 uVar2;
-  
+
   if (0x41 < param_2 && param_3 == '\x01') {
     piVar1 = recovered_29cae(param_1,0x41,param_2 - 0x41,0xffffffff,1,0);
     if ((piVar1 != (int *)0x0) && (piVar1[7] == 1)) {
@@ -27,4 +27,3 @@ void recovered_29c1b(byte param_1,uint param_2,char param_3)
   }
   return;
 }
-

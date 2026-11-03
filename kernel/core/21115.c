@@ -12,4 +12,3 @@ undefined * FUN_00021115(void)
 
   return &DAT_0003f250;
 }
-

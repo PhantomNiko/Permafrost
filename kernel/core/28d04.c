@@ -12,7 +12,7 @@ bool recovered_28d04(undefined4 *param_1,int param_2)
   int iVar2;
   uint *puVar3;
   void *pvVar4;
-  
+
   if (param_2 != 0 && param_1 != (undefined4 *)0x0) {
     iVar2 = recovered_28d73(param_2);
     if ((char)iVar2 != '\0') {
@@ -31,4 +31,3 @@ bool recovered_28d04(undefined4 *param_1,int param_2)
   }
   return false;
 }
-

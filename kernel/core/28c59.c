@@ -19,7 +19,7 @@ undefined4 recovered_28c59(int *param_1,int param_2,int param_3)
 
   bool bVar1;
   undefined4 uVar2;
-  
+
   local_34 = 0;
   local_30 = 0;
   local_2c = 0;
@@ -39,4 +39,3 @@ undefined4 recovered_28c59(int *param_1,int param_2,int param_3)
   recovered_28761(&local_34);
   return uVar2;
 }
-

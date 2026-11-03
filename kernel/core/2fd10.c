@@ -17,7 +17,7 @@ undefined4 recovered_2fd10(uint *param_1,int *param_2)
   undefined4 uVar3;
   undefined4 unaff_EBX = 0;
   undefined4 uVar4;
-  
+
   cVar1 = recovered_2fe01(param_1,param_2);
   if (cVar1 != '\0') {
     uVar4 = CONCAT31((int3)((uint)unaff_EBX >> 8),1);
@@ -65,4 +65,3 @@ undefined4 recovered_2fd10(uint *param_1,int *param_2)
   }
   return 0;
 }
-

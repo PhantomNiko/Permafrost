@@ -10,10 +10,9 @@ int recovered_3cdeb(int *container,int key,uint value)
   unsigned char frame[100];
 
   int iVar1;
-  
+
   recovered_3ce24(local_34,value);
   iVar1 = recovered_28cbe(container,key,(int)local_34);
   recovered_28761(local_34);
   return iVar1;
 }
-

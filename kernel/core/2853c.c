@@ -11,7 +11,7 @@ undefined4 recovered_2853c(undefined4 *param_1)
   void *pvVar1;
   uint uVar2;
   undefined4 uVar3;
-  
+
   if (param_1 == (undefined4 *)0x0) {
     return 0;
   }
@@ -32,4 +32,3 @@ undefined4 recovered_2853c(undefined4 *param_1)
   }
   return uVar3;
 }
-

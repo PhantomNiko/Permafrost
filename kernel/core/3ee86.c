@@ -10,9 +10,8 @@ uint recovered_3ee86(int *param_1,undefined4 param_2)
   unsigned char frame[64];
 
   uint uVar1;
-  
+
   local_8 = param_2;
   uVar1 = recovered_27c7c(param_1,(int)&local_8,4);
   return uVar1;
 }
-

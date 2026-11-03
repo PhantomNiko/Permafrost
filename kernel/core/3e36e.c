@@ -18,7 +18,7 @@ undefined4 recovered_3e36e(uint param_1,char *param_2,int param_3,undefined1 *pa
   undefined3 extraout_var = 0;
   undefined3 uVar4;
   undefined1 *puVar5;
-  
+
   puVar5 = &DAT_0003f254;
   if (param_4 != (undefined1 *)0x0) {
     puVar5 = param_4;
@@ -56,4 +56,3 @@ LAB_0003e41d:
   recovered_2d241(param_1,param_2,str_00041f6b);
   return 0;
 }
-

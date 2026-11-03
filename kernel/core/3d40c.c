@@ -64,7 +64,7 @@ undefined4 recovered_3d40c(int param_1,int param_2)
   int iVar2;
   uint uVar3;
   void *pvVar4;
-  
+
   if (param_2 == 1) {
     uVar1 = recovered_29807((uint)*(byte *)(param_1 + 4),*(undefined4 *)(param_1 + 8),
                             *(uint *)(param_1 + 0xc));
@@ -165,4 +165,3 @@ LAB_0003d6e3:
   recovered_20dfd((int)pvVar4);
   return 0;
 }
-

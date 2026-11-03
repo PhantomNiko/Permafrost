@@ -16,7 +16,7 @@ undefined4 recovered_3b7cc(int param_1,int param_2,int *param_3,int *param_4,int
   ushort uVar6;
   char *pcVar7;
   int iVar8;
-  
+
   if (param_6 != (int *)0x0 &&
       ((param_5 != (int *)0x0 && param_4 != (int *)0x0) && (param_3 != (int *)0x0 && param_1 != 0)))
   {
@@ -55,4 +55,3 @@ LAB_0003b83e:
   }
   return 0;
 }
-

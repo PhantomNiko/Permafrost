@@ -21,7 +21,7 @@ void FUN_000284f5(void)
   undefined1 uVar1;
   undefined1 uVar2;
   undefined1 uVar3;
-  
+
   uVar3 = DAT_00088e5f;
   uVar2 = DAT_000445de;
   uVar1 = DAT_000445dd;
@@ -29,4 +29,3 @@ void FUN_000284f5(void)
   recovered_26603(&DAT_00057324,uVar1,uVar3,uVar2);
   return;
 }
-

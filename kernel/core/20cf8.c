@@ -12,7 +12,7 @@ undefined8 FUN_00020cf8(uint param_1,uint param_2,uint param_3,uint param_4)
   undefined8 uVar2;
   uint uVar3;
   undefined8 uVar4;
-  
+
   if (param_3 == 0 && param_4 == 0) {
     uVar2 = 0;
   }
@@ -31,4 +31,3 @@ undefined8 FUN_00020cf8(uint param_1,uint param_2,uint param_3,uint param_4)
   }
   return uVar2;
 }
-

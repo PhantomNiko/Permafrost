@@ -18,7 +18,7 @@ undefined4 recovered_3b872(int *param_1,uint *param_2,uint *param_3)
   undefined1 *puVar5;
   float10 fVar6;
   float10 fVar7;
-  
+
   if (param_3 == (uint *)0x0 || (param_2 == (uint *)0x0 || param_1 == (int *)0x0)) {
 LAB_0003b929:
     uVar3 = 0;
@@ -67,4 +67,3 @@ LAB_0003b8ef:
   }
   return uVar3;
 }
-

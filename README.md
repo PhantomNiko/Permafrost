@@ -7,7 +7,7 @@ Pooka's Free Software License; see LICENSE.TXT and licenses/UPSTREAM.TXT.
 
 ## Build
 
-On macOS 15, install Python 3 and NASM, then run from the repository root:
+On macOS 15, install Python 3, NASM and Apple Command Line Tools, then run from the repository root:
 
 ```sh
 python3 tools/build.py
@@ -24,7 +24,8 @@ qemu-system-i386 -m 64 -drive format=raw,file=build/Permafrost-0.2.img,if=ide -s
 
 The normal build compiles C/C++ and assembly and creates WMFS32 from scratch.
 It does not read the reference image, copy its boot sectors, or embed its kernel
-binary. The kernel implementation is C, with the public display entry in C++.
+binary. The kernel implementation is C, with the public display entry in C++. Bundled
+native applications are also built from C/C++.
 `kernel/core` contains the recovered function bodies; `kernel/state.c` declares
 the initial data layout in C. BIOS entry, mode transitions and the boot loader
 use assembly. Generated adapters preserve original register and stack entry
@@ -55,22 +56,33 @@ With the Python `unicorn` package available:
 python3 tests/boot.py build/Permafrost-0.2.img
 ```
 
-The BIOS fixture executes the boot sector, loader, protected-mode entry,
-initialization, filesystem mount and script commands. The current C rebuild has
-reached its interactive shell; expanded runtime validation is in progress.
-The supplied original passes its bundled language self-test.
+The reconstructed image boots under Bochs 2.8 with a complete BIOS/VGA BIOS
+and passes the supplied WinterScript self-test. That covers closures, scopes,
+loops, multiple returns, strings/patterns, math/table/io/utf8/os libraries,
+error handling, file mutation, loaded chunks and the bundled desk model.
 
-The kernel build requires Clang and Clang++ in addition to NASM and Python 3.
+`tests/hardware_suite.py` compares both kernels under the same BIOS. It builds
+programs using an SDK relocated to a directory with spaces, checks C/C++ return
+values, original native utility calls, 571 memory/string calls, Wozmon
+examine/store/run/exit behavior, the Binary Writer's saved executable, and
+WSBC versions 1 and 6. The memory/string digest matches the original.
 
-The bundled WinterScript self-test covers functions, closures, standard
-libraries, patterns, file handles, and loaded chunks. Additional differential
-checks are available in `tests/runtime.py`, `tests/conformance.py`, and
-`tests/writer.py`. They execute both the reference and reconstructed images.
+```sh
+python3 tests/hardware_suite.py img/reference.img build/Permafrost-0.2.img \
+  --bochs BOCHS --bios BIOS --vgabios VGABIOS
+```
 
-`tests/hardware.py` repeats the full BIOS test using a locally supplied Bochs
-executable and firmware (`--bochs`, `--bios`, `--vgabios`). It operates on a
-temporary test copy of the image. Firmware and emulator binaries are external
-test dependencies and are not included in this repository.
+Supply emulator/firmware locations for the uppercase placeholders. These are
+external test dependencies. Tests use temporary disk copies. The reference
+inherits uninitialized x87 state from this BIOS; the suite initializes x87 in
+its entry prefix on the test copy. The reconstructed kernel initializes x87
+itself. Original C code and bundled self-test assertions remain intact except
+for the derivative's version assertion and a serial completion marker.
+
+`tests/hardware.py` runs a smaller startup test. Unicorn-based boot, runtime,
+conformance and interactive writer fixtures remain available for development.
+QEMU and physical hardware have not been verified. This remains an early-alpha
+reconstruction with fixed-address, privileged native execution.
 
 ## SDK
 

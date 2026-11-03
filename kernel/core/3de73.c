@@ -17,4 +17,3 @@ void recovered_3de73(undefined1 *param_1,undefined4 param_2,undefined1 param_3)
   param_1[7] = 0;
   return;
 }
-

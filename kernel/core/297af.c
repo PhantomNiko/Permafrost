@@ -11,7 +11,7 @@ uint recovered_297af(int param_1,int param_2)
   int iVar1;
   int iVar2;
   uint uVar3;
-  
+
   if (param_2 != 0 && param_1 != 0) {
     iVar2 = 0;
     for (uVar3 = 0; uVar3 < *(uint *)(param_1 + 4); uVar3 = uVar3 + 1) {
@@ -24,4 +24,3 @@ uint recovered_297af(int param_1,int param_2)
   }
   return 0xffffffff;
 }
-

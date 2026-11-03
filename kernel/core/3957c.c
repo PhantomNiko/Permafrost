@@ -21,7 +21,7 @@ undefined4 recovered_3957c(int param_1,int param_2)
   int *piVar7;
   int iVar8;
   uint uVar9;
-  
+
   iVar8 = DAT_00088e64 * 0xc + DAT_00088e68;
   piVar7 = (int *)(iVar8 + -0xc);
   if ((piVar7 == (int *)0x0 || DAT_00088e64 == 0) || (param_2 == 0 || param_1 == 0)) {
@@ -82,4 +82,3 @@ undefined4 recovered_3957c(int param_1,int param_2)
   uVar5 = recovered_289c3((undefined4 *)(iVar3 + uVar1 * 0x2c + 4),(undefined4 *)param_2);
   return uVar5;
 }
-

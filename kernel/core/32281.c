@@ -12,7 +12,7 @@ int recovered_32281(uint *out,int name,int context)
   bool bVar1;
   undefined4 uVar2;
   undefined4 extraout_EAX = 0;
-  
+
   local_34[0] = 0;
   local_34[1] = 0;
   local_34[2] = 0;
@@ -34,4 +34,3 @@ int recovered_32281(uint *out,int name,int context)
   recovered_28761(local_34);
   return 0;
 }
-

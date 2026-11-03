@@ -10,4 +10,3 @@ undefined8 recovered_2a478(undefined8 *param_1)
 
   return *param_1;
 }
-

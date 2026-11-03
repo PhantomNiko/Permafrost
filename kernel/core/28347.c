@@ -14,7 +14,7 @@ void recovered_28347(int param_1,int param_2)
   int iVar4;
   int iVar5;
   int iVar6;
-  
+
   if (param_2 != 0) {
     iVar4 = 8;
     do {
@@ -48,4 +48,3 @@ void recovered_28347(int param_1,int param_2)
   }
   return;
 }
-

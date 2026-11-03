@@ -9,7 +9,7 @@ uint recovered_2720e(uint param_1,uint param_2)
   unsigned char frame[64];
 
   uint uVar1;
-  
+
   if (param_2 == 0) {
     return 0;
   }
@@ -19,4 +19,3 @@ uint recovered_2720e(uint param_1,uint param_2)
   }
   return uVar1 << ((byte)param_2 - 8 & 0x1f);
 }
-

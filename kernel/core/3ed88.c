@@ -20,4 +20,3 @@ byte * recovered_3ed88(byte *param_1)
   }
   return param_1;
 }
-

@@ -24,10 +24,9 @@ float10 recovered_2136e(double param_1)
 
   float10 fVar1;
   double dVar2;
-  
+
   dVar2 = recovered_21336(param_1);
   fVar1 = (float10)dVar2 * (float10)dVar2;
   return (fVar1 * fVar1 * fVar1) / (float10)_DAT_0003efb8 +
          (fVar1 * fVar1) / (float10)_DAT_0003efb4 + (float10)1 + fVar1 * (float10)_DAT_0003efb0;
 }
-

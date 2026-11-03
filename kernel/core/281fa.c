@@ -16,7 +16,7 @@ undefined4 recovered_281fa(int *param_1,uint *param_2,int param_3,int param_4,in
   int iVar3;
   int *piVar4;
   uint uVar5;
-  
+
   uVar5 = 0;
   uVar2 = 0;
   if (param_5 != 0 && (param_4 != 0 && param_2 != (uint *)0x0)) {
@@ -70,4 +70,3 @@ LAB_000282a1:
   }
   return uVar2;
 }
-

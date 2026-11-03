@@ -40,7 +40,7 @@ void recovered_208a2(void)
   int iVar5;
   uint uVar6;
   int iVar7;
-  
+
   DAT_000445e8 = 0;
   iStack_24 = 0;
   DAT_000445ec = 0;
@@ -118,4 +118,3 @@ void recovered_208a2(void)
   DAT_000445e8 = 1;
   return;
 }
-

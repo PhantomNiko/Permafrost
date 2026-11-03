@@ -17,7 +17,7 @@ undefined4 recovered_2f131(uint *param_1,uint *param_2)
   int iVar4;
   undefined4 unaff_EBX = 0;
   uint uVar5;
-  
+
   local_18 = param_1;
   local_14 = param_2;
   uVar2 = recovered_2f20b(param_1,param_2);
@@ -65,4 +65,3 @@ LAB_0002f1ff:
   }
   return uVar2;
 }
-

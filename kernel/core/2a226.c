@@ -20,7 +20,7 @@ undefined4 recovered_2a226(int param_1,uint param_2,undefined4 *param_3,uint *pa
   bool bVar6;
   uint uVar7;
   uint uVar8;
-  
+
   if (param_1 == 0) {
     return 0;
   }
@@ -111,4 +111,3 @@ LAB_0002a346:
   }
   return uStack_38;
 }
-

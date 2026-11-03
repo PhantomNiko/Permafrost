@@ -44,7 +44,7 @@ uint recovered_208b2(void)
   uint uVar6;
   int iVar7;
   bool bVar8;
-  
+
   local_24 = 0;
   if (DAT_000445e8 == '\0') {
     DAT_000445ec = 0;
@@ -127,4 +127,3 @@ uint recovered_208b2(void)
   }
   return in_EAX;
 }
-

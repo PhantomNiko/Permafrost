@@ -22,7 +22,7 @@ void recovered_27711(uint param_1,uint param_2,char *param_3)
   longlong lVar1;
   uint uVar2;
   uint uVar3;
-  
+
   if (param_3 != (char *)0x0) {
     if (param_2 < (param_1 < 0x40000000)) {
       if (param_2 < (param_1 < 0x100000)) {
@@ -54,4 +54,3 @@ void recovered_27711(uint param_1,uint param_2,char *param_3)
   }
   return;
 }
-

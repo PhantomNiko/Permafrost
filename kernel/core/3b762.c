@@ -11,7 +11,7 @@ undefined4 recovered_3b762(int param_1,int param_2,int param_3)
   bool bVar1;
   int iVar2;
   int iVar3;
-  
+
   if (param_1 == 0) {
     return 0;
   }
@@ -31,4 +31,3 @@ undefined4 recovered_3b762(int param_1,int param_2,int param_3)
   }
   return 0;
 }
-

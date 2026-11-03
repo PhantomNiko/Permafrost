@@ -1340,6 +1340,7 @@ section part18 start=0x800 vstart=0x0 align=1
 section bootstrap start=pf_bootstrap_offset vstart=0x20000+pf_bootstrap_offset align=1
 bits 32
 pf_relocate:
+    fninit
     cld
     mov esi, 0x20000+pf_payload_offset
     mov edi, pf_core_base

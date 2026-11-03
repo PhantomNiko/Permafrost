@@ -32,4 +32,3 @@ longdouble recovered_3e4c1(float param_1)
   }
   return (longdouble)(double)param_1;
 }
-

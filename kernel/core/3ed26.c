@@ -13,7 +13,7 @@ undefined4 recovered_3ed26(char *param_1,undefined4 *param_2,char *param_3)
   unsigned char frame[68];
 
   undefined4 uVar1;
-  
+
   local_14 = 0;
   local_10 = 0;
   uVar1 = recovered_26c4f(param_1,&local_14,&local_10);
@@ -26,4 +26,3 @@ undefined4 recovered_3ed26(char *param_1,undefined4 *param_2,char *param_3)
   }
   return uVar1;
 }
-

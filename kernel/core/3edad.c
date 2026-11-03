@@ -13,8 +13,7 @@ uint recovered_3edad(uint param_1)
   unsigned char frame[64];
 
   uint uVar1;
-  
+
   uVar1 = recovered_2a6e8(&DAT_00088e78,(uint *)&DAT_00088e80,param_1);
   return uVar1;
 }
-

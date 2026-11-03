@@ -22,7 +22,7 @@ int recovered_3cd7d(int *container,int key,char *value)
   uint uVar1;
   int iVar2;
   char *pcVar3;
-  
+
   local_34 = 0;
   local_30 = 0;
   local_2c = 0;
@@ -46,4 +46,3 @@ int recovered_3cd7d(int *container,int key,char *value)
   }
   return iVar2;
 }
-

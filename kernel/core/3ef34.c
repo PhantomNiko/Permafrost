@@ -13,7 +13,7 @@ undefined4 recovered_3ef34(int param_1,char *param_2)
 
   bool bVar1;
   undefined4 uVar2;
-  
+
   local_14 = 0;
   uVar2 = 0;
   if (param_2 != (char *)0x0 && param_1 != 0) {
@@ -29,4 +29,3 @@ undefined4 recovered_3ef34(int param_1,char *param_2)
   recovered_20dfd(local_14);
   return uVar2;
 }
-

@@ -20,4 +20,3 @@ char * recovered_2105a(char *param_1,char param_2)
   }
   return param_1;
 }
-

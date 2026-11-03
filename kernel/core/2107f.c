@@ -10,7 +10,7 @@ int FUN_0002107f(int param_1,char *param_2)
 
   char *pcVar1;
   int iVar2;
-  
+
   iVar2 = 0;
   while( true ) {
     if (*(char *)(param_1 + iVar2) == '\0') {
@@ -22,4 +22,3 @@ int FUN_0002107f(int param_1,char *param_2)
   }
   return iVar2;
 }
-

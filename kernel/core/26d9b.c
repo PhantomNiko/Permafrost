@@ -24,7 +24,7 @@ void recovered_26d9b(int param_1,undefined1 *param_2)
   uint uVar5;
   char *pcVar6;
   bool bVar7;
-  
+
   if (param_2 == (undefined1 *)0x0) {
     return;
   }
@@ -93,4 +93,3 @@ void recovered_26d9b(int param_1,undefined1 *param_2)
   local_1c[uVar3] = 0;
   return;
 }
-

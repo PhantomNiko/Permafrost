@@ -10,7 +10,7 @@ uint recovered_28b43(uint *param_1)
 
   uint in_EAX = 0;
   uint uVar1;
-  
+
   if (param_1 != (uint *)0x0) {
     if (*param_1 < 2) {
       for (uVar1 = 0; uVar1 < param_1[0xf]; uVar1 = uVar1 + 1) {
@@ -30,4 +30,3 @@ uint recovered_28b43(uint *param_1)
   }
   return in_EAX;
 }
-

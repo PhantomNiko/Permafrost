@@ -13,7 +13,7 @@ undefined4 recovered_2ef40(int param_1,uint param_2)
   uint uVar3;
   int iVar4;
   uint uVar5;
-  
+
   if (param_1 == 0) {
     return 0;
   }
@@ -46,4 +46,3 @@ undefined4 recovered_2ef40(int param_1,uint param_2)
   }
   return uVar2;
 }
-

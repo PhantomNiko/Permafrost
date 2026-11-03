@@ -56,7 +56,7 @@ uint recovered_317d8(byte **param_1,int *param_2,byte **param_3,byte **param_4,i
   undefined4 *puVar10;
   int iVar11;
   byte **ppbVar12;
-  
+
   local_4c[9] = 0;
   local_4c[0] = 0;
   local_4c[1] = 0;
@@ -310,4 +310,3 @@ LAB_0003185c:
   recovered_2d241((uint)param_1,(char *)puVar13,pcVar14);
   return 0;
 }
-

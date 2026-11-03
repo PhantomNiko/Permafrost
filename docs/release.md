@@ -21,3 +21,14 @@ closures, loops, multiple returns, standard libraries, patterns, file handles,
 loaded chunks, and the bundled desk model. This self-test is the primary oracle
 for the current C reconstruction. Native disk expansion and night mode now use
 0x2227f and 0x23b8c; the SDK must use this release's addresses.
+
+The source implementation comprises 300 recovered C functions plus reviewed
+runtime support and a C++ display entry. Native utility wrappers and Wozmon are
+built from C/C++. Assembly remains for BIOS boot/mode transitions, relocation,
+and ABI bridges. Explicit x87 initialization fixes dependence on firmware's
+floating-point state.
+
+The complete bundled self-test passes under Bochs with a full BIOS. The native
+compatibility suite also verifies a relocated SDK, original native calls,
+memory/string behavior, monitor operations, Binary Writer output, and legacy
+and current WSBC containers. See README.md for reproduction and test limits.

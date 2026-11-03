@@ -35,7 +35,7 @@ void recovered_3e267(int param_1,int param_2,int param_3)
   int iVar8;
   int iVar9;
   bool bVar10;
-  
+
   iVar4 = DAT_00054f20;
   if (param_2 != 0 && param_1 != 0) {
     iVar9 = param_2 + 1;
@@ -80,4 +80,3 @@ void recovered_3e267(int param_1,int param_2,int param_3)
   }
   return;
 }
-

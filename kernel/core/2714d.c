@@ -25,7 +25,7 @@ uint recovered_2714d(uint param_1,uint param_2,byte param_3)
   uint uVar3;
   uint uVar4;
   uint uVar5;
-  
+
   uVar3 = *(uint *)PTR_DAT_0004404c;
   uVar5 = *(uint *)PTR_DAT_00044030;
   if (uVar5 == 0 || (uVar3 == 0 || *(uint *)PTR_DAT_00044054 == 0)) {
@@ -41,4 +41,3 @@ uint recovered_2714d(uint param_1,uint param_2,byte param_3)
   }
   return uVar3;
 }
-

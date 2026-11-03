@@ -30,7 +30,7 @@ void recovered_2d241(uint line,char *near_token,char *format,...)
 
   __builtin_va_list args;
   int iVar1;
-  
+
   __builtin_va_start(args, format);
   local_10 = (double *)args;
   recovered_21685(local_110,0x100,format,local_10);
@@ -61,4 +61,3 @@ void recovered_2d241(uint line,char *near_token,char *format,...)
   }
   return;
 }
-

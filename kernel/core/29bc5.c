@@ -10,7 +10,7 @@ void recovered_29bc5(int param_1)
 
   uint uVar1;
   int *piVar2;
-  
+
   if (param_1 != 0) {
     piVar2 = (int *)(param_1 + 0xf4);
     for (uVar1 = 0; uVar1 < *(uint *)(param_1 + 0x10000); uVar1 = uVar1 + 1) {
@@ -26,4 +26,3 @@ void recovered_29bc5(int param_1)
   }
   return;
 }
-

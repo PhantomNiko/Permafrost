@@ -11,7 +11,7 @@ undefined8 recovered_268f9(uint param_1,uint param_2)
   uint uVar1;
   int iVar2;
   uint uVar3;
-  
+
   uVar1 = 0x18;
   if (param_1 < 0x18) {
     uVar1 = param_1;
@@ -27,4 +27,3 @@ undefined8 recovered_268f9(uint param_1,uint param_2)
   out(0x3d5,(char)iVar2);
   return CONCAT44(CONCAT22((short)(param_2 >> 0x10),0x3d5),iVar2);
 }
-

@@ -43,7 +43,7 @@ uint recovered_23907(void)
   uint uVar10;
   int iVar11;
   uint uVar12;
-  
+
   out(0x3c4,2);
   uVar1 = in(0x3c5);
   out(0x3c4,4);
@@ -119,4 +119,3 @@ LAB_00023aca:
   }
   return uVar7;
 }
-

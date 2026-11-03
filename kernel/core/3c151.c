@@ -44,7 +44,7 @@ byte recovered_3c151(uint param_1,byte **param_2,int *param_3,int param_4,undefi
   undefined1 uVar11;
   byte *pbVar10;
   uint uVar12;
-  
+
   local_30 = (byte *)0x0;
   local_20 = &DAT_0003f7b1;
   if ((0xfffffffd < param_4 - 3U) && (*param_3 == 3)) {
@@ -286,4 +286,3 @@ LAB_0003c2bb:
   recovered_2d241(param_1,(char *)param_2,pcVar6,ppbVar13);
   return 0;
 }
-

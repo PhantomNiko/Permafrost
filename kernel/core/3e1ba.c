@@ -17,7 +17,7 @@ void recovered_3e1ba(int context)
   undefined4 *puVar1;
   undefined4 uVar2;
   char cVar3;
-  
+
   cVar3 = *(char *)(context + 4);
   puVar1 = recovered_3d3dd(cVar3);
   if (puVar1 != (undefined4 *)0x0) {
@@ -44,4 +44,3 @@ LAB_0003e218:
   recovered_3dce9(cVar3,local_24,1);
   return;
 }
-

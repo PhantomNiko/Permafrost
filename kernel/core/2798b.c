@@ -39,7 +39,7 @@ undefined4 recovered_2798b(undefined1 *param_1,uint param_2,undefined4 *param_3,
   uint uVar10;
   int iVar11;
   undefined *puVar12;
-  
+
   if ((param_4 != (uint *)0x0 && param_3 != (undefined4 *)0x0) &&
      (param_1 != (undefined1 *)0x0 || param_2 == 0)) {
     *param_3 = 0;
@@ -162,4 +162,3 @@ LAB_00027be2:
   }
   return 0;
 }
-

@@ -41,7 +41,7 @@ void recovered_2676e(void)
   bool bVar13;
   ulonglong uVar14;
   ulonglong uVar15;
-  
+
   if (((DAT_00057330 == '\x01') && (DAT_0005732c != 0)) &&
      (uVar5 = recovered_23848(), uVar12 = DAT_00057328, uVar9 = DAT_00057324, (char)uVar5 != '\0'))
   {
@@ -81,4 +81,3 @@ void recovered_2676e(void)
   }
   return;
 }
-

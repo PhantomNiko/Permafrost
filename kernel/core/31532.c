@@ -19,7 +19,7 @@ undefined4 recovered_31532(int *param_1,int *param_2,undefined4 *param_3)
   int iVar4;
   uint uVar5;
   uint uVar6;
-  
+
   local_14 = 0;
   if (param_3 == (undefined4 *)0x0 || (param_2 == (int *)0x0 || param_1 == (int *)0x0))
   goto LAB_00031773;
@@ -109,4 +109,3 @@ LAB_00031773:
   }
   return uVar2;
 }
-

@@ -25,7 +25,7 @@ undefined4 recovered_2802a(int param_1,uint param_2,int *param_3,int param_4,int
   uint uVar9;
   ushort uVar10;
   uint uVar11;
-  
+
   if (param_6 == '\0') {
     iVar3 = 0x20;
   }
@@ -94,4 +94,3 @@ undefined4 recovered_2802a(int param_1,uint param_2,int *param_3,int param_4,int
   }
   return uVar4;
 }
-

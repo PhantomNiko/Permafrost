@@ -11,7 +11,7 @@ void recovered_277bd(int param_1,undefined1 *param_2,undefined1 param_3)
   unsigned char frame[64];
 
   uint uVar1;
-  
+
   if (param_2 == (undefined1 *)0x0) {
     param_2 = &DAT_0003f254;
   }
@@ -19,4 +19,3 @@ void recovered_277bd(int param_1,undefined1 *param_2,undefined1 param_3)
   recovered_277fa(param_1,(int)param_2,uVar1,param_3);
   return;
 }
-

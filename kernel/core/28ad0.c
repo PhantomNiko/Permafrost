@@ -10,7 +10,7 @@ undefined4 recovered_28ad0(undefined4 *param_1,int param_2,uint param_3)
 
   void *pvVar1;
   undefined4 uVar2;
-  
+
   if (param_1 == (undefined4 *)0x0) {
 LAB_00028b37:
     uVar2 = 0;
@@ -33,4 +33,3 @@ LAB_00028b37:
   }
   return uVar2;
 }
-

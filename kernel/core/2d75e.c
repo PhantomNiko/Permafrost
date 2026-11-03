@@ -9,7 +9,7 @@ undefined4 recovered_2d75e(int param_1,int param_2)
   unsigned char frame[64];
 
   int iVar1;
-  
+
   if (param_2 != 0 && param_1 != 0) {
     if ((*(uint *)(param_1 + 8) < **(uint **)(param_1 + 4)) &&
        (iVar1 = recovered_2100f(*(int *)((*(uint **)(param_1 + 4))[2] + *(uint *)(param_1 + 8) * 4),
@@ -20,4 +20,3 @@ undefined4 recovered_2d75e(int param_1,int param_2)
   }
   return 0;
 }
-

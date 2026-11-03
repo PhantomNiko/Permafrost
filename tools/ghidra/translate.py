@@ -135,7 +135,7 @@ def main():
                         r'\1 = 0;', source, flags=re.M)
         opening = source.index('\n{') + 2
         source = source[:opening] + '\n  unsigned char frame[%d];\n' % (frame_size + 32) + source[opening:]
-        (args.out / (address + '.c')).write_text('\n'.join(preamble + macros) + '\n' + source)
+        (args.out / (address + '.c')).write_text('\n'.join(line.rstrip() for line in ('\n'.join(preamble + macros) + '\n' + source).splitlines()).rstrip() + '\n')
     for name, content in manual.items():
         (args.out / (name + '.c')).write_text(content)
 

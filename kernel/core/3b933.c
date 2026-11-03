@@ -17,7 +17,7 @@ int recovered_3b933(int unused,int context,int path,uint size)
   int iVar3;
   undefined3 extraout_var = 0;
   int iVar4;
-  
+
   local_20 = (undefined4 *)0x0;
   local_1c = 0;
   local_18 = 0;
@@ -36,4 +36,3 @@ int recovered_3b933(int unused,int context,int path,uint size)
   }
   return iVar4;
 }
-

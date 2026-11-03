@@ -12,4 +12,3 @@ undefined ** FUN_0002111f(void)
 
   return &PTR_DAT_000445a8;
 }
-

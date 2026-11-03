@@ -10,7 +10,7 @@ int recovered_2da5c(int param_1,int param_2,int param_3,undefined4 *param_4,int 
   unsigned char frame[64];
 
   undefined4 *puVar1;
-  
+
   puVar1 = recovered_29539(0,param_1);
   if (puVar1 == (undefined4 *)0x0) {
     recovered_2d892(param_2,param_3);
@@ -26,4 +26,3 @@ int recovered_2da5c(int param_1,int param_2,int param_3,undefined4 *param_4,int 
   }
   return (int)puVar1;
 }
-

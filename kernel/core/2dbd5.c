@@ -25,7 +25,7 @@ int recovered_2dbd5(int *param_1,int *param_2,byte param_3)
   int iVar7;
   int *piVar8;
   int *piVar9;
-  
+
   local_18 = 0;
   if (param_2 == (int *)0x0 || param_1 == (int *)0x0) {
     return 0;
@@ -127,4 +127,3 @@ int recovered_2dbd5(int *param_1,int *param_2,byte param_3)
   }
   return 0;
 }
-

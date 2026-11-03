@@ -11,7 +11,7 @@ void recovered_27dbd(char param_1)
   unsigned char frame[64];
 
   byte bVar1;
-  
+
   if (DAT_00088e5d == '\x01') {
     if (param_1 == '\n') {
       recovered_27dbd('\r');
@@ -23,4 +23,3 @@ void recovered_27dbd(char param_1)
   }
   return;
 }
-

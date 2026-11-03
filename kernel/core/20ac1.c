@@ -12,7 +12,7 @@ uint * recovered_20ac1(int param_1)
 
   uint *puVar1;
   uint uVar2;
-  
+
   if (param_1 != 0) {
     recovered_208b2();
     uVar2 = param_1 + 0xfU & 0xfffffff0;
@@ -27,4 +27,3 @@ uint * recovered_20ac1(int param_1)
   }
   return (uint *)0x0;
 }
-

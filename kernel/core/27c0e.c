@@ -13,4 +13,3 @@ void recovered_27c0e(char *param_1)
   }
   return;
 }
-

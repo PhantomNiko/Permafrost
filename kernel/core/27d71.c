@@ -11,4 +11,3 @@ bool recovered_27d71(char param_1)
   return ((byte)(param_1 + 0x9fU) < 6 || (byte)(param_1 - 0x30U) < 10) ||
          (byte)(param_1 + 0xbfU) < 6;
 }
-

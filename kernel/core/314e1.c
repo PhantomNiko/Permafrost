@@ -14,7 +14,7 @@ int recovered_314e1(char *param_1)
   int iVar4;
   int iVar5;
   char *pcVar6;
-  
+
   iVar4 = 0;
   if ((param_1 != (char *)0x0) && (cVar1 = *param_1, cVar1 != '\0')) {
     if ((cVar1 == '-') || (iVar5 = iVar4, cVar1 == '+')) {
@@ -37,4 +37,3 @@ int recovered_314e1(char *param_1)
   }
   return iVar4;
 }
-

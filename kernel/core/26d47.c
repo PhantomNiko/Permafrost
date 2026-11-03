@@ -16,7 +16,7 @@ uint recovered_26d47(char *path)
   int iVar1;
   uint uVar2;
   undefined1 *puVar3;
-  
+
   recovered_26d9b((int)path,local_101);
   uVar2 = 0;
   puVar3 = &DAT_00044df0;
@@ -31,4 +31,3 @@ uint recovered_26d47(char *path)
   }
   return uVar2;
 }
-

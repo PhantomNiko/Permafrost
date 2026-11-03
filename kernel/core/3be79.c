@@ -40,7 +40,7 @@ undefined4 recovered_3be79(int param_1,undefined4 *param_2,uint *param_3,undefin
   undefined1 *puVar10;
   uint *puVar11;
   bool bVar12;
-  
+
   local_14 = (undefined4 *)0x0;
   local_20 = 0;
   if (param_4 != (undefined4 *)0x0 &&
@@ -135,4 +135,3 @@ LAB_0003c095:
   }
   return 0;
 }
-

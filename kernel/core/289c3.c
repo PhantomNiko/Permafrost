@@ -18,7 +18,7 @@ undefined4 recovered_289c3(undefined4 *param_1,undefined4 *param_2)
   int iVar5;
   undefined1 *puVar6;
   int **ppiVar7;
-  
+
   if (param_2 == (undefined4 *)0x0 || param_1 == (undefined4 *)0x0) {
     return 0;
   }
@@ -74,4 +74,3 @@ switchD_00028a0c_caseD_5:
   }
   return CONCAT31((int3)(uVar4 >> 8),1);
 }
-

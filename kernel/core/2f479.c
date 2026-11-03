@@ -39,7 +39,7 @@ undefined4 recovered_2f479(float param_1,char *param_2,uint *param_3,uint *param
   ushort in_FPUControlWord = pf_fpu_control();
   float10 fVar9;
   double dVar10;
-  
+
   if (param_5 == (int *)0x0 || (param_4 == (uint *)0x0 || param_3 == (uint *)0x0)) {
 LAB_0002f888:
     uVar7 = 0;
@@ -237,4 +237,3 @@ LAB_0002fa3e:
   }
   return uVar7;
 }
-

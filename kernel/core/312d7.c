@@ -10,7 +10,7 @@ bool recovered_312d7(char *param_1)
 
   char cVar1;
   uint uVar2;
-  
+
   if (param_1 == (char *)0x0) {
     return false;
   }
@@ -20,4 +20,3 @@ bool recovered_312d7(char *param_1)
   }
   return param_1[uVar2 - 1] == cVar1;
 }
-

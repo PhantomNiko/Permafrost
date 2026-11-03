@@ -15,7 +15,7 @@ void FUN_00027242(void)
   unsigned char frame[64];
 
   int iVar1;
-  
+
   DAT_000445f8 = 0;
   if (DAT_000445f4 + 1 < 0x19) {
     DAT_000445f4 = DAT_000445f4 + 1;
@@ -28,4 +28,3 @@ void FUN_00027242(void)
   DAT_00044deb = 0;
   return;
 }
-

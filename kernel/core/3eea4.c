@@ -17,7 +17,7 @@ void recovered_3eea4(int param_1)
 
   bool bVar1;
   char *pcVar2;
-  
+
   local_8 = (char *)0x0;
   if (param_1 == 0) {
     recovered_22401(&DAT_000403f1);
@@ -37,4 +37,3 @@ void recovered_3eea4(int param_1)
   recovered_20dfd((int)local_8);
   return;
 }
-

@@ -10,7 +10,7 @@ byte recovered_27d99(char param_1)
 
   byte bVar1;
   char cVar2;
-  
+
   bVar1 = param_1 - 0x30;
   if (9 < bVar1) {
     cVar2 = param_1 + -0x20;
@@ -21,4 +21,3 @@ byte recovered_27d99(char param_1)
   }
   return bVar1;
 }
-

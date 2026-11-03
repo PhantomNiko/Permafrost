@@ -16,7 +16,7 @@ undefined4 recovered_3d721(int param_1,int param_2,int param_3,uint param_4,int 
   int iVar5;
   uint size;
   uint uVar6;
-  
+
   uVar4 = 0;
   if (((1 < param_8) && (param_9 != (undefined4 *)0x0)) && (param_10 != (int *)0x0)) {
     uVar3 = 0xffffff7;
@@ -68,4 +68,3 @@ LAB_0003d830:
   }
   return uVar4;
 }
-

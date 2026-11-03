@@ -109,7 +109,7 @@ char recovered_2fe01(uint *param_1,int *param_2)
   uint *puVar13;
   uint *puVar14;
   ushort in_FPUControlWord = pf_fpu_control();
-  
+
   uVar5 = recovered_2d75e((int)param_1,0x403c1);
   if ((char)uVar5 == '\0') {
     uVar5 = recovered_2d75e((int)param_1,0x403ef);
@@ -897,4 +897,3 @@ LAB_00030264:
   recovered_28761(local_40);
   return '\x01';
 }
-

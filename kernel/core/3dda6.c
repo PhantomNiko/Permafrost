@@ -14,7 +14,7 @@ void recovered_3dda6(int param_1)
   int iVar2;
   int iVar3;
   uint uVar4;
-  
+
   if (param_1 != 0) {
     uVar1 = 0;
     iVar2 = 0;
@@ -35,4 +35,3 @@ void recovered_3dda6(int param_1)
   }
   return;
 }
-

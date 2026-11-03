@@ -11,7 +11,7 @@ undefined4 recovered_3d0cc(int param_1,undefined4 *param_2)
 
   int iVar1;
   undefined4 uVar2;
-  
+
   if (param_2 == (undefined4 *)0x0 || param_1 == 0) {
 LAB_0003d14b:
     uVar2 = 0;
@@ -41,4 +41,3 @@ LAB_0003d14b:
   }
   return uVar2;
 }
-

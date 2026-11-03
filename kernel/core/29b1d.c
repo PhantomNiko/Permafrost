@@ -22,7 +22,7 @@ undefined4 recovered_29b1d(undefined4 param_1,undefined4 param_2,int param_3,uin
   int iVar2;
   uint uVar3;
   uint uVar4;
-  
+
   uVar4 = 0;
   while ((uVar1 = param_4 - uVar4, uVar4 <= param_4 && uVar1 != 0 && (DAT_00044dec != 0))) {
     uVar3 = 0x7000 - (uVar4 & 0x1ff);
@@ -41,4 +41,3 @@ undefined4 recovered_29b1d(undefined4 param_1,undefined4 param_2,int param_3,uin
   }
   return CONCAT31((int3)(uVar1 >> 8),param_4 <= uVar4);
 }
-

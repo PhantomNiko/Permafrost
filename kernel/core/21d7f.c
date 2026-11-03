@@ -14,4 +14,3 @@ undefined4 FUN_00021d7f(void)
   recovered_21d99();
   return 1;
 }
-

@@ -12,7 +12,7 @@ undefined4 recovered_3b650(int param_1,int param_2)
   uint uVar2;
   int iVar3;
   int iVar4;
-  
+
   if ((param_2 == 0 || param_1 == 0) || (uVar1 = recovered_297af(param_1,param_2), (int)uVar1 < 0))
   {
     return 0;
@@ -41,4 +41,3 @@ undefined4 recovered_3b650(int param_1,int param_2)
   *(undefined4 *)(iVar4 + 0x24 + iVar3) = 0;
   return CONCAT31((int3)((uint)iVar3 >> 8),1);
 }
-

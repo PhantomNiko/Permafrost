@@ -11,7 +11,7 @@ undefined4 recovered_2a437(int param_1)
   char *pcVar1;
   int iVar2;
   undefined4 uVar3;
-  
+
   if (param_1 != 0) {
     iVar2 = 0;
     if (*(short *)(param_1 + 0x1fe) != -0x55ab) {
@@ -37,4 +37,3 @@ undefined4 recovered_2a437(int param_1)
   }
   return 0;
 }
-

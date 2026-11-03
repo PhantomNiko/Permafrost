@@ -14,7 +14,7 @@ uint recovered_396cc(int param_1,int param_2,undefined1 *param_3)
   uint uVar3;
   int iVar4;
   int iVar5;
-  
+
   uVar3 = 0;
   if (param_3 != (undefined1 *)0x0) {
     *param_3 = 0;
@@ -43,4 +43,3 @@ uint recovered_396cc(int param_1,int param_2,undefined1 *param_3)
   }
   return uVar3;
 }
-

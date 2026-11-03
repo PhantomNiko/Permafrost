@@ -11,7 +11,7 @@ int recovered_28d73(int param_1)
   int iVar1;
   int iVar2;
   undefined4 unaff_EBX = 0;
-  
+
   if (param_1 == 0) {
     iVar2 = 0;
   }
@@ -343,4 +343,3 @@ int recovered_28d73(int param_1)
   }
   return iVar2;
 }
-

@@ -27,7 +27,7 @@ float10 recovered_3c0cc(float param_1)
   float10 fVar3;
   float10 fVar4;
   float10 fVar5;
-  
+
   fVar3 = (float10)param_1;
   fVar5 = (float10)0;
   if (fVar5 < fVar3) {
@@ -50,4 +50,3 @@ float10 recovered_3c0cc(float param_1)
   }
   return fVar5;
 }
-

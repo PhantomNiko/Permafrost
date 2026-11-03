@@ -11,7 +11,7 @@ uint recovered_3dba3(int param_1,int param_2,uint param_3)
   uint uVar1;
   int iVar2;
   byte bVar3;
-  
+
   uVar1 = 0;
   if (1 < param_3) {
     if (param_2 == 3) {
@@ -35,4 +35,3 @@ uint recovered_3dba3(int param_1,int param_2,uint param_3)
   }
   return uVar1;
 }
-

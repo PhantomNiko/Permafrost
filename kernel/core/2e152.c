@@ -70,7 +70,7 @@ uint ******* recovered_2e152(uint param_1,uint *******param_2,undefined1 *param_
   uint ************ppppppppppppuVar15;
   uint ***********pppppppppppuVar16;
   bool bVar17;
-  
+
   if (param_3 != (undefined1 *)0x0) {
     *param_3 = 0;
   }
@@ -652,4 +652,3 @@ LAB_0002e3d2:
   }
   return (uint *******)local_14;
 }
-

@@ -14,7 +14,7 @@ uint recovered_3edf5(int param_1,undefined1 *param_2,uint *param_3)
   char *pcVar2;
   int iVar3;
   uint uVar4;
-  
+
   pcVar2 = &DAT_0003f254;
   if (param_2 != (undefined1 *)0x0) {
     pcVar2 = param_2;
@@ -39,4 +39,3 @@ LAB_0003ee52:
   }
   return uVar4;
 }
-

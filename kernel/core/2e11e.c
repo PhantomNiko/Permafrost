@@ -10,7 +10,7 @@ float10 recovered_2e11e(int *param_1)
 
   int iVar1;
   float10 fVar2;
-  
+
   fVar2 = (float10)0;
   if (param_1 != (int *)0x0) {
     iVar1 = *param_1;
@@ -23,4 +23,3 @@ float10 recovered_2e11e(int *param_1)
   }
   return fVar2;
 }
-

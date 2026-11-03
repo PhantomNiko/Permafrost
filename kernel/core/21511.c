@@ -24,7 +24,7 @@ float10 recovered_21511(byte *param_1,undefined4 *param_2)
   float10 fVar7;
   float10 fVar8;
   float10 fVar9;
-  
+
   pbVar2 = param_1;
   while( true ) {
     bVar1 = *pbVar2;
@@ -93,4 +93,3 @@ float10 recovered_21511(byte *param_1,undefined4 *param_2)
   }
   return fVar7;
 }
-

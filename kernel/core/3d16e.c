@@ -35,7 +35,7 @@ undefined4 recovered_3d16e(int param_1,uint param_2)
   uint uVar7;
   int iVar8;
   undefined8 uVar9;
-  
+
   if ((DAT_00088e5e == '\0') && (bVar2 = recovered_2627e(), !bVar2)) {
     return 0;
   }
@@ -135,4 +135,3 @@ LAB_0003d3c7:
   uVar7 = context[3];
   goto LAB_0003d26b;
 }
-

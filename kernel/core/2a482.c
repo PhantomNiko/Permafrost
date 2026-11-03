@@ -12,7 +12,7 @@ undefined4 recovered_2a482(int param_1,uint param_2)
   unsigned char frame[76];
 
   undefined4 uVar1;
-  
+
   local_1c = 0;
   local_18 = 0;
   local_14 = 0;
@@ -22,4 +22,3 @@ undefined4 recovered_2a482(int param_1,uint param_2)
   }
   return uVar1;
 }
-

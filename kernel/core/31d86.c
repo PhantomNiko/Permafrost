@@ -14,7 +14,7 @@ bool recovered_31d86(int *param_1,int *param_2)
   uint uVar1;
   undefined1 *puVar2;
   bool bVar3;
-  
+
   if (param_2 == (int *)0x0) {
     return false;
   }
@@ -34,4 +34,3 @@ bool recovered_31d86(int *param_1,int *param_2)
   }
   return bVar3;
 }
-

@@ -16,7 +16,7 @@ undefined4 recovered_27e67(uint param_1,int *param_2)
   undefined *puVar2;
   int iVar3;
   undefined4 uVar4;
-  
+
   if (param_2 == (int *)0x0) {
     return 0;
   }
@@ -34,4 +34,3 @@ undefined4 recovered_27e67(uint param_1,int *param_2)
   }
   return uVar4;
 }
-

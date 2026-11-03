@@ -17,7 +17,7 @@ undefined4 recovered_311c6(uint param_1,int *param_2,int *param_3,char *param_4)
   int iVar3;
   int iVar4;
   bool bVar5;
-  
+
   if (param_2 != (int *)0x0) {
     local_1c = 0;
     if (param_3 == (int *)0x0) {
@@ -47,4 +47,3 @@ undefined4 recovered_311c6(uint param_1,int *param_2,int *param_3,char *param_4)
   }
   return 0;
 }
-

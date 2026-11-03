@@ -12,4 +12,3 @@ void FUN_00020dde(void)
                     /* WARNING: Do nothing block with infinite loop */
   } while( true );
 }
-

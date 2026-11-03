@@ -21,7 +21,7 @@ bool recovered_27eaa(uint param_1,int param_2,int param_3,uint param_4)
   uint uVar3;
   uint uVar4;
   uint uVar5;
-  
+
   if (((param_4 & 0x1ff) == 0) && (param_4 != 0)) {
     bVar1 = false;
     if ((param_3 != 0) && (DAT_00044dec != 0)) {
@@ -50,4 +50,3 @@ bool recovered_27eaa(uint param_1,int param_2,int param_3,uint param_4)
   }
   return bVar1;
 }
-

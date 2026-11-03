@@ -12,7 +12,7 @@ undefined4 recovered_2a6e8(int *param_1,uint *param_2,uint param_3)
   uint uVar2;
   undefined4 extraout_EDX = 0;
   uint uVar3;
-  
+
   if (param_2 != (uint *)0x0 && param_1 != (int *)0x0) {
     uVar2 = *param_2;
     if (param_3 <= uVar2) {
@@ -40,4 +40,3 @@ undefined4 recovered_2a6e8(int *param_1,uint *param_2,uint param_3)
   }
   return 0;
 }
-

@@ -13,7 +13,7 @@ void recovered_27f60(int param_1,int param_2,uint param_3,uint param_4)
   byte bVar3;
   int iVar4;
   ushort uVar5;
-  
+
   if (1 < param_3 && param_1 != 0) {
     uVar2 = (undefined1)param_4;
     bVar3 = (byte)(param_4 >> 8);
@@ -43,4 +43,3 @@ void recovered_27f60(int param_1,int param_2,uint param_3,uint param_4)
   }
   return;
 }
-

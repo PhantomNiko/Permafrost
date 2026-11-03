@@ -12,4 +12,3 @@ int recovered_21cab(int character)
   recovered_21aed();
   return 1;
 }
-

@@ -13,7 +13,7 @@ char * recovered_3edca(char *param_1)
   char cVar1;
   char *pcVar2;
   char *pcVar3;
-  
+
   if (param_1 == (char *)0x0) {
     return &DAT_0003f254;
   }
@@ -29,4 +29,3 @@ char * recovered_3edca(char *param_1)
   } while (cVar1 != '\0');
   return param_1;
 }
-

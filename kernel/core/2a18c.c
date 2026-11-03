@@ -15,7 +15,7 @@ int recovered_2a18c(uint a,uint b,uint c)
 
   undefined4 uVar1;
   int iVar2;
-  
+
   uVar1 = recovered_29b1d(a,b,(int)local_250,0x200);
   iVar2 = 0;
   if ((char)uVar1 != '\0') {
@@ -31,4 +31,3 @@ int recovered_2a18c(uint a,uint b,uint c)
   }
   return iVar2;
 }
-

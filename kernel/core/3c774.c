@@ -23,7 +23,7 @@ undefined4 recovered_3c774(int *param_1,int *param_2)
   undefined4 uVar5;
   int iVar6;
   undefined4 extraout_EDX = 0;
-  
+
   if (param_2 == (int *)0x0 || param_1 == (int *)0x0) {
 LAB_0003c8f6:
     uVar5 = 0;
@@ -117,4 +117,3 @@ LAB_0003c853:
 switchD_0003c7a4_caseD_4:
   return uVar5;
 }
-

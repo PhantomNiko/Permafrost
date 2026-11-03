@@ -14,7 +14,7 @@ undefined4 recovered_397d3(uint param_1,char *param_2,int param_3,uint param_4,u
   unsigned char frame[100];
 
   int iVar1;
-  
+
   if ((param_3 == 0) || (param_4 <= param_5 || param_6 == (int *)0x0)) {
     format = str_00041490;
   }
@@ -29,4 +29,3 @@ undefined4 recovered_397d3(uint param_1,char *param_2,int param_3,uint param_4,u
   recovered_2d241(param_1,param_2,format,param_2,param_5 + 1);
   return 0;
 }
-

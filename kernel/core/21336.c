@@ -32,4 +32,3 @@ double recovered_21336(double value)
   }
   return value;
 }
-

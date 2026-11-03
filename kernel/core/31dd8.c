@@ -60,7 +60,7 @@ uint recovered_31dd8(int *param_1,int param_2,uint param_3)
   undefined1 *puVar6;
   char *out;
   int iVar7;
-  
+
   if (param_2 == 0) {
     return 0;
   }
@@ -212,4 +212,3 @@ switchD_00031e25_default:
   uVar2 = recovered_320bc((int *)param_2,pcVar8);
   return uVar2;
 }
-

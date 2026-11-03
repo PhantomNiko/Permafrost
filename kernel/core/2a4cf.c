@@ -15,4 +15,3 @@ void recovered_2a4cf(void)
   recovered_2a75e(DAT_00088e78,DAT_00088e7c);
   return;
 }
-

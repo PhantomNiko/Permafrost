@@ -20,7 +20,7 @@ undefined4 recovered_2daf4(int param_1,int param_2)
   int *piVar4;
   int iVar5;
   int iVar6;
-  
+
   if (param_2 == 0 || param_1 == 0) {
     return 0;
   }
@@ -46,4 +46,3 @@ LAB_0002db5f:
   uVar2 = recovered_289c3((undefined4 *)param_2,(undefined4 *)(*piVar4 + uVar1 * 0x2c + 4));
   return uVar2;
 }
-

@@ -16,7 +16,7 @@ float10 recovered_21140(double param_1,uint param_2)
 
   uint uVar1;
   float10 fVar2;
-  
+
   fVar2 = (float10)param_1;
   for (uVar1 = param_2; 0 < (int)uVar1; uVar1 = uVar1 - 1) {
     fVar2 = fVar2 + fVar2;
@@ -26,4 +26,3 @@ float10 recovered_21140(double param_1,uint param_2)
   }
   return fVar2;
 }
-

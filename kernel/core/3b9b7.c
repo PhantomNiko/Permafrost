@@ -30,7 +30,7 @@ int recovered_3b9b7(int context,char *text)
 
   uint uVar1;
   int iVar2;
-  
+
   local_58 = 0;
   local_54 = 0;
   local_50 = 0;
@@ -62,4 +62,3 @@ int recovered_3b9b7(int context,char *text)
   recovered_28761(&local_34);
   return iVar2;
 }
-

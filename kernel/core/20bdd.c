@@ -18,7 +18,7 @@ undefined8 recovered_20bdd(undefined4 param_1,undefined4 param_2,uint param_3,ui
   uint uVar7;
   ulonglong uVar8;
   ulonglong uVar9;
-  
+
   if (param_3 == 0 && param_4 == 0) {
     uVar3 = 0;
     uVar5 = 0;
@@ -55,4 +55,3 @@ undefined8 recovered_20bdd(undefined4 param_1,undefined4 param_2,uint param_3,ui
   }
   return CONCAT44(uVar2,local_14);
 }
-

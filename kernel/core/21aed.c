@@ -49,7 +49,7 @@ uint recovered_21aed(void)
   undefined1 *puVar4;
   int iVar5;
   undefined1 *puVar6;
-  
+
   if (DAT_000445f0 == '\x01') {
     if ((DAT_00054e2c == '\x01') && (DAT_00057330 == '\x01')) {
       iVar2 = (DAT_00057324 + -0x280) / 2;
@@ -96,4 +96,3 @@ uint recovered_21aed(void)
   }
   return in_EAX;
 }
-

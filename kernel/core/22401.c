@@ -15,7 +15,7 @@ uint recovered_22401(char *param_1)
   uint extraout_EAX = 0;
   uint uVar2;
   char *pcVar3;
-  
+
   if (param_1 == (char *)0x0) {
     pcVar3 = &DAT_0003f254;
     uVar2 = 0;
@@ -43,4 +43,3 @@ uint recovered_22401(char *param_1)
   recovered_2785c(pcVar3,uVar2,1,'\x01');
   return extraout_EAX;
 }
-

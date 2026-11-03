@@ -32,7 +32,7 @@ int * recovered_29cae(byte param_1,uint param_2,uint param_3,undefined4 param_4,
   uint uVar1;
   int iVar2;
   int *piVar3;
-  
+
   uVar1 = DAT_00054f20;
   piVar3 = (int *)0x0;
   if (param_3 != 0 && DAT_00054f20 < 0x100) {
@@ -53,4 +53,3 @@ int * recovered_29cae(byte param_1,uint param_2,uint param_3,undefined4 param_4,
   }
   return piVar3;
 }
-

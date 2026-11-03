@@ -9,7 +9,7 @@ bool recovered_2db7f(undefined4 *param_1)
   unsigned char frame[64];
 
   undefined4 *puVar1;
-  
+
   if (param_1 == (undefined4 *)0x0) {
     return false;
   }
@@ -26,4 +26,3 @@ bool recovered_2db7f(undefined4 *param_1)
   }
   return puVar1 != (undefined4 *)0x0;
 }
-

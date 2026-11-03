@@ -11,7 +11,7 @@ void recovered_21935(int *out,uint *remaining,int *total,char *text)
   unsigned char frame[64];
 
   char *pcVar1;
-  
+
   pcVar1 = &DAT_0003f255;
   if (text != (char *)0x0) {
     pcVar1 = text;
@@ -21,4 +21,3 @@ void recovered_21935(int *out,uint *remaining,int *total,char *text)
   }
   return;
 }
-

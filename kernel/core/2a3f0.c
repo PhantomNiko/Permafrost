@@ -10,7 +10,7 @@ bool recovered_2a3f0(int param_1)
 
   char cVar1;
   int iVar2;
-  
+
   if ((param_1 == 0) || (iVar2 = 0, *(short *)(param_1 + 0x1fe) != -0x55ab)) {
     return false;
   }
@@ -20,4 +20,3 @@ bool recovered_2a3f0(int param_1)
   }
   return iVar2 != 0x40;
 }
-

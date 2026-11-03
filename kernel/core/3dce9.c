@@ -30,7 +30,7 @@ void recovered_3dce9(char param_1,uint param_2,int param_3)
   int iVar3;
   bool bVar4;
   undefined8 uVar5;
-  
+
   if (param_3 != 0) {
     piVar2 = &DAT_00054f24;
     local_14 = DAT_000445d8;
@@ -59,4 +59,3 @@ void recovered_3dce9(char param_1,uint param_2,int param_3)
   }
   return;
 }
-

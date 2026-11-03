@@ -16,4 +16,3 @@ void recovered_21917(int *param_1,uint *param_2,int *param_3,undefined1 param_4)
   *param_3 = *param_3 + 1;
   return;
 }
-

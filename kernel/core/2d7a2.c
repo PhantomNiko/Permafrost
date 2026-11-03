@@ -15,7 +15,7 @@ undefined4 recovered_2d7a2(int *param_1,int param_2)
   int iVar5;
   undefined4 *puVar6;
   uint uVar7;
-  
+
   if (param_2 != 0 && param_1 != (int *)0x0) {
     iVar5 = *param_1;
     uVar1 = param_1[1];
@@ -74,4 +74,3 @@ undefined4 recovered_2d7a2(int *param_1,int param_2)
   }
   return 0;
 }
-

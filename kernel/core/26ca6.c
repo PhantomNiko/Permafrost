@@ -15,7 +15,7 @@ undefined4 recovered_26ca6(int param_1,uint param_2,undefined1 *param_3,char *pa
 
   int iVar1;
   undefined4 uVar2;
-  
+
   if (param_1 == 0 || param_2 < 0xc) {
     format = str_0003f34b;
   }
@@ -32,4 +32,3 @@ undefined4 recovered_26ca6(int param_1,uint param_2,undefined1 *param_3,char *pa
   recovered_219e1(param_4,0x80,format);
   return 0;
 }
-

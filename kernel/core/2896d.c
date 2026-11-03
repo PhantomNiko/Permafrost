@@ -11,7 +11,7 @@ uint recovered_2896d(int *param_1,int param_2)
   int iVar1;
   int iVar2;
   uint uVar3;
-  
+
   if (param_1 != (int *)0x0) {
     iVar2 = 0;
     for (uVar3 = 0; uVar3 < (uint)param_1[1]; uVar3 = uVar3 + 1) {
@@ -25,4 +25,3 @@ uint recovered_2896d(int *param_1,int param_2)
   }
   return 0xffffffff;
 }
-

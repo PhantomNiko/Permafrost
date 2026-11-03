@@ -16,7 +16,7 @@ int recovered_3d07e(int context)
   bool bVar2;
   int *piVar3;
   undefined4 uVar4;
-  
+
   if ((((DAT_00088e5e != '\0') || (bVar2 = recovered_2627e(), bVar2)) &&
       (piVar3 = recovered_27df0(context), piVar3 != (int *)0x0)) &&
      ((iVar1 = piVar3[8], iVar1 != 0 &&
@@ -27,4 +27,3 @@ int recovered_3d07e(int context)
   }
   return 0;
 }
-

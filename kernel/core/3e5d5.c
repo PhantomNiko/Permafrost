@@ -14,7 +14,7 @@ int recovered_3e5d5(int *param_1)
   int iVar4;
   undefined4 unaff_EBX = 0;
   int iVar5;
-  
+
   if ((param_1 != (int *)0x0) && (iVar4 = *param_1, iVar4 != 0)) {
     piVar1 = (int *)param_1[2];
     iVar2 = *piVar1;
@@ -54,4 +54,3 @@ int recovered_3e5d5(int *param_1)
   }
   return 0;
 }
-

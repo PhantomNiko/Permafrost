@@ -82,7 +82,7 @@ undefined4 recovered_29807(uint param_1,undefined4 param_2,uint param_3)
   uint uVar6;
   void *pvVar7;
   uint uVar8;
-  
+
   recovered_29b0f();
   uVar2 = recovered_29b1d(param_1,param_2,(int)local_88,0x44);
   if ((((char)uVar2 != '\0') &&
@@ -195,4 +195,3 @@ LAB_00029a48:
   }
   return 0;
 }
-

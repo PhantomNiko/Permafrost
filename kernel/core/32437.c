@@ -651,7 +651,7 @@ uint recovered_32437(byte ********param_1,byte **param_2,byte **param_3,byte **p
   float10 fVar37;
   ulonglong uVar38;
   longdouble lVar39;
-  
+
   if (param_5 == (int *)0x0 || param_2 == (byte **)0x0) {
     return (uint)(byte ************)0x0;
   }
@@ -2868,7 +2868,7 @@ LAB_000391d0:
                                                         if ((local_18[9] < (byte ***********)0x6) &&
                                                            ((0x26U >> ((uint)local_18[9] & 0x1f) & 1
                                                             ) != 0)) {
-                                                          fVar36 = recovered_2e11e((int *)(local_18 
+                                                          fVar36 = recovered_2e11e((int *)(local_18
                                                   + 9));
                                                   local_20 = (byte ************)(uintptr_t)pf_float_bits((float)fVar36);
                                                   if ((float10)0 < fVar36 && fVar36 != (float10)1) {
@@ -3649,7 +3649,7 @@ LAB_000378df:
                                                   bVar23 = ~bVar23 | bVar6;
                                                   ppppppppppppbVar12 =
                                                        (byte ************)
-                                                       CONCAT31((int3)(CONCAT22((short)(uVar9 >> 
+                                                       CONCAT31((int3)(CONCAT22((short)(uVar9 >>
                                                   0x10),uVar24) >> 8),bVar23);
                                                   if ((bVar23 & 1) == 0) {
                                                     DAT_00088e89 = 0;
@@ -6088,4 +6088,3 @@ LAB_0003284e:
   recovered_2d241((uint)ppppppppppppbVar27,(char *)ppppppppppppbVar12,pcVar41);
   return (uint)(byte ************)0x0;
 }
-

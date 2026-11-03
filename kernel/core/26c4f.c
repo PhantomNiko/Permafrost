@@ -18,7 +18,7 @@ undefined4 recovered_26c4f(char *param_1,undefined4 *param_2,undefined4 *param_3
 
   undefined4 uVar1;
   uint uVar2;
-  
+
   uVar1 = 0;
   if ((((param_3 != (undefined4 *)0x0) && (param_2 != (undefined4 *)0x0)) &&
       (param_1 != (char *)0x0)) && (DAT_00054e28 != '\0')) {
@@ -35,4 +35,3 @@ undefined4 recovered_26c4f(char *param_1,undefined4 *param_2,undefined4 *param_3
   }
   return uVar1;
 }
-

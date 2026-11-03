@@ -10,7 +10,7 @@ uint recovered_284ca(int param_1)
 
   int iVar1;
   uint uVar2;
-  
+
   uVar2 = 0;
   if (param_1 != 0) {
     iVar1 = recovered_20ff4(param_1);
@@ -20,4 +20,3 @@ uint recovered_284ca(int param_1)
   }
   return uVar2;
 }
-

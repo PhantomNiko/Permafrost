@@ -15,7 +15,7 @@ void recovered_3eef5(undefined4 param_1,int param_2,uint param_3)
 {
   unsigned char frame[76];
 
-  
+
   if (param_2 == 2) {
     param_3 = param_3 & 0xffff;
     format = str_000432ef;
@@ -30,4 +30,3 @@ void recovered_3eef5(undefined4 param_1,int param_2,uint param_3)
   recovered_236f9(format,param_1,param_3,param_3);
   return;
 }
-

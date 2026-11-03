@@ -16,7 +16,7 @@ undefined4 recovered_3124f(uint param_1,int *param_2,int *param_3,int param_4,ch
   bool bVar1;
   undefined4 uVar2;
   char *format;
-  
+
   local_14 = 0;
   if (param_2 != (int *)0x0) {
     if (param_4 == 0) {
@@ -42,4 +42,3 @@ undefined4 recovered_3124f(uint param_1,int *param_2,int *param_3,int param_4,ch
   }
   return 0;
 }
-

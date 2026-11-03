@@ -28,7 +28,7 @@ int recovered_21685(char *param_1,uint param_2,char *param_3,double *param_4)
   uint uVar6;
   int iVar7;
   bool bVar8;
-  
+
   local_14 = param_1;
   local_18 = param_2;
   local_1c = 0;
@@ -195,4 +195,3 @@ switchD_00021721_caseD_68:
   param_3 = param_3 + 1;
   goto LAB_00021716;
 }
-

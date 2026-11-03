@@ -15,7 +15,7 @@ undefined4 recovered_3c903(uint param_1,char *param_2,undefined4 *param_3,uint p
   undefined4 *puVar1;
   int iVar2;
   undefined4 *puVar3;
-  
+
   if (param_5 == 4) {
     *param_3 = param_4;
   }
@@ -40,4 +40,3 @@ undefined4 recovered_3c903(uint param_1,char *param_2,undefined4 *param_3,uint p
   }
   return CONCAT31((int3)((uint)puVar1 >> 8),1);
 }
-

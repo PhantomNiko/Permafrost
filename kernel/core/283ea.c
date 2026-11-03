@@ -14,7 +14,7 @@ void recovered_283ea(int param_1,int param_2,int param_3)
   char cVar3;
   int iVar4;
   uint uVar5;
-  
+
   if (param_3 != 0) {
     local_14 = 0;
     for (iVar4 = 0; param_2 != iVar4; iVar4 = iVar4 + 1) {
@@ -41,4 +41,3 @@ void recovered_283ea(int param_1,int param_2,int param_3)
   }
   return;
 }
-

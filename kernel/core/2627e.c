@@ -47,7 +47,7 @@ bool recovered_2627e(void)
   int *piVar6;
   int iVar7;
   bool bVar8;
-  
+
   local_14 = 0;
   local_20 = DAT_00054f20;
   if (DAT_00044dec == 0) {
@@ -99,4 +99,3 @@ LAB_0002631c:
     iVar3 = iVar3 + 1;
   } while( true );
 }
-

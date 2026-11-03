@@ -217,7 +217,7 @@ undefined4 recovered_3988e(char *param_1,char *param_2,int param_3,uint param_4,
   uint *puVar22;
   bool bVar23;
   undefined8 uVar24;
-  
+
   local_60 = 0;
   local_24 = (char *)0x0;
   local_54 = 0;
@@ -1228,4 +1228,3 @@ LAB_00039ea9:
   recovered_2d241((uint)pcVar14,(char *)piVar18,pcVar26);
   return 0;
 }
-

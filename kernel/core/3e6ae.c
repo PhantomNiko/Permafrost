@@ -39,7 +39,7 @@ undefined4 recovered_3e6ae(uint param_1,int param_2,char *param_3,uint *param_4,
   int iVar7;
   int iVar8;
   bool bVar9;
-  
+
   if (param_6 == 0 || (param_5 == (byte *)0x0 || param_3 == (char *)0x0)) {
     return 0;
   }
@@ -269,4 +269,3 @@ LAB_0003ebd8:
   format = str_00040024;
   goto LAB_0003ebea;
 }
-

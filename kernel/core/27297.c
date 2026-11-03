@@ -107,7 +107,7 @@ void recovered_27297(uint columns)
   int iVar7;
   int *piVar8;
   bool bVar9;
-  
+
   DAT_00078c48 = 0;
   DAT_00078c4c = 0;
   DAT_00078c50 = 0;
@@ -259,4 +259,3 @@ LAB_000276b7:
   DAT_00078c54 = 1;
   return;
 }
-

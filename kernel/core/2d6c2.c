@@ -12,7 +12,7 @@ uint recovered_2d6c2(byte *param_1)
   undefined4 in_EAX = 0;
   uint uVar2;
   byte *pbVar3;
-  
+
   if (param_1 != (byte *)0x0) {
     bVar1 = *param_1;
     uVar2 = CONCAT31((int3)((uint)in_EAX >> 8),bVar1);
@@ -35,4 +35,3 @@ uint recovered_2d6c2(byte *param_1)
   }
   return 0;
 }
-

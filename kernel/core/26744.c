@@ -9,7 +9,7 @@ void recovered_26744(int enabled)
   unsigned char frame[64];
 
   undefined1 uVar1;
-  
+
   out(0x3d4,10);
   uVar1 = 0x20;
   if (enabled != 0) {
@@ -20,4 +20,3 @@ void recovered_26744(int enabled)
   out(0x3d5,0xe);
   return;
 }
-

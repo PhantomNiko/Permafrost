@@ -10,7 +10,7 @@ void recovered_2d71c(uint *param_1)
 
   uint uVar1;
   int iVar2;
-  
+
   if (param_1 != (uint *)0x0) {
     iVar2 = 0;
     for (uVar1 = 0; uVar1 < *param_1; uVar1 = uVar1 + 1) {
@@ -24,4 +24,3 @@ void recovered_2d71c(uint *param_1)
   }
   return;
 }
-

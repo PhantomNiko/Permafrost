@@ -19,14 +19,26 @@ def main():
     parser.add_argument('--timeout', type=float, default=45)
     parser.add_argument('--script', type=Path, help='run this script as startup on the test copy')
     parser.add_argument('--expect', default='PF-HARDWARE-PASS')
+    parser.add_argument('--initialize-fpu', action='store_true', help='initialize x87 on the reference test copy')
     args = parser.parse_args()
     image = args.image.read_bytes()
     files = Image(image).files()
+    if args.initialize_fpu:
+        import struct
+        name = next(name for name, content in files.items() if content[:4] == b'WMLP')
+        kernel = bytearray(files[name])
+        if kernel[0x10] != 0xfc:
+            raise ValueError('unexpected reference entry layout')
+        # Replace only the debug entry prefix; all reference C code stays intact.
+        entry = b'\xdb\xe3\xfc\xe8' + struct.pack('<i', 0x23bb1 - 0x20018)
+        entry += b'\xfa\xf4\xeb\xfc'
+        kernel[0x10:0x23] = entry.ljust(0x13, b'\x90')
+        files[name] = bytes(kernel)
     # A script on a test copy observes startup loading and the real UART driver.
     files['startup.ws'] = b'serial("PF-HARDWARE-BOOT")\nserial(2 + 3)\nserial("PF-HARDWARE-PASS")\n'
     if args.script:
         files['startup.ws'] = args.script.read_bytes()
-    image = make_image(image[:512], image[512:65 * 512], files, len(image) // 512)
+    image = make_image(image[:512], image[512:65 * 512], files, max(2048, len(image) // 512))
     with tempfile.TemporaryDirectory(prefix='permafrost-hardware-') as temp:
         root = Path(temp)
         (root / 'disk.img').write_bytes(image)

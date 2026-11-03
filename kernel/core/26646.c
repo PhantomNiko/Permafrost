@@ -13,7 +13,7 @@ void recovered_26646(int param_1,int param_2,undefined1 *param_3,undefined1 para
 
   int iVar1;
   undefined1 *puVar2;
-  
+
   puVar2 = &DAT_0003f254;
   if (param_3 != (undefined1 *)0x0) {
     puVar2 = param_3;
@@ -22,4 +22,3 @@ void recovered_26646(int param_1,int param_2,undefined1 *param_3,undefined1 para
   recovered_26933(param_1,param_2,(int)puVar2,iVar1,param_4,param_5,param_6);
   return;
 }
-

@@ -14,7 +14,7 @@ int * recovered_27df0(int param_1)
 
   int *piVar1;
   int iVar2;
-  
+
   iVar2 = 0;
   piVar1 = &DAT_00054f24;
   while( true ) {
@@ -30,4 +30,3 @@ int * recovered_27df0(int param_1)
   }
   return piVar1;
 }
-

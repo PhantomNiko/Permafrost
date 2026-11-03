@@ -17,7 +17,7 @@ undefined4 recovered_2ed9d(uint param_1,int *param_2,uint *param_3)
   uint uVar2;
   int iVar3;
   uint *puVar4;
-  
+
   local_10 = 0;
   local_3c[0] = 0;
   local_3c[1] = 0;
@@ -52,4 +52,3 @@ undefined4 recovered_2ed9d(uint param_1,int *param_2,uint *param_3)
   }
   return 0;
 }
-

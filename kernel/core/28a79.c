@@ -16,7 +16,7 @@ uint recovered_28a79(int param_1)
   uint uVar2;
   int iVar3;
   uint uVar4;
-  
+
   iVar3 = 0;
   uVar4 = 0;
   uVar2 = DAT_00088e6c;
@@ -36,4 +36,3 @@ uint recovered_28a79(int param_1)
     iVar3 = iVar3 + 0x2c;
   } while( true );
 }
-

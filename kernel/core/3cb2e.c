@@ -18,7 +18,7 @@ int recovered_3cb2e(int *param_1,uint param_2,undefined4 *param_3)
   int iVar3;
   uint uVar4;
   int *piVar5;
-  
+
   iVar3 = 0;
   if (param_3 != (undefined4 *)0x0) {
     *param_3 = 0;
@@ -69,4 +69,3 @@ LAB_0003cc42:
   }
   return iVar3;
 }
-

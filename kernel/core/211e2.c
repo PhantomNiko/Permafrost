@@ -10,7 +10,7 @@ float10 FUN_000211e2(double param_1,double param_2)
 
   float10 fVar1;
   float10 fVar2;
-  
+
   fVar1 = (float10)param_2;
   fVar2 = (float10)0;
   if ((fVar1 != fVar2) || (NAN(fVar1) || NAN(fVar2))) {
@@ -18,4 +18,3 @@ float10 FUN_000211e2(double param_1,double param_2)
   }
   return fVar2;
 }
-

@@ -11,7 +11,7 @@ undefined4 recovered_2de6b(int *param_1)
   char *pcVar1;
   undefined4 uVar2;
   bool bVar3;
-  
+
   if (param_1 == (int *)0x0) {
 switchD_0002de7a_default:
     uVar2 = 0;
@@ -54,4 +54,3 @@ switchD_0002de7a_default:
   }
   return uVar2;
 }
-

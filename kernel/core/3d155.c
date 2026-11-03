@@ -13,11 +13,10 @@ char * recovered_3d155(int param_1)
   unsigned char frame[64];
 
   char *pcVar1;
-  
+
   pcVar1 = str_00041e15;
   if (param_1 - 1U < 4) {
     pcVar1 = (&PTR_str_0003fe57_00044594)[param_1];
   }
   return pcVar1;
 }
-

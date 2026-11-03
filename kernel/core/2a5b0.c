@@ -18,7 +18,7 @@ undefined4 recovered_2a5b0(int param_1,uint param_2,int *param_3,uint *param_4,u
   int iVar4;
   uint uVar5;
   uint uVar6;
-  
+
   local_14 = (undefined4 *)0x0;
   local_20 = (uint *)0x0;
   if (param_5 != (uint *)0x0 && (param_4 != (uint *)0x0 && param_3 != (int *)0x0)) {
@@ -61,4 +61,3 @@ LAB_0002a629:
   }
   return 0;
 }
-

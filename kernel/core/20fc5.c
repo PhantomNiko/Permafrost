@@ -11,7 +11,7 @@ int recovered_20fc5(int param_1,int param_2,int param_3)
   byte *pbVar1;
   byte *pbVar2;
   int iVar3;
-  
+
   iVar3 = 0;
   do {
     if (param_3 == iVar3) {
@@ -23,4 +23,3 @@ int recovered_20fc5(int param_1,int param_2,int param_3)
   } while (*pbVar1 == *pbVar2);
   return (uint)*pbVar1 - (uint)*pbVar2;
 }
-

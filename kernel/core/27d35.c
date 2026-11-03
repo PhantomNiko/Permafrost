@@ -9,7 +9,7 @@ undefined1 * recovered_27d35(undefined4 *param_1)
   unsigned char frame[64];
 
   undefined1 *puVar1;
-  
+
   puVar1 = (undefined1 *)0x0;
   if (param_1 != (undefined4 *)0x0) {
     puVar1 = (undefined1 *)param_1[2];
@@ -28,4 +28,3 @@ undefined1 * recovered_27d35(undefined4 *param_1)
   }
   return puVar1;
 }
-

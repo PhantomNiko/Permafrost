@@ -35,7 +35,7 @@ undefined4 FUN_00021a56(undefined4 param_1,undefined4 param_2,undefined1 param_3
   undefined1 *puVar1;
   int iVar2;
   int iVar3;
-  
+
   DAT_00054e2d = 0;
   DAT_000445f0 = 1;
   puVar1 = &DAT_000445f0;
@@ -58,4 +58,3 @@ undefined4 FUN_00021a56(undefined4 param_1,undefined4 param_2,undefined1 param_3
   recovered_21aed();
   return 1;
 }
-

@@ -12,7 +12,7 @@ undefined4 * recovered_29539(undefined4 param_1,int param_2)
   int iVar2;
   void *pvVar3;
   undefined4 *puVar4;
-  
+
   puVar1 = recovered_20df4(0x4c);
   puVar4 = (undefined4 *)0x0;
   if (puVar1 != (undefined4 *)0x0) {
@@ -48,4 +48,3 @@ undefined4 * recovered_29539(undefined4 param_1,int param_2)
   }
   return puVar4;
 }
-

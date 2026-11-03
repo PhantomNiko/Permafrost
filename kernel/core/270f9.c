@@ -11,7 +11,7 @@ void recovered_270f9(uint *param_1,uint param_2,uint param_3,undefined1 param_4,
 
   uint uVar1;
   int iVar2;
-  
+
   if ((((param_1 != (uint *)0x0) && ((char)param_1[3] == '\x01')) &&
       (uVar1 = param_1[2], -1 < (int)(param_3 | param_2) && uVar1 != 0)) &&
      ((param_2 < *param_1 && (param_3 < param_1[1])))) {
@@ -23,4 +23,3 @@ void recovered_270f9(uint *param_1,uint param_2,uint param_3,undefined1 param_4,
   }
   return;
 }
-

@@ -31,4 +31,3 @@ void recovered_270c0(void)
   _DAT_0005733a = 0;
   return;
 }
-

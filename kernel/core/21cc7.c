@@ -19,7 +19,7 @@ void recovered_21cc7(byte param_1)
   unsigned char frame[64];
 
   int iVar1;
-  
+
   if (DAT_000445f0 == '\x01') {
     if (param_1 == 8) {
       if (DAT_000445f8 != 0) {
@@ -46,4 +46,3 @@ LAB_00021d3b:
   }
   return;
 }
-

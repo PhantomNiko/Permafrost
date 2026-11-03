@@ -12,7 +12,7 @@ undefined4 recovered_3e441(uint *param_1,undefined1 param_2,undefined4 param_3,u
   uint uVar2;
   uint uVar4;
   int iVar3;
-  
+
   if (param_1 == (uint *)0x0) {
     return 0;
   }
@@ -49,4 +49,3 @@ undefined4 recovered_3e441(uint *param_1,undefined1 param_2,undefined4 param_3,u
   *param_1 = uVar2;
   return CONCAT31((int3)(uVar1 >> 8),1);
 }
-

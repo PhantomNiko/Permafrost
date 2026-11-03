@@ -45,7 +45,7 @@ undefined4 recovered_29d3c(uint param_1,uint param_2,undefined4 *param_3,char pa
   bool bVar8;
   undefined8 uVar9;
   longlong lVar10;
-  
+
   if (param_3 != (undefined4 *)0x0) {
     recovered_20fa9((int)param_3,0,0x38);
   }
@@ -207,4 +207,3 @@ undefined4 recovered_29d3c(uint param_1,uint param_2,undefined4 *param_3,char pa
   }
   return 0;
 }
-

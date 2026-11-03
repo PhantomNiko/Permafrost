@@ -17,7 +17,7 @@ undefined4 recovered_2fbcb(uint *param_1,int *param_2)
   int iVar4;
   undefined4 extraout_EDX = 0;
   undefined4 extraout_EDX_00 = 0;
-  
+
   uVar3 = recovered_2fd10(param_1,param_2);
   if ((char)uVar3 == '\0') {
 LAB_0002fcfe:
@@ -72,4 +72,3 @@ LAB_0002fcfe:
   }
   return local_14;
 }
-

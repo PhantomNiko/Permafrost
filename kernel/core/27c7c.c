@@ -12,7 +12,7 @@ undefined4 recovered_27c7c(int *param_1,int param_2,int param_3)
   int iVar2;
   uint uVar3;
   uint uVar4;
-  
+
   if (param_1 == (int *)0x0) {
     return 0;
   }
@@ -47,4 +47,3 @@ undefined4 recovered_27c7c(int *param_1,int param_2,int param_3)
   *(undefined1 *)(param_1[2] + iVar2) = 0;
   return CONCAT31((int3)((uint)iVar2 >> 8),1);
 }
-

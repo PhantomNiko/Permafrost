@@ -16,7 +16,7 @@ undefined4 recovered_2e07b(uint param_1,uint *param_2,uint param_3,uint param_4,
 
   uint uVar1;
   undefined4 uVar2;
-  
+
   if ((((param_3 < param_4) && (param_2 != (uint *)0x0)) && (param_5 != (uint *)0x0)) &&
      (param_4 <= *param_2)) {
     local_20[0] = 0;
@@ -42,4 +42,3 @@ undefined4 recovered_2e07b(uint param_1,uint *param_2,uint param_3,uint param_4,
   recovered_2d241(param_1,(char *)0x0,format);
   return 0;
 }
-

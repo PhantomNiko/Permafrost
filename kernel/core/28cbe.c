@@ -10,7 +10,7 @@ undefined4 recovered_28cbe(int *param_1,int param_2,int param_3)
 
   undefined4 *puVar1;
   undefined4 uVar2;
-  
+
   if ((((param_1 != (int *)0x0) && (*param_1 == 8)) && (param_3 != 0)) &&
      ((param_2 != 0 && (param_1[7] != 0)))) {
     puVar1 = (undefined4 *)recovered_2967e(param_1[7],param_2,'\x01');
@@ -21,4 +21,3 @@ undefined4 recovered_28cbe(int *param_1,int param_2,int param_3)
   }
   return 0;
 }
-

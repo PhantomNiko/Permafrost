@@ -228,7 +228,7 @@ void FUN_00023bb1(void)
   undefined1 *puVar28;
   uint ******ppppppuVar29;
   bool bVar30;
-  
+
   DAT_00044dec = 0x6000;
   out(0x3f9,0);
   out(0x3fb,0x80);
@@ -1560,4 +1560,3 @@ LAB_000247c8:
   iVar8 = iVar8 + 1;
   goto LAB_00024812;
 }
-

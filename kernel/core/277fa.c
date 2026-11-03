@@ -12,7 +12,7 @@ void recovered_277fa(int param_1,int param_2,uint param_3,undefined1 param_4)
 
   int iVar1;
   uint uVar2;
-  
+
   uVar2 = *(uint *)(&DAT_00020800 + param_1);
   if (uVar2 < 0x200) {
     *(uint *)(&DAT_00020800 + param_1) = uVar2 + 1;
@@ -30,4 +30,3 @@ void recovered_277fa(int param_1,int param_2,uint param_3,undefined1 param_4)
   }
   return;
 }
-

@@ -14,7 +14,7 @@ int recovered_2892b(uint *value,char *text,uint size)
   uint uVar2;
   int iVar3;
   char *pcVar4;
-  
+
   if (value == (uint *)0x0) {
     return 0;
   }
@@ -34,4 +34,3 @@ int recovered_2892b(uint *value,char *text,uint size)
   }
   return iVar3;
 }
-

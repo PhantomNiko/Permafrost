@@ -10,7 +10,7 @@ void recovered_3e584(int *param_1)
 
   int iVar1;
   uint uVar2;
-  
+
   if (param_1 != (int *)0x0) {
     iVar1 = 4;
     for (uVar2 = 0; uVar2 < (uint)param_1[1]; uVar2 = uVar2 + 1) {
@@ -25,4 +25,3 @@ void recovered_3e584(int *param_1)
   }
   return;
 }
-

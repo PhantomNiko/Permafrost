@@ -21,7 +21,7 @@ undefined4 recovered_320ed(int param_1,char *param_2,uint param_3)
   byte bVar2;
   uint uVar3;
   uint uVar4;
-  
+
   if (param_2 == (char *)0x0 || param_1 == 0) {
     return 0;
   }
@@ -90,4 +90,3 @@ LAB_000321e8:
   }
   return CONCAT31((int3)((uint)local_1c >> 8),1);
 }
-

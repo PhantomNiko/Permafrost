@@ -10,7 +10,7 @@ void recovered_20b14(uint *param_1,int param_2)
 
   uint uVar1;
   int *piVar2;
-  
+
   if (param_1 != (uint *)0x0) {
     uVar1 = param_2 + 0xfU & 0xfffffff0;
     if (uVar1 + 0x1c <= *param_1) {
@@ -24,4 +24,3 @@ void recovered_20b14(uint *param_1,int param_2)
   }
   return;
 }
-

@@ -37,7 +37,7 @@ undefined4 recovered_3ce41(int *param_1,int *param_2)
   int iVar5;
   uint uVar6;
   bool bVar7;
-  
+
   if (param_2 == (int *)0x0) {
     return 0;
   }
@@ -124,4 +124,3 @@ LAB_0003d06b:
   }
   return 0;
 }
-

@@ -33,8 +33,9 @@ are supported. C++ entry functions must use C linkage. Constructors, exceptions,
 RTTI, threads, dynamic libraries and the C++ standard library are not supplied.
 Unresolved symbols and unsupported ELF relocations are build errors.
 
-`permafrost.h` supplies the two entry points demonstrated by the original native
-utilities and the kernel's formatted log function. Other kernel routines have
+`permafrost.h` supplies disk expansion, night mode, formatted logging, and the
+console theme/character/string/keyboard interfaces used by the original native
+utilities and Wozmon. Other kernel routines have
 not been declared stable SDK interfaces. There is no process isolation: native
 programs run with kernel privileges and must preserve the cdecl ABI, stack and
 machine state. This is a freestanding cross-development SDK hosted on macOS 15,

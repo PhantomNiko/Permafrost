@@ -26,7 +26,7 @@ int recovered_3cc53(uint *value)
 
   bool bVar1;
   int iVar2;
-  
+
   bVar1 = recovered_28c07(value);
   if (((((bVar1) &&
         (iVar2 = recovered_3cd43((int *)value,0x41751,(uint)DAT_00057334), (char)iVar2 != '\0')) &&
@@ -42,4 +42,3 @@ int recovered_3cc53(uint *value)
   }
   return 0;
 }
-

@@ -12,7 +12,7 @@ void recovered_26603(int *param_1,undefined1 param_2,undefined1 param_3,undefine
   int iVar2;
   int iVar3;
   int iVar4;
-  
+
   if (((param_1 != (int *)0x0) && ((char)param_1[3] == '\x01')) && (param_1[2] != 0)) {
     iVar1 = param_1[1];
     iVar2 = *param_1;
@@ -26,4 +26,3 @@ void recovered_26603(int *param_1,undefined1 param_2,undefined1 param_3,undefine
   }
   return;
 }
-

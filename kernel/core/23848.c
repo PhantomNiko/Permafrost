@@ -21,7 +21,7 @@ undefined4 recovered_23848(void)
   unsigned char frame[64];
 
   undefined4 uVar1;
-  
+
   uVar1 = 0;
   if ((((DAT_00054e2c == '\x01') && (*(int *)PTR_DAT_00044040 != 0)) &&
       (*(int *)PTR_DAT_00044044 != 0)) &&
@@ -31,4 +31,3 @@ undefined4 recovered_23848(void)
   }
   return uVar1;
 }
-

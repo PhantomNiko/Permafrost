@@ -13,7 +13,7 @@ float10 recovered_2122f(double param_1,double param_2)
   uint uVar3;
   float10 fVar4;
   float10 fVar5;
-  
+
   fVar4 = (float10)param_1;
   uVar1 = (uint)ROUND(param_2);
   fVar5 = (float10)0;
@@ -38,4 +38,3 @@ float10 recovered_2122f(double param_1,double param_2)
   }
   return fVar5;
 }
-

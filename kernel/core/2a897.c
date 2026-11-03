@@ -183,7 +183,7 @@ uint recovered_2a897(int param_1,uint ***********param_2,int *param_3,undefined4
   bool bVar21;
   ushort in_FPUControlWord = pf_fpu_control();
   float10 fVar22;
-  
+
   if (param_4 != (undefined4 *)0x0) {
     *param_4 = 0;
   }
@@ -1959,4 +1959,3 @@ LAB_0002b113:
   uVar17 = 1;
   goto LAB_0002b047;
 }
-

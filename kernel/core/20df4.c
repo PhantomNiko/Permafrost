@@ -9,8 +9,7 @@ void * recovered_20df4(uint size)
   unsigned char frame[64];
 
   uint *puVar1;
-  
+
   puVar1 = recovered_20ac1(size);
   return puVar1;
 }
-

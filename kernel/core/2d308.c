@@ -12,7 +12,7 @@ int recovered_2d308(int context,char *name)
 
   undefined4 uVar1;
   int iVar2;
-  
+
   uVar1 = recovered_2d39d(context,local_1c);
   iVar2 = 0;
   if (((char)uVar1 != '\0') && (local_1c[0] != 0)) {
@@ -21,4 +21,3 @@ int recovered_2d308(int context,char *name)
   }
   return iVar2;
 }
-

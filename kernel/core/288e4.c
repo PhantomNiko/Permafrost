@@ -14,4 +14,3 @@ undefined4 * recovered_288e4(void *this,float param_1)
   *(int *)((int)this + 4) = (int)ROUND(param_1);
   return this;
 }
-

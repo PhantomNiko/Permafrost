@@ -26,7 +26,7 @@ void recovered_2785c(undefined1 *param_1,uint param_2,byte param_3,char param_4)
   int iVar2;
   uint uVar3;
   uint uVar4;
-  
+
   local_14 = (undefined1 *)0x0;
   if (param_1 != (undefined1 *)0x0 || param_2 == 0) {
     local_18 = param_2;
@@ -66,4 +66,3 @@ void recovered_2785c(undefined1 *param_1,uint param_2,byte param_3,char param_4)
   }
   return;
 }
-

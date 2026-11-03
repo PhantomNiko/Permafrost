@@ -19,7 +19,7 @@ undefined4 recovered_2d98f(int param_1,int param_2,undefined4 *param_3,int *para
   uint uVar4;
   undefined1 *puVar5;
   uint uVar6;
-  
+
   local_14 = (undefined4 *)0x0;
   local_1c = 0;
   if (param_5 != (undefined4 *)0x0 && (param_4 != (int *)0x0 && param_3 != (undefined4 *)0x0)) {
@@ -60,4 +60,3 @@ LAB_0002da4b:
   }
   return 0;
 }
-

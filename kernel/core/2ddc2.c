@@ -13,7 +13,7 @@ undefined4 recovered_2ddc2(int *param_1,int *param_2,int *param_3,byte param_4)
   int iVar3;
   undefined4 *puVar4;
   undefined4 uVar5;
-  
+
   if (param_3 != (int *)0x0 && (param_2 != (int *)0x0 && param_1 != (int *)0x0)) {
     if (*param_1 == 3) {
       if ((((*param_2 == 1) && (*param_3 == 3)) && (param_1[3] != 0)) && (param_3[3] != 0)) {
@@ -42,4 +42,3 @@ undefined4 recovered_2ddc2(int *param_1,int *param_2,int *param_3,byte param_4)
   }
   return 0;
 }
-

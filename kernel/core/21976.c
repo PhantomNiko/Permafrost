@@ -19,7 +19,7 @@ void recovered_21976(int *param_1,uint *param_2,int *param_3,uint param_4,uint p
   int iVar2;
   char *pcVar3;
   bool bVar4;
-  
+
   pcVar3 = str_0003f26d;
   if (param_6 != '\0') {
     pcVar3 = str_0003f25c;
@@ -40,4 +40,3 @@ void recovered_21976(int *param_1,uint *param_2,int *param_3,uint param_4,uint p
   }
   return;
 }
-

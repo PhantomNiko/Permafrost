@@ -127,7 +127,7 @@ bool recovered_22486(void)
   byte *pbVar20;
   int iVar21;
   bool bVar22;
-  
+
   if (DAT_00054e10 == (char *)0x1) {
     if (DAT_00054dfc != (char *)0x0 && (DAT_00054df8 != 0 && DAT_00054e28 == '\x01')) {
       local_40 = DAT_00054dfc;
@@ -928,4 +928,3 @@ LAB_00022d4f:
   local_1c = (char *)((int)local_1c + 1);
   goto LAB_00022b8c;
 }
-

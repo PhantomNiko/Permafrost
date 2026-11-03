@@ -16,7 +16,7 @@ undefined4 recovered_3b5a1(uint param_1,char *param_2,int param_3,uint param_4,u
   int iVar1;
   int iVar2;
   undefined4 uVar3;
-  
+
   if ((param_3 == 0) || (param_4 <= param_5 || param_6 == (int *)0x0)) {
     format = str_00041490;
     goto LAB_0003b5f4;
@@ -48,4 +48,3 @@ LAB_0003b5f4:
   *param_6 = iVar2;
   return CONCAT31((int3)((uint)iVar2 >> 8),1);
 }
-

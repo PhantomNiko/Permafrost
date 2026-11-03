@@ -16,7 +16,7 @@ double recovered_2116a(double value,int *exponent)
 
   double dVar1;
   int iVar2;
-  
+
   if (exponent != (int *)0x0) {
     *exponent = 0;
   }
@@ -41,4 +41,3 @@ double recovered_2116a(double value,int *exponent)
   }
   return dVar1;
 }
-

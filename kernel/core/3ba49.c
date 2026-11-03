@@ -62,7 +62,7 @@ undefined4 recovered_3ba49(int param_1,uint param_2,undefined4 *param_3,char *pa
   uint uVar8;
   int iVar9;
   char *pcVar10;
-  
+
   local_48[0] = 0;
   local_48[1] = 0;
   local_48[2] = 0;
@@ -242,4 +242,3 @@ LAB_0003bd4d:
   recovered_3be0f(local_4c);
   return 0;
 }
-

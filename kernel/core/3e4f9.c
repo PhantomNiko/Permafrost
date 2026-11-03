@@ -17,4 +17,3 @@ void recovered_3e4f9(int param_1)
   FUN_00027d0e((undefined4 *)(param_1 + 0x14));
   return;
 }
-

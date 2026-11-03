@@ -14,7 +14,7 @@ undefined4 recovered_3c6b9(uint param_1,char *param_2,int param_3,uint param_4,u
 
   undefined4 uVar1;
   char *format;
-  
+
   format = str_00041490;
   if ((param_3 != 0) && (param_6 != (int *)0x0 && param_5 < param_4)) {
     uVar1 = recovered_3c774((int *)(param_3 + param_5 * 0x24),param_6);
@@ -26,4 +26,3 @@ undefined4 recovered_3c6b9(uint param_1,char *param_2,int param_3,uint param_4,u
   recovered_2d241(param_1,param_2,format,param_2,param_5 + 1);
   return 0;
 }
-

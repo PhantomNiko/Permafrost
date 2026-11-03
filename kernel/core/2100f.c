@@ -10,7 +10,7 @@ int recovered_2100f(int param_1,int param_2)
 
   byte bVar1;
   int iVar2;
-  
+
   iVar2 = 0;
   while( true ) {
     bVar1 = *(byte *)(param_1 + iVar2);
@@ -19,4 +19,3 @@ int recovered_2100f(int param_1,int param_2)
   }
   return (uint)bVar1 - (uint)*(byte *)(param_2 + iVar2);
 }
-

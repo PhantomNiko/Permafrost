@@ -12,7 +12,7 @@ int recovered_2961b(int param_1,int param_2)
   int iVar2;
   char cVar3;
   char cVar4;
-  
+
   iVar2 = 0;
   if (param_2 != 0 && param_1 != 0) {
     while( true ) {
@@ -36,4 +36,3 @@ int recovered_2961b(int param_1,int param_2)
   }
   return iVar2;
 }
-

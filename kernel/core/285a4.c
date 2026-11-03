@@ -19,4 +19,3 @@ undefined4 * recovered_285a4(undefined4 *param_1)
   param_1[8] = 0;
   return param_1;
 }
-

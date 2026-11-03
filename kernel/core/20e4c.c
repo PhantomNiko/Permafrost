@@ -10,7 +10,7 @@ uint recovered_20e4c(int *param_1)
 
   int *in_EAX = 0;
   int *piVar1;
-  
+
   if (param_1 != (int *)0x0) {
     in_EAX = param_1 + 3;
     piVar1 = (int *)param_1[1];
@@ -23,4 +23,3 @@ uint recovered_20e4c(int *param_1)
   }
   return (uint)in_EAX;
 }
-

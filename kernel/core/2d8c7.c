@@ -15,7 +15,7 @@ bool recovered_2d8c7(int param_1,uint param_2,uint param_3,uint *param_4)
   int iVar2;
   int iVar3;
   bool bVar4;
-  
+
   local_14 = 0;
   do {
     if (param_2 <= param_3) {
@@ -51,4 +51,3 @@ LAB_0002d943:
     param_3 = param_3 + 1;
   } while( true );
 }
-

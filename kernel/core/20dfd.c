@@ -14,7 +14,7 @@ uint recovered_20dfd(int param_1)
   int *piVar1;
   uint uVar2;
   int *piVar3;
-  
+
   if (param_1 != 0) {
     recovered_208b2();
     *(undefined1 *)(param_1 + -4) = 1;
@@ -34,4 +34,3 @@ uint recovered_20dfd(int param_1)
   }
   return (uint)in_EAX;
 }
-

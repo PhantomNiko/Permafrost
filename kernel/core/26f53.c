@@ -53,7 +53,7 @@ undefined4 recovered_26f53(int param_1,uint param_2,byte param_3,byte param_4,by
   int iVar1;
   void *pvVar2;
   undefined1 *puVar3;
-  
+
   if (param_1 == 0 || param_2 == 0) {
     format = str_0003f388;
   }
@@ -102,4 +102,3 @@ undefined4 recovered_26f53(int param_1,uint param_2,byte param_3,byte param_4,by
   recovered_219e1(param_9,0x80,format);
   return 0;
 }
-

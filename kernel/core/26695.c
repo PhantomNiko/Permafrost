@@ -14,7 +14,7 @@ void recovered_26695(uint *param_1,uint param_2,uint param_3,int param_4,int par
   uint uVar3;
   uint uVar4;
   uint uVar5;
-  
+
   if ((((param_1 != (uint *)0x0) && ((char)param_1[3] == '\x01')) && (0 < param_5)) &&
      ((0 < param_4 && (param_1[2] != 0)))) {
     uVar3 = 0;
@@ -45,4 +45,3 @@ void recovered_26695(uint *param_1,uint param_2,uint param_3,int param_4,int par
   }
   return;
 }
-

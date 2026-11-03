@@ -11,7 +11,7 @@ uint recovered_2659b(byte *param_1)
   uint in_EAX = 0;
   byte *pbVar1;
   int iVar2;
-  
+
   if (param_1 != (byte *)0x0) {
     pbVar1 = recovered_3ed88(param_1);
     if (pbVar1 != param_1) {
@@ -27,4 +27,3 @@ uint recovered_2659b(byte *param_1)
   }
   return in_EAX;
 }
-

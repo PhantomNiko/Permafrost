@@ -36,7 +36,7 @@ undefined4 recovered_2a75e(int param_1,uint ***********param_2)
   undefined4 uVar3;
   char *format;
   uint ***********pppppppppppuVar4;
-  
+
   local_18 = (uint ***********)0x0;
   local_14 = 0;
   local_44[0] = 0;
@@ -105,4 +105,3 @@ LAB_0002a885:
   }
   return uVar3;
 }
-

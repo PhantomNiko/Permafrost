@@ -13,7 +13,7 @@ void recovered_23896(void)
   unsigned char frame[64];
 
   undefined4 uVar1;
-  
+
   uVar1 = recovered_2853c(&DAT_00058434);
   if ((char)uVar1 != '\0') {
     uVar1 = recovered_2853c(&DAT_00057324);
@@ -24,4 +24,3 @@ void recovered_23896(void)
   }
   return;
 }
-

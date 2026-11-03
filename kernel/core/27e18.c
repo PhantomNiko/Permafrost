@@ -19,7 +19,7 @@ int recovered_27e18(void)
   undefined4 uVar2;
   int iVar3;
   uint *puVar4;
-  
+
   local_c = 0;
   if (DAT_00044dec == 0) {
     bVar1 = 0x80;
@@ -41,4 +41,3 @@ int recovered_27e18(void)
   }
   return iVar3;
 }
-

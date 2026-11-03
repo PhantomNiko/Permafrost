@@ -12,7 +12,7 @@ uint recovered_3de9c(int param_1,int param_2)
   int iVar2;
   uint uVar3;
   bool bVar4;
-  
+
   uVar3 = 0xffffffff;
   for (iVar2 = 0; iVar2 != param_2; iVar2 = iVar2 + 1) {
     uVar3 = uVar3 ^ *(byte *)(param_1 + iVar2);
@@ -23,4 +23,3 @@ uint recovered_3de9c(int param_1,int param_2)
   }
   return ~uVar3;
 }
-

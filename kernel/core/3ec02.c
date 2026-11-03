@@ -14,7 +14,7 @@ undefined4 recovered_3ec02(int param_1,uint *param_2,uint param_3)
   int iVar4;
   int iVar5;
   uint uVar6;
-  
+
   if (param_2 == (uint *)0x0) {
     return 0;
   }
@@ -78,4 +78,3 @@ undefined4 recovered_3ec02(int param_1,uint *param_2,uint param_3)
   } while (!((iVar4 == 0 && iVar5 == 0) && iVar1 == 0));
   return CONCAT31((int3)((uint)iVar1 >> 8),1);
 }
-

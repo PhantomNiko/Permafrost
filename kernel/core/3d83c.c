@@ -38,7 +38,7 @@ uint recovered_3d83c(int param_1,int param_2,int param_3,uint param_4,int param_
   uint uVar9;
   int iVar10;
   uint uVar11;
-  
+
   uVar4 = 0;
   if (param_8 != 0) {
     local_129[0] = '\0';
@@ -155,4 +155,3 @@ LAB_0003db6e:
   }
   return uVar4;
 }
-

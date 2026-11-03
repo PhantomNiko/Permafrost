@@ -14,7 +14,7 @@ undefined4 * recovered_3d3dd(char param_1)
 
   undefined4 *puVar1;
   uint uVar2;
-  
+
   puVar1 = &DAT_00054f24;
   uVar2 = 0;
   while( true ) {
@@ -27,4 +27,3 @@ undefined4 * recovered_3d3dd(char param_1)
   }
   return puVar1;
 }
-

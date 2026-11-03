@@ -16,7 +16,7 @@ undefined4 recovered_2fab7(uint *param_1,int *param_2)
   undefined4 uVar3;
   int iVar4;
   uint *unaff_EBX = 0;
-  
+
   uVar3 = recovered_2fbcb(param_1,param_2);
   if ((char)uVar3 == '\0') {
 LAB_0002fbbf:
@@ -68,4 +68,3 @@ LAB_0002fbbf:
   }
   return uVar3;
 }
-

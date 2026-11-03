@@ -24,7 +24,7 @@ undefined4 recovered_26bc7(void)
   uint uVar2;
   undefined4 unaff_EBX = 0;
   undefined4 uVar3;
-  
+
   uVar3 = CONCAT31((int3)((uint)unaff_EBX >> 8),1);
   if (DAT_00057430 == '\0') {
     if (DAT_00057431 == '\0') {
@@ -47,4 +47,3 @@ undefined4 recovered_26bc7(void)
   }
   return uVar3;
 }
-

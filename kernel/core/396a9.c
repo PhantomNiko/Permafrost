@@ -19,4 +19,3 @@ void recovered_396a9(void)
   recovered_3e584((int *)(DAT_00088e64 * 0xc + DAT_00088e68));
   return;
 }
-

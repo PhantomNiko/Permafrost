@@ -13,7 +13,7 @@ undefined8 FUN_00020d6c(uint param_1,int param_2,uint param_3,uint param_4)
   int iVar1;
   uint uVar2;
   uint uVar3;
-  
+
   if (param_3 == 0 && param_4 == 0) {
     uVar2 = 0;
     iVar1 = 0;
@@ -36,4 +36,3 @@ undefined8 FUN_00020d6c(uint param_1,int param_2,uint param_3,uint param_4)
   }
   return CONCAT44(iVar1,uVar2);
 }
-

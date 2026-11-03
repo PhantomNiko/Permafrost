@@ -12,7 +12,7 @@ int recovered_20e83(int param_1,int param_2)
   int *piVar2;
   uint *puVar3;
   uint uVar4;
-  
+
   if (param_1 == 0) {
     puVar3 = recovered_20ac1(param_2);
     return (int)puVar3;
@@ -50,4 +50,3 @@ int recovered_20e83(int param_1,int param_2)
   }
   return 0;
 }
-

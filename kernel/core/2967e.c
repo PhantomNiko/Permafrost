@@ -15,7 +15,7 @@ int recovered_2967e(int param_1,int param_2,char param_3)
   undefined4 *puVar5;
   int iVar6;
   uint uVar7;
-  
+
   if (param_2 == 0 || param_1 == 0) {
     return 0;
   }
@@ -81,4 +81,3 @@ int recovered_2967e(int param_1,int param_2,char param_3)
   }
   return *(int *)(param_1 + 0xc) + uVar1 * 0x28 + 4;
 }
-

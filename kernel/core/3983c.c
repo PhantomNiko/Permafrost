@@ -11,7 +11,7 @@ bool recovered_3983c(int param_1,int param_2)
   uint uVar1;
   uint uVar2;
   int iVar3;
-  
+
   if (param_2 != 0 && param_1 != 0) {
     uVar1 = recovered_20ff4(param_2);
     uVar2 = recovered_20ff4(param_1);
@@ -22,4 +22,3 @@ bool recovered_3983c(int param_1,int param_2)
   }
   return false;
 }
-

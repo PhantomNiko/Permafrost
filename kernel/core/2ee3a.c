@@ -16,7 +16,7 @@ uint recovered_2ee3a(int *container,char *text,uint size)
   uint uVar4;
   char *pcVar5;
   uint uVar6;
-  
+
   if (container == (int *)0x0) {
     return 0;
   }
@@ -56,4 +56,3 @@ uint recovered_2ee3a(int *container,char *text,uint size)
   *(void **)(container[2] + iVar2 * 4) = pvVar3;
   return CONCAT31((int3)((uint)pvVar3 >> 8),1);
 }
-

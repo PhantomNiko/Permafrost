@@ -14,7 +14,7 @@ undefined4 recovered_2deff(uint *param_1,uint param_2,int param_3,uint *param_4)
   int iVar1;
   int iVar2;
   bool bVar3;
-  
+
   if (param_4 != (uint *)0x0 && (param_3 != 0 && param_1 != (uint *)0x0)) {
     local_1c = 0;
     local_18 = 0;
@@ -81,4 +81,3 @@ undefined4 recovered_2deff(uint *param_1,uint param_2,int param_3,uint *param_4)
   }
   return 0;
 }
-

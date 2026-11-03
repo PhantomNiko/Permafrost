@@ -96,6 +96,8 @@ def main():
         image = slot(image, b'/WinterBoot-baremetal.bin', b'/Permafrost-kernel.bin')
         kernel = slot(files['WinterBoot-baremetal.bin'], b'WinterMoon OS', b'Permafrost')
         kernel = slot(kernel, b'0.3\0', b'0.2\0')
+        kernel = slot(kernel, b'WINTEROS', b'PERMAFS ')
+        kernel = slot(kernel, b'WINTERMNT   ', b'PERMAMNT    ')
         files['WinterBoot-baremetal.bin'] = kernel
     recover('boot', image[:512], [(0, 0x40, 16, 0), (0x40, 512, 0, 0)], args.out / 'boot.asm', args.ndisasm)
     recover('loader', image[512:65*512], [(0, 0x899, 16, 0), (0x899, 0x8b8, 32, 0x8899),

@@ -18,7 +18,7 @@ bool recovered_3233b(uint *param_1,uint *param_2)
   bool bVar6;
   float10 fVar7;
   float10 fVar8;
-  
+
   if (param_2 == (uint *)0x0 || param_1 == (uint *)0x0) {
     return false;
   }
@@ -78,4 +78,3 @@ LAB_000323e2:
   }
   return bVar6;
 }
-

@@ -28,7 +28,7 @@ uint recovered_2a4e4(char *path)
 
   undefined4 uVar1;
   uint uVar2;
-  
+
   local_18 = (undefined4 *)0x0;
   local_14 = (uint ***********)0x0;
   local_1c = 0;
@@ -58,4 +58,3 @@ uint recovered_2a4e4(char *path)
   recovered_236f9(str_0003f33e,local_ec);
   return 0;
 }
-

@@ -13,7 +13,7 @@ int recovered_31181(int param_1)
 
   uint uVar1;
   int iVar2;
-  
+
   if (param_1 == 0) {
     iVar2 = 0;
   }
@@ -27,4 +27,3 @@ int recovered_31181(int param_1)
   }
   return iVar2;
 }
-

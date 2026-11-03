@@ -13,7 +13,7 @@ uint recovered_28761(undefined4 *param_1)
   uint uVar1;
   uint *puVar2;
   int iVar3;
-  
+
   if (param_1 == (undefined4 *)0x0) {
     return in_EAX;
   }
@@ -76,4 +76,3 @@ switchD_00028782_caseD_5:
   param_1[8] = 0;
   return uVar1;
 }
-

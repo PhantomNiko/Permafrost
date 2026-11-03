@@ -14,7 +14,7 @@ undefined8 recovered_3dca4(uint param_1,uint param_2,uint param_3,uint param_4)
   uint uVar4;
   undefined4 uVar5;
   bool bVar6;
-  
+
   uVar5 = 0;
   if (param_4 != 0 && param_2 != 0) {
     bVar6 = CARRY4(param_2,param_1);
@@ -29,4 +29,3 @@ undefined8 recovered_3dca4(uint param_1,uint param_2,uint param_3,uint param_4)
   }
   return CONCAT44(param_2,uVar5);
 }
-

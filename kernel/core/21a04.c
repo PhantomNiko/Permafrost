@@ -13,7 +13,7 @@ void recovered_21a04(int param_1,uint param_2,int *param_3)
   undefined4 *puVar1;
   uint uVar2;
   int *piVar3;
-  
+
   piVar3 = (int *)(param_1 + 0xfU & 0xfffffff0);
   uVar2 = param_2 - ((int)piVar3 - param_1);
   if ((((uint)((int)piVar3 - param_1) <= param_2 && uVar2 != 0) && param_3 != (int *)0x0) &&
@@ -32,4 +32,3 @@ void recovered_21a04(int param_1,uint param_2,int *param_3)
   }
   return;
 }
-

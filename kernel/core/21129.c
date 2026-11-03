@@ -13,4 +13,3 @@ undefined4 FUN_00021129(undefined4 *param_1)
   }
   return 0x574d4236;
 }
-

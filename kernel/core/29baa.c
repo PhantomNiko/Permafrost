@@ -15,4 +15,3 @@ void recovered_29baa(void)
   recovered_23907();
   return;
 }
-

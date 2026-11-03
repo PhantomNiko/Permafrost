@@ -87,7 +87,7 @@ uint recovered_21d99(void)
   undefined *puVar9;
   undefined1 *puVar10;
   bool bVar11;
-  
+
   uVar4 = DAT_00057328;
   local_28 = _DAT_0000046c / 9;
   if (DAT_00054e2d == '\x01') {
@@ -261,4 +261,3 @@ LAB_0002208e:
   recovered_26744(iVar3);
   return extraout_EAX_00;
 }
-

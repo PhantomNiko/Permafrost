@@ -24,7 +24,7 @@ undefined4 recovered_3dbfa(int param_1,int param_2,undefined4 param_3,undefined4
   uint uVar1;
   uint uVar2;
   int iVar3;
-  
+
   if (param_1 != 0) {
     recovered_26d9b(param_1,local_101);
     if (((local_101[0] != '\0') &&
@@ -43,4 +43,3 @@ undefined4 recovered_3dbfa(int param_1,int param_2,undefined4 param_3,undefined4
   recovered_20dfd(param_2);
   return 0;
 }
-

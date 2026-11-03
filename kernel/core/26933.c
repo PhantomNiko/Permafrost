@@ -51,7 +51,7 @@ void recovered_26933(int param_1,int param_2,int param_3,int param_4,undefined1 
   uint uVar11;
   uint uVar13;
   uint uVar14;
-  
+
   if (((DAT_00057330 == 1) && (DAT_0005732c != 0)) && (param_3 != 0 || param_4 == 0)) {
     recovered_26b37();
     recovered_26bc7();
@@ -107,4 +107,3 @@ LAB_000269e4:
   }
   return;
 }
-

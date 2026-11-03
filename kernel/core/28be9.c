@@ -14,4 +14,3 @@ void recovered_28be9(undefined4 *param_1)
   }
   return;
 }
-

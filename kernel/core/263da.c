@@ -38,7 +38,7 @@ void recovered_263da(void)
   ushort uVar6;
   uint uVar7;
   uint uVar8;
-  
+
   DAT_00054e2e = 0;
   uVar7 = 0;
   uVar3 = _DAT_0000046c / 9;
@@ -112,4 +112,3 @@ LAB_0002644c:
     uVar3 = uVar5;
   } while( true );
 }
-

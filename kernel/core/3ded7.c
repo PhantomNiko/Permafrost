@@ -44,7 +44,7 @@ undefined4 recovered_3ded7(int param_1,uint param_2,uint param_3)
   undefined1 *puVar6;
   uint uVar7;
   void *pvVar8;
-  
+
   if (param_3 == 0) {
     return 0;
   }
@@ -129,4 +129,3 @@ LAB_0003e1ad:
   recovered_20dfd((int)local_14);
   return uVar3;
 }
-

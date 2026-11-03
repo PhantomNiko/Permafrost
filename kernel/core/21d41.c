@@ -14,4 +14,3 @@ int recovered_21d41(char *text)
   recovered_21aed();
   return 1;
 }
-

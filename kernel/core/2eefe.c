@@ -9,7 +9,7 @@ undefined4 recovered_2eefe(int param_1,int param_2)
   unsigned char frame[64];
 
   undefined4 uVar1;
-  
+
   if (param_2 != 0 && param_1 != 0) {
     uVar1 = recovered_2ef40(param_1,*(int *)(param_1 + 8) + 1);
     if ((char)uVar1 != '\0') {
@@ -21,4 +21,3 @@ undefined4 recovered_2eefe(int param_1,int param_2)
   }
   return 0;
 }
-

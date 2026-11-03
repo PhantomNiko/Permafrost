@@ -22,7 +22,7 @@ void recovered_26b37(void)
   unsigned char frame[192];
 
   undefined4 uVar1;
-  
+
   local_c = 0;
   local_10 = 0;
   if (((DAT_00057334 == '\0') && (DAT_00057335 == '\0')) && (DAT_00054e28 == '\x01')) {
@@ -38,4 +38,3 @@ void recovered_26b37(void)
   }
   return;
 }
-
