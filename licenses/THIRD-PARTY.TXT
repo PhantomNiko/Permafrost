@@ -1,14 +1,15 @@
-Permafrost 0.5 third-party components
+Permafrost 0.6 third-party components
 
-Lua 5.4.8 is compiled and linked from the external Permafrost branch:
+OpenBIOS firmware is built from the separate source checkout recorded in
+DEPENDENCIES.md and dependencies.json:
+https://github.com/PhantomNiko/openbios
+Its upstream GPL and per-file copyright notices remain applicable.
+See OPENBIOS-GPL-2.0.TXT in distributions containing that firmware.
+
+The current reference uses in-house WinterLua 0.2 rather than upstream Lua.
+Historical upstream Lua components retain the Lua MIT license and copyright,
+reproduced in LUA-MIT.TXT. They are obtained from the external sibling source:
 https://github.com/PhantomNiko/lua/tree/Permafrost
-See dependencies.json for the recorded source revision.
 
-Lua's upstream copyright and MIT license apply to Lua code and remain intact.
-They are reproduced as LUA-LICENSE.TXT alongside the distributed Lua binary.
-Pooka's Free Software License applies to the reconstructed kernel and host
-integration code; it does not replace Lua's upstream license.
-
-The supplied 0.6 reference did not contain an identified OpenBIOS component.
-For releases containing OpenBIOS, use https://github.com/PhantomNiko/openbios
-and preserve its applicable licenses rather than decompiling it as project code.
+Pooka's Free Software License does not replace third-party licenses.
+See LICENSES.md for repository license scope.

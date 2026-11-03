@@ -1,18 +1,17 @@
-# External source dependencies
+# Source dependencies
 
-When a release includes Lua, build and link the application against
-[PhantomNiko/lua, branch Permafrost](https://github.com/PhantomNiko/lua/tree/Permafrost),
-using the sibling checkout `../lua`. Preserve Lua's upstream copyright and
-license; the reconstruction license does not replace third-party licenses.
-Replace this dependency with the recovered in-house implementation when the
-reference release actually replaces Lua.
+Permafrost 0.6 reconstructs the supplied 0.7 reference. That reference replaces
+the external Lua VM with in-house WinterLua 0.2. The current target therefore
+has no dependency on upstream Lua, and the obsolete local Lua host port has
+been removed. In-house application recovery is in progress.
 
-When OpenBIOS is encountered, use
-[PhantomNiko/openbios](https://github.com/PhantomNiko/openbios), in the sibling
-checkout `../openbios`, and retain its applicable upstream licenses. Do not
-introduce it as a dependency for releases that do not contain it.
+Historical milestones that use upstream Lua obtain it from the sibling
+`../lua` checkout of https://github.com/PhantomNiko/lua/tree/Permafrost.
+Lua retains its MIT license and copyright. Its source is not vendored here.
+See `licenses/LUA-MIT.TXT` and `LICENSES.md`.
 
-The current 0.6 reference contains a standalone Lua application and an in-house
-WinterScript kernel interpreter. Its boot sector and loader are custom BIOS
-code; OpenBIOS has not been identified in this reference. Lua is compiled and
-linked against that source checkout. The VM is not copied into reconstruction-owned source; its upstream license accompanies the binary.
+The OpenBIOS variant builds firmware from the sibling `../openbios` checkout
+of https://github.com/PhantomNiko/openbios. `dependencies.json` pins the source
+revision. Preserve that checkout's upstream GPL and per-file notices; the
+reconstruction license does not replace them. Its firmware implementation is
+built from source, rather than decompiled into reconstruction-owned code.

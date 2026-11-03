@@ -8,7 +8,6 @@ from wmfs import make_disk
 from kernel import compile_kernel
 from cc import compile_object
 from elf32 import Object,link
-from lua import compile_lua
 
 
 def main():
@@ -16,7 +15,6 @@ def main():
     parser.add_argument('--nasm',default='nasm')
     parser.add_argument('--out',type=Path,default=Path('build'))
     parser.add_argument('--sectors',type=int,default=81920)
-    parser.add_argument('--lua-source',type=Path,default=Path('../lua'))
     args=parser.parse_args();output=args.out;output.mkdir(parents=True,exist_ok=True)
     compile_kernel(output)
     for part in ('boot','loader','kernel'):
@@ -32,9 +30,9 @@ def main():
     files={p.name:p.read_bytes() for p in Path('assets').iterdir()
            if p.is_file() and p.name not in ('firmware-startup.ws','recovery-startup.ws')}
     files.update(applications)
-    files['lua.bin']=compile_lua(output/'lua',args.lua_source)
-    files['LUA-LICENSE.TXT']=(output/'lua/LUA-LICENSE.TXT').read_bytes()
     files['THIRD-PARTY.TXT']=Path('licenses/THIRD-PARTY.TXT').read_bytes()
+    for notice in ('LICENSES.md','DEPENDENCIES.md','licenses/LUA-MIT.TXT','licenses/OPENBIOS-GPL-2.0.TXT'):
+        files[Path(notice).name]=Path(notice).read_bytes()
     files.update({'Permafrost-kernel.bin':(output/'kernel.bin').read_bytes(),
                   'LICENSE.TXT':Path('LICENSE.TXT').read_bytes(),'UPSTREAM.TXT':Path('licenses/UPSTREAM.TXT').read_bytes()})
     common={name:files[name] for name in ('Permafrost-kernel.bin','bitmap-font.wbf','LICENSE.TXT','UPSTREAM.TXT')}
@@ -43,8 +41,8 @@ def main():
     recovery=common|{'startup.ws':Path('assets/recovery-startup.ws').read_bytes()}
     result=make_disk((output/'boot.bin').read_bytes(),(output/'loader.bin').read_bytes(),
                      firmware,recovery,files,args.sectors)
-    (output/'Permafrost-0.5.img').write_bytes(result)
-    print('Built Permafrost-0.5.img (%d bytes, SHA-256 %s)'%(len(result),hashlib.sha256(result).hexdigest()))
+    (output/'Permafrost-0.6.img').write_bytes(result)
+    print('Built Permafrost-0.6.img (%d bytes, SHA-256 %s)'%(len(result),hashlib.sha256(result).hexdigest()))
 
 
 if __name__=='__main__':main()
