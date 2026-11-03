@@ -7,10 +7,10 @@
 #define DAT_00006090 (*(uint8_t *)(0x6090U))
 #undef DAT_00006094
 #define DAT_00006094 (*(uint8_t *)(0x6094U))
-#undef DAT_0004e60c
-#define DAT_0004e60c (*(char *)(0x4e60cU))
-#undef DAT_0004e610
-#define DAT_0004e610 (*(int *)(0x4e610U))
+#undef DAT_0005d7b8
+#define DAT_0005d7b8 (*(char *)(0x5d7b8U))
+#undef DAT_0005d7bc
+#define DAT_0005d7bc (*(int *)(0x5d7bcU))
 #undef _DAT_00006088
 #define _DAT_00006088 (*(uint *)(0x6088U))
 #undef _DAT_0000608c
@@ -19,8 +19,8 @@
 #define local_20 (*(uint *)(frame + 668))
 #define local_1c (*(uint *)(frame + 672))
 #define local_18 (*(uint *)(frame + 676))
-#define local_14 (*(uint *)(frame + 680))
 #define auStackY_2ac (*(uint (*)[128])(frame + 16))
+#define local_14 (*(uint *)(frame + 680))
 #define auStack_a8 (*(uint (*)[33])(frame + 532))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x20c94
@@ -31,7 +31,7 @@
 uint recovered_20c94(void)
 
 {
-  unsigned char frame[732];
+  unsigned char frame[732] = {0};
 
   uint in_EAX = 0;
   uint extraout_EAX = 0;
@@ -46,8 +46,8 @@ uint recovered_20c94(void)
   bool bVar8;
 
   local_24 = 0;
-  if (DAT_0004e60c == '\0') {
-    DAT_0004e610 = 0;
+  if (DAT_0005d7b8 == '\0') {
+    DAT_0005d7bc = 0;
     local_18 = 0x10;
     if (_DAT_0000608c < 0x10) {
       local_18 = _DAT_0000608c;
@@ -108,10 +108,10 @@ uint recovered_20c94(void)
       }
     }
     for (iVar5 = 0; iVar7 != iVar5; iVar5 = iVar5 + 1) {
-      recovered_21e0a(auStack_a8[iVar5 * 2 + 1],auStack_a8[iVar5 * 2 + 2],&local_24);
+      recovered_22385(auStack_a8[iVar5 * 2 + 1],auStack_a8[iVar5 * 2 + 2],&local_24);
       in_EAX = extraout_EAX;
     }
-    if (DAT_0004e610 == 0) {
+    if (DAT_0005d7bc == 0) {
       uVar4 = 0x4000000;
       if (0x300000 < _DAT_00006088) {
         uVar4 = _DAT_00006088 & 0xfffffff0;
@@ -120,10 +120,10 @@ uint recovered_20c94(void)
       if (0x30001c < uVar4) {
         uVar6 = uVar4 - 0x300000;
       }
-      recovered_21e0a(0x300000,uVar6,&local_24);
+      recovered_22385(0x300000,uVar6,&local_24);
       in_EAX = extraout_EAX_00;
     }
-    DAT_0004e60c = '\x01';
+    DAT_0005d7b8 = '\x01';
   }
   return in_EAX;
 }

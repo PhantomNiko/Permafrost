@@ -1,21 +1,36 @@
 #!/usr/bin/env python3
 """Compile the C/C++ kernel and generate fixed-address native ABI adapters."""
 import json
+import hashlib
+import os
+import struct
+import subprocess
+from lz4 import compress
 from pathlib import Path
 from cc import compile_object
 from elf32 import Object, link
 
 
-def compile_kernel(output):
+def compile_kernel(output, nasm='nasm'):
     output.mkdir(parents=True, exist_ok=True)
     layout = json.loads(Path('recovery/layout.json').read_text())
     sources = sorted(Path('kernel/core').glob('*.c')) + [Path('kernel/' + name)
                 for name in ('runtime.c', 'display.cpp', 'compiler.c')]
+    headers = sorted(Path('sdk/include').glob('*.h')) + sorted(Path('kernel').glob('*.h')) + sorted(Path('kernel/core').glob('*.h'))
+    compiler_identity = b''.join(subprocess.check_output([os.environ.get(var, default), '--version'])
+        for var, default in [('CC','clang'),('CXX','clang++')])
+    shared = b''.join(p.read_bytes() for p in headers + [Path('tools/cc.py'), Path(__file__)]) + compiler_identity
+    cache_path=output/'compile-cache.json'
+    cache=json.loads(cache_path.read_text()) if cache_path.exists() else {}
     objects = []
     for source in sources:
         target = output / (source.stem + '.o')
-        compile_object(source, target, ['sdk/include', 'kernel', 'kernel/core'], extra_flags=[
-            '-Wno-int-conversion', '-Wno-incompatible-pointer-types', '-Wno-pointer-sign'])
+        digest=hashlib.sha256(shared+source.read_bytes()).hexdigest()
+        if not target.exists() or cache.get(str(source))!=digest:
+            compile_object(source, target, ['sdk/include', 'kernel', 'kernel/core'], extra_flags=[
+                '-Wno-int-conversion', '-Wno-incompatible-pointer-types', '-Wno-pointer-sign'])
+            cache[str(source)]=digest
+            cache_path.write_text(json.dumps(cache,indent=2)+'\n')
         objects.append(Object(target.read_bytes()))
     module, symbols, _ = link(objects, base=layout['core_base'], shim=False)
     (output / 'kernel_c.bin').write_bytes(module)
@@ -37,7 +52,7 @@ def compile_kernel(output):
     entries = json.loads(Path('kernel/abi.json').read_text())
     for name, (address, _) in json.loads(Path('kernel/runtime.json').read_text()).items():
         entries['%x' % address] = dict(symbol=name, arguments=[])
-    entries['25cfe'] = dict(symbol='pf_display_night_mode', arguments=[])
+    entries['3323e'] = dict(symbol='pf_display_night_mode', arguments=[])
     stubs, adapters = ['; Generated from kernel/abi.json. Pooka\'s Free Software License.', 'bits 32'], []
     for text, entry in sorted(entries.items(), key=lambda item: int(item[0], 16)):
         address = int(text, 16)
@@ -71,4 +86,33 @@ def compile_kernel(output):
         adapters += ['    call ' + symbol, '    add esp, %d' % pushed, '    ret']
     (output / 'kernel_abi.inc').write_text('\n'.join(stubs) + '\n')
     (output / 'kernel_adapters.inc').write_text('\n'.join(adapters) + '\n')
+    # Resolve adapter addresses in a separate flat core, then compress the
+    # complete module. The BIOS staging copy must fit below VGA memory.
+    labels = ['pf_stage2'] + ['pf_bridge_' + text for text, entry in sorted(entries.items(), key=lambda item: int(item[0], 16))
+                              if any(not a['storage'].startswith('stack') for a in entry['arguments'])]
+    metadata_size = 4 * len(labels)
+    core_asm = ['%include "kernel_c.inc"', 'section metadata start=0 vstart=0 align=1',
+                'dd ' + ','.join(labels),
+                'section core start=%d vstart=0x%x align=1' % (metadata_size, layout['core_base']),
+                'bits 32', 'incbin "kernel_c.bin"', '%include "kernel_adapters.inc"',
+                'pf_stage2:', 'xor eax,eax', 'mov edi,pf_initialized_end',
+                'mov ecx,pf_state_end-pf_initialized_end', 'rep stosb',
+                'call pf_kernel_main', '.halt:', 'cli', 'hlt', 'jmp .halt']
+    (output/'kernel_core.asm').write_text('\n'.join(core_asm)+'\n')
+    subprocess.run([nasm, '-I', str(output)+'/', '-f', 'bin', str(output/'kernel_core.asm'),
+                    '-o', str(output/'kernel_core.with-labels')], check=True)
+    combined=(output/'kernel_core.with-labels').read_bytes()
+    addresses=struct.unpack_from('<%dI'%len(labels),combined)
+    core=combined[metadata_size:]
+    packed=compress(core)
+    (output/'kernel_packed.bin').write_bytes(packed)
+    compile_object('kernel/unpack.c',output/'unpack.o',['sdk/include'])
+    decoder,decoder_symbols,_=link([Object((output/'unpack.o').read_bytes())],
+        base=layout['kernel_base']+((layout['initialized_end']-layout['kernel_base']+15)&~15),shim=False)
+    (output/'kernel_unpack.bin').write_bytes(decoder)
+    with (output/'kernel_c.inc').open('a') as handle:
+        handle.write(''.join('%s equ 0x%x\n'%(name,address) for name,address in zip(labels,addresses)))
+        handle.write('pf_unpack equ 0x%x\npf_packed_size equ %d\npf_unpacked_size equ %d\n' %
+                     (decoder_symbols['pf_unpack'],len(packed),len(core)))
+    print('Kernel core: %d bytes, packed %d bytes'%(len(core),len(packed)))
     return symbols

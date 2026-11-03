@@ -1,5 +1,5 @@
 %include "kernel_c.inc"
-; Permafrost 0.5 — recovered assembly, Pooka's Free Software License.
+; Permafrost 0.6 — recovered assembly, Pooka's Free Software License.
 ; Fixed virtual addresses preserve compatibility with original raw programs.
 ; at() retains original instruction boundaries when NASM shortens an encoding.
 %macro pf_at 1
@@ -1918,35 +1918,29 @@ section part20 start=0xbd0 vstart=0x0 align=1
 %include "kernel_abi.inc"
 section initial_state start=pf_state_start-0x20000 vstart=pf_state_start align=1
 incbin "kernel_state.bin"
-section c_runtime start=pf_payload_offset vstart=pf_core_base align=1
+section payload start=pf_payload_offset vstart=0x20000+pf_payload_offset align=1
 bits 32
-pf_compiled_start:
-incbin "kernel_c.bin"
-%include "kernel_adapters.inc"
-pf_stage2:
-    xor eax,eax
-    mov edi,pf_initialized_end
-    mov ecx,pf_state_end-pf_initialized_end
-    rep stosb
-    call pf_kernel_main
+incbin "kernel_unpack.bin"
+pf_packed_start:
+incbin "kernel_packed.bin"
+pf_relocate:
+    fninit
+    cld
+    push dword pf_packed_size
+    push dword pf_packed_start
+    push dword pf_unpacked_size
+    push dword pf_core_base
+    call pf_unpack
+    add esp,16
+    test eax,eax
+    jnz pf_stage2
 .halt:
     cli
     hlt
     jmp .halt
-pf_compiled_end:
-section bootstrap start=pf_payload_offset+pf_compiled_end-pf_compiled_start vstart=0x20000+pf_payload_offset+pf_compiled_end-pf_compiled_start align=1
-bits 32
-pf_relocate:
-    fninit
-    cld
-    mov esi,0x20000+pf_payload_offset
-    mov edi,pf_core_base
-    mov ecx,pf_compiled_end-pf_compiled_start
-    rep movsb
-    jmp pf_stage2
-%if $-$$+pf_payload_offset+pf_compiled_end-pf_compiled_start >= 0x80000
+%if $-$$+pf_payload_offset >= 0x80000
 %error "temporary kernel payload reaches VGA memory"
 %endif
-%if pf_core_base+pf_compiled_end-pf_compiled_start >= 0x170000
+%if pf_core_base+pf_unpacked_size >= 0x170000
 %error "compiled kernel approaches main stack"
 %endif

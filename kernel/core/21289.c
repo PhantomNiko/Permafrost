@@ -6,7 +6,7 @@
 int recovered_21289(int param_1,int param_2)
 
 {
-  unsigned char frame[64];
+  unsigned char frame[64] = {0};
 
   uint uVar1;
   int *piVar2;

@@ -6,7 +6,7 @@
 void * recovered_211fa(uint size)
 
 {
-  unsigned char frame[64];
+  unsigned char frame[64] = {0};
 
   uint *puVar1;
 

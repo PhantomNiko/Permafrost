@@ -6,7 +6,7 @@
 ulonglong recovered_20fc2(ulonglong numerator,ulonglong denominator)
 
 {
-  unsigned char frame[64];
+  unsigned char frame[64] = {0};
 
   ulonglong uVar1;
 

@@ -1,7 +1,7 @@
 # C/C++ migration method
 
 The assembly recovery provides the executable oracle for the current reference.
-The default kernel now compiles 386 recovered C function bodies, the handwritten
+The default kernel now compiles 721 recovered C function bodies, the handwritten
 C runtime/compiler support, and the C++ public display entry. Superseded kernel
 assembly has been removed. Initial state is a packed, statically checked C
 structure; only boot and BIOS/CPU transition code remains in assembly.
@@ -40,5 +40,10 @@ frame offsets. The i386 status renderer has a shared variadic call site with
 two, three or four strings; its four-string branch needs an argument omitted
 by the raw decompiler export. The translation restores that verified argument.
 
-The 0.5 migration adds FAT32 driver recovery and preserves the filename lookup
-wrapper's integer return, including its callers' use of the returned index.
+The 0.6 BIOS recovery preserves the chain reader's two register arguments
+alongside nine stack arguments. The source-built core is LZ4-compressed for
+BIOS staging below VGA memory and decoded by a small C bootstrap routine.
+Directory output restores the size argument omitted by Ghidra at a shared
+file/directory format call. Its independent disk-record comparison passes
+under Bochs, including empty and multi-cluster files. Full runtime and in-house
+application validation remain in progress.

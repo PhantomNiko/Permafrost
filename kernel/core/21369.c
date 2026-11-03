@@ -6,7 +6,7 @@
 void recovered_21369(uint param_1,uint param_2,int param_3)
 
 {
-  unsigned char frame[64];
+  unsigned char frame[64] = {0};
 
   int iVar1;
 

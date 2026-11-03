@@ -7,7 +7,7 @@
 undefined8 recovered_20fe3(undefined4 param_1,undefined4 param_2,uint param_3,uint param_4,uint *param_5)
 
 {
-  unsigned char frame[68];
+  unsigned char frame[68] = {0};
 
   uint uVar1;
   uint uVar2;

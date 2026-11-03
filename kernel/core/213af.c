@@ -6,7 +6,7 @@
 uint recovered_213af(int param_1,undefined1 param_2,int param_3)
 
 {
-  unsigned char frame[64];
+  unsigned char frame[64] = {0};
 
   int iVar1;
 

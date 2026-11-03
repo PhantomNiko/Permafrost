@@ -16,7 +16,7 @@ def main():
     parser.add_argument('--out',type=Path,default=Path('build'))
     parser.add_argument('--sectors',type=int,default=81920)
     args=parser.parse_args();output=args.out;output.mkdir(parents=True,exist_ok=True)
-    compile_kernel(output)
+    compile_kernel(output,args.nasm)
     for part in ('boot','loader','kernel'):
         subprocess.run([args.nasm,'-I',str(output)+'/', '-f','bin','src/'+part+'.asm',
                         '-o',str(output/(part+'.bin'))],check=True)

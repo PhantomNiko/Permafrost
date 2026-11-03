@@ -72,11 +72,19 @@ def main():
     manual = {path.stem: path.read_text() for path in manual_root.glob('*.c')}
     args.out.mkdir(parents=True, exist_ok=True)
     sources = {p.stem: p.read_text() for p in sorted(args.notes.glob('*.c')) if p.stem != 'recovered'}
-    header = ['/* Permafrost 0.5; Pooka\'s Free Software License. */', '#pragma once', '#include "support.h"']
+    header = ['/* Permafrost 0.6; Pooka\'s Free Software License. */', '#pragma once', '#include "support.h"']
+    service_types=sorted(set(re.findall(r'\bservice(?:_conflict\d+)?\b', '\n'.join(sources.values()))))
+    header += ['typedef code '+name+';' for name in service_types]
     for source in sources.values():
         header.append(signature(source) + ';')
     (args.out / 'functions.h').write_text('\n'.join(header) + '\n')
     for address, source in sources.items():
+        # Some SJLJ spill slots have an undefined merged declaration even
+        # though every dereference uses a pointer. Restore the observed view.
+        spill_types = {'23b42': 'byte *', '274d4': 'uint *',
+                       '27b0d': 'uint *', '2aa50': 'uint *', '2e262': 'uint *'}
+        if address in spill_types:
+            source = source.replace('  undefined4 local_14;', '  ' + spill_types[address] + 'local_14;')
         metadata = [line.split('\t') for line in (args.notes / (address + '.tsv')).read_text().splitlines()]
         globals_by_address = {int(row[2], 16): row[3] for row in metadata if row[0] == 'G'}
         memory_types = {}
@@ -94,17 +102,20 @@ def main():
             if name.startswith('_DAT'):
                 kind = memory_types.get(number, (4, 'uint:4'))[1]
             typename = 'char[1]' if name.startswith('str_') else ctype(kind)
+            if re.search(r'\(\*' + re.escape(name) + r'\)\(', source):
+                typename = 'code *'
             preamble += ['#undef ' + name, '#define %s %s' % (name, lvalue(typename, '0x%xU' % number))]
         pointer_names = {row[1] for row in metadata if row[0] in ('G', 'L') and row[3].startswith(('P:', 'A:'))}
         pointer_names.update(re.findall(r'^  [\w ]+\*+\s*(\w+)(?:\s*\[.*?\])?;', source, re.M))
         locals_used = [row for row in metadata if row[0] == 'L']
         frame_size = max([32] + [-int(row[2]) + 16 for row in locals_used])
+        addressed_offsets = {int(x, 0) for x in re.findall(r'register0x00000010\s*\+\s*(-0x[0-9a-f]+)', source)}
         macros = []
         for row in locals_used:
             _, name, offset, kind = row
             # Distinct SSA temporaries can reuse a spill slot. Their C values
             # must remain independent; only named stack objects need aliases.
-            if re.fullmatch(r'[A-Za-z]+Var\d+', name):
+            if re.fullmatch(r'[A-Za-z]+Var\d+', name) and not (int(offset) in addressed_offsets and kind.startswith('P:')):
                 continue
             # Use the printed declaration's type, including its inferred array
             # extent; the stack offset preserves aliasing between adjacent fields.
@@ -119,6 +130,7 @@ def main():
             offset=int(raw,16)
             if offset>=0x80000000: offset-=0x100000000
             macros.append('#define %s (*(uint8_t *)(frame + %d))'%(name,frame_size+offset))
+        source = source.replace('register0x00000010', '(uintptr_t)(frame + %d)' % frame_size)
         source = re.sub(r'__(?:fastcall|cdecl|thiscall)\s+', '', source)
         source = re.sub(r'\b(\w+(?:\[[^]\n]+\])?)\.\s*_(\d+)_(\d+)_',
                         lambda m: 'PF_PART%s(%s, %s)' % (m[3], m[1], m[2]), source)
@@ -134,15 +146,30 @@ def main():
                         r'(\1)(uintptr_t)pf_float_bits((float)(int)\2)', source)
         source = re.sub(r'\(([^()]+\*+)\)\(float\)(\w+)',
                         r'(\1)(uintptr_t)pf_float_bits((float)\2)', source)
+        sjlj = current.get('sjlj')
+        if sjlj and address != sjlj['register'] and ('recovered_'+sjlj['register']+'(') in source:
+            register='recovered_'+sjlj['register']
+            source=source.replace(register+'(', 'PF_SJLJ_CHECKPOINT(')
+            preamble.append('#define PF_SJLJ_CHECKPOINT(ctx) ('+register+'((uint *)(ctx)), ((uint *)(ctx))[10]=(uintptr_t)pf_jump, __builtin_setjmp(pf_jump))')
+            source=source.replace('\n{', '\n{\n  void *pf_jump[5];', 1)
         seed = current['random_state']
         source = source.replace('(float10)DAT_000' + seed, '(float10)(uint)DAT_000' + seed)
         # Eight-byte stack slots often alias two integer words and a double.
         for name in re.findall(r'^  (?:double|longdouble) (\w+);', source, re.M) + [row[1] for row in locals_used if row[3] in ('double:8', 'longdouble:8')]:
             source = re.sub(r'\(ulonglong\)\s*' + name + r'\b', 'pf_double_bits(' + name + ')', source)
         source = rewrite_double_bits(source)
+        if address == '27b0d':
+            source = source.replace('*PF_PART4(local_24, 0)', '*(uint32_t *)(uintptr_t)PF_PART4(local_24, 0)')
         if address == current['main']:
             source = re.sub(r'(_DAT_0000(?:62|64)[0-9a-f]{2} = )(?:recovered_|FUN_000)([0-9a-f]+);', lambda m: m[1] + '0x' + m[2] + ';', source)
             source = source.replace('(uint)local_580', 'pf_float_bits(local_580)')
+            source = source.replace('(uint)local_584[0]', 'pf_float_bits(local_584[0])')
+            source = source.replace('DAT_00073058 = uVar32;', 'DAT_00073058 = *(uint *)(frame + %d);' % (frame_size - 0xd88))
+        if address == current.get('file_listing'):
+            # The shared file/directory printf site omits the file branch's
+            # size argument in the raw export. The reference pushes entry+0xf8.
+            source = source.replace('recovered_307b4(pcVar41,DAT_0005e69c + iVar9);',
+                'recovered_307b4(pcVar41,DAT_0005e69c + iVar9,*(uint *)(DAT_0005e69c + iVar9 + 0xf8));')
         if address == '29de2':
             # One shared call site receives 2, 3 or 4 format arguments. Ghidra
             # exports only three; the four-string RAM status path also passes
@@ -156,7 +183,7 @@ def main():
         source = re.sub(r'^(  (?:undefined\d*|int|uint|char|byte|ushort|ulonglong|longlong|float10|float|double)\s+\**(?:extraout_\w+|in_EAX|unaff_EBX));$',
                         r'\1 = 0;', source, flags=re.M)
         opening = source.index('\n{') + 2
-        source = source[:opening] + '\n  unsigned char frame[%d];\n' % (frame_size + 32) + source[opening:]
+        source = source[:opening] + '\n  unsigned char frame[%d] = {0};\n' % (frame_size + 32) + source[opening:]
         (args.out / (address + '.c')).write_text('\n'.join(line.rstrip() for line in ('\n'.join(preamble + macros) + '\n' + source).splitlines()).rstrip() + '\n')
     for name, content in manual.items():
         (args.out / (name + '.c')).write_text(content)

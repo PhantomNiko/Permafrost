@@ -1,4 +1,4 @@
-/* Permafrost 0.5; Pooka's Free Software License. */
+/* Permafrost 0.6; Pooka's Free Software License. */
 #pragma once
 #include <stdint.h>
 #include <stddef.h>
@@ -87,3 +87,10 @@ static inline uint64_t pf_integer_bits(uint64_t value) { return value; }
 #define FUN_0002079d ((uint (*)(void))0x2079d)
 #define FUN_0002085e ((uint (*)(void))0x2085e)
 #define FUN_0002069f ((uint (*)(uint))0x2069f)
+
+/* Terminal UD2 emitted by the reference exception runtime. */
+static inline uintptr_t invalidInstructionException(void) { __builtin_trap(); }
+
+struct pf_uint40 { unsigned long long value:40; } __attribute__((packed));
+#define PF_PART5(object, offset) (((struct pf_uint40 *)((uint8_t *)&(object)+(offset)))->value)
+#define SUB85(value, offset) ((pf_double_bits(value) >> ((offset)*8)) & 0xffffffffffULL)

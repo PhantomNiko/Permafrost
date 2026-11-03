@@ -3,13 +3,10 @@
  * Address: 0x2143d
  */
 
-int recovered_2143d(char *left,char *right)
+bool FUN_0002143d(int param_1)
 
 {
-  unsigned char frame[64];
+  unsigned char frame[64] = {0};
 
-  int iVar1;
-
-  iVar1 = recovered_21415((int)left,(int)right);
-  return iVar1;
+  return param_1 - 0x41U < 0x1a;
 }

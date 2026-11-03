@@ -3,10 +3,10 @@
  * Address: 0x211e4
  */
 
-void FUN_000211e4(void)
+void recovered_211e4(void)
 
 {
-  unsigned char frame[64];
+  unsigned char frame[64] = {0};
 
   do {
                     /* WARNING: Do nothing block with infinite loop */

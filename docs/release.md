@@ -12,10 +12,18 @@ recovery at 2114 and FAT32 user data at 3062. The OpenBIOS reference has
 This release introduces 32-bit i386 Mach-O MH_PRELOAD applications at 0x200000,
 with LC_SEGMENT and LC_UNIXTHREAD load commands. WMAP version 4 has 124 bytes
 at 0x6200, extending the earlier file/console/display API with allocation and
-interpreter services. The original application symbol tables identify the
+image and font services. The original application symbol tables identify the
 in-house WinterLua 0.2 and WinterRwby 0.1 implementations. External Lua is
 replaced by the in-house interpreter for this milestone.
 
 OpenBIOS firmware is built from the sibling `../openbios` checkout, pinned in
 `dependencies.json`; its third-party implementation is not reconstructed from
 the firmware binary. Recovery and validation of the current release are ongoing.
+
+The recovered BIOS C kernel passes a complete Bochs BIOS startup smoke test.
+Directory listing tests compare all 29 files against on-disk records on both
+the reference and the reconstruction, including 0-, 1-, 257- and 4097-byte files.
+The reference supplies the size argument at normalized directory-entry offset
+0xf8; the initial decompiler export omitted it at the shared printf call.
+The source now restores that argument. These checks do not yet establish full
+runtime compatibility; application and OpenBIOS recovery are still ongoing.

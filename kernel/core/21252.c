@@ -6,7 +6,7 @@
 uint recovered_21252(int *param_1)
 
 {
-  unsigned char frame[64];
+  unsigned char frame[64] = {0};
 
   int *in_EAX = 0;
   int *piVar1;

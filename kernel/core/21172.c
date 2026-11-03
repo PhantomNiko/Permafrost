@@ -8,7 +8,7 @@
 undefined8 FUN_00021172(uint param_1,int param_2,uint param_3,uint param_4)
 
 {
-  unsigned char frame[76];
+  unsigned char frame[76] = {0};
 
   int iVar1;
   uint uVar2;

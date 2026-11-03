@@ -6,7 +6,7 @@
 undefined8 FUN_000210fe(uint param_1,uint param_2,uint param_3,uint param_4)
 
 {
-  unsigned char frame[64];
+  unsigned char frame[64] = {0};
 
   uint uVar1;
   undefined8 uVar2;
