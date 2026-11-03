@@ -16,6 +16,8 @@ def ctype(description):
         _, count, element = description.split(':', 2)
         return ctype(element) + '[' + count + ']'
     name, size = description.rsplit(':', 1)
+    if name == 'void':
+        return 'void'
     if name == 'string':
         return 'char[1]'
     if name == 'undefined':

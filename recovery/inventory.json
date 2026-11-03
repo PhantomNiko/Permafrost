@@ -1,0 +1,105 @@
+{
+  "sha256": "b6d46d62c93cf54fd1a2a2d09381dfb34c6e05abdefe417114064101a741e1ac",
+  "bytes": 545792,
+  "superblock": {
+    "data": null,
+    "version": 1,
+    "sector_size": 512,
+    "cluster_sectors": 8,
+    "fat_sector": 1,
+    "fat_sectors": 1,
+    "root_sector": 2,
+    "root_sectors": 7,
+    "data_sector": 9,
+    "cluster_count": 124,
+    "file_count": 14,
+    "total_sectors": 1001,
+    "cluster_size": 4096
+  },
+  "files": [
+    {
+      "name": "BinaryWriter.ws",
+      "first_cluster": 2,
+      "size": 507,
+      "sha256": "8edf7f29c228ccec70444fa465365676502c111d6d8f96b28cf7427ae9d76d4c"
+    },
+    {
+      "name": "WinterBoot-baremetal.bin",
+      "first_cluster": 3,
+      "size": 430080,
+      "sha256": "410e3735005ce8aa538dffed78c28b48b093c7350d69ee030f5a2bb076a686bd"
+    },
+    {
+      "name": "bitmap-font.wbf",
+      "first_cluster": 108,
+      "size": 2060,
+      "sha256": "b5f7a91dd09b72f42b9130e3dc3cea9628911dcf624b1bc345eb5f2cedfdff97"
+    },
+    {
+      "name": "expand-disk.bin",
+      "first_cluster": 109,
+      "size": 8,
+      "sha256": "fc6c9991f5e94d84c71a9d74475b03e4d213c13aee11034e76753355a1ba09e3"
+    },
+    {
+      "name": "expand-disk.ws",
+      "first_cluster": 110,
+      "size": 46,
+      "sha256": "fbcb7457e9ef1bbf5667c92550cbecdf7283d5a800ce4de1f605e3f77df707ff"
+    },
+    {
+      "name": "nightmode.bin",
+      "first_cluster": 111,
+      "size": 8,
+      "sha256": "269e0398b18d310f92368f3b90419ba0690c3f51fef1f03cba10f2292adc1a80"
+    },
+    {
+      "name": "nightmode.ws",
+      "first_cluster": 112,
+      "size": 44,
+      "sha256": "05b880a5e8872b0d4fdc45a1a2373f520bff4cccd304a1fecbe9ca0309496afc"
+    },
+    {
+      "name": "plush-desk.ws",
+      "first_cluster": 113,
+      "size": 12462,
+      "sha256": "d83f0c26e57bd8e3894d4279c4c5d39672053fbdc2454e4d9ef088e85a904801"
+    },
+    {
+      "name": "startup.ws",
+      "first_cluster": 117,
+      "size": 143,
+      "sha256": "cdca1af466b4f4be72941fb69bb7a2b09a89fca7d90abe50f9c5ac2df1c30e37"
+    },
+    {
+      "name": "winterscript-selftest-helper.ws",
+      "first_cluster": 118,
+      "size": 139,
+      "sha256": "5156e38164c7a430c84d66f9b656ef8641429bb97a975e4566467546f8385182"
+    },
+    {
+      "name": "winterscript-selftest-loader.ws",
+      "first_cluster": 119,
+      "size": 225,
+      "sha256": "fbb66da51462f5145e01ec475223c5f08dde6f805e9dfe593ab685df378033ea"
+    },
+    {
+      "name": "winterscript-selftest.ws",
+      "first_cluster": 120,
+      "size": 10592,
+      "sha256": "22a15183b0d8d339a98077884b726c433bd1b4d98e4d7707ecff622dd2b4b6db"
+    },
+    {
+      "name": "wozmon.bin",
+      "first_cluster": 123,
+      "size": 8192,
+      "sha256": "09b3097558beb9fa019460e0737ec186e7b575f621efb346f0f9b9ed16151d4c"
+    },
+    {
+      "name": "wozmon.ws",
+      "first_cluster": 125,
+      "size": 41,
+      "sha256": "75da0bb5abd37f5bf8a739ab917c8b2de4c4d4e2f9436a08380692bb72753b48"
+    }
+  ]
+}

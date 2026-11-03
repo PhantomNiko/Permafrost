@@ -22,6 +22,7 @@ public class Export extends GhidraScript {
         new ApplyFunctionSignatureCmd(toAddr(address), type, SourceType.USER_DEFINED).applyTo(currentProgram, monitor);
     }
     private String type(DataType value) {
+        if (value == null) return "void:0";
         if (value instanceof TypeDef) return type(((TypeDef)value).getBaseDataType());
         if (value instanceof Pointer) return "P:" + type(((Pointer)value).getDataType());
         if (value instanceof Array) return "A:" + ((Array)value).getNumElements() + ":" + type(((Array)value).getDataType());
@@ -31,30 +32,17 @@ public class Export extends GhidraScript {
         Path output = Path.of(getScriptArgs()[0]);
         Files.createDirectories(output);
         DecompInterface decompiler = new DecompInterface();
-        var log = getFunctionAt(toAddr(0x21c41));
-        log.setCallingConvention("__cdecl");
-        log.setReturnType(VoidDataType.dataType, SourceType.USER_DEFINED);
-        log.replaceParameters(FunctionUpdateType.DYNAMIC_STORAGE_ALL_PARAMS, true,
-            SourceType.USER_DEFINED, new ParameterImpl("format", new PointerDataType(CharDataType.dataType), currentProgram));
-        log.setVarArgs(true);
-        signature(0x20ae5, "void * __cdecl recovered_20ae5(unsigned int size);");
-        signature(0x20d12, "int __cdecl recovered_20d12(const char *left, const char *right);");
-        signature(0x21011, "long double __cdecl recovered_21011(double value);");
-        signature(0x2083b, "unsigned long long __cdecl recovered_2083b(unsigned long long value, unsigned int shift);");
-        signature(0x20874, "unsigned long long __cdecl recovered_20874(unsigned long long value, unsigned int shift);");
-        signature(0x208ad, "unsigned long long __cdecl recovered_208ad(unsigned long long numerator, unsigned long long denominator);");
-        signature(0x21610, "void __fastcall recovered_21610(int *out, unsigned int *remaining, int *total, const char *text);");
-        signature(0x24a9b, "void __fastcall recovered_24a9b(int enabled);");
-        signature(0x26e2b, "unsigned int __fastcall recovered_26e2b(int *container, const char *text, unsigned int size);");
-        signature(0x2c208, "unsigned int __fastcall recovered_2c208(int path, void *output, const char *source);");
-        signature(0x255e4, "unsigned int __fastcall recovered_255e4(const char *path);");
-        signature(0x216bc, "int __cdecl recovered_216bc(char *out, unsigned int capacity, const char *format, ...);");
-        signature(0x2609c, "void __cdecl recovered_2609c(unsigned int line, const char *near_token, const char *format, ...);");
-        signature(0x20e45, "double __cdecl recovered_20e45(double value, int *exponent);");
-        signature(0x2109b, "double __cdecl recovered_2109b(float numerator, float denominator);");
-        signature(0x2af4b, "unsigned int __fastcall recovered_2af4b(void *context, const char *name, void *output);");
-        signature(0x2552e, "unsigned int __fastcall recovered_2552e(const char *path);");
-        signature(0x2457a, "void __fastcall recovered_2457a(unsigned int columns);");
+        long textStart = Long.decode(getScriptArgs()[3]);
+        long textEnd = Long.decode(getScriptArgs()[4]);
+        for (String line : Files.readAllLines(Path.of(getScriptArgs()[2]))) {
+            String[] fields = line.split("\\t", 2);
+            long address = Long.parseLong(fields[0], 16);
+            if (getFunctionAt(toAddr(address)) == null) {
+                disassemble(toAddr(address));
+                createFunction(toAddr(address), "recovered_" + fields[0]);
+            }
+            signature(address, fields[1]);
+        }
         if (getScriptArgs().length > 1) {
             for (String line : Files.readAllLines(Path.of(getScriptArgs()[1]))) {
                 String[] fields = line.split("\\t");
@@ -81,7 +69,7 @@ public class Export extends GhidraScript {
             while (candidates.hasNext() && !monitor.isCancelled()) {
                 var function = candidates.next();
                 long address = function.getEntryPoint().getOffset();
-                if (address < 0x2071e || address >= 0x2c8c1) continue;
+                if (address < textStart || address >= textEnd) continue;
                 if (function.getSignatureSource() == SourceType.USER_DEFINED) continue;
                 var result = decompiler.decompileFunction(function, 60, monitor);
                 if (result.decompileCompleted()) {
@@ -101,7 +89,7 @@ public class Export extends GhidraScript {
         while (functions.hasNext() && !monitor.isCancelled()) {
             var function = functions.next();
             long address = function.getEntryPoint().getOffset();
-            if (address < 0x2071e || address >= 0x2c8c1) continue;
+            if (address < textStart || address >= textEnd) continue;
             var result = decompiler.decompileFunction(function, 60, monitor);
             if (result.decompileCompleted()) {
                 abi.append(Long.toHexString(address)).append('\t').append(function.getName()).append('\t');

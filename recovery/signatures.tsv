@@ -1,0 +1,17 @@
+236f9	void __cdecl recovered_236f9(const char *format, ...);
+20df4	void * __cdecl recovered_20df4(unsigned int size);
+21037	int __cdecl recovered_21037(const char *left, const char *right);
+21336	long double __cdecl recovered_21336(double value);
+20b4a	unsigned long long __cdecl recovered_20b4a(unsigned long long value, unsigned int shift);
+20b83	unsigned long long __cdecl recovered_20b83(unsigned long long value, unsigned int shift);
+20bbc	unsigned long long __cdecl recovered_20bbc(unsigned long long numerator, unsigned long long denominator);
+21935	void __fastcall recovered_21935(int *out, unsigned int *remaining, int *total, const char *text);
+26744	void __fastcall recovered_26744(int enabled);
+2ee3a	unsigned int __fastcall recovered_2ee3a(int *container, const char *text, unsigned int size);
+26d47	unsigned int __fastcall recovered_26d47(const char *path);
+219e1	int __cdecl recovered_219e1(char *out, unsigned int capacity, const char *format, ...);
+2d241	void __cdecl recovered_2d241(unsigned int line, const char *near_token, const char *format, ...);
+2116a	double __cdecl recovered_2116a(double value, int *exponent);
+213c0	double __cdecl recovered_213c0(float numerator, float denominator);
+2a4e4	unsigned int __fastcall recovered_2a4e4(const char *path);
+27297	void __fastcall recovered_27297(unsigned int columns);

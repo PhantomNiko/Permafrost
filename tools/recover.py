@@ -5,6 +5,7 @@ This is a provenance tool, not part of the normal source build. NASM's ndisasm
 decodes instructions; initialized data is emitted separately from executable code.
 """
 import argparse
+import json
 import re
 import subprocess
 import tempfile
@@ -40,7 +41,7 @@ def data_lines(data):
 
 
 def recover(name, blob, ranges, destination, ndisasm):
-    lines = ['; Permafrost 0.1 — recovered assembly, Pooka\'s Free Software License.',
+    lines = ['; Permafrost 0.2 — recovered assembly, Pooka\'s Free Software License.',
              '; Fixed virtual addresses preserve compatibility with original raw programs.',
              '; at() retains original instruction boundaries when NASM shortens an encoding.',
              '%macro pf_at 1', '    times %1 - ($-$$) db 0x90', '%endmacro']
@@ -62,6 +63,8 @@ def recover(name, blob, ranges, destination, ndisasm):
             offset = int(address, 16) - virtual
             if encoded == '660F1F440000':
                 instruction = 'nop word [byte eax+eax+0]'
+            if encoded == '8D344501000000':
+                instruction = 'lea esi,[nosplit dword eax*2+1]'
             if bits == 32 and encoded.startswith('66') and re.match(r'mov [desfgs]s,', instruction):
                 instruction = 'o16 ' + instruction
             if re.match(r'^j\w+ 0x', instruction) and ':' not in instruction:
@@ -82,6 +85,7 @@ def main():
     args = parser.parse_args()
     image = args.image.read_bytes()
     files = Image(image).files()
+    layout = json.loads(Path('recovery/layout.json').read_text())
     if args.brand:
         def slot(blob, old, new):
             assert len(new) <= len(old) and old in blob
@@ -91,19 +95,18 @@ def main():
         image = slot(image, b'WB2 ', b'PF2 ')
         image = slot(image, b'/WinterBoot-baremetal.bin', b'/Permafrost-kernel.bin')
         kernel = slot(files['WinterBoot-baremetal.bin'], b'WinterMoon OS', b'Permafrost')
-        kernel = slot(kernel, b'0.2\0', b'0.1\0')
+        kernel = slot(kernel, b'0.3\0', b'0.2\0')
         files['WinterBoot-baremetal.bin'] = kernel
     recover('boot', image[:512], [(0, 0x40, 16, 0), (0x40, 512, 0, 0)], args.out / 'boot.asm', args.ndisasm)
-    recover('loader', image[512:65*512], [(0, 0x725, 16, 0), (0x725, 0x740, 32, 0x8725),
-                                         (0x740, 32768, 0, 0)], args.out / 'loader.asm', args.ndisasm)
+    recover('loader', image[512:65*512], [(0, 0x899, 16, 0), (0x899, 0x8b8, 32, 0x8899),
+                                         (0x8b8, 32768, 0, 0)], args.out / 'loader.asm', args.ndisasm)
     ranges = [(0, 0x10, 0, 0)]
-    boundaries = [0x10, 0x45, 0xa8, 0x10c, 0x186, 0x1cd, 0x2a5, 0x2ec,
-                  0x397, 0x3d4, 0x421, 0x4d1, 0x65e, 0x688]
-    for index, (start, end) in enumerate(zip(boundaries, boundaries[1:])):
-        bits = 32 if index % 2 == 0 else 16
+    segments = layout['bios_ranges'] + [[layout['bios_code_end'], 0]]
+    for (start, bits), (end, _) in zip(segments, segments[1:]):
         ranges.append((start, end, bits, start + (0x20000 if bits == 32 else 0)))
-    ranges += [(0x688, 0x71e, 0, 0), (0x71e, 0xc8c1, 32, 0x2071e),
-               (0xc8c1, 0x51000, 0, 0)]
+    start, end, base = (layout[k] for k in ('text_start', 'text_end', 'kernel_base'))
+    ranges += [(layout['bios_code_end'], start-base, 0, 0),
+               (start-base, end-base, 32, start), (end-base, layout['state_end']-base, 0, 0)]
     recover('kernel', files['WinterBoot-baremetal.bin'], ranges, args.out / 'kernel.asm', args.ndisasm)
 
 
