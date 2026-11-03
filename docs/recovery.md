@@ -73,3 +73,8 @@ WMFS32, WSBC, .ws and .wsbc remain compatibility identifiers.
 
 Known limitations and validation results are maintained in README.md. Static
 reconstruction alone is not evidence of successful hardware boot.
+
+The current default build uses the C/C++ translation described in
+`docs/decompilation.md`. The complete assembly baseline is preserved in local
+commit history and can be reproduced by the recovery tool; it is no longer the
+kernel implementation used by the normal build.

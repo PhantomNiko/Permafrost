@@ -83,6 +83,13 @@ calls, SDK programs, and saved WSBC bytecode:
 python3 tests/conformance.py img/reference.img build/Permafrost-0.1.img
 ```
 
+The recovered Binary Writer application also accepts interactive byte input,
+saves a native executable, and runs it with the same result on both kernels:
+
+```sh
+python3 tests/writer.py img/reference.img build/Permafrost-0.1.img
+```
+
 `tests/hardware.py` repeats the full BIOS test using a locally supplied Bochs
 executable and firmware (`--bochs`, `--bios`, `--vgabios`). It operates on a
 temporary test copy of the image. Firmware and emulator binaries are external
@@ -91,6 +98,7 @@ test dependencies and are not included in this repository.
 ## SDK
 
 Run `python3 tools/sdk.py` to produce `build/Permafrost0.1.sdk`, a relocatable
-macOS 15 bundle for freestanding C and C++ development. See
+macOS 15 bundle and `build/Permafrost0.1.sdk.zip` for distribution. See
 [the SDK guide](docs/sdk.md) for compilation, file installation and execution.
-Both SDK examples have executed successfully inside the rebuilt kernel.
+The bundle was relocated to a directory containing spaces; both SDK examples
+compiled there and executed successfully inside the rebuilt kernel.
