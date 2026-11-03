@@ -1,5 +1,5 @@
 %include "kernel_c.inc"
-; Permafrost 0.2 — recovered assembly, Pooka's Free Software License.
+; Permafrost 0.3 — recovered assembly, Pooka's Free Software License.
 ; Fixed virtual addresses preserve compatibility with original raw programs.
 ; at() retains original instruction boundaries when NASM shortens an encoding.
 %macro pf_at 1
@@ -1335,7 +1335,6 @@ section part18 start=0x800 vstart=0x0 align=1
     db 0x08, 0x02
     times 117 db 0
 
-
 %include "kernel_abi.inc"
 section bootstrap start=pf_bootstrap_offset vstart=0x20000+pf_bootstrap_offset align=1
 bits 32
@@ -1350,7 +1349,7 @@ pf_relocate:
     mov edi, pf_initialized_end
     mov ecx, pf_state_end-pf_initialized_end
     rep stosb
-    call FUN_00023bb1
+    call recovered_25333
 .halt:
     cli
     hlt

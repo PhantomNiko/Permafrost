@@ -65,10 +65,12 @@ def main():
     parser.add_argument('--out', type=Path, default=Path('build/c-rewrite'))
     parser.add_argument('--manual', type=Path, default=Path('kernel/manual'))
     args = parser.parse_args()
+    layout = json.loads(Path('recovery/layout.json').read_text())
+    current = layout.get('translation', {})
     manual = {path.stem: path.read_text() for path in args.manual.glob('*.c')}
     args.out.mkdir(parents=True, exist_ok=True)
     sources = {p.stem: p.read_text() for p in sorted(args.notes.glob('*.c')) if p.stem != 'recovered'}
-    header = ['/* Permafrost 0.2; Pooka\'s Free Software License. */', '#pragma once', '#include "support.h"']
+    header = ['/* Permafrost 0.3; Pooka\'s Free Software License. */', '#pragma once', '#include "support.h"']
     for source in sources.values():
         header.append(signature(source) + ';')
     (args.out / 'functions.h').write_text('\n'.join(header) + '\n')
@@ -98,6 +100,10 @@ def main():
         macros = []
         for row in locals_used:
             _, name, offset, kind = row
+            # Distinct SSA temporaries can reuse a spill slot. Their C values
+            # must remain independent; only named stack objects need aliases.
+            if re.fullmatch(r'[A-Za-z]+Var\d+', name):
+                continue
             # Use the printed declaration's type, including its inferred array
             # extent; the stack offset preserves aliasing between adjacent fields.
             pattern = r'^  (.*?)\b' + re.escape(name) + r'(\s*\[\s*\d+\s*\])?;\n'
@@ -120,17 +126,19 @@ def main():
                             r'pf_bits_float((uintptr_t)\1)', source)
         source = re.sub(r'\(([^()]+\*+)\)\(float\)(\w+)',
                         r'(\1)(uintptr_t)pf_float_bits((float)\2)', source)
-        source = source.replace('(float10)DAT_000445e0', '(float10)(uint)DAT_000445e0')
+        seed = current['random_state']
+        source = source.replace('(float10)DAT_000' + seed, '(float10)(uint)DAT_000' + seed)
         # Eight-byte stack slots often alias two integer words and a double.
         for name in re.findall(r'^  (?:double|longdouble) (\w+);', source, re.M) + [row[1] for row in locals_used if row[3] in ('double:8', 'longdouble:8')]:
             source = re.sub(r'\(ulonglong\)\s*' + name + r'\b', 'pf_double_bits(' + name + ')', source)
         source = rewrite_double_bits(source)
-        if address == '23bb1':
-            source = source.replace('(float)local_290', 'pf_bits_float(local_290)')
-        if address == '2d241':
+        if address == current['main']:
+            source = re.sub(r'(_DAT_000062[0-9a-f]{2} = )(?:recovered_|FUN_000)([0-9a-f]+);', lambda m: m[1] + '0x' + m[2] + ';', source)
+            source = source.replace('(uint)local_580', 'pf_float_bits(local_580)')
+        if address == current['error_logger']:
             source = source.replace('\n{', '\n{\n  __builtin_va_list args;', 1)
             source = source.replace('local_10 = &dStack00000010;', '__builtin_va_start(args, format);\n  local_10 = (double *)args;')
-            source = source.replace('  if (DAT_00088e84', '  __builtin_va_end(args);\n  if (DAT_00088e84')
+            source = re.sub(r'(recovered_21685\([^;]+;)', r'\1\n  __builtin_va_end(args);', source, count=1)
         source = re.sub(r'^(  (?:undefined\d*|int|uint|char|byte|ushort|ulonglong|longlong|float10|float|double)\s+\**(?:extraout_\w+|in_EAX|unaff_EBX));$',
                         r'\1 = 0;', source, flags=re.M)
         opening = source.index('\n{') + 2

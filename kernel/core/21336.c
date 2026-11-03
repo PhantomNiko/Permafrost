@@ -1,20 +1,20 @@
 #include "functions.h"
-#undef DAT_0003efc0
-#define DAT_0003efc0 (*(uint8_t *)(0x3efc0U))
-#undef DAT_0003efc8
-#define DAT_0003efc8 (*(uint8_t *)(0x3efc8U))
-#undef DAT_0003efd0
-#define DAT_0003efd0 (*(uint8_t *)(0x3efd0U))
-#undef DAT_0003efd8
-#define DAT_0003efd8 (*(uint8_t *)(0x3efd8U))
-#undef _DAT_0003efc0
-#define _DAT_0003efc0 (*(double *)(0x3efc0U))
-#undef _DAT_0003efc8
-#define _DAT_0003efc8 (*(double *)(0x3efc8U))
-#undef _DAT_0003efd0
-#define _DAT_0003efd0 (*(double *)(0x3efd0U))
-#undef _DAT_0003efd8
-#define _DAT_0003efd8 (*(double *)(0x3efd8U))
+#undef DAT_00042360
+#define DAT_00042360 (*(uint8_t *)(0x42360U))
+#undef DAT_00042368
+#define DAT_00042368 (*(uint8_t *)(0x42368U))
+#undef DAT_00042370
+#define DAT_00042370 (*(uint8_t *)(0x42370U))
+#undef DAT_00042378
+#define DAT_00042378 (*(uint8_t *)(0x42378U))
+#undef _DAT_00042360
+#define _DAT_00042360 (*(double *)(0x42360U))
+#undef _DAT_00042368
+#define _DAT_00042368 (*(double *)(0x42368U))
+#undef _DAT_00042370
+#define _DAT_00042370 (*(double *)(0x42370U))
+#undef _DAT_00042378
+#define _DAT_00042378 (*(double *)(0x42378U))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x21336
  */
@@ -26,9 +26,9 @@ double recovered_21336(double value)
 {
   unsigned char frame[64];
 
-  for (; _DAT_0003efc0 < value; value = value + _DAT_0003efd8) {
+  for (; _DAT_00042360 < value; value = value + _DAT_00042378) {
   }
-  for (; value < _DAT_0003efc8; value = value + _DAT_0003efd0) {
+  for (; value < _DAT_00042368; value = value + _DAT_00042370) {
   }
   return value;
 }

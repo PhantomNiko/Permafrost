@@ -36,7 +36,7 @@ def compile_kernel(output):
     entries = json.loads(Path('kernel/abi.json').read_text())
     for name, (address, _) in json.loads(Path('kernel/runtime.json').read_text()).items():
         entries['%x' % address] = dict(symbol=name, arguments=[])
-    entries['23b8c'] = dict(symbol='pf_display_night_mode', arguments=[])
+    entries['2530e'] = dict(symbol='pf_display_night_mode', arguments=[])
     if any(0x208b7 <= int(address, 16) + 4 and int(address, 16) < 0x208f7 for address in entries):
         raise ValueError('bootstrap overlaps an ABI entry')
     stubs, adapters = ['; Generated from kernel/abi.json. Pooka\'s Free Software License.', 'bits 32'], []

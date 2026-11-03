@@ -1,6 +1,6 @@
 #include "functions.h"
-#undef DAT_000445ec
-#define DAT_000445ec (*(uint32_t *)(0x445ecU))
+#undef DAT_000475fc
+#define DAT_000475fc (*(uint32_t *)(0x475fcU))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x21a04
  */
@@ -21,8 +21,8 @@ void recovered_21a04(int param_1,uint param_2,int *param_3)
     *piVar3 = uVar2 - 0xc;
     piVar3[1] = 0;
     *(undefined1 *)(piVar3 + 2) = 1;
-    if (DAT_000445ec == 0) {
-      puVar1 = &DAT_000445ec;
+    if (DAT_000475fc == 0) {
+      puVar1 = &DAT_000475fc;
     }
     else {
       puVar1 = (undefined4 *)(*param_3 + 4);

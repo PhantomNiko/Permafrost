@@ -13,7 +13,7 @@ import subprocess
 import sys
 import tempfile
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
-from wmfs import Image, make_image
+from wmfs import Image, repack_image
 
 
 def main():
@@ -25,8 +25,8 @@ def main():
     args = parser.parse_args()
     with tempfile.TemporaryDirectory(prefix='permafrost sdk validation ') as temporary:
         root = Path(temporary)
-        sdk = root / 'Permafrost0.2.sdk'
-        shutil.copytree('build/Permafrost0.2.sdk', sdk)
+        sdk = root / 'Permafrost0.3.sdk'
+        shutil.copytree('build/Permafrost0.3.sdk', sdk)
         programs = {}
 
         def compile(name, source, keys=None):
@@ -50,13 +50,19 @@ def main():
             struct.pack('<B3xII', 20, 0, 0))
         programs['current.wsbc'] = (b'WSBC' + struct.pack('<HIII', 6, 0, 0, 1) +
             struct.pack('<I', len(line)) + line + struct.pack('<II', 0, 0))
-        original_files = Image(args.reference.read_bytes()).files()
+        reference_raw = args.reference.read_bytes()
+        original_files = Image(reference_raw, 2 if Image(reference_raw).partitions else 0).files()
         programs['original-nightmode.bin'] = original_files['nightmode.bin']
         programs['original-expand.bin'] = original_files['expand-disk.bin']
+        compile('keys-lua', 'tests/keyqueue.c', 'exit\r')
+        programs['original-lua.bin'] = original_files['lua.bin']
+        programs['lua-port.bin'] = Path('build/lua/lua.bin').read_bytes()
+        programs['index.lua'] = Path('tests/lua.lua').read_bytes()
         digests = []
         for role, path in [('reference', args.reference), ('candidate', args.candidate)]:
             raw = path.read_bytes()
-            files = Image(raw).files()
+            partition = 2 if Image(raw).partitions else 0
+            files = Image(raw, partition).files()
             selftest = files['winterscript-selftest.ws'].decode()
             selftest = selftest.replace('print("WinterScript self-test: PASS")',
                                         'serial("PF-SELFTEST-PASS")')
@@ -67,7 +73,7 @@ def main():
 
             def run(name, script, marker):
                 image = root / (role + '-' + name + '.img')
-                image.write_bytes(make_image(raw[:512], raw[512:65*512], files, 2048))
+                image.write_bytes(repack_image(raw, files, partition, sectors=8192))
                 script_path = root / 'startup.ws'
                 script_path.write_text(script)
                 command = [sys.executable, 'tests/hardware.py', str(image), '--script',
@@ -103,8 +109,17 @@ runFile("BinaryWriter.ws")
 assert(runcode("/writer.bin",$200000)==42,"writer saved executable")
 runFile("compat.wsbc")
 runFile("current.wsbc")
+assert(runcode("/keys-lua.bin",$200000)==1,"queue Lua exit")
+assert(runcode("/lua-port.bin",$230000)==1,"Lua return")
+assert(read("pf-lua-pass")=="PASS","source-linked Lua checks")
 serial("PF-NATIVE-PASS")
 '''
+            extended_index = files['index.lua']
+            files['index.lua'] = b'local m=require("lua-demo-module"); assert(m.add(2,3)==5); local f=assert(io.open("pf-original-lua-pass","w")); assert(f:write("PASS")); assert(f:close())'
+            run('original-lua', 'runcode("keys-lua.bin",$200000)\nassert(runcode("original-lua.bin",$230000)==1,"original Lua return")\nassert(read("pf-original-lua-pass")=="PASS","original Lua host services")\nserial("PF-ORIGINAL-LUA-PASS")\n', 'PF-ORIGINAL-LUA-PASS')
+            files['index.lua'] = extended_index
+            stress = Path('tests/wmfs64.ws').read_text()
+            run('wmfs64', stress, 'PF-WMFS64-PASS')
             output = run('native', script, 'PF-NATIVE-PASS')
             digest = re.search(r'PF-NATIVE-DIGEST ([0-9a-f]+)', output)
             if not digest:
@@ -113,7 +128,7 @@ serial("PF-NATIVE-PASS")
             if output.splitlines().count('PF-BYTECODE') != 2:
                 print(output)
                 raise SystemExit(role + ' WSBC compatibility execution failed')
-            print(role + ': full self-test, relocated SDK, native routines, monitor, writer and WSBC passed')
+            print(role + ': full self-test, relocated SDK, native routines, monitor, writer, WSBC, WMFS64 stress and both Lua applications passed')
         if digests[0] != digests[1]:
             raise SystemExit('native behavior differs: ' + ' / '.join(digests))
         print('Native memory/string digest matches: ' + digests[0])

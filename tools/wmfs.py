@@ -87,7 +87,7 @@ def make_image(boot, loader, files, sectors=2048):
         raise ValueError('invalid boot chain size/signature')
     total = sectors - BASE
     cluster_sectors = 8
-    root_sectors = max(3, (len(files) * 256 + 511) // 512)
+    root_sectors = max(1, (len(files) * 256 + 511) // 512)
     fat_sectors = 1
     while True:
         data_sector = 1 + fat_sectors + root_sectors
@@ -178,7 +178,7 @@ def make_wmfs64(files, sectors):
 
 def make_disk(boot, loader, firmware, recovery, user, sectors=8192):
     """Build the current WBPT layout with firmware, recovery and growable user data."""
-    firmware_sectors, recovery_sectors = 2048, 1024
+    firmware_sectors, recovery_sectors = 2048, 772
     starts = [66, 66 + firmware_sectors, 66 + firmware_sectors + recovery_sectors]
     sizes = [firmware_sectors, recovery_sectors, sectors - starts[2]]
     if sizes[2] <= 0:
@@ -220,6 +220,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('image', type=Path)
     parser.add_argument('--extract', type=Path)
+    parser.add_argument('--sectors', type=int, help='output disk size in sectors when rebuilding')
     parser.add_argument('--partition', type=int, default=0, help='WBPT volume index')
     parser.add_argument('--put', action='append', default=[], metavar='GUEST=HOST',
                         help='add/replace a file; requires --out')
@@ -236,7 +237,7 @@ def main():
             if not separator:
                 parser.error('--put expects GUEST=HOST')
             files[name.lstrip('/')] = Path(host).read_bytes()
-        result = repack_image(raw, files, args.partition)
+        result = repack_image(raw, files, args.partition, args.sectors)
         args.out.write_bytes(result)
         print('Wrote image with %d files' % len(files))
         return

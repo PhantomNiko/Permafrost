@@ -1,93 +1,90 @@
-# Permafrost 0.2
+# Permafrost 0.3
 
-A source reconstruction of the supplied Permafrost 0.3 Alpha release, named
-**Permafrost 0.2** here. This is the only maintained build target. Earlier
-milestones are available through Git history. Derived source and binaries use
-Pooka's Free Software License; see LICENSE.TXT and licenses/UPSTREAM.TXT.
+A C/C++ source reconstruction of the supplied 0.4 Beta release, named
+**Permafrost 0.3 Beta** here. This is the only build target. Earlier releases
+remain available as Git milestones. The reconstructed kernel and host code use
+Pooka's Free Software License; Lua retains its upstream license.
 
 ## Build
 
-On macOS 15, install Python 3, NASM and Apple Command Line Tools, then run from the repository root:
+On macOS 15, install Python 3, NASM and Apple Command Line Tools. Place the
+[Permafrost branch of Lua](https://github.com/PhantomNiko/lua/tree/Permafrost)
+in the sibling checkout `../lua`, then run:
 
 ```sh
 python3 tools/build.py
+python3 tools/sdk.py
 ```
 
-If NASM is outside PATH, pass `--nasm` followed by its location. The result is
-`build/Permafrost-0.2.img`, a raw 1 MiB BIOS disk image. It is not an Apple disk
-image and does not boot natively on Apple Silicon. Use an x86 PC emulator with a
-legacy BIOS, at least 64 MiB RAM and an IDE disk, for example:
+Pass `--nasm` or `--lua-source` to select a different tool/source location.
+The outputs are `build/Permafrost-0.3.img`, `build/Permafrost0.3.sdk`, and
+`build/Permafrost0.3.sdk.zip`. The 4 MiB raw disk image uses a legacy x86 BIOS,
+not an Apple disk-image format. It requires an x86 emulator on Apple Silicon.
+For example:
 
 ```sh
-qemu-system-i386 -m 64 -drive format=raw,file=build/Permafrost-0.2.img,if=ide -serial stdio
+qemu-system-i386 -m 64 -drive format=raw,file=build/Permafrost-0.3.img,if=ide -serial stdio
 ```
 
-The normal build compiles C/C++ and assembly and creates WMFS32 from scratch.
-It does not read the reference image, copy its boot sectors, or embed its kernel
-binary. The kernel implementation is C, with the public display entry in C++. Bundled
-native applications are also built from C/C++.
-`kernel/core` contains the recovered function bodies; `kernel/state.c` declares
-the initial data layout in C. BIOS entry, mode transitions and the boot loader
-use assembly. Generated adapters preserve original register and stack entry
-conventions for legacy native programs. The recovered C remains low-level, with
-address-based identifiers and explicit views of shared data and stack fields;
-it is not the author's original source or a fully idiomatic rewrite.
+The image contains WBPT firmware, recovery and user-data partitions. Firmware
+and recovery use WMFS32; the growable user volume uses WMFS64. First boot runs
+the supplied expansion/automount setup. A damaged primary kernel can fall back
+to the recovery partition.
 
-## Recovery and validation
+The normal build reads checked-in C/C++/assembly and the external Lua source;
+it does not read the reference image or embed its executables. The kernel has
+334 recovered C functions plus reviewed runtime/native-call support and a C++
+display entry. Boot, firmware mode transitions, ABI bridges and nonlocal CPU
+transfers retain assembly. Applications, including Wozmon and the Lua host, are
+built from C/C++. Recovered code preserves fixed data layouts and remains low
+level; it is not the author's original C/C++ source.
 
-`docs/recovery.md` records the disk layout and observed interfaces. Local
-reference images belong in `img/` and are not committed. These optional commands
-inventory a reference and reproduce its initial unbranded assembly recovery:
+See [DEPENDENCIES.md](DEPENDENCIES.md) for the external-source policy and
+[dependencies.json](dependencies.json) for the recorded Lua revision. Lua is
+compiled and linked from that checkout, and its copyright/license is included
+in the image. OpenBIOS was not identified in this release; when encountered in
+a future reference, the sibling `../openbios` repository must supply it.
+
+## Recovery and verification
+
+`recovery/inventory.json` records hashes and files from all three reference
+volumes. `recovery/layout.json` records code/state boundaries. Reference images
+belong in the ignored `img` directory. Optional recovery commands are:
 
 ```sh
-python3 tools/wmfs.py img/reference.img --extract build/reference
+python3 tools/wmfs.py img/reference.img --partition 2 --extract build/reference-user
 python3 tools/recover.py img/reference.img --out build/recovery
 ```
 
-The unbranded boot sector, second stage and complete kernel have been rebuilt
-byte-for-byte from their assembly recovery. The checked-in source changes the
-product name, kernel filename and displayed version in fixed-size data slots.
-Compatibility identifiers WMLP, WMFS32, WSBC and the WinterScript language name
-are retained for existing programs and tooling.
+The reference kernel and loader reassemble byte-for-byte from the assembly
+recovery. Normal builds do not require the reference, Ghidra or Java.
 
-With the Python `unicorn` package available:
-
-```sh
-python3 tests/boot.py build/Permafrost-0.2.img
-```
-
-The reconstructed image boots under Bochs 2.8 with a complete BIOS/VGA BIOS
-and passes the supplied WinterScript self-test. That covers closures, scopes,
-loops, multiple returns, strings/patterns, math/table/io/utf8/os libraries,
-error handling, file mutation, loaded chunks and the bundled desk model.
-
-`tests/hardware_suite.py` compares both kernels under the same BIOS. It builds
-programs using an SDK relocated to a directory with spaces, checks C/C++ return
-values, original native utility calls, 571 memory/string calls, Wozmon
-examine/store/run/exit behavior, the Binary Writer's saved executable, and
-WSBC versions 1 and 6. The memory/string digest matches the original.
+The complete bundled WinterScript self-test passes under Bochs with its full
+BIOS. The differential suite checks a relocated SDK, original native calls,
+571 memory/string comparisons, Wozmon operations, Binary Writer, WSBC versions
+1 and 6, WMFS64 directory growth/overwrite/deletion, and Lua host services.
+It runs both the reference and reconstructed kernels:
 
 ```sh
-python3 tests/hardware_suite.py img/reference.img build/Permafrost-0.2.img \
+python3 tests/hardware_suite.py img/reference.img build/Permafrost-0.3.img \
   --bochs BOCHS --bios BIOS --vgabios VGABIOS
 ```
 
-Supply emulator/firmware locations for the uppercase placeholders. These are
-external test dependencies. Tests use temporary disk copies. The reference
-inherits uninitialized x87 state from this BIOS; the suite initializes x87 in
-its entry prefix on the test copy. The reconstructed kernel initializes x87
-itself. Original C code and bundled self-test assertions remain intact except
-for the derivative's version assertion and a serial completion marker.
+Supply local emulator and firmware locations for the uppercase placeholders.
+Tests use temporary disk copies. The reference needs x87 initialization with
+this BIOS; the suite changes only its entry prefix on the test copy. The
+reconstructed kernel initializes x87 itself. Reference version variables still
+report 0.3 Alpha despite its 0.4 Beta banner; the derivative consistently uses
+0.3 Beta and updates its self-test's release assertion accordingly.
 
-`tests/hardware.py` runs a smaller startup test. Unicorn-based boot, runtime,
-conformance and interactive writer fixtures remain available for development.
-QEMU and physical hardware have not been verified. This remains an early-alpha
-reconstruction with fixed-address, privileged native execution.
+Unicorn-based lifecycle, boot, runtime, conformance and interactive writer
+fixtures are also available. QEMU and physical hardware have not been verified.
+Native programs execute with kernel privileges in a shared address space.
 
-## SDK
+## Development
 
-Run `python3 tools/sdk.py` to produce `build/Permafrost0.2.sdk`, a relocatable
-macOS 15 bundle and `build/Permafrost0.2.sdk.zip` for distribution. See
-[the SDK guide](docs/sdk.md) for compilation, file installation and execution.
-The SDK exposes this release's native entry addresses and supports C/C++ flat
-i386 programs.
+The SDK includes a flat i386 C/C++ linker, WMAP native-service headers, examples,
+and WMFS32/WMFS64 image tools. See [docs/sdk.md](docs/sdk.md). Lua applications
+can use the bundled Lua interpreter, file I/O and module loader. The VM is
+linked from external source; it will be replaced when a future reference
+actually introduces an in-house replacement.

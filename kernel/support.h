@@ -1,4 +1,4 @@
-/* Permafrost 0.2; Pooka's Free Software License. */
+/* Permafrost 0.3; Pooka's Free Software License. */
 #pragma once
 #include <stdint.h>
 #include <stddef.h>
@@ -28,6 +28,9 @@ typedef unsigned int code();
 #define CONCAT22(a,b) (((uint32_t)(a)<<16)|(uint16_t)(b))
 #define CONCAT31(a,b) (((uint32_t)(a)<<8)|(uint8_t)(b))
 #define CONCAT44(a,b) (((uint64_t)(a)<<32)|(uint32_t)(b))
+#define CONCAT14(a,b) (((uint64_t)(uint8_t)(a)<<32)|(uint32_t)(b))
+#define CONCAT35(a,b) (((uint64_t)(a)<<40)|((uint64_t)(b)&0xffffffffffULL))
+#define SUB42(a,b) ((uint16_t)((uint32_t)(a)>>((b)*8)))
 #define CONCAT71(a,b) (((uint64_t)(a)<<8)|(uint8_t)(b))
 #define SUB84(a,b) ((uint32_t)(PF_RAW64(a)>>((b)*8)))
 #define ZEXT48(a) ((uint64_t)(uint32_t)(a))
@@ -83,3 +86,4 @@ static inline uint64_t pf_integer_bits(uint64_t value) { return value; }
 #define FUN_000203c0 ((uint (*)(void))0x203c0)
 #define FUN_00020537 ((uint (*)(void))0x20537)
 #define FUN_000205bc ((uint (*)(void))0x205bc)
+

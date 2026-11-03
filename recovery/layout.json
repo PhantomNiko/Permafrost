@@ -79,5 +79,10 @@
       32
     ]
   ],
-  "kernel_main": 152371
+  "kernel_main": 152371,
+  "translation": {
+    "main": "25333",
+    "error_logger": "2f9c3",
+    "random_state": "475f0"
+  }
 }

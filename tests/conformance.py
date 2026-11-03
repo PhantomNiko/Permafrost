@@ -4,7 +4,7 @@ import argparse
 from pathlib import Path
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
-from wmfs import Image, make_image
+from wmfs import Image, repack_image
 from boot import Machine
 
 
@@ -18,10 +18,15 @@ def main():
                 'RUNBC /test.wsbc\nserial("PF-CONFORMANCE-DONE")\n')
     for path in (args.baseline, args.candidate):
         image = path.read_bytes()
-        files = Image(image).files()
+        partition = 2 if Image(image).partitions else 0
+        files = Image(image, partition).files()
         files['startup.ws'] = Path('tests/conformance.ws').read_bytes()
         files['hello.bin'] = Path('build/hello.bin').read_bytes()
-        image = make_image(image[:512], image[512:65 * 512], files, len(image) // 512)
+        image = repack_image(image, files, partition, sectors=8192)
+        if partition:
+            firmware = Image(image).files()
+            firmware['startup.ws'] = b'device("mount",4,"WMFS64")\ndevice("target",4)\n' + Path('tests/conformance.ws').read_bytes()
+            image = repack_image(image, firmware, sectors=8192)
         machine = Machine(image, commands)
         output = machine.run(500000000).replace('\r', '')
         print(output)

@@ -1,4 +1,4 @@
-/* Permafrost 0.2; Pooka's Free Software License. */
+/* Permafrost 0.3; Pooka's Free Software License. */
 #include "functions.h"
 int recovered_219e1(char *out, uint capacity, char *format, ...) {
     __builtin_va_list args;

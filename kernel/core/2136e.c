@@ -1,16 +1,16 @@
 #include "functions.h"
-#undef DAT_0003efb0
-#define DAT_0003efb0 (*(uint8_t *)(0x3efb0U))
-#undef DAT_0003efb4
-#define DAT_0003efb4 (*(uint8_t *)(0x3efb4U))
-#undef DAT_0003efb8
-#define DAT_0003efb8 (*(uint8_t *)(0x3efb8U))
-#undef _DAT_0003efb0
-#define _DAT_0003efb0 (*(float *)(0x3efb0U))
-#undef _DAT_0003efb4
-#define _DAT_0003efb4 (*(float *)(0x3efb4U))
-#undef _DAT_0003efb8
-#define _DAT_0003efb8 (*(float *)(0x3efb8U))
+#undef DAT_00042350
+#define DAT_00042350 (*(uint8_t *)(0x42350U))
+#undef DAT_00042354
+#define DAT_00042354 (*(uint8_t *)(0x42354U))
+#undef DAT_00042358
+#define DAT_00042358 (*(uint8_t *)(0x42358U))
+#undef _DAT_00042350
+#define _DAT_00042350 (*(float *)(0x42350U))
+#undef _DAT_00042354
+#define _DAT_00042354 (*(float *)(0x42354U))
+#undef _DAT_00042358
+#define _DAT_00042358 (*(float *)(0x42358U))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x2136e
  */
@@ -27,6 +27,6 @@ float10 recovered_2136e(double param_1)
 
   dVar2 = recovered_21336(param_1);
   fVar1 = (float10)dVar2 * (float10)dVar2;
-  return (fVar1 * fVar1 * fVar1) / (float10)_DAT_0003efb8 +
-         (fVar1 * fVar1) / (float10)_DAT_0003efb4 + (float10)1 + fVar1 * (float10)_DAT_0003efb0;
+  return (fVar1 * fVar1 * fVar1) / (float10)_DAT_00042358 +
+         (fVar1 * fVar1) / (float10)_DAT_00042354 + (float10)1 + fVar1 * (float10)_DAT_00042350;
 }

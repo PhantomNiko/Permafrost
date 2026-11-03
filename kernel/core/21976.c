@@ -1,11 +1,11 @@
 #include "functions.h"
-#undef str_0003f25c
-#define str_0003f25c (*(char (*)[1])(0x3f25cU))
-#undef str_0003f26d
-#define str_0003f26d (*(char (*)[1])(0x3f26dU))
-#define acStack_39 (*(char (*)[33])(frame + 16))
+#undef str_0004261c
+#define str_0004261c (*(char (*)[1])(0x4261cU))
+#undef str_0004262d
+#define str_0004262d (*(char (*)[1])(0x4262dU))
 #define local_18 (*(int * *)(frame + 49))
 #define local_14 (*(uint * *)(frame + 53))
+#define acStack_39 (*(char (*)[33])(frame + 16))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x21976
  */
@@ -20,9 +20,9 @@ void recovered_21976(int *param_1,uint *param_2,int *param_3,uint param_4,uint p
   char *pcVar3;
   bool bVar4;
 
-  pcVar3 = str_0003f26d;
+  pcVar3 = str_0004262d;
   if (param_6 != '\0') {
-    pcVar3 = str_0003f25c;
+    pcVar3 = str_0004261c;
   }
   iVar2 = 0;
   local_18 = param_1;

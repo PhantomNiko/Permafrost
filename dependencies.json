@@ -1,0 +1,13 @@
+{
+  "lua": {
+    "repository": "https://github.com/PhantomNiko/lua",
+    "branch": "Permafrost",
+    "revision": "d848409d2d06189625ae793d697cf7d81f068235",
+    "checkout": "../lua"
+  },
+  "openbios": {
+    "repository": "https://github.com/PhantomNiko/openbios",
+    "checkout": "../openbios",
+    "condition": "Only when present in the reference release"
+  }
+}

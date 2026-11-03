@@ -1,4 +1,4 @@
-/* Permafrost 0.2 native compatibility probe. Pooka's Free Software License. */
+/* Permafrost 0.3 native compatibility probe. Pooka's Free Software License. */
 #include <permafrost.h>
 static uint32_t digest = 2166136261U;
 static unsigned char data[1024];

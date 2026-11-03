@@ -1,0 +1,18 @@
+-- Lua integration checks, executed by both kernel implementations.
+-- Pooka's Free Software License.
+local m = require("lua-demo-module")
+assert(m.add(2,3)==5)
+assert(string.format("%04x",42)=="002a")
+assert(string.format("%.2f",1.25)=="1.25")
+assert(tonumber("0x2a")==42)
+assert(utf8.len("snow")==4)
+assert(math.abs(-3)==3 and math.min(3,1,2)==1)
+assert(math.sqrt(81)==9)
+local t={3,1,2};table.sort(t);assert(table.concat(t,",")=="1,2,3")
+local co=coroutine.create(function() coroutine.yield(42);return 7 end)
+local ok,v=coroutine.resume(co);assert(ok and v==42)
+ok,v=coroutine.resume(co);assert(ok and v==7)
+ok,v=pcall(function() error("ice") end);assert(not ok)
+local f=assert(io.open("pf-lua-data","w"));assert(f:write("alpha\nbeta"));assert(f:close())
+f=assert(io.open("pf-lua-data","r"));assert(f:read()=="alpha");assert(f:read("*a")=="beta");assert(f:close())
+f=assert(io.open("pf-lua-pass","w"));assert(f:write("PASS"));assert(f:close())

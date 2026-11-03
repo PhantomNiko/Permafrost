@@ -1,6 +1,6 @@
 #include "functions.h"
-#undef DAT_000445ec
-#define DAT_000445ec (*(uint32_t *)(0x445ecU))
+#undef DAT_000475fc
+#define DAT_000475fc (*(uint32_t *)(0x475fcU))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x20dfd
  */
@@ -19,7 +19,7 @@ uint recovered_20dfd(int param_1)
     recovered_208b2();
     *(undefined1 *)(param_1 + -4) = 1;
     recovered_20e4c((int *)(param_1 + -0xc));
-    piVar3 = &DAT_000445ec;
+    piVar3 = &DAT_000475fc;
     in_EAX = (int *)0x0;
     do {
       piVar1 = in_EAX;

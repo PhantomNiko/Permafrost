@@ -1,4 +1,4 @@
-/* Permafrost 0.2; Pooka's Free Software License. */
+/* Permafrost 0.3; Pooka's Free Software License. */
 #include "functions.h"
 ulonglong recovered_20b4a(ulonglong value, uint shift) {
     if ((int)shift <= 0) return value;

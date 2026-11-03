@@ -14,6 +14,5 @@ introduce it as a dependency for releases that do not contain it.
 
 The current 0.4 reference contains a standalone Lua application and an in-house
 WinterScript kernel interpreter. Its boot sector and loader are custom BIOS
-code; OpenBIOS has not been identified in this reference. Lua integration is
-being reconstructed against the source checkout rather than treating Lua VM
-code as reconstruction-owned source.
+code; OpenBIOS has not been identified in this reference. Lua is compiled and linked against that source checkout. The VM is not copied
+into reconstruction-owned source; its upstream license accompanies the binary.

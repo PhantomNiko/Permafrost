@@ -1,14 +1,13 @@
 #include "functions.h"
-#undef DAT_0003efbc
-#define DAT_0003efbc (*(uint8_t *)(0x3efbcU))
-#undef DAT_0003f27e
-#define DAT_0003f27e (*(uint8_t *)(0x3f27eU))
-#undef _DAT_0003efbc
-#define _DAT_0003efbc (*(float *)(0x3efbcU))
+#undef DAT_0004235c
+#define DAT_0004235c (*(uint8_t *)(0x4235cU))
+#undef DAT_0004263e
+#define DAT_0004263e (*(uint8_t *)(0x4263eU))
+#undef _DAT_0004235c
+#define _DAT_0004235c (*(float *)(0x4235cU))
+#define local_1c (*(int *)(frame + 72))
 #define local_18 (*(uint *)(frame + 76))
 #define local_14 (*(char * *)(frame + 80))
-#define uVar9 (*(uint *)(frame + 16))
-#define local_1c (*(int *)(frame + 72))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x21685
  */
@@ -28,6 +27,7 @@ int recovered_21685(char *param_1,uint param_2,char *param_3,double *param_4)
   uint uVar6;
   int iVar7;
   bool bVar8;
+  uint uVar9;
 
   local_14 = param_1;
   local_18 = param_2;
@@ -107,7 +107,7 @@ switchD_00021721_caseD_65:
           dVar3 = dVar3 - (double)(int)ROUND(dVar3);
           iVar7 = 6;
           while (bVar8 = iVar7 != 0, iVar7 = iVar7 + -1, bVar8) {
-            dVar4 = (double)_DAT_0003efbc;
+            dVar4 = (double)_DAT_0004235c;
             iVar2 = (int)ROUND(dVar3 * dVar4);
             if (1 < local_18) {
               *local_14 = (char)iVar2 + '0';
@@ -125,7 +125,7 @@ switchD_00021721_caseD_65:
           goto switchD_00021721_caseD_68;
         case 'p':
           uVar6 = *(uint *)param_4;
-          recovered_21935((int *)&local_14,&local_18,&local_1c,&DAT_0003f27e);
+          recovered_21935((int *)&local_14,&local_18,&local_1c,&DAT_0004263e);
           cVar5 = '\0';
           uVar9 = 0x10;
           goto LAB_000218ef;

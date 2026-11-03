@@ -18,4 +18,6 @@ The reference boots under Bochs with a complete BIOS and mounts WMFS64.
 A WMAP table at 0x6200 now exposes native services. The user volume includes
 Lua, a sample module, an index script, the WinterScript self-test, a WMFS64
 random-write test, Binary Writer, and Wozmon. Lua is an external source dependency;
-see DEPENDENCIES.md. The C reconstruction and Lua host integration are in progress.
+see DEPENDENCIES.md. The source-built C kernel passes the complete WinterScript self-test. Lua is
+compiled from the sibling source checkout and its host integration passes
+module, coroutine, formatting, error-handling and file-I/O checks.

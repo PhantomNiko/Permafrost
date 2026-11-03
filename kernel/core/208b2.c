@@ -7,10 +7,10 @@
 #define DAT_00006090 (*(uint8_t *)(0x6090U))
 #undef DAT_00006094
 #define DAT_00006094 (*(uint8_t *)(0x6094U))
-#undef DAT_000445e8
-#define DAT_000445e8 (*(char *)(0x445e8U))
-#undef DAT_000445ec
-#define DAT_000445ec (*(int *)(0x445ecU))
+#undef DAT_000475f8
+#define DAT_000475f8 (*(char *)(0x475f8U))
+#undef DAT_000475fc
+#define DAT_000475fc (*(int *)(0x475fcU))
 #undef _DAT_00006088
 #define _DAT_00006088 (*(uint *)(0x6088U))
 #undef _DAT_0000608c
@@ -18,10 +18,10 @@
 #define local_24 (*(int *)(frame + 664))
 #define local_20 (*(uint *)(frame + 668))
 #define local_1c (*(uint *)(frame + 672))
-#define auStackY_2ac (*(uint (*)[128])(frame + 16))
 #define local_18 (*(uint *)(frame + 676))
-#define auStack_a8 (*(uint (*)[33])(frame + 532))
 #define local_14 (*(uint *)(frame + 680))
+#define auStackY_2ac (*(uint (*)[128])(frame + 16))
+#define auStack_a8 (*(uint (*)[33])(frame + 532))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x208b2
  */
@@ -46,8 +46,8 @@ uint recovered_208b2(void)
   bool bVar8;
 
   local_24 = 0;
-  if (DAT_000445e8 == '\0') {
-    DAT_000445ec = 0;
+  if (DAT_000475f8 == '\0') {
+    DAT_000475fc = 0;
     local_18 = 0x10;
     if (_DAT_0000608c < 0x10) {
       local_18 = _DAT_0000608c;
@@ -111,7 +111,7 @@ uint recovered_208b2(void)
       recovered_21a04(auStack_a8[iVar5 * 2 + 1],auStack_a8[iVar5 * 2 + 2],&local_24);
       in_EAX = extraout_EAX;
     }
-    if (DAT_000445ec == 0) {
+    if (DAT_000475fc == 0) {
       uVar4 = 0x4000000;
       if (0x300000 < _DAT_00006088) {
         uVar4 = _DAT_00006088 & 0xfffffff0;
@@ -123,7 +123,7 @@ uint recovered_208b2(void)
       recovered_21a04(0x300000,uVar6,&local_24);
       in_EAX = extraout_EAX_00;
     }
-    DAT_000445e8 = '\x01';
+    DAT_000475f8 = '\x01';
   }
   return in_EAX;
 }

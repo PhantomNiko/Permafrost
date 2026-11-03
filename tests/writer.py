@@ -4,7 +4,7 @@ import argparse
 from pathlib import Path
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
-from wmfs import Image, make_image
+from wmfs import Image, repack_image
 from boot import Machine
 
 
@@ -18,11 +18,13 @@ def main():
         raw = path.read_bytes()
         files = Image(raw).files()
         files['startup.ws'] = Path('assets/BinaryWriter.ws').read_bytes()
-        raw = make_image(raw[:512], raw[512:65*512], files, len(raw)//512)
+        if Image(raw).partitions:
+            files['startup.ws'] = b'device("mount",4,"WMFS64")\ndevice("target",4)\n' + files['startup.ws']
+        raw = repack_image(raw, files, sectors=8192)
         machine = Machine(raw, commands)
         output = machine.run(500000000).replace('\r', '')
         print(output)
-        result = Image(bytes(machine.disk)).files().get('writer.bin')
+        result = Image(bytes(machine.disk), 2 if Image(raw).partitions else 0).files().get('writer.bin')
         if result != bytes.fromhex('b82a000000c3') or '\nPF-WRITER-DONE\n' not in output:
             raise SystemExit('Binary Writer application did not complete correctly')
         if 'WinterScript error:' in output or '\n42\n' not in output:

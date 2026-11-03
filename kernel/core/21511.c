@@ -1,8 +1,8 @@
 #include "functions.h"
-#undef DAT_0003efbc
-#define DAT_0003efbc (*(uint8_t *)(0x3efbcU))
-#undef _DAT_0003efbc
-#define _DAT_0003efbc (*(float *)(0x3efbcU))
+#undef DAT_0004235c
+#define DAT_0004235c (*(uint8_t *)(0x4235cU))
+#undef _DAT_0004235c
+#define _DAT_0004235c (*(float *)(0x4235cU))
 #define local_14 (*(int *)(frame + 16))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x21511
@@ -35,7 +35,7 @@ float10 recovered_21511(byte *param_1,undefined4 *param_2)
   fVar7 = (float10)0;
   bVar4 = false;
   for (; bVar3 = *pbVar2, (byte)(bVar3 - 0x30) < 10; pbVar2 = pbVar2 + 1) {
-    fVar7 = fVar7 * (float10)_DAT_0003efbc + (float10)(int)(bVar3 - 0x30);
+    fVar7 = fVar7 * (float10)_DAT_0004235c + (float10)(int)(bVar3 - 0x30);
     bVar4 = true;
   }
   fVar9 = (float10)1;
@@ -47,8 +47,8 @@ float10 recovered_21511(byte *param_1,undefined4 *param_2)
       pbVar2 = pbVar2 + 1;
       bVar3 = *pbVar2;
       if (9 < (byte)(bVar3 - 0x30)) break;
-      fVar8 = fVar8 * (float10)_DAT_0003efbc + (float10)(int)(bVar3 - 0x30);
-      fVar9 = fVar9 * (float10)_DAT_0003efbc;
+      fVar8 = fVar8 * (float10)_DAT_0004235c + (float10)(int)(bVar3 - 0x30);
+      fVar9 = fVar9 * (float10)_DAT_0004235c;
       bVar4 = true;
     }
   }

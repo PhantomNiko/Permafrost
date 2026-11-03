@@ -1,8 +1,8 @@
 #include "functions.h"
-#undef DAT_0003efa0
-#define DAT_0003efa0 (*(uint8_t *)(0x3efa0U))
-#undef _DAT_0003efa0
-#define _DAT_0003efa0 (*(float *)(0x3efa0U))
+#undef DAT_00042340
+#define DAT_00042340 (*(uint8_t *)(0x42340U))
+#undef _DAT_00042340
+#define _DAT_00042340 (*(float *)(0x42340U))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x2116a
  */
@@ -26,10 +26,10 @@ double recovered_2116a(double value,int *exponent)
       dVar1 = -value;
     }
     iVar2 = 0;
-    for (; 1.0 <= dVar1; dVar1 = dVar1 * (double)_DAT_0003efa0) {
+    for (; 1.0 <= dVar1; dVar1 = dVar1 * (double)_DAT_00042340) {
       iVar2 = iVar2 + 1;
     }
-    for (; (0.0 < dVar1 && (dVar1 < (double)_DAT_0003efa0)); dVar1 = dVar1 + dVar1) {
+    for (; (0.0 < dVar1 && (dVar1 < (double)_DAT_00042340)); dVar1 = dVar1 + dVar1) {
       iVar2 = iVar2 + -1;
     }
     if (exponent != (int *)0x0) {

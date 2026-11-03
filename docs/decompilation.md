@@ -1,7 +1,7 @@
 # C/C++ migration method
 
 The assembly recovery provides the executable oracle for the current reference.
-The default kernel now compiles 300 recovered C function bodies, the handwritten
+The default kernel now compiles 334 recovered C function bodies, the handwritten
 C runtime/compiler support, and the C++ public display entry. Superseded kernel
 assembly has been removed. Initial state is a packed, statically checked C
 structure; only boot and BIOS/CPU transition code remains in assembly.
@@ -14,9 +14,10 @@ Intermediate output stays in the ignored build directory; reviewed C is saved
 in `kernel/core`. Native decompiler
 binaries, Java runtimes, projects, logs and host preferences are not distributed.
 
-The translation preserves aliases between fields sharing the original stack
-frame and uses explicit fixed-address views of the original data region. It
-separates byte-addressed labels from larger overlapping reads. Variadic wrappers,
+The translation preserves aliases between named objects sharing the original
+stack frame. Distinct decompiler temporaries that reuse a spill slot remain
+independent C values. Fixed-address views preserve the original data region.
+The translation separates byte-addressed labels from larger overlapping reads. Variadic wrappers,
 64-bit arithmetic and numeric literal parsing need manual implementations when
 decompiler output loses calling-convention or register-alias information.
 

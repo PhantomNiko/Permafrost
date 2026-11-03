@@ -1,5 +1,5 @@
-// Permafrost 0.2. Pooka's Free Software License.
-// Replaces the public night-mode function at 0x23b8c.
+// Permafrost 0.3. Pooka's Free Software License.
+// Replaces the public night-mode function at 0x2530e.
 #include <stdint.h>
 
 namespace permafrost {
@@ -10,7 +10,7 @@ struct Theme {
 
     int apply() const {
         using ApplyTheme = int (*)(uint32_t, uint32_t, uint32_t);
-        return reinterpret_cast<ApplyTheme>(0x23732)(background, foreground, text_attribute);
+        return reinterpret_cast<ApplyTheme>(0x24eb4)(background, foreground, text_attribute);
     }
 };
 }
