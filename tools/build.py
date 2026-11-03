@@ -6,6 +6,8 @@ import subprocess
 from pathlib import Path
 from wmfs import make_image
 from kernel import compile_kernel
+from cc import compile_object
+from elf32 import Object, link
 
 
 def main():
@@ -19,17 +21,19 @@ def main():
     for part in ('boot', 'loader', 'kernel', 'expand-disk', 'nightmode'):
         subprocess.run([args.nasm, '-I', str(args.out) + '/', '-f', 'bin', 'src/' + part + '.asm',
                         '-o', str(args.out / (part + '.bin'))], check=True)
-    files = {'BinaryWriter.ws': Path('assets/BinaryWriter.ws').read_bytes(),
-             'Permafrost-kernel.bin': (args.out / 'kernel.bin').read_bytes(),
-             'expand-disk.bin': (args.out / 'expand-disk.bin').read_bytes(),
-             'nightmode.bin': (args.out / 'nightmode.bin').read_bytes(),
-             'startup.ws': Path('assets/startup.ws').read_bytes(),
-             'LICENSE.TXT': Path('LICENSE.TXT').read_bytes(),
-             'UPSTREAM.TXT': Path('licenses/UPSTREAM.TXT').read_bytes()}
+    compile_object('apps/wozmon.cpp', args.out / 'wozmon.o', ['sdk/include'])
+    monitor, _, _ = link([Object((args.out / 'wozmon.o').read_bytes())], base=0x220000, entry='main')
+    (args.out / 'wozmon.bin').write_bytes(monitor)
+    files = {p.name: p.read_bytes() for p in Path('assets').iterdir() if p.is_file()}
+    files.update({'wozmon.bin': monitor, 'Permafrost-kernel.bin': (args.out / 'kernel.bin').read_bytes(),
+                  'expand-disk.bin': (args.out / 'expand-disk.bin').read_bytes(),
+                  'nightmode.bin': (args.out / 'nightmode.bin').read_bytes(),
+                  'LICENSE.TXT': Path('LICENSE.TXT').read_bytes(),
+                  'UPSTREAM.TXT': Path('licenses/UPSTREAM.TXT').read_bytes()})
     result = make_image((args.out / 'boot.bin').read_bytes(),
                         (args.out / 'loader.bin').read_bytes(), files, args.sectors)
-    (args.out / 'Permafrost-0.1.img').write_bytes(result)
-    print('Built Permafrost-0.1.img (%d bytes, SHA-256 %s)' %
+    (args.out / 'Permafrost-0.2.img').write_bytes(result)
+    print('Built Permafrost-0.2.img (%d bytes, SHA-256 %s)' %
           (len(result), hashlib.sha256(result).hexdigest()))
 
 

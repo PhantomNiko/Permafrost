@@ -17,11 +17,15 @@ def main():
     parser.add_argument('--bios', required=True, type=Path)
     parser.add_argument('--vgabios', required=True, type=Path)
     parser.add_argument('--timeout', type=float, default=45)
+    parser.add_argument('--script', type=Path, help='run this script as startup on the test copy')
+    parser.add_argument('--expect', default='PF-HARDWARE-PASS')
     args = parser.parse_args()
     image = args.image.read_bytes()
     files = Image(image).files()
     # A script on a test copy observes startup loading and the real UART driver.
     files['startup.ws'] = b'serial("PF-HARDWARE-BOOT")\nserial(2 + 3)\nserial("PF-HARDWARE-PASS")\n'
+    if args.script:
+        files['startup.ws'] = args.script.read_bytes()
     image = make_image(image[:512], image[512:65 * 512], files, len(image) // 512)
     with tempfile.TemporaryDirectory(prefix='permafrost-hardware-') as temp:
         root = Path(temp)
@@ -45,7 +49,7 @@ def main():
                 while time.monotonic() < deadline and process.poll() is None:
                     serial = root / 'serial.log'
                     output = serial.read_text(errors='replace') if serial.exists() else ''
-                    if 'PF-HARDWARE-PASS' in output:
+                    if args.expect in output:
                         break
                     time.sleep(0.1)
             finally:
@@ -57,12 +61,12 @@ def main():
                         process.kill()
                         process.wait()
             print(output)
-            if 'PF-HARDWARE-PASS' not in output or '\n5\n' not in output.replace('\r', ''):
+            if args.expect not in output or (not args.script and '\n5\n' not in output.replace('\r', '')):
                 print((root / 'host.log').read_text(errors='replace')[-3000:])
                 if (root / 'bochs.log').exists():
                     print((root / 'bochs.log').read_text(errors='replace')[-3000:])
                 raise SystemExit('full BIOS/hardware boot test failed')
-            print('Full BIOS/hardware boot and startup arithmetic passed.')
+            print('Full BIOS/hardware startup test passed.')
 
 
 if __name__ == '__main__':

@@ -1,4 +1,4 @@
-; Permafrost 0.1 — recovered assembly, Pooka's Free Software License.
+; Permafrost 0.2 — recovered assembly, Pooka's Free Software License.
 ; Fixed virtual addresses preserve compatibility with original raw programs.
 ; at() retains original instruction boundaries when NASM shortens an encoding.
 %macro pf_at 1
@@ -26,43 +26,43 @@ l_loader_0000000f: cld
 pf_at 0x10
 l_loader_00000010: sti
 pf_at 0x11
-l_loader_00000011: mov [0x810],dl
+l_loader_00000011: mov [0x988],dl
 pf_at 0x15
-l_loader_00000015: mov byte [0x811],0x3f
+l_loader_00000015: mov byte [0x989],0x3f
 pf_at 0x1a
-l_loader_0000001a: mov byte [0x812],0x3f
+l_loader_0000001a: mov byte [0x98a],0x3f
 pf_at 0x1f
-l_loader_0000001f: mov byte [0x813],0x0
+l_loader_0000001f: mov byte [0x98b],0x0
 pf_at 0x24
-l_loader_00000024: lea si,[0x777]
+l_loader_00000024: lea si,[0x8ef]
 pf_at 0x28
-l_loader_00000028: call 0x6ec
+l_loader_00000028: call 0x860
 pf_at 0x2b
-l_loader_0000002b: mov byte [0x811],0x53
+l_loader_0000002b: mov byte [0x989],0x53
 pf_at 0x30
-l_loader_00000030: mov byte [0x812],0x44
+l_loader_00000030: mov byte [0x98a],0x44
 pf_at 0x35
 l_loader_00000035: call 0xf1
 pf_at 0x38
 l_loader_00000038: jc short 0x83
 pf_at 0x3a
-l_loader_0000003a: mov byte [0x811],0x48
+l_loader_0000003a: mov byte [0x989],0x48
 pf_at 0x3f
-l_loader_0000003f: mov byte [0x812],0x46
+l_loader_0000003f: mov byte [0x98a],0x46
 pf_at 0x44
-l_loader_00000044: mov byte [0x813],0x0
+l_loader_00000044: mov byte [0x98b],0x0
 pf_at 0x49
 l_loader_00000049: mov ax,0x2000
 pf_at 0x4c
-l_loader_0000004c: lea si,[0x77c]
+l_loader_0000004c: lea si,[0x8f4]
 pf_at 0x50
 l_loader_00000050: call 0x14a
 pf_at 0x53
 l_loader_00000053: jc short 0x83
 pf_at 0x55
-l_loader_00000055: mov byte [0x811],0x50
+l_loader_00000055: mov byte [0x989],0x50
 pf_at 0x5a
-l_loader_0000005a: mov byte [0x812],0x42
+l_loader_0000005a: mov byte [0x98a],0x42
 pf_at 0x5f
 l_loader_0000005f: call 0x217
 pf_at 0x62
@@ -72,17 +72,17 @@ l_loader_00000064: call 0x298
 pf_at 0x67
 l_loader_00000067: call 0x2f1
 pf_at 0x6a
-l_loader_0000006a: call 0x493
+l_loader_0000006a: call 0x604
 pf_at 0x6d
-l_loader_0000006d: mov byte [0x811],0x54
+l_loader_0000006d: mov byte [0x989],0x54
 pf_at 0x72
-l_loader_00000072: mov byte [0x812],0x4d
+l_loader_00000072: mov byte [0x98a],0x4d
 pf_at 0x77
-l_loader_00000077: call 0x501
+l_loader_00000077: call 0x675
 pf_at 0x7a
-l_loader_0000007a: call 0x507
+l_loader_0000007a: call 0x67b
 pf_at 0x7d
-l_loader_0000007d: call 0x50e
+l_loader_0000007d: call 0x682
 pf_at 0x80
 l_loader_00000080: hlt
 pf_at 0x81
@@ -96,49 +96,49 @@ l_loader_00000086: mov ds,ax
 pf_at 0x88
 l_loader_00000088: pop ax
 pf_at 0x89
-l_loader_00000089: lea si,[0x75e]
+l_loader_00000089: lea si,[0x8d6]
 pf_at 0x8d
-l_loader_0000008d: call 0x6ec
+l_loader_0000008d: call 0x860
 pf_at 0x90
 l_loader_00000090: mov al,0x20
 pf_at 0x92
-l_loader_00000092: call 0x6d2
+l_loader_00000092: call 0x846
 pf_at 0x95
 l_loader_00000095: mov al,0x5b
 pf_at 0x97
-l_loader_00000097: call 0x6d2
+l_loader_00000097: call 0x846
 pf_at 0x9a
-l_loader_0000009a: mov al,[0x811]
+l_loader_0000009a: mov al,[0x989]
 pf_at 0x9d
-l_loader_0000009d: call 0x6d2
+l_loader_0000009d: call 0x846
 pf_at 0xa0
 l_loader_000000a0: mov al,0x3a
 pf_at 0xa2
-l_loader_000000a2: call 0x6d2
+l_loader_000000a2: call 0x846
 pf_at 0xa5
-l_loader_000000a5: mov al,[0x812]
+l_loader_000000a5: mov al,[0x98a]
 pf_at 0xa8
-l_loader_000000a8: call 0x6d2
+l_loader_000000a8: call 0x846
 pf_at 0xab
 l_loader_000000ab: mov al,0x20
 pf_at 0xad
-l_loader_000000ad: call 0x6d2
+l_loader_000000ad: call 0x846
 pf_at 0xb0
-l_loader_000000b0: mov al,[0x813]
+l_loader_000000b0: mov al,[0x98b]
 pf_at 0xb3
-l_loader_000000b3: call 0x708
+l_loader_000000b3: call 0x87c
 pf_at 0xb6
-l_loader_000000b6: cmp byte [0x812],0x44
+l_loader_000000b6: cmp byte [0x98a],0x44
 pf_at 0xbb
 l_loader_000000bb: jnz short 0xe9
 pf_at 0xbd
 l_loader_000000bd: mov al,0x20
 pf_at 0xbf
-l_loader_000000bf: call 0x6d2
+l_loader_000000bf: call 0x846
 pf_at 0xc2
 l_loader_000000c2: mov al,0x4c
 pf_at 0xc4
-l_loader_000000c4: call 0x6d2
+l_loader_000000c4: call 0x846
 pf_at 0xc7
 l_loader_000000c7: push ax
 pf_at 0xc8
@@ -148,17 +148,17 @@ l_loader_000000ca: mov ds,ax
 pf_at 0xcc
 l_loader_000000cc: pop ax
 pf_at 0xcd
-l_loader_000000cd: mov ax,[0x86c]
+l_loader_000000cd: mov ax,[0x9e4]
 pf_at 0xd0
-l_loader_000000d0: call 0x71a
+l_loader_000000d0: call 0x88e
 pf_at 0xd3
 l_loader_000000d3: mov al,0x20
 pf_at 0xd5
-l_loader_000000d5: call 0x6d2
+l_loader_000000d5: call 0x846
 pf_at 0xd8
 l_loader_000000d8: mov al,0x53
 pf_at 0xda
-l_loader_000000da: call 0x6d2
+l_loader_000000da: call 0x846
 pf_at 0xdd
 l_loader_000000dd: push ax
 pf_at 0xde
@@ -168,13 +168,13 @@ l_loader_000000e0: mov ds,ax
 pf_at 0xe2
 l_loader_000000e2: pop ax
 pf_at 0xe3
-l_loader_000000e3: mov ax,[0x868]
+l_loader_000000e3: mov ax,[0x9e0]
 pf_at 0xe6
-l_loader_000000e6: call 0x71a
+l_loader_000000e6: call 0x88e
 pf_at 0xe9
 l_loader_000000e9: mov al,0x5d
 pf_at 0xeb
-l_loader_000000eb: call 0x6d2
+l_loader_000000eb: call 0x846
 pf_at 0xee
 l_loader_000000ee: hlt
 pf_at 0xef
@@ -196,41 +196,41 @@ l_loader_000000fc: xor bx,bx
 pf_at 0xfe
 l_loader_000000fe: mov eax,0x41
 pf_at 0x104
-l_loader_00000104: mov [0x86c],eax
+l_loader_00000104: mov [0x9e4],eax
 pf_at 0x108
-l_loader_00000108: mov [0x868],eax
+l_loader_00000108: mov [0x9e0],eax
 pf_at 0x10c
-l_loader_0000010c: mov word [0x81f],0x1
+l_loader_0000010c: mov word [0x997],0x1
 pf_at 0x112
 l_loader_00000112: mov cx,0x1
 pf_at 0x115
-l_loader_00000115: call 0x5fd
+l_loader_00000115: call 0x771
 pf_at 0x118
 l_loader_00000118: jc short 0x149
 pf_at 0x11a
 l_loader_0000011a: mov ax,[es:0x10]
 pf_at 0x11e
-l_loader_0000011e: mov [0x819],ax
+l_loader_0000011e: mov [0x991],ax
 pf_at 0x121
 l_loader_00000121: mov eax,[es:0x1c]
 pf_at 0x126
 l_loader_00000126: add eax,byte +0x41
 pf_at 0x12a
-l_loader_0000012a: mov [0x828],eax
+l_loader_0000012a: mov [0x9a0],eax
 pf_at 0x12e
 l_loader_0000012e: mov ax,[es:0x20]
 pf_at 0x132
-l_loader_00000132: mov [0x81b],ax
+l_loader_00000132: mov [0x993],ax
 pf_at 0x135
 l_loader_00000135: mov eax,[es:0x24]
 pf_at 0x13a
 l_loader_0000013a: add eax,byte +0x41
 pf_at 0x13e
-l_loader_0000013e: mov [0x82c],eax
+l_loader_0000013e: mov [0x9a4],eax
 pf_at 0x142
 l_loader_00000142: mov ax,[es:0x2c]
 pf_at 0x146
-l_loader_00000146: mov [0x81d],ax
+l_loader_00000146: mov [0x995],ax
 pf_at 0x149
 l_loader_00000149: ret
 pf_at 0x14a
@@ -242,15 +242,15 @@ l_loader_0000014d: mov ds,ax
 pf_at 0x14f
 l_loader_0000014f: pop ax
 pf_at 0x150
-l_loader_00000150: mov [0x815],ax
+l_loader_00000150: mov [0x98d],ax
 pf_at 0x153
-l_loader_00000153: mov [0x817],si
+l_loader_00000153: mov [0x98f],si
 pf_at 0x157
-l_loader_00000157: mov dx,[0x81d]
+l_loader_00000157: mov dx,[0x995]
 pf_at 0x15b
 l_loader_0000015b: xor bp,bp
 pf_at 0x15d
-l_loader_0000015d: cmp bp,[0x81b]
+l_loader_0000015d: cmp bp,[0x993]
 pf_at 0x161
 l_loader_00000161: jnc near 0x209
 pf_at 0x165
@@ -260,17 +260,17 @@ l_loader_00000168: mov es,ax
 pf_at 0x16a
 l_loader_0000016a: xor bx,bx
 pf_at 0x16c
-l_loader_0000016c: mov eax,[0x828]
+l_loader_0000016c: mov eax,[0x9a0]
 pf_at 0x170
 l_loader_00000170: movzx ecx,bp
 pf_at 0x174
 l_loader_00000174: add eax,ecx
 pf_at 0x177
-l_loader_00000177: mov [0x86c],eax
+l_loader_00000177: mov [0x9e4],eax
 pf_at 0x17b
-l_loader_0000017b: mov [0x868],eax
+l_loader_0000017b: mov [0x9e0],eax
 pf_at 0x17f
-l_loader_0000017f: mov word [0x81f],0x1
+l_loader_0000017f: mov word [0x997],0x1
 pf_at 0x185
 l_loader_00000185: mov cx,0x1
 pf_at 0x188
@@ -278,7 +278,7 @@ l_loader_00000188: push bp
 pf_at 0x189
 l_loader_00000189: push dx
 pf_at 0x18a
-l_loader_0000018a: call 0x5fd
+l_loader_0000018a: call 0x771
 pf_at 0x18d
 l_loader_0000018d: pop dx
 pf_at 0x18e
@@ -296,11 +296,11 @@ l_loader_00000199: jz short 0x209
 pf_at 0x19b
 l_loader_0000019b: push cx
 pf_at 0x19c
-l_loader_0000019c: mov si,[0x817]
+l_loader_0000019c: mov si,[0x98f]
 pf_at 0x1a0
 l_loader_000001a0: mov di,bx
 pf_at 0x1a2
-l_loader_000001a2: call 0x5dc
+l_loader_000001a2: call 0x750
 pf_at 0x1a5
 l_loader_000001a5: pop cx
 pf_at 0x1a6
@@ -318,13 +318,13 @@ l_loader_000001b0: jmp short 0x15d
 pf_at 0x1b2
 l_loader_000001b2: mov eax,[es:bx+0xf0]
 pf_at 0x1b8
-l_loader_000001b8: mov [0x848],eax
+l_loader_000001b8: mov [0x9c0],eax
 pf_at 0x1bc
 l_loader_000001bc: mov eax,[es:bx+0xf4]
 pf_at 0x1c2
-l_loader_000001c2: mov [0x84c],eax
+l_loader_000001c2: mov [0x9c4],eax
 pf_at 0x1c6
-l_loader_000001c6: mov eax,[0x84c]
+l_loader_000001c6: mov eax,[0x9c4]
 pf_at 0x1ca
 l_loader_000001ca: add eax,0x1ff
 pf_at 0x1d0
@@ -332,41 +332,41 @@ l_loader_000001d0: shr eax,byte 0x9
 pf_at 0x1d4
 l_loader_000001d4: mov cx,ax
 pf_at 0x1d6
-l_loader_000001d6: mov eax,[0x848]
+l_loader_000001d6: mov eax,[0x9c0]
 pf_at 0x1da
 l_loader_000001da: sub eax,byte +0x2
 pf_at 0x1de
-l_loader_000001de: movzx edx,word [0x819]
+l_loader_000001de: movzx edx,word [0x991]
 pf_at 0x1e4
 l_loader_000001e4: imul eax,edx
 pf_at 0x1e8
-l_loader_000001e8: add eax,[0x82c]
+l_loader_000001e8: add eax,[0x9a4]
 pf_at 0x1ed
-l_loader_000001ed: mov [0x86c],eax
+l_loader_000001ed: mov [0x9e4],eax
 pf_at 0x1f1
-l_loader_000001f1: mov [0x868],eax
+l_loader_000001f1: mov [0x9e0],eax
 pf_at 0x1f5
-l_loader_000001f5: mov [0x81f],cx
+l_loader_000001f5: mov [0x997],cx
 pf_at 0x1f9
-l_loader_000001f9: mov ax,[0x815]
+l_loader_000001f9: mov ax,[0x98d]
 pf_at 0x1fc
-l_loader_000001fc: mov [0x821],ax
+l_loader_000001fc: mov [0x999],ax
 pf_at 0x1ff
-l_loader_000001ff: call 0x63c
+l_loader_000001ff: call 0x7b0
 pf_at 0x202
 l_loader_00000202: jc short 0x209
 pf_at 0x204
-l_loader_00000204: mov ax,[0x84c]
+l_loader_00000204: mov ax,[0x9c4]
 pf_at 0x207
 l_loader_00000207: clc
 pf_at 0x208
 l_loader_00000208: ret
 pf_at 0x209
-l_loader_00000209: cmp byte [0x813],0x0
+l_loader_00000209: cmp byte [0x98b],0x0
 pf_at 0x20e
 l_loader_0000020e: jnz short 0x215
 pf_at 0x210
-l_loader_00000210: mov byte [0x812],0x46
+l_loader_00000210: mov byte [0x98a],0x46
 pf_at 0x215
 l_loader_00000215: stc
 pf_at 0x216
@@ -402,11 +402,11 @@ l_loader_00000242: cmp eax,byte +0x10
 pf_at 0x246
 l_loader_00000246: jc short 0x279
 pf_at 0x248
-l_loader_00000248: cmp eax,[0x84c]
+l_loader_00000248: cmp eax,[0x9c4]
 pf_at 0x24d
 l_loader_0000024d: ja short 0x279
 pf_at 0x24f
-l_loader_0000024f: mov [0x844],eax
+l_loader_0000024f: mov [0x9bc],eax
 pf_at 0x253
 l_loader_00000253: mov eax,[es:0x8]
 pf_at 0x258
@@ -418,11 +418,11 @@ l_loader_00000260: mov edx,eax
 pf_at 0x263
 l_loader_00000263: sub edx,0x20000
 pf_at 0x26a
-l_loader_0000026a: cmp edx,[0x844]
+l_loader_0000026a: cmp edx,[0x9bc]
 pf_at 0x26f
 l_loader_0000026f: jnc short 0x279
 pf_at 0x271
-l_loader_00000271: mov [0x840],eax
+l_loader_00000271: mov [0x9b8],eax
 pf_at 0x275
 l_loader_00000275: pop es
 pf_at 0x276
@@ -436,11 +436,11 @@ l_loader_00000279: mov ax,cs
 pf_at 0x27b
 l_loader_0000027b: mov ds,ax
 pf_at 0x27d
-l_loader_0000027d: mov byte [0x812],0x42
+l_loader_0000027d: mov byte [0x98a],0x42
 pf_at 0x282
-l_loader_00000282: mov dword [0x840],0x0
+l_loader_00000282: mov dword [0x9b8],0x0
 pf_at 0x28b
-l_loader_0000028b: mov dword [0x844],0x0
+l_loader_0000028b: mov dword [0x9bc],0x0
 pf_at 0x294
 l_loader_00000294: pop es
 pf_at 0x295
@@ -468,7 +468,7 @@ l_loader_000002a0: mov ds,ax
 pf_at 0x2a2
 l_loader_000002a2: mov es,ax
 pf_at 0x2a4
-l_loader_000002a4: lea di,[0x870]
+l_loader_000002a4: lea di,[0x9e8]
 pf_at 0x2a8
 l_loader_000002a8: xor eax,eax
 pf_at 0x2ab
@@ -478,21 +478,21 @@ l_loader_000002ae: cld
 pf_at 0x2af
 l_loader_000002af: rep stosw
 pf_at 0x2b1
-l_loader_000002b1: mov word [0x870],0x1e
+l_loader_000002b1: mov word [0x9e8],0x1e
 pf_at 0x2b7
 l_loader_000002b7: mov ah,0x48
 pf_at 0x2b9
-l_loader_000002b9: mov dl,[0x810]
+l_loader_000002b9: mov dl,[0x988]
 pf_at 0x2bd
-l_loader_000002bd: lea si,[0x870]
+l_loader_000002bd: lea si,[0x9e8]
 pf_at 0x2c1
 l_loader_000002c1: int 0x13
 pf_at 0x2c3
 l_loader_000002c3: jc short 0x2e0
 pf_at 0x2c5
-l_loader_000002c5: mov eax,[0x880]
+l_loader_000002c5: mov eax,[0x9f8]
 pf_at 0x2c9
-l_loader_000002c9: mov edx,[0x884]
+l_loader_000002c9: mov edx,[0x9fc]
 pf_at 0x2ce
 l_loader_000002ce: test edx,edx
 pf_at 0x2d1
@@ -500,13 +500,13 @@ l_loader_000002d1: jz short 0x2d9
 pf_at 0x2d3
 l_loader_000002d3: mov eax,0xffffffff
 pf_at 0x2d9
-l_loader_000002d9: mov [0x830],eax
+l_loader_000002d9: mov [0x9a8],eax
 pf_at 0x2dd
 l_loader_000002dd: clc
 pf_at 0x2de
 l_loader_000002de: jmp short 0x2ea
 pf_at 0x2e0
-l_loader_000002e0: mov dword [0x830],0x0
+l_loader_000002e0: mov dword [0x9a8],0x0
 pf_at 0x2e9
 l_loader_000002e9: stc
 pf_at 0x2ea
@@ -546,21 +546,21 @@ l_loader_000002fb: mov ds,ax
 pf_at 0x2fd
 l_loader_000002fd: mov es,ax
 pf_at 0x2ff
-l_loader_000002ff: mov dword [0x834],0x4000000
+l_loader_000002ff: mov dword [0x9ac],0x4000000
 pf_at 0x308
 l_loader_00000308: call 0x32a
 pf_at 0x30b
 l_loader_0000030b: jnc short 0x321
 pf_at 0x30d
-l_loader_0000030d: call 0x400
+l_loader_0000030d: call 0x410
 pf_at 0x310
 l_loader_00000310: jnc short 0x321
 pf_at 0x312
-l_loader_00000312: call 0x459
+l_loader_00000312: call 0x469
 pf_at 0x315
 l_loader_00000315: jnc short 0x321
 pf_at 0x317
-l_loader_00000317: mov dword [0x834],0x4000000
+l_loader_00000317: mov dword [0x9ac],0x4000000
 pf_at 0x320
 l_loader_00000320: clc
 pf_at 0x321
@@ -600,830 +600,1042 @@ l_loader_00000332: mov ds,ax
 pf_at 0x334
 l_loader_00000334: mov es,ax
 pf_at 0x336
-l_loader_00000336: mov dword [0x83c],0x0
+l_loader_00000336: mov dword [0x9b4],0x0
 pf_at 0x33f
-l_loader_0000033f: mov dword [0x838],0x0
+l_loader_0000033f: mov dword [0x9b0],0x300000
 pf_at 0x348
-l_loader_00000348: lea di,[0x88e]
+l_loader_00000348: mov eax,[0x9b0]
 pf_at 0x34c
-l_loader_0000034c: xor ax,ax
-pf_at 0x34e
-l_loader_0000034e: mov cx,0xa
-pf_at 0x351
-l_loader_00000351: cld
-pf_at 0x352
-l_loader_00000352: rep stosw
-pf_at 0x354
-l_loader_00000354: mov eax,0xe820
-pf_at 0x35a
-l_loader_0000035a: mov edx,0x534d4150
-pf_at 0x360
-l_loader_00000360: mov ecx,0x14
-pf_at 0x366
-l_loader_00000366: mov ebx,[0x83c]
+l_loader_0000034c: mov [0x9ac],eax
+pf_at 0x350
+l_loader_00000350: mov dword [0x9b4],0x0
+pf_at 0x359
+l_loader_00000359: lea di,[0xa06]
+pf_at 0x35d
+l_loader_0000035d: xor ax,ax
+pf_at 0x35f
+l_loader_0000035f: mov cx,0xa
+pf_at 0x362
+l_loader_00000362: cld
+pf_at 0x363
+l_loader_00000363: rep stosw
+pf_at 0x365
+l_loader_00000365: mov eax,0xe820
 pf_at 0x36b
-l_loader_0000036b: lea di,[0x88e]
-pf_at 0x36f
-l_loader_0000036f: int 0x15
+l_loader_0000036b: mov edx,0x534d4150
 pf_at 0x371
-l_loader_00000371: jc near 0x3f8
-pf_at 0x375
-l_loader_00000375: push eax
+l_loader_00000371: mov ecx,0x14
 pf_at 0x377
-l_loader_00000377: mov ax,cs
-pf_at 0x379
-l_loader_00000379: mov ds,ax
-pf_at 0x37b
-l_loader_0000037b: mov es,ax
-pf_at 0x37d
-l_loader_0000037d: pop eax
-pf_at 0x37f
-l_loader_0000037f: cmp eax,0x534d4150
-pf_at 0x385
-l_loader_00000385: jnz short 0x3f8
-pf_at 0x387
-l_loader_00000387: mov [0x83c],ebx
+l_loader_00000377: mov ebx,[0x9b4]
+pf_at 0x37c
+l_loader_0000037c: lea di,[0xa06]
+pf_at 0x380
+l_loader_00000380: int 0x15
+pf_at 0x382
+l_loader_00000382: jc near 0x408
+pf_at 0x386
+l_loader_00000386: push eax
+pf_at 0x388
+l_loader_00000388: mov ax,cs
+pf_at 0x38a
+l_loader_0000038a: mov ds,ax
 pf_at 0x38c
-l_loader_0000038c: cmp dword [0x89e],byte +0x1
-pf_at 0x392
-l_loader_00000392: jnz short 0x3d9
-pf_at 0x394
-l_loader_00000394: cmp dword [0x892],byte +0x0
-pf_at 0x39a
-l_loader_0000039a: jnz short 0x3d9
-pf_at 0x39c
-l_loader_0000039c: mov eax,[0x88e]
-pf_at 0x3a0
-l_loader_000003a0: cmp eax,0x300000
-pf_at 0x3a6
-l_loader_000003a6: ja short 0x3d9
-pf_at 0x3a8
-l_loader_000003a8: mov edx,[0x89a]
+l_loader_0000038c: mov es,ax
+pf_at 0x38e
+l_loader_0000038e: pop eax
+pf_at 0x390
+l_loader_00000390: cmp eax,0x534d4150
+pf_at 0x396
+l_loader_00000396: jnz short 0x408
+pf_at 0x398
+l_loader_00000398: mov [0x9b4],ebx
+pf_at 0x39d
+l_loader_0000039d: cmp dword [0xa16],byte +0x1
+pf_at 0x3a3
+l_loader_000003a3: jnz short 0x3e0
+pf_at 0x3a5
+l_loader_000003a5: cmp dword [0xa0a],byte +0x0
+pf_at 0x3ab
+l_loader_000003ab: jnz short 0x3e0
 pf_at 0x3ad
-l_loader_000003ad: test edx,edx
-pf_at 0x3b0
-l_loader_000003b0: jnz short 0x3be
-pf_at 0x3b2
-l_loader_000003b2: mov edx,[0x896]
-pf_at 0x3b7
-l_loader_000003b7: add edx,eax
-pf_at 0x3ba
-l_loader_000003ba: jc short 0x3be
-pf_at 0x3bc
-l_loader_000003bc: jmp short 0x3c4
-pf_at 0x3be
-l_loader_000003be: mov edx,0xffffffff
-pf_at 0x3c4
-l_loader_000003c4: cmp edx,0x300000
-pf_at 0x3cb
-l_loader_000003cb: jna short 0x3d9
-pf_at 0x3cd
-l_loader_000003cd: cmp edx,[0x838]
-pf_at 0x3d2
-l_loader_000003d2: jna short 0x3d9
+l_loader_000003ad: mov eax,[0xa06]
+pf_at 0x3b1
+l_loader_000003b1: cmp eax,[0x9b0]
+pf_at 0x3b6
+l_loader_000003b6: ja short 0x3e0
+pf_at 0x3b8
+l_loader_000003b8: mov edx,[0xa12]
+pf_at 0x3bd
+l_loader_000003bd: test edx,edx
+pf_at 0x3c0
+l_loader_000003c0: jnz short 0x3ce
+pf_at 0x3c2
+l_loader_000003c2: mov edx,[0xa0e]
+pf_at 0x3c7
+l_loader_000003c7: add edx,eax
+pf_at 0x3ca
+l_loader_000003ca: jc short 0x3ce
+pf_at 0x3cc
+l_loader_000003cc: jmp short 0x3d4
+pf_at 0x3ce
+l_loader_000003ce: mov edx,0xffffffff
 pf_at 0x3d4
-l_loader_000003d4: mov [0x838],edx
+l_loader_000003d4: cmp edx,[0x9b0]
 pf_at 0x3d9
-l_loader_000003d9: mov ebx,[0x83c]
-pf_at 0x3de
-l_loader_000003de: test ebx,ebx
-pf_at 0x3e1
-l_loader_000003e1: jnz near 0x348
+l_loader_000003d9: jna short 0x3e0
+pf_at 0x3db
+l_loader_000003db: mov [0x9b0],edx
+pf_at 0x3e0
+l_loader_000003e0: mov ebx,[0x9b4]
 pf_at 0x3e5
-l_loader_000003e5: mov eax,[0x838]
-pf_at 0x3e9
-l_loader_000003e9: cmp eax,0x300000
-pf_at 0x3ef
-l_loader_000003ef: jna short 0x3f8
-pf_at 0x3f1
-l_loader_000003f1: mov [0x834],eax
+l_loader_000003e5: test ebx,ebx
+pf_at 0x3e8
+l_loader_000003e8: jnz near 0x359
+pf_at 0x3ec
+l_loader_000003ec: mov eax,[0x9b0]
+pf_at 0x3f0
+l_loader_000003f0: cmp eax,[0x9ac]
 pf_at 0x3f5
-l_loader_000003f5: clc
-pf_at 0x3f6
-l_loader_000003f6: jmp short 0x3f9
-pf_at 0x3f8
-l_loader_000003f8: stc
+l_loader_000003f5: ja near 0x348
 pf_at 0x3f9
-l_loader_000003f9: pop di
-pf_at 0x3fa
-l_loader_000003fa: pop es
-pf_at 0x3fb
-l_loader_000003fb: pop ds
-pf_at 0x3fc
-l_loader_000003fc: pop dx
-pf_at 0x3fd
-l_loader_000003fd: pop cx
-pf_at 0x3fe
-l_loader_000003fe: pop ax
+l_loader_000003f9: cmp eax,0x300000
 pf_at 0x3ff
-l_loader_000003ff: ret
-pf_at 0x400
-l_loader_00000400: push ax
+l_loader_000003ff: jna short 0x408
 pf_at 0x401
-l_loader_00000401: push bx
-pf_at 0x402
-l_loader_00000402: push cx
-pf_at 0x403
-l_loader_00000403: push dx
-pf_at 0x404
-l_loader_00000404: mov ax,0xe801
-pf_at 0x407
-l_loader_00000407: int 0x15
+l_loader_00000401: mov [0x9ac],eax
+pf_at 0x405
+l_loader_00000405: clc
+pf_at 0x406
+l_loader_00000406: jmp short 0x409
+pf_at 0x408
+l_loader_00000408: stc
 pf_at 0x409
-l_loader_00000409: jc short 0x453
+l_loader_00000409: pop di
+pf_at 0x40a
+l_loader_0000040a: pop es
 pf_at 0x40b
-l_loader_0000040b: push ax
+l_loader_0000040b: pop ds
 pf_at 0x40c
-l_loader_0000040c: mov ax,cs
+l_loader_0000040c: pop dx
+pf_at 0x40d
+l_loader_0000040d: pop cx
 pf_at 0x40e
-l_loader_0000040e: mov ds,ax
+l_loader_0000040e: pop ax
+pf_at 0x40f
+l_loader_0000040f: ret
 pf_at 0x410
-l_loader_00000410: pop ax
+l_loader_00000410: push ax
 pf_at 0x411
-l_loader_00000411: mov di,ax
+l_loader_00000411: push bx
+pf_at 0x412
+l_loader_00000412: push cx
 pf_at 0x413
-l_loader_00000413: mov si,bx
-pf_at 0x415
-l_loader_00000415: or di,si
+l_loader_00000413: push dx
+pf_at 0x414
+l_loader_00000414: mov ax,0xe801
 pf_at 0x417
-l_loader_00000417: jnz short 0x41d
+l_loader_00000417: int 0x15
 pf_at 0x419
-l_loader_00000419: mov di,cx
+l_loader_00000419: jc short 0x463
 pf_at 0x41b
-l_loader_0000041b: mov si,dx
-pf_at 0x41d
-l_loader_0000041d: xor eax,eax
+l_loader_0000041b: push ax
+pf_at 0x41c
+l_loader_0000041c: mov ax,cs
+pf_at 0x41e
+l_loader_0000041e: mov ds,ax
 pf_at 0x420
-l_loader_00000420: mov ax,di
-pf_at 0x422
-l_loader_00000422: shl eax,byte 0xa
-pf_at 0x426
-l_loader_00000426: add eax,0x100000
-pf_at 0x42c
-l_loader_0000042c: jc short 0x43e
-pf_at 0x42e
-l_loader_0000042e: xor edx,edx
-pf_at 0x431
-l_loader_00000431: mov dx,si
-pf_at 0x433
-l_loader_00000433: shl edx,byte 0x10
-pf_at 0x437
-l_loader_00000437: add eax,edx
-pf_at 0x43a
-l_loader_0000043a: jc short 0x43e
+l_loader_00000420: pop ax
+pf_at 0x421
+l_loader_00000421: mov di,ax
+pf_at 0x423
+l_loader_00000423: mov si,bx
+pf_at 0x425
+l_loader_00000425: or di,si
+pf_at 0x427
+l_loader_00000427: jnz short 0x42d
+pf_at 0x429
+l_loader_00000429: mov di,cx
+pf_at 0x42b
+l_loader_0000042b: mov si,dx
+pf_at 0x42d
+l_loader_0000042d: xor eax,eax
+pf_at 0x430
+l_loader_00000430: mov ax,di
+pf_at 0x432
+l_loader_00000432: shl eax,byte 0xa
+pf_at 0x436
+l_loader_00000436: add eax,0x100000
 pf_at 0x43c
-l_loader_0000043c: jmp short 0x444
+l_loader_0000043c: jc short 0x44e
 pf_at 0x43e
-l_loader_0000043e: mov eax,0xffffffff
-pf_at 0x444
-l_loader_00000444: cmp eax,0x300000
+l_loader_0000043e: xor edx,edx
+pf_at 0x441
+l_loader_00000441: mov dx,si
+pf_at 0x443
+l_loader_00000443: shl edx,byte 0x10
+pf_at 0x447
+l_loader_00000447: add eax,edx
 pf_at 0x44a
-l_loader_0000044a: jna short 0x453
+l_loader_0000044a: jc short 0x44e
 pf_at 0x44c
-l_loader_0000044c: mov [0x834],eax
-pf_at 0x450
-l_loader_00000450: clc
-pf_at 0x451
-l_loader_00000451: jmp short 0x454
-pf_at 0x453
-l_loader_00000453: stc
+l_loader_0000044c: jmp short 0x454
+pf_at 0x44e
+l_loader_0000044e: mov eax,0xffffffff
 pf_at 0x454
-l_loader_00000454: pop dx
-pf_at 0x455
-l_loader_00000455: pop cx
-pf_at 0x456
-l_loader_00000456: pop bx
-pf_at 0x457
-l_loader_00000457: pop ax
-pf_at 0x458
-l_loader_00000458: ret
-pf_at 0x459
-l_loader_00000459: push ax
+l_loader_00000454: cmp eax,0x300000
 pf_at 0x45a
-l_loader_0000045a: mov ax,0x8800
-pf_at 0x45d
-l_loader_0000045d: int 0x15
-pf_at 0x45f
-l_loader_0000045f: jc short 0x490
+l_loader_0000045a: jna short 0x463
+pf_at 0x45c
+l_loader_0000045c: mov [0x9ac],eax
+pf_at 0x460
+l_loader_00000460: clc
 pf_at 0x461
-l_loader_00000461: push ax
-pf_at 0x462
-l_loader_00000462: mov ax,cs
+l_loader_00000461: jmp short 0x464
+pf_at 0x463
+l_loader_00000463: stc
 pf_at 0x464
-l_loader_00000464: mov ds,ax
+l_loader_00000464: pop dx
+pf_at 0x465
+l_loader_00000465: pop cx
 pf_at 0x466
-l_loader_00000466: pop ax
+l_loader_00000466: pop bx
 pf_at 0x467
-l_loader_00000467: and eax,0xffff
+l_loader_00000467: pop ax
+pf_at 0x468
+l_loader_00000468: ret
+pf_at 0x469
+l_loader_00000469: push ax
+pf_at 0x46a
+l_loader_0000046a: mov ax,0x8800
 pf_at 0x46d
-l_loader_0000046d: shl eax,byte 0xa
+l_loader_0000046d: int 0x15
+pf_at 0x46f
+l_loader_0000046f: jc short 0x4a0
 pf_at 0x471
-l_loader_00000471: add eax,0x100000
+l_loader_00000471: push ax
+pf_at 0x472
+l_loader_00000472: mov ax,cs
+pf_at 0x474
+l_loader_00000474: mov ds,ax
+pf_at 0x476
+l_loader_00000476: pop ax
 pf_at 0x477
-l_loader_00000477: jc short 0x47b
-pf_at 0x479
-l_loader_00000479: jmp short 0x481
-pf_at 0x47b
-l_loader_0000047b: mov eax,0xffffffff
+l_loader_00000477: and eax,0xffff
+pf_at 0x47d
+l_loader_0000047d: shl eax,byte 0xa
 pf_at 0x481
-l_loader_00000481: cmp eax,0x300000
+l_loader_00000481: add eax,0x100000
 pf_at 0x487
-l_loader_00000487: jna short 0x490
+l_loader_00000487: jc short 0x48b
 pf_at 0x489
-l_loader_00000489: mov [0x834],eax
-pf_at 0x48d
-l_loader_0000048d: clc
-pf_at 0x48e
-l_loader_0000048e: jmp short 0x491
-pf_at 0x490
-l_loader_00000490: stc
+l_loader_00000489: jmp short 0x491
+pf_at 0x48b
+l_loader_0000048b: mov eax,0xffffffff
 pf_at 0x491
-l_loader_00000491: pop ax
-pf_at 0x492
-l_loader_00000492: ret
-pf_at 0x493
-l_loader_00000493: push ax
-pf_at 0x494
-l_loader_00000494: push cx
-pf_at 0x495
-l_loader_00000495: push ds
-pf_at 0x496
-l_loader_00000496: push es
+l_loader_00000491: cmp eax,0x300000
 pf_at 0x497
-l_loader_00000497: push di
-pf_at 0x498
-l_loader_00000498: mov ax,0x600
-pf_at 0x49b
-l_loader_0000049b: mov es,ax
+l_loader_00000497: jna short 0x4a0
+pf_at 0x499
+l_loader_00000499: mov [0x9ac],eax
 pf_at 0x49d
-l_loader_0000049d: xor di,di
-pf_at 0x49f
-l_loader_0000049f: xor ax,ax
+l_loader_0000049d: clc
+pf_at 0x49e
+l_loader_0000049e: jmp short 0x4a1
+pf_at 0x4a0
+l_loader_000004a0: stc
 pf_at 0x4a1
-l_loader_000004a1: mov cx,0x46
+l_loader_000004a1: pop ax
+pf_at 0x4a2
+l_loader_000004a2: ret
+pf_at 0x4a3
+l_loader_000004a3: push ax
 pf_at 0x4a4
-l_loader_000004a4: cld
+l_loader_000004a4: push bx
 pf_at 0x4a5
-l_loader_000004a5: rep stosw
+l_loader_000004a5: push cx
+pf_at 0x4a6
+l_loader_000004a6: push dx
 pf_at 0x4a7
-l_loader_000004a7: mov ax,cs
+l_loader_000004a7: push ds
+pf_at 0x4a8
+l_loader_000004a8: push es
 pf_at 0x4a9
-l_loader_000004a9: mov ds,ax
+l_loader_000004a9: push si
+pf_at 0x4aa
+l_loader_000004aa: push di
 pf_at 0x4ab
-l_loader_000004ab: xor eax,eax
+l_loader_000004ab: push bp
+pf_at 0x4ac
+l_loader_000004ac: mov ax,cs
 pf_at 0x4ae
-l_loader_000004ae: mov al,[0x810]
-pf_at 0x4b1
-l_loader_000004b1: mov [es:0x68],eax
-pf_at 0x4b6
-l_loader_000004b6: mov eax,[0x828]
-pf_at 0x4ba
-l_loader_000004ba: mov [es:0x70],eax
+l_loader_000004ae: mov ds,ax
+pf_at 0x4b0
+l_loader_000004b0: mov ax,0x600
+pf_at 0x4b3
+l_loader_000004b3: mov es,ax
+pf_at 0x4b5
+l_loader_000004b5: mov dword [es:0x8c],0x0
 pf_at 0x4bf
-l_loader_000004bf: xor eax,eax
-pf_at 0x4c2
-l_loader_000004c2: mov ax,[0x81b]
-pf_at 0x4c5
-l_loader_000004c5: mov [es:0x74],eax
-pf_at 0x4ca
-l_loader_000004ca: mov eax,[0x82c]
-pf_at 0x4ce
-l_loader_000004ce: mov [es:0x78],eax
+l_loader_000004bf: mov dword [es:0x110],0x0
+pf_at 0x4c9
+l_loader_000004c9: mov dword [es:0x114],0x0
 pf_at 0x4d3
-l_loader_000004d3: xor eax,eax
-pf_at 0x4d6
-l_loader_000004d6: mov ax,[0x819]
-pf_at 0x4d9
-l_loader_000004d9: mov [es:0x7c],eax
+l_loader_000004d3: mov dword [0x9b4],0x0
+pf_at 0x4dc
+l_loader_000004dc: mov ax,cs
 pf_at 0x4de
-l_loader_000004de: xor eax,eax
-pf_at 0x4e1
-l_loader_000004e1: mov ax,[0x81d]
+l_loader_000004de: mov es,ax
+pf_at 0x4e0
+l_loader_000004e0: lea di,[0xa06]
 pf_at 0x4e4
-l_loader_000004e4: mov [es:0x80],eax
+l_loader_000004e4: xor ax,ax
+pf_at 0x4e6
+l_loader_000004e6: mov cx,0xa
 pf_at 0x4e9
-l_loader_000004e9: mov eax,[0x830]
-pf_at 0x4ed
-l_loader_000004ed: mov [es:0x84],eax
+l_loader_000004e9: cld
+pf_at 0x4ea
+l_loader_000004ea: rep stosw
+pf_at 0x4ec
+l_loader_000004ec: mov eax,0xe820
 pf_at 0x4f2
-l_loader_000004f2: mov eax,[0x834]
-pf_at 0x4f6
-l_loader_000004f6: mov [es:0x88],eax
-pf_at 0x4fb
-l_loader_000004fb: pop di
-pf_at 0x4fc
-l_loader_000004fc: pop es
-pf_at 0x4fd
-l_loader_000004fd: pop ds
+l_loader_000004f2: mov edx,0x534d4150
+pf_at 0x4f8
+l_loader_000004f8: mov ecx,0x14
 pf_at 0x4fe
-l_loader_000004fe: pop cx
-pf_at 0x4ff
-l_loader_000004ff: pop ax
-pf_at 0x500
-l_loader_00000500: ret
-pf_at 0x501
-l_loader_00000501: mov ax,0x3
-pf_at 0x504
-l_loader_00000504: int 0x10
-pf_at 0x506
-l_loader_00000506: ret
+l_loader_000004fe: mov ebx,[0x9b4]
+pf_at 0x503
+l_loader_00000503: lea di,[0xa06]
 pf_at 0x507
-l_loader_00000507: in al,0x92
+l_loader_00000507: int 0x15
 pf_at 0x509
-l_loader_00000509: or al,0x2
+l_loader_00000509: push eax
 pf_at 0x50b
-l_loader_0000050b: out 0x92,al
+l_loader_0000050b: mov ax,cs
 pf_at 0x50d
-l_loader_0000050d: ret
-pf_at 0x50e
-l_loader_0000050e: mov esi,[0x840]
-pf_at 0x513
-l_loader_00000513: cli
+l_loader_0000050d: mov ds,ax
+pf_at 0x50f
+l_loader_0000050f: mov ax,0x600
+pf_at 0x512
+l_loader_00000512: mov es,ax
 pf_at 0x514
-l_loader_00000514: xor eax,eax
-pf_at 0x517
-l_loader_00000517: mov ax,cs
-pf_at 0x519
-l_loader_00000519: mov ds,ax
-pf_at 0x51b
-l_loader_0000051b: shl eax,byte 0x4
-pf_at 0x51f
-l_loader_0000051f: lea bx,[0x740]
-pf_at 0x523
-l_loader_00000523: movzx edx,bx
-pf_at 0x527
-l_loader_00000527: add eax,edx
-pf_at 0x52a
-l_loader_0000052a: mov [0x75a],eax
-pf_at 0x52e
-l_loader_0000052e: xor eax,eax
-pf_at 0x531
-l_loader_00000531: mov ax,cs
+l_loader_00000514: pop eax
+pf_at 0x516
+l_loader_00000516: jc near 0x5c6
+pf_at 0x51a
+l_loader_0000051a: cmp eax,0x534d4150
+pf_at 0x520
+l_loader_00000520: jnz near 0x5c6
+pf_at 0x524
+l_loader_00000524: mov [0x9b4],ebx
+pf_at 0x529
+l_loader_00000529: cmp dword [0xa16],byte +0x1
+pf_at 0x52f
+l_loader_0000052f: jnz near 0x5ba
 pf_at 0x533
-l_loader_00000533: shl eax,byte 0x4
+l_loader_00000533: mov eax,[0xa0e]
 pf_at 0x537
-l_loader_00000537: lea bx,[0x725]
-pf_at 0x53b
-l_loader_0000053b: movzx edx,bx
-pf_at 0x53f
-l_loader_0000053f: add eax,edx
+l_loader_00000537: mov edx,[0xa12]
+pf_at 0x53c
+l_loader_0000053c: add [es:0x110],eax
 pf_at 0x542
-l_loader_00000542: mov [0x557],eax
-pf_at 0x546
-l_loader_00000546: lgdt [0x758]
-pf_at 0x54b
-l_loader_0000054b: mov eax,cr0
+l_loader_00000542: adc [es:0x114],edx
+pf_at 0x548
+l_loader_00000548: cmp dword [0xa0a],byte +0x0
 pf_at 0x54e
-l_loader_0000054e: or eax,byte +0x1
-pf_at 0x552
-l_loader_00000552: mov cr0,eax
-pf_at 0x555
-l_loader_00000555: jmp dword 0x8:0x0
-pf_at 0x55d
-l_loader_0000055d: ret
+l_loader_0000054e: jnz short 0x5ba
+pf_at 0x550
+l_loader_00000550: mov eax,[0xa06]
+pf_at 0x554
+l_loader_00000554: mov ebp,eax
+pf_at 0x557
+l_loader_00000557: cmp ebp,0x300000
 pf_at 0x55e
-l_loader_0000055e: mov dword [0x864],0x0
-pf_at 0x567
-l_loader_00000567: cmp dword [0x85c],0x1ee
+l_loader_0000055e: jnc short 0x566
+pf_at 0x560
+l_loader_00000560: mov ebp,0x300000
+pf_at 0x566
+l_loader_00000566: mov ecx,[0xa0e]
+pf_at 0x56b
+l_loader_0000056b: mov edx,[0xa12]
 pf_at 0x570
-l_loader_00000570: jc short 0x5da
-pf_at 0x572
-l_loader_00000572: push ds
+l_loader_00000570: test edx,edx
 pf_at 0x573
-l_loader_00000573: push es
-pf_at 0x574
-l_loader_00000574: push si
+l_loader_00000573: jnz short 0x587
 pf_at 0x575
-l_loader_00000575: push di
-pf_at 0x576
-l_loader_00000576: push cx
-pf_at 0x577
-l_loader_00000577: mov ax,0x5000
-pf_at 0x57a
-l_loader_0000057a: mov ds,ax
-pf_at 0x57c
-l_loader_0000057c: cmp word [0x0],0x5357
+l_loader_00000575: mov esi,eax
+pf_at 0x578
+l_loader_00000578: add esi,ecx
+pf_at 0x57b
+l_loader_0000057b: jc short 0x587
+pf_at 0x57d
+l_loader_0000057d: cmp esi,ebp
+pf_at 0x580
+l_loader_00000580: jna short 0x5ba
 pf_at 0x582
-l_loader_00000582: jnz short 0x5d5
-pf_at 0x584
-l_loader_00000584: cmp word [0x2],0x3154
-pf_at 0x58a
-l_loader_0000058a: jnz short 0x5d5
-pf_at 0x58c
-l_loader_0000058c: cmp word [0x4],byte +0x1
-pf_at 0x591
-l_loader_00000591: jnz short 0x5d5
-pf_at 0x593
-l_loader_00000593: cmp word [0x6],byte +0x0
-pf_at 0x598
-l_loader_00000598: jnz short 0x5d5
-pf_at 0x59a
-l_loader_0000059a: mov ax,cs
-pf_at 0x59c
-l_loader_0000059c: mov es,ax
-pf_at 0x59e
-l_loader_0000059e: lea di,[0x8a2]
-pf_at 0x5a2
-l_loader_000005a2: mov si,0x1ec
+l_loader_00000582: sub esi,ebp
+pf_at 0x585
+l_loader_00000585: jmp short 0x596
+pf_at 0x587
+l_loader_00000587: mov esi,0xffffffff
+pf_at 0x58d
+l_loader_0000058d: sub esi,ebp
+pf_at 0x590
+l_loader_00000590: add esi,byte +0x1
+pf_at 0x594
+l_loader_00000594: jz short 0x5ba
+pf_at 0x596
+l_loader_00000596: mov eax,[es:0x8c]
+pf_at 0x59b
+l_loader_0000059b: cmp eax,byte +0x10
+pf_at 0x59f
+l_loader_0000059f: jnc short 0x5ba
+pf_at 0x5a1
+l_loader_000005a1: shl eax,byte 0x3
 pf_at 0x5a5
-l_loader_000005a5: mov cx,0xef
-pf_at 0x5a8
-l_loader_000005a8: cld
-pf_at 0x5a9
-l_loader_000005a9: lodsb
-pf_at 0x5aa
-l_loader_000005aa: stosb
+l_loader_000005a5: mov di,ax
+pf_at 0x5a7
+l_loader_000005a7: add di,0x90
 pf_at 0x5ab
-l_loader_000005ab: test al,al
-pf_at 0x5ad
-l_loader_000005ad: jz short 0x5b5
+l_loader_000005ab: mov [es:di],ebp
 pf_at 0x5af
-l_loader_000005af: loop 0x5a9
-pf_at 0x5b1
-l_loader_000005b1: mov byte [es:di],0x0
-pf_at 0x5b5
-l_loader_000005b5: pop cx
-pf_at 0x5b6
-l_loader_000005b6: pop di
-pf_at 0x5b7
-l_loader_000005b7: pop si
-pf_at 0x5b8
-l_loader_000005b8: pop es
-pf_at 0x5b9
-l_loader_000005b9: pop ds
+l_loader_000005af: mov [es:di+0x4],esi
+pf_at 0x5b4
+l_loader_000005b4: inc dword [es:0x8c]
 pf_at 0x5ba
-l_loader_000005ba: mov byte [0x813],0x0
+l_loader_000005ba: mov ebx,[0x9b4]
 pf_at 0x5bf
-l_loader_000005bf: mov ax,0x6000
+l_loader_000005bf: test ebx,ebx
 pf_at 0x5c2
-l_loader_000005c2: lea si,[0x8a2]
+l_loader_000005c2: jnz near 0x4dc
 pf_at 0x5c6
-l_loader_000005c6: call 0x14a
-pf_at 0x5c9
-l_loader_000005c9: jc short 0x5da
-pf_at 0x5cb
-l_loader_000005cb: mov eax,[0x84c]
+l_loader_000005c6: cmp dword [es:0x8c],byte +0x0
+pf_at 0x5cd
+l_loader_000005cd: jnz short 0x5fa
 pf_at 0x5cf
-l_loader_000005cf: mov [0x864],eax
+l_loader_000005cf: mov eax,[0x9ac]
 pf_at 0x5d3
-l_loader_000005d3: clc
-pf_at 0x5d4
-l_loader_000005d4: ret
-pf_at 0x5d5
-l_loader_000005d5: pop cx
-pf_at 0x5d6
-l_loader_000005d6: pop di
-pf_at 0x5d7
-l_loader_000005d7: pop si
-pf_at 0x5d8
-l_loader_000005d8: pop es
+l_loader_000005d3: cmp eax,0x300000
 pf_at 0x5d9
-l_loader_000005d9: pop ds
-pf_at 0x5da
-l_loader_000005da: stc
+l_loader_000005d9: jna short 0x5fa
 pf_at 0x5db
-l_loader_000005db: ret
-pf_at 0x5dc
-l_loader_000005dc: push ax
-pf_at 0x5dd
-l_loader_000005dd: mov al,[si]
-pf_at 0x5df
-l_loader_000005df: cmp al,0x2f
-pf_at 0x5e1
-l_loader_000005e1: jnz short 0x5e6
-pf_at 0x5e3
-l_loader_000005e3: inc si
-pf_at 0x5e4
-l_loader_000005e4: jmp short 0x5dd
-pf_at 0x5e6
-l_loader_000005e6: mov al,[si]
-pf_at 0x5e8
-l_loader_000005e8: mov ah,[es:di]
+l_loader_000005db: mov dword [es:0x90],0x300000
+pf_at 0x5e5
+l_loader_000005e5: sub eax,0x300000
 pf_at 0x5eb
-l_loader_000005eb: cmp al,ah
-pf_at 0x5ed
-l_loader_000005ed: jnz short 0x5fa
-pf_at 0x5ef
-l_loader_000005ef: cmp al,0x0
-pf_at 0x5f1
-l_loader_000005f1: jz short 0x5f7
-pf_at 0x5f3
-l_loader_000005f3: inc si
-pf_at 0x5f4
-l_loader_000005f4: inc di
-pf_at 0x5f5
-l_loader_000005f5: jmp short 0x5e6
-pf_at 0x5f7
-l_loader_000005f7: clc
-pf_at 0x5f8
-l_loader_000005f8: pop ax
-pf_at 0x5f9
-l_loader_000005f9: ret
+l_loader_000005eb: mov [es:0x94],eax
+pf_at 0x5f0
+l_loader_000005f0: mov dword [es:0x8c],0x1
 pf_at 0x5fa
-l_loader_000005fa: stc
+l_loader_000005fa: pop bp
 pf_at 0x5fb
-l_loader_000005fb: pop ax
+l_loader_000005fb: pop di
 pf_at 0x5fc
-l_loader_000005fc: ret
+l_loader_000005fc: pop si
 pf_at 0x5fd
-l_loader_000005fd: push ax
+l_loader_000005fd: pop es
 pf_at 0x5fe
-l_loader_000005fe: mov ax,cs
+l_loader_000005fe: pop ds
+pf_at 0x5ff
+l_loader_000005ff: pop dx
 pf_at 0x600
-l_loader_00000600: mov ds,ax
+l_loader_00000600: pop cx
+pf_at 0x601
+l_loader_00000601: pop bx
 pf_at 0x602
 l_loader_00000602: pop ax
 pf_at 0x603
-l_loader_00000603: mov byte [0x813],0x0
+l_loader_00000603: ret
+pf_at 0x604
+l_loader_00000604: push ax
+pf_at 0x605
+l_loader_00000605: push cx
+pf_at 0x606
+l_loader_00000606: push ds
+pf_at 0x607
+l_loader_00000607: push es
 pf_at 0x608
-l_loader_00000608: call 0x68a
-pf_at 0x60b
-l_loader_0000060b: mov ah,0x42
-pf_at 0x60d
-l_loader_0000060d: int 0x13
-pf_at 0x60f
-l_loader_0000060f: call 0x6c6
+l_loader_00000608: push di
+pf_at 0x609
+l_loader_00000609: mov ax,0x600
+pf_at 0x60c
+l_loader_0000060c: mov es,ax
+pf_at 0x60e
+l_loader_0000060e: xor di,di
+pf_at 0x610
+l_loader_00000610: xor ax,ax
 pf_at 0x612
-l_loader_00000612: jnc short 0x63a
-pf_at 0x614
-l_loader_00000614: mov [0x813],ah
+l_loader_00000612: mov cx,0x8c
+pf_at 0x615
+l_loader_00000615: cld
+pf_at 0x616
+l_loader_00000616: rep stosw
 pf_at 0x618
-l_loader_00000618: xor ah,ah
+l_loader_00000618: mov ax,cs
 pf_at 0x61a
-l_loader_0000061a: mov dl,[0x810]
-pf_at 0x61e
-l_loader_0000061e: int 0x13
-pf_at 0x620
-l_loader_00000620: call 0x6c6
-pf_at 0x623
-l_loader_00000623: call 0x68a
-pf_at 0x626
-l_loader_00000626: mov ah,0x42
-pf_at 0x628
-l_loader_00000628: int 0x13
-pf_at 0x62a
-l_loader_0000062a: call 0x6c6
-pf_at 0x62d
-l_loader_0000062d: jnc short 0x63a
-pf_at 0x62f
-l_loader_0000062f: mov [0x813],ah
+l_loader_0000061a: mov ds,ax
+pf_at 0x61c
+l_loader_0000061c: xor eax,eax
+pf_at 0x61f
+l_loader_0000061f: mov al,[0x988]
+pf_at 0x622
+l_loader_00000622: mov [es:0x68],eax
+pf_at 0x627
+l_loader_00000627: mov eax,[0x9a0]
+pf_at 0x62b
+l_loader_0000062b: mov [es:0x70],eax
+pf_at 0x630
+l_loader_00000630: xor eax,eax
 pf_at 0x633
-l_loader_00000633: mov byte [0x812],0x44
-pf_at 0x638
-l_loader_00000638: stc
-pf_at 0x639
-l_loader_00000639: ret
-pf_at 0x63a
-l_loader_0000063a: clc
+l_loader_00000633: mov ax,[0x993]
+pf_at 0x636
+l_loader_00000636: mov [es:0x74],eax
 pf_at 0x63b
-l_loader_0000063b: ret
-pf_at 0x63c
-l_loader_0000063c: cmp word [0x81f],byte +0x0
-pf_at 0x641
-l_loader_00000641: jz short 0x688
-pf_at 0x643
-l_loader_00000643: mov cx,0x1
-pf_at 0x646
-l_loader_00000646: mov ax,0x1000
-pf_at 0x649
-l_loader_00000649: mov es,ax
-pf_at 0x64b
-l_loader_0000064b: xor bx,bx
-pf_at 0x64d
-l_loader_0000064d: mov eax,[0x86c]
-pf_at 0x651
-l_loader_00000651: call 0x5fd
-pf_at 0x654
-l_loader_00000654: jc short 0x686
-pf_at 0x656
-l_loader_00000656: push ds
-pf_at 0x657
-l_loader_00000657: push es
-pf_at 0x658
-l_loader_00000658: push si
-pf_at 0x659
-l_loader_00000659: push di
+l_loader_0000063b: mov eax,[0x9a4]
+pf_at 0x63f
+l_loader_0000063f: mov [es:0x78],eax
+pf_at 0x644
+l_loader_00000644: xor eax,eax
+pf_at 0x647
+l_loader_00000647: mov ax,[0x991]
+pf_at 0x64a
+l_loader_0000064a: mov [es:0x7c],eax
+pf_at 0x64f
+l_loader_0000064f: xor eax,eax
+pf_at 0x652
+l_loader_00000652: mov ax,[0x995]
+pf_at 0x655
+l_loader_00000655: mov [es:0x80],eax
 pf_at 0x65a
-l_loader_0000065a: push cx
-pf_at 0x65b
-l_loader_0000065b: mov ax,[0x821]
+l_loader_0000065a: mov eax,[0x9a8]
 pf_at 0x65e
-l_loader_0000065e: push ax
-pf_at 0x65f
-l_loader_0000065f: mov ax,0x1000
-pf_at 0x662
-l_loader_00000662: mov ds,ax
-pf_at 0x664
-l_loader_00000664: xor si,si
-pf_at 0x666
-l_loader_00000666: pop ax
+l_loader_0000065e: mov [es:0x84],eax
+pf_at 0x663
+l_loader_00000663: mov eax,[0x9ac]
 pf_at 0x667
-l_loader_00000667: mov es,ax
-pf_at 0x669
-l_loader_00000669: xor di,di
-pf_at 0x66b
-l_loader_0000066b: mov cx,0x100
-pf_at 0x66e
-l_loader_0000066e: cld
+l_loader_00000667: mov [es:0x88],eax
+pf_at 0x66c
+l_loader_0000066c: call 0x4a3
 pf_at 0x66f
-l_loader_0000066f: rep movsw
+l_loader_0000066f: pop di
+pf_at 0x670
+l_loader_00000670: pop es
 pf_at 0x671
-l_loader_00000671: pop cx
+l_loader_00000671: pop ds
 pf_at 0x672
-l_loader_00000672: pop di
+l_loader_00000672: pop cx
 pf_at 0x673
-l_loader_00000673: pop si
+l_loader_00000673: pop ax
 pf_at 0x674
-l_loader_00000674: pop es
+l_loader_00000674: ret
 pf_at 0x675
-l_loader_00000675: pop ds
-pf_at 0x676
-l_loader_00000676: add word [0x821],byte +0x20
+l_loader_00000675: mov ax,0x3
+pf_at 0x678
+l_loader_00000678: int 0x10
+pf_at 0x67a
+l_loader_0000067a: ret
 pf_at 0x67b
-l_loader_0000067b: dec word [0x81f]
+l_loader_0000067b: in al,0x92
+pf_at 0x67d
+l_loader_0000067d: or al,0x2
 pf_at 0x67f
-l_loader_0000067f: inc dword [0x86c]
-pf_at 0x684
-l_loader_00000684: jmp short 0x63c
-pf_at 0x686
-l_loader_00000686: stc
+l_loader_0000067f: out 0x92,al
+pf_at 0x681
+l_loader_00000681: ret
+pf_at 0x682
+l_loader_00000682: mov esi,[0x9b8]
 pf_at 0x687
-l_loader_00000687: ret
+l_loader_00000687: cli
 pf_at 0x688
-l_loader_00000688: clc
-pf_at 0x689
-l_loader_00000689: ret
-pf_at 0x68a
-l_loader_0000068a: mov [0x823],es
-pf_at 0x68e
-l_loader_0000068e: mov dl,[0x810]
-pf_at 0x692
-l_loader_00000692: mov di,0x1000
-pf_at 0x695
-l_loader_00000695: mov es,di
+l_loader_00000688: xor eax,eax
+pf_at 0x68b
+l_loader_0000068b: mov ax,cs
+pf_at 0x68d
+l_loader_0000068d: mov ds,ax
+pf_at 0x68f
+l_loader_0000068f: shl eax,byte 0x4
+pf_at 0x693
+l_loader_00000693: lea bx,[0x8b8]
 pf_at 0x697
-l_loader_00000697: mov word [es:0x400],0x10
+l_loader_00000697: movzx edx,bx
+pf_at 0x69b
+l_loader_0000069b: add eax,edx
 pf_at 0x69e
-l_loader_0000069e: mov [es:0x402],cx
-pf_at 0x6a3
-l_loader_000006a3: mov [es:0x404],bx
-pf_at 0x6a8
-l_loader_000006a8: mov bp,[0x823]
-pf_at 0x6ac
-l_loader_000006ac: mov [es:0x406],bp
-pf_at 0x6b1
-l_loader_000006b1: mov [es:0x408],eax
+l_loader_0000069e: mov [0x8d2],eax
+pf_at 0x6a2
+l_loader_000006a2: xor eax,eax
+pf_at 0x6a5
+l_loader_000006a5: mov ax,cs
+pf_at 0x6a7
+l_loader_000006a7: shl eax,byte 0x4
+pf_at 0x6ab
+l_loader_000006ab: lea bx,[0x899]
+pf_at 0x6af
+l_loader_000006af: movzx edx,bx
+pf_at 0x6b3
+l_loader_000006b3: add eax,edx
 pf_at 0x6b6
-l_loader_000006b6: mov dword [es:0x40c],0x0
-pf_at 0x6c0
-l_loader_000006c0: mov ds,di
+l_loader_000006b6: mov [0x6cb],eax
+pf_at 0x6ba
+l_loader_000006ba: lgdt [0x8d0]
+pf_at 0x6bf
+l_loader_000006bf: mov eax,cr0
 pf_at 0x6c2
-l_loader_000006c2: mov si,0x400
-pf_at 0x6c5
-l_loader_000006c5: ret
+l_loader_000006c2: or eax,byte +0x1
 pf_at 0x6c6
-l_loader_000006c6: push ax
-pf_at 0x6c7
-l_loader_000006c7: mov ax,cs
+l_loader_000006c6: mov cr0,eax
 pf_at 0x6c9
-l_loader_000006c9: mov ds,ax
-pf_at 0x6cb
-l_loader_000006cb: mov ax,[0x823]
-pf_at 0x6ce
-l_loader_000006ce: mov es,ax
-pf_at 0x6d0
-l_loader_000006d0: pop ax
+l_loader_000006c9: jmp dword 0x8:0x0
 pf_at 0x6d1
 l_loader_000006d1: ret
 pf_at 0x6d2
-l_loader_000006d2: push ax
-pf_at 0x6d3
-l_loader_000006d3: push bx
-pf_at 0x6d4
-l_loader_000006d4: push cx
-pf_at 0x6d5
-l_loader_000006d5: push dx
-pf_at 0x6d6
-l_loader_000006d6: push si
-pf_at 0x6d7
-l_loader_000006d7: push di
-pf_at 0x6d8
-l_loader_000006d8: push bp
-pf_at 0x6d9
-l_loader_000006d9: push ds
-pf_at 0x6da
-l_loader_000006da: push es
+l_loader_000006d2: mov dword [0x9dc],0x0
 pf_at 0x6db
-l_loader_000006db: mov ah,0xe
-pf_at 0x6dd
-l_loader_000006dd: mov bx,0x7
-pf_at 0x6e0
-l_loader_000006e0: int 0x10
-pf_at 0x6e2
-l_loader_000006e2: pop es
-pf_at 0x6e3
-l_loader_000006e3: pop ds
+l_loader_000006db: cmp dword [0x9d4],0x1ee
 pf_at 0x6e4
-l_loader_000006e4: pop bp
-pf_at 0x6e5
-l_loader_000006e5: pop di
+l_loader_000006e4: jc short 0x74e
 pf_at 0x6e6
-l_loader_000006e6: pop si
+l_loader_000006e6: push ds
 pf_at 0x6e7
-l_loader_000006e7: pop dx
+l_loader_000006e7: push es
 pf_at 0x6e8
-l_loader_000006e8: pop cx
+l_loader_000006e8: push si
 pf_at 0x6e9
-l_loader_000006e9: pop bx
+l_loader_000006e9: push di
 pf_at 0x6ea
-l_loader_000006ea: pop ax
+l_loader_000006ea: push cx
 pf_at 0x6eb
-l_loader_000006eb: ret
-pf_at 0x6ec
-l_loader_000006ec: cld
-pf_at 0x6ed
-l_loader_000006ed: lodsb
+l_loader_000006eb: mov ax,0x5000
 pf_at 0x6ee
-l_loader_000006ee: test al,al
+l_loader_000006ee: mov ds,ax
 pf_at 0x6f0
-l_loader_000006f0: jz short 0x6f7
-pf_at 0x6f2
-l_loader_000006f2: call 0x6d2
-pf_at 0x6f5
-l_loader_000006f5: jmp short 0x6ed
-pf_at 0x6f7
-l_loader_000006f7: ret
+l_loader_000006f0: cmp word [0x0],0x5357
+pf_at 0x6f6
+l_loader_000006f6: jnz short 0x749
 pf_at 0x6f8
-l_loader_000006f8: and al,0xf
-pf_at 0x6fa
-l_loader_000006fa: cmp al,0x9
-pf_at 0x6fc
-l_loader_000006fc: jna short 0x702
+l_loader_000006f8: cmp word [0x2],0x3154
 pf_at 0x6fe
-l_loader_000006fe: add al,0x37
+l_loader_000006fe: jnz short 0x749
 pf_at 0x700
-l_loader_00000700: jmp short 0x704
-pf_at 0x702
-l_loader_00000702: add al,0x30
-pf_at 0x704
-l_loader_00000704: call 0x6d2
+l_loader_00000700: cmp word [0x4],byte +0x1
+pf_at 0x705
+l_loader_00000705: jnz short 0x749
 pf_at 0x707
-l_loader_00000707: ret
-pf_at 0x708
-l_loader_00000708: push ax
-pf_at 0x709
-l_loader_00000709: push bx
-pf_at 0x70a
-l_loader_0000070a: mov bl,al
+l_loader_00000707: cmp word [0x6],byte +0x0
 pf_at 0x70c
-l_loader_0000070c: shr al,byte 0x4
-pf_at 0x70f
-l_loader_0000070f: call 0x6f8
+l_loader_0000070c: jnz short 0x749
+pf_at 0x70e
+l_loader_0000070e: mov ax,cs
+pf_at 0x710
+l_loader_00000710: mov es,ax
 pf_at 0x712
-l_loader_00000712: mov al,bl
-pf_at 0x714
-l_loader_00000714: call 0x6f8
-pf_at 0x717
-l_loader_00000717: pop bx
-pf_at 0x718
-l_loader_00000718: pop ax
+l_loader_00000712: lea di,[0xa1a]
+pf_at 0x716
+l_loader_00000716: mov si,0x1ec
 pf_at 0x719
-l_loader_00000719: ret
-pf_at 0x71a
-l_loader_0000071a: push ax
-pf_at 0x71b
-l_loader_0000071b: xchg ah,al
+l_loader_00000719: mov cx,0xef
+pf_at 0x71c
+l_loader_0000071c: cld
 pf_at 0x71d
-l_loader_0000071d: call 0x708
-pf_at 0x720
-l_loader_00000720: pop ax
+l_loader_0000071d: lodsb
+pf_at 0x71e
+l_loader_0000071e: stosb
+pf_at 0x71f
+l_loader_0000071f: test al,al
 pf_at 0x721
-l_loader_00000721: call 0x708
-pf_at 0x724
-l_loader_00000724: ret
+l_loader_00000721: jz short 0x729
+pf_at 0x723
+l_loader_00000723: loop 0x71d
+pf_at 0x725
+l_loader_00000725: mov byte [es:di],0x0
+pf_at 0x729
+l_loader_00000729: pop cx
+pf_at 0x72a
+l_loader_0000072a: pop di
+pf_at 0x72b
+l_loader_0000072b: pop si
+pf_at 0x72c
+l_loader_0000072c: pop es
+pf_at 0x72d
+l_loader_0000072d: pop ds
+pf_at 0x72e
+l_loader_0000072e: mov byte [0x98b],0x0
+pf_at 0x733
+l_loader_00000733: mov ax,0x6000
+pf_at 0x736
+l_loader_00000736: lea si,[0xa1a]
+pf_at 0x73a
+l_loader_0000073a: call 0x14a
+pf_at 0x73d
+l_loader_0000073d: jc short 0x74e
+pf_at 0x73f
+l_loader_0000073f: mov eax,[0x9c4]
+pf_at 0x743
+l_loader_00000743: mov [0x9dc],eax
+pf_at 0x747
+l_loader_00000747: clc
+pf_at 0x748
+l_loader_00000748: ret
+pf_at 0x749
+l_loader_00000749: pop cx
+pf_at 0x74a
+l_loader_0000074a: pop di
+pf_at 0x74b
+l_loader_0000074b: pop si
+pf_at 0x74c
+l_loader_0000074c: pop es
+pf_at 0x74d
+l_loader_0000074d: pop ds
+pf_at 0x74e
+l_loader_0000074e: stc
+pf_at 0x74f
+l_loader_0000074f: ret
+pf_at 0x750
+l_loader_00000750: push ax
+pf_at 0x751
+l_loader_00000751: mov al,[si]
+pf_at 0x753
+l_loader_00000753: cmp al,0x2f
+pf_at 0x755
+l_loader_00000755: jnz short 0x75a
+pf_at 0x757
+l_loader_00000757: inc si
+pf_at 0x758
+l_loader_00000758: jmp short 0x751
+pf_at 0x75a
+l_loader_0000075a: mov al,[si]
+pf_at 0x75c
+l_loader_0000075c: mov ah,[es:di]
+pf_at 0x75f
+l_loader_0000075f: cmp al,ah
+pf_at 0x761
+l_loader_00000761: jnz short 0x76e
+pf_at 0x763
+l_loader_00000763: cmp al,0x0
+pf_at 0x765
+l_loader_00000765: jz short 0x76b
+pf_at 0x767
+l_loader_00000767: inc si
+pf_at 0x768
+l_loader_00000768: inc di
+pf_at 0x769
+l_loader_00000769: jmp short 0x75a
+pf_at 0x76b
+l_loader_0000076b: clc
+pf_at 0x76c
+l_loader_0000076c: pop ax
+pf_at 0x76d
+l_loader_0000076d: ret
+pf_at 0x76e
+l_loader_0000076e: stc
+pf_at 0x76f
+l_loader_0000076f: pop ax
+pf_at 0x770
+l_loader_00000770: ret
+pf_at 0x771
+l_loader_00000771: push ax
+pf_at 0x772
+l_loader_00000772: mov ax,cs
+pf_at 0x774
+l_loader_00000774: mov ds,ax
+pf_at 0x776
+l_loader_00000776: pop ax
+pf_at 0x777
+l_loader_00000777: mov byte [0x98b],0x0
+pf_at 0x77c
+l_loader_0000077c: call 0x7fe
+pf_at 0x77f
+l_loader_0000077f: mov ah,0x42
+pf_at 0x781
+l_loader_00000781: int 0x13
+pf_at 0x783
+l_loader_00000783: call 0x83a
+pf_at 0x786
+l_loader_00000786: jnc short 0x7ae
+pf_at 0x788
+l_loader_00000788: mov [0x98b],ah
+pf_at 0x78c
+l_loader_0000078c: xor ah,ah
+pf_at 0x78e
+l_loader_0000078e: mov dl,[0x988]
+pf_at 0x792
+l_loader_00000792: int 0x13
+pf_at 0x794
+l_loader_00000794: call 0x83a
+pf_at 0x797
+l_loader_00000797: call 0x7fe
+pf_at 0x79a
+l_loader_0000079a: mov ah,0x42
+pf_at 0x79c
+l_loader_0000079c: int 0x13
+pf_at 0x79e
+l_loader_0000079e: call 0x83a
+pf_at 0x7a1
+l_loader_000007a1: jnc short 0x7ae
+pf_at 0x7a3
+l_loader_000007a3: mov [0x98b],ah
+pf_at 0x7a7
+l_loader_000007a7: mov byte [0x98a],0x44
+pf_at 0x7ac
+l_loader_000007ac: stc
+pf_at 0x7ad
+l_loader_000007ad: ret
+pf_at 0x7ae
+l_loader_000007ae: clc
+pf_at 0x7af
+l_loader_000007af: ret
+pf_at 0x7b0
+l_loader_000007b0: cmp word [0x997],byte +0x0
+pf_at 0x7b5
+l_loader_000007b5: jz short 0x7fc
+pf_at 0x7b7
+l_loader_000007b7: mov cx,0x1
+pf_at 0x7ba
+l_loader_000007ba: mov ax,0x1000
+pf_at 0x7bd
+l_loader_000007bd: mov es,ax
+pf_at 0x7bf
+l_loader_000007bf: xor bx,bx
+pf_at 0x7c1
+l_loader_000007c1: mov eax,[0x9e4]
+pf_at 0x7c5
+l_loader_000007c5: call 0x771
+pf_at 0x7c8
+l_loader_000007c8: jc short 0x7fa
+pf_at 0x7ca
+l_loader_000007ca: push ds
+pf_at 0x7cb
+l_loader_000007cb: push es
+pf_at 0x7cc
+l_loader_000007cc: push si
+pf_at 0x7cd
+l_loader_000007cd: push di
+pf_at 0x7ce
+l_loader_000007ce: push cx
+pf_at 0x7cf
+l_loader_000007cf: mov ax,[0x999]
+pf_at 0x7d2
+l_loader_000007d2: push ax
+pf_at 0x7d3
+l_loader_000007d3: mov ax,0x1000
+pf_at 0x7d6
+l_loader_000007d6: mov ds,ax
+pf_at 0x7d8
+l_loader_000007d8: xor si,si
+pf_at 0x7da
+l_loader_000007da: pop ax
+pf_at 0x7db
+l_loader_000007db: mov es,ax
+pf_at 0x7dd
+l_loader_000007dd: xor di,di
+pf_at 0x7df
+l_loader_000007df: mov cx,0x100
+pf_at 0x7e2
+l_loader_000007e2: cld
+pf_at 0x7e3
+l_loader_000007e3: rep movsw
+pf_at 0x7e5
+l_loader_000007e5: pop cx
+pf_at 0x7e6
+l_loader_000007e6: pop di
+pf_at 0x7e7
+l_loader_000007e7: pop si
+pf_at 0x7e8
+l_loader_000007e8: pop es
+pf_at 0x7e9
+l_loader_000007e9: pop ds
+pf_at 0x7ea
+l_loader_000007ea: add word [0x999],byte +0x20
+pf_at 0x7ef
+l_loader_000007ef: dec word [0x997]
+pf_at 0x7f3
+l_loader_000007f3: inc dword [0x9e4]
+pf_at 0x7f8
+l_loader_000007f8: jmp short 0x7b0
+pf_at 0x7fa
+l_loader_000007fa: stc
+pf_at 0x7fb
+l_loader_000007fb: ret
+pf_at 0x7fc
+l_loader_000007fc: clc
+pf_at 0x7fd
+l_loader_000007fd: ret
+pf_at 0x7fe
+l_loader_000007fe: mov [0x99b],es
+pf_at 0x802
+l_loader_00000802: mov dl,[0x988]
+pf_at 0x806
+l_loader_00000806: mov di,0x1000
+pf_at 0x809
+l_loader_00000809: mov es,di
+pf_at 0x80b
+l_loader_0000080b: mov word [es:0x400],0x10
+pf_at 0x812
+l_loader_00000812: mov [es:0x402],cx
+pf_at 0x817
+l_loader_00000817: mov [es:0x404],bx
+pf_at 0x81c
+l_loader_0000081c: mov bp,[0x99b]
+pf_at 0x820
+l_loader_00000820: mov [es:0x406],bp
+pf_at 0x825
+l_loader_00000825: mov [es:0x408],eax
+pf_at 0x82a
+l_loader_0000082a: mov dword [es:0x40c],0x0
+pf_at 0x834
+l_loader_00000834: mov ds,di
+pf_at 0x836
+l_loader_00000836: mov si,0x400
+pf_at 0x839
+l_loader_00000839: ret
+pf_at 0x83a
+l_loader_0000083a: push ax
+pf_at 0x83b
+l_loader_0000083b: mov ax,cs
+pf_at 0x83d
+l_loader_0000083d: mov ds,ax
+pf_at 0x83f
+l_loader_0000083f: mov ax,[0x99b]
+pf_at 0x842
+l_loader_00000842: mov es,ax
+pf_at 0x844
+l_loader_00000844: pop ax
+pf_at 0x845
+l_loader_00000845: ret
+pf_at 0x846
+l_loader_00000846: push ax
+pf_at 0x847
+l_loader_00000847: push bx
+pf_at 0x848
+l_loader_00000848: push cx
+pf_at 0x849
+l_loader_00000849: push dx
+pf_at 0x84a
+l_loader_0000084a: push si
+pf_at 0x84b
+l_loader_0000084b: push di
+pf_at 0x84c
+l_loader_0000084c: push bp
+pf_at 0x84d
+l_loader_0000084d: push ds
+pf_at 0x84e
+l_loader_0000084e: push es
+pf_at 0x84f
+l_loader_0000084f: mov ah,0xe
+pf_at 0x851
+l_loader_00000851: mov bx,0x7
+pf_at 0x854
+l_loader_00000854: int 0x10
+pf_at 0x856
+l_loader_00000856: pop es
+pf_at 0x857
+l_loader_00000857: pop ds
+pf_at 0x858
+l_loader_00000858: pop bp
+pf_at 0x859
+l_loader_00000859: pop di
+pf_at 0x85a
+l_loader_0000085a: pop si
+pf_at 0x85b
+l_loader_0000085b: pop dx
+pf_at 0x85c
+l_loader_0000085c: pop cx
+pf_at 0x85d
+l_loader_0000085d: pop bx
+pf_at 0x85e
+l_loader_0000085e: pop ax
+pf_at 0x85f
+l_loader_0000085f: ret
+pf_at 0x860
+l_loader_00000860: cld
+pf_at 0x861
+l_loader_00000861: lodsb
+pf_at 0x862
+l_loader_00000862: test al,al
+pf_at 0x864
+l_loader_00000864: jz short 0x86b
+pf_at 0x866
+l_loader_00000866: call 0x846
+pf_at 0x869
+l_loader_00000869: jmp short 0x861
+pf_at 0x86b
+l_loader_0000086b: ret
+pf_at 0x86c
+l_loader_0000086c: and al,0xf
+pf_at 0x86e
+l_loader_0000086e: cmp al,0x9
+pf_at 0x870
+l_loader_00000870: jna short 0x876
+pf_at 0x872
+l_loader_00000872: add al,0x37
+pf_at 0x874
+l_loader_00000874: jmp short 0x878
+pf_at 0x876
+l_loader_00000876: add al,0x30
+pf_at 0x878
+l_loader_00000878: call 0x846
+pf_at 0x87b
+l_loader_0000087b: ret
+pf_at 0x87c
+l_loader_0000087c: push ax
+pf_at 0x87d
+l_loader_0000087d: push bx
+pf_at 0x87e
+l_loader_0000087e: mov bl,al
+pf_at 0x880
+l_loader_00000880: shr al,byte 0x4
+pf_at 0x883
+l_loader_00000883: call 0x86c
+pf_at 0x886
+l_loader_00000886: mov al,bl
+pf_at 0x888
+l_loader_00000888: call 0x86c
+pf_at 0x88b
+l_loader_0000088b: pop bx
+pf_at 0x88c
+l_loader_0000088c: pop ax
+pf_at 0x88d
+l_loader_0000088d: ret
+pf_at 0x88e
+l_loader_0000088e: push ax
+pf_at 0x88f
+l_loader_0000088f: xchg ah,al
+pf_at 0x891
+l_loader_00000891: call 0x87c
+pf_at 0x894
+l_loader_00000894: pop ax
+pf_at 0x895
+l_loader_00000895: call 0x87c
+pf_at 0x898
+l_loader_00000898: ret
 
-section part1 start=0x725 vstart=0x8725 align=1
+section part1 start=0x899 vstart=0x8899 align=1
 bits 32
 pf_at 0x0
-l_loader_00008725: mov ax,0x10
+l_loader_00008899: mov ax,0x10
 pf_at 0x4
-l_loader_00008729: o16 mov ds,ax
+l_loader_0000889d: o16 mov ds,ax
 pf_at 0x7
-l_loader_0000872c: o16 mov es,ax
+l_loader_000088a0: o16 mov es,ax
 pf_at 0xa
-l_loader_0000872f: o16 mov fs,ax
+l_loader_000088a3: o16 mov fs,ax
 pf_at 0xd
-l_loader_00008732: o16 mov gs,ax
+l_loader_000088a6: o16 mov gs,ax
 pf_at 0x10
-l_loader_00008735: o16 mov ss,ax
+l_loader_000088a9: o16 mov ss,ax
 pf_at 0x13
-l_loader_00008738: mov esp,0x17f000
+l_loader_000088ac: mov esp,0x17f000
 pf_at 0x18
-l_loader_0000873d: cld
+l_loader_000088b1: cld
 pf_at 0x19
-l_loader_0000873e: jmp esi
+l_loader_000088b2: jmp esi
+pf_at 0x1b
+l_loader_000088b4: db 0x8d
+pf_at 0x1c
+l_loader_000088b5: mov ah,0x0
+pf_at 0x1e
+l_loader_000088b7: db 0x00
 
-section part2 start=0x740 vstart=0x0 align=1
+section part2 start=0x8b8 vstart=0x0 align=1
     times 8 db 0
     db 0xff, 0xff
     times 3 db 0
@@ -1454,4 +1666,4 @@ section part2 start=0x740 vstart=0x0 align=1
     db 0x90
     times 15 db 0
     db 0x04
-    times 30664 db 0
+    times 30288 db 0

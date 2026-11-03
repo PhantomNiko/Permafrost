@@ -1,4 +1,4 @@
-/* Permafrost 0.1; Pooka's Free Software License. */
+/* Permafrost 0.2; Pooka's Free Software License. */
 #pragma once
 #include <stdint.h>
 #include <stddef.h>
@@ -6,6 +6,8 @@
 typedef unsigned char byte;
 typedef unsigned short ushort;
 typedef unsigned int uint;
+typedef unsigned long ulong;
+typedef double longdouble;
 typedef unsigned long long ulonglong;
 typedef long long longlong;
 typedef unsigned char undefined;
@@ -26,12 +28,26 @@ typedef unsigned int code();
 #define CONCAT22(a,b) (((uint32_t)(a)<<16)|(uint16_t)(b))
 #define CONCAT31(a,b) (((uint32_t)(a)<<8)|(uint8_t)(b))
 #define CONCAT44(a,b) (((uint64_t)(a)<<32)|(uint32_t)(b))
+#define CONCAT71(a,b) (((uint64_t)(a)<<8)|(uint8_t)(b))
+#define SUB84(a,b) ((uint32_t)(PF_RAW64(a)>>((b)*8)))
+#define ZEXT48(a) ((uint64_t)(uint32_t)(a))
+#define CARRY4(a,b) ((uint32_t)(a) > UINT32_MAX-(uint32_t)(b))
+#define SBORROW1(a,b) (((int8_t)(a)<0) != ((int8_t)(b)<0) && (((int8_t)((uint8_t)(a)-(uint8_t)(b))<0) != ((int8_t)(a)<0)))
 #define SUB41(a,b) ((uint8_t)((uint32_t)(a)>>((b)*8)))
 #define SUB81(a,b) ((uint8_t)((uint64_t)(a)>>((b)*8)))
+#define PF_PART1(value, offset) (*(uint8_t *)((uint8_t *)&(value)+(offset)))
 #define PF_PART2(value, offset) (*(uint16_t *)((uint8_t *)&(value)+(offset)))
 #define PF_PART4(value, offset) (*(uint32_t *)((uint8_t *)&(value)+(offset)))
 struct pf_uint24 { unsigned int value:24; } __attribute__((packed));
 #define PF_PART3(object, offset) (((struct pf_uint24 *)((uint8_t *)&(object)+(offset)))->value)
+struct pf_uint56 { unsigned long long value:56; } __attribute__((packed));
+#define PF_PART7(object, offset) (((struct pf_uint56 *)((uint8_t *)&(object)+(offset)))->value)
+static inline char *builtin_strncpy(char *out, const char *in, size_t count) {
+    char *start = out;
+    while (count && *in) { *out++ = *in++; --count; }
+    while (count--) *out++ = 0;
+    return start;
+}
 
 static inline byte in(ushort port) {
     byte value;
@@ -56,9 +72,14 @@ static inline long double pf_round(long double value) {
 static inline uint16_t pf_fpu_control(void) { uint16_t value; __asm__ volatile ("fnstcw %0" : "=m"(value)); return value; }
 static inline uint32_t pf_float_bits(float value) { union { float f; uint32_t u; } bits = { .f = value }; return bits.u; }
 static inline float pf_bits_float(uint32_t value) { union { float f; uint32_t u; } bits = { .u = value }; return bits.f; }
+static inline uint64_t pf_double_bits(double value) { union { double f; uint64_t u; } bits = { .f = value }; return bits.u; }
+static inline double pf_bits_double(uint64_t value) { union { double f; uint64_t u; } bits = { .u = value }; return bits.f; }
+static inline uint64_t pf_integer_bits(uint64_t value) { return value; }
+#define PF_RAW64(value) _Generic((value), double: pf_double_bits, default: pf_integer_bits)(value)
 #define FUN_00020023 ((uint (*)(void))0x20023)
 #define FUN_000200ce ((uint (*)(void))0x200ce)
 #define FUN_000201aa ((uint (*)(void))0x201aa)
 #define FUN_000202c9 ((uint (*)(void))0x202c9)
-#define FUN_000203bb ((uint (*)(void))0x203bb)
-#define FUN_00020440 ((uint (*)(void))0x20440)
+#define FUN_000203c0 ((uint (*)(void))0x203c0)
+#define FUN_00020537 ((uint (*)(void))0x20537)
+#define FUN_000205bc ((uint (*)(void))0x205bc)

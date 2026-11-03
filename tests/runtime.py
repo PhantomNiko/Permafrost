@@ -12,17 +12,21 @@ from unicorn.x86_const import *
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
 from wmfs import Image
 
-DATA = 0x110000
-STACK = 0x180000
-RETURN = 0x100000
+DATA = 0x200000
+STACK = 0x280000
+RETURN = 0x290000
 SAVED = [UC_X86_REG_EBX, UC_X86_REG_ESI, UC_X86_REG_EDI, UC_X86_REG_EBP]
 
 
 class Runtime:
-    def __init__(self, kernel):
+    def __init__(self, kernel, relocate=False):
         self.cpu = Uc(UC_ARCH_X86, UC_MODE_32)
         self.cpu.mem_map(0, 4 * 1024 * 1024)
         self.cpu.mem_write(0x20000, kernel)
+        if relocate:
+            layout = json.loads(Path('recovery/layout.json').read_text())
+            offset = (layout['initialized_end'] - layout['kernel_base'] + 15) & ~15
+            self.cpu.mem_write(layout['core_base'], kernel[offset:])
 
     def call(self, address, args, memory):
         cpu = self.cpu
@@ -48,7 +52,7 @@ def main():
     args = parser.parse_args()
     files = Image(args.reference_image.read_bytes()).files()
     old = Runtime(files['WinterBoot-baremetal.bin'])
-    new = Runtime(args.kernel.read_bytes())
+    new = Runtime(args.kernel.read_bytes(), relocate=True)
     entries = json.loads(Path('kernel/runtime.json').read_text())
     randomizer = random.Random(0x5046)
     tested = 0

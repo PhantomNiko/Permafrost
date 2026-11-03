@@ -1,0 +1,22 @@
+#include "functions.h"
+#undef DAT_0003f254
+#define DAT_0003f254 (*(uint8_t *)(0x3f254U))
+/* Recovered working notes; Pooka's Free Software License.
+ * Address: 0x285ce
+ */
+
+uint recovered_285ce(undefined4 *param_1,undefined1 *param_2)
+
+{
+  unsigned char frame[64];
+
+  uint uVar1;
+  
+  if (param_2 == (undefined1 *)0x0) {
+    param_2 = &DAT_0003f254;
+  }
+  uVar1 = recovered_20ff4((int)param_2);
+  uVar1 = recovered_2892b(param_1,param_2,uVar1);
+  return uVar1;
+}
+

@@ -1,80 +1,55 @@
-# Permafrost 0.1 recovery record
+# Permafrost 0.2 recovery record
 
-The reference is the first public Permafrost-kernel release, historically
-distributed as version 0.2. This repository names its reconstruction Permafrost
-0.1. Historical strings below identify evidence and compatibility formats; they
-are not product names for this project.
+The supplied 0.3 Alpha release is reconstructed as Permafrost 0.2. This is the
+only build target. Earlier releases remain Git milestones. Reference hashes,
+file sizes, and filesystem fields are recorded in `recovery/inventory.json`;
+`recovery/layout.json` defines the current kernel's memory boundaries.
 
-Reference SHA-256:
-`12d90f25773c53ecb5a7c84fae9cb0d86c5561cf9d933c690407877086d80bd3`.
-Image size: 516096 bytes, 1008 sectors of 512 bytes. No partition table.
-
-| Disk sectors | Purpose |
-| --- | --- |
-| 0 | BIOS boot sector; signature 55 AA; INT 13h extended read |
-| 1–64 | Real-mode second stage; load address 0000:8000 |
-| 65 | WMFS32 superblock |
-| 66 | 32-bit little-endian allocation table |
-| 67–69 | Six 256-byte directory slots (five occupied) |
-| 70 onward | 4096-byte clusters, numbered starting at 2 |
-
-The boot sector loads 64 sectors to 0800:0000. Stage two reads the root directory,
-loads the kernel at physical 0x20000, validates WMLP/version 1, obtains the entry
-address from header +8, supplies boot information at 0x6000, enables A20 and
-protected mode, and jumps to the entry. The kernel header is:
-
-| Offset | u32 little-endian value |
-| --- | --- |
-| 0 | ASCII WMLP |
-| 4 | 1 |
-| 8 | 0x20010 entry address |
-| 12 | 0x71e minimum validated extent in the reference |
-
-The reference kernel is 331776 bytes, including a large zero-initialized tail.
-Executable ranges are 0x10–0x687 and 0x71e–0xc8c0 (inclusive). The first range
-contains alternating 32-bit and 16-bit BIOS bridges. 0x688–0x71d holds the GDT,
-disk transfer packet and BIOS result storage. 0xc8c1 onward holds constants,
-jump tables, strings and zero-initialized storage. The recovery source separates
-these ranges. It does not embed the kernel binary or require the reference for
-normal builds. Function names absent from the binary remain address labels.
+The reference disk is 545792 bytes (1066 sectors). The BIOS boot sector is
+sector 0, the real-mode loader occupies sectors 1–64, and WMFS32 begins at 65.
+The reference has one FAT sector, seven root sectors, and 4096-byte clusters.
+There are fourteen files, including the kernel, scripts, bitmap font, native
+utilities, monitor, desk model, and bundled language self-test.
 
 WMFS32 superblock u32 fields begin at +8: version, bytes per sector, sectors per
 cluster, FAT relative sector, FAT sectors, root relative sector, root sectors,
 data relative sector, cluster count, live file count, total filesystem sectors.
 Directory names occupy bytes 0–239 (NUL terminated); first cluster is at +240;
-byte length is at +244. FAT value 0 is free; 0xffffffff ends a chain. The image
-uses no directories beyond slash-separated names in a flat table.
+byte length is at +244. FAT value 0 is free; 0xffffffff ends a chain. Names form
+a flat table, including slash-separated names.
 
-The five reference files are the kernel, BinaryWriter.ws, startup.ws and two
-eight-byte native utilities. `tools/wmfs.py` inventories and extracts them into
-an ignored build directory. `tools/recover.py` reproduces the initial assembly
-recovery using NASM's disassembler. This is instruction-level recovered source,
-not a recovery of the author's original C identifiers or comments.
+The loader reads the kernel at physical 0x20000, validates the WMLP header,
+enables A20/protected mode, sets the stack at 0x17f000, and enters 0x20010.
+Boot information at 0x6000 includes usable RAM ranges. The reference's header
+extent is 0x8a2. BIOS bridges occupy 0x20010–0x207ff; the following data holds
+the GDT, disk parameters, and firmware results. Compiled reference code spans
+0x208a2–0x3ef9a. Shared state occupies 0x3ef9b–0x88fff; initialized data ends at
+0x445e4. BIOS bridges include keyboard, font, disk read/write/query, video, and
+VBE mode operations.
 
-`kernel/runtime.c` replaces the routines at 0x20c1d–0x20def with C. Original
-entry addresses contain jumps to newly compiled code after the original memory
-extent (physical 0x71000). `kernel/display.cpp` replaces the public night-mode
-entry at 0x2243d. The generated C module and symbol include are build outputs,
-not copied binary inputs. 523 differential cases against the reference and a
-complete fixture boot pass with the C implementation. Both the original native
-night-mode utility and the SDK-built C++ utility call the replacement successfully.
+The boot sector, loader, and complete reference kernel reassemble byte-for-byte
+from `tools/recover.py` output. Normal builds use checked-in source and require
+neither a reference image nor Ghidra. The current C implementation is linked at
+0x100000. A small entry bridge copies it out of the low-memory loading area,
+clears the original BSS, and calls the recovered kernel main. Original native
+entry addresses contain adapters to the compiled implementation.
 
-Both native utilities use `mov eax, address; call eax; ret`:
-
-| Utility | Kernel entry |
+| Native interface | Original address |
 | --- | --- |
-| disk expansion | 0x216df |
-| display night mode | 0x2243d |
+| disk expansion | 0x2227f |
+| night mode | 0x23b8c |
+| formatted console output | 0x236f9 |
+| console theme | 0x21a56 |
+| put character / string | 0x21cab / 0x21d41 |
+| keyboard poll / restore console | 0x21d6c / 0x21d7f |
 
-The fixed layout is therefore part of the observed ABI. Replacing internal
-functions must preserve these entries or supply trampolines. Strings may be
-renamed in their allocated slots without shifting downstream addresses. WMLP,
-WMFS32, WSBC, .ws and .wsbc remain compatibility identifiers.
+Wozmon loads at 0x220000 and uses the console interfaces above. Its C++
+reconstruction implements hexadecimal examine/range/store/run commands,
+continued reads, line editing, and Escape-to-shell behavior. Other native
+programs default to 0x200000. The original fixed-address register conventions
+are recorded in `kernel/abi.json`; all new C internal calls use cdecl.
 
-Known limitations and validation results are maintained in README.md. Static
-reconstruction alone is not evidence of successful hardware boot.
-
-The current default build uses the C/C++ translation described in
-`docs/decompilation.md`. The complete assembly baseline is preserved in local
-commit history and can be reproduced by the recovery tool; it is no longer the
-kernel implementation used by the normal build.
+Product branding and the displayed/script version become Permafrost 0.2.
+WinterScript, WINTER_VERSION/WINTER_RELEASE, WMFS32, WMLP, WSBC and file extensions
+remain compatibility names. Fixed data slots retain their original addresses.
+The original self-test's version assertion is adjusted to the derivative's 0.2.

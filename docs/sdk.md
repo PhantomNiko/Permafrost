@@ -1,14 +1,14 @@
 # Permafrost SDK for macOS 15
 
 Create the relocatable bundle with `python3 tools/sdk.py`. The output is
-`build/Permafrost0.1.sdk`. It requires Python 3 and host Clang/Clang++ from Apple
+`build/Permafrost0.2.sdk`. It requires Python 3 and host Clang/Clang++ from Apple
 Command Line Tools. The SDK supplies headers, examples, a small ELF32 static
 linker and WMFS32 image tools. It does not require an installed GNU cross linker.
 
 ```sh
-build/Permafrost0.1.sdk/bin/pf-cc sdk/examples/hello.c -o build/hello.bin
-build/Permafrost0.1.sdk/bin/pf-cc sdk/examples/nightmode.cpp -o build/nightmode-cpp.bin
-build/Permafrost0.1.sdk/bin/pf-wmfs build/Permafrost-0.1.img \
+build/Permafrost0.2.sdk/bin/pf-cc sdk/examples/hello.c -o build/hello.bin
+build/Permafrost0.2.sdk/bin/pf-cc sdk/examples/nightmode.cpp -o build/nightmode-cpp.bin
+build/Permafrost0.2.sdk/bin/pf-wmfs build/Permafrost-0.2.img \
   --put hello.bin=build/hello.bin \
   --put nightmode-cpp.bin=build/nightmode-cpp.bin \
   --out build/development.img

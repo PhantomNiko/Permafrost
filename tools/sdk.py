@@ -7,7 +7,7 @@ import zipfile
 
 
 def main():
-    root = Path('build/Permafrost0.1.sdk')
+    root = Path('build/Permafrost0.2.sdk')
     if root.exists():
         for cache in root.rglob('__pycache__'):
             shutil.rmtree(cache)
@@ -26,13 +26,13 @@ def main():
         shutil.copyfile(source, root / Path(source).name)
     shutil.copyfile('docs/recovery.md', root / 'Documentation/recovery.md')
     shutil.copyfile('docs/sdk.md', root / 'Documentation/sdk.md')
-    settings = dict(CanonicalName='permafrost0.1', DisplayName='Permafrost 0.1',
-                    Version='0.1', MaximumDeploymentTarget='0.1',
+    settings = dict(CanonicalName='permafrost0.2', DisplayName='Permafrost 0.2',
+                    Version='0.2', MaximumDeploymentTarget='0.2',
                     DefaultProperties=dict(PLATFORM_NAME='permafrost', ARCHS='i386'),
                     SupportedTargets=dict(permafrost=dict(Archs=['i386'])))
     (root / 'SDKSettings.json').write_text(json.dumps(settings, indent=2) + '\n')
     (root / 'README.txt').write_text(
-        'Permafrost 0.1 SDK for macOS 15\n\n'
+        'Permafrost 0.2 SDK for macOS 15\n\n'
         'Requires Python 3 and Apple Command Line Tools (clang/clang++).\n'
         'Compile C: bin/pf-cc Examples/hello.c -o hello.bin\n'
         'Compile C++: bin/pf-cc Examples/nightmode.cpp -o nightmode.bin\n'
@@ -45,7 +45,7 @@ def main():
         for path in sorted(root.rglob('*')):
             if path.is_file():
                 archive.write(path, str(Path(root.name) / path.relative_to(root)))
-    print('Built build/Permafrost0.1.sdk')
+    print('Built build/Permafrost0.2.sdk')
 
 
 if __name__ == '__main__':

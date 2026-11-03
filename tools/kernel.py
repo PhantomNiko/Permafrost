@@ -7,6 +7,7 @@ from elf32 import Object, link
 
 
 def compile_kernel(output):
+    layout = json.loads(Path('recovery/layout.json').read_text())
     sources = sorted(Path('kernel/core').glob('*.c')) + [Path('kernel/' + name)
                 for name in ('runtime.c', 'display.cpp', 'compiler.c')]
     objects = []
@@ -15,22 +16,29 @@ def compile_kernel(output):
         compile_object(source, target, ['sdk/include', 'kernel', 'kernel/core'], extra_flags=[
             '-Wno-int-conversion', '-Wno-incompatible-pointer-types', '-Wno-pointer-sign'])
         objects.append(Object(target.read_bytes()))
-    module, symbols, _ = link(objects, base=0x71000, shim=False)
+    module, symbols, _ = link(objects, base=layout['core_base'], shim=False)
     (output / 'kernel_c.bin').write_bytes(module)
     (output / 'kernel_c.inc').write_text('\n'.join(
         '%s equ 0x%x' % (name, address) for name, address in symbols.items()) +
-        '\npf_core_size equ %d\n' % len(module))
+        '\npf_core_size equ %d\n' % len(module) +
+        ''.join('pf_%s equ 0x%x\n' % (key, value) for key, value in {
+            'core_base': layout['core_base'], 'state_start': layout['text_end'],
+            'state_end': layout['state_end'], 'initialized_end': layout['initialized_end'],
+            'payload_offset': (layout['initialized_end'] - layout['kernel_base'] + 15) & ~15,
+            'bootstrap_offset': 0x8b7}.items()))
     (output / 'kernel_c.map.json').write_text(json.dumps(symbols, indent=2) + '\n')
     compile_object('kernel/state.c', output / 'state.o', ['sdk/include'])
     state = next(section['data'] for section in Object((output / 'state.o').read_bytes()).sections
                  if section['name'] == '.pf.state')
-    if len(state) != 0x4473f:
+    if len(state) != layout['state_end'] - layout['text_end']:
         raise ValueError('initial state size changed')
-    (output / 'kernel_state.bin').write_bytes(state)
+    (output / 'kernel_state.bin').write_bytes(state[:layout['initialized_end'] - layout['text_end']])
     entries = json.loads(Path('kernel/abi.json').read_text())
     for name, (address, _) in json.loads(Path('kernel/runtime.json').read_text()).items():
         entries['%x' % address] = dict(symbol=name, arguments=[])
-    entries['2243d'] = dict(symbol='pf_display_night_mode', arguments=[])
+    entries['23b8c'] = dict(symbol='pf_display_night_mode', arguments=[])
+    if any(0x208b7 <= int(address, 16) + 4 and int(address, 16) < 0x208f7 for address in entries):
+        raise ValueError('bootstrap overlaps an ABI entry')
     stubs, adapters = ['; Generated from kernel/abi.json. Pooka\'s Free Software License.', 'bits 32'], []
     for text, entry in sorted(entries.items(), key=lambda item: int(item[0], 16)):
         address = int(text, 16)
@@ -64,6 +72,4 @@ def compile_kernel(output):
         adapters += ['    call ' + symbol, '    add esp, %d' % pushed, '    ret']
     (output / 'kernel_abi.inc').write_text('\n'.join(stubs) + '\n')
     (output / 'kernel_adapters.inc').write_text('\n'.join(adapters) + '\n')
-    if 0x71000 + len(module) + len(adapters) * 6 >= 0xa0000:
-        raise ValueError('compiled kernel/adapters approach VGA memory')
     return symbols

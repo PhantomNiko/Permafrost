@@ -1,7 +1,7 @@
 # C/C++ migration method
 
-The assembly recovery is the executable baseline, preserved in earlier commits.
-The default kernel now compiles 177 recovered C function bodies, the handwritten
+The assembly recovery provides the executable oracle for the current reference.
+The default kernel now compiles 300 recovered C function bodies, the handwritten
 C runtime/compiler support, and the C++ public display entry. Superseded kernel
 assembly has been removed. Initial state is a packed, statically checked C
 structure; only boot and BIOS/CPU transition code remains in assembly.
@@ -23,9 +23,8 @@ decompiler output loses calling-convention or register-alias information.
 The promotion checks are: compilation, original-vs-rewrite routine tests,
 startup and shell execution, script/collection/filesystem/native-program/WSBC
 conformance, and a boot under a complete BIOS/hardware emulator. Incomplete
-translations remain experimental until these checks pass. The default C/C++
-kernel passes these checks, including the supplied release as the conformance
-oracle. Normal builds require neither Ghidra nor the reference image.
+translations remain experimental until these checks pass. The bundled release self-test is the primary oracle for the expanded runtime.
+Current validation results are recorded in README.md. Normal builds require neither Ghidra nor the reference image.
 
 `kernel/abi.json` records the original register/stack locations of arguments.
 `tools/kernel.py` generates short jumps at the original addresses and out-of-line
