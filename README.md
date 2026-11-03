@@ -59,3 +59,10 @@ expected result. This fixture exercises VGA text fallback, disk reads/writes
 and BIOS mode transitions. A full QEMU/hardware boot and graphical VBE output
 have not yet been verified. This is an early-alpha kernel with the behavior
 and limitations inherited from the supplied release.
+
+## SDK
+
+Run `python3 tools/sdk.py` to produce `build/Permafrost0.1.sdk`, a relocatable
+macOS 15 bundle for freestanding C and C++ development. See
+[the SDK guide](docs/sdk.md) for compilation, file installation and execution.
+Both SDK examples have executed successfully inside the rebuilt kernel.
