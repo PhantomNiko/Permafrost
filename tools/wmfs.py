@@ -176,9 +176,9 @@ def make_wmfs64(files, sectors):
     return bytes(output)
 
 
-def make_disk(boot, loader, firmware, recovery, user, sectors=8192):
+def make_disk(boot, loader, firmware, recovery, user, sectors=8192,
+              firmware_sectors=2048, recovery_sectors=812):
     """Build the current WBPT layout with firmware, recovery and growable user data."""
-    firmware_sectors, recovery_sectors = 2048, 772
     starts = [66, 66 + firmware_sectors, 66 + firmware_sectors + recovery_sectors]
     sizes = [firmware_sectors, recovery_sectors, sectors - starts[2]]
     if sizes[2] <= 0:
@@ -213,7 +213,9 @@ def repack_image(raw, files, partition=0, sectors=None):
         return make_image(raw[:512], raw[512:BASE * SECTOR], files, sectors)
     volumes = [Image(raw, index).files() for index in range(len(image.partitions))]
     volumes[partition] = files
-    return make_disk(raw[:512], raw[512:BASE * SECTOR], *volumes, sectors=sectors)
+    return make_disk(raw[:512], raw[512:BASE * SECTOR], *volumes, sectors=sectors,
+                     firmware_sectors=image.partitions[0]['sectors'],
+                     recovery_sectors=image.partitions[1]['sectors'])
 
 
 def main():

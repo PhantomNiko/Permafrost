@@ -1,14 +1,14 @@
 {
-  "version": "0.3",
-  "reference_version": "0.4",
-  "reference_sha256": "d260c4f4962bcb916bb2dc6e2e0b32ef916d3c178a6170d351b1ff338afa25dc",
+  "version": "0.4",
+  "reference_version": "0.5",
+  "reference_sha256": "da5a8130bad638185448e8c15f07c4be49d1b401683e799ca30eaa18afb9e9c9",
   "kernel_base": 131072,
-  "text_start": 133282,
-  "text_end": 271168,
-  "state_end": 516096,
-  "initialized_end": 292340,
+  "text_start": 134276,
+  "text_end": 286512,
+  "state_end": 536576,
+  "initialized_end": 312840,
   "core_base": 1048576,
-  "bios_code_end": 2048,
+  "bios_code_end": 3024,
   "bios_ranges": [
     [
       16,
@@ -19,70 +19,78 @@
       16
     ],
     [
-      168,
+      189,
       32
     ],
     [
-      268,
+      328,
       16
     ],
     [
-      390,
+      471,
       32
     ],
     [
-      461,
+      581,
       16
     ],
     [
-      677,
+      818,
       32
     ],
     [
-      758,
+      938,
       16
     ],
     [
-      924,
+      1125,
       32
     ],
     [
-      995,
+      1235,
       16
     ],
     [
-      1166,
+      1427,
       32
     ],
     [
-      1227,
+      1527,
       16
     ],
     [
-      1304,
+      1625,
       32
     ],
     [
-      1360,
+      1739,
       16
     ],
     [
-      1437,
+      1874,
       32
     ],
     [
-      1613,
+      1974,
       16
     ],
     [
-      2010,
+      2072,
+      32
+    ],
+    [
+      2287,
+      16
+    ],
+    [
+      2945,
       32
     ]
   ],
-  "kernel_main": 152371,
+  "kernel_main": 155969,
   "translation": {
-    "main": "25333",
-    "error_logger": "2f9c3",
-    "random_state": "475f0"
+    "main": "26141",
+    "error_logger": "30ed3",
+    "random_state": "4c604"
   }
 }
