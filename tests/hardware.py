@@ -1,0 +1,69 @@
+#!/usr/bin/env python3
+"""Boot a test copy under Bochs with its full BIOS, VGA BIOS and hardware."""
+import argparse
+from pathlib import Path
+import subprocess
+import sys
+import tempfile
+import time
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
+from wmfs import Image, make_image
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('image', type=Path)
+    parser.add_argument('--bochs', required=True, type=Path)
+    parser.add_argument('--bios', required=True, type=Path)
+    parser.add_argument('--vgabios', required=True, type=Path)
+    parser.add_argument('--timeout', type=float, default=45)
+    args = parser.parse_args()
+    image = args.image.read_bytes()
+    files = Image(image).files()
+    # A script on a test copy observes startup loading and the real UART driver.
+    files['startup.ws'] = b'serial("PF-HARDWARE-BOOT")\nserial(2 + 3)\nserial("PF-HARDWARE-PASS")\n'
+    image = make_image(image[:512], image[512:65 * 512], files, len(image) // 512)
+    with tempfile.TemporaryDirectory(prefix='permafrost-hardware-') as temp:
+        root = Path(temp)
+        (root / 'disk.img').write_bytes(image)
+        config = '\n'.join([
+            'display_library: nogui', 'megs: 64',
+            'romimage: file="%s"' % args.bios.resolve(),
+            'vgaromimage: file="%s"' % args.vgabios.resolve(),
+            'boot: disk', 'ata0-master: type=disk, path="disk.img", mode=flat, cylinders=0, heads=0, spt=0',
+            'com1: enabled=1, mode=file, dev="serial.log"',
+            'clock: sync=none, time0=0', 'log: bochs.log',
+            'panic: action=fatal', 'error: action=report', 'info: action=report', 'debug: action=ignore',
+            'mouse: enabled=0', 'cpu: ips=50000000', ''])
+        (root / 'bochsrc').write_text(config)
+        with (root / 'host.log').open('wb') as hostlog:
+            process = subprocess.Popen([str(args.bochs.resolve()), '-q', '-f', 'bochsrc'],
+                                       cwd=root, stdout=hostlog, stderr=hostlog, stdin=subprocess.DEVNULL)
+            deadline = time.monotonic() + args.timeout
+            output = ''
+            try:
+                while time.monotonic() < deadline and process.poll() is None:
+                    serial = root / 'serial.log'
+                    output = serial.read_text(errors='replace') if serial.exists() else ''
+                    if 'PF-HARDWARE-PASS' in output:
+                        break
+                    time.sleep(0.1)
+            finally:
+                if process.poll() is None:
+                    process.terminate()
+                    try:
+                        process.wait(timeout=5)
+                    except subprocess.TimeoutExpired:
+                        process.kill()
+                        process.wait()
+            print(output)
+            if 'PF-HARDWARE-PASS' not in output or '\n5\n' not in output.replace('\r', ''):
+                print((root / 'host.log').read_text(errors='replace')[-3000:])
+                if (root / 'bochs.log').exists():
+                    print((root / 'bochs.log').read_text(errors='replace')[-3000:])
+                raise SystemExit('full BIOS/hardware boot test failed')
+            print('Full BIOS/hardware boot and startup arithmetic passed.')
+
+
+if __name__ == '__main__':
+    main()

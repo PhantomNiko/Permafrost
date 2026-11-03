@@ -56,8 +56,10 @@ The BIOS fixture executes the boot sector and loader, protected-mode entry,
 kernel initialization, WMFS mount, startup script and a serial script command.
 The rebuilt image has reached the interactive shell and emitted the command's
 expected result. This fixture exercises VGA text fallback, disk reads/writes
-and BIOS mode transitions. A full QEMU/hardware boot and graphical VBE output
-have not yet been verified. This is an early-alpha kernel with the behavior
+and BIOS mode transitions. The verified image has also booted under Bochs 2.8
+with its complete BIOS, VGA BIOS and emulated devices, loaded a startup script,
+and emitted the expected arithmetic result through the emulated serial port.
+QEMU and physical hardware have not yet been verified. This is an early-alpha kernel with the behavior
 and limitations inherited from the supplied release.
 
 The rewritten C runtime also passes 523 differential cases against the original
@@ -69,6 +71,11 @@ python3 tests/runtime.py img/reference.img
 ```
 
 The kernel build requires Clang and Clang++ in addition to NASM and Python 3.
+
+`tests/hardware.py` repeats the full BIOS test using a locally supplied Bochs
+executable and firmware (`--bochs`, `--bios`, `--vgabios`). It operates on a
+temporary test copy of the image. Firmware and emulator binaries are external
+test dependencies and are not included in this repository.
 
 ## SDK
 
