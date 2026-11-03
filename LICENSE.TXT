@@ -1,0 +1,28 @@
+Pooka's Free Software License
+
+Version 1.0, November 2026
+
+Project name: OpenFrost
+Project information: An open-source decompilation of the Permafrost kernel.
+Project author: PhantomNiko
+Project original name: PolynyaOS
+Project original information: The universal operation system.
+Project original author: Pooka
+
+Redistribution and use in binary or source form, with or without modification, is permitted provided that the following conditions are met:
+
+1. Redistributions must reproduce the above copyright notice and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+2. Reverse engineering, decompilation, or disassembly of this software's binary components is expressly permitted. Publishing of any source code produced through this process must include this license, and the produced code may not be relicensed under any other license or coplyleft system. Distribution of binaries produced from this process must include this license, but are otherwise permitted to be distributed so long as there is a free method to obtain the binaries.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+4. Training of artificial intelligence on source provided, reverse engineered, or decompiled code, is strictly forbidden.
+
+The author grants no permission to include software covered by this license in any patents. The author grants you permission to freely use and modify your own code produced from files covered by this license, and to claim ownership of your own code.
+If you institute patent litigation against the author alleging that the software itself infringes your patent(s), then your rights granted under this license shall terminate as of the date such litigation is filed.
+
+DISCLAIMER. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS." ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+Files and local paths affected by this license:
++ *, *: All files in this distribution are subject to this license.
