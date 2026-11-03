@@ -7,7 +7,7 @@ import sys
 import tempfile
 import time
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
-from wmfs import Image, make_image
+from wmfs import Image, repack_image
 
 
 def main():
@@ -30,7 +30,7 @@ def main():
         if kernel[0x10] != 0xfc:
             raise ValueError('unexpected reference entry layout')
         # Replace only the debug entry prefix; all reference C code stays intact.
-        entry = b'\xdb\xe3\xfc\xe8' + struct.pack('<i', 0x23bb1 - 0x20018)
+        entry = b'\xdb\xe3\xfc\xe8' + struct.pack('<i', (0x2001f + struct.unpack_from('<i', kernel, 0x1b)[0]) - 0x20018)
         entry += b'\xfa\xf4\xeb\xfc'
         kernel[0x10:0x23] = entry.ljust(0x13, b'\x90')
         files[name] = bytes(kernel)
@@ -38,7 +38,9 @@ def main():
     files['startup.ws'] = b'serial("PF-HARDWARE-BOOT")\nserial(2 + 3)\nserial("PF-HARDWARE-PASS")\n'
     if args.script:
         files['startup.ws'] = args.script.read_bytes()
-    image = make_image(image[:512], image[512:65 * 512], files, max(2048, len(image) // 512))
+    if Image(image).partitions:
+        files['startup.ws'] = b'device("mount",4,"WMFS64")\ndevice("target",4)\n' + files['startup.ws']
+    image = repack_image(image, files, sectors=max(8192, len(image) // 512) if Image(image).partitions else max(2048, len(image) // 512))
     with tempfile.TemporaryDirectory(prefix='permafrost-hardware-') as temp:
         root = Path(temp)
         (root / 'disk.img').write_bytes(image)
