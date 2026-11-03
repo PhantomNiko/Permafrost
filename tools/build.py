@@ -31,7 +31,7 @@ def main():
            if p.is_file() and p.name not in ('firmware-startup.ws','recovery-startup.ws')}
     files.update(applications)
     files['THIRD-PARTY.TXT']=Path('licenses/THIRD-PARTY.TXT').read_bytes()
-    for notice in ('LICENSES.md','DEPENDENCIES.md','licenses/LUA-MIT.TXT','licenses/OPENBIOS-GPL-2.0.TXT'):
+    for notice in ('LICENSES.md','DEPENDENCIES.md','licenses/OPENBIOS-GPL-2.0.TXT'):
         files[Path(notice).name]=Path(notice).read_bytes()
     files.update({'Permafrost-kernel.bin':(output/'kernel.bin').read_bytes(),
                   'LICENSE.TXT':Path('LICENSE.TXT').read_bytes(),'UPSTREAM.TXT':Path('licenses/UPSTREAM.TXT').read_bytes()})

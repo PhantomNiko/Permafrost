@@ -8,7 +8,8 @@ been removed. In-house application recovery is in progress.
 Historical milestones that use upstream Lua obtain it from the sibling
 `../lua` checkout of https://github.com/PhantomNiko/lua/tree/Permafrost.
 Lua retains its MIT license and copyright. Its source is not vendored here.
-See `licenses/LUA-MIT.TXT` and `LICENSES.md`.
+Historical images containing upstream Lua already carry its MIT notice.
+See `LICENSES.md` for the current distribution scope.
 
 The OpenBIOS variant builds firmware from the sibling `../openbios` checkout
 of https://github.com/PhantomNiko/openbios. `dependencies.json` pins the source

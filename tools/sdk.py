@@ -23,7 +23,7 @@ def main():
         shutil.copyfile(source, path)
         path.chmod(0o755 if target.startswith('pf-') else 0o644)
     for source in ('LICENSE.TXT', 'licenses/UPSTREAM.TXT', 'licenses/THIRD-PARTY.TXT',
-                   'LICENSES.md','licenses/LUA-MIT.TXT','licenses/OPENBIOS-GPL-2.0.TXT'):
+                   'LICENSES.md','licenses/OPENBIOS-GPL-2.0.TXT'):
         shutil.copyfile(source, root / Path(source).name)
     shutil.copyfile('DEPENDENCIES.md', root / 'Documentation/DEPENDENCIES.md')
     shutil.copyfile('docs/recovery.md', root / 'Documentation/recovery.md')

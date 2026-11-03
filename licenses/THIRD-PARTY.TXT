@@ -7,8 +7,9 @@ Its upstream GPL and per-file copyright notices remain applicable.
 See OPENBIOS-GPL-2.0.TXT in distributions containing that firmware.
 
 The current reference uses in-house WinterLua 0.2 rather than upstream Lua.
-Historical upstream Lua components retain the Lua MIT license and copyright,
-reproduced in LUA-MIT.TXT. They are obtained from the external sibling source:
+Historical upstream Lua components retain their already-distributed MIT
+license and copyright notices. That license is not bundled with the current
+in-house implementation. Historical source dependencies are obtained from:
 https://github.com/PhantomNiko/lua/tree/Permafrost
 
 Pooka's Free Software License does not replace third-party licenses.
