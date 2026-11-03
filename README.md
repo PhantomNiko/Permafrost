@@ -24,10 +24,13 @@ qemu-system-i386 -m 64 -drive format=raw,file=build/Permafrost-0.1.img,if=ide -s
 
 The normal build compiles C/C++ and assembly and creates WMFS32 from scratch.
 It does not read the reference image, copy its boot sectors, or embed its kernel
-binary. The memory/string runtime is now C, and the public night-mode entry is
-C++. The remaining recovered implementation is NASM assembly, with data and
-zero-initialized storage separated. Fixed-address trampolines retain the original
-native-program ABI as functions move to C/C++. The C/C++ rewrite is in progress.
+binary. The kernel implementation is C, with the public display entry in C++.
+`kernel/core` contains the recovered function bodies; `kernel/state.c` declares
+the initial data layout in C. BIOS entry, mode transitions and the boot loader
+use assembly. Generated adapters preserve original register and stack entry
+conventions for legacy native programs. The recovered C remains low-level, with
+address-based identifiers and explicit views of shared data and stack fields;
+it is not the author's original source or a fully idiomatic rewrite.
 
 ## Recovery and validation
 
@@ -71,6 +74,14 @@ python3 tests/runtime.py img/reference.img
 ```
 
 The kernel build requires Clang and Clang++ in addition to NASM and Python 3.
+
+The default C/C++ image also matches the supplied release's conformance output
+for arithmetic, floats, strings, arrays, tables, loops, file mutation, raw native
+calls, SDK programs, and saved WSBC bytecode:
+
+```sh
+python3 tests/conformance.py img/reference.img build/Permafrost-0.1.img
+```
 
 `tests/hardware.py` repeats the full BIOS test using a locally supplied Bochs
 executable and firmware (`--bochs`, `--bios`, `--vgabios`). It operates on a

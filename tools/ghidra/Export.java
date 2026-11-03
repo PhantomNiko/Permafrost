@@ -54,6 +54,7 @@ public class Export extends GhidraScript {
         signature(0x2109b, "double __cdecl recovered_2109b(float numerator, float denominator);");
         signature(0x2af4b, "unsigned int __fastcall recovered_2af4b(void *context, const char *name, void *output);");
         signature(0x2552e, "unsigned int __fastcall recovered_2552e(const char *path);");
+        signature(0x2457a, "void __fastcall recovered_2457a(unsigned int columns);");
         if (getScriptArgs().length > 1) {
             for (String line : Files.readAllLines(Path.of(getScriptArgs()[1]))) {
                 String[] fields = line.split("\\t");
@@ -96,12 +97,25 @@ public class Export extends GhidraScript {
         }
         var functions = currentProgram.getFunctionManager().getFunctions(true);
         int count = 0;
+        StringBuilder abi = new StringBuilder();
         while (functions.hasNext() && !monitor.isCancelled()) {
             var function = functions.next();
             long address = function.getEntryPoint().getOffset();
             if (address < 0x2071e || address >= 0x2c8c1) continue;
             var result = decompiler.decompileFunction(function, 60, monitor);
             if (result.decompileCompleted()) {
+                abi.append(Long.toHexString(address)).append('\t').append(function.getName()).append('\t');
+                boolean firstParameter = true;
+                for (var parameter : function.getParameters()) {
+                    if (!firstParameter) abi.append(',');
+                    firstParameter = false;
+                    var storage = parameter.getVariableStorage();
+                    abi.append(parameter.getLength()).append(':');
+                    if (storage.isRegisterStorage()) abi.append(storage.getRegister().getName());
+                    else if (storage.isStackStorage()) abi.append("stack").append(storage.getStackOffset());
+                    else abi.append("unknown");
+                }
+                abi.append('\n');
                 String source = "/* Recovered working notes; Pooka's Free Software License.\n" +
                     " * Address: 0x" + Long.toHexString(address) + "\n */\n" +
                     result.getDecompiledFunction().getC();
@@ -138,6 +152,7 @@ public class Export extends GhidraScript {
             }
         }
         decompiler.dispose();
+        Files.writeString(output.resolve("abi.tsv"), abi.toString());
         new CppExporter(new DecompileOptions(), false, true, false, true, true, "")
             .export(output.resolve("recovered.c").toFile(), currentProgram, null, monitor);
         println("Exported " + count + " functions");

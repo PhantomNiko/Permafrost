@@ -1,13 +1,17 @@
 # C/C++ migration method
 
-The assembly recovery is the executable baseline. The initial C memory/string
-runtime and C++ public display entry are integrated into the normal image build.
+The assembly recovery is the executable baseline, preserved in earlier commits.
+The default kernel now compiles 177 recovered C function bodies, the handwritten
+C runtime/compiler support, and the C++ public display entry. Superseded kernel
+assembly has been removed. Initial state is a packed, statically checked C
+structure; only boot and BIOS/CPU transition code remains in assembly.
 
 The larger translation uses Ghidra to recover structured control flow. Its raw
 output is working material, not buildable source or a correctness certificate.
 The scripts in `tools/ghidra` seed direct-call targets, recover register arguments,
 correct known function signatures, and export inferred stack and global layouts.
-Intermediate output stays in the ignored build directory. Native decompiler
+Intermediate output stays in the ignored build directory; reviewed C is saved
+in `kernel/core`. Native decompiler
 binaries, Java runtimes, projects, logs and host preferences are not distributed.
 
 The translation preserves aliases between fields sharing the original stack
@@ -19,5 +23,12 @@ decompiler output loses calling-convention or register-alias information.
 The promotion checks are: compilation, original-vs-rewrite routine tests,
 startup and shell execution, script/collection/filesystem/native-program/WSBC
 conformance, and a boot under a complete BIOS/hardware emulator. Incomplete
-translations remain experimental until these checks pass. The normal build must
-continue to work without Ghidra or the reference image.
+translations remain experimental until these checks pass. The default C/C++
+kernel passes these checks, including the supplied release as the conformance
+oracle. Normal builds require neither Ghidra nor the reference image.
+
+`kernel/abi.json` records the original register/stack locations of arguments.
+`tools/kernel.py` generates short jumps at the original addresses and out-of-line
+adapters that marshal register arguments into the C calling convention. The
+public memory and display entries use their reviewed implementations. This
+retains fixed-address compatibility while allowing the compiled C layout to vary.

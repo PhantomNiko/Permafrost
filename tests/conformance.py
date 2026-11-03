@@ -1,0 +1,43 @@
+#!/usr/bin/env python3
+"""Execute the same script and WSBC buffer commands on two kernel images."""
+import argparse
+from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
+from wmfs import Image, make_image
+from boot import Machine
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('baseline', type=Path)
+    parser.add_argument('candidate', type=Path)
+    args = parser.parse_args()
+    results = []
+    commands = ('NEW\n> serial("PF-BYTECODE")\nSAVEBC /test.wsbc\nNEW\n'
+                'RUNBC /test.wsbc\nserial("PF-CONFORMANCE-DONE")\n')
+    for path in (args.baseline, args.candidate):
+        image = path.read_bytes()
+        files = Image(image).files()
+        files['startup.ws'] = Path('tests/conformance.ws').read_bytes()
+        files['hello.bin'] = Path('build/hello.bin').read_bytes()
+        image = make_image(image[:512], image[512:65 * 512], files, len(image) // 512)
+        machine = Machine(image, commands)
+        output = machine.run(500000000).replace('\r', '')
+        print(output)
+        if '\nPF-CASES-END\n' not in output or '\nPF-BYTECODE\n' not in output or not machine.idle:
+            raise SystemExit('conformance program did not finish')
+        if 'WinterScript error:' in output or 'ERROR:' in output:
+            raise SystemExit('conformance program reported an error')
+        result = output[output.index('PF-CASES-BEGIN'):]
+        results.append(result)
+    if results[0] != results[1]:
+        import difflib
+        print(''.join(difflib.unified_diff(results[0].splitlines(True), results[1].splitlines(True),
+                                         fromfile='baseline', tofile='candidate')))
+        raise SystemExit('observable script behavior differs')
+    print('Script, filesystem, native ABI, and WSBC behavior matches the baseline.')
+
+
+if __name__ == '__main__':
+    main()

@@ -3,10 +3,14 @@
 import json
 from pathlib import Path
 import shutil
+import zipfile
 
 
 def main():
     root = Path('build/Permafrost0.1.sdk')
+    if root.exists():
+        for cache in root.rglob('__pycache__'):
+            shutil.rmtree(cache)
     (root / 'bin').mkdir(parents=True, exist_ok=True)
     (root / 'usr/include').mkdir(parents=True, exist_ok=True)
     (root / 'Documentation').mkdir(parents=True, exist_ok=True)
@@ -37,6 +41,10 @@ def main():
         'This is a freestanding SDK, without a hosted libc, C++ standard library,\n'
         'exceptions, RTTI, dynamic linking, or Apple platform/Xcode integration.\n'
         'The bundle can be moved; no installation at a fixed path is required.\n')
+    with zipfile.ZipFile(root.with_suffix('.sdk.zip'), 'w', zipfile.ZIP_DEFLATED) as archive:
+        for path in sorted(root.rglob('*')):
+            if path.is_file():
+                archive.write(path, str(Path(root.name) / path.relative_to(root)))
     print('Built build/Permafrost0.1.sdk')
 
 

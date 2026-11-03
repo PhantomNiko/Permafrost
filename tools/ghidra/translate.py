@@ -7,7 +7,6 @@ It requires review and execution tests; this tool does not certify correctness.
 import argparse
 from pathlib import Path
 import re
-import shutil
 
 
 def ctype(description):
@@ -38,7 +37,7 @@ def lvalue(typename, pointer):
 
 def signature(source):
     before = source[:source.index('\n{')].strip()
-    return re.sub(r'/\*.*?\*/', '', before, flags=re.S).strip().replace('__fastcall ', '').replace('__cdecl ', '')
+    return re.sub(r'/\*.*?\*/', '', before, flags=re.S).strip().replace('__fastcall ', '').replace('__cdecl ', '').replace('__thiscall ', '')
 
 
 def main():
@@ -46,6 +45,8 @@ def main():
     parser.add_argument('--notes', type=Path, default=Path('build/decompiled'))
     parser.add_argument('--out', type=Path, default=Path('build/c-rewrite'))
     args = parser.parse_args()
+    manual_names = ('2083b', '20874', '216bc', '21c41', '2609c', '26135', '286b0', '288cc')
+    manual = {name: (Path('kernel/core') / (name + '.c')).read_text() for name in manual_names}
     args.out.mkdir(parents=True, exist_ok=True)
     sources = {p.stem: p.read_text() for p in sorted(args.notes.glob('*.c')) if p.stem != 'recovered'}
     header = ['/* Permafrost 0.1; Pooka\'s Free Software License. */', '#pragma once', '#include "support.h"']
@@ -85,11 +86,13 @@ def main():
             typename = match[1].strip() + (re.sub(r'\s', '', match[2]) if match[2] else '')
             source = source[:match.start()] + source[match.end():]
             macros.append('#define %s %s' % (name, lvalue(typename, 'frame + %d' % (frame_size + int(offset)))))
-        source = source.replace('__fastcall ', '').replace('__cdecl ', '')
+        source = source.replace('__fastcall ', '').replace('__cdecl ', '').replace('__thiscall ', '')
         source = re.sub(r'\b(\w+)\._(\d+)_(\d+)_',
                         lambda m: 'PF_PART%s(%s, %s)' % (m[3], m[1], m[2]), source)
         source = re.sub(r'switch\(([^\n]+)\)', r'switch((uintptr_t)(\1))', source)
         source = re.sub(r'case \([^)]*\*\)(0x[0-9a-f]+):', r'case \1:', source)
+        source = re.sub(r'\(float\)(\w+\[2\])', r'pf_bits_float((uint32_t)\1)', source)
+        source = source.replace('ushort in_FPUControlWord;', 'ushort in_FPUControlWord = pf_fpu_control();')
         if address == '28be0':
             source = source.replace('(undefined *******)\n                                                     ((float)DAT_0002f0a8 * _DAT_0002ca88)',
                                     '(undefined *******)(uintptr_t)pf_float_bits((float)DAT_0002f0a8 * _DAT_0002ca88)')
@@ -99,8 +102,8 @@ def main():
         opening = source.index('\n{') + 2
         source = source[:opening] + '\n  unsigned char frame[%d];\n' % (frame_size + 32) + source[opening:]
         (args.out / (address + '.c')).write_text('\n'.join(preamble + macros) + '\n' + source)
-    for path in Path('kernel/overrides').glob('*.c'):
-        shutil.copyfile(path, args.out / path.name)
+    for name, content in manual.items():
+        (args.out / (name + '.c')).write_text(content)
 
 
 if __name__ == '__main__':

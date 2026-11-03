@@ -6,6 +6,7 @@ from pathlib import Path
 import subprocess
 import sys
 import tempfile
+sys.dont_write_bytecode = True
 from elf32 import Object, link
 
 
@@ -13,13 +14,15 @@ FLAGS = ['--target=i386-unknown-none-elf', '-march=i386', '-m32', '-Oz',
          '-ffreestanding', '-fno-builtin', '-fno-pic', '-fno-pie',
          '-fno-stack-protector', '-fno-asynchronous-unwind-tables',
          '-fno-unwind-tables', '-ffunction-sections', '-fdata-sections',
+         '-fno-strict-aliasing', '-fwrapv', '-fno-delete-null-pointer-checks',
          '-mno-sse', '-mno-sse2', '-mno-mmx', '-nostdinc']
 
 
-def compile_object(source, target, includes=(), defines=(), compiler=None):
+def compile_object(source, target, includes=(), defines=(), compiler=None, extra_flags=()):
     cpp = Path(source).suffix in ('.cpp', '.cc', '.cxx')
     compiler = compiler or os.environ.get('CXX' if cpp else 'CC', 'clang++' if cpp else 'clang')
     command = [compiler] + FLAGS
+    command += list(extra_flags)
     if cpp:
         command += ['-std=c++17', '-fno-exceptions', '-fno-rtti', '-fno-threadsafe-statics']
     else:
