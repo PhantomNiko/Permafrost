@@ -2,7 +2,7 @@ Pooka's Free Software License
 
 Version 1.0, November 2026
 
-Project name: OpenFrost
+Project name: Permafrost
 Project information: An open-source decompilation of the Permafrost kernel.
 Project author: PhantomNiko
 Project original name: PolynyaOS

@@ -28,7 +28,12 @@ def data_lines(data):
             if end - pos >= 4:
                 lines.append('    db "%s"' % data[pos:end].decode('ascii'))
             else:
-                end = min(pos + 8, len(data))
+                end = pos + 1
+                while end < min(pos + 8, len(data)) and data[end] != 0:
+                    probe = data[end:end + 4]
+                    if len(probe) == 4 and all(32 <= b < 127 and b not in (34, 92) for b in probe):
+                        break
+                    end += 1
                 lines.append('    db ' + ', '.join('0x%02x' % b for b in data[pos:end]))
         pos = end
     return lines
@@ -73,9 +78,21 @@ def main():
     parser.add_argument('image', type=Path)
     parser.add_argument('--ndisasm', default='ndisasm')
     parser.add_argument('--out', type=Path, default=Path('build/recovery'))
+    parser.add_argument('--brand', action='store_true', help='apply documented fixed-slot Permafrost branding')
     args = parser.parse_args()
     image = args.image.read_bytes()
     files = Image(image).files()
+    if args.brand:
+        def slot(blob, old, new):
+            assert len(new) <= len(old) and old in blob
+            return blob.replace(old, new + bytes(len(old) - len(new)))
+        image = slot(image, b'WinterBoot BIOS boot failed', b'Permafrost BIOS boot failed')
+        image = slot(image, b'WinterBoot stage2 failed', b'Permafrost stage2 failed')
+        image = slot(image, b'WB2 ', b'PF2 ')
+        image = slot(image, b'/WinterBoot-baremetal.bin', b'/Permafrost-kernel.bin')
+        kernel = slot(files['WinterBoot-baremetal.bin'], b'WinterMoon OS', b'Permafrost')
+        kernel = slot(kernel, b'0.2\0', b'0.1\0')
+        files['WinterBoot-baremetal.bin'] = kernel
     recover('boot', image[:512], [(0, 0x40, 16, 0), (0x40, 512, 0, 0)], args.out / 'boot.asm', args.ndisasm)
     recover('loader', image[512:65*512], [(0, 0x725, 16, 0), (0x725, 0x740, 32, 0x8725),
                                          (0x740, 32768, 0, 0)], args.out / 'loader.asm', args.ndisasm)
