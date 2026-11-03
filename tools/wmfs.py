@@ -250,7 +250,10 @@ def main():
             name, separator, host = spec.partition('=')
             if not separator:
                 parser.error('--put expects GUEST=HOST')
-            files[name.lstrip('/')] = Path(host).read_bytes()
+            guest=name.lstrip('/')
+            if image.fat32:
+                guest=next((key for key in files if key.casefold()==guest.casefold()),guest)
+            files[guest] = Path(host).read_bytes()
         result = repack_image(raw, files, args.partition, args.sectors)
         args.out.write_bytes(result)
         print('Wrote image with %d files' % len(files))

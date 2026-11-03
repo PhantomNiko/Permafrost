@@ -48,7 +48,10 @@ class FAT32:
                 if parts:
                     encoded=b''.join(parts[i] for i in sorted(parts));name=encoded.decode('utf-16-le').split('\0',1)[0].rstrip('\uffff')
                 else:
-                    stem=e[:8].decode('ascii').rstrip();ext=e[8:11].decode('ascii').rstrip();name=stem+('.'+ext if ext else '')
+                    stem=e[:8].decode('ascii').rstrip();ext=e[8:11].decode('ascii').rstrip()
+                    if e[12]&8:stem=stem.lower()
+                    if e[12]&16:ext=ext.lower()
+                    name=stem+('.'+ext if ext else '')
                 parts={};first=struct.unpack_from('<H',e,20)[0]<<16|struct.unpack_from('<H',e,26)[0];size=struct.unpack_from('<I',e,28)[0]
                 yield name,first,size
 
@@ -60,6 +63,8 @@ def make_fat32(files,sectors):
         if needed<=fat_sectors:break
         fat_sectors=needed
     if clusters<65525:raise ValueError('FAT32 volume requires at least 65525 data clusters')
+    if len({name.lstrip('/').casefold() for name in files})!=len(files):
+        raise ValueError('duplicate case-insensitive FAT32 filename')
     entries=[]
     for index,(name,content) in enumerate(files.items()):
         name=name.lstrip('/')

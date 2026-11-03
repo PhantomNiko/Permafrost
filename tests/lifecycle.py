@@ -10,9 +10,10 @@ from boot import Machine
 
 def boot(raw, commands='serial("PF-LIFECYCLE-PASS")\n'):
     machine = Machine(raw, commands)
-    output = machine.run(300000000).replace('\r', '')
+    output = machine.run(3000000000).replace('\r', '')
     if '\nPF-LIFECYCLE-PASS\n' not in output or not machine.idle or 'WinterScript error:' in output:
         print(output)
+        print('idle=%s keys_remaining=%d reads=%d writes=%d'%(machine.idle,len(machine.keys),machine.reads,machine.writes))
         raise SystemExit('lifecycle boot did not reach the shell')
     return machine, output
 

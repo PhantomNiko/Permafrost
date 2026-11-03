@@ -24,7 +24,8 @@ def main():
         machine = Machine(raw, commands)
         output = machine.run(500000000).replace('\r', '')
         print(output)
-        result = Image(bytes(machine.disk), 2 if Image(raw).partitions else 0).files().get('writer.bin')
+        on_disk=Image(bytes(machine.disk),2 if Image(raw).partitions else 0).files()
+        result=next((data for name,data in on_disk.items() if name.casefold()=='writer.bin'),None)
         if result != bytes.fromhex('b82a000000c3') or '\nPF-WRITER-DONE\n' not in output:
             raise SystemExit('Binary Writer application did not complete correctly')
         if 'WinterScript error:' in output or '\n42\n' not in output:

@@ -66,6 +66,7 @@ Install `.lua` files using partition 2. Run `runcode("/lua.bin", $230000)`, then
 `pf-wmfs --partition 0`, `1` or `2` selects a WBPT volume. Rebuilding preserves
 the other volumes and their geometry; use `--sectors` to enlarge an output copy.
 FAT32 long names, mirrored FATs and chained roots/data are checked on readback.
+File replacement follows FAT32 case-insensitive filename matching.
 The FAT32 tool currently handles files in the volume root. Use `--sectors`
 large enough for at least 65525 FAT32 data clusters when creating an image. The SDK can be moved,
 including to a directory with spaces. Its linker emits allocated sections and

@@ -75,5 +75,7 @@ The full Bochs suite passes the bundled self-test, relocated SDK C/C++ programs,
 original native utilities, Wozmon, Binary Writer, WSBC, FAT32 create/read/
 overwrite/delete, original/source-linked Lua and native callback success/error
 checks. Framebuffer hashes match at five requested color depths. Further
-validation is recorded in [docs/release.md](docs/release.md). QEMU and physical
+validation includes 523 ABI cases, interactive bytecode round trips, persisted
+FAT32 directory growth across reboot and recovery. See
+[docs/release.md](docs/release.md). QEMU and physical
 hardware have not been verified. Native code shares kernel privileges/memory.

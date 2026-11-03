@@ -18,3 +18,15 @@ The source build compiles 386 recovered C functions and replaces prior releases
 as the sole target. The reconstructed image and relocated SDK pass the bundled
 self-test, original/native programs, Lua, callbacks and FAT32 mutation checks
 under a complete Bochs BIOS. Five graphics-depth framebuffer digests match.
+
+Final CPU-emulator checks pass 523 original-vs-C ABI cases, interactive WSBC
+1/6 save-and-run round trips, and Binary Writer. Startup, FAT32 root growth,
+persisted files after reboot and recovery fallback pass. The default font/clear
+startup also passes under Bochs. FAT32 scans need a larger instruction budget
+than the prior filesystem fixture.
+
+A relocated SDK inserts files and replaces existing names case-insensitively.
+The reader handles FAT short-name case flags; verification matches short names
+case-insensitively. The mutation suite creates, reads, overwrites and deletes
+24 long-name files. Graphics tests also exercise the BIOS wait bridge. QEMU
+and physical hardware remain unverified.
