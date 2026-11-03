@@ -10,7 +10,7 @@ CORE = 'lapi lcode lctype ldebug ldo ldump lfunc lgc llex lmem lobject lopcodes 
 LIBRARIES = 'lauxlib lbaselib lcorolib liolib lstrlib ltablib lutf8lib loadlib lmathlib'
 
 
-def compile_lua(output, source=Path('../lua'), variant='i386'):
+def compile_lua(output, source=Path('../lua')):
     if not (source / 'lua.h').is_file():
         raise ValueError('Lua source is required at ../lua; see DEPENDENCIES.md')
     output.mkdir(parents=True, exist_ok=True)
@@ -21,7 +21,7 @@ def compile_lua(output, source=Path('../lua'), variant='i386'):
     for index, path in enumerate(files):
         target = output / ('lua_unit%d.o' % index)
         compile_object(path, target, ['ports/lua/include', 'sdk/include', source],
-                       defines=['NDEBUG'] + (['PF_TARGET_IA64=1'] if variant=='IA64' else []), extra_flags=['-Wno-unused-value', '-Wno-pointer-sign',
+                       defines=['NDEBUG'], extra_flags=['-Wno-unused-value', '-Wno-pointer-sign',
                            '-ffile-prefix-map=' + str(source.resolve()) + '=lua',
                            '-fdebug-prefix-map=' + str(source.resolve()) + '=lua'])
         objects.append(Object(target.read_bytes()))

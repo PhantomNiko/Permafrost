@@ -1,3 +1,3 @@
-// Permafrost 0.4. Pooka's Free Software License.
+// Permafrost 0.5. Pooka's Free Software License.
 #include <permafrost.h>
 extern "C" int main() { return pf_night_mode(); }

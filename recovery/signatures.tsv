@@ -47,3 +47,4 @@
 480bb	unsigned int __fastcall recovered_480bb(int *container,unsigned int value);
 37e2c	unsigned int __fastcall recovered_37e2c(int *container,const char *text);
 2bcf3	unsigned int __fastcall recovered_2bcf3(unsigned int drive,unsigned int base,int data_sector,int sectors_per_cluster,unsigned int cluster_size,int fat,unsigned int cluster_count,unsigned int first,unsigned int size,void **out,int *chain_length);
+22772	int __fastcall recovered_22772(const char *path);

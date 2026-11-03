@@ -14,4 +14,7 @@ The kernel retains WMAP version 2 at 0x6200. Main moves to 0x260ed, C code ends
 at 0x481d0, initialized state ends at 0x4e608, and BSS ends at 0x85000.
 The BIOS prefix through 0x20c83 is unchanged. Lua's binary matches the prior
 release and remains an external source dependency. OpenBIOS is not identified.
-Recovery and C/C++ promotion are in progress.
+The source build compiles 386 recovered C functions and replaces prior releases
+as the sole target. The reconstructed image and relocated SDK pass the bundled
+self-test, original/native programs, Lua, callbacks and FAT32 mutation checks
+under a complete Bochs BIOS. Five graphics-depth framebuffer digests match.

@@ -1,0 +1,78 @@
+#include "functions.h"
+/* Recovered working notes; Pooka's Free Software License.
+ * Address: 0x25fea
+ */
+
+uint recovered_25fea(undefined4 *param_1)
+
+{
+  unsigned char frame[76];
+
+  uint in_EAX = 0;
+  uint uVar1;
+  uint *puVar2;
+  int iVar3;
+  uint uVar4;
+
+  if (param_1 == (undefined4 *)0x0) {
+    return in_EAX;
+  }
+  uVar1 = *param_1 - 3;
+  switch((uintptr_t)(uVar1)) {
+  case 0:
+    iVar3 = param_1[3];
+    break;
+  case 1:
+    iVar3 = param_1[4];
+    break;
+  default:
+    goto switchD_0002600b_caseD_5;
+  case 4:
+    puVar2 = (uint *)param_1[6];
+    if (puVar2 == (uint *)0x0) goto switchD_0002600b_caseD_5;
+    if (1 < *puVar2) {
+      uVar1 = *puVar2 - 1;
+      *puVar2 = uVar1;
+      goto switchD_0002600b_caseD_5;
+    }
+    iVar3 = 0;
+    for (uVar1 = 0; uVar4 = puVar2[4], uVar1 < puVar2[2]; uVar1 = uVar1 + 1) {
+      recovered_25fea((undefined4 *)(uVar4 + iVar3));
+      iVar3 = iVar3 + 0x24;
+    }
+    goto LAB_000260b2;
+  case 5:
+    puVar2 = (uint *)param_1[7];
+    if (puVar2 == (uint *)0x0) goto switchD_0002600b_caseD_5;
+    if (1 < *puVar2) {
+      uVar1 = *puVar2 - 1;
+      *puVar2 = uVar1;
+      goto switchD_0002600b_caseD_5;
+    }
+    iVar3 = 4;
+    for (uVar1 = 0; uVar4 = puVar2[3], uVar1 < puVar2[1]; uVar1 = uVar1 + 1) {
+      recovered_21203(*(int *)((uVar4 - 4) + iVar3));
+      recovered_25fea((undefined4 *)(puVar2[3] + iVar3));
+      iVar3 = iVar3 + 0x28;
+    }
+LAB_000260b2:
+    recovered_21203(uVar4);
+    uVar1 = recovered_21203((int)puVar2);
+    goto switchD_0002600b_caseD_5;
+  case 6:
+    uVar1 = recovered_2c225((uint *)param_1[8]);
+    goto switchD_0002600b_caseD_5;
+  }
+  uVar1 = recovered_21203(iVar3);
+switchD_0002600b_caseD_5:
+  *param_1 = 0;
+  param_1[1] = 0;
+  param_1[2] = 0;
+  param_1[3] = 0;
+  param_1[4] = 0;
+  param_1[5] = 0;
+  param_1[6] = 0;
+  param_1[7] = 0;
+  param_1[8] = 0;
+  return uVar1;
+}

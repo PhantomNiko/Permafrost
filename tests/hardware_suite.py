@@ -20,19 +20,18 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('reference', type=Path)
     parser.add_argument('candidate', type=Path)
-    parser.add_argument('--variant', choices=['i386','IA64'], default='i386')
     for name in ('bochs', 'bios', 'vgabios'):
         parser.add_argument('--' + name, required=True, type=Path)
     args = parser.parse_args()
     with tempfile.TemporaryDirectory(prefix='permafrost sdk validation ') as temporary:
         root = Path(temporary)
-        sdk = root / 'Permafrost0.4.sdk'
-        shutil.copytree('build/Permafrost0.4.sdk', sdk)
+        sdk = root / 'Permafrost0.5.sdk'
+        shutil.copytree('build/Permafrost0.5.sdk', sdk)
         programs = {}
 
         def compile(name, source, keys=None):
             output = root / (name + '.bin')
-            command = [str(sdk / 'bin/pf-cc'), str(source), '-o', str(output),'--variant',args.variant]
+            command = [str(sdk / 'bin/pf-cc'), str(source), '-o', str(output)]
             if name=='native-module':command += ['--base','0x240000']
             if name=='framebuffer':command += ['--base','0x250000']
             if keys is not None:
@@ -61,7 +60,7 @@ def main():
         programs['original-expand.bin'] = original_files['expand-disk.bin']
         compile('keys-lua', 'tests/keyqueue.c', 'exit\r')
         programs['original-lua.bin'] = original_files['lua.bin']
-        programs['lua-port.bin'] = Path('build',args.variant,'lua/lua.bin').read_bytes()
+        programs['lua-port.bin'] = Path('build/lua/lua.bin').read_bytes()
         programs['index.lua'] = Path('tests/lua.lua').read_bytes()
         digests = []
         framebuffers = []
@@ -79,7 +78,7 @@ def main():
 
             def run(name, script, marker, timeout=30):
                 image = root / (role + '-' + name + '.img')
-                image.write_bytes(repack_image(raw, files, partition, sectors=16384))
+                image.write_bytes(repack_image(raw, files, partition, sectors=81920))
                 script_path = root / 'startup.ws'
                 script_path.write_text(script)
                 command = [sys.executable, 'tests/hardware.py', str(image), '--script',
@@ -95,7 +94,6 @@ def main():
 
             run('selftest', selftest, 'PF-SELFTEST-PASS')
             graphics=Path('tests/graphics.ws').read_text()
-            if args.variant=='IA64':graphics='assert(peek($6238)>=2 and peek($6238)<=3,"long entry")\n'+graphics
             frame_output=run('graphics',graphics,'PF-GRAPHICS-PASS',60)
             frame_lines=re.findall(r'PF-FRAMEBUFFER [0-9a-f]+ [0-9]+ [0-9]+ [0-9]+',frame_output)
             if len(frame_lines)!=5:raise SystemExit(role+' framebuffer digests missing')
@@ -134,8 +132,8 @@ serial("PF-NATIVE-PASS")
             files['index.lua'] = b'local m=require("lua-demo-module"); assert(m.add(2,3)==5); local f=assert(io.open("pf-original-lua-pass","w")); assert(f:write("PASS")); assert(f:close())'
             run('original-lua', 'runcode("keys-lua.bin",$200000)\nassert(runcode("original-lua.bin",$230000)==1,"original Lua return")\nassert(read("pf-original-lua-pass")=="PASS","original Lua host services")\nserial("PF-ORIGINAL-LUA-PASS")\n', 'PF-ORIGINAL-LUA-PASS')
             files['index.lua'] = extended_index
-            stress = Path('tests/wmfs64.ws').read_text()
-            run('wmfs64', stress, 'PF-WMFS64-PASS')
+            stress = Path('tests/filesystem.ws').read_text()
+            run('filesystem',stress,'PF-FILESYSTEM-PASS',60)
             output = run('native', script, 'PF-NATIVE-PASS')
             digest = re.search(r'PF-NATIVE-DIGEST ([0-9a-f]+)', output)
             if not digest:
@@ -144,7 +142,7 @@ serial("PF-NATIVE-PASS")
             if output.splitlines().count('PF-BYTECODE') != 2:
                 print(output)
                 raise SystemExit(role + ' WSBC compatibility execution failed')
-            print(role + ': full self-test, relocated SDK, native routines, monitor, writer, WSBC, WMFS64 stress and both Lua applications passed')
+            print(role + ': full self-test, relocated SDK, native routines, monitor, writer, WSBC, FAT32 stress and both Lua applications passed')
         if digests[0] != digests[1]:
             raise SystemExit('native behavior differs: ' + ' / '.join(digests))
         if framebuffers[0]!=framebuffers[1]:

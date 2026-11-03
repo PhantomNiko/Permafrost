@@ -83,7 +83,7 @@ def make_fat32(files,sectors):
     output[71:82]=b'PERMAFROST ';output[82:90]=b'FAT32   ';output[510:512]=b'\x55\xaa'
     output[6*512:7*512]=output[:512]
     fsinfo=bytearray(512);struct.pack_into('<I',fsinfo,0,0x41615252);struct.pack_into('<I',fsinfo,484,0x61417272)
-    struct.pack_into('<III',fsinfo,488,0xffffffff,0xffffffff,0xaa550000);output[512:1024]=fsinfo;output[7*512:8*512]=fsinfo
+    struct.pack_into('<II',fsinfo,488,0xffffffff,0xffffffff);struct.pack_into('<I',fsinfo,508,0xaa550000);output[512:1024]=fsinfo;output[7*512:8*512]=fsinfo
     fat=bytearray(fat_sectors*512);struct.pack_into('<II',fat,0,0xffffff8,0xfffffff)
     def allocate(first,count):
         if first+count>clusters+2:raise ValueError('FAT32 image too small')

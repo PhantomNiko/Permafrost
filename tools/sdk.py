@@ -7,7 +7,7 @@ import zipfile
 
 
 def main():
-    root = Path('build/Permafrost0.4.sdk')
+    root = Path('build/Permafrost0.5.sdk')
     if root.exists():
         for cache in root.rglob('__pycache__'):
             shutil.rmtree(cache)
@@ -17,7 +17,7 @@ def main():
     for path in Path('sdk/include').iterdir():
         shutil.copyfile(path, root / 'usr/include' / path.name)
     shutil.copytree('sdk/examples', root / 'Examples', dirs_exist_ok=True)
-    for source, target in [('tools/cc.py', 'pf-cc'), ('tools/elf32.py', 'elf32.py'),
+    for source, target in [('tools/cc.py', 'pf-cc'), ('tools/elf32.py', 'elf32.py'), ('tools/fat.py','fat.py'),
                            ('tools/wmfs.py', 'pf-wmfs')]:
         path = root / 'bin' / target
         shutil.copyfile(source, path)
@@ -27,19 +27,18 @@ def main():
     shutil.copyfile('DEPENDENCIES.md', root / 'Documentation/DEPENDENCIES.md')
     shutil.copyfile('docs/recovery.md', root / 'Documentation/recovery.md')
     shutil.copyfile('docs/sdk.md', root / 'Documentation/sdk.md')
-    settings = dict(CanonicalName='permafrost0.4', DisplayName='Permafrost 0.4',
-                    Version='0.4', MaximumDeploymentTarget='0.4',
+    settings = dict(CanonicalName='permafrost0.5', DisplayName='Permafrost 0.5',
+                    Version='0.5', MaximumDeploymentTarget='0.5',
                     DefaultProperties=dict(PLATFORM_NAME='permafrost', ARCHS='i386'),
                     SupportedTargets=dict(permafrost=dict(Archs=['i386'])))
     (root / 'SDKSettings.json').write_text(json.dumps(settings, indent=2) + '\n')
     (root / 'README.txt').write_text(
-        'Permafrost 0.4 SDK for macOS 15\n\n'
+        'Permafrost 0.5 SDK for macOS 15\n\n'
         'Requires Python 3 and Apple Command Line Tools (clang/clang++).\n'
         'Compile C: bin/pf-cc Examples/hello.c -o hello.bin\n'
         'Compile C++: bin/pf-cc Examples/nightmode.cpp -o nightmode.bin\n'
-        'Select IA64 native services with --variant IA64; application code stays i386.\n'
         'Native callbacks: compile Examples/native-module.c with --base 0x240000.\n'
-        'Install the binary in WMFS64 (partition 2) and run runcode("/hello.bin", $200000).\n'
+        'Install the binary in FAT32 (partition 2) and run runcode("/hello.bin", $200000).\n'
         'Flat i386 ring-0 code; cdecl main returns an integer in EAX.\n'
         'This is a freestanding SDK, without a hosted libc, C++ standard library,\n'
         'exceptions, RTTI, dynamic linking, or Apple platform/Xcode integration.\n'
@@ -48,7 +47,7 @@ def main():
         for path in sorted(root.rglob('*')):
             if path.is_file():
                 archive.write(path, str(Path(root.name) / path.relative_to(root)))
-    print('Built build/Permafrost0.4.sdk')
+    print('Built build/Permafrost0.5.sdk')
 
 
 if __name__ == '__main__':

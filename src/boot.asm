@@ -1,4 +1,4 @@
-; Permafrost 0.4 — recovered assembly, Pooka's Free Software License.
+; Permafrost 0.5 — recovered assembly, Pooka's Free Software License.
 ; Fixed virtual addresses preserve compatibility with original raw programs.
 ; at() retains original instruction boundaries when NASM shortens an encoding.
 %macro pf_at 1

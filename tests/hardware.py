@@ -40,8 +40,8 @@ def main():
     if args.script:
         files['startup.ws'] = args.script.read_bytes()
     if Image(image).partitions:
-        files['startup.ws'] = b'device("mount",4,"WMFS64")\ndevice("target",4)\n' + files['startup.ws']
-    image = repack_image(image, files, sectors=max(16384, len(image) // 512) if Image(image).partitions else max(2048, len(image) // 512))
+        files['startup.ws'] = b'device("mount",4,"FAT32")\ndevice("target",4)\n' + files['startup.ws']
+    image = repack_image(image, files, sectors=max(81920, len(image) // 512) if Image(image).partitions else max(2048, len(image) // 512))
     with tempfile.TemporaryDirectory(prefix='permafrost-hardware-') as temp:
         root = Path(temp)
         (root / 'disk.img').write_bytes(image)

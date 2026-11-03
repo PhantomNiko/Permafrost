@@ -44,7 +44,6 @@ def main():
     parser.add_argument('-o', required=True, type=Path)
     parser.add_argument('-I', action='append', default=[])
     parser.add_argument('-D', action='append', default=[])
-    parser.add_argument('--variant', choices=['i386','IA64'], default='i386', help='native ABI; both variants use 32-bit application code')
     parser.add_argument('--base', type=lambda s: int(s, 0), default=0x200000)
     parser.add_argument('--entry', default='main')
     args = parser.parse_args()
@@ -58,7 +57,7 @@ def main():
             if source.suffix == '.o':
                 objects.append(Object(source.read_bytes()))
             else:
-                compile_object(source, target, [include] + args.I, args.D + (['PF_TARGET_IA64=1'] if args.variant=='IA64' else []))
+                compile_object(source, target, [include] + args.I, args.D)
                 objects.append(Object(target.read_bytes()))
         result, symbols, _ = link(objects, base=args.base, entry=args.entry)
         args.o.parent.mkdir(parents=True, exist_ok=True)

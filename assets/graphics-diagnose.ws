@@ -1,7 +1,8 @@
-@@ Switch to graphics mode internally, draw a raw framebuffer test pattern, restore
-@@ text mode, then print the captured mode details for debugging.
+@@ Switch to graphics mode internally, draw a raw framebuffer test pattern,
+@@ hold it long enough for slow physical displays to sync, restore text mode,
+@@ then print the captured mode details for debugging.
 
-probe = graphicsProbe()
+probe = graphicsProbe(15000)
 print("switch ok: " + toString(probe["switchOk"]))
 print("framebuffer ready: " + toString(probe["framebufferReady"]))
 print("restore ok: " + toString(probe["restoreOk"]))

@@ -1,7 +1,8 @@
-@@ Permafrost 0.4 graphics rendering differential. Pooka's Free Software License.
+@@ Permafrost 0.5 graphics rendering differential. Pooka's Free Software License.
 probe = graphicsProbe()
 assert(probe["switchOk"] and probe["framebufferReady"] and probe["restoreOk"], "raw framebuffer probe")
 graphicsEnter()
+graphicsWait(1)
 graphicsResize(32,24)
 depths = {8,15,16,24,32}
 for i = 1,5

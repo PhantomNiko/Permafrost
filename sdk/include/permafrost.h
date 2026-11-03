@@ -1,18 +1,13 @@
-/* Permafrost 0.4 native ABI. Pooka's Free Software License. */
+/* Permafrost 0.5 native ABI. Pooka's Free Software License. */
 #ifndef PERMAFROST_H
 #define PERMAFROST_H
 #include <stdint.h>
 #include <stddef.h>
-#define PF_VERSION "0.4"
+#define PF_VERSION "0.5"
 #define PF_NATIVE_LOAD_ADDRESS 0x200000U
 #define PF_KERNEL_BASE 0x20000U
-#ifdef PF_TARGET_IA64
-#define PF_API_ADDRESS 0x6400U
-#define PF_LOG_ADDRESS 0x233b7U
-#else
 #define PF_API_ADDRESS 0x6200U
-#define PF_LOG_ADDRESS 0x233a3U
-#endif
+#define PF_LOG_ADDRESS 0x23390U
 #define PF_API_MAGIC 0x50414d57U
 
 /* WMAP version 2, 76 bytes. All service entries use i386 cdecl.

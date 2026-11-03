@@ -25,8 +25,8 @@ def main():
     first, _ = boot(raw)
     firmware = Image(bytes(first.disk)).files()
     startup = firmware.get('startup.ws', b'')
-    if b'expand-disk.bin' in firmware or b'pcall(device,"mount",4,"WMFS64")' not in startup:
-        raise SystemExit('first boot did not finish firmware setup')
+    if b'"FAT32"' not in startup or firmware != Image(raw).files():
+        raise SystemExit('first boot did not preserve FAT32 automount firmware')
     second, _ = boot(bytes(first.disk))
     if Image(bytes(second.disk), 2).files() != Image(bytes(first.disk), 2).files():
         raise SystemExit('second boot changed user files unexpectedly')
@@ -44,14 +44,14 @@ def main():
     rebooted, _ = boot(repack_image(bytes(grown.disk), original_firmware),
         'assert(read("/pf-persist-24") == "snow-24")\nserial("PF-LIFECYCLE-PASS")\n')
     if Image(bytes(rebooted.disk), 2).files() != on_disk:
-        raise SystemExit('grown WMFS64 files changed after reboot')
+        raise SystemExit('grown FAT32 files changed after reboot')
     damaged = Image(raw).files()
     for name,data in list(damaged.items()):
         if data[:4]==b'WMLP':damaged[name]=b'BAD!'+data[4:]
     recovery, output = boot(repack_image(raw, damaged))
     if 'Fallback boot path active.' not in output:
         raise SystemExit('invalid firmware kernel did not trigger recovery')
-    print('First-boot setup, persistent WMFS64 root growth, reboot and recovery fallback passed.')
+    print('First-boot setup, persistent FAT32 root growth, reboot and recovery fallback passed.')
 
 
 if __name__ == '__main__':

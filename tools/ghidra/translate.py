@@ -68,11 +68,11 @@ def main():
     args = parser.parse_args()
     layout = json.loads(args.layout.read_text())
     current = layout.get('translation', {})
-    manual_root=args.manual or Path('kernel/manual',layout.get('variant','i386'))
+    manual_root=args.manual or Path('kernel/manual')
     manual = {path.stem: path.read_text() for path in manual_root.glob('*.c')}
     args.out.mkdir(parents=True, exist_ok=True)
     sources = {p.stem: p.read_text() for p in sorted(args.notes.glob('*.c')) if p.stem != 'recovered'}
-    header = ['/* Permafrost 0.4; Pooka\'s Free Software License. */', '#pragma once', '#include "support.h"']
+    header = ['/* Permafrost 0.5; Pooka\'s Free Software License. */', '#pragma once', '#include "support.h"']
     for source in sources.values():
         header.append(signature(source) + ';')
     (args.out / 'functions.h').write_text('\n'.join(header) + '\n')
@@ -143,7 +143,7 @@ def main():
         if address == current['main']:
             source = re.sub(r'(_DAT_0000(?:62|64)[0-9a-f]{2} = )(?:recovered_|FUN_000)([0-9a-f]+);', lambda m: m[1] + '0x' + m[2] + ';', source)
             source = source.replace('(uint)local_580', 'pf_float_bits(local_580)')
-        if address == '29de8':
+        if address == '29de2':
             # One shared call site receives 2, 3 or 4 format arguments. Ghidra
             # exports only three; the four-string RAM status path also passes
             # the detected-memory string in local_60 (verified in disassembly).

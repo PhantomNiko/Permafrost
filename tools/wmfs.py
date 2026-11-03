@@ -268,7 +268,7 @@ def main():
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes(content)
     print(json.dumps(dict(sha256=hashlib.sha256(raw).hexdigest(),
-                         bytes=len(raw), superblock=vars(image) | {'data': None},
+                         bytes=len(raw), superblock=vars(image) | {'data': None,'fat32': ({k:v for k,v in vars(image.fat32).items() if k!='data'} if image.fat32 else None)},
                          files=entries), indent=2))
 
 

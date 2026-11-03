@@ -19,8 +19,8 @@ def main():
         files = Image(raw).files()
         files['startup.ws'] = Path('assets/BinaryWriter.ws').read_bytes()
         if Image(raw).partitions:
-            files['startup.ws'] = b'device("mount",4,"WMFS64")\ndevice("target",4)\n' + files['startup.ws']
-        raw = repack_image(raw, files, sectors=16384)
+            files['startup.ws'] = b'device("mount",4,"FAT32")\ndevice("target",4)\n' + files['startup.ws']
+        raw = repack_image(raw, files, sectors=81920)
         machine = Machine(raw, commands)
         output = machine.run(500000000).replace('\r', '')
         print(output)

@@ -1,10 +1,11 @@
-@@ WinterScript self-test for 0.4 beta
+@@ WinterScript self-test for 0.5 beta
 
-assert(WINTER_VERSION == 0.4, "WINTER_VERSION should be 0.4")
+assert(WINTER_VERSION == 0.5, "WINTER_VERSION should be 0.5")
 assert(WINTER_RELEASE == "Beta", "WINTER_RELEASE should be Beta")
 assert(typeOf(not) == "not", "standalone not should be the not value")
 assert(missingValue == not, "missing variables should resolve to not")
 assert((not false) == true, "not false should be true")
+assert(typeOf(package) == "table" and package["path"] == "" and package["cpath"] == "", "package metadata table should exist")
 
 native shared = 12
 local hidden = 77
@@ -65,6 +66,48 @@ end
 
 a, b, c, d = triple()
 assert(a == 1 and b == 2 and c == 3 and d == not, "multi-value returns and assignments should work")
+
+function collectVarArgs(head, ...)
+	local first, second, third = ...
+	return head, first, second, third
+end
+
+va, vb, vc, vd = collectVarArgs(4, 5, 6, 7)
+assert(va == 4 and vb == 5 and vc == 6 and vd == 7, "vararg functions should expose extra values through ...")
+
+decayCount = 0
+decay function stepDecay(amount)
+	decayCount += amount
+	decayCount += amount
+end
+
+stepDecay(5)
+assert(decayCount == 5, "decay functions should run one scheduled statement after yielding")
+assert(decayCount == 10, "decay functions should resume on later statements")
+
+decayLoopCount = 0
+decay function loopDecay()
+	while decayLoopCount < 12
+		decayLoopCount += 1
+		decayLoopCount += 10
+	end
+end
+
+loopDecay()
+assert(decayLoopCount == 1, "decay while loops should run one body statement per turn")
+assert(decayLoopCount == 11, "decay while loops should resume inside the body")
+assert(decayLoopCount == 12, "decay while loops should return through the loop header")
+assert(decayLoopCount == 22, "decay while loops should continue after re-entering the body")
+
+decayKilled = 0
+decay function doomedDecay()
+	decayKilled += 1
+	decayKilled += 10
+end
+
+doomedDecay()
+kill()
+assert(decayKilled == 1, "kill should stop the active decay function")
 
 function buildNestedAccessor()
 	local hiddenTable = {{hp: 7}}

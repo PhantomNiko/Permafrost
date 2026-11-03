@@ -1,4 +1,4 @@
-/* Permafrost 0.4. Pooka's Free Software License.
+/* Permafrost 0.5. Pooka's Free Software License.
  * Rewritten from the recovered routines at 0x20c1d–0x20def.
  * The null-tolerant strlen behavior is deliberate and matches the reference.
  */

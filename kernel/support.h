@@ -1,4 +1,4 @@
-/* Permafrost 0.4; Pooka's Free Software License. */
+/* Permafrost 0.5; Pooka's Free Software License. */
 #pragma once
 #include <stdint.h>
 #include <stddef.h>
@@ -86,3 +86,4 @@ static inline uint64_t pf_integer_bits(uint64_t value) { return value; }
 #define FUN_000204b0 ((uint (*)(void))0x204b0)
 #define FUN_0002079d ((uint (*)(void))0x2079d)
 #define FUN_0002085e ((uint (*)(void))0x2085e)
+#define FUN_0002069f ((uint (*)(uint))0x2069f)
