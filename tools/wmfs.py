@@ -5,6 +5,7 @@ import hashlib
 import json
 from pathlib import Path
 import struct
+from fat import FAT32, make_fat32
 
 SECTOR = 512
 BASE = 65
@@ -14,6 +15,7 @@ class Image:
     def __init__(self, data, partition=0):
         self.data = data
         self.partitions = []
+        self.fat32 = None
         self.base = BASE
         table = BASE * SECTOR
         if data[table:table + 4] == b'WBPT':
@@ -27,6 +29,11 @@ class Image:
                 self.partitions.append(dict(name=name, type=kind, start=start, sectors=size, flags=flags))
             self.base = self.partitions[partition]['start']
         start = self.base * SECTOR
+        if data[start+82:start+90] == b'FAT32   ':
+            self.fat32=FAT32(data,start)
+            self.wide=False
+            self.cluster_size=self.fat32.cluster_size
+            return
         self.wide = data[start:start + 8] == b'WMFS64\0\0'
         if data[start:start + 8] not in (b'WMFS32\0\0', b'WMFS64\0\0'):
             raise ValueError('not a WMFS32 image')
@@ -51,6 +58,9 @@ class Image:
         return (self.base + relative) * SECTOR
 
     def entries(self):
+        if self.fat32:
+            yield from self.fat32.entries()
+            return
         root = self.sector(self.root_sector)
         if self.wide:
             directory = self.read(self.root_cluster, self.root_bytes)
@@ -64,6 +74,7 @@ class Image:
             yield name.decode('utf-8'), first, size
 
     def read(self, first, size):
+        if self.fat32:return self.fat32.read(first,size)
         result = bytearray()
         seen = set()
         while len(result) < size:
@@ -177,7 +188,7 @@ def make_wmfs64(files, sectors):
 
 
 def make_disk(boot, loader, firmware, recovery, user, sectors=8192,
-              firmware_sectors=2048, recovery_sectors=812):
+              firmware_sectors=2048, recovery_sectors=828, user_kind=5):
     """Build the current WBPT layout with firmware, recovery and growable user data."""
     starts = [66, 66 + firmware_sectors, 66 + firmware_sectors + recovery_sectors]
     sizes = [firmware_sectors, recovery_sectors, sectors - starts[2]]
@@ -185,7 +196,7 @@ def make_disk(boot, loader, firmware, recovery, user, sectors=8192,
         raise ValueError('disk is too small for its partitions')
     volumes = [make_image(boot, loader, files, size + BASE)[BASE * SECTOR:]
                for files, size in zip((firmware, recovery), sizes)]
-    volumes.append(make_wmfs64(user, sizes[2]))
+    volumes.append(make_fat32(user,sizes[2]) if user_kind==5 else make_wmfs64(user,sizes[2]))
     output = bytearray(sectors * SECTOR)
     output[:512] = boot
     output[512:BASE * SECTOR] = loader
@@ -193,7 +204,7 @@ def make_disk(boot, loader, firmware, recovery, user, sectors=8192,
     output[table:table + 8] = b'WBPT' + struct.pack('<HH', 1, 3)
     output[table + 8:table + 8 + 12] = b'PermafrostOS'
     for index, (name, kind, start, size, flags, volume) in enumerate(zip(
-            ('firmware', 'recovery', 'user data'), (1, 1, 2), starts,
+            ('firmware', 'recovery', 'user data'), (1, 1, user_kind), starts,
             (sizes[0], sizes[1], 0), (0, 1, 0), volumes)):
         offset = table + 32 + index * 32
         struct.pack_into('<4I', output, offset, kind, start, size, flags)
@@ -215,7 +226,8 @@ def repack_image(raw, files, partition=0, sectors=None):
     volumes[partition] = files
     return make_disk(raw[:512], raw[512:BASE * SECTOR], *volumes, sectors=sectors,
                      firmware_sectors=image.partitions[0]['sectors'],
-                     recovery_sectors=image.partitions[1]['sectors'])
+                     recovery_sectors=image.partitions[1]['sectors'],
+                     user_kind=image.partitions[2]['type'])
 
 
 def main():
