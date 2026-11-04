@@ -140,7 +140,8 @@ void pf_firmware_main(void) {
   if(entry) {
    *(uint32_t *)0x6118=candidates[i];*(uint32_t *)0x611c=0;*(uint32_t *)0x6120=0;
    *(uint32_t *)0x20010=0;text("Starting Permafrost.\r\n");
-   ((void (*)(void))(uintptr_t)entry)();
+   __asm__ volatile("cli; movl $0x200000,%%esp; xorl %%ebp,%%ebp; jmp *%%eax"::"a"(entry):"memory");
+   __builtin_unreachable();
   }
  }
  text("Permafrost could not load a valid kernel.\r\n");

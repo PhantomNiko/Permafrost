@@ -1,0 +1,13 @@
+{
+  "version": "0.7",
+  "architecture": "i386",
+  "source": "kernel/i386",
+  "base": 131072,
+  "text_start": 134284,
+  "text_end": 366950,
+  "state_end": 438272,
+  "core_base": 1048576,
+  "entry": 131092,
+  "main": "wm_permafrost_main",
+  "set_loader_context": "wm_platform_set_loader_context"
+}

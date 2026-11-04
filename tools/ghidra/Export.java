@@ -26,17 +26,35 @@ import ghidra.app.cmd.function.ApplyFunctionSignatureCmd;
 import ghidra.app.util.cparser.C.CParser;
 
 public class Export extends GhidraScript {
+    private void hintedReturn(ghidra.program.model.listing.Function function, DataType hint) throws Exception {
+        if(currentProgram.getDefaultPointerSize()==8)function.setCustomVariableStorage(false);
+        if(hint.getLength()==16 && currentProgram.getDefaultPointerSize()==8) {
+            // SysV returns a two-word integer in RDX:RAX. The generic language
+            // model otherwise invents a hidden memory-result parameter.
+            function.setReturnType(UnsignedLongLongDataType.dataType,SourceType.USER_DEFINED);
+            function.setCustomVariableStorage(true);
+            function.setReturn(hint,new VariableStorage(currentProgram,
+                currentProgram.getRegister("RDX"),currentProgram.getRegister("RAX")),SourceType.USER_DEFINED);
+        } else function.setReturnType(hint,SourceType.USER_DEFINED);
+    }
     private void signature(long address, String declaration, String storage) throws Exception {
         var function=getFunctionAt(toAddr(address));
         String name=function.getName();
         int purge=function.getStackPurgeSize();
-        if(storage!=null)declaration=declaration.replace("__thiscall","__cdecl").replace("__fastcall","__cdecl");
+        if(storage!=null)declaration=declaration.replace("__thiscall","__cdecl").replace("__fastcall","__cdecl").replaceAll("__regparm[0-9]+","__cdecl");
         // A changed declaration needs a distinct datatype name: reusing an
         // earlier parser datatype can silently retain its old parameter list.
         String unique="pf_signature_"+Long.toHexString(address)+"_"+
             Integer.toUnsignedString(declaration.hashCode(),16);
         String parsed=declaration.replaceFirst("\\b[A-Za-z_][A-Za-z_0-9]*(?=\\s*\\()",unique);
-        var type = (FunctionDefinitionDataType)new CParser(currentProgram.getDataTypeManager()).parse(parsed);
+        FunctionDefinitionDataType type;
+        try { type=(FunctionDefinitionDataType)new CParser(currentProgram.getDataTypeManager()).parse(parsed); }
+        catch(Exception exception) { throw new Exception("Cannot parse signature: "+declaration,exception); }
+        if(storage==null) {
+            function.setCustomVariableStorage(false);
+            if(!declaration.matches("(?s).*__(?:fastcall|thiscall|cdecl|regparm[0-9]+).*"))
+                function.setCallingConvention(currentProgram.getCompilerSpec().getDefaultCallingConvention().getName());
+        }
         if(!new ApplyFunctionSignatureCmd(toAddr(address), type, SourceType.USER_DEFINED).applyTo(currentProgram, monitor))
             throw new Exception("Could not apply signature at "+Long.toHexString(address));
         function.setName(name,SourceType.USER_DEFINED);
@@ -92,14 +110,14 @@ public class Export extends GhidraScript {
                     DataType hint;
                     switch(fields[1]) {
                         case "Q": hint=UnsignedLongLongDataType.dataType; break;
+                        case "O": hint=UnsignedInteger16DataType.dataType; break;
                         case "B": hint=UnsignedCharDataType.dataType; break;
                         case "S": hint=FloatDataType.dataType; break;
                         case "D": hint=DoubleDataType.dataType; break;
                         case "F": hint=LongDoubleDataType.dataType; break;
                         default: hint=UnsignedIntegerDataType.dataType;
                     }
-                    if(currentProgram.getDefaultPointerSize()==8)function.setCustomVariableStorage(false);
-                    function.setReturnType(hint,SourceType.USER_DEFINED);
+                    hintedReturn(function,hint);
                     returnHints.put(function.getEntryPoint().getOffset(),hint);
                 }
             }
@@ -143,8 +161,7 @@ public class Export extends GhidraScript {
                         HighFunctionDBUtil.commitParamsToDatabase(result.getHighFunction(), true,
                             ReturnCommitOption.COMMIT, SourceType.ANALYSIS);
                         if(returnHints.containsKey(address)) {
-                            if(currentProgram.getDefaultPointerSize()==8)function.setCustomVariableStorage(false);
-                            function.setReturnType(returnHints.get(address),SourceType.USER_DEFINED);
+                            hintedReturn(function,returnHints.get(address));
                         }
                     } catch (Exception exception) {
                         printerr("Parameter inference: " + function.getEntryPoint() + ": " + exception.getMessage());

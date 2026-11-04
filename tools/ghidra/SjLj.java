@@ -56,6 +56,13 @@ public class SjLj extends GhidraScript {
             disassemble(toAddr(site));
             getInstructionAt(toAddr(site)).setFlowOverride(FlowOverride.NONE);
             disassemble(toAddr(scratch));
+            if(getInstructionAt(toAddr(pad))==null) {
+                long last=pad+15;
+                var next=getFunctionAfter(toAddr(pad));
+                if(next!=null)last=Math.min(last,next.getEntryPoint().getOffset()-1);
+                clearListing(toAddr(pad),toAddr(last));
+                disassemble(toAddr(pad));
+            }
             var hooks=currentProgram.getListing().getInstructions(
                 new AddressSet(toAddr(scratch),toAddr(scratch+extent-1)),true);
             while(hooks.hasNext())hooks.next().setFlowOverride(FlowOverride.NONE);

@@ -8,7 +8,7 @@ import sys
 import tempfile
 sys.dont_write_bytecode = True
 from elf32 import Object, link
-from macho import pack
+from macho import pack, universal
 
 
 FLAGS = ['--target=i386-unknown-none-elf', '-march=i386', '-m32', '-Oz',
@@ -19,10 +19,15 @@ FLAGS = ['--target=i386-unknown-none-elf', '-march=i386', '-m32', '-Oz',
          '-mno-sse', '-mno-sse2', '-mno-mmx', '-nostdinc']
 
 
-def compile_object(source, target, includes=(), defines=(), compiler=None, extra_flags=()):
+def compile_object(source, target, includes=(), defines=(), compiler=None, extra_flags=(), architecture="i386"):
     cpp = Path(source).suffix in ('.cpp', '.cc', '.cxx')
     compiler = compiler or os.environ.get('CXX' if cpp else 'CC', 'clang++' if cpp else 'clang')
-    command = [compiler] + FLAGS
+    if architecture not in ('i386', 'x86_64'):
+        raise ValueError('unsupported target architecture')
+    flags = FLAGS if architecture == 'i386' else [
+        '--target=x86_64-unknown-none-elf', '-m64', '-mno-red-zone', '-fms-extensions'] + [
+        flag for flag in FLAGS[3:] if flag not in ('-mno-sse', '-mno-sse2', '-mno-mmx')]
+    command = [compiler] + flags
     command += list(extra_flags)
     if cpp:
         command += ['-std=c++17', '-fno-exceptions', '-fno-rtti', '-fno-threadsafe-statics']
@@ -47,6 +52,7 @@ def main():
     parser.add_argument('-D', action='append', default=[])
     parser.add_argument('--base', type=lambda s: int(s, 0), default=0x200000)
     parser.add_argument('--entry', default='main')
+    parser.add_argument('--arch',choices=('i386','x86_64','universal'),default='i386')
     parser.add_argument('--format', choices=['macho', 'flat'], default='macho')
     parser.add_argument('--runtime', action='store_true',
                         help='link the supplied freestanding arithmetic and memory support')
@@ -58,21 +64,31 @@ def main():
     if args.runtime:
         support=here.parent/'usr/src' if bundled.exists() else here.parent/'kernel'
         sources += [support/'compiler.c', support/'runtime.c']
+    architectures=('i386','x86_64') if args.arch=='universal' else (args.arch,)
+    if args.arch=='universal' and args.format=='flat':
+        raise ValueError('flat output requires one architecture')
+    images=[]
     with tempfile.TemporaryDirectory(prefix='permafrost-cc-') as temp:
-        objects = []
-        for index, source in enumerate(sources):
-            target = Path(temp) / ('unit%d.o' % index)
-            if source.suffix == '.o':
-                objects.append(Object(source.read_bytes()))
+        for architecture in architectures:
+            if architecture=='x86_64':
+                from elf64 import Object,link
             else:
-                compile_object(source, target, [include] + args.I, args.D)
-                objects.append(Object(target.read_bytes()))
-        result, symbols, _ = link(objects, base=args.base, entry=args.entry)
-        if args.format == 'macho':
-            result = pack(result, args.base)
-        args.o.parent.mkdir(parents=True, exist_ok=True)
+                from elf32 import Object,link
+            objects=[]
+            for index,source in enumerate(sources):
+                target=Path(temp)/('%s-unit%d.o'%(architecture,index))
+                if source.suffix=='.o':objects.append(Object(source.read_bytes()))
+                else:
+                    compile_object(source,target,[include]+args.I,args.D,architecture=architecture)
+                    objects.append(Object(target.read_bytes()))
+            result,symbols,_=link(objects,base=args.base,entry=args.entry)
+            if args.format=='macho':result=pack(result,args.base,architecture=architecture)
+            images.append(result)
+        result=universal(images) if len(images)>1 else images[0]
+        args.o.parent.mkdir(parents=True,exist_ok=True)
         args.o.write_bytes(result)
-        print('Linked %d bytes at 0x%x, entry %s' % (len(result), args.base, args.entry))
+        print('Linked %s: %d bytes at 0x%x, entry %s'%(args.arch,len(result),args.base,args.entry))
+
 
 
 if __name__ == '__main__':

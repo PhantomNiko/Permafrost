@@ -11,6 +11,8 @@ from capstone import Cs, CS_ARCH_X86, CS_MODE_64
 
 def functions(metadata):
     base = metadata['base']
+    if not any(name == '_lua_probe_binary_header' for address, name in metadata['symbols']):
+        return sorted({address for address, name in metadata['symbols']} | {metadata['entry']})
     # The probe header contains exported mutable words in __text. They are
     # symbols, but are not functions. The shared zero-return stub is code.
     return sorted({address for address, name in metadata['symbols']

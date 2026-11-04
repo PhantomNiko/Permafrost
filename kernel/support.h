@@ -9,7 +9,22 @@ typedef signed char sbyte;
 typedef unsigned short ushort;
 typedef unsigned int uint;
 typedef unsigned long ulong;
+#if defined(__x86_64__)
+typedef long double longdouble;
+typedef __uint128_t undefined16;
+typedef __uint128_t uint128;
+typedef __uint128_t uint16;
+static inline uint128 divpd(uint128 a,uint128 b) {
+    union { uint128 bits; double lane[2]; } x={.bits=a},y={.bits=b},z;
+    z.lane[0]=x.lane[0]/y.lane[0];z.lane[1]=x.lane[1]/y.lane[1];return z.bits;
+}
+#define SEXT816(a) ((__uint128_t)(__int128)(int64_t)(a))
+#define CONCAT88(a,b) (((__uint128_t)(uint64_t)(a)<<64)|(uint64_t)(b))
+#define ZEXT816(a) ((__uint128_t)(uint64_t)(a))
+#define PF_PART8(value, offset) (*(uint64_t *)((uint8_t *)&(value)+(offset)))
+#else
 typedef double longdouble;
+#endif
 typedef unsigned long long ulonglong;
 typedef long long longlong;
 typedef unsigned char undefined;
@@ -19,10 +34,12 @@ typedef unsigned int undefined3;
 typedef unsigned int undefined4;
 typedef unsigned long long undefined6;
 typedef unsigned long long undefined8;
+typedef unsigned long long undefined7;
+typedef long long int7;
 typedef int int3;
 typedef unsigned int uint3;
 typedef long double float10;
-typedef unsigned int code();
+typedef uintptr_t code();
 #define CONCAT11(a,b) (((uint16_t)(a)<<8)|(uint8_t)(b))
 #define CONCAT12(a,b) (((uint32_t)(a)<<16)|(uint16_t)(b))
 #define CONCAT13(a,b) (((uint32_t)(a)<<24)|((uint32_t)(b)&0xffffffU))
@@ -44,10 +61,10 @@ typedef unsigned int code();
 #define PF_PART1(value, offset) (*(uint8_t *)((uint8_t *)&(value)+(offset)))
 #define PF_PART2(value, offset) (*(uint16_t *)((uint8_t *)&(value)+(offset)))
 #define PF_PART4(value, offset) (*(uint32_t *)((uint8_t *)&(value)+(offset)))
-struct pf_uint24 { unsigned int value:24; } __attribute__((packed));
-#define PF_PART3(object, offset) (((struct pf_uint24 *)((uint8_t *)&(object)+(offset)))->value)
-struct pf_uint56 { unsigned long long value:56; } __attribute__((packed));
-#define PF_PART7(object, offset) (((struct pf_uint56 *)((uint8_t *)&(object)+(offset)))->value)
+struct pf_uint24 { unsigned int pf_payload_bits:24; } __attribute__((packed));
+#define PF_PART3(object, offset) (((struct pf_uint24 *)((uint8_t *)&(object)+(offset)))->pf_payload_bits)
+struct pf_uint56 { unsigned long long pf_payload_bits:56; } __attribute__((packed));
+#define PF_PART7(object, offset) (((struct pf_uint56 *)((uint8_t *)&(object)+(offset)))->pf_payload_bits)
 static inline char *builtin_strncpy(char *out, const char *in, size_t count) {
     char *start = out;
     while (count && *in) { *out++ = *in++; --count; }
@@ -96,9 +113,40 @@ static inline uint64_t pf_integer_bits(uint64_t value) { return value; }
 /* Terminal UD2 emitted by the reference exception runtime. */
 static inline uintptr_t invalidInstructionException(void) { __builtin_trap(); }
 
-struct pf_uint40 { unsigned long long value:40; } __attribute__((packed));
-#define PF_PART5(object, offset) (((struct pf_uint40 *)((uint8_t *)&(object)+(offset)))->value)
+struct pf_uint40 { unsigned long long pf_payload_bits:40; } __attribute__((packed));
+#define PF_PART5(object, offset) (((struct pf_uint40 *)((uint8_t *)&(object)+(offset)))->pf_payload_bits)
 #define SUB85(value, offset) ((pf_double_bits(value) >> ((offset)*8)) & 0xffffffffffULL)
 
 #define SBORROW4(a,b) (((((uint32_t)(a)^(uint32_t)(b)) & ((uint32_t)(a)^((uint32_t)(a)-(uint32_t)(b))))>>31)!=0)
 #define SCARRY4(a,b) (((~((uint32_t)(a)^(uint32_t)(b)) & ((uint32_t)(a)^((uint32_t)(a)+(uint32_t)(b))))>>31)!=0)
+
+#define CONCAT53(a,b) (((uint64_t)(a)<<24)|((uint64_t)(b)&0xffffffU))
+#define CARRY8(a,b) ((uint64_t)(a)>UINT64_MAX-(uint64_t)(b))
+static inline int SBORROW8(uint64_t a,uint64_t b) { int64_t r;return __builtin_sub_overflow((int64_t)a,(int64_t)b,&r); }
+static inline int SCARRY8(uint64_t a,uint64_t b) { int64_t r;return __builtin_add_overflow((int64_t)a,(int64_t)b,&r); }
+
+typedef uint64_t uint6;
+#define CONCAT24(a,b) (((uint64_t)(uint16_t)(a)<<32)|(uint32_t)(b))
+static inline uint32_t *pf_cpuid_words(uint32_t leaf) {
+    static uint32_t words[4];
+    __asm__ volatile("cpuid":"=a"(words[0]),"=b"(words[1]),"=c"(words[2]),"=d"(words[3]):"a"(leaf),"c"(0));
+    return words;
+}
+#define cpuid_basic_info(leaf) pf_cpuid_words(leaf)
+#define cpuid_serial_info(leaf) pf_cpuid_words(leaf)
+#define cpuid_Version_info(leaf) pf_cpuid_words(leaf)
+
+#define cpuid(leaf) pf_cpuid_words(leaf)
+#define cpuid_Architectural_Performance_Monitoring_info(leaf) pf_cpuid_words(leaf)
+#define cpuid_Deterministic_Cache_Parameters_info(leaf) pf_cpuid_words(leaf)
+#define cpuid_Direct_Cache_Access_info(leaf) pf_cpuid_words(leaf)
+#define cpuid_Extended_Feature_Enumeration_info(leaf) pf_cpuid_words(leaf)
+#define cpuid_Extended_Topology_info(leaf) pf_cpuid_words(leaf)
+#define cpuid_MONITOR_MWAIT_Features_info(leaf) pf_cpuid_words(leaf)
+#define cpuid_Processor_Extended_States_info(leaf) pf_cpuid_words(leaf)
+#define cpuid_Quality_of_Service_info(leaf) pf_cpuid_words(leaf)
+#define cpuid_Thermal_Power_Management_info(leaf) pf_cpuid_words(leaf)
+#define cpuid_brand_part1_info(leaf) pf_cpuid_words(leaf)
+#define cpuid_brand_part2_info(leaf) pf_cpuid_words(leaf)
+#define cpuid_brand_part3_info(leaf) pf_cpuid_words(leaf)
+#define cpuid_cache_tlb_info(leaf) pf_cpuid_words(leaf)

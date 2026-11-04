@@ -10,6 +10,9 @@ from pathlib import Path
 import re
 
 
+WIDE = False
+
+
 def ctype(description):
     if description.startswith('P:'):
         return ctype(description[2:]) + ' *'
@@ -27,8 +30,8 @@ def ctype(description):
         return {'1': 'uint8_t', '2': 'uint16_t', '3': 'uint32_t',
                 '4': 'uint32_t', '8': 'uint64_t'}.get(size, 'uint32_t')
     if name in ('char', 'bool', 'byte', 'ushort', 'uint', 'int', 'short', 'float', 'double', 'longdouble'):
-        return 'double' if name == 'longdouble' else name
-    return {1: 'uint8_t', 2: 'uint16_t', 4: 'uint32_t', 8: 'uint64_t', 10: 'long double'}.get(int(size), 'uint32_t')
+        return ('long double' if WIDE else 'double') if name == 'longdouble' else name
+    return {1: 'uint8_t', 2: 'uint16_t', 4: 'uint32_t', 8: 'uint64_t', 10: 'long double', 16: 'uint128'}.get(int(size), 'uint32_t')
 
 
 def lvalue(typename, pointer):
@@ -40,7 +43,7 @@ def lvalue(typename, pointer):
 
 def signature(source):
     before = source[:source.index('\n{')].strip()
-    return re.sub(r'__(?:fastcall|cdecl|thiscall)\s+', '', re.sub(r'/\*.*?\*/', '', before, flags=re.S)).strip()
+    return re.sub(r'__(?:fastcall|cdecl|thiscall|regparm[0-9])\s+', '', re.sub(r'/\*.*?\*/', '', before, flags=re.S)).strip()
 
 
 def rewrite_double_bits(source):
@@ -78,6 +81,18 @@ def rewrite_scalar_storage(source):
     return source
 
 
+
+def rewrite_void_results(source,callees,address):
+    for callee in callees:
+        name='recovered_'+callee
+        if address==callee:continue
+        for match in reversed(list(re.finditer(r'\b'+name+r'\(',source))):
+            end=match.end();depth=1
+            while depth:
+                depth+=(source[end]=='(')-(source[end]==')');end+=1
+            source=source[:match.start()]+'('+source[match.start():end]+', (uintptr_t)0)'+source[end:]
+    return source
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--layout', type=Path, default=Path('recovery/layout.json'))
@@ -87,21 +102,33 @@ def main():
     args = parser.parse_args()
     layout = json.loads(args.layout.read_text())
     current = layout.get('translation', {})
+    global WIDE
+    WIDE = current.get('pointer_bytes', 4) == 8
     manual_root=args.manual or Path('kernel/manual')
     manual = {path.stem: path.read_text() for path in manual_root.glob('*.c')}
     args.out.mkdir(parents=True, exist_ok=True)
     sources = {p.stem: p.read_text() for p in sorted(args.notes.glob('*.c')) if p.stem != 'recovered'}
-    floating={name for text in sources.values() for name in
-              re.findall(r'\b(?:float|float10|double)\s+(?:__\w+\s+)?((?:recovered_|FUN_)[0-9a-f]+)\(',text)}
-    header = ['/* Permafrost 0.6; Pooka\'s Free Software License. */', '#pragma once', '#include "support.h"']
+    if WIDE:
+        sources={a:re.sub(r'\(undefined1\s+\[16\]\)', '(uint128)', re.sub(r'undefined1\s+\[16\]\s+((?:recovered_|FUN_)[0-9a-f]+)',r'uint128 \1',re.sub(r'undefined1 (auVar\d+) \[16\];',r'uint128 \1;',s))) for a,s in sources.items()}
+    for stale in args.out.glob('*.c'):
+        if stale.stem not in sources and stale.stem not in manual:stale.unlink()
+    floating={name:typ for text in sources.values() for typ,name in
+              re.findall(r'\b(float|float10|double)\s+(?:__\w+\s+)?((?:recovered_|FUN_)[0-9a-f]+)\(',text)}
+    header = ['/* Permafrost recovered source; Pooka\'s Free Software License. */', '#pragma once', '#include "support.h"']
     if current.get('float_slot_views'):
         header += ['#undef CONCAT44', '#define CONCAT44(a,b) (((uint64_t)PF_RAW32(a)<<32)|PF_RAW32(b))']
     service_types=sorted(set(re.findall(r'\bservice(?:_conflict\d+)?\b', '\n'.join(sources.values()))))
     header += ['typedef code '+name+';' for name in service_types]
-    for source in sources.values():
-        header.append(signature(source) + ';')
+    header+=current.get('declarations',[])
+    for address,source in sources.items():
+        declaration=signature(source)
+        if address in manual:
+            match=re.search(r'(?m)^([A-Za-z_][A-Za-z_0-9 \t*]*\brecovered_'+address+r'\s*\([^;{}]*\))\s*\{',manual[address])
+            if match:declaration=match[1].strip()
+        header.append(declaration + ';')
     (args.out / 'functions.h').write_text('\n'.join(header) + '\n')
     for address, source in sources.items():
+        source=re.sub(r'\bin\b(?!\s*\()', 'pf_input',source)
         for original, replacement in current.get('source_replacements', {}).get(address, {}).items():
             source = source.replace(original, replacement)
         if current.get('float_slot_views'):
@@ -139,8 +166,8 @@ def main():
             source = source.replace('  undefined4 local_14;', '  ' + spill_types[address] + 'local_14;')
         if current.get('pointer_spills'):
             pointer_types = dict((name, typ) for typ, name in re.findall(
-                r'\b((?:void|code|undefined[1248]?|int|uint|char|uchar|byte|ushort)\s*\*+)\s*(\w+)\b', source))
-            for name in re.findall(r'^  undefined4 (local_[0-9a-f]+);', source, re.M):
+                r'\b((?:void|code|undefined[1248]?|int|uint|char|uchar|byte|ushort|long|ulong|uint64_t|uintptr_t)\s*\*+)\s*(\w+)\b', source))
+            for name in re.findall(r'^  '+('undefined8' if WIDE else 'undefined4')+r' (local_[0-9a-f]+);', source, re.M):
                 assigned = re.findall(r'\b'+re.escape(name)+r' = (\w+);', source)
                 inherited = [pointer_types[value] for value in assigned if value in pointer_types]
                 arithmetic = (current.get('pointer_spill_arithmetic') and inherited and
@@ -148,9 +175,14 @@ def main():
                               re.search(r'\b'+re.escape(name)+r' [+-] -?(?:0x)?\d', source))
                 if arithmetic or re.search(r'(?<![\w])\*'+re.escape(name)+r'\b|\b'+re.escape(name)+r'\[', source):
                     views=re.findall(r'\b'+re.escape(name)+r' = \(([^()]+\*)\)',source)
-                    view = inherited[0] if inherited else (views[0] if views else 'uint *')
-                    source=source.replace('  undefined4 '+name+';', '  '+view+name+';')
+                    view = views[0] if views and views[0]!='void *' else next((v for v in inherited if v!='void *'), ('uintptr_t *' if WIDE else 'uint *'))
+                    source=source.replace('  '+('undefined8' if WIDE else 'undefined4')+' '+name+';', '  '+view+name+';')
+        source=re.sub(r'\bs_[^\s,;()]+_([0-9a-f]{8,16})\b',lambda m:'str_'+m[1],source)
         metadata = [line.split('\t') for line in (args.notes / (address + '.tsv')).read_text().splitlines()]
+        for row in metadata:
+            if row[0]=='G' and row[1].startswith('s_'):
+                renamed='str_%08x'%int(row[2],16)
+                source=source.replace(row[1],renamed);row[1]=renamed
         globals_by_address = {int(row[2], 16): row[3] for row in metadata if row[0] == 'G'}
         global_addresses = {row[1]: int(row[2], 16) for row in metadata if row[0] == 'G'}
         memory_types = {}
@@ -160,7 +192,7 @@ def main():
                 number = int(row[2], 16)
                 if number not in memory_types or int(size) > memory_types[number][0]:
                     memory_types[number] = (int(size), kind)
-        globals_used = sorted({row[1] for row in metadata if row[0] == 'G'} | set(re.findall(r'\b(?:_?DAT|str|_LAB)_[0-9a-f]{8}\b|\b[a-zA-Z]+Ram[0-9a-f]{8}\b', source)))
+        globals_used = sorted({row[1] for row in metadata if row[0] == 'G'} | set(re.findall(r'\b(?:_?DAT|str|_LAB)_[0-9a-f]{8,16}\b|\b[a-zA-Z]+Ram[0-9a-f]{8,16}\b', source)))
         preamble = ['#include "functions.h"']
         for name in globals_used:
             if name.startswith('recovered_') and name.removeprefix('recovered_') in sources:
@@ -170,6 +202,8 @@ def main():
             if name.startswith('_DAT'):
                 kind = memory_types.get(number, (4, 'uint:4'))[1]
             typename = 'char[1]' if name.startswith('str_') else ctype(kind)
+            if WIDE and name.startswith('_DAT') and typename in ('uint8_t[16]', 'byte[16]'):
+                typename='uint128'
             if re.search(r'\(\*' + re.escape(name) + r'\)\(', source):
                 typename = 'code *'
             preamble += ['#undef ' + name, '#define %s %s' % (name, lvalue(typename, '0x%xU' % number))]
@@ -177,7 +211,7 @@ def main():
         pointer_names.update(re.findall(r'^  [\w ]+\*+\s*(\w+)(?:\s*\[.*?\])?;', source, re.M))
         locals_used = [row for row in metadata if row[0] == 'L']
         frame_size = max([32] + [-int(row[2]) + 16 for row in locals_used])
-        addressed_offsets = {int(x, 0) for x in re.findall(r'register0x00000010\s*\+\s*(-0x[0-9a-f]+)', source)}
+        addressed_offsets = {int(x, 0) for x in re.findall(('register0x00000020' if WIDE else 'register0x00000010')+r'\s*\+\s*(-0x[0-9a-f]+)', source)}
         macros = []
         for row in locals_used:
             _, name, offset, kind = row
@@ -198,8 +232,8 @@ def main():
             offset=int(raw,16)
             if offset>=0x80000000: offset-=0x100000000
             macros.append('#define %s (*(uint8_t *)(frame + %d))'%(name,frame_size+offset))
-        source = source.replace('register0x00000010', '(uintptr_t)(frame + %d)' % frame_size)
-        source = re.sub(r'__(?:fastcall|cdecl|thiscall)\s+', '', source)
+        source = source.replace('register0x00000020' if WIDE else 'register0x00000010', '(uintptr_t)(frame + %d)' % frame_size)
+        source = re.sub(r'__(?:fastcall|cdecl|thiscall|regparm[0-9])\s+', '', source)
         pointer_fields = {(row[1], int(row[2])): int(row[3]) for row in metadata if row[0] == 'P'}
         field_occurrences = {}
         def partial_field(match):
@@ -218,10 +252,36 @@ def main():
         source = re.sub(r'case \([^)]*\*\)(0x[0-9a-f]+):', r'case \1:', source)
         source = re.sub(r'\(float\)(\w+\[2\])', r'pf_bits_float((uint32_t)\1)', source)
         source = source.replace('ushort in_FPUControlWord;', 'ushort in_FPUControlWord = pf_fpu_control();')
+        if not WIDE:
+            for name in sorted(pointer_names,key=len,reverse=True):
+                source=re.sub(r'\((longdouble|float10)\)('+re.escape(name)+r')\b',r'(\1)(uintptr_t)\2',source)
         # The decompiler's pointer/float casts are bit reinterpretations.
         for name in sorted(pointer_names, key=len, reverse=True):
             source = re.sub(r'\(float\)(' + re.escape(name) + r'(?:\[[^]\n]+\])?)(?![\w\[])',
                             r'pf_bits_float((uintptr_t)\1)', source)
+        if WIDE:
+            for name in sorted(pointer_names,key=len,reverse=True):
+                source=re.sub(r'\(double\)('+re.escape(name)+r'(?:\[[^]\n]+\])?)(?![\w\[])',r'pf_bits_double((uintptr_t)\1)',source)
+            source=re.sub(r'\(([^()\n]+\*)\)\(double\)(\w+)',r'(\1)(uintptr_t)pf_double_bits(\2)',source)
+            pattern=r'\(([^()\n]+\*)\)(?=\()'
+            for match in reversed(list(re.finditer(pattern,source))):
+                start=match.end();end=start+1;depth=1
+                while depth:
+                    depth+=(source[end]=='(')-(source[end]==')');end+=1
+                expression=source[start:end]
+                if 'pf_bits_double(' in expression or re.search(r'\bdVar\d+\b',expression):
+                    source=source[:match.start()]+'('+match[1]+')(uintptr_t)pf_double_bits('+expression+')'+source[end:]
+            for name in set(re.findall(r'\b(_local_[0-9a-f]+)\b',source)):
+                source=re.sub(r'\b'+name+r'\b','(*(uint128 *)(void *)&'+name[1:]+')',source)
+            for name in sorted(set(re.findall(r'\bin_register_[0-9a-f]+\b',source))):
+                if not re.search(r'^  \w+ '+name+r';',source,re.M):preamble.append('#define '+name+' ((uint64_t)0)')
+                else:source=re.sub(r'(^  \w+ '+name+r');',r'\1 = 0;',source,flags=re.M)
+            labels=set()
+            def unique_label(match):
+                label=match[1]
+                if label in labels:return ''
+                labels.add(label);return match[0]
+            source=re.sub(r'^(LAB_[0-9a-f]+):',unique_label,source,flags=re.M)
         source = re.sub(r'\(([^()]+\*+)\)\(float\)\(int\)(\w+)',
                         r'(\1)(uintptr_t)pf_float_bits((float)(int)\2)', source)
         source = re.sub(r'\(([^()]+\*+)\)\(float\)(\w+)',
@@ -230,7 +290,9 @@ def main():
         if sjlj and address != sjlj['register'] and ('recovered_'+sjlj['register']+'(') in source:
             register='recovered_'+sjlj['register']
             source=source.replace(register+'(', 'PF_SJLJ_CHECKPOINT(')
-            preamble.append('#define PF_SJLJ_CHECKPOINT(ctx) ('+register+'((uint *)(ctx)), ((uint *)(ctx))[10]=(uintptr_t)pf_jump, __builtin_setjmp(pf_jump))')
+            word='uintptr_t' if WIDE else 'uint'
+            slot=8 if WIDE else 10
+            preamble.append('#define PF_SJLJ_CHECKPOINT(ctx) ('+register+'(('+word+' *)(ctx)), (('+word+' *)(ctx))['+str(slot)+']=(uintptr_t)pf_jump, __builtin_setjmp(pf_jump))')
             source=source.replace('\n{', '\n{\n  void *pf_jump[5];', 1)
         seed = current.get('random_state')
         if seed:
@@ -241,12 +303,13 @@ def main():
         source = rewrite_double_bits(source)
         if current.get('scalar_storage_views'):
             source=rewrite_scalar_storage(source)
-            for match in reversed(list(re.finditer(r'\(([^()\n]+\*)\)((?:recovered_|FUN_)[0-9a-f]+)\(',source))):
+            for match in reversed(list(re.finditer(r'\(([^()\n]+\*)\)\s*((?:recovered_|FUN_)[0-9a-f]+)\(',source))):
                 if match[2] not in floating:continue
                 start=match.start(2);end=match.end();depth=1
                 while depth:
                     depth+=(source[end]=='(')-(source[end]==')');end+=1
-                source=source[:match.start()]+'('+match[1]+')(uintptr_t)pf_float_bits((float)'+source[start:end]+')'+source[end:]
+                bits='pf_double_bits((double)' if WIDE and floating[match[2]]!='float' else 'pf_float_bits((float)'
+                source=source[:match.start()]+'('+match[1]+')(uintptr_t)'+bits+source[start:end]+')'+source[end:]
         if address == '27b0d':
             source = source.replace('*PF_PART4(local_24, 0)', '*(uint32_t *)(uintptr_t)PF_PART4(local_24, 0)')
         if address == current.get('main'):
@@ -275,6 +338,7 @@ def main():
             source = re.sub(r'(recovered_21a8b\([^;]+;)', r'\1\n  __builtin_va_end(args);', source, count=1)
         source = re.sub(r'^(  (?:undefined\d*|int|uint|char|byte|ushort|ulonglong|longlong|float10|float|double)\s+\**(?:extraout_\w+|in_EAX|unaff_EBX));$',
                         r'\1 = 0;', source, flags=re.M)
+        source=rewrite_void_results(source,current.get('void_result_calls',[]),address)
         if address == '20f7c7' and source.count('LAB_0020f81e:') > 1:
             point=source.rfind('LAB_0020f81e:')
             source=source[:point]+source[point:].replace('LAB_0020f81e:', '', 1)
@@ -282,7 +346,7 @@ def main():
         source = source[:opening] + '\n  unsigned char frame[%d] = {0};\n' % (frame_size + 32) + source[opening:]
         (args.out / (address + '.c')).write_text('\n'.join(line.rstrip() for line in ('\n'.join(preamble + macros) + '\n' + source).splitlines()).rstrip() + '\n')
     for name, content in manual.items():
-        (args.out / (name + '.c')).write_text(content)
+        (args.out / (name + '.c')).write_text(rewrite_void_results(content,current.get('void_result_calls',[]),name))
 
 
 if __name__ == '__main__':

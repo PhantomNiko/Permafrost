@@ -15,20 +15,25 @@ from macho import pack
 
 def build_application(program, output, layout_path=None):
     layout = json.loads((layout_path or Path('recovery/applications', program + '.json')).read_text())
+    architecture=layout.get('architecture','i386')
+    if architecture=='x86_64':
+        from elf64 import Object,link
+    else:
+        from elf32 import Object,link
     root = Path(layout['source'])
     output.mkdir(parents=True, exist_ok=True)
     sources = [root / 'runtime.c', Path('kernel/runtime.c'), Path('kernel/compiler.c')]
     headers = list(root.glob('*.h')) + list(Path('kernel').glob('*.h')) + list(Path('sdk/include').glob('*.h'))
-    shared = b''.join(path.read_bytes() for path in headers + [Path('tools/cc.py'), Path('tools/elf32.py'), Path(__file__)])
+    shared = b''.join(path.read_bytes() for path in headers + [Path('tools/cc.py'), Path('tools/elf32.py'), Path('tools/elf64.py'), Path(__file__)])
     cache_file = output / 'compile-cache.json'
     cache = json.loads(cache_file.read_text()) if cache_file.exists() else {}
     objects = []
     for index, source in enumerate(sources + [root / 'state.c']):
         target = output / ('unit%d.o' % index)
-        digest = hashlib.sha256(shared + source.read_bytes()).hexdigest()
+        digest = hashlib.sha256(architecture.encode()+shared + source.read_bytes()).hexdigest()
         if not target.exists() or cache.get(str(source)) != digest:
-            compile_object(source, target, ['sdk/include', 'kernel', str(root)], extra_flags=[
-                '-fno-inline-functions', '-ferror-limit=0', '-Wno-int-conversion', '-Wno-incompatible-pointer-types', '-Wno-pointer-sign'])
+            compile_object(source, target, ['sdk/include', 'kernel', str(root)], architecture=architecture, extra_flags=[
+                '-fno-inline-functions', '-ferror-limit=0', '-Wno-int-conversion', '-Wno-incompatible-pointer-types', '-Wno-pointer-sign','-Wno-incompatible-function-pointer-types'])
             cache[str(source)] = digest
             cache_file.write_text(json.dumps(cache, indent=2) + '\n')
         objects.append(Object(target.read_bytes()))
@@ -44,10 +49,11 @@ def build_application(program, output, layout_path=None):
     data[layout['core_base'] - base:] = core
     abi = json.loads((root / 'abi.json').read_text())
     entries = {int(address, 16): symbols[item['symbol']] for address, item in abi.items()}
-    for offset in range((start - base + 3) & ~3, end - base - 3, 4):
-        target = struct.unpack_from('<I', data, offset)[0]
-        if target in entries:
-            struct.pack_into('<I', data, offset, entries[target])
+    word=8 if architecture=='x86_64' else 4
+    code='<Q' if word==8 else '<I'
+    for offset in range((start-base+word-1)&~(word-1),end-base-word+1,word):
+        target=struct.unpack_from(code,data,offset)[0]
+        if target in entries:struct.pack_into(code,data,offset,entries[target])
     for raw, value in layout.get('inline_constants', {}).items():
         address = int(raw, 16)
         data[address - base:address - base + len(bytes.fromhex(value))] = bytes.fromhex(value)
@@ -63,7 +69,7 @@ def build_application(program, output, layout_path=None):
         data[address - base:address - base + 5] = b'\xe9' + struct.pack('<i', entries[address] - address - 5)
     # Equal-length branding preserves pointers into the original string pool.
     data = data.replace(b'WinterBoot', b'Permafrost').replace(b'WinterMoon', b'Permafrost')
-    binary = pack(data, base, layout['entry'])
+    binary = pack(data, base, layout['entry'],architecture=architecture)
     (output / program).write_bytes(binary)
     (output / 'core-map.json').write_text(json.dumps(symbols, indent=2) + '\n')
     print('Built %s from C: %d bytes, SHA-256 %s' % (program, len(binary), hashlib.sha256(binary).hexdigest()))

@@ -7,11 +7,22 @@ applications. No Apple linker or Darwin runtime is involved.
 import struct
 
 
-def pack(image, base=0x200000, entry=None):
+def pack(image, base=0x200000, entry=None, architecture="i386", kernel=False):
     entry = base if entry is None else entry
-    if base < 0x200000 or not base <= entry < base + len(image):
+    if base < (0x10000 if kernel else 0x200000) or not base <= entry < base + len(image):
         raise ValueError('Mach-O entry must be within application memory')
     size = (len(image) + 4095) & ~4095
+    if architecture == 'x86_64':
+        segment = struct.pack('<II16s4Q4I', 0x19, 72, b'__TEXT', base, size,
+                              4096, len(image), 7, 7, 0, 0)
+        registers = [0] * 21
+        registers[16] = entry
+        thread = struct.pack('<4I21Q', 5, 184, 4, 42, *registers)
+        commands = segment + thread
+        header = struct.pack('<8I', 0xfeedfacf, 0x1000007, 3, 5, 2, len(commands), 0, 0)
+        return (header + commands).ljust(4096, b'\0') + image
+    if architecture != 'i386':
+        raise ValueError('unsupported Mach-O architecture')
     segment = struct.pack('<II16s8I', 1, 56, b'__TEXT', base, size,
                           4096, len(image), 7, 7, 0, 0)
     registers = [0] * 16
@@ -51,3 +62,45 @@ def segments(binary):
     if pos != 28 + total or not result or entry is None:
         raise ValueError('incomplete Mach-O executable')
     return result, entry
+
+
+def universal(images):
+    """Pack thin executables in the original big-endian FAT_MAGIC container."""
+    if not images or len(images)>16:
+        raise ValueError('invalid universal architecture count')
+    result=bytearray(4096);records=[];seen=set()
+    for thin in images:
+        cpu,subtype=struct.unpack_from('<II',thin,4)
+        if cpu in seen:raise ValueError('duplicate universal architecture')
+        seen.add(cpu);offset=(len(result)+4095)&~4095
+        result.extend(bytes(offset-len(result)));result.extend(thin)
+        records.append((cpu,subtype,offset,len(thin),12))
+    struct.pack_into('>II',result,0,0xcafebabe,len(records))
+    for index,record in enumerate(records):struct.pack_into('>5I',result,8+index*20,*record)
+    return bytes(result)
+
+
+def pack_segments(pieces, entry, architecture='i386'):
+    """Write discontiguous source kernel regions without touching the VGA hole."""
+    wide=architecture=='x86_64'
+    if architecture not in ('i386','x86_64') or not pieces or len(pieces)>128:
+        raise ValueError('invalid executable regions')
+    if not any(address<=entry<address+memory for address,memory,data in pieces):
+        raise ValueError('entry outside executable regions')
+    payload=bytearray();commands=[]
+    for address,memory,data in pieces:
+        if len(data)>memory or address<0x10000 or address+memory>0x100000000:
+            raise ValueError('invalid source kernel region')
+        offset=4096+len(payload)
+        if wide:command=struct.pack('<II16s4Q4I',0x19,72,b'__TEXT',address,memory,offset,len(data),7,7,0,0)
+        else:command=struct.pack('<II16s8I',1,56,b'__TEXT',address,memory,offset,len(data),7,7,0,0)
+        commands.append(command);payload.extend(data)
+        payload.extend(bytes((-len(payload))&15))
+    registers=[0]*(21 if wide else 16);registers[16 if wide else 10]=entry
+    commands.append(struct.pack('<4I21Q',5,184,4,42,*registers) if wide else
+                    struct.pack('<4I16I',5,80,1,16,*registers))
+    command_bytes=b''.join(commands)
+    if len(command_bytes)+(32 if wide else 28)>4096:raise ValueError('load commands exceed header page')
+    header=struct.pack('<8I',0xfeedfacf,0x1000007,3,5,len(commands),len(command_bytes),0,0) if wide else \
+           struct.pack('<7I',0xfeedface,7,3,5,len(commands),len(command_bytes),0)
+    return (header+command_bytes).ljust(4096,b'\0')+payload
