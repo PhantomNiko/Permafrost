@@ -1458,11 +1458,13 @@ l_loader_0000097e: mov eax,[0x13ea]
 pf_at 0x982
 l_loader_00000982: mov ebp,eax
 pf_at 0x985
-l_loader_00000985: cmp ebp,0x1000000
+; The relocated C kernel ends below 6 MiB; retain usable RAM above it.
+; The C heap initializer separately excludes the boot RAM disk and firmware.
+l_loader_00000985: cmp ebp,0x600000
 pf_at 0x98c
 l_loader_0000098c: jnc short 0x994
 pf_at 0x98e
-l_loader_0000098e: mov ebp,0x1000000
+l_loader_0000098e: mov ebp,0x600000
 pf_at 0x994
 l_loader_00000994: mov ecx,[0x13f2]
 pf_at 0x999
@@ -1692,13 +1694,13 @@ l_loader_00000b86: jnz short 0xbb3
 pf_at 0xb88
 l_loader_00000b88: mov eax,[0x1354]
 pf_at 0xb8c
-l_loader_00000b8c: cmp eax,0x1000000
+l_loader_00000b8c: cmp eax,0x600000
 pf_at 0xb92
 l_loader_00000b92: jna short 0xbb3
 pf_at 0xb94
-l_loader_00000b94: mov dword [es:0x90],0x1000000
+l_loader_00000b94: mov dword [es:0x90],0x600000
 pf_at 0xb9e
-l_loader_00000b9e: sub eax,0x1000000
+l_loader_00000b9e: sub eax,0x600000
 pf_at 0xba4
 l_loader_00000ba4: mov [es:0x94],eax
 pf_at 0xba9
