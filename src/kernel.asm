@@ -1924,6 +1924,9 @@ incbin "kernel_unpack.bin"
 pf_packed_start:
 incbin "kernel_packed.bin"
 pf_relocate:
+    ; The recovered C frames require more space than the reference compiler's
+    ; frames. Keep the stack below the native executable load address.
+    mov esp,0x200000
     fninit
     cld
     push dword pf_packed_size
@@ -1941,6 +1944,6 @@ pf_relocate:
 %if $-$$+pf_payload_offset >= 0x80000
 %error "temporary kernel payload reaches VGA memory"
 %endif
-%if pf_core_base+pf_unpacked_size >= 0x170000
-%error "compiled kernel approaches main stack"
+%if pf_core_base+pf_unpacked_size+0x80000 >= 0x200000
+%error "compiled kernel leaves less than 512 KiB for the main stack"
 %endif

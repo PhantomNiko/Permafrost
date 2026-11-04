@@ -2591,7 +2591,7 @@ LAB_000496bc:
 LAB_00049737:
         pcVar41 = str_0005a707;
 LAB_00049745:
-        recovered_22362((char *)&local_37c,0x60,pcVar41);
+        recovered_22362((char *)&local_37c,0x60,pcVar41,local_114);
       }
       else {
         recovered_21348((int)&local_12c,(int)local_6c,4);

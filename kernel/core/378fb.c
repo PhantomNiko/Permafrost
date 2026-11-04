@@ -125,7 +125,7 @@ void recovered_378fb(uint columns)
   pcVar10 = pcVar9;
   pcVar9 = str_00057b9d;
 LAB_00037a35:
-  recovered_22362(local_c0,0x60,pcVar9,local_40,local_100,pcVar10);
+  recovered_22362(local_c0,0x60,pcVar9,local_40,local_100,pcVar10,local_60);
   recovered_22362(local_140,0x40,str_00057bb8,str_00057bbe);
   if (DAT_0005d768 == '\x01') {
     recovered_37e92(0x7306c,str_0005729c,1);

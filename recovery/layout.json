@@ -92,7 +92,8 @@
     "main": "3362d",
     "error_logger": "3f39b",
     "random_state": "5d76c",
-    "file_listing": "4659b"
+    "file_listing": "4659b",
+    "status_renderer": "378fb"
   },
   "loader_ranges": {
     "i386": [

@@ -170,7 +170,9 @@ def main():
             # size argument in the raw export. The reference pushes entry+0xf8.
             source = source.replace('recovered_307b4(pcVar41,DAT_0005e69c + iVar9);',
                 'recovered_307b4(pcVar41,DAT_0005e69c + iVar9,*(uint *)(DAT_0005e69c + iVar9 + 0xf8));')
-        if address == '29de2':
+            source = source.replace('recovered_22362((char *)&local_37c,0x60,pcVar41);',
+                'recovered_22362((char *)&local_37c,0x60,pcVar41,local_114);')
+        if address == current.get('status_renderer', '29de2'):
             # One shared call site receives 2, 3 or 4 format arguments. Ghidra
             # exports only three; the four-string RAM status path also passes
             # the detected-memory string in local_60 (verified in disassembly).
