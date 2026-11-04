@@ -1,10 +1,35 @@
 #!/usr/bin/env python3
-"""Write i386/x86-64 MH_PRELOAD and universal Permafrost executables.
+"""Write x86 and ARM MH_PRELOAD and universal Permafrost executables.
 
 Pooka's Free Software License. Addresses are absolute, like the reference
-applications. No Apple linker or Darwin runtime is involved.
+applications. Container generation does not require a Darwin runtime.
 """
 import struct
+
+
+ARCHITECTURES = {'i386': (7, 3), 'x86_64': (0x1000007, 3),
+                 'armv7': (12, 9), 'arm64': (0x100000c, 0)}
+
+
+def thread_command(architecture, entry):
+    if architecture == 'i386':
+        registers = [0] * 16
+        registers[10] = entry
+        return struct.pack('<4I16I', 5, 80, 1, 16, *registers)
+    if architecture == 'x86_64':
+        registers = [0] * 21
+        registers[16] = entry
+        return struct.pack('<4I21Q', 5, 184, 4, 42, *registers)
+    if architecture == 'armv7':
+        registers = [0] * 17
+        registers[15] = entry & ~1
+        registers[16] = 0x20 if entry & 1 else 0
+        return struct.pack('<4I17I', 5, 84, 1, 17, *registers)
+    if architecture == 'arm64':
+        registers = [0] * 33
+        registers[32] = entry
+        return struct.pack('<4I33Q2I', 5, 288, 6, 68, *registers, 0, 0)
+    raise ValueError('unsupported Mach-O architecture')
 
 
 def pack(image, base=0x200000, entry=None, architecture="i386", kernel=False):
@@ -12,24 +37,16 @@ def pack(image, base=0x200000, entry=None, architecture="i386", kernel=False):
     if base < (0x10000 if kernel else 0x200000) or not base <= entry < base + len(image):
         raise ValueError('Mach-O entry must be within application memory')
     size = (len(image) + 4095) & ~4095
-    if architecture == 'x86_64':
-        segment = struct.pack('<II16s4Q4I', 0x19, 72, b'__TEXT', base, size,
-                              4096, len(image), 7, 7, 0, 0)
-        registers = [0] * 21
-        registers[16] = entry
-        thread = struct.pack('<4I21Q', 5, 184, 4, 42, *registers)
-        commands = segment + thread
-        header = struct.pack('<8I', 0xfeedfacf, 0x1000007, 3, 5, 2, len(commands), 0, 0)
-        return (header + commands).ljust(4096, b'\0') + image
-    if architecture != 'i386':
+    if architecture not in ARCHITECTURES:
         raise ValueError('unsupported Mach-O architecture')
-    segment = struct.pack('<II16s8I', 1, 56, b'__TEXT', base, size,
-                          4096, len(image), 7, 7, 0, 0)
-    registers = [0] * 16
-    registers[10] = entry
-    thread = struct.pack('<4I16I', 5, 80, 1, 16, *registers)
-    commands = segment + thread
-    header = struct.pack('<7I', 0xfeedface, 7, 3, 5, 2, len(commands), 0)
+    wide = architecture in ('x86_64', 'arm64')
+    cpu, subtype = ARCHITECTURES[architecture]
+    segment = struct.pack('<II16s4Q4I' if wide else '<II16s8I',
+                          0x19 if wide else 1, 72 if wide else 56, b'__TEXT',
+                          base, size, 4096, len(image), 7, 7, 0, 0)
+    commands = segment + thread_command(architecture, entry)
+    header = struct.pack('<8I', 0xfeedfacf, cpu, subtype, 5, 2, len(commands), 0, 0) if wide else \
+             struct.pack('<7I', 0xfeedface, cpu, subtype, 5, 2, len(commands), 0)
     return (header + commands).ljust(4096, b'\0') + image
 
 
@@ -73,7 +90,7 @@ def universal(images,architectures=None):
         raise ValueError('universal architecture count mismatch')
     for index,thin in enumerate(images):
         if architectures is None:cpu,subtype=struct.unpack_from('<II',thin,4)
-        else:cpu,subtype=({'i386':7,'x86_64':0x1000007}[architectures[index]],3)
+        else:cpu,subtype=ARCHITECTURES[architectures[index]]
         if cpu in seen:raise ValueError('duplicate universal architecture')
         seen.add(cpu);offset=(len(result)+4095)&~4095
         result.extend(bytes(offset-len(result)));result.extend(thin)
@@ -85,8 +102,8 @@ def universal(images,architectures=None):
 
 def pack_segments(pieces, entry, architecture='i386'):
     """Write discontiguous source kernel regions without touching the VGA hole."""
-    wide=architecture=='x86_64'
-    if architecture not in ('i386','x86_64') or not pieces or len(pieces)>128:
+    wide=architecture in ('x86_64','arm64')
+    if architecture not in ARCHITECTURES or not pieces or len(pieces)>128:
         raise ValueError('invalid executable regions')
     if not any(address<=entry<address+memory for address,memory,data in pieces):
         raise ValueError('entry outside executable regions')
@@ -99,11 +116,10 @@ def pack_segments(pieces, entry, architecture='i386'):
         else:command=struct.pack('<II16s8I',1,56,b'__TEXT',address,memory,offset,len(data),7,7,0,0)
         commands.append(command);payload.extend(data)
         payload.extend(bytes((-len(payload))&15))
-    registers=[0]*(21 if wide else 16);registers[16 if wide else 10]=entry
-    commands.append(struct.pack('<4I21Q',5,184,4,42,*registers) if wide else
-                    struct.pack('<4I16I',5,80,1,16,*registers))
+    commands.append(thread_command(architecture,entry))
     command_bytes=b''.join(commands)
     if len(command_bytes)+(32 if wide else 28)>4096:raise ValueError('load commands exceed header page')
-    header=struct.pack('<8I',0xfeedfacf,0x1000007,3,5,len(commands),len(command_bytes),0,0) if wide else \
-           struct.pack('<7I',0xfeedface,7,3,5,len(commands),len(command_bytes),0)
+    cpu,subtype=ARCHITECTURES[architecture]
+    header=struct.pack('<8I',0xfeedfacf,cpu,subtype,5,len(commands),len(command_bytes),0,0) if wide else \
+           struct.pack('<7I',0xfeedface,cpu,subtype,5,len(commands),len(command_bytes),0)
     return (header+command_bytes).ljust(4096,b'\0')+payload

@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Inspect universal i386/x86-64 Mach-O reference executables.
+"""Inspect universal i386/x86-64/ARM32/ARM64 Mach-O reference executables.
 
 Pooka's Free Software License. This module is also used by source recovery;
 normal builds do not require the reference executables.
 """
 import struct
 
-CPUS = {'i386': 7, 'x86_64': 0x1000007}
+CPUS = {'i386': 7, 'x86_64': 0x1000007, 'armv7': 12, 'arm64': 0x100000c}
 
 
 def slices(binary):
@@ -41,7 +41,9 @@ def inspect(binary):
             address, memory, offset, used = struct.unpack_from('<4Q' if wide else '<4I', binary, position + 24)
             if used > memory or offset + used > len(binary):
                 raise ValueError('invalid segment extent')
-            pieces.append((address, memory, binary[offset:offset + used]))
+            segment_name = binary[position + 8:position + 24].split(b'\0', 1)[0]
+            if segment_name != b'__PAGEZERO':
+                pieces.append((address, memory, binary[offset:offset + used]))
             number = struct.unpack_from('<I', binary, position + (64 if wide else 48))[0]
             start, stride = (72, 80) if wide else (56, 68)
             if start + number * stride > length:
@@ -69,11 +71,14 @@ def inspect(binary):
                         data_symbols.append((address, name))
         elif command == 5:
             flavor, words = struct.unpack_from('<2I', binary, position + 8)
-            expected = (4, 42) if wide else (1, 16)
-            if (flavor, words) != expected:
+            thread_states = {7: (1, 16, 56, '<I'), 0x1000007: (4, 42, 144, '<Q'),
+                             12: (1, 17, 76, '<I'), 0x100000c: (6, 68, 272, '<Q')}
+            expected_flavor, expected_words, pc_offset, pc_format = thread_states[cpu]
+            if (flavor, words) != (expected_flavor, expected_words):
                 raise ValueError('unsupported thread state')
-            entry = struct.unpack_from('<Q' if wide else '<I', binary,
-                                       position + (144 if wide else 56))[0]
+            if pc_offset + struct.calcsize(pc_format) > length:
+                raise ValueError('truncated thread state')
+            entry = struct.unpack_from(pc_format, binary, position + pc_offset)[0]
         position += length
     base = min(a for a, n, data in pieces if n)
     end = max(a + n for a, n, data in pieces)

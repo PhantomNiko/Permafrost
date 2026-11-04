@@ -11,7 +11,7 @@ def inspect(binary):
     machine,count,stamp,symbols,number,optional,flags=struct.unpack_from('<HHIIIHH',binary,pe+4)
     position=pe+24;magic=struct.unpack_from('<H',binary,position)[0]
     wide=magic==0x20b
-    if magic not in(0x10b,0x20b) or machine!=(0x8664 if wide else 0x14c):raise ValueError('unsupported PE architecture')
+    if magic not in(0x10b,0x20b) or machine not in ((0x8664,0xaa64) if wide else (0x14c,0x1c2,0x1c4)):raise ValueError('unsupported PE architecture')
     entry=struct.unpack_from('<I',binary,position+16)[0]
     image_base=struct.unpack_from('<Q'if wide else'<I',binary,position+(24 if wide else 28))[0]
     size=struct.unpack_from('<I',binary,position+56)[0]
@@ -25,7 +25,7 @@ def inspect(binary):
         memory[address:address+min(used,virtual)]=binary[offset:offset+min(used,virtual)]
         sections.append((name,address,virtual))
     directories=position+(112 if wide else 96)
-    reloc,reloc_size=struct.unpack_from('<II',binary,directories+5*8);fixups=[]
+    reloc,reloc_size=struct.unpack_from('<II',binary,directories+5*8);fixups=[];relocation_kinds=[]
     end=reloc+reloc_size
     if end>len(memory):raise ValueError('invalid PE relocation directory')
     while reloc<end:
@@ -33,10 +33,12 @@ def inspect(binary):
         if block<8 or block%2 or reloc+block>end:raise ValueError('invalid PE relocation block')
         for p in range(reloc+8,reloc+block,2):
             value=struct.unpack_from('<H',memory,p)[0];kind=value>>12
-            if kind not in(0,3,10):raise ValueError('unsupported PE relocation')
-            if kind:fixups.append((page+(value&4095),8 if kind==10 else 4))
+            if kind not in ((0,3,7) if machine in (0x1c2,0x1c4) else (0,3,10)):raise ValueError('unsupported PE relocation')
+            if kind:
+                fixups.append((page+(value&4095),8 if kind in (7,10) else 4))
+                relocation_kinds.append((page+(value&4095),kind))
         reloc+=block
-    return dict(wide=wide,entry=entry,image_base=image_base,size=size,sections=sections,relocations=fixups),bytes(memory)
+    return dict(machine=machine,relocation_kinds=relocation_kinds,wide=wide,entry=entry,image_base=image_base,size=size,sections=sections,relocations=fixups),bytes(memory)
 
 
 def pack(image,entry,relocations,architecture):
