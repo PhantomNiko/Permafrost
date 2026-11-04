@@ -466,7 +466,7 @@ int rwby_unsigned_char_wm_vector_20b240(int *param_1,undefined1 *param_2);
 void rwby_wm_vector_vector_20b284(undefined4 *param_1);
 void rwby_winter_ruby_Compiler_skipSeparators_20b2a0(int *param_1);
 void rwby_winter_ruby_Compiler_compileStatement_20b2d4(int *param_1,undefined4 ****param_2);
-void rwby_winter_ruby_finalizeProgramMetadata_20be80(void);
+void rwby_winter_ruby_finalizeProgramMetadata_20be80(int program);
 bool rwby_winter_ruby_Compiler_match_20c3ba(int *param_1,char param_2);
 int rwby_winter_ruby_Compiler_advance_20c3e0(int *param_1);
 uint rwby_winter_ruby_Compiler_compileExpression_20c402(int *param_1,int param_2);

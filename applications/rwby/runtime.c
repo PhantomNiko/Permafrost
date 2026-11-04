@@ -11482,7 +11482,7 @@ LAB_00206fd0:
     rwby_winter_ruby_Compiler_compileStatement_20b2d4(&local_2a4,(undefined4 ****)0x0);
   }
   local_50 = 0x51;
-  rwby_winter_ruby_finalizeProgramMetadata_20be80();
+  rwby_winter_ruby_finalizeProgramMetadata_20be80((int)local_a8);
   local_50 = 0x52;
   rwby_wm_string_string_2039b0(&local_168,local_a8);
   local_d4 = &local_15c;
@@ -13053,7 +13053,7 @@ int * rwby_wm_to_string_208f0d(int *param_1,double param_2)
         PF_PART4(local_4c, 0) = (uint)lVar1;
         local_18 = (uint)local_4c;
         local_44 = (uint)local_4c;
-        dVar5 = (dVar5 - (double)((float)CONCAT44(uStack_40,(uint)local_4c) +
+        dVar5 = (dVar5 - (double)((double)(longlong)CONCAT44(uStack_40,(uint)local_4c) +
                                  *(float *)(&DAT_0021f828 + ((int)uStack_40 >> 0x1f) * -4))) *
                 (double)_DAT_0021f818 + (double)_DAT_0021d820;
         dVar6 = 0.0;
@@ -17145,7 +17145,7 @@ LAB_0020be71:
  * Address: 0x20be80
  */
 
-void rwby_winter_ruby_finalizeProgramMetadata_20be80(void)
+void rwby_winter_ruby_finalizeProgramMetadata_20be80(int program)
 
 {
   unsigned char frame[332] = {0};
@@ -17175,6 +17175,7 @@ void rwby_winter_ruby_finalizeProgramMetadata_20be80(void)
   local_74 = PTR_recovered_2023f0_00222014;
   local_70 = &DAT_00220dbc;
   local_68 = 0x20c371;
+  local_20 = program;
   uVar12 = PF_SJLJ_CHECKPOINT(&local_8c);
   if (uVar12 != 0) {
     switch((uintptr_t)(local_88)) {
@@ -21468,7 +21469,7 @@ int rwby_winter_ruby_deserializeProgram_20f217(int param_1,int *param_2)
               pvVar7 = (void *)((int)local_8c + 1);
             }
             local_60 = 0x1c;
-            rwby_winter_ruby_finalizeProgramMetadata_20be80();
+            rwby_winter_ruby_finalizeProgramMetadata_20be80((int)local_18);
             rwby_Unwind_SjLj_Unregister_2027b0(&local_64);
             return local_88;
           }

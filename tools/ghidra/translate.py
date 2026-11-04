@@ -212,8 +212,9 @@ def main():
             source=source.replace(register+'(', 'PF_SJLJ_CHECKPOINT(')
             preamble.append('#define PF_SJLJ_CHECKPOINT(ctx) ('+register+'((uint *)(ctx)), ((uint *)(ctx))[10]=(uintptr_t)pf_jump, __builtin_setjmp(pf_jump))')
             source=source.replace('\n{', '\n{\n  void *pf_jump[5];', 1)
-        seed = current['random_state']
-        source = source.replace('(float10)DAT_000' + seed, '(float10)(uint)DAT_000' + seed)
+        seed = current.get('random_state')
+        if seed:
+            source = source.replace('(float10)DAT_000' + seed, '(float10)(uint)DAT_000' + seed)
         # Eight-byte stack slots often alias two integer words and a double.
         for name in re.findall(r'^  (?:double|longdouble) (\w+);', source, re.M) + [row[1] for row in locals_used if row[3] in ('double:8', 'longdouble:8')]:
             source = re.sub(r'\(ulonglong\)\s*' + name + r'\b', 'pf_double_bits(' + name + ')', source)
@@ -228,7 +229,7 @@ def main():
                 source=source[:match.start()]+'('+match[1]+')(uintptr_t)pf_float_bits((float)'+source[start:end]+')'+source[end:]
         if address == '27b0d':
             source = source.replace('*PF_PART4(local_24, 0)', '*(uint32_t *)(uintptr_t)PF_PART4(local_24, 0)')
-        if address == current['main']:
+        if address == current.get('main'):
             source = re.sub(r'(_DAT_0000(?:62|64)[0-9a-f]{2} = )(?:recovered_|FUN_000)([0-9a-f]+);', lambda m: m[1] + '0x' + m[2] + ';', source)
             source = source.replace('(uint)local_580', 'pf_float_bits(local_580)')
             source = source.replace('(uint)local_584[0]', 'pf_float_bits(local_584[0])')
@@ -248,7 +249,7 @@ def main():
             # the detected-memory string in local_60 (verified in disassembly).
             source = source.replace('pcVar9,local_40,local_100,pcVar10);',
                                     'pcVar9,local_40,local_100,pcVar10,local_60);')
-        if address == current['error_logger']:
+        if address == current.get('error_logger'):
             source = source.replace('\n{', '\n{\n  __builtin_va_list args;', 1)
             source = source.replace('local_10 = &dStack00000010;', '__builtin_va_start(args, format);\n  local_10 = (double *)args;')
             source = re.sub(r'(recovered_21a8b\([^;]+;)', r'\1\n  __builtin_va_end(args);', source, count=1)

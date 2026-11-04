@@ -1821,7 +1821,7 @@
   },
   "20be80": {
     "symbol": "rwby_winter_ruby_finalizeProgramMetadata_20be80",
-    "arguments": ""
+    "arguments": "4:ECX"
   },
   "20c3ba": {
     "symbol": "rwby_winter_ruby_Compiler_match_20c3ba",

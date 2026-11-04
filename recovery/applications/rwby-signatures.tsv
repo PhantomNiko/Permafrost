@@ -197,3 +197,4 @@
 20c56a	void __cdecl recovered_20c56a(int *compiler);	ECX
 20e978	void __cdecl recovered_20e978(int *items,unsigned int *value);	ECX,EDX
 20a82b	void __cdecl recovered_20a82b(unsigned int *message);	ECX
+20be80	void __cdecl recovered_20be80(int program);	ECX
