@@ -138,7 +138,7 @@ undefined4 winterscript_getenv_202325(void);
 undefined4 winterscript_system_20232c(void);
 void winterscript_clock_202334(void);
 undefined4 winterscript_wm_program_api_field_ready_202347(int param_1);
-void winterscript_winterboot_sjlj_jump_202380(int context);
+void winterscript_permafrost_sjlj_jump_202380(int context);
 uint winterscript_std_terminate_20238f(void);
 undefined4 winterscript_gxx_personality_sj0_2023f0(void);
 void * winterscript_cxa_begin_catch_202400(void *object);
@@ -186,7 +186,7 @@ uint winterscript_read_unaligned_202d9d(int param_1,int param_2);
 uint winterscript_read_sleb128_202dc2(undefined4 *param_1);
 void winterscript_std_istream_istream_202e04(void);
 void winterscript_std_ostream_ostream_202e0a(void);
-undefined4 winterscript_winterboot_winterscript_entry_202e0f(void);
+undefined4 winterscript_permafrost_winterscript_entry_202e0f(void);
 void winterscript_showHelp_2034bc(void);
 void winterscript_writeLine_2034da(int param_1);
 void winterscript_writeText_2034f0(int param_1);
@@ -492,7 +492,7 @@ int winterscript_std_ostream_flush_231f86(int param_1);
 undefined4 * winterscript_WinterScript_fileCloseFunction_231fa6(undefined4 *param_1,undefined4 param_2,int *param_3);
 void winterscript_std_ostringstream_operator_2320c2(int *param_1,uint param_2);
 undefined4 * winterscript_WinterScript_printFunction_2320de(undefined4 *param_1,undefined4 param_2,int param_3);
-void winterscript_writeWinterBootText_232204(int param_1);
+void winterscript_writePermafrostText_232204(int param_1);
 undefined4 * winterscript_WinterScript_getTimeMsFunction_23222a(undefined4 *param_1,int param_2,int param_3);
 undefined4 * winterscript_WinterScript_randomFunction_232346(undefined4 *param_1,int param_2,int *param_3);
 uint winterscript_wm_mt19937_operator_2325be(int param_1);
@@ -1601,7 +1601,7 @@ void winterscript_cxx_global_var_init_3_25b3fd(void);
 #define recovered_20232c winterscript_system_20232c
 #define recovered_202334 winterscript_clock_202334
 #define recovered_202347 winterscript_wm_program_api_field_ready_202347
-#define recovered_202380 winterscript_winterboot_sjlj_jump_202380
+#define recovered_202380 winterscript_permafrost_sjlj_jump_202380
 #define recovered_20238f winterscript_std_terminate_20238f
 #define recovered_2023f0 winterscript_gxx_personality_sj0_2023f0
 #define recovered_202400 winterscript_cxa_begin_catch_202400
@@ -1649,7 +1649,7 @@ void winterscript_cxx_global_var_init_3_25b3fd(void);
 #define recovered_202dc2 winterscript_read_sleb128_202dc2
 #define recovered_202e04 winterscript_std_istream_istream_202e04
 #define recovered_202e0a winterscript_std_ostream_ostream_202e0a
-#define recovered_202e0f winterscript_winterboot_winterscript_entry_202e0f
+#define recovered_202e0f winterscript_permafrost_winterscript_entry_202e0f
 #define recovered_2034bc winterscript_showHelp_2034bc
 #define recovered_2034da winterscript_writeLine_2034da
 #define recovered_2034f0 winterscript_writeText_2034f0
@@ -1935,7 +1935,7 @@ void winterscript_cxx_global_var_init_3_25b3fd(void);
 #define recovered_231fa6 winterscript_WinterScript_fileCloseFunction_231fa6
 #define recovered_2320c2 winterscript_std_ostringstream_operator_2320c2
 #define recovered_2320de winterscript_WinterScript_printFunction_2320de
-#define recovered_232204 winterscript_writeWinterBootText_232204
+#define recovered_232204 winterscript_writePermafrostText_232204
 #define recovered_23222a winterscript_WinterScript_getTimeMsFunction_23222a
 #define recovered_232346 winterscript_WinterScript_randomFunction_232346
 #define recovered_2325be winterscript_wm_mt19937_operator_2325be

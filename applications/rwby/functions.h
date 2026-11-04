@@ -136,7 +136,7 @@ undefined4 rwby_getenv_202325(void);
 undefined4 rwby_system_20232c(void);
 void rwby_clock_202334(void);
 undefined4 rwby_wm_program_api_field_ready_202347(int param_1);
-void rwby_winterboot_sjlj_jump_202380(int context);
+void rwby_permafrost_sjlj_jump_202380(int context);
 uint rwby_std_terminate_20238f(void);
 undefined4 rwby_gxx_personality_sj0_2023f0(void);
 uint rwby_clang_call_terminate_2023f3(void *param_1);
@@ -183,7 +183,7 @@ undefined4 * rwby_read_encoded_pointer_202cce(uint param_1,int *param_2);
 uint rwby_read_uleb128_202d82(undefined4 *param_1);
 uint rwby_read_unaligned_202dad(int param_1,int param_2);
 uint rwby_read_sleb128_202dd2(undefined4 *param_1);
-undefined4 rwby_winterboot_rwby_entry_202e14(void);
+undefined4 rwby_permafrost_rwby_entry_202e14(void);
 void rwby_showHelp_203497(void);
 void rwby_writeLine_2034b5(int param_1);
 void rwby_writeText_2034cb(int param_1);
@@ -247,8 +247,8 @@ uint rwby_wm_string_view_find_2044dc(int *param_1,int param_2,uint param_3,uint 
 undefined1 rwby_wm_operator_204552(undefined4 *param_1,int param_2);
 void rwby_std_istream_istream_2045ac(void);
 void rwby_std_ostream_ostream_2045b2(void);
-void rwby_winter_ruby_writeWinterBootText_2045b7(undefined4 *param_1);
-void rwby_winter_ruby_writeWinterBootText_2045dd(int param_1);
+void rwby_winter_ruby_writePermafrostText_2045b7(undefined4 *param_1);
+void rwby_winter_ruby_writePermafrostText_2045dd(int param_1);
 void rwby_winter_ruby_RubyValue_RubyValue_20460c(undefined1 *param_1);
 void rwby_winter_ruby_RubyValue_RubyValue_20461c(undefined1 *param_1);
 void rwby_winter_ruby_RubyValue_RubyValue_20462c(undefined1 *param_1);
@@ -1029,7 +1029,7 @@ void rwby_cxx_global_var_init_3_21d7b0(void);
 #define recovered_20232c rwby_system_20232c
 #define recovered_202334 rwby_clock_202334
 #define recovered_202347 rwby_wm_program_api_field_ready_202347
-#define recovered_202380 rwby_winterboot_sjlj_jump_202380
+#define recovered_202380 rwby_permafrost_sjlj_jump_202380
 #define recovered_20238f rwby_std_terminate_20238f
 #define recovered_2023f0 rwby_gxx_personality_sj0_2023f0
 #define recovered_2023f3 rwby_clang_call_terminate_2023f3
@@ -1076,7 +1076,7 @@ void rwby_cxx_global_var_init_3_21d7b0(void);
 #define recovered_202d82 rwby_read_uleb128_202d82
 #define recovered_202dad rwby_read_unaligned_202dad
 #define recovered_202dd2 rwby_read_sleb128_202dd2
-#define recovered_202e14 rwby_winterboot_rwby_entry_202e14
+#define recovered_202e14 rwby_permafrost_rwby_entry_202e14
 #define recovered_203497 rwby_showHelp_203497
 #define recovered_2034b5 rwby_writeLine_2034b5
 #define recovered_2034cb rwby_writeText_2034cb
@@ -1138,8 +1138,8 @@ void rwby_cxx_global_var_init_3_21d7b0(void);
 #define recovered_204552 rwby_wm_operator_204552
 #define recovered_2045ac rwby_std_istream_istream_2045ac
 #define recovered_2045b2 rwby_std_ostream_ostream_2045b2
-#define recovered_2045b7 rwby_winter_ruby_writeWinterBootText_2045b7
-#define recovered_2045dd rwby_winter_ruby_writeWinterBootText_2045dd
+#define recovered_2045b7 rwby_winter_ruby_writePermafrostText_2045b7
+#define recovered_2045dd rwby_winter_ruby_writePermafrostText_2045dd
 #define recovered_20460c rwby_winter_ruby_RubyValue_RubyValue_20460c
 #define recovered_20461c rwby_winter_ruby_RubyValue_RubyValue_20461c
 #define recovered_20462c rwby_winter_ruby_RubyValue_RubyValue_20462c

@@ -20,16 +20,18 @@ OpenBIOS firmware builds from the pinned sibling `../openbios` checkout.
 The out-of-tree GPL patch restores Multiboot memory information for firmware
 relocation. A source loader transfers the boot disk into RAM, and the C kernel
 reserves that disk and resident firmware when constructing its heap.
+The loader retains usable memory from 6 MiB, matching the relocated C heap.
+Its legacy 16-MiB floor discarded the lower heap region and left too little
+contiguous memory to flush FAT32 with the larger source-built VM files.
 
 The kernels use consolidated C translation units: 721 BIOS functions and 749
 OpenBIOS functions, with shared freestanding C support and C++ display glue.
-WinterLua has 1,004 recovered C functions. Address metadata and demangled native
-signatures remain available for further source cleanup.
-
-The standalone Rwby and WinterScript VMs remain covered upstream binaries.
-Their packaged copies use source-built integer helpers, correcting recursive
-variable-shift helpers and making numeric programs usable. The built-in
-WinterScript implementation is part of the recovered kernel source.
+WinterLua has 1,004 recovered C functions, Rwby has 873, and standalone
+WinterScript has 1,434. Address metadata and demangled native signatures remain
+available for further source cleanup. All three native VMs build from C, using
+shared source implementations of the integer and memory helpers. The build
+does not copy original VM instructions into its output. The built-in
+WinterScript implementation is also part of the recovered kernel source.
 
 Directory listing supplies the size at normalized entry offset 0xf8, restoring
 an argument omitted by the decompiler at the shared printf site. CPU-brand
@@ -46,6 +48,8 @@ OpenBIOS RAM disk is used in place, with writes lasting for the boot session.
 
 Current hardware tests cover the full bundled WinterScript self-test,
 filesystem mutations, CPU descriptions, exact directory sizes, PNG decoding,
-allocation and failure statuses, native Mach-O execution, and source Lua
-arithmetic and loops. This validation does not establish equivalence for every
+allocation and failure statuses, native Mach-O execution, source Lua arithmetic
+and loops, and source-built Rwby/WinterScript functions, containers, integer and
+floating-point arithmetic. Standalone WinterScript also exercises protected
+errors and multiple returns. This validation does not establish equivalence for every
 possible program or hardware configuration.

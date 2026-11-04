@@ -14,7 +14,7 @@ void winterscript_winterscript_entry_200000(void)
 {
   unsigned char frame[64] = {0};
 
-  winterscript_winterboot_winterscript_entry_202e0f();
+  winterscript_permafrost_winterscript_entry_202e0f();
   return;
 }
 
@@ -3918,7 +3918,7 @@ undefined4 winterscript_wm_program_api_field_ready_202347(int param_1)
 /* winterboot_sjlj_jump */
 
 /* SJLJ CPU context transfer. Pooka's Free Software License. */
-void winterscript_winterboot_sjlj_jump_202380(int context) {
+void winterscript_permafrost_sjlj_jump_202380(int context) {
     __builtin_longjmp((void **)(uintptr_t)((uint *)context)[10], 1);
 }
 
@@ -4728,7 +4728,7 @@ void winterscript_continue_unwind_202800(undefined4 *param_1)
 LAB_00202868:
   context[1] = uVar1;
                     /* WARNING: Subroutine does not return */
-  winterscript_winterboot_sjlj_jump_202380((int)context);
+  winterscript_permafrost_sjlj_jump_202380((int)context);
 }
 
 #undef DAT_002670c0
@@ -5491,7 +5491,7 @@ void winterscript_std_ostream_ostream_202e0a(void)
  * Address: 0x202e0f
  */
 
-undefined4 winterscript_winterboot_winterscript_entry_202e0f(void)
+undefined4 winterscript_permafrost_winterscript_entry_202e0f(void)
 
 {
   unsigned char frame[7372] = {0};
@@ -44875,12 +44875,12 @@ undefined4 * winterscript_WinterScript_printFunction_2320de(undefined4 *param_1,
       uVar3 = local_14;
       if (local_14 < *(uint *)(param_3 + 4)) {
         local_58 = 0xffffffff;
-        winterscript_writeWinterBootText_232204(0x261c20);
+        winterscript_writePermafrostText_232204(0x261c20);
       }
       iVar4 = local_18 + 0x14;
     }
     local_58 = 0xffffffff;
-    winterscript_writeWinterBootText_232204(0x261bb6);
+    winterscript_writePermafrostText_232204(0x261bb6);
     local_58 = 0xffffffff;
     winterscript_wm_lua_flush_output_20179c();
     *param_1 = 1;
@@ -44924,7 +44924,7 @@ undefined4 * winterscript_WinterScript_printFunction_2320de(undefined4 *param_1,
  * Address: 0x232204
  */
 
-void winterscript_writeWinterBootText_232204(int param_1)
+void winterscript_writePermafrostText_232204(int param_1)
 
 {
   unsigned char frame[64] = {0};

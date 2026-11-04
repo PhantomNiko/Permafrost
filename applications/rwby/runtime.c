@@ -14,7 +14,7 @@ void rwby_rwby_entry_200000(void)
 {
   unsigned char frame[64] = {0};
 
-  rwby_winterboot_rwby_entry_202e14();
+  rwby_permafrost_rwby_entry_202e14();
   return;
 }
 
@@ -3918,7 +3918,7 @@ undefined4 rwby_wm_program_api_field_ready_202347(int param_1)
 /* winterboot_sjlj_jump */
 
 /* SJLJ CPU context transfer. Pooka's Free Software License. */
-void rwby_winterboot_sjlj_jump_202380(int context) {
+void rwby_permafrost_sjlj_jump_202380(int context) {
     __builtin_longjmp((void **)(uintptr_t)((uint *)context)[10], 1);
 }
 
@@ -4743,7 +4743,7 @@ void rwby_continue_unwind_202810(undefined4 *param_1)
 LAB_00202878:
   context[1] = uVar1;
                     /* WARNING: Subroutine does not return */
-  rwby_winterboot_sjlj_jump_202380((int)context);
+  rwby_permafrost_sjlj_jump_202380((int)context);
 }
 
 #undef DAT_00222ab4
@@ -5468,7 +5468,7 @@ uint rwby_read_sleb128_202dd2(undefined4 *param_1)
  * Address: 0x202e14
  */
 
-undefined4 rwby_winterboot_rwby_entry_202e14(void)
+undefined4 rwby_permafrost_rwby_entry_202e14(void)
 
 {
   unsigned char frame[4460] = {0};
@@ -7690,7 +7690,7 @@ void rwby_std_ostream_ostream_2045b2(void)
  * Address: 0x2045b7
  */
 
-void rwby_winter_ruby_writeWinterBootText_2045b7(undefined4 *param_1)
+void rwby_winter_ruby_writePermafrostText_2045b7(undefined4 *param_1)
 
 {
   unsigned char frame[64] = {0};
@@ -7713,7 +7713,7 @@ void rwby_winter_ruby_writeWinterBootText_2045b7(undefined4 *param_1)
  * Address: 0x2045dd
  */
 
-void rwby_winter_ruby_writeWinterBootText_2045dd(int param_1)
+void rwby_winter_ruby_writePermafrostText_2045dd(int param_1)
 
 {
   unsigned char frame[64] = {0};
@@ -29300,19 +29300,19 @@ undefined1 * rwby_winter_ruby_RubyVM_Impl_bindDefaults_217950(undefined1 *param_
       local_18 = uVar2;
       if (uVar2 != 0) {
         local_58 = 0xffffffff;
-        rwby_winter_ruby_writeWinterBootText_2045dd(0x22076b);
+        rwby_winter_ruby_writePermafrostText_2045dd(0x22076b);
       }
       local_58 = 0xffffffff;
       rwby_winter_ruby_RubyValue_toString_204c9c(local_24,(undefined1 *)(*(int *)param_4 + iVar3));
       local_58 = 1;
       local_14 = (void *)iVar3;
-      rwby_winter_ruby_writeWinterBootText_2045b7(local_24);
+      rwby_winter_ruby_writePermafrostText_2045b7(local_24);
       rwby_operator_delete_202464(local_24[0]);
       iVar3 = (int)local_14 + 0x18;
       uVar2 = local_18 + 1;
     }
     local_58 = 0xffffffff;
-    rwby_winter_ruby_writeWinterBootText_2045dd(0x21fcdb);
+    rwby_winter_ruby_writePermafrostText_2045dd(0x21fcdb);
     local_58 = 0xffffffff;
     rwby_wm_lua_flush_output_20179c();
     *param_1 = 0;
@@ -29489,7 +29489,7 @@ rwby_winter_ruby_RubyVM_Impl_bindDefaults_217ade(undefined1 *param_1,undefined4 
       rwby_winter_ruby_RubyValue_toString_204c9c(local_24,puVar4);
       local_58 = 1;
       local_14 = puVar4;
-      rwby_winter_ruby_writeWinterBootText_2045b7(local_24);
+      rwby_winter_ruby_writePermafrostText_2045b7(local_24);
       rwby_operator_delete_202464(local_24[0]);
       puVar4 = local_14 + 0x18;
       iVar3 = local_18 + -0x18;

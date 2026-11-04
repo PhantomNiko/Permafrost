@@ -22,9 +22,9 @@ built from source, rather than decompiled into reconstruction-owned code.
 message in another generated copy. The sibling checkout is not modified.
 These modified OpenBIOS files retain their upstream GPL notices and license.
 
-The standalone WinterRwby and WinterScript VMs are covered native binaries in
-`applications/bundled`; their original hashes and numeric-helper entry points
-are recorded alongside them. Release packaging replaces those helpers with
-`kernel/compiler.c` and `kernel/runtime.c`. These two VMs are not claimed to
-build from recovered source. The kernel's built-in WinterScript and the
-WinterLua application do build from recovered source.
+WinterRwby 0.1 and standalone WinterScript 0.4 build from the recovered C
+sources in `applications/rwby` and `applications/winterscript`, with shared
+freestanding support in `kernel`. Their original hashes and recovery profiles
+are retained in `recovery/applications`. No reference VM binaries or decompiler
+installation are needed for normal builds. These in-house implementations
+remain covered by Pooka's Free Software License.

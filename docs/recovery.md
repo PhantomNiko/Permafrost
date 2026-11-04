@@ -41,9 +41,11 @@ Directory checks compare on-disk file lengths with the printed sizes, including
 SDK C/C++ Mach-O programs run through both OS prompts from a relocated SDK.
 Public allocation, file, PNG and failure-status probes pass on both variants.
 Source WinterLua has arithmetic, assertion, table and loop tests, with the
-reference's closure and dofile limitations preserved. The standalone Rwby and
-WinterScript VMs remain licensed native binaries with source-built integer
-helpers; their VM implementations are not claimed to be recovered source.
+reference's closure and dofile limitations preserved. Standalone Rwby and
+WinterScript now have recovered C implementations in `applications`, including
+their initialized data and original argument metadata. Normal builds use these
+sources and shared C integer helpers; no original VM instruction stream is
+included.
 
 OpenBIOS uses a 40-MiB boot-image RAM disk at 16 MiB. Its C core runs at 5 MiB,
 its stack starts at 4 MiB, and its heap excludes the disk and resident firmware.

@@ -10,7 +10,6 @@ from cc import compile_object
 from elf32 import Object, link
 from kernel import compile_kernel
 from macho import pack
-from native_application import build_native_application
 from openbios import build_firmware
 from sdk import build_sdk
 from wmfs import make_disk
@@ -37,9 +36,8 @@ def main():
     output = args.out
     output.mkdir(parents=True, exist_ok=True)
     app_root = output / 'applications'
-    programs = {'lua': build_application('lua', app_root / 'lua')}
-    programs.update({name: build_native_application(name, app_root / name)
-                     for name in ('rwby', 'winterscript')})
+    programs = {name: build_application(name, app_root / name)
+                for name in ('lua', 'rwby', 'winterscript')}
     for name, extension, base in [('wozmon', 'cpp', 0x200000),
             ('expand-disk', 'c', 0x200000), ('nightmode', 'cpp', 0x240000),
             ('graphics', 'c', 0x240000), ('textmode', 'c', 0x240000)]:

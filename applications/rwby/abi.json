@@ -512,7 +512,7 @@
     "arguments": "4:ECX"
   },
   "202380": {
-    "symbol": "rwby_winterboot_sjlj_jump_202380",
+    "symbol": "rwby_permafrost_sjlj_jump_202380",
     "arguments": "4:stack4"
   },
   "20238f": {
@@ -700,7 +700,7 @@
     "arguments": "4:ECX"
   },
   "202e14": {
-    "symbol": "rwby_winterboot_rwby_entry_202e14",
+    "symbol": "rwby_permafrost_rwby_entry_202e14",
     "arguments": ""
   },
   "203497": {
@@ -948,11 +948,11 @@
     "arguments": ""
   },
   "2045b7": {
-    "symbol": "rwby_winter_ruby_writeWinterBootText_2045b7",
+    "symbol": "rwby_winter_ruby_writePermafrostText_2045b7",
     "arguments": "4:stack4"
   },
   "2045dd": {
-    "symbol": "rwby_winter_ruby_writeWinterBootText_2045dd",
+    "symbol": "rwby_winter_ruby_writePermafrostText_2045dd",
     "arguments": "4:stack4"
   },
   "20460c": {

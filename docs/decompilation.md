@@ -74,4 +74,17 @@ BIOS staging below VGA memory and decoded by a small C bootstrap routine.
 Directory output restores the size argument omitted by Ghidra at a shared
 file/directory format call. Its independent disk-record comparison passes
 under Bochs, including empty and multi-cluster files. Full runtime and in-house
-application validation remain in progress.
+application checks exercise the current source-built release.
+
+The native Rwby and standalone WinterScript applications use the same source
+build pipeline in `tools/application.py`. Their former instruction ranges are
+zero-initialized, with short entry jumps to compiled C. Initialized data is
+retained separately, and function pointers in that data are relocated to the
+new C symbols. Reference executables are analysis inputs only.
+
+Native recovery required explicit register arguments, SJLJ landing paths,
+and distinct views of tagged integer, float and pointer payloads. The profiles
+record reviewed corrections, including Rwby's metadata-finalization receiver,
+WinterScript's byte offsets for native callables, and a separate token-analysis
+iterator that preserves its vector's base. Integer and floating-point views
+retain their bits when occupying the same variant storage.

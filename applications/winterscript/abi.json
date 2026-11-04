@@ -512,7 +512,7 @@
     "arguments": "4:ECX"
   },
   "202380": {
-    "symbol": "winterscript_winterboot_sjlj_jump_202380",
+    "symbol": "winterscript_permafrost_sjlj_jump_202380",
     "arguments": "4:stack4"
   },
   "20238f": {
@@ -704,7 +704,7 @@
     "arguments": ""
   },
   "202e0f": {
-    "symbol": "winterscript_winterboot_winterscript_entry_202e0f",
+    "symbol": "winterscript_permafrost_winterscript_entry_202e0f",
     "arguments": ""
   },
   "2034bc": {
@@ -1848,7 +1848,7 @@
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
   "232204": {
-    "symbol": "winterscript_writeWinterBootText_232204",
+    "symbol": "winterscript_writePermafrostText_232204",
     "arguments": "4:ECX"
   },
   "23222a": {
