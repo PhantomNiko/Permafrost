@@ -1,0 +1,4018 @@
+{
+  "200000": {
+    "symbol": "lua_lua_entry_200000",
+    "arguments": ""
+  },
+  "200006": {
+    "symbol": "lua_wm_probe_heap_reset_200006",
+    "arguments": ""
+  },
+  "200016": {
+    "symbol": "lua_wm_probe_heap_init_200016",
+    "arguments": ""
+  },
+  "2001fb": {
+    "symbol": "lua_wm_probe_heap_free_bytes_2001fb",
+    "arguments": ""
+  },
+  "200225": {
+    "symbol": "lua_wm_probe_heap_total_bytes_200225",
+    "arguments": ""
+  },
+  "200249": {
+    "symbol": "lua_wm_probe_heap_alloc_200249",
+    "arguments": "4:stack4"
+  },
+  "2002b0": {
+    "symbol": "lua_ashldi3_2002b0",
+    "arguments": "8:stack4,4:stack12"
+  },
+  "2002e9": {
+    "symbol": "lua_lshrdi3_2002e9",
+    "arguments": "8:stack4,4:stack12"
+  },
+  "200322": {
+    "symbol": "lua_udivdi3_200322",
+    "arguments": "8:stack4,8:stack12"
+  },
+  "200343": {
+    "symbol": "lua_udivmod64_200343",
+    "arguments": "4:ECX,4:EDX,4:stack4,4:stack8,4:stack12"
+  },
+  "200426": {
+    "symbol": "lua_umoddi3_200426",
+    "arguments": "8:stack4,8:stack12"
+  },
+  "20045e": {
+    "symbol": "lua_divdi3_20045e",
+    "arguments": "8:stack4,8:stack12"
+  },
+  "2004d2": {
+    "symbol": "lua_moddi3_2004d2",
+    "arguments": "8:stack4,8:stack12"
+  },
+  "200544": {
+    "symbol": "lua_abort_200544",
+    "arguments": ""
+  },
+  "20054b": {
+    "symbol": "lua_abs_20054b",
+    "arguments": "4:stack4"
+  },
+  "20055a": {
+    "symbol": "lua_malloc_20055a",
+    "arguments": "4:stack4"
+  },
+  "200582": {
+    "symbol": "lua_free_200582",
+    "arguments": "4:stack4"
+  },
+  "2005a8": {
+    "symbol": "lua_realloc_2005a8",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2005d0": {
+    "symbol": "lua_memcpy_2005d0",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "2005f1": {
+    "symbol": "lua_memmove_2005f1",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "200637": {
+    "symbol": "lua_memset_200637",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "200653": {
+    "symbol": "lua_bzero_200653",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20066b": {
+    "symbol": "lua_bzero_20066b",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "200683": {
+    "symbol": "lua_memcmp_200683",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "2006b2": {
+    "symbol": "lua_islower_2006b2",
+    "arguments": "4:stack4"
+  },
+  "2006c5": {
+    "symbol": "lua_isupper_2006c5",
+    "arguments": "4:stack4"
+  },
+  "2006d8": {
+    "symbol": "lua_isalpha_2006d8",
+    "arguments": "4:stack4"
+  },
+  "2006ee": {
+    "symbol": "lua_isalnum_2006ee",
+    "arguments": "4:stack4"
+  },
+  "200712": {
+    "symbol": "lua_isblank_200712",
+    "arguments": "4:stack4"
+  },
+  "20072b": {
+    "symbol": "lua_isprint_20072b",
+    "arguments": "4:stack4"
+  },
+  "20073e": {
+    "symbol": "lua_tolower_20073e",
+    "arguments": "4:stack4"
+  },
+  "200752": {
+    "symbol": "lua_toupper_200752",
+    "arguments": "4:stack4"
+  },
+  "200766": {
+    "symbol": "lua_strlen_200766",
+    "arguments": "4:stack4"
+  },
+  "200781": {
+    "symbol": "lua_strcmp_200781",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2007a9": {
+    "symbol": "lua_strcoll_2007a9",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2007b2": {
+    "symbol": "lua_strcpy_2007b2",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2007cc": {
+    "symbol": "lua_strdup_2007cc",
+    "arguments": "4:stack4"
+  },
+  "200816": {
+    "symbol": "lua_strchr_200816",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20083b": {
+    "symbol": "lua_strspn_20083b",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "200872": {
+    "symbol": "lua_strpbrk_200872",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2008a0": {
+    "symbol": "lua_strstr_2008a0",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2008d1": {
+    "symbol": "lua_setlocale_2008d1",
+    "arguments": ""
+  },
+  "2008db": {
+    "symbol": "lua_localeconv_2008db",
+    "arguments": ""
+  },
+  "2008e5": {
+    "symbol": "lua_time_2008e5",
+    "arguments": "4:stack4"
+  },
+  "2008fc": {
+    "symbol": "lua_ldexp_2008fc",
+    "arguments": "8:stack4,4:stack12"
+  },
+  "200926": {
+    "symbol": "lua_frexp_200926",
+    "arguments": "8:stack4,4:stack12"
+  },
+  "20099e": {
+    "symbol": "lua_fmod_20099e",
+    "arguments": "8:stack4,8:stack12"
+  },
+  "2009eb": {
+    "symbol": "lua_pow_2009eb",
+    "arguments": "8:stack4,8:stack12"
+  },
+  "200a6f": {
+    "symbol": "lua_floor_200a6f",
+    "arguments": "8:stack4"
+  },
+  "200ab0": {
+    "symbol": "lua_ceil_200ab0",
+    "arguments": "8:stack4"
+  },
+  "200afd": {
+    "symbol": "lua_sqrt_200afd",
+    "arguments": "8:stack4"
+  },
+  "200b35": {
+    "symbol": "lua_log_200b35",
+    "arguments": "8:stack4"
+  },
+  "200bcc": {
+    "symbol": "lua_llround_200bcc",
+    "arguments": "8:stack4"
+  },
+  "200c0d": {
+    "symbol": "lua_sin_200c0d",
+    "arguments": "8:stack4"
+  },
+  "200c4f": {
+    "symbol": "lua_wrap_angle_200c4f",
+    "arguments": "8:stack4"
+  },
+  "200c87": {
+    "symbol": "lua_cos_200c87",
+    "arguments": "8:stack4"
+  },
+  "200cc5": {
+    "symbol": "lua_fabs_200cc5",
+    "arguments": "8:stack4"
+  },
+  "200cd9": {
+    "symbol": "lua_fmodf_200cd9",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "200d2e": {
+    "symbol": "lua_frexpf_200d2e",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "200d51": {
+    "symbol": "lua_ldexpf_200d51",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "200d74": {
+    "symbol": "lua_powf_200d74",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "200d97": {
+    "symbol": "lua_floorf_200d97",
+    "arguments": "4:stack4"
+  },
+  "200dde": {
+    "symbol": "lua_ceilf_200dde",
+    "arguments": "4:stack4"
+  },
+  "200dfa": {
+    "symbol": "lua_trunc_200dfa",
+    "arguments": "8:stack4"
+  },
+  "200e4c": {
+    "symbol": "lua_truncf_200e4c",
+    "arguments": "4:stack4"
+  },
+  "200e68": {
+    "symbol": "lua_sqrtf_200e68",
+    "arguments": "4:stack4"
+  },
+  "200e84": {
+    "symbol": "lua_logf_200e84",
+    "arguments": "4:stack4"
+  },
+  "200ea0": {
+    "symbol": "lua_lround_200ea0",
+    "arguments": "8:stack4"
+  },
+  "200eb6": {
+    "symbol": "lua_sinf_200eb6",
+    "arguments": "4:stack4"
+  },
+  "200ed2": {
+    "symbol": "lua_cosf_200ed2",
+    "arguments": "4:stack4"
+  },
+  "200eee": {
+    "symbol": "lua_fabsf_200eee",
+    "arguments": "4:stack4"
+  },
+  "200f02": {
+    "symbol": "lua_strtol_200f02",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "200ff4": {
+    "symbol": "lua_digit_value_200ff4",
+    "arguments": "4:ECX"
+  },
+  "201028": {
+    "symbol": "lua_strtoul_201028",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "20111a": {
+    "symbol": "lua_strtod_20111a",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20126c": {
+    "symbol": "lua_strtof_20126c",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20128e": {
+    "symbol": "lua_vsnprintf_20128e",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
+  },
+  "201520": {
+    "symbol": "lua_append_char_201520",
+    "arguments": "4:ECX,4:EDX,4:stack4,1:stack8"
+  },
+  "20153e": {
+    "symbol": "lua_append_string_20153e",
+    "arguments": "4:ECX,4:EDX,4:stack4,4:stack8"
+  },
+  "20157f": {
+    "symbol": "lua_append_unsigned_20157f",
+    "arguments": "4:ECX,4:EDX,4:stack4,4:stack8,4:stack12,1:stack16"
+  },
+  "2015ea": {
+    "symbol": "lua_snprintf_2015ea",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "20160d": {
+    "symbol": "lua_wm_probe_heap_append_region_20160d",
+    "arguments": "4:ECX,4:EDX,4:stack4"
+  },
+  "20165f": {
+    "symbol": "lua_wm_program_api_field_ready_20165f",
+    "arguments": "4:ECX"
+  },
+  "201694": {
+    "symbol": "lua_wm_lua_write_201694",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20171a": {
+    "symbol": "lua_wm_lua_flush_output_line_20171a",
+    "arguments": "1:CL"
+  },
+  "201790": {
+    "symbol": "lua_wm_lua_writeline_201790",
+    "arguments": ""
+  },
+  "20179c": {
+    "symbol": "lua_wm_lua_flush_output_20179c",
+    "arguments": ""
+  },
+  "2017a7": {
+    "symbol": "lua_wm_lua_write_errorf_2017a7",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2017fb": {
+    "symbol": "lua_wm_lua_show_banner_2017fb",
+    "arguments": ""
+  },
+  "201841": {
+    "symbol": "lua_wm_lua_write_cstr_201841",
+    "arguments": "4:ECX"
+  },
+  "201868": {
+    "symbol": "lua_wm_lua_show_help_201868",
+    "arguments": ""
+  },
+  "201886": {
+    "symbol": "lua_wm_lua_readline_201886",
+    "arguments": "4:stack4,4:stack8,4:stack12,1:stack16"
+  },
+  "2018d5": {
+    "symbol": "lua_wmfs_mount_image_2018d5",
+    "arguments": ""
+  },
+  "2018dc": {
+    "symbol": "lua_wmfs_unmount_2018dc",
+    "arguments": ""
+  },
+  "2018e1": {
+    "symbol": "lua_wmfs_is_mounted_2018e1",
+    "arguments": ""
+  },
+  "2018e8": {
+    "symbol": "lua_wmfs_fopen_2018e8",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "201ba3": {
+    "symbol": "lua_wm_lua_app_stat_file_201ba3",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "201bd3": {
+    "symbol": "lua_wm_lua_file_reserve_201bd3",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "201c48": {
+    "symbol": "lua_wmfs_freopen_201c48",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "201c66": {
+    "symbol": "lua_wmfs_fclose_201c66",
+    "arguments": "4:stack4"
+  },
+  "201ca6": {
+    "symbol": "lua_wmfs_fread_201ca6",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
+  },
+  "201d13": {
+    "symbol": "lua_wmfs_getc_201d13",
+    "arguments": "4:stack4"
+  },
+  "201df4": {
+    "symbol": "lua_wmfs_fwrite_201df4",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
+  },
+  "201efc": {
+    "symbol": "lua_wmfs_fseek_201efc",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "201f75": {
+    "symbol": "lua_wmfs_ftell_201f75",
+    "arguments": "4:stack4"
+  },
+  "201f97": {
+    "symbol": "lua_wmfs_fflush_201f97",
+    "arguments": "4:stack4"
+  },
+  "201ff8": {
+    "symbol": "lua_wmfs_feof_201ff8",
+    "arguments": "4:stack4"
+  },
+  "20200f": {
+    "symbol": "lua_wmfs_ferror_20200f",
+    "arguments": "4:stack4"
+  },
+  "202026": {
+    "symbol": "lua_wmfs_clearerr_202026",
+    "arguments": "4:stack4"
+  },
+  "202041": {
+    "symbol": "lua_wmfs_ungetc_202041",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "202070": {
+    "symbol": "lua_wmfs_remove_202070",
+    "arguments": "4:stack4"
+  },
+  "2020a1": {
+    "symbol": "lua_wm_lua_app_delete_file_2020a1",
+    "arguments": "4:ECX"
+  },
+  "2020cc": {
+    "symbol": "lua_wmfs_rename_2020cc",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "202156": {
+    "symbol": "lua_wm_lua_app_write_file_202156",
+    "arguments": "4:ECX,4:EDX,4:stack4"
+  },
+  "202189": {
+    "symbol": "lua_wmfs_read_entire_file_202189",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "20221b": {
+    "symbol": "lua_wmfs_write_entire_file_20221b",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "202252": {
+    "symbol": "lua_wmfs_register_virtual_file_202252",
+    "arguments": ""
+  },
+  "202259": {
+    "symbol": "lua_wmfs_clear_virtual_files_202259",
+    "arguments": ""
+  },
+  "20225e": {
+    "symbol": "lua_wmfs_image_data_20225e",
+    "arguments": ""
+  },
+  "202265": {
+    "symbol": "lua_wmfs_image_size_202265",
+    "arguments": ""
+  },
+  "20226c": {
+    "symbol": "lua_wmfs_export_image_20226c",
+    "arguments": ""
+  },
+  "202273": {
+    "symbol": "lua_memchr_202273",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "202297": {
+    "symbol": "lua_strncmp_202297",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "2022ca": {
+    "symbol": "lua_strerror_2022ca",
+    "arguments": "4:stack4"
+  },
+  "202325": {
+    "symbol": "lua_getenv_202325",
+    "arguments": ""
+  },
+  "20232c": {
+    "symbol": "lua_system_20232c",
+    "arguments": ""
+  },
+  "202334": {
+    "symbol": "lua_clock_202334",
+    "arguments": ""
+  },
+  "202347": {
+    "symbol": "lua_wm_program_api_field_ready_202347",
+    "arguments": "4:ECX"
+  },
+  "202380": {
+    "symbol": "lua_winterboot_sjlj_jump_202380",
+    "arguments": "4:stack4"
+  },
+  "20238f": {
+    "symbol": "lua_std_terminate_20238f",
+    "arguments": ""
+  },
+  "2023f0": {
+    "symbol": "lua_gxx_personality_sj0_2023f0",
+    "arguments": ""
+  },
+  "202400": {
+    "symbol": "lua_cxa_begin_catch_202400",
+    "arguments": "4:stack4"
+  },
+  "202422": {
+    "symbol": "lua_operator_new_202422",
+    "arguments": "4:stack4"
+  },
+  "20244b": {
+    "symbol": "lua_operator_new_20244b",
+    "arguments": "4:stack4"
+  },
+  "202454": {
+    "symbol": "lua_operator_delete_202454",
+    "arguments": "4:stack4"
+  },
+  "2024c7": {
+    "symbol": "lua_operator_delete_2024c7",
+    "arguments": "4:stack4"
+  },
+  "20253a": {
+    "symbol": "lua_operator_delete_20253a",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2025ad": {
+    "symbol": "lua_operator_delete_2025ad",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "202620": {
+    "symbol": "lua_cxa_atexit_202620",
+    "arguments": ""
+  },
+  "202627": {
+    "symbol": "lua_cxa_guard_acquire_202627",
+    "arguments": "4:stack4"
+  },
+  "202636": {
+    "symbol": "lua_cxa_guard_release_202636",
+    "arguments": "4:stack4"
+  },
+  "202641": {
+    "symbol": "lua_cxa_guard_abort_202641",
+    "arguments": ""
+  },
+  "202646": {
+    "symbol": "lua_cxa_allocate_exception_202646",
+    "arguments": "4:stack4"
+  },
+  "20267b": {
+    "symbol": "lua_cxa_free_exception_20267b",
+    "arguments": "4:stack4"
+  },
+  "202698": {
+    "symbol": "lua_object_from_header_202698",
+    "arguments": "4:ECX"
+  },
+  "2026a0": {
+    "symbol": "lua_cxa_end_catch_2026a0",
+    "arguments": ""
+  },
+  "2026de": {
+    "symbol": "lua_cxa_throw_2026de",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "20270b": {
+    "symbol": "lua_raise_exception_20270b",
+    "arguments": "4:ECX"
+  },
+  "202761": {
+    "symbol": "lua_cxa_rethrow_202761",
+    "arguments": ""
+  },
+  "20278b": {
+    "symbol": "lua_Unwind_SjLj_Register_20278b",
+    "arguments": "4:stack4"
+  },
+  "2027a0": {
+    "symbol": "lua_Unwind_SjLj_Unregister_2027a0",
+    "arguments": "4:stack4"
+  },
+  "2027c9": {
+    "symbol": "lua_Unwind_SjLj_RaiseException_2027c9",
+    "arguments": "4:stack4"
+  },
+  "2027d7": {
+    "symbol": "lua_Unwind_SjLj_ForcedUnwind_2027d7",
+    "arguments": ""
+  },
+  "2027e2": {
+    "symbol": "lua_Unwind_SjLj_Resume_2027e2",
+    "arguments": "4:stack4"
+  },
+  "202800": {
+    "symbol": "lua_continue_unwind_202800",
+    "arguments": "4:ECX"
+  },
+  "202873": {
+    "symbol": "lua_Unwind_SjLj_Resume_or_Rethrow_202873",
+    "arguments": "4:stack4"
+  },
+  "202884": {
+    "symbol": "lua_gxx_personality_v0_202884",
+    "arguments": ""
+  },
+  "20288b": {
+    "symbol": "lua_Unwind_Resume_20288b",
+    "arguments": ""
+  },
+  "202896": {
+    "symbol": "lua_dynamic_cast_202896",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "2028cd": {
+    "symbol": "lua_type_matches_2028cd",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "202934": {
+    "symbol": "lua_cxa_pure_virtual_202934",
+    "arguments": ""
+  },
+  "20293d": {
+    "symbol": "lua_tlv_bootstrap_20293d",
+    "arguments": ""
+  },
+  "202944": {
+    "symbol": "lua_isdigit_202944",
+    "arguments": "4:stack4"
+  },
+  "202957": {
+    "symbol": "lua_isspace_202957",
+    "arguments": "4:stack4"
+  },
+  "20297e": {
+    "symbol": "lua_isxdigit_20297e",
+    "arguments": "4:stack4"
+  },
+  "2029a0": {
+    "symbol": "lua_isfinite_2029a0",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2029b8": {
+    "symbol": "lua_round_2029b8",
+    "arguments": "8:stack4"
+  },
+  "2029fc": {
+    "symbol": "lua_strtoull_2029fc",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "202b16": {
+    "symbol": "lua_strtoll_202b16",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "202b1f": {
+    "symbol": "lua_inspect_context_202b1f",
+    "arguments": "4:ECX,4:EDX,4:stack4"
+  },
+  "202cbe": {
+    "symbol": "lua_read_encoded_pointer_202cbe",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "202d72": {
+    "symbol": "lua_read_uleb128_202d72",
+    "arguments": "4:ECX"
+  },
+  "202d9d": {
+    "symbol": "lua_read_unaligned_202d9d",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "202dc2": {
+    "symbol": "lua_read_sleb128_202dc2",
+    "arguments": "4:ECX"
+  },
+  "202e04": {
+    "symbol": "lua_winterboot_lua_entry_202e04",
+    "arguments": ""
+  },
+  "203536": {
+    "symbol": "lua_writeLine_203536",
+    "arguments": "4:ECX"
+  },
+  "20354a": {
+    "symbol": "lua_clang_call_terminate_20354a",
+    "arguments": "4:stack4"
+  },
+  "203560": {
+    "symbol": "lua_writeText_203560",
+    "arguments": "4:ECX"
+  },
+  "203586": {
+    "symbol": "lua_writeLine_203586",
+    "arguments": "4:ECX"
+  },
+  "2035b0": {
+    "symbol": "lua_reportResult_2035b0",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "2036e0": {
+    "symbol": "lua_wm_string_string_2036e0",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "203712": {
+    "symbol": "lua_wm_string_assign_203712",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "2037db": {
+    "symbol": "lua_wm_string_length_2037db",
+    "arguments": "4:stack4"
+  },
+  "2037f6": {
+    "symbol": "lua_wm_string_pointer_offset_2037f6",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "203834": {
+    "symbol": "lua_wm_string_ensure_storage_203834",
+    "arguments": "4:stack4"
+  },
+  "203856": {
+    "symbol": "lua_wm_string_reserve_203856",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2038a6": {
+    "symbol": "lua_wm_string_string_2038a6",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "2038d6": {
+    "symbol": "lua_wm_string_allocate_2038d6",
+    "arguments": "4:stack4"
+  },
+  "2038f0": {
+    "symbol": "lua_wm_string_string_2038f0",
+    "arguments": "4:stack4"
+  },
+  "203908": {
+    "symbol": "lua_wm_string_view_find_203908",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
+  },
+  "203980": {
+    "symbol": "lua_LuaResult_LuaResult_203980",
+    "arguments": "4:stack4"
+  },
+  "2039a4": {
+    "symbol": "lua_wm_variant_variant_2039a4",
+    "arguments": "4:stack4"
+  },
+  "203a24": {
+    "symbol": "lua_void_wm_detail_variant_destroy_203a24",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "203a35": {
+    "symbol": "lua_void_wm_detail_variant_destroy_203a35",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "203a47": {
+    "symbol": "lua_void_wm_detail_variant_destroy_203a47",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "203a58": {
+    "symbol": "lua_void_wm_detail_variant_destroy_203a58",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "203a7d": {
+    "symbol": "lua_void_wm_detail_variant_destroy_203a7d",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "203aa4": {
+    "symbol": "lua_wm_shared_ptr_release_203aa4",
+    "arguments": "4:stack4"
+  },
+  "203b44": {
+    "symbol": "lua_void_wm_detail_variant_destroy_203b44",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "203b60": {
+    "symbol": "lua_wm_shared_ptr_release_203b60",
+    "arguments": "4:stack4"
+  },
+  "203c00": {
+    "symbol": "lua_wm_shared_ptr_release_203c00",
+    "arguments": "4:stack4"
+  },
+  "203ca0": {
+    "symbol": "lua_wm_operator_203ca0",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "203d4c": {
+    "symbol": "lua_wm_string_substr_203d4c",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
+  },
+  "203d98": {
+    "symbol": "lua_LuaResult_operator_203d98",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "203ddf": {
+    "symbol": "lua_wm_operator_203ddf",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "203e3a": {
+    "symbol": "lua_wm_string_operator_203e3a",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "203e64": {
+    "symbol": "lua_wm_string_append_203e64",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "203f10": {
+    "symbol": "lua_wm_string_operator_203f10",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "203f50": {
+    "symbol": "lua_wm_variant_203f50",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "203f88": {
+    "symbol": "lua_void_wm_detail_variant_move_203f88",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "203f99": {
+    "symbol": "lua_void_wm_detail_variant_move_203f99",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "203fbd": {
+    "symbol": "lua_void_wm_detail_variant_move_203fbd",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "203fd8": {
+    "symbol": "lua_void_wm_detail_variant_move_203fd8",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "20401c": {
+    "symbol": "lua_std_istream_istream_20401c",
+    "arguments": ""
+  },
+  "204022": {
+    "symbol": "lua_std_ostream_ostream_204022",
+    "arguments": ""
+  },
+  "204027": {
+    "symbol": "lua_writeWinterBootText_204027",
+    "arguments": "4:stack4"
+  },
+  "20404d": {
+    "symbol": "lua_writeWinterBootText_20404d",
+    "arguments": "4:stack4"
+  },
+  "20407c": {
+    "symbol": "lua_LuaValue_LuaValue_20407c",
+    "arguments": "4:stack4"
+  },
+  "20408c": {
+    "symbol": "lua_LuaValue_LuaValue_20408c",
+    "arguments": "4:stack4"
+  },
+  "20409c": {
+    "symbol": "lua_LuaValue_LuaValue_20409c",
+    "arguments": "4:stack4"
+  },
+  "2040ac": {
+    "symbol": "lua_LuaValue_LuaValue_2040ac",
+    "arguments": "4:stack4"
+  },
+  "2040bc": {
+    "symbol": "lua_LuaValue_LuaValue_2040bc",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2040da": {
+    "symbol": "lua_LuaValue_LuaValue_2040da",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2040f8": {
+    "symbol": "lua_LuaValue_LuaValue_2040f8",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "204116": {
+    "symbol": "lua_LuaValue_LuaValue_204116",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "204134": {
+    "symbol": "lua_LuaValue_LuaValue_204134",
+    "arguments": "4:stack4,8:stack8"
+  },
+  "20414c": {
+    "symbol": "lua_LuaValue_LuaValue_20414c",
+    "arguments": "4:stack4,8:stack8"
+  },
+  "204164": {
+    "symbol": "lua_LuaValue_LuaValue_204164",
+    "arguments": "4:stack4,1:stack8"
+  },
+  "20417c": {
+    "symbol": "lua_LuaValue_LuaValue_20417c",
+    "arguments": "4:stack4,1:stack8"
+  },
+  "204194": {
+    "symbol": "lua_LuaValue_LuaValue_204194",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2041de": {
+    "symbol": "lua_LuaValue_LuaValue_2041de",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2041e8": {
+    "symbol": "lua_LuaValue_LuaValue_2041e8",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20420a": {
+    "symbol": "lua_LuaValue_LuaValue_20420a",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "204214": {
+    "symbol": "lua_LuaValue_LuaValue_204214",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "204236": {
+    "symbol": "lua_LuaValue_LuaValue_204236",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "204240": {
+    "symbol": "lua_LuaValue_LuaValue_204240",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20428b": {
+    "symbol": "lua_wm_shared_ptr_const_20428b",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "204348": {
+    "symbol": "lua_LuaValue_LuaValue_204348",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "204352": {
+    "symbol": "lua_LuaValue_LuaValue_204352",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20439d": {
+    "symbol": "lua_wm_shared_ptr_20439d",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2043de": {
+    "symbol": "lua_LuaValue_LuaValue_2043de",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2043e8": {
+    "symbol": "lua_LuaValue_LuaValue_2043e8",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "204433": {
+    "symbol": "lua_wm_shared_ptr_const_204433",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2044f0": {
+    "symbol": "lua_LuaValue_LuaValue_2044f0",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2044fa": {
+    "symbol": "lua_LuaValue_LuaValue_2044fa",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "204545": {
+    "symbol": "lua_wm_shared_ptr_204545",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "204586": {
+    "symbol": "lua_LuaValue_LuaValue_204586",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "204590": {
+    "symbol": "lua_LuaValue_LuaValue_204590",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2045b2": {
+    "symbol": "lua_LuaValue_LuaValue_2045b2",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2045bc": {
+    "symbol": "lua_LuaValue_makeArray_2045bc",
+    "arguments": "4:stack4"
+  },
+  "204662": {
+    "symbol": "lua_LuaValue_makeMap_204662",
+    "arguments": "4:stack4"
+  },
+  "204706": {
+    "symbol": "lua_LuaValue_isTruthy_204706",
+    "arguments": "4:stack4"
+  },
+  "20472e": {
+    "symbol": "lua_LuaValue_toString_20472e",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "204ba0": {
+    "symbol": "lua_wm_to_string_204ba0",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "204bf2": {
+    "symbol": "lua_std_ostringstream_operator_204bf2",
+    "arguments": "4:stack4,8:stack8"
+  },
+  "204ca0": {
+    "symbol": "lua_wm_string_string_204ca0",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "204cab": {
+    "symbol": "lua_wm_operator_204cab",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "204d58": {
+    "symbol": "lua_LuaValue_asInteger_204d58",
+    "arguments": "4:stack4"
+  },
+  "204e7a": {
+    "symbol": "lua_wm_runtime_error_runtime_error_204e7a",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "204e84": {
+    "symbol": "lua_wm_runtime_error_runtime_error_204e84",
+    "arguments": "4:stack4"
+  },
+  "204e8e": {
+    "symbol": "lua_LuaValue_asFloat_204e8e",
+    "arguments": "4:stack4"
+  },
+  "204f96": {
+    "symbol": "lua_LuaValue_asBoolean_204f96",
+    "arguments": "4:stack4"
+  },
+  "205068": {
+    "symbol": "lua_LuaValue_asString_205068",
+    "arguments": "4:stack4"
+  },
+  "20513a": {
+    "symbol": "lua_LuaValue_asArray_20513a",
+    "arguments": "4:stack4"
+  },
+  "20520c": {
+    "symbol": "lua_LuaValue_asArray_20520c",
+    "arguments": "4:stack4"
+  },
+  "2052de": {
+    "symbol": "lua_LuaValue_asMap_2052de",
+    "arguments": "4:stack4"
+  },
+  "2053b0": {
+    "symbol": "lua_LuaValue_asMap_2053b0",
+    "arguments": "4:stack4"
+  },
+  "205482": {
+    "symbol": "lua_LuaValue_asFunction_205482",
+    "arguments": "4:stack4"
+  },
+  "205554": {
+    "symbol": "lua_LuaVM_LuaVM_205554",
+    "arguments": "4:stack4"
+  },
+  "205571": {
+    "symbol": "lua_wm_unique_ptr_205571",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20561c": {
+    "symbol": "lua_LuaVM_LuaVM_20561c",
+    "arguments": "4:stack4"
+  },
+  "205626": {
+    "symbol": "lua_LuaVM_LuaVM_205626",
+    "arguments": "4:stack4"
+  },
+  "205630": {
+    "symbol": "lua_LuaVM_LuaVM_205630",
+    "arguments": "4:stack4"
+  },
+  "20563a": {
+    "symbol": "lua_LuaVM_LuaVM_20563a",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "205652": {
+    "symbol": "lua_LuaVM_LuaVM_205652",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20566a": {
+    "symbol": "lua_LuaVM_operator_20566a",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "205696": {
+    "symbol": "lua_wm_unique_ptr_205696",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2056c0": {
+    "symbol": "lua_LuaVM_bindFunction_2056c0",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "205770": {
+    "symbol": "lua_LuaVM_Impl_bindFunction_205770",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "2059b4": {
+    "symbol": "lua_LuaVM_setGlobal_2059b4",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "205a52": {
+    "symbol": "lua_LuaVM_Impl_setGlobalValue_205a52",
+    "arguments": "4:ECX,4:EDX,4:stack4"
+  },
+  "205a74": {
+    "symbol": "lua_LuaVM_Impl_publicToValue_205a74",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "205e60": {
+    "symbol": "lua_Value_Value_205e60",
+    "arguments": "4:ECX"
+  },
+  "205e72": {
+    "symbol": "lua_LuaVM_getGlobal_205e72",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "205f9e": {
+    "symbol": "lua_LuaVM_Impl_getGlobalValue_205f9e",
+    "arguments": "4:ECX,4:EDX,4:stack4"
+  },
+  "205fce": {
+    "symbol": "lua_LuaVM_Impl_valueToPublic_205fce",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "2065f8": {
+    "symbol": "lua_LuaValue_operator_2065f8",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "206622": {
+    "symbol": "lua_LuaVM_compileScript_206622",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
+  },
+  "206728": {
+    "symbol": "lua_LuaVM_Impl_parseScript_206728",
+    "arguments": "4:ECX,4:EDX,4:stack4,4:stack8"
+  },
+  "208754": {
+    "symbol": "lua_LuaVM_writeBytecodeFile_208754",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20"
+  },
+  "208aa2": {
+    "symbol": "lua_wm_string_operator_208aa2",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "208acc": {
+    "symbol": "lua_LuaVM_runScriptString_208acc",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
+  },
+  "208e54": {
+    "symbol": "lua_LuaVM_Impl_makeSuccess_208e54",
+    "arguments": "4:ECX,4:EDX,4:stack4"
+  },
+  "209094": {
+    "symbol": "lua_LuaVM_Impl_makeFailure_209094",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
+  },
+  "20928c": {
+    "symbol": "lua_LuaVM_Impl_makeFailure_20928c",
+    "arguments": "4:ECX,4:EDX,4:stack4"
+  },
+  "20942c": {
+    "symbol": "lua_MultiValue_MultiValue_20942c",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "209508": {
+    "symbol": "lua_LuaVM_runScriptFile_209508",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "2096de": {
+    "symbol": "lua_std_ostringstream_operator_2096de",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "209734": {
+    "symbol": "lua_std_ifstream_ifstream_209734",
+    "arguments": "4:stack4"
+  },
+  "20974e": {
+    "symbol": "lua_LuaVM_runBytecode_20974e",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "209b7a": {
+    "symbol": "lua_LuaVM_runScriptFromBytecodeFile_209b7a",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "209b9e": {
+    "symbol": "lua_LuaVM_runBytecodeFile_209b9e",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "20a0f4": {
+    "symbol": "lua_wm_vector_20a0f4",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20a138": {
+    "symbol": "lua_LuaVM_valueToString_20a138",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20a159": {
+    "symbol": "lua_bindCppFunctionToLuaVM_20a159",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "20a207": {
+    "symbol": "lua_runLuaScriptString_20a207",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
+  },
+  "20a22b": {
+    "symbol": "lua_runLuaScriptFile_20a22b",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "20a24f": {
+    "symbol": "lua_runLuaBytecode_20a24f",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "20a273": {
+    "symbol": "lua_runLuaScriptFromBytecodeFile_20a273",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "20a297": {
+    "symbol": "lua_runLuaBytecodeFile_20a297",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "20a2bc": {
+    "symbol": "lua_std_istream_istream_20a2bc",
+    "arguments": "4:stack4"
+  },
+  "20a2c6": {
+    "symbol": "lua_std_ostream_ostream_20a2c6",
+    "arguments": "4:stack4"
+  },
+  "20a2d0": {
+    "symbol": "lua_wm_vector_vector_20a2d0",
+    "arguments": "4:stack4"
+  },
+  "20a2ec": {
+    "symbol": "lua_wm_vector_vector_20a2ec",
+    "arguments": "4:stack4"
+  },
+  "20a30c": {
+    "symbol": "lua_wm_vector_clear_20a30c",
+    "arguments": "4:stack4"
+  },
+  "20a340": {
+    "symbol": "lua_wm_pair_pair_20a340",
+    "arguments": "4:stack4"
+  },
+  "20a35e": {
+    "symbol": "lua_wm_unordered_map_unordered_map_20a35e",
+    "arguments": "4:stack4"
+  },
+  "20a386": {
+    "symbol": "lua_wm_to_chars_result_wm_to_chars_20a386",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20"
+  },
+  "20a463": {
+    "symbol": "lua_wm_to_string_20a463",
+    "arguments": "4:stack4,8:stack8"
+  },
+  "20a7c0": {
+    "symbol": "lua_wm_string_push_back_20a7c0",
+    "arguments": "4:stack4,1:stack8"
+  },
+  "20a813": {
+    "symbol": "lua_wm_to_string_20a813",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "20a865": {
+    "symbol": "lua_wm_to_chars_result_wm_to_chars_20a865",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20"
+  },
+  "20a938": {
+    "symbol": "lua_wm_string_string_20a938",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20a970": {
+    "symbol": "lua_wm_string_append_20a970",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20a996": {
+    "symbol": "lua_wm_runtime_error_runtime_error_20a996",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20a9c0": {
+    "symbol": "lua_wm_runtime_error_runtime_error_20a9c0",
+    "arguments": "4:stack4"
+  },
+  "20a9da": {
+    "symbol": "lua_wm_runtime_error_what_20a9da",
+    "arguments": "4:stack4"
+  },
+  "20a9f0": {
+    "symbol": "lua_wm_runtime_error_runtime_error_20a9f0",
+    "arguments": "4:stack4"
+  },
+  "20aa14": {
+    "symbol": "lua_wm_shared_ptr_20aa14",
+    "arguments": "4:stack4"
+  },
+  "20aa58": {
+    "symbol": "lua_wm_string_operator_20aa58",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20aa8c": {
+    "symbol": "lua_Value_Value_20aa8c",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20aaae": {
+    "symbol": "lua_LuaFunctionHandle_LuaFunctionHandle_20aaae",
+    "arguments": "4:stack4"
+  },
+  "20aada": {
+    "symbol": "lua_wm_shared_ptr_shared_ptr_20aada",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20ab20": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_20ab20",
+    "arguments": ""
+  },
+  "20ab26": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_20ab26",
+    "arguments": "4:stack4"
+  },
+  "20ab30": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_destroy_object_20ab30",
+    "arguments": "4:stack4"
+  },
+  "20ab5e": {
+    "symbol": "lua_LuaFunctionHandle_LuaFunctionHandle_20ab5e",
+    "arguments": "4:stack4"
+  },
+  "20ab96": {
+    "symbol": "lua_wm_shared_ptr_release_20ab96",
+    "arguments": "4:ECX"
+  },
+  "20ac32": {
+    "symbol": "lua_wm_shared_ptr_release_20ac32",
+    "arguments": "4:ECX"
+  },
+  "20acce": {
+    "symbol": "lua_LuaVM_Impl_bindFunction_20acce",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20ad84": {
+    "symbol": "lua_wm_function_lambda_20ad84",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20ada2": {
+    "symbol": "lua_wm_function_holder_20ada2",
+    "arguments": "4:stack4"
+  },
+  "20adc2": {
+    "symbol": "lua_wm_function_holder_20adc2",
+    "arguments": "4:stack4"
+  },
+  "20addc": {
+    "symbol": "lua_wm_function_invoke_20addc",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20,4:stack24"
+  },
+  "20b190": {
+    "symbol": "lua_wm_function_clone_20b190",
+    "arguments": "4:stack4"
+  },
+  "20b264": {
+    "symbol": "lua_wm_vector_reserve_20b264",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20b2d3": {
+    "symbol": "lua_failRuntime_20b2d3",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20b3ec": {
+    "symbol": "lua_LuaValue_wm_detail_vector_allocate_20b3ec",
+    "arguments": "4:stack4"
+  },
+  "20b40e": {
+    "symbol": "lua_LuaValue_LuaValue_20b40e",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20b434": {
+    "symbol": "lua_wm_variant_20b434",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20b458": {
+    "symbol": "lua_void_wm_detail_variant_move_20b458",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "20b474": {
+    "symbol": "lua_wm_string_string_20b474",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20b49a": {
+    "symbol": "lua_LuaValue_wm_vector_20b49a",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20b4ec": {
+    "symbol": "lua_ProtectedRuntimeError_ProtectedRuntimeError_20b4ec",
+    "arguments": "4:stack4"
+  },
+  "20b4f6": {
+    "symbol": "lua_RuntimeError_RuntimeError_20b4f6",
+    "arguments": "4:ECX,4:EDX,4:stack4"
+  },
+  "20b51e": {
+    "symbol": "lua_RuntimeError_RuntimeError_20b51e",
+    "arguments": "4:stack4"
+  },
+  "20b528": {
+    "symbol": "lua_wm_runtime_error_runtime_error_20b528",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20b552": {
+    "symbol": "lua_RuntimeError_RuntimeError_20b552",
+    "arguments": "4:stack4"
+  },
+  "20b56c": {
+    "symbol": "lua_LuaVM_Impl_bindFunction_20b56c",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20b638": {
+    "symbol": "lua_LuaVM_Impl_bindFunction_20b638",
+    "arguments": "4:stack4"
+  },
+  "20b660": {
+    "symbol": "lua_wm_shared_ptr_const_20b660",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20b67c": {
+    "symbol": "lua_LuaVM_Impl_setGlobalValue_20b67c",
+    "arguments": "4:ECX,4:EDX,4:stack4"
+  },
+  "20b6b0": {
+    "symbol": "lua_LuaVM_Impl_resolveGlobalSlot_20b6b0",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20b79c": {
+    "symbol": "lua_wm_vector_resize_20b79c",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20b804": {
+    "symbol": "lua_Value_operator_20b804",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20b84a": {
+    "symbol": "lua_wm_vector_reserve_20b84a",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20b8b0": {
+    "symbol": "lua_Value_Value_20b8b0",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20b8d7": {
+    "symbol": "lua_void_wm_detail_variant_move_20b8d7",
+    "arguments": "4:ECX,4:EDX,4:stack4"
+  },
+  "20b931": {
+    "symbol": "lua_void_wm_detail_variant_destroy_20b931",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20b97e": {
+    "symbol": "lua_void_wm_detail_variant_copy_20b97e",
+    "arguments": "4:ECX,4:EDX,4:stack4"
+  },
+  "20b9f2": {
+    "symbol": "lua_wm_shared_ptr_shared_ptr_20b9f2",
+    "arguments": "4:ECX"
+  },
+  "20ba8e": {
+    "symbol": "lua_wm_shared_ptr_shared_ptr_20ba8e",
+    "arguments": "4:ECX"
+  },
+  "20bb2a": {
+    "symbol": "lua_wm_shared_ptr_shared_ptr_20bb2a",
+    "arguments": "4:ECX"
+  },
+  "20bbc6": {
+    "symbol": "lua_wm_shared_ptr_const_20bbc6",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20bbdc": {
+    "symbol": "lua_wm_shared_ptr_const_20bbdc",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20bbf2": {
+    "symbol": "lua_wm_shared_ptr_const_20bbf2",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20bc08": {
+    "symbol": "lua_wm_unordered_map_find_20bc08",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20bc36": {
+    "symbol": "lua_wm_pair_20bc36",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "20bcbe": {
+    "symbol": "lua_wm_vector_push_back_20bcbe",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20bcf8": {
+    "symbol": "lua_wm_unordered_map_find_index_20bcf8",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20bd5c": {
+    "symbol": "lua_wm_unordered_map_bucket_for_key_20bd5c",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20bd82": {
+    "symbol": "lua_wm_hash_operator_20bd82",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20bda8": {
+    "symbol": "lua_wm_detail_hash_bytes_20bda8",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20bdd1": {
+    "symbol": "lua_wm_operator_20bdd1",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20be24": {
+    "symbol": "lua_wm_unordered_map_prepare_insert_20be24",
+    "arguments": "4:stack4"
+  },
+  "20be60": {
+    "symbol": "lua_wm_pair_20be60",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "20bec2": {
+    "symbol": "lua_wm_unordered_map_link_index_20bec2",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20bef4": {
+    "symbol": "lua_wm_unordered_map_rehash_20bef4",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20bf50": {
+    "symbol": "lua_wm_vector_assign_20bf50",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "20bf60": {
+    "symbol": "lua_wm_unordered_map_bucket_count_for_size_20bf60",
+    "arguments": "4:stack4"
+  },
+  "20bf74": {
+    "symbol": "lua_wm_unordered_map_rebuild_buckets_20bf74",
+    "arguments": "4:stack4"
+  },
+  "20bfa8": {
+    "symbol": "lua_wm_vector_resize_20bfa8",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "20bff8": {
+    "symbol": "lua_wm_vector_resize_20bff8",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20c036": {
+    "symbol": "lua_wm_vector_reserve_20c036",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20c080": {
+    "symbol": "lua_unsigned_long_wm_detail_vector_allocate_20c080",
+    "arguments": "4:stack4"
+  },
+  "20c0a2": {
+    "symbol": "lua_wm_vector_reserve_20c0a2",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20c10e": {
+    "symbol": "lua_wm_pair_20c10e",
+    "arguments": "4:stack4"
+  },
+  "20c130": {
+    "symbol": "lua_wm_pair_20c130",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20c152": {
+    "symbol": "lua_wm_pair_pair_20c152",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "20c176": {
+    "symbol": "lua_unsigned_long_wm_vector_20c176",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20c1bc": {
+    "symbol": "lua_Value_Value_20c1bc",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20c1de": {
+    "symbol": "lua_wm_shared_ptr_20c1de",
+    "arguments": "4:ECX"
+  },
+  "20c235": {
+    "symbol": "lua_tableSetByKey_20c235",
+    "arguments": "4:ECX,4:EDX,4:stack4"
+  },
+  "20c5ea": {
+    "symbol": "lua_Value_Value_20c5ea",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20c600": {
+    "symbol": "lua_TableKey_makeString_20c600",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20c63a": {
+    "symbol": "lua_wm_vector_vector_20c63a",
+    "arguments": "4:ECX"
+  },
+  "20c656": {
+    "symbol": "lua_wm_pair_pair_20c656",
+    "arguments": "4:ECX"
+  },
+  "20c676": {
+    "symbol": "lua_wm_vector_clear_20c676",
+    "arguments": "4:ECX"
+  },
+  "20c6a6": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_20c6a6",
+    "arguments": ""
+  },
+  "20c6ac": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_20c6ac",
+    "arguments": "4:stack4"
+  },
+  "20c6b6": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_destroy_object_20c6b6",
+    "arguments": "4:stack4"
+  },
+  "20c726": {
+    "symbol": "lua_wm_unordered_map_erase_20c726",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20c81a": {
+    "symbol": "lua_Value_operator_20c81a",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20c860": {
+    "symbol": "lua_wm_unordered_map_find_20c860",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20c922": {
+    "symbol": "lua_wm_unordered_map_bucket_for_key_20c922",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20c992": {
+    "symbol": "lua_wm_vector_erase_20c992",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20c9b0": {
+    "symbol": "lua_wm_unordered_map_rebuild_buckets_20c9b0",
+    "arguments": "4:ECX"
+  },
+  "20c9e0": {
+    "symbol": "lua_TableKey_operator_20c9e0",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20ca18": {
+    "symbol": "lua_wm_vector_erase_20ca18",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "20ca76": {
+    "symbol": "lua_wm_unordered_map_link_index_20ca76",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20ca9c": {
+    "symbol": "lua_LuaVM_Impl_getGlobalValue_20ca9c",
+    "arguments": "4:ECX,4:EDX,4:stack4"
+  },
+  "20cacc": {
+    "symbol": "lua_Value_Value_20cacc",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20caf3": {
+    "symbol": "lua_tableSequenceLength_20caf3",
+    "arguments": "4:ECX"
+  },
+  "20cb8a": {
+    "symbol": "lua_tableGetByKey_20cb8a",
+    "arguments": "4:ECX,4:EDX,4:stack4"
+  },
+  "20cc04": {
+    "symbol": "lua_wm_unordered_map_operator_20cc04",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20cd18": {
+    "symbol": "lua_wm_to_string_20cd18",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20cd64": {
+    "symbol": "lua_wm_unordered_map_find_20cd64",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20cd92": {
+    "symbol": "lua_wm_unordered_map_prepare_insert_20cd92",
+    "arguments": "4:stack4"
+  },
+  "20cdce": {
+    "symbol": "lua_wm_pair_20cdce",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "20ce2c": {
+    "symbol": "lua_wm_unordered_map_link_index_20ce2c",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20ce5c": {
+    "symbol": "lua_wm_unordered_map_find_index_20ce5c",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20cebe": {
+    "symbol": "lua_wm_unordered_map_bucket_for_key_20cebe",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20cee4": {
+    "symbol": "lua_wm_unordered_map_rehash_20cee4",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20cf40": {
+    "symbol": "lua_wm_unordered_map_bucket_count_for_size_20cf40",
+    "arguments": "4:stack4"
+  },
+  "20cf54": {
+    "symbol": "lua_wm_unordered_map_rebuild_buckets_20cf54",
+    "arguments": "4:stack4"
+  },
+  "20cf88": {
+    "symbol": "lua_wm_vector_reserve_20cf88",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20cff4": {
+    "symbol": "lua_wm_pair_20cff4",
+    "arguments": "4:stack4"
+  },
+  "20d016": {
+    "symbol": "lua_wm_pair_20d016",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20d0c0": {
+    "symbol": "lua_wm_pair_20d0c0",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "20d16c": {
+    "symbol": "lua_wm_to_chars_result_wm_to_chars_20d16c",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
+  },
+  "20d23c": {
+    "symbol": "lua_void_wm_detail_variant_destroy_20d23c",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20d250": {
+    "symbol": "lua_void_wm_detail_variant_destroy_20d250",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20d278": {
+    "symbol": "lua_wm_vector_vector_20d278",
+    "arguments": "4:ECX"
+  },
+  "20d2b8": {
+    "symbol": "lua_wm_vector_vector_20d2b8",
+    "arguments": "4:ECX"
+  },
+  "20d2d4": {
+    "symbol": "lua_Resolver_Resolver_20d2d4",
+    "arguments": "4:ECX"
+  },
+  "20d31c": {
+    "symbol": "lua_Parser_Parser_20d31c",
+    "arguments": "4:ECX"
+  },
+  "20d33a": {
+    "symbol": "lua_Lexer_Lexer_20d33a",
+    "arguments": "4:ECX"
+  },
+  "20d35a": {
+    "symbol": "lua_Lexer_advance_20d35a",
+    "arguments": "4:ECX"
+  },
+  "20d38a": {
+    "symbol": "lua_wm_vector_push_back_20d38a",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20d41e": {
+    "symbol": "lua_Lexer_peek_20d41e",
+    "arguments": "4:ECX"
+  },
+  "20d442": {
+    "symbol": "lua_Lexer_readLongString_20d442",
+    "arguments": "4:ECX,4:EDX,4:stack4,4:stack8"
+  },
+  "20d570": {
+    "symbol": "lua_Lexer_match_20d570",
+    "arguments": "4:ECX,1:DL"
+  },
+  "20d5a9": {
+    "symbol": "lua_failParse_20d5a9",
+    "arguments": "4:ECX,4:EDX,4:stack4,4:stack8"
+  },
+  "20d768": {
+    "symbol": "lua_wm_operator_20d768",
+    "arguments": "4:stack4,4:stack8,1:stack12"
+  },
+  "20d814": {
+    "symbol": "lua_Token_Token_20d814",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20d844": {
+    "symbol": "lua_std_ostringstream_operator_20d844",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20d86e": {
+    "symbol": "lua_std_ostringstream_operator_20d86e",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20d88a": {
+    "symbol": "lua_std_ostringstream_append_unsigned_20d88a",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "20d940": {
+    "symbol": "lua_wm_string_string_20d940",
+    "arguments": "4:stack4,4:stack8,1:stack12"
+  },
+  "20d958": {
+    "symbol": "lua_wm_string_resize_20d958",
+    "arguments": "4:stack4,4:stack8,1:stack12"
+  },
+  "20d9ac": {
+    "symbol": "lua_wm_string_growth_for_20d9ac",
+    "arguments": "4:stack4"
+  },
+  "20d9c2": {
+    "symbol": "lua_Resolver_beginScope_20d9c2",
+    "arguments": "4:ECX"
+  },
+  "20da84": {
+    "symbol": "lua_Resolver_resolveStatements_20da84",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20e2a0": {
+    "symbol": "lua_wm_vector_20e2a0",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20e2e6": {
+    "symbol": "lua_Resolver_endScope_20e2e6",
+    "arguments": "4:ECX"
+  },
+  "20e314": {
+    "symbol": "lua_wm_unordered_map_20e314",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20e356": {
+    "symbol": "lua_wm_vector_20e356",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20e37c": {
+    "symbol": "lua_wm_vector_20e37c",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20e3a2": {
+    "symbol": "lua_wm_unordered_map_unordered_map_20e3a2",
+    "arguments": "4:stack4"
+  },
+  "20e3ca": {
+    "symbol": "lua_wm_vector_vector_20e3ca",
+    "arguments": "4:stack4"
+  },
+  "20e3ea": {
+    "symbol": "lua_wm_vector_clear_20e3ea",
+    "arguments": "4:stack4"
+  },
+  "20e420": {
+    "symbol": "lua_wm_unordered_map_unordered_map_20e420",
+    "arguments": "4:stack4"
+  },
+  "20e44c": {
+    "symbol": "lua_Resolver_resolveExpression_20e44c",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20e850": {
+    "symbol": "lua_wm_shared_ptr_shared_ptr_20e850",
+    "arguments": "4:ECX"
+  },
+  "20e8ec": {
+    "symbol": "lua_Resolver_resolveExpressionList_20e8ec",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20e91c": {
+    "symbol": "lua_Resolver_declareLocal_20e91c",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20e94e": {
+    "symbol": "lua_Resolver_resolveAssignTarget_20e94e",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20e9ba": {
+    "symbol": "lua_wm_shared_ptr_shared_ptr_20e9ba",
+    "arguments": "4:ECX"
+  },
+  "20ea56": {
+    "symbol": "lua_Resolver_resolveFunction_20ea56",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20eabc": {
+    "symbol": "lua_wm_shared_ptr_shared_ptr_20eabc",
+    "arguments": "4:ECX"
+  },
+  "20eb58": {
+    "symbol": "lua_blockContainsFunction_20eb58",
+    "arguments": "4:ECX"
+  },
+  "20ed22": {
+    "symbol": "lua_wm_shared_ptr_shared_ptr_20ed22",
+    "arguments": "4:ECX"
+  },
+  "20edbe": {
+    "symbol": "lua_wm_shared_ptr_shared_ptr_20edbe",
+    "arguments": "4:ECX"
+  },
+  "20ee5a": {
+    "symbol": "lua_wm_shared_ptr_shared_ptr_20ee5a",
+    "arguments": "4:ECX"
+  },
+  "20eef6": {
+    "symbol": "lua_wm_shared_ptr_shared_ptr_20eef6",
+    "arguments": "4:ECX"
+  },
+  "20ef92": {
+    "symbol": "lua_wm_shared_ptr_shared_ptr_20ef92",
+    "arguments": "4:ECX"
+  },
+  "20f02e": {
+    "symbol": "lua_wm_shared_ptr_shared_ptr_20f02e",
+    "arguments": "4:ECX"
+  },
+  "20f0ca": {
+    "symbol": "lua_wm_shared_ptr_const_20f0ca",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20f110": {
+    "symbol": "lua_Resolver_findLocal_20f110",
+    "arguments": "4:ECX,4:EDX,4:stack4,4:stack8"
+  },
+  "20f178": {
+    "symbol": "lua_wm_shared_ptr_shared_ptr_20f178",
+    "arguments": "4:ECX"
+  },
+  "20f214": {
+    "symbol": "lua_wm_shared_ptr_shared_ptr_20f214",
+    "arguments": "4:ECX"
+  },
+  "20f2b0": {
+    "symbol": "lua_wm_shared_ptr_shared_ptr_20f2b0",
+    "arguments": "4:ECX"
+  },
+  "20f34c": {
+    "symbol": "lua_wm_shared_ptr_shared_ptr_20f34c",
+    "arguments": "4:ECX"
+  },
+  "20f3e8": {
+    "symbol": "lua_wm_shared_ptr_const_20f3e8",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20f42e": {
+    "symbol": "lua_wm_shared_ptr_shared_ptr_20f42e",
+    "arguments": "4:ECX"
+  },
+  "20f4ca": {
+    "symbol": "lua_wm_shared_ptr_const_20f4ca",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20f510": {
+    "symbol": "lua_wm_shared_ptr_shared_ptr_20f510",
+    "arguments": "4:ECX"
+  },
+  "20f5ac": {
+    "symbol": "lua_wm_shared_ptr_const_20f5ac",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20f5f2": {
+    "symbol": "lua_wm_shared_ptr_shared_ptr_20f5f2",
+    "arguments": "4:ECX"
+  },
+  "20f68e": {
+    "symbol": "lua_wm_unordered_map_find_20f68e",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20f6bc": {
+    "symbol": "lua_wm_unordered_map_operator_20f6bc",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20f742": {
+    "symbol": "lua_wm_pair_20f742",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "20f7a4": {
+    "symbol": "lua_wm_pair_20f7a4",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "20f7c7": {
+    "symbol": "lua_expressionContainsFunction_20f7c7",
+    "arguments": "4:ECX"
+  },
+  "20f8c2": {
+    "symbol": "lua_unsigned_long_wm_vector_20f8c2",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20f908": {
+    "symbol": "lua_wm_vector_clear_20f908",
+    "arguments": "4:ECX"
+  },
+  "20f93c": {
+    "symbol": "lua_wm_shared_ptr_shared_ptr_20f93c",
+    "arguments": "4:ECX"
+  },
+  "20f9d8": {
+    "symbol": "lua_Parser_skipSemicolons_20f9d8",
+    "arguments": "4:ECX"
+  },
+  "20f9f4": {
+    "symbol": "lua_wm_vector_20f9f4",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20faa0": {
+    "symbol": "lua_Parser_parseStatement_20faa0",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "210e54": {
+    "symbol": "lua_Parser_match_210e54",
+    "arguments": "4:ECX,1:DL"
+  },
+  "210e7a": {
+    "symbol": "lua_Parser_advance_210e7a",
+    "arguments": "4:ECX"
+  },
+  "210e9c": {
+    "symbol": "lua_Parser_parseFunctionDeclaration_210e9c",
+    "arguments": "4:ECX,4:EDX,4:stack4,1:stack8"
+  },
+  "2115f8": {
+    "symbol": "lua_Parser_parseExpression_2115f8",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "21173c": {
+    "symbol": "lua_wm_shared_ptr_21173c",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "211768": {
+    "symbol": "lua_Parser_consume_211768",
+    "arguments": "4:ECX,1:DL,4:stack4"
+  },
+  "211792": {
+    "symbol": "lua_Parser_parseBlock_211792",
+    "arguments": "4:ECX,4:EDX,4:stack4,4:stack8"
+  },
+  "2118a6": {
+    "symbol": "lua_wm_vector_push_back_2118a6",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "211934": {
+    "symbol": "lua_IfStmt_Branch_Branch_211934",
+    "arguments": "4:ECX"
+  },
+  "211950": {
+    "symbol": "lua_wm_vector_vector_211950",
+    "arguments": "4:ECX"
+  },
+  "21198a": {
+    "symbol": "lua_IfStmt_IfStmt_21198a",
+    "arguments": "4:stack4"
+  },
+  "2119b0": {
+    "symbol": "lua_IfStmt_IfStmt_2119b0",
+    "arguments": "4:stack4"
+  },
+  "2119ca": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_2119ca",
+    "arguments": ""
+  },
+  "2119d0": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_2119d0",
+    "arguments": "4:stack4"
+  },
+  "2119da": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_destroy_object_2119da",
+    "arguments": "4:stack4"
+  },
+  "2119fc": {
+    "symbol": "lua_Parser_parseAnd_2119fc",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "211b3f": {
+    "symbol": "lua_wm_shared_ptr_unsigned_int_const_211b3f",
+    "arguments": "4:ECX,4:EDX,4:stack4,4:stack8,4:stack12"
+  },
+  "211c66": {
+    "symbol": "lua_Parser_parseComparison_211c66",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "211e0c": {
+    "symbol": "lua_Parser_parseConcat_211e0c",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "212028": {
+    "symbol": "lua_Token_Token_212028",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "212058": {
+    "symbol": "lua_Parser_parseFactor_212058",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "2121d4": {
+    "symbol": "lua_Parser_parseUnary_2121d4",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "212384": {
+    "symbol": "lua_Parser_parsePrefixExpression_212384",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "2130f8": {
+    "symbol": "lua_UnaryExpr_UnaryExpr_2130f8",
+    "arguments": "4:stack4"
+  },
+  "21310e": {
+    "symbol": "lua_UnaryExpr_UnaryExpr_21310e",
+    "arguments": "4:stack4"
+  },
+  "213128": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_213128",
+    "arguments": ""
+  },
+  "21312e": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_21312e",
+    "arguments": "4:stack4"
+  },
+  "213138": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_destroy_object_213138",
+    "arguments": "4:stack4"
+  },
+  "213159": {
+    "symbol": "lua_wm_shared_ptr_wm_string_const_unsigned_int_const_213159",
+    "arguments": "4:ECX,4:EDX,4:stack4,4:stack8"
+  },
+  "213301": {
+    "symbol": "lua_wm_shared_ptr_213301",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "213380": {
+    "symbol": "lua_wm_shared_ptr_const_213380",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "2133b8": {
+    "symbol": "lua_Parser_parseArguments_2133b8",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "213514": {
+    "symbol": "lua_wm_vector_213514",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "21355a": {
+    "symbol": "lua_wm_vector_vector_21355a",
+    "arguments": "4:ECX"
+  },
+  "213576": {
+    "symbol": "lua_wm_shared_ptr_213576",
+    "arguments": "4:ECX,4:EDX,4:stack4"
+  },
+  "21365c": {
+    "symbol": "lua_wm_shared_ptr_shared_ptr_21365c",
+    "arguments": "4:ECX"
+  },
+  "2136f8": {
+    "symbol": "lua_wm_stod_2136f8",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "213878": {
+    "symbol": "lua_wm_string_operator_wm_string_view_213878",
+    "arguments": "4:stack4"
+  },
+  "21388f": {
+    "symbol": "lua_wm_shared_ptr_21388f",
+    "arguments": "4:ECX,4:EDX,4:stack4"
+  },
+  "2139d6": {
+    "symbol": "lua_Parser_parseFunctionBody_2139d6",
+    "arguments": "4:ECX,4:EDX,4:stack4"
+  },
+  "213c52": {
+    "symbol": "lua_Parser_errorAt_213c52",
+    "arguments": "4:ECX,4:EDX,4:stack4"
+  },
+  "213c6e": {
+    "symbol": "lua_LiteralExpr_LiteralExpr_213c6e",
+    "arguments": "4:stack4"
+  },
+  "213c84": {
+    "symbol": "lua_LiteralExpr_LiteralExpr_213c84",
+    "arguments": "4:stack4"
+  },
+  "213c9e": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_213c9e",
+    "arguments": ""
+  },
+  "213ca4": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_213ca4",
+    "arguments": "4:stack4"
+  },
+  "213cae": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_destroy_object_213cae",
+    "arguments": "4:stack4"
+  },
+  "213ccf": {
+    "symbol": "lua_wm_stoll_213ccf",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
+  },
+  "213d14": {
+    "symbol": "lua_wm_from_chars_result_wm_from_chars_213d14",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
+  },
+  "213e8d": {
+    "symbol": "lua_wm_digit_from_char_213e8d",
+    "arguments": "1:stack4"
+  },
+  "213ec6": {
+    "symbol": "lua_VariableExpr_VariableExpr_213ec6",
+    "arguments": "4:stack4"
+  },
+  "213ee6": {
+    "symbol": "lua_VariableExpr_VariableExpr_213ee6",
+    "arguments": "4:stack4"
+  },
+  "213f00": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_213f00",
+    "arguments": ""
+  },
+  "213f06": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_213f06",
+    "arguments": "4:stack4"
+  },
+  "213f10": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_destroy_object_213f10",
+    "arguments": "4:stack4"
+  },
+  "213f32": {
+    "symbol": "lua_TableExpr_Field_Field_213f32",
+    "arguments": "4:ECX"
+  },
+  "213f5a": {
+    "symbol": "lua_TableExpr_TableExpr_213f5a",
+    "arguments": "4:stack4"
+  },
+  "213f9e": {
+    "symbol": "lua_TableExpr_TableExpr_213f9e",
+    "arguments": "4:stack4"
+  },
+  "213fb8": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_213fb8",
+    "arguments": ""
+  },
+  "213fbe": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_213fbe",
+    "arguments": "4:stack4"
+  },
+  "213fc8": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_destroy_object_213fc8",
+    "arguments": "4:stack4"
+  },
+  "213fea": {
+    "symbol": "lua_TableExpr_Field_Field_213fea",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "21403c": {
+    "symbol": "lua_FunctionExpr_FunctionExpr_21403c",
+    "arguments": "4:stack4"
+  },
+  "214064": {
+    "symbol": "lua_FunctionExpr_FunctionExpr_214064",
+    "arguments": "4:stack4"
+  },
+  "21407e": {
+    "symbol": "lua_wm_vector_vector_21407e",
+    "arguments": "4:stack4"
+  },
+  "21409e": {
+    "symbol": "lua_wm_vector_clear_21409e",
+    "arguments": "4:stack4"
+  },
+  "2140d2": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_2140d2",
+    "arguments": ""
+  },
+  "2140d8": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_2140d8",
+    "arguments": "4:stack4"
+  },
+  "2140e2": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_destroy_object_2140e2",
+    "arguments": "4:stack4"
+  },
+  "214104": {
+    "symbol": "lua_wm_string_wm_vector_214104",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "214156": {
+    "symbol": "lua_wm_vector_reserve_214156",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2141c2": {
+    "symbol": "lua_wm_string_wm_detail_vector_allocate_2141c2",
+    "arguments": "4:stack4"
+  },
+  "2141e4": {
+    "symbol": "lua_FieldExpr_FieldExpr_2141e4",
+    "arguments": "4:stack4"
+  },
+  "214214": {
+    "symbol": "lua_FieldExpr_FieldExpr_214214",
+    "arguments": "4:stack4"
+  },
+  "21422e": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_21422e",
+    "arguments": ""
+  },
+  "214234": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_214234",
+    "arguments": "4:stack4"
+  },
+  "21423e": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_destroy_object_21423e",
+    "arguments": "4:stack4"
+  },
+  "214260": {
+    "symbol": "lua_IndexExpr_IndexExpr_214260",
+    "arguments": "4:stack4"
+  },
+  "214298": {
+    "symbol": "lua_IndexExpr_IndexExpr_214298",
+    "arguments": "4:stack4"
+  },
+  "2142b2": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_2142b2",
+    "arguments": ""
+  },
+  "2142b8": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_2142b8",
+    "arguments": "4:stack4"
+  },
+  "2142c2": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_destroy_object_2142c2",
+    "arguments": "4:stack4"
+  },
+  "2142e4": {
+    "symbol": "lua_CallExpr_CallExpr_2142e4",
+    "arguments": "4:stack4"
+  },
+  "21431c": {
+    "symbol": "lua_CallExpr_CallExpr_21431c",
+    "arguments": "4:stack4"
+  },
+  "214336": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_214336",
+    "arguments": ""
+  },
+  "21433c": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_21433c",
+    "arguments": "4:stack4"
+  },
+  "214346": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_destroy_object_214346",
+    "arguments": "4:stack4"
+  },
+  "214368": {
+    "symbol": "lua_Parser_parseExpressionList_214368",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "214472": {
+    "symbol": "lua_wm_vector_214472",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "21451e": {
+    "symbol": "lua_wm_vector_clear_21451e",
+    "arguments": "4:ECX"
+  },
+  "214552": {
+    "symbol": "lua_BinaryExpr_BinaryExpr_214552",
+    "arguments": "4:stack4"
+  },
+  "214578": {
+    "symbol": "lua_BinaryExpr_BinaryExpr_214578",
+    "arguments": "4:stack4"
+  },
+  "214592": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_214592",
+    "arguments": ""
+  },
+  "214598": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_214598",
+    "arguments": "4:stack4"
+  },
+  "2145a2": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_destroy_object_2145a2",
+    "arguments": "4:stack4"
+  },
+  "2145c4": {
+    "symbol": "lua_wm_shared_ptr_release_2145c4",
+    "arguments": "4:ECX"
+  },
+  "214660": {
+    "symbol": "lua_IfStmt_Branch_Branch_214660",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "2146a0": {
+    "symbol": "lua_WhileStmt_WhileStmt_2146a0",
+    "arguments": "4:stack4"
+  },
+  "2146c6": {
+    "symbol": "lua_WhileStmt_WhileStmt_2146c6",
+    "arguments": "4:stack4"
+  },
+  "2146e0": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_2146e0",
+    "arguments": ""
+  },
+  "2146e6": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_2146e6",
+    "arguments": "4:stack4"
+  },
+  "2146f0": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_destroy_object_2146f0",
+    "arguments": "4:stack4"
+  },
+  "214712": {
+    "symbol": "lua_NumericForStmt_NumericForStmt_214712",
+    "arguments": "4:stack4"
+  },
+  "214752": {
+    "symbol": "lua_NumericForStmt_NumericForStmt_214752",
+    "arguments": "4:stack4"
+  },
+  "21476c": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_21476c",
+    "arguments": ""
+  },
+  "214772": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_214772",
+    "arguments": "4:stack4"
+  },
+  "21477c": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_destroy_object_21477c",
+    "arguments": "4:stack4"
+  },
+  "21479e": {
+    "symbol": "lua_GenericForStmt_GenericForStmt_21479e",
+    "arguments": "4:stack4"
+  },
+  "2147d8": {
+    "symbol": "lua_GenericForStmt_GenericForStmt_2147d8",
+    "arguments": "4:stack4"
+  },
+  "2147f2": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_2147f2",
+    "arguments": ""
+  },
+  "2147f8": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_2147f8",
+    "arguments": "4:stack4"
+  },
+  "214802": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_destroy_object_214802",
+    "arguments": "4:stack4"
+  },
+  "214824": {
+    "symbol": "lua_ReturnStmt_ReturnStmt_214824",
+    "arguments": "4:stack4"
+  },
+  "21483a": {
+    "symbol": "lua_ReturnStmt_ReturnStmt_21483a",
+    "arguments": "4:stack4"
+  },
+  "214854": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_214854",
+    "arguments": ""
+  },
+  "21485a": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_21485a",
+    "arguments": "4:stack4"
+  },
+  "214864": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_destroy_object_214864",
+    "arguments": "4:stack4"
+  },
+  "214886": {
+    "symbol": "lua_BreakStmt_BreakStmt_214886",
+    "arguments": ""
+  },
+  "21488c": {
+    "symbol": "lua_BreakStmt_BreakStmt_21488c",
+    "arguments": "4:stack4"
+  },
+  "214896": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_214896",
+    "arguments": ""
+  },
+  "21489c": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_21489c",
+    "arguments": "4:stack4"
+  },
+  "2148a6": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_destroy_object_2148a6",
+    "arguments": "4:stack4"
+  },
+  "2148c8": {
+    "symbol": "lua_AssignTarget_operator_2148c8",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "214918": {
+    "symbol": "lua_AssignTarget_AssignTarget_214918",
+    "arguments": "4:ECX"
+  },
+  "214940": {
+    "symbol": "lua_AssignTarget_AssignTarget_214940",
+    "arguments": "4:ECX"
+  },
+  "21497c": {
+    "symbol": "lua_wm_string_wm_vector_21497c",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "214a32": {
+    "symbol": "lua_FunctionDeclarationStmt_FunctionDeclarationStmt_214a32",
+    "arguments": "4:stack4"
+  },
+  "214a58": {
+    "symbol": "lua_FunctionDeclarationStmt_FunctionDeclarationStmt_214a58",
+    "arguments": "4:stack4"
+  },
+  "214a72": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_214a72",
+    "arguments": ""
+  },
+  "214a78": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_214a78",
+    "arguments": "4:stack4"
+  },
+  "214a82": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_destroy_object_214a82",
+    "arguments": "4:stack4"
+  },
+  "214aa4": {
+    "symbol": "lua_wm_vector_push_back_214aa4",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "214b32": {
+    "symbol": "lua_AssignmentStmt_AssignmentStmt_214b32",
+    "arguments": "4:ECX,1:DL,4:stack4"
+  },
+  "214b62": {
+    "symbol": "lua_wm_shared_ptr_shared_ptr_214b62",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "214ba0": {
+    "symbol": "lua_wm_vector_vector_214ba0",
+    "arguments": "4:ECX"
+  },
+  "214bda": {
+    "symbol": "lua_AssignmentStmt_AssignmentStmt_214bda",
+    "arguments": "4:stack4"
+  },
+  "214c00": {
+    "symbol": "lua_AssignmentStmt_AssignmentStmt_214c00",
+    "arguments": "4:stack4"
+  },
+  "214c1a": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_214c1a",
+    "arguments": ""
+  },
+  "214c20": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_214c20",
+    "arguments": "4:stack4"
+  },
+  "214c2a": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_destroy_object_214c2a",
+    "arguments": "4:stack4"
+  },
+  "214c4c": {
+    "symbol": "lua_AssignTarget_AssignTarget_214c4c",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "214ca4": {
+    "symbol": "lua_Parser_asAssignTarget_214ca4",
+    "arguments": "4:ECX,4:EDX,4:stack4"
+  },
+  "214eae": {
+    "symbol": "lua_ExpressionStmt_ExpressionStmt_214eae",
+    "arguments": "4:stack4"
+  },
+  "214ec4": {
+    "symbol": "lua_ExpressionStmt_ExpressionStmt_214ec4",
+    "arguments": "4:stack4"
+  },
+  "214ede": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_214ede",
+    "arguments": ""
+  },
+  "214ee4": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_214ee4",
+    "arguments": "4:stack4"
+  },
+  "214eee": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_destroy_object_214eee",
+    "arguments": "4:stack4"
+  },
+  "214f10": {
+    "symbol": "lua_LuaVM_Impl_bindGlobalSlots_214f10",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "21510c": {
+    "symbol": "lua_LuaVM_Impl_bindGlobalSlots_21510c",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "2152ce": {
+    "symbol": "lua_LuaVM_Impl_bindGlobalSlots_2152ce",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "2152e3": {
+    "symbol": "lua_writeBytes_2152e3",
+    "arguments": "4:ECX,4:EDX,4:stack4"
+  },
+  "215301": {
+    "symbol": "lua_writeU32_215301",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "21531f": {
+    "symbol": "lua_writeString_21531f",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "215354": {
+    "symbol": "lua_unsigned_char_wm_vector_215354",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
+  },
+  "2153f8": {
+    "symbol": "lua_wm_vector_reserve_2153f8",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "215442": {
+    "symbol": "lua_unsigned_char_wm_detail_vector_allocate_215442",
+    "arguments": "4:stack4"
+  },
+  "215456": {
+    "symbol": "lua_std_ofstream_ofstream_215456",
+    "arguments": "4:stack4"
+  },
+  "215470": {
+    "symbol": "lua_std_ofstream_ofstream_215470",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "215538": {
+    "symbol": "lua_std_ofstream_open_215538",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "215566": {
+    "symbol": "lua_std_basic_file_basic_file_215566",
+    "arguments": "4:stack4"
+  },
+  "2155e0": {
+    "symbol": "lua_std_ofstream_ofstream_2155e0",
+    "arguments": "4:stack4"
+  },
+  "2155fe": {
+    "symbol": "lua_std_basic_file_open_file_2155fe",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "215644": {
+    "symbol": "lua_std_basic_file_close_215644",
+    "arguments": "4:stack4"
+  },
+  "21566f": {
+    "symbol": "lua_std_detail_fopen_mode_21566f",
+    "arguments": "4:stack4"
+  },
+  "2156e6": {
+    "symbol": "lua_std_basic_file_write_bytes_2156e6",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
+  },
+  "215737": {
+    "symbol": "lua_wm_shared_ptr_215737",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "2157e8": {
+    "symbol": "lua_LuaVM_Impl_executeStatements_2157e8",
+    "arguments": "4:ECX,4:EDX,4:stack4"
+  },
+  "21581e": {
+    "symbol": "lua_MultiValue_MultiValue_21581e",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "2158f2": {
+    "symbol": "lua_MultiValue_MultiValue_2158f2",
+    "arguments": "4:ECX"
+  },
+  "21591a": {
+    "symbol": "lua_Environment_Environment_21591a",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "215b12": {
+    "symbol": "lua_wm_shared_ptr_shared_ptr_215b12",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "215b50": {
+    "symbol": "lua_wm_array_array_215b50",
+    "arguments": "4:ECX"
+  },
+  "215b70": {
+    "symbol": "lua_SmallValueStore_SmallValueStore_215b70",
+    "arguments": "4:ECX"
+  },
+  "215b8e": {
+    "symbol": "lua_wm_weak_ptr_weak_ptr_215b8e",
+    "arguments": "4:ECX"
+  },
+  "215bbc": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_215bbc",
+    "arguments": ""
+  },
+  "215bc2": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_215bc2",
+    "arguments": "4:stack4"
+  },
+  "215bcc": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_destroy_object_215bcc",
+    "arguments": "4:stack4"
+  },
+  "215bf8": {
+    "symbol": "lua_Environment_Environment_215bf8",
+    "arguments": "4:ECX"
+  },
+  "215c1c": {
+    "symbol": "lua_LuaVM_Impl_executeStatement_215c1c",
+    "arguments": "4:ECX,4:EDX,4:stack4"
+  },
+  "2170fe": {
+    "symbol": "lua_LuaVM_Impl_evaluateExpression_2170fe",
+    "arguments": "4:ECX,4:EDX,4:stack4,4:stack8"
+  },
+  "218346": {
+    "symbol": "lua_LuaVM_Impl_assignTarget_218346",
+    "arguments": "4:ECX,4:EDX,4:stack4,4:stack8,1:stack12"
+  },
+  "2186ce": {
+    "symbol": "lua_LuaVM_Impl_evaluateExpressionList_2186ce",
+    "arguments": "4:ECX,4:EDX,4:stack4,4:stack8"
+  },
+  "21888e": {
+    "symbol": "lua_LuaVM_Impl_makeScriptFunction_21888e",
+    "arguments": "4:ECX,4:EDX,4:stack4,4:stack8"
+  },
+  "218a1e": {
+    "symbol": "lua_Value_isTruthy_218a1e",
+    "arguments": "4:ECX"
+  },
+  "218a42": {
+    "symbol": "lua_Environment_setParent_218a42",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "218a88": {
+    "symbol": "lua_LuaVM_Impl_requireSharedEnvironment_218a88",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "218ada": {
+    "symbol": "lua_LuaVM_Impl_clearEnvironmentSlots_218ada",
+    "arguments": "4:ECX"
+  },
+  "218bcc": {
+    "symbol": "lua_LuaVM_Impl_executeStatement_218bcc",
+    "arguments": "4:ECX,4:EDX,4:stack4"
+  },
+  "218cd2": {
+    "symbol": "lua_Value_asFloat_218cd2",
+    "arguments": "4:ECX"
+  },
+  "218db8": {
+    "symbol": "lua_numericResult_218db8",
+    "arguments": "4:ECX,8:stack4"
+  },
+  "218e70": {
+    "symbol": "lua_LuaVM_Impl_nextIteratorItem_218e70",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "2192f8": {
+    "symbol": "lua_ReturnSignal_ReturnSignal_2192f8",
+    "arguments": "4:stack4"
+  },
+  "219304": {
+    "symbol": "lua_LuaVM_Impl_resolveLocalEnvironment_219304",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "219319": {
+    "symbol": "lua_negateNumber_219319",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "219374": {
+    "symbol": "lua_addNumbers_219374",
+    "arguments": "4:ECX,4:EDX,4:stack4"
+  },
+  "2193e2": {
+    "symbol": "lua_subtractNumbers_2193e2",
+    "arguments": "4:ECX,4:EDX,4:stack4"
+  },
+  "219450": {
+    "symbol": "lua_multiplyNumbers_219450",
+    "arguments": "4:ECX,4:EDX,4:stack4"
+  },
+  "21956d": {
+    "symbol": "lua_moduloNumbers_21956d",
+    "arguments": "4:ECX,4:EDX,4:stack4"
+  },
+  "2195ff": {
+    "symbol": "lua_wm_operator_2195ff",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "2196ac": {
+    "symbol": "lua_Value_toString_2196ac",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "219a10": {
+    "symbol": "lua_Value_Value_219a10",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "219a1f": {
+    "symbol": "lua_valuesEqual_219a1f",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "219b50": {
+    "symbol": "lua_LuaVM_Impl_compareValues_219b50",
+    "arguments": "4:ECX,4:EDX,4:stack4,1:stack8,4:stack12"
+  },
+  "219d5d": {
+    "symbol": "lua_tryMakeKeyFromValue_219d5d",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "219ed2": {
+    "symbol": "lua_LuaVM_Impl_indexValue_219ed2",
+    "arguments": "4:ECX,4:EDX,4:stack4,4:stack8,4:stack12"
+  },
+  "21a5b9": {
+    "symbol": "lua_firstOrNil_21a5b9",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "21a5f0": {
+    "symbol": "lua_LuaVM_Impl_callValue_21a5f0",
+    "arguments": "4:ECX,4:EDX,4:stack4,4:stack8"
+  },
+  "21a9f6": {
+    "symbol": "lua_std_ostringstream_operator_21a9f6",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "21aa6c": {
+    "symbol": "lua_wm_variant_21aa6c",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "21aa88": {
+    "symbol": "lua_wm_operator_21aa88",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "21aac0": {
+    "symbol": "lua_wm_operator_21aac0",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "21aade": {
+    "symbol": "lua_wm_operator_21aade",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "21aafc": {
+    "symbol": "lua_wm_string_compare_21aafc",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "21ab63": {
+    "symbol": "lua_describeValueType_21ab63",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "21ab94": {
+    "symbol": "lua_LuaVM_Impl_nativeObjectField_21ab94",
+    "arguments": "4:ECX,4:EDX,4:stack4"
+  },
+  "21ac5c": {
+    "symbol": "lua_wm_function_21ac5c",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "21ac8a": {
+    "symbol": "lua_wm_function_holder_21ac8a",
+    "arguments": ""
+  },
+  "21ac90": {
+    "symbol": "lua_wm_function_holder_21ac90",
+    "arguments": "4:stack4"
+  },
+  "21ac9a": {
+    "symbol": "lua_wm_function_invoke_21ac9a",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20,4:stack24"
+  },
+  "21b078": {
+    "symbol": "lua_wm_function_clone_21b078",
+    "arguments": "4:stack4"
+  },
+  "21b09e": {
+    "symbol": "lua_LuaVM_Impl_requireArgumentCount_21b09e",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
+  },
+  "21b314": {
+    "symbol": "lua_LuaVM_Impl_requireUserData_21b314",
+    "arguments": "4:ECX,4:EDX,4:stack4,4:stack8,4:stack12,1:stack16"
+  },
+  "21b4ae": {
+    "symbol": "lua_LuaVM_Impl_requireInteger_21b4ae",
+    "arguments": "4:ECX,4:EDX,4:stack4,4:stack8,4:stack12"
+  },
+  "21b5b4": {
+    "symbol": "lua_wm_string_data_21b5b4",
+    "arguments": "4:stack4"
+  },
+  "21b5cc": {
+    "symbol": "lua_wm_string_resize_21b5cc",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "21b5e8": {
+    "symbol": "lua_std_ostringstream_operator_21b5e8",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "21b604": {
+    "symbol": "lua_Value_asInteger_21b604",
+    "arguments": "4:ECX"
+  },
+  "21b712": {
+    "symbol": "lua_std_basic_file_read_bytes_21b712",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
+  },
+  "21b76c": {
+    "symbol": "lua_wm_shared_ptr_release_21b76c",
+    "arguments": "4:stack4"
+  },
+  "21b80c": {
+    "symbol": "lua_wm_function_holder_21b80c",
+    "arguments": ""
+  },
+  "21b812": {
+    "symbol": "lua_wm_function_holder_21b812",
+    "arguments": "4:stack4"
+  },
+  "21b81c": {
+    "symbol": "lua_wm_function_invoke_21b81c",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20,4:stack24"
+  },
+  "21bb70": {
+    "symbol": "lua_wm_function_clone_21bb70",
+    "arguments": "4:stack4"
+  },
+  "21bb96": {
+    "symbol": "lua_Value_Value_21bb96",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "21bbda": {
+    "symbol": "lua_MultiValue_MultiValue_21bbda",
+    "arguments": "4:ECX,4:stack4,4:stack8"
+  },
+  "21bcea": {
+    "symbol": "lua_wm_array_array_21bcea",
+    "arguments": "4:ECX"
+  },
+  "21bd08": {
+    "symbol": "lua_SmallValueStore_push_21bd08",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "21bd7e": {
+    "symbol": "lua_SmallValueStore_SmallValueStore_21bd7e",
+    "arguments": "4:ECX"
+  },
+  "21bd9a": {
+    "symbol": "lua_wm_function_holder_21bd9a",
+    "arguments": ""
+  },
+  "21bda0": {
+    "symbol": "lua_wm_function_holder_21bda0",
+    "arguments": "4:stack4"
+  },
+  "21bdaa": {
+    "symbol": "lua_wm_function_invoke_21bdaa",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20,4:stack24"
+  },
+  "21c2e0": {
+    "symbol": "lua_wm_function_clone_21c2e0",
+    "arguments": "4:stack4"
+  },
+  "21c306": {
+    "symbol": "lua_LuaVM_Impl_requireString_21c306",
+    "arguments": "4:ECX,4:EDX,4:stack4,4:stack8,4:stack12"
+  },
+  "21c400": {
+    "symbol": "lua_std_basic_file_seek_get_21c400",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
+  },
+  "21c444": {
+    "symbol": "lua_std_basic_file_tell_get_21c444",
+    "arguments": "4:stack4"
+  },
+  "21c476": {
+    "symbol": "lua_wm_function_holder_21c476",
+    "arguments": ""
+  },
+  "21c47c": {
+    "symbol": "lua_wm_function_holder_21c47c",
+    "arguments": "4:stack4"
+  },
+  "21c486": {
+    "symbol": "lua_wm_function_invoke_21c486",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20,4:stack24"
+  },
+  "21c5a2": {
+    "symbol": "lua_wm_function_clone_21c5a2",
+    "arguments": ""
+  },
+  "21c5c0": {
+    "symbol": "lua_std_fstream_close_21c5c0",
+    "arguments": "4:stack4"
+  },
+  "21c5e2": {
+    "symbol": "lua_wm_function_holder_21c5e2",
+    "arguments": ""
+  },
+  "21c5e8": {
+    "symbol": "lua_wm_function_holder_21c5e8",
+    "arguments": "4:stack4"
+  },
+  "21c5f2": {
+    "symbol": "lua_wm_function_invoke_21c5f2",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20,4:stack24"
+  },
+  "21c85e": {
+    "symbol": "lua_wm_function_clone_21c85e",
+    "arguments": ""
+  },
+  "21c87b": {
+    "symbol": "lua_wm_operator_21c87b",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "21c89a": {
+    "symbol": "lua_SmallValueStore_push_21c89a",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "21c924": {
+    "symbol": "lua_LuaVM_Impl_evaluateExpressionMulti_21c924",
+    "arguments": "4:ECX,4:EDX,4:stack4,4:stack8,1:stack12"
+  },
+  "21e24e": {
+    "symbol": "lua_LuaVM_Impl_callValue_21e24e",
+    "arguments": "4:ECX,4:EDX,4:stack4,4:stack8,4:stack12,4:stack16"
+  },
+  "21e3aa": {
+    "symbol": "lua_SmallValueStore_SmallValueStore_21e3aa",
+    "arguments": "4:ECX"
+  },
+  "21e3d4": {
+    "symbol": "lua_LuaVM_Impl_callHandle_21e3d4",
+    "arguments": "4:ECX,4:EDX,4:stack4,4:stack8,4:stack12,4:stack16"
+  },
+  "21e950": {
+    "symbol": "lua_LuaVM_Impl_callHandle_21e950",
+    "arguments": "4:ECX,4:EDX,4:stack4"
+  },
+  "21eb26": {
+    "symbol": "lua_MultiValue_push_21eb26",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "21ebb8": {
+    "symbol": "lua_MultiValue_operator_21ebb8",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "21ebfe": {
+    "symbol": "lua_wm_vector_const_21ebfe",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "21ec4e": {
+    "symbol": "lua_wm_vector_21ec4e",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "21ec94": {
+    "symbol": "lua_std_ifstream_ifstream_21ec94",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "21ed50": {
+    "symbol": "lua_std_ifstream_open_21ed50",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "21ed7e": {
+    "symbol": "lua_std_ifstream_ifstream_21ed7e",
+    "arguments": "4:stack4"
+  },
+  "21ed9c": {
+    "symbol": "lua_LuaResult_LuaResult_21ed9c",
+    "arguments": "4:stack4"
+  },
+  "21edc2": {
+    "symbol": "lua_unsigned_int_readPrimitive_const_unsigned_long_21edc2",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "21eec5": {
+    "symbol": "lua_readString_21eec5",
+    "arguments": "4:ECX,4:EDX,4:stack4"
+  },
+  "21efd0": {
+    "symbol": "lua_wm_pair_pair_21efd0",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "21f07c": {
+    "symbol": "lua_wm_pair_pair_21f07c",
+    "arguments": "4:stack4"
+  },
+  "21f09a": {
+    "symbol": "lua_std_ifstream_ifstream_21f09a",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "21f164": {
+    "symbol": "lua_wm_vector_vector_21f164",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "21f17c": {
+    "symbol": "lua_wm_vector_resize_21f17c",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "21f1ba": {
+    "symbol": "lua_wm_variant_21f1ba",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "21f1ce": {
+    "symbol": "lua_wm_variant_21f1ce",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "21f1e2": {
+    "symbol": "lua_wm_vector_const_21f1e2",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "21f242": {
+    "symbol": "lua_LuaValue_LuaValue_21f242",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "21f268": {
+    "symbol": "lua_wm_variant_const_21f268",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "21f28a": {
+    "symbol": "lua_void_wm_detail_variant_copy_21f28a",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "21f29b": {
+    "symbol": "lua_void_wm_detail_variant_copy_21f29b",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "21f2bc": {
+    "symbol": "lua_void_wm_detail_variant_copy_21f2bc",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "21f2d7": {
+    "symbol": "lua_void_wm_detail_variant_copy_21f2d7",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "21f2f2": {
+    "symbol": "lua_void_wm_detail_variant_copy_21f2f2",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "21f31a": {
+    "symbol": "lua_void_wm_detail_variant_copy_21f31a",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "21f342": {
+    "symbol": "lua_void_wm_detail_variant_copy_21f342",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "21f36a": {
+    "symbol": "lua_wm_shared_ptr_const_21f36a",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "21f386": {
+    "symbol": "lua_void_wm_detail_variant_copy_21f386",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "21f3aa": {
+    "symbol": "lua_wm_shared_ptr_const_21f3aa",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "21f3c6": {
+    "symbol": "lua_wm_shared_ptr_21f3c6",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "21f40c": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_21f40c",
+    "arguments": ""
+  },
+  "21f412": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_21f412",
+    "arguments": "4:stack4"
+  },
+  "21f41c": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_destroy_object_21f41c",
+    "arguments": "4:stack4"
+  },
+  "21f44c": {
+    "symbol": "lua_wm_vector_21f44c",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "21f472": {
+    "symbol": "lua_wm_unordered_map_const_21f472",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "21f55c": {
+    "symbol": "lua_wm_vector_const_21f55c",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "21f5bc": {
+    "symbol": "lua_wm_pair_const_21f5bc",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "21f668": {
+    "symbol": "lua_wm_vector_const_21f668",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "21f6b2": {
+    "symbol": "lua_wm_shared_ptr_21f6b2",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "21f6f8": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_21f6f8",
+    "arguments": ""
+  },
+  "21f6fe": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_21f6fe",
+    "arguments": "4:stack4"
+  },
+  "21f708": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_destroy_object_21f708",
+    "arguments": "4:stack4"
+  },
+  "21f738": {
+    "symbol": "lua_wm_unordered_map_21f738",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "21f77a": {
+    "symbol": "lua_wm_vector_21f77a",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "21f7a0": {
+    "symbol": "lua_wm_variant_const_21f7a0",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "21f7b4": {
+    "symbol": "lua_wm_vector_vector_21f7b4",
+    "arguments": "4:stack4"
+  },
+  "21f7d4": {
+    "symbol": "lua_wm_vector_clear_21f7d4",
+    "arguments": "4:stack4"
+  },
+  "21f80c": {
+    "symbol": "lua_wm_vector_vector_21f80c",
+    "arguments": "4:stack4"
+  },
+  "21f828": {
+    "symbol": "lua_LuaVM_Impl_Impl_21f828",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "21f8f0": {
+    "symbol": "lua_LuaVM_Impl_bindDefaults_21f8f0",
+    "arguments": "4:stack4"
+  },
+  "22101c": {
+    "symbol": "lua_LuaVM_Impl_bindNativeGlobal_22101c",
+    "arguments": "4:ECX,4:EDX,4:stack4"
+  },
+  "221118": {
+    "symbol": "lua_LuaVM_Impl_bindTableFunction_221118",
+    "arguments": "4:ECX,4:EDX,4:stack4"
+  },
+  "221273": {
+    "symbol": "lua_wm_shared_ptr_221273",
+    "arguments": "4:ECX"
+  },
+  "2212d6": {
+    "symbol": "lua_Value_Value_2212d6",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "2212ec": {
+    "symbol": "lua_wm_function_holder_2212ec",
+    "arguments": ""
+  },
+  "2212f2": {
+    "symbol": "lua_wm_function_holder_2212f2",
+    "arguments": "4:stack4"
+  },
+  "2212fc": {
+    "symbol": "lua_wm_function_const_2212fc",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
+  },
+  "221324": {
+    "symbol": "lua_wm_function_clone_221324",
+    "arguments": "4:stack4"
+  },
+  "221350": {
+    "symbol": "lua_LuaVM_Impl_bindDefaults_221350",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
+  },
+  "221458": {
+    "symbol": "lua_wm_function_holder_221458",
+    "arguments": ""
+  },
+  "22145e": {
+    "symbol": "lua_wm_function_holder_22145e",
+    "arguments": "4:stack4"
+  },
+  "221468": {
+    "symbol": "lua_wm_function_invoke_221468",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20"
+  },
+  "221540": {
+    "symbol": "lua_wm_function_clone_221540",
+    "arguments": "4:stack4"
+  },
+  "221566": {
+    "symbol": "lua_wm_function_holder_221566",
+    "arguments": ""
+  },
+  "22156c": {
+    "symbol": "lua_wm_function_holder_22156c",
+    "arguments": "4:stack4"
+  },
+  "221576": {
+    "symbol": "lua_wm_function_invoke_221576",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20,4:stack24"
+  },
+  "221814": {
+    "symbol": "lua_wm_function_clone_221814",
+    "arguments": "4:stack4"
+  },
+  "22183a": {
+    "symbol": "lua_wm_function_holder_22183a",
+    "arguments": ""
+  },
+  "221840": {
+    "symbol": "lua_wm_function_holder_221840",
+    "arguments": "4:stack4"
+  },
+  "22184a": {
+    "symbol": "lua_wm_function_invoke_22184a",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20"
+  },
+  "221922": {
+    "symbol": "lua_wm_function_clone_221922",
+    "arguments": "4:stack4"
+  },
+  "221948": {
+    "symbol": "lua_wm_function_holder_221948",
+    "arguments": ""
+  },
+  "22194e": {
+    "symbol": "lua_wm_function_holder_22194e",
+    "arguments": "4:stack4"
+  },
+  "221958": {
+    "symbol": "lua_wm_function_invoke_221958",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20,4:stack24"
+  },
+  "221ac4": {
+    "symbol": "lua_wm_function_clone_221ac4",
+    "arguments": "4:stack4"
+  },
+  "221aea": {
+    "symbol": "lua_wm_function_holder_221aea",
+    "arguments": ""
+  },
+  "221af0": {
+    "symbol": "lua_wm_function_holder_221af0",
+    "arguments": "4:stack4"
+  },
+  "221afa": {
+    "symbol": "lua_wm_function_invoke_221afa",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20,4:stack24"
+  },
+  "221bc2": {
+    "symbol": "lua_wm_function_clone_221bc2",
+    "arguments": "4:stack4"
+  },
+  "221be8": {
+    "symbol": "lua_wm_function_holder_221be8",
+    "arguments": ""
+  },
+  "221bee": {
+    "symbol": "lua_wm_function_holder_221bee",
+    "arguments": "4:stack4"
+  },
+  "221bf8": {
+    "symbol": "lua_wm_function_invoke_221bf8",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20,4:stack24"
+  },
+  "222182": {
+    "symbol": "lua_wm_function_clone_222182",
+    "arguments": "4:stack4"
+  },
+  "2221a8": {
+    "symbol": "lua_wm_function_holder_2221a8",
+    "arguments": ""
+  },
+  "2221ae": {
+    "symbol": "lua_wm_function_holder_2221ae",
+    "arguments": "4:stack4"
+  },
+  "2221b8": {
+    "symbol": "lua_wm_function_invoke_2221b8",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20,4:stack24"
+  },
+  "222318": {
+    "symbol": "lua_wm_function_clone_222318",
+    "arguments": "4:stack4"
+  },
+  "22233e": {
+    "symbol": "lua_wm_shared_ptr_22233e",
+    "arguments": "4:ECX"
+  },
+  "22238e": {
+    "symbol": "lua_wm_shared_ptr_const_22238e",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "2223c6": {
+    "symbol": "lua_Value_Value_2223c6",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "2223dc": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_2223dc",
+    "arguments": ""
+  },
+  "2223e2": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_2223e2",
+    "arguments": "4:stack4"
+  },
+  "2223ec": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_destroy_object_2223ec",
+    "arguments": "4:stack4"
+  },
+  "222448": {
+    "symbol": "lua_wm_function_holder_222448",
+    "arguments": ""
+  },
+  "22244e": {
+    "symbol": "lua_wm_function_holder_22244e",
+    "arguments": "4:stack4"
+  },
+  "222458": {
+    "symbol": "lua_wm_function_invoke_222458",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20,4:stack24"
+  },
+  "2225ac": {
+    "symbol": "lua_wm_function_clone_2225ac",
+    "arguments": "4:stack4"
+  },
+  "2225d2": {
+    "symbol": "lua_wm_function_holder_2225d2",
+    "arguments": ""
+  },
+  "2225d8": {
+    "symbol": "lua_wm_function_holder_2225d8",
+    "arguments": "4:stack4"
+  },
+  "2225e2": {
+    "symbol": "lua_wm_function_invoke_2225e2",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20,4:stack24"
+  },
+  "222816": {
+    "symbol": "lua_wm_function_clone_222816",
+    "arguments": "4:stack4"
+  },
+  "22283c": {
+    "symbol": "lua_wm_function_holder_22283c",
+    "arguments": ""
+  },
+  "222842": {
+    "symbol": "lua_wm_function_holder_222842",
+    "arguments": "4:stack4"
+  },
+  "22284c": {
+    "symbol": "lua_wm_function_invoke_22284c",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20,4:stack24"
+  },
+  "222b60": {
+    "symbol": "lua_wm_function_clone_222b60",
+    "arguments": "4:stack4"
+  },
+  "222b86": {
+    "symbol": "lua_findPattern_222b86",
+    "arguments": "4:ECX,4:EDX,4:stack4,1:stack8,4:stack12"
+  },
+  "222ec4": {
+    "symbol": "lua_wm_vector_222ec4",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "222ee4": {
+    "symbol": "lua_MultiValue_MultiValue_222ee4",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "222f80": {
+    "symbol": "lua_PatternMatch_PatternMatch_222f80",
+    "arguments": "4:ECX"
+  },
+  "222fa4": {
+    "symbol": "lua_wm_string_find_222fa4",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
+  },
+  "222fe6": {
+    "symbol": "lua_translateLuaPatternToRegex_222fe6",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "2234d9": {
+    "symbol": "lua_wm_regex_search_2234d9",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "223506": {
+    "symbol": "lua_wm_match_results_str_223506",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "223546": {
+    "symbol": "lua_escapeRegexLiteralChar_223546",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "223654": {
+    "symbol": "lua_wm_string_string_223654",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "22367c": {
+    "symbol": "lua_bool_wm_regex_search_wm_regex_const_22367c",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
+  },
+  "2236e9": {
+    "symbol": "lua_wm_regex_search_2236e9",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
+  },
+  "2237d4": {
+    "symbol": "lua_wm_match_results_set_match_2237d4",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20"
+  },
+  "223810": {
+    "symbol": "lua_wm_detail_regex_match_here_223810",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20,4:stack24,4:stack28,4:stack32"
+  },
+  "223a5b": {
+    "symbol": "lua_wm_detail_regex_atom_matches_223a5b",
+    "arguments": "4:stack4,4:stack8,4:stack12,1:stack16,4:stack20,4:stack24"
+  },
+  "223b41": {
+    "symbol": "lua_wm_detail_regex_char_equal_223b41",
+    "arguments": "1:stack4,1:stack8,1:stack12"
+  },
+  "223b85": {
+    "symbol": "lua_wm_detail_regex_class_end_223b85",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "223bbc": {
+    "symbol": "lua_wm_detail_regex_class_contains_223bbc",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,1:stack20,4:stack24"
+  },
+  "223d20": {
+    "symbol": "lua_wm_sub_match_const_223d20",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "223d78": {
+    "symbol": "lua_wm_vector_reserve_223d78",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "223dd7": {
+    "symbol": "lua_wm_sub_match_223dd7",
+    "arguments": "4:stack4"
+  },
+  "223df8": {
+    "symbol": "lua_wm_sub_match_str_223df8",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "223e36": {
+    "symbol": "lua_wm_string_wm_vector_223e36",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "223e88": {
+    "symbol": "lua_wm_vector_vector_223e88",
+    "arguments": "4:stack4"
+  },
+  "223ea4": {
+    "symbol": "lua_wm_function_holder_223ea4",
+    "arguments": ""
+  },
+  "223eaa": {
+    "symbol": "lua_wm_function_holder_223eaa",
+    "arguments": "4:stack4"
+  },
+  "223eb4": {
+    "symbol": "lua_wm_function_invoke_223eb4",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20,4:stack24"
+  },
+  "224178": {
+    "symbol": "lua_wm_function_clone_224178",
+    "arguments": "4:stack4"
+  },
+  "22419e": {
+    "symbol": "lua_wm_function_holder_22419e",
+    "arguments": ""
+  },
+  "2241a4": {
+    "symbol": "lua_wm_function_holder_2241a4",
+    "arguments": "4:stack4"
+  },
+  "2241ae": {
+    "symbol": "lua_wm_function_invoke_2241ae",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20,4:stack24"
+  },
+  "22496a": {
+    "symbol": "lua_wm_function_clone_22496a",
+    "arguments": "4:stack4"
+  },
+  "224990": {
+    "symbol": "lua_wm_vector_vector_224990",
+    "arguments": "4:ECX"
+  },
+  "2249cc": {
+    "symbol": "lua_wm_sregex_iterator_operator_2249cc",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2249ea": {
+    "symbol": "lua_wm_sregex_iterator_operator_2249ea",
+    "arguments": "4:stack4"
+  },
+  "224a1e": {
+    "symbol": "lua_wm_sregex_iterator_sregex_iterator_224a1e",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
+  },
+  "224ad8": {
+    "symbol": "lua_wm_sregex_iterator_find_next_224ad8",
+    "arguments": "4:stack4"
+  },
+  "224b0a": {
+    "symbol": "lua_wm_sregex_iterator_operator_224b0a",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "224b48": {
+    "symbol": "lua_PatternMatch_PatternMatch_224b48",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "224b86": {
+    "symbol": "lua_wm_vector_224b86",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "224bac": {
+    "symbol": "lua_wm_vector_reserve_224bac",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "224c56": {
+    "symbol": "lua_wm_function_holder_224c56",
+    "arguments": ""
+  },
+  "224c5c": {
+    "symbol": "lua_wm_function_holder_224c5c",
+    "arguments": "4:stack4"
+  },
+  "224c66": {
+    "symbol": "lua_wm_function_invoke_224c66",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20,4:stack24"
+  },
+  "225048": {
+    "symbol": "lua_wm_function_clone_225048",
+    "arguments": "4:stack4"
+  },
+  "22506e": {
+    "symbol": "lua_wm_string_wm_string_append_22506e",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "2250c4": {
+    "symbol": "lua_wm_function_holder_2250c4",
+    "arguments": ""
+  },
+  "2250ca": {
+    "symbol": "lua_wm_function_holder_2250ca",
+    "arguments": "4:stack4"
+  },
+  "2250d4": {
+    "symbol": "lua_wm_function_invoke_2250d4",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20,4:stack24"
+  },
+  "22552c": {
+    "symbol": "lua_wm_function_clone_22552c",
+    "arguments": "4:stack4"
+  },
+  "225552": {
+    "symbol": "lua_std_ostringstream_append_integer_225552",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "225608": {
+    "symbol": "lua_wm_function_holder_225608",
+    "arguments": ""
+  },
+  "22560e": {
+    "symbol": "lua_wm_function_holder_22560e",
+    "arguments": "4:stack4"
+  },
+  "225618": {
+    "symbol": "lua_wm_function_invoke_225618",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20,4:stack24"
+  },
+  "2257e0": {
+    "symbol": "lua_wm_function_clone_2257e0",
+    "arguments": "4:stack4"
+  },
+  "225806": {
+    "symbol": "lua_wm_function_holder_225806",
+    "arguments": ""
+  },
+  "22580c": {
+    "symbol": "lua_wm_function_holder_22580c",
+    "arguments": "4:stack4"
+  },
+  "225816": {
+    "symbol": "lua_wm_function_invoke_225816",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20,4:stack24"
+  },
+  "225c72": {
+    "symbol": "lua_wm_function_clone_225c72",
+    "arguments": "4:stack4"
+  },
+  "225c98": {
+    "symbol": "lua_wm_stoi_225c98",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
+  },
+  "225cd4": {
+    "symbol": "lua_wm_from_chars_result_wm_from_chars_225cd4",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
+  },
+  "225e28": {
+    "symbol": "lua_wm_function_holder_225e28",
+    "arguments": ""
+  },
+  "225e2e": {
+    "symbol": "lua_wm_function_holder_225e2e",
+    "arguments": "4:stack4"
+  },
+  "225e38": {
+    "symbol": "lua_wm_function_invoke_225e38",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20,4:stack24"
+  },
+  "2262f4": {
+    "symbol": "lua_wm_function_clone_2262f4",
+    "arguments": "4:stack4"
+  },
+  "22631a": {
+    "symbol": "lua_LuaVM_Impl_requireTable_22631a",
+    "arguments": "4:ECX,4:EDX,4:stack4,4:stack8,4:stack12"
+  },
+  "226414": {
+    "symbol": "lua_wm_function_holder_226414",
+    "arguments": ""
+  },
+  "22641a": {
+    "symbol": "lua_wm_function_holder_22641a",
+    "arguments": "4:stack4"
+  },
+  "226424": {
+    "symbol": "lua_wm_function_invoke_226424",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20,4:stack24"
+  },
+  "226752": {
+    "symbol": "lua_wm_function_clone_226752",
+    "arguments": "4:stack4"
+  },
+  "226778": {
+    "symbol": "lua_wm_function_holder_226778",
+    "arguments": ""
+  },
+  "22677e": {
+    "symbol": "lua_wm_function_holder_22677e",
+    "arguments": "4:stack4"
+  },
+  "226788": {
+    "symbol": "lua_wm_function_invoke_226788",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20,4:stack24"
+  },
+  "22701a": {
+    "symbol": "lua_wm_function_clone_22701a",
+    "arguments": "4:stack4"
+  },
+  "227040": {
+    "symbol": "lua_wm_shared_ptr_const_227040",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "227080": {
+    "symbol": "lua_wm_function_holder_227080",
+    "arguments": ""
+  },
+  "227086": {
+    "symbol": "lua_wm_function_holder_227086",
+    "arguments": "4:stack4"
+  },
+  "227090": {
+    "symbol": "lua_wm_function_invoke_227090",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20,4:stack24"
+  },
+  "2271c0": {
+    "symbol": "lua_wm_function_clone_2271c0",
+    "arguments": "4:stack4"
+  },
+  "2271e6": {
+    "symbol": "lua_LuaVM_Impl_requireNumber_2271e6",
+    "arguments": "4:ECX,4:EDX,4:stack4,4:stack8,4:stack12"
+  },
+  "2272ea": {
+    "symbol": "lua_wm_function_holder_2272ea",
+    "arguments": ""
+  },
+  "2272f0": {
+    "symbol": "lua_wm_function_holder_2272f0",
+    "arguments": "4:stack4"
+  },
+  "2272fa": {
+    "symbol": "lua_wm_function_invoke_2272fa",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20,4:stack24"
+  },
+  "22742e": {
+    "symbol": "lua_wm_function_clone_22742e",
+    "arguments": "4:stack4"
+  },
+  "227454": {
+    "symbol": "lua_wm_function_holder_227454",
+    "arguments": ""
+  },
+  "22745a": {
+    "symbol": "lua_wm_function_holder_22745a",
+    "arguments": "4:stack4"
+  },
+  "227464": {
+    "symbol": "lua_wm_function_invoke_227464",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20,4:stack24"
+  },
+  "227548": {
+    "symbol": "lua_wm_function_clone_227548",
+    "arguments": "4:stack4"
+  },
+  "22756e": {
+    "symbol": "lua_wm_function_holder_22756e",
+    "arguments": ""
+  },
+  "227574": {
+    "symbol": "lua_wm_function_holder_227574",
+    "arguments": "4:stack4"
+  },
+  "22757e": {
+    "symbol": "lua_wm_function_invoke_22757e",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20,4:stack24"
+  },
+  "2279de": {
+    "symbol": "lua_wm_function_clone_2279de",
+    "arguments": "4:stack4"
+  },
+  "227a04": {
+    "symbol": "lua_wm_string_find_227a04",
+    "arguments": "4:stack4,1:stack8,4:stack12"
+  },
+  "227a3f": {
+    "symbol": "lua_wm_shared_ptr_227a3f",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "227b04": {
+    "symbol": "lua_wm_shared_ptr_227b04",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "227b38": {
+    "symbol": "lua_wm_string_view_find_227b38",
+    "arguments": "4:stack4,1:stack8,4:stack12"
+  },
+  "227b62": {
+    "symbol": "lua_std_fstream_fstream_227b62",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "227c28": {
+    "symbol": "lua_std_fstream_open_227c28",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "227c54": {
+    "symbol": "lua_std_fstream_fstream_227c54",
+    "arguments": "4:stack4"
+  },
+  "227c6e": {
+    "symbol": "lua_std_fstream_fstream_227c6e",
+    "arguments": "4:stack4"
+  },
+  "227c8c": {
+    "symbol": "lua_non_virtual_thunk_to_std_fstream_fstream_227c8c",
+    "arguments": "4:stack4"
+  },
+  "227ca6": {
+    "symbol": "lua_non_virtual_thunk_to_std_fstream_fstream_227ca6",
+    "arguments": "4:stack4"
+  },
+  "227cc0": {
+    "symbol": "lua_wm_shared_ptr_shared_ptr_227cc0",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "227d06": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_227d06",
+    "arguments": ""
+  },
+  "227d0c": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_227d0c",
+    "arguments": "4:stack4"
+  },
+  "227d16": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_destroy_object_227d16",
+    "arguments": "4:stack4"
+  },
+  "227d38": {
+    "symbol": "lua_wm_function_holder_227d38",
+    "arguments": ""
+  },
+  "227d3e": {
+    "symbol": "lua_wm_function_holder_227d3e",
+    "arguments": "4:stack4"
+  },
+  "227d48": {
+    "symbol": "lua_wm_function_invoke_227d48",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20"
+  },
+  "227e70": {
+    "symbol": "lua_wm_function_clone_227e70",
+    "arguments": "4:stack4"
+  },
+  "227e96": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_227e96",
+    "arguments": ""
+  },
+  "227e9c": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_shared_control_block_impl_227e9c",
+    "arguments": "4:stack4"
+  },
+  "227ea6": {
+    "symbol": "lua_wm_detail_shared_control_block_impl_destroy_object_227ea6",
+    "arguments": "4:stack4"
+  },
+  "227ee2": {
+    "symbol": "lua_wm_function_holder_227ee2",
+    "arguments": ""
+  },
+  "227ee8": {
+    "symbol": "lua_wm_function_holder_227ee8",
+    "arguments": "4:stack4"
+  },
+  "227ef2": {
+    "symbol": "lua_wm_function_invoke_227ef2",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20,4:stack24"
+  },
+  "227fe6": {
+    "symbol": "lua_wm_function_clone_227fe6",
+    "arguments": "4:stack4"
+  },
+  "22800c": {
+    "symbol": "lua_wm_function_holder_22800c",
+    "arguments": ""
+  },
+  "228012": {
+    "symbol": "lua_wm_function_holder_228012",
+    "arguments": "4:stack4"
+  },
+  "22801c": {
+    "symbol": "lua_wm_function_invoke_22801c",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20,4:stack24"
+  },
+  "228104": {
+    "symbol": "lua_wm_function_clone_228104",
+    "arguments": "4:stack4"
+  },
+  "22812a": {
+    "symbol": "lua_wm_unique_ptr_unique_ptr_22812a",
+    "arguments": "4:stack4"
+  },
+  "22814e": {
+    "symbol": "lua_LuaVM_Impl_Impl_22814e",
+    "arguments": "4:stack4"
+  },
+  "228170": {
+    "symbol": "lua_wm_unique_ptr_reset_228170",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "228199": {
+    "symbol": "lua_cxx_global_var_init_228199",
+    "arguments": ""
+  },
+  "2281fa": {
+    "symbol": "lua_cxx_global_var_init_1_2281fa",
+    "arguments": ""
+  },
+  "22825b": {
+    "symbol": "lua_cxx_global_var_init_2_22825b",
+    "arguments": ""
+  },
+  "2282bc": {
+    "symbol": "lua_cxx_global_var_init_3_2282bc",
+    "arguments": ""
+  }
+}

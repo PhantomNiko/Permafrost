@@ -9,7 +9,7 @@ from pathlib import Path
 import re
 
 
-def merge(directory, output, header, names=None):
+def merge(directory, output, header, names=None, descriptions=None):
     names = names or {}
     def rename(text):
         return re.sub(r'\b[A-Za-z_]\w*\b', lambda m: names.get(m[0], m[0]), text)
@@ -17,15 +17,30 @@ def merge(directory, output, header, names=None):
     declaration += '\n/* Original analysis identifiers for manual recovery units. */\n'
     declaration += ''.join('#define %s %s\n' % pair for pair in sorted(names.items()))
     header.write_text(declaration)
-    parts = ['/* Permafrost recovered kernel; Pooka\'s Free Software License.\n'
+    parts = ['/* Permafrost recovered implementation; Pooka\'s Free Software License.\n'
              ' * Fixed entry addresses and original function boundaries are recorded\n'
              ' * separately in recovery metadata. */\n#include "' + header.name + '"\n']
+    # Ghidra may export a tail thunk under its target's name. Compile the
+    # target once; each original entry still has its own recorded ABI stub.
+    definitions = {}
     for path in sorted(directory.glob('*.c')):
+        match = re.search(r'\n[\w\s*]*\b((?:thunk_)?(?:recovered_|FUN_)[0-9a-f]+)\s*\([^;{}]*\)\s*\{', path.read_text())
+        if match:
+            name = match[1]
+            if name not in definitions or int(path.stem, 16) == int(name.rsplit('_', 1)[1], 16):
+                definitions[name] = path
+    selected = set(definitions.values())
+    for path in sorted(directory.glob('*.c')):
+        if path not in selected:
+            continue
         text = path.read_text().replace('#include "functions.h"\n', '')
         # A function address is a C symbol, not a memory word containing its
         # first machine instruction. Older analysis exports confused the two.
         text = re.sub(r'^#(?:define|undef)\s+(?:recovered_[0-9a-f]+|FUN_[0-9a-f]+)\b[^\n]*\n', '', text, flags=re.M)
         macros = re.findall(r'^#define\s+(\w+)', text, re.M)
+        description = (descriptions or {}).get(path.stem)
+        if description:
+            parts.append('\n/* ' + description.replace('*/', '* /') + ' */\n')
         parts += ['\n' + rename(text), '\n' + ''.join('#undef %s\n' % names.get(name, name) for name in macros)]
     output.write_text(''.join(parts))
 

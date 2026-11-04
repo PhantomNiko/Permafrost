@@ -14,12 +14,15 @@ def main():
     args = parser.parse_args()
     decoder = Cs(CS_ARCH_X86, CS_MODE_32)
     decoder.detail = True
+    decoder.skipdata = True
     blob = args.kernel.read_bytes()
     layout = json.loads(args.layout.read_text())
-    base, start, end = (layout[key] for key in ('kernel_base', 'text_start', 'text_end'))
+    base = layout.get('kernel_base', layout.get('base'))
+    start, end = layout['text_start'], layout['text_end']
     instructions = list(decoder.disasm(blob[start-base:end-base], start))
     hints = {}
     for index, instruction in enumerate(instructions):
+        if not instruction.id: continue
         if instruction.mnemonic != 'call' or not instruction.op_str.startswith('0x'):
             continue
         address = int(instruction.op_str, 16)
@@ -27,6 +30,7 @@ def main():
             continue
         hints.setdefault(address, '-')
         for following in instructions[index + 1:index + 13]:
+            if not following.id: break
             if following.mnemonic in ('call', 'ret', 'jmp'):
                 break
             reads, writes = following.regs_access()

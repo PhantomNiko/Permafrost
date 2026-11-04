@@ -1,5 +1,21 @@
 # C/C++ migration method
 
+The in-house WinterLua 0.2 application is recovered in
+`applications/lua/runtime.c`, `functions.h` and `state.c`: 1,004 function bodies,
+with demangled signatures beside the recovered C implementations.
+`tools/application.py lua` builds its Mach-O executable without a reference
+binary or an external Lua checkout. The application profile records the source
+layout and reconstruction details. No original executable instruction region
+is copied into the resulting program.
+
+The C++ exception machinery uses C setjmp/longjmp checkpoints recovered from
+the original exception contexts. Ghidra-only control-flow patches expose
+exception landing pads and one-entry cleanup tables; those patches are analysis
+inputs, never shipped instructions. Integer compiler helpers use the common
+freestanding implementation, fixing recursive variable-shift helpers in the
+reference. `tests/lua.py` checks arithmetic, assertions, tables, loops, and the
+reference's closure/dofile limitations through the native loader.
+
 The assembly recovery provides the executable oracle for the current reference.
 The default kernel now compiles 721 recovered C function bodies, the handwritten
 C runtime/compiler support, and the C++ public display entry. Superseded kernel

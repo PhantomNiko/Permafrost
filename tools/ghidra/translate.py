@@ -79,14 +79,27 @@ def main():
         header.append(signature(source) + ';')
     (args.out / 'functions.h').write_text('\n'.join(header) + '\n')
     for address, source in sources.items():
+        for original, replacement in current.get('source_replacements', {}).get(address, {}).items():
+            source = source.replace(original, replacement)
         # Some SJLJ spill slots have an undefined merged declaration even
         # though every dereference uses a pointer. Restore the observed view.
         spill_types = {'23b42': 'byte *', '274d4': 'uint *',
                        '27b0d': 'uint *', '2aa50': 'uint *', '2e262': 'uint *'}
         if address in spill_types:
             source = source.replace('  undefined4 local_14;', '  ' + spill_types[address] + 'local_14;')
+        if current.get('pointer_spills'):
+            pointer_types = dict((name, typ) for typ, name in re.findall(
+                r'\b((?:void|code|undefined[1248]?|int|uint|char|uchar|byte|ushort)\s*\*+)\s*(\w+)\b', source))
+            for name in re.findall(r'^  undefined4 (local_[0-9a-f]+);', source, re.M):
+                if re.search(r'(?<![\w])\*'+re.escape(name)+r'\b|\b'+re.escape(name)+r'\[', source):
+                    views=re.findall(r'\b'+re.escape(name)+r' = \(([^()]+\*)\)',source)
+                    assigned = re.findall(r'\b'+re.escape(name)+r' = (\w+);', source)
+                    inherited = [pointer_types[value] for value in assigned if value in pointer_types]
+                    view = inherited[0] if inherited else (views[0] if views else 'uint *')
+                    source=source.replace('  undefined4 '+name+';', '  '+view+name+';')
         metadata = [line.split('\t') for line in (args.notes / (address + '.tsv')).read_text().splitlines()]
         globals_by_address = {int(row[2], 16): row[3] for row in metadata if row[0] == 'G'}
+        global_addresses = {row[1]: int(row[2], 16) for row in metadata if row[0] == 'G'}
         memory_types = {}
         for row in metadata:
             if row[0] == 'M':
@@ -94,10 +107,12 @@ def main():
                 number = int(row[2], 16)
                 if number not in memory_types or int(size) > memory_types[number][0]:
                     memory_types[number] = (int(size), kind)
-        globals_used = sorted({row[1] for row in metadata if row[0] == 'G'} | set(re.findall(r'\b(?:_?DAT|str|_LAB)_[0-9a-f]{8}\b', source)))
+        globals_used = sorted({row[1] for row in metadata if row[0] == 'G'} | set(re.findall(r'\b(?:_?DAT|str|_LAB)_[0-9a-f]{8}\b|\b[a-zA-Z]+Ram[0-9a-f]{8}\b', source)))
         preamble = ['#include "functions.h"']
         for name in globals_used:
-            number = int(name[-8:], 16)
+            if name.startswith('recovered_') and name.removeprefix('recovered_') in sources:
+                continue
+            number = global_addresses[name] if name in global_addresses else int(name[-8:], 16)
             kind = globals_by_address.get(number, 'uint:4')
             if name.startswith('_DAT'):
                 kind = memory_types.get(number, (4, 'uint:4'))[1]
@@ -132,8 +147,20 @@ def main():
             macros.append('#define %s (*(uint8_t *)(frame + %d))'%(name,frame_size+offset))
         source = source.replace('register0x00000010', '(uintptr_t)(frame + %d)' % frame_size)
         source = re.sub(r'__(?:fastcall|cdecl|thiscall)\s+', '', source)
-        source = re.sub(r'\b(\w+(?:\[[^]\n]+\])?)\.\s*_(\d+)_(\d+)_',
-                        lambda m: 'PF_PART%s(%s, %s)' % (m[3], m[1], m[2]), source)
+        pointer_fields = {(row[1], int(row[2])): int(row[3]) for row in metadata if row[0] == 'P'}
+        field_occurrences = {}
+        def partial_field(match):
+            key = '%s._%s_%s_' % (match[1], match[2], match[3])
+            occurrence = field_occurrences.get(key, 0) + 1
+            field_occurrences[key] = occurrence
+            value = 'PF_PART%s(%s, %s)' % (match[3], match[1], match[2])
+            scale = pointer_fields.get((key, occurrence))
+            if scale:
+                element = {1: 'uint8_t', 2: 'uint16_t', 4: 'uint32_t', 8: 'uint64_t'}.get(
+                    scale, 'struct { uint8_t bytes[%d]; }' % scale)
+                value = '((%s *)(uintptr_t)%s)' % (element, value)
+            return value
+        source = re.sub(r'\b(\w+(?:\[[^]\n]+\])?)\.\s*_(\d+)_(\d+)_', partial_field, source)
         source = re.sub(r'switch\(([^\n]+)\)', r'switch((uintptr_t)(\1))', source)
         source = re.sub(r'case \([^)]*\*\)(0x[0-9a-f]+):', r'case \1:', source)
         source = re.sub(r'\(float\)(\w+\[2\])', r'pf_bits_float((uint32_t)\1)', source)
@@ -164,6 +191,8 @@ def main():
             source = re.sub(r'(_DAT_0000(?:62|64)[0-9a-f]{2} = )(?:recovered_|FUN_000)([0-9a-f]+);', lambda m: m[1] + '0x' + m[2] + ';', source)
             source = source.replace('(uint)local_580', 'pf_float_bits(local_580)')
             source = source.replace('(uint)local_584[0]', 'pf_float_bits(local_584[0])')
+            if address == '32ddf':
+                source = source.replace('(uint)local_584', 'pf_float_bits(local_584)')
             source = source.replace('DAT_00073058 = uVar32;', 'DAT_00073058 = *(uint *)(frame + %d);' % (frame_size - 0xd88))
         if address == current.get('file_listing'):
             # The shared file/directory printf site omits the file branch's
@@ -184,6 +213,9 @@ def main():
             source = re.sub(r'(recovered_21a8b\([^;]+;)', r'\1\n  __builtin_va_end(args);', source, count=1)
         source = re.sub(r'^(  (?:undefined\d*|int|uint|char|byte|ushort|ulonglong|longlong|float10|float|double)\s+\**(?:extraout_\w+|in_EAX|unaff_EBX));$',
                         r'\1 = 0;', source, flags=re.M)
+        if address == '20f7c7' and source.count('LAB_0020f81e:') > 1:
+            point=source.rfind('LAB_0020f81e:')
+            source=source[:point]+source[point:].replace('LAB_0020f81e:', '', 1)
         opening = source.index('\n{') + 2
         source = source[:opening] + '\n  unsigned char frame[%d] = {0};\n' % (frame_size + 32) + source[opening:]
         (args.out / (address + '.c')).write_text('\n'.join(line.rstrip() for line in ('\n'.join(preamble + macros) + '\n' + source).splitlines()).rstrip() + '\n')
