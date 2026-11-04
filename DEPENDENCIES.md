@@ -21,3 +21,10 @@ built from source, rather than decompiled into reconstruction-owned code.
 `patches/openbios/builtin-memory.patch` to a generated copy and changes the boot
 message in another generated copy. The sibling checkout is not modified.
 These modified OpenBIOS files retain their upstream GPL notices and license.
+
+The standalone WinterRwby and WinterScript VMs are covered native binaries in
+`applications/bundled`; their original hashes and numeric-helper entry points
+are recorded alongside them. Release packaging replaces those helpers with
+`kernel/compiler.c` and `kernel/runtime.c`. These two VMs are not claimed to
+build from recovered source. The kernel's built-in WinterScript and the
+WinterLua application do build from recovered source.

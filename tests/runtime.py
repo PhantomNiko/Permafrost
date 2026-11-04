@@ -58,7 +58,7 @@ class Runtime:
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('reference_image', type=Path)
-    parser.add_argument('--kernel', type=Path, default=Path('build/kernel.bin'))
+    parser.add_argument('--kernel', type=Path, default=Path('build/bios/kernel.bin'))
     args = parser.parse_args()
     files = Image(args.reference_image.read_bytes()).files()
     old = Runtime(files['WinterBoot-baremetal.bin'])

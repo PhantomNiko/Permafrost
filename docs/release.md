@@ -16,14 +16,36 @@ image and font services. The original application symbol tables identify the
 in-house WinterLua 0.2 and WinterRwby 0.1 implementations. External Lua is
 replaced by the in-house interpreter for this milestone.
 
-OpenBIOS firmware is built from the sibling `../openbios` checkout, pinned in
-`dependencies.json`; its third-party implementation is not reconstructed from
-the firmware binary. Recovery and validation of the current release are ongoing.
+OpenBIOS firmware builds from the pinned sibling `../openbios` checkout.
+The out-of-tree GPL patch restores Multiboot memory information for firmware
+relocation. A source loader transfers the boot disk into RAM, and the C kernel
+reserves that disk and resident firmware when constructing its heap.
 
-The recovered BIOS C kernel passes a complete Bochs BIOS startup smoke test.
-Directory listing tests compare all 29 files against on-disk records on both
-the reference and the reconstruction, including 0-, 1-, 257- and 4097-byte files.
-The reference supplies the size argument at normalized directory-entry offset
-0xf8; the initial decompiler export omitted it at the shared printf call.
-The source now restores that argument. These checks do not yet establish full
-runtime compatibility; application and OpenBIOS recovery are still ongoing.
+The kernels use consolidated C translation units: 721 BIOS functions and 749
+OpenBIOS functions, with shared freestanding C support and C++ display glue.
+WinterLua has 1,004 recovered C functions. Address metadata and demangled native
+signatures remain available for further source cleanup.
+
+The standalone Rwby and WinterScript VMs remain covered upstream binaries.
+Their packaged copies use source-built integer helpers, correcting recursive
+variable-shift helpers and making numeric programs usable. The built-in
+WinterScript implementation is part of the recovered kernel source.
+
+Directory listing supplies the size at normalized entry offset 0xf8, restoring
+an argument omitted by the decompiler at the shared printf site. CPU-brand
+formatting has its corresponding string argument restored. C++ allocation,
+array-allocation and delete wrappers have their actual incoming arguments;
+without those signatures, PNG buffers could be allocated as a single byte.
+Private font-rendering parameters retain their exact stack slots, including
+the eight-byte width argument. SDK status functions use their original AL byte
+return ABI.
+
+The OpenBIOS reference advances a synthetic 18-Hz clock on time queries. The
+hardware self-test warms that clock before its `time()>0` assertion. The
+OpenBIOS RAM disk is used in place, with writes lasting for the boot session.
+
+Current hardware tests cover the full bundled WinterScript self-test,
+filesystem mutations, CPU descriptions, exact directory sizes, PNG decoding,
+allocation and failure statuses, native Mach-O execution, and source Lua
+arithmetic and loops. This validation does not establish equivalence for every
+possible program or hardware configuration.

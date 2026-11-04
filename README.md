@@ -1,22 +1,57 @@
-# Permafrost 0.6 — recovery in progress
+# Permafrost 0.6
 
-This milestone reconstructs the supplied 0.7 Beta references as Permafrost 0.6.
-It replaces 0.5 as the current build target. Historical source and SDK milestones
-remain in Git history.
+Permafrost 0.6 reconstructs the supplied 0.7 Beta BIOS and OpenBIOS releases.
+It is the current build target; historical source and SDK milestones remain
+in Git history.
 
-Kernel, Mach-O application, OpenBIOS and SDK recovery is ongoing. A validated
-0.6 image and SDK have not yet been published. The recovered source remains
-low level; successful compilation alone does not establish compatibility.
+The BIOS and OpenBIOS kernels, built-in WinterScript runtime, WinterLua 0.2,
+and native monitor build from C/C++ source. Assembly is limited to boot and
+CPU/BIOS transitions. OpenBIOS firmware builds from the pinned sibling
+`../openbios` checkout. Standalone WinterRwby and WinterScript retain their
+licensed VM binaries, packaged with source-built integer helpers; see
+[their provenance](applications/bundled/README.md).
+
+## Build
+
+Use macOS 15, Python 3, NASM and Apple Command Line Tools. The OpenBIOS build
+also requires GNU i386 ELF binutils and the pinned external source revision
+listed in [dependencies](DEPENDENCIES.md).
+
+```sh
+python3 tools/build.py --nasm nasm --binutils-prefix i386-elf-
+```
+
+The build produces:
+
+- `build/Permafrost-0.6.img` — BIOS image, 40 MiB.
+- `build/Permafrost-0.6-OpenBIOS.img` — source OpenBIOS firmware and kernel, 40 MiB.
+- `build/Permafrost0.6.sdk` and `build/Permafrost0.6.sdk.zip` — macOS 15 development bundle.
+- `build/release.json` — artifact sizes and SHA-256 hashes.
+
+`--variant bios` and `--variant openbios` select a firmware variant of this
+release. Reference images and decompiler tools are analysis inputs and are
+not required by normal builds. The covered bundled native VMs are checked
+against their recorded hashes before packaging.
+
+The images have firmware, recovery and FAT32 user partitions. The OpenBIOS
+variant uses a boot-image RAM disk and requires at least 64 MiB of RAM for the
+default image. Its disk writes last for the boot session. The BIOS variant
+uses its disk drivers for persistent writes.
+
+## Development and validation
+
+The [SDK guide](docs/sdk.md) explains C/C++ Mach-O programs, native callbacks,
+and image tools. The bundle is relocatable and requires host Clang; it is a
+freestanding SDK without a hosted C++ standard library or Xcode integration.
+
+`tests/hardware_suite.py` checks complete hardware boots, the bundled language
+self-test, public allocation/file/PNG services, relocated-SDK C/C++ programs,
+source WinterLua, and directory file sizes. `tests/runtime.py` compares kernel
+routines with the reference, including stack and callee-saved registers.
+`tests/lua.py` covers the in-house Lua subset and observed reference limitations.
+Bochs, its BIOS/VGA BIOS, and Unicorn for CPU tests are supplied separately.
 
 See [release findings](docs/release.md), [recovery method](docs/decompilation.md),
 [license scope](LICENSES.md), and [source dependencies](DEPENDENCIES.md).
-
-Build tools target macOS 15 with Python 3, NASM and Apple Command Line Tools.
-The OpenBIOS variant uses the separate sibling `../openbios` source checkout.
-Reference images are local analysis inputs and are not committed. Normal release
-builds must use recovered source rather than embedding reference executables.
-
-Upstream Lua retains its MIT license and is obtained from `../lua` in historical
-milestones that need it. The current reference uses in-house WinterLua 0.2;
-the obsolete local host integration for upstream Lua has been removed.
-Third-party licenses are never replaced by the reconstruction license.
+Third-party licenses retain their original scope. The current release uses
+in-house WinterLua and does not link upstream Lua.

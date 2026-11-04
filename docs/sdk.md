@@ -1,6 +1,6 @@
 # Permafrost 0.6 SDK for macOS 15
 
-The SDK is being validated alongside the current image. Build it with
+Build the SDK alongside the images or independently with
 `python3 tools/sdk.py`. It requires Python 3 and Apple Command Line Tools and
 can be moved without installation at a fixed path.
 
@@ -17,6 +17,14 @@ filename at the OS prompt to run it. `main` uses cdecl and returns an integer
 in EAX. The preferred address is 0x200000; programs share the kernel address
 space and should return without corrupting it.
 
+Use `--runtime` to link the supplied freestanding 64-bit arithmetic and memory
+helpers. Their C sources are included in `usr/src`; omit the option when the
+application supplies its own helpers.
+
+```sh
+build/Permafrost0.6.sdk/bin/pf-cc --runtime sdk/examples/wide-arithmetic.c -o build/wide-arithmetic
+```
+
 For raw code and callback modules, explicitly request flat output and select
 the address used by the loading script:
 
@@ -27,7 +35,8 @@ build/Permafrost0.6.sdk/bin/pf-cc --format flat --base 0x240000 \
 
 WMAP version 4 occupies 124 bytes at 0x6200. `permafrost.h` describes its existing
 console, keyboard, graphics, file, callback and allocation entries, plus image
-and font service slots. Native callback values retain their 24-byte layout.
+and font service slots. Status services return a byte in AL; the header uses
+`pf_status` to preserve that ABI. Native callback values retain their 24-byte layout.
 The local integer/string log formatter uses WMAP rather than a private kernel
 address, supporting both firmware variants. Unsupported format conversions
 should be formatted by the application itself.

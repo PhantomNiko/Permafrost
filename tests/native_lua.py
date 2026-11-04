@@ -18,9 +18,11 @@ def main():
     args = parser.parse_args()
     with tempfile.TemporaryDirectory(prefix='permafrost-lua-') as temp:
         root = Path(temp)
+        raw = args.image.read_bytes()
+        queue_source='tests/openbios_queue.c' if 'OpenBIOS.wmlp' in Image(raw).files() else 'tests/keyqueue.c'
         queue = root / 'queue.bin'
-        subprocess.run(['build/Permafrost0.6.sdk/bin/pf-cc', 'tests/keyqueue.c',
-                        '--format', 'flat', '--base', '0x240000', '-D', 'PF_KEYS="lua\\r"',
+        subprocess.run(['build/Permafrost0.6.sdk/bin/pf-cc', queue_source,
+                        '--format', 'flat', '--base', '0x280000', '-D', 'PF_KEYS="lua\\r"',
                         '-o', str(queue)], check=True, stdout=subprocess.DEVNULL)
         raw = args.image.read_bytes()
         files = Image(raw, 2).files()
@@ -32,7 +34,7 @@ def main():
         image = root / 'disk.img'
         image.write_bytes(repack_image(raw, files, partition=2, sectors=max(81920, len(raw) // 512)))
         script = root / 'startup.ws'
-        script.write_text('assert(runcode("/queue.bin",$240000)==1)\n')
+        script.write_text('assert(runcode("/queue.bin",$280000)==1)\n')
         command = [sys.executable, str(Path(__file__).with_name('hardware.py')), str(image),
                    '--script', str(script), '--expect', 'PF-LUA-HARDWARE-PASS', '--timeout', '40']
         for name in ('bochs', 'bios', 'vgabios'):

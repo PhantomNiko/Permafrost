@@ -48,13 +48,19 @@ def main():
     parser.add_argument('--base', type=lambda s: int(s, 0), default=0x200000)
     parser.add_argument('--entry', default='main')
     parser.add_argument('--format', choices=['macho', 'flat'], default='macho')
+    parser.add_argument('--runtime', action='store_true',
+                        help='link the supplied freestanding arithmetic and memory support')
     args = parser.parse_args()
     here = Path(__file__).resolve().parent
     bundled = here.parent / 'usr/include'
     include = bundled if bundled.exists() else here.parent / 'sdk/include'
+    sources=list(args.sources)
+    if args.runtime:
+        support=here.parent/'usr/src' if bundled.exists() else here.parent/'kernel'
+        sources += [support/'compiler.c', support/'runtime.c']
     with tempfile.TemporaryDirectory(prefix='permafrost-cc-') as temp:
         objects = []
-        for index, source in enumerate(args.sources):
+        for index, source in enumerate(sources):
             target = Path(temp) / ('unit%d.o' % index)
             if source.suffix == '.o':
                 objects.append(Object(source.read_bytes()))

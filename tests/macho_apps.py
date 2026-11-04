@@ -20,29 +20,32 @@ def main():
     parser.add_argument('images',type=Path,nargs='+')
     for name in ['bochs','bios','vgabios']:
         parser.add_argument('--'+name,type=Path,required=True)
+    parser.add_argument('--runtime-only',action='store_true')
     args=parser.parse_args()
     with tempfile.TemporaryDirectory(prefix='permafrost sdk macho ') as temp:
         root=Path(temp);sdk=root/'relocated SDK.sdk';shutil.copytree('build/Permafrost0.6.sdk',sdk)
         compiler=sdk/'bin/pf-cc'
-        queue=root/'queue.bin'
-        subprocess.run([str(compiler),'tests/keyqueue.c','--format','flat','--base','0x240000',
-                        '-D','PF_KEYS="hello\\r"','-o',str(queue)],check=True,stdout=subprocess.DEVNULL)
-        for language in ['c','cpp']:
-            source=root/('hello.'+language)
+        for language in (['runtime'] if args.runtime_only else ['c','cpp','runtime']):
+            source=root/('hello.'+('c' if language=='runtime' else language))
             source.write_text('#include <permafrost.h>\n'+
                 ('extern "C" ' if language=='cpp' else '')+
                 'int main(void) { pf_log("PF-MACHO-%s result=%u signed=%d hex=%08X", "'+language+'", 42U, -7, 0xBEEFU); return 42; }\n')
-            target=root/'hello';subprocess.run([str(compiler),str(source),'-o',str(target)],check=True,stdout=subprocess.DEVNULL)
+            if language=='runtime':source.write_text((sdk/'Examples/wide-arithmetic.c').read_text())
+            target=root/'hello';subprocess.run([str(compiler),*(['--runtime'] if language=='runtime' else []),str(source),'-o',str(target)],check=True,stdout=subprocess.DEVNULL)
             parts,entry=segments(target.read_bytes());assert entry==0x200000 and parts[0][0]==0x200000
             for path in args.images:
                 raw=path.read_bytes();files=Image(raw,2).files()
+                queue=root/'queue.bin'
+                queue_source='tests/openbios_queue.c' if 'OpenBIOS.wmlp' in Image(raw).files() else 'tests/keyqueue.c'
+                subprocess.run([str(compiler),queue_source,'--format','flat','--base','0x280000',
+                                '-D','PF_KEYS="hello\\r"','-o',str(queue)],check=True,stdout=subprocess.DEVNULL)
                 files.update({'hello':target.read_bytes(),'queue.bin':queue.read_bytes()})
                 raw=repack_image(raw,files,partition=2,sectors=max(81920,len(raw)//512))
                 image=root/'disk.img';image.write_bytes(raw)
-                script=root/'startup.ws';script.write_text('assert(runcode("/queue.bin",$240000)==1)\n')
-                expect='PF-MACHO-'+language+' result=42 signed=-7 hex=0000BEEF'
+                script=root/'startup.ws';script.write_text('assert(runcode("/queue.bin",$280000)==1)\n')
+                expect='PF-RUNTIME-PASS' if language=='runtime' else 'PF-MACHO-'+language+' result=42 signed=-7 hex=0000BEEF'
                 command=[sys.executable,str(Path(__file__).with_name('hardware.py')),str(image),
-                    '--script',str(script),'--expect',expect,'--timeout','35']
+                    '--script',str(script),'--expect',expect,'--timeout','50']
                 for name in ['bochs','bios','vgabios']:command+=['--'+name,str(getattr(args,name))]
                 if any(value[:4]==b'WMLP' and value[16:18]==b'\xfc\xe8' for value in Image(raw).files().values()):
                     command.append('--initialize-fpu')

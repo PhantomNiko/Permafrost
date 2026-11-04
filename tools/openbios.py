@@ -49,7 +49,11 @@ def build_firmware(kernel, output, nasm='nasm', source=Path('../openbios'),
     config.write_text(re.sub(r'^CROSSCFLAGS=.*$',
                             'CROSSCFLAGS=-USWAP_ENDIANNESS -DNATIVE_BITWIDTH_SMALLER_THAN_HOST_BITWIDTH',
                             config.read_text(), flags=re.M))
-    subprocess.run(['make', '-j6'], cwd=obj, env=env, check=True)
+    # Build the archive and builtin dictionary before linking: the fork's
+    # final link requires the kernel payload that we add below.
+    subprocess.run(['make', 'versions'], cwd=obj, env=env, check=True)
+    subprocess.run(['make', '-j6', 'libx86.a', 'target/arch/x86/builtin.o'],
+                   cwd=obj, env=env, check=True)
     # Patch a generated copy; preserve the GPL header and the sibling checkout.
     patched = subprocess.check_output(['patch', '--silent', '-o', '-',
         str(source / 'arch/x86/builtin.c'), str(root / 'patches/openbios/builtin-memory.patch')])

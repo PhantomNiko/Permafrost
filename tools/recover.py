@@ -41,7 +41,7 @@ def data_lines(data):
 
 
 def recover(name, blob, ranges, destination, ndisasm):
-    lines = ['; Permafrost 0.5 — recovered assembly, Pooka\'s Free Software License.',
+    lines = ['; Permafrost recovered assembly, Pooka\'s Free Software License.',
              '; Fixed virtual addresses preserve compatibility with original raw programs.',
              '; at() retains original instruction boundaries when NASM shortens an encoding.',
              '%macro pf_at 1', '    times %1 - ($-$$) db 0x90', '%endmacro']
@@ -99,10 +99,7 @@ def main():
         image = slot(image, b'WinterBoot stage2 failed', b'Permafrost stage2 failed')
         image = slot(image, b'WB2 ', b'PF2 ')
         image = slot(image, b'/WinterBoot-baremetal.bin', b'/Permafrost-kernel.bin')
-        if b'/WinterBoot64-baremetal.bin' in image:
-            image = slot(image, b'/WinterBoot64-baremetal.bin', b'/Permafrost64-kernel.bin')
-        kernel = slot(files['WinterBoot-baremetal.bin'], b'WinterMoon OS v0.6 Beta', b'Permafrost v0.5 Beta')
-        kernel = slot(kernel, b'0.4\0', b'0.5\0')
+        kernel = slot(files['WinterBoot-baremetal.bin'], b'WinterMoon OS v0.7 Beta', b'Permafrost OS v0.6 Beta')
         files['WinterBoot-baremetal.bin'] = kernel
     recover('boot', image[:512], [(0, 0x40, 16, 0), (0x40, 512, 0, 0)], args.out / 'boot.asm', args.ndisasm)
     recover('loader', image[512:65*512], layout['loader_ranges'][args.variant], args.out / 'loader.asm', args.ndisasm)

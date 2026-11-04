@@ -30,13 +30,27 @@ include its MIT notice. OpenBIOS integration uses the separate sibling source
 checkout identified in `dependencies.json`, with its upstream licenses intact.
 See `LICENSES.md` for scope.
 
-BIOS startup and the directory-size regression pass under a full Bochs BIOS.
-The differential CPU fixture passes 523 memory/string ABI cases, including the
-actual compressed bootstrap. The directory regression checks 29 file lengths
-against disk records on both the reference and reconstruction; the old listing
-bug omitted a variadic size argument. The bundled WinterScript self-test passes
-on both images, covering file mutation, pipes, imports and nested tables. SDK C
-and C++ Mach-O programs also pass on both through the OS loader. Graphics,
-recovered applications and OpenBIOS validation remain in progress; these results
-are not a release claim. The address-named C exports are an intermediate form
-and still need naming and structural cleanup.
+The default build produces both current firmware variants and the macOS SDK.
+The kernels pass the bundled WinterScript self-test under complete Bochs
+hardware emulation, including filesystem mutation, pipes, imports, nested tables
+and CPU descriptions. The CPU fixture passes 523 original-vs-C ABI cases,
+including the compressed bootstrap and preservation of callee-saved registers.
+Directory checks compare on-disk file lengths with the printed sizes, including
+0-, 1-, 257- and 4097-byte probes.
+
+SDK C/C++ Mach-O programs run through both OS prompts from a relocated SDK.
+Public allocation, file, PNG and failure-status probes pass on both variants.
+Source WinterLua has arithmetic, assertion, table and loop tests, with the
+reference's closure and dofile limitations preserved. The standalone Rwby and
+WinterScript VMs remain licensed native binaries with source-built integer
+helpers; their VM implementations are not claimed to be recovered source.
+
+OpenBIOS uses a 40-MiB boot-image RAM disk at 16 MiB. Its C core runs at 5 MiB,
+its stack starts at 4 MiB, and its heap excludes the disk and resident firmware.
+The firmware is built from the pinned sibling checkout and patched out of tree.
+The external Lua VM is absent from this release.
+
+Recovered C remains low level. Known public services and the Lua implementation
+have semantic names; private address names and layout metadata retain a trace
+back to the reference for further work. Tests cover the listed interfaces and
+scenarios, not every possible program or hardware configuration.

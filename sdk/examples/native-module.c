@@ -1,4 +1,4 @@
-/* Permafrost 0.5. Pooka's Free Software License.
+/* Permafrost 0.6. Pooka's Free Software License.
  * Call nativeExample["add"](17,25) from WinterScript.
  * Load at 0x240000; this module must remain resident while callbacks are bound.
  */

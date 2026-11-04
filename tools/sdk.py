@@ -6,17 +6,20 @@ import shutil
 import zipfile
 
 
-def main():
-    root = Path('build/Permafrost0.6.sdk')
+def build_sdk(output=Path('build')):
+    root = output / 'Permafrost0.6.sdk'
     # Recreate this generated bundle so removed notices/tools cannot survive
     # from an earlier build and leak into the new archive.
     if root.exists():
         shutil.rmtree(root)
     (root / 'bin').mkdir(parents=True, exist_ok=True)
     (root / 'usr/include').mkdir(parents=True, exist_ok=True)
+    (root / 'usr/src').mkdir(parents=True, exist_ok=True)
     (root / 'Documentation').mkdir(parents=True, exist_ok=True)
     for path in Path('sdk/include').iterdir():
         shutil.copyfile(path, root / 'usr/include' / path.name)
+    for name in ('compiler.c','runtime.c'):
+        shutil.copyfile(Path('kernel')/name,root/'usr/src'/name)
     shutil.copytree('sdk/examples', root / 'Examples', dirs_exist_ok=True)
     for source, target in [('tools/cc.py', 'pf-cc'), ('tools/elf32.py', 'elf32.py'), ('tools/macho.py','macho.py'), ('tools/fat.py','fat.py'),
                            ('tools/wmfs.py', 'pf-wmfs')]:
@@ -37,9 +40,10 @@ def main():
     (root / 'README.txt').write_text(
         'Permafrost 0.6 SDK for macOS 15\n\n'
         'Requires Python 3 and Apple Command Line Tools (clang/clang++).\n'
-        'Compile C: bin/pf-cc Examples/hello.c -o hello.bin\n'
-        'Compile C++: bin/pf-cc Examples/nightmode.cpp -o nightmode.bin\n'
+        'Compile C: bin/pf-cc Examples/hello.c -o hello\n'
+        'Compile C++: bin/pf-cc Examples/nightmode.cpp -o nightmode\n'
         'Native callbacks: compile Examples/native-module.c with --format flat --base 0x240000.\n'
+        'Use --runtime for supplied 64-bit arithmetic and memory helpers.\n'
         'Install the Mach-O program in FAT32 (partition 2) and enter its filename at the OS prompt.\n'
         'i386 MH_PRELOAD Mach-O; cdecl main returns an integer in EAX.\n'
         'Use --format flat for explicit raw runcode/bload workflows.\n'
@@ -50,8 +54,12 @@ def main():
         for path in sorted(root.rglob('*')):
             if path.is_file():
                 archive.write(path, str(Path(root.name) / path.relative_to(root)))
-    print('Built build/Permafrost0.6.sdk')
+    print('Built ' + root.name)
+    return root
 
 
 if __name__ == '__main__':
-    main()
+    import argparse
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--out', type=Path, default=Path('build'))
+    build_sdk(parser.parse_args().out)

@@ -9,6 +9,7 @@ import java.nio.file.Path;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.ArrayList;
+import ghidra.program.model.listing.FlowOverride;
 
 public class SjLj extends GhidraScript {
     private byte[] jump(int opcode,long at,long target) {
@@ -34,6 +35,7 @@ public class SjLj extends GhidraScript {
             String[] cells=row.split("\\t");
             long site=Long.parseLong(cells[0],16), pad=Long.parseLong(cells[1],16);
             var owner=getFunctionContaining(toAddr(site));
+            if(owner==null)owner=getFunctionBefore(toAddr(site));
             if(owner==null)throw new Exception("No SJLJ owner at "+cells[0]);
             var separate=getFunctionAt(toAddr(pad));
             if(separate!=null && separate!=owner)removeFunction(separate);
@@ -45,10 +47,16 @@ public class SjLj extends GhidraScript {
             bytes.putInt((int)(site+5-(scratch+13)));
             bytes.put(new byte[]{(byte)0x8b,0x04,0x24,(byte)0x8b,0x50,0x0c,(byte)0x8b,0x40,0x08});
             bytes.put(jump(0xe9,scratch+22,pad));
+            clearListing(toAddr(scratch),toAddr(scratch+26));
             setBytes(toAddr(scratch),bytes.array());
             clearListing(toAddr(site),toAddr(site+4));
             setBytes(toAddr(site),jump(0xe9,site,scratch));
             disassemble(toAddr(site));
+            getInstructionAt(toAddr(site)).setFlowOverride(FlowOverride.NONE);
+            disassemble(toAddr(scratch));
+            var hooks=currentProgram.getListing().getInstructions(
+                new AddressSet(toAddr(scratch),toAddr(scratch+26)),true);
+            while(hooks.hasNext())hooks.next().setFlowOverride(FlowOverride.NONE);
             var body=new AddressSet(owner.getBody());
             body.add(toAddr(scratch),toAddr(scratch+26));
             owner.setBody(body);

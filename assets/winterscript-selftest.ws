@@ -1,6 +1,6 @@
-@@ WinterScript self-test for 0.5 beta
+@@ WinterScript self-test for 0.4 beta
 
-assert(WINTER_VERSION == 0.5, "WINTER_VERSION should be 0.5")
+assert(WINTER_VERSION == 0.4, "WINTER_VERSION should be 0.4")
 assert(WINTER_RELEASE == "Beta", "WINTER_RELEASE should be Beta")
 assert(typeOf(not) == "not", "standalone not should be the not value")
 assert(missingValue == not, "missing variables should resolve to not")
