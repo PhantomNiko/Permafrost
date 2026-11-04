@@ -1,6 +1,8 @@
 /* Permafrost 0.6; Pooka's Free Software License. */
 #pragma once
 #include "support.h"
+#undef CONCAT44
+#define CONCAT44(a,b) (((uint64_t)PF_RAW32(a)<<32)|PF_RAW32(b))
 typedef code service_conflict10;
 typedef code service_conflict2;
 typedef code service_conflict4;

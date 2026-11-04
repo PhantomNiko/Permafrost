@@ -77,6 +77,8 @@ static inline long double pf_round(long double value) {
 #define NAN(value) __builtin_isnan(value)
 static inline uint16_t pf_fpu_control(void) { uint16_t value; __asm__ volatile ("fnstcw %0" : "=m"(value)); return value; }
 static inline uint32_t pf_float_bits(float value) { union { float f; uint32_t u; } bits = { .f = value }; return bits.u; }
+static inline uint32_t pf_word_bits(uintptr_t value) { return (uint32_t)value; }
+#define PF_RAW32(value) _Generic((value), float: pf_float_bits, default: pf_word_bits)(value)
 static inline float pf_bits_float(uint32_t value) { union { float f; uint32_t u; } bits = { .u = value }; return bits.f; }
 static inline uint64_t pf_double_bits(double value) { union { double f; uint64_t u; } bits = { .f = value }; return bits.u; }
 static inline double pf_bits_double(uint64_t value) { union { double f; uint64_t u; } bits = { .u = value }; return bits.f; }

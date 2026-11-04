@@ -94,6 +94,8 @@ def main():
     floating={name for text in sources.values() for name in
               re.findall(r'\b(?:float|float10|double)\s+(?:__\w+\s+)?((?:recovered_|FUN_)[0-9a-f]+)\(',text)}
     header = ['/* Permafrost 0.6; Pooka\'s Free Software License. */', '#pragma once', '#include "support.h"']
+    if current.get('float_slot_views'):
+        header += ['#undef CONCAT44', '#define CONCAT44(a,b) (((uint64_t)PF_RAW32(a)<<32)|PF_RAW32(b))']
     service_types=sorted(set(re.findall(r'\bservice(?:_conflict\d+)?\b', '\n'.join(sources.values()))))
     header += ['typedef code '+name+';' for name in service_types]
     for source in sources.values():
@@ -102,6 +104,24 @@ def main():
     for address, source in sources.items():
         for original, replacement in current.get('source_replacements', {}).get(address, {}).items():
             source = source.replace(original, replacement)
+        if current.get('float_slot_views'):
+            # Merged variant storage can have a float declaration while its
+            # integer and pointer branches access the same four raw bytes.
+            arrays=re.findall(r'^  float (\w+)\s*\[\d+\];',source,re.M)
+            floats=set(re.findall(r'^  float (\w+);',source,re.M))
+            words=set(re.findall(r'\b(?:int|uint|undefined4)\s*\*+\s*(\w+)\b',source))
+            for name in arrays:
+                source=re.sub(r'\((int|uint|char|uchar|byte|short|ushort)\)('+name+r'\[[^]\n]+\])',
+                              r'(\1)pf_float_bits(\2)',source)
+                def stored_integer(match):
+                    expression=match[2]
+                    if re.search(r'\bfVar\d+\b',expression):return match[0]
+                    return match[1]+' = pf_bits_float((uint32_t)('+expression+'));'
+                source=re.sub(r'('+name+r'\[[^]\n]+\]) = \(float\)([^;]+);',stored_integer,source)
+            for name in words:
+                source=re.sub(r'\(float\)('+name+r'\[[^]\n]+\])',r'pf_bits_float((uint32_t)\1)',source)
+                for value in floats:
+                    source=re.sub(r'('+name+r'\[[^]\n]+\]) = '+value+r';',r'\1 = pf_float_bits('+value+');',source)
         if current.get('scalar_storage_views'):
             for name in re.findall(r'^  undefined8 (\w+);',source,re.M):
                 if re.search(r'\b'+name+r' = \(double\)',source):
@@ -125,7 +145,7 @@ def main():
                 inherited = [pointer_types[value] for value in assigned if value in pointer_types]
                 arithmetic = (current.get('pointer_spill_arithmetic') and inherited and
                               inherited[0] != 'void *' and
-                              re.search(r'\b'+re.escape(name)+r' [+-] (?:0x)?\d', source))
+                              re.search(r'\b'+re.escape(name)+r' [+-] -?(?:0x)?\d', source))
                 if arithmetic or re.search(r'(?<![\w])\*'+re.escape(name)+r'\b|\b'+re.escape(name)+r'\[', source):
                     views=re.findall(r'\b'+re.escape(name)+r' = \(([^()]+\*)\)',source)
                     view = inherited[0] if inherited else (views[0] if views else 'uint *')

@@ -33,9 +33,29 @@
       },
       "239422": {
         "local_7c._4_4_ = (float)(uVar9 >> 0x20);": "local_7c._4_4_ = (uint)(uVar9 >> 0x20);"
+      },
+      "23e712": {
+        "  int iVar5;": "  int iVar5;\n  int *token_cursor;",
+        "    iVar5 = local_228 * 0xc;": "    iVar5 = local_228 * 0xc;\n    token_cursor = local_22c;",
+        "      local_20 = local_22c;": "      local_20 = token_cursor;",
+        "      recovered_20afce(local_74,local_18,local_22c);": "      recovered_20afce(local_74,local_18,token_cursor);",
+        "      local_22c = local_20 + 3;": "      token_cursor = local_20 + 3;"
+      },
+      "20ad22": {
+        "  undefined4 local_14;": "  undefined1 *local_14;"
+      },
+      "216f5a": {
+        "local_1c._0_4_ * fVar12": "pf_bits_float(local_1c._0_4_) * fVar12",
+        "local_1c._0_4_ + fVar12": "pf_bits_float(local_1c._0_4_) + fVar12",
+        "local_1c._0_4_ - fVar12": "pf_bits_float(local_1c._0_4_) - fVar12",
+        "local_1c._0_4_,fVar12)": "pf_bits_float(local_1c._0_4_),fVar12)"
+      },
+      "23a364": {
+        "return (float)local_18;": "return (uint)local_18;"
       }
     },
-    "pointer_spill_arithmetic": true
+    "pointer_spill_arithmetic": true,
+    "float_slot_views": true
   },
   "inline_constants": {},
   "source": "applications/winterscript",

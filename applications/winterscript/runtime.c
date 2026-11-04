@@ -5966,7 +5966,7 @@ LAB_0020390f:
   case 2:
     if (param_2[4] == 1) {
       local_50 = 0xffffffff;
-      winterscript_wm_to_string_20c21c(local_14,(float)param_2[1]);
+      winterscript_wm_to_string_20c21c(local_14,pf_bits_float((uint32_t)param_2[1]));
       goto LAB_0020384d;
     }
     goto switchD_002038b4_default;
@@ -11750,7 +11750,7 @@ void winterscript_Variable_Variable_20ad08(uint pf_input_0)
 #define local_34 (*(undefined1 * *)(frame + 200))
 #define local_24 (*(undefined8 *)(frame + 216))
 #define local_18 (*(uint *)(frame + 228))
-#define local_14 (*(uint * *)(frame + 232))
+#define local_14 (*(undefined1 * *)(frame + 232))
 #define auStackY_ec (*(undefined1 (*)[128])(frame + 16))
 #define puStack_54 (*(undefined4 * *)(frame + 168))
 #define local_5c (*(uint *)(frame + 160))
@@ -12960,7 +12960,7 @@ LAB_0020bae7:
         pcVar2 = (code *)invalidInstructionException();
         (*pcVar2)();
       }
-      fVar3 = (float)param_1[1] * (float)fVar8;
+      fVar3 = pf_bits_float((uint32_t)param_1[1]) * (float)fVar8;
 LAB_0020b96d:
       param_1[1] = (uint)fVar3;
       puVar7 = param_1;
@@ -12972,7 +12972,7 @@ LAB_0020b96d:
         local_58 = 0xffffffff;
         fVar8 = winterscript_WinterScript_fastScalarToDouble_20b306(param_3);
         if (param_1[4] != 1) goto LAB_0020bae7;
-        fVar3 = (float)param_1[1] + (float)fVar8;
+        fVar3 = pf_bits_float((uint32_t)param_1[1]) + (float)fVar8;
         goto LAB_0020b96d;
       }
       if (cVar1 != '\x03') {
@@ -12999,7 +12999,7 @@ LAB_0020b96d:
         local_58 = 0xffffffff;
         fVar8 = winterscript_WinterScript_fastScalarToDouble_20b306(param_3);
         if (param_1[4] != 1) goto LAB_0020bae7;
-        fVar3 = (float)param_1[1] - (float)fVar8;
+        fVar3 = pf_bits_float((uint32_t)param_1[1]) - (float)fVar8;
         goto LAB_0020b96d;
       }
       if (cVar1 != '\x03') {
@@ -13142,7 +13142,7 @@ float10 winterscript_toDouble_20bbe8(int *param_1)
     }
     else if (iVar2 == 2) {
       if (param_1[4] == 1) {
-        fVar1 = (float)param_1[1];
+        fVar1 = pf_bits_float((uint32_t)param_1[1]);
         goto LAB_0020bc61;
       }
     }
@@ -13250,7 +13250,7 @@ uint winterscript_toInt_20bcf4(int *param_1)
     else if (iVar1 == 2) {
       if (param_1[4] == 1) {
         local_1a = in_FPUControlWord | 0xc00;
-        uVar3 = (uint)ROUND((float)param_1[1]);
+        uVar3 = (uint)ROUND(pf_bits_float((uint32_t)param_1[1]));
         local_20 = uVar3;
         goto LAB_0020bd7b;
       }
@@ -13492,7 +13492,7 @@ switchD_0020c0d3_default:
   case 2:
     if (param_3[4] != 1) goto switchD_0020c0d3_default;
     local_60 = 3;
-    winterscript_wm_to_string_20c21c(local_30,(float)param_3[1]);
+    winterscript_wm_to_string_20c21c(local_30,pf_bits_float((uint32_t)param_3[1]));
 LAB_0020bfd2:
     winterscript_wm_string_operator_20c1dc(&local_1c,local_30);
     winterscript_operator_delete_202454(local_30[0]);
@@ -13585,7 +13585,7 @@ undefined4 winterscript_WinterScript_tryGetArrayIndex_20c10c(undefined4 param_1,
 
   if (*param_2 == 2) {
     if (param_2[4] == 1) {
-      value = (float)param_2[1];
+      value = pf_bits_float((uint32_t)param_2[1]);
       iVar2 = winterscript_isfinite_2029a0(SUB84((double)value,0),(uint)((ulonglong)(double)value >> 0x20));
       if (iVar2 == 0) {
         return 0;
@@ -14794,7 +14794,7 @@ LAB_0020d148:
     if (*param_4 == 2) {
       if (param_4[4] != 1) goto switchD_0020dc09_default;
       local_48 = 0xffffffff;
-      pcVar19 = (char *)(uintptr_t)pf_float_bits((float)winterscript_fabsf_200eee((float)param_4[1]));
+      pcVar19 = (char *)(uintptr_t)pf_float_bits((float)winterscript_fabsf_200eee(pf_bits_float((uint32_t)param_4[1])));
       goto LAB_0020d045;
     }
     local_48 = 0xffffffff;
@@ -17235,7 +17235,7 @@ LAB_00211068:
         if (local_138 != 0) goto switchD_002112f0_default;
         *param_1 = 1;
         param_1[4] = 0;
-        param_1[1] = -(int)local_144[0];
+        param_1[1] = -(int)pf_float_bits(local_144[0]);
       }
       else if (local_148 == (uint *****)0x2) {
         if (local_138 != 1) goto switchD_002112f0_default;
@@ -17321,7 +17321,7 @@ LAB_00210bd1:
           cVar5 = '+';
           if (local_60 == 1 && local_148 == (uint *****)0x1) {
             if ((local_138 != 0) || (local_50 != 0)) goto switchD_002112f0_default;
-            iVar8 = (int)local_5c[0] + (int)local_144[0];
+            iVar8 = (int)local_5c[0] + (int)pf_float_bits(local_144[0]);
             goto LAB_002109fa;
           }
           break;
@@ -17342,7 +17342,7 @@ LAB_00210bd1:
         cVar5 = '-';
         if ((local_148 == (uint *****)0x1) && (local_60 == 1)) {
           if ((local_138 != 0) || (local_50 != 0)) goto switchD_002112f0_default;
-          iVar8 = (int)local_144[0] - (int)local_5c[0];
+          iVar8 = (int)pf_float_bits(local_144[0]) - (int)local_5c[0];
 LAB_002109fa:
           *param_1 = 1;
           param_1[4] = 0;
@@ -17354,7 +17354,7 @@ LAB_002109fa:
         cVar5 = '*';
         if ((local_148 == (uint *****)0x1) && (local_60 == 1)) {
           if ((local_138 != 0) || (local_50 != 0)) goto switchD_002112f0_default;
-          iVar8 = (int)local_5c[0] * (int)local_144[0];
+          iVar8 = (int)local_5c[0] * (int)pf_float_bits(local_144[0]);
           goto LAB_002109fa;
         }
         break;
@@ -17380,7 +17380,7 @@ LAB_002109fa:
 LAB_00210aa2:
           *param_1 = 2;
           param_1[4] = 1;
-          param_1[1] = fVar18;
+          param_1[1] = pf_float_bits(fVar18);
           goto LAB_00210ab9;
         }
         break;
@@ -17426,7 +17426,7 @@ switchD_002112f0_default:
           if (local_138 != 0) goto switchD_002112f0_default;
           *param_1 = 1;
           param_1[4] = 0;
-          param_1[1] = (int)local_144[0] % (int)local_5c[0];
+          param_1[1] = (int)pf_float_bits(local_144[0]) % (int)local_5c[0];
           goto LAB_00210ab9;
         }
         cVar5 = '%';
@@ -20243,7 +20243,7 @@ LAB_00214c44:
         goto LAB_00214931;
       case 2:
         if (puVar6[4] != 1) goto LAB_00214c44;
-        *param_6 = pf_bits_float((uintptr_t)puVar6[1]) != 0.0;
+        *param_6 = pf_bits_float((uint32_t)puVar6[1]) != 0.0;
         goto LAB_00214b12;
       default:
         goto switchD_00214732_caseD_2;
@@ -21994,8 +21994,8 @@ LAB_00216c75:
     goto LAB_00216c47;
   case 2:
     if ((param_2[4] == 1) && (param_3[4] == 1)) {
-      fVar5 = (float10)(float)param_2[1];
-      fVar6 = (float10)(float)param_3[1];
+      fVar5 = (float10)pf_bits_float((uint32_t)param_2[1]);
+      fVar6 = (float10)pf_bits_float((uint32_t)param_3[1]);
 LAB_00216b51:
       return fVar5 == fVar6;
     }
@@ -22381,7 +22381,7 @@ switchD_002179b1_default:
           local_50 = 0xffffffff;
           fVar12 = winterscript_toFloat_216f44((int *)param_5);
           local_50 = 0xffffffff;
-          fVar12 = winterscript_fmodf_200cd9(PF_PART4(local_1c, 0),fVar12);
+          fVar12 = winterscript_fmodf_200cd9(pf_bits_float(PF_PART4(local_1c, 0)),fVar12);
           break;
         }
         local_50 = 0xffffffff;
@@ -22444,7 +22444,7 @@ switchD_00216fa0_caseD_26:
       local_1c = pf_bits_double(CONCAT44(PF_PART4(local_1c, 4),fVar12));
       local_50 = 0xffffffff;
       fVar12 = winterscript_toFloat_216f44((int *)param_5);
-      fVar12 = PF_PART4(local_1c, 0) * fVar12;
+      fVar12 = pf_bits_float(PF_PART4(local_1c, 0)) * fVar12;
       break;
     case 0x2b:
       uVar8 = *param_3;
@@ -22484,7 +22484,7 @@ switchD_00216fa0_caseD_26:
       local_1c = pf_bits_double(CONCAT44(PF_PART4(local_1c, 4),fVar12));
       local_50 = 0xffffffff;
       fVar12 = winterscript_toFloat_216f44((int *)param_5);
-      fVar12 = PF_PART4(local_1c, 0) + fVar12;
+      fVar12 = pf_bits_float(PF_PART4(local_1c, 0)) + fVar12;
       break;
     case 0x2d:
       uVar8 = *param_3;
@@ -22511,7 +22511,7 @@ switchD_00216fa0_caseD_26:
       local_1c = pf_bits_double(CONCAT44(PF_PART4(local_1c, 4),fVar12));
       local_50 = 0xffffffff;
       fVar12 = winterscript_toFloat_216f44((int *)param_5);
-      fVar12 = PF_PART4(local_1c, 0) - fVar12;
+      fVar12 = pf_bits_float(PF_PART4(local_1c, 0)) - fVar12;
       break;
     case 0x2f:
       if (((5 < *param_3) || ((0x26U >> (*param_3 & 0x1f) & 1) == 0)) ||
@@ -22657,7 +22657,7 @@ LAB_00217984:
     }
     *param_1 = 2;
     param_1[4] = 1;
-    param_1[1] = fVar12;
+    param_1[1] = pf_float_bits(fVar12);
 LAB_0021761c:
     winterscript_Unwind_SjLj_Unregister_2027a0(&local_54);
     return param_1;
@@ -26618,7 +26618,7 @@ void winterscript_wm_vector_reserve_21c5fc(int *param_1,uint param_2)
 #define local_b4 (*(uint (*)[4])(frame + 248))
 #define local_a4 (*(int * *)(frame + 264))
 #define local_a0 (*(int * *)(frame + 268))
-#define local_9c (*(undefined4 *)(frame + 272))
+#define local_9c (*(uint * *)(frame + 272))
 #define local_98 (*(uint * *)(frame + 276))
 #define local_94 (*(undefined4 *)(frame + 280))
 #define local_90 (*(undefined4 *)(frame + 284))
@@ -35629,7 +35629,7 @@ LAB_00226b47:
   case 2:
     if (param_3[4] != 1) goto LAB_00226b47;
     local_48 = 0xffffffff;
-    winterscript_wm_to_string_20c21c(param_1,(float)param_3[1]);
+    winterscript_wm_to_string_20c21c(param_1,pf_bits_float((uint32_t)param_3[1]));
     break;
   case 3:
     if (param_3[4] != 2) goto LAB_00226b47;
@@ -42734,7 +42734,7 @@ int * winterscript_wm_shared_ptr_const_22fcce(int *param_1,int *param_2)
 #define local_2c (*(undefined1 * *)(frame + 592))
 #define local_1c (*(int *)(frame + 608))
 #define local_18 (*(int *)(frame + 612))
-#define local_14 (*(undefined4 *)(frame + 616))
+#define local_14 (*(undefined4 * *)(frame + 616))
 #define auStackY_26c (*(undefined1 (*)[128])(frame + 16))
 #define local_1d4 (*(void ** *)(frame + 168))
 #define local_1d0 (*(uint *)(frame + 172))
@@ -45162,7 +45162,7 @@ switchD_0023256a_default:
       fVar3 = (float)local_14 * _DAT_00260944;
       *param_1 = 2;
       param_1[4] = 1;
-      param_1[1] = fVar3;
+      param_1[1] = pf_float_bits(fVar3);
       goto LAB_0023243f;
     }
     piVar1 = (int *)*param_3;
@@ -47625,7 +47625,7 @@ bool winterscript_wm_unordered_map_erase_234712(int *param_1,undefined4 *param_2
 #define local_24 (*(undefined4 * *)(frame + 232))
 #define local_1c (*(undefined4 * *)(frame + 240))
 #define local_18 (*(undefined4 * *)(frame + 244))
-#define local_14 (*(undefined4 *)(frame + 248))
+#define local_14 (*(int * *)(frame + 248))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x234750
  */
@@ -50612,10 +50612,10 @@ LAB_00236eef:
   if (*piVar1 == 2) {
     if (piVar1[4] != 1) goto LAB_00236eef;
     local_48 = 0xffffffff;
-    fVar5 = winterscript_fabsf_200eee(pf_bits_float((uintptr_t)piVar1[1]));
+    fVar5 = winterscript_fabsf_200eee(pf_bits_float((uint32_t)piVar1[1]));
     *param_1 = 2;
     param_1[4] = 1;
-    param_1[1] = fVar5;
+    param_1[1] = pf_float_bits(fVar5);
   }
   else {
     local_48 = 0xffffffff;
@@ -50929,7 +50929,7 @@ undefined4 * winterscript_WinterScript_sinFunction_2371f2(undefined4 *param_1,un
     local_18 = (float)dVar5;
     *param_1 = 2;
     param_1[4] = 1;
-    param_1[1] = local_18;
+    param_1[1] = pf_float_bits(local_18);
     winterscript_Unwind_SjLj_Unregister_2027a0(&local_4c);
     return param_1;
   }
@@ -51022,7 +51022,7 @@ undefined4 * winterscript_WinterScript_cosFunction_2372f0(undefined4 *param_1,un
     local_18 = (float)dVar5;
     *param_1 = 2;
     param_1[4] = 1;
-    param_1[1] = local_18;
+    param_1[1] = pf_float_bits(local_18);
     winterscript_Unwind_SjLj_Unregister_2027a0(&local_4c);
     return param_1;
   }
@@ -51122,7 +51122,7 @@ undefined4 * winterscript_WinterScript_radFunction_2373ee(undefined4 *param_1,un
     local_18 = (float)((fVar4 * (float10)_DAT_0025b498) / (float10)_DAT_00260940);
     *param_1 = 2;
     param_1[4] = 1;
-    param_1[1] = local_18;
+    param_1[1] = pf_float_bits(local_18);
     winterscript_Unwind_SjLj_Unregister_2027a0(&local_4c);
     return param_1;
   }
@@ -51251,7 +51251,7 @@ LAB_002375b7:
         local_28 = (float)fVar5;
         *param_1 = 2;
         param_1[4] = 1;
-        param_1[1] = local_28;
+        param_1[1] = pf_float_bits(local_28);
         winterscript_Unwind_SjLj_Unregister_2027a0(&local_5c);
         return param_1;
       }
@@ -51372,7 +51372,7 @@ undefined4 * winterscript_WinterScript_sqrtFunction_2376da(undefined4 *param_1,u
       local_1c = (float)dVar6;
       *param_1 = 2;
       param_1[4] = 1;
-      param_1[1] = local_1c;
+      param_1[1] = pf_float_bits(local_1c);
       winterscript_Unwind_SjLj_Unregister_2027a0(&local_54);
       return param_1;
     }
@@ -51596,7 +51596,7 @@ undefined4 * winterscript_WinterScript_clockFunction_23795a(undefined4 *param_1,
     local_18 = (float)local_24 / _DAT_0025b67c;
     *param_1 = 2;
     param_1[4] = 1;
-    param_1[1] = local_18;
+    param_1[1] = pf_float_bits(local_18);
     winterscript_Unwind_SjLj_Unregister_2027a0(&local_5c);
     return param_1;
   }
@@ -54486,7 +54486,7 @@ LAB_0023aba4:
         }
         local_50 = 0xffffffff;
         uVar3 = winterscript_toInt_20bcf4((int *)local_1c);
-        local_64[0] = (float)((int)uVar3 % (int)uVar5);
+        local_64[0] = pf_bits_float((uint32_t)(((int)uVar3 % (int)uVar5)));
         local_a0 = local_64;
         local_68 = 1;
         local_58 = 0;
@@ -54519,7 +54519,7 @@ switchD_0023abd1_default:
             local_50 = 0xffffffff;
             local_64[0] = winterscript_toFloat_216f44((int *)local_1c);
             if (param_3[4] != 1) goto LAB_0023aaca;
-            local_64[0] = local_64[0] * (float)param_3[1];
+            local_64[0] = local_64[0] * pf_bits_float((uint32_t)param_3[1]);
             local_7c = local_64;
             local_68 = 2;
             local_58 = 1;
@@ -54532,7 +54532,7 @@ switchD_0023abd1_default:
             uVar3 = winterscript_toInt_20bcf4((int *)local_1c);
             local_50 = 0xffffffff;
             uVar5 = winterscript_toInt_20bcf4((int *)param_3);
-            local_64[0] = (float)(uVar5 * uVar3);
+            local_64[0] = pf_bits_float((uint32_t)((uVar5 * uVar3)));
             local_80 = local_64;
             local_68 = 1;
             local_58 = 0;
@@ -54550,7 +54550,7 @@ LAB_0023aaca:
           pcVar1 = (code *)invalidInstructionException();
           (*pcVar1)();
         }
-        fVar8 = fVar8 * pf_bits_float((uintptr_t)puVar6[1]);
+        fVar8 = fVar8 * pf_bits_float((uint32_t)puVar6[1]);
         uVar3 = extraout_EAX_03;
 LAB_0023a783:
         puVar6[1] = (uint)fVar8;
@@ -54562,7 +54562,7 @@ LAB_0023a783:
           local_50 = 0xffffffff;
           fVar8 = winterscript_toFloat_216f44((int *)param_3);
           if (puVar6[4] != 1) goto LAB_0023aaca;
-          fVar8 = fVar8 + pf_bits_float((uintptr_t)puVar6[1]);
+          fVar8 = fVar8 + pf_bits_float((uint32_t)puVar6[1]);
           uVar3 = extraout_EAX_02;
           goto LAB_0023a783;
         }
@@ -54570,7 +54570,7 @@ LAB_0023a783:
           local_50 = 0xffffffff;
           local_64[0] = winterscript_toFloat_216f44((int *)local_1c);
           if (param_3[4] != 1) goto LAB_0023aaca;
-          local_64[0] = local_64[0] + (float)param_3[1];
+          local_64[0] = local_64[0] + pf_bits_float((uint32_t)param_3[1]);
           local_6c = local_64;
           local_68 = 2;
           local_58 = 1;
@@ -54583,7 +54583,7 @@ LAB_0023a783:
           uVar3 = winterscript_toInt_20bcf4((int *)local_1c);
           local_50 = 0xffffffff;
           uVar5 = winterscript_toInt_20bcf4((int *)param_3);
-          local_64[0] = (float)(uVar5 + uVar3);
+          local_64[0] = pf_bits_float((uint32_t)((uVar5 + uVar3)));
           local_70 = local_64;
           local_68 = 1;
           local_58 = 0;
@@ -54603,7 +54603,7 @@ LAB_0023a783:
           local_50 = 0xffffffff;
           fVar8 = winterscript_toFloat_216f44((int *)param_3);
           if (puVar6[4] != 1) goto LAB_0023aaca;
-          fVar8 = pf_bits_float((uintptr_t)puVar6[1]) - fVar8;
+          fVar8 = pf_bits_float((uint32_t)puVar6[1]) - fVar8;
           uVar3 = extraout_EAX_04;
           goto LAB_0023a783;
         }
@@ -54611,7 +54611,7 @@ LAB_0023a783:
           local_50 = 0xffffffff;
           local_64[0] = winterscript_toFloat_216f44((int *)local_1c);
           if (param_3[4] != 1) goto LAB_0023aaca;
-          local_64[0] = local_64[0] - (float)param_3[1];
+          local_64[0] = local_64[0] - pf_bits_float((uint32_t)param_3[1]);
           local_74 = local_64;
           local_68 = 2;
           local_58 = 1;
@@ -54624,7 +54624,7 @@ LAB_0023a783:
           uVar3 = winterscript_toInt_20bcf4((int *)local_1c);
           local_50 = 0xffffffff;
           uVar5 = winterscript_toInt_20bcf4((int *)param_3);
-          local_64[0] = (float)(uVar3 - uVar5);
+          local_64[0] = pf_bits_float((uint32_t)((uVar3 - uVar5)));
           local_78 = local_64;
           local_68 = 1;
           local_58 = 0;
@@ -54684,7 +54684,7 @@ LAB_0023a783:
       }
       local_50 = 0xffffffff;
       uVar5 = winterscript_toInt_20bcf4((int *)local_1c);
-      local_64[0] = (float)((int)uVar5 / (int)uVar3);
+      local_64[0] = pf_bits_float((uint32_t)(((int)uVar5 / (int)uVar3)));
       local_90 = local_64;
       local_68 = 1;
       local_58 = 0;
@@ -54698,7 +54698,7 @@ LAB_0023aaac:
     local_18 = pf_double_bits(pf_bits_double(CONCAT44(PF_PART4(local_18, 4),CONCAT31((int3)(uVar3 >> 8),1))));
 switchD_0023a405_caseD_26:
     winterscript_Unwind_SjLj_Unregister_2027a0(&local_54);
-    return (float)local_18;
+    return (uint)local_18;
   }
   switch((uintptr_t)(local_50)) {
   case 0:
@@ -58235,6 +58235,7 @@ void winterscript_WinterScript_parseLines_23e712(undefined4 *param_1)
   code *pcVar3;
   uint uVar4;
   int iVar5;
+  int *token_cursor;
 
   local_18 = param_1[2];
   winterscript_ParsedScriptLine_ParsedScriptLine_24fd2e(&local_23c);
@@ -58278,14 +58279,15 @@ void winterscript_WinterScript_parseLines_23e712(undefined4 *param_1)
     local_50 = 3;
     winterscript_wm_vector_reserve_2501c2(local_220,local_228);
     iVar5 = local_228 * 0xc;
+    token_cursor = local_22c;
     while (iVar5 != 0) {
       local_50 = 4;
-      local_20 = local_22c;
+      local_20 = token_cursor;
       local_1c = iVar5;
-      winterscript_WinterScript_analyseToken_20afce(local_74,local_18,local_22c);
+      winterscript_WinterScript_analyseToken_20afce(local_74,local_18,token_cursor);
       local_50 = 5;
       winterscript_TokenAnalysis_wm_vector_250242(local_220,local_74);
-      local_22c = local_20 + 3;
+      token_cursor = local_20 + 3;
       iVar5 = local_1c + -0xc;
     }
   }
