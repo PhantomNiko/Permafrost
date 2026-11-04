@@ -1,0 +1,44 @@
+{
+  "version": "0.6",
+  "language": "WinterScript 0.4",
+  "base": 2097152,
+  "entry": 2097152,
+  "text_start": 2097152,
+  "text_end": 2471006,
+  "initialized_end": 2518632,
+  "state_end": 2523136,
+  "core_base": 2523136,
+  "translation": {
+    "pointer_spills": true,
+    "sjlj": {
+      "register": "20278b",
+      "transfer": "202380"
+    },
+    "scalar_storage_views": true,
+    "source_replacements": {
+      "2240d5": {
+        "  undefined4 local_14;": "  uint *local_14;"
+      },
+      "236054": {
+        "  undefined4 local_14;": "  uint *local_14;"
+      },
+      "2529e6": {
+        "  undefined4 local_14;": "  uint *local_14;"
+      },
+      "253c70": {
+        "  undefined4 local_14;": "  uint *local_14;"
+      },
+      "253f48": {
+        "  undefined4 local_14;": "  uint *local_14;"
+      },
+      "239422": {
+        "local_7c._4_4_ = (float)(uVar9 >> 0x20);": "local_7c._4_4_ = (uint)(uVar9 >> 0x20);"
+      }
+    },
+    "pointer_spill_arithmetic": true
+  },
+  "inline_constants": {},
+  "source": "applications/winterscript",
+  "program": "winterscript",
+  "reference_sha256": "5d95fa86eb34318e8aa984b92442c95bb1527a596e8a15298073d9e63461f697"
+}

@@ -28,7 +28,7 @@ def build_application(program, output):
         digest = hashlib.sha256(shared + source.read_bytes()).hexdigest()
         if not target.exists() or cache.get(str(source)) != digest:
             compile_object(source, target, ['sdk/include', 'kernel', str(root)], extra_flags=[
-                '-fno-inline-functions', '-Wno-int-conversion', '-Wno-incompatible-pointer-types', '-Wno-pointer-sign'])
+                '-fno-inline-functions', '-ferror-limit=0', '-Wno-int-conversion', '-Wno-incompatible-pointer-types', '-Wno-pointer-sign'])
             cache[str(source)] = digest
             cache_file.write_text(json.dumps(cache, indent=2) + '\n')
         objects.append(Object(target.read_bytes()))
@@ -54,8 +54,12 @@ def build_application(program, output):
     addresses = sorted(entries)
     for index, address in enumerate(addresses):
         limit = addresses[index + 1] if index + 1 < len(addresses) else start
-        if not base <= address < start or address + 5 > limit:
-            raise ValueError('overlapping native entry stub')
+        if not base <= address < start:
+            raise ValueError('native entry outside text')
+        if address+5>limit:
+            if address==layout['entry']:
+                raise ValueError('program entry has no room for its jump')
+            continue
         data[address - base:address - base + 5] = b'\xe9' + struct.pack('<i', entries[address] - address - 5)
     # Equal-length branding preserves pointers into the original string pool.
     data = data.replace(b'WinterBoot', b'Permafrost').replace(b'WinterMoon', b'Permafrost')

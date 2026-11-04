@@ -32,6 +32,7 @@ typedef unsigned int code();
 #define CONCAT44(a,b) (((uint64_t)(a)<<32)|(uint32_t)(b))
 #define CONCAT14(a,b) (((uint64_t)(uint8_t)(a)<<32)|(uint32_t)(b))
 #define CONCAT35(a,b) (((uint64_t)(a)<<40)|((uint64_t)(b)&0xffffffffffULL))
+#define CONCAT34(a,b) (((uint64_t)(a)<<32)|(uint32_t)(b))
 #define SUB42(a,b) ((uint16_t)((uint32_t)(a)>>((b)*8)))
 #define CONCAT71(a,b) (((uint64_t)(a)<<8)|(uint8_t)(b))
 #define SUB84(a,b) ((uint32_t)(PF_RAW64(a)>>((b)*8)))

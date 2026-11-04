@@ -59,6 +59,25 @@ def rewrite_double_bits(source):
     return source
 
 
+def rewrite_scalar_storage(source):
+    """Restore raw float views lost when an SSA slot is printed as a pointer."""
+    pattern=r'\(([^()\n]+\*)\)\(float\)'
+    for match in reversed(list(re.finditer(pattern,source))):
+        start=match.end()
+        if source[start]!='(':
+            continue
+        depth=1;end=start+1
+        while depth:
+            depth+=(source[end]=='(')-(source[end]==')');end+=1
+        source=source[:match.start()]+'('+match[1]+')(uintptr_t)pf_float_bits((float)'+source[start:end]+')'+source[end:]
+    source=re.sub(r'(?m)(^\s*|[=+,?:|&(]\s*|\([^()]+\*\)\s*)\*PF_PART4\((\w+), (\d+)\)',
+                  r'\1*(uint32_t *)(uintptr_t)PF_PART4(\2, \3)',source)
+    source=re.sub(r'\bNAN\b(?!\s*\()', '__builtin_nanf("")', source)
+    for name in re.findall(r'^  (?:undefined8|ulonglong) (\w+);',source,re.M):
+        source=re.sub(r'NAN\('+name+r'\)',r'NAN(pf_bits_double('+name+'))',source)
+    return source
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--layout', type=Path, default=Path('recovery/layout.json'))
@@ -72,6 +91,8 @@ def main():
     manual = {path.stem: path.read_text() for path in manual_root.glob('*.c')}
     args.out.mkdir(parents=True, exist_ok=True)
     sources = {p.stem: p.read_text() for p in sorted(args.notes.glob('*.c')) if p.stem != 'recovered'}
+    floating={name for text in sources.values() for name in
+              re.findall(r'\b(?:float|float10|double)\s+(?:__\w+\s+)?((?:recovered_|FUN_)[0-9a-f]+)\(',text)}
     header = ['/* Permafrost 0.6; Pooka\'s Free Software License. */', '#pragma once', '#include "support.h"']
     service_types=sorted(set(re.findall(r'\bservice(?:_conflict\d+)?\b', '\n'.join(sources.values()))))
     header += ['typedef code '+name+';' for name in service_types]
@@ -81,6 +102,15 @@ def main():
     for address, source in sources.items():
         for original, replacement in current.get('source_replacements', {}).get(address, {}).items():
             source = source.replace(original, replacement)
+        if current.get('scalar_storage_views'):
+            for name in re.findall(r'^  undefined8 (\w+);',source,re.M):
+                if re.search(r'\b'+name+r' = \(double\)',source):
+                    source=re.sub(r'\b'+name+r' = \(double\)([^;]+);',
+                                  lambda m:name+' = pf_double_bits((double)'+m[1]+');',source)
+                    source=re.sub(r'\((double|float10)\)'+name+r'\b',r'(\1)pf_bits_double('+name+')',source)
+                    source=source.replace('NAN('+name+')','NAN(pf_bits_double('+name+'))')
+                    source=re.sub(r'\b'+name+r'(?=\s*(?:<=|>=|==|!=|<|>)\s*[+-]?\d+\.\d)',
+                                  'pf_bits_double('+name+')',source)
         # Some SJLJ spill slots have an undefined merged declaration even
         # though every dereference uses a pointer. Restore the observed view.
         spill_types = {'23b42': 'byte *', '274d4': 'uint *',
@@ -91,10 +121,13 @@ def main():
             pointer_types = dict((name, typ) for typ, name in re.findall(
                 r'\b((?:void|code|undefined[1248]?|int|uint|char|uchar|byte|ushort)\s*\*+)\s*(\w+)\b', source))
             for name in re.findall(r'^  undefined4 (local_[0-9a-f]+);', source, re.M):
-                if re.search(r'(?<![\w])\*'+re.escape(name)+r'\b|\b'+re.escape(name)+r'\[', source):
+                assigned = re.findall(r'\b'+re.escape(name)+r' = (\w+);', source)
+                inherited = [pointer_types[value] for value in assigned if value in pointer_types]
+                arithmetic = (current.get('pointer_spill_arithmetic') and inherited and
+                              inherited[0] != 'void *' and
+                              re.search(r'\b'+re.escape(name)+r' [+-] (?:0x)?\d', source))
+                if arithmetic or re.search(r'(?<![\w])\*'+re.escape(name)+r'\b|\b'+re.escape(name)+r'\[', source):
                     views=re.findall(r'\b'+re.escape(name)+r' = \(([^()]+\*)\)',source)
-                    assigned = re.findall(r'\b'+re.escape(name)+r' = (\w+);', source)
-                    inherited = [pointer_types[value] for value in assigned if value in pointer_types]
                     view = inherited[0] if inherited else (views[0] if views else 'uint *')
                     source=source.replace('  undefined4 '+name+';', '  '+view+name+';')
         metadata = [line.split('\t') for line in (args.notes / (address + '.tsv')).read_text().splitlines()]
@@ -185,6 +218,14 @@ def main():
         for name in re.findall(r'^  (?:double|longdouble) (\w+);', source, re.M) + [row[1] for row in locals_used if row[3] in ('double:8', 'longdouble:8')]:
             source = re.sub(r'\(ulonglong\)\s*' + name + r'\b', 'pf_double_bits(' + name + ')', source)
         source = rewrite_double_bits(source)
+        if current.get('scalar_storage_views'):
+            source=rewrite_scalar_storage(source)
+            for match in reversed(list(re.finditer(r'\(([^()\n]+\*)\)((?:recovered_|FUN_)[0-9a-f]+)\(',source))):
+                if match[2] not in floating:continue
+                start=match.start(2);end=match.end();depth=1
+                while depth:
+                    depth+=(source[end]=='(')-(source[end]==')');end+=1
+                source=source[:match.start()]+'('+match[1]+')(uintptr_t)pf_float_bits((float)'+source[start:end]+')'+source[end:]
         if address == '27b0d':
             source = source.replace('*PF_PART4(local_24, 0)', '*(uint32_t *)(uintptr_t)PF_PART4(local_24, 0)')
         if address == current['main']:

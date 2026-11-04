@@ -1,0 +1,32 @@
+{
+  "version": "0.6",
+  "language": "WinterRwby 0.1",
+  "base": 2097152,
+  "entry": 2097152,
+  "text_start": 2097152,
+  "text_end": 2218001,
+  "initialized_end": 2238556,
+  "state_end": 2240512,
+  "core_base": 2240512,
+  "translation": {
+    "pointer_spills": true,
+    "sjlj": {
+      "register": "20279b",
+      "transfer": "202380"
+    },
+    "source_replacements": {
+      "20d7d8": {
+        "local_74 = (double)recovered_20e095(pcVar3,iVar5,(int *)0x0,10);": "local_74 = pf_bits_double(recovered_20e095(pcVar3,iVar5,(int *)0x0,10));"
+      },
+      "208f0d": {
+        "(float)CONCAT44(uStack_40,(uint)local_4c)": "(double)(longlong)CONCAT44(uStack_40,(uint)local_4c)"
+      }
+    },
+    "scalar_storage_views": true,
+    "pointer_spill_arithmetic": true
+  },
+  "inline_constants": {},
+  "source": "applications/rwby",
+  "program": "rwby",
+  "reference_sha256": "e59a48960e3a8bd09a6b12364e710b9ab7efea7b8aee0043eb753d864193ab26"
+}
