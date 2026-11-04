@@ -32,7 +32,7 @@ def inspect(binary):
     header = 32 if wide else 28
     if count > 4096 or header + size > len(binary):
         raise ValueError('invalid load-command extent')
-    position, pieces, sections, symbols, entry = header, [], [], [], None
+    position, pieces, sections, symbols, data_symbols, entry = header, [], [], [], [], None
     for _ in range(count):
         command, length = struct.unpack_from('<2I', binary, position)
         if length < 8 or position + length > header + size:
@@ -62,8 +62,11 @@ def inspect(binary):
                 if ix >= strings_size:
                     raise ValueError('invalid symbol string')
                 name = binary[strings + ix:strings + strings_size].split(b'\0', 1)[0].decode('utf-8')
-                if tag & 0xe == 0xe and section == 1:
-                    symbols.append((address, name))
+                if tag & 0xe == 0xe:
+                    if section == 1:
+                        symbols.append((address, name))
+                    else:
+                        data_symbols.append((address, name))
         elif command == 5:
             flavor, words = struct.unpack_from('<2I', binary, position + 8)
             expected = (4, 42) if wide else (1, 16)
@@ -80,4 +83,4 @@ def inspect(binary):
     for address, length, data in pieces:
         memory[address - base:address - base + len(data)] = data
     return dict(cpu=cpu, base=base, end=end, entry=entry, sections=sections,
-                symbols=symbols), bytes(memory)
+                symbols=symbols, data_symbols=data_symbols), bytes(memory)

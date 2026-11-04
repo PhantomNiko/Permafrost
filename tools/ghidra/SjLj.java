@@ -19,6 +19,7 @@ public class SjLj extends GhidraScript {
     public void run() throws Exception {
         var args=getScriptArgs();
         long register=Long.decode(args[1]);
+        boolean wide=args.length>3 && args[3].equals("64");
         for (String text:args[2].split(",")) {
             var f=getFunctionAt(toAddr(Long.decode(text)));
             if(f!=null)f.setNoReturn(true);
@@ -41,13 +42,14 @@ public class SjLj extends GhidraScript {
             if(separate!=null && separate!=owner)removeFunction(separate);
             // call register; test eax,eax; je original continuation;
             // load the two EH result registers; jump to the original pad.
-            var bytes=ByteBuffer.allocate(27).order(ByteOrder.LITTLE_ENDIAN);
+            int extent=wide?18:27;
+            var bytes=ByteBuffer.allocate(extent).order(ByteOrder.LITTLE_ENDIAN);
             bytes.put(jump(0xe8,scratch,register));
             bytes.put(new byte[]{(byte)0x85,(byte)0xc0,(byte)0x0f,(byte)0x84});
             bytes.putInt((int)(site+5-(scratch+13)));
-            bytes.put(new byte[]{(byte)0x8b,0x04,0x24,(byte)0x8b,0x50,0x0c,(byte)0x8b,0x40,0x08});
-            bytes.put(jump(0xe9,scratch+22,pad));
-            clearListing(toAddr(scratch),toAddr(scratch+26));
+            if(!wide)bytes.put(new byte[]{(byte)0x8b,0x04,0x24,(byte)0x8b,0x50,0x0c,(byte)0x8b,0x40,0x08});
+            bytes.put(jump(0xe9,scratch+extent-5,pad));
+            clearListing(toAddr(scratch),toAddr(scratch+extent-1));
             setBytes(toAddr(scratch),bytes.array());
             clearListing(toAddr(site),toAddr(site+4));
             setBytes(toAddr(site),jump(0xe9,site,scratch));
@@ -55,10 +57,10 @@ public class SjLj extends GhidraScript {
             getInstructionAt(toAddr(site)).setFlowOverride(FlowOverride.NONE);
             disassemble(toAddr(scratch));
             var hooks=currentProgram.getListing().getInstructions(
-                new AddressSet(toAddr(scratch),toAddr(scratch+26)),true);
+                new AddressSet(toAddr(scratch),toAddr(scratch+extent-1)),true);
             while(hooks.hasNext())hooks.next().setFlowOverride(FlowOverride.NONE);
             var body=new AddressSet(owner.getBody());
-            body.add(toAddr(scratch),toAddr(scratch+26));
+            body.add(toAddr(scratch),toAddr(scratch+extent-1));
             owner.setBody(body);
             owners.add(owner);scratch+=32;
         }

@@ -88,8 +88,17 @@ public class Export extends GhidraScript {
                 String[] fields = line.split("\\t");
                 var function = getFunctionAt(toAddr(Long.parseLong(fields[0], 16)));
                 if (function != null && !explicit.contains(function.getEntryPoint().getOffset()) &&
-                    function.getReturnType() instanceof VoidDataType && !fields[1].equals("-")) {
-                    var hint=fields[1].equals("F") ? LongDoubleDataType.dataType : UnsignedIntegerDataType.dataType;
+                    (function.getReturnType() instanceof VoidDataType || !fields[1].matches("[UF-]")) && !fields[1].equals("-")) {
+                    DataType hint;
+                    switch(fields[1]) {
+                        case "Q": hint=UnsignedLongLongDataType.dataType; break;
+                        case "B": hint=UnsignedCharDataType.dataType; break;
+                        case "S": hint=FloatDataType.dataType; break;
+                        case "D": hint=DoubleDataType.dataType; break;
+                        case "F": hint=LongDoubleDataType.dataType; break;
+                        default: hint=UnsignedIntegerDataType.dataType;
+                    }
+                    if(currentProgram.getDefaultPointerSize()==8)function.setCustomVariableStorage(false);
                     function.setReturnType(hint,SourceType.USER_DEFINED);
                     returnHints.put(function.getEntryPoint().getOffset(),hint);
                 }
@@ -133,7 +142,10 @@ public class Export extends GhidraScript {
                     try {
                         HighFunctionDBUtil.commitParamsToDatabase(result.getHighFunction(), true,
                             ReturnCommitOption.COMMIT, SourceType.ANALYSIS);
-                        if(returnHints.containsKey(address))function.setReturnType(returnHints.get(address),SourceType.USER_DEFINED);
+                        if(returnHints.containsKey(address)) {
+                            if(currentProgram.getDefaultPointerSize()==8)function.setCustomVariableStorage(false);
+                            function.setReturnType(returnHints.get(address),SourceType.USER_DEFINED);
+                        }
                     } catch (Exception exception) {
                         printerr("Parameter inference: " + function.getEntryPoint() + ": " + exception.getMessage());
                     }

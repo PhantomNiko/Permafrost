@@ -1,0 +1,31 @@
+{
+  "version": "0.7",
+  "language": "WinterLua 0.2",
+  "base": 2097152,
+  "entry": 2097152,
+  "text_start": 2097152,
+  "text_end": 2261837,
+  "initialized_end": 2288768,
+  "state_end": 2289664,
+  "core_base": 2289664,
+  "translation": {
+    "main": "202e34",
+    "error_logger": "ffffffff",
+    "random_state": "ffffffff",
+    "sjlj": {
+      "register": "2027bb",
+      "transfer": "2023b0"
+    },
+    "pointer_spills": true,
+    "source_replacements": {
+      "2123b4": {
+        "local_84 = (double)recovered_213ccf(pcVar2,iVar7,(int *)0x0,10);": "local_84 = pf_bits_double(recovered_213cff(pcVar2,iVar7,(int *)0x0,10));",
+        "local_84 = (double)recovered_2029fc(s,(char **)0x0,0x10);": "local_84 = pf_bits_double(recovered_202a2c(s,(char **)0x0,0x10));"
+      }
+    }
+  },
+  "inline_constants": {},
+  "source": "applications/lua/i386",
+  "program": "lua",
+  "reference_sha256": "27e2683dd4c6d1d803245156f883943043561dba606fdc3eda593190ee72641a"
+}

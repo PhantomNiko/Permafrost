@@ -13,8 +13,8 @@ from elf32 import Object, link
 from macho import pack
 
 
-def build_application(program, output):
-    layout = json.loads(Path('recovery/applications', program + '.json').read_text())
+def build_application(program, output, layout_path=None):
+    layout = json.loads((layout_path or Path('recovery/applications', program + '.json')).read_text())
     root = Path(layout['source'])
     output.mkdir(parents=True, exist_ok=True)
     sources = [root / 'runtime.c', Path('kernel/runtime.c'), Path('kernel/compiler.c')]

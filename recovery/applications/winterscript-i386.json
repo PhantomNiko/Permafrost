@@ -1,0 +1,64 @@
+{
+  "version": "0.7",
+  "language": "WinterScript 0.4",
+  "base": 2097152,
+  "entry": 2097152,
+  "text_start": 2097152,
+  "text_end": 2471054,
+  "initialized_end": 2518632,
+  "state_end": 2523136,
+  "core_base": 2523136,
+  "translation": {
+    "pointer_spills": true,
+    "sjlj": {
+      "register": "2027bb",
+      "transfer": "2023b0"
+    },
+    "scalar_storage_views": true,
+    "source_replacements": {
+      "224105": {
+        "  undefined4 local_14;": "  uint *local_14;"
+      },
+      "236084": {
+        "  undefined4 local_14;": "  uint *local_14;"
+      },
+      "252a16": {
+        "  undefined4 local_14;": "  uint *local_14;"
+      },
+      "253ca0": {
+        "  undefined4 local_14;": "  uint *local_14;"
+      },
+      "253f78": {
+        "  undefined4 local_14;": "  uint *local_14;"
+      },
+      "239452": {
+        "local_7c._4_4_ = (float)(uVar9 >> 0x20);": "local_7c._4_4_ = (uint)(uVar9 >> 0x20);"
+      },
+      "23e742": {
+        "  int iVar5;": "  int iVar5;\n  int *token_cursor;",
+        "    iVar5 = local_228 * 0xc;": "    iVar5 = local_228 * 0xc;\n    token_cursor = local_22c;",
+        "      local_20 = local_22c;": "      local_20 = token_cursor;",
+        "      recovered_20afce(local_74,local_18,local_22c);": "      recovered_20affe(local_74,local_18,token_cursor);",
+        "      local_22c = local_20 + 3;": "      token_cursor = local_20 + 3;"
+      },
+      "20ad52": {
+        "  undefined4 local_14;": "  undefined1 *local_14;"
+      },
+      "216f8a": {
+        "local_1c._0_4_ * fVar12": "pf_bits_float(local_1c._0_4_) * fVar12",
+        "local_1c._0_4_ + fVar12": "pf_bits_float(local_1c._0_4_) + fVar12",
+        "local_1c._0_4_ - fVar12": "pf_bits_float(local_1c._0_4_) - fVar12",
+        "local_1c._0_4_,fVar12)": "pf_bits_float(local_1c._0_4_),fVar12)"
+      },
+      "23a394": {
+        "return (float)local_18;": "return (uint)local_18;"
+      }
+    },
+    "pointer_spill_arithmetic": true,
+    "float_slot_views": true
+  },
+  "inline_constants": {},
+  "source": "applications/winterscript/i386",
+  "program": "winterscript",
+  "reference_sha256": "1590aa74d0be2e060f5f88d1ba5d71bf3b75d84b864d4914dcefc34a056894ba"
+}
