@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compile freestanding C/C++ to a Permafrost flat native executable."""
+"""Compile freestanding C/C++ to a Permafrost native executable."""
 import argparse
 import os
 from pathlib import Path
@@ -8,6 +8,7 @@ import sys
 import tempfile
 sys.dont_write_bytecode = True
 from elf32 import Object, link
+from macho import pack
 
 
 FLAGS = ['--target=i386-unknown-none-elf', '-march=i386', '-m32', '-Oz',
@@ -46,6 +47,7 @@ def main():
     parser.add_argument('-D', action='append', default=[])
     parser.add_argument('--base', type=lambda s: int(s, 0), default=0x200000)
     parser.add_argument('--entry', default='main')
+    parser.add_argument('--format', choices=['macho', 'flat'], default='macho')
     args = parser.parse_args()
     here = Path(__file__).resolve().parent
     bundled = here.parent / 'usr/include'
@@ -60,6 +62,8 @@ def main():
                 compile_object(source, target, [include] + args.I, args.D)
                 objects.append(Object(target.read_bytes()))
         result, symbols, _ = link(objects, base=args.base, entry=args.entry)
+        if args.format == 'macho':
+            result = pack(result, args.base)
         args.o.parent.mkdir(parents=True, exist_ok=True)
         args.o.write_bytes(result)
         print('Linked %d bytes at 0x%x, entry %s' % (len(result), args.base, args.entry))

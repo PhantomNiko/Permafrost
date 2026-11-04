@@ -8,16 +8,17 @@ import zipfile
 
 def main():
     root = Path('build/Permafrost0.6.sdk')
+    # Recreate this generated bundle so removed notices/tools cannot survive
+    # from an earlier build and leak into the new archive.
     if root.exists():
-        for cache in root.rglob('__pycache__'):
-            shutil.rmtree(cache)
+        shutil.rmtree(root)
     (root / 'bin').mkdir(parents=True, exist_ok=True)
     (root / 'usr/include').mkdir(parents=True, exist_ok=True)
     (root / 'Documentation').mkdir(parents=True, exist_ok=True)
     for path in Path('sdk/include').iterdir():
         shutil.copyfile(path, root / 'usr/include' / path.name)
     shutil.copytree('sdk/examples', root / 'Examples', dirs_exist_ok=True)
-    for source, target in [('tools/cc.py', 'pf-cc'), ('tools/elf32.py', 'elf32.py'), ('tools/fat.py','fat.py'),
+    for source, target in [('tools/cc.py', 'pf-cc'), ('tools/elf32.py', 'elf32.py'), ('tools/macho.py','macho.py'), ('tools/fat.py','fat.py'),
                            ('tools/wmfs.py', 'pf-wmfs')]:
         path = root / 'bin' / target
         shutil.copyfile(source, path)
@@ -38,9 +39,10 @@ def main():
         'Requires Python 3 and Apple Command Line Tools (clang/clang++).\n'
         'Compile C: bin/pf-cc Examples/hello.c -o hello.bin\n'
         'Compile C++: bin/pf-cc Examples/nightmode.cpp -o nightmode.bin\n'
-        'Native callbacks: compile Examples/native-module.c with --base 0x240000.\n'
-        'Install the binary in FAT32 (partition 2) and run runcode("/hello.bin", $200000).\n'
-        'Flat i386 ring-0 code; cdecl main returns an integer in EAX.\n'
+        'Native callbacks: compile Examples/native-module.c with --format flat --base 0x240000.\n'
+        'Install the Mach-O program in FAT32 (partition 2) and enter its filename at the OS prompt.\n'
+        'i386 MH_PRELOAD Mach-O; cdecl main returns an integer in EAX.\n'
+        'Use --format flat for explicit raw runcode/bload workflows.\n'
         'This is a freestanding SDK, without a hosted libc, C++ standard library,\n'
         'exceptions, RTTI, dynamic linking, or Apple platform/Xcode integration.\n'
         'The bundle can be moved; no installation at a fixed path is required.\n')

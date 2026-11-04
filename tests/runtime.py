@@ -6,7 +6,7 @@ from pathlib import Path
 import random
 import struct
 import sys
-from unicorn import Uc, UC_ARCH_X86, UC_MODE_32
+from unicorn import Uc, UC_ARCH_X86, UC_MODE_32, UC_HOOK_CODE
 from unicorn.x86_const import *
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
@@ -25,8 +25,18 @@ class Runtime:
         self.cpu.mem_write(0x20000, kernel)
         if relocate:
             layout = json.loads(Path('recovery/layout.json').read_text())
-            offset = (layout['initialized_end'] - layout['kernel_base'] + 15) & ~15
-            self.cpu.mem_write(layout['core_base'], kernel[offset:])
+            # Exercise the real bootstrap, including core decompression, and
+            # stop before entering the relocated stage-two initializer.
+            self.cpu.reg_write(UC_X86_REG_ESP, STACK)
+            entered=[]
+            def stop(cpu,address,size,user):
+                entered.append(address)
+                cpu.emu_stop()
+            handle=self.cpu.hook_add(UC_HOOK_CODE,stop,begin=layout['core_base'],end=0x16ffff)
+            self.cpu.emu_start(layout['kernel_base']+16, RETURN, count=20000000)
+            self.cpu.hook_del(handle)
+            assert entered, 'kernel bootstrap did not relocate the C core'
+            self.cpu.mem_write(layout['initialized_end'], bytes(layout['state_end']-layout['initialized_end']))
 
     def call(self, address, args, memory):
         cpu = self.cpu
