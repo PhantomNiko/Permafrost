@@ -48,3 +48,15 @@
 46111	unsigned int __fastcall recovered_46111(int *container,const char *text);
 2fa58	int __fastcall recovered_2fa58(const char *path);
 38756	unsigned int __fastcall recovered_38756(unsigned int drive,unsigned int base,int data_sector,int sectors_per_cluster,unsigned int cluster_size,int fat,unsigned int cluster_count,unsigned int first,unsigned int size,void **out,int *chain_length);
+2318b	unsigned int __cdecl recovered_2318b(int  pf_stack_arg_4);
+56255	unsigned int __fastcall recovered_56255(int *param_1,unsigned int param_2,unsigned int *param_3,char * pf_stack_arg_8);
+25432	unsigned char * __cdecl FUN_00025432(int param_1,unsigned int * pf_stack_arg_8);
+23856	void __cdecl FUN_00023856(unsigned char * pf_stack_arg_4,unsigned int * pf_stack_arg_8,unsigned int  pf_stack_arg_c);
+23509	void __cdecl FUN_00023509(int  pf_stack_arg_4);
+274ba	unsigned int __cdecl recovered_274ba(unsigned int *param_1,unsigned int  pf_stack_arg_8);
+23207	void __cdecl recovered_23207(int  pf_stack_arg_4);
+23194	void __cdecl recovered_23194(int  pf_stack_arg_4);
+27b0d	unsigned char * __cdecl recovered_27b0d(int *font,unsigned char *text,unsigned int count,int *colors,unsigned int color_count,double width);	stack4,stack8,stack12,stack16,stack20,stack24
+2de34	void __cdecl recovered_2de34(unsigned int *param_1,unsigned int  pf_stack_arg_8,unsigned char * pf_stack_arg_c);
+2ed2e	void __cdecl FUN_0002ed2e(int  pf_stack_arg_4);	stack4
+2ed38	void __cdecl FUN_0002ed38(int  pf_stack_arg_4);	stack4

@@ -1585,11 +1585,21 @@
   },
   "22e34": {
     "symbol": "recovered_22e34",
-    "arguments": []
+    "arguments": [
+      {
+        "size": 4,
+        "storage": "stack4"
+      }
+    ]
   },
   "22ea7": {
     "symbol": "recovered_22ea7",
-    "arguments": []
+    "arguments": [
+      {
+        "size": 4,
+        "storage": "stack4"
+      }
+    ]
   },
   "23000": {
     "symbol": "recovered_23000",
@@ -1685,7 +1695,12 @@
   },
   "231a9": {
     "symbol": "FUN_000231a9",
-    "arguments": []
+    "arguments": [
+      {
+        "size": 4,
+        "storage": "stack4"
+      }
+    ]
   },
   "231c2": {
     "symbol": "recovered_231c2",
@@ -1915,6 +1930,10 @@
       {
         "size": 4,
         "storage": "stack4"
+      },
+      {
+        "size": 4,
+        "storage": "stack8"
       }
     ]
   },
@@ -2421,6 +2440,10 @@
       {
         "size": 4,
         "storage": "stack4"
+      },
+      {
+        "size": 4,
+        "storage": "stack8"
       }
     ]
   },
@@ -2476,6 +2499,10 @@
       {
         "size": 4,
         "storage": "stack20"
+      },
+      {
+        "size": 8,
+        "storage": "stack24"
       }
     ]
   },
@@ -4189,6 +4216,14 @@
       {
         "size": 4,
         "storage": "stack4"
+      },
+      {
+        "size": 4,
+        "storage": "stack8"
+      },
+      {
+        "size": 4,
+        "storage": "stack12"
       }
     ]
   },
@@ -4490,11 +4525,21 @@
   },
   "2e9ce": {
     "symbol": "recovered_22e34",
-    "arguments": []
+    "arguments": [
+      {
+        "size": 4,
+        "storage": "stack4"
+      }
+    ]
   },
   "2e9d8": {
     "symbol": "recovered_22e34",
-    "arguments": []
+    "arguments": [
+      {
+        "size": 4,
+        "storage": "stack4"
+      }
+    ]
   },
   "2e9e1": {
     "symbol": "recovered_2e9e1",
@@ -5132,6 +5177,30 @@
       {
         "size": 4,
         "storage": "ECX"
+      },
+      {
+        "size": 4,
+        "storage": "stack4"
+      },
+      {
+        "size": 4,
+        "storage": "stack8"
+      },
+      {
+        "size": 4,
+        "storage": "stack12"
+      },
+      {
+        "size": 1,
+        "storage": "stack16"
+      },
+      {
+        "size": 1,
+        "storage": "stack20"
+      },
+      {
+        "size": 1,
+        "storage": "stack24"
       }
     ]
   },
@@ -9461,6 +9530,10 @@
       {
         "size": 4,
         "storage": "stack4"
+      },
+      {
+        "size": 4,
+        "storage": "stack8"
       }
     ]
   },

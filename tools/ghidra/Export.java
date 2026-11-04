@@ -20,14 +20,43 @@ import ghidra.program.model.scalar.Scalar;
 import java.util.HashSet;
 import java.util.HashMap;
 import ghidra.program.model.listing.ParameterImpl;
+import ghidra.program.model.listing.VariableStorage;
 import ghidra.program.model.listing.Function.FunctionUpdateType;
 import ghidra.app.cmd.function.ApplyFunctionSignatureCmd;
 import ghidra.app.util.cparser.C.CParser;
 
 public class Export extends GhidraScript {
-    private void signature(long address, String declaration) throws Exception {
-        var type = (FunctionDefinitionDataType)new CParser(currentProgram.getDataTypeManager()).parse(declaration);
-        new ApplyFunctionSignatureCmd(toAddr(address), type, SourceType.USER_DEFINED).applyTo(currentProgram, monitor);
+    private void signature(long address, String declaration, String storage) throws Exception {
+        var function=getFunctionAt(toAddr(address));
+        String name=function.getName();
+        int purge=function.getStackPurgeSize();
+        if(storage!=null)declaration=declaration.replace("__thiscall","__cdecl").replace("__fastcall","__cdecl");
+        // A changed declaration needs a distinct datatype name: reusing an
+        // earlier parser datatype can silently retain its old parameter list.
+        String unique="pf_signature_"+Long.toHexString(address)+"_"+
+            Integer.toUnsignedString(declaration.hashCode(),16);
+        String parsed=declaration.replaceFirst("\\b[A-Za-z_][A-Za-z_0-9]*(?=\\s*\\()",unique);
+        var type = (FunctionDefinitionDataType)new CParser(currentProgram.getDataTypeManager()).parse(parsed);
+        if(!new ApplyFunctionSignatureCmd(toAddr(address), type, SourceType.USER_DEFINED).applyTo(currentProgram, monitor))
+            throw new Exception("Could not apply signature at "+Long.toHexString(address));
+        function.setName(name,SourceType.USER_DEFINED);
+        if(storage!=null) {
+            String[] places=storage.split(",");
+            var parameters=function.getParameters();
+            if(places.length!=parameters.length)throw new Exception("Custom parameter count at "+Long.toHexString(address));
+            var custom=new ArrayList<ParameterImpl>();
+            for(int index=0;index<places.length;index++) {
+                var parameter=parameters[index];
+                var data=parameter.getDataType();
+                VariableStorage location;
+                if(places[index].startsWith("stack"))
+                    location=new VariableStorage(currentProgram,Integer.parseInt(places[index].substring(5)),data.getLength());
+                else location=new VariableStorage(currentProgram,currentProgram.getRegister(places[index]));
+                custom.add(new ParameterImpl(parameter.getName(),data,location,currentProgram,SourceType.USER_DEFINED));
+            }
+            function.replaceParameters(custom,FunctionUpdateType.CUSTOM_STORAGE,true,SourceType.USER_DEFINED);
+            function.setStackPurgeSize(purge);
+        }
     }
     private String type(DataType value) {
         if (value == null) return "void:0";
@@ -45,13 +74,13 @@ public class Export extends GhidraScript {
         var explicit = new HashSet<Long>();
         var returnHints = new HashMap<Long,DataType>();
         for (String line : Files.readAllLines(Path.of(getScriptArgs()[2]))) {
-            String[] fields = line.split("\\t", 2);
+            String[] fields = line.split("\\t", 3);
             long address = Long.parseLong(fields[0], 16);
             if (getFunctionAt(toAddr(address)) == null) {
                 disassemble(toAddr(address));
                 createFunction(toAddr(address), "recovered_" + fields[0]);
             }
-            signature(address, fields[1]);
+            signature(address, fields[1],fields.length>2?fields[2]:null);
             explicit.add(address);
         }
         if (getScriptArgs().length > 1) {

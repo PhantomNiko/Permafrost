@@ -191,7 +191,7 @@ def main():
             source = re.sub(r'(_DAT_0000(?:62|64)[0-9a-f]{2} = )(?:recovered_|FUN_000)([0-9a-f]+);', lambda m: m[1] + '0x' + m[2] + ';', source)
             source = source.replace('(uint)local_580', 'pf_float_bits(local_580)')
             source = source.replace('(uint)local_584[0]', 'pf_float_bits(local_584[0])')
-            if address == '32ddf':
+            if any(row[1]=='local_584' and row[3]=='float:4' for row in locals_used):
                 source = source.replace('(uint)local_584', 'pf_float_bits(local_584)')
             source = source.replace('DAT_00073058 = uVar32;', 'DAT_00073058 = *(uint *)(frame + %d);' % (frame_size - 0xd88))
         if address == current.get('file_listing'):

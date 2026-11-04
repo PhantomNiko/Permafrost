@@ -1,7 +1,7 @@
 3020d	void __cdecl recovered_3020d(const char *format, ...);
 2053a	unsigned long long __cdecl recovered_2053a(unsigned long long numerator, unsigned long long denominator);
 2182e	void __fastcall recovered_2182e(int *out, unsigned int *remaining, int *total, const char *text);
-362d0	void __fastcall recovered_362d0(int enabled);
+362d0	void __thiscall recovered_362d0(int enabled,unsigned int  pf_stack_arg_4,int  pf_stack_arg_8,int  pf_stack_arg_c,unsigned char  pf_stack_arg_10,unsigned char  pf_stack_arg_14,unsigned char  pf_stack_arg_18);	ECX,stack4,stack8,stack12,stack16,stack20,stack24
 218da	int __cdecl recovered_218da(char *out, unsigned int capacity, const char *format, ...);
 3f69d	void __cdecl recovered_3f69d(unsigned int line, const char *near_token, const char *format, ...);
 20c16	double __cdecl recovered_20c16(double value, int *exponent);
@@ -51,3 +51,11 @@
 2e728	void __cdecl recovered_2e728(int *font,float size);
 2e7bd	unsigned int __cdecl recovered_2e7bd(int *font,unsigned char *text,unsigned int color,int *options,unsigned int width,unsigned int height,unsigned int *image);
 2e945	void __cdecl recovered_2e945(int *font);
+250d2	unsigned char * __cdecl FUN_000250d2(int param_1,unsigned int * pf_stack_arg_8);	stack4,stack8
+2715a	unsigned int __cdecl recovered_2715a(unsigned int *param_1,unsigned int  pf_stack_arg_8);	stack4,stack8
+277ad	unsigned char * __cdecl recovered_277ad(int *param_1,unsigned char *param_2,unsigned int param_3,int *param_4,unsigned int param_5,double  pf_stack_arg_18);	stack4,stack8,stack12,stack16,stack20,stack24
+22ea7	void __cdecl recovered_22ea7(int  pf_stack_arg_4);	stack4
+231a9	void __cdecl FUN_000231a9(int  pf_stack_arg_4);	stack4
+55f2c	unsigned int __fastcall recovered_55f2c(int *param_1,unsigned int param_2,unsigned int *param_3,char * pf_stack_arg_8);	ECX,EDX,stack4,stack8
+2dad4	void __cdecl recovered_2dad4(unsigned int *param_1,unsigned int  pf_stack_arg_8,unsigned char * pf_stack_arg_c);	stack4,stack8,stack12
+22e34	void __cdecl recovered_22e34(int  pf_stack_arg_4);	stack4

@@ -1406,15 +1406,30 @@
   },
   "2318b": {
     "symbol": "recovered_2318b",
-    "arguments": []
+    "arguments": [
+      {
+        "size": 4,
+        "storage": "stack4"
+      }
+    ]
   },
   "23194": {
     "symbol": "recovered_23194",
-    "arguments": []
+    "arguments": [
+      {
+        "size": 4,
+        "storage": "stack4"
+      }
+    ]
   },
   "23207": {
     "symbol": "recovered_23207",
-    "arguments": []
+    "arguments": [
+      {
+        "size": 4,
+        "storage": "stack4"
+      }
+    ]
   },
   "23360": {
     "symbol": "recovered_23360",
@@ -1510,7 +1525,12 @@
   },
   "23509": {
     "symbol": "FUN_00023509",
-    "arguments": []
+    "arguments": [
+      {
+        "size": 4,
+        "storage": "stack4"
+      }
+    ]
   },
   "23522": {
     "symbol": "recovered_23522",
@@ -1610,7 +1630,20 @@
   },
   "23856": {
     "symbol": "FUN_00023856",
-    "arguments": []
+    "arguments": [
+      {
+        "size": 4,
+        "storage": "stack4"
+      },
+      {
+        "size": 4,
+        "storage": "stack8"
+      },
+      {
+        "size": 4,
+        "storage": "stack12"
+      }
+    ]
   },
   "2385f": {
     "symbol": "recovered_2385f",
@@ -1727,6 +1760,10 @@
       {
         "size": 4,
         "storage": "stack4"
+      },
+      {
+        "size": 4,
+        "storage": "stack8"
       }
     ]
   },
@@ -2233,6 +2270,10 @@
       {
         "size": 4,
         "storage": "stack4"
+      },
+      {
+        "size": 4,
+        "storage": "stack8"
       }
     ]
   },
@@ -2288,6 +2329,10 @@
       {
         "size": 4,
         "storage": "stack20"
+      },
+      {
+        "size": 8,
+        "storage": "stack24"
       }
     ]
   },
@@ -4001,6 +4046,14 @@
       {
         "size": 4,
         "storage": "stack4"
+      },
+      {
+        "size": 4,
+        "storage": "stack8"
+      },
+      {
+        "size": 4,
+        "storage": "stack12"
       }
     ]
   },
@@ -4302,11 +4355,21 @@
   },
   "2ed2e": {
     "symbol": "FUN_0002ed2e",
-    "arguments": []
+    "arguments": [
+      {
+        "size": 4,
+        "storage": "stack4"
+      }
+    ]
   },
   "2ed38": {
     "symbol": "FUN_0002ed38",
-    "arguments": []
+    "arguments": [
+      {
+        "size": 4,
+        "storage": "stack4"
+      }
+    ]
   },
   "2ed41": {
     "symbol": "recovered_2ed41",
@@ -9294,6 +9357,10 @@
       {
         "size": 4,
         "storage": "stack4"
+      },
+      {
+        "size": 4,
+        "storage": "stack8"
       }
     ]
   },
