@@ -26,7 +26,7 @@ def main():
     if args.initialize_fpu:
         import struct
         for name, content in list(files.items()):
-            if content[:4] != b'WMLP':
+            if content[:4] != b'WMLP' or content[4:8] != b'\x01\0\0\0':
                 continue
             kernel = bytearray(content)
             if kernel[0x10] != 0xfc:

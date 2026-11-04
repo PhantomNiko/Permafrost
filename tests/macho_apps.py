@@ -44,7 +44,7 @@ def main():
                 command=[sys.executable,str(Path(__file__).with_name('hardware.py')),str(image),
                     '--script',str(script),'--expect',expect,'--timeout','35']
                 for name in ['bochs','bios','vgabios']:command+=['--'+name,str(getattr(args,name))]
-                if any(value[:4]==b'WMLP' and value[16]==0xfc for value in Image(raw).files().values()):
+                if any(value[:4]==b'WMLP' and value[16:18]==b'\xfc\xe8' for value in Image(raw).files().values()):
                     command.append('--initialize-fpu')
                 result=subprocess.run(command,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True)
                 if result.returncode:raise SystemExit(result.stdout)

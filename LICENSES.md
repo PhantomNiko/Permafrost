@@ -11,6 +11,11 @@ license when building or redistributing it.
 | Upstream Lua, when used by a historical milestone | `../lua`, https://github.com/PhantomNiko/lua/tree/Permafrost | Lua MIT license and notices in that milestone and the external checkout |
 | OpenBIOS firmware | `../openbios`, https://github.com/PhantomNiko/openbios | Upstream GPL and per-file notices; `licenses/OPENBIOS-GPL-2.0.TXT` |
 
+The OpenBIOS memory-handoff patch in `patches/openbios` and the generated
+branding changes modify upstream GPL files and retain that license. The exact
+source revision and out-of-tree build procedure are recorded in
+`dependencies.json`, `DEPENDENCIES.md` and `tools/openbios.py`.
+
 The old `ports/lua` directory contained local host integration, not the external
 Lua VM. That obsolete integration has been removed for the 0.7 reference's
 in-house WinterLua replacement. Upstream Lua sources belong in the separate

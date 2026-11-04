@@ -1,0 +1,70 @@
+{
+  "version": "0.6",
+  "reference_version": "0.7",
+  "reference_sha256": "20caf9f0d28619158bbd1d97c076bd370d845196cdd86dd6bd3c2f15bef7c576",
+  "kernel_base": 131072,
+  "text_start": 131173,
+  "text_end": 353520,
+  "state_end": 557056,
+  "initialized_end": 382852,
+  "core_base": 5242880,
+  "kernel_main": 208351,
+  "translation": {
+    "main": "32ddf",
+    "error_logger": "3f69d",
+    "random_state": "5d77c",
+    "file_listing": "4689d",
+    "status_renderer": "372d7",
+    "pointer_spills": true,
+    "source_replacements": {
+      "4689d": {
+        "recovered_3020d(pcVar40,DAT_0005e6b8 + iVar8);": "recovered_3020d(pcVar40,DAT_0005e6b8 + iVar8,*(uint *)(DAT_0005e6b8+iVar8+0xf8));",
+        "recovered_218da((char *)&local_37c,0x60,pcVar40);": "recovered_218da((char *)&local_37c,0x60,pcVar40,(char *)local_11c);"
+      },
+      "372d7": {
+        "pcVar9,local_40,local_100,right);": "pcVar9,local_40,local_100,right,local_60);"
+      },
+      "277ad": {
+        "*local_24._0_4_": "*(uint32_t *)(uintptr_t)local_24._0_4_"
+      }
+    }
+  },
+  "loader_ranges": {
+    "i386": [
+      [
+        0,
+        3962,
+        16,
+        0
+      ],
+      [
+        3962,
+        3997,
+        32,
+        36730
+      ],
+      [
+        3997,
+        4095,
+        16,
+        3997
+      ],
+      [
+        4095,
+        4658,
+        32,
+        36863
+      ],
+      [
+        4658,
+        32768,
+        0,
+        0
+      ]
+    ]
+  },
+  "variant": "i386",
+  "night_mode_entry": 207344,
+  "stack_top": 4194304,
+  "heap_floor": 6291456
+}

@@ -1,0 +1,31 @@
+--- a/arch/x86/builtin.c
++++ b/arch/x86/builtin.c
+@@ -8,6 +8,7 @@
+ 
+ #include "config.h"
+ #include "libopenbios/sys_info.h"
++#include "kernel/kernel.h"
+ 
+ /*
+  * wrap an array around the hex'ed dictionary file
+@@ -29,4 +30,20 @@
+         info->dict_last = (ucell *)((unsigned char *)forth_dictionary +
+                                             FORTH_DICTIONARY_LAST);
+         info->dict_limit = sizeof(forth_dictionary);
++        /* The builtin dictionary replaces the external Multiboot module, but
++         * the bootloader's memory information is still needed for relocation. */
++        if (info->boot_type == 0x2badb002 && info->boot_data) {
++                const unsigned int *words = (const unsigned int *)info->boot_data;
++                if ((words[0] & 1) && words[2]) {
++                        struct memrange *ranges = malloc(2 * sizeof(*ranges));
++                        if (ranges) {
++                                ranges[0].base = 0;
++                                ranges[0].size = words[1] << 10;
++                                ranges[1].base = 0x100000;
++                                ranges[1].size = words[2] << 10;
++                                info->memrange = ranges;
++                                info->n_memranges = 2;
++                        }
++                }
++        }
+ }

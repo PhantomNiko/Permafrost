@@ -27,6 +27,12 @@ def main():
         if text.count(marker) != 1:
             raise SystemExit('Bundled self-test completion marker changed')
         text = text.replace(marker, 'serial("PF-SELFTEST-PASS")')
+        if 'OpenBIOS.wmlp' in Image(raw).files():
+            # The reference OpenBIOS kernel advances a synthetic 18-Hz clock
+            # on each time query. Let its integer time reach one before the
+            # bundled self-test's time()>0 assertion.
+            text = ('warmup=0\nwhile warmup<36\nos["clock"]()\n'
+                    'warmup=warmup+1\nend\n') + text
         with tempfile.TemporaryDirectory(prefix='permafrost-selftest-') as temp:
             script = Path(temp) / 'selftest.ws'
             script.write_text(text)
@@ -35,7 +41,7 @@ def main():
                        'PF-SELFTEST-PASS', '--timeout', '60']
             for name in ('bochs', 'bios', 'vgabios'):
                 command += ['--' + name, str(getattr(args, name))]
-            if any(data[:4] == b'WMLP' and data[16] == 0xfc
+            if any(data[:4] == b'WMLP' and data[16:18] == b'\xfc\xe8'
                    for data in Image(raw).files().values()):
                 command.append('--initialize-fpu')
             result = subprocess.run(command, stdout=subprocess.PIPE,

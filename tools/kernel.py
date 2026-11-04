@@ -11,13 +11,16 @@ from cc import compile_object
 from elf32 import Object, link
 
 
-def compile_kernel(output, nasm='nasm'):
+def compile_kernel(output, nasm='nasm', variant='bios'):
     output.mkdir(parents=True, exist_ok=True)
-    layout = json.loads(Path('recovery/layout.json').read_text())
-    names = json.loads(Path('recovery/symbols.json').read_text())
-    sources = [Path('kernel/recovered.c')] + [Path('kernel/' + name)
-                for name in ('runtime.c', 'display.cpp', 'compiler.c')]
-    headers = sorted(Path('sdk/include').glob('*.h')) + sorted(Path('kernel').glob('*.h'))
+    if variant not in ('bios', 'openbios'):
+        raise ValueError('unknown current firmware variant')
+    root = Path('kernel') if variant == 'bios' else Path('kernel/openbios')
+    prefix = '' if variant == 'bios' else 'openbios-'
+    layout = json.loads(Path('recovery', prefix + 'layout.json').read_text())
+    names = json.loads(Path('recovery', prefix + 'symbols.json').read_text())
+    sources = [root / 'recovered.c', Path('kernel/runtime.c'), root / 'display.cpp', Path('kernel/compiler.c')]
+    headers = sorted(set(Path('sdk/include').glob('*.h')) | set(Path('kernel').glob('*.h')) | set(root.glob('*.h')))
     compiler_identity = b''.join(subprocess.check_output([os.environ.get(var, default), '--version'])
         for var, default in [('CC','clang'),('CXX','clang++')])
     shared = b''.join(p.read_bytes() for p in headers + [Path('tools/cc.py'), Path(__file__)]) + compiler_identity
@@ -28,7 +31,7 @@ def compile_kernel(output, nasm='nasm'):
         target = output / (source.stem + '.o')
         digest=hashlib.sha256(shared+source.read_bytes()).hexdigest()
         if not target.exists() or cache.get(str(source))!=digest:
-            compile_object(source, target, ['sdk/include', 'kernel'], extra_flags=[
+            compile_object(source, target, ['sdk/include', str(root), 'kernel'], extra_flags=[
                 '-fno-inline-functions', '-Wno-int-conversion', '-Wno-incompatible-pointer-types', '-Wno-pointer-sign'])
             cache[str(source)]=digest
             cache_path.write_text(json.dumps(cache,indent=2)+'\n')
@@ -40,22 +43,23 @@ def compile_kernel(output, nasm='nasm'):
         '\npf_core_size equ %d\n' % len(module) +
         ''.join('pf_%s equ 0x%x\n' % (key, value) for key, value in {
             'core_base': layout['core_base'], 'state_start': layout['text_end'],
+            'stack_top': layout.get('stack_top', 0x200000),
             'state_end': layout['state_end'], 'initialized_end': layout['initialized_end'],
             'payload_offset': (layout['initialized_end'] - layout['kernel_base'] + 15) & ~15,
             'kernel_main': symbols[names.get('recovered_%x'%layout['kernel_main'], 'recovered_%x'%layout['kernel_main'])]}.items()))
     (output / 'kernel_c.map.json').write_text(json.dumps(symbols, indent=2) + '\n')
-    compile_object('kernel/state.c', output / 'state.o', ['sdk/include'])
+    compile_object(root / 'state.c', output / 'state.o', ['sdk/include'])
     state = next(section['data'] for section in Object((output / 'state.o').read_bytes()).sections
                  if section['name'] == '.pf.state')
     if len(state) != layout['state_end'] - layout['text_end']:
         raise ValueError('initial state size changed')
     (output / 'kernel_state.bin').write_bytes(state[:layout['initialized_end'] - layout['text_end']])
-    entries = json.loads(Path('kernel/abi.json').read_text())
+    entries = json.loads((root / 'abi.json').read_text())
     for entry in entries.values():
         entry['symbol'] = names.get(entry['symbol'], entry['symbol'])
-    for name, (address, _) in json.loads(Path('kernel/runtime.json').read_text()).items():
+    for name, (address, _) in json.loads((root / 'runtime.json').read_text()).items():
         entries['%x' % address] = dict(symbol=name, arguments=[])
-    entries['3323e'] = dict(symbol='pf_display_night_mode', arguments=[])
+    entries['%x' % layout.get('night_mode_entry', 0x3323e)] = dict(symbol='pf_display_night_mode', arguments=[])
     stubs, adapters = ['; Generated from kernel/abi.json. Pooka\'s Free Software License.', 'bits 32'], []
     for text, entry in sorted(entries.items(), key=lambda item: int(item[0], 16)):
         address = int(text, 16)

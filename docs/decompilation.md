@@ -1,5 +1,14 @@
 # C/C++ migration method
 
+The OpenBIOS kernel has its own consolidated 749-function C implementation in
+`kernel/openbios`. Its loader supplies a boot-image RAM disk to the source-built
+firmware. The kernel reserves that disk, the relocated C core, and resident
+firmware when constructing the heap; the RAM disk is used in place rather than
+copied into the heap. Only the loader and protected-mode entry remain assembly.
+The firmware is built from the pinned external checkout, with the GPL memory
+handoff patch, and packaged with the shared C LZ4 decoder. OpenBIOS disk writes
+update the boot session's RAM disk.
+
 The in-house WinterLua 0.2 application is recovered in
 `applications/lua/runtime.c`, `functions.h` and `state.c`: 1,004 function bodies,
 with demangled signatures beside the recovered C implementations.
