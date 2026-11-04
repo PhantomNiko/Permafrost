@@ -2084,8 +2084,8 @@ float fabsf(float value)
 
   float fVar1;
 
-  fVar1 = (float)(_DAT_0203d280 ^ (uint)value);
-  if ((float)(_DAT_0203d280 ^ (uint)value) <= value) {
+  fVar1 = pf_bits_float(_DAT_0203d280 ^ pf_float_bits(value));
+  if (pf_bits_float(_DAT_0203d280 ^ pf_float_bits(value)) <= value) {
     fVar1 = value;
   }
   return fVar1;
@@ -5194,99 +5194,14 @@ uchar wm_platform_serial_poll_char(undefined1 *param_1)
 
 /* wm_platform_cpuid_available */
 
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x2003350
- */
-
-uint wm_platform_cpuid_available(void)
-
-{
-  unsigned char frame[64] = {0};
-
-  undefined4 in_EAX = 0;
-
-  return CONCAT31((int3)((uint)in_EAX >> 8),1);
-}
+/* Permafrost; Pooka's Free Software License. */
+uint wm_platform_cpuid_available(void) { return pf_cpu_cpuid_available(); }
 
 
 /* wm_platform_cpuid_query */
 
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x2003358
- */
-
-uchar wm_platform_cpuid_query(int param_1,undefined8 param_2,undefined4 *param_3)
-
-{
-  unsigned char frame[64] = {0};
-
-  undefined4 *puVar1;
-  undefined4 uVar2;
-  undefined4 uVar3;
-  undefined4 uVar4;
-
-  if (param_3 != (undefined4 *)0x0) {
-    if (param_1 == 0) {
-      puVar1 = (undefined4 *)cpuid_basic_info(0);
-    }
-    else if (param_1 == 1) {
-      puVar1 = (undefined4 *)cpuid_Version_info(1);
-    }
-    else if (param_1 == 2) {
-      puVar1 = (undefined4 *)cpuid_cache_tlb_info(2);
-    }
-    else if (param_1 == 3) {
-      puVar1 = (undefined4 *)cpuid_serial_info(3);
-    }
-    else if (param_1 == 4) {
-      puVar1 = (undefined4 *)cpuid_Deterministic_Cache_Parameters_info(4);
-    }
-    else if (param_1 == 5) {
-      puVar1 = (undefined4 *)cpuid_MONITOR_MWAIT_Features_info(5);
-    }
-    else if (param_1 == 6) {
-      puVar1 = (undefined4 *)cpuid_Thermal_Power_Management_info(6);
-    }
-    else if (param_1 == 7) {
-      puVar1 = (undefined4 *)cpuid_Extended_Feature_Enumeration_info(7);
-    }
-    else if (param_1 == 9) {
-      puVar1 = (undefined4 *)cpuid_Direct_Cache_Access_info(9);
-    }
-    else if (param_1 == 10) {
-      puVar1 = (undefined4 *)cpuid_Architectural_Performance_Monitoring_info(10);
-    }
-    else if (param_1 == 0xb) {
-      puVar1 = (undefined4 *)cpuid_Extended_Topology_info(0xb);
-    }
-    else if (param_1 == 0xd) {
-      puVar1 = (undefined4 *)cpuid_Processor_Extended_States_info(0xd);
-    }
-    else if (param_1 == 0xf) {
-      puVar1 = (undefined4 *)cpuid_Quality_of_Service_info(0xf);
-    }
-    else if (param_1 == -0x7ffffffe) {
-      puVar1 = (undefined4 *)cpuid_brand_part1_info(0x80000002);
-    }
-    else if (param_1 == -0x7ffffffd) {
-      puVar1 = (undefined4 *)cpuid_brand_part2_info(0x80000003);
-    }
-    else if (param_1 == -0x7ffffffc) {
-      puVar1 = (undefined4 *)cpuid_brand_part3_info(0x80000004);
-    }
-    else {
-      puVar1 = (undefined4 *)cpuid(param_1);
-    }
-    uVar2 = puVar1[1];
-    uVar3 = puVar1[2];
-    uVar4 = puVar1[3];
-    *param_3 = *puVar1;
-    param_3[1] = uVar2;
-    param_3[2] = uVar4;
-    param_3[3] = uVar3;
-  }
-  return param_3 != (undefined4 *)0x0;
-}
+/* Permafrost; Pooka's Free Software License. */
+uint wm_platform_cpuid_query(int leaf,uint subleaf,uint *out) { return pf_cpu_cpuid_query((uint)leaf,subleaf,out); }
 
 
 /* wm_platform_heap_free_bytes */
@@ -22147,13 +22062,14 @@ undefined8 wm_kernel_program_write(char *param_1)
  * Address: 0x2011c42
  */
 
-ushort wm_kernel_program_poll_key_ax(ulonglong in_RSI)
+ushort wm_kernel_program_poll_key_ax(void)
 
 {
   unsigned char frame[64] = {0};
 
   uchar uVar1;
   uint uVar2;
+  undefined8 in_RSI;
   byte *pbVar3;
 
   pbVar3 = &local_9;
@@ -23184,13 +23100,6 @@ uint console_log(char *param_1)
 #define DAT_02046cb0 (*(uint8_t *)(0x2046cb0U))
 #undef DAT_02046da0
 #define DAT_02046da0 (*(uint8_t *)(0x2046da0U))
-#define unaff_retaddr (*(undefined8 *)(frame + 32))
-#define in_stack_00000010 (*(long *)(frame + 48))
-#define in_stack_00000008 (*(undefined1 * *)(frame + 40))
-#define in_stack_00000020 (*(byte *)(frame + 64))
-#define in_stack_00000018 (*(char * *)(frame + 56))
-#define in_stack_00000030 (*(undefined8 *)(frame + 80))
-#define in_stack_00000028 (*(undefined8 *)(frame + 72))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x2012ba3
  */
@@ -23204,26 +23113,15 @@ ulong wm_kernel_host_readline(undefined8 param_1,undefined8 param_2,undefined8 p
   unsigned char frame[64] = {0};
 
   byte bVar1;
-  undefined8 unaff_RBP;
 
   DAT_02046cb0 = 0;
   DAT_02046da0 = 0;
-  bVar1 = read_line_internal(param_9,(ulong)param_10,param_11,(ulong)(param_12 != 0),1,param_14,
-                            unaff_RBP,unaff_retaddr,in_stack_00000008,in_stack_00000010,
-                            in_stack_00000018,in_stack_00000020,in_stack_00000028,in_stack_00000030)
-  ;
+  bVar1 = read_line_internal(param_9,(ulong)param_10,param_11,(uint)(param_12 != 0),1);
   return (ulong)bVar1;
 }
 
 #undef DAT_02046cb0
 #undef DAT_02046da0
-#undef unaff_retaddr
-#undef in_stack_00000010
-#undef in_stack_00000008
-#undef in_stack_00000020
-#undef in_stack_00000018
-#undef in_stack_00000030
-#undef in_stack_00000028
 
 /* read_line_internal */
 
@@ -23249,24 +23147,21 @@ ulong wm_kernel_host_readline(undefined8 param_1,undefined8 param_2,undefined8 p
 #define DAT_0204b541 (*(uint8_t *)(0x204b541U))
 #undef DAT_0204b5a8
 #define DAT_0204b5a8 (*(char * *)(0x204b5a8U))
+#define local_40 (*(undefined8 *)(frame + 568))
+#define local_38 (*(int *)(frame + 576))
+#define local_31 (*(char *)(frame + 583))
 #define local_268 (*(char (*)[520])(frame + 16))
 #define local_60 (*(ulong *)(frame + 536))
 #define local_58 (*(ulong *)(frame + 544))
 #define local_50 (*(char * *)(frame + 552))
 #define local_48 (*(char * *)(frame + 560))
-#define local_40 (*(undefined8 *)(frame + 568))
-#define local_38 (*(undefined4 *)(frame + 576))
-#define local_31 (*(char *)(frame + 583))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x2012bce
  */
 
 /* WARNING: Type propagation algorithm not settling */
 
-uchar read_line_internal(char *param_1,ulong param_2,char *param_3,undefined8 param_4,
-                       undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8,
-                       undefined1 *param_9,long param_10,char *param_11,byte param_12,
-                       undefined8 param_13,undefined8 param_14)
+uchar read_line_internal(char *buffer,ulong capacity,char *prompt,int allow_escape,int log_line)
 
 {
   unsigned char frame[664] = {0};
@@ -23277,33 +23172,35 @@ uchar read_line_internal(char *param_1,ulong param_2,char *param_3,undefined8 pa
   uint uVar4;
   ushort uVar5;
   char *pcVar6;
-  ulong uVar7;
+  byte bVar7;
   ulong uVar8;
+  ulong uVar9;
 
-  if (param_2 == 0 || param_1 == (char *)0x0) {
+  if (capacity == 0 || buffer == (char *)0x0) {
     return '\0';
   }
   pcVar6 = &DAT_0203da40;
-  if (param_3 != (char *)0x0) {
-    pcVar6 = param_3;
+  if (prompt != (char *)0x0) {
+    pcVar6 = prompt;
   }
   local_60 = 0x1ff;
-  if (param_2 - 1 < 0x1ff) {
-    local_60 = param_2 - 1;
+  if (capacity - 1 < 0x1ff) {
+    local_60 = capacity - 1;
   }
   local_40 = DAT_0204b5a8;
-  *param_1 = '\0';
+  *buffer = '\0';
   DAT_02046db0 = 0;
-  local_58 = param_2;
-  local_48 = param_1;
-  local_38 = (undefined4)param_5;
+  local_58 = capacity;
+  local_48 = buffer;
+  local_38 = log_line;
   uVar3 = cursor_blink_on();
   DAT_0204b5a8 = pcVar6;
   render_ui();
   if ((DAT_0204b540 == '\x01') && (*pcVar6 != '\0')) {
     wm_platform_serial_write(pcVar6);
   }
-  uVar7 = 0;
+  uVar8 = 0;
+  bVar7 = (byte)allow_escape ^ 1;
   local_50 = pcVar6;
   do {
     while( true ) {
@@ -23311,7 +23208,7 @@ uchar read_line_internal(char *param_1,ulong param_2,char *param_3,undefined8 pa
       pcVar6 = &local_31;
       uVar1 = serial_poll_char(&local_31);
       if (uVar1 != '\0') break;
-      uVar4 = wm_platform_poll_key_ax(pcVar6,param_2);
+      uVar4 = wm_platform_poll_key_ax(pcVar6,capacity);
       if ((short)uVar4 == 0) {
         uVar4 = cursor_blink_on();
         if ((((byte)uVar4 ^ (byte)uVar3) & 1) != 0) goto LAB_02012da9;
@@ -23319,37 +23216,37 @@ uchar read_line_internal(char *param_1,ulong param_2,char *param_3,undefined8 pa
       else {
         cVar2 = (char)uVar4;
         if ((cVar2 == '\r') || (uVar5 = (ushort)(uVar4 >> 8) & 0xff, uVar5 == 0x1c)) {
-          (&DAT_02046db0)[uVar7] = 0;
-          kernel_snprintf(local_268,0x200,&DAT_0203db8e);
+          (&DAT_02046db0)[uVar8] = 0;
+          kernel_snprintf(local_268,0x200,&DAT_0203db8e,&DAT_02046db0);
           goto LAB_02012e89;
         }
-        param_2 = CONCAT71((int7)(param_2 >> 8),uVar5 != 1);
+        capacity = CONCAT71((int7)(capacity >> 8),uVar5 != 1);
         if (cVar2 == '\x1b' || uVar5 == 1) {
           DAT_02046db0 = 0;
-          if (uVar7 == 0 && ((byte)param_4 ^ 1) == 0) {
+          if (uVar8 == 0 && bVar7 == 0) {
             *local_48 = '\0';
             DAT_0204b5a8 = (char *)local_40;
             render_ui();
             return '\0';
           }
 LAB_02012d5e:
-          uVar8 = 0;
+          uVar9 = 0;
           goto LAB_02012d9f;
         }
-        if ((cVar2 == '\b' || uVar5 == 0xe) && (uVar7 != 0)) {
-          (&DAT_02046daf)[uVar7] = 0;
+        if ((cVar2 == '\b' || uVar5 == 0xe) && (uVar8 != 0)) {
+          (&DAT_02046daf)[uVar8] = 0;
           goto LAB_02012d9c;
         }
-        if (((byte)(cVar2 - 0x20U) < 0x5f) && (uVar7 < local_60)) {
-          uVar8 = uVar7 + 1;
-          (&DAT_02046db0)[uVar7] = cVar2;
-          (&DAT_02046db1)[uVar7] = 0;
+        if (((byte)(cVar2 - 0x20U) < 0x5f) && (uVar8 < local_60)) {
+          uVar9 = uVar8 + 1;
+          (&DAT_02046db0)[uVar8] = cVar2;
+          (&DAT_02046db1)[uVar8] = 0;
           goto LAB_02012d9f;
         }
       }
     }
     if (local_31 == '\x1b') {
-      if (uVar7 == 0 && ((byte)param_4 ^ 1) == 0) {
+      if (uVar8 == 0 && bVar7 == 0) {
         wm_platform_serial_write(&DAT_0203dfd1);
         DAT_02046db0 = 0;
         *local_48 = '\0';
@@ -23368,8 +23265,8 @@ LAB_02012d5e:
       if (local_31 == '\r') {
         DAT_0204b541 = 1;
       }
-      (&DAT_02046db0)[uVar7] = 0;
-      kernel_snprintf(local_268,0x200,&DAT_0203db8e);
+      (&DAT_02046db0)[uVar8] = 0;
+      kernel_snprintf(local_268,0x200,&DAT_0203db8e,&DAT_02046db0);
       wm_platform_serial_write(&DAT_0203dfd1);
 LAB_02012e89:
       if (((char)local_38 != '\0') && (local_268[0] != '\0')) {
@@ -23386,23 +23283,23 @@ LAB_02012e89:
       kernel_snprintf(local_48,local_58,&DAT_0203db8e,local_268);
       return '\x01';
     }
-    if ((local_31 == '\b' || local_31 == '\x7f') && (uVar7 != 0)) {
-      (&DAT_02046daf)[uVar7] = 0;
+    if ((local_31 == '\b' || local_31 == '\x7f') && (uVar8 != 0)) {
+      (&DAT_02046daf)[uVar8] = 0;
       wm_platform_serial_write(&DAT_0203e469);
 LAB_02012d9c:
-      uVar8 = uVar7 - 1;
+      uVar9 = uVar8 - 1;
       goto LAB_02012d9f;
     }
-    if (((byte)(local_31 - 0x20U) < 0x5f) && (uVar7 < local_60)) {
-      uVar8 = uVar7 + 1;
-      (&DAT_02046db0)[uVar7] = local_31;
-      (&DAT_02046db1)[uVar7] = 0;
+    if (((byte)(local_31 - 0x20U) < 0x5f) && (uVar8 < local_60)) {
+      uVar9 = uVar8 + 1;
+      (&DAT_02046db0)[uVar8] = local_31;
+      (&DAT_02046db1)[uVar8] = 0;
       if (DAT_0204b540 == '\x01') {
         wm_platform_serial_putc(local_31);
       }
 LAB_02012d9f:
       uVar4 = cursor_blink_on();
-      uVar7 = uVar8;
+      uVar8 = uVar9;
 LAB_02012da9:
       uVar3 = uVar4;
       render_ui();
@@ -23421,14 +23318,14 @@ LAB_02012da9:
 #undef DAT_0204b540
 #undef DAT_0204b541
 #undef DAT_0204b5a8
+#undef local_40
+#undef local_38
+#undef local_31
 #undef local_268
 #undef local_60
 #undef local_58
 #undef local_50
 #undef local_48
-#undef local_40
-#undef local_38
-#undef local_31
 
 /* wm_kernel_expand_disk */
 
@@ -27055,7 +26952,7 @@ void wm_permafrost_main(void)
   uVar6 = ws_parse_float_literal(0x203e321,(undefined4 *)&local_5f8);
   if (uVar6 != '\0') {
     pppppppuVar25 = appppppuStackY_1208 + 0x80;
-    ws_make_float((float)local_5f8,(undefined4 *)pppppppuVar25);
+    ws_make_float(pf_bits_float((uint32_t)local_5f8),(undefined4 *)pppppppuVar25);
     ws_set_variable(0x203e479,(long)pppppppuVar25);
     ws_value_free(pppppppuVar25);
   }
@@ -27295,7 +27192,7 @@ LAB_0201701f:
   render_ui();
   do {
     pppppppuVar25 = appppppuStackY_1208 + 0x80;
-    read_line((ulonglong)in_R9);
+    read_line();
     kernel_snprintf((char *)&local_5f8,0x200,&DAT_0203db8e,&DAT_02046db0);
     trim_in_place((byte *)&local_5f8);
     if ((char)local_5f8 == '\0') goto LAB_020173b3;
@@ -27406,7 +27303,7 @@ LAB_020171e9:
       bVar20 = (byte)uVar42;
       if (bVar20 == 0) {
 LAB_0201731f:
-        kernel_snprintf((char *)&local_2f8,0x140,&DAT_0203db8e);
+        kernel_snprintf((char *)&local_2f8,0x140,&DAT_0203db8e,&local_5f8);
         trim_in_place((byte *)&local_2f8);
         if ((byte)local_2f8 != 0) {
           lVar36 = 0;
@@ -27634,7 +27531,7 @@ LAB_02017fe4:
               if (uVar42 == 0) {
                 pppppppuVar25 = (ulong *******)0xf1;
                 pcVar28 = str_0203dadc;
-                kernel_snprintf((char *)&local_3f8,0xf1,&DAT_0203db8e);
+                kernel_snprintf((char *)&local_3f8,0xf1,&DAT_0203db8e,str_0203dadc);
                 ppppuVar17 = extraout_RDX_01;
                 uVar42 = uVar12;
               }
@@ -27697,7 +27594,7 @@ LAB_02018012:
             goto LAB_020173ae;
           }
           if (uVar42 == 0) {
-            kernel_snprintf((char *)&local_3f8,0xf1,&DAT_0203db8e);
+            kernel_snprintf((char *)&local_3f8,0xf1,&DAT_0203db8e,str_0203dadc);
             uVar42 = uVar12;
           }
           else {
@@ -28426,7 +28323,7 @@ LAB_02019438:
                          uVar6 == '\0')) {
                         ws_value_free(&local_2f8);
                         ws_value_list_free((ulong *)&local_1b8);
-                        ws_errorf(&local_60,(char *)&local_178,str_020402e6);
+                        ws_errorf(&local_60,(char *)&local_178,str_020402e6,&local_178);
                         goto LAB_02019071;
                       }
                       count = &local_3f8;
@@ -29125,19 +29022,11 @@ uchar storage_scan_devices(void)
 
 #undef DAT_02046db0
 #define DAT_02046db0 (*(uint8_t *)(0x2046db0U))
-#define in_stack_00000040 (*(undefined8 *)(frame + 96))
-#define in_stack_00000030 (*(byte *)(frame + 80))
-#define in_stack_00000038 (*(undefined8 *)(frame + 88))
-#define in_stack_00000008 (*(undefined8 *)(frame + 40))
-#define in_stack_00000020 (*(long *)(frame + 64))
-#define in_stack_00000028 (*(char * *)(frame + 72))
-#define in_stack_00000010 (*(undefined8 *)(frame + 48))
-#define in_stack_00000018 (*(undefined1 * *)(frame + 56))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x2019bf1
  */
 
-uint read_line(ulonglong in_R9)
+uint read_line(void)
 
 {
   unsigned char frame[64] = {0};
@@ -29145,21 +29034,11 @@ uint read_line(ulonglong in_R9)
   uchar uVar1;
   undefined3 extraout_var = 0;
 
-  uVar1 = read_line_internal(&DAT_02046db0,0x200,(char *)0x0,0,0,in_R9,in_stack_00000008,
-                            in_stack_00000010,in_stack_00000018,in_stack_00000020,in_stack_00000028,
-                            in_stack_00000030,in_stack_00000038,in_stack_00000040);
+  uVar1 = read_line_internal(&DAT_02046db0,0x200,(char *)0x0,0,0);
   return CONCAT31(extraout_var,uVar1);
 }
 
 #undef DAT_02046db0
-#undef in_stack_00000040
-#undef in_stack_00000030
-#undef in_stack_00000038
-#undef in_stack_00000008
-#undef in_stack_00000020
-#undef in_stack_00000028
-#undef in_stack_00000010
-#undef in_stack_00000018
 
 /* trim_in_place */
 
@@ -36237,7 +36116,7 @@ void storage_set_default_device_name(long param_1)
   }
   else {
     if (-1 < *(int *)(param_1 + 0x14)) {
-      kernel_snprintf(local_25,0xd,str_0203ea0d);
+      kernel_snprintf(local_25,0xd,str_0203ea0d,*(int *)(param_1+0x14));
       storage_copy_device_name(param_1 + 0x19,(long)local_25);
       return;
     }
@@ -38191,8 +38070,8 @@ LAB_0202278c:
               ws_value_free(&local_e8);
               ws_value_free(&local_188);
               if (iVar9 != 0) {
-                local_88 = (ulong ************)CONCAT44(PF_PART4(local_88, 4),(int)PF_PART4(local_88, 0));
-                uVar8 = (uint)PF_PART4(local_78, 0);
+                local_88 = (ulong ************)CONCAT44(PF_PART4(local_88, 4),(int)pf_bits_float(PF_PART4(local_88, 0)));
+                uVar8 = (uint)(int)pf_bits_float(PF_PART4(local_78, 0));
 LAB_02023315:
                 bVar34 = (int)PF_PART4(local_88, 0) <= (int)uVar8;
                 if (0 < iVar9) {
@@ -39078,7 +38957,7 @@ LAB_0202372c:
     ws_token_list_free((ulong *)local_60);
     if ((char)uVar8 == '\0') {
 LAB_02023990:
-      ws_errorf(&local_70,(char *)local_78,str_0203ed1d);
+      ws_errorf(&local_70,(char *)local_78,str_0203ed1d,local_78);
       goto LAB_02023491;
     }
 LAB_020236fc:
@@ -39304,7 +39183,7 @@ uint ws_errorf(void *line,char *near_token,char *format,...)
         console_logf(str_0204307b,(ulong)(*(int *)line + 1),near_token);
       }
       if ((*(char **)((long)line + 8) != (char *)0x0) && (**(char **)((long)line + 8) != '\0')) {
-        console_logf(&DAT_0204309f);
+        console_logf(&DAT_0204309f,*(char **)((long)line+8));
       }
     }
     uVar1 = render_ui();
@@ -40482,7 +40361,7 @@ LAB_02024c92:
 LAB_02024cff:
       pcVar15 = *(char **)(*(long *)(lVar21 + -0x58) + (long)pppppppuVar17 * 8);
 LAB_02024ac2:
-      ws_errorf(&local_b8,pcVar15,str_0203ed1d);
+      ws_errorf(&local_b8,pcVar15,str_0203ed1d,pcVar15);
     }
     else {
       if ((pppppppuVar17 != (ulong *******)0x0) ||
@@ -42386,7 +42265,7 @@ LAB_02026c51:
     }
   }
   local_38 = (ulong *)0x0;
-  ws_errorf(line,(char *)*plVar9,str_0203ed1d);
+  ws_errorf(line,(char *)*plVar9,str_0203ed1d,(char *)*plVar9);
 LAB_02026f6d:
   bVar20 = true;
   plVar7 = local_50;
@@ -43879,8 +43758,6 @@ uchar ws_parse_power(undefined8 *param_1,ulong *param_2)
 #define DAT_0204d698 (*(uint64_t *)(0x204d698U))
 #undef DAT_0204d6a0
 #define DAT_0204d6a0 (*(uint64_t *)(0x204d6a0U))
-#undef _DAT_0203d280
-#define _DAT_0203d280 (*(uint *)(0x203d280U))
 #undef str_0203f0c6
 #define str_0203f0c6 (*(char (*)[1])(0x203f0c6U))
 #undef str_0203f0f0
@@ -44791,7 +44668,7 @@ LAB_020284d5:
       }
       goto LAB_020284d5;
     }
-    ws_make_float((float)((uint)pf_bits_float((uint32_t)uStack_70) ^ _DAT_0203d280),(undefined4 *)&local_f8);
+    ws_make_float(pf_bits_float((uint32_t)uStack_70 ^ 0x80000000U),(undefined4 *)&local_f8);
   }
   param_1 = &local_f8;
   param_2[6] = local_c8;
@@ -44829,7 +44706,6 @@ LAB_02028ada:
 #undef DAT_0203f1d5
 #undef DAT_0204d698
 #undef DAT_0204d6a0
-#undef _DAT_0203d280
 #undef str_0203f0c6
 #undef str_0203f0f0
 #undef str_0203f124
@@ -45330,7 +45206,7 @@ LAB_0202a1a3:
     }
     else {
       if ((*param_2 != 3) || (*(long *)(param_2 + 4) == 0)) goto LAB_0202a155;
-      kernel_snprintf(local_78,0x40,str_0203f35d);
+      kernel_snprintf(local_78,0x40,str_0203f35d,*(char **)(param_2+4));
       uVar1 = ws_make_bound_builtin_function_value(param_3,(long)local_78,(long)param_1);
       uVar6 = CONCAT71(extraout_var,uVar1);
       if (uVar1 == '\0') goto LAB_0202a1a3;
@@ -45724,7 +45600,7 @@ LAB_0202a57d:
 LAB_0202a582:
               puVar10[-8] = *(undefined4 *)ppppuVar9;
               puVar10[-7] = uVar6;
-              puVar10[-6] = fVar23;
+              puVar10[-6] = pf_float_bits(fVar23);
               *(ulong ****)(puVar10 + -4) = pppuVar16;
               *(ulong ****)(puVar10 + -2) = pppuVar17;
               *puVar10 = (int)pppuVar21;
@@ -47188,14 +47064,8 @@ void ws_value_array_free(long param_1,long param_2)
 #define _DAT_0203d9dc (*(float *)(0x203d9dcU))
 #undef _DAT_0203d9e4
 #define _DAT_0203d9e4 (*(float *)(0x203d9e4U))
-#undef _DAT_0203d9ec
-#define _DAT_0203d9ec (*(float *)(0x203d9ecU))
 #undef _DAT_0203d9f0
 #define _DAT_0203d9f0 (*(float *)(0x203d9f0U))
-#undef _DAT_0203da10
-#define _DAT_0203da10 (*(uint128 *)(0x203da10U))
-#undef _DAT_0203da20
-#define _DAT_0203da20 (*(uint128 *)(0x203da20U))
 #undef _DAT_0204d668
 #define _DAT_0204d668 (*(int *)(0x204d668U))
 #undef str_0203dd09
@@ -47900,7 +47770,6 @@ uchar ws_call_builtin(void *out,void *context,void *name,void *arguments,ulong c
   int iVar46;
   bool bVar47;
   ulonglong *puVar48;
-  ulonglong in_R9;
   byte bVar49;
   int iVar50;
   ulong uVar51;
@@ -47957,7 +47826,7 @@ uchar ws_call_builtin(void *out,void *context,void *name,void *arguments,ulong c
       local_3c8 = (ulonglong *)0x0;
       uVar16 = ws_value_to_owned_string((int *)((long)name + 0x40),&local_3c8);
       if (uVar16 != '\0') {
-        ws_errorf(out,context,&DAT_0203db8e);
+        ws_errorf(out,context,&DAT_0203db8e,local_3c8);
       }
 LAB_0202b9d3:
       puVar40 = local_3c8;
@@ -48086,7 +47955,7 @@ LAB_0202bb5a:
       }
       DAT_02046db0 = 0;
       render_ui();
-      read_line(in_R9);
+      read_line();
       pcVar36 = &DAT_02046db0;
       goto LAB_0202b981;
     }
@@ -49958,7 +49827,7 @@ switchD_02031467_caseD_63:
                                                   local_60 = (ulonglong *)
                                                              CONCAT44(PF_PART4(local_60, 4),(int)fVar62);
                                                   iVar38 = kernel_snprintf((char *)0x0,0,
-                                                                             (char *)&local_3c8);
+                                                                             (char *)&local_3c8,(int)local_60);
                                                   if (iVar38 < 0) {
 LAB_02031a64:
                                                     kernel_free(local_118);
@@ -49985,15 +49854,14 @@ switchD_02031467_caseD_65:
                                                   name));
                                                   local_60 = (ulonglong *)(uintptr_t)pf_double_bits(fVar62);
                                                   iVar38 = kernel_snprintf((char *)0x0,0,
-                                                                             (char *)&local_3c8);
+                                                                             (char *)&local_3c8,pf_bits_double((uint64_t)local_60));
                                                   if (iVar38 < 0) goto LAB_02031a64;
                                                   local_50 = kernel_malloc((ulong)(iVar38 + 1));
                                                   if (local_50 == (ulonglong *)0x0)
                                                   goto LAB_02031a3a;
                                                   kernel_snprintf((char *)local_50,
                                                                     (ulong)(iVar38 + 1),
-                                                                    (char *)&local_3c8,(int)local_60
-                                                                   );
+                                                                    (char *)&local_3c8,pf_bits_double((uint64_t)local_60));
                                                   break;
                                                 case 0x68:
                                                 case 0x6a:
@@ -50075,7 +49943,7 @@ LAB_02031a3a:
                                                   name),&local_158);
                                                   if (uVar16 == '\0') goto LAB_020322a7;
                                                   iVar38 = kernel_snprintf((char *)0x0,0,
-                                                                             (char *)&local_3c8);
+                                                                             (char *)&local_3c8,local_158);
                                                   if (iVar38 < 0) {
                                                     kernel_free(local_158);
                                                     kernel_free(local_118);
@@ -50090,7 +49958,7 @@ LAB_02031a3a:
                                                   goto LAB_02031a35;
                                                   kernel_snprintf((char *)local_50,
                                                                     (ulong)(iVar38 + 1),
-                                                                    (char *)&local_3c8);
+                                                                    (char *)&local_3c8,local_158);
                                                   kernel_free(local_158);
                                                   break;
                                                 default:
@@ -50323,7 +50191,7 @@ LAB_02031dc5:
                                                 uVar20 = (uint)local_a8;
                                               }
                                               kernel_snprintf((char *)&local_128,0x20,
-                                                                &DAT_0203f11d);
+                                                                &DAT_0203f11d,(int)uVar20);
                                               puVar23 = (undefined8 *)
                                                         ws_table_get_mutable_entry(*(long *)((long)name +
                                                                                    0x30),
@@ -50641,7 +50509,7 @@ LAB_0203282f:
                                                       count = (ulong)local_40;
                                                       if (uVar16 != '\0') {
                                                         ws_value_free(local_40);
-                                                        PF_PART4(local_3c8, 0) = (uint)(float)local_128;
+                                                        PF_PART4(local_3c8, 0) = (uint)local_128;
                                                         PF_PART4(local_3c8, 4) = PF_PART4(local_128, 4);
                                                         PF_PART4(uStack_3c0, 0) = (uint)uStack_120;
                                                         PF_PART4(uStack_3c0, 4) = PF_PART4(uStack_120, 4);
@@ -51208,46 +51076,19 @@ LAB_0203489d:
                                                       else {
                                                         fVar62 = ws_value_to_float_number(name);
                                                         fVar62 = ws_wrap_radians(fVar62);
-                                                        fVar62 = fVar62 * fVar62;
-                                                        PF_PART4(auVar71, 4) = extraout_XMM0_Db_00;
-                                                        PF_PART4(auVar71, 0) = fVar62;
-                                                        PF_PART4(auVar71, 8) = extraout_XMM0_Dc_00;
-                                                        PF_PART4(auVar71, 12) = extraout_XMM0_Dd_00;
-                                                        PF_PART12(auVar64, 4) = PF_PART12(auVar71, 4);
-                                                        PF_PART4(auVar64, 0) = fVar62 * fVar62;
-                                                        PF_PART8(auVar66, 0) = PF_PART8(auVar64, 0);
-                                                        PF_PART4(auVar66, 8) = extraout_XMM0_Db_00;
-                                                        PF_PART4(auVar66, 12) = extraout_XMM0_Db_00;
-                                                        PF_PART8(auVar65, 8) = PF_PART8(auVar66, 8);
-                                                        PF_PART4(auVar65, 4) = fVar62 * PF_PART4(auVar64, 0);
-                                                        PF_PART4(auVar65, 0) = PF_PART4(auVar64, 0);
-                                                        auVar71 = divps(auVar65,_DAT_0203da10);
-                                                        fVar62 = (DAT_0203d9e8 * fVar62 +
-                                                                  DAT_0203d8c0 + PF_PART4(auVar71, 0)) -
-                                                                 PF_PART4(auVar71, 4);
+                                                        float squared = fVar62 * fVar62;
+float fourth = squared * squared;
+float sixth = squared * fourth;
+fVar62 = ((-0.5f * squared + 1.0f) + fourth / 24.0f) - sixth / 720.0f;
                                                       }
                                                     }
                                                     else {
                                                       fVar62 = ws_value_to_float_number(name);
                                                       fVar62 = ws_wrap_radians(fVar62);
-                                                      fVar63 = fVar62 * fVar62;
-                                                      PF_PART4(auVar67, 4) = extraout_XMM0_Db;
-                                                      PF_PART4(auVar67, 0) = fVar63;
-                                                      PF_PART4(auVar67, 8) = extraout_XMM0_Dc;
-                                                      PF_PART4(auVar67, 12) = extraout_XMM0_Dd;
-                                                      PF_PART12(auVar68, 4) = PF_PART12(auVar67, 4);
-                                                      PF_PART4(auVar68, 0) = fVar63 * fVar63;
-                                                      PF_PART8(auVar70, 0) = PF_PART8(auVar68, 0);
-                                                      PF_PART4(auVar70, 8) = extraout_XMM0_Db;
-                                                      PF_PART4(auVar70, 12) = extraout_XMM0_Db;
-                                                      PF_PART8(auVar69, 8) = PF_PART8(auVar70, 8);
-                                                      PF_PART4(auVar69, 4) = fVar63 * PF_PART4(auVar68, 0);
-                                                      PF_PART4(auVar69, 0) = PF_PART4(auVar68, 0);
-                                                      auVar71 = divps(auVar69,_DAT_0203da20);
-                                                      fVar62 = fVar62 * ((fVar63 / _DAT_0203d9ec +
-                                                                          DAT_0203d8c0 +
-                                                                         PF_PART4(auVar71, 0)) -
-                                                                        PF_PART4(auVar71, 4));
+                                                      float squared = fVar62 * fVar62;
+float fourth = squared * squared;
+float sixth = squared * fourth;
+fVar62 = fVar62 * (((squared / -6.0f + 1.0f) + fourth / 120.0f) - sixth / 5040.0f);
                                                     }
                                                     goto LAB_02034da8;
                                                   }
@@ -51666,8 +51507,8 @@ LAB_0202d1dd:
                                                       return '\0';
                                                     }
                                                     fVar63 = *(float *)((long)name + 8);
-                                                    fVar62 = (float)(_DAT_0203d280 ^ (uint)fVar63);
-                                                    if ((float)(_DAT_0203d280 ^ (uint)fVar63) <=
+                                                    fVar62 = pf_bits_float(_DAT_0203d280 ^ pf_float_bits(fVar63));
+                                                    if (pf_bits_float(_DAT_0203d280 ^ pf_float_bits(fVar63)) <=
                                                         fVar63) {
                                                       fVar62 = fVar63;
                                                     }
@@ -52421,7 +52262,7 @@ joined_r0x02032b16:
                                                     uVar16 = ws_value_to_owned_string(name,&local_3c8);
                                                     if (uVar16 != '\0') {
                                                       ws_errorf(local_38,context,
-                                                                        &DAT_0203db8e);
+                                                                        &DAT_0203db8e,local_3c8);
                                                       puVar40 = local_3c8;
                                                       goto LAB_0202b9d6;
                                                     }
@@ -52554,7 +52395,7 @@ LAB_02032786:
                                                         puVar40[6] = 0;
                                                         puVar40[7] = 0;
                                                         kernel_snprintf((char *)&local_128,0x20,
-                                                                          &DAT_0203f11d);
+                                                                          &DAT_0203f11d,(int)lVar34);
                                                         uVar19 = ws_table_find_index(*(long *)((long)
                                                   name + 0x30),(long)&local_128);
                                                   if (-1 < (int)uVar19) goto code_r0x020327e4;
@@ -52654,7 +52495,7 @@ LAB_02032d6b:
                                             }
                                             if ((int)PF_PART4(local_50, 0) < (int)(uint)local_a8 ||
                                                 (int)(uint)local_a8 < 1) goto LAB_02032237;
-                                            kernel_snprintf((char *)&local_3c8,0x20,&DAT_0203f11d)
+                                            kernel_snprintf((char *)&local_3c8,0x20,&DAT_0203f11d,(int)(uint)local_a8)
                                             ;
                                             uVar19 = ws_table_find_index(*(long *)((long)name + 0x30),
                                                                        (long)&local_3c8);
@@ -53134,7 +52975,7 @@ LAB_0203506e:
 LAB_0203515c:
                                   ws_make_bool((undefined4 *)&local_3c8,uVar19);
 LAB_0202f3f3:
-                                  PF_PART4(local_128, 0) = (float)(uint)local_3c8;
+                                  PF_PART4(local_128, 0) = (uint)local_3c8;
                                   PF_PART4(local_128, 4) = PF_PART4(local_3c8, 4);
                                   PF_PART4(uStack_120, 0) = (uint)uStack_3c0;
                                   PF_PART4(uStack_120, 4) = PF_PART4(uStack_3c0, 4);
@@ -53155,7 +52996,7 @@ LAB_0202d120:
                                   local_40[5] = PF_PART4(local_118, 4);
                                   local_40[6] = (uint)uStack_110;
                                   local_40[7] = PF_PART4(uStack_110, 4);
-                                  *local_40 = (uint)(float)local_128;
+                                  *local_40 = (uint)local_128;
                                   local_40[1] = PF_PART4(local_128, 4);
                                   local_40[2] = (uint)uStack_120;
                                   local_40[3] = PF_PART4(uStack_120, 4);
@@ -53330,7 +53171,7 @@ LAB_0202ee8e:
                             puVar26 = local_40;
                             if (uVar16 != '\0') {
                               ws_value_free(local_40);
-                              PF_PART4(local_3c8, 0) = (uint)(float)local_128;
+                              PF_PART4(local_3c8, 0) = (uint)local_128;
                               PF_PART4(local_3c8, 4) = PF_PART4(local_128, 4);
                               PF_PART4(uStack_3c0, 0) = (uint)uStack_120;
                               PF_PART4(uStack_3c0, 4) = PF_PART4(uStack_120, 4);
@@ -54348,10 +54189,7 @@ LAB_0202f584:
 #undef _DAT_0203d280
 #undef _DAT_0203d9dc
 #undef _DAT_0203d9e4
-#undef _DAT_0203d9ec
 #undef _DAT_0203d9f0
-#undef _DAT_0203da10
-#undef _DAT_0203da20
 #undef _DAT_0204d668
 #undef str_0203dd09
 #undef str_0203def5
@@ -59634,7 +59472,7 @@ void storage_format_device_name(char *param_1,long param_2,char *param_3)
     while (((lVar3 != 0xc && (bVar1 = param_1[lVar3], bVar1 != 0)) && (uVar2 + 1 < 0x40))) {
       if (bVar1 == 0x7f || bVar1 < 0x20) {
         if (0x3f < uVar2 + 4) break;
-        kernel_snprintf(param_3 + uVar2,0x40 - uVar2,str_02040f9b);
+        kernel_snprintf(param_3 + uVar2,0x40 - uVar2,str_02040f9b,(uint)bVar1);
         uVar2 = uVar2 + 4;
       }
       else {
@@ -63153,7 +62991,7 @@ uchar ws_value_to_path_text(long param_1,long param_2)
     uVar1 = '\0';
   }
   else {
-    kernel_snprintf((char *)param_2,0xf1,&DAT_0203db8e);
+    kernel_snprintf((char *)param_2,0xf1,&DAT_0203db8e,local_20);
     uVar1 = '\x01';
   }
   kernel_free(local_20);

@@ -58,7 +58,8 @@
     "float_slot_views": true
   },
   "inline_constants": {},
-  "source": "applications/winterscript/i386",
+  "source": "applications/winterscript",
   "program": "winterscript",
-  "reference_sha256": "1590aa74d0be2e060f5f88d1ba5d71bf3b75d84b864d4914dcefc34a056894ba"
+  "reference_sha256": "1590aa74d0be2e060f5f88d1ba5d71bf3b75d84b864d4914dcefc34a056894ba",
+  "architecture": "i386"
 }

@@ -974,7 +974,7 @@ int FUN_00002560(uint *param_1)
       local_18 = -0x7fffffff;
     }
     else {
-      iStack_2ac = (**(code **)(DAT_000095ac + 0x28))();
+      iStack_2ac = (**(code **)(DAT_000095ac + 0x28))(&local_1dc,&DAT_00049c10,&local_1e0,&local_1e4,&local_1e8);
       if ((iStack_2ac < 0) || (local_1e4 < 0x28)) {
         if (-1 < iStack_2ac) {
           iStack_2ac = -0x7fffffff;

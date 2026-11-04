@@ -10,12 +10,13 @@ from pathlib import Path
 import struct
 from cc import compile_object
 from elf32 import Object, link
-from macho import pack
+from macho import pack,universal
 
 
 def build_application(program, output, layout_path=None):
-    layout = json.loads((layout_path or Path('recovery/applications', program + '.json')).read_text())
+    layout = json.loads((layout_path or Path('recovery/applications', program + '-i386.json')).read_text())
     architecture=layout.get('architecture','i386')
+    ilp32=architecture=='x86_64' and layout.get('data_model')=='ilp32'
     if architecture=='x86_64':
         from elf64 import Object,link
     else:
@@ -30,10 +31,10 @@ def build_application(program, output, layout_path=None):
     objects = []
     for index, source in enumerate(sources + [root / 'state.c']):
         target = output / ('unit%d.o' % index)
-        digest = hashlib.sha256(architecture.encode()+shared + source.read_bytes()).hexdigest()
+        digest = hashlib.sha256((architecture+str(ilp32)).encode()+shared + source.read_bytes()).hexdigest()
         if not target.exists() or cache.get(str(source)) != digest:
             compile_object(source, target, ['sdk/include', 'kernel', str(root)], architecture=architecture, extra_flags=[
-                '-fno-inline-functions', '-ferror-limit=0', '-Wno-int-conversion', '-Wno-incompatible-pointer-types', '-Wno-pointer-sign','-Wno-incompatible-function-pointer-types'])
+                '-fno-inline-functions', '-ferror-limit=0', '-Wno-int-conversion', '-Wno-incompatible-pointer-types', '-Wno-pointer-sign','-Wno-incompatible-function-pointer-types'] + (['--target=x86_64-unknown-linux-gnux32','-mx32'] if ilp32 else []))
             cache[str(source)] = digest
             cache_file.write_text(json.dumps(cache, indent=2) + '\n')
         objects.append(Object(target.read_bytes()))
@@ -49,7 +50,7 @@ def build_application(program, output, layout_path=None):
     data[layout['core_base'] - base:] = core
     abi = json.loads((root / 'abi.json').read_text())
     entries = {int(address, 16): symbols[item['symbol']] for address, item in abi.items()}
-    word=8 if architecture=='x86_64' else 4
+    word=8 if architecture=='x86_64' and not ilp32 else 4
     code='<Q' if word==8 else '<I'
     for offset in range((start-base+word-1)&~(word-1),end-base-word+1,word):
         target=struct.unpack_from(code,data,offset)[0]
@@ -76,12 +77,19 @@ def build_application(program, output, layout_path=None):
     return binary
 
 
+def build_universal_application(program,output):
+    images=[build_application(program,output/arch,
+        Path('recovery/applications',program+'-'+arch+'.json'))for arch in ('i386','x86_64')]
+    binary=universal(images);(output/program).write_bytes(binary)
+    return binary
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('program')
     parser.add_argument('--out', type=Path)
     args = parser.parse_args()
-    build_application(args.program, args.out or Path('build/applications', args.program))
+    build_universal_application(args.program, args.out or Path('build/applications', args.program))
 
 
 if __name__ == '__main__':

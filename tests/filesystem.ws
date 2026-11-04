@@ -1,4 +1,4 @@
-@@ Permafrost 0.6 FAT32 growth and persistence checks.
+@@ Permafrost 0.7 FAT32 growth and persistence checks.
 @@ Pooka's Free Software License.
 for i = 1, 24
     path = "/pf-stress-" + toString(i)

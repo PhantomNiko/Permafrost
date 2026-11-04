@@ -23,7 +23,7 @@ def main():
     parser.add_argument('--runtime-only',action='store_true')
     args=parser.parse_args()
     with tempfile.TemporaryDirectory(prefix='permafrost sdk macho ') as temp:
-        root=Path(temp);sdk=root/'relocated SDK.sdk';shutil.copytree('build/Permafrost0.6.sdk',sdk)
+        root=Path(temp);sdk=root/'relocated SDK.sdk';shutil.copytree('build/Permafrost0.7.sdk',sdk)
         compiler=sdk/'bin/pf-cc'
         for language in (['runtime'] if args.runtime_only else ['c','cpp','runtime']):
             source=root/('hello.'+('c' if language=='runtime' else language))
@@ -36,7 +36,7 @@ def main():
             for path in args.images:
                 raw=path.read_bytes();files=Image(raw,2).files()
                 queue=root/'queue.bin'
-                queue_source='tests/openbios_queue.c' if 'OpenBIOS.wmlp' in Image(raw).files() else 'tests/keyqueue.c'
+                queue_source='tests/keyqueue.c'
                 subprocess.run([str(compiler),queue_source,'--format','flat','--base','0x280000',
                                 '-D','PF_KEYS="hello\\r"','-o',str(queue)],check=True,stdout=subprocess.DEVNULL)
                 files.update({'hello':target.read_bytes(),'queue.bin':queue.read_bytes()})

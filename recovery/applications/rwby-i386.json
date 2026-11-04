@@ -26,7 +26,8 @@
     "pointer_spill_arithmetic": true
   },
   "inline_constants": {},
-  "source": "applications/rwby/i386",
+  "source": "applications/rwby",
   "program": "rwby",
-  "reference_sha256": "d523de699627dd395eceea40a5ac62320ee506b3f32174f746c28b0e19552ad7"
+  "reference_sha256": "d523de699627dd395eceea40a5ac62320ee506b3f32174f746c28b0e19552ad7",
+  "architecture": "i386"
 }

@@ -28,7 +28,7 @@ class Machine:
         self.writes = 0
         self.serial_lcr = 0
         self.cpu.hook_add(UC_HOOK_INTR, self.interrupt)
-        self.cpu.hook_add(UC_HOOK_CODE, self.entry, begin=0x20010, end=0x20010)
+        self.cpu.hook_add(UC_HOOK_CODE, self.entry, begin=0x20014, end=0x20014)
         self.cpu.hook_add(UC_HOOK_INSN, self.port_in, None, 1, 0, UC_X86_INS_IN)
         self.cpu.hook_add(UC_HOOK_INSN, self.port_out, None, 1, 0, UC_X86_INS_OUT)
 

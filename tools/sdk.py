@@ -7,7 +7,7 @@ import zipfile
 
 
 def build_sdk(output=Path('build')):
-    root = output / 'Permafrost0.6.sdk'
+    root = output / 'Permafrost0.7.sdk'
     # Recreate this generated bundle so removed notices/tools cannot survive
     # from an earlier build and leak into the new archive.
     if root.exists():
@@ -17,35 +17,40 @@ def build_sdk(output=Path('build')):
     (root / 'usr/src').mkdir(parents=True, exist_ok=True)
     (root / 'Documentation').mkdir(parents=True, exist_ok=True)
     for path in Path('sdk/include').iterdir():
-        shutil.copyfile(path, root / 'usr/include' / path.name)
+        if path.is_file() and not path.name.startswith('.'):
+            shutil.copyfile(path, root / 'usr/include' / path.name)
     for name in ('compiler.c','runtime.c'):
         shutil.copyfile(Path('kernel')/name,root/'usr/src'/name)
-    shutil.copytree('sdk/examples', root / 'Examples', dirs_exist_ok=True)
-    for source, target in [('tools/cc.py', 'pf-cc'), ('tools/elf32.py', 'elf32.py'), ('tools/macho.py','macho.py'), ('tools/fat.py','fat.py'),
+    shutil.copytree('sdk/examples', root / 'Examples', dirs_exist_ok=True,
+                    ignore=shutil.ignore_patterns('.DS_Store','._*','__pycache__','*.pyc'))
+    for source, target in [('tools/cc.py', 'pf-cc'), ('tools/elf32.py', 'elf32.py'), ('tools/elf64.py','elf64.py'), ('tools/macho.py','macho.py'), ('tools/fat.py','fat.py'), ('tools/gpt.py','gpt.py'),
                            ('tools/wmfs.py', 'pf-wmfs')]:
         path = root / 'bin' / target
         shutil.copyfile(source, path)
         path.chmod(0o755 if target.startswith('pf-') else 0o644)
     for source in ('LICENSE.TXT', 'licenses/UPSTREAM.TXT', 'licenses/THIRD-PARTY.TXT',
-                   'LICENSES.md','licenses/OPENBIOS-GPL-2.0.TXT'):
+                   'LICENSES.md'):
         shutil.copyfile(source, root / Path(source).name)
     shutil.copyfile('DEPENDENCIES.md', root / 'Documentation/DEPENDENCIES.md')
     shutil.copyfile('docs/recovery.md', root / 'Documentation/recovery.md')
     shutil.copyfile('docs/sdk.md', root / 'Documentation/sdk.md')
-    settings = dict(CanonicalName='permafrost0.6', DisplayName='Permafrost 0.6',
-                    Version='0.6', MaximumDeploymentTarget='0.6',
-                    DefaultProperties=dict(PLATFORM_NAME='permafrost', ARCHS='i386'),
-                    SupportedTargets=dict(permafrost=dict(Archs=['i386'])))
+    settings = dict(CanonicalName='permafrost0.7', DisplayName='Permafrost 0.7',
+                    Version='0.7', MaximumDeploymentTarget='0.7',
+                    DefaultProperties=dict(PLATFORM_NAME='permafrost', ARCHS='i386 x86_64'),
+                    SupportedTargets=dict(permafrost=dict(Archs=['i386','x86_64'])))
     (root / 'SDKSettings.json').write_text(json.dumps(settings, indent=2) + '\n')
     (root / 'README.txt').write_text(
-        'Permafrost 0.6 SDK for macOS 15\n\n'
+        'Permafrost 0.7 SDK for macOS 15\n\n'
         'Requires Python 3 and Apple Command Line Tools (clang/clang++).\n'
         'Compile C: bin/pf-cc Examples/hello.c -o hello\n'
         'Compile C++: bin/pf-cc Examples/nightmode.cpp -o nightmode\n'
         'Native callbacks: compile Examples/native-module.c with --format flat --base 0x240000.\n'
         'Use --runtime for supplied 64-bit arithmetic and memory helpers.\n'
         'Install the Mach-O program in FAT32 (partition 2) and enter its filename at the OS prompt.\n'
-        'i386 MH_PRELOAD Mach-O; cdecl main returns an integer in EAX.\n'
+        'Use --arch i386, --arch x86_64, or --arch universal for Mach-O or flat code.\n'
+        'Default i386 uses cdecl; x86-64 uses the System V register ABI.\n'
+        'WMAP v4 is 124 bytes with 32-bit service slots on both CPUs.\n'
+        'Callback values use native pointers: 24 bytes on i386 and 40 on x86-64.\n'
         'Use --format flat for explicit raw runcode/bload workflows.\n'
         'This is a freestanding SDK, without a hosted libc, C++ standard library,\n'
         'exceptions, RTTI, dynamic linking, or Apple platform/Xcode integration.\n'
@@ -53,7 +58,10 @@ def build_sdk(output=Path('build')):
     with zipfile.ZipFile(root.with_suffix('.sdk.zip'), 'w', zipfile.ZIP_DEFLATED) as archive:
         for path in sorted(root.rglob('*')):
             if path.is_file():
-                archive.write(path, str(Path(root.name) / path.relative_to(root)))
+                info=zipfile.ZipInfo(str(Path(root.name)/path.relative_to(root)),(2026,5,3,0,0,0))
+                info.create_system=3
+                info.external_attr=(0o100755 if path.name.startswith('pf-') else 0o100644)<<16
+                archive.writestr(info,path.read_bytes(),compress_type=zipfile.ZIP_DEFLATED)
     print('Built ' + root.name)
     return root
 

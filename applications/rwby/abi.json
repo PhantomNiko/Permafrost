@@ -11,960 +11,948 @@
     "symbol": "rwby_wm_probe_heap_init_200016",
     "arguments": ""
   },
-  "2001fb": {
-    "symbol": "rwby_wm_probe_heap_free_bytes_2001fb",
+  "2001cf": {
+    "symbol": "rwby_wm_probe_heap_free_bytes_2001cf",
     "arguments": ""
   },
-  "200225": {
-    "symbol": "rwby_wm_probe_heap_total_bytes_200225",
+  "200228": {
+    "symbol": "rwby_wm_probe_heap_total_bytes_200228",
     "arguments": ""
   },
-  "200249": {
-    "symbol": "rwby_wm_probe_heap_alloc_200249",
+  "200275": {
+    "symbol": "rwby_wm_probe_heap_alloc_200275",
     "arguments": "4:stack4"
   },
-  "2002b0": {
-    "symbol": "rwby_ashldi3_2002b0",
+  "2002dc": {
+    "symbol": "rwby_ashldi3_2002dc",
     "arguments": "8:stack4,4:stack12"
   },
-  "2002e9": {
-    "symbol": "rwby_lshrdi3_2002e9",
+  "200315": {
+    "symbol": "rwby_lshrdi3_200315",
     "arguments": "8:stack4,4:stack12"
   },
-  "200322": {
-    "symbol": "rwby_udivdi3_200322",
+  "20034e": {
+    "symbol": "rwby_udivdi3_20034e",
     "arguments": "8:stack4,8:stack12"
   },
-  "200343": {
-    "symbol": "rwby_udivmod64_200343",
+  "20036f": {
+    "symbol": "rwby_udivmod64_20036f",
     "arguments": "4:ECX,4:EDX,4:stack4,4:stack8,4:stack12"
   },
-  "200426": {
-    "symbol": "rwby_umoddi3_200426",
+  "200452": {
+    "symbol": "rwby_umoddi3_200452",
     "arguments": "8:stack4,8:stack12"
   },
-  "20045e": {
-    "symbol": "rwby_divdi3_20045e",
+  "20048a": {
+    "symbol": "rwby_divdi3_20048a",
     "arguments": "8:stack4,8:stack12"
   },
-  "2004d2": {
-    "symbol": "rwby_moddi3_2004d2",
+  "2004fe": {
+    "symbol": "rwby_moddi3_2004fe",
     "arguments": "8:stack4,8:stack12"
   },
-  "200544": {
-    "symbol": "rwby_abort_200544",
+  "200570": {
+    "symbol": "rwby_abort_200570",
     "arguments": ""
   },
-  "20054b": {
-    "symbol": "rwby_abs_20054b",
+  "200577": {
+    "symbol": "rwby_abs_200577",
     "arguments": "4:stack4"
   },
-  "20055a": {
-    "symbol": "rwby_malloc_20055a",
+  "200586": {
+    "symbol": "rwby_malloc_200586",
     "arguments": "4:stack4"
   },
-  "200582": {
-    "symbol": "rwby_free_200582",
+  "2005ae": {
+    "symbol": "rwby_free_2005ae",
     "arguments": "4:stack4"
   },
-  "2005a8": {
-    "symbol": "rwby_realloc_2005a8",
+  "2005d4": {
+    "symbol": "rwby_realloc_2005d4",
     "arguments": "4:stack4,4:stack8"
   },
-  "2005d0": {
-    "symbol": "rwby_memcpy_2005d0",
+  "2005fc": {
+    "symbol": "rwby_memcpy_2005fc",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "2005f1": {
-    "symbol": "rwby_memmove_2005f1",
+  "20061d": {
+    "symbol": "rwby_memmove_20061d",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "200637": {
-    "symbol": "rwby_memset_200637",
+  "200663": {
+    "symbol": "rwby_memset_200663",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "200653": {
-    "symbol": "rwby_bzero_200653",
+  "20067f": {
+    "symbol": "rwby_bzero_20067f",
     "arguments": "4:stack4,4:stack8"
   },
-  "20066b": {
-    "symbol": "rwby_bzero_20066b",
+  "200697": {
+    "symbol": "rwby_bzero_200697",
     "arguments": "4:stack4,4:stack8"
   },
-  "200683": {
-    "symbol": "rwby_memcmp_200683",
+  "2006af": {
+    "symbol": "rwby_memcmp_2006af",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "2006b2": {
-    "symbol": "rwby_islower_2006b2",
+  "2006de": {
+    "symbol": "rwby_islower_2006de",
     "arguments": "4:stack4"
   },
-  "2006c5": {
-    "symbol": "rwby_isupper_2006c5",
+  "2006f1": {
+    "symbol": "rwby_isupper_2006f1",
     "arguments": "4:stack4"
   },
-  "2006d8": {
-    "symbol": "rwby_isalpha_2006d8",
+  "200704": {
+    "symbol": "rwby_isalpha_200704",
     "arguments": "4:stack4"
   },
-  "2006ee": {
-    "symbol": "rwby_isalnum_2006ee",
-    "arguments": "4:stack4"
-  },
-  "200712": {
-    "symbol": "rwby_isblank_200712",
-    "arguments": "4:stack4"
-  },
-  "20072b": {
-    "symbol": "rwby_isprint_20072b",
+  "20071a": {
+    "symbol": "rwby_isalnum_20071a",
     "arguments": "4:stack4"
   },
   "20073e": {
-    "symbol": "rwby_tolower_20073e",
+    "symbol": "rwby_isblank_20073e",
     "arguments": "4:stack4"
   },
-  "200752": {
-    "symbol": "rwby_toupper_200752",
+  "200757": {
+    "symbol": "rwby_isprint_200757",
     "arguments": "4:stack4"
   },
-  "200766": {
-    "symbol": "rwby_strlen_200766",
+  "20076a": {
+    "symbol": "rwby_tolower_20076a",
     "arguments": "4:stack4"
   },
-  "200781": {
-    "symbol": "rwby_strcmp_200781",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "2007a9": {
-    "symbol": "rwby_strcoll_2007a9",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "2007b2": {
-    "symbol": "rwby_strcpy_2007b2",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "2007cc": {
-    "symbol": "rwby_strdup_2007cc",
+  "20077e": {
+    "symbol": "rwby_toupper_20077e",
     "arguments": "4:stack4"
   },
-  "200816": {
-    "symbol": "rwby_strchr_200816",
+  "200792": {
+    "symbol": "rwby_strlen_200792",
+    "arguments": "4:stack4"
+  },
+  "2007ad": {
+    "symbol": "rwby_strcmp_2007ad",
     "arguments": "4:stack4,4:stack8"
   },
-  "20083b": {
-    "symbol": "rwby_strspn_20083b",
+  "2007d5": {
+    "symbol": "rwby_strcoll_2007d5",
     "arguments": "4:stack4,4:stack8"
   },
-  "200872": {
-    "symbol": "rwby_strpbrk_200872",
+  "2007de": {
+    "symbol": "rwby_strcpy_2007de",
     "arguments": "4:stack4,4:stack8"
   },
-  "2008a0": {
-    "symbol": "rwby_strstr_2008a0",
+  "2007f8": {
+    "symbol": "rwby_strdup_2007f8",
+    "arguments": "4:stack4"
+  },
+  "200842": {
+    "symbol": "rwby_strchr_200842",
     "arguments": "4:stack4,4:stack8"
   },
-  "2008d1": {
-    "symbol": "rwby_setlocale_2008d1",
+  "200867": {
+    "symbol": "rwby_strspn_200867",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20089e": {
+    "symbol": "rwby_strpbrk_20089e",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2008cc": {
+    "symbol": "rwby_strstr_2008cc",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2008fd": {
+    "symbol": "rwby_setlocale_2008fd",
     "arguments": ""
   },
-  "2008db": {
-    "symbol": "rwby_localeconv_2008db",
+  "200907": {
+    "symbol": "rwby_localeconv_200907",
     "arguments": ""
   },
-  "2008e5": {
-    "symbol": "rwby_time_2008e5",
+  "200911": {
+    "symbol": "rwby_time_200911",
     "arguments": "4:stack4"
   },
-  "2008fc": {
-    "symbol": "rwby_ldexp_2008fc",
+  "200928": {
+    "symbol": "rwby_ldexp_200928",
     "arguments": "8:stack4,4:stack12"
   },
-  "200926": {
-    "symbol": "rwby_frexp_200926",
+  "200952": {
+    "symbol": "rwby_frexp_200952",
     "arguments": "8:stack4,4:stack12"
   },
-  "20099e": {
-    "symbol": "rwby_fmod_20099e",
+  "2009ca": {
+    "symbol": "rwby_fmod_2009ca",
     "arguments": "8:stack4,8:stack12"
   },
-  "2009eb": {
-    "symbol": "rwby_pow_2009eb",
+  "200a17": {
+    "symbol": "rwby_pow_200a17",
     "arguments": "8:stack4,8:stack12"
   },
-  "200a6f": {
-    "symbol": "rwby_floor_200a6f",
+  "200a9b": {
+    "symbol": "rwby_floor_200a9b",
     "arguments": "8:stack4"
   },
-  "200ab0": {
-    "symbol": "rwby_ceil_200ab0",
+  "200adc": {
+    "symbol": "rwby_ceil_200adc",
     "arguments": "8:stack4"
   },
-  "200afd": {
-    "symbol": "rwby_sqrt_200afd",
+  "200b29": {
+    "symbol": "rwby_sqrt_200b29",
     "arguments": "8:stack4"
   },
-  "200b35": {
-    "symbol": "rwby_log_200b35",
+  "200b61": {
+    "symbol": "rwby_log_200b61",
     "arguments": "8:stack4"
   },
-  "200bcc": {
-    "symbol": "rwby_llround_200bcc",
+  "200bf8": {
+    "symbol": "rwby_llround_200bf8",
     "arguments": "8:stack4"
   },
-  "200c0d": {
-    "symbol": "rwby_sin_200c0d",
+  "200c39": {
+    "symbol": "rwby_sin_200c39",
     "arguments": "8:stack4"
   },
-  "200c4f": {
-    "symbol": "rwby_wrap_angle_200c4f",
+  "200c7b": {
+    "symbol": "rwby_wrap_angle_200c7b",
     "arguments": "8:stack4"
   },
-  "200c87": {
-    "symbol": "rwby_cos_200c87",
+  "200cb3": {
+    "symbol": "rwby_cos_200cb3",
     "arguments": "8:stack4"
   },
-  "200cc5": {
-    "symbol": "rwby_fabs_200cc5",
+  "200cf1": {
+    "symbol": "rwby_fabs_200cf1",
     "arguments": "8:stack4"
   },
-  "200cd9": {
-    "symbol": "rwby_fmodf_200cd9",
+  "200d05": {
+    "symbol": "rwby_fmodf_200d05",
     "arguments": "4:stack4,4:stack8"
   },
-  "200d2e": {
-    "symbol": "rwby_frexpf_200d2e",
+  "200d5a": {
+    "symbol": "rwby_frexpf_200d5a",
     "arguments": "4:stack4,4:stack8"
   },
-  "200d51": {
-    "symbol": "rwby_ldexpf_200d51",
+  "200d7d": {
+    "symbol": "rwby_ldexpf_200d7d",
     "arguments": "4:stack4,4:stack8"
   },
-  "200d74": {
-    "symbol": "rwby_powf_200d74",
+  "200da0": {
+    "symbol": "rwby_powf_200da0",
     "arguments": "4:stack4,4:stack8"
   },
-  "200d97": {
-    "symbol": "rwby_floorf_200d97",
+  "200dc3": {
+    "symbol": "rwby_floorf_200dc3",
     "arguments": "4:stack4"
   },
-  "200dde": {
-    "symbol": "rwby_ceilf_200dde",
+  "200e0a": {
+    "symbol": "rwby_ceilf_200e0a",
     "arguments": "4:stack4"
   },
-  "200dfa": {
-    "symbol": "rwby_trunc_200dfa",
+  "200e26": {
+    "symbol": "rwby_trunc_200e26",
     "arguments": "8:stack4"
   },
-  "200e4c": {
-    "symbol": "rwby_truncf_200e4c",
+  "200e78": {
+    "symbol": "rwby_truncf_200e78",
     "arguments": "4:stack4"
   },
-  "200e68": {
-    "symbol": "rwby_sqrtf_200e68",
+  "200e94": {
+    "symbol": "rwby_sqrtf_200e94",
     "arguments": "4:stack4"
   },
-  "200e84": {
-    "symbol": "rwby_logf_200e84",
+  "200eb0": {
+    "symbol": "rwby_logf_200eb0",
     "arguments": "4:stack4"
   },
-  "200ea0": {
-    "symbol": "rwby_lround_200ea0",
+  "200ecc": {
+    "symbol": "rwby_lround_200ecc",
     "arguments": "8:stack4"
   },
-  "200eb6": {
-    "symbol": "rwby_sinf_200eb6",
+  "200ee2": {
+    "symbol": "rwby_sinf_200ee2",
     "arguments": "4:stack4"
   },
-  "200ed2": {
-    "symbol": "rwby_cosf_200ed2",
+  "200efe": {
+    "symbol": "rwby_cosf_200efe",
     "arguments": "4:stack4"
   },
-  "200eee": {
-    "symbol": "rwby_fabsf_200eee",
+  "200f1a": {
+    "symbol": "rwby_fabsf_200f1a",
     "arguments": "4:stack4"
   },
-  "200f02": {
-    "symbol": "rwby_strtol_200f02",
+  "200f2e": {
+    "symbol": "rwby_strtol_200f2e",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "200ff4": {
-    "symbol": "rwby_digit_value_200ff4",
+  "201020": {
+    "symbol": "rwby_digit_value_201020",
     "arguments": "4:ECX"
   },
-  "201028": {
-    "symbol": "rwby_strtoul_201028",
+  "201054": {
+    "symbol": "rwby_strtoul_201054",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "20111a": {
-    "symbol": "rwby_strtod_20111a",
+  "201146": {
+    "symbol": "rwby_strtod_201146",
     "arguments": "4:stack4,4:stack8"
   },
-  "20126c": {
-    "symbol": "rwby_strtof_20126c",
+  "201298": {
+    "symbol": "rwby_strtof_201298",
     "arguments": "4:stack4,4:stack8"
   },
-  "20128e": {
-    "symbol": "rwby_vsnprintf_20128e",
+  "2012ba": {
+    "symbol": "rwby_vsnprintf_2012ba",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "201520": {
-    "symbol": "rwby_append_char_201520",
+  "20154c": {
+    "symbol": "rwby_append_char_20154c",
     "arguments": "4:ECX,4:EDX,4:stack4,1:stack8"
   },
-  "20153e": {
-    "symbol": "rwby_append_string_20153e",
+  "20156a": {
+    "symbol": "rwby_append_string_20156a",
     "arguments": "4:ECX,4:EDX,4:stack4,4:stack8"
   },
-  "20157f": {
-    "symbol": "rwby_append_unsigned_20157f",
+  "2015ab": {
+    "symbol": "rwby_append_unsigned_2015ab",
     "arguments": "4:ECX,4:EDX,4:stack4,4:stack8,4:stack12,1:stack16"
   },
-  "2015ea": {
-    "symbol": "rwby_snprintf_2015ea",
+  "201616": {
+    "symbol": "rwby_snprintf_201616",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "20160d": {
-    "symbol": "rwby_wm_probe_heap_append_region_20160d",
+  "201639": {
+    "symbol": "rwby_wm_probe_heap_append_region_201639",
     "arguments": "4:ECX,4:EDX,4:stack4"
   },
-  "20165f": {
-    "symbol": "rwby_wm_program_api_field_ready_20165f",
+  "20168b": {
+    "symbol": "rwby_wm_program_api_field_ready_20168b",
     "arguments": "4:ECX"
   },
-  "201694": {
-    "symbol": "rwby_wm_lua_write_201694",
+  "2016c0": {
+    "symbol": "rwby_wm_lua_write_2016c0",
     "arguments": "4:stack4,4:stack8"
   },
-  "20171a": {
-    "symbol": "rwby_wm_lua_flush_output_line_20171a",
+  "201746": {
+    "symbol": "rwby_wm_lua_flush_output_line_201746",
     "arguments": "1:CL"
   },
-  "201790": {
-    "symbol": "rwby_wm_lua_writeline_201790",
+  "2017bc": {
+    "symbol": "rwby_wm_lua_writeline_2017bc",
     "arguments": ""
   },
-  "20179c": {
-    "symbol": "rwby_wm_lua_flush_output_20179c",
+  "2017c8": {
+    "symbol": "rwby_wm_lua_flush_output_2017c8",
     "arguments": ""
   },
-  "2017a7": {
-    "symbol": "rwby_wm_lua_write_errorf_2017a7",
+  "2017d3": {
+    "symbol": "rwby_wm_lua_write_errorf_2017d3",
     "arguments": "4:stack4,4:stack8"
   },
-  "2017fb": {
-    "symbol": "rwby_wm_lua_show_banner_2017fb",
+  "201827": {
+    "symbol": "rwby_wm_lua_show_banner_201827",
     "arguments": ""
   },
-  "201841": {
-    "symbol": "rwby_wm_lua_write_cstr_201841",
+  "20186d": {
+    "symbol": "rwby_wm_lua_write_cstr_20186d",
     "arguments": "4:ECX"
   },
-  "201868": {
-    "symbol": "rwby_wm_lua_show_help_201868",
+  "201894": {
+    "symbol": "rwby_wm_lua_show_help_201894",
     "arguments": ""
   },
-  "201886": {
-    "symbol": "rwby_wm_lua_readline_201886",
+  "2018b2": {
+    "symbol": "rwby_wm_lua_readline_2018b2",
     "arguments": "4:stack4,4:stack8,4:stack12,1:stack16"
   },
-  "2018d5": {
-    "symbol": "rwby_wmfs_mount_image_2018d5",
+  "201901": {
+    "symbol": "rwby_wmfs_mount_image_201901",
     "arguments": ""
   },
-  "2018dc": {
-    "symbol": "rwby_wmfs_unmount_2018dc",
+  "201908": {
+    "symbol": "rwby_wmfs_unmount_201908",
     "arguments": ""
   },
-  "2018e1": {
-    "symbol": "rwby_wmfs_is_mounted_2018e1",
+  "20190d": {
+    "symbol": "rwby_wmfs_is_mounted_20190d",
     "arguments": ""
   },
-  "2018e8": {
-    "symbol": "rwby_wmfs_fopen_2018e8",
+  "201914": {
+    "symbol": "rwby_wmfs_fopen_201914",
     "arguments": "4:stack4,4:stack8"
   },
-  "201ba3": {
-    "symbol": "rwby_wm_lua_app_stat_file_201ba3",
+  "201bcf": {
+    "symbol": "rwby_wm_lua_app_stat_file_201bcf",
     "arguments": "4:ECX,4:EDX"
   },
-  "201bd3": {
-    "symbol": "rwby_wm_lua_file_reserve_201bd3",
+  "201bff": {
+    "symbol": "rwby_wm_lua_file_reserve_201bff",
     "arguments": "4:ECX,4:EDX"
   },
-  "201c48": {
-    "symbol": "rwby_wmfs_freopen_201c48",
+  "201c74": {
+    "symbol": "rwby_wmfs_freopen_201c74",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "201c66": {
-    "symbol": "rwby_wmfs_fclose_201c66",
+  "201c92": {
+    "symbol": "rwby_wmfs_fclose_201c92",
     "arguments": "4:stack4"
   },
-  "201ca6": {
-    "symbol": "rwby_wmfs_fread_201ca6",
+  "201cd2": {
+    "symbol": "rwby_wmfs_fread_201cd2",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "201d13": {
-    "symbol": "rwby_wmfs_getc_201d13",
+  "201d3f": {
+    "symbol": "rwby_wmfs_getc_201d3f",
     "arguments": "4:stack4"
   },
-  "201df4": {
-    "symbol": "rwby_wmfs_fwrite_201df4",
+  "201e20": {
+    "symbol": "rwby_wmfs_fwrite_201e20",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "201efc": {
-    "symbol": "rwby_wmfs_fseek_201efc",
+  "201f28": {
+    "symbol": "rwby_wmfs_fseek_201f28",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "201f75": {
-    "symbol": "rwby_wmfs_ftell_201f75",
+  "201fa1": {
+    "symbol": "rwby_wmfs_ftell_201fa1",
     "arguments": "4:stack4"
   },
-  "201f97": {
-    "symbol": "rwby_wmfs_fflush_201f97",
+  "201fc3": {
+    "symbol": "rwby_wmfs_fflush_201fc3",
     "arguments": "4:stack4"
   },
-  "201ff8": {
-    "symbol": "rwby_wmfs_feof_201ff8",
+  "202024": {
+    "symbol": "rwby_wmfs_feof_202024",
     "arguments": "4:stack4"
   },
-  "20200f": {
-    "symbol": "rwby_wmfs_ferror_20200f",
+  "20203b": {
+    "symbol": "rwby_wmfs_ferror_20203b",
     "arguments": "4:stack4"
   },
-  "202026": {
-    "symbol": "rwby_wmfs_clearerr_202026",
+  "202052": {
+    "symbol": "rwby_wmfs_clearerr_202052",
     "arguments": "4:stack4"
   },
-  "202041": {
-    "symbol": "rwby_wmfs_ungetc_202041",
+  "20206d": {
+    "symbol": "rwby_wmfs_ungetc_20206d",
     "arguments": "4:stack4,4:stack8"
   },
-  "202070": {
-    "symbol": "rwby_wmfs_remove_202070",
+  "20209c": {
+    "symbol": "rwby_wmfs_remove_20209c",
     "arguments": "4:stack4"
   },
-  "2020a1": {
-    "symbol": "rwby_wm_lua_app_delete_file_2020a1",
+  "2020cd": {
+    "symbol": "rwby_wm_lua_app_delete_file_2020cd",
     "arguments": "4:ECX"
   },
-  "2020cc": {
-    "symbol": "rwby_wmfs_rename_2020cc",
+  "2020f8": {
+    "symbol": "rwby_wmfs_rename_2020f8",
     "arguments": "4:stack4,4:stack8"
   },
-  "202156": {
-    "symbol": "rwby_wm_lua_app_write_file_202156",
+  "202182": {
+    "symbol": "rwby_wm_lua_app_write_file_202182",
     "arguments": "4:ECX,4:EDX,4:stack4"
   },
-  "202189": {
-    "symbol": "rwby_wmfs_read_entire_file_202189",
+  "2021b5": {
+    "symbol": "rwby_wmfs_read_entire_file_2021b5",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "20221b": {
-    "symbol": "rwby_wmfs_write_entire_file_20221b",
+  "202247": {
+    "symbol": "rwby_wmfs_write_entire_file_202247",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "202252": {
-    "symbol": "rwby_wmfs_register_virtual_file_202252",
+  "20227e": {
+    "symbol": "rwby_wmfs_register_virtual_file_20227e",
     "arguments": ""
   },
-  "202259": {
-    "symbol": "rwby_wmfs_clear_virtual_files_202259",
+  "202285": {
+    "symbol": "rwby_wmfs_clear_virtual_files_202285",
     "arguments": ""
   },
-  "20225e": {
-    "symbol": "rwby_wmfs_image_data_20225e",
+  "20228a": {
+    "symbol": "rwby_wmfs_image_data_20228a",
     "arguments": ""
   },
-  "202265": {
-    "symbol": "rwby_wmfs_image_size_202265",
+  "202291": {
+    "symbol": "rwby_wmfs_image_size_202291",
     "arguments": ""
   },
-  "20226c": {
-    "symbol": "rwby_wmfs_export_image_20226c",
+  "202298": {
+    "symbol": "rwby_wmfs_export_image_202298",
     "arguments": ""
   },
-  "202273": {
-    "symbol": "rwby_memchr_202273",
+  "20229f": {
+    "symbol": "rwby_memchr_20229f",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "202297": {
-    "symbol": "rwby_strncmp_202297",
+  "2022c3": {
+    "symbol": "rwby_strncmp_2022c3",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "2022ca": {
-    "symbol": "rwby_strerror_2022ca",
+  "2022f6": {
+    "symbol": "rwby_strerror_2022f6",
     "arguments": "4:stack4"
   },
-  "202325": {
-    "symbol": "rwby_getenv_202325",
+  "202351": {
+    "symbol": "rwby_getenv_202351",
     "arguments": ""
   },
-  "20232c": {
-    "symbol": "rwby_system_20232c",
+  "202358": {
+    "symbol": "rwby_system_202358",
     "arguments": ""
   },
-  "202334": {
-    "symbol": "rwby_clock_202334",
+  "202360": {
+    "symbol": "rwby_clock_202360",
     "arguments": ""
   },
-  "202347": {
-    "symbol": "rwby_wm_program_api_field_ready_202347",
+  "202373": {
+    "symbol": "rwby_wm_program_api_field_ready_202373",
     "arguments": "4:ECX"
   },
-  "202380": {
-    "symbol": "rwby_permafrost_sjlj_jump_202380",
+  "2023b0": {
+    "symbol": "rwby_permafrost_sjlj_jump_2023b0",
     "arguments": "4:stack4"
   },
-  "20238f": {
-    "symbol": "rwby_std_terminate_20238f",
+  "2023bf": {
+    "symbol": "rwby_std_terminate_2023bf",
     "arguments": ""
   },
-  "2023f0": {
-    "symbol": "rwby_gxx_personality_sj0_2023f0",
+  "202420": {
+    "symbol": "rwby_gxx_personality_sj0_202420",
     "arguments": ""
   },
-  "2023f3": {
-    "symbol": "rwby_clang_call_terminate_2023f3",
+  "202423": {
+    "symbol": "rwby_clang_call_terminate_202423",
     "arguments": "4:stack4"
   },
-  "202410": {
-    "symbol": "rwby_cxa_begin_catch_202410",
+  "202440": {
+    "symbol": "rwby_cxa_begin_catch_202440",
     "arguments": "4:stack4"
   },
-  "202432": {
-    "symbol": "rwby_operator_new_202432",
+  "202462": {
+    "symbol": "rwby_operator_new_202462",
     "arguments": "4:stack4"
   },
-  "20245b": {
-    "symbol": "rwby_operator_new_20245b",
+  "20248b": {
+    "symbol": "rwby_operator_new_20248b",
     "arguments": "4:stack4"
   },
-  "202464": {
-    "symbol": "rwby_operator_delete_202464",
+  "202494": {
+    "symbol": "rwby_operator_delete_202494",
     "arguments": "4:stack4"
   },
-  "2024d7": {
-    "symbol": "rwby_operator_delete_2024d7",
+  "202507": {
+    "symbol": "rwby_operator_delete_202507",
     "arguments": "4:stack4"
   },
-  "20254a": {
-    "symbol": "rwby_operator_delete_20254a",
+  "20257a": {
+    "symbol": "rwby_operator_delete_20257a",
     "arguments": "4:stack4,4:stack8"
   },
-  "2025bd": {
-    "symbol": "rwby_operator_delete_2025bd",
+  "2025ed": {
+    "symbol": "rwby_operator_delete_2025ed",
     "arguments": "4:stack4,4:stack8"
   },
-  "202630": {
-    "symbol": "rwby_cxa_atexit_202630",
+  "202660": {
+    "symbol": "rwby_cxa_atexit_202660",
     "arguments": ""
   },
-  "202637": {
-    "symbol": "rwby_cxa_guard_acquire_202637",
+  "202667": {
+    "symbol": "rwby_cxa_guard_acquire_202667",
     "arguments": "4:stack4"
   },
-  "202646": {
-    "symbol": "rwby_cxa_guard_release_202646",
+  "202676": {
+    "symbol": "rwby_cxa_guard_release_202676",
     "arguments": "4:stack4"
   },
-  "202651": {
-    "symbol": "rwby_cxa_guard_abort_202651",
+  "202681": {
+    "symbol": "rwby_cxa_guard_abort_202681",
     "arguments": ""
   },
-  "202656": {
-    "symbol": "rwby_cxa_allocate_exception_202656",
+  "202686": {
+    "symbol": "rwby_cxa_allocate_exception_202686",
     "arguments": "4:stack4"
   },
-  "20268b": {
-    "symbol": "rwby_cxa_free_exception_20268b",
+  "2026bb": {
+    "symbol": "rwby_cxa_free_exception_2026bb",
     "arguments": "4:stack4"
   },
-  "2026a8": {
-    "symbol": "rwby_object_from_header_2026a8",
+  "2026d8": {
+    "symbol": "rwby_object_from_header_2026d8",
     "arguments": "4:ECX"
   },
-  "2026b0": {
-    "symbol": "rwby_cxa_end_catch_2026b0",
+  "2026e0": {
+    "symbol": "rwby_cxa_end_catch_2026e0",
     "arguments": ""
   },
-  "2026ee": {
-    "symbol": "rwby_cxa_throw_2026ee",
+  "20271e": {
+    "symbol": "rwby_cxa_throw_20271e",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "20271b": {
-    "symbol": "rwby_raise_exception_20271b",
+  "20274b": {
+    "symbol": "rwby_raise_exception_20274b",
     "arguments": "4:ECX"
   },
-  "202771": {
-    "symbol": "rwby_cxa_rethrow_202771",
+  "2027a1": {
+    "symbol": "rwby_cxa_rethrow_2027a1",
     "arguments": ""
   },
-  "20279b": {
-    "symbol": "rwby_Unwind_SjLj_Register_20279b",
+  "2027cb": {
+    "symbol": "rwby_Unwind_SjLj_Register_2027cb",
     "arguments": "4:stack4"
   },
-  "2027b0": {
-    "symbol": "rwby_Unwind_SjLj_Unregister_2027b0",
+  "2027e0": {
+    "symbol": "rwby_Unwind_SjLj_Unregister_2027e0",
     "arguments": "4:stack4"
   },
-  "2027d9": {
-    "symbol": "rwby_Unwind_SjLj_RaiseException_2027d9",
+  "202809": {
+    "symbol": "rwby_Unwind_SjLj_RaiseException_202809",
     "arguments": "4:stack4"
   },
-  "2027e7": {
-    "symbol": "rwby_Unwind_SjLj_ForcedUnwind_2027e7",
+  "202817": {
+    "symbol": "rwby_Unwind_SjLj_ForcedUnwind_202817",
     "arguments": ""
   },
-  "2027f2": {
-    "symbol": "rwby_Unwind_SjLj_Resume_2027f2",
+  "202822": {
+    "symbol": "rwby_Unwind_SjLj_Resume_202822",
     "arguments": "4:stack4"
   },
-  "202810": {
-    "symbol": "rwby_continue_unwind_202810",
+  "202840": {
+    "symbol": "rwby_continue_unwind_202840",
     "arguments": "4:ECX"
   },
-  "202883": {
-    "symbol": "rwby_Unwind_SjLj_Resume_or_Rethrow_202883",
+  "2028b3": {
+    "symbol": "rwby_Unwind_SjLj_Resume_or_Rethrow_2028b3",
     "arguments": "4:stack4"
   },
-  "202894": {
-    "symbol": "rwby_gxx_personality_v0_202894",
+  "2028c4": {
+    "symbol": "rwby_gxx_personality_v0_2028c4",
     "arguments": ""
   },
-  "20289b": {
-    "symbol": "rwby_Unwind_Resume_20289b",
+  "2028cb": {
+    "symbol": "rwby_Unwind_Resume_2028cb",
     "arguments": ""
   },
-  "2028a6": {
-    "symbol": "rwby_dynamic_cast_2028a6",
+  "2028d6": {
+    "symbol": "rwby_dynamic_cast_2028d6",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "2028dd": {
-    "symbol": "rwby_type_matches_2028dd",
+  "20290d": {
+    "symbol": "rwby_type_matches_20290d",
     "arguments": "4:ECX,4:EDX"
   },
-  "202944": {
-    "symbol": "rwby_cxa_pure_virtual_202944",
+  "202974": {
+    "symbol": "rwby_cxa_pure_virtual_202974",
     "arguments": ""
   },
-  "20294d": {
-    "symbol": "rwby_tlv_bootstrap_20294d",
+  "20297d": {
+    "symbol": "rwby_tlv_bootstrap_20297d",
     "arguments": ""
   },
-  "202954": {
-    "symbol": "rwby_isdigit_202954",
+  "202984": {
+    "symbol": "rwby_isdigit_202984",
     "arguments": "4:stack4"
   },
-  "202967": {
-    "symbol": "rwby_isspace_202967",
+  "202997": {
+    "symbol": "rwby_isspace_202997",
     "arguments": "4:stack4"
   },
-  "20298e": {
-    "symbol": "rwby_isxdigit_20298e",
+  "2029be": {
+    "symbol": "rwby_isxdigit_2029be",
     "arguments": "4:stack4"
   },
-  "2029b0": {
-    "symbol": "rwby_isfinite_2029b0",
+  "2029e0": {
+    "symbol": "rwby_isfinite_2029e0",
     "arguments": "4:stack4,4:stack8"
   },
-  "2029c8": {
-    "symbol": "rwby_round_2029c8",
+  "2029f8": {
+    "symbol": "rwby_round_2029f8",
     "arguments": "8:stack4"
   },
-  "202a0c": {
-    "symbol": "rwby_strtoull_202a0c",
+  "202a3c": {
+    "symbol": "rwby_strtoull_202a3c",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "202b26": {
-    "symbol": "rwby_strtoll_202b26",
+  "202b56": {
+    "symbol": "rwby_strtoll_202b56",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "202b2f": {
-    "symbol": "rwby_inspect_context_202b2f",
+  "202b5f": {
+    "symbol": "rwby_inspect_context_202b5f",
     "arguments": "4:ECX,4:EDX,4:stack4"
   },
-  "202cce": {
-    "symbol": "rwby_read_encoded_pointer_202cce",
+  "202cfe": {
+    "symbol": "rwby_read_encoded_pointer_202cfe",
     "arguments": "4:ECX,4:EDX"
   },
-  "202d82": {
-    "symbol": "rwby_read_uleb128_202d82",
+  "202db2": {
+    "symbol": "rwby_read_uleb128_202db2",
     "arguments": "4:ECX"
   },
-  "202dad": {
-    "symbol": "rwby_read_unaligned_202dad",
+  "202ddd": {
+    "symbol": "rwby_read_unaligned_202ddd",
     "arguments": "4:ECX,4:EDX"
   },
-  "202dd2": {
-    "symbol": "rwby_read_sleb128_202dd2",
+  "202e02": {
+    "symbol": "rwby_read_sleb128_202e02",
     "arguments": "4:ECX"
   },
-  "202e14": {
-    "symbol": "rwby_permafrost_rwby_entry_202e14",
+  "202e44": {
+    "symbol": "rwby_permafrost_rwby_entry_202e44",
     "arguments": ""
   },
-  "203497": {
-    "symbol": "rwby_showHelp_203497",
+  "2034c7": {
+    "symbol": "rwby_showHelp_2034c7",
     "arguments": ""
   },
-  "2034b5": {
-    "symbol": "rwby_writeLine_2034b5",
+  "2034e5": {
+    "symbol": "rwby_writeLine_2034e5",
     "arguments": "4:ECX"
   },
-  "2034cb": {
-    "symbol": "rwby_writeText_2034cb",
+  "2034fb": {
+    "symbol": "rwby_writeText_2034fb",
     "arguments": "4:ECX"
   },
-  "2034f2": {
-    "symbol": "rwby_wm_string_string_2034f2",
+  "203522": {
+    "symbol": "rwby_wm_string_string_203522",
     "arguments": "4:stack4,4:stack8"
   },
-  "203524": {
-    "symbol": "rwby_wm_string_assign_203524",
+  "203554": {
+    "symbol": "rwby_wm_string_assign_203554",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "2035ed": {
-    "symbol": "rwby_wm_string_length_2035ed",
+  "20361d": {
+    "symbol": "rwby_wm_string_length_20361d",
     "arguments": "4:stack4"
   },
-  "203608": {
-    "symbol": "rwby_wm_string_pointer_offset_203608",
+  "203638": {
+    "symbol": "rwby_wm_string_pointer_offset_203638",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "203646": {
-    "symbol": "rwby_wm_string_ensure_storage_203646",
+  "203676": {
+    "symbol": "rwby_wm_string_ensure_storage_203676",
     "arguments": "4:stack4"
   },
-  "203668": {
-    "symbol": "rwby_wm_string_reserve_203668",
+  "203698": {
+    "symbol": "rwby_wm_string_reserve_203698",
     "arguments": "4:stack4,4:stack8"
-  },
-  "2036b8": {
-    "symbol": "rwby_wm_string_string_2036b8",
-    "arguments": "4:stack4,4:stack8,4:stack12"
   },
   "2036e8": {
-    "symbol": "rwby_wm_string_allocate_2036e8",
+    "symbol": "rwby_wm_string_string_2036e8",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "203718": {
+    "symbol": "rwby_wm_string_allocate_203718",
     "arguments": "4:stack4"
   },
-  "203702": {
-    "symbol": "rwby_wm_function_holder_203702",
+  "203732": {
+    "symbol": "rwby_wm_function_holder_203732",
     "arguments": ""
   },
-  "203708": {
-    "symbol": "rwby_wm_function_holder_203708",
+  "203738": {
+    "symbol": "rwby_wm_function_holder_203738",
     "arguments": "4:stack4"
   },
-  "203712": {
-    "symbol": "rwby_wm_function_const_203712",
+  "203742": {
+    "symbol": "rwby_wm_function_const_203742",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "203900": {
-    "symbol": "rwby_wm_function_clone_203900",
+  "203930": {
+    "symbol": "rwby_wm_function_clone_203930",
     "arguments": ""
   },
-  "20391e": {
-    "symbol": "rwby_wm_runtime_error_runtime_error_20391e",
+  "20394e": {
+    "symbol": "rwby_wm_runtime_error_runtime_error_20394e",
     "arguments": "4:stack4,4:stack8"
   },
-  "203928": {
-    "symbol": "rwby_wm_runtime_error_runtime_error_203928",
+  "203958": {
+    "symbol": "rwby_wm_runtime_error_runtime_error_203958",
     "arguments": "4:stack4"
   },
-  "203932": {
-    "symbol": "rwby_wm_runtime_error_runtime_error_203932",
+  "203962": {
+    "symbol": "rwby_wm_runtime_error_runtime_error_203962",
     "arguments": "4:stack4,4:stack8"
-  },
-  "20395c": {
-    "symbol": "rwby_wm_runtime_error_runtime_error_20395c",
-    "arguments": "4:stack4"
-  },
-  "203976": {
-    "symbol": "rwby_wm_runtime_error_what_203976",
-    "arguments": "4:stack4"
   },
   "20398c": {
     "symbol": "rwby_wm_runtime_error_runtime_error_20398c",
     "arguments": "4:stack4"
   },
-  "2039b0": {
-    "symbol": "rwby_wm_string_string_2039b0",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "2039e6": {
-    "symbol": "rwby_wm_runtime_error_runtime_error_2039e6",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "203a10": {
-    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_203a10",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "203a36": {
-    "symbol": "rwby_wm_variant_const_203a36",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "203a58": {
-    "symbol": "rwby_void_wm_detail_variant_copy_203a58",
-    "arguments": "4:stack4,4:stack8,4:stack12"
-  },
-  "203a69": {
-    "symbol": "rwby_void_wm_detail_variant_copy_203a69",
-    "arguments": "4:stack4,4:stack8,4:stack12"
-  },
-  "203a8a": {
-    "symbol": "rwby_void_wm_detail_variant_copy_203a8a",
-    "arguments": "4:stack4,4:stack8,4:stack12"
-  },
-  "203aa5": {
-    "symbol": "rwby_void_wm_detail_variant_copy_203aa5",
-    "arguments": "4:stack4,4:stack8,4:stack12"
-  },
-  "203ac0": {
-    "symbol": "rwby_void_wm_detail_variant_copy_203ac0",
-    "arguments": "4:stack4,4:stack8,4:stack12"
-  },
-  "203ae8": {
-    "symbol": "rwby_void_wm_detail_variant_copy_203ae8",
-    "arguments": "4:stack4,4:stack8,4:stack12"
-  },
-  "203b10": {
-    "symbol": "rwby_void_wm_detail_variant_copy_203b10",
-    "arguments": "4:stack4,4:stack8,4:stack12"
-  },
-  "203b38": {
-    "symbol": "rwby_wm_shared_ptr_const_203b38",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "203b54": {
-    "symbol": "rwby_void_wm_detail_variant_copy_203b54",
-    "arguments": "4:stack4,4:stack8,4:stack12"
-  },
-  "203b78": {
-    "symbol": "rwby_wm_shared_ptr_const_203b78",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "203b94": {
-    "symbol": "rwby_wm_shared_ptr_const_203b94",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "203bb0": {
-    "symbol": "rwby_winter_ruby_RubyResult_RubyResult_203bb0",
+  "2039a6": {
+    "symbol": "rwby_wm_runtime_error_what_2039a6",
     "arguments": "4:stack4"
   },
-  "203bd4": {
-    "symbol": "rwby_wm_variant_variant_203bd4",
+  "2039bc": {
+    "symbol": "rwby_wm_runtime_error_runtime_error_2039bc",
     "arguments": "4:stack4"
   },
-  "203c54": {
-    "symbol": "rwby_void_wm_detail_variant_destroy_203c54",
+  "2039e0": {
+    "symbol": "rwby_wm_string_string_2039e0",
     "arguments": "4:stack4,4:stack8"
   },
-  "203c65": {
-    "symbol": "rwby_void_wm_detail_variant_destroy_203c65",
+  "203a16": {
+    "symbol": "rwby_wm_runtime_error_runtime_error_203a16",
     "arguments": "4:stack4,4:stack8"
   },
-  "203c77": {
-    "symbol": "rwby_void_wm_detail_variant_destroy_203c77",
+  "203a40": {
+    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_203a40",
     "arguments": "4:stack4,4:stack8"
   },
-  "203c88": {
-    "symbol": "rwby_void_wm_detail_variant_destroy_203c88",
+  "203a66": {
+    "symbol": "rwby_wm_variant_const_203a66",
     "arguments": "4:stack4,4:stack8"
   },
-  "203cad": {
-    "symbol": "rwby_void_wm_detail_variant_destroy_203cad",
+  "203a88": {
+    "symbol": "rwby_void_wm_detail_variant_copy_203a88",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "203a99": {
+    "symbol": "rwby_void_wm_detail_variant_copy_203a99",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "203aba": {
+    "symbol": "rwby_void_wm_detail_variant_copy_203aba",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "203ad5": {
+    "symbol": "rwby_void_wm_detail_variant_copy_203ad5",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "203af0": {
+    "symbol": "rwby_void_wm_detail_variant_copy_203af0",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "203b18": {
+    "symbol": "rwby_void_wm_detail_variant_copy_203b18",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "203b40": {
+    "symbol": "rwby_void_wm_detail_variant_copy_203b40",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "203b68": {
+    "symbol": "rwby_wm_shared_ptr_const_203b68",
     "arguments": "4:stack4,4:stack8"
   },
-  "203cd4": {
-    "symbol": "rwby_wm_shared_ptr_release_203cd4",
+  "203b84": {
+    "symbol": "rwby_void_wm_detail_variant_copy_203b84",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "203ba8": {
+    "symbol": "rwby_wm_shared_ptr_const_203ba8",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "203bc4": {
+    "symbol": "rwby_wm_shared_ptr_const_203bc4",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "203be0": {
+    "symbol": "rwby_winter_ruby_RubyResult_RubyResult_203be0",
     "arguments": "4:stack4"
   },
-  "203d74": {
-    "symbol": "rwby_void_wm_detail_variant_destroy_203d74",
+  "203c04": {
+    "symbol": "rwby_wm_variant_variant_203c04",
+    "arguments": "4:stack4"
+  },
+  "203c84": {
+    "symbol": "rwby_void_wm_detail_variant_destroy_203c84",
     "arguments": "4:stack4,4:stack8"
   },
-  "203d90": {
-    "symbol": "rwby_wm_shared_ptr_release_203d90",
+  "203c95": {
+    "symbol": "rwby_void_wm_detail_variant_destroy_203c95",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "203ca7": {
+    "symbol": "rwby_void_wm_detail_variant_destroy_203ca7",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "203cb8": {
+    "symbol": "rwby_void_wm_detail_variant_destroy_203cb8",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "203cdd": {
+    "symbol": "rwby_void_wm_detail_variant_destroy_203cdd",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "203d04": {
+    "symbol": "rwby_wm_shared_ptr_release_203d04",
     "arguments": "4:stack4"
   },
-  "203e30": {
-    "symbol": "rwby_wm_shared_ptr_release_203e30",
+  "203da4": {
+    "symbol": "rwby_void_wm_detail_variant_destroy_203da4",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "203dc0": {
+    "symbol": "rwby_wm_shared_ptr_release_203dc0",
     "arguments": "4:stack4"
   },
-  "203ed0": {
-    "symbol": "rwby_wm_string_string_203ed0",
+  "203e60": {
+    "symbol": "rwby_wm_shared_ptr_release_203e60",
     "arguments": "4:stack4"
   },
-  "203ee8": {
-    "symbol": "rwby_wm_function_holder_203ee8",
+  "203f00": {
+    "symbol": "rwby_wm_string_string_203f00",
+    "arguments": "4:stack4"
+  },
+  "203f18": {
+    "symbol": "rwby_wm_function_holder_203f18",
     "arguments": ""
   },
-  "203eee": {
-    "symbol": "rwby_wm_function_holder_203eee",
+  "203f1e": {
+    "symbol": "rwby_wm_function_holder_203f1e",
     "arguments": "4:stack4"
   },
-  "203ef8": {
-    "symbol": "rwby_wm_function_const_203ef8",
+  "203f28": {
+    "symbol": "rwby_wm_function_const_203f28",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "204252": {
-    "symbol": "rwby_wm_function_clone_204252",
+  "204282": {
+    "symbol": "rwby_wm_function_clone_204282",
     "arguments": ""
   },
-  "204270": {
-    "symbol": "rwby_wm_string_operator_204270",
+  "2042a0": {
+    "symbol": "rwby_wm_string_operator_2042a0",
     "arguments": "4:stack4,4:stack8"
   },
-  "20429a": {
-    "symbol": "rwby_wm_string_append_20429a",
+  "2042ca": {
+    "symbol": "rwby_wm_string_append_2042ca",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "204343": {
-    "symbol": "rwby_writeLine_204343",
+  "204373": {
+    "symbol": "rwby_writeLine_204373",
     "arguments": "4:ECX"
   },
-  "20436a": {
-    "symbol": "rwby_wm_string_find_20436a",
+  "20439a": {
+    "symbol": "rwby_wm_string_find_20439a",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "2043ac": {
-    "symbol": "rwby_reportResult_2043ac",
+  "2043dc": {
+    "symbol": "rwby_reportResult_2043dc",
     "arguments": "4:ECX,4:EDX"
   },
-  "2044dc": {
-    "symbol": "rwby_wm_string_view_find_2044dc",
+  "20450c": {
+    "symbol": "rwby_wm_string_view_find_20450c",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "204552": {
-    "symbol": "rwby_wm_operator_204552",
+  "204582": {
+    "symbol": "rwby_wm_operator_204582",
     "arguments": "4:stack4,4:stack8"
   },
-  "2045ac": {
-    "symbol": "rwby_std_istream_istream_2045ac",
+  "2045dc": {
+    "symbol": "rwby_std_istream_istream_2045dc",
     "arguments": ""
   },
-  "2045b2": {
-    "symbol": "rwby_std_ostream_ostream_2045b2",
+  "2045e2": {
+    "symbol": "rwby_std_ostream_ostream_2045e2",
     "arguments": ""
   },
-  "2045b7": {
-    "symbol": "rwby_winter_ruby_writePermafrostText_2045b7",
+  "2045e7": {
+    "symbol": "rwby_winter_ruby_writePermafrostText_2045e7",
     "arguments": "4:stack4"
   },
-  "2045dd": {
-    "symbol": "rwby_winter_ruby_writePermafrostText_2045dd",
-    "arguments": "4:stack4"
-  },
-  "20460c": {
-    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_20460c",
-    "arguments": "4:stack4"
-  },
-  "20461c": {
-    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_20461c",
-    "arguments": "4:stack4"
-  },
-  "20462c": {
-    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_20462c",
+  "20460d": {
+    "symbol": "rwby_winter_ruby_writePermafrostText_20460d",
     "arguments": "4:stack4"
   },
   "20463c": {
@@ -973,2522 +961,2542 @@
   },
   "20464c": {
     "symbol": "rwby_winter_ruby_RubyValue_RubyValue_20464c",
+    "arguments": "4:stack4"
+  },
+  "20465c": {
+    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_20465c",
+    "arguments": "4:stack4"
+  },
+  "20466c": {
+    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_20466c",
+    "arguments": "4:stack4"
+  },
+  "20467c": {
+    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_20467c",
     "arguments": "4:stack4,4:stack8"
   },
-  "20466a": {
-    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_20466a",
+  "20469a": {
+    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_20469a",
     "arguments": "4:stack4,4:stack8"
   },
-  "204688": {
-    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_204688",
+  "2046b8": {
+    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_2046b8",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "2046a6": {
-    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_2046a6",
+  "2046d6": {
+    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_2046d6",
     "arguments": "4:stack4,4:stack8,4:stack12"
-  },
-  "2046c4": {
-    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_2046c4",
-    "arguments": "4:stack4,8:stack8"
-  },
-  "2046dc": {
-    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_2046dc",
-    "arguments": "4:stack4,8:stack8"
   },
   "2046f4": {
     "symbol": "rwby_winter_ruby_RubyValue_RubyValue_2046f4",
-    "arguments": "4:stack4,1:stack8"
+    "arguments": "4:stack4,8:stack8"
   },
   "20470c": {
     "symbol": "rwby_winter_ruby_RubyValue_RubyValue_20470c",
-    "arguments": "4:stack4,1:stack8"
+    "arguments": "4:stack4,8:stack8"
   },
   "204724": {
     "symbol": "rwby_winter_ruby_RubyValue_RubyValue_204724",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "20476e": {
-    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_20476e",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "204778": {
-    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_204778",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "20479a": {
-    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_20479a",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "2047a4": {
-    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_2047a4",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "2047c6": {
-    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_2047c6",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "2047d0": {
-    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_2047d0",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "20481b": {
-    "symbol": "rwby_wm_shared_ptr_const_20481b",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "2048d8": {
-    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_2048d8",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "2048e2": {
-    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_2048e2",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "20492d": {
-    "symbol": "rwby_wm_shared_ptr_20492d",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "20496e": {
-    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_20496e",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "204978": {
-    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_204978",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "2049c3": {
-    "symbol": "rwby_wm_shared_ptr_const_2049c3",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "204a80": {
-    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_204a80",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "204a8a": {
-    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_204a8a",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "204ad5": {
-    "symbol": "rwby_wm_shared_ptr_204ad5",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "204b16": {
-    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_204b16",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "204b20": {
-    "symbol": "rwby_winter_ruby_RubyValue_makeArray_204b20",
-    "arguments": "4:stack4"
-  },
-  "204bc6": {
-    "symbol": "rwby_wm_vector_vector_204bc6",
-    "arguments": "4:stack4"
-  },
-  "204bd0": {
-    "symbol": "rwby_winter_ruby_RubyValue_makeMap_204bd0",
-    "arguments": "4:stack4"
-  },
-  "204c74": {
-    "symbol": "rwby_winter_ruby_RubyValue_isTruthy_204c74",
-    "arguments": "4:stack4"
-  },
-  "204c9c": {
-    "symbol": "rwby_winter_ruby_RubyValue_toString_204c9c",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "2050a6": {
-    "symbol": "rwby_wm_to_string_2050a6",
-    "arguments": "4:stack4,4:stack8,4:stack12"
-  },
-  "2050f8": {
-    "symbol": "rwby_std_ostringstream_operator_2050f8",
-    "arguments": "4:stack4,8:stack8"
-  },
-  "2051a9": {
-    "symbol": "rwby_wm_operator_2051a9",
-    "arguments": "4:stack4,4:stack8,4:stack12"
-  },
-  "205254": {
-    "symbol": "rwby_wm_operator_205254",
-    "arguments": "4:stack4,4:stack8,4:stack12"
-  },
-  "205300": {
-    "symbol": "rwby_winter_ruby_RubyValue_asInteger_205300",
-    "arguments": "4:stack4"
-  },
-  "205422": {
-    "symbol": "rwby_winter_ruby_RubyValue_asFloat_205422",
-    "arguments": "4:stack4"
-  },
-  "20552a": {
-    "symbol": "rwby_winter_ruby_RubyValue_asBoolean_20552a",
-    "arguments": "4:stack4"
-  },
-  "2055fc": {
-    "symbol": "rwby_winter_ruby_RubyValue_asString_2055fc",
-    "arguments": "4:stack4"
-  },
-  "2056ce": {
-    "symbol": "rwby_winter_ruby_RubyValue_asArray_2056ce",
-    "arguments": "4:stack4"
-  },
-  "2057a0": {
-    "symbol": "rwby_winter_ruby_RubyValue_asArray_2057a0",
-    "arguments": "4:stack4"
-  },
-  "205872": {
-    "symbol": "rwby_winter_ruby_RubyValue_asMap_205872",
-    "arguments": "4:stack4"
-  },
-  "205944": {
-    "symbol": "rwby_winter_ruby_RubyValue_asMap_205944",
-    "arguments": "4:stack4"
-  },
-  "205a16": {
-    "symbol": "rwby_winter_ruby_RubyVM_RubyVM_205a16",
-    "arguments": "4:stack4"
-  },
-  "205a34": {
-    "symbol": "rwby_wm_unique_ptr_205a34",
-    "arguments": "4:stack4"
-  },
-  "205ad8": {
-    "symbol": "rwby_winter_ruby_RubyVM_RubyVM_205ad8",
-    "arguments": "4:stack4"
-  },
-  "205ae2": {
-    "symbol": "rwby_winter_ruby_RubyVM_RubyVM_205ae2",
-    "arguments": "4:stack4"
-  },
-  "205aec": {
-    "symbol": "rwby_winter_ruby_RubyVM_RubyVM_205aec",
-    "arguments": "4:stack4"
-  },
-  "205af6": {
-    "symbol": "rwby_winter_ruby_RubyVM_RubyVM_205af6",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "205b10": {
-    "symbol": "rwby_winter_ruby_RubyVM_RubyVM_205b10",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "205b2a": {
-    "symbol": "rwby_winter_ruby_RubyVM_operator_205b2a",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "205b58": {
-    "symbol": "rwby_wm_unique_ptr_205b58",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "205b82": {
-    "symbol": "rwby_winter_ruby_RubyVM_bindFunction_205b82",
-    "arguments": "4:stack4,4:stack8,4:stack12"
-  },
-  "205c32": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindFunction_205c32",
-    "arguments": "4:stack4,4:stack8,4:stack12"
-  },
-  "205e60": {
-    "symbol": "rwby_winter_ruby_RubyVM_setGlobal_205e60",
-    "arguments": "4:stack4,4:stack8,4:stack12"
-  },
-  "205e7e": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_setGlobal_205e7e",
-    "arguments": "4:stack4,4:stack8,4:stack12"
-  },
-  "205ec0": {
-    "symbol": "rwby_winter_ruby_RubyVM_getGlobal_205ec0",
-    "arguments": "4:stack4,4:stack8,4:stack12"
-  },
-  "205ede": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_getGlobal_205ede",
-    "arguments": "4:stack4,4:stack8,4:stack12"
-  },
-  "205f1e": {
-    "symbol": "rwby_winter_ruby_RubyVM_compileScript_205f1e",
-    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
-  },
-  "205f44": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_compileScript_205f44",
-    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
-  },
-  "20805c": {
-    "symbol": "rwby_winter_ruby_RubyVM_writeBytecodeFile_20805c",
-    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20"
-  },
-  "208080": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_writeBytecodeFile_208080",
-    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20"
-  },
-  "208334": {
-    "symbol": "rwby_winter_ruby_RubyVM_runScriptString_208334",
-    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
-  },
-  "20835a": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_runScriptString_20835a",
-    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
-  },
-  "208500": {
-    "symbol": "rwby_winter_ruby_RubyVM_runScriptFile_208500",
-    "arguments": "4:stack4,4:stack8,4:stack12"
-  },
-  "208526": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_runScriptFile_208526",
-    "arguments": "4:stack4,4:stack8,4:stack12"
-  },
-  "2086f8": {
-    "symbol": "rwby_winter_ruby_RubyVM_runBytecode_2086f8",
-    "arguments": "4:stack4,4:stack8,4:stack12"
-  },
-  "20871e": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_runBytecode_20871e",
-    "arguments": "4:stack4,4:stack8,4:stack12"
-  },
-  "2088f8": {
-    "symbol": "rwby_winter_ruby_RubyVM_runScriptFromBytecodeFile_2088f8",
-    "arguments": "4:stack4,4:stack8,4:stack12"
-  },
-  "20891e": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_runBytecodeFile_20891e",
-    "arguments": "4:stack4,4:stack8,4:stack12"
-  },
-  "208b54": {
-    "symbol": "rwby_winter_ruby_RubyVM_runBytecodeFile_208b54",
-    "arguments": "4:stack4,4:stack8,4:stack12"
-  },
-  "208b7a": {
-    "symbol": "rwby_winter_ruby_RubyVM_valueToString_208b7a",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "208b9b": {
-    "symbol": "rwby_winter_ruby_bindCppFunctionToRubyVM_208b9b",
-    "arguments": "4:stack4,4:stack8,4:stack12"
-  },
-  "208c49": {
-    "symbol": "rwby_winter_ruby_runRubyScriptString_208c49",
-    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
-  },
-  "208c6d": {
-    "symbol": "rwby_winter_ruby_runRubyScriptFile_208c6d",
-    "arguments": "4:stack4,4:stack8,4:stack12"
-  },
-  "208c91": {
-    "symbol": "rwby_winter_ruby_runRubyBytecode_208c91",
-    "arguments": "4:stack4,4:stack8,4:stack12"
-  },
-  "208cb5": {
-    "symbol": "rwby_winter_ruby_runRubyScriptFromBytecodeFile_208cb5",
-    "arguments": "4:stack4,4:stack8,4:stack12"
-  },
-  "208cd9": {
-    "symbol": "rwby_winter_ruby_runRubyBytecodeFile_208cd9",
-    "arguments": "4:stack4,4:stack8,4:stack12"
-  },
-  "208cfe": {
-    "symbol": "rwby_std_istream_istream_208cfe",
-    "arguments": "4:stack4"
-  },
-  "208d08": {
-    "symbol": "rwby_std_ostream_ostream_208d08",
-    "arguments": "4:stack4"
-  },
-  "208d12": {
-    "symbol": "rwby_wm_unordered_map_unordered_map_208d12",
-    "arguments": "4:stack4"
-  },
-  "208d3e": {
-    "symbol": "rwby_wm_vector_vector_208d3e",
-    "arguments": "4:stack4"
-  },
-  "208d5a": {
-    "symbol": "rwby_wm_vector_vector_208d5a",
-    "arguments": "4:stack4"
-  },
-  "208d7a": {
-    "symbol": "rwby_wm_vector_clear_208d7a",
-    "arguments": "4:stack4"
-  },
-  "208dae": {
-    "symbol": "rwby_wm_pair_pair_208dae",
-    "arguments": "4:stack4"
-  },
-  "208dcc": {
-    "symbol": "rwby_void_wm_detail_variant_destroy_208dcc",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "208de0": {
-    "symbol": "rwby_void_wm_detail_variant_destroy_208de0",
-    "arguments": "4:stack4,4:stack8"
-  },
-  "208e08": {
-    "symbol": "rwby_wm_unordered_map_unordered_map_208e08",
-    "arguments": "4:stack4"
-  },
-  "208e30": {
-    "symbol": "rwby_wm_to_chars_result_wm_to_chars_208e30",
-    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20"
-  },
-  "208f0d": {
-    "symbol": "rwby_wm_to_string_208f0d",
-    "arguments": "4:stack4,8:stack8"
-  },
-  "20926c": {
-    "symbol": "rwby_wm_string_push_back_20926c",
     "arguments": "4:stack4,1:stack8"
   },
-  "2092bf": {
-    "symbol": "rwby_wm_to_string_2092bf",
+  "20473c": {
+    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_20473c",
+    "arguments": "4:stack4,1:stack8"
+  },
+  "204754": {
+    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_204754",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20479e": {
+    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_20479e",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2047a8": {
+    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_2047a8",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2047ca": {
+    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_2047ca",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2047d4": {
+    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_2047d4",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2047f6": {
+    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_2047f6",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "204800": {
+    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_204800",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20484b": {
+    "symbol": "rwby_wm_shared_ptr_const_20484b",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "204908": {
+    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_204908",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "204912": {
+    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_204912",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20495d": {
+    "symbol": "rwby_wm_shared_ptr_20495d",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20499e": {
+    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_20499e",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2049a8": {
+    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_2049a8",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2049f3": {
+    "symbol": "rwby_wm_shared_ptr_const_2049f3",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "204ab0": {
+    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_204ab0",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "204aba": {
+    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_204aba",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "204b05": {
+    "symbol": "rwby_wm_shared_ptr_204b05",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "204b46": {
+    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_204b46",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "204b50": {
+    "symbol": "rwby_winter_ruby_RubyValue_makeArray_204b50",
+    "arguments": "4:stack4"
+  },
+  "204bf6": {
+    "symbol": "rwby_wm_vector_vector_204bf6",
+    "arguments": "4:stack4"
+  },
+  "204c00": {
+    "symbol": "rwby_winter_ruby_RubyValue_makeMap_204c00",
+    "arguments": "4:stack4"
+  },
+  "204ca4": {
+    "symbol": "rwby_winter_ruby_RubyValue_isTruthy_204ca4",
+    "arguments": "4:stack4"
+  },
+  "204ccc": {
+    "symbol": "rwby_winter_ruby_RubyValue_toString_204ccc",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2050d6": {
+    "symbol": "rwby_wm_to_string_2050d6",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "209311": {
-    "symbol": "rwby_wm_to_chars_result_wm_to_chars_209311",
+  "205128": {
+    "symbol": "rwby_std_ostringstream_operator_205128",
+    "arguments": "4:stack4,8:stack8"
+  },
+  "2051d9": {
+    "symbol": "rwby_wm_operator_2051d9",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "205284": {
+    "symbol": "rwby_wm_operator_205284",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "205330": {
+    "symbol": "rwby_winter_ruby_RubyValue_asInteger_205330",
+    "arguments": "4:stack4"
+  },
+  "205452": {
+    "symbol": "rwby_winter_ruby_RubyValue_asFloat_205452",
+    "arguments": "4:stack4"
+  },
+  "20555a": {
+    "symbol": "rwby_winter_ruby_RubyValue_asBoolean_20555a",
+    "arguments": "4:stack4"
+  },
+  "20562c": {
+    "symbol": "rwby_winter_ruby_RubyValue_asString_20562c",
+    "arguments": "4:stack4"
+  },
+  "2056fe": {
+    "symbol": "rwby_winter_ruby_RubyValue_asArray_2056fe",
+    "arguments": "4:stack4"
+  },
+  "2057d0": {
+    "symbol": "rwby_winter_ruby_RubyValue_asArray_2057d0",
+    "arguments": "4:stack4"
+  },
+  "2058a2": {
+    "symbol": "rwby_winter_ruby_RubyValue_asMap_2058a2",
+    "arguments": "4:stack4"
+  },
+  "205974": {
+    "symbol": "rwby_winter_ruby_RubyValue_asMap_205974",
+    "arguments": "4:stack4"
+  },
+  "205a46": {
+    "symbol": "rwby_winter_ruby_RubyVM_RubyVM_205a46",
+    "arguments": "4:stack4"
+  },
+  "205a64": {
+    "symbol": "rwby_wm_unique_ptr_205a64",
+    "arguments": "4:stack4"
+  },
+  "205b08": {
+    "symbol": "rwby_winter_ruby_RubyVM_RubyVM_205b08",
+    "arguments": "4:stack4"
+  },
+  "205b12": {
+    "symbol": "rwby_winter_ruby_RubyVM_RubyVM_205b12",
+    "arguments": "4:stack4"
+  },
+  "205b1c": {
+    "symbol": "rwby_winter_ruby_RubyVM_RubyVM_205b1c",
+    "arguments": "4:stack4"
+  },
+  "205b26": {
+    "symbol": "rwby_winter_ruby_RubyVM_RubyVM_205b26",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "205b40": {
+    "symbol": "rwby_winter_ruby_RubyVM_RubyVM_205b40",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "205b5a": {
+    "symbol": "rwby_winter_ruby_RubyVM_operator_205b5a",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "205b88": {
+    "symbol": "rwby_wm_unique_ptr_205b88",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "205bb2": {
+    "symbol": "rwby_winter_ruby_RubyVM_bindFunction_205bb2",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "205c62": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindFunction_205c62",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "205e90": {
+    "symbol": "rwby_winter_ruby_RubyVM_setGlobal_205e90",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "205eae": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_setGlobal_205eae",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "205ef0": {
+    "symbol": "rwby_winter_ruby_RubyVM_getGlobal_205ef0",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "205f0e": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_getGlobal_205f0e",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "205f4e": {
+    "symbol": "rwby_winter_ruby_RubyVM_compileScript_205f4e",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
+  },
+  "205f74": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_compileScript_205f74",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
+  },
+  "20808c": {
+    "symbol": "rwby_winter_ruby_RubyVM_writeBytecodeFile_20808c",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20"
   },
-  "2093e4": {
-    "symbol": "rwby_wm_string_append_2093e4",
-    "arguments": "4:stack4,4:stack8"
+  "2080b0": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_writeBytecodeFile_2080b0",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20"
   },
-  "20940c": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_ensureGlobalSlot_20940c",
-    "arguments": "4:stack4,4:stack8"
+  "208364": {
+    "symbol": "rwby_winter_ruby_RubyVM_runScriptString_208364",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "209486": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_setGlobalSlotValue_209486",
+  "20838a": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_runScriptString_20838a",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
+  },
+  "208530": {
+    "symbol": "rwby_winter_ruby_RubyVM_runScriptFile_208530",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "2094ec": {
-    "symbol": "rwby_wm_unordered_map_operator_2094ec",
+  "208556": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_runScriptFile_208556",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "208728": {
+    "symbol": "rwby_winter_ruby_RubyVM_runBytecode_208728",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "20874e": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_runBytecode_20874e",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "208928": {
+    "symbol": "rwby_winter_ruby_RubyVM_runScriptFromBytecodeFile_208928",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "20894e": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_runBytecodeFile_20894e",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "208b84": {
+    "symbol": "rwby_winter_ruby_RubyVM_runBytecodeFile_208b84",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "208baa": {
+    "symbol": "rwby_winter_ruby_RubyVM_valueToString_208baa",
     "arguments": "4:stack4,4:stack8"
   },
-  "209600": {
-    "symbol": "rwby_winter_ruby_RubyValue_operator_209600",
-    "arguments": "4:stack4,4:stack8"
+  "208bcb": {
+    "symbol": "rwby_winter_ruby_bindCppFunctionToRubyVM_208bcb",
+    "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "20962a": {
-    "symbol": "rwby_wm_shared_ptr_20962a",
+  "208c79": {
+    "symbol": "rwby_winter_ruby_runRubyScriptString_208c79",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
+  },
+  "208c9d": {
+    "symbol": "rwby_winter_ruby_runRubyScriptFile_208c9d",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "208cc1": {
+    "symbol": "rwby_winter_ruby_runRubyBytecode_208cc1",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "208ce5": {
+    "symbol": "rwby_winter_ruby_runRubyScriptFromBytecodeFile_208ce5",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "208d09": {
+    "symbol": "rwby_winter_ruby_runRubyBytecodeFile_208d09",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "208d2e": {
+    "symbol": "rwby_std_istream_istream_208d2e",
     "arguments": "4:stack4"
   },
-  "209684": {
-    "symbol": "rwby_wm_function_209684",
+  "208d38": {
+    "symbol": "rwby_std_ostream_ostream_208d38",
+    "arguments": "4:stack4"
+  },
+  "208d42": {
+    "symbol": "rwby_wm_unordered_map_unordered_map_208d42",
+    "arguments": "4:stack4"
+  },
+  "208d6e": {
+    "symbol": "rwby_wm_vector_vector_208d6e",
+    "arguments": "4:stack4"
+  },
+  "208d8a": {
+    "symbol": "rwby_wm_vector_vector_208d8a",
+    "arguments": "4:stack4"
+  },
+  "208daa": {
+    "symbol": "rwby_wm_vector_clear_208daa",
+    "arguments": "4:stack4"
+  },
+  "208dde": {
+    "symbol": "rwby_wm_pair_pair_208dde",
+    "arguments": "4:stack4"
+  },
+  "208dfc": {
+    "symbol": "rwby_void_wm_detail_variant_destroy_208dfc",
     "arguments": "4:stack4,4:stack8"
+  },
+  "208e10": {
+    "symbol": "rwby_void_wm_detail_variant_destroy_208e10",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "208e38": {
+    "symbol": "rwby_wm_unordered_map_unordered_map_208e38",
+    "arguments": "4:stack4"
+  },
+  "208e60": {
+    "symbol": "rwby_wm_to_chars_result_wm_to_chars_208e60",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20"
+  },
+  "208f3d": {
+    "symbol": "rwby_wm_to_string_208f3d",
+    "arguments": "4:stack4,8:stack8"
+  },
+  "20929c": {
+    "symbol": "rwby_wm_string_push_back_20929c",
+    "arguments": "4:stack4,1:stack8"
+  },
+  "2092ef": {
+    "symbol": "rwby_wm_to_string_2092ef",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "209341": {
+    "symbol": "rwby_wm_to_chars_result_wm_to_chars_209341",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16,4:stack20"
+  },
+  "209414": {
+    "symbol": "rwby_wm_string_append_209414",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20943c": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_ensureGlobalSlot_20943c",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "2094b6": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_setGlobalSlotValue_2094b6",
+    "arguments": "4:stack4,4:stack8,4:stack12"
+  },
+  "20951c": {
+    "symbol": "rwby_wm_unordered_map_operator_20951c",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "209630": {
+    "symbol": "rwby_winter_ruby_RubyValue_operator_209630",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20965a": {
+    "symbol": "rwby_wm_shared_ptr_20965a",
+    "arguments": "4:stack4"
   },
   "2096b4": {
-    "symbol": "rwby_wm_string_operator_2096b4",
+    "symbol": "rwby_wm_function_2096b4",
     "arguments": "4:stack4,4:stack8"
   },
-  "2096e8": {
-    "symbol": "rwby_winter_ruby_RubyFunctionHandle_RubyFunctionHandle_2096e8",
+  "2096e4": {
+    "symbol": "rwby_wm_string_operator_2096e4",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "209718": {
+    "symbol": "rwby_winter_ruby_RubyFunctionHandle_RubyFunctionHandle_209718",
     "arguments": "4:stack4"
   },
-  "209710": {
-    "symbol": "rwby_wm_shared_ptr_shared_ptr_209710",
+  "209740": {
+    "symbol": "rwby_wm_shared_ptr_shared_ptr_209740",
     "arguments": "4:stack4,4:stack8"
   },
-  "209756": {
-    "symbol": "rwby_wm_detail_shared_control_block_impl_shared_control_block_impl_209756",
+  "209786": {
+    "symbol": "rwby_wm_detail_shared_control_block_impl_shared_control_block_impl_209786",
     "arguments": ""
   },
-  "20975c": {
-    "symbol": "rwby_wm_detail_shared_control_block_impl_shared_control_block_impl_20975c",
+  "20978c": {
+    "symbol": "rwby_wm_detail_shared_control_block_impl_shared_control_block_impl_20978c",
     "arguments": "4:stack4"
   },
-  "209766": {
-    "symbol": "rwby_wm_detail_shared_control_block_impl_destroy_object_209766",
+  "209796": {
+    "symbol": "rwby_wm_detail_shared_control_block_impl_destroy_object_209796",
     "arguments": "4:stack4"
   },
-  "209794": {
-    "symbol": "rwby_winter_ruby_RubyFunctionHandle_RubyFunctionHandle_209794",
+  "2097c4": {
+    "symbol": "rwby_winter_ruby_RubyFunctionHandle_RubyFunctionHandle_2097c4",
     "arguments": "4:stack4"
   },
-  "2097c6": {
-    "symbol": "rwby_wm_shared_ptr_shared_ptr_2097c6",
+  "2097f6": {
+    "symbol": "rwby_wm_shared_ptr_shared_ptr_2097f6",
     "arguments": "4:ECX"
   },
-  "209862": {
-    "symbol": "rwby_wm_shared_ptr_209862",
+  "209892": {
+    "symbol": "rwby_wm_shared_ptr_209892",
     "arguments": "4:stack4,4:stack8"
   },
-  "20989a": {
-    "symbol": "rwby_wm_unordered_map_find_20989a",
+  "2098ca": {
+    "symbol": "rwby_wm_unordered_map_find_2098ca",
     "arguments": "4:stack4,4:stack8"
   },
-  "2098c8": {
-    "symbol": "rwby_wm_pair_2098c8",
+  "2098f8": {
+    "symbol": "rwby_wm_pair_2098f8",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "209950": {
-    "symbol": "rwby_winter_ruby_RubyValue_wm_vector_209950",
+  "209980": {
+    "symbol": "rwby_winter_ruby_RubyValue_wm_vector_209980",
     "arguments": "4:stack4"
   },
-  "209996": {
-    "symbol": "rwby_wm_unordered_map_find_index_209996",
+  "2099c6": {
+    "symbol": "rwby_wm_unordered_map_find_index_2099c6",
     "arguments": "4:stack4,4:stack8"
   },
-  "2099fa": {
-    "symbol": "rwby_wm_unordered_map_bucket_for_key_2099fa",
+  "209a2a": {
+    "symbol": "rwby_wm_unordered_map_bucket_for_key_209a2a",
     "arguments": "4:stack4,4:stack8"
   },
-  "209a20": {
-    "symbol": "rwby_wm_hash_operator_209a20",
+  "209a50": {
+    "symbol": "rwby_wm_hash_operator_209a50",
     "arguments": "4:stack4,4:stack8"
   },
-  "209a46": {
-    "symbol": "rwby_wm_detail_hash_bytes_209a46",
+  "209a76": {
+    "symbol": "rwby_wm_detail_hash_bytes_209a76",
     "arguments": "4:stack4,4:stack8"
   },
-  "209a6f": {
-    "symbol": "rwby_wm_operator_209a6f",
+  "209a9f": {
+    "symbol": "rwby_wm_operator_209a9f",
     "arguments": "4:stack4,4:stack8"
   },
-  "209ac2": {
-    "symbol": "rwby_wm_unordered_map_prepare_insert_209ac2",
+  "209af2": {
+    "symbol": "rwby_wm_unordered_map_prepare_insert_209af2",
     "arguments": "4:stack4"
   },
-  "209afe": {
-    "symbol": "rwby_wm_pair_209afe",
+  "209b2e": {
+    "symbol": "rwby_wm_pair_209b2e",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "209b60": {
-    "symbol": "rwby_wm_unordered_map_link_index_209b60",
+  "209b90": {
+    "symbol": "rwby_wm_unordered_map_link_index_209b90",
     "arguments": "4:stack4,4:stack8"
   },
-  "209b92": {
-    "symbol": "rwby_wm_unordered_map_rehash_209b92",
+  "209bc2": {
+    "symbol": "rwby_wm_unordered_map_rehash_209bc2",
     "arguments": "4:stack4,4:stack8"
   },
-  "209bee": {
-    "symbol": "rwby_wm_vector_assign_209bee",
+  "209c1e": {
+    "symbol": "rwby_wm_vector_assign_209c1e",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "209bfe": {
-    "symbol": "rwby_wm_unordered_map_bucket_count_for_size_209bfe",
+  "209c2e": {
+    "symbol": "rwby_wm_unordered_map_bucket_count_for_size_209c2e",
     "arguments": "4:stack4"
   },
-  "209c12": {
-    "symbol": "rwby_wm_unordered_map_rebuild_buckets_209c12",
+  "209c42": {
+    "symbol": "rwby_wm_unordered_map_rebuild_buckets_209c42",
     "arguments": "4:stack4"
   },
-  "209c46": {
-    "symbol": "rwby_wm_vector_resize_209c46",
+  "209c76": {
+    "symbol": "rwby_wm_vector_resize_209c76",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "209c96": {
-    "symbol": "rwby_wm_vector_resize_209c96",
+  "209cc6": {
+    "symbol": "rwby_wm_vector_resize_209cc6",
     "arguments": "4:stack4,4:stack8"
   },
-  "209cd4": {
-    "symbol": "rwby_wm_vector_reserve_209cd4",
+  "209d04": {
+    "symbol": "rwby_wm_vector_reserve_209d04",
     "arguments": "4:stack4,4:stack8"
   },
-  "209d1e": {
-    "symbol": "rwby_unsigned_long_wm_detail_vector_allocate_209d1e",
+  "209d4e": {
+    "symbol": "rwby_unsigned_long_wm_detail_vector_allocate_209d4e",
     "arguments": "4:stack4"
   },
-  "209d40": {
-    "symbol": "rwby_wm_vector_reserve_209d40",
+  "209d70": {
+    "symbol": "rwby_wm_vector_reserve_209d70",
     "arguments": "4:stack4,4:stack8"
   },
-  "209dac": {
-    "symbol": "rwby_wm_pair_209dac",
+  "209ddc": {
+    "symbol": "rwby_wm_pair_209ddc",
     "arguments": "4:stack4"
   },
-  "209dce": {
-    "symbol": "rwby_wm_pair_209dce",
+  "209dfe": {
+    "symbol": "rwby_wm_pair_209dfe",
     "arguments": "4:stack4,4:stack8"
   },
-  "209df0": {
-    "symbol": "rwby_wm_string_string_209df0",
+  "209e20": {
+    "symbol": "rwby_wm_string_string_209e20",
     "arguments": "4:stack4,4:stack8"
   },
-  "209e16": {
-    "symbol": "rwby_wm_pair_pair_209e16",
+  "209e46": {
+    "symbol": "rwby_wm_pair_pair_209e46",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "209e3a": {
-    "symbol": "rwby_unsigned_long_wm_vector_209e3a",
+  "209e6a": {
+    "symbol": "rwby_unsigned_long_wm_vector_209e6a",
     "arguments": "4:stack4,4:stack8"
   },
-  "209e80": {
-    "symbol": "rwby_wm_vector_reserve_209e80",
+  "209eb0": {
+    "symbol": "rwby_wm_vector_reserve_209eb0",
     "arguments": "4:stack4,4:stack8"
   },
-  "209eef": {
-    "symbol": "rwby_winter_ruby_RubyValue_wm_detail_vector_allocate_209eef",
+  "209f1f": {
+    "symbol": "rwby_winter_ruby_RubyValue_wm_detail_vector_allocate_209f1f",
     "arguments": "4:stack4"
   },
-  "209f10": {
-    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_209f10",
+  "209f40": {
+    "symbol": "rwby_winter_ruby_RubyValue_RubyValue_209f40",
     "arguments": "4:stack4,4:stack8"
   },
-  "209f36": {
-    "symbol": "rwby_wm_variant_209f36",
+  "209f66": {
+    "symbol": "rwby_wm_variant_209f66",
     "arguments": "4:stack4,4:stack8"
   },
-  "209f58": {
-    "symbol": "rwby_void_wm_detail_variant_move_209f58",
+  "209f88": {
+    "symbol": "rwby_void_wm_detail_variant_move_209f88",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "209f69": {
-    "symbol": "rwby_void_wm_detail_variant_move_209f69",
+  "209f99": {
+    "symbol": "rwby_void_wm_detail_variant_move_209f99",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "209f8a": {
-    "symbol": "rwby_void_wm_detail_variant_move_209f8a",
+  "209fba": {
+    "symbol": "rwby_void_wm_detail_variant_move_209fba",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "209fa5": {
-    "symbol": "rwby_void_wm_detail_variant_move_209fa5",
+  "209fd5": {
+    "symbol": "rwby_void_wm_detail_variant_move_209fd5",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "209fc0": {
-    "symbol": "rwby_void_wm_detail_variant_move_209fc0",
+  "209ff0": {
+    "symbol": "rwby_void_wm_detail_variant_move_209ff0",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "20a002": {
-    "symbol": "rwby_unsigned_char_wm_vector_20a002",
+  "20a032": {
+    "symbol": "rwby_unsigned_char_wm_vector_20a032",
     "arguments": "4:stack4,4:stack8"
   },
-  "20a046": {
-    "symbol": "rwby_wm_vector_reserve_20a046",
+  "20a076": {
+    "symbol": "rwby_wm_vector_reserve_20a076",
     "arguments": "4:stack4,4:stack8"
   },
-  "20a090": {
-    "symbol": "rwby_unsigned_char_wm_detail_vector_allocate_20a090",
+  "20a0c0": {
+    "symbol": "rwby_unsigned_char_wm_detail_vector_allocate_20a0c0",
     "arguments": "4:stack4"
   },
-  "20a0a4": {
-    "symbol": "rwby_wm_vector_resize_20a0a4",
+  "20a0d4": {
+    "symbol": "rwby_wm_vector_resize_20a0d4",
     "arguments": "4:stack4,4:stack8"
   },
-  "20a116": {
-    "symbol": "rwby_wm_vector_resize_20a116",
+  "20a146": {
+    "symbol": "rwby_wm_vector_resize_20a146",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "20a166": {
-    "symbol": "rwby_wm_vector_resize_20a166",
+  "20a196": {
+    "symbol": "rwby_wm_vector_resize_20a196",
     "arguments": "4:stack4,4:stack8"
   },
-  "20a1a4": {
-    "symbol": "rwby_wm_unordered_map_find_20a1a4",
+  "20a1d4": {
+    "symbol": "rwby_wm_unordered_map_find_20a1d4",
     "arguments": "4:stack4,4:stack8"
   },
-  "20a1d2": {
-    "symbol": "rwby_wm_unordered_map_prepare_insert_20a1d2",
+  "20a202": {
+    "symbol": "rwby_wm_unordered_map_prepare_insert_20a202",
     "arguments": "4:stack4"
   },
-  "20a20e": {
-    "symbol": "rwby_wm_pair_20a20e",
+  "20a23e": {
+    "symbol": "rwby_wm_pair_20a23e",
     "arguments": "4:stack4,4:stack8,4:stack12"
-  },
-  "20a26c": {
-    "symbol": "rwby_wm_unordered_map_link_index_20a26c",
-    "arguments": "4:stack4,4:stack8"
   },
   "20a29c": {
-    "symbol": "rwby_wm_unordered_map_find_index_20a29c",
+    "symbol": "rwby_wm_unordered_map_link_index_20a29c",
     "arguments": "4:stack4,4:stack8"
   },
-  "20a2fe": {
-    "symbol": "rwby_wm_unordered_map_bucket_for_key_20a2fe",
+  "20a2cc": {
+    "symbol": "rwby_wm_unordered_map_find_index_20a2cc",
     "arguments": "4:stack4,4:stack8"
   },
-  "20a324": {
-    "symbol": "rwby_wm_unordered_map_rehash_20a324",
+  "20a32e": {
+    "symbol": "rwby_wm_unordered_map_bucket_for_key_20a32e",
     "arguments": "4:stack4,4:stack8"
   },
-  "20a380": {
-    "symbol": "rwby_wm_unordered_map_bucket_count_for_size_20a380",
+  "20a354": {
+    "symbol": "rwby_wm_unordered_map_rehash_20a354",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "20a3b0": {
+    "symbol": "rwby_wm_unordered_map_bucket_count_for_size_20a3b0",
     "arguments": "4:stack4"
   },
-  "20a394": {
-    "symbol": "rwby_wm_unordered_map_rebuild_buckets_20a394",
+  "20a3c4": {
+    "symbol": "rwby_wm_unordered_map_rebuild_buckets_20a3c4",
     "arguments": "4:stack4"
   },
-  "20a3c8": {
-    "symbol": "rwby_wm_vector_reserve_20a3c8",
+  "20a3f8": {
+    "symbol": "rwby_wm_vector_reserve_20a3f8",
     "arguments": "4:stack4,4:stack8"
   },
-  "20a434": {
-    "symbol": "rwby_wm_pair_20a434",
+  "20a464": {
+    "symbol": "rwby_wm_pair_20a464",
     "arguments": "4:stack4"
   },
-  "20a456": {
-    "symbol": "rwby_wm_pair_20a456",
+  "20a486": {
+    "symbol": "rwby_wm_pair_20a486",
     "arguments": "4:stack4,4:stack8"
   },
-  "20a500": {
-    "symbol": "rwby_wm_pair_20a500",
+  "20a530": {
+    "symbol": "rwby_wm_pair_20a530",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "20a5ac": {
-    "symbol": "rwby_wm_variant_const_20a5ac",
+  "20a5dc": {
+    "symbol": "rwby_wm_variant_const_20a5dc",
     "arguments": "4:stack4,4:stack8"
   },
-  "20a5e4": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_resolveGlobalSlot_20a5e4",
+  "20a614": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_resolveGlobalSlot_20a614",
     "arguments": "4:stack4,4:stack8"
   },
-  "20a61a": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_getGlobalBySlot_20a61a",
+  "20a64a": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_getGlobalBySlot_20a64a",
     "arguments": "4:stack4,4:stack8"
   },
-  "20a642": {
-    "symbol": "rwby_wm_unordered_map_find_20a642",
+  "20a672": {
+    "symbol": "rwby_wm_unordered_map_find_20a672",
     "arguments": "4:stack4,4:stack8"
   },
-  "20a670": {
-    "symbol": "rwby_wm_vector_vector_20a670",
+  "20a6a0": {
+    "symbol": "rwby_wm_vector_vector_20a6a0",
     "arguments": "4:ECX"
   },
-  "20a6b0": {
-    "symbol": "rwby_winter_ruby_Program_Program_20a6b0",
+  "20a6e0": {
+    "symbol": "rwby_winter_ruby_Program_Program_20a6e0",
     "arguments": "4:ECX"
   },
-  "20a706": {
-    "symbol": "rwby_winter_ruby_Compiler_Compiler_20a706",
+  "20a736": {
+    "symbol": "rwby_winter_ruby_Compiler_Compiler_20a736",
     "arguments": "4:ECX"
   },
-  "20a72c": {
-    "symbol": "rwby_winter_ruby_Lexer_Lexer_20a72c",
+  "20a75c": {
+    "symbol": "rwby_winter_ruby_Lexer_Lexer_20a75c",
     "arguments": "4:ECX"
   },
-  "20a74c": {
-    "symbol": "rwby_wm_vector_push_back_20a74c",
+  "20a77c": {
+    "symbol": "rwby_wm_vector_push_back_20a77c",
     "arguments": "4:ECX,4:EDX"
   },
-  "20a7e0": {
-    "symbol": "rwby_winter_ruby_Lexer_makeToken_20a7e0",
+  "20a810": {
+    "symbol": "rwby_winter_ruby_Lexer_makeToken_20a810",
     "arguments": "4:ECX,1:DL,4:stack4,4:stack8,4:stack12"
   },
-  "20a82b": {
-    "symbol": "rwby_winter_ruby_fail_20a82b",
+  "20a85b": {
+    "symbol": "rwby_winter_ruby_fail_20a85b",
     "arguments": "4:ECX"
   },
-  "20a8d6": {
-    "symbol": "rwby_winter_ruby_formatError_20a8d6",
+  "20a906": {
+    "symbol": "rwby_winter_ruby_formatError_20a906",
     "arguments": "4:ECX,4:EDX,4:stack4,4:stack8,4:stack12"
   },
-  "20aa2d": {
-    "symbol": "rwby_wm_operator_20aa2d",
+  "20aa5d": {
+    "symbol": "rwby_wm_operator_20aa5d",
     "arguments": "4:stack4,4:stack8,1:stack12"
-  },
-  "20aadc": {
-    "symbol": "rwby_winter_ruby_Token_Token_20aadc",
-    "arguments": "4:ECX,4:EDX"
   },
   "20ab0c": {
-    "symbol": "rwby_wm_string_operator_20ab0c",
+    "symbol": "rwby_winter_ruby_Token_Token_20ab0c",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20ab3c": {
+    "symbol": "rwby_wm_string_operator_20ab3c",
     "arguments": "4:stack4,4:stack8"
   },
-  "20ab4c": {
-    "symbol": "rwby_wm_runtime_error_runtime_error_20ab4c",
+  "20ab7c": {
+    "symbol": "rwby_wm_runtime_error_runtime_error_20ab7c",
     "arguments": "4:stack4,4:stack8"
   },
-  "20ab58": {
-    "symbol": "rwby_std_ostringstream_operator_20ab58",
+  "20ab88": {
+    "symbol": "rwby_std_ostringstream_operator_20ab88",
     "arguments": "4:stack4,4:stack8"
   },
-  "20ab74": {
-    "symbol": "rwby_std_ostringstream_append_unsigned_20ab74",
+  "20aba4": {
+    "symbol": "rwby_std_ostringstream_append_unsigned_20aba4",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "20ac2c": {
-    "symbol": "rwby_wm_string_string_20ac2c",
+  "20ac5c": {
+    "symbol": "rwby_wm_string_string_20ac5c",
     "arguments": "4:stack4,4:stack8,1:stack12"
   },
-  "20ac44": {
-    "symbol": "rwby_wm_string_resize_20ac44",
+  "20ac74": {
+    "symbol": "rwby_wm_string_resize_20ac74",
     "arguments": "4:stack4,4:stack8,1:stack12"
   },
-  "20ac98": {
-    "symbol": "rwby_wm_string_growth_for_20ac98",
+  "20acc8": {
+    "symbol": "rwby_wm_string_growth_for_20acc8",
     "arguments": "4:stack4"
   },
-  "20acac": {
-    "symbol": "rwby_wm_vector_vector_20acac",
+  "20acdc": {
+    "symbol": "rwby_wm_vector_vector_20acdc",
     "arguments": "4:ECX"
   },
-  "20acc6": {
-    "symbol": "rwby_winter_ruby_CompiledFunction_CompiledFunction_20acc6",
+  "20acf6": {
+    "symbol": "rwby_winter_ruby_CompiledFunction_CompiledFunction_20acf6",
     "arguments": "4:ECX"
   },
-  "20ad30": {
-    "symbol": "rwby_wm_string_operator_20ad30",
+  "20ad60": {
+    "symbol": "rwby_wm_string_operator_20ad60",
     "arguments": "4:stack4,4:stack8"
   },
-  "20ad58": {
-    "symbol": "rwby_wm_vector_reserve_20ad58",
+  "20ad88": {
+    "symbol": "rwby_wm_vector_reserve_20ad88",
     "arguments": "4:ECX,4:EDX"
   },
-  "20adc4": {
-    "symbol": "rwby_winter_ruby_CompiledFunction_CompiledFunction_20adc4",
+  "20adf4": {
+    "symbol": "rwby_winter_ruby_CompiledFunction_CompiledFunction_20adf4",
     "arguments": "4:ECX,4:EDX"
   },
-  "20aeae": {
-    "symbol": "rwby_wm_vector_20aeae",
+  "20aede": {
+    "symbol": "rwby_wm_vector_20aede",
     "arguments": "4:stack4,4:stack8"
   },
-  "20aed4": {
-    "symbol": "rwby_wm_unordered_map_20aed4",
+  "20af04": {
+    "symbol": "rwby_wm_unordered_map_20af04",
     "arguments": "4:stack4,4:stack8"
   },
-  "20af16": {
-    "symbol": "rwby_wm_vector_20af16",
+  "20af46": {
+    "symbol": "rwby_wm_vector_20af46",
     "arguments": "4:stack4,4:stack8"
   },
-  "20af3c": {
-    "symbol": "rwby_wm_vector_20af3c",
+  "20af6c": {
+    "symbol": "rwby_wm_vector_20af6c",
     "arguments": "4:stack4,4:stack8"
   },
-  "20af62": {
-    "symbol": "rwby_wm_vector_20af62",
+  "20af92": {
+    "symbol": "rwby_wm_vector_20af92",
     "arguments": "4:stack4,4:stack8"
   },
-  "20af88": {
-    "symbol": "rwby_wm_unordered_map_unordered_map_20af88",
+  "20afb8": {
+    "symbol": "rwby_wm_unordered_map_unordered_map_20afb8",
     "arguments": "4:stack4"
   },
-  "20afb4": {
-    "symbol": "rwby_wm_vector_vector_20afb4",
+  "20afe4": {
+    "symbol": "rwby_wm_vector_vector_20afe4",
     "arguments": "4:stack4"
   },
-  "20afd4": {
-    "symbol": "rwby_wm_vector_clear_20afd4",
+  "20b004": {
+    "symbol": "rwby_wm_vector_clear_20b004",
     "arguments": "4:stack4"
   },
-  "20b00a": {
-    "symbol": "rwby_wm_vector_vector_20b00a",
+  "20b03a": {
+    "symbol": "rwby_wm_vector_vector_20b03a",
     "arguments": "4:stack4"
   },
-  "20b026": {
-    "symbol": "rwby_wm_unordered_map_unordered_map_20b026",
+  "20b056": {
+    "symbol": "rwby_wm_unordered_map_unordered_map_20b056",
     "arguments": "4:stack4"
   },
-  "20b04e": {
-    "symbol": "rwby_wm_vector_vector_20b04e",
+  "20b07e": {
+    "symbol": "rwby_wm_vector_vector_20b07e",
     "arguments": "4:stack4"
   },
-  "20b06e": {
-    "symbol": "rwby_wm_vector_clear_20b06e",
+  "20b09e": {
+    "symbol": "rwby_wm_vector_clear_20b09e",
     "arguments": "4:stack4"
   },
-  "20b0a2": {
-    "symbol": "rwby_wm_vector_vector_20b0a2",
+  "20b0d2": {
+    "symbol": "rwby_wm_vector_vector_20b0d2",
     "arguments": "4:ECX"
   },
-  "20b0be": {
-    "symbol": "rwby_wm_vector_clear_20b0be",
+  "20b0ee": {
+    "symbol": "rwby_wm_vector_clear_20b0ee",
     "arguments": "4:ECX"
   },
-  "20b0f4": {
-    "symbol": "rwby_winter_ruby_writeBytes_20b0f4",
+  "20b124": {
+    "symbol": "rwby_winter_ruby_writeBytes_20b124",
     "arguments": "4:ECX,4:EDX,4:stack4"
   },
-  "20b112": {
-    "symbol": "rwby_winter_ruby_writeU32_20b112",
+  "20b142": {
+    "symbol": "rwby_winter_ruby_writeU32_20b142",
     "arguments": "4:ECX,4:EDX"
   },
-  "20b130": {
-    "symbol": "rwby_winter_ruby_writeString_20b130",
+  "20b160": {
+    "symbol": "rwby_winter_ruby_writeString_20b160",
     "arguments": "4:ECX,4:EDX"
   },
-  "20b164": {
-    "symbol": "rwby_winter_ruby_writeU8_20b164",
+  "20b194": {
+    "symbol": "rwby_winter_ruby_writeU8_20b194",
     "arguments": "4:ECX,1:DL"
   },
-  "20b17e": {
-    "symbol": "rwby_winter_ruby_writeI32_20b17e",
+  "20b1ae": {
+    "symbol": "rwby_winter_ruby_writeI32_20b1ae",
     "arguments": "4:ECX,4:EDX"
   },
-  "20b19c": {
-    "symbol": "rwby_unsigned_char_wm_vector_20b19c",
+  "20b1cc": {
+    "symbol": "rwby_unsigned_char_wm_vector_20b1cc",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "20b240": {
-    "symbol": "rwby_unsigned_char_wm_vector_20b240",
+  "20b270": {
+    "symbol": "rwby_unsigned_char_wm_vector_20b270",
     "arguments": "4:stack4,4:stack8"
   },
-  "20b284": {
-    "symbol": "rwby_wm_vector_vector_20b284",
+  "20b2b4": {
+    "symbol": "rwby_wm_vector_vector_20b2b4",
     "arguments": "4:stack4"
   },
-  "20b2a0": {
-    "symbol": "rwby_winter_ruby_Compiler_skipSeparators_20b2a0",
+  "20b2d0": {
+    "symbol": "rwby_winter_ruby_Compiler_skipSeparators_20b2d0",
     "arguments": "4:ECX"
   },
-  "20b2d4": {
-    "symbol": "rwby_winter_ruby_Compiler_compileStatement_20b2d4",
+  "20b304": {
+    "symbol": "rwby_winter_ruby_Compiler_compileStatement_20b304",
     "arguments": "4:ECX,4:EDX"
   },
-  "20be80": {
-    "symbol": "rwby_winter_ruby_finalizeProgramMetadata_20be80",
+  "20beb0": {
+    "symbol": "rwby_winter_ruby_finalizeProgramMetadata_20beb0",
     "arguments": "4:ECX"
   },
-  "20c3ba": {
-    "symbol": "rwby_winter_ruby_Compiler_match_20c3ba",
+  "20c3ea": {
+    "symbol": "rwby_winter_ruby_Compiler_match_20c3ea",
     "arguments": "4:ECX,1:DL"
   },
-  "20c3e0": {
-    "symbol": "rwby_winter_ruby_Compiler_advance_20c3e0",
+  "20c410": {
+    "symbol": "rwby_winter_ruby_Compiler_advance_20c410",
     "arguments": "4:ECX"
   },
-  "20c402": {
-    "symbol": "rwby_winter_ruby_Compiler_compileExpression_20c402",
+  "20c432": {
+    "symbol": "rwby_winter_ruby_Compiler_compileExpression_20c432",
     "arguments": "4:ECX,4:EDX"
   },
-  "20c50a": {
-    "symbol": "rwby_winter_ruby_Compiler_emit_20c50a",
+  "20c53a": {
+    "symbol": "rwby_winter_ruby_Compiler_emit_20c53a",
     "arguments": "4:ECX,4:EDX,1:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "20c56a": {
-    "symbol": "rwby_winter_ruby_Compiler_consumeOptionalClauseSeparator_20c56a",
+  "20c59a": {
+    "symbol": "rwby_winter_ruby_Compiler_consumeOptionalClauseSeparator_20c59a",
     "arguments": "4:ECX"
-  },
-  "20c594": {
-    "symbol": "rwby_winter_ruby_Compiler_emitJump_20c594",
-    "arguments": "4:ECX,4:EDX,1:stack4,4:stack8"
   },
   "20c5c4": {
-    "symbol": "rwby_winter_ruby_Compiler_compileBlock_20c5c4",
-    "arguments": "4:ECX,4:EDX,4:stack4,4:stack8"
+    "symbol": "rwby_winter_ruby_Compiler_emitJump_20c5c4",
+    "arguments": "4:ECX,4:EDX,1:stack4,4:stack8"
   },
-  "20c618": {
-    "symbol": "rwby_winter_ruby_Token_Token_20c618",
-    "arguments": "4:ECX,4:EDX"
+  "20c5f4": {
+    "symbol": "rwby_winter_ruby_Compiler_compileBlock_20c5f4",
+    "arguments": "4:ECX,4:EDX,4:stack4,4:stack8"
   },
   "20c648": {
-    "symbol": "rwby_winter_ruby_Compiler_consume_20c648",
+    "symbol": "rwby_winter_ruby_Token_Token_20c648",
+    "arguments": "4:ECX,4:EDX"
+  },
+  "20c678": {
+    "symbol": "rwby_winter_ruby_Compiler_consume_20c678",
     "arguments": "4:ECX,4:EDX,4:stack4"
   },
-  "20c71a": {
-    "symbol": "rwby_unsigned_long_wm_vector_20c71a",
+  "20c74a": {
+    "symbol": "rwby_unsigned_long_wm_vector_20c74a",
     "arguments": "4:stack4,4:stack8"
   },
-  "20c760": {
-    "symbol": "rwby_winter_ruby_CompiledFunction_CompiledFunction_20c760",
+  "20c790": {
+    "symbol": "rwby_winter_ruby_CompiledFunction_CompiledFunction_20c790",
     "arguments": "4:ECX"
   },
-  "20c8f4": {
-    "symbol": "rwby_wm_vector_const_20c8f4",
+  "20c924": {
+    "symbol": "rwby_wm_vector_const_20c924",
     "arguments": "4:stack4,4:stack8"
   },
-  "20c946": {
-    "symbol": "rwby_winter_ruby_Compiler_addConstant_20c946",
+  "20c976": {
+    "symbol": "rwby_winter_ruby_Compiler_addConstant_20c976",
     "arguments": "4:ECX,4:EDX"
   },
-  "20c968": {
-    "symbol": "rwby_wm_string_wm_vector_20c968",
+  "20c998": {
+    "symbol": "rwby_wm_string_wm_vector_20c998",
     "arguments": "4:stack4,4:stack8"
   },
-  "20c9ba": {
-    "symbol": "rwby_wm_vector_reserve_20c9ba",
+  "20c9ea": {
+    "symbol": "rwby_wm_vector_reserve_20c9ea",
     "arguments": "4:stack4,4:stack8"
   },
-  "20ca26": {
-    "symbol": "rwby_wm_string_wm_detail_vector_allocate_20ca26",
+  "20ca56": {
+    "symbol": "rwby_wm_string_wm_detail_vector_allocate_20ca56",
     "arguments": "4:stack4"
   },
-  "20ca48": {
-    "symbol": "rwby_wm_vector_const_20ca48",
+  "20ca78": {
+    "symbol": "rwby_wm_vector_const_20ca78",
     "arguments": "4:stack4,4:stack8"
   },
-  "20caa8": {
-    "symbol": "rwby_winter_ruby_CompiledFunction_CompiledFunction_20caa8",
+  "20cad8": {
+    "symbol": "rwby_winter_ruby_CompiledFunction_CompiledFunction_20cad8",
     "arguments": "4:ECX,4:EDX"
   },
-  "20cdd2": {
-    "symbol": "rwby_wm_vector_reserve_20cdd2",
+  "20ce02": {
+    "symbol": "rwby_wm_vector_reserve_20ce02",
     "arguments": "4:ECX,4:EDX"
   },
-  "20ce48": {
-    "symbol": "rwby_wm_unordered_map_const_20ce48",
+  "20ce78": {
+    "symbol": "rwby_wm_unordered_map_const_20ce78",
     "arguments": "4:stack4,4:stack8"
   },
-  "20cf30": {
-    "symbol": "rwby_wm_vector_const_20cf30",
+  "20cf60": {
+    "symbol": "rwby_wm_vector_const_20cf60",
     "arguments": "4:stack4,4:stack8"
   },
-  "20cf90": {
-    "symbol": "rwby_wm_vector_reserve_20cf90",
+  "20cfc0": {
+    "symbol": "rwby_wm_vector_reserve_20cfc0",
     "arguments": "4:stack4,4:stack8"
   },
-  "20cffc": {
-    "symbol": "rwby_wm_pair_20cffc",
+  "20d02c": {
+    "symbol": "rwby_wm_pair_20d02c",
     "arguments": "4:stack4"
   },
-  "20d01e": {
-    "symbol": "rwby_wm_pair_20d01e",
+  "20d04e": {
+    "symbol": "rwby_wm_pair_20d04e",
     "arguments": "4:stack4,4:stack8"
   },
-  "20d040": {
-    "symbol": "rwby_wm_pair_const_20d040",
+  "20d070": {
+    "symbol": "rwby_wm_pair_const_20d070",
     "arguments": "4:stack4,4:stack8"
   },
-  "20d062": {
-    "symbol": "rwby_wm_vector_const_20d062",
+  "20d092": {
+    "symbol": "rwby_wm_vector_const_20d092",
     "arguments": "4:stack4,4:stack8"
   },
-  "20d0ac": {
-    "symbol": "rwby_wm_vector_reserve_20d0ac",
+  "20d0dc": {
+    "symbol": "rwby_wm_vector_reserve_20d0dc",
     "arguments": "4:stack4,4:stack8"
   },
-  "20d0f5": {
-    "symbol": "rwby_int_wm_detail_vector_allocate_20d0f5",
+  "20d125": {
+    "symbol": "rwby_int_wm_detail_vector_allocate_20d125",
     "arguments": "4:stack4"
   },
-  "20d116": {
-    "symbol": "rwby_wm_vector_const_20d116",
+  "20d146": {
+    "symbol": "rwby_wm_vector_const_20d146",
     "arguments": "4:stack4,4:stack8"
   },
-  "20d160": {
-    "symbol": "rwby_wm_vector_reserve_20d160",
+  "20d190": {
+    "symbol": "rwby_wm_vector_reserve_20d190",
     "arguments": "4:ECX,4:EDX"
   },
-  "20d1cc": {
-    "symbol": "rwby_winter_ruby_FastNode_FastNode_20d1cc",
+  "20d1fc": {
+    "symbol": "rwby_winter_ruby_FastNode_FastNode_20d1fc",
     "arguments": "4:ECX,4:EDX"
   },
-  "20d20e": {
-    "symbol": "rwby_winter_ruby_RubyValue_wm_vector_20d20e",
+  "20d23e": {
+    "symbol": "rwby_winter_ruby_RubyValue_wm_vector_20d23e",
     "arguments": "4:stack4,4:stack8"
   },
-  "20d260": {
-    "symbol": "rwby_winter_ruby_Compiler_compileAnd_20d260",
+  "20d290": {
+    "symbol": "rwby_winter_ruby_Compiler_compileAnd_20d290",
     "arguments": "4:ECX,4:EDX"
   },
-  "20d368": {
-    "symbol": "rwby_winter_ruby_Compiler_compileEquality_20d368",
+  "20d398": {
+    "symbol": "rwby_winter_ruby_Compiler_compileEquality_20d398",
     "arguments": "4:ECX,4:EDX"
   },
-  "20d47a": {
-    "symbol": "rwby_winter_ruby_Compiler_compileComparison_20d47a",
+  "20d4aa": {
+    "symbol": "rwby_winter_ruby_Compiler_compileComparison_20d4aa",
     "arguments": "4:ECX,4:EDX"
   },
-  "20d5a8": {
-    "symbol": "rwby_winter_ruby_Compiler_compileTerm_20d5a8",
+  "20d5d8": {
+    "symbol": "rwby_winter_ruby_Compiler_compileTerm_20d5d8",
     "arguments": "4:ECX,4:EDX"
   },
-  "20d6b8": {
-    "symbol": "rwby_winter_ruby_Compiler_compileFactor_20d6b8",
+  "20d6e8": {
+    "symbol": "rwby_winter_ruby_Compiler_compileFactor_20d6e8",
     "arguments": "4:ECX,4:EDX"
   },
-  "20d7d8": {
-    "symbol": "rwby_winter_ruby_Compiler_compileUnary_20d7d8",
+  "20d808": {
+    "symbol": "rwby_winter_ruby_Compiler_compileUnary_20d808",
     "arguments": "4:ECX,4:EDX"
   },
-  "20e095": {
-    "symbol": "rwby_wm_stoll_20e095",
+  "20e0c5": {
+    "symbol": "rwby_wm_stoll_20e0c5",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "20e0da": {
-    "symbol": "rwby_wm_string_operator_wm_string_view_20e0da",
+  "20e10a": {
+    "symbol": "rwby_wm_string_operator_wm_string_view_20e10a",
     "arguments": "4:stack4"
   },
-  "20e0f1": {
-    "symbol": "rwby_wm_stod_20e0f1",
+  "20e121": {
+    "symbol": "rwby_wm_stod_20e121",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "20e270": {
-    "symbol": "rwby_wm_from_chars_result_wm_from_chars_20e270",
+  "20e2a0": {
+    "symbol": "rwby_wm_from_chars_result_wm_from_chars_20e2a0",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "20e3e9": {
-    "symbol": "rwby_wm_digit_from_char_20e3e9",
+  "20e419": {
+    "symbol": "rwby_wm_digit_from_char_20e419",
     "arguments": "1:stack4"
   },
-  "20e422": {
-    "symbol": "rwby_wm_unordered_map_clear_20e422",
+  "20e452": {
+    "symbol": "rwby_wm_unordered_map_clear_20e452",
     "arguments": "4:stack4"
   },
-  "20e440": {
-    "symbol": "rwby_wm_vector_assign_20e440",
+  "20e470": {
+    "symbol": "rwby_wm_vector_assign_20e470",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "20e450": {
-    "symbol": "rwby_winter_ruby_ensureLocalSlot_20e450",
+  "20e480": {
+    "symbol": "rwby_winter_ruby_ensureLocalSlot_20e480",
     "arguments": "4:ECX,4:EDX"
   },
-  "20e4a8": {
-    "symbol": "rwby_wm_unordered_map_find_20e4a8",
+  "20e4d8": {
+    "symbol": "rwby_wm_unordered_map_find_20e4d8",
     "arguments": "4:stack4,4:stack8"
   },
-  "20e4d6": {
-    "symbol": "rwby_wm_vector_resize_20e4d6",
+  "20e506": {
+    "symbol": "rwby_wm_vector_resize_20e506",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "20e522": {
-    "symbol": "rwby_wm_vector_resize_20e522",
+  "20e552": {
+    "symbol": "rwby_wm_vector_resize_20e552",
     "arguments": "4:stack4,4:stack8"
   },
-  "20e55d": {
-    "symbol": "rwby_winter_ruby_buildFastExpressionRange_20e55d",
+  "20e58d": {
+    "symbol": "rwby_winter_ruby_buildFastExpressionRange_20e58d",
     "arguments": "4:ECX,4:EDX,4:stack4,4:stack8,4:stack12"
   },
-  "20e932": {
-    "symbol": "rwby_wm_vector_20e932",
+  "20e962": {
+    "symbol": "rwby_wm_vector_20e962",
     "arguments": "4:ECX,4:EDX"
   },
-  "20e978": {
-    "symbol": "rwby_wm_vector_push_back_20e978",
+  "20e9a8": {
+    "symbol": "rwby_wm_vector_push_back_20e9a8",
     "arguments": "4:ECX,4:EDX"
   },
-  "20e9b2": {
-    "symbol": "rwby_int_wm_vector_20e9b2",
+  "20e9e2": {
+    "symbol": "rwby_int_wm_vector_20e9e2",
     "arguments": "4:stack4,4:stack8"
   },
-  "20e9f1": {
-    "symbol": "rwby_winter_ruby_getStringConstantPtr_20e9f1",
+  "20ea21": {
+    "symbol": "rwby_winter_ruby_getStringConstantPtr_20ea21",
     "arguments": "4:ECX,4:EDX"
   },
-  "20ea1c": {
-    "symbol": "rwby_wm_operator_20ea1c",
+  "20ea4c": {
+    "symbol": "rwby_wm_operator_20ea4c",
     "arguments": "4:stack4,4:stack8"
   },
-  "20ea3a": {
-    "symbol": "rwby_wm_pair_20ea3a",
+  "20ea6a": {
+    "symbol": "rwby_wm_pair_20ea6a",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "20eac2": {
-    "symbol": "rwby_wm_unordered_map_prepare_insert_20eac2",
+  "20eaf2": {
+    "symbol": "rwby_wm_unordered_map_prepare_insert_20eaf2",
     "arguments": "4:stack4"
   },
-  "20eafe": {
-    "symbol": "rwby_wm_pair_20eafe",
+  "20eb2e": {
+    "symbol": "rwby_wm_pair_20eb2e",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "20eb60": {
-    "symbol": "rwby_wm_unordered_map_link_index_20eb60",
+  "20eb90": {
+    "symbol": "rwby_wm_unordered_map_link_index_20eb90",
     "arguments": "4:stack4,4:stack8"
   },
-  "20eb92": {
-    "symbol": "rwby_wm_unordered_map_rehash_20eb92",
+  "20ebc2": {
+    "symbol": "rwby_wm_unordered_map_rehash_20ebc2",
     "arguments": "4:stack4,4:stack8"
   },
-  "20ebee": {
-    "symbol": "rwby_wm_unordered_map_bucket_count_for_size_20ebee",
+  "20ec1e": {
+    "symbol": "rwby_wm_unordered_map_bucket_count_for_size_20ec1e",
     "arguments": "4:stack4"
   },
-  "20ec02": {
-    "symbol": "rwby_wm_unordered_map_rebuild_buckets_20ec02",
+  "20ec32": {
+    "symbol": "rwby_wm_unordered_map_rebuild_buckets_20ec32",
     "arguments": "4:stack4"
   },
-  "20ec36": {
-    "symbol": "rwby_wm_pair_pair_20ec36",
+  "20ec66": {
+    "symbol": "rwby_wm_pair_pair_20ec66",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "20ec5a": {
-    "symbol": "rwby_wm_unordered_map_bucket_for_key_20ec5a",
+  "20ec8a": {
+    "symbol": "rwby_wm_unordered_map_bucket_for_key_20ec8a",
     "arguments": "4:stack4,4:stack8"
   },
-  "20ec80": {
-    "symbol": "rwby_wm_unordered_map_find_index_20ec80",
+  "20ecb0": {
+    "symbol": "rwby_wm_unordered_map_find_index_20ecb0",
     "arguments": "4:stack4,4:stack8"
   },
-  "20ece4": {
-    "symbol": "rwby_wm_vector_const_20ece4",
+  "20ed14": {
+    "symbol": "rwby_wm_vector_const_20ed14",
     "arguments": "4:stack4,4:stack8"
   },
-  "20ed44": {
-    "symbol": "rwby_std_ofstream_ofstream_20ed44",
+  "20ed74": {
+    "symbol": "rwby_std_ofstream_ofstream_20ed74",
     "arguments": "4:stack4"
   },
-  "20ed5e": {
-    "symbol": "rwby_std_ofstream_ofstream_20ed5e",
+  "20ed8e": {
+    "symbol": "rwby_std_ofstream_ofstream_20ed8e",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "20ee1c": {
-    "symbol": "rwby_std_ofstream_open_20ee1c",
+  "20ee4c": {
+    "symbol": "rwby_std_ofstream_open_20ee4c",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "20ee4a": {
-    "symbol": "rwby_std_basic_file_basic_file_20ee4a",
+  "20ee7a": {
+    "symbol": "rwby_std_basic_file_basic_file_20ee7a",
     "arguments": "4:stack4"
   },
-  "20eec4": {
-    "symbol": "rwby_std_ofstream_ofstream_20eec4",
+  "20eef4": {
+    "symbol": "rwby_std_ofstream_ofstream_20eef4",
     "arguments": "4:stack4,4:stack8"
   },
-  "20eee2": {
-    "symbol": "rwby_std_basic_file_open_file_20eee2",
+  "20ef12": {
+    "symbol": "rwby_std_basic_file_open_file_20ef12",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "20ef28": {
-    "symbol": "rwby_std_basic_file_close_20ef28",
+  "20ef58": {
+    "symbol": "rwby_std_basic_file_close_20ef58",
     "arguments": "4:stack4"
   },
-  "20ef53": {
-    "symbol": "rwby_std_detail_fopen_mode_20ef53",
+  "20ef83": {
+    "symbol": "rwby_std_detail_fopen_mode_20ef83",
     "arguments": "4:stack4"
   },
-  "20efca": {
-    "symbol": "rwby_std_basic_file_write_bytes_20efca",
+  "20effa": {
+    "symbol": "rwby_std_basic_file_write_bytes_20effa",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "20f01c": {
-    "symbol": "rwby_std_ostringstream_operator_20f01c",
+  "20f04c": {
+    "symbol": "rwby_std_ostringstream_operator_20f04c",
     "arguments": "4:stack4,4:stack8"
   },
-  "20f072": {
-    "symbol": "rwby_std_ifstream_ifstream_20f072",
+  "20f0a2": {
+    "symbol": "rwby_std_ifstream_ifstream_20f0a2",
     "arguments": "4:stack4"
   },
-  "20f08c": {
-    "symbol": "rwby_std_ifstream_ifstream_20f08c",
+  "20f0bc": {
+    "symbol": "rwby_std_ifstream_ifstream_20f0bc",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "20f148": {
-    "symbol": "rwby_std_ifstream_open_20f148",
+  "20f178": {
+    "symbol": "rwby_std_ifstream_open_20f178",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "20f176": {
-    "symbol": "rwby_std_ifstream_ifstream_20f176",
+  "20f1a6": {
+    "symbol": "rwby_std_ifstream_ifstream_20f1a6",
     "arguments": "4:stack4,4:stack8"
   },
-  "20f193": {
-    "symbol": "rwby_wm_shared_ptr_20f193",
+  "20f1c3": {
+    "symbol": "rwby_wm_shared_ptr_20f1c3",
     "arguments": "4:ECX,4:EDX"
   },
-  "20f217": {
-    "symbol": "rwby_winter_ruby_deserializeProgram_20f217",
+  "20f247": {
+    "symbol": "rwby_winter_ruby_deserializeProgram_20f247",
     "arguments": "4:ECX,4:EDX"
   },
-  "20f942": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_executeFunction_20f942",
+  "20f972": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_executeFunction_20f972",
     "arguments": "4:ECX,4:EDX,4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "211a80": {
-    "symbol": "rwby_wm_vector_211a80",
+  "211ab0": {
+    "symbol": "rwby_wm_vector_211ab0",
     "arguments": "4:stack4,4:stack8"
   },
-  "211aa6": {
-    "symbol": "rwby_wm_detail_shared_control_block_impl_shared_control_block_impl_211aa6",
+  "211ad6": {
+    "symbol": "rwby_wm_detail_shared_control_block_impl_shared_control_block_impl_211ad6",
     "arguments": ""
   },
-  "211aac": {
-    "symbol": "rwby_wm_detail_shared_control_block_impl_shared_control_block_impl_211aac",
+  "211adc": {
+    "symbol": "rwby_wm_detail_shared_control_block_impl_shared_control_block_impl_211adc",
     "arguments": "4:stack4"
   },
-  "211ab6": {
-    "symbol": "rwby_wm_detail_shared_control_block_impl_destroy_object_211ab6",
+  "211ae6": {
+    "symbol": "rwby_wm_detail_shared_control_block_impl_destroy_object_211ae6",
     "arguments": "4:stack4"
   },
-  "211ae2": {
-    "symbol": "rwby_unsigned_int_winter_ruby_readPrimitive_const_unsigned_long_211ae2",
+  "211b12": {
+    "symbol": "rwby_unsigned_int_winter_ruby_readPrimitive_const_unsigned_long_211b12",
     "arguments": "4:ECX,4:EDX"
   },
-  "211bc0": {
-    "symbol": "rwby_winter_ruby_readString_211bc0",
+  "211bf0": {
+    "symbol": "rwby_winter_ruby_readString_211bf0",
     "arguments": "4:ECX,4:EDX,4:stack4"
   },
-  "211ca5": {
-    "symbol": "rwby_unsigned_char_winter_ruby_readPrimitive_const_unsigned_long_211ca5",
+  "211cd5": {
+    "symbol": "rwby_unsigned_char_winter_ruby_readPrimitive_const_unsigned_long_211cd5",
     "arguments": "4:ECX,4:EDX"
   },
-  "211d84": {
-    "symbol": "rwby_winter_ruby_RubyValue_wm_vector_211d84",
+  "211db4": {
+    "symbol": "rwby_winter_ruby_RubyValue_wm_vector_211db4",
     "arguments": "4:stack4,4:stack8"
   },
-  "211de4": {
-    "symbol": "rwby_winter_ruby_RubyValue_wm_vector_211de4",
+  "211e14": {
+    "symbol": "rwby_winter_ruby_RubyValue_wm_vector_211e14",
     "arguments": "4:stack4,4:stack8"
   },
-  "211e34": {
-    "symbol": "rwby_winter_ruby_RubyValue_wm_vector_211e34",
+  "211e64": {
+    "symbol": "rwby_winter_ruby_RubyValue_wm_vector_211e64",
     "arguments": "4:stack4,4:stack8"
   },
-  "211e84": {
-    "symbol": "rwby_winter_ruby_RubyValue_wm_vector_211e84",
+  "211eb4": {
+    "symbol": "rwby_winter_ruby_RubyValue_wm_vector_211eb4",
     "arguments": "4:stack4,4:stack8"
   },
-  "211ed6": {
-    "symbol": "rwby_int_winter_ruby_readPrimitive_const_unsigned_long_211ed6",
+  "211f06": {
+    "symbol": "rwby_int_winter_ruby_readPrimitive_const_unsigned_long_211f06",
     "arguments": "4:ECX,4:EDX"
   },
-  "211fb4": {
-    "symbol": "rwby_wm_string_wm_vector_211fb4",
+  "211fe4": {
+    "symbol": "rwby_wm_string_wm_vector_211fe4",
     "arguments": "4:stack4,4:stack8"
   },
-  "212006": {
-    "symbol": "rwby_winter_ruby_runtimeError_212006",
+  "212036": {
+    "symbol": "rwby_winter_ruby_runtimeError_212036",
     "arguments": "4:ECX,4:EDX,4:stack4"
   },
-  "212134": {
-    "symbol": "rwby_std_ostringstream_operator_212134",
+  "212164": {
+    "symbol": "rwby_std_ostringstream_operator_212164",
     "arguments": "4:stack4,4:stack8"
   },
-  "212150": {
-    "symbol": "rwby_wm_vector_assign_212150",
+  "212180": {
+    "symbol": "rwby_wm_vector_assign_212180",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "212160": {
-    "symbol": "rwby_winter_ruby_requireStringConstant_212160",
+  "212190": {
+    "symbol": "rwby_winter_ruby_requireStringConstant_212190",
     "arguments": "4:ECX,4:EDX,4:stack4"
   },
-  "21226f": {
-    "symbol": "rwby_winter_ruby_RubyValue_winter_ruby_popStack_winter_ruby_Program_const_unsigned_int_21226f",
+  "21229f": {
+    "symbol": "rwby_winter_ruby_RubyValue_winter_ruby_popStack_winter_ruby_Program_const_unsigned_int_21229f",
     "arguments": "4:ECX,4:EDX,4:stack4,4:stack8"
   },
-  "212348": {
-    "symbol": "rwby_winter_ruby_RubyValue_operator_212348",
+  "212378": {
+    "symbol": "rwby_winter_ruby_RubyValue_operator_212378",
     "arguments": "4:stack4,4:stack8"
   },
-  "212372": {
-    "symbol": "rwby_winter_ruby_addValues_212372",
+  "2123a2": {
+    "symbol": "rwby_winter_ruby_addValues_2123a2",
     "arguments": "4:ECX,4:EDX,4:stack4,4:stack8,4:stack12"
   },
-  "212616": {
-    "symbol": "rwby_winter_ruby_subtractValues_212616",
+  "212646": {
+    "symbol": "rwby_winter_ruby_subtractValues_212646",
     "arguments": "4:ECX,4:EDX,4:stack4,4:stack8,4:stack12"
   },
-  "21274e": {
-    "symbol": "rwby_winter_ruby_multiplyValues_21274e",
+  "21277e": {
+    "symbol": "rwby_winter_ruby_multiplyValues_21277e",
     "arguments": "4:ECX,4:EDX,4:stack4,4:stack8,4:stack12"
   },
-  "212895": {
-    "symbol": "rwby_winter_ruby_divideValues_212895",
+  "2128c5": {
+    "symbol": "rwby_winter_ruby_divideValues_2128c5",
     "arguments": "4:ECX,4:EDX,4:stack4,4:stack8,4:stack12"
   },
-  "2129e4": {
-    "symbol": "rwby_winter_ruby_moduloValues_2129e4",
+  "212a14": {
+    "symbol": "rwby_winter_ruby_moduloValues_212a14",
     "arguments": "4:ECX,4:EDX,4:stack4,4:stack8,4:stack12"
   },
-  "212ba2": {
-    "symbol": "rwby_winter_ruby_negateValue_212ba2",
+  "212bd2": {
+    "symbol": "rwby_winter_ruby_negateValue_212bd2",
     "arguments": "4:ECX,4:EDX,4:stack4,4:stack8"
   },
-  "212ca2": {
-    "symbol": "rwby_winter_ruby_valuesEqual_212ca2",
+  "212cd2": {
+    "symbol": "rwby_winter_ruby_valuesEqual_212cd2",
     "arguments": "4:ECX,4:EDX"
   },
-  "212e9c": {
-    "symbol": "rwby_winter_ruby_compareOrdered_212e9c",
+  "212ecc": {
+    "symbol": "rwby_winter_ruby_compareOrdered_212ecc",
     "arguments": "4:ECX,4:EDX,4:stack4,1:stack8,4:stack12,4:stack16"
   },
-  "213060": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_callValue_213060",
+  "213090": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_callValue_213090",
     "arguments": "4:ECX,4:EDX,4:stack4,4:stack8,4:stack12,4:stack16,4:stack20"
   },
-  "213cfc": {
-    "symbol": "rwby_winter_ruby_makeFunctionValue_213cfc",
+  "213d2c": {
+    "symbol": "rwby_winter_ruby_makeFunctionValue_213d2c",
     "arguments": "4:ECX,4:EDX"
   },
-  "213d98": {
-    "symbol": "rwby_winter_ruby_makeScriptFunction_213d98",
+  "213dc8": {
+    "symbol": "rwby_winter_ruby_makeScriptFunction_213dc8",
     "arguments": "4:ECX,4:EDX,4:stack4,4:stack8"
   },
-  "213e80": {
-    "symbol": "rwby_winter_ruby_findMapValue_213e80",
+  "213eb0": {
+    "symbol": "rwby_winter_ruby_findMapValue_213eb0",
     "arguments": "4:ECX,4:EDX"
   },
-  "213f6e": {
-    "symbol": "rwby_wm_array_array_213f6e",
+  "213f9e": {
+    "symbol": "rwby_wm_array_array_213f9e",
     "arguments": "4:stack4"
   },
-  "213f8c": {
-    "symbol": "rwby_wm_vector_pop_back_213f8c",
+  "213fbc": {
+    "symbol": "rwby_wm_vector_pop_back_213fbc",
     "arguments": "4:stack4"
   },
-  "213fb0": {
-    "symbol": "rwby_wm_variant_213fb0",
+  "213fe0": {
+    "symbol": "rwby_wm_variant_213fe0",
     "arguments": "4:stack4,4:stack8"
   },
-  "213fe8": {
-    "symbol": "rwby_winter_ruby_RubyValue_wm_vector_213fe8",
+  "214018": {
+    "symbol": "rwby_winter_ruby_RubyValue_wm_vector_214018",
     "arguments": "4:stack4,4:stack8"
   },
-  "21403a": {
-    "symbol": "rwby_wm_operator_21403a",
+  "21406a": {
+    "symbol": "rwby_wm_operator_21406a",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "2140e8": {
-    "symbol": "rwby_winter_ruby_RubyValue_wm_vector_2140e8",
+  "214118": {
+    "symbol": "rwby_winter_ruby_RubyValue_wm_vector_214118",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "2141f2": {
-    "symbol": "rwby_wm_unordered_map_find_2141f2",
+  "214222": {
+    "symbol": "rwby_wm_unordered_map_find_214222",
     "arguments": "4:stack4,4:stack8"
   },
-  "214220": {
-    "symbol": "rwby_wm_operator_214220",
+  "214250": {
+    "symbol": "rwby_wm_operator_214250",
     "arguments": "4:stack4,4:stack8"
   },
-  "214258": {
-    "symbol": "rwby_wm_operator_214258",
+  "214288": {
+    "symbol": "rwby_wm_operator_214288",
     "arguments": "4:stack4,4:stack8"
   },
-  "214276": {
-    "symbol": "rwby_wm_operator_214276",
+  "2142a6": {
+    "symbol": "rwby_wm_operator_2142a6",
     "arguments": "4:stack4,4:stack8"
   },
-  "214294": {
-    "symbol": "rwby_wm_string_compare_214294",
+  "2142c4": {
+    "symbol": "rwby_wm_string_compare_2142c4",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "2142fb": {
-    "symbol": "rwby_winter_ruby_requireArgumentCount_2142fb",
+  "21432b": {
+    "symbol": "rwby_winter_ruby_requireArgumentCount_21432b",
     "arguments": "4:ECX,4:EDX,4:stack4,4:stack8"
   },
-  "2144ae": {
-    "symbol": "rwby_winter_ruby_RubyValue_wm_vector_2144ae",
+  "2144de": {
+    "symbol": "rwby_winter_ruby_RubyValue_wm_vector_2144de",
     "arguments": "4:stack4,4:stack8"
   },
-  "214501": {
-    "symbol": "rwby_winter_ruby_setMapValue_214501",
+  "214531": {
+    "symbol": "rwby_winter_ruby_setMapValue_214531",
     "arguments": "4:ECX,4:EDX"
   },
-  "2145d2": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_executeFastFunction_2145d2",
+  "214602": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_executeFastFunction_214602",
     "arguments": "4:ECX,4:EDX,4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21494c": {
-    "symbol": "rwby_winter_ruby_describeArgumentExpectation_21494c",
+  "21497c": {
+    "symbol": "rwby_winter_ruby_describeArgumentExpectation_21497c",
     "arguments": "4:ECX,4:EDX,4:stack4"
   },
-  "214c50": {
-    "symbol": "rwby_wm_to_string_214c50",
+  "214c80": {
+    "symbol": "rwby_wm_to_string_214c80",
     "arguments": "4:stack4,4:stack8"
   },
-  "214c9c": {
-    "symbol": "rwby_wm_to_chars_result_wm_to_chars_214c9c",
+  "214ccc": {
+    "symbol": "rwby_wm_to_chars_result_wm_to_chars_214ccc",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "214d6a": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_evaluateFastNode_214d6a",
+  "214d9a": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_evaluateFastNode_214d9a",
     "arguments": "4:ECX,4:EDX,4:stack4,4:stack8,4:stack12,4:stack16,4:stack20"
   },
-  "215928": {
-    "symbol": "rwby_wm_unordered_map_operator_215928",
+  "215958": {
+    "symbol": "rwby_wm_unordered_map_operator_215958",
     "arguments": "4:stack4,4:stack8"
   },
-  "215a3c": {
-    "symbol": "rwby_winter_ruby_valueKeyString_215a3c",
+  "215a6c": {
+    "symbol": "rwby_winter_ruby_valueKeyString_215a6c",
     "arguments": "4:ECX,4:EDX"
   },
-  "215bf8": {
-    "symbol": "rwby_wm_pair_215bf8",
+  "215c28": {
+    "symbol": "rwby_wm_pair_215c28",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "215c56": {
-    "symbol": "rwby_wm_pair_215c56",
+  "215c86": {
+    "symbol": "rwby_wm_pair_215c86",
     "arguments": "4:stack4,4:stack8,4:stack12"
-  },
-  "215d00": {
-    "symbol": "rwby_wm_shared_ptr_const_215d00",
-    "arguments": "4:stack4,4:stack8"
   },
   "215d30": {
-    "symbol": "rwby_wm_vector_vector_215d30",
+    "symbol": "rwby_wm_shared_ptr_const_215d30",
     "arguments": "4:stack4,4:stack8"
   },
-  "215d48": {
-    "symbol": "rwby_wm_array_array_215d48",
+  "215d60": {
+    "symbol": "rwby_wm_vector_vector_215d60",
+    "arguments": "4:stack4,4:stack8"
+  },
+  "215d78": {
+    "symbol": "rwby_wm_array_array_215d78",
     "arguments": "4:stack4"
   },
-  "215d72": {
-    "symbol": "rwby_std_basic_file_seek_get_215d72",
+  "215da2": {
+    "symbol": "rwby_std_basic_file_seek_get_215da2",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "215db6": {
-    "symbol": "rwby_std_basic_file_tell_get_215db6",
+  "215de6": {
+    "symbol": "rwby_std_basic_file_tell_get_215de6",
     "arguments": "4:stack4"
   },
-  "215de8": {
-    "symbol": "rwby_std_basic_file_read_bytes_215de8",
+  "215e18": {
+    "symbol": "rwby_std_basic_file_read_bytes_215e18",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "215e42": {
-    "symbol": "rwby_wm_variant_215e42",
+  "215e72": {
+    "symbol": "rwby_wm_variant_215e72",
     "arguments": "4:stack4,4:stack8"
   },
-  "215e56": {
-    "symbol": "rwby_wm_variant_215e56",
+  "215e86": {
+    "symbol": "rwby_wm_variant_215e86",
     "arguments": "4:stack4,4:stack8"
   },
-  "215e6a": {
-    "symbol": "rwby_wm_shared_ptr_215e6a",
+  "215e9a": {
+    "symbol": "rwby_wm_shared_ptr_215e9a",
     "arguments": "4:stack4,4:stack8"
   },
-  "215eb0": {
-    "symbol": "rwby_wm_detail_shared_control_block_impl_shared_control_block_impl_215eb0",
+  "215ee0": {
+    "symbol": "rwby_wm_detail_shared_control_block_impl_shared_control_block_impl_215ee0",
     "arguments": ""
   },
-  "215eb6": {
-    "symbol": "rwby_wm_detail_shared_control_block_impl_shared_control_block_impl_215eb6",
-    "arguments": "4:stack4"
-  },
-  "215ec0": {
-    "symbol": "rwby_wm_detail_shared_control_block_impl_destroy_object_215ec0",
+  "215ee6": {
+    "symbol": "rwby_wm_detail_shared_control_block_impl_shared_control_block_impl_215ee6",
     "arguments": "4:stack4"
   },
   "215ef0": {
-    "symbol": "rwby_wm_unordered_map_const_215ef0",
+    "symbol": "rwby_wm_detail_shared_control_block_impl_destroy_object_215ef0",
+    "arguments": "4:stack4"
+  },
+  "215f20": {
+    "symbol": "rwby_wm_unordered_map_const_215f20",
     "arguments": "4:stack4,4:stack8"
   },
-  "215fd8": {
-    "symbol": "rwby_wm_vector_const_215fd8",
+  "216008": {
+    "symbol": "rwby_wm_vector_const_216008",
     "arguments": "4:stack4,4:stack8"
   },
-  "216038": {
-    "symbol": "rwby_wm_pair_const_216038",
+  "216068": {
+    "symbol": "rwby_wm_pair_const_216068",
     "arguments": "4:stack4,4:stack8"
   },
-  "2160e4": {
-    "symbol": "rwby_wm_shared_ptr_2160e4",
+  "216114": {
+    "symbol": "rwby_wm_shared_ptr_216114",
     "arguments": "4:stack4,4:stack8"
   },
-  "21612a": {
-    "symbol": "rwby_wm_detail_shared_control_block_impl_shared_control_block_impl_21612a",
+  "21615a": {
+    "symbol": "rwby_wm_detail_shared_control_block_impl_shared_control_block_impl_21615a",
     "arguments": ""
   },
-  "216130": {
-    "symbol": "rwby_wm_detail_shared_control_block_impl_shared_control_block_impl_216130",
+  "216160": {
+    "symbol": "rwby_wm_detail_shared_control_block_impl_shared_control_block_impl_216160",
     "arguments": "4:stack4"
   },
-  "21613a": {
-    "symbol": "rwby_wm_detail_shared_control_block_impl_destroy_object_21613a",
+  "21616a": {
+    "symbol": "rwby_wm_detail_shared_control_block_impl_destroy_object_21616a",
     "arguments": "4:stack4"
   },
-  "216168": {
-    "symbol": "rwby_wm_unordered_map_216168",
+  "216198": {
+    "symbol": "rwby_wm_unordered_map_216198",
     "arguments": "4:stack4,4:stack8"
   },
-  "2161aa": {
-    "symbol": "rwby_wm_vector_2161aa",
+  "2161da": {
+    "symbol": "rwby_wm_vector_2161da",
     "arguments": "4:stack4,4:stack8"
   },
-  "2161d0": {
-    "symbol": "rwby_wm_vector_vector_2161d0",
+  "216200": {
+    "symbol": "rwby_wm_vector_vector_216200",
     "arguments": "4:stack4"
   },
-  "2161f0": {
-    "symbol": "rwby_wm_vector_clear_2161f0",
+  "216220": {
+    "symbol": "rwby_wm_vector_clear_216220",
     "arguments": "4:stack4"
   },
-  "216228": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_Impl_216228",
+  "216258": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_Impl_216258",
     "arguments": "4:stack4"
   },
-  "216364": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_216364",
+  "216394": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_216394",
     "arguments": "4:stack4"
   },
-  "21784c": {
-    "symbol": "rwby_wm_unordered_map_unordered_map_21784c",
+  "21787c": {
+    "symbol": "rwby_wm_unordered_map_unordered_map_21787c",
     "arguments": "4:stack4"
   },
-  "217878": {
-    "symbol": "rwby_wm_vector_vector_217878",
+  "2178a8": {
+    "symbol": "rwby_wm_vector_vector_2178a8",
     "arguments": "4:stack4"
   },
-  "217898": {
-    "symbol": "rwby_wm_vector_clear_217898",
+  "2178c8": {
+    "symbol": "rwby_wm_vector_clear_2178c8",
     "arguments": "4:stack4"
   },
-  "2178ce": {
-    "symbol": "rwby_wm_function_const_2178ce",
+  "2178fe": {
+    "symbol": "rwby_wm_function_const_2178fe",
     "arguments": "4:stack4"
   },
-  "2178f6": {
-    "symbol": "rwby_wm_function_holder_2178f6",
+  "217926": {
+    "symbol": "rwby_wm_function_holder_217926",
     "arguments": ""
   },
-  "2178fc": {
-    "symbol": "rwby_wm_function_holder_2178fc",
+  "21792c": {
+    "symbol": "rwby_wm_function_holder_21792c",
     "arguments": "4:stack4"
   },
-  "217906": {
-    "symbol": "rwby_wm_function_const_217906",
+  "217936": {
+    "symbol": "rwby_wm_function_const_217936",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21792e": {
-    "symbol": "rwby_wm_function_clone_21792e",
+  "21795e": {
+    "symbol": "rwby_wm_function_clone_21795e",
     "arguments": ""
   },
-  "217950": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_217950",
+  "217980": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_217980",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "217a5c": {
-    "symbol": "rwby_wm_function_const_217a5c",
+  "217a8c": {
+    "symbol": "rwby_wm_function_const_217a8c",
     "arguments": "4:stack4"
   },
-  "217a84": {
-    "symbol": "rwby_wm_function_holder_217a84",
+  "217ab4": {
+    "symbol": "rwby_wm_function_holder_217ab4",
     "arguments": ""
   },
-  "217a8a": {
-    "symbol": "rwby_wm_function_holder_217a8a",
+  "217aba": {
+    "symbol": "rwby_wm_function_holder_217aba",
     "arguments": "4:stack4"
   },
-  "217a94": {
-    "symbol": "rwby_wm_function_const_217a94",
+  "217ac4": {
+    "symbol": "rwby_wm_function_const_217ac4",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "217abc": {
-    "symbol": "rwby_wm_function_clone_217abc",
+  "217aec": {
+    "symbol": "rwby_wm_function_clone_217aec",
     "arguments": ""
   },
-  "217ade": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_217ade",
+  "217b0e": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_217b0e",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "217bc4": {
-    "symbol": "rwby_wm_function_const_217bc4",
+  "217bf4": {
+    "symbol": "rwby_wm_function_const_217bf4",
     "arguments": "4:stack4"
   },
-  "217bec": {
-    "symbol": "rwby_wm_function_holder_217bec",
+  "217c1c": {
+    "symbol": "rwby_wm_function_holder_217c1c",
     "arguments": ""
   },
-  "217bf2": {
-    "symbol": "rwby_wm_function_holder_217bf2",
+  "217c22": {
+    "symbol": "rwby_wm_function_holder_217c22",
     "arguments": "4:stack4"
   },
-  "217bfc": {
-    "symbol": "rwby_wm_function_const_217bfc",
+  "217c2c": {
+    "symbol": "rwby_wm_function_const_217c2c",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "217c24": {
-    "symbol": "rwby_wm_function_clone_217c24",
+  "217c54": {
+    "symbol": "rwby_wm_function_clone_217c54",
     "arguments": ""
   },
-  "217c46": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_217c46",
+  "217c76": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_217c76",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "217d80": {
-    "symbol": "rwby_winter_ruby_requireArgumentCount_217d80",
+  "217db0": {
+    "symbol": "rwby_winter_ruby_requireArgumentCount_217db0",
     "arguments": "4:ECX,4:EDX,4:stack4,4:stack8"
   },
-  "217f34": {
-    "symbol": "rwby_wm_function_const_217f34",
+  "217f64": {
+    "symbol": "rwby_wm_function_const_217f64",
     "arguments": "4:stack4"
   },
-  "217f5c": {
-    "symbol": "rwby_wm_function_holder_217f5c",
+  "217f8c": {
+    "symbol": "rwby_wm_function_holder_217f8c",
     "arguments": ""
   },
-  "217f62": {
-    "symbol": "rwby_wm_function_holder_217f62",
+  "217f92": {
+    "symbol": "rwby_wm_function_holder_217f92",
     "arguments": "4:stack4"
   },
-  "217f6c": {
-    "symbol": "rwby_wm_function_const_217f6c",
+  "217f9c": {
+    "symbol": "rwby_wm_function_const_217f9c",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "217f94": {
-    "symbol": "rwby_wm_function_clone_217f94",
+  "217fc4": {
+    "symbol": "rwby_wm_function_clone_217fc4",
     "arguments": ""
   },
-  "217fb6": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_217fb6",
+  "217fe6": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_217fe6",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "218017": {
-    "symbol": "rwby_wm_chrono_duration_const_218017",
+  "218047": {
+    "symbol": "rwby_wm_chrono_duration_const_218047",
     "arguments": "4:stack4"
   },
-  "218050": {
-    "symbol": "rwby_wm_function_const_218050",
+  "218080": {
+    "symbol": "rwby_wm_function_const_218080",
     "arguments": "4:stack4"
   },
-  "218078": {
-    "symbol": "rwby_wm_function_holder_218078",
+  "2180a8": {
+    "symbol": "rwby_wm_function_holder_2180a8",
     "arguments": ""
   },
-  "21807e": {
-    "symbol": "rwby_wm_function_holder_21807e",
+  "2180ae": {
+    "symbol": "rwby_wm_function_holder_2180ae",
     "arguments": "4:stack4"
   },
-  "218088": {
-    "symbol": "rwby_wm_function_const_218088",
+  "2180b8": {
+    "symbol": "rwby_wm_function_const_2180b8",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "2180b0": {
-    "symbol": "rwby_wm_function_clone_2180b0",
+  "2180e0": {
+    "symbol": "rwby_wm_function_clone_2180e0",
     "arguments": ""
   },
-  "2180d2": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_2180d2",
+  "218102": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_218102",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21812c": {
-    "symbol": "rwby_wm_function_const_21812c",
+  "21815c": {
+    "symbol": "rwby_wm_function_const_21815c",
     "arguments": "4:stack4"
   },
-  "218154": {
-    "symbol": "rwby_wm_function_holder_218154",
+  "218184": {
+    "symbol": "rwby_wm_function_holder_218184",
     "arguments": ""
   },
-  "21815a": {
-    "symbol": "rwby_wm_function_holder_21815a",
+  "21818a": {
+    "symbol": "rwby_wm_function_holder_21818a",
     "arguments": "4:stack4"
   },
-  "218164": {
-    "symbol": "rwby_wm_function_const_218164",
+  "218194": {
+    "symbol": "rwby_wm_function_const_218194",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21818c": {
-    "symbol": "rwby_wm_function_clone_21818c",
+  "2181bc": {
+    "symbol": "rwby_wm_function_clone_2181bc",
     "arguments": ""
   },
-  "2181ae": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_2181ae",
+  "2181de": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_2181de",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "218410": {
-    "symbol": "rwby_winter_ruby_numericResult_218410",
+  "218440": {
+    "symbol": "rwby_winter_ruby_numericResult_218440",
     "arguments": "4:ECX,8:stack4"
   },
-  "2184a5": {
-    "symbol": "rwby_winter_ruby_requireIntegerArgument_2184a5",
+  "2184d5": {
+    "symbol": "rwby_winter_ruby_requireIntegerArgument_2184d5",
     "arguments": "4:ECX,4:EDX,4:stack4"
   },
-  "21860b": {
-    "symbol": "rwby_winter_ruby_parseIntegerString_21860b",
+  "21863b": {
+    "symbol": "rwby_winter_ruby_parseIntegerString_21863b",
     "arguments": "4:ECX,4:EDX,4:stack4"
   },
-  "218678": {
-    "symbol": "rwby_wm_string_find_first_of_218678",
+  "2186a8": {
+    "symbol": "rwby_wm_string_find_first_of_2186a8",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "2186cc": {
-    "symbol": "rwby_winter_ruby_requireArgument_2186cc",
+  "2186fc": {
+    "symbol": "rwby_winter_ruby_requireArgument_2186fc",
     "arguments": "4:ECX,4:EDX,4:stack4"
   },
-  "218888": {
-    "symbol": "rwby_wm_function_const_218888",
+  "2188b8": {
+    "symbol": "rwby_wm_function_const_2188b8",
     "arguments": "4:stack4"
   },
-  "2188b0": {
-    "symbol": "rwby_wm_function_holder_2188b0",
+  "2188e0": {
+    "symbol": "rwby_wm_function_holder_2188e0",
     "arguments": ""
   },
-  "2188b6": {
-    "symbol": "rwby_wm_function_holder_2188b6",
+  "2188e6": {
+    "symbol": "rwby_wm_function_holder_2188e6",
     "arguments": "4:stack4"
   },
-  "2188c0": {
-    "symbol": "rwby_wm_function_const_2188c0",
+  "2188f0": {
+    "symbol": "rwby_wm_function_const_2188f0",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "2188e8": {
-    "symbol": "rwby_wm_function_clone_2188e8",
+  "218918": {
+    "symbol": "rwby_wm_function_clone_218918",
     "arguments": ""
-  },
-  "21890a": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21890a",
-    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
   "21893a": {
-    "symbol": "rwby_wm_function_const_21893a",
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21893a",
+    "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
+  },
+  "21896a": {
+    "symbol": "rwby_wm_function_const_21896a",
     "arguments": "4:stack4"
   },
-  "218962": {
-    "symbol": "rwby_wm_function_holder_218962",
+  "218992": {
+    "symbol": "rwby_wm_function_holder_218992",
     "arguments": ""
   },
-  "218968": {
-    "symbol": "rwby_wm_function_holder_218968",
+  "218998": {
+    "symbol": "rwby_wm_function_holder_218998",
     "arguments": "4:stack4"
   },
-  "218972": {
-    "symbol": "rwby_wm_function_const_218972",
+  "2189a2": {
+    "symbol": "rwby_wm_function_const_2189a2",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21899a": {
-    "symbol": "rwby_wm_function_clone_21899a",
+  "2189ca": {
+    "symbol": "rwby_wm_function_clone_2189ca",
     "arguments": ""
   },
-  "2189bc": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_2189bc",
+  "2189ec": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_2189ec",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "218b20": {
-    "symbol": "rwby_wm_function_holder_218b20",
+  "218b50": {
+    "symbol": "rwby_wm_function_holder_218b50",
     "arguments": ""
   },
-  "218b26": {
-    "symbol": "rwby_wm_function_holder_218b26",
+  "218b56": {
+    "symbol": "rwby_wm_function_holder_218b56",
     "arguments": "4:stack4"
   },
-  "218b30": {
-    "symbol": "rwby_wm_function_const_218b30",
+  "218b60": {
+    "symbol": "rwby_wm_function_const_218b60",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "218b58": {
-    "symbol": "rwby_wm_function_clone_218b58",
+  "218b88": {
+    "symbol": "rwby_wm_function_clone_218b88",
     "arguments": "4:stack4"
   },
-  "218b84": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_218b84",
+  "218bb4": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_218bb4",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "219268": {
-    "symbol": "rwby_wm_function_const_219268",
+  "219298": {
+    "symbol": "rwby_wm_function_const_219298",
     "arguments": "4:stack4"
   },
-  "219290": {
-    "symbol": "rwby_wm_function_holder_219290",
+  "2192c0": {
+    "symbol": "rwby_wm_function_holder_2192c0",
     "arguments": ""
   },
-  "219296": {
-    "symbol": "rwby_wm_function_holder_219296",
+  "2192c6": {
+    "symbol": "rwby_wm_function_holder_2192c6",
     "arguments": "4:stack4"
   },
-  "2192a0": {
-    "symbol": "rwby_wm_function_const_2192a0",
+  "2192d0": {
+    "symbol": "rwby_wm_function_const_2192d0",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "2192c8": {
-    "symbol": "rwby_wm_function_clone_2192c8",
+  "2192f8": {
+    "symbol": "rwby_wm_function_clone_2192f8",
     "arguments": ""
   },
-  "2192ea": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_2192ea",
+  "21931a": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21931a",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "219580": {
-    "symbol": "rwby_winter_ruby_requireStringArgument_219580",
+  "2195b0": {
+    "symbol": "rwby_winter_ruby_requireStringArgument_2195b0",
     "arguments": "4:ECX,4:EDX,4:stack4"
   },
-  "2196e0": {
-    "symbol": "rwby_wm_function_const_2196e0",
+  "219710": {
+    "symbol": "rwby_wm_function_const_219710",
     "arguments": "4:stack4"
   },
-  "219708": {
-    "symbol": "rwby_wm_function_holder_219708",
+  "219738": {
+    "symbol": "rwby_wm_function_holder_219738",
     "arguments": ""
   },
-  "21970e": {
-    "symbol": "rwby_wm_function_holder_21970e",
+  "21973e": {
+    "symbol": "rwby_wm_function_holder_21973e",
     "arguments": "4:stack4"
   },
-  "219718": {
-    "symbol": "rwby_wm_function_const_219718",
+  "219748": {
+    "symbol": "rwby_wm_function_const_219748",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "219740": {
-    "symbol": "rwby_wm_function_clone_219740",
+  "219770": {
+    "symbol": "rwby_wm_function_clone_219770",
     "arguments": ""
   },
-  "219762": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_219762",
+  "219792": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_219792",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "219798": {
-    "symbol": "rwby_wm_function_const_219798",
+  "2197c8": {
+    "symbol": "rwby_wm_function_const_2197c8",
     "arguments": "4:stack4"
   },
-  "2197c0": {
-    "symbol": "rwby_wm_function_holder_2197c0",
+  "2197f0": {
+    "symbol": "rwby_wm_function_holder_2197f0",
     "arguments": ""
   },
-  "2197c6": {
-    "symbol": "rwby_wm_function_holder_2197c6",
+  "2197f6": {
+    "symbol": "rwby_wm_function_holder_2197f6",
     "arguments": "4:stack4"
   },
-  "2197d0": {
-    "symbol": "rwby_wm_function_const_2197d0",
+  "219800": {
+    "symbol": "rwby_wm_function_const_219800",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "2197f8": {
-    "symbol": "rwby_wm_function_clone_2197f8",
+  "219828": {
+    "symbol": "rwby_wm_function_clone_219828",
     "arguments": ""
   },
-  "21981a": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21981a",
+  "21984a": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21984a",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "219a64": {
-    "symbol": "rwby_winter_ruby_RubyValue_wm_vector_219a64",
+  "219a94": {
+    "symbol": "rwby_winter_ruby_RubyValue_wm_vector_219a94",
     "arguments": "4:stack4,4:stack8"
   },
-  "219ab6": {
-    "symbol": "rwby_void_wm_sort_const_const_lambda_219ab6",
+  "219ae6": {
+    "symbol": "rwby_void_wm_sort_const_const_lambda_219ae6",
     "arguments": "4:stack4,4:stack8"
   },
-  "219bf0": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_219bf0",
+  "219c20": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_219c20",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "219c24": {
-    "symbol": "rwby_wm_function_const_219c24",
+  "219c54": {
+    "symbol": "rwby_wm_function_const_219c54",
     "arguments": "4:stack4"
   },
-  "219c4c": {
-    "symbol": "rwby_wm_function_holder_219c4c",
+  "219c7c": {
+    "symbol": "rwby_wm_function_holder_219c7c",
     "arguments": ""
   },
-  "219c52": {
-    "symbol": "rwby_wm_function_holder_219c52",
+  "219c82": {
+    "symbol": "rwby_wm_function_holder_219c82",
     "arguments": "4:stack4"
   },
-  "219c5c": {
-    "symbol": "rwby_wm_function_const_219c5c",
+  "219c8c": {
+    "symbol": "rwby_wm_function_const_219c8c",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "219c84": {
-    "symbol": "rwby_wm_function_clone_219c84",
+  "219cb4": {
+    "symbol": "rwby_wm_function_clone_219cb4",
     "arguments": ""
   },
-  "219ca6": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_219ca6",
+  "219cd6": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_219cd6",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "219eb4": {
-    "symbol": "rwby_wm_function_const_219eb4",
+  "219ee4": {
+    "symbol": "rwby_wm_function_const_219ee4",
     "arguments": "4:stack4"
   },
-  "219edc": {
-    "symbol": "rwby_wm_function_holder_219edc",
+  "219f0c": {
+    "symbol": "rwby_wm_function_holder_219f0c",
     "arguments": ""
   },
-  "219ee2": {
-    "symbol": "rwby_wm_function_holder_219ee2",
+  "219f12": {
+    "symbol": "rwby_wm_function_holder_219f12",
     "arguments": "4:stack4"
   },
-  "219eec": {
-    "symbol": "rwby_wm_function_const_219eec",
+  "219f1c": {
+    "symbol": "rwby_wm_function_const_219f1c",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "219f14": {
-    "symbol": "rwby_wm_function_clone_219f14",
+  "219f44": {
+    "symbol": "rwby_wm_function_clone_219f44",
     "arguments": ""
   },
-  "219f36": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_219f36",
+  "219f66": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_219f66",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21a0ec": {
-    "symbol": "rwby_winter_ruby_RubyValue_wm_vector_21a0ec",
+  "21a11c": {
+    "symbol": "rwby_winter_ruby_RubyValue_wm_vector_21a11c",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "21a1a6": {
-    "symbol": "rwby_wm_function_const_21a1a6",
+  "21a1d6": {
+    "symbol": "rwby_wm_function_const_21a1d6",
     "arguments": "4:stack4"
   },
-  "21a1ce": {
-    "symbol": "rwby_wm_function_holder_21a1ce",
+  "21a1fe": {
+    "symbol": "rwby_wm_function_holder_21a1fe",
     "arguments": ""
   },
-  "21a1d4": {
-    "symbol": "rwby_wm_function_holder_21a1d4",
+  "21a204": {
+    "symbol": "rwby_wm_function_holder_21a204",
     "arguments": "4:stack4"
   },
-  "21a1de": {
-    "symbol": "rwby_wm_function_const_21a1de",
+  "21a20e": {
+    "symbol": "rwby_wm_function_const_21a20e",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21a206": {
-    "symbol": "rwby_wm_function_clone_21a206",
+  "21a236": {
+    "symbol": "rwby_wm_function_clone_21a236",
     "arguments": ""
   },
-  "21a228": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21a228",
+  "21a258": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21a258",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21a410": {
-    "symbol": "rwby_wm_vector_erase_21a410",
+  "21a440": {
+    "symbol": "rwby_wm_vector_erase_21a440",
     "arguments": "4:stack4,4:stack8"
   },
-  "21a42e": {
-    "symbol": "rwby_wm_vector_erase_21a42e",
+  "21a45e": {
+    "symbol": "rwby_wm_vector_erase_21a45e",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "21a4fa": {
-    "symbol": "rwby_wm_function_const_21a4fa",
+  "21a52a": {
+    "symbol": "rwby_wm_function_const_21a52a",
     "arguments": "4:stack4"
   },
-  "21a522": {
-    "symbol": "rwby_wm_function_holder_21a522",
+  "21a552": {
+    "symbol": "rwby_wm_function_holder_21a552",
     "arguments": ""
   },
-  "21a528": {
-    "symbol": "rwby_wm_function_holder_21a528",
+  "21a558": {
+    "symbol": "rwby_wm_function_holder_21a558",
     "arguments": "4:stack4"
   },
-  "21a532": {
-    "symbol": "rwby_wm_function_const_21a532",
+  "21a562": {
+    "symbol": "rwby_wm_function_const_21a562",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21a55a": {
-    "symbol": "rwby_wm_function_clone_21a55a",
+  "21a58a": {
+    "symbol": "rwby_wm_function_clone_21a58a",
     "arguments": ""
   },
-  "21a57c": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21a57c",
+  "21a5ac": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21a5ac",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21a698": {
-    "symbol": "rwby_void_wm_sort_const_const_lambda_21a698",
+  "21a6c8": {
+    "symbol": "rwby_void_wm_sort_const_const_lambda_21a6c8",
     "arguments": "4:stack4,4:stack8"
   },
-  "21a7d0": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21a7d0",
+  "21a800": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21a800",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "21a8e4": {
-    "symbol": "rwby_wm_function_const_21a8e4",
+  "21a914": {
+    "symbol": "rwby_wm_function_const_21a914",
     "arguments": "4:stack4"
   },
-  "21a90c": {
-    "symbol": "rwby_wm_function_holder_21a90c",
+  "21a93c": {
+    "symbol": "rwby_wm_function_holder_21a93c",
     "arguments": ""
   },
-  "21a912": {
-    "symbol": "rwby_wm_function_holder_21a912",
+  "21a942": {
+    "symbol": "rwby_wm_function_holder_21a942",
     "arguments": "4:stack4"
   },
-  "21a91c": {
-    "symbol": "rwby_wm_function_const_21a91c",
+  "21a94c": {
+    "symbol": "rwby_wm_function_const_21a94c",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21a944": {
-    "symbol": "rwby_wm_function_clone_21a944",
+  "21a974": {
+    "symbol": "rwby_wm_function_clone_21a974",
     "arguments": ""
   },
-  "21a966": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21a966",
+  "21a996": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21a996",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21abb0": {
-    "symbol": "rwby_wm_function_const_21abb0",
+  "21abe0": {
+    "symbol": "rwby_wm_function_const_21abe0",
     "arguments": "4:stack4"
   },
-  "21abd8": {
-    "symbol": "rwby_wm_function_holder_21abd8",
+  "21ac08": {
+    "symbol": "rwby_wm_function_holder_21ac08",
     "arguments": ""
   },
-  "21abde": {
-    "symbol": "rwby_wm_function_holder_21abde",
+  "21ac0e": {
+    "symbol": "rwby_wm_function_holder_21ac0e",
     "arguments": "4:stack4"
   },
-  "21abe8": {
-    "symbol": "rwby_wm_function_const_21abe8",
+  "21ac18": {
+    "symbol": "rwby_wm_function_const_21ac18",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21ac10": {
-    "symbol": "rwby_wm_function_clone_21ac10",
+  "21ac40": {
+    "symbol": "rwby_wm_function_clone_21ac40",
     "arguments": ""
   },
-  "21ac32": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21ac32",
+  "21ac62": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21ac62",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21ac83": {
-    "symbol": "rwby_winter_ruby_requireNumericArgument_21ac83",
+  "21acb3": {
+    "symbol": "rwby_winter_ruby_requireNumericArgument_21acb3",
     "arguments": "4:ECX,4:EDX,4:stack4"
   },
-  "21ade8": {
-    "symbol": "rwby_wm_function_const_21ade8",
+  "21ae18": {
+    "symbol": "rwby_wm_function_const_21ae18",
     "arguments": "4:stack4"
   },
-  "21ae10": {
-    "symbol": "rwby_wm_function_holder_21ae10",
+  "21ae40": {
+    "symbol": "rwby_wm_function_holder_21ae40",
     "arguments": ""
   },
-  "21ae16": {
-    "symbol": "rwby_wm_function_holder_21ae16",
+  "21ae46": {
+    "symbol": "rwby_wm_function_holder_21ae46",
     "arguments": "4:stack4"
   },
-  "21ae20": {
-    "symbol": "rwby_wm_function_const_21ae20",
+  "21ae50": {
+    "symbol": "rwby_wm_function_const_21ae50",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21ae48": {
-    "symbol": "rwby_wm_function_clone_21ae48",
+  "21ae78": {
+    "symbol": "rwby_wm_function_clone_21ae78",
     "arguments": ""
   },
-  "21ae6a": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21ae6a",
+  "21ae9a": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21ae9a",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21aebc": {
-    "symbol": "rwby_wm_function_const_21aebc",
+  "21aeec": {
+    "symbol": "rwby_wm_function_const_21aeec",
     "arguments": "4:stack4"
   },
-  "21aee4": {
-    "symbol": "rwby_wm_function_holder_21aee4",
+  "21af14": {
+    "symbol": "rwby_wm_function_holder_21af14",
     "arguments": ""
   },
-  "21aeea": {
-    "symbol": "rwby_wm_function_holder_21aeea",
+  "21af1a": {
+    "symbol": "rwby_wm_function_holder_21af1a",
     "arguments": "4:stack4"
   },
-  "21aef4": {
-    "symbol": "rwby_wm_function_const_21aef4",
+  "21af24": {
+    "symbol": "rwby_wm_function_const_21af24",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21af1c": {
-    "symbol": "rwby_wm_function_clone_21af1c",
+  "21af4c": {
+    "symbol": "rwby_wm_function_clone_21af4c",
     "arguments": ""
   },
-  "21af3e": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21af3e",
+  "21af6e": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21af6e",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21af90": {
-    "symbol": "rwby_wm_function_const_21af90",
+  "21afc0": {
+    "symbol": "rwby_wm_function_const_21afc0",
     "arguments": "4:stack4"
   },
-  "21afb8": {
-    "symbol": "rwby_wm_function_holder_21afb8",
+  "21afe8": {
+    "symbol": "rwby_wm_function_holder_21afe8",
     "arguments": ""
   },
-  "21afbe": {
-    "symbol": "rwby_wm_function_holder_21afbe",
+  "21afee": {
+    "symbol": "rwby_wm_function_holder_21afee",
     "arguments": "4:stack4"
   },
-  "21afc8": {
-    "symbol": "rwby_wm_function_const_21afc8",
+  "21aff8": {
+    "symbol": "rwby_wm_function_const_21aff8",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21aff0": {
-    "symbol": "rwby_wm_function_clone_21aff0",
+  "21b020": {
+    "symbol": "rwby_wm_function_clone_21b020",
     "arguments": ""
   },
-  "21b012": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21b012",
+  "21b042": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21b042",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21b086": {
-    "symbol": "rwby_wm_function_const_21b086",
+  "21b0b6": {
+    "symbol": "rwby_wm_function_const_21b0b6",
     "arguments": "4:stack4"
   },
-  "21b0ae": {
-    "symbol": "rwby_wm_function_holder_21b0ae",
+  "21b0de": {
+    "symbol": "rwby_wm_function_holder_21b0de",
     "arguments": ""
   },
-  "21b0b4": {
-    "symbol": "rwby_wm_function_holder_21b0b4",
+  "21b0e4": {
+    "symbol": "rwby_wm_function_holder_21b0e4",
     "arguments": "4:stack4"
   },
-  "21b0be": {
-    "symbol": "rwby_wm_function_const_21b0be",
+  "21b0ee": {
+    "symbol": "rwby_wm_function_const_21b0ee",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21b0e6": {
-    "symbol": "rwby_wm_function_clone_21b0e6",
+  "21b116": {
+    "symbol": "rwby_wm_function_clone_21b116",
     "arguments": ""
   },
-  "21b108": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21b108",
+  "21b138": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21b138",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21b180": {
-    "symbol": "rwby_wm_function_const_21b180",
+  "21b1b0": {
+    "symbol": "rwby_wm_function_const_21b1b0",
     "arguments": "4:stack4"
   },
-  "21b1a8": {
-    "symbol": "rwby_wm_function_holder_21b1a8",
+  "21b1d8": {
+    "symbol": "rwby_wm_function_holder_21b1d8",
     "arguments": ""
   },
-  "21b1ae": {
-    "symbol": "rwby_wm_function_holder_21b1ae",
+  "21b1de": {
+    "symbol": "rwby_wm_function_holder_21b1de",
     "arguments": "4:stack4"
   },
-  "21b1b8": {
-    "symbol": "rwby_wm_function_const_21b1b8",
+  "21b1e8": {
+    "symbol": "rwby_wm_function_const_21b1e8",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21b1e0": {
-    "symbol": "rwby_wm_function_clone_21b1e0",
+  "21b210": {
+    "symbol": "rwby_wm_function_clone_21b210",
     "arguments": ""
   },
-  "21b202": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21b202",
+  "21b232": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21b232",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21b256": {
-    "symbol": "rwby_wm_function_const_21b256",
+  "21b286": {
+    "symbol": "rwby_wm_function_const_21b286",
     "arguments": "4:stack4"
   },
-  "21b27e": {
-    "symbol": "rwby_wm_function_holder_21b27e",
+  "21b2ae": {
+    "symbol": "rwby_wm_function_holder_21b2ae",
     "arguments": ""
   },
-  "21b284": {
-    "symbol": "rwby_wm_function_holder_21b284",
+  "21b2b4": {
+    "symbol": "rwby_wm_function_holder_21b2b4",
     "arguments": "4:stack4"
   },
-  "21b28e": {
-    "symbol": "rwby_wm_function_const_21b28e",
+  "21b2be": {
+    "symbol": "rwby_wm_function_const_21b2be",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21b2b6": {
-    "symbol": "rwby_wm_function_clone_21b2b6",
+  "21b2e6": {
+    "symbol": "rwby_wm_function_clone_21b2e6",
     "arguments": ""
   },
-  "21b2d8": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21b2d8",
+  "21b308": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21b308",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21b32c": {
-    "symbol": "rwby_wm_function_const_21b32c",
+  "21b35c": {
+    "symbol": "rwby_wm_function_const_21b35c",
     "arguments": "4:stack4"
   },
-  "21b354": {
-    "symbol": "rwby_wm_function_holder_21b354",
+  "21b384": {
+    "symbol": "rwby_wm_function_holder_21b384",
     "arguments": ""
   },
-  "21b35a": {
-    "symbol": "rwby_wm_function_holder_21b35a",
+  "21b38a": {
+    "symbol": "rwby_wm_function_holder_21b38a",
     "arguments": "4:stack4"
   },
-  "21b364": {
-    "symbol": "rwby_wm_function_const_21b364",
+  "21b394": {
+    "symbol": "rwby_wm_function_const_21b394",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21b38c": {
-    "symbol": "rwby_wm_function_clone_21b38c",
+  "21b3bc": {
+    "symbol": "rwby_wm_function_clone_21b3bc",
     "arguments": ""
   },
-  "21b3ae": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21b3ae",
+  "21b3de": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21b3de",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21b400": {
-    "symbol": "rwby_wm_function_const_21b400",
+  "21b430": {
+    "symbol": "rwby_wm_function_const_21b430",
     "arguments": "4:stack4"
   },
-  "21b428": {
-    "symbol": "rwby_wm_function_holder_21b428",
+  "21b458": {
+    "symbol": "rwby_wm_function_holder_21b458",
     "arguments": ""
   },
-  "21b42e": {
-    "symbol": "rwby_wm_function_holder_21b42e",
+  "21b45e": {
+    "symbol": "rwby_wm_function_holder_21b45e",
     "arguments": "4:stack4"
   },
-  "21b438": {
-    "symbol": "rwby_wm_function_const_21b438",
+  "21b468": {
+    "symbol": "rwby_wm_function_const_21b468",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21b460": {
-    "symbol": "rwby_wm_function_clone_21b460",
+  "21b490": {
+    "symbol": "rwby_wm_function_clone_21b490",
     "arguments": ""
   },
-  "21b482": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21b482",
+  "21b4b2": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21b4b2",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21b4d6": {
-    "symbol": "rwby_wm_function_const_21b4d6",
+  "21b506": {
+    "symbol": "rwby_wm_function_const_21b506",
     "arguments": "4:stack4"
   },
-  "21b4fe": {
-    "symbol": "rwby_wm_function_holder_21b4fe",
+  "21b52e": {
+    "symbol": "rwby_wm_function_holder_21b52e",
     "arguments": ""
   },
-  "21b504": {
-    "symbol": "rwby_wm_function_holder_21b504",
+  "21b534": {
+    "symbol": "rwby_wm_function_holder_21b534",
     "arguments": "4:stack4"
   },
-  "21b50e": {
-    "symbol": "rwby_wm_function_const_21b50e",
+  "21b53e": {
+    "symbol": "rwby_wm_function_const_21b53e",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21b536": {
-    "symbol": "rwby_wm_function_clone_21b536",
+  "21b566": {
+    "symbol": "rwby_wm_function_clone_21b566",
     "arguments": ""
   },
-  "21b558": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21b558",
+  "21b588": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21b588",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21b5ac": {
-    "symbol": "rwby_wm_function_const_21b5ac",
+  "21b5dc": {
+    "symbol": "rwby_wm_function_const_21b5dc",
     "arguments": "4:stack4"
   },
-  "21b5d4": {
-    "symbol": "rwby_wm_function_holder_21b5d4",
+  "21b604": {
+    "symbol": "rwby_wm_function_holder_21b604",
     "arguments": ""
   },
-  "21b5da": {
-    "symbol": "rwby_wm_function_holder_21b5da",
+  "21b60a": {
+    "symbol": "rwby_wm_function_holder_21b60a",
     "arguments": "4:stack4"
   },
-  "21b5e4": {
-    "symbol": "rwby_wm_function_const_21b5e4",
+  "21b614": {
+    "symbol": "rwby_wm_function_const_21b614",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21b60c": {
-    "symbol": "rwby_wm_function_clone_21b60c",
+  "21b63c": {
+    "symbol": "rwby_wm_function_clone_21b63c",
     "arguments": ""
   },
-  "21b62e": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21b62e",
+  "21b65e": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21b65e",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21b77c": {
-    "symbol": "rwby_wm_string_end_21b77c",
+  "21b7ac": {
+    "symbol": "rwby_wm_string_end_21b7ac",
     "arguments": "4:stack4"
   },
-  "21b796": {
-    "symbol": "rwby_wm_string_data_21b796",
+  "21b7c6": {
+    "symbol": "rwby_wm_string_data_21b7c6",
     "arguments": "4:stack4"
   },
-  "21b7ae": {
-    "symbol": "rwby_wm_function_const_21b7ae",
+  "21b7de": {
+    "symbol": "rwby_wm_function_const_21b7de",
     "arguments": "4:stack4"
   },
-  "21b7d6": {
-    "symbol": "rwby_wm_function_holder_21b7d6",
+  "21b806": {
+    "symbol": "rwby_wm_function_holder_21b806",
     "arguments": ""
   },
-  "21b7dc": {
-    "symbol": "rwby_wm_function_holder_21b7dc",
+  "21b80c": {
+    "symbol": "rwby_wm_function_holder_21b80c",
     "arguments": "4:stack4"
   },
-  "21b7e6": {
-    "symbol": "rwby_wm_function_const_21b7e6",
+  "21b816": {
+    "symbol": "rwby_wm_function_const_21b816",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21b80e": {
-    "symbol": "rwby_wm_function_clone_21b80e",
+  "21b83e": {
+    "symbol": "rwby_wm_function_clone_21b83e",
     "arguments": ""
   },
-  "21b830": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21b830",
+  "21b860": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21b860",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21b998": {
-    "symbol": "rwby_wm_string_substr_21b998",
+  "21b9c8": {
+    "symbol": "rwby_wm_string_substr_21b9c8",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21b9e4": {
-    "symbol": "rwby_wm_function_const_21b9e4",
+  "21ba14": {
+    "symbol": "rwby_wm_function_const_21ba14",
     "arguments": "4:stack4"
   },
-  "21ba0c": {
-    "symbol": "rwby_wm_function_holder_21ba0c",
+  "21ba3c": {
+    "symbol": "rwby_wm_function_holder_21ba3c",
     "arguments": ""
   },
-  "21ba12": {
-    "symbol": "rwby_wm_function_holder_21ba12",
+  "21ba42": {
+    "symbol": "rwby_wm_function_holder_21ba42",
     "arguments": "4:stack4"
   },
-  "21ba1c": {
-    "symbol": "rwby_wm_function_const_21ba1c",
+  "21ba4c": {
+    "symbol": "rwby_wm_function_const_21ba4c",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21ba44": {
-    "symbol": "rwby_wm_function_clone_21ba44",
+  "21ba74": {
+    "symbol": "rwby_wm_function_clone_21ba74",
     "arguments": ""
   },
-  "21ba66": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21ba66",
+  "21ba96": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21ba96",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21bd78": {
-    "symbol": "rwby_winter_ruby_digitRuns_21bd78",
+  "21bda8": {
+    "symbol": "rwby_winter_ruby_digitRuns_21bda8",
     "arguments": "4:ECX,4:EDX"
   },
-  "21bec0": {
-    "symbol": "rwby_wm_pair_21bec0",
+  "21bef0": {
+    "symbol": "rwby_wm_pair_21bef0",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "21bf10": {
-    "symbol": "rwby_wm_vector_reserve_21bf10",
+  "21bf40": {
+    "symbol": "rwby_wm_vector_reserve_21bf40",
     "arguments": "4:stack4,4:stack8"
   },
-  "21bf62": {
-    "symbol": "rwby_wm_pair_21bf62",
+  "21bf92": {
+    "symbol": "rwby_wm_pair_21bf92",
     "arguments": "4:stack4"
   },
-  "21bf84": {
-    "symbol": "rwby_wm_vector_21bf84",
+  "21bfb4": {
+    "symbol": "rwby_wm_vector_21bfb4",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "21bfd2": {
-    "symbol": "rwby_wm_vector_vector_21bfd2",
+  "21c002": {
+    "symbol": "rwby_wm_vector_vector_21c002",
     "arguments": "4:stack4"
   },
-  "21bff0": {
-    "symbol": "rwby_wm_function_const_21bff0",
+  "21c020": {
+    "symbol": "rwby_wm_function_const_21c020",
     "arguments": "4:stack4"
   },
-  "21c018": {
-    "symbol": "rwby_wm_function_holder_21c018",
+  "21c048": {
+    "symbol": "rwby_wm_function_holder_21c048",
     "arguments": ""
   },
-  "21c01e": {
-    "symbol": "rwby_wm_function_holder_21c01e",
+  "21c04e": {
+    "symbol": "rwby_wm_function_holder_21c04e",
     "arguments": "4:stack4"
   },
-  "21c028": {
-    "symbol": "rwby_wm_function_const_21c028",
+  "21c058": {
+    "symbol": "rwby_wm_function_const_21c058",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21c050": {
-    "symbol": "rwby_wm_function_clone_21c050",
+  "21c080": {
+    "symbol": "rwby_wm_function_clone_21c080",
     "arguments": ""
   },
-  "21c072": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21c072",
+  "21c0a2": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21c0a2",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21c4e4": {
-    "symbol": "rwby_wm_function_const_21c4e4",
+  "21c514": {
+    "symbol": "rwby_wm_function_const_21c514",
     "arguments": "4:stack4"
   },
-  "21c50c": {
-    "symbol": "rwby_wm_function_holder_21c50c",
+  "21c53c": {
+    "symbol": "rwby_wm_function_holder_21c53c",
     "arguments": ""
   },
-  "21c512": {
-    "symbol": "rwby_wm_function_holder_21c512",
+  "21c542": {
+    "symbol": "rwby_wm_function_holder_21c542",
     "arguments": "4:stack4"
   },
-  "21c51c": {
-    "symbol": "rwby_wm_function_const_21c51c",
+  "21c54c": {
+    "symbol": "rwby_wm_function_const_21c54c",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21c544": {
-    "symbol": "rwby_wm_function_clone_21c544",
+  "21c574": {
+    "symbol": "rwby_wm_function_clone_21c574",
     "arguments": ""
   },
-  "21c566": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21c566",
+  "21c596": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21c596",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21c7d8": {
-    "symbol": "rwby_wm_function_const_21c7d8",
+  "21c808": {
+    "symbol": "rwby_wm_function_const_21c808",
     "arguments": "4:stack4"
   },
-  "21c800": {
-    "symbol": "rwby_wm_function_holder_21c800",
+  "21c830": {
+    "symbol": "rwby_wm_function_holder_21c830",
     "arguments": ""
   },
-  "21c806": {
-    "symbol": "rwby_wm_function_holder_21c806",
+  "21c836": {
+    "symbol": "rwby_wm_function_holder_21c836",
     "arguments": "4:stack4"
   },
-  "21c810": {
-    "symbol": "rwby_wm_function_const_21c810",
+  "21c840": {
+    "symbol": "rwby_wm_function_const_21c840",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21c838": {
-    "symbol": "rwby_wm_function_clone_21c838",
+  "21c868": {
+    "symbol": "rwby_wm_function_clone_21c868",
     "arguments": ""
   },
-  "21c85a": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21c85a",
+  "21c88a": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21c88a",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21ca80": {
-    "symbol": "rwby_wm_function_const_21ca80",
+  "21cab0": {
+    "symbol": "rwby_wm_function_const_21cab0",
     "arguments": "4:stack4"
   },
-  "21caa8": {
-    "symbol": "rwby_wm_function_holder_21caa8",
+  "21cad8": {
+    "symbol": "rwby_wm_function_holder_21cad8",
     "arguments": ""
   },
-  "21caae": {
-    "symbol": "rwby_wm_function_holder_21caae",
+  "21cade": {
+    "symbol": "rwby_wm_function_holder_21cade",
     "arguments": "4:stack4"
   },
-  "21cab8": {
-    "symbol": "rwby_wm_function_const_21cab8",
+  "21cae8": {
+    "symbol": "rwby_wm_function_const_21cae8",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21cae0": {
-    "symbol": "rwby_wm_function_clone_21cae0",
+  "21cb10": {
+    "symbol": "rwby_wm_function_clone_21cb10",
     "arguments": ""
   },
-  "21cb02": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21cb02",
+  "21cb32": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21cb32",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21cea8": {
-    "symbol": "rwby_std_ostringstream_append_integer_21cea8",
+  "21ced8": {
+    "symbol": "rwby_std_ostringstream_append_integer_21ced8",
     "arguments": "4:stack4,4:stack8,4:stack12"
   },
-  "21cf60": {
-    "symbol": "rwby_wm_function_const_21cf60",
+  "21cf90": {
+    "symbol": "rwby_wm_function_const_21cf90",
     "arguments": "4:stack4"
   },
-  "21cf88": {
-    "symbol": "rwby_wm_function_holder_21cf88",
+  "21cfb8": {
+    "symbol": "rwby_wm_function_holder_21cfb8",
     "arguments": ""
   },
-  "21cf8e": {
-    "symbol": "rwby_wm_function_holder_21cf8e",
+  "21cfbe": {
+    "symbol": "rwby_wm_function_holder_21cfbe",
     "arguments": "4:stack4"
   },
-  "21cf98": {
-    "symbol": "rwby_wm_function_const_21cf98",
+  "21cfc8": {
+    "symbol": "rwby_wm_function_const_21cfc8",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21cfc0": {
-    "symbol": "rwby_wm_function_clone_21cfc0",
+  "21cff0": {
+    "symbol": "rwby_wm_function_clone_21cff0",
     "arguments": ""
   },
-  "21cfe2": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21cfe2",
+  "21d012": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21d012",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21d3f4": {
-    "symbol": "rwby_wm_string_append_21d3f4",
+  "21d424": {
+    "symbol": "rwby_wm_string_append_21d424",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21d4b4": {
-    "symbol": "rwby_wm_string_append_21d4b4",
+  "21d4e4": {
+    "symbol": "rwby_wm_string_append_21d4e4",
     "arguments": "4:stack4,4:stack8"
   },
-  "21d4de": {
-    "symbol": "rwby_wm_function_const_21d4de",
+  "21d50e": {
+    "symbol": "rwby_wm_function_const_21d50e",
     "arguments": "4:stack4"
   },
-  "21d506": {
-    "symbol": "rwby_wm_function_holder_21d506",
+  "21d536": {
+    "symbol": "rwby_wm_function_holder_21d536",
     "arguments": ""
   },
-  "21d50c": {
-    "symbol": "rwby_wm_function_holder_21d50c",
+  "21d53c": {
+    "symbol": "rwby_wm_function_holder_21d53c",
     "arguments": "4:stack4"
   },
-  "21d516": {
-    "symbol": "rwby_wm_function_const_21d516",
+  "21d546": {
+    "symbol": "rwby_wm_function_const_21d546",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21d53e": {
-    "symbol": "rwby_wm_function_clone_21d53e",
+  "21d56e": {
+    "symbol": "rwby_wm_function_clone_21d56e",
     "arguments": ""
   },
-  "21d560": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21d560",
+  "21d590": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_bindDefaults_21d590",
     "arguments": "4:stack4,4:stack8,4:stack12,4:stack16"
   },
-  "21d5e4": {
-    "symbol": "rwby_wm_unordered_map_unordered_map_21d5e4",
+  "21d614": {
+    "symbol": "rwby_wm_unordered_map_unordered_map_21d614",
     "arguments": "4:stack4"
   },
-  "21d60c": {
-    "symbol": "rwby_wm_unique_ptr_unique_ptr_21d60c",
+  "21d63c": {
+    "symbol": "rwby_wm_unique_ptr_unique_ptr_21d63c",
     "arguments": "4:stack4"
   },
-  "21d630": {
-    "symbol": "rwby_winter_ruby_RubyVM_Impl_Impl_21d630",
+  "21d660": {
+    "symbol": "rwby_winter_ruby_RubyVM_Impl_Impl_21d660",
     "arguments": "4:stack4"
   },
-  "21d664": {
-    "symbol": "rwby_wm_unique_ptr_reset_21d664",
+  "21d694": {
+    "symbol": "rwby_wm_unique_ptr_reset_21d694",
     "arguments": "4:stack4,4:stack8"
   },
-  "21d68d": {
-    "symbol": "rwby_cxx_global_var_init_21d68d",
+  "21d6bd": {
+    "symbol": "rwby_cxx_global_var_init_21d6bd",
     "arguments": ""
   },
-  "21d6ee": {
-    "symbol": "rwby_cxx_global_var_init_1_21d6ee",
+  "21d71e": {
+    "symbol": "rwby_cxx_global_var_init_1_21d71e",
     "arguments": ""
   },
-  "21d74f": {
-    "symbol": "rwby_cxx_global_var_init_2_21d74f",
+  "21d77f": {
+    "symbol": "rwby_cxx_global_var_init_2_21d77f",
     "arguments": ""
   },
-  "21d7b0": {
-    "symbol": "rwby_cxx_global_var_init_3_21d7b0",
+  "21d7e0": {
+    "symbol": "rwby_cxx_global_var_init_3_21d7e0",
+    "arguments": ""
+  },
+  "2001f9": {
+    "symbol": "rwby_wm_probe_heap_free_bytes64_2001f9",
+    "arguments": ""
+  },
+  "20024c": {
+    "symbol": "rwby_wm_probe_heap_total_bytes64_20024c",
     "arguments": ""
   }
 }

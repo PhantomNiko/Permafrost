@@ -1,16 +1,12 @@
-Permafrost 0.6 third-party components
+Permafrost 0.7 component scope
 
-OpenBIOS firmware is built from the separate source checkout recorded in
-DEPENDENCIES.md and dependencies.json:
+The current firmware and WinterLua are the in-house implementations recovered
+from reference 0.8. The current build does not include OpenBIOS or upstream Lua.
+
+Historical milestones using external components retain their licenses and
+notices. Their sources are obtained from:
 https://github.com/PhantomNiko/openbios
-Its upstream GPL and per-file copyright notices remain applicable.
-See OPENBIOS-GPL-2.0.TXT in distributions containing that firmware.
-
-The current reference uses in-house WinterLua 0.2 rather than upstream Lua.
-Historical upstream Lua components retain their already-distributed MIT
-license and copyright notices. That license is not bundled with the current
-in-house implementation. Historical source dependencies are obtained from:
 https://github.com/PhantomNiko/lua/tree/Permafrost
 
 Pooka's Free Software License does not replace third-party licenses.
-See LICENSES.md for repository license scope.
+See LICENSES.md and DEPENDENCIES.md for scope and source checkout locations.

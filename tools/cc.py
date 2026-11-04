@@ -65,8 +65,6 @@ def main():
         support=here.parent/'usr/src' if bundled.exists() else here.parent/'kernel'
         sources += [support/'compiler.c', support/'runtime.c']
     architectures=('i386','x86_64') if args.arch=='universal' else (args.arch,)
-    if args.arch=='universal' and args.format=='flat':
-        raise ValueError('flat output requires one architecture')
     images=[]
     with tempfile.TemporaryDirectory(prefix='permafrost-cc-') as temp:
         for architecture in architectures:
@@ -84,7 +82,7 @@ def main():
             result,symbols,_=link(objects,base=args.base,entry=args.entry)
             if args.format=='macho':result=pack(result,args.base,architecture=architecture)
             images.append(result)
-        result=universal(images) if len(images)>1 else images[0]
+        result=universal(images,architectures=architectures if args.format=='flat' else None) if len(images)>1 else images[0]
         args.o.parent.mkdir(parents=True,exist_ok=True)
         args.o.write_bytes(result)
         print('Linked %s: %d bytes at 0x%x, entry %s'%(args.arch,len(result),args.base,args.entry))

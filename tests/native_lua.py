@@ -19,9 +19,9 @@ def main():
     with tempfile.TemporaryDirectory(prefix='permafrost-lua-') as temp:
         root = Path(temp)
         raw = args.image.read_bytes()
-        queue_source='tests/openbios_queue.c' if 'OpenBIOS.wmlp' in Image(raw).files() else 'tests/keyqueue.c'
+        queue_source='tests/keyqueue.c'
         queue = root / 'queue.bin'
-        subprocess.run(['build/Permafrost0.6.sdk/bin/pf-cc', queue_source,
+        subprocess.run(['build/Permafrost0.7.sdk/bin/pf-cc', queue_source,
                         '--format', 'flat', '--base', '0x280000', '-D', 'PF_KEYS="lua\\r"',
                         '-o', str(queue)], check=True, stdout=subprocess.DEVNULL)
         raw = args.image.read_bytes()

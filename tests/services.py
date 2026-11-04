@@ -18,10 +18,10 @@ def main():
     with tempfile.TemporaryDirectory(prefix='permafrost-services-') as temp:
         root = Path(temp)
         program = root / 'services.bin'
-        subprocess.run(['build/Permafrost0.6.sdk/bin/pf-cc', 'tests/services.c',
+        subprocess.run(['build/Permafrost0.7.sdk/bin/pf-cc', 'tests/services.c',
                         '--format', 'flat', '--base', '0x240000', '-o', str(program)], check=True)
         module = root / 'native-module.bin'
-        subprocess.run(['build/Permafrost0.6.sdk/bin/pf-cc', 'sdk/examples/native-module.c',
+        subprocess.run(['build/Permafrost0.7.sdk/bin/pf-cc', 'sdk/examples/native-module.c',
                         '--format', 'flat', '--base', '0x260000', '-o', str(module)], check=True)
         script = root / 'startup.ws'
         script.write_text('assert(runcode("/native-module.bin",$260000)==1)\n'

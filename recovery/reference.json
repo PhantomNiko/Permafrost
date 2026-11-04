@@ -506,5 +506,12 @@
         }
       }
     }
+  },
+  "uefi_i386_kernel": {
+    "reference_sha256": "ca26f335ca75cdcb8a7b89f2c91d04e7f787fbd0fad2cdd5655bc9690ce9c336",
+    "base": 33554432,
+    "entry": 33554452,
+    "state_end": 33861632,
+    "relation": "Same i386 function offsets as the BIOS kernel, with a 0x1fe0000 address slide"
   }
 }

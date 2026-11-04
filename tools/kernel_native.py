@@ -7,6 +7,7 @@ import argparse
 import json
 from pathlib import Path
 import struct
+import re
 
 from cc import compile_object
 from macho import pack_segments
@@ -27,15 +28,38 @@ def build_kernel(output, architecture='i386', profile_path=None):
     flags = ['-fno-inline-functions', '-Wno-int-conversion',
              '-Wno-incompatible-pointer-types', '-Wno-pointer-sign',
              '-Wno-incompatible-function-pointer-types']
+    slide=profile.get('address_slide',0)
+    constants={int(x,16) for x in profile.get('address_constants',[])}
+    if slide:
+        # Recovered C helpers can use equivalent pool addresses absent from
+        # the original instruction operands. Explicit pointer literals also slide.
+        pointer_literals = re.findall(r'\([^()\n]*\*\)\s*0x([0-9a-fA-F]+)',
+                                      (root / 'runtime.c').read_text())
+        constants.update(int(x, 16) for x in pointer_literals
+                         if profile['base'] - slide <= int(x, 16) < profile['state_end'] - slide)
+        # Memory lvalues are address-bearing even when their effective address
+        # was folded from a base operand in the original instructions.
+        for line in (root/'runtime.c').read_text().splitlines():
+            if line.startswith('#define '):
+                constants.update(int(x,16)for x in re.findall(r'0x([0-9a-fA-F]+)',line)
+                                 if profile['base']-slide<=int(x,16)<profile['state_end']-slide)
 
     def object_for(source, tag, defines=()):
         target = output / (tag + '.o')
+        if slide and source in (root/'runtime.c',root/'firmware.c'):
+            text=source.read_text()
+            if source.name=='firmware.c':
+                constants.update(int(x,16)for x in re.findall(r'0x([0-9a-fA-F]+)',text)
+                    if profile['base']-slide<=int(x,16)<profile['state_end']-slide)
+            text=re.sub(r'\b0x([0-9a-fA-F]+)([uUlL]*)',lambda m:
+                '0x%x%s'%(int(m[1],16)+slide,m[2])if int(m[1],16)in constants else m[0],text)
+            translated=output/(tag+'.c');translated.write_text(text);source=translated
         compile_object(source, target, includes, defines,
                        extra_flags=flags, architecture=architecture)
         return Object(target.read_bytes())
 
     bridge, bridge_symbols = b'', {}
-    if architecture == 'i386':
+    if architecture == 'i386' and profile.get('platform')!='uefi':
         bridge, bridge_symbols, _ = link([
             object_for(Path('firmware/bios-transition.c'), 'bios-transition',
                        ['PF_BIOS_CODE_BASE=0x20080', 'PF_BIOS_SEGMENT_BASE=0x20000'])
@@ -43,6 +67,8 @@ def build_kernel(output, architecture='i386', profile_path=None):
     objects = [object_for(root / 'runtime.c', 'implementation')]
     if architecture == 'i386':
         objects.append(object_for(root / 'firmware.c', 'platform'))
+        if profile.get('platform')=='uefi':
+            objects.append(object_for(Path('firmware/uefi/bios-unavailable.c'),'bios-unavailable'))
     objects += [object_for(Path('kernel/runtime.c'), 'libc'),
                 object_for(Path('kernel/compiler.c'), 'compiler'),
                 object_for(Path('kernel/entry.c'), 'entry', [
@@ -51,9 +77,9 @@ def build_kernel(output, architecture='i386', profile_path=None):
                     'PF_KERNEL_LOAD_BASE=0x%x' % profile['base']])]
     core, symbols, _ = link(objects, base=profile['core_base'], shim=False,
                             externals=bridge_symbols)
-    if architecture == 'i386' and profile['core_base'] + len(core) >= 0x1e0000:
+    if architecture == 'i386' and not slide and profile['core_base'] + len(core) >= 0x1e0000:
         raise ValueError('kernel core overlaps its initial stack')
-    state_object = object_for(root / 'state.c', 'state')
+    state_object = object_for(Path(profile.get('state_source',root / 'state.c')), 'state')
     state = next(s['data'] for s in state_object.sections if s['name'] == '.pf.state')
     base, start, end = profile['base'], profile['text_end'], profile['state_end']
     if len(state) != end - start:
@@ -67,11 +93,11 @@ def build_kernel(output, architecture='i386', profile_path=None):
     struct.pack_into('<5I', image, 0, 0x504c4d57, 1, profile['entry'],
                      profile['text_start'] - base, 0)
     abi = json.loads((root / 'abi.json').read_text())
-    entries = {int(a, 16): symbols[item['symbol']] for a, item in abi.items()}
+    entries = {int(a, 16)+slide: symbols[item['symbol']] for a, item in abi.items()}
     if architecture == 'i386':
         for address in (0x2002c, 0x20113, 0x2022b, 0x20386, 0x204b9,
                         0x205e7, 0x206a8, 0x207a6, 0x20867):
-            entries[address] = symbols['FUN_%08x' % address]
+            entries[address+slide] = symbols['FUN_%08x' % address]
     word = 8 if architecture == 'x86_64' else 4
     encoding = '<Q' if word == 8 else '<I'
     first = (start - base + word - 1) & ~(word - 1)
@@ -84,7 +110,7 @@ def build_kernel(output, architecture='i386', profile_path=None):
         image[offset:offset + len(payload)] = payload
     # Keep stable entry addresses for data tables and original tooling; each
     # entry transfers directly into the separately linked C implementation.
-    addresses = sorted(int(a, 16) for a in abi)
+    addresses = sorted(int(a, 16)+slide for a in abi)
     for index, address in enumerate(addresses):
         limit = addresses[index + 1] if index + 1 < len(addresses) else start
         if address + 5 <= limit:

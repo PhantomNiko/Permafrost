@@ -1,6 +1,10 @@
 /* Public WMAP v4 allocation, file and image service integration probe.
  * Pooka's Free Software License. */
 #include <permafrost.h>
+_Static_assert(sizeof(struct pf_native_api)==124,"WMAP wire layout");
+_Static_assert(sizeof(struct pf_blob)==12,"file wire layout");
+_Static_assert(sizeof(struct pf_image)==20,"image wire layout");
+_Static_assert(sizeof(struct pf_native_value)==(__SIZEOF_POINTER__==8?40:24),"native callback layout");
 #define CHECK(value) do {if(!(value)){pf_log("PF-SERVICE-FAIL %u",__LINE__);return 0;}}while(0)
 static const uint8_t png[] = {
     137,80,78,71,13,10,26,10,0,0,0,13,73,72,68,82,
@@ -10,8 +14,8 @@ static const uint8_t png[] = {
     83,0,0,0,0,73,69,78,68,174,66,96,130,
 };
 int main(void) {
-    const struct pf_native_api *api=pf_api();
-    CHECK(api->magic==PF_API_MAGIC && api->version==4 && api->size==sizeof(*api));
+    const pf_services *api=pf_api();
+    CHECK(api->magic==PF_API_MAGIC && api->version==4 && api->size==sizeof(struct pf_native_api));
     uint8_t *memory=api->allocate(32);
     CHECK(memory);
     for(unsigned i=0;i<32;++i)memory[i]=(uint8_t)(i*7);

@@ -1,24 +1,24 @@
 {
-  "version": "0.6",
+  "version": "0.7",
   "language": "WinterRwby 0.1",
   "base": 2097152,
   "entry": 2097152,
   "text_start": 2097152,
-  "text_end": 2218001,
+  "text_end": 2218049,
   "initialized_end": 2238556,
   "state_end": 2240512,
   "core_base": 2240512,
   "translation": {
     "pointer_spills": true,
     "sjlj": {
-      "register": "20279b",
-      "transfer": "202380"
+      "register": "2027cb",
+      "transfer": "2023b0"
     },
     "source_replacements": {
-      "20d7d8": {
-        "local_74 = (double)recovered_20e095(pcVar3,iVar5,(int *)0x0,10);": "local_74 = pf_bits_double(recovered_20e095(pcVar3,iVar5,(int *)0x0,10));"
+      "20d808": {
+        "local_74 = (double)recovered_20e095(pcVar3,iVar5,(int *)0x0,10);": "local_74 = pf_bits_double(recovered_20e0c5(pcVar3,iVar5,(int *)0x0,10));"
       },
-      "208f0d": {
+      "208f3d": {
         "(float)CONCAT44(uStack_40,(uint)local_4c)": "(double)(longlong)CONCAT44(uStack_40,(uint)local_4c)"
       }
     },
@@ -28,5 +28,7 @@
   "inline_constants": {},
   "source": "applications/rwby",
   "program": "rwby",
-  "reference_sha256": "e59a48960e3a8bd09a6b12364e710b9ab7efea7b8aee0043eb753d864193ab26"
+  "reference_sha256": "d523de699627dd395eceea40a5ac62320ee506b3f32174f746c28b0e19552ad7",
+  "architecture": "x86_64",
+  "data_model": "ilp32"
 }

@@ -1,58 +1,29 @@
-# Permafrost 0.6
+# Permafrost 0.7
 
-Permafrost 0.6 reconstructs the supplied 0.7 Beta BIOS and OpenBIOS releases.
-It is the current build target; historical source and SDK milestones remain
-in Git history.
+Permafrost 0.7 reconstructs the supplied 0.8 release. Earlier versions remain
+milestones in Git history; only 0.7 is a build target. Kernels, BIOS/UEFI
+firmware, WinterLua, Rwby, standalone WinterScript, and bundled native programs
+build from C/C++ source. No reference executables are bundled in the build.
 
-The BIOS and OpenBIOS kernels, built-in WinterScript runtime, WinterLua 0.2,
-standalone Rwby and WinterScript VMs, and native monitor build from C/C++
-source. Assembly is limited to boot and CPU/BIOS transitions. OpenBIOS firmware
-builds from the pinned sibling `../openbios` checkout. No precompiled VM
-binaries are bundled or required by the build.
-
-## Build
-
-Use macOS 15, Python 3, NASM and Apple Command Line Tools. The OpenBIOS build
-also requires GNU i386 ELF binutils and the pinned external source revision
-listed in [dependencies](DEPENDENCIES.md).
+Build with Python 3 and Clang/Clang++ on macOS 15:
 
 ```sh
-python3 tools/build.py --nasm nasm --binutils-prefix i386-elf-
+python3 tools/build.py
 ```
 
 The build produces:
 
-- `build/Permafrost-0.6.img` — BIOS image, 40 MiB.
-- `build/Permafrost-0.6-OpenBIOS.img` — source OpenBIOS firmware and kernel, 40 MiB.
-- `build/Permafrost0.6.sdk` and `build/Permafrost0.6.sdk.zip` — macOS 15 development bundle.
-- `build/release.json` — artifact sizes and SHA-256 hashes.
+- `build/Permafrost-0.7.img`: 64 MiB BIOS disk.
+- `build/Permafrost-0.7-UEFI.img`: 100 MiB GPT disk with IA32 and x86-64 EFI loaders.
+- `build/Permafrost0.7.sdk` and its ZIP archive: relocatable macOS 15 SDK.
+- `build/release.json`: artifact sizes and SHA-256 hashes.
 
-`--variant bios` and `--variant openbios` select a firmware variant of this
-release. Reference images and decompiler tools are analysis inputs and are
-not required by normal builds. VM reference hashes and recovered argument
-locations are retained in `recovery/applications` and `applications`.
+The disks contain firmware and recovery WMFS32 volumes and a FAT32 user
+volume. The EFI disk carries the WBPT disk in the original nested partition
+format. Kernels and native applications use universal i386/x86-64 containers.
 
-The images have firmware, recovery and FAT32 user partitions. The OpenBIOS
-variant uses a boot-image RAM disk and requires at least 64 MiB of RAM for the
-default image. Its disk writes last for the boot session. The BIOS variant
-uses its disk drivers for persistent writes.
-
-## Development and validation
-
-The [SDK guide](docs/sdk.md) explains C/C++ Mach-O programs, native callbacks,
-and image tools. The bundle is relocatable and requires host Clang; it is a
-freestanding SDK without a hosted C++ standard library or Xcode integration.
-
-`tests/hardware_suite.py` checks complete hardware boots, the bundled language
-self-test, public allocation/file/PNG services, relocated-SDK C/C++ programs,
-source WinterLua, native Rwby/WinterScript conformance, and directory file sizes.
-The native checks cover functions, containers, numeric payloads and protected
-error calls. `tests/runtime.py` compares kernel
-routines with the reference, including stack and callee-saved registers.
-`tests/lua.py` covers the in-house Lua subset and observed reference limitations.
-Bochs, its BIOS/VGA BIOS, and Unicorn for CPU tests are supplied separately.
-
-See [release findings](docs/release.md), [recovery method](docs/decompilation.md),
-[license scope](LICENSES.md), and [source dependencies](DEPENDENCIES.md).
-Third-party licenses retain their original scope. The current release uses
-in-house WinterLua and does not link upstream Lua.
+The [SDK guide](docs/sdk.md) covers native C/C++ programs, fixed-width public
+records, and image tools. [Recovery notes](docs/recovery.md) describe the
+source layout. [Release findings](docs/release.md) record validation and
+limitations. See [license scope](LICENSES.md) and [dependencies](DEPENDENCIES.md)
+for component licensing.

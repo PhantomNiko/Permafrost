@@ -136,7 +136,7 @@ void wm_platform_serial_write(char *param_1);
 void wm_platform_serial_write_n(long param_1,long param_2);
 uchar wm_platform_serial_poll_char(undefined1 *param_1);
 uint wm_platform_cpuid_available(void);
-uchar wm_platform_cpuid_query(int param_1,undefined8 param_2,undefined4 *param_3);
+uint wm_platform_cpuid_query(int leaf,uint subleaf,uint *out);
 void wm_platform_heap_free_bytes(void);
 ulonglong wm_platform_heap_free_bytes64(void);
 uint wm_platform_heap_total_bytes(void);
@@ -476,7 +476,7 @@ void app_console_render(void);
 undefined8 wm_kernel_program_putc(byte param_1);
 void app_console_putc_raw(byte param_1);
 undefined8 wm_kernel_program_write(char *param_1);
-ushort wm_kernel_program_poll_key_ax(ulonglong in_RSI);
+ushort wm_kernel_program_poll_key_ax(void);
 uchar serial_poll_char(char *param_1);
 undefined8 wm_kernel_program_end(void);
 uint render_ui(void);
@@ -496,10 +496,7 @@ ulong wm_kernel_host_readline(undefined8 param_1,undefined8 param_2,undefined8 p
                        undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8,
                        undefined1 *param_9,uint param_10,char *param_11,int param_12,
                        undefined8 param_13,undefined8 param_14);
-uchar read_line_internal(char *param_1,ulong param_2,char *param_3,undefined8 param_4,
-                       undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8,
-                       undefined1 *param_9,long param_10,char *param_11,byte param_12,
-                       undefined8 param_13,undefined8 param_14);
+uchar read_line_internal(char *buffer,ulong capacity,char *prompt,int allow_escape,int log_line);
 undefined8
 wm_kernel_expand_disk(undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
                  undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8,
@@ -525,7 +522,7 @@ ulonglong ws_make_null(undefined8 *param_1);
 void ws_value_free(void *value);
 void wm_permafrost_main(void);
 uchar storage_scan_devices(void);
-uint read_line(ulonglong in_R9);
+uint read_line(void);
 uint trim_in_place(byte *param_1);
 uint textmode_columns(void);
 uint textmode_rows(void);

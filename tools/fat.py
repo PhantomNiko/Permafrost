@@ -32,9 +32,9 @@ class FAT32:
             out+=self.cluster(c)
             if len(out)>=size:return bytes(out[:size])
         raise ValueError('short FAT32 chain')
-    def entries(self):
+    def entries(self,first=None,recursive=False):
         parts={}
-        for c in self.chain(self.root):
+        for c in self.chain(self.root if first is None else first):
             block=self.cluster(c)
             for pos in range(0,len(block),32):
                 e=block[pos:pos+32]
@@ -44,7 +44,7 @@ class FAT32:
                     index=e[0]&31
                     if e[0]&64:parts={}
                     parts[index]=e[1:11]+e[14:26]+e[28:32];continue
-                if e[11]&0x18:parts={};continue
+                if e[11]&8:parts={};continue
                 if parts:
                     encoded=b''.join(parts[i] for i in sorted(parts));name=encoded.decode('utf-16-le').split('\0',1)[0].rstrip('\uffff')
                 else:
@@ -53,6 +53,11 @@ class FAT32:
                     if e[12]&16:ext=ext.lower()
                     name=stem+('.'+ext if ext else '')
                 parts={};first=struct.unpack_from('<H',e,20)[0]<<16|struct.unpack_from('<H',e,26)[0];size=struct.unpack_from('<I',e,28)[0]
+                if e[11]&16:
+                    if recursive and name not in ('.','..'):
+                        for child,cluster,length in self.entries(first,True):
+                            yield name+'/'+child,cluster,length
+                    continue
                 yield name,first,size
 
 def make_fat32(files,sectors):
@@ -104,3 +109,58 @@ def make_fat32(files,sectors):
     check=FAT32(bytes(output));actual={n:check.read(c,s) for n,c,s in check.entries()}
     if actual!={n.lstrip('/'):c for n,c in files.items()}:raise ValueError('FAT32 round trip failed')
     return bytes(output)
+
+
+def make_efi_volume(files,sectors=69632):
+    """Build the EFI system partition with deterministic 8.3 directories."""
+    volume=bytearray(make_fat32({},sectors));geometry=FAT32(volume)
+    root={'children':{},'cluster':2,'parent':0};directories=[root];payloads=[]
+    for path,data in sorted(files.items()):
+        parts=path.strip('/').split('/');node=root
+        for name in parts:
+            pieces=name.upper().split('.')
+            if (name in ('.','..') or len(pieces)>2 or not 1<=len(pieces[0])<=8
+                    or len(pieces[-1])>3 and len(pieces)>1
+                    or any(not(c.isascii()and(c.isalnum()or c in '_-'))for c in ''.join(pieces))):
+                raise ValueError('invalid EFI short name: '+name)
+        for name in parts[:-1]:
+            key=name.upper()
+            if key not in node['children']:
+                child={'children':{},'parent_node':node};node['children'][key]=child;directories.append(child)
+            node=node['children'][key]
+            if 'children'not in node:raise ValueError('EFI directory collides with file')
+        key=parts[-1].upper()
+        if key in node['children']:raise ValueError('duplicate EFI path')
+        leaf={'data':bytes(data)};node['children'][key]=leaf;payloads.append(leaf)
+    fat=bytearray(volume[geometry.fat:geometry.fat+geometry.fat_sectors*512]);current=2
+    def allocate(node,count):
+        nonlocal current
+        if current+count>geometry.total-geometry.reserved-2*geometry.fat_sectors+2:raise ValueError('EFI partition full')
+        node['cluster']=current if count else 0;node['count']=count
+        for i in range(count):struct.pack_into('<I',fat,(current+i)*4,current+i+1 if i+1<count else 0xfffffff)
+        current+=count
+    for node in directories:allocate(node,max(1,(32*(len(node['children'])+(0 if node is root else 2))+511)//512))
+    for node in payloads:allocate(node,(len(node['data'])+511)//512)
+    def entry(name,cluster,size,directory):
+        result=bytearray(32)
+        if name in ('.','..'):short=name.ljust(11)
+        else:
+            stem,_,ext=name.partition('.');short=stem.ljust(8)+ext.ljust(3)
+        result[:11]=short.encode('ascii');result[11]=16 if directory else 32
+        struct.pack_into('<H',result,20,cluster>>16);struct.pack_into('<H',result,26,cluster&65535);struct.pack_into('<I',result,28,size)
+        return result
+    def write(node,data):
+        offset=geometry.start+(node['cluster']-2)*512;volume[offset:offset+len(data)]=data
+    for node in directories:
+        entries=[]
+        if node is not root:
+            parent=node['parent_node'];entries=[entry('.',node['cluster'],0,True),entry('..',0 if parent is root else parent['cluster'],0,True)]
+        for name,child in node['children'].items():entries.append(entry(name,child['cluster'],len(child.get('data',b'')),'children'in child))
+        write(node,b''.join(entries))
+    for node in payloads:
+        if node['data']:write(node,node['data'])
+    for copy in range(2):
+        offset=geometry.fat+copy*geometry.fat_sectors*512;volume[offset:offset+len(fat)]=fat
+    check=FAT32(volume);actual={name:check.read(cluster,size)for name,cluster,size in check.entries(recursive=True)}
+    if actual!={name.strip('/').upper():bytes(data)for name,data in files.items()}:raise ValueError('EFI volume round trip failed')
+    return bytes(volume)

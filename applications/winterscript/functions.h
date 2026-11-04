@@ -1,4 +1,4 @@
-/* Permafrost 0.6; Pooka's Free Software License. */
+/* Permafrost 0.7; Pooka's Free Software License. */
 #pragma once
 #include "support.h"
 #undef CONCAT44
@@ -13,2897 +13,2901 @@ typedef code service_conflict9;
 void winterscript_winterscript_entry_200000(void);
 void winterscript_wm_probe_heap_reset_200006(void);
 uint winterscript_wm_probe_heap_init_200016(void);
-int winterscript_wm_probe_heap_free_bytes_2001fb(void);
-int winterscript_wm_probe_heap_total_bytes_200225(void);
-uint * winterscript_wm_probe_heap_alloc_200249(int param_1);
-ulonglong winterscript_ashldi3_2002b0(ulonglong value,int shift);
-ulonglong winterscript_lshrdi3_2002e9(ulonglong value,int shift);
-ulonglong winterscript_udivdi3_200322(ulonglong a,ulonglong b);
-undefined8 winterscript_udivmod64_200343(undefined4 param_1,undefined4 param_2,uint param_3,uint param_4,uint *param_5);
-ulonglong winterscript_umoddi3_200426(ulonglong a,ulonglong b);
-longlong winterscript_divdi3_20045e(longlong a,longlong b);
-longlong winterscript_moddi3_2004d2(longlong a,longlong b);
-void winterscript_abort_200544(void);
-int winterscript_abs_20054b(int value);
-void * winterscript_malloc_20055a(uint size);
-void winterscript_free_200582(void *pointer);
-void * winterscript_realloc_2005a8(void *pointer,uint size);
-void * winterscript_memcpy_2005d0(void *out,void *in,uint size);
-void * winterscript_memmove_2005f1(void *out,void *in,uint size);
-void * winterscript_memset_200637(void *out,int value,uint size);
-void winterscript_bzero_200653(void *out,uint size);
-void winterscript_bzero_20066b(int param_1,int param_2);
-int winterscript_memcmp_200683(void *a,void *b,uint size);
-int winterscript_islower_2006b2(int value);
-int winterscript_isupper_2006c5(int value);
-int winterscript_isalpha_2006d8(int value);
-int winterscript_isalnum_2006ee(int value);
-int winterscript_isblank_200712(int value);
-int winterscript_isprint_20072b(int value);
-int winterscript_tolower_20073e(int value);
-int winterscript_toupper_200752(int value);
-uint winterscript_strlen_200766(char *s);
-int winterscript_strcmp_200781(char *a,char *b);
-int winterscript_strcoll_2007a9(char *a,char *b);
-char * winterscript_strcpy_2007b2(char *a,char *b);
-char * winterscript_strdup_2007cc(char *s);
-char * winterscript_strchr_200816(char *s,int c);
-uint winterscript_strspn_20083b(char *s,char *set);
-char * winterscript_strpbrk_200872(char *s,char *set);
-char * winterscript_strstr_2008a0(char *s,char *part);
-undefined * winterscript_setlocale_2008d1(void);
-undefined ** winterscript_localeconv_2008db(void);
-undefined4 winterscript_time_2008e5(undefined4 *param_1);
-double winterscript_ldexp_2008fc(double value,int exponent);
-double winterscript_frexp_200926(double value,int *exponent);
-double winterscript_fmod_20099e(double a,double b);
-double winterscript_pow_2009eb(double a,double b);
-double winterscript_floor_200a6f(double value);
-double winterscript_ceil_200ab0(double value);
-double winterscript_sqrt_200afd(double value);
-double winterscript_log_200b35(double value);
-longlong winterscript_llround_200bcc(double param_1);
-double winterscript_sin_200c0d(double value);
-longdouble winterscript_wrap_angle_200c4f(double param_1);
-double winterscript_cos_200c87(double value);
-double winterscript_fabs_200cc5(double value);
-float winterscript_fmodf_200cd9(float a,float b);
-float10 winterscript_frexpf_200d2e(float param_1,int *param_2);
-float10 winterscript_ldexpf_200d51(float param_1,int param_2);
-float winterscript_powf_200d74(float a,float b);
-float winterscript_floorf_200d97(float value);
-float winterscript_ceilf_200dde(float value);
-double winterscript_trunc_200dfa(double value);
-float winterscript_truncf_200e4c(float value);
-float winterscript_sqrtf_200e68(float value);
-float winterscript_logf_200e84(float value);
-void winterscript_lround_200ea0(double param_1);
-float winterscript_sinf_200eb6(float value);
-float winterscript_cosf_200ed2(float value);
-float winterscript_fabsf_200eee(float value);
-int winterscript_strtol_200f02(char *s,char **end,int base);
-int winterscript_digit_value_200ff4(int param_1);
-uint winterscript_strtoul_201028(char *s,char **end,int base);
-double winterscript_strtod_20111a(char *s,char **end);
-float winterscript_strtof_20126c(char *s,char **end);
-int winterscript_vsnprintf_20128e(char *out,uint size,char *format,void *args);
-void winterscript_append_char_201520(int *param_1,uint *param_2,int *param_3,undefined1 param_4);
-void winterscript_append_string_20153e(int *out,uint *remaining,int *total,char *text);
-void winterscript_append_unsigned_20157f(int *param_1,uint *param_2,int *param_3,uint param_4,uint param_5,char param_6);
-int winterscript_snprintf_2015ea(char *out,uint size,char *format,...);
-void winterscript_wm_probe_heap_append_region_20160d(int param_1,uint param_2,int *param_3);
-undefined4 winterscript_wm_program_api_field_ready_20165f(int param_1);
-void winterscript_wm_lua_write_201694(int param_1,int param_2);
-void winterscript_wm_lua_flush_output_line_20171a(byte param_1);
-void winterscript_wm_lua_writeline_201790(void);
-void winterscript_wm_lua_flush_output_20179c(void);
-void winterscript_wm_lua_write_errorf_2017a7(char *param_1,undefined1 *param_2);
-void winterscript_wm_lua_show_banner_2017fb(void);
-void winterscript_wm_lua_write_cstr_201841(char *param_1);
-void winterscript_wm_lua_show_help_201868(void);
-bool winterscript_wm_lua_readline_201886(uint param_1,uint param_2,uint param_3,byte param_4);
-undefined4 winterscript_wmfs_mount_image_2018d5(void);
-void winterscript_wmfs_unmount_2018dc(void);
-undefined1 winterscript_wmfs_is_mounted_2018e1(void);
-void * winterscript_wmfs_fopen_2018e8(char *path,char *mode);
-uint winterscript_wm_lua_app_stat_file_201ba3(uint param_1,uint param_2);
-undefined4 winterscript_wm_lua_file_reserve_201bd3(int param_1,uint param_2);
-void winterscript_wmfs_freopen_201c48(char *param_1,char *param_2,void *param_3);
-int winterscript_wmfs_fclose_201c66(void *stream);
-uint winterscript_wmfs_fread_201ca6(void *out,uint size,uint count,void *stream);
-int winterscript_wmfs_getc_201d13(void *stream);
-uint winterscript_wmfs_fwrite_201df4(void *data,uint size,uint count,void *stream);
-int winterscript_wmfs_fseek_201efc(void *stream,int offset,int origin);
-int winterscript_wmfs_ftell_201f75(void *stream);
-int winterscript_wmfs_fflush_201f97(void *stream);
-int winterscript_wmfs_feof_201ff8(void *stream);
-int winterscript_wmfs_ferror_20200f(void *stream);
-void winterscript_wmfs_clearerr_202026(int param_1);
-int winterscript_wmfs_ungetc_202041(int ch,void *stream);
-int winterscript_wmfs_remove_202070(char *path);
-uint winterscript_wm_lua_app_delete_file_2020a1(uint param_1);
-int winterscript_wmfs_rename_2020cc(char *from,char *to);
-uint winterscript_wm_lua_app_write_file_202156(uint param_1,uint param_2,uint param_3);
-undefined4 winterscript_wmfs_read_entire_file_202189(int param_1,undefined4 *param_2,uint *param_3);
-bool winterscript_wmfs_write_entire_file_20221b(int param_1,int param_2,int param_3);
-undefined4 winterscript_wmfs_register_virtual_file_202252(void);
-void winterscript_wmfs_clear_virtual_files_202259(void);
-undefined4 winterscript_wmfs_image_data_20225e(void);
-undefined4 winterscript_wmfs_image_size_202265(void);
-undefined4 winterscript_wmfs_export_image_20226c(void);
-void * winterscript_memchr_202273(void *s,int c,uint size);
-int winterscript_strncmp_202297(char *a,char *b,uint size);
-char * winterscript_strerror_2022ca(int param_1);
-undefined4 winterscript_getenv_202325(void);
-undefined4 winterscript_system_20232c(void);
-void winterscript_clock_202334(void);
-undefined4 winterscript_wm_program_api_field_ready_202347(int param_1);
-void winterscript_permafrost_sjlj_jump_202380(int context);
-uint winterscript_std_terminate_20238f(void);
-undefined4 winterscript_gxx_personality_sj0_2023f0(void);
-void * winterscript_cxa_begin_catch_202400(void *object);
-void * winterscript_operator_new_202422(uint size);
-void * winterscript_operator_new_20244b(uint size);
-void winterscript_operator_delete_202454(void *pointer);
-void winterscript_operator_delete_2024c7(void *pointer);
-void winterscript_operator_delete_20253a(void *pointer,uint size);
-void winterscript_operator_delete_2025ad(void *pointer,uint size);
-undefined4 winterscript_cxa_atexit_202620(void);
-uint winterscript_cxa_guard_acquire_202627(uint *param_1);
-void winterscript_cxa_guard_release_202636(byte *param_1);
-void winterscript_cxa_guard_abort_202641(void);
-void * winterscript_cxa_allocate_exception_202646(uint size);
-void winterscript_cxa_free_exception_20267b(void *object);
-int winterscript_object_from_header_202698(int param_1);
-void winterscript_cxa_end_catch_2026a0(void);
-uint winterscript_cxa_throw_2026de(int param_1,undefined4 param_2,undefined4 param_3);
-void winterscript_raise_exception_20270b(undefined4 *param_1);
-void winterscript_cxa_rethrow_202761(void);
-uint winterscript_Unwind_SjLj_Register_20278b(uint *context);
-uint winterscript_Unwind_SjLj_Unregister_2027a0(undefined4 *param_1);
-void winterscript_Unwind_SjLj_RaiseException_2027c9(int a4);
-void winterscript_Unwind_SjLj_ForcedUnwind_2027d7(void);
-uint winterscript_Unwind_SjLj_Resume_2027e2(undefined4 *param_1);
-void winterscript_continue_unwind_202800(undefined4 *param_1);
-void winterscript_Unwind_SjLj_Resume_or_Rethrow_202873(undefined4 *param_1);
-undefined4 winterscript_gxx_personality_v0_202884(void);
-void winterscript_Unwind_Resume_20288b(void);
-int winterscript_dynamic_cast_202896(int *param_1,undefined4 param_2,undefined4 *param_3);
-bool winterscript_type_matches_2028cd(undefined4 *param_1,undefined4 *param_2);
-void winterscript_cxa_pure_virtual_202934(void);
-undefined4 winterscript_tlv_bootstrap_20293d(void);
-int winterscript_isdigit_202944(int value);
-int winterscript_isspace_202957(int value);
-int winterscript_isxdigit_20297e(int value);
-int winterscript_isfinite_2029a0(int value,uint a8);
-double winterscript_round_2029b8(double value);
-ulonglong winterscript_strtoull_2029fc(char *s,char **end,int base);
-ulonglong winterscript_strtoll_202b16(char *s,char **end,int base);
-uint winterscript_inspect_context_202b1f(uint *context,void *type,uint *handler);
-undefined4 * winterscript_read_encoded_pointer_202cbe(uint param_1,int *param_2);
-uint winterscript_read_uleb128_202d72(undefined4 *param_1);
-uint winterscript_read_unaligned_202d9d(int param_1,int param_2);
-uint winterscript_read_sleb128_202dc2(undefined4 *param_1);
-void winterscript_std_istream_istream_202e04(void);
-void winterscript_std_ostream_ostream_202e0a(void);
-undefined4 winterscript_permafrost_winterscript_entry_202e0f(void);
-void winterscript_showHelp_2034bc(void);
-void winterscript_writeLine_2034da(int param_1);
-void winterscript_writeText_2034f0(int param_1);
-void winterscript_std_ostream_ostream_203518(void *pointer);
-int * winterscript_Variable_toString_203522(int *param_1,undefined4 *param_2);
-void winterscript_reportError_203980(int *param_1,char *param_2);
-void winterscript_wm_string_assign_2039b8(int *param_1,int param_2,uint param_3);
-int winterscript_wm_string_length_203a81(int param_1);
-uint winterscript_wm_string_pointer_offset_203a9c(int *param_1,int param_2,int *param_3);
-uint winterscript_wm_string_reserve_203adc(int *param_1,uint param_2);
-void winterscript_wm_string_string_203b2c(undefined4 *param_1,int param_2,uint param_3);
-uint winterscript_wm_string_allocate_203b5c(int param_1);
-undefined4 * winterscript_wm_to_string_203b76(undefined4 *param_1,uint param_2);
-void winterscript_wm_string_operator_203bc4(int *param_1,undefined4 *param_2);
-int * winterscript_wm_operator_203bed(int *param_1,uint *a8,uint *ac);
-undefined4 * winterscript_wm_operator_203c98(undefined4 *param_1,undefined4 *param_2,int param_3);
-undefined8 winterscript_wm_to_chars_result_wm_to_chars_203d44(byte *param_1,byte *param_2,uint param_3,uint param_4);
-void winterscript_wm_string_push_back_203e1c(int *param_1,undefined1 param_2);
-undefined4 * winterscript_wm_to_string_203e6f(undefined4 *param_1,uint param_2,uint param_3);
-undefined8 winterscript_wm_to_chars_result_wm_to_chars_203ec1(uint param_1,uint param_2,uint param_3,uint param_4,uint param_5);
-void winterscript_wm_string_string_203f94(undefined4 *param_1,undefined4 *param_2);
-int * winterscript_wm_string_append_203fca(int *param_1,int param_2,uint param_3);
-void winterscript_wm_string_append_204074(int *param_1,int param_2);
-void winterscript_void_wm_detail_variant_destroy_20409c(int param_1,uint *param_2);
-void winterscript_void_wm_detail_variant_destroy_2040ad(int param_1,uint *param_2);
-void winterscript_void_wm_detail_variant_destroy_2040be(int param_1,uint *param_2);
-void winterscript_void_wm_detail_variant_destroy_2040e3(int param_1,uint *param_2);
-void winterscript_void_wm_detail_variant_destroy_204108(int param_1,uint *param_2);
-void winterscript_wm_vector_vector_20411a(undefined4 *param_1);
-void winterscript_void_wm_detail_variant_destroy_204136(int param_1,uint *param_2);
-void winterscript_void_wm_detail_variant_destroy_204147(int param_1,uint *param_2);
-void winterscript_void_wm_detail_variant_destroy_20416c(int param_1,uint *param_2);
-void winterscript_void_wm_detail_variant_destroy_204194(int param_1,uint *param_2);
-void winterscript_void_wm_detail_variant_destroy_2041bc(int param_1,uint *param_2);
-void winterscript_wm_shared_ptr_release_2041d8(uint *param_1);
-void winterscript_wm_shared_ptr_release_204278(uint *param_1);
-uint winterscript_wm_string_find_204318(undefined4 *param_1,int param_2,uint param_3,uint param_4);
-undefined1 winterscript_wm_operator_20435c(undefined4 *param_1,int param_2);
-void winterscript_WinterScript_WinterScript_2043b6(int param_1);
-void winterscript_wm_unordered_map_unordered_map_20449a(int *param_1);
-void winterscript_WinterScript_ScriptFileCacheEntry_ScriptFileCacheEntry_2044c4(uint *param_1,uint *a8);
-void winterscript_wm_shared_ptr_release_2044e2(uint *param_1);
-void winterscript_wm_unordered_map_unordered_map_204580(int *param_1);
-void winterscript_wm_vector_vector_2045a8(int *param_1);
-void winterscript_wm_vector_clear_2045c8(int *param_1);
-void winterscript_WinterScript_TableCacheEntry_TableCacheEntry_204608(uint *param_1);
-void winterscript_wm_vector_clear_204652(int *param_1);
-void winterscript_wm_weak_ptr_release_204686(uint *param_1);
-void winterscript_wm_shared_ptr_release_2046b4(uint *pf_stack_arg_4);
-void winterscript_wm_vector_vector_204754(undefined4 *param_1);
-void winterscript_wm_unordered_map_unordered_map_204770(int *param_1);
-void winterscript_wm_vector_vector_204798(int *param_1);
-void winterscript_wm_vector_clear_2047b8(int *param_1);
-void winterscript_wm_pair_pair_2047f0(undefined4 *param_1);
-void winterscript_wm_unordered_map_unordered_map_20480e(int *param_1);
-void winterscript_wm_vector_vector_204836(int *param_1);
-void winterscript_wm_vector_clear_204856(int *param_1);
-void winterscript_wm_pair_pair_20488c(undefined4 *param_1);
-void winterscript_wm_vector_clear_2048ae(int param_1);
-void winterscript_wm_unordered_map_unordered_map_2048e6(int *a4);
-void winterscript_cxx_global_var_init_20490e(void);
-void winterscript_cxx_global_var_init_1_20496f(void);
-void winterscript_cxx_global_var_init_2_2049d0(void);
-void winterscript_cxx_global_var_init_3_204a31(void);
-void winterscript_WinterScript_WinterScript_204a94(uint *a4);
-void winterscript_WinterScript_pushFunction_20aa20(int *param_1,undefined4 *param_2,uint *param_3);
-void winterscript_wm_string_string_20ab54(undefined4 *param_1);
-void winterscript_WinterScript_pushVariable_20ab5e(int *param_1,undefined4 *param_2,undefined4 *param_3);
-void winterscript_Variable_Variable_20ad08(uint pf_input_0);
+int winterscript_wm_probe_heap_free_bytes_2001cf(void);
+int winterscript_wm_probe_heap_total_bytes_200228(void);
+uint * winterscript_wm_probe_heap_alloc_200275(int param_1);
+ulonglong winterscript_ashldi3_2002dc(ulonglong value,int shift);
+ulonglong winterscript_lshrdi3_200315(ulonglong value,int shift);
+ulonglong winterscript_udivdi3_20034e(ulonglong a,ulonglong b);
+undefined8 winterscript_udivmod64_20036f(undefined4 param_1,undefined4 param_2,uint param_3,uint param_4,uint *param_5);
+ulonglong winterscript_umoddi3_200452(ulonglong a,ulonglong b);
+longlong winterscript_divdi3_20048a(longlong a,longlong b);
+longlong winterscript_moddi3_2004fe(longlong a,longlong b);
+void winterscript_abort_200570(void);
+int winterscript_abs_200577(int value);
+void * winterscript_malloc_200586(uint size);
+void winterscript_free_2005ae(void *pointer);
+void * winterscript_realloc_2005d4(void *pointer,uint size);
+void * winterscript_memcpy_2005fc(void *out,void *in,uint size);
+void * winterscript_memmove_20061d(void *out,void *in,uint size);
+void * winterscript_memset_200663(void *out,int value,uint size);
+void winterscript_bzero_20067f(void *out,uint size);
+void winterscript_bzero_200697(int param_1,int param_2);
+int winterscript_memcmp_2006af(void *a,void *b,uint size);
+int winterscript_islower_2006de(int value);
+int winterscript_isupper_2006f1(int value);
+int winterscript_isalpha_200704(int value);
+int winterscript_isalnum_20071a(int value);
+int winterscript_isblank_20073e(int value);
+int winterscript_isprint_200757(int value);
+int winterscript_tolower_20076a(int value);
+int winterscript_toupper_20077e(int value);
+uint winterscript_strlen_200792(char *s);
+int winterscript_strcmp_2007ad(char *a,char *b);
+int winterscript_strcoll_2007d5(char *a,char *b);
+char * winterscript_strcpy_2007de(char *a,char *b);
+char * winterscript_strdup_2007f8(char *s);
+char * winterscript_strchr_200842(char *s,int c);
+uint winterscript_strspn_200867(char *s,char *set);
+char * winterscript_strpbrk_20089e(char *s,char *set);
+char * winterscript_strstr_2008cc(char *s,char *part);
+undefined * winterscript_setlocale_2008fd(void);
+undefined ** winterscript_localeconv_200907(void);
+undefined4 winterscript_time_200911(undefined4 *param_1);
+double winterscript_ldexp_200928(double value,int exponent);
+double winterscript_frexp_200952(double value,int *exponent);
+double winterscript_fmod_2009ca(double a,double b);
+double winterscript_pow_200a17(double a,double b);
+double winterscript_floor_200a9b(double value);
+double winterscript_ceil_200adc(double value);
+double winterscript_sqrt_200b29(double value);
+double winterscript_log_200b61(double value);
+longlong winterscript_llround_200bf8(double param_1);
+double winterscript_sin_200c39(double value);
+longdouble winterscript_wrap_angle_200c7b(double param_1);
+double winterscript_cos_200cb3(double value);
+double winterscript_fabs_200cf1(double value);
+float winterscript_fmodf_200d05(float a,float b);
+float10 winterscript_frexpf_200d5a(float param_1,int *param_2);
+float10 winterscript_ldexpf_200d7d(float param_1,int param_2);
+float winterscript_powf_200da0(float a,float b);
+float winterscript_floorf_200dc3(float value);
+float winterscript_ceilf_200e0a(float value);
+double winterscript_trunc_200e26(double value);
+float winterscript_truncf_200e78(float value);
+float winterscript_sqrtf_200e94(float value);
+float winterscript_logf_200eb0(float value);
+void winterscript_lround_200ecc(double param_1);
+float winterscript_sinf_200ee2(float value);
+float winterscript_cosf_200efe(float value);
+float winterscript_fabsf_200f1a(float value);
+int winterscript_strtol_200f2e(char *s,char **end,int base);
+int winterscript_digit_value_201020(int param_1);
+uint winterscript_strtoul_201054(char *s,char **end,int base);
+double winterscript_strtod_201146(char *s,char **end);
+float winterscript_strtof_201298(char *s,char **end);
+int winterscript_vsnprintf_2012ba(char *out,uint size,char *format,void *args);
+void winterscript_append_char_20154c(int *param_1,uint *param_2,int *param_3,undefined1 param_4);
+void winterscript_append_string_20156a(int *out,uint *remaining,int *total,char *text);
+void winterscript_append_unsigned_2015ab(int *param_1,uint *param_2,int *param_3,uint param_4,uint param_5,char param_6);
+int winterscript_snprintf_201616(char *out,uint size,char *format,...);
+void winterscript_wm_probe_heap_append_region_201639(int param_1,uint param_2,int *param_3);
+undefined4 winterscript_wm_program_api_field_ready_20168b(int param_1);
+void winterscript_wm_lua_write_2016c0(int param_1,int param_2);
+void winterscript_wm_lua_flush_output_line_201746(byte param_1);
+void winterscript_wm_lua_writeline_2017bc(void);
+void winterscript_wm_lua_flush_output_2017c8(void);
+void winterscript_wm_lua_write_errorf_2017d3(char *param_1,undefined1 *param_2);
+void winterscript_wm_lua_show_banner_201827(void);
+void winterscript_wm_lua_write_cstr_20186d(char *param_1);
+void winterscript_wm_lua_show_help_201894(void);
+bool winterscript_wm_lua_readline_2018b2(uint param_1,uint param_2,uint param_3,byte param_4);
+undefined4 winterscript_wmfs_mount_image_201901(void);
+void winterscript_wmfs_unmount_201908(void);
+undefined1 winterscript_wmfs_is_mounted_20190d(void);
+void * winterscript_wmfs_fopen_201914(char *path,char *mode);
+uint winterscript_wm_lua_app_stat_file_201bcf(uint param_1,uint param_2);
+undefined4 winterscript_wm_lua_file_reserve_201bff(int param_1,uint param_2);
+void winterscript_wmfs_freopen_201c74(char *param_1,char *param_2,void *param_3);
+int winterscript_wmfs_fclose_201c92(void *stream);
+uint winterscript_wmfs_fread_201cd2(void *out,uint size,uint count,void *stream);
+int winterscript_wmfs_getc_201d3f(void *stream);
+uint winterscript_wmfs_fwrite_201e20(void *data,uint size,uint count,void *stream);
+int winterscript_wmfs_fseek_201f28(void *stream,int offset,int origin);
+int winterscript_wmfs_ftell_201fa1(void *stream);
+int winterscript_wmfs_fflush_201fc3(void *stream);
+int winterscript_wmfs_feof_202024(void *stream);
+int winterscript_wmfs_ferror_20203b(void *stream);
+void winterscript_wmfs_clearerr_202052(int param_1);
+int winterscript_wmfs_ungetc_20206d(int ch,void *stream);
+int winterscript_wmfs_remove_20209c(char *path);
+uint winterscript_wm_lua_app_delete_file_2020cd(uint param_1);
+int winterscript_wmfs_rename_2020f8(char *from,char *to);
+uint winterscript_wm_lua_app_write_file_202182(uint param_1,uint param_2,uint param_3);
+undefined4 winterscript_wmfs_read_entire_file_2021b5(int param_1,undefined4 *param_2,uint *param_3);
+bool winterscript_wmfs_write_entire_file_202247(int param_1,int param_2,int param_3);
+undefined4 winterscript_wmfs_register_virtual_file_20227e(void);
+void winterscript_wmfs_clear_virtual_files_202285(void);
+undefined4 winterscript_wmfs_image_data_20228a(void);
+undefined4 winterscript_wmfs_image_size_202291(void);
+undefined4 winterscript_wmfs_export_image_202298(void);
+void * winterscript_memchr_20229f(void *s,int c,uint size);
+int winterscript_strncmp_2022c3(char *a,char *b,uint size);
+char * winterscript_strerror_2022f6(int param_1);
+undefined4 winterscript_getenv_202351(void);
+undefined4 winterscript_system_202358(void);
+void winterscript_clock_202360(void);
+undefined4 winterscript_wm_program_api_field_ready_202373(int param_1);
+void winterscript_permafrost_sjlj_jump_2023b0(int context);
+uint winterscript_std_terminate_2023bf(void);
+undefined4 winterscript_gxx_personality_sj0_202420(void);
+void * winterscript_cxa_begin_catch_202430(void *object);
+void * winterscript_operator_new_202452(uint size);
+void * winterscript_operator_new_20247b(uint size);
+void winterscript_operator_delete_202484(void *pointer);
+void winterscript_operator_delete_2024f7(void *pointer);
+void winterscript_operator_delete_20256a(void *pointer,uint size);
+void winterscript_operator_delete_2025dd(void *pointer,uint size);
+undefined4 winterscript_cxa_atexit_202650(void);
+uint winterscript_cxa_guard_acquire_202657(uint *param_1);
+void winterscript_cxa_guard_release_202666(byte *param_1);
+void winterscript_cxa_guard_abort_202671(void);
+void * winterscript_cxa_allocate_exception_202676(uint size);
+void winterscript_cxa_free_exception_2026ab(void *object);
+int winterscript_object_from_header_2026c8(int param_1);
+void winterscript_cxa_end_catch_2026d0(void);
+uint winterscript_cxa_throw_20270e(int param_1,undefined4 param_2,undefined4 param_3);
+void winterscript_raise_exception_20273b(undefined4 *param_1);
+void winterscript_cxa_rethrow_202791(void);
+uint winterscript_Unwind_SjLj_Register_2027bb(uint *context);
+uint winterscript_Unwind_SjLj_Unregister_2027d0(undefined4 *param_1);
+void winterscript_Unwind_SjLj_RaiseException_2027f9(int a4);
+void winterscript_Unwind_SjLj_ForcedUnwind_202807(void);
+uint winterscript_Unwind_SjLj_Resume_202812(undefined4 *param_1);
+void winterscript_continue_unwind_202830(undefined4 *param_1);
+void winterscript_Unwind_SjLj_Resume_or_Rethrow_2028a3(undefined4 *param_1);
+undefined4 winterscript_gxx_personality_v0_2028b4(void);
+void winterscript_Unwind_Resume_2028bb(void);
+int winterscript_dynamic_cast_2028c6(int *param_1,undefined4 param_2,undefined4 *param_3);
+bool winterscript_type_matches_2028fd(undefined4 *param_1,undefined4 *param_2);
+void winterscript_cxa_pure_virtual_202964(void);
+undefined4 winterscript_tlv_bootstrap_20296d(void);
+int winterscript_isdigit_202974(int value);
+int winterscript_isspace_202987(int value);
+int winterscript_isxdigit_2029ae(int value);
+int winterscript_isfinite_2029d0(int value,uint a8);
+double winterscript_round_2029e8(double value);
+ulonglong winterscript_strtoull_202a2c(char *s,char **end,int base);
+ulonglong winterscript_strtoll_202b46(char *s,char **end,int base);
+uint winterscript_inspect_context_202b4f(uint *context,void *type,uint *handler);
+undefined4 * winterscript_read_encoded_pointer_202cee(uint param_1,int *param_2);
+uint winterscript_read_uleb128_202da2(undefined4 *param_1);
+uint winterscript_read_unaligned_202dcd(int param_1,int param_2);
+uint winterscript_read_sleb128_202df2(undefined4 *param_1);
+void winterscript_std_istream_istream_202e34(void);
+void winterscript_std_ostream_ostream_202e3a(void);
+undefined4 winterscript_permafrost_winterscript_entry_202e3f(void);
+void winterscript_showHelp_2034ec(void);
+void winterscript_writeLine_20350a(int param_1);
+void winterscript_writeText_203520(int param_1);
+void winterscript_std_ostream_ostream_203548(void *pointer);
+int * winterscript_Variable_toString_203552(int *param_1,undefined4 *param_2);
+void winterscript_reportError_2039b0(int *param_1,char *param_2);
+void winterscript_wm_string_assign_2039e8(int *param_1,int param_2,uint param_3);
+int winterscript_wm_string_length_203ab1(int param_1);
+uint winterscript_wm_string_pointer_offset_203acc(int *param_1,int param_2,int *param_3);
+uint winterscript_wm_string_reserve_203b0c(int *param_1,uint param_2);
+void winterscript_wm_string_string_203b5c(undefined4 *param_1,int param_2,uint param_3);
+uint winterscript_wm_string_allocate_203b8c(int param_1);
+undefined4 * winterscript_wm_to_string_203ba6(undefined4 *param_1,uint param_2);
+void winterscript_wm_string_operator_203bf4(int *param_1,undefined4 *param_2);
+int * winterscript_wm_operator_203c1d(int *param_1,uint *a8,uint *ac);
+undefined4 * winterscript_wm_operator_203cc8(undefined4 *param_1,undefined4 *param_2,int param_3);
+undefined8 winterscript_wm_to_chars_result_wm_to_chars_203d74(byte *param_1,byte *param_2,uint param_3,uint param_4);
+void winterscript_wm_string_push_back_203e4c(int *param_1,undefined1 param_2);
+undefined4 * winterscript_wm_to_string_203e9f(undefined4 *param_1,uint param_2,uint param_3);
+undefined8 winterscript_wm_to_chars_result_wm_to_chars_203ef1(uint param_1,uint param_2,uint param_3,uint param_4,uint param_5);
+void winterscript_wm_string_string_203fc4(undefined4 *param_1,undefined4 *param_2);
+int * winterscript_wm_string_append_203ffa(int *param_1,int param_2,uint param_3);
+void winterscript_wm_string_append_2040a4(int *param_1,int param_2);
+void winterscript_void_wm_detail_variant_destroy_2040cc(int param_1,uint *param_2);
+void winterscript_void_wm_detail_variant_destroy_2040dd(int param_1,uint *param_2);
+void winterscript_void_wm_detail_variant_destroy_2040ee(int param_1,uint *param_2);
+void winterscript_void_wm_detail_variant_destroy_204113(int param_1,uint *param_2);
+void winterscript_void_wm_detail_variant_destroy_204138(int param_1,uint *param_2);
+void winterscript_wm_vector_vector_20414a(undefined4 *param_1);
+void winterscript_void_wm_detail_variant_destroy_204166(int param_1,uint *param_2);
+void winterscript_void_wm_detail_variant_destroy_204177(int param_1,uint *param_2);
+void winterscript_void_wm_detail_variant_destroy_20419c(int param_1,uint *param_2);
+void winterscript_void_wm_detail_variant_destroy_2041c4(int param_1,uint *param_2);
+void winterscript_void_wm_detail_variant_destroy_2041ec(int param_1,uint *param_2);
+void winterscript_wm_shared_ptr_release_204208(uint *param_1);
+void winterscript_wm_shared_ptr_release_2042a8(uint *param_1);
+uint winterscript_wm_string_find_204348(undefined4 *param_1,int param_2,uint param_3,uint param_4);
+undefined1 winterscript_wm_operator_20438c(undefined4 *param_1,int param_2);
+void winterscript_WinterScript_WinterScript_2043e6(int param_1);
+void winterscript_wm_unordered_map_unordered_map_2044ca(int *param_1);
+void winterscript_WinterScript_ScriptFileCacheEntry_ScriptFileCacheEntry_2044f4(uint *param_1,uint *a8);
+void winterscript_wm_shared_ptr_release_204512(uint *param_1);
+void winterscript_wm_unordered_map_unordered_map_2045b0(int *param_1);
+void winterscript_wm_vector_vector_2045d8(int *param_1);
+void winterscript_wm_vector_clear_2045f8(int *param_1);
+void winterscript_WinterScript_TableCacheEntry_TableCacheEntry_204638(uint *param_1);
+void winterscript_wm_vector_clear_204682(int *param_1);
+void winterscript_wm_weak_ptr_release_2046b6(uint *param_1);
+void winterscript_wm_shared_ptr_release_2046e4(uint *pf_stack_arg_4);
+void winterscript_wm_vector_vector_204784(undefined4 *param_1);
+void winterscript_wm_unordered_map_unordered_map_2047a0(int *param_1);
+void winterscript_wm_vector_vector_2047c8(int *param_1);
+void winterscript_wm_vector_clear_2047e8(int *param_1);
+void winterscript_wm_pair_pair_204820(undefined4 *param_1);
+void winterscript_wm_unordered_map_unordered_map_20483e(int *param_1);
+void winterscript_wm_vector_vector_204866(int *param_1);
+void winterscript_wm_vector_clear_204886(int *param_1);
+void winterscript_wm_pair_pair_2048bc(undefined4 *param_1);
+void winterscript_wm_vector_clear_2048de(int param_1);
+void winterscript_wm_unordered_map_unordered_map_204916(int *a4);
+void winterscript_cxx_global_var_init_20493e(void);
+void winterscript_cxx_global_var_init_1_20499f(void);
+void winterscript_cxx_global_var_init_2_204a00(void);
+void winterscript_cxx_global_var_init_3_204a61(void);
+void winterscript_WinterScript_WinterScript_204ac4(uint *a4);
+void winterscript_WinterScript_pushFunction_20aa50(int *param_1,undefined4 *param_2,uint *param_3);
+void winterscript_wm_string_string_20ab84(undefined4 *param_1);
+void winterscript_WinterScript_pushVariable_20ab8e(int *param_1,undefined4 *param_2,undefined4 *param_3);
+void winterscript_Variable_Variable_20ad38(uint pf_input_0);
 undefined4 *
-winterscript_WinterScript_makeNativeCallable_20ad22(undefined4 *param_1,undefined4 param_2,uint *param_3,undefined4 *param_4,
+winterscript_WinterScript_makeNativeCallable_20ad52(undefined4 *param_1,undefined4 param_2,uint *param_3,undefined4 *param_4,
                 char param_5);
-int winterscript_wm_unordered_map_operator_20ae30(int *param_1,undefined4 *param_2);
-undefined4 * winterscript_Variable_operator_20af5c(undefined4 *param_1,undefined4 *param_2);
-undefined4 * winterscript_Variable_operator_20af86(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_vector_vector_20afb0(undefined4 *param_1);
-void winterscript_wm_unordered_map_unordered_map_20afba(int *a4);
-void winterscript_WinterScript_WinterScript_20afc4(uint *a4);
-undefined4 * winterscript_WinterScript_analyseToken_20afce(undefined4 *param_1,undefined4 param_2,int *param_3);
-undefined4 winterscript_isTrueToken_20b076(undefined4 *param_1);
-undefined4 winterscript_isFalseToken_20b0eb(undefined4 *param_1);
-uint winterscript_WinterScript_isIdentifier_20b16c(undefined4 param_1,undefined4 *param_2);
-undefined4 winterscript_tokenLooksNumeric_20b1de(undefined4 *param_1);
-uint winterscript_wm_string_find_20b242(undefined4 *param_1,char param_2,uint param_3);
-undefined4 winterscript_parseIntStrict_20b27d(int *param_1,uint *param_2);
-bool winterscript_WinterScript_fastScalarIsNumeric_20b2b6(char *param_1);
-char winterscript_WinterScript_fastScalarIsTruthy_20b2c8(char *param_1);
-float10 winterscript_WinterScript_fastScalarToDouble_20b306(char *param_1);
-void winterscript_wm_runtime_error_runtime_error_20b3fa(undefined4 *param_1,int param_2);
-void winterscript_wm_runtime_error_runtime_error_20b404(undefined4 *param_1);
-uint winterscript_WinterScript_fastScalarToInt_20b40e(char *param_1);
-void winterscript_WinterScript_makeFastScalarInt_20b50c(undefined1 *param_1,undefined4 param_2);
-void winterscript_WinterScript_makeFastScalarFloat_20b528(undefined1 *param_1,undefined4 param_2);
-void winterscript_WinterScript_makeFastScalarBool_20b544(undefined1 *param_1,undefined1 param_2);
-void winterscript_WinterScript_makeFastScalarNil_20b560(undefined1 *param_1);
-void winterscript_WinterScript_fastScalarToVariable_20b57a(undefined4 *param_1,undefined1 *param_2);
-void winterscript_WinterScript_assignFastScalarToVariable_20b5de(undefined4 *param_1,undefined1 *param_2);
-uint * winterscript_WinterScript_tryApplyFastScalarOperationInPlace_20b66c(uint *param_1,char param_2,char *param_3);
-float10 winterscript_toDouble_20bbe8(int *param_1);
-uint winterscript_toInt_20bcf4(int *param_1);
-undefined1 winterscript_WinterScript_tryFastScalarFromVariable_20be0a(undefined4 param_1,undefined4 *param_2,undefined1 *param_3);
-undefined4 winterscript_WinterScript_tryFastScalarFromIndexedValue_20be74(undefined4 param_1,int *param_2,int *param_3,undefined1 *param_4);
-undefined4 winterscript_WinterScript_tryGetArrayIndex_20c10c(undefined4 param_1,int *param_2,int *param_3);
-undefined4 * winterscript_wm_string_operator_20c1a8(undefined4 *param_1,undefined4 *param_2);
-undefined4 * winterscript_wm_string_operator_20c1dc(undefined4 *param_1,undefined4 *param_2);
-undefined4 * winterscript_wm_to_string_20c21c(undefined4 *param_1,float param_2);
-int * winterscript_wm_string_operator_20c242(int *param_1,int param_2);
-int winterscript_wm_unordered_map_find_20c26a(int *param_1,undefined4 *param_2);
+int winterscript_wm_unordered_map_operator_20ae60(int *param_1,undefined4 *param_2);
+undefined4 * winterscript_Variable_operator_20af8c(undefined4 *param_1,undefined4 *param_2);
+undefined4 * winterscript_Variable_operator_20afb6(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_vector_vector_20afe0(undefined4 *param_1);
+void winterscript_wm_unordered_map_unordered_map_20afea(int *a4);
+void winterscript_WinterScript_WinterScript_20aff4(uint *a4);
+undefined4 * winterscript_WinterScript_analyseToken_20affe(undefined4 *param_1,undefined4 param_2,int *param_3);
+undefined4 winterscript_isTrueToken_20b0a6(undefined4 *param_1);
+undefined4 winterscript_isFalseToken_20b11b(undefined4 *param_1);
+uint winterscript_WinterScript_isIdentifier_20b19c(undefined4 param_1,undefined4 *param_2);
+undefined4 winterscript_tokenLooksNumeric_20b20e(undefined4 *param_1);
+uint winterscript_wm_string_find_20b272(undefined4 *param_1,char param_2,uint param_3);
+undefined4 winterscript_parseIntStrict_20b2ad(int *param_1,uint *param_2);
+bool winterscript_WinterScript_fastScalarIsNumeric_20b2e6(char *param_1);
+char winterscript_WinterScript_fastScalarIsTruthy_20b2f8(char *param_1);
+float10 winterscript_WinterScript_fastScalarToDouble_20b336(char *param_1);
+void winterscript_wm_runtime_error_runtime_error_20b42a(undefined4 *param_1,int param_2);
+void winterscript_wm_runtime_error_runtime_error_20b434(undefined4 *param_1);
+uint winterscript_WinterScript_fastScalarToInt_20b43e(char *param_1);
+void winterscript_WinterScript_makeFastScalarInt_20b53c(undefined1 *param_1,undefined4 param_2);
+void winterscript_WinterScript_makeFastScalarFloat_20b558(undefined1 *param_1,undefined4 param_2);
+void winterscript_WinterScript_makeFastScalarBool_20b574(undefined1 *param_1,undefined1 param_2);
+void winterscript_WinterScript_makeFastScalarNil_20b590(undefined1 *param_1);
+void winterscript_WinterScript_fastScalarToVariable_20b5aa(undefined4 *param_1,undefined1 *param_2);
+void winterscript_WinterScript_assignFastScalarToVariable_20b60e(undefined4 *param_1,undefined1 *param_2);
+uint * winterscript_WinterScript_tryApplyFastScalarOperationInPlace_20b69c(uint *param_1,char param_2,char *param_3);
+float10 winterscript_toDouble_20bc18(int *param_1);
+uint winterscript_toInt_20bd24(int *param_1);
+undefined1 winterscript_WinterScript_tryFastScalarFromVariable_20be3a(undefined4 param_1,undefined4 *param_2,undefined1 *param_3);
+undefined4 winterscript_WinterScript_tryFastScalarFromIndexedValue_20bea4(undefined4 param_1,int *param_2,int *param_3,undefined1 *param_4);
+undefined4 winterscript_WinterScript_tryGetArrayIndex_20c13c(undefined4 param_1,int *param_2,int *param_3);
+undefined4 * winterscript_wm_string_operator_20c1d8(undefined4 *param_1,undefined4 *param_2);
+undefined4 * winterscript_wm_string_operator_20c20c(undefined4 *param_1,undefined4 *param_2);
+undefined4 * winterscript_wm_to_string_20c24c(undefined4 *param_1,float param_2);
+int * winterscript_wm_string_operator_20c272(int *param_1,int param_2);
+int winterscript_wm_unordered_map_find_20c29a(int *param_1,undefined4 *param_2);
 undefined4
-winterscript_WinterScript_tryEvaluateNativeBuiltinScalar_20c298(int param_1,undefined1 param_2,uint *param_3,uint param_4,undefined1 *param_5);
-longlong winterscript_wm_chrono_duration_const_20c47e(longlong *param_1);
-uint * winterscript_WinterScript_dispatchBuiltinFast_20c4b8(uint *param_1,int param_2,undefined1 param_3,uint *param_4,uint param_5);
-bool winterscript_stringByteRangeReturnsScalar_20dfba(int *param_1,uint param_2);
-uint winterscript_WinterScript_tryEvaluateFastCallableScalar_20e038(uint *******param_1,int param_2,uint ******param_3,uint ******param_4,
+winterscript_WinterScript_tryEvaluateNativeBuiltinScalar_20c2c8(int param_1,undefined1 param_2,uint *param_3,uint param_4,undefined1 *param_5);
+longlong winterscript_wm_chrono_duration_const_20c4ae(longlong *param_1);
+uint * winterscript_WinterScript_dispatchBuiltinFast_20c4e8(uint *param_1,int param_2,undefined1 param_3,uint *param_4,uint param_5);
+bool winterscript_stringByteRangeReturnsScalar_20dfea(int *param_1,uint param_2);
+uint winterscript_WinterScript_tryEvaluateFastCallableScalar_20e068(uint *******param_1,int param_2,uint ******param_3,uint ******param_4,
                      int *param_5);
-uint winterscript_WinterScript_tryEvaluateFastExpressionScalar_20e5f8(int param_1,int param_2,int param_3,int *param_4,int *param_5);
-undefined1 winterscript_WinterScript_isTruthy_20e61e(undefined4 param_1,uint *param_2);
+uint winterscript_WinterScript_tryEvaluateFastExpressionScalar_20e628(int param_1,int param_2,int param_3,int *param_4,int *param_5);
+undefined1 winterscript_WinterScript_isTruthy_20e64e(undefined4 param_1,uint *param_2);
 undefined4 *
-winterscript_WinterScript_evaluateFastExpression_20e650(undefined4 *param_1,uint *******param_2,char *param_3,int *param_4,int *param_5);
+winterscript_WinterScript_evaluateFastExpression_20e680(undefined4 *param_1,uint *******param_2,char *param_3,int *param_4,int *param_5);
 undefined4 *
-winterscript_WinterScript_evaluateExpression_20e7ec(undefined4 *param_1,int param_2,int *param_3,uint *param_4,undefined4 param_5);
-void winterscript_WinterScript_throwError_20e916(int param_1,undefined4 *param_2,void *param_3,uint param_4);
-undefined8 winterscript_wm_string_operator_wm_string_view_20ede8(undefined4 *param_1);
-void winterscript_WinterScript_raiseScriptErrorSoft_20ee00(int param_1,undefined4 *param_2);
-uint winterscript_clang_call_terminate_20ef00(void *param_1);
+winterscript_WinterScript_evaluateExpression_20e81c(undefined4 *param_1,int param_2,int *param_3,uint *param_4,undefined4 param_5);
+void winterscript_WinterScript_throwError_20e946(int param_1,undefined4 *param_2,void *param_3,uint param_4);
+undefined8 winterscript_wm_string_operator_wm_string_view_20ee18(undefined4 *param_1);
+void winterscript_WinterScript_raiseScriptErrorSoft_20ee30(int param_1,undefined4 *param_2);
+uint winterscript_clang_call_terminate_20ef30(void *param_1);
 undefined4
-winterscript_WinterScript_tryEvaluateProtectedFastCallableScalar_20ef16(int param_1,int param_2,uint ******param_3,uint ******param_4,undefined1 *param_5,
+winterscript_WinterScript_tryEvaluateProtectedFastCallableScalar_20ef46(int param_1,int param_2,uint ******param_3,uint ******param_4,undefined1 *param_5,
                 undefined1 *param_6,undefined4 *param_7);
-void winterscript_WinterScript_tryEvaluateProtectedFastCallableScalar_20f42c(undefined4 *param_1);
+void winterscript_WinterScript_tryEvaluateProtectedFastCallableScalar_20f45c(undefined4 *param_1);
 undefined4
-winterscript_WinterScript_appendFastStringConcatNode_20f47c(uint *******param_1,int param_2,uint param_3,int *param_4,int *param_5,int *param_6
+winterscript_WinterScript_appendFastStringConcatNode_20f4ac(uint *******param_1,int param_2,uint param_3,int *param_4,int *param_5,int *param_6
                 );
-undefined4 * winterscript_WinterScript_resolveVariableFastPtr_20f702(int *param_1,undefined4 *param_2,int param_3);
+undefined4 * winterscript_WinterScript_resolveVariableFastPtr_20f732(int *param_1,undefined4 *param_2,int param_3);
 undefined4 *
-winterscript_WinterScript_evaluateFastExpressionNode_20fae6(undefined4 *param_1,uint *******param_2,int param_3,uint param_4,int *param_5,
+winterscript_WinterScript_evaluateFastExpressionNode_20fb16(undefined4 *param_1,uint *******param_2,int param_3,uint param_4,int *param_5,
                 int *param_6);
-bool winterscript_WinterScript_shouldAbortForSoftRaisedError_2114da(int param_1);
-void winterscript_appendVariableStringFast_2114fe(int *param_1,int *param_2);
-int * winterscript_WinterScript_tryEvaluateFastExpressionIntNode_21162a(int param_1,int param_2,uint param_3,int *param_4,int *param_5,uint *param_6);
-int winterscript_getVisibleLocalScope_211e2c(int *param_1,uint param_2,uint param_3);
-int winterscript_getDirectScopeValue_211e5b(int *param_1,int param_2);
-int winterscript_getCachedScopeValue_211e7a(int *param_1,undefined4 *param_2,uint param_3);
-char winterscript_WinterScript_tryEvaluateFastExpressionScalarNode_211eb2(int param_1,int param_2,uint param_3,int param_4,int *param_5,int *param_6);
-int winterscript_WinterScript_arrayLength_2145dc(int param_1,int *param_2);
-char winterscript_WinterScript_tryEvaluateFastExpressionBoolNode_2146f2(int *param_1,int param_2,uint param_3,int *param_4,int *param_5,byte *param_6);
-void winterscript_wm_vector_resize_214c46(int *param_1,uint param_2);
-void winterscript_wm_vector_resize_214cbc(int *param_1,uint param_2);
-uint winterscript_WinterScript_tryExecuteDiscardedFastCall_214d0c(int param_1,char *param_2,int param_3,int *pf_stack_arg_10);
-undefined4 * winterscript_WinterScript_getIndexedValue_215120(undefined4 *param_1,int *param_2,int *param_3,int *param_4);
+bool winterscript_WinterScript_shouldAbortForSoftRaisedError_21150a(int param_1);
+void winterscript_appendVariableStringFast_21152e(int *param_1,int *param_2);
+int * winterscript_WinterScript_tryEvaluateFastExpressionIntNode_21165a(int param_1,int param_2,uint param_3,int *param_4,int *param_5,uint *param_6);
+int winterscript_getVisibleLocalScope_211e5c(int *param_1,uint param_2,uint param_3);
+int winterscript_getDirectScopeValue_211e8b(int *param_1,int param_2);
+int winterscript_getCachedScopeValue_211eaa(int *param_1,undefined4 *param_2,uint param_3);
+char winterscript_WinterScript_tryEvaluateFastExpressionScalarNode_211ee2(int param_1,int param_2,uint param_3,int param_4,int *param_5,int *param_6);
+int winterscript_WinterScript_arrayLength_21460c(int param_1,int *param_2);
+char winterscript_WinterScript_tryEvaluateFastExpressionBoolNode_214722(int *param_1,int param_2,uint param_3,int *param_4,int *param_5,byte *param_6);
+void winterscript_wm_vector_resize_214c76(int *param_1,uint param_2);
+void winterscript_wm_vector_resize_214cec(int *param_1,uint param_2);
+uint winterscript_WinterScript_tryExecuteDiscardedFastCall_214d3c(int param_1,char *param_2,int param_3,int *pf_stack_arg_10);
+undefined4 * winterscript_WinterScript_getIndexedValue_215150(undefined4 *param_1,int *param_2,int *param_3,int *param_4);
 undefined4 *
-winterscript_WinterScript_invokeCallableFast_215860(undefined4 *param_1,uint *******param_2,uint *param_3,uint ******param_4,
+winterscript_WinterScript_invokeCallableFast_215890(undefined4 *param_1,uint *******param_2,uint *param_3,uint ******param_4,
                 uint ******param_5);
-undefined1 winterscript_WinterScript_variablesEqual_216b16(undefined4 param_1,uint *param_2,uint *param_3);
-uint winterscript_WinterScript_compareVariables_216c7c(undefined4 param_1,uint *param_2,uint *param_3);
-float winterscript_toFloat_216f44(int *value);
+undefined1 winterscript_WinterScript_variablesEqual_216b46(undefined4 param_1,uint *param_2,uint *param_3);
+uint winterscript_WinterScript_compareVariables_216cac(undefined4 param_1,uint *param_2,uint *param_3);
+float winterscript_toFloat_216f74(int *value);
 undefined4 *
-winterscript_WinterScript_performOperation_216f5a(undefined4 *param_1,undefined4 param_2,uint *param_3,char param_4,uint *param_5);
-void winterscript_RaisedScriptError_RaisedScriptError_217b00(undefined4 *param_1);
-void winterscript_WinterScript_clearSoftRaisedError_217b20(int param_1);
-void winterscript_WinterScript_rethrowPendingCoroutineException_217b4a(int param_1);
-void winterscript_WinterScript_serviceScheduledCoroutineTurnNoThrow_217b62(int **param_1);
-void winterscript_WinterScript_serviceScheduledCoroutineTurn_217c00(int **param_1);
+winterscript_WinterScript_performOperation_216f8a(undefined4 *param_1,undefined4 param_2,uint *param_3,char param_4,uint *param_5);
+void winterscript_RaisedScriptError_RaisedScriptError_217b30(undefined4 *param_1);
+void winterscript_WinterScript_clearSoftRaisedError_217b50(int param_1);
+void winterscript_WinterScript_rethrowPendingCoroutineException_217b7a(int param_1);
+void winterscript_WinterScript_serviceScheduledCoroutineTurnNoThrow_217b92(int **param_1);
+void winterscript_WinterScript_serviceScheduledCoroutineTurn_217c30(int **param_1);
 undefined4 *
-winterscript_WinterScript_createCoroutineState_21863c(undefined4 *param_1,undefined4 param_2,int *param_3,undefined4 *param_4,
+winterscript_WinterScript_createCoroutineState_21866c(undefined4 *param_1,undefined4 param_2,int *param_3,undefined4 *param_4,
                 undefined4 *param_5);
-undefined4 * winterscript_wm_shared_ptr_218a0d(undefined4 *param_1);
-int * winterscript_wm_shared_ptr_const_218acc(int *param_1,int *param_2);
-int winterscript_wm_vector_218b0c(int *param_1);
-uint winterscript_wm_vector_reserve_218b56(int *param_1,uint param_2);
-int winterscript_wm_pair_218bc2(uint pf_input_0,uint pf_input_1,uint pf_input_2);
-void winterscript_WinterScript_startCoroutine_218c24(int param_1,int *a8,uint *ac,uint *a10);
-undefined4 * winterscript_wm_shared_ptr_218d22(undefined4 *param_1,undefined4 *param_2);
-void winterscript_WinterScript_pushCoroutineBlockFrame_218d56(int param_1,int param_2,undefined4 param_3,undefined4 param_4);
-void winterscript_WinterScript_popCoroutineBlockFrame_218ea4(int param_1,int param_2);
-void winterscript_wm_vector_pop_back_218f16(int *param_1);
-void winterscript_wm_vector_pop_back_218f3a(int *param_1);
-void winterscript_WinterScript_popCoroutineLoopFrame_218f5e(int param_1,int param_2);
-undefined4 winterscript_WinterScript_executeCoroutineTurn_218fc0(int **param_1,int param_2);
-int winterscript_WinterScript_executeCoroutineTurn_21c17a(int *param_1,uint param_2);
-char winterscript_WinterScript_executeCoroutineTurn_21c28a(uint *param_1,int param_2,int pf_stack_arg_4);
-byte winterscript_wm_operator_21c4d8(undefined4 *param_1,int param_2);
-undefined4 * winterscript_wm_shared_ptr_21c4f6(undefined4 *param_1);
-undefined4 * winterscript_wm_vector_21c5b4(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_vector_reserve_21c5fc(int *param_1,uint param_2);
-void winterscript_WinterScript_prepareParsedLines_21c66c(undefined4 param_1,int *param_2);
-void winterscript_WinterScript_prepareFastCallableBody_21e020(undefined4 param_1,int param_2);
-void winterscript_WinterScript_assignVariable_21e2cc(int param_1,undefined4 *param_2,undefined4 *param_3,int param_4);
-bool winterscript_WinterScript_resolveVariable_21e3a0(int *param_1,undefined4 *param_2,undefined4 *param_3);
-undefined4 * winterscript_Variable_makeTable_21e3d6(undefined4 *param_1);
-uint winterscript_WinterScript_prefersArrayStorage_21e480(uint unused_4,int *a8);
-undefined4 * winterscript_Variable_makeArray_21e4ac(undefined4 *param_1);
-void winterscript_WinterScript_setIndexedValue_21e558(int param_1,int *param_2,int *param_3,int *param_4,char param_5);
-int winterscript_WinterScript_getIndexedValueMutable_21eb90(int param_1,int *param_2,undefined4 *param_3,char param_4);
-void winterscript_wm_vector_vector_21eff8(undefined4 *param_1);
-void winterscript_wm_vector_clear_21f002(int *param_1);
-undefined4 winterscript_WinterScript_executeAssignment_21f036(int **param_1,int *param_2,undefined4 *param_3);
-void winterscript_wm_shared_ptr_reset_221998(uint *pf_stack_arg_4);
-int * winterscript_wm_vector_2219a2(int *param_1,int *param_2);
-undefined4 * winterscript_wm_vector_2219ea(undefined4 *param_1,undefined4 *param_2);
-int * winterscript_wm_vector_221a2e(int *param_1,int *param_2);
-undefined4 * winterscript_wm_vector_221a76(undefined4 *param_1,undefined4 *param_2);
-uint winterscript_wm_string_rfind_221aba(undefined4 *param_1,int param_2,uint param_3,uint param_4);
-void winterscript_WinterScript_serviceScheduledCoroutineTurn_221b2e(int *param_1);
-int * winterscript_wm_shared_ptr_const_221d28(int *param_1,int *param_2);
-int winterscript_wm_unordered_map_find_221d68(int *param_1,undefined4 *param_2);
-ulonglong winterscript_wm_pair_221d96(int *param_1,undefined4 *param_2,undefined4 *param_3);
-uint * winterscript_wm_operator_221e1d(uint *param_1,int param_2,uint *pf_stack_arg_c);
-uint * winterscript_WinterScript_pullVariable_221ec8(uint *param_1,int *pf_stack_arg_8,uint *pf_stack_arg_c);
-int winterscript_wm_unordered_map_operator_222022(int *param_1,undefined4 *param_2);
-uint * winterscript_wm_function_const_222144(uint *param_1,uint *param_2);
-undefined4 winterscript_builtinIdFromName_22217d(int param_1,int param_2);
-uint * winterscript_WinterScript_createNativeCallable_2226e2(uint *param_1,uint param_2,uint *param_3,uint *param_4,char pf_stack_arg_14);
-void winterscript_wm_vector_reserve_2227ac(int *param_1,uint param_2);
-undefined4 * winterscript_WinterScript_evaluateFastCallableReturn_2227f6(undefined4 *param_1,int param_2,int param_3);
-uint winterscript_wm_vector_reserve_222bee(int *param_1,uint param_2);
-undefined4 * winterscript_Variable_makeMulti_222c5e(undefined4 *param_1,undefined4 *param_2);
-undefined4 * winterscript_WinterScript_resolveVariablePtr_222d4c(int *param_1,undefined4 *param_2);
-int winterscript_wm_unordered_map_find_222e32(int *param_1,undefined4 *param_2);
-undefined4 * winterscript_findScopeValue_222e60(undefined4 *param_1,undefined4 *param_2);
-undefined1 winterscript_wm_operator_222ea1(undefined4 *param_1,undefined4 *param_2);
-int winterscript_findScopeValueAndSlot_222ef4(int *param_1,undefined4 *param_2,uint *param_3);
-bool winterscript_WinterScript_resolveVariableFast_222f42(int *param_1,undefined4 *param_2,int param_3,undefined4 *param_4);
-int winterscript_WinterScript_resolveExistingVariableFastMutable_222f7c(int *param_1,undefined4 *param_2,int param_3,char param_4);
-int winterscript_findScopeValueMutable_22381b(int *param_1,undefined4 *param_2);
-int winterscript_getVisibleLocalScopeMutable_22385c(int *param_1,uint param_2,uint param_3);
-int winterscript_getDirectScopeValueMutable_22388b(int *param_1,int param_2);
-int winterscript_getCachedScopeValueMutable_2238aa(int *param_1,undefined4 *param_2,uint param_3);
-int winterscript_findScopeValueMutableAndSlot_2238e1(int *param_1,undefined4 *param_2,uint *param_3);
-bool winterscript_WinterScript_assignExistingVariable_22392e(int *param_1,undefined4 *param_2,undefined4 *param_3);
-bool winterscript_WinterScript_assignExistingVariableFast_223966(int *param_1,undefined4 *param_2,int param_3,undefined4 *param_4);
-void winterscript_setScopeValue_22399e(uint *scope,uint *key,uint *value);
-void winterscript_WinterScript_assignVariableFast_2239d6(int param_1,undefined4 *param_2,int param_3,undefined4 *param_4,int param_5);
-undefined4 * winterscript_WinterScript_resolvePath_223a40(undefined4 *param_1,int param_2,uint *param_3);
-byte winterscript_pathExists_224092(uint *param_1);
-int * winterscript_joinPath_2240d5(void *this,int param_1,int param_2,int param_3,int param_4);
-uint winterscript_wm_string_compare_22420a(undefined4 *param_1,uint param_2,uint param_3,int param_4,uint param_5);
-undefined4 * winterscript_wm_string_substr_22425c(undefined4 *param_1,undefined4 *param_2,uint param_3,uint param_4);
-void winterscript_WinterScript_markTableMutated_2242a8(int param_1,int *param_2);
-void winterscript_WinterScript_maybePruneDeadTableCacheEntries_2242fc(int param_1);
-int winterscript_wm_unordered_map_const_224334(int *param_1,int *param_2);
-int * winterscript_wm_weak_ptr_const_224478(int *param_1,int *param_2);
-void winterscript_WinterScript_pruneDeadTableCacheEntries_2244b4(int param_1);
-int winterscript_wm_unordered_map_224504(int *param_1,int param_2);
-int * winterscript_WinterScript_getSortedTableKeys_224568(int param_1,int param_2);
-undefined4 * winterscript_WinterScript_TableCacheEntry_operator_224920(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_vector_reserve_2249da(int *param_1,uint param_2);
-undefined4 winterscript_parseFloatStrict_224a46(int *param_1,float *param_2);
-undefined * winterscript_WinterScript_getSortedTableKeyValues_224ab2(int param_1,int param_2);
-int * winterscript_WinterScript_getIterationTableKeys_224b5a(int param_1,int param_2);
-void winterscript_wm_unordered_map_clear_224f12(int *param_1);
-void winterscript_wm_unordered_map_reserve_224f30(int *param_1,uint param_2);
-undefined * winterscript_WinterScript_getIterationTableKeyValues_224f7e(int param_1,int param_2);
-undefined * winterscript_WinterScript_getIterationTableKeyIndex_225026(int param_1,int param_2);
-int winterscript_WinterScript_numericTableLength_225142(int param_1,int param_2);
-uint * winterscript_WinterScript_invokeCallable_22534a(uint *param_1,uint *******a8,uint *ac,uint *a10);
-undefined4 * winterscript_WinterScript_pcallFunctionFast_225376(undefined4 *param_1,int param_2,uint *param_3,int param_4);
-undefined4 * winterscript_WinterScript_loadScriptChunk_225af0(undefined4 *param_1,int param_2,int *param_3);
-undefined4 * winterscript_WinterScript_pairsFunction_226040(undefined4 *param_1,int param_2,int *param_3);
-undefined4 * winterscript_WinterScript_ipairsFunction_22660c(undefined4 *param_1,int param_2,int *param_3);
-undefined4 * winterscript_WinterScript_keyToString_2269f4(undefined4 *param_1,undefined4 param_2,undefined4 *param_3);
-int winterscript_wm_unordered_map_at_226b6e(int *param_1,undefined4 *param_2);
-undefined4 * winterscript_WinterScript_selectFunctionFast_226b9c(undefined4 *param_1,undefined4 param_2,int *param_3,uint param_4);
-int winterscript_wm_string_end_226f1c(undefined4 *param_1);
-undefined4 * winterscript_WinterScript_findFunctionImpl_226f36(undefined4 *param_1,undefined4 param_2,int *param_3,uint param_4);
-undefined4 * winterscript_WinterScript_matchFunctionImpl_2274d4(undefined4 *param_1,undefined4 param_2,int *param_3,uint param_4);
-undefined4 * winterscript_WinterScript_gmatchFunctionImpl_227a72(undefined4 *param_1,undefined4 param_2,int *param_3,int param_4);
-undefined4 * winterscript_WinterScript_byteFunctionImpl_2280a6(undefined4 *param_1,undefined4 param_2,int *param_3,uint param_4);
-undefined4 * winterscript_WinterScript_formatFunctionImpl_228316(undefined4 *param_1,undefined4 param_2,int *param_3,uint param_4);
+undefined4 * winterscript_wm_shared_ptr_218a3d(undefined4 *param_1);
+int * winterscript_wm_shared_ptr_const_218afc(int *param_1,int *param_2);
+int winterscript_wm_vector_218b3c(int *param_1);
+uint winterscript_wm_vector_reserve_218b86(int *param_1,uint param_2);
+int winterscript_wm_pair_218bf2(uint pf_input_0,uint pf_input_1,uint pf_input_2);
+void winterscript_WinterScript_startCoroutine_218c54(int param_1,int *a8,uint *ac,uint *a10);
+undefined4 * winterscript_wm_shared_ptr_218d52(undefined4 *param_1,undefined4 *param_2);
+void winterscript_WinterScript_pushCoroutineBlockFrame_218d86(int param_1,int param_2,undefined4 param_3,undefined4 param_4);
+void winterscript_WinterScript_popCoroutineBlockFrame_218ed4(int param_1,int param_2);
+void winterscript_wm_vector_pop_back_218f46(int *param_1);
+void winterscript_wm_vector_pop_back_218f6a(int *param_1);
+void winterscript_WinterScript_popCoroutineLoopFrame_218f8e(int param_1,int param_2);
+undefined4 winterscript_WinterScript_executeCoroutineTurn_218ff0(int **param_1,int param_2);
+int winterscript_WinterScript_executeCoroutineTurn_21c1aa(int *param_1,uint param_2);
+char winterscript_WinterScript_executeCoroutineTurn_21c2ba(uint *param_1,int param_2,int pf_stack_arg_4);
+byte winterscript_wm_operator_21c508(undefined4 *param_1,int param_2);
+undefined4 * winterscript_wm_shared_ptr_21c526(undefined4 *param_1);
+undefined4 * winterscript_wm_vector_21c5e4(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_vector_reserve_21c62c(int *param_1,uint param_2);
+void winterscript_WinterScript_prepareParsedLines_21c69c(undefined4 param_1,int *param_2);
+void winterscript_WinterScript_prepareFastCallableBody_21e050(undefined4 param_1,int param_2);
+void winterscript_WinterScript_assignVariable_21e2fc(int param_1,undefined4 *param_2,undefined4 *param_3,int param_4);
+bool winterscript_WinterScript_resolveVariable_21e3d0(int *param_1,undefined4 *param_2,undefined4 *param_3);
+undefined4 * winterscript_Variable_makeTable_21e406(undefined4 *param_1);
+uint winterscript_WinterScript_prefersArrayStorage_21e4b0(uint unused_4,int *a8);
+undefined4 * winterscript_Variable_makeArray_21e4dc(undefined4 *param_1);
+void winterscript_WinterScript_setIndexedValue_21e588(int param_1,int *param_2,int *param_3,int *param_4,char param_5);
+int winterscript_WinterScript_getIndexedValueMutable_21ebc0(int param_1,int *param_2,undefined4 *param_3,char param_4);
+void winterscript_wm_vector_vector_21f028(undefined4 *param_1);
+void winterscript_wm_vector_clear_21f032(int *param_1);
+undefined4 winterscript_WinterScript_executeAssignment_21f066(int **param_1,int *param_2,undefined4 *param_3);
+void winterscript_wm_shared_ptr_reset_2219c8(uint *pf_stack_arg_4);
+int * winterscript_wm_vector_2219d2(int *param_1,int *param_2);
+undefined4 * winterscript_wm_vector_221a1a(undefined4 *param_1,undefined4 *param_2);
+int * winterscript_wm_vector_221a5e(int *param_1,int *param_2);
+undefined4 * winterscript_wm_vector_221aa6(undefined4 *param_1,undefined4 *param_2);
+uint winterscript_wm_string_rfind_221aea(undefined4 *param_1,int param_2,uint param_3,uint param_4);
+void winterscript_WinterScript_serviceScheduledCoroutineTurn_221b5e(int *param_1);
+int * winterscript_wm_shared_ptr_const_221d58(int *param_1,int *param_2);
+int winterscript_wm_unordered_map_find_221d98(int *param_1,undefined4 *param_2);
+ulonglong winterscript_wm_pair_221dc6(int *param_1,undefined4 *param_2,undefined4 *param_3);
+uint * winterscript_wm_operator_221e4d(uint *param_1,int param_2,uint *pf_stack_arg_c);
+uint * winterscript_WinterScript_pullVariable_221ef8(uint *param_1,int *pf_stack_arg_8,uint *pf_stack_arg_c);
+int winterscript_wm_unordered_map_operator_222052(int *param_1,undefined4 *param_2);
+uint * winterscript_wm_function_const_222174(uint *param_1,uint *param_2);
+undefined4 winterscript_builtinIdFromName_2221ad(int param_1,int param_2);
+uint * winterscript_WinterScript_createNativeCallable_222712(uint *param_1,uint param_2,uint *param_3,uint *param_4,char pf_stack_arg_14);
+void winterscript_wm_vector_reserve_2227dc(int *param_1,uint param_2);
+undefined4 * winterscript_WinterScript_evaluateFastCallableReturn_222826(undefined4 *param_1,int param_2,int param_3);
+uint winterscript_wm_vector_reserve_222c1e(int *param_1,uint param_2);
+undefined4 * winterscript_Variable_makeMulti_222c8e(undefined4 *param_1,undefined4 *param_2);
+undefined4 * winterscript_WinterScript_resolveVariablePtr_222d7c(int *param_1,undefined4 *param_2);
+int winterscript_wm_unordered_map_find_222e62(int *param_1,undefined4 *param_2);
+undefined4 * winterscript_findScopeValue_222e90(undefined4 *param_1,undefined4 *param_2);
+undefined1 winterscript_wm_operator_222ed1(undefined4 *param_1,undefined4 *param_2);
+int winterscript_findScopeValueAndSlot_222f24(int *param_1,undefined4 *param_2,uint *param_3);
+bool winterscript_WinterScript_resolveVariableFast_222f72(int *param_1,undefined4 *param_2,int param_3,undefined4 *param_4);
+int winterscript_WinterScript_resolveExistingVariableFastMutable_222fac(int *param_1,undefined4 *param_2,int param_3,char param_4);
+int winterscript_findScopeValueMutable_22384b(int *param_1,undefined4 *param_2);
+int winterscript_getVisibleLocalScopeMutable_22388c(int *param_1,uint param_2,uint param_3);
+int winterscript_getDirectScopeValueMutable_2238bb(int *param_1,int param_2);
+int winterscript_getCachedScopeValueMutable_2238da(int *param_1,undefined4 *param_2,uint param_3);
+int winterscript_findScopeValueMutableAndSlot_223911(int *param_1,undefined4 *param_2,uint *param_3);
+bool winterscript_WinterScript_assignExistingVariable_22395e(int *param_1,undefined4 *param_2,undefined4 *param_3);
+bool winterscript_WinterScript_assignExistingVariableFast_223996(int *param_1,undefined4 *param_2,int param_3,undefined4 *param_4);
+void winterscript_setScopeValue_2239ce(uint *scope,uint *key,uint *value);
+void winterscript_WinterScript_assignVariableFast_223a06(int param_1,undefined4 *param_2,int param_3,undefined4 *param_4,int param_5);
+undefined4 * winterscript_WinterScript_resolvePath_223a70(undefined4 *param_1,int param_2,uint *param_3);
+byte winterscript_pathExists_2240c2(uint *param_1);
+int * winterscript_joinPath_224105(void *this,int param_1,int param_2,int param_3,int param_4);
+uint winterscript_wm_string_compare_22423a(undefined4 *param_1,uint param_2,uint param_3,int param_4,uint param_5);
+undefined4 * winterscript_wm_string_substr_22428c(undefined4 *param_1,undefined4 *param_2,uint param_3,uint param_4);
+void winterscript_WinterScript_markTableMutated_2242d8(int param_1,int *param_2);
+void winterscript_WinterScript_maybePruneDeadTableCacheEntries_22432c(int param_1);
+int winterscript_wm_unordered_map_const_224364(int *param_1,int *param_2);
+int * winterscript_wm_weak_ptr_const_2244a8(int *param_1,int *param_2);
+void winterscript_WinterScript_pruneDeadTableCacheEntries_2244e4(int param_1);
+int winterscript_wm_unordered_map_224534(int *param_1,int param_2);
+int * winterscript_WinterScript_getSortedTableKeys_224598(int param_1,int param_2);
+undefined4 * winterscript_WinterScript_TableCacheEntry_operator_224950(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_vector_reserve_224a0a(int *param_1,uint param_2);
+undefined4 winterscript_parseFloatStrict_224a76(int *param_1,float *param_2);
+undefined * winterscript_WinterScript_getSortedTableKeyValues_224ae2(int param_1,int param_2);
+int * winterscript_WinterScript_getIterationTableKeys_224b8a(int param_1,int param_2);
+void winterscript_wm_unordered_map_clear_224f42(int *param_1);
+void winterscript_wm_unordered_map_reserve_224f60(int *param_1,uint param_2);
+undefined * winterscript_WinterScript_getIterationTableKeyValues_224fae(int param_1,int param_2);
+undefined * winterscript_WinterScript_getIterationTableKeyIndex_225056(int param_1,int param_2);
+int winterscript_WinterScript_numericTableLength_225172(int param_1,int param_2);
+uint * winterscript_WinterScript_invokeCallable_22537a(uint *param_1,uint *******a8,uint *ac,uint *a10);
+undefined4 * winterscript_WinterScript_pcallFunctionFast_2253a6(undefined4 *param_1,int param_2,uint *param_3,int param_4);
+undefined4 * winterscript_WinterScript_loadScriptChunk_225b20(undefined4 *param_1,int param_2,int *param_3);
+undefined4 * winterscript_WinterScript_pairsFunction_226070(undefined4 *param_1,int param_2,int *param_3);
+undefined4 * winterscript_WinterScript_ipairsFunction_22663c(undefined4 *param_1,int param_2,int *param_3);
+undefined4 * winterscript_WinterScript_keyToString_226a24(undefined4 *param_1,undefined4 param_2,undefined4 *param_3);
+int winterscript_wm_unordered_map_at_226b9e(int *param_1,undefined4 *param_2);
+undefined4 * winterscript_WinterScript_selectFunctionFast_226bcc(undefined4 *param_1,undefined4 param_2,int *param_3,uint param_4);
+int winterscript_wm_string_end_226f4c(undefined4 *param_1);
+undefined4 * winterscript_WinterScript_findFunctionImpl_226f66(undefined4 *param_1,undefined4 param_2,int *param_3,uint param_4);
+undefined4 * winterscript_WinterScript_matchFunctionImpl_227504(undefined4 *param_1,undefined4 param_2,int *param_3,uint param_4);
+undefined4 * winterscript_WinterScript_gmatchFunctionImpl_227aa2(undefined4 *param_1,undefined4 param_2,int *param_3,int param_4);
+undefined4 * winterscript_WinterScript_byteFunctionImpl_2280d6(undefined4 *param_1,undefined4 param_2,int *param_3,uint param_4);
+undefined4 * winterscript_WinterScript_formatFunctionImpl_228346(undefined4 *param_1,undefined4 param_2,int *param_3,uint param_4);
 undefined4 *
-winterscript_WinterScript_gsubImpl_229178(undefined4 *param_1,undefined4 param_2,int *param_3,int *param_4,int *param_5);
-undefined4 * winterscript_WinterScript_insertFunctionImpl_229e76(undefined4 *param_1,int param_2,int *param_3,uint param_4);
-undefined4 * winterscript_WinterScript_removeFunctionImpl_22a230(undefined4 *param_1,int param_2,int *param_3,int param_4);
-undefined4 * winterscript_WinterScript_concatFunctionImpl_22a676(undefined4 *param_1,int param_2,int *param_3,uint param_4);
-undefined4 * winterscript_WinterScript_sortFunctionImpl_22ac4c(undefined4 *param_1,int param_2,int *param_3,int param_4);
-undefined4 * winterscript_WinterScript_typeName_22b010(undefined4 *param_1,undefined4 param_2,uint param_3);
+winterscript_WinterScript_gsubImpl_2291a8(undefined4 *param_1,undefined4 param_2,int *param_3,int *param_4,int *param_5);
+undefined4 * winterscript_WinterScript_insertFunctionImpl_229ea6(undefined4 *param_1,int param_2,int *param_3,uint param_4);
+undefined4 * winterscript_WinterScript_removeFunctionImpl_22a260(undefined4 *param_1,int param_2,int *param_3,int param_4);
+undefined4 * winterscript_WinterScript_concatFunctionImpl_22a6a6(undefined4 *param_1,int param_2,int *param_3,uint param_4);
+undefined4 * winterscript_WinterScript_sortFunctionImpl_22ac7c(undefined4 *param_1,int param_2,int *param_3,int param_4);
+undefined4 * winterscript_WinterScript_typeName_22b040(undefined4 *param_1,undefined4 param_2,uint param_3);
 undefined4 *
-winterscript_WinterScript_executeBytecodeChunk_22b044(undefined4 *param_1,uint *****param_2,int param_3,uint param_4,char *param_5);
-void winterscript_wm_vector_pop_back_22b070(int *param_1);
+winterscript_WinterScript_executeBytecodeChunk_22b074(undefined4 *param_1,uint *****param_2,int param_3,uint param_4,char *param_5);
+void winterscript_wm_vector_pop_back_22b0a0(int *param_1);
 uint *******
-winterscript_WinterScript_executeParsedBlock_22b094(uint *******param_1,uint *******param_2,int *param_3,uint *param_4,char *param_5);
-undefined4 * winterscript_WinterScript_readScriptFile_22f742(undefined4 *param_1,int param_2,int *param_3);
-int * winterscript_std_ostringstream_operator_22fa10(int *param_1,void *param_2);
-void winterscript_std_ifstream_ifstream_22fa66(int param_1);
-undefined4 * winterscript_wm_shared_ptr_22fa7f(undefined4 *param_1,undefined2 *param_2);
-undefined2 * winterscript_WinterScript_compileToBytecodeInternal_22fac0(undefined2 *param_1,int param_2,int *param_3);
-int * winterscript_wm_shared_ptr_const_22fcce(int *param_1,int *param_2);
-undefined4 * winterscript_WinterScript_loadScriptFile_22fd0e(undefined4 *param_1,int param_2,int *param_3);
-int winterscript_wm_unordered_map_find_230ab8(int *param_1,undefined4 *param_2);
-undefined4 * winterscript_wm_shared_ptr_230ae6(undefined4 *param_1,undefined4 *param_2);
-int winterscript_wm_unordered_map_operator_230b1a(int *param_1,undefined4 *param_2);
-undefined4 * winterscript_wm_shared_ptr_230c34(undefined4 *param_1,undefined4 *param_2);
-uint * winterscript_WinterScript_runScriptFile_230c68(uint *param_1,int a8,int *ac);
-int winterscript_multiValuesPtr_230e2d(int *param_1);
-undefined4 * winterscript_WinterScript_openFileFunction_230e44(undefined4 *param_1,void *param_2,int *param_3,char param_4);
-undefined4 * winterscript_wm_shared_ptr_2318ff(undefined4 *param_1,undefined4 *param_2,undefined4 *param_3);
-uint * winterscript_wm_shared_ptr_2319c4(uint *param_1,uint *param_2);
-uint * winterscript_wm_shared_ptr_2319f8(uint *param_1,uint *param_2);
-void winterscript_wm_shared_ptr_shared_ptr_231a2c(uint *param_1);
-undefined4 * winterscript_WinterScript_fileReadFunction_231ac8(undefined4 *param_1,undefined4 param_2,int *param_3);
-undefined4 * winterscript_WinterScript_fileWriteFunction_231d84(undefined4 *param_1,undefined4 param_2,int *param_3);
-void winterscript_std_ostream_operator_231f5c(int param_1,undefined4 *param_2);
-int winterscript_std_ostream_flush_231f86(int param_1);
-undefined4 * winterscript_WinterScript_fileCloseFunction_231fa6(undefined4 *param_1,undefined4 param_2,int *param_3);
-void winterscript_std_ostringstream_operator_2320c2(int *param_1,uint param_2);
-undefined4 * winterscript_WinterScript_printFunction_2320de(undefined4 *param_1,undefined4 param_2,int param_3);
-void winterscript_writePermafrostText_232204(int param_1);
-undefined4 * winterscript_WinterScript_getTimeMsFunction_23222a(undefined4 *param_1,int param_2,int param_3);
-undefined4 * winterscript_WinterScript_randomFunction_232346(undefined4 *param_1,int param_2,int *param_3);
-uint winterscript_wm_mt19937_operator_2325be(int param_1);
-undefined4 * winterscript_WinterScript_toStringFunction_23261a(undefined4 *param_1,undefined4 param_2,int param_3);
-undefined4 * winterscript_WinterScript_toNumberFunction_23273c(undefined4 *param_1,undefined4 param_2,undefined4 *param_3);
-char * winterscript_getCachedGsubPattern_2329e8(undefined4 *param_1);
-int * winterscript_WinterScript_gsubImpl_23385c(int *param_1,int *param_2,uint *pf_stack_arg_4);
-uint winterscript_wm_string_append_233a12(int *param_1,uint *a8,uint ac,uint a10);
-bool winterscript_wm_sregex_iterator_operator_233ad0(int *param_1,int *param_2);
-undefined4 * winterscript_wm_match_results_str_233aee(undefined4 *param_1,int param_2,uint param_3);
-uint * winterscript_wm_sregex_iterator_operator_233b2c(uint *param_1);
-undefined4 * winterscript_WinterScript_gsubFunction_233b60(undefined4 *param_1,undefined4 param_2,int param_3);
-undefined4 * winterscript_WinterScript_typeOfFunction_233c56(undefined4 *param_1,undefined4 param_2,undefined4 *param_3);
-undefined4 * winterscript_WinterScript_killFunction_233ef6(undefined4 *param_1,int param_2,int param_3);
-undefined4 * winterscript_WinterScript_popFunction_234032(undefined4 *param_1,undefined4 param_2,int *param_3);
-void winterscript_wm_vector_pop_back_234222(int param_1);
-undefined4 * winterscript_WinterScript_clearFunction_234246(undefined4 *param_1,int param_2,int *param_3);
-void winterscript_wm_unordered_map_clear_234418(int *param_1);
-undefined4 * winterscript_WinterScript_eraseFunction_234436(undefined4 *param_1,int param_2,int *param_3);
-void winterscript_wm_vector_erase_2346f4(int *param_1,int param_2);
-bool winterscript_wm_unordered_map_erase_234712(int *param_1,undefined4 *param_2);
-undefined4 * winterscript_WinterScript_containsFunction_234750(undefined4 *param_1,undefined4 param_2,int *param_3);
-undefined4 * winterscript_WinterScript_keysFunction_2349c0(undefined4 *param_1,int param_2,int *param_3);
-undefined4 * winterscript_WinterScript_valuesFunction_234bca(undefined4 *param_1,undefined4 param_2,undefined4 *param_3);
-undefined4 * winterscript_WinterScript_assertFunction_234de0(undefined4 *param_1,int param_2,undefined4 *param_3);
-undefined4 * winterscript_WinterScript_errorFunction_234fc8(undefined4 *param_1,int param_2,int param_3);
-uint * winterscript_WinterScript_pcallFunction_2350b0(uint *param_1,int a8,uint *ac);
-int winterscript_Variable_wm_vector_2350d6(int *param_1,int param_2,undefined4 *param_3,undefined4 *param_4);
-undefined4 * winterscript_WinterScript_nextFunction_2351e0(undefined4 *param_1,int param_2,int *param_3);
-uint * winterscript_WinterScript_selectFunction_23575c(uint *param_1,uint unused_8,uint *ac);
-undefined4 * winterscript_WinterScript_collectGarbageFunction_23578c(undefined4 *param_1,int param_2);
-undefined4 * winterscript_WinterScript_upperFunction_2357b4(undefined4 *param_1,undefined4 param_2,int *param_3);
-undefined4 * winterscript_WinterScript_lowerFunction_23595a(undefined4 *param_1,undefined4 param_2,int *param_3);
-undefined4 * winterscript_WinterScript_subFunction_235b00(undefined4 *param_1,undefined4 param_2,int *param_3);
-bool winterscript_findAsciiLuaClassRun_235cce(undefined4 *param_1,uint param_2,uint *param_3,uint *param_4);
-undefined4 winterscript_bool_wm_regex_search_wm_regex_const_235d1b(uint param_1,int param_2,int *param_3,int param_4);
-uint * winterscript_WinterScript_findFunction_235d88(uint *param_1,uint unused_8,uint *ac);
-bool winterscript_findAlphaDashDigitsMatch_235db7(undefined4 *param_1,uint param_2,uint *param_3,uint *param_4,uint *param_5,
+winterscript_WinterScript_executeParsedBlock_22b0c4(uint *******param_1,uint *******param_2,int *param_3,uint *param_4,char *param_5);
+undefined4 * winterscript_WinterScript_readScriptFile_22f772(undefined4 *param_1,int param_2,int *param_3);
+int * winterscript_std_ostringstream_operator_22fa40(int *param_1,void *param_2);
+void winterscript_std_ifstream_ifstream_22fa96(int param_1);
+undefined4 * winterscript_wm_shared_ptr_22faaf(undefined4 *param_1,undefined2 *param_2);
+undefined2 * winterscript_WinterScript_compileToBytecodeInternal_22faf0(undefined2 *param_1,int param_2,int *param_3);
+int * winterscript_wm_shared_ptr_const_22fcfe(int *param_1,int *param_2);
+undefined4 * winterscript_WinterScript_loadScriptFile_22fd3e(undefined4 *param_1,int param_2,int *param_3);
+int winterscript_wm_unordered_map_find_230ae8(int *param_1,undefined4 *param_2);
+undefined4 * winterscript_wm_shared_ptr_230b16(undefined4 *param_1,undefined4 *param_2);
+int winterscript_wm_unordered_map_operator_230b4a(int *param_1,undefined4 *param_2);
+undefined4 * winterscript_wm_shared_ptr_230c64(undefined4 *param_1,undefined4 *param_2);
+uint * winterscript_WinterScript_runScriptFile_230c98(uint *param_1,int a8,int *ac);
+int winterscript_multiValuesPtr_230e5d(int *param_1);
+undefined4 * winterscript_WinterScript_openFileFunction_230e74(undefined4 *param_1,void *param_2,int *param_3,char param_4);
+undefined4 * winterscript_wm_shared_ptr_23192f(undefined4 *param_1,undefined4 *param_2,undefined4 *param_3);
+uint * winterscript_wm_shared_ptr_2319f4(uint *param_1,uint *param_2);
+uint * winterscript_wm_shared_ptr_231a28(uint *param_1,uint *param_2);
+void winterscript_wm_shared_ptr_shared_ptr_231a5c(uint *param_1);
+undefined4 * winterscript_WinterScript_fileReadFunction_231af8(undefined4 *param_1,undefined4 param_2,int *param_3);
+undefined4 * winterscript_WinterScript_fileWriteFunction_231db4(undefined4 *param_1,undefined4 param_2,int *param_3);
+void winterscript_std_ostream_operator_231f8c(int param_1,undefined4 *param_2);
+int winterscript_std_ostream_flush_231fb6(int param_1);
+undefined4 * winterscript_WinterScript_fileCloseFunction_231fd6(undefined4 *param_1,undefined4 param_2,int *param_3);
+void winterscript_std_ostringstream_operator_2320f2(int *param_1,uint param_2);
+undefined4 * winterscript_WinterScript_printFunction_23210e(undefined4 *param_1,undefined4 param_2,int param_3);
+void winterscript_writePermafrostText_232234(int param_1);
+undefined4 * winterscript_WinterScript_getTimeMsFunction_23225a(undefined4 *param_1,int param_2,int param_3);
+undefined4 * winterscript_WinterScript_randomFunction_232376(undefined4 *param_1,int param_2,int *param_3);
+uint winterscript_wm_mt19937_operator_2325ee(int param_1);
+undefined4 * winterscript_WinterScript_toStringFunction_23264a(undefined4 *param_1,undefined4 param_2,int param_3);
+undefined4 * winterscript_WinterScript_toNumberFunction_23276c(undefined4 *param_1,undefined4 param_2,undefined4 *param_3);
+char * winterscript_getCachedGsubPattern_232a18(undefined4 *param_1);
+int * winterscript_WinterScript_gsubImpl_23388c(int *param_1,int *param_2,uint *pf_stack_arg_4);
+uint winterscript_wm_string_append_233a42(int *param_1,uint *a8,uint ac,uint a10);
+bool winterscript_wm_sregex_iterator_operator_233b00(int *param_1,int *param_2);
+undefined4 * winterscript_wm_match_results_str_233b1e(undefined4 *param_1,int param_2,uint param_3);
+uint * winterscript_wm_sregex_iterator_operator_233b5c(uint *param_1);
+undefined4 * winterscript_WinterScript_gsubFunction_233b90(undefined4 *param_1,undefined4 param_2,int param_3);
+undefined4 * winterscript_WinterScript_typeOfFunction_233c86(undefined4 *param_1,undefined4 param_2,undefined4 *param_3);
+undefined4 * winterscript_WinterScript_killFunction_233f26(undefined4 *param_1,int param_2,int param_3);
+undefined4 * winterscript_WinterScript_popFunction_234062(undefined4 *param_1,undefined4 param_2,int *param_3);
+void winterscript_wm_vector_pop_back_234252(int param_1);
+undefined4 * winterscript_WinterScript_clearFunction_234276(undefined4 *param_1,int param_2,int *param_3);
+void winterscript_wm_unordered_map_clear_234448(int *param_1);
+undefined4 * winterscript_WinterScript_eraseFunction_234466(undefined4 *param_1,int param_2,int *param_3);
+void winterscript_wm_vector_erase_234724(int *param_1,int param_2);
+bool winterscript_wm_unordered_map_erase_234742(int *param_1,undefined4 *param_2);
+undefined4 * winterscript_WinterScript_containsFunction_234780(undefined4 *param_1,undefined4 param_2,int *param_3);
+undefined4 * winterscript_WinterScript_keysFunction_2349f0(undefined4 *param_1,int param_2,int *param_3);
+undefined4 * winterscript_WinterScript_valuesFunction_234bfa(undefined4 *param_1,undefined4 param_2,undefined4 *param_3);
+undefined4 * winterscript_WinterScript_assertFunction_234e10(undefined4 *param_1,int param_2,undefined4 *param_3);
+undefined4 * winterscript_WinterScript_errorFunction_234ff8(undefined4 *param_1,int param_2,int param_3);
+uint * winterscript_WinterScript_pcallFunction_2350e0(uint *param_1,int a8,uint *ac);
+int winterscript_Variable_wm_vector_235106(int *param_1,int param_2,undefined4 *param_3,undefined4 *param_4);
+undefined4 * winterscript_WinterScript_nextFunction_235210(undefined4 *param_1,int param_2,int *param_3);
+uint * winterscript_WinterScript_selectFunction_23578c(uint *param_1,uint unused_8,uint *ac);
+undefined4 * winterscript_WinterScript_collectGarbageFunction_2357bc(undefined4 *param_1,int param_2);
+undefined4 * winterscript_WinterScript_upperFunction_2357e4(undefined4 *param_1,undefined4 param_2,int *param_3);
+undefined4 * winterscript_WinterScript_lowerFunction_23598a(undefined4 *param_1,undefined4 param_2,int *param_3);
+undefined4 * winterscript_WinterScript_subFunction_235b30(undefined4 *param_1,undefined4 param_2,int *param_3);
+bool winterscript_findAsciiLuaClassRun_235cfe(undefined4 *param_1,uint param_2,uint *param_3,uint *param_4);
+undefined4 winterscript_bool_wm_regex_search_wm_regex_const_235d4b(uint param_1,int param_2,int *param_3,int param_4);
+uint * winterscript_WinterScript_findFunction_235db8(uint *param_1,uint unused_8,uint *ac);
+bool winterscript_findAlphaDashDigitsMatch_235de7(undefined4 *param_1,uint param_2,uint *param_3,uint *param_4,uint *param_5,
                 uint *param_6);
-int winterscript_Variable_wm_vector_235e66(int *param_1,undefined4 *param_2);
-uint * winterscript_WinterScript_matchFunction_235eb8(uint *param_1,uint unused_8,uint *ac);
-uint * winterscript_WinterScript_gmatchFunction_235ee8(uint *param_1,uint unused_8,uint *ac);
-uint * winterscript_WinterScript_byteFunction_235f18(uint *param_1,uint unused_8,uint *ac);
-undefined4 * winterscript_WinterScript_charFunction_235f48(undefined4 *param_1,undefined4 param_2,int *param_3);
-undefined4 * winterscript_normaliseIntegerFormatSpecifier_236054(void *this,char *param_1,uint param_2);
-void winterscript_ZZN12WinterScript18formatFunctionImplEPK8VariablemENK3_0clIiEEDaRKN2wm6stringET_23628c(undefined4 *param_1,int *param_2);
-void winterscript_wm_string_resize_2363c8(int *param_1,uint param_2);
-uint * winterscript_WinterScript_formatFunction_2363e4(uint *param_1,uint unused_8,uint *ac);
-undefined4 * winterscript_WinterScript_repFunction_236414(undefined4 *param_1,undefined4 param_2,int *param_3);
-uint * winterscript_WinterScript_insertFunction_236620(uint *param_1,int a8,uint *ac);
-uint * winterscript_WinterScript_removeFunction_236646(uint *param_1,int a8,uint *ac);
-uint winterscript_estimateVariableStringSize_23666c(int *param_1);
-uint * winterscript_WinterScript_concatFunction_2366da(uint *param_1,int a8,uint *ac);
-void winterscript_WinterScript_sortFunctionImpl_236700(undefined4 *param_1,int *param_2);
-uint * winterscript_WinterScript_sortFunction_236ba8(uint *param_1,int a8,uint *ac);
-undefined4 * winterscript_WinterScript_floorFunction_236bce(undefined4 *param_1,undefined4 param_2,int param_3);
-undefined4 * winterscript_WinterScript_ceilFunction_236cde(undefined4 *param_1,undefined4 param_2,int param_3);
-undefined4 * winterscript_WinterScript_absFunction_236dee(undefined4 *param_1,undefined4 param_2,int *param_3);
-undefined4 * winterscript_WinterScript_minFunction_236f16(undefined4 *param_1,undefined4 param_2,undefined4 *param_3);
-undefined4 * winterscript_WinterScript_maxFunction_237084(undefined4 *param_1,undefined4 param_2,undefined4 *param_3);
-undefined4 * winterscript_WinterScript_sinFunction_2371f2(undefined4 *param_1,undefined4 param_2,int param_3);
-undefined4 * winterscript_WinterScript_cosFunction_2372f0(undefined4 *param_1,undefined4 param_2,int param_3);
-undefined4 * winterscript_WinterScript_radFunction_2373ee(undefined4 *param_1,undefined4 param_2,int param_3);
-undefined4 * winterscript_WinterScript_logFunction_2374ee(undefined4 *param_1,undefined4 param_2,int param_3);
-undefined4 * winterscript_WinterScript_sqrtFunction_2376da(undefined4 *param_1,undefined4 param_2,int param_3);
-undefined4 * winterscript_WinterScript_randomSeedFunction_237820(undefined4 *param_1,int param_2,int param_3);
-void winterscript_wm_mt19937_seed_237920(uint *param_1,uint param_2);
-undefined4 * winterscript_WinterScript_clockFunction_23795a(undefined4 *param_1,int param_2,int param_3);
-longlong winterscript_wm_chrono_duration_const_237a8d(longlong *param_1);
-undefined4 * winterscript_WinterScript_timeFunction_237ac8(undefined4 *param_1,undefined4 param_2,int param_3);
-longlong winterscript_wm_chrono_duration_const_237bd3(longlong *param_1);
-undefined4 * winterscript_WinterScript_utf8LenFunction_237c08(undefined4 *param_1,undefined4 param_2,int *param_3);
-undefined4 * winterscript_WinterScript_utf8OffsetFunction_237d22(undefined4 *param_1,undefined4 param_2,int *param_3);
-void winterscript_WinterScript_skipWhitespace_237e92(undefined4 param_1,int *param_2,uint *param_3);
-int * winterscript_WinterScript_tokenise_237ec0(int *param_1,int param_2,undefined4 *param_3);
-void winterscript_WinterScript_tokenise_2382a6(uint *closure,uint length);
-int winterscript_wm_string_wm_vector_2382e0(int *param_1,uint *a8,uint *ac,uint *a10);
-int winterscript_wm_string_wm_vector_238344(int *param_1,uint *a8,uint *ac,uint *a10);
-int winterscript_wm_string_wm_vector_2383a8(int *param_1,uint *param_2,undefined1 *param_3);
-int * winterscript_wm_operator_23840a(int *param_1,uint *a8,uchar ac);
-uint * winterscript_WinterScript_performOperation_2384b8(uint *param_1,uint param_2,uint *param_3,int param_4,uint *pf_stack_arg_14);
-undefined1 winterscript_bool_wm_operator_const_238602(int *param_1,int *param_2);
-uint winterscript_wm_operator_238642(undefined4 *param_1,undefined4 *param_2);
-void winterscript_promoteArrayVariableToTable_23867a(int *param_1);
-undefined4 * winterscript_wm_to_string_238856(undefined4 *param_1,uint param_2);
-void winterscript_WinterScript_getIndexedValue_2388a2(int param_1);
-int winterscript_wm_unordered_map_operator_2388c6(int *param_1,uint *a8);
-void winterscript_WinterScript_skipExpression_2389f4(int param_1,int param_2,uint *param_3,int param_4);
-void winterscript_xpressionERKN2wm6vectorINS0_6stringEEERmiPKNS1_I13TokenAnalysisEEENK3_0clIRSB_EEvOT_i_238b06(void *closure,void *self,int depth);
-undefined4 * winterscript_onERKN2wm6vectorINS0_6stringEEERmPKNS1_I13TokenAnalysisEEENK3_1clIRSB_EE8VariableOT_i_239422(undefined4 *param_1,undefined4 *param_2,undefined4 *param_3,int param_4);
-uchar winterscript_WinterScript_evaluateCondition_239e9a(int a4,int *a8,uint *ac,uint a10);
-undefined4 * winterscript_WinterScript_executeAssignment_239efc(undefined4 *param_1,int *param_2,int *param_3);
-undefined4 * winterscript_WinterScript_executeAssignment_239f74(undefined4 *param_1,int *param_2);
-void winterscript_WinterScript_executeAssignment_23a2ec(undefined4 *param_1,undefined4 *param_2,int param_3,undefined4 *param_4);
-undefined4 winterscript_tryApplyOperationInPlace_23a364(uint *param_1,char param_2,uint *param_3);
-undefined4 * winterscript_WinterScript_executeAssignment_23ad0c(undefined4 *param_1,int param_2,char *param_3,undefined4 *param_4);
-void winterscript_WinterScript_executeAssignment_23ad54(undefined4 *param_1,int *param_2,int *param_3,char param_4);
-void winterscript_WinterScript_executeAssignment_23afb6(int *param_1,int *param_2,int *param_3,uint param_4);
-void winterscript_WinterScript_executeAssignment_23d1e4(int *param_1,int param_2,undefined4 *param_3);
-void winterscript_wm_vector_reserve_23d228(int *param_1,uint param_2);
-void winterscript_WinterScript_executeAssignment_23d28e(undefined4 *param_1);
-void winterscript_wm_vector_vector_23d2ae(undefined4 *param_1);
-int winterscript_WinterScript_findMatchingElseOrEnd_23d2e8(undefined4 param_1,int *param_2,int param_3,undefined1 *param_4);
-int winterscript_WinterScript_findMatchingEnd_23d422(undefined4 param_1,int *param_2,int param_3);
-int winterscript_WinterScript_findMatchingUntil_23d546(undefined4 param_1,int *param_2,int param_3);
-int winterscript_wm_pair_23d66a(uint pf_input_0,uint pf_input_1,uint pf_input_2);
-void winterscript_WinterScript_executeParsedBlock_23d6cc(int *param_1,undefined4 *param_2,undefined4 *param_3);
-int * winterscript_wm_vector_const_23d956(int *param_1,int *param_2);
-void winterscript_WinterScript_executeParsedBlock_23d9a8(int *param_1);
-void winterscript_wm_vector_clear_23d9d2(int *param_1);
-void winterscript_wm_vector_clear_23da06(int *param_1);
-undefined4 * winterscript_FastExpression_operator_23da3a(undefined4 *param_1,undefined4 *param_2);
-undefined4 * winterscript_FastCallExpression_operator_23da8e(undefined4 *param_1,undefined4 *param_2);
-uint winterscript_WinterScript_prepareParsedLines_23dab8(int *param_1,uint param_2,int param_3);
-undefined4 * winterscript_wm_vector_23dc46(undefined4 *param_1,undefined4 *param_2);
-undefined4 * winterscript_wm_vector_23dc8e(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_vector_reserve_23dcd2(int *param_1,uint param_2);
-undefined4 * winterscript_compileFastExpressionRange_23dd3e(undefined4 *param_1,int param_2,int param_3,uint param_4,uint param_5);
-uint winterscript_wm_vector_reserve_23df34(int *param_1,uint param_2);
-void winterscript_wm_vector_BlockEntry_23dfa0(int *param_1,undefined4 *param_2);
-void winterscript_wm_vector_pop_back_23dfda(int *param_1);
-void winterscript_WinterScript_prepareParsedLines_23dffe(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_vector_vector_23e024(int *param_1);
-int * winterscript_WinterScript_parseLines_23e064(int *param_1,undefined4 param_2,int *param_3);
-int winterscript_int_wm_count_23e60b(char *param_1,char *param_2,char *param_3);
-uint winterscript_wm_string_view_find_23e632(int *param_1,char param_2,uint param_3);
-void winterscript_WinterScript_parseLines_23e65c(int *param_1,int param_2,int param_3,uint param_4);
-void winterscript_WinterScript_parseLines_23e712(undefined4 *param_1);
-uint ******* winterscript_WinterScript_executeBlock_23e8dc(uint *******param_1,uint *******param_2,int param_3,uint *pf_stack_arg_10,
+int winterscript_Variable_wm_vector_235e96(int *param_1,undefined4 *param_2);
+uint * winterscript_WinterScript_matchFunction_235ee8(uint *param_1,uint unused_8,uint *ac);
+uint * winterscript_WinterScript_gmatchFunction_235f18(uint *param_1,uint unused_8,uint *ac);
+uint * winterscript_WinterScript_byteFunction_235f48(uint *param_1,uint unused_8,uint *ac);
+undefined4 * winterscript_WinterScript_charFunction_235f78(undefined4 *param_1,undefined4 param_2,int *param_3);
+undefined4 * winterscript_normaliseIntegerFormatSpecifier_236084(void *this,char *param_1,uint param_2);
+void winterscript_ZZN12WinterScript18formatFunctionImplEPK8VariablemENK3_0clIiEEDaRKN2wm6stringET_2362bc(undefined4 *param_1,int *param_2);
+void winterscript_wm_string_resize_2363f8(int *param_1,uint param_2);
+uint * winterscript_WinterScript_formatFunction_236414(uint *param_1,uint unused_8,uint *ac);
+undefined4 * winterscript_WinterScript_repFunction_236444(undefined4 *param_1,undefined4 param_2,int *param_3);
+uint * winterscript_WinterScript_insertFunction_236650(uint *param_1,int a8,uint *ac);
+uint * winterscript_WinterScript_removeFunction_236676(uint *param_1,int a8,uint *ac);
+uint winterscript_estimateVariableStringSize_23669c(int *param_1);
+uint * winterscript_WinterScript_concatFunction_23670a(uint *param_1,int a8,uint *ac);
+void winterscript_WinterScript_sortFunctionImpl_236730(undefined4 *param_1,int *param_2);
+uint * winterscript_WinterScript_sortFunction_236bd8(uint *param_1,int a8,uint *ac);
+undefined4 * winterscript_WinterScript_floorFunction_236bfe(undefined4 *param_1,undefined4 param_2,int param_3);
+undefined4 * winterscript_WinterScript_ceilFunction_236d0e(undefined4 *param_1,undefined4 param_2,int param_3);
+undefined4 * winterscript_WinterScript_absFunction_236e1e(undefined4 *param_1,undefined4 param_2,int *param_3);
+undefined4 * winterscript_WinterScript_minFunction_236f46(undefined4 *param_1,undefined4 param_2,undefined4 *param_3);
+undefined4 * winterscript_WinterScript_maxFunction_2370b4(undefined4 *param_1,undefined4 param_2,undefined4 *param_3);
+undefined4 * winterscript_WinterScript_sinFunction_237222(undefined4 *param_1,undefined4 param_2,int param_3);
+undefined4 * winterscript_WinterScript_cosFunction_237320(undefined4 *param_1,undefined4 param_2,int param_3);
+undefined4 * winterscript_WinterScript_radFunction_23741e(undefined4 *param_1,undefined4 param_2,int param_3);
+undefined4 * winterscript_WinterScript_logFunction_23751e(undefined4 *param_1,undefined4 param_2,int param_3);
+undefined4 * winterscript_WinterScript_sqrtFunction_23770a(undefined4 *param_1,undefined4 param_2,int param_3);
+undefined4 * winterscript_WinterScript_randomSeedFunction_237850(undefined4 *param_1,int param_2,int param_3);
+void winterscript_wm_mt19937_seed_237950(uint *param_1,uint param_2);
+undefined4 * winterscript_WinterScript_clockFunction_23798a(undefined4 *param_1,int param_2,int param_3);
+longlong winterscript_wm_chrono_duration_const_237abd(longlong *param_1);
+undefined4 * winterscript_WinterScript_timeFunction_237af8(undefined4 *param_1,undefined4 param_2,int param_3);
+longlong winterscript_wm_chrono_duration_const_237c03(longlong *param_1);
+undefined4 * winterscript_WinterScript_utf8LenFunction_237c38(undefined4 *param_1,undefined4 param_2,int *param_3);
+undefined4 * winterscript_WinterScript_utf8OffsetFunction_237d52(undefined4 *param_1,undefined4 param_2,int *param_3);
+void winterscript_WinterScript_skipWhitespace_237ec2(undefined4 param_1,int *param_2,uint *param_3);
+int * winterscript_WinterScript_tokenise_237ef0(int *param_1,int param_2,undefined4 *param_3);
+void winterscript_WinterScript_tokenise_2382d6(uint *closure,uint length);
+int winterscript_wm_string_wm_vector_238310(int *param_1,uint *a8,uint *ac,uint *a10);
+int winterscript_wm_string_wm_vector_238374(int *param_1,uint *a8,uint *ac,uint *a10);
+int winterscript_wm_string_wm_vector_2383d8(int *param_1,uint *param_2,undefined1 *param_3);
+int * winterscript_wm_operator_23843a(int *param_1,uint *a8,uchar ac);
+uint * winterscript_WinterScript_performOperation_2384e8(uint *param_1,uint param_2,uint *param_3,int param_4,uint *pf_stack_arg_14);
+undefined1 winterscript_bool_wm_operator_const_238632(int *param_1,int *param_2);
+uint winterscript_wm_operator_238672(undefined4 *param_1,undefined4 *param_2);
+void winterscript_promoteArrayVariableToTable_2386aa(int *param_1);
+undefined4 * winterscript_wm_to_string_238886(undefined4 *param_1,uint param_2);
+void winterscript_WinterScript_getIndexedValue_2388d2(int param_1);
+int winterscript_wm_unordered_map_operator_2388f6(int *param_1,uint *a8);
+void winterscript_WinterScript_skipExpression_238a24(int param_1,int param_2,uint *param_3,int param_4);
+void winterscript_xpressionERKN2wm6vectorINS0_6stringEEERmiPKNS1_I13TokenAnalysisEEENK3_0clIRSB_EEvOT_i_238b36(void *closure,void *self,int depth);
+undefined4 * winterscript_onERKN2wm6vectorINS0_6stringEEERmPKNS1_I13TokenAnalysisEEENK3_1clIRSB_EE8VariableOT_i_239452(undefined4 *param_1,undefined4 *param_2,undefined4 *param_3,int param_4);
+uchar winterscript_WinterScript_evaluateCondition_239eca(int a4,int *a8,uint *ac,uint a10);
+undefined4 * winterscript_WinterScript_executeAssignment_239f2c(undefined4 *param_1,int *param_2,int *param_3);
+undefined4 * winterscript_WinterScript_executeAssignment_239fa4(undefined4 *param_1,int *param_2);
+void winterscript_WinterScript_executeAssignment_23a31c(undefined4 *param_1,undefined4 *param_2,int param_3,undefined4 *param_4);
+undefined4 winterscript_tryApplyOperationInPlace_23a394(uint *param_1,char param_2,uint *param_3);
+undefined4 * winterscript_WinterScript_executeAssignment_23ad3c(undefined4 *param_1,int param_2,char *param_3,undefined4 *param_4);
+void winterscript_WinterScript_executeAssignment_23ad84(undefined4 *param_1,int *param_2,int *param_3,char param_4);
+void winterscript_WinterScript_executeAssignment_23afe6(int *param_1,int *param_2,int *param_3,uint param_4);
+void winterscript_WinterScript_executeAssignment_23d214(int *param_1,int param_2,undefined4 *param_3);
+void winterscript_wm_vector_reserve_23d258(int *param_1,uint param_2);
+void winterscript_WinterScript_executeAssignment_23d2be(undefined4 *param_1);
+void winterscript_wm_vector_vector_23d2de(undefined4 *param_1);
+int winterscript_WinterScript_findMatchingElseOrEnd_23d318(undefined4 param_1,int *param_2,int param_3,undefined1 *param_4);
+int winterscript_WinterScript_findMatchingEnd_23d452(undefined4 param_1,int *param_2,int param_3);
+int winterscript_WinterScript_findMatchingUntil_23d576(undefined4 param_1,int *param_2,int param_3);
+int winterscript_wm_pair_23d69a(uint pf_input_0,uint pf_input_1,uint pf_input_2);
+void winterscript_WinterScript_executeParsedBlock_23d6fc(int *param_1,undefined4 *param_2,undefined4 *param_3);
+int * winterscript_wm_vector_const_23d986(int *param_1,int *param_2);
+void winterscript_WinterScript_executeParsedBlock_23d9d8(int *param_1);
+void winterscript_wm_vector_clear_23da02(int *param_1);
+void winterscript_wm_vector_clear_23da36(int *param_1);
+undefined4 * winterscript_FastExpression_operator_23da6a(undefined4 *param_1,undefined4 *param_2);
+undefined4 * winterscript_FastCallExpression_operator_23dabe(undefined4 *param_1,undefined4 *param_2);
+uint winterscript_WinterScript_prepareParsedLines_23dae8(int *param_1,uint param_2,int param_3);
+undefined4 * winterscript_wm_vector_23dc76(undefined4 *param_1,undefined4 *param_2);
+undefined4 * winterscript_wm_vector_23dcbe(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_vector_reserve_23dd02(int *param_1,uint param_2);
+undefined4 * winterscript_compileFastExpressionRange_23dd6e(undefined4 *param_1,int param_2,int param_3,uint param_4,uint param_5);
+uint winterscript_wm_vector_reserve_23df64(int *param_1,uint param_2);
+void winterscript_wm_vector_BlockEntry_23dfd0(int *param_1,undefined4 *param_2);
+void winterscript_wm_vector_pop_back_23e00a(int *param_1);
+void winterscript_WinterScript_prepareParsedLines_23e02e(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_vector_vector_23e054(int *param_1);
+int * winterscript_WinterScript_parseLines_23e094(int *param_1,undefined4 param_2,int *param_3);
+int winterscript_int_wm_count_23e63b(char *param_1,char *param_2,char *param_3);
+uint winterscript_wm_string_view_find_23e662(int *param_1,char param_2,uint param_3);
+void winterscript_WinterScript_parseLines_23e68c(int *param_1,int param_2,int param_3,uint param_4);
+void winterscript_WinterScript_parseLines_23e742(undefined4 *param_1);
+uint ******* winterscript_WinterScript_executeBlock_23e90c(uint *******param_1,uint *******param_2,int param_3,uint *pf_stack_arg_10,
                 char *pf_stack_arg_14);
-void winterscript_WinterScript_runScript_23ea7e(int param_1,int *pf_stack_arg_8);
-undefined4 * winterscript_WinterScript_runBytecodeProgram_23ed7a(undefined4 *param_1,int param_2,int param_3);
-uint winterscript_WinterScript_runScriptFilePath_23efe6(uint param_1,uint unused_8,uint *pf_stack_arg_c);
-int winterscript_WinterScript_compileBytecodeChunk_23f0e4(uint param_1,int param_2,int *param_3,void *param_4,void *param_5,
+void winterscript_WinterScript_runScript_23eaae(int param_1,int *pf_stack_arg_8);
+undefined4 * winterscript_WinterScript_runBytecodeProgram_23edaa(undefined4 *param_1,int param_2,int param_3);
+uint winterscript_WinterScript_runScriptFilePath_23f016(uint param_1,uint unused_8,uint *pf_stack_arg_c);
+int winterscript_WinterScript_compileBytecodeChunk_23f114(uint param_1,int param_2,int *param_3,void *param_4,void *param_5,
                 uint *pf_stack_arg_18);
-int winterscript_Instruction_wm_vector_23fafc(int *param_1,int param_2,undefined4 *param_3,undefined4 *param_4);
-int * winterscript_wm_vector_23fc0e(int *param_1,int *param_2);
-uint winterscript_wm_vector_reserve_23fc56(int *param_1,uint param_2);
-ushort * winterscript_WinterScript_compileToBytecode_23fcb6(ushort *param_1,int a8,int *ac);
-int winterscript_WinterScript_compileToBytecode_23fcda(int param_1,int param_2,int *param_3,void **param_4);
-uint winterscript_wm_string_find_last_of_240032(undefined4 *param_1,int param_2,int param_3,uint param_4);
-int * winterscript_WinterScript_serializeBytecode_240098(int *param_1,undefined4 param_2,undefined2 *param_3);
-int winterscript_unsigned_char_wm_vector_240650(int *param_1,int param_2,undefined1 *param_3,undefined1 *param_4);
-void winterscript_WinterScript_serializeBytecode_2406f4(undefined4 *param_1,undefined4 *param_2);
-void winterscript_WinterScript_serializeBytecode_240730(undefined4 *param_1,undefined4 param_2);
-void winterscript_WinterScript_serializeBytecode_240754(undefined4 *param_1,undefined1 param_2);
-void winterscript_WinterScript_saveBytecode_240770(undefined4 param_1,undefined2 *param_2,undefined4 *param_3);
-void winterscript_std_ofstream_ofstream_240934(int param_1);
-ushort * winterscript_WinterScript_deserializeBytecode_24094e(ushort *param_1,undefined4 param_2,int *param_3,uint *param_4);
-void winterscript_WinterScript_deserializeBytecode_2413ba(undefined4 *param_1,int param_2);
-int * winterscript_WinterScript_deserializeBytecode_2414d8(int *param_1,int *param_2);
-undefined4 winterscript_WinterScript_deserializeBytecode_24151e(int param_1);
-uint winterscript_wm_vector_resize_24155a(int *param_1,uint param_2);
-void winterscript_wm_vector_resize_2415e2(int *param_1,uint param_2);
-void winterscript_wm_vector_resize_241658(int *param_1,uint param_2);
-undefined1 winterscript_WinterScript_deserializeBytecode_2416a4(int param_1);
-void winterscript_wm_vector_resize_2416c8(int *param_1,uint param_2);
-uint winterscript_wm_vector_resize_241718(int *param_1,uint param_2);
-void winterscript_wm_vector_resize_24178c(int *param_1,uint param_2);
-void winterscript_wm_vector_resize_2417d8(int *param_1,uint param_2);
-void winterscript_wm_vector_resize_24181c(int *param_1,uint param_2);
-void winterscript_wm_vector_resize_241860(int *param_1,uint param_2);
-void winterscript_wm_vector_resize_2418a4(int *param_1,uint param_2);
-ushort * winterscript_WinterScript_loadBytecode_24191c(ushort *param_1,undefined4 param_2,uint *param_3);
-void winterscript_wm_vector_resize_241d04(int *param_1,uint param_2);
+int winterscript_Instruction_wm_vector_23fb2c(int *param_1,int param_2,undefined4 *param_3,undefined4 *param_4);
+int * winterscript_wm_vector_23fc3e(int *param_1,int *param_2);
+uint winterscript_wm_vector_reserve_23fc86(int *param_1,uint param_2);
+ushort * winterscript_WinterScript_compileToBytecode_23fce6(ushort *param_1,int a8,int *ac);
+int winterscript_WinterScript_compileToBytecode_23fd0a(int param_1,int param_2,int *param_3,void **param_4);
+uint winterscript_wm_string_find_last_of_240062(undefined4 *param_1,int param_2,int param_3,uint param_4);
+int * winterscript_WinterScript_serializeBytecode_2400c8(int *param_1,undefined4 param_2,undefined2 *param_3);
+int winterscript_unsigned_char_wm_vector_240680(int *param_1,int param_2,undefined1 *param_3,undefined1 *param_4);
+void winterscript_WinterScript_serializeBytecode_240724(undefined4 *param_1,undefined4 *param_2);
+void winterscript_WinterScript_serializeBytecode_240760(undefined4 *param_1,undefined4 param_2);
+void winterscript_WinterScript_serializeBytecode_240784(undefined4 *param_1,undefined1 param_2);
+void winterscript_WinterScript_saveBytecode_2407a0(undefined4 param_1,undefined2 *param_2,undefined4 *param_3);
+void winterscript_std_ofstream_ofstream_240964(int param_1);
+ushort * winterscript_WinterScript_deserializeBytecode_24097e(ushort *param_1,undefined4 param_2,int *param_3,uint *param_4);
+void winterscript_WinterScript_deserializeBytecode_2413ea(undefined4 *param_1,int param_2);
+int * winterscript_WinterScript_deserializeBytecode_241508(int *param_1,int *param_2);
+undefined4 winterscript_WinterScript_deserializeBytecode_24154e(int param_1);
+uint winterscript_wm_vector_resize_24158a(int *param_1,uint param_2);
+void winterscript_wm_vector_resize_241612(int *param_1,uint param_2);
+void winterscript_wm_vector_resize_241688(int *param_1,uint param_2);
+undefined1 winterscript_WinterScript_deserializeBytecode_2416d4(int param_1);
+void winterscript_wm_vector_resize_2416f8(int *param_1,uint param_2);
+uint winterscript_wm_vector_resize_241748(int *param_1,uint param_2);
+void winterscript_wm_vector_resize_2417bc(int *param_1,uint param_2);
+void winterscript_wm_vector_resize_241808(int *param_1,uint param_2);
+void winterscript_wm_vector_resize_24184c(int *param_1,uint param_2);
+void winterscript_wm_vector_resize_241890(int *param_1,uint param_2);
+void winterscript_wm_vector_resize_2418d4(int *param_1,uint param_2);
+ushort * winterscript_WinterScript_loadBytecode_24194c(ushort *param_1,undefined4 param_2,uint *param_3);
+void winterscript_wm_vector_resize_241d34(int *param_1,uint param_2);
 undefined4 *
-winterscript_WinterScript_executeBytecodeChunkInternal_241d42(undefined4 *param_1,uint *****param_2,int param_3,uint param_4,char *param_5,
+winterscript_WinterScript_executeBytecodeChunkInternal_241d72(undefined4 *param_1,uint *****param_2,int param_3,uint param_4,char *param_5,
                 char param_6);
-int winterscript_WinterScript_executeBytecodeChunkInternal_248592(int *param_1,uint param_2);
-int winterscript_WinterScript_executeBytecodeChunkInternal_2486aa(undefined4 *param_1,undefined4 param_2);
-uint winterscript_WinterScript_executeBytecodeChunkInternal_2488a0(uint *param_1,int param_2,int pf_stack_arg_4);
-undefined4 winterscript_WinterScript_executeBytecodeChunkInternal_248b3c(int *param_1,uint param_2,int *param_3,char *param_4);
-uint winterscript_nkInternalERKN2wm10shared_ptrI15BytecodeProgramEEjR11BlockSignalbENK3_0clIRS8_EEbOT_j_248b88(int *param_1,int *param_2,uint param_3);
-void winterscript_5BytecodeProgramEEjR11BlockSignalbENK3_3clIRS8_EEbOT_jRPKNS0_6vectorINS0_6stringEEES7_248cfc(int *param_1,int *param_2,int param_3,int *param_4,char *param_5);
-void winterscript_WinterScript_executeBytecodeChunkInternal_24ac0e(int *param_1,undefined4 *param_2,undefined4 *param_3);
-void winterscript_WinterScript_executeBytecodeChunkInternal_24ae98(int *param_1);
-undefined4 * winterscript_WinterScript_runBytecodeInternal_24aec8(undefined4 *param_1,int param_2,undefined2 *param_3);
-undefined4 * winterscript_wm_shared_ptr_24af7e(undefined4 *param_1,undefined2 *param_2);
-uint * winterscript_WinterScript_runBytecode_24b038(uint *param_1,int a8,ushort *ac);
-void winterscript_std_istream_istream_24b05c(void *pointer);
-void winterscript_wm_unordered_map_unordered_map_24b068(undefined4 *param_1);
-void winterscript_wm_vector_vector_24b094(int *param_1);
-void winterscript_wm_vector_clear_24b0b4(int *param_1);
-void winterscript_wm_unordered_map_unordered_map_24b0ea(undefined4 *param_1);
-void winterscript_wm_unordered_map_unordered_map_24b116(undefined4 *param_1);
-void winterscript_wm_mt19937_mt19937_24b144(int param_1,uint a8);
-void winterscript_wm_unordered_map_unordered_map_24b16c(undefined4 *param_1);
-void winterscript_wm_unordered_map_unordered_map_24b198(undefined4 *param_1);
-void winterscript_wm_vector_vector_24b1c4(int *param_1);
-void winterscript_wm_vector_clear_24b1e4(int *param_1);
-void winterscript_wm_pair_pair_24b218(uint *param_1,uint *a8);
-void winterscript_wm_string_string_24b238(undefined4 *param_1,int param_2);
-void winterscript_wm_string_ensure_storage_24b26c(int *param_1);
-void winterscript_wm_string_string_24b290(undefined4 *param_1);
-uint winterscript_wm_variant_variant_24b2a8(uint *pf_stack_arg_4);
-void winterscript_Variable_Variable_24b328(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_variant_24b34c(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_vector_vector_24b360(int *param_1);
-void winterscript_wm_vector_clear_24b380(int *param_1);
-undefined4 * winterscript_wm_variant_24b3b8(undefined4 *param_1,undefined4 *param_2);
-void winterscript_void_wm_detail_variant_move_24b3f0(int param_1,undefined4 *param_2,undefined4 *param_3);
-void winterscript_void_wm_detail_variant_move_24b40b(int param_1,undefined4 *param_2,undefined4 *param_3);
-void winterscript_void_wm_detail_variant_move_24b426(int param_1,undefined4 *param_2,undefined4 *param_3);
-void winterscript_void_wm_detail_variant_move_24b44e(int param_1,undefined4 *param_2,undefined4 *param_3);
-void winterscript_void_wm_detail_variant_move_24b476(int param_1,undefined4 *param_2,undefined4 *param_3);
-void winterscript_wm_vector_24b492(undefined4 *param_1,undefined4 *param_2);
-void winterscript_void_wm_detail_variant_move_24b4b8(int param_1,undefined4 *param_2,undefined4 *param_3);
-void winterscript_Variable_Variable_24b4ea(undefined4 *param_1,int *param_2);
-undefined4 * winterscript_wm_shared_ptr_const_24b538(undefined4 *param_1,int *param_2);
-void winterscript_wm_unordered_map_const_24b5f4(int *param_1,int *param_2);
-void winterscript_wm_vector_const_24b6dc(int *param_1,int *param_2);
-void winterscript_wm_pair_const_24b73c(int param_1,int param_2);
-void winterscript_wm_vector_const_24b7e8(int *param_1,int *param_2);
-void winterscript_wm_shared_ptr_24b832(undefined4 *param_1,int param_2);
-void winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_24b878(void);
-void winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_24b87e(void *pointer);
-void winterscript_wm_detail_shared_control_block_impl_destroy_object_24b888(int param_1);
-int * winterscript_wm_variant_const_24b8b6(int *param_1,int *param_2);
-void winterscript_void_wm_detail_variant_copy_24b8ee(int param_1,int *param_2,int *param_3);
-void winterscript_void_wm_detail_variant_copy_24b909(int param_1,int *param_2,int *param_3);
-void winterscript_void_wm_detail_variant_copy_24b924(int param_1,int *param_2,int *param_3);
-void winterscript_void_wm_detail_variant_copy_24b94c(int param_1,int *param_2,int *param_3);
-void winterscript_void_wm_detail_variant_copy_24b974(int param_1,int *param_2,int *param_3);
-void winterscript_wm_vector_const_24b990(int *param_1,int *param_2);
-uint winterscript_wm_vector_reserve_24b9d2(int *param_1,uint param_2);
-void * winterscript_char_wm_detail_vector_allocate_24ba1c(uint param_1);
-void winterscript_void_wm_detail_variant_copy_24ba2f(int param_1,int *param_2,int *param_3);
-void winterscript_void_wm_detail_variant_copy_24ba4a(int param_1,int *param_2,int *param_3);
-void winterscript_void_wm_detail_variant_copy_24ba72(int param_1,int *param_2,int *param_3);
-void winterscript_void_wm_detail_variant_copy_24ba9a(int param_1,int *param_2,int *param_3);
-void winterscript_void_wm_detail_variant_copy_24bac2(int param_1,int *param_2,int *param_3);
-void winterscript_wm_shared_ptr_const_24bae6(int *param_1,int *param_2);
-void winterscript_wm_unordered_map_unordered_map_24bb02(int param_1);
-void winterscript_TokenAnalysis_TokenAnalysis_24bb2a(undefined4 *param_1);
-undefined8 winterscript_wm_from_chars_result_wm_from_chars_24bb53(char *param_1,char *param_2,uint *param_3,uint param_4);
-int winterscript_wm_digit_from_char_24bca7(char param_1);
-void winterscript_wm_runtime_error_runtime_error_24bce0(undefined4 *param_1,int param_2);
-void winterscript_wm_runtime_error_runtime_error_24bd0a(undefined4 *param_1);
-undefined1 * winterscript_wm_runtime_error_what_24bd24(int param_1);
+int winterscript_WinterScript_executeBytecodeChunkInternal_2485c2(int *param_1,uint param_2);
+int winterscript_WinterScript_executeBytecodeChunkInternal_2486da(undefined4 *param_1,undefined4 param_2);
+uint winterscript_WinterScript_executeBytecodeChunkInternal_2488d0(uint *param_1,int param_2,int pf_stack_arg_4);
+undefined4 winterscript_WinterScript_executeBytecodeChunkInternal_248b6c(int *param_1,uint param_2,int *param_3,char *param_4);
+uint winterscript_nkInternalERKN2wm10shared_ptrI15BytecodeProgramEEjR11BlockSignalbENK3_0clIRS8_EEbOT_j_248bb8(int *param_1,int *param_2,uint param_3);
+void winterscript_5BytecodeProgramEEjR11BlockSignalbENK3_3clIRS8_EEbOT_jRPKNS0_6vectorINS0_6stringEEES7_248d2c(int *param_1,int *param_2,int param_3,int *param_4,char *param_5);
+void winterscript_WinterScript_executeBytecodeChunkInternal_24ac3e(int *param_1,undefined4 *param_2,undefined4 *param_3);
+void winterscript_WinterScript_executeBytecodeChunkInternal_24aec8(int *param_1);
+undefined4 * winterscript_WinterScript_runBytecodeInternal_24aef8(undefined4 *param_1,int param_2,undefined2 *param_3);
+undefined4 * winterscript_wm_shared_ptr_24afae(undefined4 *param_1,undefined2 *param_2);
+uint * winterscript_WinterScript_runBytecode_24b068(uint *param_1,int a8,ushort *ac);
+void winterscript_std_istream_istream_24b08c(void *pointer);
+void winterscript_wm_unordered_map_unordered_map_24b098(undefined4 *param_1);
+void winterscript_wm_vector_vector_24b0c4(int *param_1);
+void winterscript_wm_vector_clear_24b0e4(int *param_1);
+void winterscript_wm_unordered_map_unordered_map_24b11a(undefined4 *param_1);
+void winterscript_wm_unordered_map_unordered_map_24b146(undefined4 *param_1);
+void winterscript_wm_mt19937_mt19937_24b174(int param_1,uint a8);
+void winterscript_wm_unordered_map_unordered_map_24b19c(undefined4 *param_1);
+void winterscript_wm_unordered_map_unordered_map_24b1c8(undefined4 *param_1);
+void winterscript_wm_vector_vector_24b1f4(int *param_1);
+void winterscript_wm_vector_clear_24b214(int *param_1);
+void winterscript_wm_pair_pair_24b248(uint *param_1,uint *a8);
+void winterscript_wm_string_string_24b268(undefined4 *param_1,int param_2);
+void winterscript_wm_string_ensure_storage_24b29c(int *param_1);
+void winterscript_wm_string_string_24b2c0(undefined4 *param_1);
+uint winterscript_wm_variant_variant_24b2d8(uint *pf_stack_arg_4);
+void winterscript_Variable_Variable_24b358(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_variant_24b37c(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_vector_vector_24b390(int *param_1);
+void winterscript_wm_vector_clear_24b3b0(int *param_1);
+undefined4 * winterscript_wm_variant_24b3e8(undefined4 *param_1,undefined4 *param_2);
+void winterscript_void_wm_detail_variant_move_24b420(int param_1,undefined4 *param_2,undefined4 *param_3);
+void winterscript_void_wm_detail_variant_move_24b43b(int param_1,undefined4 *param_2,undefined4 *param_3);
+void winterscript_void_wm_detail_variant_move_24b456(int param_1,undefined4 *param_2,undefined4 *param_3);
+void winterscript_void_wm_detail_variant_move_24b47e(int param_1,undefined4 *param_2,undefined4 *param_3);
+void winterscript_void_wm_detail_variant_move_24b4a6(int param_1,undefined4 *param_2,undefined4 *param_3);
+void winterscript_wm_vector_24b4c2(undefined4 *param_1,undefined4 *param_2);
+void winterscript_void_wm_detail_variant_move_24b4e8(int param_1,undefined4 *param_2,undefined4 *param_3);
+void winterscript_Variable_Variable_24b51a(undefined4 *param_1,int *param_2);
+undefined4 * winterscript_wm_shared_ptr_const_24b568(undefined4 *param_1,int *param_2);
+void winterscript_wm_unordered_map_const_24b624(int *param_1,int *param_2);
+void winterscript_wm_vector_const_24b70c(int *param_1,int *param_2);
+void winterscript_wm_pair_const_24b76c(int param_1,int param_2);
+void winterscript_wm_vector_const_24b818(int *param_1,int *param_2);
+void winterscript_wm_shared_ptr_24b862(undefined4 *param_1,int param_2);
+void winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_24b8a8(void);
+void winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_24b8ae(void *pointer);
+void winterscript_wm_detail_shared_control_block_impl_destroy_object_24b8b8(int param_1);
+int * winterscript_wm_variant_const_24b8e6(int *param_1,int *param_2);
+void winterscript_void_wm_detail_variant_copy_24b91e(int param_1,int *param_2,int *param_3);
+void winterscript_void_wm_detail_variant_copy_24b939(int param_1,int *param_2,int *param_3);
+void winterscript_void_wm_detail_variant_copy_24b954(int param_1,int *param_2,int *param_3);
+void winterscript_void_wm_detail_variant_copy_24b97c(int param_1,int *param_2,int *param_3);
+void winterscript_void_wm_detail_variant_copy_24b9a4(int param_1,int *param_2,int *param_3);
+void winterscript_wm_vector_const_24b9c0(int *param_1,int *param_2);
+uint winterscript_wm_vector_reserve_24ba02(int *param_1,uint param_2);
+void * winterscript_char_wm_detail_vector_allocate_24ba4c(uint param_1);
+void winterscript_void_wm_detail_variant_copy_24ba5f(int param_1,int *param_2,int *param_3);
+void winterscript_void_wm_detail_variant_copy_24ba7a(int param_1,int *param_2,int *param_3);
+void winterscript_void_wm_detail_variant_copy_24baa2(int param_1,int *param_2,int *param_3);
+void winterscript_void_wm_detail_variant_copy_24baca(int param_1,int *param_2,int *param_3);
+void winterscript_void_wm_detail_variant_copy_24baf2(int param_1,int *param_2,int *param_3);
+void winterscript_wm_shared_ptr_const_24bb16(int *param_1,int *param_2);
+void winterscript_wm_unordered_map_unordered_map_24bb32(int param_1);
+void winterscript_TokenAnalysis_TokenAnalysis_24bb5a(undefined4 *param_1);
+undefined8 winterscript_wm_from_chars_result_wm_from_chars_24bb83(char *param_1,char *param_2,uint *param_3,uint param_4);
+int winterscript_wm_digit_from_char_24bcd7(char param_1);
+void winterscript_wm_runtime_error_runtime_error_24bd10(undefined4 *param_1,int param_2);
 void winterscript_wm_runtime_error_runtime_error_24bd3a(undefined4 *param_1);
-undefined4 * winterscript_wm_to_string_24bd60(undefined4 *param_1,double param_2);
-void winterscript_appendIntFast_24c0c3(int *output,int value);
-int * winterscript_wm_string_wm_string_append_24c1c6(int *param_1,undefined1 *param_2,undefined1 *param_3);
-byte winterscript_wm_operator_24c21e(undefined4 *param_1,undefined4 *param_2);
-uint winterscript_Variable_Variable_24c23c(uint *param_1,uint *a8);
-void winterscript_wm_variant_24c260(int param_1,uint *a8);
-void winterscript_wm_array_array_24c274(int param_1);
-void winterscript_wm_array_array_24c29c(int param_1);
-void winterscript_wm_array_array_24c2be(int param_1);
-void winterscript_wm_runtime_error_runtime_error_24c2e8(undefined4 *param_1,undefined4 *param_2);
-uint winterscript_Variable_Variable_24c312(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_variant_const_24c338(int param_1,int param_2);
-uint winterscript_Variable_Variable_24c35a(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_variant_24c380(int param_1,int param_2);
-void winterscript_wm_string_string_24c3a2(undefined4 *param_1,undefined4 *param_2);
-void winterscript_RaisedScriptError_RaisedScriptError_24c3c8(void *param_1);
-undefined1 * winterscript_RaisedScriptError_what_24c3e2(int param_1);
-void winterscript_WinterScript_CoroutineFrame_CoroutineFrame_24c3f8(int param_1);
-void winterscript_WinterScript_CoroutineFrame_CoroutineFrame_24c41c(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_vector_const_24c4e0(int *param_1,int *param_2);
-void winterscript_wm_vector_const_24c540(int *param_1,int *param_2);
-void winterscript_wm_vector_reserve_24c5a0(int *param_1,uint param_2);
-void * winterscript_wm_vector_24c60c(int param_1);
-void winterscript_wm_vector_24c62e(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_vector_const_24c654(int *param_1,int *param_2);
-void winterscript_Variable_Variable_24c6b4(undefined4 *param_1,int *param_2);
-void winterscript_wm_variant_const_24c6d8(int *param_1,int *param_2);
-void winterscript_Variable_Variable_24c6ec(undefined4 *param_1,undefined4 *param_2);
-undefined4 * winterscript_wm_shared_ptr_24c73a(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_unordered_map_24c77c(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_vector_24c7be(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_vector_clear_24c7e4(int *param_1);
-void winterscript_WinterScript_executeCoroutineTurn_24c818(uint pf_input_0,uint pf_input_1,uint pf_input_2);
-void winterscript_wm_vector_vector_24ca6c(int *param_1,uint param_2,undefined4 *param_3);
-void winterscript_wm_vector_resize_24ca84(int *param_1,uint param_2,undefined4 *param_3);
-void winterscript_wm_string_string_24cade(undefined4 *param_1,int param_2,uint param_3);
-undefined1 winterscript_wm_operator_24cb06(int param_1,int param_2,int param_3);
-int * winterscript_decodeStringToken_24cb52(int *param_1,undefined4 *param_2);
-undefined4 * winterscript_wm_shared_ptr_24cd51(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_shared_ptr_shared_ptr_24cd92(undefined4 *param_1,int param_2);
-void winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_24cdd8(void);
-void winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_24cdde(void *pointer);
-void winterscript_wm_detail_shared_control_block_impl_destroy_object_24cde8(int param_1);
-undefined4 * winterscript_wm_shared_ptr_24ce16(undefined4 *param_1,undefined4 *param_2);
-int winterscript_wm_pair_24ce4e(uint pf_input_0,uint pf_input_1,uint pf_input_2);
-void winterscript_wm_pair_pair_24ceb0(uint *param_1,uint *a8,uint *pf_stack_arg_c);
-uint winterscript_wm_string_view_find_24cf5c(int *param_1,int param_2,uint param_3,uint param_4);
-uint winterscript_wm_string_compare_24cfd2(undefined4 *param_1,int param_2,uint param_3);
-undefined4 * winterscript_wm_weak_ptr_24d03a(undefined4 *param_1,undefined4 *param_2);
-undefined4 * winterscript_wm_vector_24d06e(undefined4 *param_1,undefined4 *param_2);
-undefined4 * winterscript_wm_unordered_map_24d0b6(undefined4 *param_1,undefined4 *param_2);
-undefined4 * winterscript_wm_vector_24d0fc(undefined4 *param_1,undefined4 *param_2);
-undefined4 winterscript_wm_string_data_24d146(undefined4 *param_1);
-void winterscript_std_ifstream_ifstream_24d15e(uint *param_1,uint *a8,uint ac);
-void winterscript_std_ifstream_open_24d228(int param_1,char *param_2,uint param_3);
-void winterscript_std_basic_file_basic_file_24d256(undefined4 *param_1);
-void winterscript_std_ifstream_ifstream_24d2d0(void *param_1,void *a8);
-void winterscript_std_basic_file_open_file_24d2ee(undefined4 *param_1,char *param_2,uint param_3);
-void winterscript_std_basic_file_close_24d334(undefined4 *param_1);
-undefined * winterscript_std_detail_fopen_mode_24d35f(uint param_1);
-void winterscript_BytecodeProgram_BytecodeProgram_24d3d6(int param_1);
-void winterscript_wm_vector_vector_24d46c(int *param_1);
-void winterscript_wm_vector_clear_24d48c(int *param_1);
-void winterscript_wm_vector_vector_24d4c0(undefined4 *param_1);
-void winterscript_wm_vector_vector_24d4dc(undefined4 *param_1);
-void winterscript_wm_vector_vector_24d4f8(undefined4 *param_1);
-void winterscript_wm_vector_vector_24d514(int *param_1);
-void winterscript_wm_vector_clear_24d534(int *param_1);
-void winterscript_wm_vector_vector_24d568(undefined4 *param_1);
-uint winterscript_wm_string_rfind_24d584(uint *text,uint character,uint position);
-undefined4 winterscript_std_istream_getline_into_24d5c4(int param_1,undefined4 *param_2);
-int winterscript_std_ostream_write_24d628(int param_1,void *param_2,uint param_3);
-int * winterscript_std_ostringstream_append_unsigned_24d65a(int *param_1,uint a8,uint ac);
-void winterscript_wm_string_string_24d710(int *param_1,uint param_2,undefined1 param_3);
-void winterscript_wm_string_resize_24d728(int *param_1,uint param_2,undefined1 param_3);
-uint winterscript_wm_string_growth_for_24d77c(uint param_1);
-void winterscript_wm_mt19937_twist_24d790(int param_1);
-void winterscript_wm_unordered_map_unordered_map_24d808(int *param_1);
-int winterscript_wm_unordered_map_find_24d85c(undefined4 *param_1);
-void winterscript_CompiledGsubPattern_CompiledGsubPattern_24d8ca(int param_1);
-void winterscript_wm_unique_ptr_unique_ptr_24d8ee(undefined4 *param_1);
-void winterscript_wm_pair_pair_24d90e(undefined4 *param_1);
-uint winterscript_wm_unordered_map_bucket_for_key_24d92c(undefined4 *param_1);
-uint winterscript_wm_hash_operator_24d952(undefined4 param_1,undefined4 *param_2);
-uint winterscript_wm_detail_hash_bytes_24d978(int param_1,int param_2);
-void winterscript_wm_regex_regex_24d9a2(int param_1,int param_2);
-int winterscript_wm_regex_operator_24d9c4(int param_1,int param_2);
-int * winterscript_escapeRegexLiteralChar_24d9e8(int *param_1,int param_2);
-void winterscript_wm_unordered_map_link_index_24daf6(int param_1);
-uint winterscript_wm_vector_assign_24db24(int *param_1,uint param_2,undefined4 *param_3);
-void winterscript_wm_vector_resize_24db34(int *param_1,uint param_2,undefined4 *param_3);
-void winterscript_wm_vector_resize_24db84(int *param_1,uint param_2);
-uint winterscript_wm_string_append_24dbc2(int *param_1,undefined4 *param_2);
-uint winterscript_wm_sregex_iterator_sregex_iterator_24dbec(uint *param_1,uint param_2,uint param_3,uint param_4);
-void winterscript_wm_sregex_iterator_find_next_24dca4(uint *param_1);
-bool winterscript_wm_sregex_iterator_operator_24dcd6(int *param_1,int *param_2);
-undefined4 * winterscript_wm_sub_match_str_24dd14(undefined4 *param_1,int *param_2);
-void winterscript_Variable_Variable_24dd52(uint pf_input_0,uint pf_input_1);
-uint * winterscript_wm_shared_ptr_const_24dda0(uint *param_1,int *pf_stack_arg_8);
-void winterscript_wm_shared_ptr_24de5c(undefined4 *param_1,int param_2);
-void winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_24dea2(void);
-void winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_24dea8(void *pointer);
-void winterscript_wm_detail_shared_control_block_impl_destroy_object_24deb2(int param_1);
-void winterscript_Variable_Variable_24dee0(undefined4 *param_1,undefined4 *param_2);
-undefined4 * winterscript_wm_shared_ptr_24df2e(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_vector_vector_24df70(undefined4 *param_1);
-uint winterscript_decimalStringLength_24df8c(uint param_1);
-void winterscript_void_wm_swap_24dfb4(uint *a4,uint *pf_stack_arg_8);
-void winterscript_WinterScript_sortFunctionImpl_24e07c(undefined4 *param_1,int param_2,int param_3);
-uint winterscript_WinterScript_sortFunctionImpl_24e0be(uint pf_input_0,uint pf_input_1,uint pf_input_2);
-void winterscript_wm_array_array_24e230(int param_1);
-int winterscript_wm_string_wm_vector_24e258(int *param_1,uint *a8,uint *ac,uint *a10);
-void winterscript_wm_string_string_24e2bc(uint *param_1,uint *a8,uint ac,uint a10);
-undefined8 winterscript_wm_to_chars_result_wm_to_chars_24e394(uint param_1,uint param_2,uint param_3,uint param_4);
-undefined4 winterscript_WinterScript_skipExpression_24e462(undefined4 *param_1,int param_2);
-undefined1 winterscript_isStandaloneNotBoundary_24e4c7(byte *param_1,int param_2);
-char winterscript_classifyBinaryOperator_24e6f1(char *param_1,int param_2);
-undefined4 winterscript_binaryOperatorPrecedence_24e916(char param_1);
-void winterscript_orINS0_6stringEEERmiPKNS1_I13TokenAnalysisEEENK3_0clIRSB_EEvOT_iENKUlSF_E_clISD_EEvSF_24e92e(int closure,void *self);
-undefined4 * winterscript_WinterScript_executeAssignment_24eb58(undefined4 *param_1,undefined4 *param_2,undefined4 *param_3);
-void winterscript_WinterScript_executeAssignment_24ecea(int *param_1,uint param_2);
-int winterscript_wm_string_const_wm_find_24ed17(int param_1,int param_2,undefined4 *param_3);
-void winterscript_WinterScript_executeParsedBlock_24ed4e(int param_1);
-undefined4 * winterscript_wm_vector_24edd2(undefined4 *param_1,undefined4 *param_2);
-undefined4 * winterscript_wm_vector_24ee16(undefined4 *param_1,undefined4 *param_2);
-void winterscript_FastExpression_FastExpression_24ee5a(int param_1);
-void winterscript_wm_vector_vector_24ee8a(undefined4 *param_1);
-undefined4 * winterscript_wm_vector_24eea6(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_vector_vector_24eeee(undefined4 *param_1);
-void winterscript_ParsedAssignmentTarget_ParsedAssignmentTarget_24ef0e(int param_1);
-uint winterscript_wm_vector_reserve_24ef32(int *param_1,uint param_2);
-undefined4 * winterscript_compileFastExpressionRange_24ef90(undefined4 *param_1,int param_2);
-void winterscript_FastExpression_FastExpression_24f4b8(undefined1 *param_1);
-void winterscript_FastExpression_FastExpression_24f4ec(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_vector_24f53e(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_vector_24f564(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_vector_24f58a(undefined4 *param_1,undefined4 *param_2);
-void * winterscript_FastExprNode_wm_detail_vector_allocate_24f5b0(int param_1);
-int winterscript_compileFastExpressionRange_24f5d2(int param_1,byte param_2,uint param_3,uint param_4,undefined2 param_5);
-bool winterscript_compileFastExpressionRange_24f67a(undefined4 *param_1,int param_2);
-uint winterscript_compileFastExpressionRange_24f6b4(int param_1,uint param_2);
-int winterscript_compileFastExpressionRange_24f926(int param_1,undefined1 param_2,undefined2 param_3);
-int winterscript_int_wm_vector_24f974(int *param_1,int param_2,undefined4 *param_3,undefined4 *param_4);
-void winterscript_int_wm_vector_24fa4c(int *param_1,undefined4 *param_2);
-void winterscript_wm_vector_reserve_24fa8c(int *param_1,uint param_2);
-void * winterscript_int_wm_detail_vector_allocate_24fad5(int param_1);
-int winterscript_FastExprNode_wm_vector_24faf6(int *param_1,undefined4 *param_2);
-void winterscript_FastExpression_FastExpression_24fb48(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_vector_const_24fc40(int *param_1,int *param_2);
-void winterscript_wm_vector_const_24fc8a(int *param_1,int *param_2);
-void winterscript_FastCallExpression_FastCallExpression_24fce2(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_vector_24fd08(undefined4 *param_1,undefined4 *param_2);
-void winterscript_ParsedScriptLine_ParsedScriptLine_24fd2e(undefined4 *param_1);
-void winterscript_wm_vector_vector_2500d4(undefined4 *param_1);
-void winterscript_ParsedScriptLine_ParsedScriptLine_2500f0(int param_1);
-uint winterscript_wm_vector_reserve_2501c2(int *param_1,uint param_2);
-void * winterscript_TokenAnalysis_wm_detail_vector_allocate_250220(int param_1);
-int winterscript_TokenAnalysis_wm_vector_250242(int *param_1,undefined4 *param_2);
-void winterscript_wm_vector_vector_250298(undefined4 *param_1);
-void winterscript_BytecodeFunctionDecl_BytecodeFunctionDecl_2502b4(int param_1);
-void winterscript_BytecodeProgram_BytecodeProgram_2502d8(undefined2 *param_1);
-int winterscript_unsigned_char_wm_vector_250384(int *param_1,int param_2,undefined1 *param_3,undefined1 *param_4);
-uint winterscript_wm_vector_reserve_250428(int *param_1,uint param_2);
-void * winterscript_unsigned_char_wm_detail_vector_allocate_250472(uint param_1);
-int winterscript_unsigned_char_wm_vector_250486(int *param_1,undefined1 *param_2);
-void winterscript_std_ofstream_ofstream_2504ca(undefined4 *param_1,undefined4 *param_2,uint param_3);
-void winterscript_std_ofstream_open_250594(int param_1,char *param_2,uint param_3);
-void winterscript_std_ofstream_ofstream_2505c2(void *param_1,void *a8);
-void winterscript_std_basic_file_write_bytes_2505e0(undefined4 *param_1,void *param_2,uint param_3,int param_4);
-void winterscript_wm_string_string_250632(int *param_1,undefined1 *param_2,undefined1 *param_3);
-int * winterscript_wm_string_wm_string_append_25064a(int *param_1,undefined1 *param_2,undefined1 *param_3);
-void winterscript_std_basic_file_seek_get_2506a0(undefined4 *param_1,int param_2,undefined4 param_3,int param_4);
-uint winterscript_std_basic_file_tell_get_2506e4(undefined4 *param_1);
-void winterscript_std_basic_file_read_bytes_250716(undefined4 *param_1,void *param_2,uint param_3,int param_4);
-void winterscript_wm_vector_resize_250770(int *param_1,uint param_2,undefined1 *param_3);
-void winterscript_WinterScript_executeBytecodeChunkInternal_2507c0(int *param_1);
-undefined4 winterscript_wm_regex_search_250855(uint param_1,uint param_2,int param_3,undefined1 *param_4);
-void winterscript_wm_match_results_set_match_250940(int *param_1,int param_2,int param_3,int param_4,int param_5);
-char winterscript_wm_detail_regex_match_here_25097c(int param_1,uint param_2,uint param_3,uint param_4,uint param_5,uint param_6,
+undefined1 * winterscript_wm_runtime_error_what_24bd54(int param_1);
+void winterscript_wm_runtime_error_runtime_error_24bd6a(undefined4 *param_1);
+undefined4 * winterscript_wm_to_string_24bd90(undefined4 *param_1,double param_2);
+void winterscript_appendIntFast_24c0f3(int *output,int value);
+int * winterscript_wm_string_wm_string_append_24c1f6(int *param_1,undefined1 *param_2,undefined1 *param_3);
+byte winterscript_wm_operator_24c24e(undefined4 *param_1,undefined4 *param_2);
+uint winterscript_Variable_Variable_24c26c(uint *param_1,uint *a8);
+void winterscript_wm_variant_24c290(int param_1,uint *a8);
+void winterscript_wm_array_array_24c2a4(int param_1);
+void winterscript_wm_array_array_24c2cc(int param_1);
+void winterscript_wm_array_array_24c2ee(int param_1);
+void winterscript_wm_runtime_error_runtime_error_24c318(undefined4 *param_1,undefined4 *param_2);
+uint winterscript_Variable_Variable_24c342(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_variant_const_24c368(int param_1,int param_2);
+uint winterscript_Variable_Variable_24c38a(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_variant_24c3b0(int param_1,int param_2);
+void winterscript_wm_string_string_24c3d2(undefined4 *param_1,undefined4 *param_2);
+void winterscript_RaisedScriptError_RaisedScriptError_24c3f8(void *param_1);
+undefined1 * winterscript_RaisedScriptError_what_24c412(int param_1);
+void winterscript_WinterScript_CoroutineFrame_CoroutineFrame_24c428(int param_1);
+void winterscript_WinterScript_CoroutineFrame_CoroutineFrame_24c44c(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_vector_const_24c510(int *param_1,int *param_2);
+void winterscript_wm_vector_const_24c570(int *param_1,int *param_2);
+void winterscript_wm_vector_reserve_24c5d0(int *param_1,uint param_2);
+void * winterscript_wm_vector_24c63c(int param_1);
+void winterscript_wm_vector_24c65e(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_vector_const_24c684(int *param_1,int *param_2);
+void winterscript_Variable_Variable_24c6e4(undefined4 *param_1,int *param_2);
+void winterscript_wm_variant_const_24c708(int *param_1,int *param_2);
+void winterscript_Variable_Variable_24c71c(undefined4 *param_1,undefined4 *param_2);
+undefined4 * winterscript_wm_shared_ptr_24c76a(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_unordered_map_24c7ac(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_vector_24c7ee(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_vector_clear_24c814(int *param_1);
+void winterscript_WinterScript_executeCoroutineTurn_24c848(uint pf_input_0,uint pf_input_1,uint pf_input_2);
+void winterscript_wm_vector_vector_24ca9c(int *param_1,uint param_2,undefined4 *param_3);
+void winterscript_wm_vector_resize_24cab4(int *param_1,uint param_2,undefined4 *param_3);
+void winterscript_wm_string_string_24cb0e(undefined4 *param_1,int param_2,uint param_3);
+undefined1 winterscript_wm_operator_24cb36(int param_1,int param_2,int param_3);
+int * winterscript_decodeStringToken_24cb82(int *param_1,undefined4 *param_2);
+undefined4 * winterscript_wm_shared_ptr_24cd81(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_shared_ptr_shared_ptr_24cdc2(undefined4 *param_1,int param_2);
+void winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_24ce08(void);
+void winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_24ce0e(void *pointer);
+void winterscript_wm_detail_shared_control_block_impl_destroy_object_24ce18(int param_1);
+undefined4 * winterscript_wm_shared_ptr_24ce46(undefined4 *param_1,undefined4 *param_2);
+int winterscript_wm_pair_24ce7e(uint pf_input_0,uint pf_input_1,uint pf_input_2);
+void winterscript_wm_pair_pair_24cee0(uint *param_1,uint *a8,uint *pf_stack_arg_c);
+uint winterscript_wm_string_view_find_24cf8c(int *param_1,int param_2,uint param_3,uint param_4);
+uint winterscript_wm_string_compare_24d002(undefined4 *param_1,int param_2,uint param_3);
+undefined4 * winterscript_wm_weak_ptr_24d06a(undefined4 *param_1,undefined4 *param_2);
+undefined4 * winterscript_wm_vector_24d09e(undefined4 *param_1,undefined4 *param_2);
+undefined4 * winterscript_wm_unordered_map_24d0e6(undefined4 *param_1,undefined4 *param_2);
+undefined4 * winterscript_wm_vector_24d12c(undefined4 *param_1,undefined4 *param_2);
+undefined4 winterscript_wm_string_data_24d176(undefined4 *param_1);
+void winterscript_std_ifstream_ifstream_24d18e(uint *param_1,uint *a8,uint ac);
+void winterscript_std_ifstream_open_24d258(int param_1,char *param_2,uint param_3);
+void winterscript_std_basic_file_basic_file_24d286(undefined4 *param_1);
+void winterscript_std_ifstream_ifstream_24d300(void *param_1,void *a8);
+void winterscript_std_basic_file_open_file_24d31e(undefined4 *param_1,char *param_2,uint param_3);
+void winterscript_std_basic_file_close_24d364(undefined4 *param_1);
+undefined * winterscript_std_detail_fopen_mode_24d38f(uint param_1);
+void winterscript_BytecodeProgram_BytecodeProgram_24d406(int param_1);
+void winterscript_wm_vector_vector_24d49c(int *param_1);
+void winterscript_wm_vector_clear_24d4bc(int *param_1);
+void winterscript_wm_vector_vector_24d4f0(undefined4 *param_1);
+void winterscript_wm_vector_vector_24d50c(undefined4 *param_1);
+void winterscript_wm_vector_vector_24d528(undefined4 *param_1);
+void winterscript_wm_vector_vector_24d544(int *param_1);
+void winterscript_wm_vector_clear_24d564(int *param_1);
+void winterscript_wm_vector_vector_24d598(undefined4 *param_1);
+uint winterscript_wm_string_rfind_24d5b4(uint *text,uint character,uint position);
+undefined4 winterscript_std_istream_getline_into_24d5f4(int param_1,undefined4 *param_2);
+int winterscript_std_ostream_write_24d658(int param_1,void *param_2,uint param_3);
+int * winterscript_std_ostringstream_append_unsigned_24d68a(int *param_1,uint a8,uint ac);
+void winterscript_wm_string_string_24d740(int *param_1,uint param_2,undefined1 param_3);
+void winterscript_wm_string_resize_24d758(int *param_1,uint param_2,undefined1 param_3);
+uint winterscript_wm_string_growth_for_24d7ac(uint param_1);
+void winterscript_wm_mt19937_twist_24d7c0(int param_1);
+void winterscript_wm_unordered_map_unordered_map_24d838(int *param_1);
+int winterscript_wm_unordered_map_find_24d88c(undefined4 *param_1);
+void winterscript_CompiledGsubPattern_CompiledGsubPattern_24d8fa(int param_1);
+void winterscript_wm_unique_ptr_unique_ptr_24d91e(undefined4 *param_1);
+void winterscript_wm_pair_pair_24d93e(undefined4 *param_1);
+uint winterscript_wm_unordered_map_bucket_for_key_24d95c(undefined4 *param_1);
+uint winterscript_wm_hash_operator_24d982(undefined4 param_1,undefined4 *param_2);
+uint winterscript_wm_detail_hash_bytes_24d9a8(int param_1,int param_2);
+void winterscript_wm_regex_regex_24d9d2(int param_1,int param_2);
+int winterscript_wm_regex_operator_24d9f4(int param_1,int param_2);
+int * winterscript_escapeRegexLiteralChar_24da18(int *param_1,int param_2);
+void winterscript_wm_unordered_map_link_index_24db26(int param_1);
+uint winterscript_wm_vector_assign_24db54(int *param_1,uint param_2,undefined4 *param_3);
+void winterscript_wm_vector_resize_24db64(int *param_1,uint param_2,undefined4 *param_3);
+void winterscript_wm_vector_resize_24dbb4(int *param_1,uint param_2);
+uint winterscript_wm_string_append_24dbf2(int *param_1,undefined4 *param_2);
+uint winterscript_wm_sregex_iterator_sregex_iterator_24dc1c(uint *param_1,uint param_2,uint param_3,uint param_4);
+void winterscript_wm_sregex_iterator_find_next_24dcd4(uint *param_1);
+bool winterscript_wm_sregex_iterator_operator_24dd06(int *param_1,int *param_2);
+undefined4 * winterscript_wm_sub_match_str_24dd44(undefined4 *param_1,int *param_2);
+void winterscript_Variable_Variable_24dd82(uint pf_input_0,uint pf_input_1);
+uint * winterscript_wm_shared_ptr_const_24ddd0(uint *param_1,int *pf_stack_arg_8);
+void winterscript_wm_shared_ptr_24de8c(undefined4 *param_1,int param_2);
+void winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_24ded2(void);
+void winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_24ded8(void *pointer);
+void winterscript_wm_detail_shared_control_block_impl_destroy_object_24dee2(int param_1);
+void winterscript_Variable_Variable_24df10(undefined4 *param_1,undefined4 *param_2);
+undefined4 * winterscript_wm_shared_ptr_24df5e(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_vector_vector_24dfa0(undefined4 *param_1);
+uint winterscript_decimalStringLength_24dfbc(uint param_1);
+void winterscript_void_wm_swap_24dfe4(uint *a4,uint *pf_stack_arg_8);
+void winterscript_WinterScript_sortFunctionImpl_24e0ac(undefined4 *param_1,int param_2,int param_3);
+uint winterscript_WinterScript_sortFunctionImpl_24e0ee(uint pf_input_0,uint pf_input_1,uint pf_input_2);
+void winterscript_wm_array_array_24e260(int param_1);
+int winterscript_wm_string_wm_vector_24e288(int *param_1,uint *a8,uint *ac,uint *a10);
+void winterscript_wm_string_string_24e2ec(uint *param_1,uint *a8,uint ac,uint a10);
+undefined8 winterscript_wm_to_chars_result_wm_to_chars_24e3c4(uint param_1,uint param_2,uint param_3,uint param_4);
+undefined4 winterscript_WinterScript_skipExpression_24e492(undefined4 *param_1,int param_2);
+undefined1 winterscript_isStandaloneNotBoundary_24e4f7(byte *param_1,int param_2);
+char winterscript_classifyBinaryOperator_24e721(char *param_1,int param_2);
+undefined4 winterscript_binaryOperatorPrecedence_24e946(char param_1);
+void winterscript_orINS0_6stringEEERmiPKNS1_I13TokenAnalysisEEENK3_0clIRSB_EEvOT_iENKUlSF_E_clISD_EEvSF_24e95e(int closure,void *self);
+undefined4 * winterscript_WinterScript_executeAssignment_24eb88(undefined4 *param_1,undefined4 *param_2,undefined4 *param_3);
+void winterscript_WinterScript_executeAssignment_24ed1a(int *param_1,uint param_2);
+int winterscript_wm_string_const_wm_find_24ed47(int param_1,int param_2,undefined4 *param_3);
+void winterscript_WinterScript_executeParsedBlock_24ed7e(int param_1);
+undefined4 * winterscript_wm_vector_24ee02(undefined4 *param_1,undefined4 *param_2);
+undefined4 * winterscript_wm_vector_24ee46(undefined4 *param_1,undefined4 *param_2);
+void winterscript_FastExpression_FastExpression_24ee8a(int param_1);
+void winterscript_wm_vector_vector_24eeba(undefined4 *param_1);
+undefined4 * winterscript_wm_vector_24eed6(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_vector_vector_24ef1e(undefined4 *param_1);
+void winterscript_ParsedAssignmentTarget_ParsedAssignmentTarget_24ef3e(int param_1);
+uint winterscript_wm_vector_reserve_24ef62(int *param_1,uint param_2);
+undefined4 * winterscript_compileFastExpressionRange_24efc0(undefined4 *param_1,int param_2);
+void winterscript_FastExpression_FastExpression_24f4e8(undefined1 *param_1);
+void winterscript_FastExpression_FastExpression_24f51c(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_vector_24f56e(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_vector_24f594(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_vector_24f5ba(undefined4 *param_1,undefined4 *param_2);
+void * winterscript_FastExprNode_wm_detail_vector_allocate_24f5e0(int param_1);
+int winterscript_compileFastExpressionRange_24f602(int param_1,byte param_2,uint param_3,uint param_4,undefined2 param_5);
+bool winterscript_compileFastExpressionRange_24f6aa(undefined4 *param_1,int param_2);
+uint winterscript_compileFastExpressionRange_24f6e4(int param_1,uint param_2);
+int winterscript_compileFastExpressionRange_24f956(int param_1,undefined1 param_2,undefined2 param_3);
+int winterscript_int_wm_vector_24f9a4(int *param_1,int param_2,undefined4 *param_3,undefined4 *param_4);
+void winterscript_int_wm_vector_24fa7c(int *param_1,undefined4 *param_2);
+void winterscript_wm_vector_reserve_24fabc(int *param_1,uint param_2);
+void * winterscript_int_wm_detail_vector_allocate_24fb05(int param_1);
+int winterscript_FastExprNode_wm_vector_24fb26(int *param_1,undefined4 *param_2);
+void winterscript_FastExpression_FastExpression_24fb78(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_vector_const_24fc70(int *param_1,int *param_2);
+void winterscript_wm_vector_const_24fcba(int *param_1,int *param_2);
+void winterscript_FastCallExpression_FastCallExpression_24fd12(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_vector_24fd38(undefined4 *param_1,undefined4 *param_2);
+void winterscript_ParsedScriptLine_ParsedScriptLine_24fd5e(undefined4 *param_1);
+void winterscript_wm_vector_vector_250104(undefined4 *param_1);
+void winterscript_ParsedScriptLine_ParsedScriptLine_250120(int param_1);
+uint winterscript_wm_vector_reserve_2501f2(int *param_1,uint param_2);
+void * winterscript_TokenAnalysis_wm_detail_vector_allocate_250250(int param_1);
+int winterscript_TokenAnalysis_wm_vector_250272(int *param_1,undefined4 *param_2);
+void winterscript_wm_vector_vector_2502c8(undefined4 *param_1);
+void winterscript_BytecodeFunctionDecl_BytecodeFunctionDecl_2502e4(int param_1);
+void winterscript_BytecodeProgram_BytecodeProgram_250308(undefined2 *param_1);
+int winterscript_unsigned_char_wm_vector_2503b4(int *param_1,int param_2,undefined1 *param_3,undefined1 *param_4);
+uint winterscript_wm_vector_reserve_250458(int *param_1,uint param_2);
+void * winterscript_unsigned_char_wm_detail_vector_allocate_2504a2(uint param_1);
+int winterscript_unsigned_char_wm_vector_2504b6(int *param_1,undefined1 *param_2);
+void winterscript_std_ofstream_ofstream_2504fa(undefined4 *param_1,undefined4 *param_2,uint param_3);
+void winterscript_std_ofstream_open_2505c4(int param_1,char *param_2,uint param_3);
+void winterscript_std_ofstream_ofstream_2505f2(void *param_1,void *a8);
+void winterscript_std_basic_file_write_bytes_250610(undefined4 *param_1,void *param_2,uint param_3,int param_4);
+void winterscript_wm_string_string_250662(int *param_1,undefined1 *param_2,undefined1 *param_3);
+int * winterscript_wm_string_wm_string_append_25067a(int *param_1,undefined1 *param_2,undefined1 *param_3);
+void winterscript_std_basic_file_seek_get_2506d0(undefined4 *param_1,int param_2,undefined4 param_3,int param_4);
+uint winterscript_std_basic_file_tell_get_250714(undefined4 *param_1);
+void winterscript_std_basic_file_read_bytes_250746(undefined4 *param_1,void *param_2,uint param_3,int param_4);
+void winterscript_wm_vector_resize_2507a0(int *param_1,uint param_2,undefined1 *param_3);
+void winterscript_WinterScript_executeBytecodeChunkInternal_2507f0(int *param_1);
+undefined4 winterscript_wm_regex_search_250885(uint param_1,uint param_2,int param_3,undefined1 *param_4);
+void winterscript_wm_match_results_set_match_250970(int *param_1,int param_2,int param_3,int param_4,int param_5);
+char winterscript_wm_detail_regex_match_here_2509ac(int param_1,uint param_2,uint param_3,uint param_4,uint param_5,uint param_6,
                      uint param_7,uint *param_8);
-uint winterscript_wm_detail_regex_atom_matches_250bc7(int param_1,uint param_2,uint param_3,byte param_4,uint param_5,uint *param_6);
-bool winterscript_wm_detail_regex_char_equal_250cad(byte param_1,byte param_2,byte param_3);
-uint winterscript_wm_detail_regex_class_end_250cf1(int param_1,uint param_2,uint param_3);
+uint winterscript_wm_detail_regex_atom_matches_250bf7(int param_1,uint param_2,uint param_3,byte param_4,uint param_5,uint *param_6);
+bool winterscript_wm_detail_regex_char_equal_250cdd(byte param_1,byte param_2,byte param_3);
+uint winterscript_wm_detail_regex_class_end_250d21(int param_1,uint param_2,uint param_3);
 undefined4
-winterscript_wm_detail_regex_class_contains_250d28(int param_1,undefined4 param_2,int param_3,uint param_4,byte param_5,uint param_6);
-int winterscript_wm_sub_match_const_250e8c(int *param_1,undefined4 *param_2);
-void winterscript_wm_vector_reserve_250ee4(int *param_1,uint param_2);
-void * winterscript_wm_sub_match_250f43(int param_1);
-void winterscript_wm_shared_ptr_release_250f64(uint *param_1);
-uint winterscript_wm_shared_ptr_release_251004(uint *param_1);
-void winterscript_wm_vector_vector_2510a4(undefined4 *param_1);
-void winterscript_wm_vector_vector_2510c4(undefined4 *param_1);
-void winterscript_wm_vector_vector_2510e4(undefined4 *param_1);
-int winterscript_wm_string_wm_vector_251100(int *param_1,undefined4 *param_2);
-int winterscript_FastExpression_wm_vector_251152(int *param_1,undefined4 *param_2);
-void winterscript_wm_vector_vector_2511a4(undefined4 *param_1);
-void winterscript_wm_vector_vector_2511c0(int *param_1);
-void winterscript_wm_vector_clear_2511e0(int *param_1);
-void winterscript_wm_vector_vector_251214(undefined4 *param_1);
-void winterscript_wm_vector_vector_251230(undefined4 *param_1);
-void winterscript_wm_function_holder_251250(void);
-void winterscript_wm_function_holder_251256(void *pointer);
-uint * winterscript_wm_function_const_251260(uint *param_1,uint unused_8,int ac);
-void winterscript_wm_function_clone_251286(int param_1);
-void winterscript_wm_function_holder_2512ac(void);
-void winterscript_wm_function_holder_2512b2(void *pointer);
-uint * winterscript_wm_function_const_2512bc(uint *param_1,int a8,int ac);
-void winterscript_wm_function_clone_2512e4(int param_1);
-void winterscript_wm_function_holder_25130a(void);
-void winterscript_wm_function_holder_251310(void *pointer);
-uint * winterscript_wm_function_const_25131a(uint *param_1,int a8,int *ac);
-void winterscript_wm_function_clone_251342(int param_1);
-void winterscript_wm_function_holder_251368(void);
-void winterscript_wm_function_holder_25136e(void *pointer);
-uint * winterscript_wm_function_const_251378(uint *param_1,uint unused_8,int ac);
-void winterscript_wm_function_clone_25139e(int param_1);
-void winterscript_wm_function_holder_2513c4(void);
-void winterscript_wm_function_holder_2513ca(void *pointer);
-uint * winterscript_wm_function_const_2513d4(uint *param_1,uint unused_8,int ac);
-void winterscript_wm_function_clone_2513fa(int param_1);
-void winterscript_wm_function_holder_251420(void);
-void winterscript_wm_function_holder_251426(void *pointer);
-uint * winterscript_wm_function_const_251430(uint *param_1,uint unused_8,uint *ac);
-void winterscript_wm_function_clone_251456(int param_1);
-void winterscript_wm_function_holder_25147c(void);
-void winterscript_wm_function_holder_251482(void *pointer);
-uint * winterscript_wm_function_const_25148c(uint *param_1,uint unused_8,uint *ac);
-void winterscript_wm_function_clone_2514b2(int param_1);
-void winterscript_wm_function_holder_2514d8(void);
-void winterscript_wm_function_holder_2514de(void *pointer);
-uint * winterscript_wm_function_const_2514e8(uint *param_1,uint unused_8,int ac);
-void winterscript_wm_function_clone_25150e(int param_1);
-void winterscript_wm_function_holder_251534(void);
-void winterscript_wm_function_holder_25153a(void *pointer);
-uint * winterscript_wm_function_const_251544(uint *param_1,uint unused_8,uint *ac);
-void winterscript_wm_function_clone_25156a(int param_1);
-void winterscript_wm_function_holder_251590(void);
-void winterscript_wm_function_holder_251596(void *pointer);
-uint * winterscript_wm_function_const_2515a0(uint *param_1,uint unused_8,uint *ac);
-void winterscript_wm_function_clone_2515c6(int param_1);
-void winterscript_wm_function_holder_2515ec(void);
-void winterscript_wm_function_holder_2515f2(void *pointer);
-uint * winterscript_wm_function_const_2515fc(uint *param_1,uint unused_8,int *ac);
-void winterscript_wm_function_clone_251622(int param_1);
-void winterscript_wm_function_holder_251648(void);
-void winterscript_wm_function_holder_25164e(void *pointer);
-uint * winterscript_wm_function_const_251658(uint *param_1,int a8,int *ac);
-void winterscript_wm_function_clone_251680(int param_1);
-void winterscript_wm_function_holder_2516a6(void);
-void winterscript_wm_function_holder_2516ac(void *pointer);
-uint * winterscript_wm_function_const_2516b6(uint *param_1,int a8,int *ac);
-void winterscript_wm_function_clone_2516de(int param_1);
-void winterscript_wm_function_holder_251704(void);
-void winterscript_wm_function_holder_25170a(void *pointer);
-uint * winterscript_wm_function_const_251714(uint *param_1,uint unused_8,int *ac);
-void winterscript_wm_function_clone_25173a(int param_1);
-void winterscript_wm_function_holder_251760(void);
-void winterscript_wm_function_holder_251766(void *pointer);
-uint * winterscript_wm_function_const_251770(uint *param_1,int a8,int *ac);
-void winterscript_wm_function_clone_251798(int param_1);
-void winterscript_wm_function_holder_2517be(void);
-void winterscript_wm_function_holder_2517c4(void *pointer);
-uint * winterscript_wm_function_const_2517ce(uint *param_1,uint unused_8,uint *ac);
-void winterscript_wm_function_clone_2517f4(int param_1);
-void winterscript_wm_function_holder_25181a(void);
-void winterscript_wm_function_holder_251820(void *pointer);
-uint * winterscript_wm_function_const_25182a(uint *param_1,int a8,uint *ac);
-void winterscript_wm_function_clone_251852(int param_1);
-void winterscript_wm_function_holder_251878(void);
-void winterscript_wm_function_holder_25187e(void *pointer);
-uint * winterscript_wm_function_const_251888(uint *param_1,int a8,int ac);
-void winterscript_wm_function_clone_2518b0(int param_1);
-void winterscript_wm_function_holder_2518d6(void);
-void winterscript_wm_function_holder_2518dc(void *pointer);
-uint * winterscript_wm_function_const_2518e6(uint *param_1,int a8,uint *ac);
-void winterscript_wm_function_clone_25190e(int param_1);
-void winterscript_wm_function_holder_251934(void);
-void winterscript_wm_function_holder_25193a(void *pointer);
-uint * winterscript_wm_function_const_251944(uint *param_1,int a8,int *ac);
-void winterscript_wm_function_clone_25196c(int param_1);
-void winterscript_wm_function_holder_251992(void);
-void winterscript_wm_function_holder_251998(void *pointer);
-uint * winterscript_wm_function_const_2519a2(uint *param_1,int a8,int *ac);
-void winterscript_wm_function_clone_2519ca(int param_1);
-void winterscript_wm_function_holder_2519f0(void);
-void winterscript_wm_function_holder_2519f6(void *pointer);
-uint * winterscript_wm_function_const_251a00(uint *param_1,int a8,int *ac);
-void winterscript_wm_function_clone_251a28(int param_1);
-void winterscript_wm_function_holder_251a4e(void);
-void winterscript_wm_function_holder_251a54(void *pointer);
-uint * winterscript_wm_function_const_251a5e(uint *param_1,int a8,int *ac);
-void winterscript_wm_function_clone_251a86(int param_1);
-void winterscript_wm_function_holder_251aac(void);
-void winterscript_wm_function_holder_251ab2(void *pointer);
-uint * winterscript_wm_function_const_251abc(uint *param_1,int a8,int *ac);
-void winterscript_wm_function_clone_251ae4(int param_1);
-void winterscript_wm_function_holder_251b0a(void);
-void winterscript_wm_function_holder_251b10(void *pointer);
-uint * winterscript_wm_function_const_251b1a(uint *param_1,int a8,int *ac);
-void winterscript_wm_function_clone_251b42(int param_1);
-void winterscript_wm_function_holder_251b68(void);
-void winterscript_wm_function_holder_251b6e(void *pointer);
-uint * winterscript_wm_function_const_251b78(uint *param_1,int a8,int *ac);
-void winterscript_wm_function_clone_251ba0(int param_1);
-void winterscript_wm_function_holder_251bc6(void);
-void winterscript_wm_function_holder_251bcc(void *pointer);
-uint * winterscript_wm_function_const_251bd6(uint *param_1,int a8,int *ac);
-void winterscript_wm_function_clone_251bfe(int param_1);
-void winterscript_wm_function_holder_251c24(void);
-void winterscript_wm_function_holder_251c2a(void *pointer);
-uint * winterscript_wm_function_const_251c34(uint *param_1,int a8,int *ac);
-void winterscript_wm_function_clone_251c5c(int param_1);
-void winterscript_wm_function_holder_251c82(void);
-void winterscript_wm_function_holder_251c88(void *pointer);
-uint * winterscript_wm_function_const_251c92(uint *param_1,uint unused_8,uint *ac);
-void winterscript_wm_function_clone_251cb8(int param_1);
-void winterscript_wm_function_holder_251cde(void);
-void winterscript_wm_function_holder_251ce4(void *pointer);
-uint * winterscript_wm_function_const_251cee(uint *param_1,int a8);
-void winterscript_wm_function_clone_251d12(int param_1);
-void winterscript_wm_function_holder_251d38(void);
-void winterscript_wm_function_holder_251d3e(void *pointer);
-uint * winterscript_wm_function_const_251d48(uint *param_1,int a8);
-void winterscript_wm_function_clone_251d6c(int param_1);
-void winterscript_wm_function_holder_251d92(void);
-void winterscript_wm_function_holder_251d98(void *pointer);
-uint * winterscript_wm_function_const_251da2(uint *param_1,int a8,int ac);
-void winterscript_wm_function_clone_251dca(int param_1);
-void winterscript_wm_function_holder_251df0(void);
-void winterscript_wm_function_holder_251df6(void *pointer);
-undefined4 * winterscript_wm_function_const_251e00(undefined4 *param_1,undefined4 param_2,int param_3);
-void winterscript_wm_function_clone_251ee0(int param_1);
-void winterscript_wm_function_holder_251f06(void);
-void winterscript_wm_function_holder_251f0c(void *pointer);
-undefined4 * winterscript_wm_function_const_251f16(undefined4 *param_1,int param_2,undefined4 *param_3);
-void winterscript_wm_function_clone_25205e(int param_1);
-void winterscript_wm_shared_ptr_const_252084(int *param_1,int *param_2);
-int winterscript_Variable_wm_vector_2520a0(int *param_1,undefined4 *param_2);
-void winterscript_wm_function_holder_2520f2(void);
-void winterscript_wm_function_holder_2520f8(void *pointer);
-undefined4 * winterscript_wm_function_const_252102(undefined4 *param_1,undefined4 param_2,int *param_3);
-void winterscript_wm_function_clone_252282(int param_1);
-void * winterscript_Variable_wm_detail_vector_allocate_2522a8(int param_1);
-void winterscript_wm_function_holder_2522ca(void);
-void winterscript_wm_function_holder_2522d0(void *pointer);
-undefined4 * winterscript_wm_function_const_2522da(undefined4 *param_1,undefined4 param_2,int *param_3);
-void winterscript_wm_function_clone_2524b4(int param_1);
-void winterscript_wm_function_holder_2524da(void);
-void winterscript_wm_function_holder_2524e0(void *pointer);
-undefined4 * winterscript_wm_function_const_2524ea(undefined4 *param_1,int param_2,int param_3);
-void winterscript_wm_function_clone_25264a(int param_1);
-void winterscript_wm_function_holder_252670(void);
-void winterscript_wm_function_holder_252676(void *pointer);
-undefined4 * winterscript_wm_function_const_252680(undefined4 *param_1,int param_2,undefined4 *param_3);
-void winterscript_wm_function_clone_25284c(int param_1);
-void winterscript_wm_unordered_map_prepare_insert_252872(int param_1);
-int winterscript_wm_pair_2528ae(uint pf_input_0,uint pf_input_1,uint pf_input_2);
-void winterscript_wm_unordered_map_link_index_252910(int *param_1,int param_2);
-void winterscript_wm_unordered_map_rehash_252942(int param_1,uint param_2);
-uint winterscript_wm_unordered_map_bucket_count_for_size_25299e(uint param_1);
-void winterscript_wm_unordered_map_rebuild_buckets_2529b2(int param_1);
-void winterscript_wm_pair_2529e6(uint *param_1,uint *a8,uint *pf_stack_arg_c);
-uint winterscript_wm_unordered_map_bucket_for_key_252a90(int param_1,undefined4 *param_2);
-void winterscript_wm_function_holder_252ab6(void);
-void winterscript_wm_function_holder_252abc(void *pointer);
-uint * winterscript_wm_function_const_252ac6(uint *param_1,uint unused_8,int ac);
-void winterscript_wm_function_clone_252aec(int param_1);
-void winterscript_wm_function_holder_252b12(void);
-void winterscript_wm_function_holder_252b18(void *pointer);
-undefined4 * winterscript_wm_function_const_252b22(undefined4 *param_1,undefined4 param_2,int *param_3);
-void winterscript_wm_function_clone_252c4e(int param_1);
-void winterscript_wm_function_holder_252c74(void);
-void winterscript_wm_function_holder_252c7a(void *pointer);
-uint * winterscript_wm_function_const_252c84(uint *param_1,uint unused_8,int *ac);
-void winterscript_wm_function_clone_252caa(int param_1);
-void winterscript_wm_function_holder_252cd0(void);
-void winterscript_wm_function_holder_252cd6(void *pointer);
-uint * winterscript_wm_function_const_252ce0(uint *param_1,uint unused_8,int *ac);
-void winterscript_wm_function_clone_252d06(int param_1);
-void winterscript_wm_function_holder_252d2c(void);
-void winterscript_wm_function_holder_252d32(void *pointer);
-uint * winterscript_wm_function_const_252d3c(uint *param_1,uint unused_8,int *ac);
-void winterscript_wm_function_clone_252d62(int param_1);
-void winterscript_wm_function_holder_252d88(void);
-void winterscript_wm_function_holder_252d8e(void *pointer);
-uint * winterscript_wm_function_const_252d98(uint *param_1,uint unused_8,uint *ac);
-void winterscript_wm_function_clone_252dbe(int param_1);
-void winterscript_wm_function_holder_252de4(void);
-void winterscript_wm_function_holder_252dea(void *pointer);
-uint * winterscript_wm_function_const_252df4(uint *param_1,uint unused_8,uint *ac);
-void winterscript_wm_function_clone_252e1a(int param_1);
-void winterscript_wm_function_holder_252e40(void);
-void winterscript_wm_function_holder_252e46(void *pointer);
-uint * winterscript_wm_function_const_252e50(uint *param_1,uint unused_8,uint *ac);
-void winterscript_wm_function_clone_252e76(int param_1);
-void winterscript_wm_function_holder_252e9c(void);
-void winterscript_wm_function_holder_252ea2(void *pointer);
-uint * winterscript_wm_function_const_252eac(uint *param_1,uint unused_8,uint *ac);
-void winterscript_wm_function_clone_252ed2(int param_1);
-void winterscript_wm_function_holder_252ef8(void);
-void winterscript_wm_function_holder_252efe(void *pointer);
-uint * winterscript_wm_function_const_252f08(uint *param_1,uint unused_8,int *ac);
-void winterscript_wm_function_clone_252f2e(int param_1);
-void winterscript_wm_function_holder_252f54(void);
-void winterscript_wm_function_holder_252f5a(void *pointer);
-uint * winterscript_wm_function_const_252f64(uint *param_1,uint unused_8,uint *ac);
-void winterscript_wm_function_clone_252f8a(int param_1);
-void winterscript_wm_function_holder_252fb0(void);
-void winterscript_wm_function_holder_252fb6(void *pointer);
-uint * winterscript_wm_function_const_252fc0(uint *param_1,uint unused_8,int *ac);
-void winterscript_wm_function_clone_252fe6(int param_1);
-void winterscript_wm_function_holder_25300c(void);
-void winterscript_wm_function_holder_253012(void *pointer);
-uint * winterscript_wm_function_const_25301c(uint *param_1,int a8,uint *ac);
-void winterscript_wm_function_clone_253044(int param_1);
-void winterscript_wm_function_holder_25306a(void);
-void winterscript_wm_function_holder_253070(void *pointer);
-uint * winterscript_wm_function_const_25307a(uint *param_1,int a8,uint *ac);
-void winterscript_wm_function_clone_2530a2(int param_1);
-void winterscript_wm_function_holder_2530c8(void);
-void winterscript_wm_function_holder_2530ce(void *pointer);
-uint * winterscript_wm_function_const_2530d8(uint *param_1,int a8,uint *ac);
-void winterscript_wm_function_clone_253100(int param_1);
-void winterscript_wm_function_holder_253126(void);
-void winterscript_wm_function_holder_25312c(void *pointer);
-uint * winterscript_wm_function_const_253136(uint *param_1,int a8,uint *ac);
-void winterscript_wm_function_clone_25315e(int param_1);
-void winterscript_wm_function_holder_253184(void);
-void winterscript_wm_function_holder_25318a(void *pointer);
-uint * winterscript_wm_function_const_253194(uint *param_1,uint unused_8,int ac);
-void winterscript_wm_function_clone_2531ba(int param_1);
-void winterscript_wm_function_holder_2531e0(void);
-void winterscript_wm_function_holder_2531e6(void *pointer);
-uint * winterscript_wm_function_const_2531f0(uint *param_1,uint unused_8,int ac);
-void winterscript_wm_function_clone_253216(int param_1);
-void winterscript_wm_function_holder_25323c(void);
-void winterscript_wm_function_holder_253242(void *pointer);
-uint * winterscript_wm_function_const_25324c(uint *param_1,uint unused_8,int *ac);
-void winterscript_wm_function_clone_253272(int param_1);
-void winterscript_wm_function_holder_253298(void);
-void winterscript_wm_function_holder_25329e(void *pointer);
-uint * winterscript_wm_function_const_2532a8(uint *param_1,int a8,uint *ac);
-void winterscript_wm_function_clone_2532d0(int param_1);
-void winterscript_wm_function_holder_2532f6(void);
-void winterscript_wm_function_holder_2532fc(void *pointer);
-uint * winterscript_wm_function_const_253306(uint *param_1,int a8,uint *ac);
-void winterscript_wm_function_clone_25332e(int param_1);
-void winterscript_wm_function_holder_253354(void);
-void winterscript_wm_function_holder_25335a(void *pointer);
-uint * winterscript_wm_function_const_253364(uint *param_1,uint unused_8,int ac);
-void winterscript_wm_function_clone_25338a(int param_1);
-void winterscript_wm_function_holder_2533b0(void);
-void winterscript_wm_function_holder_2533b6(void *pointer);
-uint * winterscript_wm_function_const_2533c0(uint *param_1,uint unused_8,int ac);
-void winterscript_wm_function_clone_2533e6(int param_1);
-void winterscript_wm_function_holder_25340c(void);
-void winterscript_wm_function_holder_253412(void *pointer);
-uint * winterscript_wm_function_const_25341c(uint *param_1,uint unused_8,int ac);
-void winterscript_wm_function_clone_253442(int param_1);
-void winterscript_wm_function_holder_253468(void);
-void winterscript_wm_function_holder_25346e(void *pointer);
-uint * winterscript_wm_function_const_253478(uint *param_1,uint unused_8,int ac);
-void winterscript_wm_function_clone_25349e(int param_1);
-void winterscript_wm_function_holder_2534c4(void);
-void winterscript_wm_function_holder_2534ca(void *pointer);
-uint * winterscript_wm_function_const_2534d4(uint *param_1,uint unused_8,int ac);
-void winterscript_wm_function_clone_2534fa(int param_1);
-void winterscript_wm_function_holder_253520(void);
-void winterscript_wm_function_holder_253526(void *pointer);
-uint * winterscript_wm_function_const_253530(uint *param_1,int a8,int *ac);
-void winterscript_wm_function_clone_253558(int param_1);
-void winterscript_wm_function_holder_25357e(void);
-void winterscript_wm_function_holder_253584(void *pointer);
-uint * winterscript_wm_function_const_25358e(uint *param_1,int a8,int ac);
-void winterscript_wm_function_clone_2535b6(int param_1);
-void winterscript_wm_function_holder_2535dc(void);
-void winterscript_wm_function_holder_2535e2(void *pointer);
-uint * winterscript_wm_function_const_2535ec(uint *param_1,uint unused_8,int *ac);
-void winterscript_wm_function_clone_253612(int param_1);
-void winterscript_wm_function_holder_253638(void);
-void winterscript_wm_function_holder_25363e(void *pointer);
-uint * winterscript_wm_function_const_253648(uint *param_1,uint unused_8,int *ac);
-void winterscript_wm_function_clone_25366e(int param_1);
-void winterscript_wm_function_holder_253694(void);
-void winterscript_wm_function_holder_25369a(void *pointer);
-uint * winterscript_wm_function_const_2536a4(uint *param_1,int a8,int *ac);
-void winterscript_wm_function_clone_2536ca(int param_1);
-void winterscript_wm_function_holder_2536f0(void);
-void winterscript_wm_function_holder_2536f6(void *pointer);
-uint * winterscript_wm_function_const_253700(uint *param_1,int a8,int ac);
-void winterscript_wm_function_clone_253728(int param_1);
-void winterscript_wm_function_holder_25374e(void);
-void winterscript_wm_function_holder_253754(void *pointer);
-uint * winterscript_wm_function_const_25375e(uint *param_1,uint unused_8,int ac);
-void winterscript_wm_function_clone_253784(int param_1);
-undefined4 * winterscript_int_wm_variant_2537aa(undefined4 *param_1,undefined4 *param_2);
-undefined4 * winterscript_int_wm_variant_2537d2(undefined4 *param_1,undefined4 *param_2);
-undefined4 * winterscript_float_wm_variant_2537fa(undefined4 *param_1,undefined4 *param_2);
-undefined1 * winterscript_bool_wm_variant_253826(undefined1 *param_1,undefined1 *param_2);
-undefined4 * winterscript_float_wm_variant_253852(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_shared_ptr_const_25387e(int *param_1,int *param_2);
-int winterscript_wm_unordered_map_find_index_25389a(int *param_1,undefined4 *param_2);
-int winterscript_wm_string_const_wm_vector_2538fe(int *param_1,undefined4 *param_2);
-void winterscript_wm_vector_reserve_253942(int *param_1,uint param_2);
-void * winterscript_wm_string_const_wm_detail_vector_allocate_25398b(int param_1);
-void winterscript_wm_vector_reserve_2539ac(int *param_1,uint param_2);
-void * winterscript_WinterScript_FastScalarValue_wm_detail_vector_allocate_253a13(int param_1);
-void winterscript_WinterScript_CoroutineState_CoroutineState_253a34(undefined4 *param_1);
-void winterscript_wm_shared_ptr_shared_ptr_253ab4(undefined4 *param_1,int param_2);
-void winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_253afa(void);
-void winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_253b00(void *pointer);
-void winterscript_wm_detail_shared_control_block_impl_destroy_object_253b0a(int param_1);
-void winterscript_WinterScript_CoroutineState_CoroutineState_253b38(int param_1);
-void winterscript_wm_vector_vector_253ba2(undefined4 *param_1);
-void winterscript_wm_vector_reserve_253bc2(int *param_1,uint param_2);
-void * winterscript_wm_vector_253c2e(int param_1);
-void * winterscript_wm_pair_253c4f(int param_1);
-void winterscript_wm_pair_253c70(uint *param_1,uint *a8);
-void winterscript_wm_pair_253d1c(uint *param_1,uint *a8,uint *pf_stack_arg_c);
-int winterscript_wm_vector_253dc8(int *param_1,undefined4 *param_2);
-int winterscript_WinterScript_CoroutineFrame_wm_vector_253e1a(int *param_1,undefined4 *param_2);
-void winterscript_wm_vector_reserve_253e6c(int *param_1,uint param_2);
-void * winterscript_WinterScript_CoroutineFrame_wm_detail_vector_allocate_253ed8(int param_1);
-void winterscript_WinterScript_CoroutineFrame_CoroutineFrame_253efa(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_pair_253f48(uint *param_1,uint *a8,uint *pf_stack_arg_c);
-void * winterscript_wm_string_wm_detail_vector_allocate_253ff4(int param_1);
-void winterscript_wm_vector_254016(undefined4 *param_1,int param_2,int param_3);
-int winterscript_Variable_wm_vector_254064(int *param_1,undefined4 *param_2);
-void winterscript_ScriptCallable_ScriptCallable_2540b6(undefined2 *param_1);
-void winterscript_wm_shared_ptr_shared_ptr_25412e(undefined4 *param_1,int param_2);
-void winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_254174(void);
-void winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_25417a(void *pointer);
-void winterscript_wm_detail_shared_control_block_impl_destroy_object_254184(int param_1);
-void winterscript_ScriptCallable_ScriptCallable_2541b2(int param_1);
-void * winterscript_ParsedScriptLine_wm_detail_vector_allocate_25421c(int param_1);
-void winterscript_ParsedScriptLine_ParsedScriptLine_254240(int param_1,int param_2);
-void winterscript_wm_vector_2543de(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_vector_254404(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_vector_25442a(undefined4 *param_1,undefined4 *param_2);
-int winterscript_ParsedScriptLine_wm_vector_254450(int *param_1,int param_2);
-void winterscript_ParsedScriptLine_ParsedScriptLine_2544a8(int param_1,int param_2);
-void winterscript_wm_vector_const_254904(int *param_1,int *param_2);
-void winterscript_wm_vector_const_25495c(int *param_1,int *param_2);
-void winterscript_wm_vector_reserve_2549bc(int *param_1,uint param_2);
-void * winterscript_ParsedAssignmentTarget_wm_detail_vector_allocate_254a28(int param_1);
-void winterscript_ParsedAssignmentTarget_ParsedAssignmentTarget_254a4a(undefined4 *param_1,undefined4 *param_2);
-void winterscript_ParsedAssignmentTarget_ParsedAssignmentTarget_254a84(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_vector_const_254b34(int *param_1,int *param_2);
-uint winterscript_wm_vector_reserve_254b86(int *param_1,uint param_2);
-void * winterscript_wm_pair_254bd8(int param_1);
-void winterscript_wm_vector_const_254bfa(int *param_1,int *param_2);
-void winterscript_FastCallExpression_FastCallExpression_254c5a(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_vector_254c80(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_vector_254ca6(undefined4 *param_1,undefined4 *param_2);
-int winterscript_wm_unordered_map_find_index_254ccc(int *param_1,undefined4 *param_2);
-uint winterscript_wm_unordered_map_bucket_for_key_254d30(int param_1,undefined4 *param_2);
-void winterscript_wm_unordered_map_prepare_insert_254d56(int param_1);
-int winterscript_wm_pair_254d92(int *param_1,undefined4 *param_2,undefined4 *param_3);
-void winterscript_wm_unordered_map_link_index_254df4(int *param_1,int param_2);
-void winterscript_wm_unordered_map_rehash_254e26(int param_1,uint param_2);
-uint winterscript_wm_unordered_map_bucket_count_for_size_254e82(uint param_1);
-void winterscript_wm_unordered_map_rebuild_buckets_254e96(int param_1);
-void winterscript_wm_vector_reserve_254eca(int *param_1,uint param_2);
-void * winterscript_wm_pair_254f36(int param_1);
-void winterscript_wm_pair_254f58(int param_1,int param_2);
-void winterscript_wm_pair_pair_254f7a(int param_1,undefined4 *param_2,undefined4 *param_3);
-undefined1 * winterscript_bool_wm_vector_254f9e(int *param_1,undefined1 *param_2);
-void winterscript_wm_vector_reserve_254fe0(int *param_1,uint param_2);
-void * winterscript_bool_wm_detail_vector_allocate_255029(uint param_1);
-int winterscript_wm_unordered_map_find_25503c(int *param_1,undefined4 *param_2);
-void winterscript_wm_unordered_map_prepare_insert_25506a(int param_1);
-int winterscript_wm_pair_2550a6(int *param_1,undefined4 *param_2,undefined4 *param_3);
-void winterscript_wm_unordered_map_link_index_255108(int *param_1,int param_2);
-int winterscript_wm_unordered_map_find_index_25513a(int *param_1,undefined4 *param_2);
-uint winterscript_wm_unordered_map_bucket_for_key_25519e(int param_1,undefined4 *param_2);
-void winterscript_wm_unordered_map_rehash_2551c4(int param_1,uint param_2);
-uint winterscript_wm_unordered_map_bucket_count_for_size_255220(uint param_1);
-void winterscript_wm_unordered_map_rebuild_buckets_255234(int param_1);
-void winterscript_wm_vector_reserve_255268(int *param_1,uint param_2);
-void * winterscript_wm_pair_2552d4(int param_1);
-void winterscript_wm_pair_2552f6(int param_1,int param_2);
-void winterscript_wm_pair_25531c(int param_1,undefined4 *param_2,undefined4 *param_3);
-void * winterscript_unsigned_long_wm_detail_vector_allocate_255342(int param_1);
-int winterscript_unsigned_long_wm_vector_255364(int *param_1,undefined4 *param_2);
-int winterscript_wm_unordered_map_const_const_2553aa(int *param_1,int *param_2);
-void winterscript_wm_unordered_map_prepare_insert_2553dc(int param_1);
-int winterscript_wm_pair_const_WinterScript_TableCacheEntry_255418(int *param_1,undefined4 *param_2,undefined4 *param_3);
-void winterscript_wm_unordered_map_link_index_25547c(int *param_1,int param_2);
-int winterscript_wm_unordered_map_const_const_const_2554b0(int *param_1,int *param_2);
-uint winterscript_wm_unordered_map_const_const_const_255506(int param_1,undefined4 *param_2);
-uint winterscript_wm_hash_const_const_25552e(undefined4 param_1,undefined1 param_2);
-void winterscript_wm_unordered_map_rehash_255548(int param_1,uint param_2);
-uint winterscript_wm_unordered_map_bucket_count_for_size_2555a4(uint param_1);
-void winterscript_wm_unordered_map_rebuild_buckets_2555b8(int param_1);
-void winterscript_wm_vector_reserve_2555ec(int *param_1,uint param_2);
-void * winterscript_wm_pair_25565e(int param_1);
-void winterscript_wm_pair_255682(undefined4 *param_1,undefined4 *param_2);
-void winterscript_WinterScript_TableCacheEntry_TableCacheEntry_2556a8(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_unordered_map_255764(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_vector_2557a6(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_pair_const_WinterScript_TableCacheEntry_2557cc(undefined4 *param_1,undefined4 *param_2,undefined4 *param_3);
-void winterscript_WinterScript_TableCacheEntry_TableCacheEntry_2557f2(undefined4 *param_1);
-void winterscript_wm_vector_const_255968(int *param_1,int param_2);
-void winterscript_wm_vector_erase_25598a(int *param_1,int param_2);
-int winterscript_wm_vector_const_2559a8(int *param_1,int param_2,int param_3);
-undefined4 * winterscript_wm_pair_255a82(undefined4 *param_1,undefined4 *param_2);
-int winterscript_wm_vector_erase_255aac(int *param_1,int param_2,int param_3);
-void winterscript_void_wm_sort_255b0a(uint param_1,uint param_2);
-void winterscript_wm_vector_255b98(undefined4 *param_1,undefined4 *param_2,undefined4 *param_3);
-void winterscript_wm_vector_vector_255bc2(int *param_1);
-void winterscript_wm_vector_clear_255be2(int *param_1);
-void winterscript_wm_vector_vector_255c1c(undefined4 *param_1);
-void winterscript_wm_vector_vector_255c38(undefined4 *param_1);
-void winterscript_BytecodeProgram_BytecodeProgram_255c54(undefined2 *param_1,undefined2 *param_2);
-void winterscript_wm_vector_255d50(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_vector_255d76(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_vector_255d9c(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_vector_255dc2(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_vector_255de8(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_vector_255e0e(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_vector_255e34(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_vector_255e5a(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_vector_255e80(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_shared_ptr_shared_ptr_255ea6(undefined4 *param_1,int param_2);
-void winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_255eec(void);
-void winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_255ef2(void *pointer);
-void winterscript_wm_detail_shared_control_block_impl_destroy_object_255efc(int param_1);
-int winterscript_wm_unordered_map_find_index_255f2c(int *param_1,undefined4 *param_2);
-uint winterscript_wm_unordered_map_bucket_for_key_255f8e(int param_1,undefined4 *param_2);
-uint winterscript_wm_unordered_map_prepare_insert_255fb4(int param_1);
-int winterscript_wm_pair_255ff0(int *param_1,undefined4 *param_2,undefined4 *param_3);
-void winterscript_wm_unordered_map_link_index_25604e(int *param_1,int param_2);
-void winterscript_wm_unordered_map_rehash_25607e(int param_1,uint param_2);
-uint winterscript_wm_unordered_map_bucket_count_for_size_2560da(uint param_1);
-void winterscript_wm_unordered_map_rebuild_buckets_2560ee(int param_1);
-void winterscript_wm_vector_reserve_256122(int *param_1,uint param_2);
-void * winterscript_wm_pair_25618e(int param_1);
-void winterscript_wm_pair_2561b0(int param_1,int param_2);
-void winterscript_WinterScript_ScriptFileCacheEntry_ScriptFileCacheEntry_2561e0(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_pair_256220(int param_1,undefined4 *param_2,undefined4 *param_3);
-void winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_25624e(void);
-void winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_256254(void *pointer);
-void winterscript_wm_detail_shared_control_block_impl_destroy_object_25625e(int param_1);
-void winterscript_wm_shared_ptr_release_2562a2(uint *param_1);
-void winterscript_std_fstream_fstream_256340(int *param_1,undefined4 *param_2,uint param_3);
-void winterscript_std_fstream_open_256414(int param_1,char *param_2,uint param_3);
-void winterscript_std_fstream_fstream_256440(int param_1);
-void winterscript_std_fstream_fstream_25645a(void *param_1,void *a8);
-void winterscript_non_virtual_thunk_to_std_fstream_fstream_256478(int param_1);
-void winterscript_non_virtual_thunk_to_std_fstream_fstream_256492(int param_1);
-void winterscript_wm_shared_ptr_shared_ptr_2564ac(undefined4 *param_1,int param_2);
-void winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_2564f2(void);
-void winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_2564f8(void *pointer);
-void winterscript_wm_detail_shared_control_block_impl_destroy_object_256502(int param_1);
-void winterscript_wm_shared_ptr_release_256524(uint *param_1);
-void winterscript_wm_shared_ptr_release_2565c4(uint *param_1);
-void winterscript_wm_shared_ptr_release_256664(uint *param_1);
-void winterscript_wm_function_holder_256704(undefined4 *param_1);
-void winterscript_wm_function_holder_25671a(void *param_1,void *a8);
-undefined4 * winterscript_wm_function_const_256734(undefined4 *param_1,int param_2,undefined4 *param_3);
-undefined4 * winterscript_wm_function_clone_2568a0(int param_1);
-void winterscript_wm_function_holder_2568f6(undefined4 *param_1);
-void winterscript_wm_function_holder_25690c(void *param_1,void *a8);
-undefined4 * winterscript_wm_function_const_256926(undefined4 *param_1,int param_2,undefined4 *param_3);
-undefined4 * winterscript_wm_function_clone_256a92(int param_1);
-void winterscript_wm_function_holder_256ae8(undefined4 *param_1);
-void winterscript_wm_function_holder_256afe(void *param_1,void *a8);
-undefined4 * winterscript_wm_function_const_256b18(undefined4 *param_1,int param_2,undefined4 *param_3);
-undefined4 * winterscript_wm_function_clone_256c84(int param_1);
-int winterscript_wm_vector_erase_256cda(int *param_1,int param_2,int param_3);
-int winterscript_wm_unordered_map_256da6(int *param_1,int param_2);
-void winterscript_wm_vector_const_256e00(int *param_1,int param_2);
-int winterscript_wm_vector_const_256e1e(int *param_1,int param_2,int param_3);
-int winterscript_wm_pair_256ec8(int param_1,int param_2);
-int winterscript_Variable_wm_vector_256efa(int *param_1,int param_2,undefined4 *param_3);
-void winterscript_wm_shared_ptr_const_256fb4(int *param_1,int *param_2);
-void winterscript_WinterScript_getIndexedValue_256fd0(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_function_holder_257008(uint *holder,uint *value);
-void winterscript_wm_function_holder_25701a(undefined4 *param_1);
-void winterscript_wm_function_holder_257030(void *param_1);
-undefined4 * winterscript_wm_function_const_25704a(undefined4 *param_1,int param_2,int *param_3);
-void * winterscript_wm_function_clone_257204(int param_1);
-undefined4 winterscript_WinterScript_evaluateExpression_2572ee(undefined4 *param_1,int param_2);
-undefined4 * winterscript_ctorINS0_6stringEEERmPKNS1_I13TokenAnalysisEEENK3_1clIRSB_EE8VariableOT_iENKUlvE_clEv_257354(undefined4 *param_1,undefined4 *param_2);
-uint * winterscript_Variable_makeMulti_259ed6(uint pf_input_0,uint pf_input_1);
-uint * winterscript_wm_shared_ptr_const_259fc4(uint *param_1,int *pf_stack_arg_8);
-void winterscript_WinterScript_executeAssignment_25a080(int param_1,int param_2);
-void winterscript_wm_vector_vector_25a0b4(undefined4 *param_1);
-void winterscript_wm_vector_vector_25a0d4(undefined4 *param_1);
-int winterscript_wm_pair_25a0f0(int *param_1,undefined4 *param_2);
-int winterscript_ParsedAssignmentTarget_wm_vector_25a13e(int *param_1,undefined4 *param_2);
-void * winterscript_FastExpression_wm_detail_vector_allocate_25a190(int param_1);
-int winterscript_unsigned_long_wm_vector_25a1b2(int *param_1,undefined4 *param_2);
-int winterscript_ParsedScriptLine_wm_vector_25a1f8(int *param_1,int param_2);
-int winterscript_BytecodeChunk_wm_vector_25a250(int *param_1,undefined4 *param_2);
-uint winterscript_wm_vector_reserve_25a2a8(int *param_1,uint param_2);
-void * winterscript_BytecodeChunk_wm_detail_vector_allocate_25a307(int param_1);
-int winterscript_BytecodeIfBranch_wm_vector_25a328(int *param_1,undefined4 *param_2);
-uint winterscript_wm_vector_reserve_25a380(int *param_1,uint param_2);
-void * winterscript_BytecodeIfBranch_wm_detail_vector_allocate_25a3df(int param_1);
-int winterscript_BytecodeIfGroup_wm_vector_25a400(int *param_1,undefined4 *param_2);
-void winterscript_wm_vector_reserve_25a452(int *param_1,uint param_2);
-void * winterscript_BytecodeIfGroup_wm_detail_vector_allocate_25a4be(int param_1);
-void winterscript_wm_vector_25a4e0(undefined4 *param_1,undefined4 *param_2);
-int winterscript_Instruction_wm_vector_25a506(int *param_1,undefined4 *param_2);
-int winterscript_BytecodeWhileLoop_wm_vector_25a55e(int *param_1,undefined4 *param_2);
-uint winterscript_wm_vector_reserve_25a5ac(int *param_1,uint param_2);
-void * winterscript_BytecodeWhileLoop_wm_detail_vector_allocate_25a5fe(int param_1);
-int winterscript_BytecodeRepeatLoop_wm_vector_25a620(int *param_1,undefined4 *param_2);
-uint winterscript_wm_vector_reserve_25a66e(int *param_1,uint param_2);
-void * winterscript_BytecodeRepeatLoop_wm_detail_vector_allocate_25a6c0(int param_1);
-int winterscript_BytecodeForLoop_wm_vector_25a6e2(int *param_1,undefined4 *param_2);
-uint winterscript_wm_vector_reserve_25a730(int *param_1,uint param_2);
-void * winterscript_BytecodeForLoop_wm_detail_vector_allocate_25a782(int param_1);
-int winterscript_BytecodeFunctionDecl_wm_vector_25a7a4(int *param_1,undefined4 *param_2);
-void winterscript_wm_vector_reserve_25a7f6(int *param_1,uint param_2);
-void * winterscript_BytecodeFunctionDecl_wm_detail_vector_allocate_25a862(int param_1);
-void winterscript_BytecodeFunctionDecl_BytecodeFunctionDecl_25a884(undefined4 *param_1,undefined4 *param_2);
-void * winterscript_Instruction_wm_detail_vector_allocate_25a8cf(int param_1);
-void winterscript_BytecodeFunctionDecl_BytecodeFunctionDecl_25a8f0(undefined4 *param_1);
-undefined4 winterscript_ramEEjR11BlockSignalbENK3_3clIRS8_EEbOT_jRPKNS0_6vectorINS0_6stringEEES7_ENKUlvE_clEv_25a920(int *param_1);
-int winterscript_ramEEjR11BlockSignalbENK3_3clIRS8_EEbOT_jRPKNS0_6vectorINS0_6stringEEES7_ENKUlbE_clEb_25a974(undefined4 *param_1,undefined4 param_2);
-void winterscript_BytecodeProgram_BytecodeProgram_25ab6a(undefined2 *param_1,undefined2 *param_2);
-void winterscript_wm_vector_const_25ae88(int *param_1,int *param_2);
-void winterscript_wm_vector_const_25aeec(int *param_1,int *param_2);
-void winterscript_wm_vector_const_25af52(int *param_1,int *param_2);
-void winterscript_wm_vector_const_25afb8(int *param_1,int *param_2);
-void winterscript_wm_vector_const_25b018(int *param_1,int *param_2);
-void winterscript_wm_vector_const_25b07e(int *param_1,int *param_2);
-void winterscript_wm_vector_const_25b0d0(int *param_1,int *param_2);
-void winterscript_wm_vector_const_25b122(int *param_1,int *param_2);
-void winterscript_wm_vector_const_25b174(int *param_1,int *param_2);
-void winterscript_BytecodeFunctionDecl_BytecodeFunctionDecl_25b1d4(undefined4 *param_1,undefined4 *param_2);
-void winterscript_wm_vector_const_25b298(int *param_1,int *param_2);
-void winterscript_cxx_global_var_init_25b2da(void);
-void winterscript_cxx_global_var_init_1_25b33b(void);
-void winterscript_cxx_global_var_init_2_25b39c(void);
-void winterscript_cxx_global_var_init_3_25b3fd(void);
+winterscript_wm_detail_regex_class_contains_250d58(int param_1,undefined4 param_2,int param_3,uint param_4,byte param_5,uint param_6);
+int winterscript_wm_sub_match_const_250ebc(int *param_1,undefined4 *param_2);
+void winterscript_wm_vector_reserve_250f14(int *param_1,uint param_2);
+void * winterscript_wm_sub_match_250f73(int param_1);
+void winterscript_wm_shared_ptr_release_250f94(uint *param_1);
+uint winterscript_wm_shared_ptr_release_251034(uint *param_1);
+void winterscript_wm_vector_vector_2510d4(undefined4 *param_1);
+void winterscript_wm_vector_vector_2510f4(undefined4 *param_1);
+void winterscript_wm_vector_vector_251114(undefined4 *param_1);
+int winterscript_wm_string_wm_vector_251130(int *param_1,undefined4 *param_2);
+int winterscript_FastExpression_wm_vector_251182(int *param_1,undefined4 *param_2);
+void winterscript_wm_vector_vector_2511d4(undefined4 *param_1);
+void winterscript_wm_vector_vector_2511f0(int *param_1);
+void winterscript_wm_vector_clear_251210(int *param_1);
+void winterscript_wm_vector_vector_251244(undefined4 *param_1);
+void winterscript_wm_vector_vector_251260(undefined4 *param_1);
+void winterscript_wm_function_holder_251280(void);
+void winterscript_wm_function_holder_251286(void *pointer);
+uint * winterscript_wm_function_const_251290(uint *param_1,uint unused_8,int ac);
+void winterscript_wm_function_clone_2512b6(int param_1);
+void winterscript_wm_function_holder_2512dc(void);
+void winterscript_wm_function_holder_2512e2(void *pointer);
+uint * winterscript_wm_function_const_2512ec(uint *param_1,int a8,int ac);
+void winterscript_wm_function_clone_251314(int param_1);
+void winterscript_wm_function_holder_25133a(void);
+void winterscript_wm_function_holder_251340(void *pointer);
+uint * winterscript_wm_function_const_25134a(uint *param_1,int a8,int *ac);
+void winterscript_wm_function_clone_251372(int param_1);
+void winterscript_wm_function_holder_251398(void);
+void winterscript_wm_function_holder_25139e(void *pointer);
+uint * winterscript_wm_function_const_2513a8(uint *param_1,uint unused_8,int ac);
+void winterscript_wm_function_clone_2513ce(int param_1);
+void winterscript_wm_function_holder_2513f4(void);
+void winterscript_wm_function_holder_2513fa(void *pointer);
+uint * winterscript_wm_function_const_251404(uint *param_1,uint unused_8,int ac);
+void winterscript_wm_function_clone_25142a(int param_1);
+void winterscript_wm_function_holder_251450(void);
+void winterscript_wm_function_holder_251456(void *pointer);
+uint * winterscript_wm_function_const_251460(uint *param_1,uint unused_8,uint *ac);
+void winterscript_wm_function_clone_251486(int param_1);
+void winterscript_wm_function_holder_2514ac(void);
+void winterscript_wm_function_holder_2514b2(void *pointer);
+uint * winterscript_wm_function_const_2514bc(uint *param_1,uint unused_8,uint *ac);
+void winterscript_wm_function_clone_2514e2(int param_1);
+void winterscript_wm_function_holder_251508(void);
+void winterscript_wm_function_holder_25150e(void *pointer);
+uint * winterscript_wm_function_const_251518(uint *param_1,uint unused_8,int ac);
+void winterscript_wm_function_clone_25153e(int param_1);
+void winterscript_wm_function_holder_251564(void);
+void winterscript_wm_function_holder_25156a(void *pointer);
+uint * winterscript_wm_function_const_251574(uint *param_1,uint unused_8,uint *ac);
+void winterscript_wm_function_clone_25159a(int param_1);
+void winterscript_wm_function_holder_2515c0(void);
+void winterscript_wm_function_holder_2515c6(void *pointer);
+uint * winterscript_wm_function_const_2515d0(uint *param_1,uint unused_8,uint *ac);
+void winterscript_wm_function_clone_2515f6(int param_1);
+void winterscript_wm_function_holder_25161c(void);
+void winterscript_wm_function_holder_251622(void *pointer);
+uint * winterscript_wm_function_const_25162c(uint *param_1,uint unused_8,int *ac);
+void winterscript_wm_function_clone_251652(int param_1);
+void winterscript_wm_function_holder_251678(void);
+void winterscript_wm_function_holder_25167e(void *pointer);
+uint * winterscript_wm_function_const_251688(uint *param_1,int a8,int *ac);
+void winterscript_wm_function_clone_2516b0(int param_1);
+void winterscript_wm_function_holder_2516d6(void);
+void winterscript_wm_function_holder_2516dc(void *pointer);
+uint * winterscript_wm_function_const_2516e6(uint *param_1,int a8,int *ac);
+void winterscript_wm_function_clone_25170e(int param_1);
+void winterscript_wm_function_holder_251734(void);
+void winterscript_wm_function_holder_25173a(void *pointer);
+uint * winterscript_wm_function_const_251744(uint *param_1,uint unused_8,int *ac);
+void winterscript_wm_function_clone_25176a(int param_1);
+void winterscript_wm_function_holder_251790(void);
+void winterscript_wm_function_holder_251796(void *pointer);
+uint * winterscript_wm_function_const_2517a0(uint *param_1,int a8,int *ac);
+void winterscript_wm_function_clone_2517c8(int param_1);
+void winterscript_wm_function_holder_2517ee(void);
+void winterscript_wm_function_holder_2517f4(void *pointer);
+uint * winterscript_wm_function_const_2517fe(uint *param_1,uint unused_8,uint *ac);
+void winterscript_wm_function_clone_251824(int param_1);
+void winterscript_wm_function_holder_25184a(void);
+void winterscript_wm_function_holder_251850(void *pointer);
+uint * winterscript_wm_function_const_25185a(uint *param_1,int a8,uint *ac);
+void winterscript_wm_function_clone_251882(int param_1);
+void winterscript_wm_function_holder_2518a8(void);
+void winterscript_wm_function_holder_2518ae(void *pointer);
+uint * winterscript_wm_function_const_2518b8(uint *param_1,int a8,int ac);
+void winterscript_wm_function_clone_2518e0(int param_1);
+void winterscript_wm_function_holder_251906(void);
+void winterscript_wm_function_holder_25190c(void *pointer);
+uint * winterscript_wm_function_const_251916(uint *param_1,int a8,uint *ac);
+void winterscript_wm_function_clone_25193e(int param_1);
+void winterscript_wm_function_holder_251964(void);
+void winterscript_wm_function_holder_25196a(void *pointer);
+uint * winterscript_wm_function_const_251974(uint *param_1,int a8,int *ac);
+void winterscript_wm_function_clone_25199c(int param_1);
+void winterscript_wm_function_holder_2519c2(void);
+void winterscript_wm_function_holder_2519c8(void *pointer);
+uint * winterscript_wm_function_const_2519d2(uint *param_1,int a8,int *ac);
+void winterscript_wm_function_clone_2519fa(int param_1);
+void winterscript_wm_function_holder_251a20(void);
+void winterscript_wm_function_holder_251a26(void *pointer);
+uint * winterscript_wm_function_const_251a30(uint *param_1,int a8,int *ac);
+void winterscript_wm_function_clone_251a58(int param_1);
+void winterscript_wm_function_holder_251a7e(void);
+void winterscript_wm_function_holder_251a84(void *pointer);
+uint * winterscript_wm_function_const_251a8e(uint *param_1,int a8,int *ac);
+void winterscript_wm_function_clone_251ab6(int param_1);
+void winterscript_wm_function_holder_251adc(void);
+void winterscript_wm_function_holder_251ae2(void *pointer);
+uint * winterscript_wm_function_const_251aec(uint *param_1,int a8,int *ac);
+void winterscript_wm_function_clone_251b14(int param_1);
+void winterscript_wm_function_holder_251b3a(void);
+void winterscript_wm_function_holder_251b40(void *pointer);
+uint * winterscript_wm_function_const_251b4a(uint *param_1,int a8,int *ac);
+void winterscript_wm_function_clone_251b72(int param_1);
+void winterscript_wm_function_holder_251b98(void);
+void winterscript_wm_function_holder_251b9e(void *pointer);
+uint * winterscript_wm_function_const_251ba8(uint *param_1,int a8,int *ac);
+void winterscript_wm_function_clone_251bd0(int param_1);
+void winterscript_wm_function_holder_251bf6(void);
+void winterscript_wm_function_holder_251bfc(void *pointer);
+uint * winterscript_wm_function_const_251c06(uint *param_1,int a8,int *ac);
+void winterscript_wm_function_clone_251c2e(int param_1);
+void winterscript_wm_function_holder_251c54(void);
+void winterscript_wm_function_holder_251c5a(void *pointer);
+uint * winterscript_wm_function_const_251c64(uint *param_1,int a8,int *ac);
+void winterscript_wm_function_clone_251c8c(int param_1);
+void winterscript_wm_function_holder_251cb2(void);
+void winterscript_wm_function_holder_251cb8(void *pointer);
+uint * winterscript_wm_function_const_251cc2(uint *param_1,uint unused_8,uint *ac);
+void winterscript_wm_function_clone_251ce8(int param_1);
+void winterscript_wm_function_holder_251d0e(void);
+void winterscript_wm_function_holder_251d14(void *pointer);
+uint * winterscript_wm_function_const_251d1e(uint *param_1,int a8);
+void winterscript_wm_function_clone_251d42(int param_1);
+void winterscript_wm_function_holder_251d68(void);
+void winterscript_wm_function_holder_251d6e(void *pointer);
+uint * winterscript_wm_function_const_251d78(uint *param_1,int a8);
+void winterscript_wm_function_clone_251d9c(int param_1);
+void winterscript_wm_function_holder_251dc2(void);
+void winterscript_wm_function_holder_251dc8(void *pointer);
+uint * winterscript_wm_function_const_251dd2(uint *param_1,int a8,int ac);
+void winterscript_wm_function_clone_251dfa(int param_1);
+void winterscript_wm_function_holder_251e20(void);
+void winterscript_wm_function_holder_251e26(void *pointer);
+undefined4 * winterscript_wm_function_const_251e30(undefined4 *param_1,undefined4 param_2,int param_3);
+void winterscript_wm_function_clone_251f10(int param_1);
+void winterscript_wm_function_holder_251f36(void);
+void winterscript_wm_function_holder_251f3c(void *pointer);
+undefined4 * winterscript_wm_function_const_251f46(undefined4 *param_1,int param_2,undefined4 *param_3);
+void winterscript_wm_function_clone_25208e(int param_1);
+void winterscript_wm_shared_ptr_const_2520b4(int *param_1,int *param_2);
+int winterscript_Variable_wm_vector_2520d0(int *param_1,undefined4 *param_2);
+void winterscript_wm_function_holder_252122(void);
+void winterscript_wm_function_holder_252128(void *pointer);
+undefined4 * winterscript_wm_function_const_252132(undefined4 *param_1,undefined4 param_2,int *param_3);
+void winterscript_wm_function_clone_2522b2(int param_1);
+void * winterscript_Variable_wm_detail_vector_allocate_2522d8(int param_1);
+void winterscript_wm_function_holder_2522fa(void);
+void winterscript_wm_function_holder_252300(void *pointer);
+undefined4 * winterscript_wm_function_const_25230a(undefined4 *param_1,undefined4 param_2,int *param_3);
+void winterscript_wm_function_clone_2524e4(int param_1);
+void winterscript_wm_function_holder_25250a(void);
+void winterscript_wm_function_holder_252510(void *pointer);
+undefined4 * winterscript_wm_function_const_25251a(undefined4 *param_1,int param_2,int param_3);
+void winterscript_wm_function_clone_25267a(int param_1);
+void winterscript_wm_function_holder_2526a0(void);
+void winterscript_wm_function_holder_2526a6(void *pointer);
+undefined4 * winterscript_wm_function_const_2526b0(undefined4 *param_1,int param_2,undefined4 *param_3);
+void winterscript_wm_function_clone_25287c(int param_1);
+void winterscript_wm_unordered_map_prepare_insert_2528a2(int param_1);
+int winterscript_wm_pair_2528de(uint pf_input_0,uint pf_input_1,uint pf_input_2);
+void winterscript_wm_unordered_map_link_index_252940(int *param_1,int param_2);
+void winterscript_wm_unordered_map_rehash_252972(int param_1,uint param_2);
+uint winterscript_wm_unordered_map_bucket_count_for_size_2529ce(uint param_1);
+void winterscript_wm_unordered_map_rebuild_buckets_2529e2(int param_1);
+void winterscript_wm_pair_252a16(uint *param_1,uint *a8,uint *pf_stack_arg_c);
+uint winterscript_wm_unordered_map_bucket_for_key_252ac0(int param_1,undefined4 *param_2);
+void winterscript_wm_function_holder_252ae6(void);
+void winterscript_wm_function_holder_252aec(void *pointer);
+uint * winterscript_wm_function_const_252af6(uint *param_1,uint unused_8,int ac);
+void winterscript_wm_function_clone_252b1c(int param_1);
+void winterscript_wm_function_holder_252b42(void);
+void winterscript_wm_function_holder_252b48(void *pointer);
+undefined4 * winterscript_wm_function_const_252b52(undefined4 *param_1,undefined4 param_2,int *param_3);
+void winterscript_wm_function_clone_252c7e(int param_1);
+void winterscript_wm_function_holder_252ca4(void);
+void winterscript_wm_function_holder_252caa(void *pointer);
+uint * winterscript_wm_function_const_252cb4(uint *param_1,uint unused_8,int *ac);
+void winterscript_wm_function_clone_252cda(int param_1);
+void winterscript_wm_function_holder_252d00(void);
+void winterscript_wm_function_holder_252d06(void *pointer);
+uint * winterscript_wm_function_const_252d10(uint *param_1,uint unused_8,int *ac);
+void winterscript_wm_function_clone_252d36(int param_1);
+void winterscript_wm_function_holder_252d5c(void);
+void winterscript_wm_function_holder_252d62(void *pointer);
+uint * winterscript_wm_function_const_252d6c(uint *param_1,uint unused_8,int *ac);
+void winterscript_wm_function_clone_252d92(int param_1);
+void winterscript_wm_function_holder_252db8(void);
+void winterscript_wm_function_holder_252dbe(void *pointer);
+uint * winterscript_wm_function_const_252dc8(uint *param_1,uint unused_8,uint *ac);
+void winterscript_wm_function_clone_252dee(int param_1);
+void winterscript_wm_function_holder_252e14(void);
+void winterscript_wm_function_holder_252e1a(void *pointer);
+uint * winterscript_wm_function_const_252e24(uint *param_1,uint unused_8,uint *ac);
+void winterscript_wm_function_clone_252e4a(int param_1);
+void winterscript_wm_function_holder_252e70(void);
+void winterscript_wm_function_holder_252e76(void *pointer);
+uint * winterscript_wm_function_const_252e80(uint *param_1,uint unused_8,uint *ac);
+void winterscript_wm_function_clone_252ea6(int param_1);
+void winterscript_wm_function_holder_252ecc(void);
+void winterscript_wm_function_holder_252ed2(void *pointer);
+uint * winterscript_wm_function_const_252edc(uint *param_1,uint unused_8,uint *ac);
+void winterscript_wm_function_clone_252f02(int param_1);
+void winterscript_wm_function_holder_252f28(void);
+void winterscript_wm_function_holder_252f2e(void *pointer);
+uint * winterscript_wm_function_const_252f38(uint *param_1,uint unused_8,int *ac);
+void winterscript_wm_function_clone_252f5e(int param_1);
+void winterscript_wm_function_holder_252f84(void);
+void winterscript_wm_function_holder_252f8a(void *pointer);
+uint * winterscript_wm_function_const_252f94(uint *param_1,uint unused_8,uint *ac);
+void winterscript_wm_function_clone_252fba(int param_1);
+void winterscript_wm_function_holder_252fe0(void);
+void winterscript_wm_function_holder_252fe6(void *pointer);
+uint * winterscript_wm_function_const_252ff0(uint *param_1,uint unused_8,int *ac);
+void winterscript_wm_function_clone_253016(int param_1);
+void winterscript_wm_function_holder_25303c(void);
+void winterscript_wm_function_holder_253042(void *pointer);
+uint * winterscript_wm_function_const_25304c(uint *param_1,int a8,uint *ac);
+void winterscript_wm_function_clone_253074(int param_1);
+void winterscript_wm_function_holder_25309a(void);
+void winterscript_wm_function_holder_2530a0(void *pointer);
+uint * winterscript_wm_function_const_2530aa(uint *param_1,int a8,uint *ac);
+void winterscript_wm_function_clone_2530d2(int param_1);
+void winterscript_wm_function_holder_2530f8(void);
+void winterscript_wm_function_holder_2530fe(void *pointer);
+uint * winterscript_wm_function_const_253108(uint *param_1,int a8,uint *ac);
+void winterscript_wm_function_clone_253130(int param_1);
+void winterscript_wm_function_holder_253156(void);
+void winterscript_wm_function_holder_25315c(void *pointer);
+uint * winterscript_wm_function_const_253166(uint *param_1,int a8,uint *ac);
+void winterscript_wm_function_clone_25318e(int param_1);
+void winterscript_wm_function_holder_2531b4(void);
+void winterscript_wm_function_holder_2531ba(void *pointer);
+uint * winterscript_wm_function_const_2531c4(uint *param_1,uint unused_8,int ac);
+void winterscript_wm_function_clone_2531ea(int param_1);
+void winterscript_wm_function_holder_253210(void);
+void winterscript_wm_function_holder_253216(void *pointer);
+uint * winterscript_wm_function_const_253220(uint *param_1,uint unused_8,int ac);
+void winterscript_wm_function_clone_253246(int param_1);
+void winterscript_wm_function_holder_25326c(void);
+void winterscript_wm_function_holder_253272(void *pointer);
+uint * winterscript_wm_function_const_25327c(uint *param_1,uint unused_8,int *ac);
+void winterscript_wm_function_clone_2532a2(int param_1);
+void winterscript_wm_function_holder_2532c8(void);
+void winterscript_wm_function_holder_2532ce(void *pointer);
+uint * winterscript_wm_function_const_2532d8(uint *param_1,int a8,uint *ac);
+void winterscript_wm_function_clone_253300(int param_1);
+void winterscript_wm_function_holder_253326(void);
+void winterscript_wm_function_holder_25332c(void *pointer);
+uint * winterscript_wm_function_const_253336(uint *param_1,int a8,uint *ac);
+void winterscript_wm_function_clone_25335e(int param_1);
+void winterscript_wm_function_holder_253384(void);
+void winterscript_wm_function_holder_25338a(void *pointer);
+uint * winterscript_wm_function_const_253394(uint *param_1,uint unused_8,int ac);
+void winterscript_wm_function_clone_2533ba(int param_1);
+void winterscript_wm_function_holder_2533e0(void);
+void winterscript_wm_function_holder_2533e6(void *pointer);
+uint * winterscript_wm_function_const_2533f0(uint *param_1,uint unused_8,int ac);
+void winterscript_wm_function_clone_253416(int param_1);
+void winterscript_wm_function_holder_25343c(void);
+void winterscript_wm_function_holder_253442(void *pointer);
+uint * winterscript_wm_function_const_25344c(uint *param_1,uint unused_8,int ac);
+void winterscript_wm_function_clone_253472(int param_1);
+void winterscript_wm_function_holder_253498(void);
+void winterscript_wm_function_holder_25349e(void *pointer);
+uint * winterscript_wm_function_const_2534a8(uint *param_1,uint unused_8,int ac);
+void winterscript_wm_function_clone_2534ce(int param_1);
+void winterscript_wm_function_holder_2534f4(void);
+void winterscript_wm_function_holder_2534fa(void *pointer);
+uint * winterscript_wm_function_const_253504(uint *param_1,uint unused_8,int ac);
+void winterscript_wm_function_clone_25352a(int param_1);
+void winterscript_wm_function_holder_253550(void);
+void winterscript_wm_function_holder_253556(void *pointer);
+uint * winterscript_wm_function_const_253560(uint *param_1,int a8,int *ac);
+void winterscript_wm_function_clone_253588(int param_1);
+void winterscript_wm_function_holder_2535ae(void);
+void winterscript_wm_function_holder_2535b4(void *pointer);
+uint * winterscript_wm_function_const_2535be(uint *param_1,int a8,int ac);
+void winterscript_wm_function_clone_2535e6(int param_1);
+void winterscript_wm_function_holder_25360c(void);
+void winterscript_wm_function_holder_253612(void *pointer);
+uint * winterscript_wm_function_const_25361c(uint *param_1,uint unused_8,int *ac);
+void winterscript_wm_function_clone_253642(int param_1);
+void winterscript_wm_function_holder_253668(void);
+void winterscript_wm_function_holder_25366e(void *pointer);
+uint * winterscript_wm_function_const_253678(uint *param_1,uint unused_8,int *ac);
+void winterscript_wm_function_clone_25369e(int param_1);
+void winterscript_wm_function_holder_2536c4(void);
+void winterscript_wm_function_holder_2536ca(void *pointer);
+uint * winterscript_wm_function_const_2536d4(uint *param_1,int a8,int *ac);
+void winterscript_wm_function_clone_2536fa(int param_1);
+void winterscript_wm_function_holder_253720(void);
+void winterscript_wm_function_holder_253726(void *pointer);
+uint * winterscript_wm_function_const_253730(uint *param_1,int a8,int ac);
+void winterscript_wm_function_clone_253758(int param_1);
+void winterscript_wm_function_holder_25377e(void);
+void winterscript_wm_function_holder_253784(void *pointer);
+uint * winterscript_wm_function_const_25378e(uint *param_1,uint unused_8,int ac);
+void winterscript_wm_function_clone_2537b4(int param_1);
+undefined4 * winterscript_int_wm_variant_2537da(undefined4 *param_1,undefined4 *param_2);
+undefined4 * winterscript_int_wm_variant_253802(undefined4 *param_1,undefined4 *param_2);
+undefined4 * winterscript_float_wm_variant_25382a(undefined4 *param_1,undefined4 *param_2);
+undefined1 * winterscript_bool_wm_variant_253856(undefined1 *param_1,undefined1 *param_2);
+undefined4 * winterscript_float_wm_variant_253882(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_shared_ptr_const_2538ae(int *param_1,int *param_2);
+int winterscript_wm_unordered_map_find_index_2538ca(int *param_1,undefined4 *param_2);
+int winterscript_wm_string_const_wm_vector_25392e(int *param_1,undefined4 *param_2);
+void winterscript_wm_vector_reserve_253972(int *param_1,uint param_2);
+void * winterscript_wm_string_const_wm_detail_vector_allocate_2539bb(int param_1);
+void winterscript_wm_vector_reserve_2539dc(int *param_1,uint param_2);
+void * winterscript_WinterScript_FastScalarValue_wm_detail_vector_allocate_253a43(int param_1);
+void winterscript_WinterScript_CoroutineState_CoroutineState_253a64(undefined4 *param_1);
+void winterscript_wm_shared_ptr_shared_ptr_253ae4(undefined4 *param_1,int param_2);
+void winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_253b2a(void);
+void winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_253b30(void *pointer);
+void winterscript_wm_detail_shared_control_block_impl_destroy_object_253b3a(int param_1);
+void winterscript_WinterScript_CoroutineState_CoroutineState_253b68(int param_1);
+void winterscript_wm_vector_vector_253bd2(undefined4 *param_1);
+void winterscript_wm_vector_reserve_253bf2(int *param_1,uint param_2);
+void * winterscript_wm_vector_253c5e(int param_1);
+void * winterscript_wm_pair_253c7f(int param_1);
+void winterscript_wm_pair_253ca0(uint *param_1,uint *a8);
+void winterscript_wm_pair_253d4c(uint *param_1,uint *a8,uint *pf_stack_arg_c);
+int winterscript_wm_vector_253df8(int *param_1,undefined4 *param_2);
+int winterscript_WinterScript_CoroutineFrame_wm_vector_253e4a(int *param_1,undefined4 *param_2);
+void winterscript_wm_vector_reserve_253e9c(int *param_1,uint param_2);
+void * winterscript_WinterScript_CoroutineFrame_wm_detail_vector_allocate_253f08(int param_1);
+void winterscript_WinterScript_CoroutineFrame_CoroutineFrame_253f2a(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_pair_253f78(uint *param_1,uint *a8,uint *pf_stack_arg_c);
+void * winterscript_wm_string_wm_detail_vector_allocate_254024(int param_1);
+void winterscript_wm_vector_254046(undefined4 *param_1,int param_2,int param_3);
+int winterscript_Variable_wm_vector_254094(int *param_1,undefined4 *param_2);
+void winterscript_ScriptCallable_ScriptCallable_2540e6(undefined2 *param_1);
+void winterscript_wm_shared_ptr_shared_ptr_25415e(undefined4 *param_1,int param_2);
+void winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_2541a4(void);
+void winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_2541aa(void *pointer);
+void winterscript_wm_detail_shared_control_block_impl_destroy_object_2541b4(int param_1);
+void winterscript_ScriptCallable_ScriptCallable_2541e2(int param_1);
+void * winterscript_ParsedScriptLine_wm_detail_vector_allocate_25424c(int param_1);
+void winterscript_ParsedScriptLine_ParsedScriptLine_254270(int param_1,int param_2);
+void winterscript_wm_vector_25440e(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_vector_254434(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_vector_25445a(undefined4 *param_1,undefined4 *param_2);
+int winterscript_ParsedScriptLine_wm_vector_254480(int *param_1,int param_2);
+void winterscript_ParsedScriptLine_ParsedScriptLine_2544d8(int param_1,int param_2);
+void winterscript_wm_vector_const_254934(int *param_1,int *param_2);
+void winterscript_wm_vector_const_25498c(int *param_1,int *param_2);
+void winterscript_wm_vector_reserve_2549ec(int *param_1,uint param_2);
+void * winterscript_ParsedAssignmentTarget_wm_detail_vector_allocate_254a58(int param_1);
+void winterscript_ParsedAssignmentTarget_ParsedAssignmentTarget_254a7a(undefined4 *param_1,undefined4 *param_2);
+void winterscript_ParsedAssignmentTarget_ParsedAssignmentTarget_254ab4(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_vector_const_254b64(int *param_1,int *param_2);
+uint winterscript_wm_vector_reserve_254bb6(int *param_1,uint param_2);
+void * winterscript_wm_pair_254c08(int param_1);
+void winterscript_wm_vector_const_254c2a(int *param_1,int *param_2);
+void winterscript_FastCallExpression_FastCallExpression_254c8a(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_vector_254cb0(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_vector_254cd6(undefined4 *param_1,undefined4 *param_2);
+int winterscript_wm_unordered_map_find_index_254cfc(int *param_1,undefined4 *param_2);
+uint winterscript_wm_unordered_map_bucket_for_key_254d60(int param_1,undefined4 *param_2);
+void winterscript_wm_unordered_map_prepare_insert_254d86(int param_1);
+int winterscript_wm_pair_254dc2(int *param_1,undefined4 *param_2,undefined4 *param_3);
+void winterscript_wm_unordered_map_link_index_254e24(int *param_1,int param_2);
+void winterscript_wm_unordered_map_rehash_254e56(int param_1,uint param_2);
+uint winterscript_wm_unordered_map_bucket_count_for_size_254eb2(uint param_1);
+void winterscript_wm_unordered_map_rebuild_buckets_254ec6(int param_1);
+void winterscript_wm_vector_reserve_254efa(int *param_1,uint param_2);
+void * winterscript_wm_pair_254f66(int param_1);
+void winterscript_wm_pair_254f88(int param_1,int param_2);
+void winterscript_wm_pair_pair_254faa(int param_1,undefined4 *param_2,undefined4 *param_3);
+undefined1 * winterscript_bool_wm_vector_254fce(int *param_1,undefined1 *param_2);
+void winterscript_wm_vector_reserve_255010(int *param_1,uint param_2);
+void * winterscript_bool_wm_detail_vector_allocate_255059(uint param_1);
+int winterscript_wm_unordered_map_find_25506c(int *param_1,undefined4 *param_2);
+void winterscript_wm_unordered_map_prepare_insert_25509a(int param_1);
+int winterscript_wm_pair_2550d6(int *param_1,undefined4 *param_2,undefined4 *param_3);
+void winterscript_wm_unordered_map_link_index_255138(int *param_1,int param_2);
+int winterscript_wm_unordered_map_find_index_25516a(int *param_1,undefined4 *param_2);
+uint winterscript_wm_unordered_map_bucket_for_key_2551ce(int param_1,undefined4 *param_2);
+void winterscript_wm_unordered_map_rehash_2551f4(int param_1,uint param_2);
+uint winterscript_wm_unordered_map_bucket_count_for_size_255250(uint param_1);
+void winterscript_wm_unordered_map_rebuild_buckets_255264(int param_1);
+void winterscript_wm_vector_reserve_255298(int *param_1,uint param_2);
+void * winterscript_wm_pair_255304(int param_1);
+void winterscript_wm_pair_255326(int param_1,int param_2);
+void winterscript_wm_pair_25534c(int param_1,undefined4 *param_2,undefined4 *param_3);
+void * winterscript_unsigned_long_wm_detail_vector_allocate_255372(int param_1);
+int winterscript_unsigned_long_wm_vector_255394(int *param_1,undefined4 *param_2);
+int winterscript_wm_unordered_map_const_const_2553da(int *param_1,int *param_2);
+void winterscript_wm_unordered_map_prepare_insert_25540c(int param_1);
+int winterscript_wm_pair_const_WinterScript_TableCacheEntry_255448(int *param_1,undefined4 *param_2,undefined4 *param_3);
+void winterscript_wm_unordered_map_link_index_2554ac(int *param_1,int param_2);
+int winterscript_wm_unordered_map_const_const_const_2554e0(int *param_1,int *param_2);
+uint winterscript_wm_unordered_map_const_const_const_255536(int param_1,undefined4 *param_2);
+uint winterscript_wm_hash_const_const_25555e(undefined4 param_1,undefined1 param_2);
+void winterscript_wm_unordered_map_rehash_255578(int param_1,uint param_2);
+uint winterscript_wm_unordered_map_bucket_count_for_size_2555d4(uint param_1);
+void winterscript_wm_unordered_map_rebuild_buckets_2555e8(int param_1);
+void winterscript_wm_vector_reserve_25561c(int *param_1,uint param_2);
+void * winterscript_wm_pair_25568e(int param_1);
+void winterscript_wm_pair_2556b2(undefined4 *param_1,undefined4 *param_2);
+void winterscript_WinterScript_TableCacheEntry_TableCacheEntry_2556d8(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_unordered_map_255794(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_vector_2557d6(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_pair_const_WinterScript_TableCacheEntry_2557fc(undefined4 *param_1,undefined4 *param_2,undefined4 *param_3);
+void winterscript_WinterScript_TableCacheEntry_TableCacheEntry_255822(undefined4 *param_1);
+void winterscript_wm_vector_const_255998(int *param_1,int param_2);
+void winterscript_wm_vector_erase_2559ba(int *param_1,int param_2);
+int winterscript_wm_vector_const_2559d8(int *param_1,int param_2,int param_3);
+undefined4 * winterscript_wm_pair_255ab2(undefined4 *param_1,undefined4 *param_2);
+int winterscript_wm_vector_erase_255adc(int *param_1,int param_2,int param_3);
+void winterscript_void_wm_sort_255b3a(uint param_1,uint param_2);
+void winterscript_wm_vector_255bc8(undefined4 *param_1,undefined4 *param_2,undefined4 *param_3);
+void winterscript_wm_vector_vector_255bf2(int *param_1);
+void winterscript_wm_vector_clear_255c12(int *param_1);
+void winterscript_wm_vector_vector_255c4c(undefined4 *param_1);
+void winterscript_wm_vector_vector_255c68(undefined4 *param_1);
+void winterscript_BytecodeProgram_BytecodeProgram_255c84(undefined2 *param_1,undefined2 *param_2);
+void winterscript_wm_vector_255d80(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_vector_255da6(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_vector_255dcc(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_vector_255df2(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_vector_255e18(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_vector_255e3e(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_vector_255e64(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_vector_255e8a(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_vector_255eb0(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_shared_ptr_shared_ptr_255ed6(undefined4 *param_1,int param_2);
+void winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_255f1c(void);
+void winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_255f22(void *pointer);
+void winterscript_wm_detail_shared_control_block_impl_destroy_object_255f2c(int param_1);
+int winterscript_wm_unordered_map_find_index_255f5c(int *param_1,undefined4 *param_2);
+uint winterscript_wm_unordered_map_bucket_for_key_255fbe(int param_1,undefined4 *param_2);
+uint winterscript_wm_unordered_map_prepare_insert_255fe4(int param_1);
+int winterscript_wm_pair_256020(int *param_1,undefined4 *param_2,undefined4 *param_3);
+void winterscript_wm_unordered_map_link_index_25607e(int *param_1,int param_2);
+void winterscript_wm_unordered_map_rehash_2560ae(int param_1,uint param_2);
+uint winterscript_wm_unordered_map_bucket_count_for_size_25610a(uint param_1);
+void winterscript_wm_unordered_map_rebuild_buckets_25611e(int param_1);
+void winterscript_wm_vector_reserve_256152(int *param_1,uint param_2);
+void * winterscript_wm_pair_2561be(int param_1);
+void winterscript_wm_pair_2561e0(int param_1,int param_2);
+void winterscript_WinterScript_ScriptFileCacheEntry_ScriptFileCacheEntry_256210(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_pair_256250(int param_1,undefined4 *param_2,undefined4 *param_3);
+void winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_25627e(void);
+void winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_256284(void *pointer);
+void winterscript_wm_detail_shared_control_block_impl_destroy_object_25628e(int param_1);
+void winterscript_wm_shared_ptr_release_2562d2(uint *param_1);
+void winterscript_std_fstream_fstream_256370(int *param_1,undefined4 *param_2,uint param_3);
+void winterscript_std_fstream_open_256444(int param_1,char *param_2,uint param_3);
+void winterscript_std_fstream_fstream_256470(int param_1);
+void winterscript_std_fstream_fstream_25648a(void *param_1,void *a8);
+void winterscript_non_virtual_thunk_to_std_fstream_fstream_2564a8(int param_1);
+void winterscript_non_virtual_thunk_to_std_fstream_fstream_2564c2(int param_1);
+void winterscript_wm_shared_ptr_shared_ptr_2564dc(undefined4 *param_1,int param_2);
+void winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_256522(void);
+void winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_256528(void *pointer);
+void winterscript_wm_detail_shared_control_block_impl_destroy_object_256532(int param_1);
+void winterscript_wm_shared_ptr_release_256554(uint *param_1);
+void winterscript_wm_shared_ptr_release_2565f4(uint *param_1);
+void winterscript_wm_shared_ptr_release_256694(uint *param_1);
+void winterscript_wm_function_holder_256734(undefined4 *param_1);
+void winterscript_wm_function_holder_25674a(void *param_1,void *a8);
+undefined4 * winterscript_wm_function_const_256764(undefined4 *param_1,int param_2,undefined4 *param_3);
+undefined4 * winterscript_wm_function_clone_2568d0(int param_1);
+void winterscript_wm_function_holder_256926(undefined4 *param_1);
+void winterscript_wm_function_holder_25693c(void *param_1,void *a8);
+undefined4 * winterscript_wm_function_const_256956(undefined4 *param_1,int param_2,undefined4 *param_3);
+undefined4 * winterscript_wm_function_clone_256ac2(int param_1);
+void winterscript_wm_function_holder_256b18(undefined4 *param_1);
+void winterscript_wm_function_holder_256b2e(void *param_1,void *a8);
+undefined4 * winterscript_wm_function_const_256b48(undefined4 *param_1,int param_2,undefined4 *param_3);
+undefined4 * winterscript_wm_function_clone_256cb4(int param_1);
+int winterscript_wm_vector_erase_256d0a(int *param_1,int param_2,int param_3);
+int winterscript_wm_unordered_map_256dd6(int *param_1,int param_2);
+void winterscript_wm_vector_const_256e30(int *param_1,int param_2);
+int winterscript_wm_vector_const_256e4e(int *param_1,int param_2,int param_3);
+int winterscript_wm_pair_256ef8(int param_1,int param_2);
+int winterscript_Variable_wm_vector_256f2a(int *param_1,int param_2,undefined4 *param_3);
+void winterscript_wm_shared_ptr_const_256fe4(int *param_1,int *param_2);
+void winterscript_WinterScript_getIndexedValue_257000(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_function_holder_257038(uint *holder,uint *value);
+void winterscript_wm_function_holder_25704a(undefined4 *param_1);
+void winterscript_wm_function_holder_257060(void *param_1);
+undefined4 * winterscript_wm_function_const_25707a(undefined4 *param_1,int param_2,int *param_3);
+void * winterscript_wm_function_clone_257234(int param_1);
+undefined4 winterscript_WinterScript_evaluateExpression_25731e(undefined4 *param_1,int param_2);
+undefined4 * winterscript_ctorINS0_6stringEEERmPKNS1_I13TokenAnalysisEEENK3_1clIRSB_EE8VariableOT_iENKUlvE_clEv_257384(undefined4 *param_1,undefined4 *param_2);
+uint * winterscript_Variable_makeMulti_259f06(uint pf_input_0,uint pf_input_1);
+uint * winterscript_wm_shared_ptr_const_259ff4(uint *param_1,int *pf_stack_arg_8);
+void winterscript_WinterScript_executeAssignment_25a0b0(int param_1,int param_2);
+void winterscript_wm_vector_vector_25a0e4(undefined4 *param_1);
+void winterscript_wm_vector_vector_25a104(undefined4 *param_1);
+int winterscript_wm_pair_25a120(int *param_1,undefined4 *param_2);
+int winterscript_ParsedAssignmentTarget_wm_vector_25a16e(int *param_1,undefined4 *param_2);
+void * winterscript_FastExpression_wm_detail_vector_allocate_25a1c0(int param_1);
+int winterscript_unsigned_long_wm_vector_25a1e2(int *param_1,undefined4 *param_2);
+int winterscript_ParsedScriptLine_wm_vector_25a228(int *param_1,int param_2);
+int winterscript_BytecodeChunk_wm_vector_25a280(int *param_1,undefined4 *param_2);
+uint winterscript_wm_vector_reserve_25a2d8(int *param_1,uint param_2);
+void * winterscript_BytecodeChunk_wm_detail_vector_allocate_25a337(int param_1);
+int winterscript_BytecodeIfBranch_wm_vector_25a358(int *param_1,undefined4 *param_2);
+uint winterscript_wm_vector_reserve_25a3b0(int *param_1,uint param_2);
+void * winterscript_BytecodeIfBranch_wm_detail_vector_allocate_25a40f(int param_1);
+int winterscript_BytecodeIfGroup_wm_vector_25a430(int *param_1,undefined4 *param_2);
+void winterscript_wm_vector_reserve_25a482(int *param_1,uint param_2);
+void * winterscript_BytecodeIfGroup_wm_detail_vector_allocate_25a4ee(int param_1);
+void winterscript_wm_vector_25a510(undefined4 *param_1,undefined4 *param_2);
+int winterscript_Instruction_wm_vector_25a536(int *param_1,undefined4 *param_2);
+int winterscript_BytecodeWhileLoop_wm_vector_25a58e(int *param_1,undefined4 *param_2);
+uint winterscript_wm_vector_reserve_25a5dc(int *param_1,uint param_2);
+void * winterscript_BytecodeWhileLoop_wm_detail_vector_allocate_25a62e(int param_1);
+int winterscript_BytecodeRepeatLoop_wm_vector_25a650(int *param_1,undefined4 *param_2);
+uint winterscript_wm_vector_reserve_25a69e(int *param_1,uint param_2);
+void * winterscript_BytecodeRepeatLoop_wm_detail_vector_allocate_25a6f0(int param_1);
+int winterscript_BytecodeForLoop_wm_vector_25a712(int *param_1,undefined4 *param_2);
+uint winterscript_wm_vector_reserve_25a760(int *param_1,uint param_2);
+void * winterscript_BytecodeForLoop_wm_detail_vector_allocate_25a7b2(int param_1);
+int winterscript_BytecodeFunctionDecl_wm_vector_25a7d4(int *param_1,undefined4 *param_2);
+void winterscript_wm_vector_reserve_25a826(int *param_1,uint param_2);
+void * winterscript_BytecodeFunctionDecl_wm_detail_vector_allocate_25a892(int param_1);
+void winterscript_BytecodeFunctionDecl_BytecodeFunctionDecl_25a8b4(undefined4 *param_1,undefined4 *param_2);
+void * winterscript_Instruction_wm_detail_vector_allocate_25a8ff(int param_1);
+void winterscript_BytecodeFunctionDecl_BytecodeFunctionDecl_25a920(undefined4 *param_1);
+undefined4 winterscript_ramEEjR11BlockSignalbENK3_3clIRS8_EEbOT_jRPKNS0_6vectorINS0_6stringEEES7_ENKUlvE_clEv_25a950(int *param_1);
+int winterscript_ramEEjR11BlockSignalbENK3_3clIRS8_EEbOT_jRPKNS0_6vectorINS0_6stringEEES7_ENKUlbE_clEb_25a9a4(undefined4 *param_1,undefined4 param_2);
+void winterscript_BytecodeProgram_BytecodeProgram_25ab9a(undefined2 *param_1,undefined2 *param_2);
+void winterscript_wm_vector_const_25aeb8(int *param_1,int *param_2);
+void winterscript_wm_vector_const_25af1c(int *param_1,int *param_2);
+void winterscript_wm_vector_const_25af82(int *param_1,int *param_2);
+void winterscript_wm_vector_const_25afe8(int *param_1,int *param_2);
+void winterscript_wm_vector_const_25b048(int *param_1,int *param_2);
+void winterscript_wm_vector_const_25b0ae(int *param_1,int *param_2);
+void winterscript_wm_vector_const_25b100(int *param_1,int *param_2);
+void winterscript_wm_vector_const_25b152(int *param_1,int *param_2);
+void winterscript_wm_vector_const_25b1a4(int *param_1,int *param_2);
+void winterscript_BytecodeFunctionDecl_BytecodeFunctionDecl_25b204(undefined4 *param_1,undefined4 *param_2);
+void winterscript_wm_vector_const_25b2c8(int *param_1,int *param_2);
+void winterscript_cxx_global_var_init_25b30a(void);
+void winterscript_cxx_global_var_init_1_25b36b(void);
+void winterscript_cxx_global_var_init_2_25b3cc(void);
+void winterscript_cxx_global_var_init_3_25b42d(void);
 
 /* Original analysis identifiers for manual recovery units. */
 #define recovered_200000 winterscript_winterscript_entry_200000
 #define recovered_200006 winterscript_wm_probe_heap_reset_200006
 #define recovered_200016 winterscript_wm_probe_heap_init_200016
-#define recovered_2001fb winterscript_wm_probe_heap_free_bytes_2001fb
-#define recovered_200225 winterscript_wm_probe_heap_total_bytes_200225
-#define recovered_200249 winterscript_wm_probe_heap_alloc_200249
-#define recovered_2002b0 winterscript_ashldi3_2002b0
-#define recovered_2002e9 winterscript_lshrdi3_2002e9
-#define recovered_200322 winterscript_udivdi3_200322
-#define recovered_200343 winterscript_udivmod64_200343
-#define recovered_200426 winterscript_umoddi3_200426
-#define recovered_20045e winterscript_divdi3_20045e
-#define recovered_2004d2 winterscript_moddi3_2004d2
-#define recovered_200544 winterscript_abort_200544
-#define recovered_20054b winterscript_abs_20054b
-#define recovered_20055a winterscript_malloc_20055a
-#define recovered_200582 winterscript_free_200582
-#define recovered_2005a8 winterscript_realloc_2005a8
-#define recovered_2005d0 winterscript_memcpy_2005d0
-#define recovered_2005f1 winterscript_memmove_2005f1
-#define recovered_200637 winterscript_memset_200637
-#define recovered_200653 winterscript_bzero_200653
-#define recovered_20066b winterscript_bzero_20066b
-#define recovered_200683 winterscript_memcmp_200683
-#define recovered_2006b2 winterscript_islower_2006b2
-#define recovered_2006c5 winterscript_isupper_2006c5
-#define recovered_2006d8 winterscript_isalpha_2006d8
-#define recovered_2006ee winterscript_isalnum_2006ee
-#define recovered_200712 winterscript_isblank_200712
-#define recovered_20072b winterscript_isprint_20072b
-#define recovered_20073e winterscript_tolower_20073e
-#define recovered_200752 winterscript_toupper_200752
-#define recovered_200766 winterscript_strlen_200766
-#define recovered_200781 winterscript_strcmp_200781
-#define recovered_2007a9 winterscript_strcoll_2007a9
-#define recovered_2007b2 winterscript_strcpy_2007b2
-#define recovered_2007cc winterscript_strdup_2007cc
-#define recovered_200816 winterscript_strchr_200816
-#define recovered_20083b winterscript_strspn_20083b
-#define recovered_200872 winterscript_strpbrk_200872
-#define recovered_2008a0 winterscript_strstr_2008a0
-#define recovered_2008d1 winterscript_setlocale_2008d1
-#define recovered_2008db winterscript_localeconv_2008db
-#define recovered_2008e5 winterscript_time_2008e5
-#define recovered_2008fc winterscript_ldexp_2008fc
-#define recovered_200926 winterscript_frexp_200926
-#define recovered_20099e winterscript_fmod_20099e
-#define recovered_2009eb winterscript_pow_2009eb
-#define recovered_200a6f winterscript_floor_200a6f
-#define recovered_200ab0 winterscript_ceil_200ab0
-#define recovered_200afd winterscript_sqrt_200afd
-#define recovered_200b35 winterscript_log_200b35
-#define recovered_200bcc winterscript_llround_200bcc
-#define recovered_200c0d winterscript_sin_200c0d
-#define recovered_200c4f winterscript_wrap_angle_200c4f
-#define recovered_200c87 winterscript_cos_200c87
-#define recovered_200cc5 winterscript_fabs_200cc5
-#define recovered_200cd9 winterscript_fmodf_200cd9
-#define recovered_200d2e winterscript_frexpf_200d2e
-#define recovered_200d51 winterscript_ldexpf_200d51
-#define recovered_200d74 winterscript_powf_200d74
-#define recovered_200d97 winterscript_floorf_200d97
-#define recovered_200dde winterscript_ceilf_200dde
-#define recovered_200dfa winterscript_trunc_200dfa
-#define recovered_200e4c winterscript_truncf_200e4c
-#define recovered_200e68 winterscript_sqrtf_200e68
-#define recovered_200e84 winterscript_logf_200e84
-#define recovered_200ea0 winterscript_lround_200ea0
-#define recovered_200eb6 winterscript_sinf_200eb6
-#define recovered_200ed2 winterscript_cosf_200ed2
-#define recovered_200eee winterscript_fabsf_200eee
-#define recovered_200f02 winterscript_strtol_200f02
-#define recovered_200ff4 winterscript_digit_value_200ff4
-#define recovered_201028 winterscript_strtoul_201028
-#define recovered_20111a winterscript_strtod_20111a
-#define recovered_20126c winterscript_strtof_20126c
-#define recovered_20128e winterscript_vsnprintf_20128e
-#define recovered_201520 winterscript_append_char_201520
-#define recovered_20153e winterscript_append_string_20153e
-#define recovered_20157f winterscript_append_unsigned_20157f
-#define recovered_2015ea winterscript_snprintf_2015ea
-#define recovered_20160d winterscript_wm_probe_heap_append_region_20160d
-#define recovered_20165f winterscript_wm_program_api_field_ready_20165f
-#define recovered_201694 winterscript_wm_lua_write_201694
-#define recovered_20171a winterscript_wm_lua_flush_output_line_20171a
-#define recovered_201790 winterscript_wm_lua_writeline_201790
-#define recovered_20179c winterscript_wm_lua_flush_output_20179c
-#define recovered_2017a7 winterscript_wm_lua_write_errorf_2017a7
-#define recovered_2017fb winterscript_wm_lua_show_banner_2017fb
-#define recovered_201841 winterscript_wm_lua_write_cstr_201841
-#define recovered_201868 winterscript_wm_lua_show_help_201868
-#define recovered_201886 winterscript_wm_lua_readline_201886
-#define recovered_2018d5 winterscript_wmfs_mount_image_2018d5
-#define recovered_2018dc winterscript_wmfs_unmount_2018dc
-#define recovered_2018e1 winterscript_wmfs_is_mounted_2018e1
-#define recovered_2018e8 winterscript_wmfs_fopen_2018e8
-#define recovered_201ba3 winterscript_wm_lua_app_stat_file_201ba3
-#define recovered_201bd3 winterscript_wm_lua_file_reserve_201bd3
-#define recovered_201c48 winterscript_wmfs_freopen_201c48
-#define recovered_201c66 winterscript_wmfs_fclose_201c66
-#define recovered_201ca6 winterscript_wmfs_fread_201ca6
-#define recovered_201d13 winterscript_wmfs_getc_201d13
-#define recovered_201df4 winterscript_wmfs_fwrite_201df4
-#define recovered_201efc winterscript_wmfs_fseek_201efc
-#define recovered_201f75 winterscript_wmfs_ftell_201f75
-#define recovered_201f97 winterscript_wmfs_fflush_201f97
-#define recovered_201ff8 winterscript_wmfs_feof_201ff8
-#define recovered_20200f winterscript_wmfs_ferror_20200f
-#define recovered_202026 winterscript_wmfs_clearerr_202026
-#define recovered_202041 winterscript_wmfs_ungetc_202041
-#define recovered_202070 winterscript_wmfs_remove_202070
-#define recovered_2020a1 winterscript_wm_lua_app_delete_file_2020a1
-#define recovered_2020cc winterscript_wmfs_rename_2020cc
-#define recovered_202156 winterscript_wm_lua_app_write_file_202156
-#define recovered_202189 winterscript_wmfs_read_entire_file_202189
-#define recovered_20221b winterscript_wmfs_write_entire_file_20221b
-#define recovered_202252 winterscript_wmfs_register_virtual_file_202252
-#define recovered_202259 winterscript_wmfs_clear_virtual_files_202259
-#define recovered_20225e winterscript_wmfs_image_data_20225e
-#define recovered_202265 winterscript_wmfs_image_size_202265
-#define recovered_20226c winterscript_wmfs_export_image_20226c
-#define recovered_202273 winterscript_memchr_202273
-#define recovered_202297 winterscript_strncmp_202297
-#define recovered_2022ca winterscript_strerror_2022ca
-#define recovered_202325 winterscript_getenv_202325
-#define recovered_20232c winterscript_system_20232c
-#define recovered_202334 winterscript_clock_202334
-#define recovered_202347 winterscript_wm_program_api_field_ready_202347
-#define recovered_202380 winterscript_permafrost_sjlj_jump_202380
-#define recovered_20238f winterscript_std_terminate_20238f
-#define recovered_2023f0 winterscript_gxx_personality_sj0_2023f0
-#define recovered_202400 winterscript_cxa_begin_catch_202400
-#define recovered_202422 winterscript_operator_new_202422
-#define recovered_20244b winterscript_operator_new_20244b
-#define recovered_202454 winterscript_operator_delete_202454
-#define recovered_2024c7 winterscript_operator_delete_2024c7
-#define recovered_20253a winterscript_operator_delete_20253a
-#define recovered_2025ad winterscript_operator_delete_2025ad
-#define recovered_202620 winterscript_cxa_atexit_202620
-#define recovered_202627 winterscript_cxa_guard_acquire_202627
-#define recovered_202636 winterscript_cxa_guard_release_202636
-#define recovered_202641 winterscript_cxa_guard_abort_202641
-#define recovered_202646 winterscript_cxa_allocate_exception_202646
-#define recovered_20267b winterscript_cxa_free_exception_20267b
-#define recovered_202698 winterscript_object_from_header_202698
-#define recovered_2026a0 winterscript_cxa_end_catch_2026a0
-#define recovered_2026de winterscript_cxa_throw_2026de
-#define recovered_20270b winterscript_raise_exception_20270b
-#define recovered_202761 winterscript_cxa_rethrow_202761
-#define recovered_20278b winterscript_Unwind_SjLj_Register_20278b
-#define recovered_2027a0 winterscript_Unwind_SjLj_Unregister_2027a0
-#define recovered_2027c9 winterscript_Unwind_SjLj_RaiseException_2027c9
-#define recovered_2027d7 winterscript_Unwind_SjLj_ForcedUnwind_2027d7
-#define recovered_2027e2 winterscript_Unwind_SjLj_Resume_2027e2
-#define recovered_202800 winterscript_continue_unwind_202800
-#define recovered_202873 winterscript_Unwind_SjLj_Resume_or_Rethrow_202873
-#define recovered_202884 winterscript_gxx_personality_v0_202884
-#define recovered_20288b winterscript_Unwind_Resume_20288b
-#define recovered_202896 winterscript_dynamic_cast_202896
-#define recovered_2028cd winterscript_type_matches_2028cd
-#define recovered_202934 winterscript_cxa_pure_virtual_202934
-#define recovered_20293d winterscript_tlv_bootstrap_20293d
-#define recovered_202944 winterscript_isdigit_202944
-#define recovered_202957 winterscript_isspace_202957
-#define recovered_20297e winterscript_isxdigit_20297e
-#define recovered_2029a0 winterscript_isfinite_2029a0
-#define recovered_2029b8 winterscript_round_2029b8
-#define recovered_2029fc winterscript_strtoull_2029fc
-#define recovered_202b16 winterscript_strtoll_202b16
-#define recovered_202b1f winterscript_inspect_context_202b1f
-#define recovered_202cbe winterscript_read_encoded_pointer_202cbe
-#define recovered_202d72 winterscript_read_uleb128_202d72
-#define recovered_202d9d winterscript_read_unaligned_202d9d
-#define recovered_202dc2 winterscript_read_sleb128_202dc2
-#define recovered_202e04 winterscript_std_istream_istream_202e04
-#define recovered_202e0a winterscript_std_ostream_ostream_202e0a
-#define recovered_202e0f winterscript_permafrost_winterscript_entry_202e0f
-#define recovered_2034bc winterscript_showHelp_2034bc
-#define recovered_2034da winterscript_writeLine_2034da
-#define recovered_2034f0 winterscript_writeText_2034f0
-#define recovered_203518 winterscript_std_ostream_ostream_203518
-#define recovered_203522 winterscript_Variable_toString_203522
-#define recovered_203980 winterscript_reportError_203980
-#define recovered_2039b8 winterscript_wm_string_assign_2039b8
-#define recovered_203a81 winterscript_wm_string_length_203a81
-#define recovered_203a9c winterscript_wm_string_pointer_offset_203a9c
-#define recovered_203adc winterscript_wm_string_reserve_203adc
-#define recovered_203b2c winterscript_wm_string_string_203b2c
-#define recovered_203b5c winterscript_wm_string_allocate_203b5c
-#define recovered_203b76 winterscript_wm_to_string_203b76
-#define recovered_203bc4 winterscript_wm_string_operator_203bc4
-#define recovered_203bed winterscript_wm_operator_203bed
-#define recovered_203c98 winterscript_wm_operator_203c98
-#define recovered_203d44 winterscript_wm_to_chars_result_wm_to_chars_203d44
-#define recovered_203e1c winterscript_wm_string_push_back_203e1c
-#define recovered_203e6f winterscript_wm_to_string_203e6f
-#define recovered_203ec1 winterscript_wm_to_chars_result_wm_to_chars_203ec1
-#define recovered_203f94 winterscript_wm_string_string_203f94
-#define recovered_203fca winterscript_wm_string_append_203fca
-#define recovered_204074 winterscript_wm_string_append_204074
-#define recovered_20409c winterscript_void_wm_detail_variant_destroy_20409c
-#define recovered_2040ad winterscript_void_wm_detail_variant_destroy_2040ad
-#define recovered_2040be winterscript_void_wm_detail_variant_destroy_2040be
-#define recovered_2040e3 winterscript_void_wm_detail_variant_destroy_2040e3
-#define recovered_204108 winterscript_void_wm_detail_variant_destroy_204108
-#define recovered_20411a winterscript_wm_vector_vector_20411a
-#define recovered_204136 winterscript_void_wm_detail_variant_destroy_204136
-#define recovered_204147 winterscript_void_wm_detail_variant_destroy_204147
-#define recovered_20416c winterscript_void_wm_detail_variant_destroy_20416c
-#define recovered_204194 winterscript_void_wm_detail_variant_destroy_204194
-#define recovered_2041bc winterscript_void_wm_detail_variant_destroy_2041bc
-#define recovered_2041d8 winterscript_wm_shared_ptr_release_2041d8
-#define recovered_204278 winterscript_wm_shared_ptr_release_204278
-#define recovered_204318 winterscript_wm_string_find_204318
-#define recovered_20435c winterscript_wm_operator_20435c
-#define recovered_2043b6 winterscript_WinterScript_WinterScript_2043b6
-#define recovered_20449a winterscript_wm_unordered_map_unordered_map_20449a
-#define recovered_2044c4 winterscript_WinterScript_ScriptFileCacheEntry_ScriptFileCacheEntry_2044c4
-#define recovered_2044e2 winterscript_wm_shared_ptr_release_2044e2
-#define recovered_204580 winterscript_wm_unordered_map_unordered_map_204580
-#define recovered_2045a8 winterscript_wm_vector_vector_2045a8
-#define recovered_2045c8 winterscript_wm_vector_clear_2045c8
-#define recovered_204608 winterscript_WinterScript_TableCacheEntry_TableCacheEntry_204608
-#define recovered_204652 winterscript_wm_vector_clear_204652
-#define recovered_204686 winterscript_wm_weak_ptr_release_204686
-#define recovered_2046b4 winterscript_wm_shared_ptr_release_2046b4
-#define recovered_204754 winterscript_wm_vector_vector_204754
-#define recovered_204770 winterscript_wm_unordered_map_unordered_map_204770
-#define recovered_204798 winterscript_wm_vector_vector_204798
-#define recovered_2047b8 winterscript_wm_vector_clear_2047b8
-#define recovered_2047f0 winterscript_wm_pair_pair_2047f0
-#define recovered_20480e winterscript_wm_unordered_map_unordered_map_20480e
-#define recovered_204836 winterscript_wm_vector_vector_204836
-#define recovered_204856 winterscript_wm_vector_clear_204856
-#define recovered_20488c winterscript_wm_pair_pair_20488c
-#define recovered_2048ae winterscript_wm_vector_clear_2048ae
-#define recovered_2048e6 winterscript_wm_unordered_map_unordered_map_2048e6
-#define recovered_20490e winterscript_cxx_global_var_init_20490e
-#define recovered_20496f winterscript_cxx_global_var_init_1_20496f
-#define recovered_2049d0 winterscript_cxx_global_var_init_2_2049d0
-#define recovered_204a31 winterscript_cxx_global_var_init_3_204a31
-#define recovered_204a94 winterscript_WinterScript_WinterScript_204a94
-#define recovered_20aa20 winterscript_WinterScript_pushFunction_20aa20
-#define recovered_20ab54 winterscript_wm_string_string_20ab54
-#define recovered_20ab5e winterscript_WinterScript_pushVariable_20ab5e
-#define recovered_20ad08 winterscript_Variable_Variable_20ad08
-#define recovered_20ad22 winterscript_WinterScript_makeNativeCallable_20ad22
-#define recovered_20ae30 winterscript_wm_unordered_map_operator_20ae30
-#define recovered_20af5c winterscript_Variable_operator_20af5c
-#define recovered_20af86 winterscript_Variable_operator_20af86
-#define recovered_20afb0 winterscript_wm_vector_vector_20afb0
-#define recovered_20afba winterscript_wm_unordered_map_unordered_map_20afba
-#define recovered_20afc4 winterscript_WinterScript_WinterScript_20afc4
-#define recovered_20afce winterscript_WinterScript_analyseToken_20afce
-#define recovered_20b076 winterscript_isTrueToken_20b076
-#define recovered_20b0eb winterscript_isFalseToken_20b0eb
-#define recovered_20b16c winterscript_WinterScript_isIdentifier_20b16c
-#define recovered_20b1de winterscript_tokenLooksNumeric_20b1de
-#define recovered_20b242 winterscript_wm_string_find_20b242
-#define recovered_20b27d winterscript_parseIntStrict_20b27d
-#define recovered_20b2b6 winterscript_WinterScript_fastScalarIsNumeric_20b2b6
-#define recovered_20b2c8 winterscript_WinterScript_fastScalarIsTruthy_20b2c8
-#define recovered_20b306 winterscript_WinterScript_fastScalarToDouble_20b306
-#define recovered_20b3fa winterscript_wm_runtime_error_runtime_error_20b3fa
-#define recovered_20b404 winterscript_wm_runtime_error_runtime_error_20b404
-#define recovered_20b40e winterscript_WinterScript_fastScalarToInt_20b40e
-#define recovered_20b50c winterscript_WinterScript_makeFastScalarInt_20b50c
-#define recovered_20b528 winterscript_WinterScript_makeFastScalarFloat_20b528
-#define recovered_20b544 winterscript_WinterScript_makeFastScalarBool_20b544
-#define recovered_20b560 winterscript_WinterScript_makeFastScalarNil_20b560
-#define recovered_20b57a winterscript_WinterScript_fastScalarToVariable_20b57a
-#define recovered_20b5de winterscript_WinterScript_assignFastScalarToVariable_20b5de
-#define recovered_20b66c winterscript_WinterScript_tryApplyFastScalarOperationInPlace_20b66c
-#define recovered_20bbe8 winterscript_toDouble_20bbe8
-#define recovered_20bcf4 winterscript_toInt_20bcf4
-#define recovered_20be0a winterscript_WinterScript_tryFastScalarFromVariable_20be0a
-#define recovered_20be74 winterscript_WinterScript_tryFastScalarFromIndexedValue_20be74
-#define recovered_20c10c winterscript_WinterScript_tryGetArrayIndex_20c10c
-#define recovered_20c1a8 winterscript_wm_string_operator_20c1a8
-#define recovered_20c1dc winterscript_wm_string_operator_20c1dc
-#define recovered_20c21c winterscript_wm_to_string_20c21c
-#define recovered_20c242 winterscript_wm_string_operator_20c242
-#define recovered_20c26a winterscript_wm_unordered_map_find_20c26a
-#define recovered_20c298 winterscript_WinterScript_tryEvaluateNativeBuiltinScalar_20c298
-#define recovered_20c47e winterscript_wm_chrono_duration_const_20c47e
-#define recovered_20c4b8 winterscript_WinterScript_dispatchBuiltinFast_20c4b8
-#define recovered_20dfba winterscript_stringByteRangeReturnsScalar_20dfba
-#define recovered_20e038 winterscript_WinterScript_tryEvaluateFastCallableScalar_20e038
-#define recovered_20e5f8 winterscript_WinterScript_tryEvaluateFastExpressionScalar_20e5f8
-#define recovered_20e61e winterscript_WinterScript_isTruthy_20e61e
-#define recovered_20e650 winterscript_WinterScript_evaluateFastExpression_20e650
-#define recovered_20e7ec winterscript_WinterScript_evaluateExpression_20e7ec
-#define recovered_20e916 winterscript_WinterScript_throwError_20e916
-#define recovered_20ede8 winterscript_wm_string_operator_wm_string_view_20ede8
-#define recovered_20ee00 winterscript_WinterScript_raiseScriptErrorSoft_20ee00
-#define recovered_20ef00 winterscript_clang_call_terminate_20ef00
-#define recovered_20ef16 winterscript_WinterScript_tryEvaluateProtectedFastCallableScalar_20ef16
-#define recovered_20f42c winterscript_WinterScript_tryEvaluateProtectedFastCallableScalar_20f42c
-#define recovered_20f47c winterscript_WinterScript_appendFastStringConcatNode_20f47c
-#define recovered_20f702 winterscript_WinterScript_resolveVariableFastPtr_20f702
-#define recovered_20fae6 winterscript_WinterScript_evaluateFastExpressionNode_20fae6
-#define recovered_2114da winterscript_WinterScript_shouldAbortForSoftRaisedError_2114da
-#define recovered_2114fe winterscript_appendVariableStringFast_2114fe
-#define recovered_21162a winterscript_WinterScript_tryEvaluateFastExpressionIntNode_21162a
-#define recovered_211e2c winterscript_getVisibleLocalScope_211e2c
-#define recovered_211e5b winterscript_getDirectScopeValue_211e5b
-#define recovered_211e7a winterscript_getCachedScopeValue_211e7a
-#define recovered_211eb2 winterscript_WinterScript_tryEvaluateFastExpressionScalarNode_211eb2
-#define recovered_2145dc winterscript_WinterScript_arrayLength_2145dc
-#define recovered_2146f2 winterscript_WinterScript_tryEvaluateFastExpressionBoolNode_2146f2
-#define recovered_214c46 winterscript_wm_vector_resize_214c46
-#define recovered_214cbc winterscript_wm_vector_resize_214cbc
-#define recovered_214d0c winterscript_WinterScript_tryExecuteDiscardedFastCall_214d0c
-#define recovered_215120 winterscript_WinterScript_getIndexedValue_215120
-#define recovered_215860 winterscript_WinterScript_invokeCallableFast_215860
-#define recovered_216b16 winterscript_WinterScript_variablesEqual_216b16
-#define recovered_216c7c winterscript_WinterScript_compareVariables_216c7c
-#define recovered_216f44 winterscript_toFloat_216f44
-#define recovered_216f5a winterscript_WinterScript_performOperation_216f5a
-#define recovered_217b00 winterscript_RaisedScriptError_RaisedScriptError_217b00
-#define recovered_217b20 winterscript_WinterScript_clearSoftRaisedError_217b20
-#define recovered_217b4a winterscript_WinterScript_rethrowPendingCoroutineException_217b4a
-#define recovered_217b62 winterscript_WinterScript_serviceScheduledCoroutineTurnNoThrow_217b62
-#define recovered_217c00 winterscript_WinterScript_serviceScheduledCoroutineTurn_217c00
-#define recovered_21863c winterscript_WinterScript_createCoroutineState_21863c
-#define recovered_218a0d winterscript_wm_shared_ptr_218a0d
-#define recovered_218acc winterscript_wm_shared_ptr_const_218acc
-#define recovered_218b0c winterscript_wm_vector_218b0c
-#define recovered_218b56 winterscript_wm_vector_reserve_218b56
-#define recovered_218bc2 winterscript_wm_pair_218bc2
-#define recovered_218c24 winterscript_WinterScript_startCoroutine_218c24
-#define recovered_218d22 winterscript_wm_shared_ptr_218d22
-#define recovered_218d56 winterscript_WinterScript_pushCoroutineBlockFrame_218d56
-#define recovered_218ea4 winterscript_WinterScript_popCoroutineBlockFrame_218ea4
-#define recovered_218f16 winterscript_wm_vector_pop_back_218f16
-#define recovered_218f3a winterscript_wm_vector_pop_back_218f3a
-#define recovered_218f5e winterscript_WinterScript_popCoroutineLoopFrame_218f5e
-#define recovered_218fc0 winterscript_WinterScript_executeCoroutineTurn_218fc0
-#define recovered_21c17a winterscript_WinterScript_executeCoroutineTurn_21c17a
-#define recovered_21c28a winterscript_WinterScript_executeCoroutineTurn_21c28a
-#define recovered_21c4d8 winterscript_wm_operator_21c4d8
-#define recovered_21c4f6 winterscript_wm_shared_ptr_21c4f6
-#define recovered_21c5b4 winterscript_wm_vector_21c5b4
-#define recovered_21c5fc winterscript_wm_vector_reserve_21c5fc
-#define recovered_21c66c winterscript_WinterScript_prepareParsedLines_21c66c
-#define recovered_21e020 winterscript_WinterScript_prepareFastCallableBody_21e020
-#define recovered_21e2cc winterscript_WinterScript_assignVariable_21e2cc
-#define recovered_21e3a0 winterscript_WinterScript_resolveVariable_21e3a0
-#define recovered_21e3d6 winterscript_Variable_makeTable_21e3d6
-#define recovered_21e480 winterscript_WinterScript_prefersArrayStorage_21e480
-#define recovered_21e4ac winterscript_Variable_makeArray_21e4ac
-#define recovered_21e558 winterscript_WinterScript_setIndexedValue_21e558
-#define recovered_21eb90 winterscript_WinterScript_getIndexedValueMutable_21eb90
-#define recovered_21eff8 winterscript_wm_vector_vector_21eff8
-#define recovered_21f002 winterscript_wm_vector_clear_21f002
-#define recovered_21f036 winterscript_WinterScript_executeAssignment_21f036
-#define recovered_221998 winterscript_wm_shared_ptr_reset_221998
-#define recovered_2219a2 winterscript_wm_vector_2219a2
-#define recovered_2219ea winterscript_wm_vector_2219ea
-#define recovered_221a2e winterscript_wm_vector_221a2e
-#define recovered_221a76 winterscript_wm_vector_221a76
-#define recovered_221aba winterscript_wm_string_rfind_221aba
-#define recovered_221b2e winterscript_WinterScript_serviceScheduledCoroutineTurn_221b2e
-#define recovered_221d28 winterscript_wm_shared_ptr_const_221d28
-#define recovered_221d68 winterscript_wm_unordered_map_find_221d68
-#define recovered_221d96 winterscript_wm_pair_221d96
-#define recovered_221e1d winterscript_wm_operator_221e1d
-#define recovered_221ec8 winterscript_WinterScript_pullVariable_221ec8
-#define recovered_222022 winterscript_wm_unordered_map_operator_222022
-#define recovered_222144 winterscript_wm_function_const_222144
-#define recovered_22217d winterscript_builtinIdFromName_22217d
-#define recovered_2226e2 winterscript_WinterScript_createNativeCallable_2226e2
-#define recovered_2227ac winterscript_wm_vector_reserve_2227ac
-#define recovered_2227f6 winterscript_WinterScript_evaluateFastCallableReturn_2227f6
-#define recovered_222bee winterscript_wm_vector_reserve_222bee
-#define recovered_222c5e winterscript_Variable_makeMulti_222c5e
-#define recovered_222d4c winterscript_WinterScript_resolveVariablePtr_222d4c
-#define recovered_222e32 winterscript_wm_unordered_map_find_222e32
-#define recovered_222e60 winterscript_findScopeValue_222e60
-#define recovered_222ea1 winterscript_wm_operator_222ea1
-#define recovered_222ef4 winterscript_findScopeValueAndSlot_222ef4
-#define recovered_222f42 winterscript_WinterScript_resolveVariableFast_222f42
-#define recovered_222f7c winterscript_WinterScript_resolveExistingVariableFastMutable_222f7c
-#define recovered_22381b winterscript_findScopeValueMutable_22381b
-#define recovered_22385c winterscript_getVisibleLocalScopeMutable_22385c
-#define recovered_22388b winterscript_getDirectScopeValueMutable_22388b
-#define recovered_2238aa winterscript_getCachedScopeValueMutable_2238aa
-#define recovered_2238e1 winterscript_findScopeValueMutableAndSlot_2238e1
-#define recovered_22392e winterscript_WinterScript_assignExistingVariable_22392e
-#define recovered_223966 winterscript_WinterScript_assignExistingVariableFast_223966
-#define recovered_22399e winterscript_setScopeValue_22399e
-#define recovered_2239d6 winterscript_WinterScript_assignVariableFast_2239d6
-#define recovered_223a40 winterscript_WinterScript_resolvePath_223a40
-#define recovered_224092 winterscript_pathExists_224092
-#define recovered_2240d5 winterscript_joinPath_2240d5
-#define recovered_22420a winterscript_wm_string_compare_22420a
-#define recovered_22425c winterscript_wm_string_substr_22425c
-#define recovered_2242a8 winterscript_WinterScript_markTableMutated_2242a8
-#define recovered_2242fc winterscript_WinterScript_maybePruneDeadTableCacheEntries_2242fc
-#define recovered_224334 winterscript_wm_unordered_map_const_224334
-#define recovered_224478 winterscript_wm_weak_ptr_const_224478
-#define recovered_2244b4 winterscript_WinterScript_pruneDeadTableCacheEntries_2244b4
-#define recovered_224504 winterscript_wm_unordered_map_224504
-#define recovered_224568 winterscript_WinterScript_getSortedTableKeys_224568
-#define recovered_224920 winterscript_WinterScript_TableCacheEntry_operator_224920
-#define recovered_2249da winterscript_wm_vector_reserve_2249da
-#define recovered_224a46 winterscript_parseFloatStrict_224a46
-#define recovered_224ab2 winterscript_WinterScript_getSortedTableKeyValues_224ab2
-#define recovered_224b5a winterscript_WinterScript_getIterationTableKeys_224b5a
-#define recovered_224f12 winterscript_wm_unordered_map_clear_224f12
-#define recovered_224f30 winterscript_wm_unordered_map_reserve_224f30
-#define recovered_224f7e winterscript_WinterScript_getIterationTableKeyValues_224f7e
-#define recovered_225026 winterscript_WinterScript_getIterationTableKeyIndex_225026
-#define recovered_225142 winterscript_WinterScript_numericTableLength_225142
-#define recovered_22534a winterscript_WinterScript_invokeCallable_22534a
-#define recovered_225376 winterscript_WinterScript_pcallFunctionFast_225376
-#define recovered_225af0 winterscript_WinterScript_loadScriptChunk_225af0
-#define recovered_226040 winterscript_WinterScript_pairsFunction_226040
-#define recovered_22660c winterscript_WinterScript_ipairsFunction_22660c
-#define recovered_2269f4 winterscript_WinterScript_keyToString_2269f4
-#define recovered_226b6e winterscript_wm_unordered_map_at_226b6e
-#define recovered_226b9c winterscript_WinterScript_selectFunctionFast_226b9c
-#define recovered_226f1c winterscript_wm_string_end_226f1c
-#define recovered_226f36 winterscript_WinterScript_findFunctionImpl_226f36
-#define recovered_2274d4 winterscript_WinterScript_matchFunctionImpl_2274d4
-#define recovered_227a72 winterscript_WinterScript_gmatchFunctionImpl_227a72
-#define recovered_2280a6 winterscript_WinterScript_byteFunctionImpl_2280a6
-#define recovered_228316 winterscript_WinterScript_formatFunctionImpl_228316
-#define recovered_229178 winterscript_WinterScript_gsubImpl_229178
-#define recovered_229e76 winterscript_WinterScript_insertFunctionImpl_229e76
-#define recovered_22a230 winterscript_WinterScript_removeFunctionImpl_22a230
-#define recovered_22a676 winterscript_WinterScript_concatFunctionImpl_22a676
-#define recovered_22ac4c winterscript_WinterScript_sortFunctionImpl_22ac4c
-#define recovered_22b010 winterscript_WinterScript_typeName_22b010
-#define recovered_22b044 winterscript_WinterScript_executeBytecodeChunk_22b044
-#define recovered_22b070 winterscript_wm_vector_pop_back_22b070
-#define recovered_22b094 winterscript_WinterScript_executeParsedBlock_22b094
-#define recovered_22f742 winterscript_WinterScript_readScriptFile_22f742
-#define recovered_22fa10 winterscript_std_ostringstream_operator_22fa10
-#define recovered_22fa66 winterscript_std_ifstream_ifstream_22fa66
-#define recovered_22fa7f winterscript_wm_shared_ptr_22fa7f
-#define recovered_22fac0 winterscript_WinterScript_compileToBytecodeInternal_22fac0
-#define recovered_22fcce winterscript_wm_shared_ptr_const_22fcce
-#define recovered_22fd0e winterscript_WinterScript_loadScriptFile_22fd0e
-#define recovered_230ab8 winterscript_wm_unordered_map_find_230ab8
-#define recovered_230ae6 winterscript_wm_shared_ptr_230ae6
-#define recovered_230b1a winterscript_wm_unordered_map_operator_230b1a
-#define recovered_230c34 winterscript_wm_shared_ptr_230c34
-#define recovered_230c68 winterscript_WinterScript_runScriptFile_230c68
-#define recovered_230e2d winterscript_multiValuesPtr_230e2d
-#define recovered_230e44 winterscript_WinterScript_openFileFunction_230e44
-#define recovered_2318ff winterscript_wm_shared_ptr_2318ff
-#define recovered_2319c4 winterscript_wm_shared_ptr_2319c4
-#define recovered_2319f8 winterscript_wm_shared_ptr_2319f8
-#define recovered_231a2c winterscript_wm_shared_ptr_shared_ptr_231a2c
-#define recovered_231ac8 winterscript_WinterScript_fileReadFunction_231ac8
-#define recovered_231d84 winterscript_WinterScript_fileWriteFunction_231d84
-#define recovered_231f5c winterscript_std_ostream_operator_231f5c
-#define recovered_231f86 winterscript_std_ostream_flush_231f86
-#define recovered_231fa6 winterscript_WinterScript_fileCloseFunction_231fa6
-#define recovered_2320c2 winterscript_std_ostringstream_operator_2320c2
-#define recovered_2320de winterscript_WinterScript_printFunction_2320de
-#define recovered_232204 winterscript_writePermafrostText_232204
-#define recovered_23222a winterscript_WinterScript_getTimeMsFunction_23222a
-#define recovered_232346 winterscript_WinterScript_randomFunction_232346
-#define recovered_2325be winterscript_wm_mt19937_operator_2325be
-#define recovered_23261a winterscript_WinterScript_toStringFunction_23261a
-#define recovered_23273c winterscript_WinterScript_toNumberFunction_23273c
-#define recovered_2329e8 winterscript_getCachedGsubPattern_2329e8
-#define recovered_23385c winterscript_WinterScript_gsubImpl_23385c
-#define recovered_233a12 winterscript_wm_string_append_233a12
-#define recovered_233ad0 winterscript_wm_sregex_iterator_operator_233ad0
-#define recovered_233aee winterscript_wm_match_results_str_233aee
-#define recovered_233b2c winterscript_wm_sregex_iterator_operator_233b2c
-#define recovered_233b60 winterscript_WinterScript_gsubFunction_233b60
-#define recovered_233c56 winterscript_WinterScript_typeOfFunction_233c56
-#define recovered_233ef6 winterscript_WinterScript_killFunction_233ef6
-#define recovered_234032 winterscript_WinterScript_popFunction_234032
-#define recovered_234222 winterscript_wm_vector_pop_back_234222
-#define recovered_234246 winterscript_WinterScript_clearFunction_234246
-#define recovered_234418 winterscript_wm_unordered_map_clear_234418
-#define recovered_234436 winterscript_WinterScript_eraseFunction_234436
-#define recovered_2346f4 winterscript_wm_vector_erase_2346f4
-#define recovered_234712 winterscript_wm_unordered_map_erase_234712
-#define recovered_234750 winterscript_WinterScript_containsFunction_234750
-#define recovered_2349c0 winterscript_WinterScript_keysFunction_2349c0
-#define recovered_234bca winterscript_WinterScript_valuesFunction_234bca
-#define recovered_234de0 winterscript_WinterScript_assertFunction_234de0
-#define recovered_234fc8 winterscript_WinterScript_errorFunction_234fc8
-#define recovered_2350b0 winterscript_WinterScript_pcallFunction_2350b0
-#define recovered_2350d6 winterscript_Variable_wm_vector_2350d6
-#define recovered_2351e0 winterscript_WinterScript_nextFunction_2351e0
-#define recovered_23575c winterscript_WinterScript_selectFunction_23575c
-#define recovered_23578c winterscript_WinterScript_collectGarbageFunction_23578c
-#define recovered_2357b4 winterscript_WinterScript_upperFunction_2357b4
-#define recovered_23595a winterscript_WinterScript_lowerFunction_23595a
-#define recovered_235b00 winterscript_WinterScript_subFunction_235b00
-#define recovered_235cce winterscript_findAsciiLuaClassRun_235cce
-#define recovered_235d1b winterscript_bool_wm_regex_search_wm_regex_const_235d1b
-#define recovered_235d88 winterscript_WinterScript_findFunction_235d88
-#define recovered_235db7 winterscript_findAlphaDashDigitsMatch_235db7
-#define recovered_235e66 winterscript_Variable_wm_vector_235e66
-#define recovered_235eb8 winterscript_WinterScript_matchFunction_235eb8
-#define recovered_235ee8 winterscript_WinterScript_gmatchFunction_235ee8
-#define recovered_235f18 winterscript_WinterScript_byteFunction_235f18
-#define recovered_235f48 winterscript_WinterScript_charFunction_235f48
-#define recovered_236054 winterscript_normaliseIntegerFormatSpecifier_236054
-#define recovered_23628c winterscript_ZZN12WinterScript18formatFunctionImplEPK8VariablemENK3_0clIiEEDaRKN2wm6stringET_23628c
-#define recovered_2363c8 winterscript_wm_string_resize_2363c8
-#define recovered_2363e4 winterscript_WinterScript_formatFunction_2363e4
-#define recovered_236414 winterscript_WinterScript_repFunction_236414
-#define recovered_236620 winterscript_WinterScript_insertFunction_236620
-#define recovered_236646 winterscript_WinterScript_removeFunction_236646
-#define recovered_23666c winterscript_estimateVariableStringSize_23666c
-#define recovered_2366da winterscript_WinterScript_concatFunction_2366da
-#define recovered_236700 winterscript_WinterScript_sortFunctionImpl_236700
-#define recovered_236ba8 winterscript_WinterScript_sortFunction_236ba8
-#define recovered_236bce winterscript_WinterScript_floorFunction_236bce
-#define recovered_236cde winterscript_WinterScript_ceilFunction_236cde
-#define recovered_236dee winterscript_WinterScript_absFunction_236dee
-#define recovered_236f16 winterscript_WinterScript_minFunction_236f16
-#define recovered_237084 winterscript_WinterScript_maxFunction_237084
-#define recovered_2371f2 winterscript_WinterScript_sinFunction_2371f2
-#define recovered_2372f0 winterscript_WinterScript_cosFunction_2372f0
-#define recovered_2373ee winterscript_WinterScript_radFunction_2373ee
-#define recovered_2374ee winterscript_WinterScript_logFunction_2374ee
-#define recovered_2376da winterscript_WinterScript_sqrtFunction_2376da
-#define recovered_237820 winterscript_WinterScript_randomSeedFunction_237820
-#define recovered_237920 winterscript_wm_mt19937_seed_237920
-#define recovered_23795a winterscript_WinterScript_clockFunction_23795a
-#define recovered_237a8d winterscript_wm_chrono_duration_const_237a8d
-#define recovered_237ac8 winterscript_WinterScript_timeFunction_237ac8
-#define recovered_237bd3 winterscript_wm_chrono_duration_const_237bd3
-#define recovered_237c08 winterscript_WinterScript_utf8LenFunction_237c08
-#define recovered_237d22 winterscript_WinterScript_utf8OffsetFunction_237d22
-#define recovered_237e92 winterscript_WinterScript_skipWhitespace_237e92
-#define recovered_237ec0 winterscript_WinterScript_tokenise_237ec0
-#define recovered_2382a6 winterscript_WinterScript_tokenise_2382a6
-#define recovered_2382e0 winterscript_wm_string_wm_vector_2382e0
-#define recovered_238344 winterscript_wm_string_wm_vector_238344
-#define recovered_2383a8 winterscript_wm_string_wm_vector_2383a8
-#define recovered_23840a winterscript_wm_operator_23840a
-#define recovered_2384b8 winterscript_WinterScript_performOperation_2384b8
-#define recovered_238602 winterscript_bool_wm_operator_const_238602
-#define recovered_238642 winterscript_wm_operator_238642
-#define recovered_23867a winterscript_promoteArrayVariableToTable_23867a
-#define recovered_238856 winterscript_wm_to_string_238856
-#define recovered_2388a2 winterscript_WinterScript_getIndexedValue_2388a2
-#define recovered_2388c6 winterscript_wm_unordered_map_operator_2388c6
-#define recovered_2389f4 winterscript_WinterScript_skipExpression_2389f4
-#define recovered_238b06 winterscript_xpressionERKN2wm6vectorINS0_6stringEEERmiPKNS1_I13TokenAnalysisEEENK3_0clIRSB_EEvOT_i_238b06
-#define recovered_239422 winterscript_onERKN2wm6vectorINS0_6stringEEERmPKNS1_I13TokenAnalysisEEENK3_1clIRSB_EE8VariableOT_i_239422
-#define recovered_239e9a winterscript_WinterScript_evaluateCondition_239e9a
-#define recovered_239efc winterscript_WinterScript_executeAssignment_239efc
-#define recovered_239f74 winterscript_WinterScript_executeAssignment_239f74
-#define recovered_23a2ec winterscript_WinterScript_executeAssignment_23a2ec
-#define recovered_23a364 winterscript_tryApplyOperationInPlace_23a364
-#define recovered_23ad0c winterscript_WinterScript_executeAssignment_23ad0c
-#define recovered_23ad54 winterscript_WinterScript_executeAssignment_23ad54
-#define recovered_23afb6 winterscript_WinterScript_executeAssignment_23afb6
-#define recovered_23d1e4 winterscript_WinterScript_executeAssignment_23d1e4
-#define recovered_23d228 winterscript_wm_vector_reserve_23d228
-#define recovered_23d28e winterscript_WinterScript_executeAssignment_23d28e
-#define recovered_23d2ae winterscript_wm_vector_vector_23d2ae
-#define recovered_23d2e8 winterscript_WinterScript_findMatchingElseOrEnd_23d2e8
-#define recovered_23d422 winterscript_WinterScript_findMatchingEnd_23d422
-#define recovered_23d546 winterscript_WinterScript_findMatchingUntil_23d546
-#define recovered_23d66a winterscript_wm_pair_23d66a
-#define recovered_23d6cc winterscript_WinterScript_executeParsedBlock_23d6cc
-#define recovered_23d956 winterscript_wm_vector_const_23d956
-#define recovered_23d9a8 winterscript_WinterScript_executeParsedBlock_23d9a8
-#define recovered_23d9d2 winterscript_wm_vector_clear_23d9d2
-#define recovered_23da06 winterscript_wm_vector_clear_23da06
-#define recovered_23da3a winterscript_FastExpression_operator_23da3a
-#define recovered_23da8e winterscript_FastCallExpression_operator_23da8e
-#define recovered_23dab8 winterscript_WinterScript_prepareParsedLines_23dab8
-#define recovered_23dc46 winterscript_wm_vector_23dc46
-#define recovered_23dc8e winterscript_wm_vector_23dc8e
-#define recovered_23dcd2 winterscript_wm_vector_reserve_23dcd2
-#define recovered_23dd3e winterscript_compileFastExpressionRange_23dd3e
-#define recovered_23df34 winterscript_wm_vector_reserve_23df34
-#define recovered_23dfa0 winterscript_wm_vector_BlockEntry_23dfa0
-#define recovered_23dfda winterscript_wm_vector_pop_back_23dfda
-#define recovered_23dffe winterscript_WinterScript_prepareParsedLines_23dffe
-#define recovered_23e024 winterscript_wm_vector_vector_23e024
-#define recovered_23e064 winterscript_WinterScript_parseLines_23e064
-#define recovered_23e60b winterscript_int_wm_count_23e60b
-#define recovered_23e632 winterscript_wm_string_view_find_23e632
-#define recovered_23e65c winterscript_WinterScript_parseLines_23e65c
-#define recovered_23e712 winterscript_WinterScript_parseLines_23e712
-#define recovered_23e8dc winterscript_WinterScript_executeBlock_23e8dc
-#define recovered_23ea7e winterscript_WinterScript_runScript_23ea7e
-#define recovered_23ed7a winterscript_WinterScript_runBytecodeProgram_23ed7a
-#define recovered_23efe6 winterscript_WinterScript_runScriptFilePath_23efe6
-#define recovered_23f0e4 winterscript_WinterScript_compileBytecodeChunk_23f0e4
-#define recovered_23fafc winterscript_Instruction_wm_vector_23fafc
-#define recovered_23fc0e winterscript_wm_vector_23fc0e
-#define recovered_23fc56 winterscript_wm_vector_reserve_23fc56
-#define recovered_23fcb6 winterscript_WinterScript_compileToBytecode_23fcb6
-#define recovered_23fcda winterscript_WinterScript_compileToBytecode_23fcda
-#define recovered_240032 winterscript_wm_string_find_last_of_240032
-#define recovered_240098 winterscript_WinterScript_serializeBytecode_240098
-#define recovered_240650 winterscript_unsigned_char_wm_vector_240650
-#define recovered_2406f4 winterscript_WinterScript_serializeBytecode_2406f4
-#define recovered_240730 winterscript_WinterScript_serializeBytecode_240730
-#define recovered_240754 winterscript_WinterScript_serializeBytecode_240754
-#define recovered_240770 winterscript_WinterScript_saveBytecode_240770
-#define recovered_240934 winterscript_std_ofstream_ofstream_240934
-#define recovered_24094e winterscript_WinterScript_deserializeBytecode_24094e
-#define recovered_2413ba winterscript_WinterScript_deserializeBytecode_2413ba
-#define recovered_2414d8 winterscript_WinterScript_deserializeBytecode_2414d8
-#define recovered_24151e winterscript_WinterScript_deserializeBytecode_24151e
-#define recovered_24155a winterscript_wm_vector_resize_24155a
-#define recovered_2415e2 winterscript_wm_vector_resize_2415e2
-#define recovered_241658 winterscript_wm_vector_resize_241658
-#define recovered_2416a4 winterscript_WinterScript_deserializeBytecode_2416a4
-#define recovered_2416c8 winterscript_wm_vector_resize_2416c8
-#define recovered_241718 winterscript_wm_vector_resize_241718
-#define recovered_24178c winterscript_wm_vector_resize_24178c
-#define recovered_2417d8 winterscript_wm_vector_resize_2417d8
-#define recovered_24181c winterscript_wm_vector_resize_24181c
-#define recovered_241860 winterscript_wm_vector_resize_241860
-#define recovered_2418a4 winterscript_wm_vector_resize_2418a4
-#define recovered_24191c winterscript_WinterScript_loadBytecode_24191c
-#define recovered_241d04 winterscript_wm_vector_resize_241d04
-#define recovered_241d42 winterscript_WinterScript_executeBytecodeChunkInternal_241d42
-#define recovered_248592 winterscript_WinterScript_executeBytecodeChunkInternal_248592
-#define recovered_2486aa winterscript_WinterScript_executeBytecodeChunkInternal_2486aa
-#define recovered_2488a0 winterscript_WinterScript_executeBytecodeChunkInternal_2488a0
-#define recovered_248b3c winterscript_WinterScript_executeBytecodeChunkInternal_248b3c
-#define recovered_248b88 winterscript_nkInternalERKN2wm10shared_ptrI15BytecodeProgramEEjR11BlockSignalbENK3_0clIRS8_EEbOT_j_248b88
-#define recovered_248cfc winterscript_5BytecodeProgramEEjR11BlockSignalbENK3_3clIRS8_EEbOT_jRPKNS0_6vectorINS0_6stringEEES7_248cfc
-#define recovered_24ac0e winterscript_WinterScript_executeBytecodeChunkInternal_24ac0e
-#define recovered_24ae98 winterscript_WinterScript_executeBytecodeChunkInternal_24ae98
-#define recovered_24aec8 winterscript_WinterScript_runBytecodeInternal_24aec8
-#define recovered_24af7e winterscript_wm_shared_ptr_24af7e
-#define recovered_24b038 winterscript_WinterScript_runBytecode_24b038
-#define recovered_24b05c winterscript_std_istream_istream_24b05c
-#define recovered_24b068 winterscript_wm_unordered_map_unordered_map_24b068
-#define recovered_24b094 winterscript_wm_vector_vector_24b094
-#define recovered_24b0b4 winterscript_wm_vector_clear_24b0b4
-#define recovered_24b0ea winterscript_wm_unordered_map_unordered_map_24b0ea
-#define recovered_24b116 winterscript_wm_unordered_map_unordered_map_24b116
-#define recovered_24b144 winterscript_wm_mt19937_mt19937_24b144
-#define recovered_24b16c winterscript_wm_unordered_map_unordered_map_24b16c
-#define recovered_24b198 winterscript_wm_unordered_map_unordered_map_24b198
-#define recovered_24b1c4 winterscript_wm_vector_vector_24b1c4
-#define recovered_24b1e4 winterscript_wm_vector_clear_24b1e4
-#define recovered_24b218 winterscript_wm_pair_pair_24b218
-#define recovered_24b238 winterscript_wm_string_string_24b238
-#define recovered_24b26c winterscript_wm_string_ensure_storage_24b26c
-#define recovered_24b290 winterscript_wm_string_string_24b290
-#define recovered_24b2a8 winterscript_wm_variant_variant_24b2a8
-#define recovered_24b328 winterscript_Variable_Variable_24b328
-#define recovered_24b34c winterscript_wm_variant_24b34c
-#define recovered_24b360 winterscript_wm_vector_vector_24b360
-#define recovered_24b380 winterscript_wm_vector_clear_24b380
-#define recovered_24b3b8 winterscript_wm_variant_24b3b8
-#define recovered_24b3f0 winterscript_void_wm_detail_variant_move_24b3f0
-#define recovered_24b40b winterscript_void_wm_detail_variant_move_24b40b
-#define recovered_24b426 winterscript_void_wm_detail_variant_move_24b426
-#define recovered_24b44e winterscript_void_wm_detail_variant_move_24b44e
-#define recovered_24b476 winterscript_void_wm_detail_variant_move_24b476
-#define recovered_24b492 winterscript_wm_vector_24b492
-#define recovered_24b4b8 winterscript_void_wm_detail_variant_move_24b4b8
-#define recovered_24b4ea winterscript_Variable_Variable_24b4ea
-#define recovered_24b538 winterscript_wm_shared_ptr_const_24b538
-#define recovered_24b5f4 winterscript_wm_unordered_map_const_24b5f4
-#define recovered_24b6dc winterscript_wm_vector_const_24b6dc
-#define recovered_24b73c winterscript_wm_pair_const_24b73c
-#define recovered_24b7e8 winterscript_wm_vector_const_24b7e8
-#define recovered_24b832 winterscript_wm_shared_ptr_24b832
-#define recovered_24b878 winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_24b878
-#define recovered_24b87e winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_24b87e
-#define recovered_24b888 winterscript_wm_detail_shared_control_block_impl_destroy_object_24b888
-#define recovered_24b8b6 winterscript_wm_variant_const_24b8b6
-#define recovered_24b8ee winterscript_void_wm_detail_variant_copy_24b8ee
-#define recovered_24b909 winterscript_void_wm_detail_variant_copy_24b909
-#define recovered_24b924 winterscript_void_wm_detail_variant_copy_24b924
-#define recovered_24b94c winterscript_void_wm_detail_variant_copy_24b94c
-#define recovered_24b974 winterscript_void_wm_detail_variant_copy_24b974
-#define recovered_24b990 winterscript_wm_vector_const_24b990
-#define recovered_24b9d2 winterscript_wm_vector_reserve_24b9d2
-#define recovered_24ba1c winterscript_char_wm_detail_vector_allocate_24ba1c
-#define recovered_24ba2f winterscript_void_wm_detail_variant_copy_24ba2f
-#define recovered_24ba4a winterscript_void_wm_detail_variant_copy_24ba4a
-#define recovered_24ba72 winterscript_void_wm_detail_variant_copy_24ba72
-#define recovered_24ba9a winterscript_void_wm_detail_variant_copy_24ba9a
-#define recovered_24bac2 winterscript_void_wm_detail_variant_copy_24bac2
-#define recovered_24bae6 winterscript_wm_shared_ptr_const_24bae6
-#define recovered_24bb02 winterscript_wm_unordered_map_unordered_map_24bb02
-#define recovered_24bb2a winterscript_TokenAnalysis_TokenAnalysis_24bb2a
-#define recovered_24bb53 winterscript_wm_from_chars_result_wm_from_chars_24bb53
-#define recovered_24bca7 winterscript_wm_digit_from_char_24bca7
-#define recovered_24bce0 winterscript_wm_runtime_error_runtime_error_24bce0
-#define recovered_24bd0a winterscript_wm_runtime_error_runtime_error_24bd0a
-#define recovered_24bd24 winterscript_wm_runtime_error_what_24bd24
+#define recovered_2001cf winterscript_wm_probe_heap_free_bytes_2001cf
+#define recovered_200228 winterscript_wm_probe_heap_total_bytes_200228
+#define recovered_200275 winterscript_wm_probe_heap_alloc_200275
+#define recovered_2002dc winterscript_ashldi3_2002dc
+#define recovered_200315 winterscript_lshrdi3_200315
+#define recovered_20034e winterscript_udivdi3_20034e
+#define recovered_20036f winterscript_udivmod64_20036f
+#define recovered_200452 winterscript_umoddi3_200452
+#define recovered_20048a winterscript_divdi3_20048a
+#define recovered_2004fe winterscript_moddi3_2004fe
+#define recovered_200570 winterscript_abort_200570
+#define recovered_200577 winterscript_abs_200577
+#define recovered_200586 winterscript_malloc_200586
+#define recovered_2005ae winterscript_free_2005ae
+#define recovered_2005d4 winterscript_realloc_2005d4
+#define recovered_2005fc winterscript_memcpy_2005fc
+#define recovered_20061d winterscript_memmove_20061d
+#define recovered_200663 winterscript_memset_200663
+#define recovered_20067f winterscript_bzero_20067f
+#define recovered_200697 winterscript_bzero_200697
+#define recovered_2006af winterscript_memcmp_2006af
+#define recovered_2006de winterscript_islower_2006de
+#define recovered_2006f1 winterscript_isupper_2006f1
+#define recovered_200704 winterscript_isalpha_200704
+#define recovered_20071a winterscript_isalnum_20071a
+#define recovered_20073e winterscript_isblank_20073e
+#define recovered_200757 winterscript_isprint_200757
+#define recovered_20076a winterscript_tolower_20076a
+#define recovered_20077e winterscript_toupper_20077e
+#define recovered_200792 winterscript_strlen_200792
+#define recovered_2007ad winterscript_strcmp_2007ad
+#define recovered_2007d5 winterscript_strcoll_2007d5
+#define recovered_2007de winterscript_strcpy_2007de
+#define recovered_2007f8 winterscript_strdup_2007f8
+#define recovered_200842 winterscript_strchr_200842
+#define recovered_200867 winterscript_strspn_200867
+#define recovered_20089e winterscript_strpbrk_20089e
+#define recovered_2008cc winterscript_strstr_2008cc
+#define recovered_2008fd winterscript_setlocale_2008fd
+#define recovered_200907 winterscript_localeconv_200907
+#define recovered_200911 winterscript_time_200911
+#define recovered_200928 winterscript_ldexp_200928
+#define recovered_200952 winterscript_frexp_200952
+#define recovered_2009ca winterscript_fmod_2009ca
+#define recovered_200a17 winterscript_pow_200a17
+#define recovered_200a9b winterscript_floor_200a9b
+#define recovered_200adc winterscript_ceil_200adc
+#define recovered_200b29 winterscript_sqrt_200b29
+#define recovered_200b61 winterscript_log_200b61
+#define recovered_200bf8 winterscript_llround_200bf8
+#define recovered_200c39 winterscript_sin_200c39
+#define recovered_200c7b winterscript_wrap_angle_200c7b
+#define recovered_200cb3 winterscript_cos_200cb3
+#define recovered_200cf1 winterscript_fabs_200cf1
+#define recovered_200d05 winterscript_fmodf_200d05
+#define recovered_200d5a winterscript_frexpf_200d5a
+#define recovered_200d7d winterscript_ldexpf_200d7d
+#define recovered_200da0 winterscript_powf_200da0
+#define recovered_200dc3 winterscript_floorf_200dc3
+#define recovered_200e0a winterscript_ceilf_200e0a
+#define recovered_200e26 winterscript_trunc_200e26
+#define recovered_200e78 winterscript_truncf_200e78
+#define recovered_200e94 winterscript_sqrtf_200e94
+#define recovered_200eb0 winterscript_logf_200eb0
+#define recovered_200ecc winterscript_lround_200ecc
+#define recovered_200ee2 winterscript_sinf_200ee2
+#define recovered_200efe winterscript_cosf_200efe
+#define recovered_200f1a winterscript_fabsf_200f1a
+#define recovered_200f2e winterscript_strtol_200f2e
+#define recovered_201020 winterscript_digit_value_201020
+#define recovered_201054 winterscript_strtoul_201054
+#define recovered_201146 winterscript_strtod_201146
+#define recovered_201298 winterscript_strtof_201298
+#define recovered_2012ba winterscript_vsnprintf_2012ba
+#define recovered_20154c winterscript_append_char_20154c
+#define recovered_20156a winterscript_append_string_20156a
+#define recovered_2015ab winterscript_append_unsigned_2015ab
+#define recovered_201616 winterscript_snprintf_201616
+#define recovered_201639 winterscript_wm_probe_heap_append_region_201639
+#define recovered_20168b winterscript_wm_program_api_field_ready_20168b
+#define recovered_2016c0 winterscript_wm_lua_write_2016c0
+#define recovered_201746 winterscript_wm_lua_flush_output_line_201746
+#define recovered_2017bc winterscript_wm_lua_writeline_2017bc
+#define recovered_2017c8 winterscript_wm_lua_flush_output_2017c8
+#define recovered_2017d3 winterscript_wm_lua_write_errorf_2017d3
+#define recovered_201827 winterscript_wm_lua_show_banner_201827
+#define recovered_20186d winterscript_wm_lua_write_cstr_20186d
+#define recovered_201894 winterscript_wm_lua_show_help_201894
+#define recovered_2018b2 winterscript_wm_lua_readline_2018b2
+#define recovered_201901 winterscript_wmfs_mount_image_201901
+#define recovered_201908 winterscript_wmfs_unmount_201908
+#define recovered_20190d winterscript_wmfs_is_mounted_20190d
+#define recovered_201914 winterscript_wmfs_fopen_201914
+#define recovered_201bcf winterscript_wm_lua_app_stat_file_201bcf
+#define recovered_201bff winterscript_wm_lua_file_reserve_201bff
+#define recovered_201c74 winterscript_wmfs_freopen_201c74
+#define recovered_201c92 winterscript_wmfs_fclose_201c92
+#define recovered_201cd2 winterscript_wmfs_fread_201cd2
+#define recovered_201d3f winterscript_wmfs_getc_201d3f
+#define recovered_201e20 winterscript_wmfs_fwrite_201e20
+#define recovered_201f28 winterscript_wmfs_fseek_201f28
+#define recovered_201fa1 winterscript_wmfs_ftell_201fa1
+#define recovered_201fc3 winterscript_wmfs_fflush_201fc3
+#define recovered_202024 winterscript_wmfs_feof_202024
+#define recovered_20203b winterscript_wmfs_ferror_20203b
+#define recovered_202052 winterscript_wmfs_clearerr_202052
+#define recovered_20206d winterscript_wmfs_ungetc_20206d
+#define recovered_20209c winterscript_wmfs_remove_20209c
+#define recovered_2020cd winterscript_wm_lua_app_delete_file_2020cd
+#define recovered_2020f8 winterscript_wmfs_rename_2020f8
+#define recovered_202182 winterscript_wm_lua_app_write_file_202182
+#define recovered_2021b5 winterscript_wmfs_read_entire_file_2021b5
+#define recovered_202247 winterscript_wmfs_write_entire_file_202247
+#define recovered_20227e winterscript_wmfs_register_virtual_file_20227e
+#define recovered_202285 winterscript_wmfs_clear_virtual_files_202285
+#define recovered_20228a winterscript_wmfs_image_data_20228a
+#define recovered_202291 winterscript_wmfs_image_size_202291
+#define recovered_202298 winterscript_wmfs_export_image_202298
+#define recovered_20229f winterscript_memchr_20229f
+#define recovered_2022c3 winterscript_strncmp_2022c3
+#define recovered_2022f6 winterscript_strerror_2022f6
+#define recovered_202351 winterscript_getenv_202351
+#define recovered_202358 winterscript_system_202358
+#define recovered_202360 winterscript_clock_202360
+#define recovered_202373 winterscript_wm_program_api_field_ready_202373
+#define recovered_2023b0 winterscript_permafrost_sjlj_jump_2023b0
+#define recovered_2023bf winterscript_std_terminate_2023bf
+#define recovered_202420 winterscript_gxx_personality_sj0_202420
+#define recovered_202430 winterscript_cxa_begin_catch_202430
+#define recovered_202452 winterscript_operator_new_202452
+#define recovered_20247b winterscript_operator_new_20247b
+#define recovered_202484 winterscript_operator_delete_202484
+#define recovered_2024f7 winterscript_operator_delete_2024f7
+#define recovered_20256a winterscript_operator_delete_20256a
+#define recovered_2025dd winterscript_operator_delete_2025dd
+#define recovered_202650 winterscript_cxa_atexit_202650
+#define recovered_202657 winterscript_cxa_guard_acquire_202657
+#define recovered_202666 winterscript_cxa_guard_release_202666
+#define recovered_202671 winterscript_cxa_guard_abort_202671
+#define recovered_202676 winterscript_cxa_allocate_exception_202676
+#define recovered_2026ab winterscript_cxa_free_exception_2026ab
+#define recovered_2026c8 winterscript_object_from_header_2026c8
+#define recovered_2026d0 winterscript_cxa_end_catch_2026d0
+#define recovered_20270e winterscript_cxa_throw_20270e
+#define recovered_20273b winterscript_raise_exception_20273b
+#define recovered_202791 winterscript_cxa_rethrow_202791
+#define recovered_2027bb winterscript_Unwind_SjLj_Register_2027bb
+#define recovered_2027d0 winterscript_Unwind_SjLj_Unregister_2027d0
+#define recovered_2027f9 winterscript_Unwind_SjLj_RaiseException_2027f9
+#define recovered_202807 winterscript_Unwind_SjLj_ForcedUnwind_202807
+#define recovered_202812 winterscript_Unwind_SjLj_Resume_202812
+#define recovered_202830 winterscript_continue_unwind_202830
+#define recovered_2028a3 winterscript_Unwind_SjLj_Resume_or_Rethrow_2028a3
+#define recovered_2028b4 winterscript_gxx_personality_v0_2028b4
+#define recovered_2028bb winterscript_Unwind_Resume_2028bb
+#define recovered_2028c6 winterscript_dynamic_cast_2028c6
+#define recovered_2028fd winterscript_type_matches_2028fd
+#define recovered_202964 winterscript_cxa_pure_virtual_202964
+#define recovered_20296d winterscript_tlv_bootstrap_20296d
+#define recovered_202974 winterscript_isdigit_202974
+#define recovered_202987 winterscript_isspace_202987
+#define recovered_2029ae winterscript_isxdigit_2029ae
+#define recovered_2029d0 winterscript_isfinite_2029d0
+#define recovered_2029e8 winterscript_round_2029e8
+#define recovered_202a2c winterscript_strtoull_202a2c
+#define recovered_202b46 winterscript_strtoll_202b46
+#define recovered_202b4f winterscript_inspect_context_202b4f
+#define recovered_202cee winterscript_read_encoded_pointer_202cee
+#define recovered_202da2 winterscript_read_uleb128_202da2
+#define recovered_202dcd winterscript_read_unaligned_202dcd
+#define recovered_202df2 winterscript_read_sleb128_202df2
+#define recovered_202e34 winterscript_std_istream_istream_202e34
+#define recovered_202e3a winterscript_std_ostream_ostream_202e3a
+#define recovered_202e3f winterscript_permafrost_winterscript_entry_202e3f
+#define recovered_2034ec winterscript_showHelp_2034ec
+#define recovered_20350a winterscript_writeLine_20350a
+#define recovered_203520 winterscript_writeText_203520
+#define recovered_203548 winterscript_std_ostream_ostream_203548
+#define recovered_203552 winterscript_Variable_toString_203552
+#define recovered_2039b0 winterscript_reportError_2039b0
+#define recovered_2039e8 winterscript_wm_string_assign_2039e8
+#define recovered_203ab1 winterscript_wm_string_length_203ab1
+#define recovered_203acc winterscript_wm_string_pointer_offset_203acc
+#define recovered_203b0c winterscript_wm_string_reserve_203b0c
+#define recovered_203b5c winterscript_wm_string_string_203b5c
+#define recovered_203b8c winterscript_wm_string_allocate_203b8c
+#define recovered_203ba6 winterscript_wm_to_string_203ba6
+#define recovered_203bf4 winterscript_wm_string_operator_203bf4
+#define recovered_203c1d winterscript_wm_operator_203c1d
+#define recovered_203cc8 winterscript_wm_operator_203cc8
+#define recovered_203d74 winterscript_wm_to_chars_result_wm_to_chars_203d74
+#define recovered_203e4c winterscript_wm_string_push_back_203e4c
+#define recovered_203e9f winterscript_wm_to_string_203e9f
+#define recovered_203ef1 winterscript_wm_to_chars_result_wm_to_chars_203ef1
+#define recovered_203fc4 winterscript_wm_string_string_203fc4
+#define recovered_203ffa winterscript_wm_string_append_203ffa
+#define recovered_2040a4 winterscript_wm_string_append_2040a4
+#define recovered_2040cc winterscript_void_wm_detail_variant_destroy_2040cc
+#define recovered_2040dd winterscript_void_wm_detail_variant_destroy_2040dd
+#define recovered_2040ee winterscript_void_wm_detail_variant_destroy_2040ee
+#define recovered_204113 winterscript_void_wm_detail_variant_destroy_204113
+#define recovered_204138 winterscript_void_wm_detail_variant_destroy_204138
+#define recovered_20414a winterscript_wm_vector_vector_20414a
+#define recovered_204166 winterscript_void_wm_detail_variant_destroy_204166
+#define recovered_204177 winterscript_void_wm_detail_variant_destroy_204177
+#define recovered_20419c winterscript_void_wm_detail_variant_destroy_20419c
+#define recovered_2041c4 winterscript_void_wm_detail_variant_destroy_2041c4
+#define recovered_2041ec winterscript_void_wm_detail_variant_destroy_2041ec
+#define recovered_204208 winterscript_wm_shared_ptr_release_204208
+#define recovered_2042a8 winterscript_wm_shared_ptr_release_2042a8
+#define recovered_204348 winterscript_wm_string_find_204348
+#define recovered_20438c winterscript_wm_operator_20438c
+#define recovered_2043e6 winterscript_WinterScript_WinterScript_2043e6
+#define recovered_2044ca winterscript_wm_unordered_map_unordered_map_2044ca
+#define recovered_2044f4 winterscript_WinterScript_ScriptFileCacheEntry_ScriptFileCacheEntry_2044f4
+#define recovered_204512 winterscript_wm_shared_ptr_release_204512
+#define recovered_2045b0 winterscript_wm_unordered_map_unordered_map_2045b0
+#define recovered_2045d8 winterscript_wm_vector_vector_2045d8
+#define recovered_2045f8 winterscript_wm_vector_clear_2045f8
+#define recovered_204638 winterscript_WinterScript_TableCacheEntry_TableCacheEntry_204638
+#define recovered_204682 winterscript_wm_vector_clear_204682
+#define recovered_2046b6 winterscript_wm_weak_ptr_release_2046b6
+#define recovered_2046e4 winterscript_wm_shared_ptr_release_2046e4
+#define recovered_204784 winterscript_wm_vector_vector_204784
+#define recovered_2047a0 winterscript_wm_unordered_map_unordered_map_2047a0
+#define recovered_2047c8 winterscript_wm_vector_vector_2047c8
+#define recovered_2047e8 winterscript_wm_vector_clear_2047e8
+#define recovered_204820 winterscript_wm_pair_pair_204820
+#define recovered_20483e winterscript_wm_unordered_map_unordered_map_20483e
+#define recovered_204866 winterscript_wm_vector_vector_204866
+#define recovered_204886 winterscript_wm_vector_clear_204886
+#define recovered_2048bc winterscript_wm_pair_pair_2048bc
+#define recovered_2048de winterscript_wm_vector_clear_2048de
+#define recovered_204916 winterscript_wm_unordered_map_unordered_map_204916
+#define recovered_20493e winterscript_cxx_global_var_init_20493e
+#define recovered_20499f winterscript_cxx_global_var_init_1_20499f
+#define recovered_204a00 winterscript_cxx_global_var_init_2_204a00
+#define recovered_204a61 winterscript_cxx_global_var_init_3_204a61
+#define recovered_204ac4 winterscript_WinterScript_WinterScript_204ac4
+#define recovered_20aa50 winterscript_WinterScript_pushFunction_20aa50
+#define recovered_20ab84 winterscript_wm_string_string_20ab84
+#define recovered_20ab8e winterscript_WinterScript_pushVariable_20ab8e
+#define recovered_20ad38 winterscript_Variable_Variable_20ad38
+#define recovered_20ad52 winterscript_WinterScript_makeNativeCallable_20ad52
+#define recovered_20ae60 winterscript_wm_unordered_map_operator_20ae60
+#define recovered_20af8c winterscript_Variable_operator_20af8c
+#define recovered_20afb6 winterscript_Variable_operator_20afb6
+#define recovered_20afe0 winterscript_wm_vector_vector_20afe0
+#define recovered_20afea winterscript_wm_unordered_map_unordered_map_20afea
+#define recovered_20aff4 winterscript_WinterScript_WinterScript_20aff4
+#define recovered_20affe winterscript_WinterScript_analyseToken_20affe
+#define recovered_20b0a6 winterscript_isTrueToken_20b0a6
+#define recovered_20b11b winterscript_isFalseToken_20b11b
+#define recovered_20b19c winterscript_WinterScript_isIdentifier_20b19c
+#define recovered_20b20e winterscript_tokenLooksNumeric_20b20e
+#define recovered_20b272 winterscript_wm_string_find_20b272
+#define recovered_20b2ad winterscript_parseIntStrict_20b2ad
+#define recovered_20b2e6 winterscript_WinterScript_fastScalarIsNumeric_20b2e6
+#define recovered_20b2f8 winterscript_WinterScript_fastScalarIsTruthy_20b2f8
+#define recovered_20b336 winterscript_WinterScript_fastScalarToDouble_20b336
+#define recovered_20b42a winterscript_wm_runtime_error_runtime_error_20b42a
+#define recovered_20b434 winterscript_wm_runtime_error_runtime_error_20b434
+#define recovered_20b43e winterscript_WinterScript_fastScalarToInt_20b43e
+#define recovered_20b53c winterscript_WinterScript_makeFastScalarInt_20b53c
+#define recovered_20b558 winterscript_WinterScript_makeFastScalarFloat_20b558
+#define recovered_20b574 winterscript_WinterScript_makeFastScalarBool_20b574
+#define recovered_20b590 winterscript_WinterScript_makeFastScalarNil_20b590
+#define recovered_20b5aa winterscript_WinterScript_fastScalarToVariable_20b5aa
+#define recovered_20b60e winterscript_WinterScript_assignFastScalarToVariable_20b60e
+#define recovered_20b69c winterscript_WinterScript_tryApplyFastScalarOperationInPlace_20b69c
+#define recovered_20bc18 winterscript_toDouble_20bc18
+#define recovered_20bd24 winterscript_toInt_20bd24
+#define recovered_20be3a winterscript_WinterScript_tryFastScalarFromVariable_20be3a
+#define recovered_20bea4 winterscript_WinterScript_tryFastScalarFromIndexedValue_20bea4
+#define recovered_20c13c winterscript_WinterScript_tryGetArrayIndex_20c13c
+#define recovered_20c1d8 winterscript_wm_string_operator_20c1d8
+#define recovered_20c20c winterscript_wm_string_operator_20c20c
+#define recovered_20c24c winterscript_wm_to_string_20c24c
+#define recovered_20c272 winterscript_wm_string_operator_20c272
+#define recovered_20c29a winterscript_wm_unordered_map_find_20c29a
+#define recovered_20c2c8 winterscript_WinterScript_tryEvaluateNativeBuiltinScalar_20c2c8
+#define recovered_20c4ae winterscript_wm_chrono_duration_const_20c4ae
+#define recovered_20c4e8 winterscript_WinterScript_dispatchBuiltinFast_20c4e8
+#define recovered_20dfea winterscript_stringByteRangeReturnsScalar_20dfea
+#define recovered_20e068 winterscript_WinterScript_tryEvaluateFastCallableScalar_20e068
+#define recovered_20e628 winterscript_WinterScript_tryEvaluateFastExpressionScalar_20e628
+#define recovered_20e64e winterscript_WinterScript_isTruthy_20e64e
+#define recovered_20e680 winterscript_WinterScript_evaluateFastExpression_20e680
+#define recovered_20e81c winterscript_WinterScript_evaluateExpression_20e81c
+#define recovered_20e946 winterscript_WinterScript_throwError_20e946
+#define recovered_20ee18 winterscript_wm_string_operator_wm_string_view_20ee18
+#define recovered_20ee30 winterscript_WinterScript_raiseScriptErrorSoft_20ee30
+#define recovered_20ef30 winterscript_clang_call_terminate_20ef30
+#define recovered_20ef46 winterscript_WinterScript_tryEvaluateProtectedFastCallableScalar_20ef46
+#define recovered_20f45c winterscript_WinterScript_tryEvaluateProtectedFastCallableScalar_20f45c
+#define recovered_20f4ac winterscript_WinterScript_appendFastStringConcatNode_20f4ac
+#define recovered_20f732 winterscript_WinterScript_resolveVariableFastPtr_20f732
+#define recovered_20fb16 winterscript_WinterScript_evaluateFastExpressionNode_20fb16
+#define recovered_21150a winterscript_WinterScript_shouldAbortForSoftRaisedError_21150a
+#define recovered_21152e winterscript_appendVariableStringFast_21152e
+#define recovered_21165a winterscript_WinterScript_tryEvaluateFastExpressionIntNode_21165a
+#define recovered_211e5c winterscript_getVisibleLocalScope_211e5c
+#define recovered_211e8b winterscript_getDirectScopeValue_211e8b
+#define recovered_211eaa winterscript_getCachedScopeValue_211eaa
+#define recovered_211ee2 winterscript_WinterScript_tryEvaluateFastExpressionScalarNode_211ee2
+#define recovered_21460c winterscript_WinterScript_arrayLength_21460c
+#define recovered_214722 winterscript_WinterScript_tryEvaluateFastExpressionBoolNode_214722
+#define recovered_214c76 winterscript_wm_vector_resize_214c76
+#define recovered_214cec winterscript_wm_vector_resize_214cec
+#define recovered_214d3c winterscript_WinterScript_tryExecuteDiscardedFastCall_214d3c
+#define recovered_215150 winterscript_WinterScript_getIndexedValue_215150
+#define recovered_215890 winterscript_WinterScript_invokeCallableFast_215890
+#define recovered_216b46 winterscript_WinterScript_variablesEqual_216b46
+#define recovered_216cac winterscript_WinterScript_compareVariables_216cac
+#define recovered_216f74 winterscript_toFloat_216f74
+#define recovered_216f8a winterscript_WinterScript_performOperation_216f8a
+#define recovered_217b30 winterscript_RaisedScriptError_RaisedScriptError_217b30
+#define recovered_217b50 winterscript_WinterScript_clearSoftRaisedError_217b50
+#define recovered_217b7a winterscript_WinterScript_rethrowPendingCoroutineException_217b7a
+#define recovered_217b92 winterscript_WinterScript_serviceScheduledCoroutineTurnNoThrow_217b92
+#define recovered_217c30 winterscript_WinterScript_serviceScheduledCoroutineTurn_217c30
+#define recovered_21866c winterscript_WinterScript_createCoroutineState_21866c
+#define recovered_218a3d winterscript_wm_shared_ptr_218a3d
+#define recovered_218afc winterscript_wm_shared_ptr_const_218afc
+#define recovered_218b3c winterscript_wm_vector_218b3c
+#define recovered_218b86 winterscript_wm_vector_reserve_218b86
+#define recovered_218bf2 winterscript_wm_pair_218bf2
+#define recovered_218c54 winterscript_WinterScript_startCoroutine_218c54
+#define recovered_218d52 winterscript_wm_shared_ptr_218d52
+#define recovered_218d86 winterscript_WinterScript_pushCoroutineBlockFrame_218d86
+#define recovered_218ed4 winterscript_WinterScript_popCoroutineBlockFrame_218ed4
+#define recovered_218f46 winterscript_wm_vector_pop_back_218f46
+#define recovered_218f6a winterscript_wm_vector_pop_back_218f6a
+#define recovered_218f8e winterscript_WinterScript_popCoroutineLoopFrame_218f8e
+#define recovered_218ff0 winterscript_WinterScript_executeCoroutineTurn_218ff0
+#define recovered_21c1aa winterscript_WinterScript_executeCoroutineTurn_21c1aa
+#define recovered_21c2ba winterscript_WinterScript_executeCoroutineTurn_21c2ba
+#define recovered_21c508 winterscript_wm_operator_21c508
+#define recovered_21c526 winterscript_wm_shared_ptr_21c526
+#define recovered_21c5e4 winterscript_wm_vector_21c5e4
+#define recovered_21c62c winterscript_wm_vector_reserve_21c62c
+#define recovered_21c69c winterscript_WinterScript_prepareParsedLines_21c69c
+#define recovered_21e050 winterscript_WinterScript_prepareFastCallableBody_21e050
+#define recovered_21e2fc winterscript_WinterScript_assignVariable_21e2fc
+#define recovered_21e3d0 winterscript_WinterScript_resolveVariable_21e3d0
+#define recovered_21e406 winterscript_Variable_makeTable_21e406
+#define recovered_21e4b0 winterscript_WinterScript_prefersArrayStorage_21e4b0
+#define recovered_21e4dc winterscript_Variable_makeArray_21e4dc
+#define recovered_21e588 winterscript_WinterScript_setIndexedValue_21e588
+#define recovered_21ebc0 winterscript_WinterScript_getIndexedValueMutable_21ebc0
+#define recovered_21f028 winterscript_wm_vector_vector_21f028
+#define recovered_21f032 winterscript_wm_vector_clear_21f032
+#define recovered_21f066 winterscript_WinterScript_executeAssignment_21f066
+#define recovered_2219c8 winterscript_wm_shared_ptr_reset_2219c8
+#define recovered_2219d2 winterscript_wm_vector_2219d2
+#define recovered_221a1a winterscript_wm_vector_221a1a
+#define recovered_221a5e winterscript_wm_vector_221a5e
+#define recovered_221aa6 winterscript_wm_vector_221aa6
+#define recovered_221aea winterscript_wm_string_rfind_221aea
+#define recovered_221b5e winterscript_WinterScript_serviceScheduledCoroutineTurn_221b5e
+#define recovered_221d58 winterscript_wm_shared_ptr_const_221d58
+#define recovered_221d98 winterscript_wm_unordered_map_find_221d98
+#define recovered_221dc6 winterscript_wm_pair_221dc6
+#define recovered_221e4d winterscript_wm_operator_221e4d
+#define recovered_221ef8 winterscript_WinterScript_pullVariable_221ef8
+#define recovered_222052 winterscript_wm_unordered_map_operator_222052
+#define recovered_222174 winterscript_wm_function_const_222174
+#define recovered_2221ad winterscript_builtinIdFromName_2221ad
+#define recovered_222712 winterscript_WinterScript_createNativeCallable_222712
+#define recovered_2227dc winterscript_wm_vector_reserve_2227dc
+#define recovered_222826 winterscript_WinterScript_evaluateFastCallableReturn_222826
+#define recovered_222c1e winterscript_wm_vector_reserve_222c1e
+#define recovered_222c8e winterscript_Variable_makeMulti_222c8e
+#define recovered_222d7c winterscript_WinterScript_resolveVariablePtr_222d7c
+#define recovered_222e62 winterscript_wm_unordered_map_find_222e62
+#define recovered_222e90 winterscript_findScopeValue_222e90
+#define recovered_222ed1 winterscript_wm_operator_222ed1
+#define recovered_222f24 winterscript_findScopeValueAndSlot_222f24
+#define recovered_222f72 winterscript_WinterScript_resolveVariableFast_222f72
+#define recovered_222fac winterscript_WinterScript_resolveExistingVariableFastMutable_222fac
+#define recovered_22384b winterscript_findScopeValueMutable_22384b
+#define recovered_22388c winterscript_getVisibleLocalScopeMutable_22388c
+#define recovered_2238bb winterscript_getDirectScopeValueMutable_2238bb
+#define recovered_2238da winterscript_getCachedScopeValueMutable_2238da
+#define recovered_223911 winterscript_findScopeValueMutableAndSlot_223911
+#define recovered_22395e winterscript_WinterScript_assignExistingVariable_22395e
+#define recovered_223996 winterscript_WinterScript_assignExistingVariableFast_223996
+#define recovered_2239ce winterscript_setScopeValue_2239ce
+#define recovered_223a06 winterscript_WinterScript_assignVariableFast_223a06
+#define recovered_223a70 winterscript_WinterScript_resolvePath_223a70
+#define recovered_2240c2 winterscript_pathExists_2240c2
+#define recovered_224105 winterscript_joinPath_224105
+#define recovered_22423a winterscript_wm_string_compare_22423a
+#define recovered_22428c winterscript_wm_string_substr_22428c
+#define recovered_2242d8 winterscript_WinterScript_markTableMutated_2242d8
+#define recovered_22432c winterscript_WinterScript_maybePruneDeadTableCacheEntries_22432c
+#define recovered_224364 winterscript_wm_unordered_map_const_224364
+#define recovered_2244a8 winterscript_wm_weak_ptr_const_2244a8
+#define recovered_2244e4 winterscript_WinterScript_pruneDeadTableCacheEntries_2244e4
+#define recovered_224534 winterscript_wm_unordered_map_224534
+#define recovered_224598 winterscript_WinterScript_getSortedTableKeys_224598
+#define recovered_224950 winterscript_WinterScript_TableCacheEntry_operator_224950
+#define recovered_224a0a winterscript_wm_vector_reserve_224a0a
+#define recovered_224a76 winterscript_parseFloatStrict_224a76
+#define recovered_224ae2 winterscript_WinterScript_getSortedTableKeyValues_224ae2
+#define recovered_224b8a winterscript_WinterScript_getIterationTableKeys_224b8a
+#define recovered_224f42 winterscript_wm_unordered_map_clear_224f42
+#define recovered_224f60 winterscript_wm_unordered_map_reserve_224f60
+#define recovered_224fae winterscript_WinterScript_getIterationTableKeyValues_224fae
+#define recovered_225056 winterscript_WinterScript_getIterationTableKeyIndex_225056
+#define recovered_225172 winterscript_WinterScript_numericTableLength_225172
+#define recovered_22537a winterscript_WinterScript_invokeCallable_22537a
+#define recovered_2253a6 winterscript_WinterScript_pcallFunctionFast_2253a6
+#define recovered_225b20 winterscript_WinterScript_loadScriptChunk_225b20
+#define recovered_226070 winterscript_WinterScript_pairsFunction_226070
+#define recovered_22663c winterscript_WinterScript_ipairsFunction_22663c
+#define recovered_226a24 winterscript_WinterScript_keyToString_226a24
+#define recovered_226b9e winterscript_wm_unordered_map_at_226b9e
+#define recovered_226bcc winterscript_WinterScript_selectFunctionFast_226bcc
+#define recovered_226f4c winterscript_wm_string_end_226f4c
+#define recovered_226f66 winterscript_WinterScript_findFunctionImpl_226f66
+#define recovered_227504 winterscript_WinterScript_matchFunctionImpl_227504
+#define recovered_227aa2 winterscript_WinterScript_gmatchFunctionImpl_227aa2
+#define recovered_2280d6 winterscript_WinterScript_byteFunctionImpl_2280d6
+#define recovered_228346 winterscript_WinterScript_formatFunctionImpl_228346
+#define recovered_2291a8 winterscript_WinterScript_gsubImpl_2291a8
+#define recovered_229ea6 winterscript_WinterScript_insertFunctionImpl_229ea6
+#define recovered_22a260 winterscript_WinterScript_removeFunctionImpl_22a260
+#define recovered_22a6a6 winterscript_WinterScript_concatFunctionImpl_22a6a6
+#define recovered_22ac7c winterscript_WinterScript_sortFunctionImpl_22ac7c
+#define recovered_22b040 winterscript_WinterScript_typeName_22b040
+#define recovered_22b074 winterscript_WinterScript_executeBytecodeChunk_22b074
+#define recovered_22b0a0 winterscript_wm_vector_pop_back_22b0a0
+#define recovered_22b0c4 winterscript_WinterScript_executeParsedBlock_22b0c4
+#define recovered_22f772 winterscript_WinterScript_readScriptFile_22f772
+#define recovered_22fa40 winterscript_std_ostringstream_operator_22fa40
+#define recovered_22fa96 winterscript_std_ifstream_ifstream_22fa96
+#define recovered_22faaf winterscript_wm_shared_ptr_22faaf
+#define recovered_22faf0 winterscript_WinterScript_compileToBytecodeInternal_22faf0
+#define recovered_22fcfe winterscript_wm_shared_ptr_const_22fcfe
+#define recovered_22fd3e winterscript_WinterScript_loadScriptFile_22fd3e
+#define recovered_230ae8 winterscript_wm_unordered_map_find_230ae8
+#define recovered_230b16 winterscript_wm_shared_ptr_230b16
+#define recovered_230b4a winterscript_wm_unordered_map_operator_230b4a
+#define recovered_230c64 winterscript_wm_shared_ptr_230c64
+#define recovered_230c98 winterscript_WinterScript_runScriptFile_230c98
+#define recovered_230e5d winterscript_multiValuesPtr_230e5d
+#define recovered_230e74 winterscript_WinterScript_openFileFunction_230e74
+#define recovered_23192f winterscript_wm_shared_ptr_23192f
+#define recovered_2319f4 winterscript_wm_shared_ptr_2319f4
+#define recovered_231a28 winterscript_wm_shared_ptr_231a28
+#define recovered_231a5c winterscript_wm_shared_ptr_shared_ptr_231a5c
+#define recovered_231af8 winterscript_WinterScript_fileReadFunction_231af8
+#define recovered_231db4 winterscript_WinterScript_fileWriteFunction_231db4
+#define recovered_231f8c winterscript_std_ostream_operator_231f8c
+#define recovered_231fb6 winterscript_std_ostream_flush_231fb6
+#define recovered_231fd6 winterscript_WinterScript_fileCloseFunction_231fd6
+#define recovered_2320f2 winterscript_std_ostringstream_operator_2320f2
+#define recovered_23210e winterscript_WinterScript_printFunction_23210e
+#define recovered_232234 winterscript_writePermafrostText_232234
+#define recovered_23225a winterscript_WinterScript_getTimeMsFunction_23225a
+#define recovered_232376 winterscript_WinterScript_randomFunction_232376
+#define recovered_2325ee winterscript_wm_mt19937_operator_2325ee
+#define recovered_23264a winterscript_WinterScript_toStringFunction_23264a
+#define recovered_23276c winterscript_WinterScript_toNumberFunction_23276c
+#define recovered_232a18 winterscript_getCachedGsubPattern_232a18
+#define recovered_23388c winterscript_WinterScript_gsubImpl_23388c
+#define recovered_233a42 winterscript_wm_string_append_233a42
+#define recovered_233b00 winterscript_wm_sregex_iterator_operator_233b00
+#define recovered_233b1e winterscript_wm_match_results_str_233b1e
+#define recovered_233b5c winterscript_wm_sregex_iterator_operator_233b5c
+#define recovered_233b90 winterscript_WinterScript_gsubFunction_233b90
+#define recovered_233c86 winterscript_WinterScript_typeOfFunction_233c86
+#define recovered_233f26 winterscript_WinterScript_killFunction_233f26
+#define recovered_234062 winterscript_WinterScript_popFunction_234062
+#define recovered_234252 winterscript_wm_vector_pop_back_234252
+#define recovered_234276 winterscript_WinterScript_clearFunction_234276
+#define recovered_234448 winterscript_wm_unordered_map_clear_234448
+#define recovered_234466 winterscript_WinterScript_eraseFunction_234466
+#define recovered_234724 winterscript_wm_vector_erase_234724
+#define recovered_234742 winterscript_wm_unordered_map_erase_234742
+#define recovered_234780 winterscript_WinterScript_containsFunction_234780
+#define recovered_2349f0 winterscript_WinterScript_keysFunction_2349f0
+#define recovered_234bfa winterscript_WinterScript_valuesFunction_234bfa
+#define recovered_234e10 winterscript_WinterScript_assertFunction_234e10
+#define recovered_234ff8 winterscript_WinterScript_errorFunction_234ff8
+#define recovered_2350e0 winterscript_WinterScript_pcallFunction_2350e0
+#define recovered_235106 winterscript_Variable_wm_vector_235106
+#define recovered_235210 winterscript_WinterScript_nextFunction_235210
+#define recovered_23578c winterscript_WinterScript_selectFunction_23578c
+#define recovered_2357bc winterscript_WinterScript_collectGarbageFunction_2357bc
+#define recovered_2357e4 winterscript_WinterScript_upperFunction_2357e4
+#define recovered_23598a winterscript_WinterScript_lowerFunction_23598a
+#define recovered_235b30 winterscript_WinterScript_subFunction_235b30
+#define recovered_235cfe winterscript_findAsciiLuaClassRun_235cfe
+#define recovered_235d4b winterscript_bool_wm_regex_search_wm_regex_const_235d4b
+#define recovered_235db8 winterscript_WinterScript_findFunction_235db8
+#define recovered_235de7 winterscript_findAlphaDashDigitsMatch_235de7
+#define recovered_235e96 winterscript_Variable_wm_vector_235e96
+#define recovered_235ee8 winterscript_WinterScript_matchFunction_235ee8
+#define recovered_235f18 winterscript_WinterScript_gmatchFunction_235f18
+#define recovered_235f48 winterscript_WinterScript_byteFunction_235f48
+#define recovered_235f78 winterscript_WinterScript_charFunction_235f78
+#define recovered_236084 winterscript_normaliseIntegerFormatSpecifier_236084
+#define recovered_2362bc winterscript_ZZN12WinterScript18formatFunctionImplEPK8VariablemENK3_0clIiEEDaRKN2wm6stringET_2362bc
+#define recovered_2363f8 winterscript_wm_string_resize_2363f8
+#define recovered_236414 winterscript_WinterScript_formatFunction_236414
+#define recovered_236444 winterscript_WinterScript_repFunction_236444
+#define recovered_236650 winterscript_WinterScript_insertFunction_236650
+#define recovered_236676 winterscript_WinterScript_removeFunction_236676
+#define recovered_23669c winterscript_estimateVariableStringSize_23669c
+#define recovered_23670a winterscript_WinterScript_concatFunction_23670a
+#define recovered_236730 winterscript_WinterScript_sortFunctionImpl_236730
+#define recovered_236bd8 winterscript_WinterScript_sortFunction_236bd8
+#define recovered_236bfe winterscript_WinterScript_floorFunction_236bfe
+#define recovered_236d0e winterscript_WinterScript_ceilFunction_236d0e
+#define recovered_236e1e winterscript_WinterScript_absFunction_236e1e
+#define recovered_236f46 winterscript_WinterScript_minFunction_236f46
+#define recovered_2370b4 winterscript_WinterScript_maxFunction_2370b4
+#define recovered_237222 winterscript_WinterScript_sinFunction_237222
+#define recovered_237320 winterscript_WinterScript_cosFunction_237320
+#define recovered_23741e winterscript_WinterScript_radFunction_23741e
+#define recovered_23751e winterscript_WinterScript_logFunction_23751e
+#define recovered_23770a winterscript_WinterScript_sqrtFunction_23770a
+#define recovered_237850 winterscript_WinterScript_randomSeedFunction_237850
+#define recovered_237950 winterscript_wm_mt19937_seed_237950
+#define recovered_23798a winterscript_WinterScript_clockFunction_23798a
+#define recovered_237abd winterscript_wm_chrono_duration_const_237abd
+#define recovered_237af8 winterscript_WinterScript_timeFunction_237af8
+#define recovered_237c03 winterscript_wm_chrono_duration_const_237c03
+#define recovered_237c38 winterscript_WinterScript_utf8LenFunction_237c38
+#define recovered_237d52 winterscript_WinterScript_utf8OffsetFunction_237d52
+#define recovered_237ec2 winterscript_WinterScript_skipWhitespace_237ec2
+#define recovered_237ef0 winterscript_WinterScript_tokenise_237ef0
+#define recovered_2382d6 winterscript_WinterScript_tokenise_2382d6
+#define recovered_238310 winterscript_wm_string_wm_vector_238310
+#define recovered_238374 winterscript_wm_string_wm_vector_238374
+#define recovered_2383d8 winterscript_wm_string_wm_vector_2383d8
+#define recovered_23843a winterscript_wm_operator_23843a
+#define recovered_2384e8 winterscript_WinterScript_performOperation_2384e8
+#define recovered_238632 winterscript_bool_wm_operator_const_238632
+#define recovered_238672 winterscript_wm_operator_238672
+#define recovered_2386aa winterscript_promoteArrayVariableToTable_2386aa
+#define recovered_238886 winterscript_wm_to_string_238886
+#define recovered_2388d2 winterscript_WinterScript_getIndexedValue_2388d2
+#define recovered_2388f6 winterscript_wm_unordered_map_operator_2388f6
+#define recovered_238a24 winterscript_WinterScript_skipExpression_238a24
+#define recovered_238b36 winterscript_xpressionERKN2wm6vectorINS0_6stringEEERmiPKNS1_I13TokenAnalysisEEENK3_0clIRSB_EEvOT_i_238b36
+#define recovered_239452 winterscript_onERKN2wm6vectorINS0_6stringEEERmPKNS1_I13TokenAnalysisEEENK3_1clIRSB_EE8VariableOT_i_239452
+#define recovered_239eca winterscript_WinterScript_evaluateCondition_239eca
+#define recovered_239f2c winterscript_WinterScript_executeAssignment_239f2c
+#define recovered_239fa4 winterscript_WinterScript_executeAssignment_239fa4
+#define recovered_23a31c winterscript_WinterScript_executeAssignment_23a31c
+#define recovered_23a394 winterscript_tryApplyOperationInPlace_23a394
+#define recovered_23ad3c winterscript_WinterScript_executeAssignment_23ad3c
+#define recovered_23ad84 winterscript_WinterScript_executeAssignment_23ad84
+#define recovered_23afe6 winterscript_WinterScript_executeAssignment_23afe6
+#define recovered_23d214 winterscript_WinterScript_executeAssignment_23d214
+#define recovered_23d258 winterscript_wm_vector_reserve_23d258
+#define recovered_23d2be winterscript_WinterScript_executeAssignment_23d2be
+#define recovered_23d2de winterscript_wm_vector_vector_23d2de
+#define recovered_23d318 winterscript_WinterScript_findMatchingElseOrEnd_23d318
+#define recovered_23d452 winterscript_WinterScript_findMatchingEnd_23d452
+#define recovered_23d576 winterscript_WinterScript_findMatchingUntil_23d576
+#define recovered_23d69a winterscript_wm_pair_23d69a
+#define recovered_23d6fc winterscript_WinterScript_executeParsedBlock_23d6fc
+#define recovered_23d986 winterscript_wm_vector_const_23d986
+#define recovered_23d9d8 winterscript_WinterScript_executeParsedBlock_23d9d8
+#define recovered_23da02 winterscript_wm_vector_clear_23da02
+#define recovered_23da36 winterscript_wm_vector_clear_23da36
+#define recovered_23da6a winterscript_FastExpression_operator_23da6a
+#define recovered_23dabe winterscript_FastCallExpression_operator_23dabe
+#define recovered_23dae8 winterscript_WinterScript_prepareParsedLines_23dae8
+#define recovered_23dc76 winterscript_wm_vector_23dc76
+#define recovered_23dcbe winterscript_wm_vector_23dcbe
+#define recovered_23dd02 winterscript_wm_vector_reserve_23dd02
+#define recovered_23dd6e winterscript_compileFastExpressionRange_23dd6e
+#define recovered_23df64 winterscript_wm_vector_reserve_23df64
+#define recovered_23dfd0 winterscript_wm_vector_BlockEntry_23dfd0
+#define recovered_23e00a winterscript_wm_vector_pop_back_23e00a
+#define recovered_23e02e winterscript_WinterScript_prepareParsedLines_23e02e
+#define recovered_23e054 winterscript_wm_vector_vector_23e054
+#define recovered_23e094 winterscript_WinterScript_parseLines_23e094
+#define recovered_23e63b winterscript_int_wm_count_23e63b
+#define recovered_23e662 winterscript_wm_string_view_find_23e662
+#define recovered_23e68c winterscript_WinterScript_parseLines_23e68c
+#define recovered_23e742 winterscript_WinterScript_parseLines_23e742
+#define recovered_23e90c winterscript_WinterScript_executeBlock_23e90c
+#define recovered_23eaae winterscript_WinterScript_runScript_23eaae
+#define recovered_23edaa winterscript_WinterScript_runBytecodeProgram_23edaa
+#define recovered_23f016 winterscript_WinterScript_runScriptFilePath_23f016
+#define recovered_23f114 winterscript_WinterScript_compileBytecodeChunk_23f114
+#define recovered_23fb2c winterscript_Instruction_wm_vector_23fb2c
+#define recovered_23fc3e winterscript_wm_vector_23fc3e
+#define recovered_23fc86 winterscript_wm_vector_reserve_23fc86
+#define recovered_23fce6 winterscript_WinterScript_compileToBytecode_23fce6
+#define recovered_23fd0a winterscript_WinterScript_compileToBytecode_23fd0a
+#define recovered_240062 winterscript_wm_string_find_last_of_240062
+#define recovered_2400c8 winterscript_WinterScript_serializeBytecode_2400c8
+#define recovered_240680 winterscript_unsigned_char_wm_vector_240680
+#define recovered_240724 winterscript_WinterScript_serializeBytecode_240724
+#define recovered_240760 winterscript_WinterScript_serializeBytecode_240760
+#define recovered_240784 winterscript_WinterScript_serializeBytecode_240784
+#define recovered_2407a0 winterscript_WinterScript_saveBytecode_2407a0
+#define recovered_240964 winterscript_std_ofstream_ofstream_240964
+#define recovered_24097e winterscript_WinterScript_deserializeBytecode_24097e
+#define recovered_2413ea winterscript_WinterScript_deserializeBytecode_2413ea
+#define recovered_241508 winterscript_WinterScript_deserializeBytecode_241508
+#define recovered_24154e winterscript_WinterScript_deserializeBytecode_24154e
+#define recovered_24158a winterscript_wm_vector_resize_24158a
+#define recovered_241612 winterscript_wm_vector_resize_241612
+#define recovered_241688 winterscript_wm_vector_resize_241688
+#define recovered_2416d4 winterscript_WinterScript_deserializeBytecode_2416d4
+#define recovered_2416f8 winterscript_wm_vector_resize_2416f8
+#define recovered_241748 winterscript_wm_vector_resize_241748
+#define recovered_2417bc winterscript_wm_vector_resize_2417bc
+#define recovered_241808 winterscript_wm_vector_resize_241808
+#define recovered_24184c winterscript_wm_vector_resize_24184c
+#define recovered_241890 winterscript_wm_vector_resize_241890
+#define recovered_2418d4 winterscript_wm_vector_resize_2418d4
+#define recovered_24194c winterscript_WinterScript_loadBytecode_24194c
+#define recovered_241d34 winterscript_wm_vector_resize_241d34
+#define recovered_241d72 winterscript_WinterScript_executeBytecodeChunkInternal_241d72
+#define recovered_2485c2 winterscript_WinterScript_executeBytecodeChunkInternal_2485c2
+#define recovered_2486da winterscript_WinterScript_executeBytecodeChunkInternal_2486da
+#define recovered_2488d0 winterscript_WinterScript_executeBytecodeChunkInternal_2488d0
+#define recovered_248b6c winterscript_WinterScript_executeBytecodeChunkInternal_248b6c
+#define recovered_248bb8 winterscript_nkInternalERKN2wm10shared_ptrI15BytecodeProgramEEjR11BlockSignalbENK3_0clIRS8_EEbOT_j_248bb8
+#define recovered_248d2c winterscript_5BytecodeProgramEEjR11BlockSignalbENK3_3clIRS8_EEbOT_jRPKNS0_6vectorINS0_6stringEEES7_248d2c
+#define recovered_24ac3e winterscript_WinterScript_executeBytecodeChunkInternal_24ac3e
+#define recovered_24aec8 winterscript_WinterScript_executeBytecodeChunkInternal_24aec8
+#define recovered_24aef8 winterscript_WinterScript_runBytecodeInternal_24aef8
+#define recovered_24afae winterscript_wm_shared_ptr_24afae
+#define recovered_24b068 winterscript_WinterScript_runBytecode_24b068
+#define recovered_24b08c winterscript_std_istream_istream_24b08c
+#define recovered_24b098 winterscript_wm_unordered_map_unordered_map_24b098
+#define recovered_24b0c4 winterscript_wm_vector_vector_24b0c4
+#define recovered_24b0e4 winterscript_wm_vector_clear_24b0e4
+#define recovered_24b11a winterscript_wm_unordered_map_unordered_map_24b11a
+#define recovered_24b146 winterscript_wm_unordered_map_unordered_map_24b146
+#define recovered_24b174 winterscript_wm_mt19937_mt19937_24b174
+#define recovered_24b19c winterscript_wm_unordered_map_unordered_map_24b19c
+#define recovered_24b1c8 winterscript_wm_unordered_map_unordered_map_24b1c8
+#define recovered_24b1f4 winterscript_wm_vector_vector_24b1f4
+#define recovered_24b214 winterscript_wm_vector_clear_24b214
+#define recovered_24b248 winterscript_wm_pair_pair_24b248
+#define recovered_24b268 winterscript_wm_string_string_24b268
+#define recovered_24b29c winterscript_wm_string_ensure_storage_24b29c
+#define recovered_24b2c0 winterscript_wm_string_string_24b2c0
+#define recovered_24b2d8 winterscript_wm_variant_variant_24b2d8
+#define recovered_24b358 winterscript_Variable_Variable_24b358
+#define recovered_24b37c winterscript_wm_variant_24b37c
+#define recovered_24b390 winterscript_wm_vector_vector_24b390
+#define recovered_24b3b0 winterscript_wm_vector_clear_24b3b0
+#define recovered_24b3e8 winterscript_wm_variant_24b3e8
+#define recovered_24b420 winterscript_void_wm_detail_variant_move_24b420
+#define recovered_24b43b winterscript_void_wm_detail_variant_move_24b43b
+#define recovered_24b456 winterscript_void_wm_detail_variant_move_24b456
+#define recovered_24b47e winterscript_void_wm_detail_variant_move_24b47e
+#define recovered_24b4a6 winterscript_void_wm_detail_variant_move_24b4a6
+#define recovered_24b4c2 winterscript_wm_vector_24b4c2
+#define recovered_24b4e8 winterscript_void_wm_detail_variant_move_24b4e8
+#define recovered_24b51a winterscript_Variable_Variable_24b51a
+#define recovered_24b568 winterscript_wm_shared_ptr_const_24b568
+#define recovered_24b624 winterscript_wm_unordered_map_const_24b624
+#define recovered_24b70c winterscript_wm_vector_const_24b70c
+#define recovered_24b76c winterscript_wm_pair_const_24b76c
+#define recovered_24b818 winterscript_wm_vector_const_24b818
+#define recovered_24b862 winterscript_wm_shared_ptr_24b862
+#define recovered_24b8a8 winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_24b8a8
+#define recovered_24b8ae winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_24b8ae
+#define recovered_24b8b8 winterscript_wm_detail_shared_control_block_impl_destroy_object_24b8b8
+#define recovered_24b8e6 winterscript_wm_variant_const_24b8e6
+#define recovered_24b91e winterscript_void_wm_detail_variant_copy_24b91e
+#define recovered_24b939 winterscript_void_wm_detail_variant_copy_24b939
+#define recovered_24b954 winterscript_void_wm_detail_variant_copy_24b954
+#define recovered_24b97c winterscript_void_wm_detail_variant_copy_24b97c
+#define recovered_24b9a4 winterscript_void_wm_detail_variant_copy_24b9a4
+#define recovered_24b9c0 winterscript_wm_vector_const_24b9c0
+#define recovered_24ba02 winterscript_wm_vector_reserve_24ba02
+#define recovered_24ba4c winterscript_char_wm_detail_vector_allocate_24ba4c
+#define recovered_24ba5f winterscript_void_wm_detail_variant_copy_24ba5f
+#define recovered_24ba7a winterscript_void_wm_detail_variant_copy_24ba7a
+#define recovered_24baa2 winterscript_void_wm_detail_variant_copy_24baa2
+#define recovered_24baca winterscript_void_wm_detail_variant_copy_24baca
+#define recovered_24baf2 winterscript_void_wm_detail_variant_copy_24baf2
+#define recovered_24bb16 winterscript_wm_shared_ptr_const_24bb16
+#define recovered_24bb32 winterscript_wm_unordered_map_unordered_map_24bb32
+#define recovered_24bb5a winterscript_TokenAnalysis_TokenAnalysis_24bb5a
+#define recovered_24bb83 winterscript_wm_from_chars_result_wm_from_chars_24bb83
+#define recovered_24bcd7 winterscript_wm_digit_from_char_24bcd7
+#define recovered_24bd10 winterscript_wm_runtime_error_runtime_error_24bd10
 #define recovered_24bd3a winterscript_wm_runtime_error_runtime_error_24bd3a
-#define recovered_24bd60 winterscript_wm_to_string_24bd60
-#define recovered_24c0c3 winterscript_appendIntFast_24c0c3
-#define recovered_24c1c6 winterscript_wm_string_wm_string_append_24c1c6
-#define recovered_24c21e winterscript_wm_operator_24c21e
-#define recovered_24c23c winterscript_Variable_Variable_24c23c
-#define recovered_24c260 winterscript_wm_variant_24c260
-#define recovered_24c274 winterscript_wm_array_array_24c274
-#define recovered_24c29c winterscript_wm_array_array_24c29c
-#define recovered_24c2be winterscript_wm_array_array_24c2be
-#define recovered_24c2e8 winterscript_wm_runtime_error_runtime_error_24c2e8
-#define recovered_24c312 winterscript_Variable_Variable_24c312
-#define recovered_24c338 winterscript_wm_variant_const_24c338
-#define recovered_24c35a winterscript_Variable_Variable_24c35a
-#define recovered_24c380 winterscript_wm_variant_24c380
-#define recovered_24c3a2 winterscript_wm_string_string_24c3a2
-#define recovered_24c3c8 winterscript_RaisedScriptError_RaisedScriptError_24c3c8
-#define recovered_24c3e2 winterscript_RaisedScriptError_what_24c3e2
-#define recovered_24c3f8 winterscript_WinterScript_CoroutineFrame_CoroutineFrame_24c3f8
-#define recovered_24c41c winterscript_WinterScript_CoroutineFrame_CoroutineFrame_24c41c
-#define recovered_24c4e0 winterscript_wm_vector_const_24c4e0
-#define recovered_24c540 winterscript_wm_vector_const_24c540
-#define recovered_24c5a0 winterscript_wm_vector_reserve_24c5a0
-#define recovered_24c60c winterscript_wm_vector_24c60c
-#define recovered_24c62e winterscript_wm_vector_24c62e
-#define recovered_24c654 winterscript_wm_vector_const_24c654
-#define recovered_24c6b4 winterscript_Variable_Variable_24c6b4
-#define recovered_24c6d8 winterscript_wm_variant_const_24c6d8
-#define recovered_24c6ec winterscript_Variable_Variable_24c6ec
-#define recovered_24c73a winterscript_wm_shared_ptr_24c73a
-#define recovered_24c77c winterscript_wm_unordered_map_24c77c
-#define recovered_24c7be winterscript_wm_vector_24c7be
-#define recovered_24c7e4 winterscript_wm_vector_clear_24c7e4
-#define recovered_24c818 winterscript_WinterScript_executeCoroutineTurn_24c818
-#define recovered_24ca6c winterscript_wm_vector_vector_24ca6c
-#define recovered_24ca84 winterscript_wm_vector_resize_24ca84
-#define recovered_24cade winterscript_wm_string_string_24cade
-#define recovered_24cb06 winterscript_wm_operator_24cb06
-#define recovered_24cb52 winterscript_decodeStringToken_24cb52
-#define recovered_24cd51 winterscript_wm_shared_ptr_24cd51
-#define recovered_24cd92 winterscript_wm_shared_ptr_shared_ptr_24cd92
-#define recovered_24cdd8 winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_24cdd8
-#define recovered_24cdde winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_24cdde
-#define recovered_24cde8 winterscript_wm_detail_shared_control_block_impl_destroy_object_24cde8
-#define recovered_24ce16 winterscript_wm_shared_ptr_24ce16
-#define recovered_24ce4e winterscript_wm_pair_24ce4e
-#define recovered_24ceb0 winterscript_wm_pair_pair_24ceb0
-#define recovered_24cf5c winterscript_wm_string_view_find_24cf5c
-#define recovered_24cfd2 winterscript_wm_string_compare_24cfd2
-#define recovered_24d03a winterscript_wm_weak_ptr_24d03a
-#define recovered_24d06e winterscript_wm_vector_24d06e
-#define recovered_24d0b6 winterscript_wm_unordered_map_24d0b6
-#define recovered_24d0fc winterscript_wm_vector_24d0fc
-#define recovered_24d146 winterscript_wm_string_data_24d146
-#define recovered_24d15e winterscript_std_ifstream_ifstream_24d15e
-#define recovered_24d228 winterscript_std_ifstream_open_24d228
-#define recovered_24d256 winterscript_std_basic_file_basic_file_24d256
-#define recovered_24d2d0 winterscript_std_ifstream_ifstream_24d2d0
-#define recovered_24d2ee winterscript_std_basic_file_open_file_24d2ee
-#define recovered_24d334 winterscript_std_basic_file_close_24d334
-#define recovered_24d35f winterscript_std_detail_fopen_mode_24d35f
-#define recovered_24d3d6 winterscript_BytecodeProgram_BytecodeProgram_24d3d6
-#define recovered_24d46c winterscript_wm_vector_vector_24d46c
-#define recovered_24d48c winterscript_wm_vector_clear_24d48c
-#define recovered_24d4c0 winterscript_wm_vector_vector_24d4c0
-#define recovered_24d4dc winterscript_wm_vector_vector_24d4dc
-#define recovered_24d4f8 winterscript_wm_vector_vector_24d4f8
-#define recovered_24d514 winterscript_wm_vector_vector_24d514
-#define recovered_24d534 winterscript_wm_vector_clear_24d534
-#define recovered_24d568 winterscript_wm_vector_vector_24d568
-#define recovered_24d584 winterscript_wm_string_rfind_24d584
-#define recovered_24d5c4 winterscript_std_istream_getline_into_24d5c4
-#define recovered_24d628 winterscript_std_ostream_write_24d628
-#define recovered_24d65a winterscript_std_ostringstream_append_unsigned_24d65a
-#define recovered_24d710 winterscript_wm_string_string_24d710
-#define recovered_24d728 winterscript_wm_string_resize_24d728
-#define recovered_24d77c winterscript_wm_string_growth_for_24d77c
-#define recovered_24d790 winterscript_wm_mt19937_twist_24d790
-#define recovered_24d808 winterscript_wm_unordered_map_unordered_map_24d808
-#define recovered_24d85c winterscript_wm_unordered_map_find_24d85c
-#define recovered_24d8ca winterscript_CompiledGsubPattern_CompiledGsubPattern_24d8ca
-#define recovered_24d8ee winterscript_wm_unique_ptr_unique_ptr_24d8ee
-#define recovered_24d90e winterscript_wm_pair_pair_24d90e
-#define recovered_24d92c winterscript_wm_unordered_map_bucket_for_key_24d92c
-#define recovered_24d952 winterscript_wm_hash_operator_24d952
-#define recovered_24d978 winterscript_wm_detail_hash_bytes_24d978
-#define recovered_24d9a2 winterscript_wm_regex_regex_24d9a2
-#define recovered_24d9c4 winterscript_wm_regex_operator_24d9c4
-#define recovered_24d9e8 winterscript_escapeRegexLiteralChar_24d9e8
-#define recovered_24daf6 winterscript_wm_unordered_map_link_index_24daf6
-#define recovered_24db24 winterscript_wm_vector_assign_24db24
-#define recovered_24db34 winterscript_wm_vector_resize_24db34
-#define recovered_24db84 winterscript_wm_vector_resize_24db84
-#define recovered_24dbc2 winterscript_wm_string_append_24dbc2
-#define recovered_24dbec winterscript_wm_sregex_iterator_sregex_iterator_24dbec
-#define recovered_24dca4 winterscript_wm_sregex_iterator_find_next_24dca4
-#define recovered_24dcd6 winterscript_wm_sregex_iterator_operator_24dcd6
-#define recovered_24dd14 winterscript_wm_sub_match_str_24dd14
-#define recovered_24dd52 winterscript_Variable_Variable_24dd52
-#define recovered_24dda0 winterscript_wm_shared_ptr_const_24dda0
-#define recovered_24de5c winterscript_wm_shared_ptr_24de5c
-#define recovered_24dea2 winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_24dea2
-#define recovered_24dea8 winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_24dea8
-#define recovered_24deb2 winterscript_wm_detail_shared_control_block_impl_destroy_object_24deb2
-#define recovered_24dee0 winterscript_Variable_Variable_24dee0
-#define recovered_24df2e winterscript_wm_shared_ptr_24df2e
-#define recovered_24df70 winterscript_wm_vector_vector_24df70
-#define recovered_24df8c winterscript_decimalStringLength_24df8c
-#define recovered_24dfb4 winterscript_void_wm_swap_24dfb4
-#define recovered_24e07c winterscript_WinterScript_sortFunctionImpl_24e07c
-#define recovered_24e0be winterscript_WinterScript_sortFunctionImpl_24e0be
-#define recovered_24e230 winterscript_wm_array_array_24e230
-#define recovered_24e258 winterscript_wm_string_wm_vector_24e258
-#define recovered_24e2bc winterscript_wm_string_string_24e2bc
-#define recovered_24e394 winterscript_wm_to_chars_result_wm_to_chars_24e394
-#define recovered_24e462 winterscript_WinterScript_skipExpression_24e462
-#define recovered_24e4c7 winterscript_isStandaloneNotBoundary_24e4c7
-#define recovered_24e6f1 winterscript_classifyBinaryOperator_24e6f1
-#define recovered_24e916 winterscript_binaryOperatorPrecedence_24e916
-#define recovered_24e92e winterscript_orINS0_6stringEEERmiPKNS1_I13TokenAnalysisEEENK3_0clIRSB_EEvOT_iENKUlSF_E_clISD_EEvSF_24e92e
-#define recovered_24eb58 winterscript_WinterScript_executeAssignment_24eb58
-#define recovered_24ecea winterscript_WinterScript_executeAssignment_24ecea
-#define recovered_24ed17 winterscript_wm_string_const_wm_find_24ed17
-#define recovered_24ed4e winterscript_WinterScript_executeParsedBlock_24ed4e
-#define recovered_24edd2 winterscript_wm_vector_24edd2
-#define recovered_24ee16 winterscript_wm_vector_24ee16
-#define recovered_24ee5a winterscript_FastExpression_FastExpression_24ee5a
-#define recovered_24ee8a winterscript_wm_vector_vector_24ee8a
-#define recovered_24eea6 winterscript_wm_vector_24eea6
-#define recovered_24eeee winterscript_wm_vector_vector_24eeee
-#define recovered_24ef0e winterscript_ParsedAssignmentTarget_ParsedAssignmentTarget_24ef0e
-#define recovered_24ef32 winterscript_wm_vector_reserve_24ef32
-#define recovered_24ef90 winterscript_compileFastExpressionRange_24ef90
-#define recovered_24f4b8 winterscript_FastExpression_FastExpression_24f4b8
-#define recovered_24f4ec winterscript_FastExpression_FastExpression_24f4ec
-#define recovered_24f53e winterscript_wm_vector_24f53e
-#define recovered_24f564 winterscript_wm_vector_24f564
-#define recovered_24f58a winterscript_wm_vector_24f58a
-#define recovered_24f5b0 winterscript_FastExprNode_wm_detail_vector_allocate_24f5b0
-#define recovered_24f5d2 winterscript_compileFastExpressionRange_24f5d2
-#define recovered_24f67a winterscript_compileFastExpressionRange_24f67a
-#define recovered_24f6b4 winterscript_compileFastExpressionRange_24f6b4
-#define recovered_24f926 winterscript_compileFastExpressionRange_24f926
-#define recovered_24f974 winterscript_int_wm_vector_24f974
-#define recovered_24fa4c winterscript_int_wm_vector_24fa4c
-#define recovered_24fa8c winterscript_wm_vector_reserve_24fa8c
-#define recovered_24fad5 winterscript_int_wm_detail_vector_allocate_24fad5
-#define recovered_24faf6 winterscript_FastExprNode_wm_vector_24faf6
-#define recovered_24fb48 winterscript_FastExpression_FastExpression_24fb48
-#define recovered_24fc40 winterscript_wm_vector_const_24fc40
-#define recovered_24fc8a winterscript_wm_vector_const_24fc8a
-#define recovered_24fce2 winterscript_FastCallExpression_FastCallExpression_24fce2
-#define recovered_24fd08 winterscript_wm_vector_24fd08
-#define recovered_24fd2e winterscript_ParsedScriptLine_ParsedScriptLine_24fd2e
-#define recovered_2500d4 winterscript_wm_vector_vector_2500d4
-#define recovered_2500f0 winterscript_ParsedScriptLine_ParsedScriptLine_2500f0
-#define recovered_2501c2 winterscript_wm_vector_reserve_2501c2
-#define recovered_250220 winterscript_TokenAnalysis_wm_detail_vector_allocate_250220
-#define recovered_250242 winterscript_TokenAnalysis_wm_vector_250242
-#define recovered_250298 winterscript_wm_vector_vector_250298
-#define recovered_2502b4 winterscript_BytecodeFunctionDecl_BytecodeFunctionDecl_2502b4
-#define recovered_2502d8 winterscript_BytecodeProgram_BytecodeProgram_2502d8
-#define recovered_250384 winterscript_unsigned_char_wm_vector_250384
-#define recovered_250428 winterscript_wm_vector_reserve_250428
-#define recovered_250472 winterscript_unsigned_char_wm_detail_vector_allocate_250472
-#define recovered_250486 winterscript_unsigned_char_wm_vector_250486
-#define recovered_2504ca winterscript_std_ofstream_ofstream_2504ca
-#define recovered_250594 winterscript_std_ofstream_open_250594
-#define recovered_2505c2 winterscript_std_ofstream_ofstream_2505c2
-#define recovered_2505e0 winterscript_std_basic_file_write_bytes_2505e0
-#define recovered_250632 winterscript_wm_string_string_250632
-#define recovered_25064a winterscript_wm_string_wm_string_append_25064a
-#define recovered_2506a0 winterscript_std_basic_file_seek_get_2506a0
-#define recovered_2506e4 winterscript_std_basic_file_tell_get_2506e4
-#define recovered_250716 winterscript_std_basic_file_read_bytes_250716
-#define recovered_250770 winterscript_wm_vector_resize_250770
-#define recovered_2507c0 winterscript_WinterScript_executeBytecodeChunkInternal_2507c0
-#define recovered_250855 winterscript_wm_regex_search_250855
-#define recovered_250940 winterscript_wm_match_results_set_match_250940
-#define recovered_25097c winterscript_wm_detail_regex_match_here_25097c
-#define recovered_250bc7 winterscript_wm_detail_regex_atom_matches_250bc7
-#define recovered_250cad winterscript_wm_detail_regex_char_equal_250cad
-#define recovered_250cf1 winterscript_wm_detail_regex_class_end_250cf1
-#define recovered_250d28 winterscript_wm_detail_regex_class_contains_250d28
-#define recovered_250e8c winterscript_wm_sub_match_const_250e8c
-#define recovered_250ee4 winterscript_wm_vector_reserve_250ee4
-#define recovered_250f43 winterscript_wm_sub_match_250f43
-#define recovered_250f64 winterscript_wm_shared_ptr_release_250f64
-#define recovered_251004 winterscript_wm_shared_ptr_release_251004
-#define recovered_2510a4 winterscript_wm_vector_vector_2510a4
-#define recovered_2510c4 winterscript_wm_vector_vector_2510c4
-#define recovered_2510e4 winterscript_wm_vector_vector_2510e4
-#define recovered_251100 winterscript_wm_string_wm_vector_251100
-#define recovered_251152 winterscript_FastExpression_wm_vector_251152
-#define recovered_2511a4 winterscript_wm_vector_vector_2511a4
-#define recovered_2511c0 winterscript_wm_vector_vector_2511c0
-#define recovered_2511e0 winterscript_wm_vector_clear_2511e0
-#define recovered_251214 winterscript_wm_vector_vector_251214
-#define recovered_251230 winterscript_wm_vector_vector_251230
-#define recovered_251250 winterscript_wm_function_holder_251250
-#define recovered_251256 winterscript_wm_function_holder_251256
-#define recovered_251260 winterscript_wm_function_const_251260
-#define recovered_251286 winterscript_wm_function_clone_251286
-#define recovered_2512ac winterscript_wm_function_holder_2512ac
-#define recovered_2512b2 winterscript_wm_function_holder_2512b2
-#define recovered_2512bc winterscript_wm_function_const_2512bc
-#define recovered_2512e4 winterscript_wm_function_clone_2512e4
-#define recovered_25130a winterscript_wm_function_holder_25130a
-#define recovered_251310 winterscript_wm_function_holder_251310
-#define recovered_25131a winterscript_wm_function_const_25131a
-#define recovered_251342 winterscript_wm_function_clone_251342
-#define recovered_251368 winterscript_wm_function_holder_251368
-#define recovered_25136e winterscript_wm_function_holder_25136e
-#define recovered_251378 winterscript_wm_function_const_251378
-#define recovered_25139e winterscript_wm_function_clone_25139e
-#define recovered_2513c4 winterscript_wm_function_holder_2513c4
-#define recovered_2513ca winterscript_wm_function_holder_2513ca
-#define recovered_2513d4 winterscript_wm_function_const_2513d4
-#define recovered_2513fa winterscript_wm_function_clone_2513fa
-#define recovered_251420 winterscript_wm_function_holder_251420
-#define recovered_251426 winterscript_wm_function_holder_251426
-#define recovered_251430 winterscript_wm_function_const_251430
-#define recovered_251456 winterscript_wm_function_clone_251456
-#define recovered_25147c winterscript_wm_function_holder_25147c
-#define recovered_251482 winterscript_wm_function_holder_251482
-#define recovered_25148c winterscript_wm_function_const_25148c
-#define recovered_2514b2 winterscript_wm_function_clone_2514b2
-#define recovered_2514d8 winterscript_wm_function_holder_2514d8
-#define recovered_2514de winterscript_wm_function_holder_2514de
-#define recovered_2514e8 winterscript_wm_function_const_2514e8
-#define recovered_25150e winterscript_wm_function_clone_25150e
-#define recovered_251534 winterscript_wm_function_holder_251534
-#define recovered_25153a winterscript_wm_function_holder_25153a
-#define recovered_251544 winterscript_wm_function_const_251544
-#define recovered_25156a winterscript_wm_function_clone_25156a
-#define recovered_251590 winterscript_wm_function_holder_251590
-#define recovered_251596 winterscript_wm_function_holder_251596
-#define recovered_2515a0 winterscript_wm_function_const_2515a0
-#define recovered_2515c6 winterscript_wm_function_clone_2515c6
-#define recovered_2515ec winterscript_wm_function_holder_2515ec
-#define recovered_2515f2 winterscript_wm_function_holder_2515f2
-#define recovered_2515fc winterscript_wm_function_const_2515fc
-#define recovered_251622 winterscript_wm_function_clone_251622
-#define recovered_251648 winterscript_wm_function_holder_251648
-#define recovered_25164e winterscript_wm_function_holder_25164e
-#define recovered_251658 winterscript_wm_function_const_251658
-#define recovered_251680 winterscript_wm_function_clone_251680
-#define recovered_2516a6 winterscript_wm_function_holder_2516a6
-#define recovered_2516ac winterscript_wm_function_holder_2516ac
-#define recovered_2516b6 winterscript_wm_function_const_2516b6
-#define recovered_2516de winterscript_wm_function_clone_2516de
-#define recovered_251704 winterscript_wm_function_holder_251704
-#define recovered_25170a winterscript_wm_function_holder_25170a
-#define recovered_251714 winterscript_wm_function_const_251714
-#define recovered_25173a winterscript_wm_function_clone_25173a
-#define recovered_251760 winterscript_wm_function_holder_251760
-#define recovered_251766 winterscript_wm_function_holder_251766
-#define recovered_251770 winterscript_wm_function_const_251770
-#define recovered_251798 winterscript_wm_function_clone_251798
-#define recovered_2517be winterscript_wm_function_holder_2517be
-#define recovered_2517c4 winterscript_wm_function_holder_2517c4
-#define recovered_2517ce winterscript_wm_function_const_2517ce
-#define recovered_2517f4 winterscript_wm_function_clone_2517f4
-#define recovered_25181a winterscript_wm_function_holder_25181a
-#define recovered_251820 winterscript_wm_function_holder_251820
-#define recovered_25182a winterscript_wm_function_const_25182a
-#define recovered_251852 winterscript_wm_function_clone_251852
-#define recovered_251878 winterscript_wm_function_holder_251878
-#define recovered_25187e winterscript_wm_function_holder_25187e
-#define recovered_251888 winterscript_wm_function_const_251888
-#define recovered_2518b0 winterscript_wm_function_clone_2518b0
-#define recovered_2518d6 winterscript_wm_function_holder_2518d6
-#define recovered_2518dc winterscript_wm_function_holder_2518dc
-#define recovered_2518e6 winterscript_wm_function_const_2518e6
-#define recovered_25190e winterscript_wm_function_clone_25190e
-#define recovered_251934 winterscript_wm_function_holder_251934
-#define recovered_25193a winterscript_wm_function_holder_25193a
-#define recovered_251944 winterscript_wm_function_const_251944
-#define recovered_25196c winterscript_wm_function_clone_25196c
-#define recovered_251992 winterscript_wm_function_holder_251992
-#define recovered_251998 winterscript_wm_function_holder_251998
-#define recovered_2519a2 winterscript_wm_function_const_2519a2
-#define recovered_2519ca winterscript_wm_function_clone_2519ca
-#define recovered_2519f0 winterscript_wm_function_holder_2519f0
-#define recovered_2519f6 winterscript_wm_function_holder_2519f6
-#define recovered_251a00 winterscript_wm_function_const_251a00
-#define recovered_251a28 winterscript_wm_function_clone_251a28
-#define recovered_251a4e winterscript_wm_function_holder_251a4e
-#define recovered_251a54 winterscript_wm_function_holder_251a54
-#define recovered_251a5e winterscript_wm_function_const_251a5e
-#define recovered_251a86 winterscript_wm_function_clone_251a86
-#define recovered_251aac winterscript_wm_function_holder_251aac
-#define recovered_251ab2 winterscript_wm_function_holder_251ab2
-#define recovered_251abc winterscript_wm_function_const_251abc
-#define recovered_251ae4 winterscript_wm_function_clone_251ae4
-#define recovered_251b0a winterscript_wm_function_holder_251b0a
-#define recovered_251b10 winterscript_wm_function_holder_251b10
-#define recovered_251b1a winterscript_wm_function_const_251b1a
-#define recovered_251b42 winterscript_wm_function_clone_251b42
-#define recovered_251b68 winterscript_wm_function_holder_251b68
-#define recovered_251b6e winterscript_wm_function_holder_251b6e
-#define recovered_251b78 winterscript_wm_function_const_251b78
-#define recovered_251ba0 winterscript_wm_function_clone_251ba0
-#define recovered_251bc6 winterscript_wm_function_holder_251bc6
-#define recovered_251bcc winterscript_wm_function_holder_251bcc
-#define recovered_251bd6 winterscript_wm_function_const_251bd6
-#define recovered_251bfe winterscript_wm_function_clone_251bfe
-#define recovered_251c24 winterscript_wm_function_holder_251c24
-#define recovered_251c2a winterscript_wm_function_holder_251c2a
-#define recovered_251c34 winterscript_wm_function_const_251c34
-#define recovered_251c5c winterscript_wm_function_clone_251c5c
-#define recovered_251c82 winterscript_wm_function_holder_251c82
-#define recovered_251c88 winterscript_wm_function_holder_251c88
-#define recovered_251c92 winterscript_wm_function_const_251c92
-#define recovered_251cb8 winterscript_wm_function_clone_251cb8
-#define recovered_251cde winterscript_wm_function_holder_251cde
-#define recovered_251ce4 winterscript_wm_function_holder_251ce4
-#define recovered_251cee winterscript_wm_function_const_251cee
-#define recovered_251d12 winterscript_wm_function_clone_251d12
-#define recovered_251d38 winterscript_wm_function_holder_251d38
-#define recovered_251d3e winterscript_wm_function_holder_251d3e
-#define recovered_251d48 winterscript_wm_function_const_251d48
-#define recovered_251d6c winterscript_wm_function_clone_251d6c
-#define recovered_251d92 winterscript_wm_function_holder_251d92
-#define recovered_251d98 winterscript_wm_function_holder_251d98
-#define recovered_251da2 winterscript_wm_function_const_251da2
-#define recovered_251dca winterscript_wm_function_clone_251dca
-#define recovered_251df0 winterscript_wm_function_holder_251df0
-#define recovered_251df6 winterscript_wm_function_holder_251df6
-#define recovered_251e00 winterscript_wm_function_const_251e00
-#define recovered_251ee0 winterscript_wm_function_clone_251ee0
-#define recovered_251f06 winterscript_wm_function_holder_251f06
-#define recovered_251f0c winterscript_wm_function_holder_251f0c
-#define recovered_251f16 winterscript_wm_function_const_251f16
-#define recovered_25205e winterscript_wm_function_clone_25205e
-#define recovered_252084 winterscript_wm_shared_ptr_const_252084
-#define recovered_2520a0 winterscript_Variable_wm_vector_2520a0
-#define recovered_2520f2 winterscript_wm_function_holder_2520f2
-#define recovered_2520f8 winterscript_wm_function_holder_2520f8
-#define recovered_252102 winterscript_wm_function_const_252102
-#define recovered_252282 winterscript_wm_function_clone_252282
-#define recovered_2522a8 winterscript_Variable_wm_detail_vector_allocate_2522a8
-#define recovered_2522ca winterscript_wm_function_holder_2522ca
-#define recovered_2522d0 winterscript_wm_function_holder_2522d0
-#define recovered_2522da winterscript_wm_function_const_2522da
-#define recovered_2524b4 winterscript_wm_function_clone_2524b4
-#define recovered_2524da winterscript_wm_function_holder_2524da
-#define recovered_2524e0 winterscript_wm_function_holder_2524e0
-#define recovered_2524ea winterscript_wm_function_const_2524ea
-#define recovered_25264a winterscript_wm_function_clone_25264a
-#define recovered_252670 winterscript_wm_function_holder_252670
-#define recovered_252676 winterscript_wm_function_holder_252676
-#define recovered_252680 winterscript_wm_function_const_252680
-#define recovered_25284c winterscript_wm_function_clone_25284c
-#define recovered_252872 winterscript_wm_unordered_map_prepare_insert_252872
-#define recovered_2528ae winterscript_wm_pair_2528ae
-#define recovered_252910 winterscript_wm_unordered_map_link_index_252910
-#define recovered_252942 winterscript_wm_unordered_map_rehash_252942
-#define recovered_25299e winterscript_wm_unordered_map_bucket_count_for_size_25299e
-#define recovered_2529b2 winterscript_wm_unordered_map_rebuild_buckets_2529b2
-#define recovered_2529e6 winterscript_wm_pair_2529e6
-#define recovered_252a90 winterscript_wm_unordered_map_bucket_for_key_252a90
-#define recovered_252ab6 winterscript_wm_function_holder_252ab6
-#define recovered_252abc winterscript_wm_function_holder_252abc
-#define recovered_252ac6 winterscript_wm_function_const_252ac6
-#define recovered_252aec winterscript_wm_function_clone_252aec
-#define recovered_252b12 winterscript_wm_function_holder_252b12
-#define recovered_252b18 winterscript_wm_function_holder_252b18
-#define recovered_252b22 winterscript_wm_function_const_252b22
-#define recovered_252c4e winterscript_wm_function_clone_252c4e
-#define recovered_252c74 winterscript_wm_function_holder_252c74
-#define recovered_252c7a winterscript_wm_function_holder_252c7a
-#define recovered_252c84 winterscript_wm_function_const_252c84
-#define recovered_252caa winterscript_wm_function_clone_252caa
-#define recovered_252cd0 winterscript_wm_function_holder_252cd0
-#define recovered_252cd6 winterscript_wm_function_holder_252cd6
-#define recovered_252ce0 winterscript_wm_function_const_252ce0
-#define recovered_252d06 winterscript_wm_function_clone_252d06
-#define recovered_252d2c winterscript_wm_function_holder_252d2c
-#define recovered_252d32 winterscript_wm_function_holder_252d32
-#define recovered_252d3c winterscript_wm_function_const_252d3c
-#define recovered_252d62 winterscript_wm_function_clone_252d62
-#define recovered_252d88 winterscript_wm_function_holder_252d88
-#define recovered_252d8e winterscript_wm_function_holder_252d8e
-#define recovered_252d98 winterscript_wm_function_const_252d98
-#define recovered_252dbe winterscript_wm_function_clone_252dbe
-#define recovered_252de4 winterscript_wm_function_holder_252de4
-#define recovered_252dea winterscript_wm_function_holder_252dea
-#define recovered_252df4 winterscript_wm_function_const_252df4
-#define recovered_252e1a winterscript_wm_function_clone_252e1a
-#define recovered_252e40 winterscript_wm_function_holder_252e40
-#define recovered_252e46 winterscript_wm_function_holder_252e46
-#define recovered_252e50 winterscript_wm_function_const_252e50
-#define recovered_252e76 winterscript_wm_function_clone_252e76
-#define recovered_252e9c winterscript_wm_function_holder_252e9c
-#define recovered_252ea2 winterscript_wm_function_holder_252ea2
-#define recovered_252eac winterscript_wm_function_const_252eac
-#define recovered_252ed2 winterscript_wm_function_clone_252ed2
-#define recovered_252ef8 winterscript_wm_function_holder_252ef8
-#define recovered_252efe winterscript_wm_function_holder_252efe
-#define recovered_252f08 winterscript_wm_function_const_252f08
-#define recovered_252f2e winterscript_wm_function_clone_252f2e
-#define recovered_252f54 winterscript_wm_function_holder_252f54
-#define recovered_252f5a winterscript_wm_function_holder_252f5a
-#define recovered_252f64 winterscript_wm_function_const_252f64
-#define recovered_252f8a winterscript_wm_function_clone_252f8a
-#define recovered_252fb0 winterscript_wm_function_holder_252fb0
-#define recovered_252fb6 winterscript_wm_function_holder_252fb6
-#define recovered_252fc0 winterscript_wm_function_const_252fc0
-#define recovered_252fe6 winterscript_wm_function_clone_252fe6
-#define recovered_25300c winterscript_wm_function_holder_25300c
-#define recovered_253012 winterscript_wm_function_holder_253012
-#define recovered_25301c winterscript_wm_function_const_25301c
-#define recovered_253044 winterscript_wm_function_clone_253044
-#define recovered_25306a winterscript_wm_function_holder_25306a
-#define recovered_253070 winterscript_wm_function_holder_253070
-#define recovered_25307a winterscript_wm_function_const_25307a
-#define recovered_2530a2 winterscript_wm_function_clone_2530a2
-#define recovered_2530c8 winterscript_wm_function_holder_2530c8
-#define recovered_2530ce winterscript_wm_function_holder_2530ce
-#define recovered_2530d8 winterscript_wm_function_const_2530d8
-#define recovered_253100 winterscript_wm_function_clone_253100
-#define recovered_253126 winterscript_wm_function_holder_253126
-#define recovered_25312c winterscript_wm_function_holder_25312c
-#define recovered_253136 winterscript_wm_function_const_253136
-#define recovered_25315e winterscript_wm_function_clone_25315e
-#define recovered_253184 winterscript_wm_function_holder_253184
-#define recovered_25318a winterscript_wm_function_holder_25318a
-#define recovered_253194 winterscript_wm_function_const_253194
-#define recovered_2531ba winterscript_wm_function_clone_2531ba
-#define recovered_2531e0 winterscript_wm_function_holder_2531e0
-#define recovered_2531e6 winterscript_wm_function_holder_2531e6
-#define recovered_2531f0 winterscript_wm_function_const_2531f0
-#define recovered_253216 winterscript_wm_function_clone_253216
-#define recovered_25323c winterscript_wm_function_holder_25323c
-#define recovered_253242 winterscript_wm_function_holder_253242
-#define recovered_25324c winterscript_wm_function_const_25324c
-#define recovered_253272 winterscript_wm_function_clone_253272
-#define recovered_253298 winterscript_wm_function_holder_253298
-#define recovered_25329e winterscript_wm_function_holder_25329e
-#define recovered_2532a8 winterscript_wm_function_const_2532a8
-#define recovered_2532d0 winterscript_wm_function_clone_2532d0
-#define recovered_2532f6 winterscript_wm_function_holder_2532f6
-#define recovered_2532fc winterscript_wm_function_holder_2532fc
-#define recovered_253306 winterscript_wm_function_const_253306
-#define recovered_25332e winterscript_wm_function_clone_25332e
-#define recovered_253354 winterscript_wm_function_holder_253354
-#define recovered_25335a winterscript_wm_function_holder_25335a
-#define recovered_253364 winterscript_wm_function_const_253364
-#define recovered_25338a winterscript_wm_function_clone_25338a
-#define recovered_2533b0 winterscript_wm_function_holder_2533b0
-#define recovered_2533b6 winterscript_wm_function_holder_2533b6
-#define recovered_2533c0 winterscript_wm_function_const_2533c0
-#define recovered_2533e6 winterscript_wm_function_clone_2533e6
-#define recovered_25340c winterscript_wm_function_holder_25340c
-#define recovered_253412 winterscript_wm_function_holder_253412
-#define recovered_25341c winterscript_wm_function_const_25341c
-#define recovered_253442 winterscript_wm_function_clone_253442
-#define recovered_253468 winterscript_wm_function_holder_253468
-#define recovered_25346e winterscript_wm_function_holder_25346e
-#define recovered_253478 winterscript_wm_function_const_253478
-#define recovered_25349e winterscript_wm_function_clone_25349e
-#define recovered_2534c4 winterscript_wm_function_holder_2534c4
-#define recovered_2534ca winterscript_wm_function_holder_2534ca
-#define recovered_2534d4 winterscript_wm_function_const_2534d4
-#define recovered_2534fa winterscript_wm_function_clone_2534fa
-#define recovered_253520 winterscript_wm_function_holder_253520
-#define recovered_253526 winterscript_wm_function_holder_253526
-#define recovered_253530 winterscript_wm_function_const_253530
-#define recovered_253558 winterscript_wm_function_clone_253558
-#define recovered_25357e winterscript_wm_function_holder_25357e
-#define recovered_253584 winterscript_wm_function_holder_253584
-#define recovered_25358e winterscript_wm_function_const_25358e
-#define recovered_2535b6 winterscript_wm_function_clone_2535b6
-#define recovered_2535dc winterscript_wm_function_holder_2535dc
-#define recovered_2535e2 winterscript_wm_function_holder_2535e2
-#define recovered_2535ec winterscript_wm_function_const_2535ec
-#define recovered_253612 winterscript_wm_function_clone_253612
-#define recovered_253638 winterscript_wm_function_holder_253638
-#define recovered_25363e winterscript_wm_function_holder_25363e
-#define recovered_253648 winterscript_wm_function_const_253648
-#define recovered_25366e winterscript_wm_function_clone_25366e
-#define recovered_253694 winterscript_wm_function_holder_253694
-#define recovered_25369a winterscript_wm_function_holder_25369a
-#define recovered_2536a4 winterscript_wm_function_const_2536a4
-#define recovered_2536ca winterscript_wm_function_clone_2536ca
-#define recovered_2536f0 winterscript_wm_function_holder_2536f0
-#define recovered_2536f6 winterscript_wm_function_holder_2536f6
-#define recovered_253700 winterscript_wm_function_const_253700
-#define recovered_253728 winterscript_wm_function_clone_253728
-#define recovered_25374e winterscript_wm_function_holder_25374e
-#define recovered_253754 winterscript_wm_function_holder_253754
-#define recovered_25375e winterscript_wm_function_const_25375e
-#define recovered_253784 winterscript_wm_function_clone_253784
-#define recovered_2537aa winterscript_int_wm_variant_2537aa
-#define recovered_2537d2 winterscript_int_wm_variant_2537d2
-#define recovered_2537fa winterscript_float_wm_variant_2537fa
-#define recovered_253826 winterscript_bool_wm_variant_253826
-#define recovered_253852 winterscript_float_wm_variant_253852
-#define recovered_25387e winterscript_wm_shared_ptr_const_25387e
-#define recovered_25389a winterscript_wm_unordered_map_find_index_25389a
-#define recovered_2538fe winterscript_wm_string_const_wm_vector_2538fe
-#define recovered_253942 winterscript_wm_vector_reserve_253942
-#define recovered_25398b winterscript_wm_string_const_wm_detail_vector_allocate_25398b
-#define recovered_2539ac winterscript_wm_vector_reserve_2539ac
-#define recovered_253a13 winterscript_WinterScript_FastScalarValue_wm_detail_vector_allocate_253a13
-#define recovered_253a34 winterscript_WinterScript_CoroutineState_CoroutineState_253a34
-#define recovered_253ab4 winterscript_wm_shared_ptr_shared_ptr_253ab4
-#define recovered_253afa winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_253afa
-#define recovered_253b00 winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_253b00
-#define recovered_253b0a winterscript_wm_detail_shared_control_block_impl_destroy_object_253b0a
-#define recovered_253b38 winterscript_WinterScript_CoroutineState_CoroutineState_253b38
-#define recovered_253ba2 winterscript_wm_vector_vector_253ba2
-#define recovered_253bc2 winterscript_wm_vector_reserve_253bc2
-#define recovered_253c2e winterscript_wm_vector_253c2e
-#define recovered_253c4f winterscript_wm_pair_253c4f
-#define recovered_253c70 winterscript_wm_pair_253c70
-#define recovered_253d1c winterscript_wm_pair_253d1c
-#define recovered_253dc8 winterscript_wm_vector_253dc8
-#define recovered_253e1a winterscript_WinterScript_CoroutineFrame_wm_vector_253e1a
-#define recovered_253e6c winterscript_wm_vector_reserve_253e6c
-#define recovered_253ed8 winterscript_WinterScript_CoroutineFrame_wm_detail_vector_allocate_253ed8
-#define recovered_253efa winterscript_WinterScript_CoroutineFrame_CoroutineFrame_253efa
-#define recovered_253f48 winterscript_wm_pair_253f48
-#define recovered_253ff4 winterscript_wm_string_wm_detail_vector_allocate_253ff4
-#define recovered_254016 winterscript_wm_vector_254016
-#define recovered_254064 winterscript_Variable_wm_vector_254064
-#define recovered_2540b6 winterscript_ScriptCallable_ScriptCallable_2540b6
-#define recovered_25412e winterscript_wm_shared_ptr_shared_ptr_25412e
-#define recovered_254174 winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_254174
-#define recovered_25417a winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_25417a
-#define recovered_254184 winterscript_wm_detail_shared_control_block_impl_destroy_object_254184
-#define recovered_2541b2 winterscript_ScriptCallable_ScriptCallable_2541b2
-#define recovered_25421c winterscript_ParsedScriptLine_wm_detail_vector_allocate_25421c
-#define recovered_254240 winterscript_ParsedScriptLine_ParsedScriptLine_254240
-#define recovered_2543de winterscript_wm_vector_2543de
-#define recovered_254404 winterscript_wm_vector_254404
-#define recovered_25442a winterscript_wm_vector_25442a
-#define recovered_254450 winterscript_ParsedScriptLine_wm_vector_254450
-#define recovered_2544a8 winterscript_ParsedScriptLine_ParsedScriptLine_2544a8
-#define recovered_254904 winterscript_wm_vector_const_254904
-#define recovered_25495c winterscript_wm_vector_const_25495c
-#define recovered_2549bc winterscript_wm_vector_reserve_2549bc
-#define recovered_254a28 winterscript_ParsedAssignmentTarget_wm_detail_vector_allocate_254a28
-#define recovered_254a4a winterscript_ParsedAssignmentTarget_ParsedAssignmentTarget_254a4a
-#define recovered_254a84 winterscript_ParsedAssignmentTarget_ParsedAssignmentTarget_254a84
-#define recovered_254b34 winterscript_wm_vector_const_254b34
-#define recovered_254b86 winterscript_wm_vector_reserve_254b86
-#define recovered_254bd8 winterscript_wm_pair_254bd8
-#define recovered_254bfa winterscript_wm_vector_const_254bfa
-#define recovered_254c5a winterscript_FastCallExpression_FastCallExpression_254c5a
-#define recovered_254c80 winterscript_wm_vector_254c80
-#define recovered_254ca6 winterscript_wm_vector_254ca6
-#define recovered_254ccc winterscript_wm_unordered_map_find_index_254ccc
-#define recovered_254d30 winterscript_wm_unordered_map_bucket_for_key_254d30
-#define recovered_254d56 winterscript_wm_unordered_map_prepare_insert_254d56
-#define recovered_254d92 winterscript_wm_pair_254d92
-#define recovered_254df4 winterscript_wm_unordered_map_link_index_254df4
-#define recovered_254e26 winterscript_wm_unordered_map_rehash_254e26
-#define recovered_254e82 winterscript_wm_unordered_map_bucket_count_for_size_254e82
-#define recovered_254e96 winterscript_wm_unordered_map_rebuild_buckets_254e96
-#define recovered_254eca winterscript_wm_vector_reserve_254eca
-#define recovered_254f36 winterscript_wm_pair_254f36
-#define recovered_254f58 winterscript_wm_pair_254f58
-#define recovered_254f7a winterscript_wm_pair_pair_254f7a
-#define recovered_254f9e winterscript_bool_wm_vector_254f9e
-#define recovered_254fe0 winterscript_wm_vector_reserve_254fe0
-#define recovered_255029 winterscript_bool_wm_detail_vector_allocate_255029
-#define recovered_25503c winterscript_wm_unordered_map_find_25503c
-#define recovered_25506a winterscript_wm_unordered_map_prepare_insert_25506a
-#define recovered_2550a6 winterscript_wm_pair_2550a6
-#define recovered_255108 winterscript_wm_unordered_map_link_index_255108
-#define recovered_25513a winterscript_wm_unordered_map_find_index_25513a
-#define recovered_25519e winterscript_wm_unordered_map_bucket_for_key_25519e
-#define recovered_2551c4 winterscript_wm_unordered_map_rehash_2551c4
-#define recovered_255220 winterscript_wm_unordered_map_bucket_count_for_size_255220
-#define recovered_255234 winterscript_wm_unordered_map_rebuild_buckets_255234
-#define recovered_255268 winterscript_wm_vector_reserve_255268
-#define recovered_2552d4 winterscript_wm_pair_2552d4
-#define recovered_2552f6 winterscript_wm_pair_2552f6
-#define recovered_25531c winterscript_wm_pair_25531c
-#define recovered_255342 winterscript_unsigned_long_wm_detail_vector_allocate_255342
-#define recovered_255364 winterscript_unsigned_long_wm_vector_255364
-#define recovered_2553aa winterscript_wm_unordered_map_const_const_2553aa
-#define recovered_2553dc winterscript_wm_unordered_map_prepare_insert_2553dc
-#define recovered_255418 winterscript_wm_pair_const_WinterScript_TableCacheEntry_255418
-#define recovered_25547c winterscript_wm_unordered_map_link_index_25547c
-#define recovered_2554b0 winterscript_wm_unordered_map_const_const_const_2554b0
-#define recovered_255506 winterscript_wm_unordered_map_const_const_const_255506
-#define recovered_25552e winterscript_wm_hash_const_const_25552e
-#define recovered_255548 winterscript_wm_unordered_map_rehash_255548
-#define recovered_2555a4 winterscript_wm_unordered_map_bucket_count_for_size_2555a4
-#define recovered_2555b8 winterscript_wm_unordered_map_rebuild_buckets_2555b8
-#define recovered_2555ec winterscript_wm_vector_reserve_2555ec
-#define recovered_25565e winterscript_wm_pair_25565e
-#define recovered_255682 winterscript_wm_pair_255682
-#define recovered_2556a8 winterscript_WinterScript_TableCacheEntry_TableCacheEntry_2556a8
-#define recovered_255764 winterscript_wm_unordered_map_255764
-#define recovered_2557a6 winterscript_wm_vector_2557a6
-#define recovered_2557cc winterscript_wm_pair_const_WinterScript_TableCacheEntry_2557cc
-#define recovered_2557f2 winterscript_WinterScript_TableCacheEntry_TableCacheEntry_2557f2
-#define recovered_255968 winterscript_wm_vector_const_255968
-#define recovered_25598a winterscript_wm_vector_erase_25598a
-#define recovered_2559a8 winterscript_wm_vector_const_2559a8
-#define recovered_255a82 winterscript_wm_pair_255a82
-#define recovered_255aac winterscript_wm_vector_erase_255aac
-#define recovered_255b0a winterscript_void_wm_sort_255b0a
-#define recovered_255b98 winterscript_wm_vector_255b98
-#define recovered_255bc2 winterscript_wm_vector_vector_255bc2
-#define recovered_255be2 winterscript_wm_vector_clear_255be2
-#define recovered_255c1c winterscript_wm_vector_vector_255c1c
-#define recovered_255c38 winterscript_wm_vector_vector_255c38
-#define recovered_255c54 winterscript_BytecodeProgram_BytecodeProgram_255c54
-#define recovered_255d50 winterscript_wm_vector_255d50
-#define recovered_255d76 winterscript_wm_vector_255d76
-#define recovered_255d9c winterscript_wm_vector_255d9c
-#define recovered_255dc2 winterscript_wm_vector_255dc2
-#define recovered_255de8 winterscript_wm_vector_255de8
-#define recovered_255e0e winterscript_wm_vector_255e0e
-#define recovered_255e34 winterscript_wm_vector_255e34
-#define recovered_255e5a winterscript_wm_vector_255e5a
-#define recovered_255e80 winterscript_wm_vector_255e80
-#define recovered_255ea6 winterscript_wm_shared_ptr_shared_ptr_255ea6
-#define recovered_255eec winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_255eec
-#define recovered_255ef2 winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_255ef2
-#define recovered_255efc winterscript_wm_detail_shared_control_block_impl_destroy_object_255efc
-#define recovered_255f2c winterscript_wm_unordered_map_find_index_255f2c
-#define recovered_255f8e winterscript_wm_unordered_map_bucket_for_key_255f8e
-#define recovered_255fb4 winterscript_wm_unordered_map_prepare_insert_255fb4
-#define recovered_255ff0 winterscript_wm_pair_255ff0
-#define recovered_25604e winterscript_wm_unordered_map_link_index_25604e
-#define recovered_25607e winterscript_wm_unordered_map_rehash_25607e
-#define recovered_2560da winterscript_wm_unordered_map_bucket_count_for_size_2560da
-#define recovered_2560ee winterscript_wm_unordered_map_rebuild_buckets_2560ee
-#define recovered_256122 winterscript_wm_vector_reserve_256122
-#define recovered_25618e winterscript_wm_pair_25618e
-#define recovered_2561b0 winterscript_wm_pair_2561b0
-#define recovered_2561e0 winterscript_WinterScript_ScriptFileCacheEntry_ScriptFileCacheEntry_2561e0
-#define recovered_256220 winterscript_wm_pair_256220
-#define recovered_25624e winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_25624e
-#define recovered_256254 winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_256254
-#define recovered_25625e winterscript_wm_detail_shared_control_block_impl_destroy_object_25625e
-#define recovered_2562a2 winterscript_wm_shared_ptr_release_2562a2
-#define recovered_256340 winterscript_std_fstream_fstream_256340
-#define recovered_256414 winterscript_std_fstream_open_256414
-#define recovered_256440 winterscript_std_fstream_fstream_256440
-#define recovered_25645a winterscript_std_fstream_fstream_25645a
-#define recovered_256478 winterscript_non_virtual_thunk_to_std_fstream_fstream_256478
-#define recovered_256492 winterscript_non_virtual_thunk_to_std_fstream_fstream_256492
-#define recovered_2564ac winterscript_wm_shared_ptr_shared_ptr_2564ac
-#define recovered_2564f2 winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_2564f2
-#define recovered_2564f8 winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_2564f8
-#define recovered_256502 winterscript_wm_detail_shared_control_block_impl_destroy_object_256502
-#define recovered_256524 winterscript_wm_shared_ptr_release_256524
-#define recovered_2565c4 winterscript_wm_shared_ptr_release_2565c4
-#define recovered_256664 winterscript_wm_shared_ptr_release_256664
-#define recovered_256704 winterscript_wm_function_holder_256704
-#define recovered_25671a winterscript_wm_function_holder_25671a
-#define recovered_256734 winterscript_wm_function_const_256734
-#define recovered_2568a0 winterscript_wm_function_clone_2568a0
-#define recovered_2568f6 winterscript_wm_function_holder_2568f6
-#define recovered_25690c winterscript_wm_function_holder_25690c
-#define recovered_256926 winterscript_wm_function_const_256926
-#define recovered_256a92 winterscript_wm_function_clone_256a92
-#define recovered_256ae8 winterscript_wm_function_holder_256ae8
-#define recovered_256afe winterscript_wm_function_holder_256afe
-#define recovered_256b18 winterscript_wm_function_const_256b18
-#define recovered_256c84 winterscript_wm_function_clone_256c84
-#define recovered_256cda winterscript_wm_vector_erase_256cda
-#define recovered_256da6 winterscript_wm_unordered_map_256da6
-#define recovered_256e00 winterscript_wm_vector_const_256e00
-#define recovered_256e1e winterscript_wm_vector_const_256e1e
-#define recovered_256ec8 winterscript_wm_pair_256ec8
-#define recovered_256efa winterscript_Variable_wm_vector_256efa
-#define recovered_256fb4 winterscript_wm_shared_ptr_const_256fb4
-#define recovered_256fd0 winterscript_WinterScript_getIndexedValue_256fd0
-#define recovered_257008 winterscript_wm_function_holder_257008
-#define recovered_25701a winterscript_wm_function_holder_25701a
-#define recovered_257030 winterscript_wm_function_holder_257030
-#define recovered_25704a winterscript_wm_function_const_25704a
-#define recovered_257204 winterscript_wm_function_clone_257204
-#define recovered_2572ee winterscript_WinterScript_evaluateExpression_2572ee
-#define recovered_257354 winterscript_ctorINS0_6stringEEERmPKNS1_I13TokenAnalysisEEENK3_1clIRSB_EE8VariableOT_iENKUlvE_clEv_257354
-#define recovered_259ed6 winterscript_Variable_makeMulti_259ed6
-#define recovered_259fc4 winterscript_wm_shared_ptr_const_259fc4
-#define recovered_25a080 winterscript_WinterScript_executeAssignment_25a080
-#define recovered_25a0b4 winterscript_wm_vector_vector_25a0b4
-#define recovered_25a0d4 winterscript_wm_vector_vector_25a0d4
-#define recovered_25a0f0 winterscript_wm_pair_25a0f0
-#define recovered_25a13e winterscript_ParsedAssignmentTarget_wm_vector_25a13e
-#define recovered_25a190 winterscript_FastExpression_wm_detail_vector_allocate_25a190
-#define recovered_25a1b2 winterscript_unsigned_long_wm_vector_25a1b2
-#define recovered_25a1f8 winterscript_ParsedScriptLine_wm_vector_25a1f8
-#define recovered_25a250 winterscript_BytecodeChunk_wm_vector_25a250
-#define recovered_25a2a8 winterscript_wm_vector_reserve_25a2a8
-#define recovered_25a307 winterscript_BytecodeChunk_wm_detail_vector_allocate_25a307
-#define recovered_25a328 winterscript_BytecodeIfBranch_wm_vector_25a328
-#define recovered_25a380 winterscript_wm_vector_reserve_25a380
-#define recovered_25a3df winterscript_BytecodeIfBranch_wm_detail_vector_allocate_25a3df
-#define recovered_25a400 winterscript_BytecodeIfGroup_wm_vector_25a400
-#define recovered_25a452 winterscript_wm_vector_reserve_25a452
-#define recovered_25a4be winterscript_BytecodeIfGroup_wm_detail_vector_allocate_25a4be
-#define recovered_25a4e0 winterscript_wm_vector_25a4e0
-#define recovered_25a506 winterscript_Instruction_wm_vector_25a506
-#define recovered_25a55e winterscript_BytecodeWhileLoop_wm_vector_25a55e
-#define recovered_25a5ac winterscript_wm_vector_reserve_25a5ac
-#define recovered_25a5fe winterscript_BytecodeWhileLoop_wm_detail_vector_allocate_25a5fe
-#define recovered_25a620 winterscript_BytecodeRepeatLoop_wm_vector_25a620
-#define recovered_25a66e winterscript_wm_vector_reserve_25a66e
-#define recovered_25a6c0 winterscript_BytecodeRepeatLoop_wm_detail_vector_allocate_25a6c0
-#define recovered_25a6e2 winterscript_BytecodeForLoop_wm_vector_25a6e2
-#define recovered_25a730 winterscript_wm_vector_reserve_25a730
-#define recovered_25a782 winterscript_BytecodeForLoop_wm_detail_vector_allocate_25a782
-#define recovered_25a7a4 winterscript_BytecodeFunctionDecl_wm_vector_25a7a4
-#define recovered_25a7f6 winterscript_wm_vector_reserve_25a7f6
-#define recovered_25a862 winterscript_BytecodeFunctionDecl_wm_detail_vector_allocate_25a862
-#define recovered_25a884 winterscript_BytecodeFunctionDecl_BytecodeFunctionDecl_25a884
-#define recovered_25a8cf winterscript_Instruction_wm_detail_vector_allocate_25a8cf
-#define recovered_25a8f0 winterscript_BytecodeFunctionDecl_BytecodeFunctionDecl_25a8f0
-#define recovered_25a920 winterscript_ramEEjR11BlockSignalbENK3_3clIRS8_EEbOT_jRPKNS0_6vectorINS0_6stringEEES7_ENKUlvE_clEv_25a920
-#define recovered_25a974 winterscript_ramEEjR11BlockSignalbENK3_3clIRS8_EEbOT_jRPKNS0_6vectorINS0_6stringEEES7_ENKUlbE_clEb_25a974
-#define recovered_25ab6a winterscript_BytecodeProgram_BytecodeProgram_25ab6a
-#define recovered_25ae88 winterscript_wm_vector_const_25ae88
-#define recovered_25aeec winterscript_wm_vector_const_25aeec
-#define recovered_25af52 winterscript_wm_vector_const_25af52
-#define recovered_25afb8 winterscript_wm_vector_const_25afb8
-#define recovered_25b018 winterscript_wm_vector_const_25b018
-#define recovered_25b07e winterscript_wm_vector_const_25b07e
-#define recovered_25b0d0 winterscript_wm_vector_const_25b0d0
-#define recovered_25b122 winterscript_wm_vector_const_25b122
-#define recovered_25b174 winterscript_wm_vector_const_25b174
-#define recovered_25b1d4 winterscript_BytecodeFunctionDecl_BytecodeFunctionDecl_25b1d4
-#define recovered_25b298 winterscript_wm_vector_const_25b298
-#define recovered_25b2da winterscript_cxx_global_var_init_25b2da
-#define recovered_25b33b winterscript_cxx_global_var_init_1_25b33b
-#define recovered_25b39c winterscript_cxx_global_var_init_2_25b39c
-#define recovered_25b3fd winterscript_cxx_global_var_init_3_25b3fd
+#define recovered_24bd54 winterscript_wm_runtime_error_what_24bd54
+#define recovered_24bd6a winterscript_wm_runtime_error_runtime_error_24bd6a
+#define recovered_24bd90 winterscript_wm_to_string_24bd90
+#define recovered_24c0f3 winterscript_appendIntFast_24c0f3
+#define recovered_24c1f6 winterscript_wm_string_wm_string_append_24c1f6
+#define recovered_24c24e winterscript_wm_operator_24c24e
+#define recovered_24c26c winterscript_Variable_Variable_24c26c
+#define recovered_24c290 winterscript_wm_variant_24c290
+#define recovered_24c2a4 winterscript_wm_array_array_24c2a4
+#define recovered_24c2cc winterscript_wm_array_array_24c2cc
+#define recovered_24c2ee winterscript_wm_array_array_24c2ee
+#define recovered_24c318 winterscript_wm_runtime_error_runtime_error_24c318
+#define recovered_24c342 winterscript_Variable_Variable_24c342
+#define recovered_24c368 winterscript_wm_variant_const_24c368
+#define recovered_24c38a winterscript_Variable_Variable_24c38a
+#define recovered_24c3b0 winterscript_wm_variant_24c3b0
+#define recovered_24c3d2 winterscript_wm_string_string_24c3d2
+#define recovered_24c3f8 winterscript_RaisedScriptError_RaisedScriptError_24c3f8
+#define recovered_24c412 winterscript_RaisedScriptError_what_24c412
+#define recovered_24c428 winterscript_WinterScript_CoroutineFrame_CoroutineFrame_24c428
+#define recovered_24c44c winterscript_WinterScript_CoroutineFrame_CoroutineFrame_24c44c
+#define recovered_24c510 winterscript_wm_vector_const_24c510
+#define recovered_24c570 winterscript_wm_vector_const_24c570
+#define recovered_24c5d0 winterscript_wm_vector_reserve_24c5d0
+#define recovered_24c63c winterscript_wm_vector_24c63c
+#define recovered_24c65e winterscript_wm_vector_24c65e
+#define recovered_24c684 winterscript_wm_vector_const_24c684
+#define recovered_24c6e4 winterscript_Variable_Variable_24c6e4
+#define recovered_24c708 winterscript_wm_variant_const_24c708
+#define recovered_24c71c winterscript_Variable_Variable_24c71c
+#define recovered_24c76a winterscript_wm_shared_ptr_24c76a
+#define recovered_24c7ac winterscript_wm_unordered_map_24c7ac
+#define recovered_24c7ee winterscript_wm_vector_24c7ee
+#define recovered_24c814 winterscript_wm_vector_clear_24c814
+#define recovered_24c848 winterscript_WinterScript_executeCoroutineTurn_24c848
+#define recovered_24ca9c winterscript_wm_vector_vector_24ca9c
+#define recovered_24cab4 winterscript_wm_vector_resize_24cab4
+#define recovered_24cb0e winterscript_wm_string_string_24cb0e
+#define recovered_24cb36 winterscript_wm_operator_24cb36
+#define recovered_24cb82 winterscript_decodeStringToken_24cb82
+#define recovered_24cd81 winterscript_wm_shared_ptr_24cd81
+#define recovered_24cdc2 winterscript_wm_shared_ptr_shared_ptr_24cdc2
+#define recovered_24ce08 winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_24ce08
+#define recovered_24ce0e winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_24ce0e
+#define recovered_24ce18 winterscript_wm_detail_shared_control_block_impl_destroy_object_24ce18
+#define recovered_24ce46 winterscript_wm_shared_ptr_24ce46
+#define recovered_24ce7e winterscript_wm_pair_24ce7e
+#define recovered_24cee0 winterscript_wm_pair_pair_24cee0
+#define recovered_24cf8c winterscript_wm_string_view_find_24cf8c
+#define recovered_24d002 winterscript_wm_string_compare_24d002
+#define recovered_24d06a winterscript_wm_weak_ptr_24d06a
+#define recovered_24d09e winterscript_wm_vector_24d09e
+#define recovered_24d0e6 winterscript_wm_unordered_map_24d0e6
+#define recovered_24d12c winterscript_wm_vector_24d12c
+#define recovered_24d176 winterscript_wm_string_data_24d176
+#define recovered_24d18e winterscript_std_ifstream_ifstream_24d18e
+#define recovered_24d258 winterscript_std_ifstream_open_24d258
+#define recovered_24d286 winterscript_std_basic_file_basic_file_24d286
+#define recovered_24d300 winterscript_std_ifstream_ifstream_24d300
+#define recovered_24d31e winterscript_std_basic_file_open_file_24d31e
+#define recovered_24d364 winterscript_std_basic_file_close_24d364
+#define recovered_24d38f winterscript_std_detail_fopen_mode_24d38f
+#define recovered_24d406 winterscript_BytecodeProgram_BytecodeProgram_24d406
+#define recovered_24d49c winterscript_wm_vector_vector_24d49c
+#define recovered_24d4bc winterscript_wm_vector_clear_24d4bc
+#define recovered_24d4f0 winterscript_wm_vector_vector_24d4f0
+#define recovered_24d50c winterscript_wm_vector_vector_24d50c
+#define recovered_24d528 winterscript_wm_vector_vector_24d528
+#define recovered_24d544 winterscript_wm_vector_vector_24d544
+#define recovered_24d564 winterscript_wm_vector_clear_24d564
+#define recovered_24d598 winterscript_wm_vector_vector_24d598
+#define recovered_24d5b4 winterscript_wm_string_rfind_24d5b4
+#define recovered_24d5f4 winterscript_std_istream_getline_into_24d5f4
+#define recovered_24d658 winterscript_std_ostream_write_24d658
+#define recovered_24d68a winterscript_std_ostringstream_append_unsigned_24d68a
+#define recovered_24d740 winterscript_wm_string_string_24d740
+#define recovered_24d758 winterscript_wm_string_resize_24d758
+#define recovered_24d7ac winterscript_wm_string_growth_for_24d7ac
+#define recovered_24d7c0 winterscript_wm_mt19937_twist_24d7c0
+#define recovered_24d838 winterscript_wm_unordered_map_unordered_map_24d838
+#define recovered_24d88c winterscript_wm_unordered_map_find_24d88c
+#define recovered_24d8fa winterscript_CompiledGsubPattern_CompiledGsubPattern_24d8fa
+#define recovered_24d91e winterscript_wm_unique_ptr_unique_ptr_24d91e
+#define recovered_24d93e winterscript_wm_pair_pair_24d93e
+#define recovered_24d95c winterscript_wm_unordered_map_bucket_for_key_24d95c
+#define recovered_24d982 winterscript_wm_hash_operator_24d982
+#define recovered_24d9a8 winterscript_wm_detail_hash_bytes_24d9a8
+#define recovered_24d9d2 winterscript_wm_regex_regex_24d9d2
+#define recovered_24d9f4 winterscript_wm_regex_operator_24d9f4
+#define recovered_24da18 winterscript_escapeRegexLiteralChar_24da18
+#define recovered_24db26 winterscript_wm_unordered_map_link_index_24db26
+#define recovered_24db54 winterscript_wm_vector_assign_24db54
+#define recovered_24db64 winterscript_wm_vector_resize_24db64
+#define recovered_24dbb4 winterscript_wm_vector_resize_24dbb4
+#define recovered_24dbf2 winterscript_wm_string_append_24dbf2
+#define recovered_24dc1c winterscript_wm_sregex_iterator_sregex_iterator_24dc1c
+#define recovered_24dcd4 winterscript_wm_sregex_iterator_find_next_24dcd4
+#define recovered_24dd06 winterscript_wm_sregex_iterator_operator_24dd06
+#define recovered_24dd44 winterscript_wm_sub_match_str_24dd44
+#define recovered_24dd82 winterscript_Variable_Variable_24dd82
+#define recovered_24ddd0 winterscript_wm_shared_ptr_const_24ddd0
+#define recovered_24de8c winterscript_wm_shared_ptr_24de8c
+#define recovered_24ded2 winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_24ded2
+#define recovered_24ded8 winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_24ded8
+#define recovered_24dee2 winterscript_wm_detail_shared_control_block_impl_destroy_object_24dee2
+#define recovered_24df10 winterscript_Variable_Variable_24df10
+#define recovered_24df5e winterscript_wm_shared_ptr_24df5e
+#define recovered_24dfa0 winterscript_wm_vector_vector_24dfa0
+#define recovered_24dfbc winterscript_decimalStringLength_24dfbc
+#define recovered_24dfe4 winterscript_void_wm_swap_24dfe4
+#define recovered_24e0ac winterscript_WinterScript_sortFunctionImpl_24e0ac
+#define recovered_24e0ee winterscript_WinterScript_sortFunctionImpl_24e0ee
+#define recovered_24e260 winterscript_wm_array_array_24e260
+#define recovered_24e288 winterscript_wm_string_wm_vector_24e288
+#define recovered_24e2ec winterscript_wm_string_string_24e2ec
+#define recovered_24e3c4 winterscript_wm_to_chars_result_wm_to_chars_24e3c4
+#define recovered_24e492 winterscript_WinterScript_skipExpression_24e492
+#define recovered_24e4f7 winterscript_isStandaloneNotBoundary_24e4f7
+#define recovered_24e721 winterscript_classifyBinaryOperator_24e721
+#define recovered_24e946 winterscript_binaryOperatorPrecedence_24e946
+#define recovered_24e95e winterscript_orINS0_6stringEEERmiPKNS1_I13TokenAnalysisEEENK3_0clIRSB_EEvOT_iENKUlSF_E_clISD_EEvSF_24e95e
+#define recovered_24eb88 winterscript_WinterScript_executeAssignment_24eb88
+#define recovered_24ed1a winterscript_WinterScript_executeAssignment_24ed1a
+#define recovered_24ed47 winterscript_wm_string_const_wm_find_24ed47
+#define recovered_24ed7e winterscript_WinterScript_executeParsedBlock_24ed7e
+#define recovered_24ee02 winterscript_wm_vector_24ee02
+#define recovered_24ee46 winterscript_wm_vector_24ee46
+#define recovered_24ee8a winterscript_FastExpression_FastExpression_24ee8a
+#define recovered_24eeba winterscript_wm_vector_vector_24eeba
+#define recovered_24eed6 winterscript_wm_vector_24eed6
+#define recovered_24ef1e winterscript_wm_vector_vector_24ef1e
+#define recovered_24ef3e winterscript_ParsedAssignmentTarget_ParsedAssignmentTarget_24ef3e
+#define recovered_24ef62 winterscript_wm_vector_reserve_24ef62
+#define recovered_24efc0 winterscript_compileFastExpressionRange_24efc0
+#define recovered_24f4e8 winterscript_FastExpression_FastExpression_24f4e8
+#define recovered_24f51c winterscript_FastExpression_FastExpression_24f51c
+#define recovered_24f56e winterscript_wm_vector_24f56e
+#define recovered_24f594 winterscript_wm_vector_24f594
+#define recovered_24f5ba winterscript_wm_vector_24f5ba
+#define recovered_24f5e0 winterscript_FastExprNode_wm_detail_vector_allocate_24f5e0
+#define recovered_24f602 winterscript_compileFastExpressionRange_24f602
+#define recovered_24f6aa winterscript_compileFastExpressionRange_24f6aa
+#define recovered_24f6e4 winterscript_compileFastExpressionRange_24f6e4
+#define recovered_24f956 winterscript_compileFastExpressionRange_24f956
+#define recovered_24f9a4 winterscript_int_wm_vector_24f9a4
+#define recovered_24fa7c winterscript_int_wm_vector_24fa7c
+#define recovered_24fabc winterscript_wm_vector_reserve_24fabc
+#define recovered_24fb05 winterscript_int_wm_detail_vector_allocate_24fb05
+#define recovered_24fb26 winterscript_FastExprNode_wm_vector_24fb26
+#define recovered_24fb78 winterscript_FastExpression_FastExpression_24fb78
+#define recovered_24fc70 winterscript_wm_vector_const_24fc70
+#define recovered_24fcba winterscript_wm_vector_const_24fcba
+#define recovered_24fd12 winterscript_FastCallExpression_FastCallExpression_24fd12
+#define recovered_24fd38 winterscript_wm_vector_24fd38
+#define recovered_24fd5e winterscript_ParsedScriptLine_ParsedScriptLine_24fd5e
+#define recovered_250104 winterscript_wm_vector_vector_250104
+#define recovered_250120 winterscript_ParsedScriptLine_ParsedScriptLine_250120
+#define recovered_2501f2 winterscript_wm_vector_reserve_2501f2
+#define recovered_250250 winterscript_TokenAnalysis_wm_detail_vector_allocate_250250
+#define recovered_250272 winterscript_TokenAnalysis_wm_vector_250272
+#define recovered_2502c8 winterscript_wm_vector_vector_2502c8
+#define recovered_2502e4 winterscript_BytecodeFunctionDecl_BytecodeFunctionDecl_2502e4
+#define recovered_250308 winterscript_BytecodeProgram_BytecodeProgram_250308
+#define recovered_2503b4 winterscript_unsigned_char_wm_vector_2503b4
+#define recovered_250458 winterscript_wm_vector_reserve_250458
+#define recovered_2504a2 winterscript_unsigned_char_wm_detail_vector_allocate_2504a2
+#define recovered_2504b6 winterscript_unsigned_char_wm_vector_2504b6
+#define recovered_2504fa winterscript_std_ofstream_ofstream_2504fa
+#define recovered_2505c4 winterscript_std_ofstream_open_2505c4
+#define recovered_2505f2 winterscript_std_ofstream_ofstream_2505f2
+#define recovered_250610 winterscript_std_basic_file_write_bytes_250610
+#define recovered_250662 winterscript_wm_string_string_250662
+#define recovered_25067a winterscript_wm_string_wm_string_append_25067a
+#define recovered_2506d0 winterscript_std_basic_file_seek_get_2506d0
+#define recovered_250714 winterscript_std_basic_file_tell_get_250714
+#define recovered_250746 winterscript_std_basic_file_read_bytes_250746
+#define recovered_2507a0 winterscript_wm_vector_resize_2507a0
+#define recovered_2507f0 winterscript_WinterScript_executeBytecodeChunkInternal_2507f0
+#define recovered_250885 winterscript_wm_regex_search_250885
+#define recovered_250970 winterscript_wm_match_results_set_match_250970
+#define recovered_2509ac winterscript_wm_detail_regex_match_here_2509ac
+#define recovered_250bf7 winterscript_wm_detail_regex_atom_matches_250bf7
+#define recovered_250cdd winterscript_wm_detail_regex_char_equal_250cdd
+#define recovered_250d21 winterscript_wm_detail_regex_class_end_250d21
+#define recovered_250d58 winterscript_wm_detail_regex_class_contains_250d58
+#define recovered_250ebc winterscript_wm_sub_match_const_250ebc
+#define recovered_250f14 winterscript_wm_vector_reserve_250f14
+#define recovered_250f73 winterscript_wm_sub_match_250f73
+#define recovered_250f94 winterscript_wm_shared_ptr_release_250f94
+#define recovered_251034 winterscript_wm_shared_ptr_release_251034
+#define recovered_2510d4 winterscript_wm_vector_vector_2510d4
+#define recovered_2510f4 winterscript_wm_vector_vector_2510f4
+#define recovered_251114 winterscript_wm_vector_vector_251114
+#define recovered_251130 winterscript_wm_string_wm_vector_251130
+#define recovered_251182 winterscript_FastExpression_wm_vector_251182
+#define recovered_2511d4 winterscript_wm_vector_vector_2511d4
+#define recovered_2511f0 winterscript_wm_vector_vector_2511f0
+#define recovered_251210 winterscript_wm_vector_clear_251210
+#define recovered_251244 winterscript_wm_vector_vector_251244
+#define recovered_251260 winterscript_wm_vector_vector_251260
+#define recovered_251280 winterscript_wm_function_holder_251280
+#define recovered_251286 winterscript_wm_function_holder_251286
+#define recovered_251290 winterscript_wm_function_const_251290
+#define recovered_2512b6 winterscript_wm_function_clone_2512b6
+#define recovered_2512dc winterscript_wm_function_holder_2512dc
+#define recovered_2512e2 winterscript_wm_function_holder_2512e2
+#define recovered_2512ec winterscript_wm_function_const_2512ec
+#define recovered_251314 winterscript_wm_function_clone_251314
+#define recovered_25133a winterscript_wm_function_holder_25133a
+#define recovered_251340 winterscript_wm_function_holder_251340
+#define recovered_25134a winterscript_wm_function_const_25134a
+#define recovered_251372 winterscript_wm_function_clone_251372
+#define recovered_251398 winterscript_wm_function_holder_251398
+#define recovered_25139e winterscript_wm_function_holder_25139e
+#define recovered_2513a8 winterscript_wm_function_const_2513a8
+#define recovered_2513ce winterscript_wm_function_clone_2513ce
+#define recovered_2513f4 winterscript_wm_function_holder_2513f4
+#define recovered_2513fa winterscript_wm_function_holder_2513fa
+#define recovered_251404 winterscript_wm_function_const_251404
+#define recovered_25142a winterscript_wm_function_clone_25142a
+#define recovered_251450 winterscript_wm_function_holder_251450
+#define recovered_251456 winterscript_wm_function_holder_251456
+#define recovered_251460 winterscript_wm_function_const_251460
+#define recovered_251486 winterscript_wm_function_clone_251486
+#define recovered_2514ac winterscript_wm_function_holder_2514ac
+#define recovered_2514b2 winterscript_wm_function_holder_2514b2
+#define recovered_2514bc winterscript_wm_function_const_2514bc
+#define recovered_2514e2 winterscript_wm_function_clone_2514e2
+#define recovered_251508 winterscript_wm_function_holder_251508
+#define recovered_25150e winterscript_wm_function_holder_25150e
+#define recovered_251518 winterscript_wm_function_const_251518
+#define recovered_25153e winterscript_wm_function_clone_25153e
+#define recovered_251564 winterscript_wm_function_holder_251564
+#define recovered_25156a winterscript_wm_function_holder_25156a
+#define recovered_251574 winterscript_wm_function_const_251574
+#define recovered_25159a winterscript_wm_function_clone_25159a
+#define recovered_2515c0 winterscript_wm_function_holder_2515c0
+#define recovered_2515c6 winterscript_wm_function_holder_2515c6
+#define recovered_2515d0 winterscript_wm_function_const_2515d0
+#define recovered_2515f6 winterscript_wm_function_clone_2515f6
+#define recovered_25161c winterscript_wm_function_holder_25161c
+#define recovered_251622 winterscript_wm_function_holder_251622
+#define recovered_25162c winterscript_wm_function_const_25162c
+#define recovered_251652 winterscript_wm_function_clone_251652
+#define recovered_251678 winterscript_wm_function_holder_251678
+#define recovered_25167e winterscript_wm_function_holder_25167e
+#define recovered_251688 winterscript_wm_function_const_251688
+#define recovered_2516b0 winterscript_wm_function_clone_2516b0
+#define recovered_2516d6 winterscript_wm_function_holder_2516d6
+#define recovered_2516dc winterscript_wm_function_holder_2516dc
+#define recovered_2516e6 winterscript_wm_function_const_2516e6
+#define recovered_25170e winterscript_wm_function_clone_25170e
+#define recovered_251734 winterscript_wm_function_holder_251734
+#define recovered_25173a winterscript_wm_function_holder_25173a
+#define recovered_251744 winterscript_wm_function_const_251744
+#define recovered_25176a winterscript_wm_function_clone_25176a
+#define recovered_251790 winterscript_wm_function_holder_251790
+#define recovered_251796 winterscript_wm_function_holder_251796
+#define recovered_2517a0 winterscript_wm_function_const_2517a0
+#define recovered_2517c8 winterscript_wm_function_clone_2517c8
+#define recovered_2517ee winterscript_wm_function_holder_2517ee
+#define recovered_2517f4 winterscript_wm_function_holder_2517f4
+#define recovered_2517fe winterscript_wm_function_const_2517fe
+#define recovered_251824 winterscript_wm_function_clone_251824
+#define recovered_25184a winterscript_wm_function_holder_25184a
+#define recovered_251850 winterscript_wm_function_holder_251850
+#define recovered_25185a winterscript_wm_function_const_25185a
+#define recovered_251882 winterscript_wm_function_clone_251882
+#define recovered_2518a8 winterscript_wm_function_holder_2518a8
+#define recovered_2518ae winterscript_wm_function_holder_2518ae
+#define recovered_2518b8 winterscript_wm_function_const_2518b8
+#define recovered_2518e0 winterscript_wm_function_clone_2518e0
+#define recovered_251906 winterscript_wm_function_holder_251906
+#define recovered_25190c winterscript_wm_function_holder_25190c
+#define recovered_251916 winterscript_wm_function_const_251916
+#define recovered_25193e winterscript_wm_function_clone_25193e
+#define recovered_251964 winterscript_wm_function_holder_251964
+#define recovered_25196a winterscript_wm_function_holder_25196a
+#define recovered_251974 winterscript_wm_function_const_251974
+#define recovered_25199c winterscript_wm_function_clone_25199c
+#define recovered_2519c2 winterscript_wm_function_holder_2519c2
+#define recovered_2519c8 winterscript_wm_function_holder_2519c8
+#define recovered_2519d2 winterscript_wm_function_const_2519d2
+#define recovered_2519fa winterscript_wm_function_clone_2519fa
+#define recovered_251a20 winterscript_wm_function_holder_251a20
+#define recovered_251a26 winterscript_wm_function_holder_251a26
+#define recovered_251a30 winterscript_wm_function_const_251a30
+#define recovered_251a58 winterscript_wm_function_clone_251a58
+#define recovered_251a7e winterscript_wm_function_holder_251a7e
+#define recovered_251a84 winterscript_wm_function_holder_251a84
+#define recovered_251a8e winterscript_wm_function_const_251a8e
+#define recovered_251ab6 winterscript_wm_function_clone_251ab6
+#define recovered_251adc winterscript_wm_function_holder_251adc
+#define recovered_251ae2 winterscript_wm_function_holder_251ae2
+#define recovered_251aec winterscript_wm_function_const_251aec
+#define recovered_251b14 winterscript_wm_function_clone_251b14
+#define recovered_251b3a winterscript_wm_function_holder_251b3a
+#define recovered_251b40 winterscript_wm_function_holder_251b40
+#define recovered_251b4a winterscript_wm_function_const_251b4a
+#define recovered_251b72 winterscript_wm_function_clone_251b72
+#define recovered_251b98 winterscript_wm_function_holder_251b98
+#define recovered_251b9e winterscript_wm_function_holder_251b9e
+#define recovered_251ba8 winterscript_wm_function_const_251ba8
+#define recovered_251bd0 winterscript_wm_function_clone_251bd0
+#define recovered_251bf6 winterscript_wm_function_holder_251bf6
+#define recovered_251bfc winterscript_wm_function_holder_251bfc
+#define recovered_251c06 winterscript_wm_function_const_251c06
+#define recovered_251c2e winterscript_wm_function_clone_251c2e
+#define recovered_251c54 winterscript_wm_function_holder_251c54
+#define recovered_251c5a winterscript_wm_function_holder_251c5a
+#define recovered_251c64 winterscript_wm_function_const_251c64
+#define recovered_251c8c winterscript_wm_function_clone_251c8c
+#define recovered_251cb2 winterscript_wm_function_holder_251cb2
+#define recovered_251cb8 winterscript_wm_function_holder_251cb8
+#define recovered_251cc2 winterscript_wm_function_const_251cc2
+#define recovered_251ce8 winterscript_wm_function_clone_251ce8
+#define recovered_251d0e winterscript_wm_function_holder_251d0e
+#define recovered_251d14 winterscript_wm_function_holder_251d14
+#define recovered_251d1e winterscript_wm_function_const_251d1e
+#define recovered_251d42 winterscript_wm_function_clone_251d42
+#define recovered_251d68 winterscript_wm_function_holder_251d68
+#define recovered_251d6e winterscript_wm_function_holder_251d6e
+#define recovered_251d78 winterscript_wm_function_const_251d78
+#define recovered_251d9c winterscript_wm_function_clone_251d9c
+#define recovered_251dc2 winterscript_wm_function_holder_251dc2
+#define recovered_251dc8 winterscript_wm_function_holder_251dc8
+#define recovered_251dd2 winterscript_wm_function_const_251dd2
+#define recovered_251dfa winterscript_wm_function_clone_251dfa
+#define recovered_251e20 winterscript_wm_function_holder_251e20
+#define recovered_251e26 winterscript_wm_function_holder_251e26
+#define recovered_251e30 winterscript_wm_function_const_251e30
+#define recovered_251f10 winterscript_wm_function_clone_251f10
+#define recovered_251f36 winterscript_wm_function_holder_251f36
+#define recovered_251f3c winterscript_wm_function_holder_251f3c
+#define recovered_251f46 winterscript_wm_function_const_251f46
+#define recovered_25208e winterscript_wm_function_clone_25208e
+#define recovered_2520b4 winterscript_wm_shared_ptr_const_2520b4
+#define recovered_2520d0 winterscript_Variable_wm_vector_2520d0
+#define recovered_252122 winterscript_wm_function_holder_252122
+#define recovered_252128 winterscript_wm_function_holder_252128
+#define recovered_252132 winterscript_wm_function_const_252132
+#define recovered_2522b2 winterscript_wm_function_clone_2522b2
+#define recovered_2522d8 winterscript_Variable_wm_detail_vector_allocate_2522d8
+#define recovered_2522fa winterscript_wm_function_holder_2522fa
+#define recovered_252300 winterscript_wm_function_holder_252300
+#define recovered_25230a winterscript_wm_function_const_25230a
+#define recovered_2524e4 winterscript_wm_function_clone_2524e4
+#define recovered_25250a winterscript_wm_function_holder_25250a
+#define recovered_252510 winterscript_wm_function_holder_252510
+#define recovered_25251a winterscript_wm_function_const_25251a
+#define recovered_25267a winterscript_wm_function_clone_25267a
+#define recovered_2526a0 winterscript_wm_function_holder_2526a0
+#define recovered_2526a6 winterscript_wm_function_holder_2526a6
+#define recovered_2526b0 winterscript_wm_function_const_2526b0
+#define recovered_25287c winterscript_wm_function_clone_25287c
+#define recovered_2528a2 winterscript_wm_unordered_map_prepare_insert_2528a2
+#define recovered_2528de winterscript_wm_pair_2528de
+#define recovered_252940 winterscript_wm_unordered_map_link_index_252940
+#define recovered_252972 winterscript_wm_unordered_map_rehash_252972
+#define recovered_2529ce winterscript_wm_unordered_map_bucket_count_for_size_2529ce
+#define recovered_2529e2 winterscript_wm_unordered_map_rebuild_buckets_2529e2
+#define recovered_252a16 winterscript_wm_pair_252a16
+#define recovered_252ac0 winterscript_wm_unordered_map_bucket_for_key_252ac0
+#define recovered_252ae6 winterscript_wm_function_holder_252ae6
+#define recovered_252aec winterscript_wm_function_holder_252aec
+#define recovered_252af6 winterscript_wm_function_const_252af6
+#define recovered_252b1c winterscript_wm_function_clone_252b1c
+#define recovered_252b42 winterscript_wm_function_holder_252b42
+#define recovered_252b48 winterscript_wm_function_holder_252b48
+#define recovered_252b52 winterscript_wm_function_const_252b52
+#define recovered_252c7e winterscript_wm_function_clone_252c7e
+#define recovered_252ca4 winterscript_wm_function_holder_252ca4
+#define recovered_252caa winterscript_wm_function_holder_252caa
+#define recovered_252cb4 winterscript_wm_function_const_252cb4
+#define recovered_252cda winterscript_wm_function_clone_252cda
+#define recovered_252d00 winterscript_wm_function_holder_252d00
+#define recovered_252d06 winterscript_wm_function_holder_252d06
+#define recovered_252d10 winterscript_wm_function_const_252d10
+#define recovered_252d36 winterscript_wm_function_clone_252d36
+#define recovered_252d5c winterscript_wm_function_holder_252d5c
+#define recovered_252d62 winterscript_wm_function_holder_252d62
+#define recovered_252d6c winterscript_wm_function_const_252d6c
+#define recovered_252d92 winterscript_wm_function_clone_252d92
+#define recovered_252db8 winterscript_wm_function_holder_252db8
+#define recovered_252dbe winterscript_wm_function_holder_252dbe
+#define recovered_252dc8 winterscript_wm_function_const_252dc8
+#define recovered_252dee winterscript_wm_function_clone_252dee
+#define recovered_252e14 winterscript_wm_function_holder_252e14
+#define recovered_252e1a winterscript_wm_function_holder_252e1a
+#define recovered_252e24 winterscript_wm_function_const_252e24
+#define recovered_252e4a winterscript_wm_function_clone_252e4a
+#define recovered_252e70 winterscript_wm_function_holder_252e70
+#define recovered_252e76 winterscript_wm_function_holder_252e76
+#define recovered_252e80 winterscript_wm_function_const_252e80
+#define recovered_252ea6 winterscript_wm_function_clone_252ea6
+#define recovered_252ecc winterscript_wm_function_holder_252ecc
+#define recovered_252ed2 winterscript_wm_function_holder_252ed2
+#define recovered_252edc winterscript_wm_function_const_252edc
+#define recovered_252f02 winterscript_wm_function_clone_252f02
+#define recovered_252f28 winterscript_wm_function_holder_252f28
+#define recovered_252f2e winterscript_wm_function_holder_252f2e
+#define recovered_252f38 winterscript_wm_function_const_252f38
+#define recovered_252f5e winterscript_wm_function_clone_252f5e
+#define recovered_252f84 winterscript_wm_function_holder_252f84
+#define recovered_252f8a winterscript_wm_function_holder_252f8a
+#define recovered_252f94 winterscript_wm_function_const_252f94
+#define recovered_252fba winterscript_wm_function_clone_252fba
+#define recovered_252fe0 winterscript_wm_function_holder_252fe0
+#define recovered_252fe6 winterscript_wm_function_holder_252fe6
+#define recovered_252ff0 winterscript_wm_function_const_252ff0
+#define recovered_253016 winterscript_wm_function_clone_253016
+#define recovered_25303c winterscript_wm_function_holder_25303c
+#define recovered_253042 winterscript_wm_function_holder_253042
+#define recovered_25304c winterscript_wm_function_const_25304c
+#define recovered_253074 winterscript_wm_function_clone_253074
+#define recovered_25309a winterscript_wm_function_holder_25309a
+#define recovered_2530a0 winterscript_wm_function_holder_2530a0
+#define recovered_2530aa winterscript_wm_function_const_2530aa
+#define recovered_2530d2 winterscript_wm_function_clone_2530d2
+#define recovered_2530f8 winterscript_wm_function_holder_2530f8
+#define recovered_2530fe winterscript_wm_function_holder_2530fe
+#define recovered_253108 winterscript_wm_function_const_253108
+#define recovered_253130 winterscript_wm_function_clone_253130
+#define recovered_253156 winterscript_wm_function_holder_253156
+#define recovered_25315c winterscript_wm_function_holder_25315c
+#define recovered_253166 winterscript_wm_function_const_253166
+#define recovered_25318e winterscript_wm_function_clone_25318e
+#define recovered_2531b4 winterscript_wm_function_holder_2531b4
+#define recovered_2531ba winterscript_wm_function_holder_2531ba
+#define recovered_2531c4 winterscript_wm_function_const_2531c4
+#define recovered_2531ea winterscript_wm_function_clone_2531ea
+#define recovered_253210 winterscript_wm_function_holder_253210
+#define recovered_253216 winterscript_wm_function_holder_253216
+#define recovered_253220 winterscript_wm_function_const_253220
+#define recovered_253246 winterscript_wm_function_clone_253246
+#define recovered_25326c winterscript_wm_function_holder_25326c
+#define recovered_253272 winterscript_wm_function_holder_253272
+#define recovered_25327c winterscript_wm_function_const_25327c
+#define recovered_2532a2 winterscript_wm_function_clone_2532a2
+#define recovered_2532c8 winterscript_wm_function_holder_2532c8
+#define recovered_2532ce winterscript_wm_function_holder_2532ce
+#define recovered_2532d8 winterscript_wm_function_const_2532d8
+#define recovered_253300 winterscript_wm_function_clone_253300
+#define recovered_253326 winterscript_wm_function_holder_253326
+#define recovered_25332c winterscript_wm_function_holder_25332c
+#define recovered_253336 winterscript_wm_function_const_253336
+#define recovered_25335e winterscript_wm_function_clone_25335e
+#define recovered_253384 winterscript_wm_function_holder_253384
+#define recovered_25338a winterscript_wm_function_holder_25338a
+#define recovered_253394 winterscript_wm_function_const_253394
+#define recovered_2533ba winterscript_wm_function_clone_2533ba
+#define recovered_2533e0 winterscript_wm_function_holder_2533e0
+#define recovered_2533e6 winterscript_wm_function_holder_2533e6
+#define recovered_2533f0 winterscript_wm_function_const_2533f0
+#define recovered_253416 winterscript_wm_function_clone_253416
+#define recovered_25343c winterscript_wm_function_holder_25343c
+#define recovered_253442 winterscript_wm_function_holder_253442
+#define recovered_25344c winterscript_wm_function_const_25344c
+#define recovered_253472 winterscript_wm_function_clone_253472
+#define recovered_253498 winterscript_wm_function_holder_253498
+#define recovered_25349e winterscript_wm_function_holder_25349e
+#define recovered_2534a8 winterscript_wm_function_const_2534a8
+#define recovered_2534ce winterscript_wm_function_clone_2534ce
+#define recovered_2534f4 winterscript_wm_function_holder_2534f4
+#define recovered_2534fa winterscript_wm_function_holder_2534fa
+#define recovered_253504 winterscript_wm_function_const_253504
+#define recovered_25352a winterscript_wm_function_clone_25352a
+#define recovered_253550 winterscript_wm_function_holder_253550
+#define recovered_253556 winterscript_wm_function_holder_253556
+#define recovered_253560 winterscript_wm_function_const_253560
+#define recovered_253588 winterscript_wm_function_clone_253588
+#define recovered_2535ae winterscript_wm_function_holder_2535ae
+#define recovered_2535b4 winterscript_wm_function_holder_2535b4
+#define recovered_2535be winterscript_wm_function_const_2535be
+#define recovered_2535e6 winterscript_wm_function_clone_2535e6
+#define recovered_25360c winterscript_wm_function_holder_25360c
+#define recovered_253612 winterscript_wm_function_holder_253612
+#define recovered_25361c winterscript_wm_function_const_25361c
+#define recovered_253642 winterscript_wm_function_clone_253642
+#define recovered_253668 winterscript_wm_function_holder_253668
+#define recovered_25366e winterscript_wm_function_holder_25366e
+#define recovered_253678 winterscript_wm_function_const_253678
+#define recovered_25369e winterscript_wm_function_clone_25369e
+#define recovered_2536c4 winterscript_wm_function_holder_2536c4
+#define recovered_2536ca winterscript_wm_function_holder_2536ca
+#define recovered_2536d4 winterscript_wm_function_const_2536d4
+#define recovered_2536fa winterscript_wm_function_clone_2536fa
+#define recovered_253720 winterscript_wm_function_holder_253720
+#define recovered_253726 winterscript_wm_function_holder_253726
+#define recovered_253730 winterscript_wm_function_const_253730
+#define recovered_253758 winterscript_wm_function_clone_253758
+#define recovered_25377e winterscript_wm_function_holder_25377e
+#define recovered_253784 winterscript_wm_function_holder_253784
+#define recovered_25378e winterscript_wm_function_const_25378e
+#define recovered_2537b4 winterscript_wm_function_clone_2537b4
+#define recovered_2537da winterscript_int_wm_variant_2537da
+#define recovered_253802 winterscript_int_wm_variant_253802
+#define recovered_25382a winterscript_float_wm_variant_25382a
+#define recovered_253856 winterscript_bool_wm_variant_253856
+#define recovered_253882 winterscript_float_wm_variant_253882
+#define recovered_2538ae winterscript_wm_shared_ptr_const_2538ae
+#define recovered_2538ca winterscript_wm_unordered_map_find_index_2538ca
+#define recovered_25392e winterscript_wm_string_const_wm_vector_25392e
+#define recovered_253972 winterscript_wm_vector_reserve_253972
+#define recovered_2539bb winterscript_wm_string_const_wm_detail_vector_allocate_2539bb
+#define recovered_2539dc winterscript_wm_vector_reserve_2539dc
+#define recovered_253a43 winterscript_WinterScript_FastScalarValue_wm_detail_vector_allocate_253a43
+#define recovered_253a64 winterscript_WinterScript_CoroutineState_CoroutineState_253a64
+#define recovered_253ae4 winterscript_wm_shared_ptr_shared_ptr_253ae4
+#define recovered_253b2a winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_253b2a
+#define recovered_253b30 winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_253b30
+#define recovered_253b3a winterscript_wm_detail_shared_control_block_impl_destroy_object_253b3a
+#define recovered_253b68 winterscript_WinterScript_CoroutineState_CoroutineState_253b68
+#define recovered_253bd2 winterscript_wm_vector_vector_253bd2
+#define recovered_253bf2 winterscript_wm_vector_reserve_253bf2
+#define recovered_253c5e winterscript_wm_vector_253c5e
+#define recovered_253c7f winterscript_wm_pair_253c7f
+#define recovered_253ca0 winterscript_wm_pair_253ca0
+#define recovered_253d4c winterscript_wm_pair_253d4c
+#define recovered_253df8 winterscript_wm_vector_253df8
+#define recovered_253e4a winterscript_WinterScript_CoroutineFrame_wm_vector_253e4a
+#define recovered_253e9c winterscript_wm_vector_reserve_253e9c
+#define recovered_253f08 winterscript_WinterScript_CoroutineFrame_wm_detail_vector_allocate_253f08
+#define recovered_253f2a winterscript_WinterScript_CoroutineFrame_CoroutineFrame_253f2a
+#define recovered_253f78 winterscript_wm_pair_253f78
+#define recovered_254024 winterscript_wm_string_wm_detail_vector_allocate_254024
+#define recovered_254046 winterscript_wm_vector_254046
+#define recovered_254094 winterscript_Variable_wm_vector_254094
+#define recovered_2540e6 winterscript_ScriptCallable_ScriptCallable_2540e6
+#define recovered_25415e winterscript_wm_shared_ptr_shared_ptr_25415e
+#define recovered_2541a4 winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_2541a4
+#define recovered_2541aa winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_2541aa
+#define recovered_2541b4 winterscript_wm_detail_shared_control_block_impl_destroy_object_2541b4
+#define recovered_2541e2 winterscript_ScriptCallable_ScriptCallable_2541e2
+#define recovered_25424c winterscript_ParsedScriptLine_wm_detail_vector_allocate_25424c
+#define recovered_254270 winterscript_ParsedScriptLine_ParsedScriptLine_254270
+#define recovered_25440e winterscript_wm_vector_25440e
+#define recovered_254434 winterscript_wm_vector_254434
+#define recovered_25445a winterscript_wm_vector_25445a
+#define recovered_254480 winterscript_ParsedScriptLine_wm_vector_254480
+#define recovered_2544d8 winterscript_ParsedScriptLine_ParsedScriptLine_2544d8
+#define recovered_254934 winterscript_wm_vector_const_254934
+#define recovered_25498c winterscript_wm_vector_const_25498c
+#define recovered_2549ec winterscript_wm_vector_reserve_2549ec
+#define recovered_254a58 winterscript_ParsedAssignmentTarget_wm_detail_vector_allocate_254a58
+#define recovered_254a7a winterscript_ParsedAssignmentTarget_ParsedAssignmentTarget_254a7a
+#define recovered_254ab4 winterscript_ParsedAssignmentTarget_ParsedAssignmentTarget_254ab4
+#define recovered_254b64 winterscript_wm_vector_const_254b64
+#define recovered_254bb6 winterscript_wm_vector_reserve_254bb6
+#define recovered_254c08 winterscript_wm_pair_254c08
+#define recovered_254c2a winterscript_wm_vector_const_254c2a
+#define recovered_254c8a winterscript_FastCallExpression_FastCallExpression_254c8a
+#define recovered_254cb0 winterscript_wm_vector_254cb0
+#define recovered_254cd6 winterscript_wm_vector_254cd6
+#define recovered_254cfc winterscript_wm_unordered_map_find_index_254cfc
+#define recovered_254d60 winterscript_wm_unordered_map_bucket_for_key_254d60
+#define recovered_254d86 winterscript_wm_unordered_map_prepare_insert_254d86
+#define recovered_254dc2 winterscript_wm_pair_254dc2
+#define recovered_254e24 winterscript_wm_unordered_map_link_index_254e24
+#define recovered_254e56 winterscript_wm_unordered_map_rehash_254e56
+#define recovered_254eb2 winterscript_wm_unordered_map_bucket_count_for_size_254eb2
+#define recovered_254ec6 winterscript_wm_unordered_map_rebuild_buckets_254ec6
+#define recovered_254efa winterscript_wm_vector_reserve_254efa
+#define recovered_254f66 winterscript_wm_pair_254f66
+#define recovered_254f88 winterscript_wm_pair_254f88
+#define recovered_254faa winterscript_wm_pair_pair_254faa
+#define recovered_254fce winterscript_bool_wm_vector_254fce
+#define recovered_255010 winterscript_wm_vector_reserve_255010
+#define recovered_255059 winterscript_bool_wm_detail_vector_allocate_255059
+#define recovered_25506c winterscript_wm_unordered_map_find_25506c
+#define recovered_25509a winterscript_wm_unordered_map_prepare_insert_25509a
+#define recovered_2550d6 winterscript_wm_pair_2550d6
+#define recovered_255138 winterscript_wm_unordered_map_link_index_255138
+#define recovered_25516a winterscript_wm_unordered_map_find_index_25516a
+#define recovered_2551ce winterscript_wm_unordered_map_bucket_for_key_2551ce
+#define recovered_2551f4 winterscript_wm_unordered_map_rehash_2551f4
+#define recovered_255250 winterscript_wm_unordered_map_bucket_count_for_size_255250
+#define recovered_255264 winterscript_wm_unordered_map_rebuild_buckets_255264
+#define recovered_255298 winterscript_wm_vector_reserve_255298
+#define recovered_255304 winterscript_wm_pair_255304
+#define recovered_255326 winterscript_wm_pair_255326
+#define recovered_25534c winterscript_wm_pair_25534c
+#define recovered_255372 winterscript_unsigned_long_wm_detail_vector_allocate_255372
+#define recovered_255394 winterscript_unsigned_long_wm_vector_255394
+#define recovered_2553da winterscript_wm_unordered_map_const_const_2553da
+#define recovered_25540c winterscript_wm_unordered_map_prepare_insert_25540c
+#define recovered_255448 winterscript_wm_pair_const_WinterScript_TableCacheEntry_255448
+#define recovered_2554ac winterscript_wm_unordered_map_link_index_2554ac
+#define recovered_2554e0 winterscript_wm_unordered_map_const_const_const_2554e0
+#define recovered_255536 winterscript_wm_unordered_map_const_const_const_255536
+#define recovered_25555e winterscript_wm_hash_const_const_25555e
+#define recovered_255578 winterscript_wm_unordered_map_rehash_255578
+#define recovered_2555d4 winterscript_wm_unordered_map_bucket_count_for_size_2555d4
+#define recovered_2555e8 winterscript_wm_unordered_map_rebuild_buckets_2555e8
+#define recovered_25561c winterscript_wm_vector_reserve_25561c
+#define recovered_25568e winterscript_wm_pair_25568e
+#define recovered_2556b2 winterscript_wm_pair_2556b2
+#define recovered_2556d8 winterscript_WinterScript_TableCacheEntry_TableCacheEntry_2556d8
+#define recovered_255794 winterscript_wm_unordered_map_255794
+#define recovered_2557d6 winterscript_wm_vector_2557d6
+#define recovered_2557fc winterscript_wm_pair_const_WinterScript_TableCacheEntry_2557fc
+#define recovered_255822 winterscript_WinterScript_TableCacheEntry_TableCacheEntry_255822
+#define recovered_255998 winterscript_wm_vector_const_255998
+#define recovered_2559ba winterscript_wm_vector_erase_2559ba
+#define recovered_2559d8 winterscript_wm_vector_const_2559d8
+#define recovered_255ab2 winterscript_wm_pair_255ab2
+#define recovered_255adc winterscript_wm_vector_erase_255adc
+#define recovered_255b3a winterscript_void_wm_sort_255b3a
+#define recovered_255bc8 winterscript_wm_vector_255bc8
+#define recovered_255bf2 winterscript_wm_vector_vector_255bf2
+#define recovered_255c12 winterscript_wm_vector_clear_255c12
+#define recovered_255c4c winterscript_wm_vector_vector_255c4c
+#define recovered_255c68 winterscript_wm_vector_vector_255c68
+#define recovered_255c84 winterscript_BytecodeProgram_BytecodeProgram_255c84
+#define recovered_255d80 winterscript_wm_vector_255d80
+#define recovered_255da6 winterscript_wm_vector_255da6
+#define recovered_255dcc winterscript_wm_vector_255dcc
+#define recovered_255df2 winterscript_wm_vector_255df2
+#define recovered_255e18 winterscript_wm_vector_255e18
+#define recovered_255e3e winterscript_wm_vector_255e3e
+#define recovered_255e64 winterscript_wm_vector_255e64
+#define recovered_255e8a winterscript_wm_vector_255e8a
+#define recovered_255eb0 winterscript_wm_vector_255eb0
+#define recovered_255ed6 winterscript_wm_shared_ptr_shared_ptr_255ed6
+#define recovered_255f1c winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_255f1c
+#define recovered_255f22 winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_255f22
+#define recovered_255f2c winterscript_wm_detail_shared_control_block_impl_destroy_object_255f2c
+#define recovered_255f5c winterscript_wm_unordered_map_find_index_255f5c
+#define recovered_255fbe winterscript_wm_unordered_map_bucket_for_key_255fbe
+#define recovered_255fe4 winterscript_wm_unordered_map_prepare_insert_255fe4
+#define recovered_256020 winterscript_wm_pair_256020
+#define recovered_25607e winterscript_wm_unordered_map_link_index_25607e
+#define recovered_2560ae winterscript_wm_unordered_map_rehash_2560ae
+#define recovered_25610a winterscript_wm_unordered_map_bucket_count_for_size_25610a
+#define recovered_25611e winterscript_wm_unordered_map_rebuild_buckets_25611e
+#define recovered_256152 winterscript_wm_vector_reserve_256152
+#define recovered_2561be winterscript_wm_pair_2561be
+#define recovered_2561e0 winterscript_wm_pair_2561e0
+#define recovered_256210 winterscript_WinterScript_ScriptFileCacheEntry_ScriptFileCacheEntry_256210
+#define recovered_256250 winterscript_wm_pair_256250
+#define recovered_25627e winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_25627e
+#define recovered_256284 winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_256284
+#define recovered_25628e winterscript_wm_detail_shared_control_block_impl_destroy_object_25628e
+#define recovered_2562d2 winterscript_wm_shared_ptr_release_2562d2
+#define recovered_256370 winterscript_std_fstream_fstream_256370
+#define recovered_256444 winterscript_std_fstream_open_256444
+#define recovered_256470 winterscript_std_fstream_fstream_256470
+#define recovered_25648a winterscript_std_fstream_fstream_25648a
+#define recovered_2564a8 winterscript_non_virtual_thunk_to_std_fstream_fstream_2564a8
+#define recovered_2564c2 winterscript_non_virtual_thunk_to_std_fstream_fstream_2564c2
+#define recovered_2564dc winterscript_wm_shared_ptr_shared_ptr_2564dc
+#define recovered_256522 winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_256522
+#define recovered_256528 winterscript_wm_detail_shared_control_block_impl_shared_control_block_impl_256528
+#define recovered_256532 winterscript_wm_detail_shared_control_block_impl_destroy_object_256532
+#define recovered_256554 winterscript_wm_shared_ptr_release_256554
+#define recovered_2565f4 winterscript_wm_shared_ptr_release_2565f4
+#define recovered_256694 winterscript_wm_shared_ptr_release_256694
+#define recovered_256734 winterscript_wm_function_holder_256734
+#define recovered_25674a winterscript_wm_function_holder_25674a
+#define recovered_256764 winterscript_wm_function_const_256764
+#define recovered_2568d0 winterscript_wm_function_clone_2568d0
+#define recovered_256926 winterscript_wm_function_holder_256926
+#define recovered_25693c winterscript_wm_function_holder_25693c
+#define recovered_256956 winterscript_wm_function_const_256956
+#define recovered_256ac2 winterscript_wm_function_clone_256ac2
+#define recovered_256b18 winterscript_wm_function_holder_256b18
+#define recovered_256b2e winterscript_wm_function_holder_256b2e
+#define recovered_256b48 winterscript_wm_function_const_256b48
+#define recovered_256cb4 winterscript_wm_function_clone_256cb4
+#define recovered_256d0a winterscript_wm_vector_erase_256d0a
+#define recovered_256dd6 winterscript_wm_unordered_map_256dd6
+#define recovered_256e30 winterscript_wm_vector_const_256e30
+#define recovered_256e4e winterscript_wm_vector_const_256e4e
+#define recovered_256ef8 winterscript_wm_pair_256ef8
+#define recovered_256f2a winterscript_Variable_wm_vector_256f2a
+#define recovered_256fe4 winterscript_wm_shared_ptr_const_256fe4
+#define recovered_257000 winterscript_WinterScript_getIndexedValue_257000
+#define recovered_257038 winterscript_wm_function_holder_257038
+#define recovered_25704a winterscript_wm_function_holder_25704a
+#define recovered_257060 winterscript_wm_function_holder_257060
+#define recovered_25707a winterscript_wm_function_const_25707a
+#define recovered_257234 winterscript_wm_function_clone_257234
+#define recovered_25731e winterscript_WinterScript_evaluateExpression_25731e
+#define recovered_257384 winterscript_ctorINS0_6stringEEERmPKNS1_I13TokenAnalysisEEENK3_1clIRSB_EE8VariableOT_iENKUlvE_clEv_257384
+#define recovered_259f06 winterscript_Variable_makeMulti_259f06
+#define recovered_259ff4 winterscript_wm_shared_ptr_const_259ff4
+#define recovered_25a0b0 winterscript_WinterScript_executeAssignment_25a0b0
+#define recovered_25a0e4 winterscript_wm_vector_vector_25a0e4
+#define recovered_25a104 winterscript_wm_vector_vector_25a104
+#define recovered_25a120 winterscript_wm_pair_25a120
+#define recovered_25a16e winterscript_ParsedAssignmentTarget_wm_vector_25a16e
+#define recovered_25a1c0 winterscript_FastExpression_wm_detail_vector_allocate_25a1c0
+#define recovered_25a1e2 winterscript_unsigned_long_wm_vector_25a1e2
+#define recovered_25a228 winterscript_ParsedScriptLine_wm_vector_25a228
+#define recovered_25a280 winterscript_BytecodeChunk_wm_vector_25a280
+#define recovered_25a2d8 winterscript_wm_vector_reserve_25a2d8
+#define recovered_25a337 winterscript_BytecodeChunk_wm_detail_vector_allocate_25a337
+#define recovered_25a358 winterscript_BytecodeIfBranch_wm_vector_25a358
+#define recovered_25a3b0 winterscript_wm_vector_reserve_25a3b0
+#define recovered_25a40f winterscript_BytecodeIfBranch_wm_detail_vector_allocate_25a40f
+#define recovered_25a430 winterscript_BytecodeIfGroup_wm_vector_25a430
+#define recovered_25a482 winterscript_wm_vector_reserve_25a482
+#define recovered_25a4ee winterscript_BytecodeIfGroup_wm_detail_vector_allocate_25a4ee
+#define recovered_25a510 winterscript_wm_vector_25a510
+#define recovered_25a536 winterscript_Instruction_wm_vector_25a536
+#define recovered_25a58e winterscript_BytecodeWhileLoop_wm_vector_25a58e
+#define recovered_25a5dc winterscript_wm_vector_reserve_25a5dc
+#define recovered_25a62e winterscript_BytecodeWhileLoop_wm_detail_vector_allocate_25a62e
+#define recovered_25a650 winterscript_BytecodeRepeatLoop_wm_vector_25a650
+#define recovered_25a69e winterscript_wm_vector_reserve_25a69e
+#define recovered_25a6f0 winterscript_BytecodeRepeatLoop_wm_detail_vector_allocate_25a6f0
+#define recovered_25a712 winterscript_BytecodeForLoop_wm_vector_25a712
+#define recovered_25a760 winterscript_wm_vector_reserve_25a760
+#define recovered_25a7b2 winterscript_BytecodeForLoop_wm_detail_vector_allocate_25a7b2
+#define recovered_25a7d4 winterscript_BytecodeFunctionDecl_wm_vector_25a7d4
+#define recovered_25a826 winterscript_wm_vector_reserve_25a826
+#define recovered_25a892 winterscript_BytecodeFunctionDecl_wm_detail_vector_allocate_25a892
+#define recovered_25a8b4 winterscript_BytecodeFunctionDecl_BytecodeFunctionDecl_25a8b4
+#define recovered_25a8ff winterscript_Instruction_wm_detail_vector_allocate_25a8ff
+#define recovered_25a920 winterscript_BytecodeFunctionDecl_BytecodeFunctionDecl_25a920
+#define recovered_25a950 winterscript_ramEEjR11BlockSignalbENK3_3clIRS8_EEbOT_jRPKNS0_6vectorINS0_6stringEEES7_ENKUlvE_clEv_25a950
+#define recovered_25a9a4 winterscript_ramEEjR11BlockSignalbENK3_3clIRS8_EEbOT_jRPKNS0_6vectorINS0_6stringEEES7_ENKUlbE_clEb_25a9a4
+#define recovered_25ab9a winterscript_BytecodeProgram_BytecodeProgram_25ab9a
+#define recovered_25aeb8 winterscript_wm_vector_const_25aeb8
+#define recovered_25af1c winterscript_wm_vector_const_25af1c
+#define recovered_25af82 winterscript_wm_vector_const_25af82
+#define recovered_25afe8 winterscript_wm_vector_const_25afe8
+#define recovered_25b048 winterscript_wm_vector_const_25b048
+#define recovered_25b0ae winterscript_wm_vector_const_25b0ae
+#define recovered_25b100 winterscript_wm_vector_const_25b100
+#define recovered_25b152 winterscript_wm_vector_const_25b152
+#define recovered_25b1a4 winterscript_wm_vector_const_25b1a4
+#define recovered_25b204 winterscript_BytecodeFunctionDecl_BytecodeFunctionDecl_25b204
+#define recovered_25b2c8 winterscript_wm_vector_const_25b2c8
+#define recovered_25b30a winterscript_cxx_global_var_init_25b30a
+#define recovered_25b36b winterscript_cxx_global_var_init_1_25b36b
+#define recovered_25b3cc winterscript_cxx_global_var_init_2_25b3cc
+#define recovered_25b42d winterscript_cxx_global_var_init_3_25b42d
+
+uint64_t winterscript_wm_probe_heap_free_bytes64_2001f9(void);
+
+uint64_t winterscript_wm_probe_heap_total_bytes64_20024c(void);

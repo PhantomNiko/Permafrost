@@ -1,4 +1,4 @@
-/* Permafrost 0.6; Pooka's Free Software License. */
+/* Permafrost; Pooka's Free Software License. */
 #pragma once
 #include <stdint.h>
 #include <stddef.h>
@@ -204,9 +204,28 @@ static inline unsigned pf_pack_i386_arguments(uint8_t *out,unsigned capacity,
 }
 #endif
 #define CONCAT24(a,b) (((uint64_t)(uint16_t)(a)<<32)|(uint32_t)(b))
+/* CPUID subleaves and the ID-flag probe are architectural operations. */
+static inline uint32_t pf_cpu_cpuid_available(void) {
+#if defined(__i386__)
+    uint32_t original,changed;
+    __asm__ volatile("pushfl; popl %0":"=r"(original));
+    __asm__ volatile("pushl %0; popfl"::"r"(original ^ 0x200000u):"cc");
+    __asm__ volatile("pushfl; popl %0":"=r"(changed));
+    __asm__ volatile("pushl %0; popfl"::"r"(original):"cc");
+    return ((original ^ changed) & 0x200000u) != 0;
+#else
+    return 1;
+#endif
+}
+static inline uint32_t pf_cpu_cpuid_query(uint32_t leaf,uint32_t subleaf,uint32_t *out) {
+    if (!out || !pf_cpu_cpuid_available()) return 0;
+    __asm__ volatile("cpuid":"=a"(out[0]),"=b"(out[1]),"=c"(out[2]),"=d"(out[3])
+                     :"a"(leaf),"c"(subleaf));
+    return 1;
+}
 static inline uint32_t *pf_cpuid_words(uint32_t leaf) {
     static uint32_t words[4];
-    __asm__ volatile("cpuid":"=a"(words[0]),"=b"(words[1]),"=c"(words[2]),"=d"(words[3]):"a"(leaf),"c"(0));
+    __asm__ volatile("cpuid":"=a"(words[0]),"=b"(words[1]),"=d"(words[2]),"=c"(words[3]):"a"(leaf),"c"(0));
     return words;
 }
 #define cpuid_basic_info(leaf) pf_cpuid_words(leaf)

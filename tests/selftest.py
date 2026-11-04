@@ -27,12 +27,6 @@ def main():
         if text.count(marker) != 1:
             raise SystemExit('Bundled self-test completion marker changed')
         text = text.replace(marker, 'serial("PF-SELFTEST-PASS")')
-        if 'OpenBIOS.wmlp' in Image(raw).files():
-            # The reference OpenBIOS kernel advances a synthetic 18-Hz clock
-            # on each time query. Let its integer time reach one before the
-            # bundled self-test's time()>0 assertion.
-            text = ('warmup=0\nwhile warmup<36\nos["clock"]()\n'
-                    'warmup=warmup+1\nend\n') + text
         with tempfile.TemporaryDirectory(prefix='permafrost-selftest-') as temp:
             script = Path(temp) / 'selftest.ws'
             script.write_text(text)
@@ -48,7 +42,7 @@ def main():
                                     stderr=subprocess.STDOUT, text=True)
             if result.returncode:
                 raise SystemExit(result.stdout)
-            if not re.search(r'^CPU [\x20-\x7e]+\r?$', result.stdout, re.M):
+            if not re.search(r'^CPU [\x20-\x7e]+\r?$', result.stdout, re.M) or 'CPU (null)' in result.stdout:
                 raise SystemExit('CPU description is missing or corrupted')
             print(path.name + ': bundled WinterScript self-test and CPU description pass.')
 

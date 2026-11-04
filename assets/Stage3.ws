@@ -1,0 +1,7 @@
+runFile("winterscript-selftest.ws")
+runFile("graphics-api-demo.ws")
+hardware("cpu"); hardware("ram")
+font("bitmap-font.wbf"); mode("runes")
+print("hello world"); mode("latin")
+print("hello world")
+charset()

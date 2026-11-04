@@ -25,7 +25,8 @@
     }
   },
   "inline_constants": {},
-  "source": "applications/lua/i386",
+  "source": "applications/lua",
   "program": "lua",
-  "reference_sha256": "27e2683dd4c6d1d803245156f883943043561dba606fdc3eda593190ee72641a"
+  "reference_sha256": "27e2683dd4c6d1d803245156f883943043561dba606fdc3eda593190ee72641a",
+  "architecture": "i386"
 }

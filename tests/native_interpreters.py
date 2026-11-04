@@ -23,13 +23,12 @@ def main():
         root=Path(temp)
         for path in args.images:
             base=path.read_bytes()
-            queue_source='tests/openbios_queue.c' if 'OpenBIOS.wmlp' in Image(base).files() else 'tests/keyqueue.c'
+            queue_source='tests/keyqueue.c'
             for program,filename,fixture,marker in cases:
                 source=Path(__file__).with_name(fixture).read_bytes()
                 queue=root/'queue.bin'
-                # OpenBIOS keeps its polling callback resident while the VM runs.
-                # Place it above both VM C cores and below the default heap.
-                subprocess.run(['build/Permafrost0.6.sdk/bin/pf-cc',queue_source,'--format','flat',
+                # Keep the queue below the default heap and above the VM cores.
+                subprocess.run(['build/Permafrost0.7.sdk/bin/pf-cc',queue_source,'--format','flat',
                     '--base','0x2e0000','-D','PF_KEYS="'+program+'\\r"','-o',str(queue)],
                     check=True,stdout=subprocess.DEVNULL)
                 files=Image(base,2).files()

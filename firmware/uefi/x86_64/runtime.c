@@ -1812,17 +1812,12 @@ ulonglong FUN_00004aa0(void)
  * Address: 0x4af0
  */
 
-ulonglong FUN_00004af0(uint param_1)
-
+/* The kernel enters with interrupts disabled and a clear direction flag. */
+ulonglong FUN_00004af0(uint entry)
 {
-  unsigned char frame[64] = {0};
-
-  ulonglong uVar1;
-
-                    /* WARNING: Could not recover jumptable at 0x00004b23. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  uVar1 = (*(code *)(ulonglong)param_1)((code *)(ulonglong)param_1);
-  return uVar1;
+  __asm__ volatile("cli; cld":::"memory","cc");
+  ((void (*)(void))(uintptr_t)entry)();
+  return 0;
 }
 
 
@@ -3895,31 +3890,28 @@ ulonglong FUN_00008400(ushort *param_1)
  * Address: 0x84f0
  */
 
-ulonglong FUN_000084f0(ushort param_1)
-
+/* EFI scan codes to the reference key-byte layout. */
+ulonglong FUN_000084f0(ushort scan)
 {
-  unsigned char frame[64] = {0};
-
-  int iVar1;
-  uint uVar2;
-  ulonglong uVar3;
-
-  if ((param_1 < 0xb) || (0x16 < param_1)) {
-    uVar2 = param_1 - 1;
-    iVar1 = param_1 - 0x17;
-    if (uVar2 < 0x16 || iVar1 == 0) {
-                    /* WARNING: Could not recover jumptable at 0x00008542. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-      uVar3 = (*(code *)(&DAT_0000a000 + *(int *)(&DAT_0000a000 + (ulonglong)uVar2 * 4)))();
-      return uVar3;
-    }
-    local_1 = 0;
-  }
-  else {
-    iVar1 = param_1 + 0x30;
-    local_1 = (undefined1)iVar1;
-  }
-  return (ulonglong)CONCAT31((int3)((uint)iVar1 >> 8),local_1);
+  static const uint8_t codes[256]={
+    0,72,80,77,75,71,79,82,83,73,81,59,60,61,62,63,
+    64,65,66,67,68,69,70,1,0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+  };
+  return scan<256?codes[scan]:0;
 }
 
 #undef DAT_0000a000

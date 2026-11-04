@@ -353,7 +353,7 @@ void wm_probe_heap_split(undefined4 param_1,int param_2,uint *param_3)
 
 
 
-/* Permafrost 0.6; Pooka's Free Software License. */
+/* Permafrost; Pooka's Free Software License. */
 ulonglong ashldi3(ulonglong value, uint shift) {
     if ((int)shift <= 0) return value;
     return shift < 64 ? value << shift : 0;
@@ -365,7 +365,7 @@ ulonglong ashldi3(ulonglong value, uint shift) {
 
 
 
-/* Permafrost 0.6; Pooka's Free Software License. */
+/* Permafrost; Pooka's Free Software License. */
 ulonglong lshrdi3(ulonglong value, uint shift) {
     if ((int)shift <= 0) return value;
     return shift < 64 ? value >> shift : 0;
@@ -5498,112 +5498,14 @@ undefined4 wm_platform_serial_poll_char(undefined1 *param_1)
 
 /* wm_platform_cpuid_available */
 
-#undef DAT_000617e4
-#define DAT_000617e4 (*(uint *)(0x617e4U))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x241d3
- */
+/* Permafrost; Pooka's Free Software License. */
+uint wm_platform_cpuid_available(void) { return pf_cpu_cpuid_available(); }
 
-uint wm_platform_cpuid_available(void)
-
-{
-  unsigned char frame[64] = {0};
-
-  uint uVar1;
-  byte in_ID;
-
-  uVar1 = DAT_000617e4;
-  if ((int)DAT_000617e4 < 0) {
-    uVar1 = (uint)(in_ID & 1) * 0x200000 ^ (uint)((in_ID & 1) != 1) * 0x200000;
-    DAT_000617e4 = uVar1 >> 0x15;
-  }
-  return CONCAT31((int3)(uVar1 >> 8),uVar1 != 0);
-}
-
-#undef DAT_000617e4
 
 /* wm_platform_cpuid_query */
 
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x24208
- */
-
-undefined4 wm_platform_cpuid_query(int param_1,undefined4 param_2,undefined4 *param_3)
-
-{
-  unsigned char frame[64] = {0};
-
-  undefined4 *puVar1;
-  uint uVar2;
-  undefined4 uVar3;
-  undefined4 uVar4;
-  undefined4 uVar5;
-  undefined4 uVar6;
-
-  if ((param_3 == (undefined4 *)0x0) || (uVar2 = wm_platform_cpuid_available(), (char)uVar2 == '\0')) {
-    return 0;
-  }
-  if (param_1 == 0) {
-    puVar1 = (undefined4 *)cpuid_basic_info(0);
-  }
-  else if (param_1 == 1) {
-    puVar1 = (undefined4 *)cpuid_Version_info(1);
-  }
-  else if (param_1 == 2) {
-    puVar1 = (undefined4 *)cpuid_cache_tlb_info(2);
-  }
-  else if (param_1 == 3) {
-    puVar1 = (undefined4 *)cpuid_serial_info(3);
-  }
-  else if (param_1 == 4) {
-    puVar1 = (undefined4 *)cpuid_Deterministic_Cache_Parameters_info(4);
-  }
-  else if (param_1 == 5) {
-    puVar1 = (undefined4 *)cpuid_MONITOR_MWAIT_Features_info(5);
-  }
-  else if (param_1 == 6) {
-    puVar1 = (undefined4 *)cpuid_Thermal_Power_Management_info(6);
-  }
-  else if (param_1 == 7) {
-    puVar1 = (undefined4 *)cpuid_Extended_Feature_Enumeration_info(7);
-  }
-  else if (param_1 == 9) {
-    puVar1 = (undefined4 *)cpuid_Direct_Cache_Access_info(9);
-  }
-  else if (param_1 == 10) {
-    puVar1 = (undefined4 *)cpuid_Architectural_Performance_Monitoring_info(10);
-  }
-  else if (param_1 == 0xb) {
-    puVar1 = (undefined4 *)cpuid_Extended_Topology_info(0xb);
-  }
-  else if (param_1 == 0xd) {
-    puVar1 = (undefined4 *)cpuid_Processor_Extended_States_info(0xd);
-  }
-  else if (param_1 == 0xf) {
-    puVar1 = (undefined4 *)cpuid_Quality_of_Service_info(0xf);
-  }
-  else if (param_1 == -0x7ffffffe) {
-    puVar1 = (undefined4 *)cpuid_brand_part1_info(0x80000002);
-  }
-  else if (param_1 == -0x7ffffffd) {
-    puVar1 = (undefined4 *)cpuid_brand_part2_info(0x80000003);
-  }
-  else if (param_1 == -0x7ffffffc) {
-    puVar1 = (undefined4 *)cpuid_brand_part3_info(0x80000004);
-  }
-  else {
-    puVar1 = (undefined4 *)cpuid(param_1);
-  }
-  uVar3 = *puVar1;
-  uVar6 = puVar1[1];
-  uVar5 = puVar1[2];
-  uVar4 = puVar1[3];
-  *param_3 = uVar3;
-  param_3[1] = uVar6;
-  param_3[2] = uVar4;
-  param_3[3] = uVar5;
-  return CONCAT31((int3)((uint)uVar3 >> 8),1);
-}
+/* Permafrost; Pooka's Free Software License. */
+uint wm_platform_cpuid_query(int leaf,uint subleaf,uint *out) { return pf_cpu_cpuid_query((uint)leaf,subleaf,out); }
 
 
 /* wm_platform_heap_free_bytes */
@@ -28659,7 +28561,7 @@ switchD_0003354b_caseD_5:
 #undef PTR_recovered_30c75_000610bc
 #define PTR_recovered_30c75_000610bc (*(uint8_t * *)(0x610bcU))
 #undef PTR_str_0005b221_00061768
-#define PTR_str_0005b221_00061768 (*(uint8_t * *)(0x61768U))
+#define PTR_str_0005b221_00061768 (*(char * *)(0x61768U))
 #undef _DAT_00006800
 #define _DAT_00006800 (*(uint32_t *)(0x6800U))
 #undef _DAT_00006804
@@ -37623,403 +37525,130 @@ uint ws_make_builtin_function_value(int param_1,int param_2)
 
 /* ws_builtin_exists */
 
-
-
-
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x3d798
- */
-
-int ws_builtin_exists(int param_1)
-
+/* Builtin names recovered from the current reference lookup chain. */
+int ws_builtin_exists(int name)
 {
-  unsigned char frame[64] = {0};
-
-  int iVar1;
-  int iVar2;
-  undefined4 unaff_EBX = 0;
-
-  if (param_1 == 0) {
-    iVar2 = 0;
-  }
-  else {
-    iVar1 = ws_token_equals(param_1,0x5b6ca);
-    iVar2 = CONCAT31((int3)((uint)unaff_EBX >> 8),1);
-    if ((char)iVar1 == '\0') {
-      iVar1 = ws_token_equals(param_1,0x5b78c);
-      if ((char)iVar1 == '\0') {
-        iVar1 = ws_token_equals(param_1,0x5b793);
-        if ((char)iVar1 == '\0') {
-          iVar1 = ws_token_equals(param_1,0x5b2e7);
-          if ((char)iVar1 == '\0') {
-            iVar1 = ws_token_equals(param_1,0x5b2eb);
-            if ((char)iVar1 == '\0') {
-              iVar1 = ws_token_equals(param_1,0x5b3aa);
-              if ((char)iVar1 == '\0') {
-                iVar1 = ws_token_equals(param_1,0x5b3af);
-                if ((char)iVar1 == '\0') {
-                  iVar1 = ws_token_equals(param_1,0x5b2fc);
-                  if ((char)iVar1 == '\0') {
-                    iVar1 = ws_token_equals(param_1,0x5b30f);
-                    if ((char)iVar1 == '\0') {
-                      iVar1 = ws_token_equals(param_1,0x5b320);
-                      if ((char)iVar1 == '\0') {
-                        iVar1 = ws_token_equals(param_1,0x5b330);
-                        if ((char)iVar1 == '\0') {
-                          iVar1 = ws_token_equals(param_1,0x5b342);
-                          if ((char)iVar1 == '\0') {
-                            iVar1 = ws_token_equals(param_1,0x5b356);
-                            if ((char)iVar1 == '\0') {
-                              iVar1 = ws_token_equals(param_1,0x5b369);
-                              if ((char)iVar1 == '\0') {
-                                iVar1 = ws_token_equals(param_1,0x5b37a);
-                                if ((char)iVar1 == '\0') {
-                                  iVar1 = ws_token_equals(param_1,0x5b38d);
-                                  if ((char)iVar1 == '\0') {
-                                    iVar1 = ws_token_equals(param_1,0x5b39f);
-                                    if ((char)iVar1 == '\0') {
-                                      iVar1 = ws_token_equals(param_1,0x5b3c9);
-                                      if ((char)iVar1 == '\0') {
-                                        iVar1 = ws_token_equals(param_1,0x5b3dd);
-                                        if ((char)iVar1 == '\0') {
-                                          iVar1 = ws_token_equals(param_1,0x5b3f1);
-                                          if ((char)iVar1 == '\0') {
-                                            iVar1 = ws_token_equals(param_1,0x5b403);
-                                            if ((char)iVar1 == '\0') {
-                                              iVar1 = ws_token_equals(param_1,0x5b637);
-                                              if ((char)iVar1 == '\0') {
-                                                iVar1 = ws_token_equals(param_1,0x5b731);
-                                                if ((char)iVar1 == '\0') {
-                                                  iVar1 = ws_token_equals(param_1,0x5b738);
-                                                  if ((char)iVar1 == '\0') {
-                                                    iVar1 = ws_token_equals(param_1,0x5b73d);
-                                                    if ((char)iVar1 == '\0') {
-                                                      iVar1 = ws_token_equals(param_1,0x5b6d7);
-                                                      if ((char)iVar1 == '\0') {
-                                                        iVar1 = ws_token_equals(param_1,0x5b6dc);
-                                                        if ((char)iVar1 == '\0') {
-                                                          iVar1 = ws_token_equals(param_1,0x5b6e7);
-                                                          if ((char)iVar1 == '\0') {
-                                                            iVar1 = ws_token_equals(param_1,0x5b6f0)
-                                                            ;
-                                                            if ((char)iVar1 == '\0') {
-                                                              iVar1 = ws_token_equals(param_1,
-                                                  0x5b6f9);
-                                                  if ((char)iVar1 == '\0') {
-                                                    iVar1 = ws_token_equals(param_1,0x5b701);
-                                                    if ((char)iVar1 == '\0') {
-                                                      iVar1 = ws_token_equals(param_1,0x5b768);
-                                                      if ((char)iVar1 == '\0') {
-                                                        iVar1 = ws_token_equals(param_1,0x5b771);
-                                                        if ((char)iVar1 == '\0') {
-                                                          iVar1 = ws_token_equals(param_1,0x5b77a);
-                                                          if ((char)iVar1 == '\0') {
-                                                            iVar1 = ws_token_equals(param_1,0x5b783)
-                                                            ;
-                                                            if ((char)iVar1 == '\0') {
-                                                              iVar1 = ws_token_equals(param_1,
-                                                  0x5b40e);
-                                                  if ((char)iVar1 == '\0') {
-                                                    iVar1 = ws_token_equals(param_1,0x5b42a);
-                                                    if ((char)iVar1 == '\0') {
-                                                      iVar1 = ws_token_equals(param_1,0x5b438);
-                                                      if ((char)iVar1 == '\0') {
-                                                        iVar1 = ws_token_equals(param_1,0x5b445);
-                                                        if ((char)iVar1 == '\0') {
-                                                          iVar1 = ws_token_equals(param_1,0x5b452);
-                                                          if ((char)iVar1 == '\0') {
-                                                            iVar1 = ws_token_equals(param_1,0x5b45f)
-                                                            ;
-                                                            if ((char)iVar1 == '\0') {
-                                                              iVar1 = ws_token_equals(param_1,
-                                                  0x5b46c);
-                                                  if ((char)iVar1 == '\0') {
-                                                    iVar1 = ws_token_equals(param_1,0x5b479);
-                                                    if ((char)iVar1 == '\0') {
-                                                      iVar1 = ws_token_equals(param_1,0x5b486);
-                                                      if ((char)iVar1 == '\0') {
-                                                        iVar1 = ws_token_equals(param_1,0x5b494);
-                                                        if ((char)iVar1 == '\0') {
-                                                          iVar1 = ws_token_equals(param_1,0x5b4a5);
-                                                          if ((char)iVar1 == '\0') {
-                                                            iVar1 = ws_token_equals(param_1,0x5b4bc)
-                                                            ;
-                                                            if ((char)iVar1 == '\0') {
-                                                              iVar1 = ws_token_equals(param_1,
-                                                  0x5b4d7);
-                                                  if ((char)iVar1 == '\0') {
-                                                    iVar1 = ws_token_equals(param_1,0x5b4ef);
-                                                    if ((char)iVar1 == '\0') {
-                                                      iVar1 = ws_token_equals(param_1,0x5b4ff);
-                                                      if ((char)iVar1 == '\0') {
-                                                        iVar1 = ws_token_equals(param_1,0x5b516);
-                                                        if ((char)iVar1 == '\0') {
-                                                          iVar1 = ws_token_equals(param_1,0x5b524);
-                                                          if ((char)iVar1 == '\0') {
-                                                            iVar1 = ws_token_equals(param_1,0x5b67a)
-                                                            ;
-                                                            if ((char)iVar1 == '\0') {
-                                                              iVar1 = ws_token_equals(param_1,
-                                                  0x5b534);
-                                                  if ((char)iVar1 == '\0') {
-                                                    iVar1 = ws_token_equals(param_1,0x5b542);
-                                                    if ((char)iVar1 == '\0') {
-                                                      iVar1 = ws_token_equals(param_1,0x5b798);
-                                                      if ((char)iVar1 == '\0') {
-                                                        iVar1 = ws_token_equals(param_1,0x5b7a7);
-                                                        if ((char)iVar1 == '\0') {
-                                                          iVar1 = ws_token_equals(param_1,0x5b7b7);
-                                                          if ((char)iVar1 == '\0') {
-                                                            iVar1 = ws_token_equals(param_1,0x5b561)
-                                                            ;
-                                                            if ((char)iVar1 == '\0') {
-                                                              iVar1 = ws_token_equals(param_1,
-                                                  0x5b567);
-                                                  if ((char)iVar1 == '\0') {
-                                                    iVar1 = ws_token_equals(param_1,0x5b56b);
-                                                    if ((char)iVar1 == '\0') {
-                                                      iVar1 = ws_token_equals(param_1,0x5b572);
-                                                      if ((char)iVar1 == '\0') {
-                                                        iVar1 = ws_token_equals(param_1,0x5b578);
-                                                        if ((char)iVar1 == '\0') {
-                                                          iVar1 = ws_token_equals(param_1,0x5b586);
-                                                          if ((char)iVar1 == '\0') {
-                                                            iVar1 = ws_token_equals(param_1,0x5b594)
-                                                            ;
-                                                            if ((char)iVar1 == '\0') {
-                                                              iVar1 = ws_token_equals(param_1,
-                                                  0x5ab31);
-                                                  if ((char)iVar1 == '\0') {
-                                                    iVar1 = ws_token_equals(param_1,0x5b5af);
-                                                    if ((char)iVar1 == '\0') {
-                                                      iVar1 = ws_token_equals(param_1,0x5b5c2);
-                                                      if ((char)iVar1 == '\0') {
-                                                        iVar1 = ws_token_equals(param_1,0x5b5d1);
-                                                        if ((char)iVar1 == '\0') {
-                                                          iVar1 = ws_token_equals(param_1,0x5b5de);
-                                                          if ((char)iVar1 == '\0') {
-                                                            iVar1 = ws_token_equals(param_1,0x5b5eb)
-                                                            ;
-                                                            if ((char)iVar1 == '\0') {
-                                                              iVar1 = ws_token_equals(param_1,
-                                                  0x5b5f9);
-                                                  if ((char)iVar1 == '\0') {
-                                                    iVar1 = ws_token_equals(param_1,0x5b60c);
-                                                    if ((char)iVar1 == '\0') {
-                                                      iVar1 = ws_token_equals(param_1,0x5b619);
-                                                      if ((char)iVar1 == '\0') {
-                                                        iVar1 = ws_token_equals(param_1,0x5b61e);
-                                                        if ((char)iVar1 == '\0') {
-                                                          iVar1 = ws_token_equals(param_1,0x5b623);
-                                                          if ((char)iVar1 == '\0') {
-                                                            iVar1 = ws_token_equals(param_1,0x5b628)
-                                                            ;
-                                                            if ((char)iVar1 == '\0') {
-                                                              iVar1 = ws_token_equals(param_1,
-                                                  0x5b62c);
-                                                  if ((char)iVar1 == '\0') {
-                                                    iVar1 = ws_token_equals(param_1,0x5b631);
-                                                    if ((char)iVar1 == '\0') {
-                                                      iVar1 = ws_token_equals(param_1,0x5b637);
-                                                      if ((char)iVar1 == '\0') {
-                                                        iVar1 = ws_token_equals(param_1,0x5b63c);
-                                                        if ((char)iVar1 == '\0') {
-                                                          iVar1 = ws_token_equals(param_1,0x5b643);
-                                                          if ((char)iVar1 == '\0') {
-                                                            iVar1 = ws_token_equals(param_1,0x5b649)
-                                                            ;
-                                                            if ((char)iVar1 == '\0') {
-                                                              iVar1 = ws_token_equals(param_1,
-                                                  0x5b64f);
-                                                  if ((char)iVar1 == '\0') {
-                                                    iVar1 = ws_token_equals(param_1,0x5b654);
-                                                    if ((char)iVar1 == '\0') {
-                                                      iVar1 = ws_token_equals(param_1,0x5b65c);
-                                                      if ((char)iVar1 == '\0') {
-                                                        iVar1 = ws_token_equals(param_1,0x5b662);
-                                                        if ((char)iVar1 == '\0') {
-                                                          iVar1 = ws_token_equals(param_1,0x5b667);
-                                                          if ((char)iVar1 == '\0') {
-                                                            iVar1 = ws_token_equals(param_1,0x5b66f)
-                                                            ;
-                                                            if ((char)iVar1 == '\0') {
-                                                              iVar1 = ws_token_equals(param_1,
-                                                  0x5b674);
-                                                  if ((char)iVar1 == '\0') {
-                                                    iVar1 = ws_token_equals(param_1,0x5b683);
-                                                    if ((char)iVar1 == '\0') {
-                                                      iVar1 = ws_token_equals(param_1,0x5b68a);
-                                                      if ((char)iVar1 == '\0') {
-                                                        iVar1 = ws_token_equals(param_1,0x5b40e);
-                                                        if ((char)iVar1 == '\0') {
-                                                          iVar1 = ws_token_equals(param_1,0x5b690);
-                                                          if ((char)iVar1 == '\0') {
-                                                            iVar1 = ws_token_equals(param_1,0x5b695)
-                                                            ;
-                                                            if ((char)iVar1 == '\0') {
-                                                              iVar1 = ws_token_equals(param_1,
-                                                  0x5b69d);
-                                                  if ((char)iVar1 == '\0') {
-                                                    iVar1 = ws_token_equals(param_1,0x5b6a1);
-                                                    if ((char)iVar1 == '\0') {
-                                                      iVar1 = ws_token_equals(param_1,0x5b6a5);
-                                                      if ((char)iVar1 == '\0') {
-                                                        iVar1 = ws_token_equals(param_1,0x5b6a9);
-                                                        if ((char)iVar1 == '\0') {
-                                                          iVar1 = ws_token_equals(param_1,0x5b6af);
-                                                          if ((char)iVar1 == '\0') {
-                                                            iVar1 = ws_token_equals(param_1,0x5b6b5)
-                                                            ;
-                                                            if ((char)iVar1 == '\0') {
-                                                              iVar1 = ws_token_equals(param_1,
-                                                  0x5b6be);
-                                                  if ((char)iVar1 == '\0') {
-                                                    iVar1 = ws_token_equals(param_1,0x5b6c3);
-                                                    if ((char)iVar1 == '\0') {
-                                                      iVar1 = ws_token_equals(param_1,0x5ab31);
-                                                      if ((char)iVar1 == '\0') {
-                                                        iVar1 = ws_token_equals(param_1,0x5b6d1);
-                                                        if ((char)iVar1 == '\0') {
-                                                          iVar1 = ws_token_equals(param_1,0x5b708);
-                                                          if ((char)iVar1 == '\0') {
-                                                            iVar1 = ws_token_equals(param_1,0x5b717)
-                                                            ;
-                                                            if ((char)iVar1 == '\0') {
-                                                              iVar1 = ws_token_equals(param_1,
-                                                  0x5b726);
-                                                  if ((char)iVar1 == '\0') {
-                                                    iVar1 = ws_token_equals(param_1,0x5b744);
-                                                    if ((char)iVar1 == '\0') {
-                                                      iVar1 = ws_token_equals(param_1,0x5b74a);
-                                                      if ((char)iVar1 == '\0') {
-                                                        iVar1 = ws_token_equals(param_1,0x5b750);
-                                                        if ((char)iVar1 == '\0') {
-                                                          iVar1 = ws_token_equals(param_1,0x5b755);
-                                                          if ((char)iVar1 == '\0') {
-                                                            iVar1 = ws_token_equals(param_1,0x5b759)
-                                                            ;
-                                                            if ((char)iVar1 == '\0') {
-                                                              iVar1 = ws_token_equals(param_1,
-                                                  0x5b75e);
-                                                  if ((char)iVar1 == '\0') {
-                                                    iVar2 = ws_token_equals(param_1,0x5b49e);
-                                                    return iVar2;
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-  return iVar2;
+  static const char *const names[]={
+    "assert",
+    "typeOf",
+    "type",
+    "len",
+    "string.len",
+    "gsub",
+    "string.gsub",
+    "string.upper",
+    "string.lower",
+    "string.sub",
+    "string.find",
+    "string.match",
+    "string.gmatch",
+    "string.byte",
+    "string.char",
+    "string.format",
+    "string.rep",
+    "table.insert",
+    "table.remove",
+    "table.concat",
+    "table.sort",
+    "pairs",
+    "ipairs",
+    "next",
+    "select",
+    "load",
+    "loadstring",
+    "loadFile",
+    "loadfile",
+    "runFile",
+    "dofile",
+    "toString",
+    "tostring",
+    "toNumber",
+    "tonumber",
+    "math.floor",
+    "math.ceil",
+    "math.abs",
+    "math.min",
+    "math.max",
+    "math.sin",
+    "math.cos",
+    "math.rad",
+    "math.log",
+    "math.sqrt",
+    "math.random",
+    "math.randomSeed",
+    "math.randomseed",
+    "utf8.len",
+    "utf8.offset",
+    "os.clock",
+    "os.time",
+    "hardware",
+    "io.open",
+    "io.popen",
+    "io.handle.read",
+    "io.handle.write",
+    "io.handle.close",
+    "print",
+    "cls",
+    "serial",
+    "input",
+    "graphicsEnter",
+    "graphicsLeave",
+    "graphicsInfo",
+    "graphicsProbe",
+    "graphicsDemoNative",
+    "graphicsResize",
+    "graphicsFill",
+    "graphicsLine",
+    "graphicsPixel",
+    "graphicsColorDepth",
+    "graphicsWait",
+    "peek",
+    "poke",
+    "dump",
+    "dir",
+    "read",
+    "write",
+    "copy",
+    "delete",
+    "bload",
+    "bsave",
+    "call",
+    "runcode",
+    "pixel",
+    "font",
+    "charset",
+    "mode",
+    "runes",
+    "device",
+    "array",
+    "table",
+    "push",
+    "reserve",
+    "get",
+    "set",
+    "pop",
+    "clear",
+    "erase",
+    "contains",
+    "keys",
+    "values",
+    "error",
+    "pcall",
+    "collectGarbage",
+    "collectgarbage",
+    "kill",
+    "pause",
+    "sleep",
+    "date",
+    "ver",
+    "help",
+    "getTimeMs",
+    "random",
+  };
+  if(!name)return 0;
+  for(unsigned i=0;i<sizeof(names)/sizeof(names[0]);++i)
+    if((uint8_t)ws_token_equals(name,(uintptr_t)names[i]))return 1;
+  return 0;
 }
 
 
@@ -42119,7 +41748,7 @@ void ws_value_move(undefined4 *param_1,undefined4 *param_2)
 
 
 
-/* Permafrost 0.6; Pooka's Free Software License.
+/* Permafrost; Pooka's Free Software License.
  * Token splitting reconstructed from the original character masks and append
  * routine. Quoted tokens retain delimiters for the expression parser.
  */
@@ -48159,7 +47788,7 @@ uint ws_decode_string_literal(int param_1,uint *param_2)
 
 #undef local_10c
 
-/* Permafrost 0.6; Pooka's Free Software License.
+/* Permafrost; Pooka's Free Software License.
  * Signed 32-bit literals: decimal, $hex, and 0xhex, with optional sign.
  * The original rejects overflow and accepts a bare signed-minimum magnitude.
  */
@@ -49302,7 +48931,7 @@ LAB_00047cb0:
 #undef local_18
 #undef local_14
 
-/* Permafrost 0.6; Pooka's Free Software License.
+/* Permafrost; Pooka's Free Software License.
  * Tagged values store integer bits at +4, float bits at +8, text at +12.
  */
 bool ws_key_to_owned_string(int *value, int *output) {
@@ -50259,7 +49888,7 @@ void ws_value_array_free(int param_1,int param_2)
 #undef DAT_00069fea
 #define DAT_00069fea (*(uint8_t *)(0x69feaU))
 #undef PTR_str_0005b241_0006177c
-#define PTR_str_0005b241_0006177c (*(uint8_t * *)(0x6177cU))
+#define PTR_str_0005b241_0006177c (*(char * *)(0x6177cU))
 #undef _DAT_00059970
 #define _DAT_00059970 (*(float *)(0x59970U))
 #undef _DAT_00059984
@@ -51870,7 +51499,7 @@ LAB_0004a5b0:
           else {
             pcVar43 = str_0005c42e;
           }
-          console_logf(pcVar43,DAT_00063630 + iVar6);
+          console_logf(pcVar43,DAT_00063630 + iVar6,*(uint *)(DAT_00063630 + 0xf8 + iVar6));
           iVar13 = iVar13 + 1;
         }
         iVar6 = iVar6 + 0x10c;
@@ -52846,7 +52475,7 @@ LAB_0004c380:
 LAB_0004c3fb:
           pcVar43 = str_0005ddb3;
 LAB_0004c409:
-          kernel_snprintf((char *)&local_388,0x60,pcVar43);
+          kernel_snprintf((char *)&local_388,0x60,pcVar43,&local_114);
         }
         else {
           kernel_memcpy(&local_17c,local_6c,4);

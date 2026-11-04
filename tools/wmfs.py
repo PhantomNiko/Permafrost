@@ -13,6 +13,9 @@ BASE = 65
 
 class Image:
     def __init__(self, data, partition=0):
+        if data[512:520] == b'EFI PART':
+            from gpt import unpack_disk
+            _, data = unpack_disk(data)
         self.data = data
         self.partitions = []
         self.fat32 = None
@@ -218,6 +221,11 @@ def make_disk(boot, loader, firmware, recovery, user, sectors=8192,
 
 def repack_image(raw, files, partition=0, sectors=None):
     """Update one volume while preserving the other partitions' files."""
+    if raw[512:520] == b'EFI PART':
+        from gpt import unpack_disk, make_disk as make_gpt_disk
+        esp, nested = unpack_disk(raw)
+        nested = repack_image(nested,files,partition,sectors or len(nested)//SECTOR)
+        return make_gpt_disk(esp,nested)
     image = Image(raw)
     sectors = sectors or len(raw) // SECTOR
     if not image.partitions:

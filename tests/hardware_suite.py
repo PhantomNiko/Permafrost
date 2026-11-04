@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run current-release BIOS/OpenBIOS checks on temporary guest disk copies."""
+"""Run current-release BIOS checks on temporary guest disk copies."""
 import argparse
 from pathlib import Path
 import subprocess
@@ -21,7 +21,7 @@ def main():
     for image in args.images:
         subprocess.run([sys.executable,str(root/'native_lua.py'),str(image),*firmware],check=True)
     # Directory-size comparison uses the BIOS reference and its matching image.
-    bios=next((p for p in args.images if 'OpenBIOS' not in p.name),None)
+    bios=next((p for p in args.images if 'UEFI' not in p.name),None)
     if bios:
         subprocess.run([sys.executable,str(root/'directory_sizes.py'),str(args.reference),str(bios),*firmware],check=True)
     print('Current-release hardware checks passed.')

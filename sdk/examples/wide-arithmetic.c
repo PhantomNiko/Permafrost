@@ -1,4 +1,4 @@
-/* Permafrost 0.6; compile with --runtime. Pooka's Free Software License. */
+/* Permafrost 0.7; compile with --runtime. Pooka's Free Software License. */
 #include <permafrost.h>
 extern void *memcpy(void *,const void *,size_t);
 static volatile uint64_t denominator=1000003;

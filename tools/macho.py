@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Write the i386 MH_PRELOAD format accepted by the Permafrost 0.6 loader.
+"""Write i386/x86-64 MH_PRELOAD and universal Permafrost executables.
 
 Pooka's Free Software License. Addresses are absolute, like the reference
 applications. No Apple linker or Darwin runtime is involved.
@@ -64,13 +64,16 @@ def segments(binary):
     return result, entry
 
 
-def universal(images):
+def universal(images,architectures=None):
     """Pack thin executables in the original big-endian FAT_MAGIC container."""
     if not images or len(images)>16:
         raise ValueError('invalid universal architecture count')
     result=bytearray(4096);records=[];seen=set()
-    for thin in images:
-        cpu,subtype=struct.unpack_from('<II',thin,4)
+    if architectures is not None and len(architectures)!=len(images):
+        raise ValueError('universal architecture count mismatch')
+    for index,thin in enumerate(images):
+        if architectures is None:cpu,subtype=struct.unpack_from('<II',thin,4)
+        else:cpu,subtype=({'i386':7,'x86_64':0x1000007}[architectures[index]],3)
         if cpu in seen:raise ValueError('duplicate universal architecture')
         seen.add(cpu);offset=(len(result)+4095)&~4095
         result.extend(bytes(offset-len(result)));result.extend(thin)
