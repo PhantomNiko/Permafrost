@@ -44,10 +44,10 @@ class Object:
             self.symbol_tables[index] = symbols
 
 
-def link(objects, base=0x200000, entry='main', placements=None, shim=True):
+def link(objects, base=0x200000, entry='main', placements=None, shim=True, externals=None):
     output = bytearray(b'\xe8\0\0\0\0\xc3' if shim else b'')
     addresses = {}
-    symbols = {}
+    symbols = dict(externals or {})
     placements = placements or {}
     for object_index, obj in enumerate(objects):
         for index, section in enumerate(obj.sections):
