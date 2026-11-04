@@ -11,7 +11,10 @@ output is working material, not buildable source or a correctness certificate.
 The scripts in `tools/ghidra` seed direct-call targets, recover register arguments,
 correct known function signatures, and export inferred stack and global layouts.
 Intermediate output stays in the ignored build directory; reviewed C is saved
-in `kernel/core`. Native decompiler
+in `kernel/recovered.c`, with declarations in `kernel/functions.h`.
+Known public services use semantic names recorded in `recovery/symbols.json`.
+`tools/ghidra/merge.py` consolidates analysis units and isolates their temporary
+macros so generated working files do not become the source layout. Native decompiler
 binaries, Java runtimes, projects, logs and host preferences are not distributed.
 
 The translation preserves aliases between named objects sharing the original

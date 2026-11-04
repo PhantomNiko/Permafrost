@@ -14,9 +14,10 @@ from elf32 import Object, link
 def compile_kernel(output, nasm='nasm'):
     output.mkdir(parents=True, exist_ok=True)
     layout = json.loads(Path('recovery/layout.json').read_text())
-    sources = sorted(Path('kernel/core').glob('*.c')) + [Path('kernel/' + name)
+    names = json.loads(Path('recovery/symbols.json').read_text())
+    sources = [Path('kernel/recovered.c')] + [Path('kernel/' + name)
                 for name in ('runtime.c', 'display.cpp', 'compiler.c')]
-    headers = sorted(Path('sdk/include').glob('*.h')) + sorted(Path('kernel').glob('*.h')) + sorted(Path('kernel/core').glob('*.h'))
+    headers = sorted(Path('sdk/include').glob('*.h')) + sorted(Path('kernel').glob('*.h'))
     compiler_identity = b''.join(subprocess.check_output([os.environ.get(var, default), '--version'])
         for var, default in [('CC','clang'),('CXX','clang++')])
     shared = b''.join(p.read_bytes() for p in headers + [Path('tools/cc.py'), Path(__file__)]) + compiler_identity
@@ -27,8 +28,8 @@ def compile_kernel(output, nasm='nasm'):
         target = output / (source.stem + '.o')
         digest=hashlib.sha256(shared+source.read_bytes()).hexdigest()
         if not target.exists() or cache.get(str(source))!=digest:
-            compile_object(source, target, ['sdk/include', 'kernel', 'kernel/core'], extra_flags=[
-                '-Wno-int-conversion', '-Wno-incompatible-pointer-types', '-Wno-pointer-sign'])
+            compile_object(source, target, ['sdk/include', 'kernel'], extra_flags=[
+                '-fno-inline-functions', '-Wno-int-conversion', '-Wno-incompatible-pointer-types', '-Wno-pointer-sign'])
             cache[str(source)]=digest
             cache_path.write_text(json.dumps(cache,indent=2)+'\n')
         objects.append(Object(target.read_bytes()))
@@ -41,7 +42,7 @@ def compile_kernel(output, nasm='nasm'):
             'core_base': layout['core_base'], 'state_start': layout['text_end'],
             'state_end': layout['state_end'], 'initialized_end': layout['initialized_end'],
             'payload_offset': (layout['initialized_end'] - layout['kernel_base'] + 15) & ~15,
-            'kernel_main': symbols['recovered_%x'%layout['kernel_main']]}.items()))
+            'kernel_main': symbols[names.get('recovered_%x'%layout['kernel_main'], 'recovered_%x'%layout['kernel_main'])]}.items()))
     (output / 'kernel_c.map.json').write_text(json.dumps(symbols, indent=2) + '\n')
     compile_object('kernel/state.c', output / 'state.o', ['sdk/include'])
     state = next(section['data'] for section in Object((output / 'state.o').read_bytes()).sections
@@ -50,6 +51,8 @@ def compile_kernel(output, nasm='nasm'):
         raise ValueError('initial state size changed')
     (output / 'kernel_state.bin').write_bytes(state[:layout['initialized_end'] - layout['text_end']])
     entries = json.loads(Path('kernel/abi.json').read_text())
+    for entry in entries.values():
+        entry['symbol'] = names.get(entry['symbol'], entry['symbol'])
     for name, (address, _) in json.loads(Path('kernel/runtime.json').read_text()).items():
         entries['%x' % address] = dict(symbol=name, arguments=[])
     entries['3323e'] = dict(symbol='pf_display_night_mode', arguments=[])

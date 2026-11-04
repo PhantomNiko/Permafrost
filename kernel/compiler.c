@@ -1,4 +1,4 @@
-/* Permafrost 0.5; Pooka's Free Software License.
+/* Permafrost freestanding compiler support; Pooka's Free Software License.
  * Freestanding compiler support, using the recovered long-division algorithm.
  */
 #include <stdint.h>

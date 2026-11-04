@@ -4,6 +4,7 @@
 #include <stddef.h>
 #include <stdbool.h>
 typedef unsigned char byte;
+typedef unsigned char uchar;
 typedef unsigned short ushort;
 typedef unsigned int uint;
 typedef unsigned long ulong;
@@ -94,3 +95,6 @@ static inline uintptr_t invalidInstructionException(void) { __builtin_trap(); }
 struct pf_uint40 { unsigned long long value:40; } __attribute__((packed));
 #define PF_PART5(object, offset) (((struct pf_uint40 *)((uint8_t *)&(object)+(offset)))->value)
 #define SUB85(value, offset) ((pf_double_bits(value) >> ((offset)*8)) & 0xffffffffffULL)
+
+#define SBORROW4(a,b) (((((uint32_t)(a)^(uint32_t)(b)) & ((uint32_t)(a)^((uint32_t)(a)-(uint32_t)(b))))>>31)!=0)
+#define SCARRY4(a,b) (((~((uint32_t)(a)^(uint32_t)(b)) & ((uint32_t)(a)^((uint32_t)(a)+(uint32_t)(b))))>>31)!=0)
