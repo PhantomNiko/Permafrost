@@ -1,0 +1,3258 @@
+{
+  "2000014": {
+    "symbol": "lua_probe_binary_entry",
+    "original": "_lua_probe_binary_entry"
+  },
+  "2000029": {
+    "symbol": "wm_probe_write_disk_sectors",
+    "original": "_wm_probe_write_disk_sectors"
+  },
+  "2000084": {
+    "symbol": "wm_probe_heap_reset",
+    "original": "_wm_probe_heap_reset"
+  },
+  "2000095": {
+    "symbol": "wm_probe_heap_init",
+    "original": "_wm_probe_heap_init"
+  },
+  "20002f3": {
+    "symbol": "wm_probe_heap_free_bytes",
+    "original": "_wm_probe_heap_free_bytes"
+  },
+  "200032a": {
+    "symbol": "wm_probe_heap_free_bytes64",
+    "original": "_wm_probe_heap_free_bytes64"
+  },
+  "2000355": {
+    "symbol": "wm_probe_heap_total_bytes",
+    "original": "_wm_probe_heap_total_bytes"
+  },
+  "2000386": {
+    "symbol": "wm_probe_heap_total_bytes64",
+    "original": "_wm_probe_heap_total_bytes64"
+  },
+  "20003ab": {
+    "symbol": "wm_probe_heap_alloc",
+    "original": "_wm_probe_heap_alloc"
+  },
+  "2000409": {
+    "symbol": "wm_probe_heap_split",
+    "original": "_wm_probe_heap_split"
+  },
+  "200044d": {
+    "symbol": "ashldi3",
+    "original": "___ashldi3"
+  },
+  "2000468": {
+    "symbol": "lshrdi3",
+    "original": "___lshrdi3"
+  },
+  "2000483": {
+    "symbol": "udivdi3",
+    "original": "___udivdi3"
+  },
+  "200048f": {
+    "symbol": "udivmod64",
+    "original": "_udivmod64"
+  },
+  "20004e9": {
+    "symbol": "umoddi3",
+    "original": "___umoddi3"
+  },
+  "2000509": {
+    "symbol": "divdi3",
+    "original": "___divdi3"
+  },
+  "2000545": {
+    "symbol": "moddi3",
+    "original": "___moddi3"
+  },
+  "2000598": {
+    "symbol": "kernel_abort",
+    "original": "_abort"
+  },
+  "20005a0": {
+    "symbol": "kernel_abs",
+    "original": "_abs"
+  },
+  "20005ad": {
+    "symbol": "kernel_malloc",
+    "original": "_malloc"
+  },
+  "20005b7": {
+    "symbol": "kernel_free",
+    "original": "_free"
+  },
+  "2000614": {
+    "symbol": "wm_probe_heap_coalesce_forward",
+    "original": "_wm_probe_heap_coalesce_forward"
+  },
+  "2000655": {
+    "symbol": "kernel_realloc",
+    "original": "_realloc"
+  },
+  "2000741": {
+    "symbol": "kernel_memcpy",
+    "original": "_memcpy"
+  },
+  "200075e": {
+    "symbol": "kernel_memmove",
+    "original": "_memmove"
+  },
+  "20007aa": {
+    "symbol": "kernel_memset",
+    "original": "_memset"
+  },
+  "20007c3": {
+    "symbol": "bzero",
+    "original": "_bzero"
+  },
+  "20007d9": {
+    "symbol": "bzero_20007d9",
+    "original": "___bzero"
+  },
+  "20007ef": {
+    "symbol": "kernel_memcmp",
+    "original": "_memcmp"
+  },
+  "2000816": {
+    "symbol": "islower",
+    "original": "_islower"
+  },
+  "2000827": {
+    "symbol": "isupper",
+    "original": "_isupper"
+  },
+  "2000838": {
+    "symbol": "isalpha",
+    "original": "_isalpha"
+  },
+  "200084c": {
+    "symbol": "isalnum",
+    "original": "_isalnum"
+  },
+  "200086e": {
+    "symbol": "isblank",
+    "original": "_isblank"
+  },
+  "2000885": {
+    "symbol": "isprint",
+    "original": "_isprint"
+  },
+  "2000896": {
+    "symbol": "tolower",
+    "original": "_tolower"
+  },
+  "20008a8": {
+    "symbol": "toupper",
+    "original": "_toupper"
+  },
+  "20008ba": {
+    "symbol": "kernel_strlen",
+    "original": "_strlen"
+  },
+  "20008d4": {
+    "symbol": "kernel_strcmp",
+    "original": "_strcmp"
+  },
+  "20008f5": {
+    "symbol": "strcoll",
+    "original": "_strcoll"
+  },
+  "20008ff": {
+    "symbol": "kernel_strcpy",
+    "original": "_strcpy"
+  },
+  "2000917": {
+    "symbol": "strdup",
+    "original": "_strdup"
+  },
+  "2000965": {
+    "symbol": "kernel_strchr",
+    "original": "_strchr"
+  },
+  "200098b": {
+    "symbol": "kernel_strspn",
+    "original": "_strspn"
+  },
+  "20009c7": {
+    "symbol": "kernel_strpbrk",
+    "original": "_strpbrk"
+  },
+  "20009f7": {
+    "symbol": "kernel_strstr",
+    "original": "_strstr"
+  },
+  "2000a26": {
+    "symbol": "setlocale",
+    "original": "_setlocale"
+  },
+  "2000a33": {
+    "symbol": "localeconv",
+    "original": "_localeconv"
+  },
+  "2000a40": {
+    "symbol": "time",
+    "original": "_time"
+  },
+  "2000a57": {
+    "symbol": "ldexp",
+    "original": "_ldexp"
+  },
+  "2000a86": {
+    "symbol": "frexp",
+    "original": "_frexp"
+  },
+  "2000b18": {
+    "symbol": "kernel_fmod",
+    "original": "_fmod"
+  },
+  "2000b47": {
+    "symbol": "kernel_pow",
+    "original": "_pow"
+  },
+  "2000baf": {
+    "symbol": "kernel_floor",
+    "original": "_floor"
+  },
+  "2000bd8": {
+    "symbol": "kernel_ceil",
+    "original": "_ceil"
+  },
+  "2000c2a": {
+    "symbol": "kernel_sqrt",
+    "original": "_sqrt"
+  },
+  "2000c70": {
+    "symbol": "log",
+    "original": "_log"
+  },
+  "2000d2c": {
+    "symbol": "llround",
+    "original": "_llround"
+  },
+  "2000d50": {
+    "symbol": "kernel_sin",
+    "original": "_sin"
+  },
+  "2000d9f": {
+    "symbol": "wrap_angle",
+    "original": "_wrap_angle"
+  },
+  "2000ddd": {
+    "symbol": "kernel_cos",
+    "original": "_cos"
+  },
+  "2000e28": {
+    "symbol": "kernel_fabs",
+    "original": "_fabs"
+  },
+  "2000e42": {
+    "symbol": "fmodf",
+    "original": "_fmodf"
+  },
+  "2000e78": {
+    "symbol": "frexpf",
+    "original": "_frexpf"
+  },
+  "2000e8b": {
+    "symbol": "ldexpf",
+    "original": "_ldexpf"
+  },
+  "2000e9e": {
+    "symbol": "powf",
+    "original": "_powf"
+  },
+  "2000eb5": {
+    "symbol": "floorf",
+    "original": "_floorf"
+  },
+  "2000ee6": {
+    "symbol": "ceilf",
+    "original": "_ceilf"
+  },
+  "2000ef9": {
+    "symbol": "trunc",
+    "original": "_trunc"
+  },
+  "2000f32": {
+    "symbol": "truncf",
+    "original": "_truncf"
+  },
+  "2000f45": {
+    "symbol": "sqrtf",
+    "original": "_sqrtf"
+  },
+  "2000f58": {
+    "symbol": "logf",
+    "original": "_logf"
+  },
+  "2000f6b": {
+    "symbol": "lround",
+    "original": "_lround"
+  },
+  "2000f8f": {
+    "symbol": "sinf",
+    "original": "_sinf"
+  },
+  "2000fa2": {
+    "symbol": "cosf",
+    "original": "_cosf"
+  },
+  "2000fb5": {
+    "symbol": "fabsf",
+    "original": "_fabsf"
+  },
+  "2000fcc": {
+    "symbol": "kernel_strtol",
+    "original": "_strtol"
+  },
+  "20010cc": {
+    "symbol": "digit_value",
+    "original": "_digit_value"
+  },
+  "20010ff": {
+    "symbol": "kernel_strtoul",
+    "original": "_strtoul"
+  },
+  "20011ff": {
+    "symbol": "kernel_strtod",
+    "original": "_strtod"
+  },
+  "2001355": {
+    "symbol": "strtof",
+    "original": "_strtof"
+  },
+  "2001364": {
+    "symbol": "kernel_vsnprintf",
+    "original": "_vsnprintf"
+  },
+  "20017e8": {
+    "symbol": "append_char",
+    "original": "_append_char"
+  },
+  "2001801": {
+    "symbol": "append_string",
+    "original": "_append_string"
+  },
+  "200184a": {
+    "symbol": "append_unsigned",
+    "original": "_append_unsigned"
+  },
+  "20018bf": {
+    "symbol": "kernel_snprintf",
+    "original": "_snprintf"
+  },
+  "2001932": {
+    "symbol": "wm_probe_heap_append_region",
+    "original": "_wm_probe_heap_append_region"
+  },
+  "2001992": {
+    "symbol": "wm_platform_set_loader_context",
+    "original": "_wm_platform_set_loader_context"
+  },
+  "20019c0": {
+    "symbol": "platform_efi_active",
+    "original": "_platform_efi_active"
+  },
+  "20019f1": {
+    "symbol": "wm_platform_startup",
+    "original": "_wm_platform_startup"
+  },
+  "2001d31": {
+    "symbol": "platform_efi_init_fallback_font",
+    "original": "_platform_efi_init_fallback_font"
+  },
+  "2001e13": {
+    "symbol": "platform_efi_framebuffer_active",
+    "original": "_platform_efi_framebuffer_active"
+  },
+  "2001e6b": {
+    "symbol": "platform_efi_framebuffer_physical",
+    "original": "_platform_efi_framebuffer_physical"
+  },
+  "2001e95": {
+    "symbol": "platform_mask_bit_count",
+    "original": "_platform_mask_bit_count"
+  },
+  "2001eac": {
+    "symbol": "platform_show_startup_banner",
+    "original": "_platform_show_startup_banner"
+  },
+  "2001f22": {
+    "symbol": "wm_platform_runtime_state",
+    "original": "_wm_platform_runtime_state"
+  },
+  "2001f2d": {
+    "symbol": "wm_platform_ticks",
+    "original": "_wm_platform_ticks"
+  },
+  "2001f4b": {
+    "symbol": "wm_platform_text_columns",
+    "original": "_wm_platform_text_columns"
+  },
+  "2001f77": {
+    "symbol": "wm_platform_text_rows",
+    "original": "_wm_platform_text_rows"
+  },
+  "2001fa3": {
+    "symbol": "wm_platform_text_clear",
+    "original": "_wm_platform_text_clear"
+  },
+  "2002057": {
+    "symbol": "platform_efi_console",
+    "original": "_platform_efi_console"
+  },
+  "2002077": {
+    "symbol": "platform_efi_pixel",
+    "original": "_platform_efi_pixel"
+  },
+  "20020d4": {
+    "symbol": "platform_efi_fill_rect",
+    "original": "_platform_efi_fill_rect"
+  },
+  "2002184": {
+    "symbol": "platform_efi_vga_text_active",
+    "original": "_platform_efi_vga_text_active"
+  },
+  "200219e": {
+    "symbol": "wm_platform_text_write_at",
+    "original": "_wm_platform_text_write_at"
+  },
+  "200232f": {
+    "symbol": "platform_efi_draw_text_cell",
+    "original": "_platform_efi_draw_text_cell"
+  },
+  "2002464": {
+    "symbol": "wm_platform_text_enable_cursor",
+    "original": "_wm_platform_text_enable_cursor"
+  },
+  "20024cc": {
+    "symbol": "wm_platform_text_set_cursor",
+    "original": "_wm_platform_text_set_cursor"
+  },
+  "2002579": {
+    "symbol": "wm_platform_enter_text_mode",
+    "original": "_wm_platform_enter_text_mode"
+  },
+  "20025aa": {
+    "symbol": "wm_platform_text_load_font_plane",
+    "original": "_wm_platform_text_load_font_plane"
+  },
+  "2002769": {
+    "symbol": "wm_platform_poll_key_ax",
+    "original": "_wm_platform_poll_key_ax"
+  },
+  "20027ba": {
+    "symbol": "wm_platform_wait_microseconds",
+    "original": "_wm_platform_wait_microseconds"
+  },
+  "2002833": {
+    "symbol": "wm_platform_get_rom_font_8x16",
+    "original": "_wm_platform_get_rom_font_8x16"
+  },
+  "20028b8": {
+    "symbol": "wm_platform_query_drive_capacity",
+    "original": "_wm_platform_query_drive_capacity"
+  },
+  "200291e": {
+    "symbol": "platform_efi_drive_capacity",
+    "original": "_platform_efi_drive_capacity"
+  },
+  "2002977": {
+    "symbol": "wm_platform_read_drive_bytes",
+    "original": "_wm_platform_read_drive_bytes"
+  },
+  "2002bcf": {
+    "symbol": "platform_efi_io_buffer_physical",
+    "original": "_platform_efi_io_buffer_physical"
+  },
+  "2002c00": {
+    "symbol": "platform_efi_io_buffer_bytes",
+    "original": "_platform_efi_io_buffer_bytes"
+  },
+  "2002c31": {
+    "symbol": "wm_platform_write_drive_bytes",
+    "original": "_wm_platform_write_drive_bytes"
+  },
+  "2002e4e": {
+    "symbol": "platform_efi_firmware_thunk_command",
+    "original": "_platform_efi_firmware_thunk_command"
+  },
+  "2002e7a": {
+    "symbol": "platform_efi_firmware_thunk_call",
+    "original": "_platform_efi_firmware_thunk_call"
+  },
+  "2002eb6": {
+    "symbol": "wm_platform_x64_apps_supported",
+    "original": "_wm_platform_x64_apps_supported"
+  },
+  "2002ed8": {
+    "symbol": "wm_platform_framebuffer_bpp_supported",
+    "original": "_wm_platform_framebuffer_bpp_supported"
+  },
+  "2002ef5": {
+    "symbol": "wm_platform_framebuffer_bytes_per_pixel",
+    "original": "_wm_platform_framebuffer_bytes_per_pixel"
+  },
+  "2002f07": {
+    "symbol": "wm_platform_framebuffer_ready",
+    "original": "_wm_platform_framebuffer_ready"
+  },
+  "2002f52": {
+    "symbol": "wm_platform_enter_wxga_graphics_mode",
+    "original": "_wm_platform_enter_wxga_graphics_mode"
+  },
+  "2003177": {
+    "symbol": "platform_runtime_map_uncached_pages",
+    "original": "_platform_runtime_map_uncached_pages"
+  },
+  "200322d": {
+    "symbol": "wm_platform_framebuffer",
+    "original": "_wm_platform_framebuffer"
+  },
+  "200323a": {
+    "symbol": "wm_platform_serial_init",
+    "original": "_wm_platform_serial_init"
+  },
+  "2003285": {
+    "symbol": "wm_platform_serial_putc",
+    "original": "_wm_platform_serial_putc"
+  },
+  "20032ba": {
+    "symbol": "wm_platform_serial_write",
+    "original": "_wm_platform_serial_write"
+  },
+  "20032e2": {
+    "symbol": "wm_platform_serial_write_n",
+    "original": "_wm_platform_serial_write_n"
+  },
+  "2003324": {
+    "symbol": "wm_platform_serial_poll_char",
+    "original": "_wm_platform_serial_poll_char"
+  },
+  "2003350": {
+    "symbol": "wm_platform_cpuid_available",
+    "original": "_wm_platform_cpuid_available"
+  },
+  "2003358": {
+    "symbol": "wm_platform_cpuid_query",
+    "original": "_wm_platform_cpuid_query"
+  },
+  "2003383": {
+    "symbol": "wm_platform_heap_free_bytes",
+    "original": "_wm_platform_heap_free_bytes"
+  },
+  "200338d": {
+    "symbol": "wm_platform_heap_free_bytes64",
+    "original": "_wm_platform_heap_free_bytes64"
+  },
+  "2003397": {
+    "symbol": "wm_platform_heap_total_bytes",
+    "original": "_wm_platform_heap_total_bytes"
+  },
+  "20033e0": {
+    "symbol": "wm_platform_heap_total_bytes64",
+    "original": "_wm_platform_heap_total_bytes64"
+  },
+  "2003420": {
+    "symbol": "wm_platform_halt_forever",
+    "original": "_wm_platform_halt_forever"
+  },
+  "200343d": {
+    "symbol": "wm_platform_api",
+    "original": "_wm_platform_api"
+  },
+  "200344a": {
+    "symbol": "platform_efi_drive_block_base",
+    "original": "_platform_efi_drive_block_base"
+  },
+  "20034d0": {
+    "symbol": "wm_lua_write",
+    "original": "_wm_lua_write"
+  },
+  "200357d": {
+    "symbol": "wm_lua_flush_output_line",
+    "original": "_wm_lua_flush_output_line"
+  },
+  "20035fb": {
+    "symbol": "wm_lua_writeline",
+    "original": "_wm_lua_writeline"
+  },
+  "2003608": {
+    "symbol": "wm_lua_flush_output",
+    "original": "_wm_lua_flush_output"
+  },
+  "2003614": {
+    "symbol": "wm_lua_write_errorf",
+    "original": "_wm_lua_write_errorf"
+  },
+  "2003669": {
+    "symbol": "wm_lua_show_banner",
+    "original": "_wm_lua_show_banner"
+  },
+  "20036b6": {
+    "symbol": "wm_lua_write_cstr",
+    "original": "_wm_lua_write_cstr"
+  },
+  "20036db": {
+    "symbol": "wm_lua_show_help",
+    "original": "_wm_lua_show_help"
+  },
+  "20036f8": {
+    "symbol": "wm_lua_readline",
+    "original": "_wm_lua_readline"
+  },
+  "200375d": {
+    "symbol": "wmfs_mount_image",
+    "original": "_wmfs_mount_image"
+  },
+  "2003765": {
+    "symbol": "wmfs_unmount",
+    "original": "_wmfs_unmount"
+  },
+  "200376b": {
+    "symbol": "wmfs_is_mounted",
+    "original": "_wmfs_is_mounted"
+  },
+  "2003773": {
+    "symbol": "wmfs_fopen",
+    "original": "_wmfs_fopen"
+  },
+  "2003a18": {
+    "symbol": "wm_lua_app_stat_file",
+    "original": "_wm_lua_app_stat_file"
+  },
+  "2003a50": {
+    "symbol": "wm_lua_file_reserve",
+    "original": "_wm_lua_file_reserve"
+  },
+  "2003ad6": {
+    "symbol": "wmfs_freopen",
+    "original": "_wmfs_freopen"
+  },
+  "2003aff": {
+    "symbol": "wmfs_fclose",
+    "original": "_wmfs_fclose"
+  },
+  "2003b39": {
+    "symbol": "wmfs_fread",
+    "original": "_wmfs_fread"
+  },
+  "2003bbf": {
+    "symbol": "wmfs_getc",
+    "original": "_wmfs_getc"
+  },
+  "2003cb1": {
+    "symbol": "wmfs_fwrite",
+    "original": "_wmfs_fwrite"
+  },
+  "2003dca": {
+    "symbol": "wmfs_fseek",
+    "original": "_wmfs_fseek"
+  },
+  "2003e43": {
+    "symbol": "wmfs_ftell",
+    "original": "_wmfs_ftell"
+  },
+  "2003e66": {
+    "symbol": "wmfs_fflush",
+    "original": "_wmfs_fflush"
+  },
+  "2003eca": {
+    "symbol": "wmfs_feof",
+    "original": "_wmfs_feof"
+  },
+  "2003ee0": {
+    "symbol": "wmfs_ferror",
+    "original": "_wmfs_ferror"
+  },
+  "2003ef6": {
+    "symbol": "wmfs_clearerr",
+    "original": "_wmfs_clearerr"
+  },
+  "2003f10": {
+    "symbol": "wmfs_ungetc",
+    "original": "_wmfs_ungetc"
+  },
+  "2003f3c": {
+    "symbol": "wmfs_remove",
+    "original": "_wmfs_remove"
+  },
+  "2003f67": {
+    "symbol": "wm_lua_app_delete_file",
+    "original": "_wm_lua_app_delete_file"
+  },
+  "2003f9c": {
+    "symbol": "wmfs_rename",
+    "original": "_wmfs_rename"
+  },
+  "2004034": {
+    "symbol": "wm_lua_app_write_file",
+    "original": "_wm_lua_app_write_file"
+  },
+  "200407f": {
+    "symbol": "wmfs_read_entire_file",
+    "original": "_wmfs_read_entire_file"
+  },
+  "2004124": {
+    "symbol": "wmfs_write_entire_file",
+    "original": "_wmfs_write_entire_file"
+  },
+  "200414c": {
+    "symbol": "wmfs_register_virtual_file",
+    "original": "_wmfs_register_virtual_file"
+  },
+  "2004154": {
+    "symbol": "wmfs_clear_virtual_files",
+    "original": "_wmfs_clear_virtual_files"
+  },
+  "200415a": {
+    "symbol": "wmfs_image_data",
+    "original": "_wmfs_image_data"
+  },
+  "2004162": {
+    "symbol": "wmfs_image_size",
+    "original": "_wmfs_image_size"
+  },
+  "200416a": {
+    "symbol": "wmfs_export_image",
+    "original": "_wmfs_export_image"
+  },
+  "2004172": {
+    "symbol": "memchr",
+    "original": "_memchr"
+  },
+  "2004192": {
+    "symbol": "strncmp",
+    "original": "_strncmp"
+  },
+  "20041c0": {
+    "symbol": "strerror",
+    "original": "_strerror"
+  },
+  "2004270": {
+    "symbol": "getenv",
+    "original": "_getenv"
+  },
+  "2004278": {
+    "symbol": "system",
+    "original": "_system"
+  },
+  "2004281": {
+    "symbol": "clock",
+    "original": "_clock"
+  },
+  "2004299": {
+    "symbol": "wm_program_api_field_ready",
+    "original": "_wm_program_api_field_ready"
+  },
+  "20042e0": {
+    "symbol": "permafrost_sjlj_jump",
+    "original": "_winterboot_sjlj_jump"
+  },
+  "20042ee": {
+    "symbol": "std_terminate_20042ee",
+    "original": "__ZSt9terminatev"
+  },
+  "2004370": {
+    "symbol": "gxx_personality_sj0",
+    "original": "___gxx_personality_sj0"
+  },
+  "2004380": {
+    "symbol": "cxa_begin_catch",
+    "original": "___cxa_begin_catch"
+  },
+  "20043a3": {
+    "symbol": "operator_new_20043a3",
+    "original": "__Znwm"
+  },
+  "20043cd": {
+    "symbol": "operator_new_20043cd",
+    "original": "__Znam"
+  },
+  "20043d7": {
+    "symbol": "operator_delete_20043d7",
+    "original": "__ZdlPv"
+  },
+  "2004470": {
+    "symbol": "operator_delete_2004470",
+    "original": "__ZdaPv"
+  },
+  "2004508": {
+    "symbol": "operator_delete_2004508",
+    "original": "__ZdlPvm"
+  },
+  "20045a0": {
+    "symbol": "operator_delete_20045a0",
+    "original": "__ZdaPvm"
+  },
+  "2004638": {
+    "symbol": "cxa_atexit",
+    "original": "___cxa_atexit"
+  },
+  "2004640": {
+    "symbol": "cxa_guard_acquire",
+    "original": "___cxa_guard_acquire"
+  },
+  "200464d": {
+    "symbol": "cxa_guard_release",
+    "original": "___cxa_guard_release"
+  },
+  "2004656": {
+    "symbol": "cxa_guard_abort",
+    "original": "___cxa_guard_abort"
+  },
+  "200465c": {
+    "symbol": "cxa_allocate_exception",
+    "original": "___cxa_allocate_exception"
+  },
+  "200469a": {
+    "symbol": "cxa_free_exception",
+    "original": "___cxa_free_exception"
+  },
+  "20046af": {
+    "symbol": "object_from_header_20046af",
+    "original": "__ZL18object_from_headerP21WinterExceptionHeader"
+  },
+  "20046b9": {
+    "symbol": "cxa_end_catch",
+    "original": "___cxa_end_catch"
+  },
+  "2004705": {
+    "symbol": "cxa_throw",
+    "original": "___cxa_throw"
+  },
+  "2004728": {
+    "symbol": "raise_exception_2004728",
+    "original": "__ZL15raise_exceptionP21WinterExceptionHeader"
+  },
+  "2004785": {
+    "symbol": "cxa_rethrow",
+    "original": "___cxa_rethrow"
+  },
+  "20047aa": {
+    "symbol": "Unwind_SjLj_Register",
+    "original": "__Unwind_SjLj_Register"
+  },
+  "20047c1": {
+    "symbol": "Unwind_SjLj_Unregister",
+    "original": "__Unwind_SjLj_Unregister"
+  },
+  "20047f2": {
+    "symbol": "Unwind_SjLj_RaiseException",
+    "original": "__Unwind_SjLj_RaiseException"
+  },
+  "20047fb": {
+    "symbol": "Unwind_SjLj_ForcedUnwind",
+    "original": "__Unwind_SjLj_ForcedUnwind"
+  },
+  "2004804": {
+    "symbol": "Unwind_SjLj_Resume",
+    "original": "__Unwind_SjLj_Resume"
+  },
+  "2004823": {
+    "symbol": "continue_unwind_2004823",
+    "original": "__ZL15continue_unwindP21WinterExceptionHeader"
+  },
+  "20048a4": {
+    "symbol": "Unwind_SjLj_Resume_or_Rethrow",
+    "original": "__Unwind_SjLj_Resume_or_Rethrow"
+  },
+  "20048ad": {
+    "symbol": "gxx_personality_v0",
+    "original": "___gxx_personality_v0"
+  },
+  "20048b5": {
+    "symbol": "Unwind_Resume",
+    "original": "__Unwind_Resume"
+  },
+  "20048be": {
+    "symbol": "dynamic_cast",
+    "original": "___dynamic_cast"
+  },
+  "20048fe": {
+    "symbol": "type_matches_20048fe",
+    "original": "__ZL12type_matchesPKvS0_"
+  },
+  "200497e": {
+    "symbol": "cxa_pure_virtual",
+    "original": "___cxa_pure_virtual"
+  },
+  "2004988": {
+    "symbol": "tlv_bootstrap",
+    "original": "__tlv_bootstrap"
+  },
+  "2004990": {
+    "symbol": "isdigit",
+    "original": "_isdigit"
+  },
+  "20049a1": {
+    "symbol": "isspace",
+    "original": "_isspace"
+  },
+  "20049cb": {
+    "symbol": "isxdigit",
+    "original": "_isxdigit"
+  },
+  "20049eb": {
+    "symbol": "isfinite",
+    "original": "_isfinite"
+  },
+  "2004a0d": {
+    "symbol": "kernel_round",
+    "original": "_round"
+  },
+  "2004a58": {
+    "symbol": "strtoull",
+    "original": "_strtoull"
+  },
+  "2004b6f": {
+    "symbol": "strtoll",
+    "original": "_strtoll"
+  },
+  "2004b79": {
+    "symbol": "inspect_context_2004b79",
+    "original": "__ZL15inspect_contextP17WinterSjLjContextPKvR13WinterHandler"
+  },
+  "2004d7d": {
+    "symbol": "read_encoded_pointer_2004d7d",
+    "original": "__ZL20read_encoded_pointerhPPKh"
+  },
+  "2004ea4": {
+    "symbol": "read_uleb128_2004ea4",
+    "original": "__ZL12read_uleb128PPKh"
+  },
+  "2004ed3": {
+    "symbol": "read_unaligned_2004ed3",
+    "original": "__ZL14read_unalignedPKhm"
+  },
+  "2004ef8": {
+    "symbol": "read_sleb128_2004ef8",
+    "original": "__ZL12read_sleb128PPKh"
+  },
+  "2004f44": {
+    "symbol": "wm_png_load_memory_2004f44",
+    "original": "__ZN2wm3png11load_memoryEPKhmRNS0_5ImageE"
+  },
+  "2006980": {
+    "symbol": "wm_png_Image_operator_2006980",
+    "original": "__ZN2wm3png5ImageaSEOS1_"
+  },
+  "20069a8": {
+    "symbol": "wm_png_20069a8",
+    "original": "__ZN2wm3png12_GLOBAL__N_19ParsedPngD1Ev"
+  },
+  "20069da": {
+    "symbol": "wm_png_load_file_20069da",
+    "original": "__ZN2wm3png9load_fileEPKcRNS0_5ImageE"
+  },
+  "2006c18": {
+    "symbol": "wm_png_save_rgba8_file_2006c18",
+    "original": "__ZN2wm3png15save_rgba8_fileEPKcPKhii"
+  },
+  "200727c": {
+    "symbol": "wm_png_200727c",
+    "original": "__ZN2wm3png12_GLOBAL__N_111write_bytesEP8WMFSFilePKhm"
+  },
+  "20072ab": {
+    "symbol": "wm_png_20072ab",
+    "original": "__ZN2wm3png12_GLOBAL__N_111write_chunkEP8WMFSFilePKcPKhm"
+  },
+  "2007364": {
+    "symbol": "wm_png_2007364",
+    "original": "__ZN2wm3png12_GLOBAL__N_111read_u32_beEPKh"
+  },
+  "200736e": {
+    "symbol": "wm_png_200736e",
+    "original": "__ZN2wm3png12_GLOBAL__N_112crc32_updateEjPKhm"
+  },
+  "20073f8": {
+    "symbol": "void_wm_vector_20073f8",
+    "original": "__ZN2wm6vectorIhE6assignIPKhvEEvT_S5_"
+  },
+  "2007410": {
+    "symbol": "unsigned_char_wm_vector_2007410",
+    "original": "__ZN2wm6vectorIhE6insertIPKhvEEPhS4_T_S6_"
+  },
+  "20074d6": {
+    "symbol": "wm_vector_reserve_20074d6",
+    "original": "__ZN2wm6vectorIhE7reserveEm"
+  },
+  "2007528": {
+    "symbol": "unsigned_char_wm_detail_vector_allocate_2007528",
+    "original": "__ZN2wm6detail15vector_allocateIhEEPT_m"
+  },
+  "200753c": {
+    "symbol": "wm_vector_assign_200753c",
+    "original": "__ZN2wm6vectorIhE6assignEmRKh"
+  },
+  "200754c": {
+    "symbol": "wm_vector_resize_200754c",
+    "original": "__ZN2wm6vectorIhE6resizeEmRKh"
+  },
+  "20075b0": {
+    "symbol": "wm_vector_resize_20075b0",
+    "original": "__ZN2wm6vectorIhE6resizeEm"
+  },
+  "20075f8": {
+    "symbol": "wm_png_20075f8",
+    "original": "__ZN2wm3png12_GLOBAL__N_114bits_per_pixelERKNS1_6HeaderE"
+  },
+  "2007620": {
+    "symbol": "wm_png_2007620",
+    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater5startERKNS_6vectorINS1_8ByteSpanEEE"
+  },
+  "2008428": {
+    "symbol": "wm_png_2008428",
+    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater10read_exactEPhm"
+  },
+  "2008462": {
+    "symbol": "wm_png_2008462",
+    "original": "__ZN2wm3png12_GLOBAL__N_115unfilter_row_toEjPhPKhS4_mm"
+  },
+  "20086c0": {
+    "symbol": "wm_png_20086c0",
+    "original": "__ZN2wm3png12_GLOBAL__N_18InflaterD1Ev"
+  },
+  "20086e0": {
+    "symbol": "wm_png_20086e0",
+    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater9BitReader9read_bitsEjRj"
+  },
+  "2008742": {
+    "symbol": "wm_png_2008742",
+    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater23decode_compressed_blockERNS2_9BitReaderERKNS2_12HuffmanTableES7_RNS_6vectorIhEE"
+  },
+  "2008890": {
+    "symbol": "wm_png_2008890",
+    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater12HuffmanTableD1Ev"
+  },
+  "200889e": {
+    "symbol": "wm_png_200889e",
+    "original": "__ZN2wm3png12_GLOBAL__N_113adler32_bytesEPKhm"
+  },
+  "200890c": {
+    "symbol": "unsigned_char_wm_vector_200890c",
+    "original": "__ZN2wm6vectorIhE12emplace_backIJhEEERhDpOT_"
+  },
+  "200895c": {
+    "symbol": "wm_png_200895c",
+    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater13decode_symbolERNS2_9BitReaderERKNS2_12HuffmanTableERj"
+  },
+  "2008a22": {
+    "symbol": "unsigned_char_wm_vector_2008a22",
+    "original": "__ZN2wm6vectorIhE12emplace_backIJRKhEEERhDpOT_"
+  },
+  "2008a72": {
+    "symbol": "wm_png_2008a72",
+    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater19build_huffman_tableERKNS_6vectorIjEERNS2_12HuffmanTableEb"
+  },
+  "2008bc0": {
+    "symbol": "wm_vector_vector_2008bc0",
+    "original": "__ZN2wm6vectorIjEC2EmRKj"
+  },
+  "2008bd6": {
+    "symbol": "wm_vector_resize_2008bd6",
+    "original": "__ZN2wm6vectorIjE6resizeEmRKj"
+  },
+  "2008c36": {
+    "symbol": "wm_vector_resize_2008c36",
+    "original": "__ZN2wm6vectorIjE6resizeEm"
+  },
+  "2008c7a": {
+    "symbol": "wm_vector_reserve_2008c7a",
+    "original": "__ZN2wm6vectorIjE7reserveEm"
+  },
+  "2008ccf": {
+    "symbol": "unsigned_int_wm_detail_vector_allocate_2008ccf",
+    "original": "__ZN2wm6detail15vector_allocateIjEEPT_m"
+  },
+  "2008ce6": {
+    "symbol": "wm_png_2008ce6",
+    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater12HuffmanTableaSEOS3_"
+  },
+  "2008d34": {
+    "symbol": "wm_vector_assign_2008d34",
+    "original": "__ZN2wm6vectorItE6assignEmRKt"
+  },
+  "2008d44": {
+    "symbol": "wm_vector_operator_2008d44",
+    "original": "__ZN2wm6vectorItEaSEOS1_"
+  },
+  "2008d86": {
+    "symbol": "wm_vector_resize_2008d86",
+    "original": "__ZN2wm6vectorItE6resizeEmRKt"
+  },
+  "2008de8": {
+    "symbol": "wm_vector_resize_2008de8",
+    "original": "__ZN2wm6vectorItE6resizeEm"
+  },
+  "2008e31": {
+    "symbol": "unsigned_short_wm_detail_vector_allocate_2008e31",
+    "original": "__ZN2wm6detail15vector_allocateItEEPT_m"
+  },
+  "2008e48": {
+    "symbol": "unsigned_int_wm_vector_2008e48",
+    "original": "__ZN2wm6vectorIjE12emplace_backIJRKjEEERjDpOT_"
+  },
+  "2008e92": {
+    "symbol": "unsigned_int_wm_vector_2008e92",
+    "original": "__ZN2wm6vectorIjE12emplace_backIJjEEERjDpOT_"
+  },
+  "2008edc": {
+    "symbol": "wm_vector_2008edc",
+    "original": "__ZN2wm6vectorIjEC2IPjvEET_S4_"
+  },
+  "2008efa": {
+    "symbol": "unsigned_int_wm_vector_2008efa",
+    "original": "__ZN2wm6vectorIjE6insertIPjvEES3_PKjT_S6_"
+  },
+  "2008fe2": {
+    "symbol": "wm_vector_vector_2008fe2",
+    "original": "__ZN2wm6vectorItED2Ev"
+  },
+  "2008ff4": {
+    "symbol": "wm_vector_vector_2008ff4",
+    "original": "__ZN2wm6vectorIhEC2Em"
+  },
+  "200900c": {
+    "symbol": "wm_vector_200900c",
+    "original": "__ZN2wm6vectorIhEC2IPKhvEET_S5_"
+  },
+  "200902c": {
+    "symbol": "wm_ttf_font_load_memory_200902c",
+    "original": "__Z23wm_ttf_font_load_memoryPKvmf"
+  },
+  "2009524": {
+    "symbol": "wm_ttf_font_load_2009524",
+    "original": "__Z16wm_ttf_font_loadPKcf"
+  },
+  "2009728": {
+    "symbol": "wm_ttf_font_resize_2009728",
+    "original": "__Z18wm_ttf_font_resizePvf"
+  },
+  "2009763": {
+    "symbol": "wm_ttf_font_render_2009763",
+    "original": "__Z18wm_ttf_font_renderPvPKciiid"
+  },
+  "200a740": {
+    "symbol": "_200a740",
+    "original": "__ZN12_GLOBAL__N_116make_empty_imageEv"
+  },
+  "200a76e": {
+    "symbol": "wm_vector_200a76e",
+    "original": "__ZN2wm6vectorINS0_IjEEE12emplace_backIJEEERS1_DpOT_"
+  },
+  "200a7c0": {
+    "symbol": "wm_vector_200a7c0",
+    "original": "__ZN2wm6vectorIN12_GLOBAL__N_110LineLayoutEE7reserveEm"
+  },
+  "200a836": {
+    "symbol": "_200a836",
+    "original": "__ZN12_GLOBAL__N_110LineLayoutD1Ev"
+  },
+  "200a84a": {
+    "symbol": "wm_vector_200a84a",
+    "original": "__ZN2wm6vectorIN12_GLOBAL__N_110LineLayoutEED1Ev"
+  },
+  "200a890": {
+    "symbol": "wm_ttf_font_free_200a890",
+    "original": "__Z16wm_ttf_font_freePv"
+  },
+  "200a8e0": {
+    "symbol": "_200a8e0",
+    "original": "__ZN12_GLOBAL__N_111read_u32_beERKN2wm6vectorIhEEm"
+  },
+  "200a8ee": {
+    "symbol": "wm_vector_200a8ee",
+    "original": "__ZN2wm6vectorIN12_GLOBAL__N_115TrueTypeBackend13Format12GroupEED1Ev"
+  },
+  "200a900": {
+    "symbol": "wm_unordered_map_unsigned_int_200a900",
+    "original": "__ZN2wm13unordered_mapIjN12_GLOBAL__N_111TableRecordENS_4hashIjEENS_8equal_toIjEEED1Ev"
+  },
+  "200a92e": {
+    "symbol": "_200a92e",
+    "original": "__ZN12_GLOBAL__N_115TrueTypeBackendD1Ev"
+  },
+  "200a980": {
+    "symbol": "_200a980",
+    "original": "__ZN12_GLOBAL__N_115TrueTypeBackendD0Ev"
+  },
+  "200a99c": {
+    "symbol": "_200a99c",
+    "original": "__ZN12_GLOBAL__N_115TrueTypeBackend4loadERKN2wm6vectorIhEE"
+  },
+  "200b2e0": {
+    "symbol": "_200b2e0",
+    "original": "__ZN12_GLOBAL__N_115TrueTypeBackend9rasterizeEjd"
+  },
+  "200b74c": {
+    "symbol": "_200b74c",
+    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend12units_per_emEv"
+  },
+  "200b75e": {
+    "symbol": "_200b75e",
+    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend6ascentEv"
+  },
+  "200b770": {
+    "symbol": "_200b770",
+    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend7descentEv"
+  },
+  "200b78c": {
+    "symbol": "_200b78c",
+    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend8line_gapEv"
+  },
+  "200b7a8": {
+    "symbol": "_200b7a8",
+    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend15metric_roundingEv"
+  },
+  "200b7b0": {
+    "symbol": "wm_vector_vector_200b7b0",
+    "original": "__ZN2wm6vectorImED2Ev"
+  },
+  "200b7c2": {
+    "symbol": "wm_unordered_map_unordered_map_200b7c2",
+    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEEC2Ev"
+  },
+  "200b7e0": {
+    "symbol": "wm_vector_vector_200b7e0",
+    "original": "__ZN2wm6vectorINS_4pairIjtEEED2Ev"
+  },
+  "200b7f2": {
+    "symbol": "wm_unordered_map_unordered_map_200b7f2",
+    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEED2Ev"
+  },
+  "200b81c": {
+    "symbol": "wm_vector_operator_200b81c",
+    "original": "__ZN2wm6vectorIhEaSERKS1_"
+  },
+  "200b86e": {
+    "symbol": "_200b86e",
+    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend12assign_tableEjRNS_11TableRecordE"
+  },
+  "200b8bc": {
+    "symbol": "wm_vector_vector_200b8bc",
+    "original": "__ZN2wm6vectorIhEC2ERKS1_"
+  },
+  "200b904": {
+    "symbol": "wm_unordered_map_unsigned_int_200b904",
+    "original": "__ZN2wm13unordered_mapIjN12_GLOBAL__N_111TableRecordENS_4hashIjEENS_8equal_toIjEEE10link_indexEm"
+  },
+  "200b936": {
+    "symbol": "wm_unordered_map_unsigned_int_200b936",
+    "original": "__ZNK2wm13unordered_mapIjN12_GLOBAL__N_111TableRecordENS_4hashIjEENS_8equal_toIjEEE10find_indexERKj"
+  },
+  "200b990": {
+    "symbol": "wm_unordered_map_unsigned_int_200b990",
+    "original": "__ZNK2wm13unordered_mapIjN12_GLOBAL__N_111TableRecordENS_4hashIjEENS_8equal_toIjEEE14bucket_for_keyERKj"
+  },
+  "200b9b8": {
+    "symbol": "wm_detail_hash_bytes_200b9b8",
+    "original": "__ZN2wm6detail10hash_bytesEPKhm"
+  },
+  "200b9ea": {
+    "symbol": "wm_vector_assign_200b9ea",
+    "original": "__ZN2wm6vectorImE6assignEmRKm"
+  },
+  "200b9fa": {
+    "symbol": "wm_vector_resize_200b9fa",
+    "original": "__ZN2wm6vectorImE6resizeEmRKm"
+  },
+  "200ba5e": {
+    "symbol": "wm_vector_resize_200ba5e",
+    "original": "__ZN2wm6vectorImE6resizeEm"
+  },
+  "200baa8": {
+    "symbol": "wm_vector_reserve_200baa8",
+    "original": "__ZN2wm6vectorImE7reserveEm"
+  },
+  "200bafb": {
+    "symbol": "unsigned_long_wm_detail_vector_allocate_200bafb",
+    "original": "__ZN2wm6detail15vector_allocateImEEPT_m"
+  },
+  "200bb12": {
+    "symbol": "unsigned_long_wm_vector_200bb12",
+    "original": "__ZN2wm6vectorImE12emplace_backIJRKmEEERmDpOT_"
+  },
+  "200bb62": {
+    "symbol": "wm_vector_200bb62",
+    "original": "__ZN2wm6vectorIN12_GLOBAL__N_115TrueTypeBackend13Format12GroupEE7reserveEm"
+  },
+  "200bbc8": {
+    "symbol": "_200bbc8",
+    "original": "__ZN12_GLOBAL__N_111GlyphBitmapC1Ev"
+  },
+  "200bbdc": {
+    "symbol": "_200bbdc",
+    "original": "__ZN12_GLOBAL__N_111GlyphBitmapC1EOS0_"
+  },
+  "200bbfc": {
+    "symbol": "_200bbfc",
+    "original": "__ZN12_GLOBAL__N_115TrueTypeBackend20append_glyph_outlineEtRKNS_15AffineTransformERNS_14OutlineBuilderEi"
+  },
+  "200ca40": {
+    "symbol": "_200ca40",
+    "original": "__ZN12_GLOBAL__N_117rasterize_outlineERKNS_14OutlineBuilderEd"
+  },
+  "200cdf4": {
+    "symbol": "wm_unordered_map_find_200cdf4",
+    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE4findERKj"
+  },
+  "200ce1a": {
+    "symbol": "wm_unordered_map_operator_200ce1a",
+    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEEixERKj"
+  },
+  "200ce96": {
+    "symbol": "wm_unordered_map_find_index_200ce96",
+    "original": "__ZNK2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE10find_indexERKj"
+  },
+  "200ceec": {
+    "symbol": "wm_unordered_map_bucket_for_key_200ceec",
+    "original": "__ZNK2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE14bucket_for_keyERKj"
+  },
+  "200cf14": {
+    "symbol": "wm_unordered_map_prepare_insert_200cf14",
+    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE14prepare_insertEv"
+  },
+  "200cf46": {
+    "symbol": "wm_pair_200cf46",
+    "original": "__ZN2wm6vectorINS_4pairIjtEEE12emplace_backIJRKjtEEERS2_DpOT_"
+  },
+  "200cfa4": {
+    "symbol": "wm_unordered_map_link_index_200cfa4",
+    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE10link_indexEm"
+  },
+  "200cfda": {
+    "symbol": "wm_unordered_map_rehash_200cfda",
+    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE6rehashEm"
+  },
+  "200d042": {
+    "symbol": "wm_unordered_map_bucket_count_for_size_200d042",
+    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE21bucket_count_for_sizeEm"
+  },
+  "200d056": {
+    "symbol": "wm_unordered_map_rebuild_buckets_200d056",
+    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE15rebuild_bucketsEv"
+  },
+  "200d094": {
+    "symbol": "wm_vector_reserve_200d094",
+    "original": "__ZN2wm6vectorINS_4pairIjtEEE7reserveEm"
+  },
+  "200d0e7": {
+    "symbol": "wm_pair_200d0e7",
+    "original": "__ZN2wm6detail15vector_allocateINS_4pairIjtEEEEPT_m"
+  },
+  "200d0fe": {
+    "symbol": "wm_vector_vector_200d0fe",
+    "original": "__ZN2wm6vectorIhEC2EOS1_"
+  },
+  "200d11e": {
+    "symbol": "wm_vector_200d11e",
+    "original": "__ZN2wm6vectorIN12_GLOBAL__N_15PointEE9push_backERKS2_"
+  },
+  "200d167": {
+    "symbol": "_200d167",
+    "original": "__ZN12_GLOBAL__N_18midpointERKNS_5PointES2_"
+  },
+  "200d18a": {
+    "symbol": "_200d18a",
+    "original": "__ZN12_GLOBAL__N_114OutlineBuilder7move_toERKNS_5PointE"
+  },
+  "200d1ed": {
+    "symbol": "_200d1ed",
+    "original": "__ZN12_GLOBAL__N_115transform_pointERKNS_15AffineTransformERKNS_5PointE"
+  },
+  "200d234": {
+    "symbol": "_200d234",
+    "original": "__ZN12_GLOBAL__N_114OutlineBuilder7line_toERKNS_5PointE"
+  },
+  "200d2bc": {
+    "symbol": "_200d2bc",
+    "original": "__ZN12_GLOBAL__N_114OutlineBuilder13close_contourEv"
+  },
+  "200d320": {
+    "symbol": "wm_vector_vector_200d320",
+    "original": "__ZN2wm6vectorItEC2Em"
+  },
+  "200d338": {
+    "symbol": "wm_vector_reserve_200d338",
+    "original": "__ZN2wm6vectorItE7reserveEm"
+  },
+  "200d392": {
+    "symbol": "wm_vector_vector_200d392",
+    "original": "__ZN2wm6vectorIsEC2Em"
+  },
+  "200d3a8": {
+    "symbol": "wm_vector_resize_200d3a8",
+    "original": "__ZN2wm6vectorIsE6resizeEm"
+  },
+  "200d3f1": {
+    "symbol": "short_wm_detail_vector_allocate_200d3f1",
+    "original": "__ZN2wm6detail15vector_allocateIsEEPT_m"
+  },
+  "200d408": {
+    "symbol": "wm_vector_200d408",
+    "original": "__ZN2wm6vectorIN12_GLOBAL__N_15PointEE7reserveEm"
+  },
+  "200d46a": {
+    "symbol": "bool_wm_vector_200d46a",
+    "original": "__ZN2wm6vectorIbE12emplace_backIJRKbEEERbDpOT_"
+  },
+  "200d4ba": {
+    "symbol": "wm_vector_reserve_200d4ba",
+    "original": "__ZN2wm6vectorIbE7reserveEm"
+  },
+  "200d50f": {
+    "symbol": "bool_wm_detail_vector_allocate_200d50f",
+    "original": "__ZN2wm6detail15vector_allocateIbEEPT_m"
+  },
+  "200d522": {
+    "symbol": "bool_wm_vector_200d522",
+    "original": "__ZN2wm6vectorIbE12emplace_backIJbEEERbDpOT_"
+  },
+  "200d572": {
+    "symbol": "bool_wm_vector_200d572",
+    "original": "__ZN2wm6vectorIbE7emplaceIJbEEEPbPKbDpOT_"
+  },
+  "200d5f4": {
+    "symbol": "_200d5f4",
+    "original": "__ZN12_GLOBAL__N_114OutlineBuilder13update_boundsERKNS_5PointE"
+  },
+  "200d654": {
+    "symbol": "wm_vector_200d654",
+    "original": "__ZN2wm6vectorIN12_GLOBAL__N_111LineSegmentEE9push_backEOS2_"
+  },
+  "200d6f4": {
+    "symbol": "_200d6f4",
+    "original": "__ZN12_GLOBAL__N_127flatten_quadratic_recursiveERNS_14OutlineBuilderERKNS_5PointES4_S4_i"
+  },
+  "200d80e": {
+    "symbol": "_200d80e",
+    "original": "__ZN12_GLOBAL__N_112Type1BackendD1Ev"
+  },
+  "200d84c": {
+    "symbol": "_200d84c",
+    "original": "__ZN12_GLOBAL__N_112Type1BackendD0Ev"
+  },
+  "200d868": {
+    "symbol": "_200d868",
+    "original": "__ZN12_GLOBAL__N_112Type1Backend4loadERKN2wm6vectorIhEE"
+  },
+  "200e6b4": {
+    "symbol": "_200e6b4",
+    "original": "__ZN12_GLOBAL__N_112Type1Backend9rasterizeEjd"
+  },
+  "200ec68": {
+    "symbol": "_200ec68",
+    "original": "__ZNK12_GLOBAL__N_112Type1Backend12units_per_emEv"
+  },
+  "200ec74": {
+    "symbol": "_200ec74",
+    "original": "__ZNK12_GLOBAL__N_112Type1Backend6ascentEv"
+  },
+  "200ec80": {
+    "symbol": "_200ec80",
+    "original": "__ZNK12_GLOBAL__N_112Type1Backend7descentEv"
+  },
+  "200ec8c": {
+    "symbol": "_200ec8c",
+    "original": "__ZNK12_GLOBAL__N_112Type1Backend8line_gapEv"
+  },
+  "200ec96": {
+    "symbol": "_200ec96",
+    "original": "__ZNK12_GLOBAL__N_112Type1Backend15metric_roundingEv"
+  },
+  "200eca0": {
+    "symbol": "wm_unordered_map_unordered_map_200eca0",
+    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEEC2Ev"
+  },
+  "200ecbe": {
+    "symbol": "wm_vector_vector_200ecbe",
+    "original": "__ZN2wm6vectorINS_4pairINS_6stringENS0_IhEEEEED2Ev"
+  },
+  "200ecda": {
+    "symbol": "wm_vector_clear_200ecda",
+    "original": "__ZN2wm6vectorINS_4pairINS_6stringENS0_IhEEEEE5clearEv"
+  },
+  "200ed16": {
+    "symbol": "wm_pair_pair_200ed16",
+    "original": "__ZN2wm4pairINS_6stringENS_6vectorIhEEED2Ev"
+  },
+  "200ed36": {
+    "symbol": "wm_string_string_200ed36",
+    "original": "__ZN2wm6stringD1Ev"
+  },
+  "200ed40": {
+    "symbol": "wm_string_string_200ed40",
+    "original": "__ZN2wm6stringD2Ev"
+  },
+  "200ed4e": {
+    "symbol": "wm_vector_vector_200ed4e",
+    "original": "__ZN2wm6vectorINS0_IhEEED2Ev"
+  },
+  "200ed6a": {
+    "symbol": "wm_vector_clear_200ed6a",
+    "original": "__ZN2wm6vectorINS0_IhEEE5clearEv"
+  },
+  "200eda6": {
+    "symbol": "wm_array_array_200eda6",
+    "original": "__ZN2wm5arrayINS_6stringELm256EED2Ev"
+  },
+  "200edce": {
+    "symbol": "wm_unordered_map_unordered_map_200edce",
+    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEED2Ev"
+  },
+  "200edfa": {
+    "symbol": "_200edfa",
+    "original": "__ZN12_GLOBAL__N_110find_bytesERKN2wm6vectorIhEEPKcm"
+  },
+  "200ee7e": {
+    "symbol": "wm_string_reserve_200ee7e",
+    "original": "__ZN2wm6string7reserveEm"
+  },
+  "200eed8": {
+    "symbol": "wm_string_push_back_200eed8",
+    "original": "__ZN2wm6string9push_backEc"
+  },
+  "200ef30": {
+    "symbol": "wm_string_allocate_200ef30",
+    "original": "__ZN2wm6string8allocateEm"
+  },
+  "200ef42": {
+    "symbol": "wm_string_ensure_storage_200ef42",
+    "original": "__ZN2wm6string14ensure_storageEv"
+  },
+  "200ef68": {
+    "symbol": "_200ef68",
+    "original": "__ZN12_GLOBAL__N_118parse_ascii_doubleERKN2wm6vectorIhEERmRd"
+  },
+  "200efcd": {
+    "symbol": "_200efcd",
+    "original": "__ZN12_GLOBAL__N_115parse_ascii_intERKN2wm6vectorIhEERmRi"
+  },
+  "200f065": {
+    "symbol": "_200f065",
+    "original": "__ZN12_GLOBAL__N_111skip_spacesERKN2wm6vectorIhEERm"
+  },
+  "200f09a": {
+    "symbol": "wm_string_operator_200f09a",
+    "original": "__ZN2wm6stringaSEOS0_"
+  },
+  "200f0d8": {
+    "symbol": "wm_string_string_200f0d8",
+    "original": "__ZN2wm6stringC2EPKcm"
+  },
+  "200f0f4": {
+    "symbol": "wm_string_assign_200f0f4",
+    "original": "__ZN2wm6string6assignEPKcm"
+  },
+  "200f1c0": {
+    "symbol": "wm_string_pointer_offset_200f1c0",
+    "original": "__ZNK2wm6string14pointer_offsetEPKcPm"
+  },
+  "200f1fe": {
+    "symbol": "wm_vector_erase_200f1fe",
+    "original": "__ZN2wm6vectorIhE5eraseEPKhS3_"
+  },
+  "200f25e": {
+    "symbol": "wm_vector_resize_200f25e",
+    "original": "__ZN2wm6vectorINS0_IhEEE6resizeEm"
+  },
+  "200f2e0": {
+    "symbol": "_200f2e0",
+    "original": "__ZN12_GLOBAL__N_112Type1Backend18decrypt_charstringERKN2wm6vectorIhEEi"
+  },
+  "200f494": {
+    "symbol": "wm_vector_operator_200f494",
+    "original": "__ZN2wm6vectorIhEaSEOS1_"
+  },
+  "200f4d6": {
+    "symbol": "wm_unordered_map_operator_200f4d6",
+    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEEixERKS1_"
+  },
+  "200f630": {
+    "symbol": "wm_vector_reserve_200f630",
+    "original": "__ZN2wm6vectorINS0_IhEEE7reserveEm"
+  },
+  "200f6a2": {
+    "symbol": "wm_vector_200f6a2",
+    "original": "__ZN2wm6detail15vector_allocateINS_6vectorIhEEEEPT_m"
+  },
+  "200f6ba": {
+    "symbol": "wm_unordered_map_find_200f6ba",
+    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE4findERKS1_"
+  },
+  "200f6e6": {
+    "symbol": "wm_unordered_map_prepare_insert_200f6e6",
+    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE14prepare_insertEv"
+  },
+  "200f718": {
+    "symbol": "wm_pair_200f718",
+    "original": "__ZN2wm6vectorINS_4pairINS_6stringENS0_IhEEEEE12emplace_backIJRKS2_S3_EEERS4_DpOT_"
+  },
+  "200f780": {
+    "symbol": "wm_unordered_map_link_index_200f780",
+    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE10link_indexEm"
+  },
+  "200f7b2": {
+    "symbol": "wm_unordered_map_find_index_200f7b2",
+    "original": "__ZNK2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE10find_indexERKS1_"
+  },
+  "200f814": {
+    "symbol": "wm_unordered_map_bucket_for_key_200f814",
+    "original": "__ZNK2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE14bucket_for_keyERKS1_"
+  },
+  "200f838": {
+    "symbol": "wm_hash_operator_200f838",
+    "original": "__ZNK2wm4hashINS_6stringEEclERKS1_"
+  },
+  "200f857": {
+    "symbol": "wm_operator_200f857",
+    "original": "__ZN2wmeqERKNS_6stringES2_"
+  },
+  "200f88a": {
+    "symbol": "wm_operator_200f88a",
+    "original": "__ZN2wmeqENS_11string_viewES0_"
+  },
+  "200f8b4": {
+    "symbol": "wm_unordered_map_rehash_200f8b4",
+    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE6rehashEm"
+  },
+  "200f91c": {
+    "symbol": "wm_unordered_map_bucket_count_for_size_200f91c",
+    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE21bucket_count_for_sizeEm"
+  },
+  "200f930": {
+    "symbol": "wm_unordered_map_rebuild_buckets_200f930",
+    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE15rebuild_bucketsEv"
+  },
+  "200f96e": {
+    "symbol": "wm_vector_reserve_200f96e",
+    "original": "__ZN2wm6vectorINS_4pairINS_6stringENS0_IhEEEEE7reserveEm"
+  },
+  "200f9e0": {
+    "symbol": "wm_pair_200f9e0",
+    "original": "__ZN2wm6detail15vector_allocateINS_4pairINS_6stringENS_6vectorIhEEEEEEPT_m"
+  },
+  "200f9f8": {
+    "symbol": "wm_pair_pair_200f9f8",
+    "original": "__ZN2wm4pairINS_6stringENS_6vectorIhEEEC2EOS4_"
+  },
+  "200fa22": {
+    "symbol": "wm_string_string_200fa22",
+    "original": "__ZN2wm6stringC2EOS0_"
+  },
+  "200fa42": {
+    "symbol": "wm_pair_200fa42",
+    "original": "__ZN2wm4pairINS_6stringENS_6vectorIhEEEC2IRKS1_S3_EEOT_OT0_"
+  },
+  "200fa68": {
+    "symbol": "wm_string_string_200fa68",
+    "original": "__ZN2wm6stringC2ERKS0_"
+  },
+  "200fa96": {
+    "symbol": "_200fa96",
+    "original": "__ZN12_GLOBAL__N_112Type1Backend16Type1Interpreter7executeERKN2wm6vectorIhEEi"
+  },
+  "200fef8": {
+    "symbol": "_200fef8",
+    "original": "__ZN12_GLOBAL__N_112Type1Backend16Type1InterpreterD1Ev"
+  },
+  "200ff22": {
+    "symbol": "wm_string_string_200ff22",
+    "original": "__ZN2wm6stringC2EPKc"
+  },
+  "200ff54": {
+    "symbol": "wm_string_length_200ff54",
+    "original": "__ZN2wm13string_lengthEPKc"
+  },
+  "200ff6e": {
+    "symbol": "wm_vector_vector_200ff6e",
+    "original": "__ZN2wm6vectorIdED2Ev"
+  },
+  "200ff80": {
+    "symbol": "_200ff80",
+    "original": "__ZN12_GLOBAL__N_112Type1Backend16Type1Interpreter10close_pathEv"
+  },
+  "200ffa0": {
+    "symbol": "_200ffa0",
+    "original": "__ZN12_GLOBAL__N_112Type1Backend16Type1Interpreter15move_to_currentEv"
+  },
+  "200fff4": {
+    "symbol": "_200fff4",
+    "original": "__ZN12_GLOBAL__N_112Type1Backend16Type1Interpreter15line_to_currentEv"
+  },
+  "2010064": {
+    "symbol": "double_wm_vector_2010064",
+    "original": "__ZN2wm6vectorIdE12emplace_backIJRKdEEERdDpOT_"
+  },
+  "20100b2": {
+    "symbol": "wm_vector_reserve_20100b2",
+    "original": "__ZN2wm6vectorIdE7reserveEm"
+  },
+  "201010b": {
+    "symbol": "double_wm_detail_vector_allocate_201010b",
+    "original": "__ZN2wm6detail15vector_allocateIdEEPT_m"
+  },
+  "2010122": {
+    "symbol": "wm_vector_wm_pair_unsigned_int_2010122",
+    "original": "__ZN2wm6vectorINS_4pairIjN12_GLOBAL__N_111GlyphBitmapEEEE5clearEv"
+  },
+  "2010164": {
+    "symbol": "_2010164",
+    "original": "__ZZN12_GLOBAL__N_111layout_lineEPNS_10FontHandleERKN2wm6vectorIjEEENK3$_0clEd"
+  },
+  "20101a6": {
+    "symbol": "wm_unordered_map_unsigned_int_20101a6",
+    "original": "__ZN2wm13unordered_mapIjN12_GLOBAL__N_111GlyphBitmapENS_4hashIjEENS_8equal_toIjEEE4findERKj"
+  },
+  "2010202": {
+    "symbol": "wm_unordered_map_unsigned_int_2010202",
+    "original": "__ZNK2wm13unordered_mapIjN12_GLOBAL__N_111GlyphBitmapENS_4hashIjEENS_8equal_toIjEEE14bucket_for_keyERKj"
+  },
+  "201022a": {
+    "symbol": "wm_unordered_map_unsigned_int_201022a",
+    "original": "__ZN2wm13unordered_mapIjN12_GLOBAL__N_111GlyphBitmapENS_4hashIjEENS_8equal_toIjEEE10link_indexEm"
+  },
+  "201025c": {
+    "symbol": "wm_vector_vector_201025c",
+    "original": "__ZN2wm6vectorIhED2Ev"
+  },
+  "201026e": {
+    "symbol": "wm_vector_vector_201026e",
+    "original": "__ZN2wm6vectorIhEC2EmRKh"
+  },
+  "2010284": {
+    "symbol": "wm_vector_vector_2010284",
+    "original": "__ZN2wm6vectorIjED2Ev"
+  },
+  "2010296": {
+    "symbol": "wm_vector_vector_2010296",
+    "original": "__ZN2wm6vectorINS0_IjEEED2Ev"
+  },
+  "20102b2": {
+    "symbol": "wm_vector_clear_20102b2",
+    "original": "__ZN2wm6vectorINS0_IjEEE5clearEv"
+  },
+  "20102ee": {
+    "symbol": "wm_vector_reserve_20102ee",
+    "original": "__ZN2wm6vectorINS0_IjEEE7reserveEm"
+  },
+  "2010360": {
+    "symbol": "wm_vector_2010360",
+    "original": "__ZN2wm6detail15vector_allocateINS_6vectorIjEEEEPT_m"
+  },
+  "2010378": {
+    "symbol": "wm_vector_vector_2010378",
+    "original": "__ZN2wm6vectorIjEC2EOS1_"
+  },
+  "2010398": {
+    "symbol": "_2010398",
+    "original": "__ZN12_GLOBAL__N_110LineLayoutC1EOS0_"
+  },
+  "20103c0": {
+    "symbol": "std_istream_istream_20103c0",
+    "original": "__ZNSt7istreamD1Ev"
+  },
+  "20103c6": {
+    "symbol": "std_ostream_ostream_20103c6",
+    "original": "__ZNSt7ostreamD1Ev"
+  },
+  "20103cc": {
+    "symbol": "wm_media_png_decode_memory",
+    "original": "_wm_media_png_decode_memory"
+  },
+  "2010594": {
+    "symbol": "_2010594",
+    "original": "__ZN12_GLOBAL__N_114clearImageInfoEP27WmBaremetalProgramImageInfo"
+  },
+  "20105aa": {
+    "symbol": "_20105aa",
+    "original": "__ZN12_GLOBAL__N_122copyRgbaToProgramImageEPKhjjmP27WmBaremetalProgramImageInfo"
+  },
+  "2010658": {
+    "symbol": "clang_call_terminate",
+    "original": "___clang_call_terminate"
+  },
+  "2010666": {
+    "symbol": "wm_media_wav_decode_memory",
+    "original": "_wm_media_wav_decode_memory"
+  },
+  "20108f8": {
+    "symbol": "_20108f8",
+    "original": "__ZN12_GLOBAL__N_112clearPcmInfoEP25WmBaremetalProgramPcmInfo"
+  },
+  "201090e": {
+    "symbol": "winter_wav_decode_201090e",
+    "original": "__ZN6winter3wav6decodeEPKvmPNS0_11DecodedFileERKNS0_13DecodeOptionsE"
+  },
+  "2010f10": {
+    "symbol": "wm_media_ttf_load_memory",
+    "original": "_wm_media_ttf_load_memory"
+  },
+  "2010fd4": {
+    "symbol": "wm_media_ttf_resize",
+    "original": "_wm_media_ttf_resize"
+  },
+  "2011094": {
+    "symbol": "wm_media_ttf_render",
+    "original": "_wm_media_ttf_render"
+  },
+  "2011278": {
+    "symbol": "wm_media_ttf_free",
+    "original": "_wm_media_ttf_free"
+  },
+  "2011324": {
+    "symbol": "std_istream_istream_2011324",
+    "original": "__ZNSt7istreamD0Ev"
+  },
+  "201132e": {
+    "symbol": "std_ostream_ostream_201132e",
+    "original": "__ZNSt7ostreamD0Ev"
+  },
+  "2011338": {
+    "symbol": "winter_wav_detail_resolveFormatTag_2011338",
+    "original": "__ZN6winter3wav6detail16resolveFormatTagEPtPKhm"
+  },
+  "2011379": {
+    "symbol": "winter_wav_detail_isSupportedFormat_2011379",
+    "original": "__ZN6winter3wav6detail17isSupportedFormatEtt"
+  },
+  "20113a3": {
+    "symbol": "winter_wav_detail_readSampleAsFloat_20113a3",
+    "original": "__ZN6winter3wav6detail17readSampleAsFloatEPKhtt"
+  },
+  "20114f8": {
+    "symbol": "winter_wav_detail_floatToS16_20114f8",
+    "original": "__ZN6winter3wav6detail10floatToS16Ed"
+  },
+  "201153e": {
+    "symbol": "winter_wav_DecodedFile_operator_201153e",
+    "original": "__ZN6winter3wav11DecodedFileaSEOS1_"
+  },
+  "2011568": {
+    "symbol": "wm_vector_reserve_2011568",
+    "original": "__ZN2wm6vectorIsE7reserveEm"
+  },
+  "20115c2": {
+    "symbol": "wm_vector_operator_20115c2",
+    "original": "__ZN2wm6vectorIsEaSEOS1_"
+  },
+  "2011604": {
+    "symbol": "cxx_global_var_init",
+    "original": "___cxx_global_var_init"
+  },
+  "201166a": {
+    "symbol": "cxx_global_var_init_1",
+    "original": "___cxx_global_var_init.1"
+  },
+  "20116d0": {
+    "symbol": "cxx_global_var_init_2",
+    "original": "___cxx_global_var_init.2"
+  },
+  "2011736": {
+    "symbol": "cxx_global_var_init_3",
+    "original": "___cxx_global_var_init.3"
+  },
+  "201179c": {
+    "symbol": "wm_kernel_program_clear",
+    "original": "_wm_kernel_program_clear"
+  },
+  "2011956": {
+    "symbol": "app_console_render",
+    "original": "_app_console_render"
+  },
+  "2011b76": {
+    "symbol": "wm_kernel_program_putc",
+    "original": "_wm_kernel_program_putc"
+  },
+  "2011b8d": {
+    "symbol": "app_console_putc_raw",
+    "original": "_app_console_putc_raw"
+  },
+  "2011c12": {
+    "symbol": "wm_kernel_program_write",
+    "original": "_wm_kernel_program_write"
+  },
+  "2011c42": {
+    "symbol": "wm_kernel_program_poll_key_ax",
+    "original": "_wm_kernel_program_poll_key_ax"
+  },
+  "2011ca7": {
+    "symbol": "serial_poll_char",
+    "original": "_serial_poll_char"
+  },
+  "2011ce8": {
+    "symbol": "wm_kernel_program_end",
+    "original": "_wm_kernel_program_end"
+  },
+  "2011cfd": {
+    "symbol": "render_ui",
+    "original": "_render_ui"
+  },
+  "2012268": {
+    "symbol": "wm_kernel_program_stat_file",
+    "original": "_wm_kernel_program_stat_file"
+  },
+  "20122ec": {
+    "symbol": "fs_read_file",
+    "original": "_fs_read_file"
+  },
+  "201238c": {
+    "symbol": "fs_find_file",
+    "original": "_fs_find_file"
+  },
+  "20123b9": {
+    "symbol": "wm_kernel_program_write_file",
+    "original": "_wm_kernel_program_write_file"
+  },
+  "20123c9": {
+    "symbol": "fs_write_file",
+    "original": "_fs_write_file"
+  },
+  "2012741": {
+    "symbol": "wm_kernel_program_delete_file",
+    "original": "_wm_kernel_program_delete_file"
+  },
+  "201274f": {
+    "symbol": "fs_delete_file",
+    "original": "_fs_delete_file"
+  },
+  "2012969": {
+    "symbol": "wm_kernel_program_png_decode_file",
+    "original": "_wm_kernel_program_png_decode_file"
+  },
+  "20129ee": {
+    "symbol": "wm_kernel_program_wav_decode_file",
+    "original": "_wm_kernel_program_wav_decode_file"
+  },
+  "2012a7d": {
+    "symbol": "wm_kernel_program_ttf_load_file",
+    "original": "_wm_kernel_program_ttf_load_file"
+  },
+  "2012ad7": {
+    "symbol": "wm_kernel_host_log",
+    "original": "_wm_kernel_host_log"
+  },
+  "2012b0c": {
+    "symbol": "console_log",
+    "original": "_console_log"
+  },
+  "2012ba3": {
+    "symbol": "wm_kernel_host_readline",
+    "original": "_wm_kernel_host_readline"
+  },
+  "2012bce": {
+    "symbol": "read_line_internal",
+    "original": "_read_line_internal"
+  },
+  "2012f56": {
+    "symbol": "wm_kernel_expand_disk",
+    "original": "_wm_kernel_expand_disk"
+  },
+  "20130a1": {
+    "symbol": "storage_refresh_mounted_filesystem_available_sectors",
+    "original": "_storage_refresh_mounted_filesystem_available_sectors"
+  },
+  "20131b1": {
+    "symbol": "console_logf",
+    "original": "_console_logf"
+  },
+  "201324b": {
+    "symbol": "storage_fs_name",
+    "original": "_storage_fs_name"
+  },
+  "2013271": {
+    "symbol": "fs_flush",
+    "original": "_fs_flush"
+  },
+  "2015111": {
+    "symbol": "fs_load_wmfs_volume",
+    "original": "_fs_load_wmfs_volume"
+  },
+  "2015939": {
+    "symbol": "wm_kernel_set_theme",
+    "original": "_wm_kernel_set_theme"
+  },
+  "201594f": {
+    "symbol": "display_set_theme",
+    "original": "_display_set_theme"
+  },
+  "20159a3": {
+    "symbol": "wm_kernel_enter_graphics_mode",
+    "original": "_wm_kernel_enter_graphics_mode"
+  },
+  "2015ab7": {
+    "symbol": "graphics_framebuffer_ready",
+    "original": "_graphics_framebuffer_ready"
+  },
+  "2015b23": {
+    "symbol": "graphics_rebuild_canvas_mapping",
+    "original": "_graphics_rebuild_canvas_mapping"
+  },
+  "2015bfa": {
+    "symbol": "graphics_release_canvas_mapping",
+    "original": "_graphics_release_canvas_mapping"
+  },
+  "2015c28": {
+    "symbol": "graphics_fill_canvas_present",
+    "original": "_graphics_fill_canvas_present"
+  },
+  "2015cdf": {
+    "symbol": "wm_kernel_enter_text_mode",
+    "original": "_wm_kernel_enter_text_mode"
+  },
+  "2015d34": {
+    "symbol": "textmode_sync_font",
+    "original": "_textmode_sync_font"
+  },
+  "2015f8f": {
+    "symbol": "wm_kernel_set_night_mode",
+    "original": "_wm_kernel_set_night_mode"
+  },
+  "2015faa": {
+    "symbol": "wm_kernel_assign_winterscript_function",
+    "original": "_wm_kernel_assign_winterscript_function"
+  },
+  "20162a2": {
+    "symbol": "ws_make_null",
+    "original": "_ws_make_null"
+  },
+  "20162c2": {
+    "symbol": "ws_value_free",
+    "original": "_ws_value_free"
+  },
+  "20163d8": {
+    "symbol": "wm_permafrost_main",
+    "original": "_wm_winterboot_main"
+  },
+  "20199e2": {
+    "symbol": "storage_scan_devices",
+    "original": "_storage_scan_devices"
+  },
+  "2019bf1": {
+    "symbol": "read_line",
+    "original": "_read_line"
+  },
+  "2019c0e": {
+    "symbol": "trim_in_place",
+    "original": "_trim_in_place"
+  },
+  "2019c7c": {
+    "symbol": "textmode_columns",
+    "original": "_textmode_columns"
+  },
+  "2019c8d": {
+    "symbol": "textmode_rows",
+    "original": "_textmode_rows"
+  },
+  "2019c9e": {
+    "symbol": "app_console_line",
+    "original": "_app_console_line"
+  },
+  "2019cd9": {
+    "symbol": "surface_fill",
+    "original": "_surface_fill"
+  },
+  "2019d20": {
+    "symbol": "draw_text",
+    "original": "_draw_text"
+  },
+  "2019d84": {
+    "symbol": "surface_fill_rect",
+    "original": "_surface_fill_rect"
+  },
+  "2019e4c": {
+    "symbol": "present_surface",
+    "original": "_present_surface"
+  },
+  "2019fe0": {
+    "symbol": "textmode_prepare_grids",
+    "original": "_textmode_prepare_grids"
+  },
+  "201a016": {
+    "symbol": "textmode_grid_clear",
+    "original": "_textmode_grid_clear"
+  },
+  "201a03f": {
+    "symbol": "textmode_grid_write_n",
+    "original": "_textmode_grid_write_n"
+  },
+  "201a0a6": {
+    "symbol": "textmode_present_grid",
+    "original": "_textmode_present_grid"
+  },
+  "201a22d": {
+    "symbol": "draw_text_n",
+    "original": "_draw_text_n"
+  },
+  "201a47f": {
+    "symbol": "bitmap_font_try_autoload",
+    "original": "_bitmap_font_try_autoload"
+  },
+  "201a51d": {
+    "symbol": "ensure_rom_font",
+    "original": "_ensure_rom_font"
+  },
+  "201a599": {
+    "symbol": "bitmap_font_load_asset_bytes",
+    "original": "_bitmap_font_load_asset_bytes"
+  },
+  "201a649": {
+    "symbol": "bitmap_font_set_data",
+    "original": "_bitmap_font_set_data"
+  },
+  "201a7ea": {
+    "symbol": "bitmap_font_unload",
+    "original": "_bitmap_font_unload"
+  },
+  "201a826": {
+    "symbol": "graphics_framebuffer_bytes_per_pixel",
+    "original": "_graphics_framebuffer_bytes_per_pixel"
+  },
+  "201a83a": {
+    "symbol": "clear_framebuffer_bytes",
+    "original": "_clear_framebuffer_bytes"
+  },
+  "201a857": {
+    "symbol": "pack_canvas_truecolor",
+    "original": "_pack_canvas_truecolor"
+  },
+  "201a94b": {
+    "symbol": "write_truecolor_pixel",
+    "original": "_write_truecolor_pixel"
+  },
+  "201a96d": {
+    "symbol": "pack_truecolor",
+    "original": "_pack_truecolor"
+  },
+  "201aa9d": {
+    "symbol": "pack_truecolor_with_layout",
+    "original": "_pack_truecolor_with_layout"
+  },
+  "201aafe": {
+    "symbol": "expand_channel",
+    "original": "_expand_channel"
+  },
+  "201ab35": {
+    "symbol": "textmode_grid_resize",
+    "original": "_textmode_grid_resize"
+  },
+  "201abdc": {
+    "symbol": "textmode_cache_resize",
+    "original": "_textmode_cache_resize"
+  },
+  "201ac59": {
+    "symbol": "app_console_newline",
+    "original": "_app_console_newline"
+  },
+  "201acfa": {
+    "symbol": "console_push_line_internal",
+    "original": "_console_push_line_internal"
+  },
+  "201ae96": {
+    "symbol": "text_translate_for_output_n",
+    "original": "_text_translate_for_output_n"
+  },
+  "201b156": {
+    "symbol": "ws_strdup_n",
+    "original": "_ws_strdup_n"
+  },
+  "201b1a8": {
+    "symbol": "ws_string_builder_append_n",
+    "original": "_ws_string_builder_append_n"
+  },
+  "201b24f": {
+    "symbol": "ws_string_builder_free",
+    "original": "_ws_string_builder_free"
+  },
+  "201b278": {
+    "symbol": "ws_string_builder_take",
+    "original": "_ws_string_builder_take"
+  },
+  "201b2af": {
+    "symbol": "char_is_hex",
+    "original": "_char_is_hex"
+  },
+  "201b2d7": {
+    "symbol": "hex_digit_value",
+    "original": "_hex_digit_value"
+  },
+  "201b2fb": {
+    "symbol": "cursor_blink_on",
+    "original": "_cursor_blink_on"
+  },
+  "201b312": {
+    "symbol": "build_visual_layout",
+    "original": "_build_visual_layout"
+  },
+  "201b7b4": {
+    "symbol": "format_compact_bytes",
+    "original": "_format_compact_bytes"
+  },
+  "201b862": {
+    "symbol": "fs_free_bytes",
+    "original": "_fs_free_bytes"
+  },
+  "201b959": {
+    "symbol": "visual_layout_append_line",
+    "original": "_visual_layout_append_line"
+  },
+  "201b99b": {
+    "symbol": "fs_used_cluster_count",
+    "original": "_fs_used_cluster_count"
+  },
+  "201b9f5": {
+    "symbol": "visual_layout_append_line_n",
+    "original": "_visual_layout_append_line_n"
+  },
+  "201ba61": {
+    "symbol": "normalize_path",
+    "original": "_normalize_path"
+  },
+  "201bc37": {
+    "symbol": "fs_find_file_normalized",
+    "original": "_fs_find_file_normalized"
+  },
+  "201bd44": {
+    "symbol": "fs_hash_path",
+    "original": "_fs_hash_path"
+  },
+  "201bd6e": {
+    "symbol": "fs_ensure_file_data_loaded",
+    "original": "_fs_ensure_file_data_loaded"
+  },
+  "201c13e": {
+    "symbol": "load_drive_bytes",
+    "original": "_load_drive_bytes"
+  },
+  "201c1cd": {
+    "symbol": "wmfs_load_file_from_drive",
+    "original": "_wmfs_load_file_from_drive"
+  },
+  "201c3a6": {
+    "symbol": "storage_find_ramdisk_by_drive",
+    "original": "_storage_find_ramdisk_by_drive"
+  },
+  "201c3e5": {
+    "symbol": "fat_load_cluster_chain_bytes",
+    "original": "_fat_load_cluster_chain_bytes"
+  },
+  "201c54a": {
+    "symbol": "fat_entry_get",
+    "original": "_fat_entry_get"
+  },
+  "201c5aa": {
+    "symbol": "fat_entry_is_end",
+    "original": "_fat_entry_is_end"
+  },
+  "201c5da": {
+    "symbol": "fs_reserve_file_capacity",
+    "original": "_fs_reserve_file_capacity"
+  },
+  "201c6b6": {
+    "symbol": "fs_insert_file_index",
+    "original": "_fs_insert_file_index"
+  },
+  "201c72d": {
+    "symbol": "fs_rebuild_file_index",
+    "original": "_fs_rebuild_file_index"
+  },
+  "201c7da": {
+    "symbol": "fs_ensure_file_index_capacity",
+    "original": "_fs_ensure_file_index_capacity"
+  },
+  "201c8a1": {
+    "symbol": "fs_insert_file_index_entry",
+    "original": "_fs_insert_file_index_entry"
+  },
+  "201c97a": {
+    "symbol": "wmfs64_resize_chain",
+    "original": "_wmfs64_resize_chain"
+  },
+  "201cba3": {
+    "symbol": "wmfs64_write_chain_bytes",
+    "original": "_wmfs64_write_chain_bytes"
+  },
+  "201ccdd": {
+    "symbol": "wmfs64_sync_single_directory_entry_and_metadata",
+    "original": "_wmfs64_sync_single_directory_entry_and_metadata"
+  },
+  "201ce92": {
+    "symbol": "wmfs64_sync_directory_and_metadata",
+    "original": "_wmfs64_sync_directory_and_metadata"
+  },
+  "201cf9c": {
+    "symbol": "wmfs64_free_chain",
+    "original": "_wmfs64_free_chain"
+  },
+  "201cffc": {
+    "symbol": "wmfs64_set_fat_entry",
+    "original": "_wmfs64_set_fat_entry"
+  },
+  "201d06f": {
+    "symbol": "write_drive_bytes",
+    "original": "_write_drive_bytes"
+  },
+  "201d101": {
+    "symbol": "wmfs64_write_metadata",
+    "original": "_wmfs64_write_metadata"
+  },
+  "201d29b": {
+    "symbol": "wmfs64_fill_directory_entry",
+    "original": "_wmfs64_fill_directory_entry"
+  },
+  "201d307": {
+    "symbol": "storage_find_device_by_id",
+    "original": "_storage_find_device_by_id"
+  },
+  "201d35a": {
+    "symbol": "boot_filesystem_available_sectors",
+    "original": "_boot_filesystem_available_sectors"
+  },
+  "201d3b5": {
+    "symbol": "query_drive_capacity",
+    "original": "_query_drive_capacity"
+  },
+  "201d3f4": {
+    "symbol": "fs_materialize_all_file_data",
+    "original": "_fs_materialize_all_file_data"
+  },
+  "201d462": {
+    "symbol": "wmfs64_recommended_sectors_per_cluster",
+    "original": "_wmfs64_recommended_sectors_per_cluster"
+  },
+  "201d4cc": {
+    "symbol": "wmfs64_write_contiguous_cluster_range",
+    "original": "_wmfs64_write_contiguous_cluster_range"
+  },
+  "201d601": {
+    "symbol": "fat_entry_set",
+    "original": "_fat_entry_set"
+  },
+  "201d6a3": {
+    "symbol": "fat_fill_directory_short_name",
+    "original": "_fat_fill_directory_short_name"
+  },
+  "201d6dd": {
+    "symbol": "fat_write_directory_item",
+    "original": "_fat_write_directory_item"
+  },
+  "201d92b": {
+    "symbol": "fat_tree_add_node",
+    "original": "_fat_tree_add_node"
+  },
+  "201dabf": {
+    "symbol": "fat_short_name_to_path",
+    "original": "_fat_short_name_to_path"
+  },
+  "201db66": {
+    "symbol": "fat_sanitize_short_part",
+    "original": "_fat_sanitize_short_part"
+  },
+  "201dbff": {
+    "symbol": "fat_is_valid_short_char",
+    "original": "_fat_is_valid_short_char"
+  },
+  "201dc49": {
+    "symbol": "fat_required_lfn_entries",
+    "original": "_fat_required_lfn_entries"
+  },
+  "201dc6d": {
+    "symbol": "fs_release_files",
+    "original": "_fs_release_files"
+  },
+  "201dc7e": {
+    "symbol": "fs_append_loaded_entry",
+    "original": "_fs_append_loaded_entry"
+  },
+  "201ddf5": {
+    "symbol": "fs_release_state",
+    "original": "_fs_release_state"
+  },
+  "201de9d": {
+    "symbol": "wmfs32_superblock_geometry_is_valid",
+    "original": "_wmfs32_superblock_geometry_is_valid"
+  },
+  "201dfce": {
+    "symbol": "display_fill_theme_surfaces",
+    "original": "_display_fill_theme_surfaces"
+  },
+  "201e021": {
+    "symbol": "graphics_build_axis_mapping",
+    "original": "_graphics_build_axis_mapping"
+  },
+  "201e066": {
+    "symbol": "ws_function_create",
+    "original": "_ws_function_create"
+  },
+  "201e0fa": {
+    "symbol": "ws_make_function",
+    "original": "_ws_make_function"
+  },
+  "201e129": {
+    "symbol": "ws_function_release",
+    "original": "_ws_function_release"
+  },
+  "201e19c": {
+    "symbol": "program_lines_free",
+    "original": "_program_lines_free"
+  },
+  "201e1db": {
+    "symbol": "program_line_free",
+    "original": "_program_line_free"
+  },
+  "201e1fc": {
+    "symbol": "ws_set_global_variable",
+    "original": "_ws_set_global_variable"
+  },
+  "201e32f": {
+    "symbol": "ws_try_get_global_variable",
+    "original": "_ws_try_get_global_variable"
+  },
+  "201e36d": {
+    "symbol": "ws_make_table",
+    "original": "_ws_make_table"
+  },
+  "201e3be": {
+    "symbol": "ws_table_get_mutable_entry",
+    "original": "_ws_table_get_mutable_entry"
+  },
+  "201e4ef": {
+    "symbol": "ws_value_assign",
+    "original": "_ws_value_assign"
+  },
+  "201e5f0": {
+    "symbol": "ws_find_global_variable_index",
+    "original": "_ws_find_global_variable_index"
+  },
+  "201e655": {
+    "symbol": "ws_table_find_index",
+    "original": "_ws_table_find_index"
+  },
+  "201e6be": {
+    "symbol": "ws_make_string",
+    "original": "_ws_make_string"
+  },
+  "201e6f3": {
+    "symbol": "ws_make_raw_copy",
+    "original": "_ws_make_raw_copy"
+  },
+  "201e76d": {
+    "symbol": "ws_make_string_n",
+    "original": "_ws_make_string_n"
+  },
+  "201e7ba": {
+    "symbol": "surface_allocate",
+    "original": "_surface_allocate"
+  },
+  "201e81b": {
+    "symbol": "surface_release",
+    "original": "_surface_release"
+  },
+  "201e843": {
+    "symbol": "ws_set_variable",
+    "original": "_ws_set_variable"
+  },
+  "201e8dd": {
+    "symbol": "ws_parse_float_literal",
+    "original": "_ws_parse_float_literal"
+  },
+  "201e97a": {
+    "symbol": "ws_make_float",
+    "original": "_ws_make_float"
+  },
+  "201e9ae": {
+    "symbol": "ws_find_frame_variable_index",
+    "original": "_ws_find_frame_variable_index"
+  },
+  "201ea13": {
+    "symbol": "ws_table_set_builtin_field",
+    "original": "_ws_table_set_builtin_field"
+  },
+  "201ea77": {
+    "symbol": "ws_table_set_value_field",
+    "original": "_ws_table_set_value_field"
+  },
+  "201eac4": {
+    "symbol": "ws_table_set_string_field",
+    "original": "_ws_table_set_string_field"
+  },
+  "201eb39": {
+    "symbol": "ws_make_builtin_function_value",
+    "original": "_ws_make_builtin_function_value"
+  },
+  "201ebbd": {
+    "symbol": "ws_builtin_exists",
+    "original": "_ws_builtin_exists"
+  },
+  "201f611": {
+    "symbol": "ws_token_equals",
+    "original": "_ws_token_equals"
+  },
+  "201f679": {
+    "symbol": "storage_add_scanned_drive",
+    "original": "_storage_add_scanned_drive"
+  },
+  "201f861": {
+    "symbol": "storage_add_scanned_ramdisks",
+    "original": "_storage_add_scanned_ramdisks"
+  },
+  "201f8aa": {
+    "symbol": "storage_preserve_previous_device_states",
+    "original": "_storage_preserve_previous_device_states"
+  },
+  "201f92f": {
+    "symbol": "storage_add_device",
+    "original": "_storage_add_device"
+  },
+  "201fa08": {
+    "symbol": "storage_read_partition_table",
+    "original": "_storage_read_partition_table"
+  },
+  "201ff58": {
+    "symbol": "storage_set_default_device_name",
+    "original": "_storage_set_default_device_name"
+  },
+  "2020064": {
+    "symbol": "storage_copy_device_name_bytes",
+    "original": "_storage_copy_device_name_bytes"
+  },
+  "20200ba": {
+    "symbol": "storage_detect_volume_filesystem",
+    "original": "_storage_detect_volume_filesystem"
+  },
+  "2020192": {
+    "symbol": "fat_detect_type_from_boot_sector",
+    "original": "_fat_detect_type_from_boot_sector"
+  },
+  "2020366": {
+    "symbol": "storage_sector_has_mbr_partitions",
+    "original": "_storage_sector_has_mbr_partitions"
+  },
+  "20203a9": {
+    "symbol": "storage_sector_is_empty_mbr",
+    "original": "_storage_sector_is_empty_mbr"
+  },
+  "20203f0": {
+    "symbol": "storage_parse_wbpt_header",
+    "original": "_storage_parse_wbpt_header"
+  },
+  "2020489": {
+    "symbol": "storage_copy_device_name",
+    "original": "_storage_copy_device_name"
+  },
+  "20204df": {
+    "symbol": "program_load_text",
+    "original": "_program_load_text"
+  },
+  "2020525": {
+    "symbol": "run_program",
+    "original": "_run_program"
+  },
+  "202053d": {
+    "symbol": "run_bytecode_path",
+    "original": "_run_bytecode_path"
+  },
+  "2020606": {
+    "symbol": "program_load_text_lines",
+    "original": "_program_load_text_lines"
+  },
+  "2020749": {
+    "symbol": "program_replace_lines",
+    "original": "_program_replace_lines"
+  },
+  "202078f": {
+    "symbol": "program_lines_reserve",
+    "original": "_program_lines_reserve"
+  },
+  "2020813": {
+    "symbol": "run_program_lines",
+    "original": "_run_program_lines"
+  },
+  "2020991": {
+    "symbol": "ws_execute_block",
+    "original": "_ws_execute_block"
+  },
+  "2023ac6": {
+    "symbol": "ws_errorf",
+    "original": "_ws_errorf"
+  },
+  "2023c06": {
+    "symbol": "ws_is_head_keyword",
+    "original": "_ws_is_head_keyword"
+  },
+  "2023c59": {
+    "symbol": "ws_value_move",
+    "original": "_ws_value_move"
+  },
+  "2023cb9": {
+    "symbol": "ws_tokenize_line",
+    "original": "_ws_tokenize_line"
+  },
+  "2023fb8": {
+    "symbol": "ws_token_list_free",
+    "original": "_ws_token_list_free"
+  },
+  "2023ff6": {
+    "symbol": "ws_is_identifier",
+    "original": "_ws_is_identifier"
+  },
+  "2024054": {
+    "symbol": "ws_value_list_free",
+    "original": "_ws_value_list_free"
+  },
+  "20240a1": {
+    "symbol": "ws_match_operator",
+    "original": "_ws_match_operator"
+  },
+  "20240ec": {
+    "symbol": "ws_value_list_push",
+    "original": "_ws_value_list_push"
+  },
+  "20241e0": {
+    "symbol": "ws_free_parameter_names",
+    "original": "_ws_free_parameter_names"
+  },
+  "202421e": {
+    "symbol": "ws_find_matching_end",
+    "original": "_ws_find_matching_end"
+  },
+  "202431f": {
+    "symbol": "ws_copy_program_lines",
+    "original": "_ws_copy_program_lines"
+  },
+  "2024419": {
+    "symbol": "ws_create_script_function_take_ownership",
+    "original": "_ws_create_script_function_take_ownership"
+  },
+  "2024495": {
+    "symbol": "ws_set_scoped_variable",
+    "original": "_ws_set_scoped_variable"
+  },
+  "20244db": {
+    "symbol": "ws_finish_executed_statement",
+    "original": "_ws_finish_executed_statement"
+  },
+  "2025e4c": {
+    "symbol": "ws_try_get_variable",
+    "original": "_ws_try_get_variable"
+  },
+  "2025ee6": {
+    "symbol": "ws_make_array",
+    "original": "_ws_make_array"
+  },
+  "2025f3b": {
+    "symbol": "ws_get_indexed_value_mutable",
+    "original": "_ws_get_indexed_value_mutable"
+  },
+  "2026156": {
+    "symbol": "ws_set_indexed_value",
+    "original": "_ws_set_indexed_value"
+  },
+  "2026218": {
+    "symbol": "ws_value_truthy",
+    "original": "_ws_value_truthy"
+  },
+  "20262b0": {
+    "symbol": "ws_find_if_branch_or_end",
+    "original": "_ws_find_if_branch_or_end"
+  },
+  "20263f8": {
+    "symbol": "ws_find_matching_until",
+    "original": "_ws_find_matching_until"
+  },
+  "20264f9": {
+    "symbol": "ws_make_int",
+    "original": "_ws_make_int"
+  },
+  "2026527": {
+    "symbol": "ws_find_top_level_token_index",
+    "original": "_ws_find_top_level_token_index"
+  },
+  "2026696": {
+    "symbol": "ws_evaluate_token_range",
+    "original": "_ws_evaluate_token_range"
+  },
+  "2026755": {
+    "symbol": "ws_value_to_float_number",
+    "original": "_ws_value_to_float_number"
+  },
+  "2026783": {
+    "symbol": "ws_try_assignment",
+    "original": "_ws_try_assignment"
+  },
+  "2027323": {
+    "symbol": "ws_execute_expression_line",
+    "original": "_ws_execute_expression_line"
+  },
+  "20273f2": {
+    "symbol": "ws_token_list_push_n",
+    "original": "_ws_token_list_push_n"
+  },
+  "20274a7": {
+    "symbol": "ws_token_list_push",
+    "original": "_ws_token_list_push"
+  },
+  "20274dc": {
+    "symbol": "ws_array_push_copy",
+    "original": "_ws_array_push_copy"
+  },
+  "2027530": {
+    "symbol": "ws_array_resize",
+    "original": "_ws_array_resize"
+  },
+  "20275ba": {
+    "symbol": "ws_array_reserve_capacity",
+    "original": "_ws_array_reserve_capacity"
+  },
+  "2027655": {
+    "symbol": "ws_parse_or",
+    "original": "_ws_parse_or"
+  },
+  "202774b": {
+    "symbol": "ws_parse_and",
+    "original": "_ws_parse_and"
+  },
+  "2027841": {
+    "symbol": "ws_parse_equality",
+    "original": "_ws_parse_equality"
+  },
+  "2027974": {
+    "symbol": "ws_parse_comparison",
+    "original": "_ws_parse_comparison"
+  },
+  "2027aba": {
+    "symbol": "ws_apply_binary_op",
+    "original": "_ws_apply_binary_op"
+  },
+  "2028107": {
+    "symbol": "ws_parse_additive",
+    "original": "_ws_parse_additive"
+  },
+  "2028227": {
+    "symbol": "ws_parse_multiplicative",
+    "original": "_ws_parse_multiplicative"
+  },
+  "202836d": {
+    "symbol": "ws_parse_power",
+    "original": "_ws_parse_power"
+  },
+  "2028466": {
+    "symbol": "ws_parse_unary",
+    "original": "_ws_parse_unary"
+  },
+  "202999d": {
+    "symbol": "ws_make_bool",
+    "original": "_ws_make_bool"
+  },
+  "20299d8": {
+    "symbol": "ws_numeric_table_length",
+    "original": "_ws_numeric_table_length"
+  },
+  "2029a3c": {
+    "symbol": "ws_table_literal_promote_array_entries",
+    "original": "_ws_table_literal_promote_array_entries"
+  },
+  "2029adb": {
+    "symbol": "ws_table_literal_set_entry",
+    "original": "_ws_table_literal_set_entry"
+  },
+  "2029b8a": {
+    "symbol": "ws_make_value_array",
+    "original": "_ws_make_value_array"
+  },
+  "2029bfd": {
+    "symbol": "ws_token_is_string",
+    "original": "_ws_token_is_string"
+  },
+  "2029c38": {
+    "symbol": "ws_decode_string_literal",
+    "original": "_ws_decode_string_literal"
+  },
+  "2029c9f": {
+    "symbol": "ws_parse_int_literal",
+    "original": "_ws_parse_int_literal"
+  },
+  "2029e1a": {
+    "symbol": "ws_parse_pointer_literal",
+    "original": "_ws_parse_pointer_literal"
+  },
+  "2029e68": {
+    "symbol": "ws_make_pointer",
+    "original": "_ws_make_pointer"
+  },
+  "2029e8c": {
+    "symbol": "ws_token_looks_numeric",
+    "original": "_ws_token_looks_numeric"
+  },
+  "2029ee3": {
+    "symbol": "ws_get_indexed_value",
+    "original": "_ws_get_indexed_value"
+  },
+  "202a1be": {
+    "symbol": "ws_value_list_push_call_argument",
+    "original": "_ws_value_list_push_call_argument"
+  },
+  "202a24d": {
+    "symbol": "ws_call_value",
+    "original": "_ws_call_value"
+  },
+  "202adb4": {
+    "symbol": "ws_key_to_owned_string",
+    "original": "_ws_key_to_owned_string"
+  },
+  "202aea0": {
+    "symbol": "ws_value_to_owned_string",
+    "original": "_ws_value_to_owned_string"
+  },
+  "202aef8": {
+    "symbol": "ws_value_to_owned_string_internal",
+    "original": "_ws_value_to_owned_string_internal"
+  },
+  "202b274": {
+    "symbol": "ws_string_builder_append",
+    "original": "_ws_string_builder_append"
+  },
+  "202b2a9": {
+    "symbol": "decode_string_token",
+    "original": "_decode_string_token"
+  },
+  "202b472": {
+    "symbol": "parse_uint32_token",
+    "original": "_parse_uint32_token"
+  },
+  "202b59a": {
+    "symbol": "ws_make_bound_builtin_function_value",
+    "original": "_ws_make_bound_builtin_function_value"
+  },
+  "202b627": {
+    "symbol": "ws_table_get_entry_value",
+    "original": "_ws_table_get_entry_value"
+  },
+  "202b668": {
+    "symbol": "ws_io_handle_from_value",
+    "original": "_ws_io_handle_from_value"
+  },
+  "202b687": {
+    "symbol": "ws_io_handle_lookup",
+    "original": "_ws_io_handle_lookup"
+  },
+  "202b6b4": {
+    "symbol": "ws_value_equals",
+    "original": "_ws_value_equals"
+  },
+  "202b7cc": {
+    "symbol": "ws_value_array_free",
+    "original": "_ws_value_array_free"
+  },
+  "202b7f7": {
+    "symbol": "ws_call_builtin",
+    "original": "_ws_call_builtin"
+  },
+  "2035240": {
+    "symbol": "ws_push_local_frame",
+    "original": "_ws_push_local_frame"
+  },
+  "2035307": {
+    "symbol": "ws_set_local_variable",
+    "original": "_ws_set_local_variable"
+  },
+  "2035343": {
+    "symbol": "ws_pop_local_frame",
+    "original": "_ws_pop_local_frame"
+  },
+  "2035370": {
+    "symbol": "ws_push_vararg_frame",
+    "original": "_ws_push_vararg_frame"
+  },
+  "2035427": {
+    "symbol": "ws_pop_vararg_frame",
+    "original": "_ws_pop_vararg_frame"
+  },
+  "2035454": {
+    "symbol": "ws_join_argument_text",
+    "original": "_ws_join_argument_text"
+  },
+  "2035514": {
+    "symbol": "graphics_canvas_active",
+    "original": "_graphics_canvas_active"
+  },
+  "2035546": {
+    "symbol": "ws_expect_string_arg",
+    "original": "_ws_expect_string_arg"
+  },
+  "20355ac": {
+    "symbol": "ws_require_argc",
+    "original": "_ws_require_argc"
+  },
+  "20355f3": {
+    "symbol": "graphics_make_status",
+    "original": "_graphics_make_status"
+  },
+  "2035806": {
+    "symbol": "ws_expect_uint32_arg",
+    "original": "_ws_expect_uint32_arg"
+  },
+  "2035882": {
+    "symbol": "ws_require_graphics_canvas",
+    "original": "_ws_require_graphics_canvas"
+  },
+  "20358be": {
+    "symbol": "graphics_wait_ms",
+    "original": "_graphics_wait_ms"
+  },
+  "2035912": {
+    "symbol": "starts_with",
+    "original": "_starts_with"
+  },
+  "203596f": {
+    "symbol": "ws_builtin_device",
+    "original": "_ws_builtin_device"
+  },
+  "2037e05": {
+    "symbol": "ws_expect_int_arg",
+    "original": "_ws_expect_int_arg"
+  },
+  "2037ecc": {
+    "symbol": "ws_table_erase_key",
+    "original": "_ws_table_erase_key"
+  },
+  "2037f94": {
+    "symbol": "ws_find_digit_run",
+    "original": "_ws_find_digit_run"
+  },
+  "2037fe2": {
+    "symbol": "ws_find_alpha_dash_digits_match",
+    "original": "_ws_find_alpha_dash_digits_match"
+  },
+  "20380c5": {
+    "symbol": "ws_value_compare",
+    "original": "_ws_value_compare"
+  },
+  "203818b": {
+    "symbol": "ws_make_script_function_from_text",
+    "original": "_ws_make_script_function_from_text"
+  },
+  "2038213": {
+    "symbol": "ws_make_error_result",
+    "original": "_ws_make_error_result"
+  },
+  "203829f": {
+    "symbol": "ws_load_bytecode_data",
+    "original": "_ws_load_bytecode_data"
+  },
+  "20386db": {
+    "symbol": "ws_bytecode_program_free",
+    "original": "_ws_bytecode_program_free"
+  },
+  "2038742": {
+    "symbol": "ws_decode_bytecode_lines",
+    "original": "_ws_decode_bytecode_lines"
+  },
+  "2038a24": {
+    "symbol": "ws_clear_decay_task",
+    "original": "_ws_clear_decay_task"
+  },
+  "2038a87": {
+    "symbol": "sleep_ms",
+    "original": "_sleep_ms"
+  },
+  "2038abc": {
+    "symbol": "ws_logf_local",
+    "original": "_ws_logf_local"
+  },
+  "2038b5f": {
+    "symbol": "ws_builtin_io_open_handle",
+    "original": "_ws_builtin_io_open_handle"
+  },
+  "203911a": {
+    "symbol": "read_input_instant_append",
+    "original": "_read_input_instant_append"
+  },
+  "2039183": {
+    "symbol": "ws_table_set_bool_field",
+    "original": "_ws_table_set_bool_field"
+  },
+  "20391c9": {
+    "symbol": "ws_table_set_uint32_field",
+    "original": "_ws_table_set_uint32_field"
+  },
+  "203920f": {
+    "symbol": "graphics_write_framebuffer_pixel",
+    "original": "_graphics_write_framebuffer_pixel"
+  },
+  "20392c8": {
+    "symbol": "graphics_present_canvas_pixel",
+    "original": "_graphics_present_canvas_pixel"
+  },
+  "2039431": {
+    "symbol": "ws_try_parse_uint32_value",
+    "original": "_ws_try_parse_uint32_value"
+  },
+  "20394bc": {
+    "symbol": "ws_read_scalar_memory",
+    "original": "_ws_read_scalar_memory"
+  },
+  "203953b": {
+    "symbol": "ws_write_scalar_memory",
+    "original": "_ws_write_scalar_memory"
+  },
+  "20395cb": {
+    "symbol": "ws_join_argument_text_alloc",
+    "original": "_ws_join_argument_text_alloc"
+  },
+  "2039715": {
+    "symbol": "ws_require_mounted_copy_device",
+    "original": "_ws_require_mounted_copy_device"
+  },
+  "20397b5": {
+    "symbol": "storage_target_device_by_id",
+    "original": "_storage_target_device_by_id"
+  },
+  "203980e": {
+    "symbol": "fs_load_device",
+    "original": "_fs_load_device"
+  },
+  "2039baf": {
+    "symbol": "fat_load_directory_from_buffer",
+    "original": "_fat_load_directory_from_buffer"
+  },
+  "2039f77": {
+    "symbol": "bitmap_font_make_status",
+    "original": "_bitmap_font_make_status"
+  },
+  "203a074": {
+    "symbol": "storage_query_mounted_device_space_by_id",
+    "original": "_storage_query_mounted_device_space_by_id"
+  },
+  "203a3fe": {
+    "symbol": "storage_format_device_name",
+    "original": "_storage_format_device_name"
+  },
+  "203a4dc": {
+    "symbol": "cpu_query_deterministic_cache_leaf",
+    "original": "_cpu_query_deterministic_cache_leaf"
+  },
+  "203a62c": {
+    "symbol": "storage_build_partition_geometry",
+    "original": "_storage_build_partition_geometry"
+  },
+  "203a895": {
+    "symbol": "storage_partition_table_name",
+    "original": "_storage_partition_table_name"
+  },
+  "203a8bb": {
+    "symbol": "storage_fs_type_from_text",
+    "original": "_storage_fs_type_from_text"
+  },
+  "203a994": {
+    "symbol": "storage_move_partition_by_id",
+    "original": "_storage_move_partition_by_id"
+  },
+  "203ac21": {
+    "symbol": "storage_find_whole_disk_device",
+    "original": "_storage_find_whole_disk_device"
+  },
+  "203ac53": {
+    "symbol": "equals_ignore_case",
+    "original": "_equals_ignore_case"
+  },
+  "203acb7": {
+    "symbol": "storage_classify_detected_type",
+    "original": "_storage_classify_detected_type"
+  },
+  "203acdf": {
+    "symbol": "storage_invalidate_range",
+    "original": "_storage_invalidate_range"
+  },
+  "203ada8": {
+    "symbol": "storage_fill_random_guid",
+    "original": "_storage_fill_random_guid"
+  },
+  "203ae08": {
+    "symbol": "storage_write_mbr_entry",
+    "original": "_storage_write_mbr_entry"
+  },
+  "203ae7f": {
+    "symbol": "write_le64",
+    "original": "_write_le64"
+  },
+  "203aead": {
+    "symbol": "storage_crc32",
+    "original": "_storage_crc32"
+  },
+  "203aef0": {
+    "symbol": "storage_update_partition_geometry",
+    "original": "_storage_update_partition_geometry"
+  },
+  "203b1e9": {
+    "symbol": "storage_invalidate_partition_table_writes",
+    "original": "_storage_invalidate_partition_table_writes"
+  },
+  "203b28a": {
+    "symbol": "storage_restore_device_states",
+    "original": "_storage_restore_device_states"
+  },
+  "203b37f": {
+    "symbol": "ws_gsub_lookup_table_replacement",
+    "original": "_ws_gsub_lookup_table_replacement"
+  },
+  "203b469": {
+    "symbol": "ws_instruction_list_push",
+    "original": "_ws_instruction_list_push"
+  },
+  "203b507": {
+    "symbol": "ws_local_frame_free",
+    "original": "_ws_local_frame_free"
+  },
+  "203b562": {
+    "symbol": "ws_vararg_frame_free",
+    "original": "_ws_vararg_frame_free"
+  },
+  "203b5aa": {
+    "symbol": "ws_decay_task_clear_frames",
+    "original": "_ws_decay_task_clear_frames"
+  },
+  "203b5fc": {
+    "symbol": "ws_decay_frame_free",
+    "original": "_ws_decay_frame_free"
+  },
+  "203b64a": {
+    "symbol": "ws_decay_frame_init",
+    "original": "_ws_decay_frame_init"
+  },
+  "203b6a3": {
+    "symbol": "ws_wrap_radians",
+    "original": "_ws_wrap_radians"
+  },
+  "203b6df": {
+    "symbol": "ws_io_handle_reset",
+    "original": "_ws_io_handle_reset"
+  },
+  "203b71d": {
+    "symbol": "ws_make_io_handle_table",
+    "original": "_ws_make_io_handle_table"
+  },
+  "203b8bb": {
+    "symbol": "ws_decay_task_push_block",
+    "original": "_ws_decay_task_push_block"
+  },
+  "203b930": {
+    "symbol": "ws_set_local_variable_in_frame",
+    "original": "_ws_set_local_variable_in_frame"
+  },
+  "203b9e7": {
+    "symbol": "ws_vararg_frame_copy",
+    "original": "_ws_vararg_frame_copy"
+  },
+  "203baa8": {
+    "symbol": "ws_decay_task_push_frame",
+    "original": "_ws_decay_task_push_frame"
+  },
+  "203bb50": {
+    "symbol": "ws_local_frame_reserve",
+    "original": "_ws_local_frame_reserve"
+  },
+  "203bbe5": {
+    "symbol": "ws_is_block_starter_tokens",
+    "original": "_ws_is_block_starter_tokens"
+  },
+  "203bc73": {
+    "symbol": "ws_is_function_block_tokens",
+    "original": "_ws_is_function_block_tokens"
+  },
+  "203bd3f": {
+    "symbol": "ws_local_frame_copy",
+    "original": "_ws_local_frame_copy"
+  },
+  "203bdd7": {
+    "symbol": "ws_decay_task_pop_frame",
+    "original": "_ws_decay_task_pop_frame"
+  },
+  "203be01": {
+    "symbol": "ws_decay_evaluate_condition",
+    "original": "_ws_decay_evaluate_condition"
+  },
+  "203bf04": {
+    "symbol": "ws_assign_single_target",
+    "original": "_ws_assign_single_target"
+  },
+  "203c537": {
+    "symbol": "load_bytecode_file",
+    "original": "_load_bytecode_file"
+  },
+  "203c5a4": {
+    "symbol": "trim_left",
+    "original": "_trim_left"
+  },
+  "203c5d2": {
+    "symbol": "program_ensure_capacity",
+    "original": "_program_ensure_capacity"
+  },
+  "203c5ed": {
+    "symbol": "command_basename",
+    "original": "_command_basename"
+  },
+  "203c623": {
+    "symbol": "ws_bytecode_intern_string",
+    "original": "_ws_bytecode_intern_string"
+  },
+  "203c6a9": {
+    "symbol": "ws_append_u16_le",
+    "original": "_ws_append_u16_le"
+  },
+  "203c6c9": {
+    "symbol": "ws_append_u32_le",
+    "original": "_ws_append_u32_le"
+  },
+  "203c6e8": {
+    "symbol": "macho_data_has_known_magic",
+    "original": "_macho_data_has_known_magic"
+  },
+  "203c729": {
+    "symbol": "storage_boot_fallback_load_type",
+    "original": "_storage_boot_fallback_load_type"
+  },
+  "203c746": {
+    "symbol": "macho_set_error",
+    "original": "_macho_set_error"
+  },
+  "203c773": {
+    "symbol": "read_be32",
+    "original": "_read_be32"
+  },
+  "203c77d": {
+    "symbol": "macho_load_x86_64_image",
+    "original": "_macho_load_x86_64_image"
+  },
+  "203cbef": {
+    "symbol": "macho_load_i386_image",
+    "original": "_macho_load_i386_image"
+  },
+  "203d002": {
+    "symbol": "read_be64",
+    "original": "_read_be64"
+  },
+  "203d00e": {
+    "symbol": "macho_entry_from_fileoff",
+    "original": "_macho_entry_from_fileoff"
+  },
+  "203d078": {
+    "symbol": "macho_segment_is_pagezero",
+    "original": "_macho_segment_is_pagezero"
+  },
+  "203d0a6": {
+    "symbol": "command_log_ws_value",
+    "original": "_command_log_ws_value"
+  },
+  "203d105": {
+    "symbol": "command_log_scalar_read",
+    "original": "_command_log_scalar_read"
+  },
+  "203d144": {
+    "symbol": "ws_value_to_path_text",
+    "original": "_ws_value_to_path_text"
+  }
+}

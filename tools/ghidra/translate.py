@@ -95,7 +95,7 @@ def rewrite_void_results(source,callees,address):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--layout', type=Path, default=Path('recovery/layout.json'))
+    parser.add_argument('--layout', type=Path, required=True)
     parser.add_argument('--notes', type=Path, default=Path('build/decompiled'))
     parser.add_argument('--out', type=Path, default=Path('build/c-rewrite'))
     parser.add_argument('--manual', type=Path, default=None)
@@ -108,8 +108,34 @@ def main():
     manual = {path.stem: path.read_text() for path in manual_root.glob('*.c')}
     args.out.mkdir(parents=True, exist_ok=True)
     sources = {p.stem: p.read_text() for p in sorted(args.notes.glob('*.c')) if p.stem != 'recovered'}
+    function_addresses={int(a,16) for a in sources}
+    def data_labels(text):
+        text=re.sub(r'switchD_[0-9a-f]+::switchdataD_([0-9a-f]+)',r'DAT_\1',text)
+        return re.sub(r'\b(_?)recovered_([0-9a-f]+)\b',
+            lambda m:m[0] if int(m[2],16) in function_addresses else
+                m[1]+'DAT_'+('%016x' if WIDE else '%08x')%int(m[2],16),text)
+    sources={a:data_labels(s) for a,s in sources.items()}
+    if current.get('windows_types'):
+        def windows_types(text):
+            text=re.sub(r'\bunsigned long long\b','PF_MODEL_U64',text)
+            text=re.sub(r'\blong long\b','PF_MODEL_I64',text)
+            text=re.sub(r'\blong double\b','double',text)
+            text=re.sub(r'\bunsigned long\b','uint32_t',text)
+            text=re.sub(r'\b(?:ulong|long)\b',lambda m:'uint32_t' if m[0]=='ulong' else 'int32_t',text)
+            text=re.sub(r'\bwchar_t\b','uint16_t',text)
+            return text.replace('PF_MODEL_U64','unsigned long long').replace('PF_MODEL_I64','long long')
+        sources={a:windows_types(s) for a,s in sources.items()}
     if WIDE:
         sources={a:re.sub(r'\(undefined1\s+\[16\]\)', '(uint128)', re.sub(r'undefined1\s+\[16\]\s+((?:recovered_|FUN_)[0-9a-f]+)',r'uint128 \1',re.sub(r'undefined1 (auVar\d+) \[16\];',r'uint128 \1;',s))) for a,s in sources.items()}
+        for a,s in sources.items():
+            for name,size in re.findall(r'^  undefined1 (\w+) \[(8|16)\];',s,re.M):
+                if not re.search(r'\b'+name+r'\s*=',s):continue
+                typ='uint64_t' if size=='8' else 'uint128'
+                s=re.sub(r'\b'+name+r'(?=\s*=(?!=))', '(*('+typ+' *)(void *)'+name+')',s)
+                s=re.sub(r'\((?:ulong|long|undefined8)\)'+name+r'\b(?!\s*\._)', '(*('+typ+' *)(void *)'+name+')',s)
+            s=re.sub(r'\(undefined1\s+\[8\]\)','(uint64_t)',s)
+            s=re.sub(r'\(undefined1\s*\(\*\)\s*\[16\]\)','(uint128 *)',s)
+            sources[a]=s
     for stale in args.out.glob('*.c'):
         if stale.stem not in sources and stale.stem not in manual:stale.unlink()
     floating={name:typ for text in sources.values() for typ,name in
@@ -120,17 +146,24 @@ def main():
     service_types=sorted(set(re.findall(r'\bservice(?:_conflict\d+)?\b', '\n'.join(sources.values()))))
     header += ['typedef code '+name+';' for name in service_types]
     header+=current.get('declarations',[])
+    if current.get('state_anchor'):
+        header.append('extern uint8_t '+current['state_anchor']+'[];')
     for address,source in sources.items():
         declaration=signature(source)
         if address in manual:
             match=re.search(r'(?m)^([A-Za-z_][A-Za-z_0-9 \t*]*\brecovered_'+address+r'\s*\([^;{}]*\))\s*\{',manual[address])
             if match:declaration=match[1].strip()
+        if current.get('ms_abi'):
+            declaration='__attribute__((ms_abi)) '+declaration
         header.append(declaration + ';')
     (args.out / 'functions.h').write_text('\n'.join(header) + '\n')
     for address, source in sources.items():
         source=re.sub(r'\bin\b(?!\s*\()', 'pf_input',source)
         for original, replacement in current.get('source_replacements', {}).get(address, {}).items():
-            source = source.replace(original, replacement)
+            if re.fullmatch(r'0x[0-9a-f]+',original):
+                source=re.sub(r'\b'+original+r'\b',lambda _:replacement,source)
+            else:
+                source = source.replace(original, replacement)
         if current.get('float_slot_views'):
             # Merged variant storage can have a float declaration while its
             # integer and pointer branches access the same four raw bytes.
@@ -180,9 +213,18 @@ def main():
         source=re.sub(r'\bs_[^\s,;()]+_([0-9a-f]{8,16})\b',lambda m:'str_'+m[1],source)
         metadata = [line.split('\t') for line in (args.notes / (address + '.tsv')).read_text().splitlines()]
         for row in metadata:
+            if row[0]=='G':row[1]=data_labels(row[1])
             if row[0]=='G' and row[1].startswith('s_'):
                 renamed='str_%08x'%int(row[2],16)
                 source=source.replace(row[1],renamed);row[1]=renamed
+        fields=set(re.findall(r'(?:\.|->)([A-Za-z][A-Za-z_0-9]*)',source))
+        for row in metadata:
+            if row[0]!='L' or row[1] not in fields:continue
+            old=row[1];new='pf_local_'+old
+            tokens=r'"(?:[^"\\]|\\.)*"|\x27(?:[^\x27\\]|\\.)*\x27|(?<![.>])\b'+re.escape(old)+r'\b'
+            source=re.sub(tokens,lambda m:new if m[0]==old else m[0],source)
+            for other in metadata:
+                if other[0] in ('L','P'):other[1]=re.sub(r'\b'+re.escape(old)+r'\b',new,other[1])
         globals_by_address = {int(row[2], 16): row[3] for row in metadata if row[0] == 'G'}
         global_addresses = {row[1]: int(row[2], 16) for row in metadata if row[0] == 'G'}
         memory_types = {}
@@ -192,21 +234,25 @@ def main():
                 number = int(row[2], 16)
                 if number not in memory_types or int(size) > memory_types[number][0]:
                     memory_types[number] = (int(size), kind)
-        globals_used = sorted({row[1] for row in metadata if row[0] == 'G'} | set(re.findall(r'\b(?:_?DAT|str|_LAB)_[0-9a-f]{8,16}\b|\b[a-zA-Z]+Ram[0-9a-f]{8,16}\b', source)))
+        globals_used = sorted({row[1] for row in metadata if row[0] == 'G'} | set(re.findall(r'\b(?:_?DAT|str|_LAB)_[0-9a-f]{8,16}\b|\b[a-zA-Z]+Ram[0-9a-f]{8,16}\b|\bram0x[0-9a-f]{8,16}\b|\bPTR_\w+_[0-9a-f]{8,16}\b', source)))
         preamble = ['#include "functions.h"']
         for name in globals_used:
             if name.startswith('recovered_') and name.removeprefix('recovered_') in sources:
                 continue
             number = global_addresses[name] if name in global_addresses else int(name[-8:], 16)
             kind = globals_by_address.get(number, 'uint:4')
-            if name.startswith('_DAT'):
+            if name.startswith(('_DAT','ram0x')):
                 kind = memory_types.get(number, (4, 'uint:4'))[1]
             typename = 'char[1]' if name.startswith('str_') else ctype(kind)
+            if name.startswith('PTR_str_'):typename='char *'
             if WIDE and name.startswith('_DAT') and typename in ('uint8_t[16]', 'byte[16]'):
                 typename='uint128'
             if re.search(r'\(\*' + re.escape(name) + r'\)\(', source):
                 typename = 'code *'
-            preamble += ['#undef ' + name, '#define %s %s' % (name, lvalue(typename, '0x%xU' % number))]
+            location='0x%xU' % number
+            if current.get('state_anchor') and current['state_base'] <= number < current['state_end']:
+                location='((uintptr_t)%s + 0x%xU)' % (current['state_anchor'],number-current['state_base'])
+            preamble += ['#undef ' + name, '#define %s %s' % (name, lvalue(typename, location))]
         pointer_names = {row[1] for row in metadata if row[0] in ('G', 'L') and row[3].startswith(('P:', 'A:'))}
         pointer_names.update(re.findall(r'^  [\w ]+\*+\s*(\w+)(?:\s*\[.*?\])?;', source, re.M))
         locals_used = [row for row in metadata if row[0] == 'L']
@@ -217,7 +263,9 @@ def main():
             _, name, offset, kind = row
             # Distinct SSA temporaries can reuse a spill slot. Their C values
             # must remain independent; only named stack objects need aliases.
-            if re.fullmatch(r'[A-Za-z]+Var\d+', name) and not (int(offset) in addressed_offsets and kind.startswith('P:')):
+            if (re.fullmatch(r'[A-Za-z]+Var\d+', name)
+                    and address not in current.get('stack_ssa_views', [])
+                    and not (int(offset) in addressed_offsets and kind.startswith('P:'))):
                 continue
             # Use the printed declaration's type, including its inferred array
             # extent; the stack offset preserves aliasing between adjacent fields.
@@ -228,9 +276,10 @@ def main():
             typename = match[1].strip() + (re.sub(r'\s', '', match[2]) if match[2] else '')
             source = source[:match.start()] + source[match.end():]
             macros.append('#define %s %s' % (name, lvalue(typename, 'frame + %d' % (frame_size + int(offset)))))
-        for name, raw in re.findall(r'\b(stack0x([0-9a-f]{8}))\b', source):
+        for name, raw in re.findall(r'\b(stack0x([0-9a-f]{8}(?:[0-9a-f]{8})?))\b', source):
             offset=int(raw,16)
-            if offset>=0x80000000: offset-=0x100000000
+            bits=len(raw)*4
+            if offset>=1<<(bits-1): offset-=1<<bits
             macros.append('#define %s (*(uint8_t *)(frame + %d))'%(name,frame_size+offset))
         source = source.replace('register0x00000020' if WIDE else 'register0x00000010', '(uintptr_t)(frame + %d)' % frame_size)
         source = re.sub(r'__(?:fastcall|cdecl|thiscall|regparm[0-9])\s+', '', source)
@@ -242,12 +291,13 @@ def main():
             field_occurrences[key] = occurrence
             value = 'PF_PART%s(%s, %s)' % (match[3], match[1], match[2])
             scale = pointer_fields.get((key, occurrence))
+            if re.match(r'\s*=(?!=)',match.string[match.end():]):scale=None
             if scale:
                 element = {1: 'uint8_t', 2: 'uint16_t', 4: 'uint32_t', 8: 'uint64_t'}.get(
                     scale, 'struct { uint8_t bytes[%d]; }' % scale)
                 value = '((%s *)(uintptr_t)%s)' % (element, value)
             return value
-        source = re.sub(r'\b(\w+(?:\[[^]\n]+\])?)\.\s*_(\d+)_(\d+)_', partial_field, source)
+        source = re.sub(r'\b(\w+(?:\[[^]\n]+\])?(?:(?:\.|->)\w+)*)\s*\.\s*_(\d+)_(\d+)_', partial_field, source)
         source = re.sub(r'switch\(([^\n]+)\)', r'switch((uintptr_t)(\1))', source)
         source = re.sub(r'case \([^)]*\*\)(0x[0-9a-f]+):', r'case \1:', source)
         source = re.sub(r'\(float\)(\w+\[2\])', r'pf_bits_float((uint32_t)\1)', source)
@@ -262,14 +312,21 @@ def main():
         if WIDE:
             for name in sorted(pointer_names,key=len,reverse=True):
                 source=re.sub(r'\(double\)('+re.escape(name)+r'(?:\[[^]\n]+\])?)(?![\w\[])',r'pf_bits_double((uintptr_t)\1)',source)
-            source=re.sub(r'\(([^()\n]+\*)\)\(double\)(\w+)',r'(\1)(uintptr_t)pf_double_bits(\2)',source)
-            pattern=r'\(([^()\n]+\*)\)(?=\()'
+            source=re.sub(r'\(([^()\n]+\*)\)\(double\)(SUB\d+\([^()]*\))',r'(\1)(uintptr_t)pf_double_bits((double)\2)',source)
+            source=re.sub(r'\(([^()\n]+\*)\)\(double\)(\w+)\b(?!\s*\()',r'(\1)(uintptr_t)pf_double_bits(\2)',source)
+            source=re.sub(r'(\b\w+\s*=\s*)\(([^();\n]*\*)\)\s*(\(double\)[^;]+);',
+                          r'\1(\2)(uintptr_t)pf_double_bits(\3);',source)
+            pattern=r'\(([^()\n]+\*)\)(?=\s*\()'
             for match in reversed(list(re.finditer(pattern,source))):
-                start=match.end();end=start+1;depth=1
+                start=match.end()
+                while source[start].isspace():start+=1
+                end=start+1;depth=1
                 while depth:
                     depth+=(source[end]=='(')-(source[end]==')');end+=1
                 expression=source[start:end]
-                if 'pf_bits_double(' in expression or re.search(r'\bdVar\d+\b',expression):
+                floating_operand=re.search(r'\bdVar\d+\b',expression)
+                integral_index=re.search(r'\((?:u?long|u?int|u?int64_t)\)\s*dVar\d+',expression)
+                if not re.match(r'(?:SUB|CONCAT)\d+',expression) and ('pf_bits_double(' in expression or (floating_operand and not integral_index)):
                     source=source[:match.start()]+'('+match[1]+')(uintptr_t)pf_double_bits('+expression+')'+source[end:]
             for name in set(re.findall(r'\b(_local_[0-9a-f]+)\b',source)):
                 source=re.sub(r'\b'+name+r'\b','(*(uint128 *)(void *)&'+name[1:]+')',source)

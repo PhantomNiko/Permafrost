@@ -44,7 +44,7 @@ class Object:
             self.symbol_tables[index] = symbols
 
 
-def link(objects, base=0x200000, entry='main', placements=None, shim=True, externals=None):
+def link(objects, base=0x200000, entry='main', placements=None, shim=True, externals=None, relocations=None):
     output = bytearray(b'\xe8\0\0\0\0\xc3' if shim else b'')
     addresses = {}
     symbols = dict(externals or {})
@@ -94,6 +94,8 @@ def link(objects, base=0x200000, entry='main', placements=None, shim=True, exter
                 else:
                     value = addresses[(object_index, symbol['section'])] + symbol['value']
                 where = target + offset - base
+                if kind == 1 and symbol['section'] != 0xfff1 and info >> 8 and relocations is not None:
+                    relocations.append((target + offset, 4))
                 addend = struct.unpack_from('<I', output, where)[0]
                 value += addend - (target + offset if kind == 2 else 0)
                 struct.pack_into('<I', output, where, value & 0xffffffff)

@@ -9,7 +9,7 @@ typedef signed char sbyte;
 typedef unsigned short ushort;
 typedef unsigned int uint;
 typedef unsigned long ulong;
-#if defined(__x86_64__)
+#if defined(__x86_64__) && !defined(__ILP32__)
 typedef long double longdouble;
 typedef __uint128_t undefined16;
 typedef __uint128_t uint128;
@@ -18,6 +18,21 @@ static inline uint128 divpd(uint128 a,uint128 b) {
     union { uint128 bits; double lane[2]; } x={.bits=a},y={.bits=b},z;
     z.lane[0]=x.lane[0]/y.lane[0];z.lane[1]=x.lane[1]/y.lane[1];return z.bits;
 }
+static inline uint128 divps(uint128 a,uint128 b) {
+    union {uint128 bits;float lane[4];} x={.bits=a},y={.bits=b},z;
+    for(unsigned i=0;i<4;++i) z.lane[i]=x.lane[i]/y.lane[i];return z.bits;
+}
+static inline uint128 maxpd(uint128 a,uint128 b) {
+    union {uint128 bits;double lane[2];} x={.bits=a},y={.bits=b},z;
+    for(unsigned i=0;i<2;++i) z.lane[i]=x.lane[i]>y.lane[i]?x.lane[i]:y.lane[i];return z.bits;
+}
+static inline unsigned movmskps(uintptr_t ignored,uint128 value) {
+    union {uint128 bits;uint32_t lane[4];} x={.bits=value};unsigned result=0;
+    for(unsigned i=0;i<4;++i) result|=(x.lane[i]>>31)<<i;return result;
+}
+struct pf_uint96 {uint128 pf_payload_bits:96;} __attribute__((packed));
+#define PF_PART12(object,offset) (((struct pf_uint96 *)((uint8_t *)&(object)+(offset)))->pf_payload_bits)
+#define SUB164(a,b) ((uint32_t)((uint128)(a)>>((b)*8)))
 #define SEXT816(a) ((__uint128_t)(__int128)(int64_t)(a))
 #define CONCAT88(a,b) (((__uint128_t)(uint64_t)(a)<<64)|(uint64_t)(b))
 #define ZEXT816(a) ((__uint128_t)(uint64_t)(a))
@@ -39,20 +54,26 @@ typedef long long int7;
 typedef int int3;
 typedef unsigned int uint3;
 typedef long double float10;
+#if defined(PF_MS_ABI) && defined(__x86_64__)
+typedef uintptr_t __attribute__((ms_abi)) code();
+#else
 typedef uintptr_t code();
+#endif
+__attribute__((noreturn)) static inline uintptr_t halt_baddata(void) {__builtin_trap();}
 #define CONCAT11(a,b) (((uint16_t)(a)<<8)|(uint8_t)(b))
 #define CONCAT12(a,b) (((uint32_t)(a)<<16)|(uint16_t)(b))
 #define CONCAT13(a,b) (((uint32_t)(a)<<24)|((uint32_t)(b)&0xffffffU))
 #define CONCAT21(a,b) (((uint32_t)(a)<<8)|(uint8_t)(b))
 #define CONCAT22(a,b) (((uint32_t)(a)<<16)|(uint16_t)(b))
 #define CONCAT31(a,b) (((uint32_t)(a)<<8)|(uint8_t)(b))
-#define CONCAT44(a,b) (((uint64_t)(a)<<32)|(uint32_t)(b))
+#define CONCAT44(a,b) (((uint64_t)PF_RAW32(a)<<32)|PF_RAW32(b))
 #define CONCAT14(a,b) (((uint64_t)(uint8_t)(a)<<32)|(uint32_t)(b))
 #define CONCAT35(a,b) (((uint64_t)(a)<<40)|((uint64_t)(b)&0xffffffffffULL))
 #define CONCAT34(a,b) (((uint64_t)(a)<<32)|(uint32_t)(b))
 #define SUB42(a,b) ((uint16_t)((uint32_t)(a)>>((b)*8)))
 #define CONCAT71(a,b) (((uint64_t)(a)<<8)|(uint8_t)(b))
 #define SUB84(a,b) ((uint32_t)(PF_RAW64(a)>>((b)*8)))
+static inline uint32_t (SUB84)(uint64_t value,unsigned offset) {return (uint32_t)(value>>(offset*8));}
 #define ZEXT48(a) ((uint64_t)(uint32_t)(a))
 #define CARRY4(a,b) ((uint32_t)(a) > UINT32_MAX-(uint32_t)(b))
 #define SBORROW1(a,b) (((int8_t)(a)<0) != ((int8_t)(b)<0) && (((int8_t)((uint8_t)(a)-(uint8_t)(b))<0) != ((int8_t)(a)<0)))
@@ -115,7 +136,7 @@ static inline uintptr_t invalidInstructionException(void) { __builtin_trap(); }
 
 struct pf_uint40 { unsigned long long pf_payload_bits:40; } __attribute__((packed));
 #define PF_PART5(object, offset) (((struct pf_uint40 *)((uint8_t *)&(object)+(offset)))->pf_payload_bits)
-#define SUB85(value, offset) ((pf_double_bits(value) >> ((offset)*8)) & 0xffffffffffULL)
+#define SUB85(value, offset) ((PF_RAW64(value) >> ((offset)*8)) & 0xffffffffffULL)
 
 #define SBORROW4(a,b) (((((uint32_t)(a)^(uint32_t)(b)) & ((uint32_t)(a)^((uint32_t)(a)-(uint32_t)(b))))>>31)!=0)
 #define SCARRY4(a,b) (((~((uint32_t)(a)^(uint32_t)(b)) & ((uint32_t)(a)^((uint32_t)(a)+(uint32_t)(b))))>>31)!=0)
@@ -126,6 +147,62 @@ static inline int SBORROW8(uint64_t a,uint64_t b) { int64_t r;return __builtin_s
 static inline int SCARRY8(uint64_t a,uint64_t b) { int64_t r;return __builtin_add_overflow((int64_t)a,(int64_t)b,&r); }
 
 typedef uint64_t uint6;
+typedef uint64_t uint7;
+typedef uint64_t undefined5;
+typedef int64_t int6;
+typedef struct pf_point {double x,y;} pf_point;
+typedef struct pf_affine {double a,b,c,d,e,f;} pf_affine;
+#define CONCAT15(a,b) (((uint64_t)(uint8_t)(a)<<40)|((uint64_t)(b)&0xffffffffffULL))
+#define CONCAT16(a,b) (((uint64_t)(uint8_t)(a)<<48)|((uint64_t)(b)&0xffffffffffffULL))
+#define CONCAT26(a,b) (((uint64_t)(uint16_t)(a)<<48)|((uint64_t)(b)&0xffffffffffffULL))
+#define CONCAT62(a,b) (((uint64_t)(a)<<16)|(uint16_t)(b))
+struct pf_uint48 {uint64_t pf_payload_bits:48;} __attribute__((packed));
+#define PF_PART6(object,offset) (((struct pf_uint48 *)((uint8_t *)&(object)+(offset)))->pf_payload_bits)
+#define CONCAT17(a,b) (((uint64_t)(uint8_t)(a)<<56)|((uint64_t)(b)&0xffffffffffffffULL))
+#define CONCAT43(a,b) (((uint64_t)(uint32_t)(a)<<24)|((uint64_t)(b)&0xffffffULL))
+
+#if defined(__x86_64__) && defined(__ILP32__)
+/* The shared runtimes retain their original packed printf argument stream.
+ * x86-64 passes variadic arguments in registers, so marshal that stream using
+ * the compiler's va_arg implementation instead of assuming an i386 stack. */
+static inline unsigned pf_pack_i386_arguments(uint8_t *out,unsigned capacity,
+                                             const char *format,__builtin_va_list args) {
+    unsigned used=0;
+    for (const char *p=format;*p;++p) {
+        if (*p!='%') continue;
+        if (*++p=='%') continue;
+        while (*p=='-'||*p=='+'||*p==' '||*p=='#'||*p=='0') ++p;
+        for (unsigned phase=0;phase<2;++phase) {
+            if (*p=='*') {
+                uint32_t width=(uint32_t)__builtin_va_arg(args,int);
+                if (capacity-used<4) return 0;
+                for (unsigned i=0;i<4;++i) out[used++]=(uint8_t)(width>>(i*8));
+                ++p;
+            } else while (*p>='0'&&*p<='9') ++p;
+            if (phase==0&&*p=='.') ++p; else break;
+        }
+        unsigned wide=0,extended=0;
+        if (*p=='l') {++p;if (*p=='l') {wide=1;++p;}}
+        else if (*p=='j') {wide=1;++p;}
+        else if (*p=='L') {extended=1;++p;}
+        else if (*p=='h') {++p;if (*p=='h') ++p;}
+        else if (*p=='z'||*p=='t') ++p;
+        uint64_t value=0;unsigned bytes=4;
+        if (*p=='f'||*p=='F'||*p=='e'||*p=='E'||*p=='g'||*p=='G'||*p=='a'||*p=='A') {
+            union {double number;uint64_t bits;} number;
+            number.number=extended?(double)__builtin_va_arg(args,long double):__builtin_va_arg(args,double);
+            value=number.bits;bytes=8;
+        } else if (*p=='s'||*p=='p'||*p=='n') value=(uintptr_t)__builtin_va_arg(args,void *);
+        else if (*p=='d'||*p=='i'||*p=='u'||*p=='o'||*p=='x'||*p=='X'||*p=='c') {
+            if (wide) {value=__builtin_va_arg(args,unsigned long long);bytes=8;}
+            else value=__builtin_va_arg(args,unsigned int);
+        } else {if (!*p) break;continue;}
+        if (capacity-used<bytes) return 0;
+        for (unsigned i=0;i<bytes;++i) out[used++]=(uint8_t)(value>>(i*8));
+    }
+    return 1;
+}
+#endif
 #define CONCAT24(a,b) (((uint64_t)(uint16_t)(a)<<32)|(uint32_t)(b))
 static inline uint32_t *pf_cpuid_words(uint32_t leaf) {
     static uint32_t words[4];

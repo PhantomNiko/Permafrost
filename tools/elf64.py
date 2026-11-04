@@ -15,15 +15,16 @@ def align(value, alignment):
 
 class Object:
     def __init__(self, blob):
-        if blob[:7] != b'\x7fELF\x02\x01\x01':
-            raise ValueError('expected little-endian ELF64')
-        header = struct.unpack_from('<16sHHIQQQIHHHHHH', blob)
+        if blob[:7] not in (b'\x7fELF\x02\x01\x01', b'\x7fELF\x01\x01\x01'):
+            raise ValueError('expected little-endian x86-64 ELF')
+        self.ilp32 = blob[4] == 1
+        header = struct.unpack_from('<16sHHIIIIIHHHHHH' if self.ilp32 else '<16sHHIQQQIHHHHHH', blob)
         if header[1:3] != (1, 62):
             raise ValueError('expected relocatable x86-64 object')
         table, entry_size, count, strings = header[6], header[11], header[12], header[13]
         self.sections = [dict(zip(('name_offset', 'type', 'flags', 'address', 'offset',
                                    'size', 'link', 'info', 'alignment', 'entry_size'),
-                                  struct.unpack_from('<IIQQQQIIQQ', blob, table + i * entry_size)))
+                                  struct.unpack_from('<10I' if self.ilp32 else '<IIQQQQIIQQ', blob, table + i * entry_size)))
                          for i in range(count)]
         names_section = self.sections[strings]
         names = blob[names_section['offset']:names_section['offset'] + names_section['size']]
@@ -37,8 +38,11 @@ class Object:
                 continue
             strings = self.sections[section['link']]['data']
             symbols = []
-            for pos in range(0, section['size'], 24):
-                name, info, other, shndx, value, size = struct.unpack_from('<IBBHQQ', section['data'], pos)
+            for pos in range(0, section['size'], 16 if self.ilp32 else 24):
+                if self.ilp32:
+                    name, value, size, info, other, shndx = struct.unpack_from('<IIIBBH', section['data'], pos)
+                else:
+                    name, info, other, shndx, value, size = struct.unpack_from('<IBBHQQ', section['data'], pos)
                 symbols.append(dict(name=strings[name:].split(b'\0')[0].decode(), value=value,
                                     size=size, info=info, section=shndx))
             self.symbol_tables[index] = symbols
@@ -77,13 +81,14 @@ def link(objects, base=0x200000, entry='main', placements=None, shim=True, reloc
                 continue
             table = obj.symbol_tables[section['link']]
             target = addresses[(object_index, section['info'])]
-            for pos in range(0, section['size'], 24):
-                offset, info, addend = struct.unpack_from('<QQq', section['data'], pos)
-                symbol = table[info >> 32]
-                kind = info & 0xffffffff
+            for pos in range(0, section['size'], 12 if obj.ilp32 else 24):
+                offset, info, addend = struct.unpack_from('<IIi' if obj.ilp32 else '<QQq', section['data'], pos)
+                symbol_index = info >> (8 if obj.ilp32 else 32)
+                symbol = table[symbol_index]
+                kind = info & (255 if obj.ilp32 else 0xffffffff)
                 if kind not in (1, 2, 4, 10, 11, 24):
                     raise ValueError('unsupported x86-64 relocation %d' % kind)
-                if info >> 32 == 0:
+                if symbol_index == 0:
                     value = 0  # STN_UNDEF represents an absolute numeric operand
                 elif symbol['section'] == 0:
                     if symbol['name'] not in symbols:

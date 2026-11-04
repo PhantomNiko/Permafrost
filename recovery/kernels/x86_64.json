@@ -1,0 +1,16 @@
+{
+  "version": "0.7",
+  "architecture": "x86_64",
+  "source": "kernel/x86_64",
+  "base": 33554432,
+  "text_start": 33554564,
+  "text_end": 33804721,
+  "state_end": 33873920,
+  "core_base": 34603008,
+  "entry": 33554452,
+  "main": "wm_permafrost_main",
+  "set_loader_context": "wm_platform_set_loader_context",
+  "inline_constants": {
+    "2000056": "66900000"
+  }
+}

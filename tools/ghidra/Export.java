@@ -58,6 +58,14 @@ public class Export extends GhidraScript {
         if(!new ApplyFunctionSignatureCmd(toAddr(address), type, SourceType.USER_DEFINED).applyTo(currentProgram, monitor))
             throw new Exception("Could not apply signature at "+Long.toHexString(address));
         function.setName(name,SourceType.USER_DEFINED);
+        if(currentProgram.getDefaultPointerSize()==8 && type.getReturnType().getName().equals("pf_point")) {
+            function.setCustomVariableStorage(false);
+            function.setReturnType(UnsignedLongLongDataType.dataType,SourceType.USER_DEFINED);
+            function.setCustomVariableStorage(true);
+            function.setReturn(type.getReturnType(),new VariableStorage(currentProgram,
+                new ghidra.program.model.pcode.Varnode(currentProgram.getRegister("XMM1").getAddress(),8),
+                new ghidra.program.model.pcode.Varnode(currentProgram.getRegister("XMM0").getAddress(),8)),SourceType.USER_DEFINED);
+        }
         if(storage!=null) {
             String[] places=storage.split(",");
             var parameters=function.getParameters();

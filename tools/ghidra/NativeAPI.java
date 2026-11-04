@@ -11,8 +11,8 @@ import java.nio.file.Path;
 public class NativeAPI extends GhidraScript {
     public void run() throws Exception {
         var memory=currentProgram.getMemory();
-        if(memory.getBlock(toAddr(0x6200))==null)
-            memory.createInitializedBlock("native_api",toAddr(0x6200),124,(byte)0,monitor,false);
+        if(memory.getBlock(toAddr(0x6800))==null)
+            memory.createInitializedBlock("native_api",toAddr(0x6800),124,(byte)0,monitor,false);
         String[] signatures={
             "int service(void);", "int service(unsigned int a,unsigned int b,unsigned int c);",
             "int service(void);", "int service(void);", "int service(void);",
@@ -29,7 +29,7 @@ public class NativeAPI extends GhidraScript {
         var parser=new CParser(currentProgram.getDataTypeManager());
         for(int i=0;i<signatures.length;i++) {
             var type=(FunctionDefinitionDataType)parser.parse(signatures[i]);
-            var address=toAddr(0x620c+i*4);
+            var address=toAddr(0x680c+i*4);
             clearListing(address,address.add(3));
             createData(address,new PointerDataType(type,currentProgram.getDataTypeManager()));
         }
