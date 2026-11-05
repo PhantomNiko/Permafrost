@@ -9,7 +9,7 @@ typedef signed char sbyte;
 typedef unsigned short ushort;
 typedef unsigned int uint;
 typedef unsigned long ulong;
-#if defined(__x86_64__) && !defined(__ILP32__)
+#if defined(__LP64__) && !defined(__ILP32__)
 typedef long double longdouble;
 typedef __uint128_t undefined16;
 typedef __uint128_t uint128;
@@ -47,6 +47,7 @@ typedef unsigned char undefined1;
 typedef unsigned short undefined2;
 typedef unsigned int undefined3;
 typedef unsigned int undefined4;
+typedef uint32_t dword;
 typedef unsigned long long undefined6;
 typedef unsigned long long undefined8;
 typedef unsigned long long undefined7;
@@ -75,6 +76,7 @@ __attribute__((noreturn)) static inline uintptr_t halt_baddata(void) {__builtin_
 #define SUB84(a,b) ((uint32_t)(PF_RAW64(a)>>((b)*8)))
 static inline uint32_t (SUB84)(uint64_t value,unsigned offset) {return (uint32_t)(value>>(offset*8));}
 #define ZEXT48(a) ((uint64_t)(uint32_t)(a))
+#define CARRY1(a,b) ((uint8_t)(a) > 0xffU-(uint8_t)(b))
 #define CARRY4(a,b) ((uint32_t)(a) > UINT32_MAX-(uint32_t)(b))
 #define SBORROW1(a,b) (((int8_t)(a)<0) != ((int8_t)(b)<0) && (((int8_t)((uint8_t)(a)-(uint8_t)(b))<0) != ((int8_t)(a)<0)))
 #define SUB41(a,b) ((uint8_t)((uint32_t)(a)>>((b)*8)))
@@ -93,6 +95,7 @@ static inline char *builtin_strncpy(char *out, const char *in, size_t count) {
     return start;
 }
 
+#if defined(__i386__) || defined(__x86_64__)
 static inline byte in(ushort port) {
     byte value;
     __asm__ volatile ("inb %1, %0" : "=a"(value) : "Nd"(port));
@@ -111,9 +114,22 @@ static inline long double pf_round(long double value) {
                       : "0"(value), "m"(truncate), "m"(previous));
     return result;
 }
+static inline uint16_t pf_fpu_control(void) { uint16_t value; __asm__ volatile ("fnstcw %0" : "=m"(value)); return value; }
+#else
+static inline void halt(void) { __asm__ volatile("wfi"); }
+static inline long double pf_round(long double value) {
+#if defined(__aarch64__)
+    double result;
+    __asm__("frintz %d0, %d1":"=w"(result):"w"((double)value));
+    return result;
+#else
+    if (__builtin_isnan(value) || value >= 18446744073709551616.0L || value <= -18446744073709551616.0L) return value;
+    return value < 0 ? -(long double)(uint64_t)(-value) : (long double)(uint64_t)value;
+#endif
+}
+#endif
 #define ROUND(value) pf_round(value)
 #define NAN(value) __builtin_isnan(value)
-static inline uint16_t pf_fpu_control(void) { uint16_t value; __asm__ volatile ("fnstcw %0" : "=m"(value)); return value; }
 static inline uint32_t pf_float_bits(float value) { union { float f; uint32_t u; } bits = { .f = value }; return bits.u; }
 static inline uint32_t pf_word_bits(uintptr_t value) { return (uint32_t)value; }
 #define PF_RAW32(value) _Generic((value), float: pf_float_bits, default: pf_word_bits)(value)
@@ -205,6 +221,7 @@ static inline unsigned pf_pack_i386_arguments(uint8_t *out,unsigned capacity,
 #endif
 #define CONCAT24(a,b) (((uint64_t)(uint16_t)(a)<<32)|(uint32_t)(b))
 /* CPUID subleaves and the ID-flag probe are architectural operations. */
+#if defined(__i386__) || defined(__x86_64__)
 static inline uint32_t pf_cpu_cpuid_available(void) {
 #if defined(__i386__)
     uint32_t original,changed;
@@ -246,3 +263,5 @@ static inline uint32_t *pf_cpuid_words(uint32_t leaf) {
 #define cpuid_brand_part2_info(leaf) pf_cpuid_words(leaf)
 #define cpuid_brand_part3_info(leaf) pf_cpuid_words(leaf)
 #define cpuid_cache_tlb_info(leaf) pf_cpuid_words(leaf)
+
+#endif /* x86 CPUID operations */

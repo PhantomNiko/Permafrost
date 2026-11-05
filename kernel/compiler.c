@@ -9,6 +9,7 @@ extern void *pf_memmove(void *, const void *, size_t);
 void *memcpy(void *out, const void *in, size_t count) { return pf_memcpy(out, in, count); }
 void *memset(void *out, int value, size_t count) { return pf_memset(out, value, count); }
 void *memmove(void *out, const void *in, size_t count) { return pf_memmove(out, in, count); }
+void bzero(void *out, size_t count) { pf_memset(out, 0, count); }
 
 static uint64_t divide(uint64_t numerator, uint64_t denominator, uint64_t *remainder) {
     uint64_t quotient = 0, rest = 0;

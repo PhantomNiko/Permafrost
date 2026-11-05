@@ -167,3 +167,64 @@ def rebase_locations(binary, metadata=None):
     if len(set(locations)) != len(locations):
         raise ValueError('duplicate rebase location')
     return locations
+
+
+def encode_rebases(locations, metadata):
+    """Encode pointer rebases without relying on the host linker's layout."""
+    result = bytearray()
+    previous = set()
+    for address, width in sorted(locations):
+        if address in previous:
+            raise ValueError('duplicate rebase address')
+        previous.add(address)
+        kind = 1 if width == metadata['width'] else 2 if width == 4 else None
+        if kind is None:
+            raise ValueError('unsupported rebase width')
+        candidates = [(i, s) for i, s in enumerate(metadata['segments'])
+                      if s['address'] <= address and
+                      address + width <= s['address'] + s['memory']]
+        if len(candidates) != 1 or candidates[0][0] > 15:
+            raise ValueError('rebase is outside a unique addressable segment')
+        index, segment = candidates[0]
+        result.extend((0x10 | kind, 0x20 | index))
+        result.extend(encode_uleb(address - segment['address']))
+        result.append(0x51)
+    result.append(0)
+    return bytes(result)
+
+
+def file_offset(metadata, address, width=1):
+    for segment in metadata['segments']:
+        delta = address - segment['address']
+        if 0 <= delta and delta + width <= segment['used']:
+            return segment['offset'] + delta
+    raise ValueError('address has no initialized file storage')
+
+
+def replace_rebases(binary, locations):
+    """Append a replacement stream and extend the existing link-edit segment."""
+    metadata = inspect(binary)
+    if 'dyld' not in metadata:
+        raise ValueError('library has no classic dyld relocation command')
+    stream = encode_rebases(locations, metadata)
+    result = bytearray(binary)
+    offset = len(result)
+    result.extend(stream)
+    for command, position, size in metadata['commands']:
+        if command in (0x22, 0x80000022):
+            struct.pack_into('<II', result, position+8, offset, len(stream))
+        elif command in (1, 0x19):
+            name = result[position+8:position+24].split(b'\0')[0]
+            if name != b'__LINKEDIT':
+                continue
+            wide = command == 0x19
+            address, memory, start, used = struct.unpack_from('<4Q' if wide else '<4I', result, position+24)
+            used = len(result) - start
+            page = 16384 if metadata['cpu'] == 0x100000c else 4096
+            memory = max(memory, (used + page - 1) & -page)
+            struct.pack_into('<4Q' if wide else '<4I', result, position+24,
+                             address, memory, start, used)
+    expected = sorted(locations)
+    if sorted(rebase_locations(result)) != expected:
+        raise ValueError('replacement relocation stream did not round-trip')
+    return bytes(result)

@@ -138,6 +138,15 @@ def main():
             sources[a]=s
     for stale in args.out.glob('*.c'):
         if stale.stem not in sources and stale.stem not in manual:stale.unlink()
+    # Signature corrections must also reach declarations shared by callers.
+    for address, source in sources.items():
+        source=re.sub(r'\bin\b(?!\s*\()', 'pf_input',source)
+        for original, replacement in current.get('source_replacements', {}).get(address, {}).items():
+            if re.fullmatch(r'0x[0-9a-f]+',original):
+                source=re.sub(r'\b'+original+r'\b',lambda _:replacement,source)
+            else:
+                source = source.replace(original, replacement)
+        sources[address]=source
     floating={name:typ for text in sources.values() for typ,name in
               re.findall(r'\b(float|float10|double)\s+(?:__\w+\s+)?((?:recovered_|FUN_)[0-9a-f]+)\(',text)}
     header = ['/* Permafrost recovered source; Pooka\'s Free Software License. */', '#pragma once', '#include "support.h"']
@@ -151,19 +160,13 @@ def main():
     for address,source in sources.items():
         declaration=signature(source)
         if address in manual:
-            match=re.search(r'(?m)^([A-Za-z_][A-Za-z_0-9 \t*]*\brecovered_'+address+r'\s*\([^;{}]*\))\s*\{',manual[address])
+            match=re.search(r'(?m)^((?:__attribute__\(\([^\n]*?\)\)\s*)?[A-Za-z_][A-Za-z_0-9 \t*]*\brecovered_'+address+r'\s*\([^;{}]*\))\s*\{',manual[address])
             if match:declaration=match[1].strip()
         if current.get('ms_abi'):
             declaration='__attribute__((ms_abi)) '+declaration
         header.append(declaration + ';')
     (args.out / 'functions.h').write_text('\n'.join(header) + '\n')
     for address, source in sources.items():
-        source=re.sub(r'\bin\b(?!\s*\()', 'pf_input',source)
-        for original, replacement in current.get('source_replacements', {}).get(address, {}).items():
-            if re.fullmatch(r'0x[0-9a-f]+',original):
-                source=re.sub(r'\b'+original+r'\b',lambda _:replacement,source)
-            else:
-                source = source.replace(original, replacement)
         if current.get('float_slot_views'):
             # Merged variant storage can have a float declaration while its
             # integer and pointer branches access the same four raw bytes.
@@ -338,7 +341,7 @@ def main():
                 label=match[1]
                 if label in labels:return ''
                 labels.add(label);return match[0]
-            source=re.sub(r'^(LAB_[0-9a-f]+):',unique_label,source,flags=re.M)
+            source=re.sub(r'^((?:LAB_|joined_r0x)[0-9a-f]+):',unique_label,source,flags=re.M)
         source = re.sub(r'\(([^()]+\*+)\)\(float\)\(int\)(\w+)',
                         r'(\1)(uintptr_t)pf_float_bits((float)(int)\2)', source)
         source = re.sub(r'\(([^()]+\*+)\)\(float\)(\w+)',

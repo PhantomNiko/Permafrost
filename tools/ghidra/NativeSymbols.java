@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import ghidra.program.model.address.AddressSet;
 import ghidra.program.model.listing.FlowOverride;
 import ghidra.app.cmd.function.CreateFunctionCmd;
+import ghidra.program.model.symbol.SourceType;
 public class NativeSymbols extends GhidraScript {
  public void run() throws Exception {
   var keep=new HashSet<Long>();
@@ -36,7 +37,12 @@ public class NativeSymbols extends GhidraScript {
   }
   for(long a:keep) {
    var f=getFunctionAt(toAddr(a));
-   if(f!=null)CreateFunctionCmd.fixupFunctionBody(currentProgram,f,monitor);
+   if(f!=null) {
+    CreateFunctionCmd.fixupFunctionBody(currentProgram,f,monitor);
+    // Section analyzers can name the first function __text. Keep the same
+    // address identifier used by the other recovery and source-build tools.
+    f.setName("recovered_"+Long.toHexString(a),SourceType.USER_DEFINED);
+   }
   }
   println("Removed "+remove.size()+" analysis-only native function entries");
  }

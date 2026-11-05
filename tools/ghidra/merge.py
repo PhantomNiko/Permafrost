@@ -24,7 +24,7 @@ def merge(directory, output, header, names=None, descriptions=None):
     # target once; each original entry still has its own recorded ABI stub.
     definitions = {}
     for path in sorted(directory.glob('*.c')):
-        match = re.search(r'\n[\w\s*]*\b((?:thunk_)?(?:recovered_|FUN_)[0-9a-f]+)\s*\([^;{}]*\)\s*\{', path.read_text())
+        match = re.search(r'\n(?:__attribute__\(\([^\n]*?\)\)\s*)?[\w\s*]*\b((?:thunk_)?(?:recovered_|FUN_)[0-9a-f]+)\s*\([^;{}]*\)\s*\{', path.read_text())
         if match:
             name = match[1]
             if name not in definitions or int(path.stem, 16) == int(name.rsplit('_', 1)[1], 16):

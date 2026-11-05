@@ -29,12 +29,14 @@ public class Export extends GhidraScript {
     private void hintedReturn(ghidra.program.model.listing.Function function, DataType hint) throws Exception {
         if(currentProgram.getDefaultPointerSize()==8)function.setCustomVariableStorage(false);
         if(hint.getLength()==16 && currentProgram.getDefaultPointerSize()==8) {
-            // SysV returns a two-word integer in RDX:RAX. The generic language
-            // model otherwise invents a hidden memory-result parameter.
+            // Preserve a two-register integer result rather than inventing a
+            // hidden memory-result parameter.
             function.setReturnType(UnsignedLongLongDataType.dataType,SourceType.USER_DEFINED);
             function.setCustomVariableStorage(true);
+            boolean arm=currentProgram.getRegister("x0")!=null;
             function.setReturn(hint,new VariableStorage(currentProgram,
-                currentProgram.getRegister("RDX"),currentProgram.getRegister("RAX")),SourceType.USER_DEFINED);
+                currentProgram.getRegister(arm?"x1":"RDX"),
+                currentProgram.getRegister(arm?"x0":"RAX")),SourceType.USER_DEFINED);
         } else function.setReturnType(hint,SourceType.USER_DEFINED);
     }
     private void signature(long address, String declaration, String storage) throws Exception {
@@ -61,12 +63,13 @@ public class Export extends GhidraScript {
             throw new Exception("Could not apply signature at "+Long.toHexString(address));
         function.setName(name,SourceType.USER_DEFINED);
         if(currentProgram.getDefaultPointerSize()==8 && type.getReturnType().getName().equals("pf_point")) {
+            boolean arm=currentProgram.getRegister("x0")!=null;
             function.setCustomVariableStorage(false);
             function.setReturnType(UnsignedLongLongDataType.dataType,SourceType.USER_DEFINED);
             function.setCustomVariableStorage(true);
             function.setReturn(type.getReturnType(),new VariableStorage(currentProgram,
-                new ghidra.program.model.pcode.Varnode(currentProgram.getRegister("XMM1").getAddress(),8),
-                new ghidra.program.model.pcode.Varnode(currentProgram.getRegister("XMM0").getAddress(),8)),SourceType.USER_DEFINED);
+                new ghidra.program.model.pcode.Varnode(currentProgram.getRegister(arm?"d1":"XMM1").getAddress(),8),
+                new ghidra.program.model.pcode.Varnode(currentProgram.getRegister(arm?"d0":"XMM0").getAddress(),8)),SourceType.USER_DEFINED);
         }
         if(storage!=null) {
             String[] places=storage.split(",");
