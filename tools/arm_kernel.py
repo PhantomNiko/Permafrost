@@ -6,6 +6,7 @@ Pooka's Free Software License.
 import argparse
 import json
 import re
+import re
 from pathlib import Path
 import struct
 
@@ -66,6 +67,14 @@ def build_kernel(source, output):
     image = bytearray(end-base)
     image[start-base:] = state
     entries = {int(a, 16): symbols['_'+name] for a, name in profile['functions'].items()}
+    # Multiline C declarations must not leave callable entries as zero words.
+    for name,target in symbols.items():
+        match=re.fullmatch(r'_recovered_([0-9a-f]+)',name)
+        if match:
+            address=int(match[1],16)
+            if profile['text_start']<=address<profile['text_end']:
+                entries.setdefault(address,target)
+
     width = 8 if arch == 'arm64' else 4
     for offset in range((start-base+width-1) & -width, len(image)-width+1, width):
         value = int.from_bytes(image[offset:offset+width], 'little')
@@ -83,6 +92,10 @@ def build_kernel(source, output):
         if offset < 20 or offset+len(values) > len(image):
             raise ValueError('inline data is outside the kernel')
         image[offset:offset+len(values)] = bytes(values)
+    for address,target in entries.items():
+        expected=branch(address,symbols['_pf_kernel_entry']if address==entry else target,arch)
+        if image[address-base:address-base+4]!=expected:
+            raise ValueError('inline data overwrites a compiled entry shim')
     image=image.replace(b'WinterBoot',b'Permafrost').replace(b'WinterMoon',b'Permafrost')
     version=profile['version'].encode()
     def release_name(match):

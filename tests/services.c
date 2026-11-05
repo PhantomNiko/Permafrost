@@ -7,7 +7,7 @@ _Static_assert(sizeof(struct pf_image)==24,"image wire layout");
 _Static_assert(sizeof(struct pf_audio)==28,"audio wire layout");
 _Static_assert(sizeof(struct pf_framebuffer_info)==52,"framebuffer wire layout");
 _Static_assert(sizeof(struct pf_pointer_info)==32,"pointer wire layout");
-_Static_assert(sizeof(struct pf_window_info)==(__SIZEOF_POINTER__==8?112:108),"window native layout");
+_Static_assert(sizeof(struct pf_window_info)==112,"window native layout");
 _Static_assert(offsetof(struct pf_native_api,framebuffer_info)==0x7c,"framebuffer slot");
 _Static_assert(offsetof(struct pf_native_api,hardware_threads)==0xb8,"last service slot");
 _Static_assert(sizeof(struct pf_native_value)==(__SIZEOF_POINTER__==8?40:24),"native callback layout");

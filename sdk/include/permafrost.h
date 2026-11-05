@@ -43,20 +43,22 @@ struct pf_image { uint32_t data,address_high,size,width,height,stride_bytes; };
 struct pf_audio { uint32_t data,size,sample_count,sample_rate,channels,bits_per_sample,frame_count; };
 struct pf_font;
 struct pf_framebuffer_info {
-    uint32_t address_low,address_high,size,stride_bytes,width,height,pixel_format;
+    uint32_t address_low,address_high,size,stride_bytes,width,height,bits_per_pixel;
     uint32_t red_mask,green_mask,blue_mask,red_shift,green_shift,blue_shift;
 };
-struct pf_pointer_info { uint32_t flags; int32_t x,y,wheel,delta_x,delta_y; uint32_t reserved[2]; };
-/* Window query records use a native pointer, unlike file/image records. */
+enum pf_pointer_flags { PF_POINTER_ABSOLUTE=1,PF_POINTER_RELATIVE=2 };
+struct pf_pointer_info { uint32_t flags,buttons; int32_t x,y,wheel; uint32_t reserved,max_x,max_y; };
+/* Window query records carry a 64-bit address on every CPU. */
 struct pf_window_info {
     uint32_t id,owner;
-    void *pixels;
+    uint64_t pixels;
     uint32_t size,width,height,stride_bytes,background,flags;
     int32_t x,y;
     char title[64];
 };
 static inline void *pf_blob_data(const struct pf_blob *value) { return (void *)(uintptr_t)value->data; }
 static inline void *pf_image_data(const struct pf_image *value) { return (void *)(uintptr_t)((uint64_t)value->data|((uint64_t)value->address_high<<32)); }
+static inline void *pf_window_pixels(const struct pf_window_info *value) { return (void *)(uintptr_t)value->pixels; }
 static inline void *pf_audio_data(const struct pf_audio *value) { return (void *)(uintptr_t)value->data; }
 /* WMAP v11 is exactly 188 bytes. Decode its slots before native calls. */
 struct pf_native_api {

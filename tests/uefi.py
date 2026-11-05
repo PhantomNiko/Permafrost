@@ -25,6 +25,7 @@ def main():
     parser.add_argument('--vm',choices=('lua','rwby','winterscript'))
     parser.add_argument('--script',type=Path)
     parser.add_argument('--services',action='store_true')
+    parser.add_argument('--graphics',action='store_true')
     parser.add_argument('--selftest',action='store_true')
     parser.add_argument('--serial-flag',type=lambda value:int(value,0))
     parser.add_argument('--timeout',type=float,default=90)
@@ -58,6 +59,11 @@ def main():
             text=Image(base,2).files()['winterscript-selftest.ws'].decode()
             text=text.replace('print("WinterScript self-test: PASS")','serial("PF-SELFTEST-PASS")')
             script+=text+'\n';marker='PF-SELFTEST-PASS'
+        if args.graphics:
+            graphics_base=program_base+0x60000
+            compile(root_source/'graphics.c','graphics.bin',graphics_base)
+            script+='assert(runcode("/graphics.bin",$%x)==1)\n'%graphics_base
+            marker='PF-GRAPHICS-PASS'
         if args.script:script+=args.script.read_text()+'\n'
         if args.vm:script+='serial("PF-UEFI-READY")\n'
         else:script+=('print'if arm else'serial')+'("PF-UEFI-HARDWARE-PASS")\n'
@@ -65,6 +71,7 @@ def main():
         user=Image(disk,2).files()
         if args.services:
             for name in ('services.bin','native-module.bin'):user[name]=files[name]
+        if args.graphics:user['graphics.bin']=files['graphics.bin']
         if args.vm:
             extension={'lua':'lua','rwby':'rb','winterscript':'ws'}[args.vm]
             source=root_source/('native-'+args.vm+'.'+extension)
@@ -93,7 +100,7 @@ def main():
                 deadline=time.monotonic()+args.timeout
                 while time.monotonic()<deadline and process.poll()is None:
                     output=serial.read_text(errors='replace')if serial.exists()else''
-                    if marker in output:break
+                    if marker in output or 'PF-GRAPHICS-FAIL'in output:break
                     if args.vm and not sent and 'PF-UEFI-READY'in output:
                         with socket.socket(socket.AF_UNIX,socket.SOCK_STREAM)as control:
                             control.settimeout(2);control.connect(str(monitor));control.recv(4096)

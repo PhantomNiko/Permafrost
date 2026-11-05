@@ -171,6 +171,87 @@ static uint16_t key_code(void){
     if(key.scan>=0xb && key.scan<=0x16)return (uint16_t)(0x3b+key.scan-0xb)<<8;
     return 0;
 }
+static Guid relative_guid={0x31878c87,0x0b75,0x11d5,{0x9a,0x4f,0,0x90,0x27,0x3f,0xc1,0x4d}};
+static Guid absolute_guid={0x8d59d32b,0xc655,0x4ae9,{0x9b,0x15,0xf2,0x59,0x04,0x99,0x2a,0x43}};
+static RelativePointer *relative_devices[8];
+static AbsolutePointer *absolute_devices[8];
+static unsigned relative_count,absolute_count;
+static void pointer_devices(void){
+    Guid *guids[]={&relative_guid,&absolute_guid};
+    for(unsigned kind=0;kind<2;kind++){
+        uintptr_t count=0;void **handles=0;
+        if(failed(services->handles(2,guids[kind],0,&count,&handles)))continue;
+        for(uintptr_t i=0;i<count;i++){
+            void *device=0;
+            if(failed(services->protocol(handles[i],guids[kind],&device)) || !device)continue;
+            if(!kind && relative_count<8)relative_devices[relative_count++]=device;
+            if(kind && absolute_count<8)absolute_devices[absolute_count++]=device;
+        }
+        services->free_pool(handles);
+    }
+}
+static int32_t bounded_i32(int64_t value){
+    if(value>2147483647)return 2147483647;
+    if(value<(-2147483647-1))return (-2147483647-1);
+    return (int32_t)value;
+}
+static uint32_t pointer_read(uint32_t *out){
+    if(!out)return 0;
+    clear(out,32);uint32_t changed=0;
+    for(unsigned i=0;i<relative_count;i++){
+        RelativePointer *device=relative_devices[i];RelativeState state={0};
+        if(!device->read || device->read(device,&state))continue;
+        changed=1;out[0]|=2;out[1]|=state.left|(uint32_t)state.right<<1;
+        out[2]=(uint32_t)bounded_i32((int64_t)(int32_t)out[2]+state.x);
+        out[3]=(uint32_t)bounded_i32((int64_t)(int32_t)out[3]+state.y);
+        out[4]=(uint32_t)bounded_i32((int64_t)(int32_t)out[4]+state.z);
+    }
+    for(unsigned i=0;i<absolute_count;i++){
+        AbsolutePointer *device=absolute_devices[i];AbsoluteState state={0};
+        if(!device->read || device->read(device,&state))continue;
+        AbsoluteMode *mode=device->mode;
+        uint64_t min_x=mode?mode->min_x:0,min_y=mode?mode->min_y:0;
+        uint64_t max_x=mode?mode->max_x:0,max_y=mode?mode->max_y:0;
+        if(max_x<min_x)min_x=0;if(max_y<min_y)min_y=0;
+        if(state.x<min_x)state.x=min_x;if(state.y<min_y)state.y=min_y;
+        if(max_x && state.x>max_x)state.x=max_x;
+        if(max_y && state.y>max_y)state.y=max_y;
+        if(!(out[0]&2)){
+            out[0]|=1;out[2]=(uint32_t)bounded_i32((int64_t)(state.x-min_x));
+            out[3]=(uint32_t)bounded_i32((int64_t)(state.y-min_y));
+            out[6]=max_x-min_x>UINT32_MAX?UINT32_MAX:(uint32_t)(max_x-min_x);
+            out[7]=max_y-min_y>UINT32_MAX?UINT32_MAX:(uint32_t)(max_y-min_y);
+        }
+        out[1]|=state.buttons&3;changed=1;
+    }
+    return changed;
+}
+static void video_context(void);
+static uint32_t video_change(uint32_t *request){
+    uintptr_t count=0;void **handles=0;uint32_t result=0;
+    if(failed(services->handles(2,&video_guid,0,&count,&handles)))return 0;
+    for(uintptr_t i=0;i<count;i++){
+        Video *video=0;
+        if(failed(services->protocol(handles[i],&video_guid,(void **)&video)) || !video || !video->mode)continue;
+        uint32_t selected=video->mode->current;
+        if(video->query && video->set && request[7] && request[8]){
+            for(uint32_t n=0;n<video->mode->maximum;n++){
+                uintptr_t size=0;VideoInfo *info=0;
+                Status status=video->query(video,n,&size,&info);
+                int match=!failed(status) && info && info->format<3 && info->width==request[7] && info->height==request[8];
+                if(info)services->free_pool(info);
+                if(match){selected=n;break;}
+            }
+            if(selected!=video->mode->current && failed(video->set(video,selected)))continue;
+        }
+        if(!video->mode->info || video->mode->info->format>2)continue;
+        video_context();
+        request[11]=context[0x13];request[12]=context[0x192];
+        for(unsigned n=0;n<11;n++)request[13+n]=context[0x14+n];
+        result=1;break;
+    }
+    services->free_pool(handles);return result;
+}
 static uint32_t dispatch(uint32_t *request){
     if(!request)return 0;
     uint32_t result=0;
@@ -183,6 +264,8 @@ static uint32_t dispatch(uint32_t *request){
         Status status=request[0]==2?disk->read(disk,disk->media->id,lba,bytes,buffer):disk->write(disk,disk->media->id,lba,bytes,buffer);
         result=!failed(status);break;
     }
+    case 7:if(request[4] && request[5]>=32)result=pointer_read((uint32_t *)(uintptr_t)request[4]);break;
+    case 8:result=video_change(request);break;
     case 4:result=!failed(services->stall(request[6]));break;
     case 5:result=!disk->flush || !failed(disk->flush(disk));break;
     case 6:if(system_table->output && system_table->output->write && request[4])result=!failed(system_table->output->write(system_table->output,(uint16_t *)(uintptr_t)request[4]));break;
@@ -208,7 +291,7 @@ static void video_context(void){
         if(info->format>2 || !info->width || !info->height || info->stride<info->width)continue;
         context[0x13]=(uint32_t)mode->framebuffer;context[0x192]=(uint32_t)(mode->framebuffer>>32);
         context[0x14]=(uint32_t)mode->bytes;context[0x15]=info->stride*4;
-        context[0x16]=info->width;context[0x17]=info->height;context[0x18]=info->format;
+        context[0x16]=info->width;context[0x17]=info->height;context[0x18]=32;
         uint32_t red=info->red,green=info->green,blue=info->blue;
         if(info->format<2){red=info->format?0xff0000U:0xffU;green=0xff00;blue=info->format?0xffU:0xff0000U;}
         context[0x19]=red;context[0x1a]=green;context[0x1b]=blue;
@@ -247,6 +330,12 @@ static void enter(uintptr_t entry){
     __asm__ volatile("msr daifset,#0xf":::"memory");
 #else
     __asm__ volatile("cpsid if":::"memory");
+    uint32_t control;
+    __asm__ volatile("mrc p15,0,%0,c1,c0,2":"=r"(control));
+    control|=0x00f00000U;
+    __asm__ volatile("mcr p15,0,%0,c1,c0,2; isb"::"r"(control):"memory");
+    /* Thumb VMSR FPEXC,r0; keep the loader compiled without floating point. */
+    __asm__ volatile("mov r0,#0x40000000; .short 0xeee8,0x0a10":::"r0","memory");
 #endif
     ((void (*)(void))entry)();
     for(;;){
@@ -285,7 +374,7 @@ Status EFI_ABI pf_efi_entry(void *image,System *table){
     ((uint64_t *)(context+0x194))[0]=(uintptr_t)table;((uint64_t *)(context+0x194))[1]=(uintptr_t)services;
     ((uint64_t *)(context+0x194))[2]=(uintptr_t)table->output;((uint64_t *)(context+0x194))[3]=(uintptr_t)table->input;
     ((uint64_t *)(context+0x194))[4]=(uintptr_t)disk;((uint64_t *)(context+0x194))[5]=(uintptr_t)services->stall;
-    video_context();
+    video_context();pointer_devices();
     if(!heap_context()){message("Permafrost heap reservation failed.\r\n");return (Status)-1;}
     *(volatile uint32_t *)(uintptr_t)(KERNEL_ADDRESS+16)=(uintptr_t)context;
     message("Starting Permafrost.\r\n");enter(entry);return 0;

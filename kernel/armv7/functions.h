@@ -586,9 +586,8 @@ uint recovered_40418b88(void);
 uint recovered_40418bb8(char *param_1,int param_2,int param_3);
 undefined4 recovered_40418cc4(void);
 void recovered_40418d34(int param_1,char *param_2);
-undefined4
-recovered_40418d74(int param_1,int param_2,int param_3,uint param_4,uint param_5,uint param_6,
-                  uint param_7);
+uint recovered_40418d74(uint id,char *title,void *pixels,uint width,uint height,uint stride,
+                       uint background);
 int recovered_40418f34(int param_1);
 undefined4 recovered_40418f80(int param_1);
 void recovered_40418fb4(int param_1,int *in_r3);

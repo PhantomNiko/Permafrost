@@ -50,7 +50,8 @@ records 28 bytes. Use `pf_blob_data()`, `pf_image_data()`, and `pf_audio_data()`
 to obtain native pointers from their address fields. PNG addresses have
 separate low and high words. Callback values contain native pointers:
 24 bytes on 32-bit CPUs and 40 bytes on 64-bit CPUs. Window query records
-also use native pointers and occupy 108 or 112 bytes, respectively.
+carry 64-bit addresses and occupy 112 bytes on every CPU; use
+`pf_window_pixels()` to decode their pixel address.
 
 The local integer/string log formatter uses WMAP rather than a private kernel
 address, supporting both firmware variants. Unsupported format conversions

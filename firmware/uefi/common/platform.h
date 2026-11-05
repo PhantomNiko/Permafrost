@@ -62,7 +62,28 @@ typedef struct Block {
 } Block;
 typedef struct {uint32_t version,width,height,format,red,green,blue,reserved,stride;} VideoInfo;
 typedef struct {uint32_t maximum,current;VideoInfo *info;uintptr_t info_size;uint64_t framebuffer;uintptr_t bytes;} VideoMode;
-typedef struct {void *query,*set,*blit;VideoMode *mode;} Video;
+typedef struct Video Video;
+struct Video {
+    Status(EFI_ABI *query)(Video *,uint32_t,uintptr_t *,VideoInfo **);
+    Status(EFI_ABI *set)(Video *,uint32_t);
+    void *blit;VideoMode *mode;
+};
+typedef struct {int32_t x,y,z;uint8_t left,right,pad[2];} RelativeState;
+typedef struct {uint64_t x,y,z;uint8_t left,right,pad[6];} RelativeMode;
+typedef struct RelativePointer RelativePointer;
+struct RelativePointer {
+    Status(EFI_ABI *reset)(RelativePointer *,uint8_t);
+    Status(EFI_ABI *read)(RelativePointer *,RelativeState *);
+    void *event;RelativeMode *mode;
+};
+typedef struct {uint64_t x,y,z;uint32_t buttons,pad;} AbsoluteState;
+typedef struct {uint64_t min_x,min_y,min_z,max_x,max_y,max_z;uint32_t attributes,pad;} AbsoluteMode;
+typedef struct AbsolutePointer AbsolutePointer;
+struct AbsolutePointer {
+    Status(EFI_ABI *reset)(AbsolutePointer *,uint8_t);
+    Status(EFI_ABI *read)(AbsolutePointer *,AbsoluteState *);
+    void *event;AbsoluteMode *mode;
+};
 typedef struct {uint32_t type,pad;uint64_t base,virtual_address,pages,attributes;} Region;
 #if defined(__arm__) || defined(__aarch64__)
 #define SHARED_ADDRESS 0x40010000U

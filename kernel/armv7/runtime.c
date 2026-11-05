@@ -25983,9 +25983,8 @@ void recovered_40418d34(int param_1,char *param_2)
  * Address: 0x40418d74
  */
 
-undefined4
-recovered_40418d74(int param_1,int param_2,int param_3,uint param_4,uint param_5,uint param_6,
-                  uint param_7)
+uint recovered_40418d74(uint id,char *title,void *pixels,uint width,uint height,uint stride,
+                       uint background)
 
 {
   unsigned char frame[84] = {0};
@@ -26001,23 +26000,23 @@ recovered_40418d74(int param_1,int param_2,int param_3,uint param_4,uint param_5
 
   local_24 = (int)(uintptr_t)(frame + 52) - 8;
   recovered_4041568c();
-  iVar2 = recovered_40418f34(param_1);
+  iVar2 = recovered_40418f34(id);
   uVar4 = 0;
   if (iVar2 == 0) {
     return 0;
   }
-  if (param_2 != 0) {
-    recovered_40418d34(iVar2,(char *)param_2);
+  if (title != (char *)0x0) {
+    recovered_40418d34(iVar2,title);
   }
-  if (param_7 >> 0x18 == 0) {
-    *(uint *)(iVar2 + 0x20) = param_7;
+  if (background >> 0x18 == 0) {
+    *(uint *)(iVar2 + 0x20) = background;
   }
   uVar5 = 0;
-  if (param_4 != 0) {
-    uVar5 = param_5;
-    local_24 = param_4;
+  if (width != 0) {
+    uVar5 = height;
+    local_24 = width;
   }
-  if (param_4 != 0 && uVar5 != 0) {
+  if (width != 0 && uVar5 != 0) {
     uVar3 = (uint)((ulonglong)uVar5 * (ulonglong)local_24);
     uVar1 = uVar3 * 4;
     if ((uint)(0xffbfffff < uVar1 - 0x400001) <=
@@ -26025,15 +26024,15 @@ recovered_40418d74(int param_1,int param_2,int param_3,uint param_4,uint param_5
          (uint)(uVar1 < 0x400000)) - (uint)(uVar1 == 0x400000)) + 1) {
       return 0;
     }
-    if (param_6 == 0) {
-      param_6 = local_24 << 2;
+    if (stride == 0) {
+      stride = local_24 << 2;
     }
-    if (param_6 < local_24 << 2) {
+    if (stride < local_24 << 2) {
       return 0;
     }
     size = local_24 * 4;
     buffer = *(void **)(iVar2 + 0xc);
-    if (param_3 == 0) {
+    if (pixels == (void *)0x0) {
       recovered_40400b8c(buffer);
       *(undefined4 *)(iVar2 + 0x10) = 0;
       *(undefined4 *)(iVar2 + 0xc) = 0;
@@ -26047,20 +26046,20 @@ recovered_40418d74(int param_1,int param_2,int param_3,uint param_4,uint param_5
         }
         *(ulong *)(iVar2 + 0x10) = size_00;
         *(void **)(iVar2 + 0xc) = buffer;
-        uVar5 = param_5;
+        uVar5 = height;
       }
-      if (param_6 == size) {
-        recovered_40400d50(buffer,(void *)param_3,size_00);
+      if (stride == size) {
+        recovered_40400d50(buffer,pixels,size_00);
       }
       else {
         for (; uVar5 != uVar4; uVar4 = uVar4 + 1) {
-          recovered_40400d50(buffer,(void *)param_3,size);
+          recovered_40400d50(buffer,pixels,size);
           if ((uVar4 & 0x3f) == 0x3f) {
             recovered_4041568c();
           }
-          param_3 = param_3 + param_6;
+          pixels = (void *)((int)pixels + stride);
           buffer = (void *)((int)buffer + size);
-          uVar5 = param_5;
+          uVar5 = height;
         }
       }
     }
