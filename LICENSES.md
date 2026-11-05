@@ -5,7 +5,7 @@ covered by Pooka's Free Software License in `LICENSE.TXT`. `licenses/UPSTREAM.TX
 retains the supplied upstream license text. Preserve its notice and disclaimer
 when distributing source or binaries.
 
-The current 0.8 reference uses in-house firmware and WinterLua 0.2. The current
+The current 0.9 reference uses in-house firmware and in-house Lua. The current
 build does not include OpenBIOS or upstream Lua. Earlier milestones retain
 their component notices and source dependencies in Git history. When those
 components are used, their GPL/per-file or Lua MIT terms apply; the

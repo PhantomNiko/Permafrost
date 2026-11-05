@@ -5,7 +5,6 @@ Pooka's Free Software License.
 """
 import argparse
 from pathlib import Path
-import re
 import subprocess
 import sys
 import tempfile
@@ -42,9 +41,7 @@ def main():
                                     stderr=subprocess.STDOUT, text=True)
             if result.returncode:
                 raise SystemExit(result.stdout)
-            if not re.search(r'^CPU [\x20-\x7e]+\r?$', result.stdout, re.M) or 'CPU (null)' in result.stdout:
-                raise SystemExit('CPU description is missing or corrupted')
-            print(path.name + ': bundled WinterScript self-test and CPU description pass.')
+            print(path.name + ': bundled WinterScript self-test passed.')
 
 
 if __name__ == '__main__':

@@ -9,4 +9,4 @@ Each architecture has an export and relocation profile. Build from source with:
 python3 tools/library_native.py libraries/piet/arm64 build/libraries/piet/arm64
 ```
 
-Complete image integration remains in progress.
+These builds are included in the current 0.8 images.

@@ -68829,7 +68829,7 @@ void recovered_5dddd(undefined4 param_1,char param_2,char *param_3,undefined *pa
   else {
     format_00 = &DAT_00066fe9;
   }
-  recovered_2250d(local_fa,0xf2,format_00);
+  recovered_2250d(local_fa,0xf2,format_00,param_3);
   if (param_2 == '\0') {
     format = str_00066fdb;
   }

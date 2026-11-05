@@ -1,7 +1,7 @@
 # Source dependencies
 
-Permafrost 0.7 reconstructs the supplied 0.8 release. Its BIOS firmware, EFI
-loaders, kernels, WinterLua 0.2, Rwby, and standalone WinterScript build from
+Permafrost 0.8 reconstructs the supplied 0.9 release. Its BIOS firmware, EFI
+loaders, kernels, in-house Lua, Rwby, and standalone WinterScript build from
 C/C++ sources in this repository. Normal builds require Python 3 and host
 Clang/Clang++; no reference disk, decompiler, NASM, or external firmware tree
 is required. The SDK targets macOS 15 hosts.

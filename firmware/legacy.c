@@ -127,7 +127,7 @@ static void memory_map(void) {
 void pf_firmware_main(void) {
  drive=*(uint8_t *)0x6068;
  port(0x3f9,0);port(0x3fb,0x80);port(0x3f8,1);port(0x3f9,0);port(0x3fb,3);port(0x3fa,0xc7);port(0x3fc,0x0b);
- text("Permafrost 0.7 firmware\r\n");memory_map();
+ text("Permafrost 0.8 firmware\r\n");memory_map();
  uint32_t candidates[14],count=0;
  if(read_sector(65,sector) && le32(sector)==0x54504257) {
   unsigned n=sector[6]|(unsigned)sector[7]<<8;if(n>14)n=14;

@@ -1,4 +1,4 @@
-// Permafrost 0.7. Reconstructed from the bundled native monitor.
+// Permafrost 0.8. Reconstructed from the bundled native monitor.
 // Pooka's Free Software License.
 #include <permafrost.h>
 

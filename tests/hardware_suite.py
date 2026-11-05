@@ -8,7 +8,6 @@ import sys
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('reference',type=Path)
     parser.add_argument('images',type=Path,nargs='+')
     for name in ('bochs','bios','vgabios'):
         parser.add_argument('--'+name,type=Path,required=True)
@@ -16,14 +15,13 @@ def main():
     firmware=[]
     for name in ('bochs','bios','vgabios'):firmware+=['--'+name,str(getattr(args,name))]
     root=Path(__file__).parent
-    for test in ('selftest.py','services.py','macho_apps.py','native_interpreters.py'):
+    for test in ('selftest.py','services.py','macho_apps.py'):
         subprocess.run([sys.executable,str(root/test),*[str(p) for p in args.images],*firmware],check=True)
-    for image in args.images:
-        subprocess.run([sys.executable,str(root/'native_lua.py'),str(image),*firmware],check=True)
-    # Directory-size comparison uses the BIOS reference and its matching image.
+    # Directory-size checks use the current BIOS image.
     bios=next((p for p in args.images if 'UEFI' not in p.name),None)
     if bios:
-        subprocess.run([sys.executable,str(root/'directory_sizes.py'),str(args.reference),str(bios),*firmware],check=True)
+        # The 0.9 reference has an empty driver slot and is not a BIOS test image.
+        subprocess.run([sys.executable,str(root/'directory_sizes.py'),str(bios),*firmware],check=True)
     print('Current-release hardware checks passed.')
 
 

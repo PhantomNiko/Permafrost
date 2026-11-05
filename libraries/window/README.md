@@ -9,4 +9,4 @@ Each architecture has an export and relocation profile. Build from source with:
 python3 tools/library_native.py libraries/window/arm64 build/libraries/window/arm64
 ```
 
-Complete image integration remains in progress.
+These builds are included in the current 0.8 images.

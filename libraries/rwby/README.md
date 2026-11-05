@@ -12,5 +12,4 @@ python3 tools/library_native.py libraries/rwby/arm64 build/libraries/rwby/arm64
 
 The two 64-bit targets share their C implementation in `lp64`; i386 and ARM32
 share `ilp32`. The 32-bit source also produces byte-identical arithmetic and loop
-bytecode. Complete image integration remains in progress. This directory is a
-source checkpoint.
+bytecode. These builds are included in the current 0.8 images. These builds are included in the 0.8 images.

@@ -68,3 +68,10 @@ or 0x40400000 on ARM. The IA32 EFI kernel loads at 0x02000000; define the
 macro explicitly when inspecting its private image. Public services use
 WMAP and require no private kernel address. `pf-wmfs` edits the nested WBPT
 volumes inside a GPT UEFI image while preserving its EFI partition.
+
+The SDK also includes the nine current universal guest DLLs in `usr/lib`.
+The compiler driver builds freestanding programs; these libraries preserve the
+original guest C++ export names for existing Mach-O software and tooling.
+
+In the current kernel scripting interface, `dir()` returns the current path;
+use `dir("list")` to print the directory listing and file sizes.

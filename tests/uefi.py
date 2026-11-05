@@ -19,7 +19,7 @@ def main():
     parser.add_argument('--firmware',type=Path,required=True)
     parser.add_argument('--vars',type=Path)
     parser.add_argument('--resource-dir',type=Path)
-    parser.add_argument('--sdk',type=Path,default=Path('build/Permafrost0.7.sdk'))
+    parser.add_argument('--sdk',type=Path,default=Path('build/Permafrost0.8.sdk'))
     parser.add_argument('--arch',choices=('i386','x86_64','armv7','arm64'),default='x86_64')
     parser.add_argument('--compiler',type=Path,help='use a source compiler instead of the SDK compiler')
     parser.add_argument('--vm',choices=('lua','rwby','winterscript'))

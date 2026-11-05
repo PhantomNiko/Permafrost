@@ -14,4 +14,4 @@ newlines, empty text, missing glyphs, RGB colors and opacity. The fixtures
 contain no third-party font data. Type 1 fonts and compound TrueType glyphs
 are not covered by these cases. The two 32-bit targets share their C implementation
 in `ilp32`, with architecture-specific export profiles and WMAP addresses.
-Complete 0.8 image integration remains in progress.
+These builds are included in the current 0.8 images.

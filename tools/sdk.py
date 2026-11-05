@@ -6,7 +6,7 @@ import shutil
 import zipfile
 
 
-def build_sdk(output=Path('build')):
+def build_sdk(output=Path('build'),libraries=None):
     root = output / 'Permafrost0.8.sdk'
     # Recreate this generated bundle so removed notices/tools cannot survive
     # from an earlier build and leak into the new archive.
@@ -34,6 +34,9 @@ def build_sdk(output=Path('build')):
     shutil.copyfile('DEPENDENCIES.md', root / 'Documentation/DEPENDENCIES.md')
     shutil.copyfile('docs/recovery.md', root / 'Documentation/recovery.md')
     shutil.copyfile('docs/sdk.md', root / 'Documentation/sdk.md')
+    if libraries:
+        (root/'usr/lib').mkdir(parents=True,exist_ok=True)
+        for name,binary in libraries.items():(root/'usr/lib'/name).write_bytes(binary)
     settings = dict(CanonicalName='permafrost0.8', DisplayName='Permafrost 0.8',
                     Version='0.8', MaximumDeploymentTarget='0.8',
                     DefaultProperties=dict(PLATFORM_NAME='permafrost', ARCHS='i386 x86_64 armv7 arm64'),

@@ -12,6 +12,6 @@ python3 tools/library_native.py libraries/lua/arm64 build/libraries/lua/arm64
 ```
 
 The two 64-bit targets share their C implementation in `lp64`; i386 and ARM32
-share `ilp32`. Complete image integration remains in progress. Function
+share `ilp32`. These builds are included in the current 0.8 images. Function
 execution is not covered: the reference runtime terminates on the current
-function-declaration fixture. This directory is a source checkpoint.
+function-declaration fixture. These builds are included in the 0.8 images.

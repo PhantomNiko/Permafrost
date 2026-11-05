@@ -31,7 +31,7 @@ def main():
         with tempfile.TemporaryDirectory(prefix='permafrost-directory-test-') as temp:
             root=Path(temp);image=root/'disk.img';image.write_bytes(raw)
             script=root/'directory.ws'
-            script.write_text('serial("PF-DIRECTORY-BEGIN")\ndir()\nserial("PF-DIRECTORY-PASS")\n')
+            script.write_text('serial("PF-DIRECTORY-BEGIN")\ndir("list")\nserial("PF-DIRECTORY-PASS")\n')
             command=[sys.executable,str(Path(__file__).with_name('hardware.py')),str(image),
                 '--script',str(script),'--expect','PF-DIRECTORY-PASS','--timeout','40']
             for name in ['bochs','bios','vgabios']:command+=['--'+name,str(getattr(args,name))]
@@ -39,10 +39,10 @@ def main():
                 command.append('--initialize-fpu')
             result=subprocess.run(command,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True)
             if result.returncode:raise SystemExit(result.stdout)
-            actual={name:int(size) for name,size in re.findall(r'^([^\r\n]+) \((\d+) bytes\)',result.stdout,re.M)}
+            actual={name.lstrip('/'):int(size) for name,size in re.findall(r'^([^\r\n]+) \((\d+) bytes\)',result.stdout,re.M)}
             for name,size in expected.items():
                 if actual.get(name)!=size:
-                    raise SystemExit('%s: %s listed as %r bytes; expected %d'%(path.name,name,actual.get(name),size))
+                    raise SystemExit(result.stdout+'\n'+'%s: %s listed as %r bytes; expected %d'%(path.name,name,actual.get(name),size))
             print('%s: %d file sizes match disk records, including 0/1/257/4097-byte probes.'%(path.name,len(expected)))
 
 

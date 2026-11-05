@@ -23,7 +23,7 @@ def make_disk(esp,payload):
     entries_crc=zlib.crc32(entries)
     def header(current,backup,table):
         result=bytearray(512)
-        struct.pack_into('<8sIIIIQQQQ16sQIII',result,0,b'EFI PART',0x10000,92,0,0,current,backup,34,total-34,uuid.uuid5(namespace,'Permafrost 0.7').bytes_le,table,128,128,entries_crc)
+        struct.pack_into('<8sIIIIQQQQ16sQIII',result,0,b'EFI PART',0x10000,92,0,0,current,backup,34,total-34,uuid.uuid5(namespace,'Permafrost 0.8').bytes_le,table,128,128,entries_crc)
         struct.pack_into('<I',result,16,zlib.crc32(result[:92]));return result
     output[512:1024]=header(1,total-1,2);output[1024:1024+len(entries)]=entries
     output[(total-33)*512:(total-1)*512]=entries;output[(total-1)*512:]=header(total-1,1,total-33)
