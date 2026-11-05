@@ -16,8 +16,13 @@ def main():
     spec.loader.exec_module(module)
     source = '''
     typedef unsigned long long uint64_t;
+    typedef unsigned long uintptr_t;
     static uint64_t pf_double_bits(double value) {
         union { double value; uint64_t bits; } view = { value };
+        return view.bits;
+    }
+    static unsigned int pf_float_bits(float value) {
+        union { float value; unsigned int bits; } view = { value };
         return view.bits;
     }
     static int sum(int a, int b) { return a+b; }
@@ -31,10 +36,15 @@ def main():
             if (slot != 0x4026000000000000ULL) return 2;
         }
         slot = (double)(flag ? data[1] : data[0]);
-        return slot != 0x4020000000000000ULL;
+        if (slot != 0x4020000000000000ULL) return 3;
+        void *spill = (void *)
+            (float)
+            (1.25);
+        return (uintptr_t)spill != 0x3fa00000U;
     }
     '''
     source = module.rewrite_double_assignments(source, 'slot')
+    source = module.rewrite_scalar_storage(source)
     with tempfile.TemporaryDirectory(prefix='permafrost-translation-') as directory:
         executable = Path(directory) / 'check'
         subprocess.run(['clang', '-x', 'c', '-std=c11', '-', '-o', str(executable)],

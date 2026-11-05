@@ -27,7 +27,11 @@ public class TTFVirtuals extends GhidraScript {
     if(slot>=4*width&&slot<=7*width&&slot%width==0)signature="double indirect(void *backend);";
     if(slot==3*width)signature="pf_glyph indirect(void *backend,unsigned int glyph,double scale);";
     if(signature==null)continue;
-    var type=(FunctionDefinitionDataType)parser.parse(signature);HighFunctionDBUtil.writeOverride(f,op.getSeqnum().getTarget(),type);println(op.getSeqnum().getTarget()+" slot "+slot);count++;
+    // Reused parser names can preserve an earlier parameter list.
+    String unique="pf_virtual_"+op.getSeqnum().getTarget()+"_"+Integer.toUnsignedString(signature.hashCode(),16);
+    var type=(FunctionDefinitionDataType)parser.parse(signature.replace("indirect(",unique+"("));
+    type.setCallingConvention("__cdecl");
+    HighFunctionDBUtil.writeOverride(f,op.getSeqnum().getTarget(),type);println(op.getSeqnum().getTarget()+" slot "+slot);count++;
    }
   }d.dispose();println("Recovered "+count+" virtual call signatures");
  }

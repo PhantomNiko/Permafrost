@@ -98,7 +98,7 @@ def rewrite_double_assignments(source, name):
 
 def rewrite_scalar_storage(source):
     """Restore raw float views lost when an SSA slot is printed as a pointer."""
-    pattern=r'\(([^()\n]+\*)\)\(float\)'
+    pattern=r'\(([^()\n]+\*)\)\s*\(float\)\s*'
     for match in reversed(list(re.finditer(pattern,source))):
         start=match.end()
         if source[start]!='(':
