@@ -26,7 +26,7 @@ def fixture(curved=False):
 
 def floating(lib,value,double=False):
  bits=struct.unpack('<Q'if double else'<I',struct.pack('<d'if double else'<f',value))[0]
- if lib.cpu_type==7:return bits
+ if lib.cpu_type in(7,12):return bits
  reg=(UC_X86_REG_XMM0 if lib.cpu_type==0x1000007 else
       (UC_ARM_REG_D0 if double else UC_ARM_REG_S0)if lib.cpu_type==12 else
       (UC_ARM64_REG_D0 if double else UC_ARM64_REG_S0))
@@ -36,11 +36,12 @@ def floating(lib,value,double=False):
 
 def decode(path,font,text,size=24,colors=(0,0,0),opacity=255):
  lib=DLL(path);lib.cpu.mem_write(0x3000000,font);lib.cpu.mem_write(0x3001000,text+b'\0')
- bits=floating(lib,size);args=(0x3000000,len(font))+((bits,)if lib.cpu_type==7 else())
+ bits=floating(lib,size);args=(0x3000000,len(font))+((bits,)if lib.cpu_type in(7,12)else())
  handle=lib.call('__Z23wm_ttf_font_load_memoryPKvmf',*args,result_bits=64 if lib.wide else 32)
  if not handle:return None
  bits=floating(lib,opacity,True);args=(handle,0x3001000,*colors)
  if lib.cpu_type==7:args+=(bits&0xffffffff,bits>>32)
+ if lib.cpu_type==12:args+=(0,bits&0xffffffff,bits>>32)
  bitmap=lib.call('__Z18wm_ttf_font_renderPvPKciiid',*args,result_bits=64 if lib.wide else 32)
  result=None
  if bitmap:

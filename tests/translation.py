@@ -17,6 +17,7 @@ def main():
     source = '''
     typedef unsigned long long uint64_t;
     typedef unsigned long uintptr_t;
+    typedef unsigned char byte;
     static uint64_t pf_double_bits(double value) {
         union { double value; uint64_t bits; } view = { value };
         return view.bits;
@@ -47,7 +48,14 @@ def main():
             (1.25);
         if ((uintptr_t)spill != 0x3fa00000U) return 4;
         double units = (double)NEON_ucvtf(sum(400,600));
-        return units != 1000.0;
+        if (units != 1000.0) return 5;
+        byte character = ' ';
+        if ((byte)character - 0x30 < 10) return 6;
+        character = '*';
+        if ((byte)character - 0x30 < 10) return 7;
+        if (character - 0x30 < 10) return 8;
+        character = '7';
+        return !(character - 0x30 < 10);
     }
     '''
     source = module.rewrite_double_assignments(source, 'slot')

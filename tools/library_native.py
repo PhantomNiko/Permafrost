@@ -23,6 +23,11 @@ def build_library(source, output):
     output.mkdir(parents=True, exist_ok=True)
     functions = {int(k, 16): v for k, v in profile['functions'].items()}
     exports = profile['exports']
+    result_entries = {int(value, 16) for value in profile.get('arm64_sret_exports', [])}
+    if result_entries and arch != 'arm64':
+        raise ValueError('X8 result entry adapters require ARM64')
+    if not result_entries <= functions.keys():
+        raise ValueError('result entry adapter has no recovered implementation')
     primary, aliases = {}, []
     for item in exports:
         address = item['address']
@@ -33,8 +38,22 @@ def build_library(source, output):
         else:
             primary[address] = item['name']
     header = (source / 'functions.h').read_text()
+    entry_source = []
+    for address in sorted(result_entries):
+        target = functions[address]
+        if not re.fullmatch(r'[A-Za-z_][A-Za-z_0-9]*', target):
+            raise ValueError('invalid recovered entry identifier')
+        entry = 'pf_arm64_result_%x' % address
+        header += '\nvoid ' + entry + '(void);\n'
+        # Recovered C uses an explicit first result pointer. Native AAPCS64
+        # callers supply that pointer in X8. Floating registers stay intact.
+        moves = ['mov x%d,x%d' % (i + 1, i) for i in range(6, -1, -1)]
+        moves += ['mov x0,x8', 'b _' + target]
+        entry_source.append('__attribute__((naked)) void ' + entry +
+                            '(void) { __asm__ volatile(' +
+                            json.dumps('\n'.join(moves)) + '); }\n')
     for address, label in primary.items():
-        name = functions[address]
+        name = ('pf_arm64_result_%x' % address if address in result_entries else functions[address])
         pattern = r'(?m)^([^#\n]*\b' + re.escape(name) + r'\([^;]*\));'
         attributes = ' __asm__(' + json.dumps(label) + ')'
         if next(e for e in exports if e['name'] == label)['weak']:
@@ -43,7 +62,7 @@ def build_library(source, output):
         if count != 1:
             raise ValueError('export has no unique C declaration: ' + label)
     (output / 'functions.h').write_text(header)
-    (output / 'runtime.c').write_text((source / 'runtime.c').read_text())
+    (output / 'runtime.c').write_text((source / 'runtime.c').read_text() + ''.join(entry_source))
     objects = []
     for name in ('runtime', 'state'):
         path = output / (name + '.c') if name == 'runtime' else source / 'state.c'
@@ -83,7 +102,8 @@ def build_library(source, output):
         target = relocation['target']
         if target['kind'] == 'function':
             address = int(target['address'], 16)
-            label = primary.get(address, '_' + functions[address])
+            label = ('_' + functions[address] if address in result_entries else
+                     primary.get(address, '_' + functions[address]))
             value = symbols[label]
         elif target['kind'] == 'data':
             value = anchor + target['offset']

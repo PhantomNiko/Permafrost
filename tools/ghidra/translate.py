@@ -96,8 +96,20 @@ def rewrite_double_assignments(source, name):
     return source
 
 
+def rewrite_byte_ranges(source):
+    # Native unsigned subtraction in ASCII range checks must remain unsigned
+    # after C promotes an 8-bit input to int.
+    narrow = r'\(byte\)\s*[A-Za-z_]\w*(?:\[[^]\n]+\])?'
+    names = re.findall(r'\b(?:byte|uchar|uint8_t)\s+(\w+)', source)
+    if names:
+        narrow = '(?:' + narrow + r'|\b(?:' + '|'.join(map(re.escape,names)) + r')\b)'
+    value = '(' + narrow + r'\s*-\s*)(0x(?:30|41|61))\b(?![Uu])'
+    return re.sub(value,lambda m:m[1]+m[2]+'U',source)
+
+
 def rewrite_scalar_storage(source):
     """Restore raw float views lost when an SSA slot is printed as a pointer."""
+    source=rewrite_byte_ranges(source)
     # These p-code helpers carry IEEE bits in an integer. A C numeric cast
     # would convert the representation rather than read the floating value.
     for match in reversed(list(re.finditer(r'\(double\)(NEON_[us]cvtf\()',source))):
