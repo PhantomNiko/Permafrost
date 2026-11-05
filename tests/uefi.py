@@ -30,14 +30,14 @@ def main():
     parser.add_argument('--timeout',type=float,default=90)
     args=parser.parse_args();arm=args.arch in ('armv7','arm64')
     if not arm and args.vars is None:parser.error('x86 checks require --vars')
-    if arm and (args.services or args.vm or args.selftest):parser.error('ARM checks currently cover startup and native service calls')
+    if arm and (args.vm or args.selftest):parser.error('ARM checks currently cover startup and SDK services')
     base=args.image.read_bytes();root_source=Path(__file__).parent
     with tempfile.TemporaryDirectory(prefix='permafrost-uefi-')as temporary:
         root=Path(temporary);files=Image(base,0).files()
         def compile(source,name,address):
             target=root/name
             defines=['-D','PF_TEST_SERIAL_FLAG='+hex(args.serial_flag)]if args.serial_flag is not None and name=='uart.bin'else[]
-            subprocess.run([sys.executable,str(args.compiler or args.sdk/'bin/pf-cc'),str(source),*defines,'--arch',args.arch,
+            subprocess.run([sys.executable,str(args.compiler or args.sdk/'bin/pf-cc'),str(source),*defines,'--runtime','--arch',args.arch,
                 '--format','flat','--base',hex(address),'-o',str(target)],check=True,stdout=subprocess.DEVNULL)
             files[name]=target.read_bytes()
         program_base=0x42000000 if arm else 0x240000
@@ -46,12 +46,13 @@ def main():
         marker='PF-UEFI-HARDWARE-PASS';script+='serial(2 + 3)\n'
         if arm:script+='assert(pfProbe(2 + 3))\n'
         if args.services:
-            compile(root_source/'services.c','services.bin',0x240000)
-            compile(Path('sdk/examples/native-module.c'),'native-module.bin',0x260000)
-            script+='assert(runcode("/native-module.bin",$260000)==1)\n'
+            service_base=program_base+0x20000;module_base=program_base+0x40000
+            compile(root_source/'services.c','services.bin',service_base)
+            compile(Path('sdk/examples/native-module.c'),'native-module.bin',module_base)
+            script+='assert(runcode("/native-module.bin",$%x)==1)\n'%module_base
             script+='assert(nativeExample["add"](17,25)==42)\n'
             script+='ok,message=pcall(nativeExample["add"],"bad",1)\nassert(not ok)\n'
-            script+='assert(runcode("/services.bin",$240000)==1)\n';marker='PF-SERVICES-PASS'
+            script+='assert(runcode("/services.bin",$%x)==1)\n'%service_base;marker='PF-SERVICES-PASS'
             # The test program lives on the mounted user volume.
         if args.selftest:
             text=Image(base,2).files()['winterscript-selftest.ws'].decode()

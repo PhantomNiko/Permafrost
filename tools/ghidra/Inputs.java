@@ -15,13 +15,14 @@ public class Inputs extends GhidraScript {
  public void run() throws Exception {
   var decompiler=new DecompInterface();decompiler.openProgram(currentProgram);
   boolean arm=currentProgram.getRegister("x0")!=null;
+  boolean arm32=currentProgram.getRegister("r0")!=null;
   boolean wide=currentProgram.getDefaultPointerSize()==8;
-  String pattern=arm?"in_(?:[xw][0-8]|[sd][0-7])":wide?
+  String pattern=arm?"in_(?:[xw][0-8]|[sd][0-7])":arm32?"in_(?:r[0-3]|s(?:[0-9]|1[0-5])|d[0-7])":wide?
       "in_(?:RDI|RSI|RDX|RCX|R8|R9|EDI|ESI|EDX|ECX|R8D|R9D|XMM[0-7])":
       "in_(?:ECX|EDX)";
   long first=Long.decode(getScriptArgs()[0]),last=Long.decode(getScriptArgs()[1]);
   var functions=currentProgram.getFunctionManager().getFunctions(true);
-  int fixed=0;
+  int fixed=0;var changed=new ArrayList<String>();
   while(functions.hasNext()) {
    var function=functions.next();long entry=function.getEntryPoint().getOffset();
    if(entry<first || entry>=last)continue;
@@ -35,7 +36,7 @@ public class Inputs extends GhidraScript {
     existing.add(new ParameterImpl(parameter.getName(),parameter.getDataType(),
                   parameter.getVariableStorage(),currentProgram,SourceType.USER_DEFINED));
     for(var node:parameter.getVariableStorage().getVarnodes())
-     if(node.getAddress().isRegisterAddress())occupied.add(node.getAddress().getOffset());
+     if(node.getAddress().isRegisterAddress())for(int i=0;i<node.getSize();i++)occupied.add(node.getAddress().getOffset()+i);
    }
    var inputs=new HashMap<Long,ParameterImpl>();
    var nodes=result.getHighFunction().getVarnodes(currentProgram.getAddressFactory().getRegisterSpace());
@@ -69,7 +70,9 @@ public class Inputs extends GhidraScript {
     var storage=parameter.getVariableStorage();
     if(storage.isStackStorage())return 1000L+storage.getStackOffset();
     var address=storage.getMinAddress();
-    if(!arm) {
+    if(arm32) {
+     for(int i=0;i<4;i++){var register=currentProgram.getRegister("r"+i);if(register.getAddress().equals(address))return (long)i;}
+    }else if(!arm) {
      String[] general=wide?new String[]{"RDI","RSI","RDX","RCX","R8","R9"}:
                            new String[]{"ECX","EDX"};
      for(int i=0;i<general.length;i++) {
@@ -92,8 +95,9 @@ public class Inputs extends GhidraScript {
     return 10000L+address.getOffset();
    }));
    function.replaceParameters(existing,FunctionUpdateType.CUSTOM_STORAGE,true,SourceType.USER_DEFINED);
-   fixed++;decompiler.flushCache();
+   fixed++;changed.add(Long.toHexString(entry));decompiler.flushCache();
   }
+  if(getScriptArgs().length>2)java.nio.file.Files.write(java.nio.file.Path.of(getScriptArgs()[2]),changed);
   decompiler.dispose();println("Recovered missing register inputs in "+fixed+" functions");
  }
 }
