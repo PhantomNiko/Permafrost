@@ -93,6 +93,14 @@ public class Export extends GhidraScript {
                 VariableStorage location;
                 if(places[index].startsWith("stack"))
                     location=new VariableStorage(currentProgram,Integer.parseInt(places[index].substring(5)),data.getLength());
+                else if(places[index].contains(":")) {
+                    var pieces=new ArrayList<ghidra.program.model.pcode.Varnode>();
+                    for(String part:places[index].split(":")) {
+                        var register=currentProgram.getRegister(part);
+                        pieces.add(new ghidra.program.model.pcode.Varnode(register.getAddress(),register.getMinimumByteSize()));
+                    }
+                    location=new VariableStorage(currentProgram,pieces.toArray(new ghidra.program.model.pcode.Varnode[0]));
+                }
                 else location=new VariableStorage(currentProgram,currentProgram.getRegister(places[index]));
                 custom.add(new ParameterImpl(parameter.getName(),data,location,currentProgram,SourceType.USER_DEFINED));
             }
