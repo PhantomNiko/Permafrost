@@ -41,10 +41,13 @@ def inspect(binary):
     return dict(machine=machine,relocation_kinds=relocation_kinds,wide=wide,entry=entry,image_base=image_base,size=size,sections=sections,relocations=fixups),bytes(memory)
 
 
-def pack(image,entry,relocations,architecture):
-    """Package an ELF-linked core at RVA 0x1000 with a relocatable EFI header."""
-    wide=architecture=='x86_64';base=0x1000
-    if architecture not in('i386','x86_64')or not base<=entry<base+len(image):raise ValueError('invalid EFI entry')
+def pack(image,entry,relocations,architecture,data_start=None):
+    """Package a source-linked core at RVA 0x1000 with optional separate data pages."""
+    wide=architecture in ('x86_64','arm64');base=0x1000
+    machines={'i386':0x14c,'x86_64':0x8664,'armv7':0x1c2,'arm64':0xaa64}
+    if architecture not in machines or not base<=entry<base+len(image):raise ValueError('invalid EFI entry')
+    if data_start is not None and (data_start%4096 or not base<data_start<base+len(image)):
+        raise ValueError('EFI data must start on a separate page')
     pages={}
     for address,width in sorted(set(relocations)):
         if width not in(4,8)or not base<=address<=base+len(image)-width:raise ValueError('invalid EFI relocation location')
@@ -55,17 +58,31 @@ def pack(image,entry,relocations,architecture):
         table.extend(struct.pack('<II',page,8+len(entries)*2));table.extend(struct.pack('<%dH'%len(entries),*entries))
     used=len(image.rstrip(b'\0'));raw_size=align(used,512);reloc_rva=align(base+len(image),4096)
     optional=240 if wide else 224;header=bytearray(512);header[:2]=b'MZ';struct.pack_into('<I',header,60,128);header[128:132]=b'PE\0\0'
-    struct.pack_into('<HHIIIHH',header,132,0x8664 if wide else 0x14c,2,0,0,0,optional,0x22 if wide else 0x102)
+    struct.pack_into('<HHIIIHH',header,132,machines[architecture],3 if data_start is not None else 2,0,0,0,optional,0x22 if wide else 0x102)
     p=152;struct.pack_into('<H',header,p,0x20b if wide else 0x10b);struct.pack_into('<III',header,p+4,raw_size,align(len(table),512),len(image)-used)
     struct.pack_into('<II',header,p+16,entry,base)
     if wide:struct.pack_into('<Q',header,p+24,0)
-    else:struct.pack_into('<II',header,p+24,base,0)
+    else:struct.pack_into('<II',header,p+24,data_start or base,0)
     struct.pack_into('<II',header,p+32,4096,512);struct.pack_into('<HH',header,p+48,2,0)
     struct.pack_into('<II',header,p+56,align(reloc_rva+len(table),4096),512);struct.pack_into('<H',header,p+68,10)
     if wide:struct.pack_into('<4Q',header,p+72,0x100000,0x1000,0x100000,0x1000)
     else:struct.pack_into('<4I',header,p+72,0x100000,0x1000,0x100000,0x1000)
     struct.pack_into('<I',header,p+(108 if wide else 92),16);struct.pack_into('<II',header,p+(112 if wide else 96)+5*8,reloc_rva,len(table))
     sections=p+optional
-    for index,(name,virtual,rva,length,offset,flags)in enumerate(((b'.text',len(image),base,raw_size,512,0xe0000060),(b'.reloc',len(table),reloc_rva,align(len(table),512),512+raw_size,0x42000040))):
+    payload=bytearray()
+    if data_start is None:
+        records=[(b'.text',len(image),base,raw_size,512,0xe0000060)]
+        payload.extend(image[:used].ljust(raw_size,b'\0'))
+    else:
+        split=data_start-base
+        text_raw=align(min(used,split),512)
+        data_raw=align(max(0,used-split),512)
+        records=[(b'.text',split,base,text_raw,512,0x60000020),
+                 (b'.data',len(image)-split,data_start,data_raw,512+text_raw,0xc0000040)]
+        payload.extend(image[:min(used,split)].ljust(text_raw,b'\0'))
+        payload.extend(image[split:used].ljust(data_raw,b'\0'))
+        struct.pack_into('<II',header,p+4,text_raw,data_raw+align(len(table),512))
+    records.append((b'.reloc',len(table),reloc_rva,align(len(table),512),512+len(payload),0x42000040))
+    for index,(name,virtual,rva,length,offset,flags)in enumerate(records):
         struct.pack_into('<8s6I2HI',header,sections+index*40,name,virtual,rva,length,offset,0,0,0,0,flags)
-    return bytes(header)+image[:used].ljust(raw_size,b'\0')+bytes(table).ljust(align(len(table),512),b'\0')
+    return bytes(header)+bytes(payload)+bytes(table).ljust(align(len(table),512),b'\0')

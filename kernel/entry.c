@@ -10,6 +10,13 @@ __attribute__((force_align_arg_pointer))
 void pf_kernel_entry(void) {
 #if defined(__i386__) || defined(__x86_64__)
     __asm__ volatile("cld; fninit":::"memory");
+#elif defined(__arm__)
+    uint32_t control;
+    __asm__ volatile("mrc p15,0,%0,c1,c0,2":"=r"(control));
+    control|=0x00f00000U;
+    __asm__ volatile("mcr p15,0,%0,c1,c0,2; isb"::"r"(control):"memory");
+    control=0x40000000U;
+    __asm__ volatile("vmsr fpexc,%0"::"r"(control):"memory");
 #else
     __asm__ volatile("":::"memory");
 #endif
