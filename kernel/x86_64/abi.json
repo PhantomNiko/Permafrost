@@ -1,3258 +1,3678 @@
 {
-  "2000014": {
-    "symbol": "lua_probe_binary_entry",
-    "original": "_lua_probe_binary_entry"
-  },
-  "2000029": {
-    "symbol": "wm_probe_write_disk_sectors",
-    "original": "_wm_probe_write_disk_sectors"
-  },
-  "2000084": {
-    "symbol": "wm_probe_heap_reset",
-    "original": "_wm_probe_heap_reset"
-  },
-  "2000095": {
-    "symbol": "wm_probe_heap_init",
-    "original": "_wm_probe_heap_init"
-  },
-  "20002f3": {
-    "symbol": "wm_probe_heap_free_bytes",
-    "original": "_wm_probe_heap_free_bytes"
-  },
-  "200032a": {
-    "symbol": "wm_probe_heap_free_bytes64",
-    "original": "_wm_probe_heap_free_bytes64"
-  },
-  "2000355": {
-    "symbol": "wm_probe_heap_total_bytes",
-    "original": "_wm_probe_heap_total_bytes"
-  },
-  "2000386": {
-    "symbol": "wm_probe_heap_total_bytes64",
-    "original": "_wm_probe_heap_total_bytes64"
-  },
-  "20003ab": {
-    "symbol": "wm_probe_heap_alloc",
-    "original": "_wm_probe_heap_alloc"
-  },
-  "2000409": {
-    "symbol": "wm_probe_heap_split",
-    "original": "_wm_probe_heap_split"
-  },
-  "200044d": {
-    "symbol": "ashldi3",
-    "original": "___ashldi3"
-  },
-  "2000468": {
-    "symbol": "lshrdi3",
-    "original": "___lshrdi3"
-  },
-  "2000483": {
-    "symbol": "udivdi3",
-    "original": "___udivdi3"
-  },
-  "200048f": {
-    "symbol": "udivmod64",
-    "original": "_udivmod64"
-  },
-  "20004e9": {
-    "symbol": "umoddi3",
-    "original": "___umoddi3"
-  },
-  "2000509": {
-    "symbol": "divdi3",
-    "original": "___divdi3"
-  },
-  "2000545": {
-    "symbol": "moddi3",
-    "original": "___moddi3"
-  },
-  "2000598": {
-    "symbol": "kernel_abort",
+  "2000631": {
+    "symbol": "recovered_2000631",
     "original": "_abort"
   },
-  "20005a0": {
-    "symbol": "kernel_abs",
-    "original": "_abs"
-  },
-  "20005ad": {
-    "symbol": "kernel_malloc",
-    "original": "_malloc"
-  },
-  "20005b7": {
-    "symbol": "kernel_free",
-    "original": "_free"
-  },
-  "2000614": {
-    "symbol": "wm_probe_heap_coalesce_forward",
-    "original": "_wm_probe_heap_coalesce_forward"
-  },
-  "2000655": {
-    "symbol": "kernel_realloc",
-    "original": "_realloc"
-  },
-  "2000741": {
-    "symbol": "kernel_memcpy",
-    "original": "_memcpy"
-  },
-  "200075e": {
-    "symbol": "kernel_memmove",
-    "original": "_memmove"
-  },
-  "20007aa": {
-    "symbol": "kernel_memset",
-    "original": "_memset"
-  },
-  "20007c3": {
-    "symbol": "bzero",
-    "original": "_bzero"
-  },
-  "20007d9": {
-    "symbol": "bzero_20007d9",
-    "original": "___bzero"
-  },
-  "20007ef": {
-    "symbol": "kernel_memcmp",
-    "original": "_memcmp"
-  },
-  "2000816": {
-    "symbol": "islower",
-    "original": "_islower"
-  },
-  "2000827": {
-    "symbol": "isupper",
-    "original": "_isupper"
-  },
-  "2000838": {
-    "symbol": "isalpha",
-    "original": "_isalpha"
-  },
-  "200084c": {
-    "symbol": "isalnum",
-    "original": "_isalnum"
-  },
-  "200086e": {
-    "symbol": "isblank",
-    "original": "_isblank"
-  },
-  "2000885": {
-    "symbol": "isprint",
-    "original": "_isprint"
-  },
-  "2000896": {
-    "symbol": "tolower",
-    "original": "_tolower"
-  },
-  "20008a8": {
-    "symbol": "toupper",
-    "original": "_toupper"
-  },
-  "20008ba": {
-    "symbol": "kernel_strlen",
-    "original": "_strlen"
-  },
-  "20008d4": {
-    "symbol": "kernel_strcmp",
-    "original": "_strcmp"
-  },
-  "20008f5": {
-    "symbol": "strcoll",
-    "original": "_strcoll"
-  },
-  "20008ff": {
-    "symbol": "kernel_strcpy",
-    "original": "_strcpy"
-  },
-  "2000917": {
-    "symbol": "strdup",
-    "original": "_strdup"
-  },
-  "2000965": {
-    "symbol": "kernel_strchr",
-    "original": "_strchr"
-  },
-  "200098b": {
-    "symbol": "kernel_strspn",
-    "original": "_strspn"
-  },
-  "20009c7": {
-    "symbol": "kernel_strpbrk",
-    "original": "_strpbrk"
-  },
-  "20009f7": {
-    "symbol": "kernel_strstr",
-    "original": "_strstr"
-  },
-  "2000a26": {
-    "symbol": "setlocale",
-    "original": "_setlocale"
-  },
-  "2000a33": {
-    "symbol": "localeconv",
-    "original": "_localeconv"
-  },
-  "2000a40": {
-    "symbol": "time",
-    "original": "_time"
-  },
-  "2000a57": {
-    "symbol": "ldexp",
-    "original": "_ldexp"
-  },
-  "2000a86": {
-    "symbol": "frexp",
-    "original": "_frexp"
-  },
-  "2000b18": {
-    "symbol": "kernel_fmod",
-    "original": "_fmod"
-  },
-  "2000b47": {
-    "symbol": "kernel_pow",
-    "original": "_pow"
-  },
-  "2000baf": {
-    "symbol": "kernel_floor",
-    "original": "_floor"
-  },
-  "2000bd8": {
-    "symbol": "kernel_ceil",
-    "original": "_ceil"
-  },
-  "2000c2a": {
-    "symbol": "kernel_sqrt",
-    "original": "_sqrt"
-  },
-  "2000c70": {
-    "symbol": "log",
-    "original": "_log"
-  },
-  "2000d2c": {
-    "symbol": "llround",
-    "original": "_llround"
-  },
-  "2000d50": {
-    "symbol": "kernel_sin",
-    "original": "_sin"
-  },
-  "2000d9f": {
-    "symbol": "wrap_angle",
-    "original": "_wrap_angle"
-  },
-  "2000ddd": {
-    "symbol": "kernel_cos",
-    "original": "_cos"
-  },
-  "2000e28": {
-    "symbol": "kernel_fabs",
-    "original": "_fabs"
-  },
-  "2000e42": {
-    "symbol": "fmodf",
-    "original": "_fmodf"
-  },
-  "2000e78": {
-    "symbol": "frexpf",
-    "original": "_frexpf"
-  },
-  "2000e8b": {
-    "symbol": "ldexpf",
-    "original": "_ldexpf"
-  },
-  "2000e9e": {
-    "symbol": "powf",
-    "original": "_powf"
-  },
-  "2000eb5": {
-    "symbol": "floorf",
-    "original": "_floorf"
-  },
-  "2000ee6": {
-    "symbol": "ceilf",
-    "original": "_ceilf"
-  },
-  "2000ef9": {
-    "symbol": "trunc",
-    "original": "_trunc"
-  },
-  "2000f32": {
-    "symbol": "truncf",
-    "original": "_truncf"
-  },
-  "2000f45": {
-    "symbol": "sqrtf",
-    "original": "_sqrtf"
-  },
-  "2000f58": {
-    "symbol": "logf",
-    "original": "_logf"
-  },
-  "2000f6b": {
-    "symbol": "lround",
-    "original": "_lround"
-  },
-  "2000f8f": {
-    "symbol": "sinf",
-    "original": "_sinf"
-  },
-  "2000fa2": {
-    "symbol": "cosf",
-    "original": "_cosf"
-  },
-  "2000fb5": {
-    "symbol": "fabsf",
-    "original": "_fabsf"
-  },
-  "2000fcc": {
-    "symbol": "kernel_strtol",
-    "original": "_strtol"
-  },
-  "20010cc": {
-    "symbol": "digit_value",
-    "original": "_digit_value"
-  },
-  "20010ff": {
-    "symbol": "kernel_strtoul",
-    "original": "_strtoul"
-  },
-  "20011ff": {
-    "symbol": "kernel_strtod",
-    "original": "_strtod"
-  },
-  "2001355": {
-    "symbol": "strtof",
-    "original": "_strtof"
-  },
-  "2001364": {
-    "symbol": "kernel_vsnprintf",
-    "original": "_vsnprintf"
-  },
-  "20017e8": {
-    "symbol": "append_char",
-    "original": "_append_char"
-  },
-  "2001801": {
-    "symbol": "append_string",
-    "original": "_append_string"
-  },
-  "200184a": {
-    "symbol": "append_unsigned",
-    "original": "_append_unsigned"
-  },
-  "20018bf": {
-    "symbol": "kernel_snprintf",
-    "original": "_snprintf"
-  },
-  "2001932": {
-    "symbol": "wm_probe_heap_append_region",
-    "original": "_wm_probe_heap_append_region"
-  },
-  "2001992": {
-    "symbol": "wm_platform_set_loader_context",
-    "original": "_wm_platform_set_loader_context"
-  },
-  "20019c0": {
-    "symbol": "platform_efi_active",
-    "original": "_platform_efi_active"
-  },
-  "20019f1": {
-    "symbol": "wm_platform_startup",
-    "original": "_wm_platform_startup"
-  },
-  "2001d31": {
-    "symbol": "platform_efi_init_fallback_font",
-    "original": "_platform_efi_init_fallback_font"
-  },
-  "2001e13": {
-    "symbol": "platform_efi_framebuffer_active",
-    "original": "_platform_efi_framebuffer_active"
-  },
-  "2001e6b": {
-    "symbol": "platform_efi_framebuffer_physical",
-    "original": "_platform_efi_framebuffer_physical"
-  },
-  "2001e95": {
-    "symbol": "platform_mask_bit_count",
-    "original": "_platform_mask_bit_count"
-  },
-  "2001eac": {
-    "symbol": "platform_show_startup_banner",
-    "original": "_platform_show_startup_banner"
-  },
-  "2001f22": {
-    "symbol": "wm_platform_runtime_state",
-    "original": "_wm_platform_runtime_state"
-  },
-  "2001f2d": {
-    "symbol": "wm_platform_ticks",
-    "original": "_wm_platform_ticks"
-  },
-  "2001f4b": {
-    "symbol": "wm_platform_text_columns",
-    "original": "_wm_platform_text_columns"
-  },
-  "2001f77": {
-    "symbol": "wm_platform_text_rows",
-    "original": "_wm_platform_text_rows"
-  },
-  "2001fa3": {
-    "symbol": "wm_platform_text_clear",
-    "original": "_wm_platform_text_clear"
-  },
-  "2002057": {
-    "symbol": "platform_efi_console",
-    "original": "_platform_efi_console"
-  },
-  "2002077": {
-    "symbol": "platform_efi_pixel",
-    "original": "_platform_efi_pixel"
-  },
-  "20020d4": {
-    "symbol": "platform_efi_fill_rect",
-    "original": "_platform_efi_fill_rect"
-  },
-  "2002184": {
-    "symbol": "platform_efi_vga_text_active",
-    "original": "_platform_efi_vga_text_active"
-  },
-  "200219e": {
-    "symbol": "wm_platform_text_write_at",
-    "original": "_wm_platform_text_write_at"
-  },
-  "200232f": {
-    "symbol": "platform_efi_draw_text_cell",
-    "original": "_platform_efi_draw_text_cell"
-  },
-  "2002464": {
-    "symbol": "wm_platform_text_enable_cursor",
-    "original": "_wm_platform_text_enable_cursor"
-  },
-  "20024cc": {
-    "symbol": "wm_platform_text_set_cursor",
-    "original": "_wm_platform_text_set_cursor"
-  },
-  "2002579": {
-    "symbol": "wm_platform_enter_text_mode",
-    "original": "_wm_platform_enter_text_mode"
-  },
-  "20025aa": {
-    "symbol": "wm_platform_text_load_font_plane",
-    "original": "_wm_platform_text_load_font_plane"
-  },
-  "2002769": {
-    "symbol": "wm_platform_poll_key_ax",
-    "original": "_wm_platform_poll_key_ax"
-  },
-  "20027ba": {
-    "symbol": "wm_platform_wait_microseconds",
-    "original": "_wm_platform_wait_microseconds"
-  },
-  "2002833": {
-    "symbol": "wm_platform_get_rom_font_8x16",
-    "original": "_wm_platform_get_rom_font_8x16"
-  },
-  "20028b8": {
-    "symbol": "wm_platform_query_drive_capacity",
-    "original": "_wm_platform_query_drive_capacity"
-  },
-  "200291e": {
-    "symbol": "platform_efi_drive_capacity",
-    "original": "_platform_efi_drive_capacity"
-  },
-  "2002977": {
-    "symbol": "wm_platform_read_drive_bytes",
-    "original": "_wm_platform_read_drive_bytes"
-  },
-  "2002bcf": {
-    "symbol": "platform_efi_io_buffer_physical",
-    "original": "_platform_efi_io_buffer_physical"
-  },
-  "2002c00": {
-    "symbol": "platform_efi_io_buffer_bytes",
-    "original": "_platform_efi_io_buffer_bytes"
-  },
-  "2002c31": {
-    "symbol": "wm_platform_write_drive_bytes",
-    "original": "_wm_platform_write_drive_bytes"
-  },
-  "2002e4e": {
-    "symbol": "platform_efi_firmware_thunk_command",
-    "original": "_platform_efi_firmware_thunk_command"
-  },
-  "2002e7a": {
-    "symbol": "platform_efi_firmware_thunk_call",
-    "original": "_platform_efi_firmware_thunk_call"
-  },
-  "2002eb6": {
-    "symbol": "wm_platform_x64_apps_supported",
-    "original": "_wm_platform_x64_apps_supported"
-  },
-  "2002ed8": {
-    "symbol": "wm_platform_framebuffer_bpp_supported",
-    "original": "_wm_platform_framebuffer_bpp_supported"
-  },
-  "2002ef5": {
-    "symbol": "wm_platform_framebuffer_bytes_per_pixel",
-    "original": "_wm_platform_framebuffer_bytes_per_pixel"
-  },
-  "2002f07": {
-    "symbol": "wm_platform_framebuffer_ready",
-    "original": "_wm_platform_framebuffer_ready"
-  },
-  "2002f52": {
-    "symbol": "wm_platform_enter_wxga_graphics_mode",
-    "original": "_wm_platform_enter_wxga_graphics_mode"
-  },
-  "2003177": {
-    "symbol": "platform_runtime_map_uncached_pages",
-    "original": "_platform_runtime_map_uncached_pages"
-  },
-  "200322d": {
-    "symbol": "wm_platform_framebuffer",
-    "original": "_wm_platform_framebuffer"
-  },
-  "200323a": {
-    "symbol": "wm_platform_serial_init",
-    "original": "_wm_platform_serial_init"
-  },
-  "2003285": {
-    "symbol": "wm_platform_serial_putc",
-    "original": "_wm_platform_serial_putc"
-  },
-  "20032ba": {
-    "symbol": "wm_platform_serial_write",
-    "original": "_wm_platform_serial_write"
-  },
-  "20032e2": {
-    "symbol": "wm_platform_serial_write_n",
-    "original": "_wm_platform_serial_write_n"
-  },
-  "2003324": {
-    "symbol": "wm_platform_serial_poll_char",
-    "original": "_wm_platform_serial_poll_char"
-  },
-  "2003350": {
-    "symbol": "wm_platform_cpuid_available",
-    "original": "_wm_platform_cpuid_available"
-  },
-  "2003358": {
-    "symbol": "wm_platform_cpuid_query",
-    "original": "_wm_platform_cpuid_query"
-  },
-  "2003383": {
-    "symbol": "wm_platform_heap_free_bytes",
-    "original": "_wm_platform_heap_free_bytes"
-  },
-  "200338d": {
-    "symbol": "wm_platform_heap_free_bytes64",
-    "original": "_wm_platform_heap_free_bytes64"
-  },
-  "2003397": {
-    "symbol": "wm_platform_heap_total_bytes",
-    "original": "_wm_platform_heap_total_bytes"
-  },
-  "20033e0": {
-    "symbol": "wm_platform_heap_total_bytes64",
-    "original": "_wm_platform_heap_total_bytes64"
-  },
-  "2003420": {
-    "symbol": "wm_platform_halt_forever",
-    "original": "_wm_platform_halt_forever"
-  },
-  "200343d": {
-    "symbol": "wm_platform_api",
-    "original": "_wm_platform_api"
-  },
-  "200344a": {
-    "symbol": "platform_efi_drive_block_base",
-    "original": "_platform_efi_drive_block_base"
-  },
-  "20034d0": {
-    "symbol": "wm_lua_write",
-    "original": "_wm_lua_write"
-  },
-  "200357d": {
-    "symbol": "wm_lua_flush_output_line",
-    "original": "_wm_lua_flush_output_line"
-  },
-  "20035fb": {
-    "symbol": "wm_lua_writeline",
-    "original": "_wm_lua_writeline"
-  },
-  "2003608": {
-    "symbol": "wm_lua_flush_output",
-    "original": "_wm_lua_flush_output"
-  },
-  "2003614": {
-    "symbol": "wm_lua_write_errorf",
-    "original": "_wm_lua_write_errorf"
-  },
-  "2003669": {
-    "symbol": "wm_lua_show_banner",
-    "original": "_wm_lua_show_banner"
-  },
-  "20036b6": {
-    "symbol": "wm_lua_write_cstr",
-    "original": "_wm_lua_write_cstr"
-  },
-  "20036db": {
-    "symbol": "wm_lua_show_help",
-    "original": "_wm_lua_show_help"
-  },
-  "20036f8": {
-    "symbol": "wm_lua_readline",
-    "original": "_wm_lua_readline"
-  },
-  "200375d": {
-    "symbol": "wmfs_mount_image",
-    "original": "_wmfs_mount_image"
-  },
-  "2003765": {
-    "symbol": "wmfs_unmount",
-    "original": "_wmfs_unmount"
-  },
-  "200376b": {
-    "symbol": "wmfs_is_mounted",
-    "original": "_wmfs_is_mounted"
-  },
-  "2003773": {
-    "symbol": "wmfs_fopen",
-    "original": "_wmfs_fopen"
-  },
-  "2003a18": {
-    "symbol": "wm_lua_app_stat_file",
-    "original": "_wm_lua_app_stat_file"
-  },
-  "2003a50": {
-    "symbol": "wm_lua_file_reserve",
-    "original": "_wm_lua_file_reserve"
-  },
-  "2003ad6": {
-    "symbol": "wmfs_freopen",
-    "original": "_wmfs_freopen"
-  },
-  "2003aff": {
-    "symbol": "wmfs_fclose",
-    "original": "_wmfs_fclose"
-  },
-  "2003b39": {
-    "symbol": "wmfs_fread",
-    "original": "_wmfs_fread"
-  },
-  "2003bbf": {
-    "symbol": "wmfs_getc",
-    "original": "_wmfs_getc"
-  },
-  "2003cb1": {
-    "symbol": "wmfs_fwrite",
-    "original": "_wmfs_fwrite"
-  },
-  "2003dca": {
-    "symbol": "wmfs_fseek",
-    "original": "_wmfs_fseek"
-  },
-  "2003e43": {
-    "symbol": "wmfs_ftell",
-    "original": "_wmfs_ftell"
-  },
-  "2003e66": {
-    "symbol": "wmfs_fflush",
-    "original": "_wmfs_fflush"
-  },
-  "2003eca": {
-    "symbol": "wmfs_feof",
-    "original": "_wmfs_feof"
-  },
-  "2003ee0": {
-    "symbol": "wmfs_ferror",
-    "original": "_wmfs_ferror"
-  },
-  "2003ef6": {
-    "symbol": "wmfs_clearerr",
-    "original": "_wmfs_clearerr"
-  },
-  "2003f10": {
-    "symbol": "wmfs_ungetc",
-    "original": "_wmfs_ungetc"
-  },
-  "2003f3c": {
-    "symbol": "wmfs_remove",
-    "original": "_wmfs_remove"
-  },
-  "2003f67": {
-    "symbol": "wm_lua_app_delete_file",
-    "original": "_wm_lua_app_delete_file"
-  },
-  "2003f9c": {
-    "symbol": "wmfs_rename",
-    "original": "_wmfs_rename"
-  },
-  "2004034": {
-    "symbol": "wm_lua_app_write_file",
-    "original": "_wm_lua_app_write_file"
-  },
-  "200407f": {
-    "symbol": "wmfs_read_entire_file",
-    "original": "_wmfs_read_entire_file"
-  },
-  "2004124": {
-    "symbol": "wmfs_write_entire_file",
-    "original": "_wmfs_write_entire_file"
-  },
-  "200414c": {
-    "symbol": "wmfs_register_virtual_file",
-    "original": "_wmfs_register_virtual_file"
-  },
-  "2004154": {
-    "symbol": "wmfs_clear_virtual_files",
-    "original": "_wmfs_clear_virtual_files"
-  },
-  "200415a": {
-    "symbol": "wmfs_image_data",
-    "original": "_wmfs_image_data"
-  },
-  "2004162": {
-    "symbol": "wmfs_image_size",
-    "original": "_wmfs_image_size"
-  },
-  "200416a": {
-    "symbol": "wmfs_export_image",
-    "original": "_wmfs_export_image"
-  },
-  "2004172": {
-    "symbol": "memchr",
-    "original": "_memchr"
-  },
-  "2004192": {
-    "symbol": "strncmp",
-    "original": "_strncmp"
-  },
-  "20041c0": {
-    "symbol": "strerror",
-    "original": "_strerror"
-  },
-  "2004270": {
-    "symbol": "getenv",
-    "original": "_getenv"
-  },
-  "2004278": {
-    "symbol": "system",
-    "original": "_system"
-  },
-  "2004281": {
-    "symbol": "clock",
-    "original": "_clock"
-  },
-  "2004299": {
-    "symbol": "wm_program_api_field_ready",
-    "original": "_wm_program_api_field_ready"
-  },
-  "20042e0": {
-    "symbol": "permafrost_sjlj_jump",
-    "original": "_winterboot_sjlj_jump"
-  },
-  "20042ee": {
-    "symbol": "std_terminate_20042ee",
-    "original": "__ZSt9terminatev"
-  },
-  "2004370": {
-    "symbol": "gxx_personality_sj0",
-    "original": "___gxx_personality_sj0"
-  },
-  "2004380": {
-    "symbol": "cxa_begin_catch",
-    "original": "___cxa_begin_catch"
-  },
-  "20043a3": {
-    "symbol": "operator_new_20043a3",
-    "original": "__Znwm"
-  },
-  "20043cd": {
-    "symbol": "operator_new_20043cd",
-    "original": "__Znam"
-  },
-  "20043d7": {
-    "symbol": "operator_delete_20043d7",
-    "original": "__ZdlPv"
-  },
-  "2004470": {
-    "symbol": "operator_delete_2004470",
-    "original": "__ZdaPv"
-  },
-  "2004508": {
-    "symbol": "operator_delete_2004508",
-    "original": "__ZdlPvm"
-  },
-  "20045a0": {
-    "symbol": "operator_delete_20045a0",
-    "original": "__ZdaPvm"
-  },
-  "2004638": {
-    "symbol": "cxa_atexit",
-    "original": "___cxa_atexit"
-  },
-  "2004640": {
-    "symbol": "cxa_guard_acquire",
-    "original": "___cxa_guard_acquire"
-  },
-  "200464d": {
-    "symbol": "cxa_guard_release",
-    "original": "___cxa_guard_release"
-  },
-  "2004656": {
-    "symbol": "cxa_guard_abort",
-    "original": "___cxa_guard_abort"
-  },
-  "200465c": {
-    "symbol": "cxa_allocate_exception",
-    "original": "___cxa_allocate_exception"
-  },
-  "200469a": {
-    "symbol": "cxa_free_exception",
-    "original": "___cxa_free_exception"
-  },
-  "20046af": {
-    "symbol": "object_from_header_20046af",
-    "original": "__ZL18object_from_headerP21WinterExceptionHeader"
-  },
-  "20046b9": {
-    "symbol": "cxa_end_catch",
-    "original": "___cxa_end_catch"
-  },
-  "2004705": {
-    "symbol": "cxa_throw",
-    "original": "___cxa_throw"
-  },
-  "2004728": {
-    "symbol": "raise_exception_2004728",
-    "original": "__ZL15raise_exceptionP21WinterExceptionHeader"
-  },
-  "2004785": {
-    "symbol": "cxa_rethrow",
-    "original": "___cxa_rethrow"
-  },
-  "20047aa": {
-    "symbol": "Unwind_SjLj_Register",
-    "original": "__Unwind_SjLj_Register"
-  },
-  "20047c1": {
-    "symbol": "Unwind_SjLj_Unregister",
-    "original": "__Unwind_SjLj_Unregister"
-  },
-  "20047f2": {
-    "symbol": "Unwind_SjLj_RaiseException",
-    "original": "__Unwind_SjLj_RaiseException"
-  },
-  "20047fb": {
-    "symbol": "Unwind_SjLj_ForcedUnwind",
-    "original": "__Unwind_SjLj_ForcedUnwind"
-  },
-  "2004804": {
-    "symbol": "Unwind_SjLj_Resume",
-    "original": "__Unwind_SjLj_Resume"
-  },
-  "2004823": {
-    "symbol": "continue_unwind_2004823",
-    "original": "__ZL15continue_unwindP21WinterExceptionHeader"
-  },
-  "20048a4": {
-    "symbol": "Unwind_SjLj_Resume_or_Rethrow",
-    "original": "__Unwind_SjLj_Resume_or_Rethrow"
-  },
-  "20048ad": {
-    "symbol": "gxx_personality_v0",
-    "original": "___gxx_personality_v0"
-  },
-  "20048b5": {
-    "symbol": "Unwind_Resume",
-    "original": "__Unwind_Resume"
-  },
-  "20048be": {
-    "symbol": "dynamic_cast",
-    "original": "___dynamic_cast"
-  },
-  "20048fe": {
-    "symbol": "type_matches_20048fe",
-    "original": "__ZL12type_matchesPKvS0_"
-  },
-  "200497e": {
-    "symbol": "cxa_pure_virtual",
-    "original": "___cxa_pure_virtual"
-  },
-  "2004988": {
-    "symbol": "tlv_bootstrap",
-    "original": "__tlv_bootstrap"
-  },
-  "2004990": {
-    "symbol": "isdigit",
-    "original": "_isdigit"
-  },
-  "20049a1": {
-    "symbol": "isspace",
-    "original": "_isspace"
-  },
-  "20049cb": {
-    "symbol": "isxdigit",
-    "original": "_isxdigit"
-  },
-  "20049eb": {
-    "symbol": "isfinite",
-    "original": "_isfinite"
-  },
-  "2004a0d": {
-    "symbol": "kernel_round",
-    "original": "_round"
-  },
-  "2004a58": {
-    "symbol": "strtoull",
-    "original": "_strtoull"
-  },
-  "2004b6f": {
-    "symbol": "strtoll",
-    "original": "_strtoll"
-  },
-  "2004b79": {
-    "symbol": "inspect_context_2004b79",
-    "original": "__ZL15inspect_contextP17WinterSjLjContextPKvR13WinterHandler"
-  },
-  "2004d7d": {
-    "symbol": "read_encoded_pointer_2004d7d",
-    "original": "__ZL20read_encoded_pointerhPPKh"
-  },
-  "2004ea4": {
-    "symbol": "read_uleb128_2004ea4",
-    "original": "__ZL12read_uleb128PPKh"
-  },
-  "2004ed3": {
-    "symbol": "read_unaligned_2004ed3",
-    "original": "__ZL14read_unalignedPKhm"
-  },
-  "2004ef8": {
-    "symbol": "read_sleb128_2004ef8",
-    "original": "__ZL12read_sleb128PPKh"
-  },
-  "2004f44": {
-    "symbol": "wm_png_load_memory_2004f44",
-    "original": "__ZN2wm3png11load_memoryEPKhmRNS0_5ImageE"
-  },
-  "2006980": {
-    "symbol": "wm_png_Image_operator_2006980",
-    "original": "__ZN2wm3png5ImageaSEOS1_"
-  },
-  "20069a8": {
-    "symbol": "wm_png_20069a8",
-    "original": "__ZN2wm3png12_GLOBAL__N_19ParsedPngD1Ev"
-  },
-  "20069da": {
-    "symbol": "wm_png_load_file_20069da",
-    "original": "__ZN2wm3png9load_fileEPKcRNS0_5ImageE"
-  },
-  "2006c18": {
-    "symbol": "wm_png_save_rgba8_file_2006c18",
-    "original": "__ZN2wm3png15save_rgba8_fileEPKcPKhii"
-  },
-  "200727c": {
-    "symbol": "wm_png_200727c",
-    "original": "__ZN2wm3png12_GLOBAL__N_111write_bytesEP8WMFSFilePKhm"
-  },
-  "20072ab": {
-    "symbol": "wm_png_20072ab",
-    "original": "__ZN2wm3png12_GLOBAL__N_111write_chunkEP8WMFSFilePKcPKhm"
-  },
-  "2007364": {
-    "symbol": "wm_png_2007364",
-    "original": "__ZN2wm3png12_GLOBAL__N_111read_u32_beEPKh"
-  },
-  "200736e": {
-    "symbol": "wm_png_200736e",
-    "original": "__ZN2wm3png12_GLOBAL__N_112crc32_updateEjPKhm"
-  },
-  "20073f8": {
-    "symbol": "void_wm_vector_20073f8",
-    "original": "__ZN2wm6vectorIhE6assignIPKhvEEvT_S5_"
-  },
-  "2007410": {
-    "symbol": "unsigned_char_wm_vector_2007410",
-    "original": "__ZN2wm6vectorIhE6insertIPKhvEEPhS4_T_S6_"
-  },
-  "20074d6": {
-    "symbol": "wm_vector_reserve_20074d6",
-    "original": "__ZN2wm6vectorIhE7reserveEm"
-  },
-  "2007528": {
-    "symbol": "unsigned_char_wm_detail_vector_allocate_2007528",
-    "original": "__ZN2wm6detail15vector_allocateIhEEPT_m"
-  },
-  "200753c": {
-    "symbol": "wm_vector_assign_200753c",
-    "original": "__ZN2wm6vectorIhE6assignEmRKh"
-  },
-  "200754c": {
-    "symbol": "wm_vector_resize_200754c",
-    "original": "__ZN2wm6vectorIhE6resizeEmRKh"
-  },
-  "20075b0": {
-    "symbol": "wm_vector_resize_20075b0",
-    "original": "__ZN2wm6vectorIhE6resizeEm"
-  },
-  "20075f8": {
-    "symbol": "wm_png_20075f8",
-    "original": "__ZN2wm3png12_GLOBAL__N_114bits_per_pixelERKNS1_6HeaderE"
-  },
-  "2007620": {
-    "symbol": "wm_png_2007620",
-    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater5startERKNS_6vectorINS1_8ByteSpanEEE"
-  },
-  "2008428": {
-    "symbol": "wm_png_2008428",
-    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater10read_exactEPhm"
-  },
-  "2008462": {
-    "symbol": "wm_png_2008462",
-    "original": "__ZN2wm3png12_GLOBAL__N_115unfilter_row_toEjPhPKhS4_mm"
-  },
-  "20086c0": {
-    "symbol": "wm_png_20086c0",
-    "original": "__ZN2wm3png12_GLOBAL__N_18InflaterD1Ev"
-  },
-  "20086e0": {
-    "symbol": "wm_png_20086e0",
-    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater9BitReader9read_bitsEjRj"
-  },
-  "2008742": {
-    "symbol": "wm_png_2008742",
-    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater23decode_compressed_blockERNS2_9BitReaderERKNS2_12HuffmanTableES7_RNS_6vectorIhEE"
-  },
-  "2008890": {
-    "symbol": "wm_png_2008890",
-    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater12HuffmanTableD1Ev"
-  },
-  "200889e": {
-    "symbol": "wm_png_200889e",
-    "original": "__ZN2wm3png12_GLOBAL__N_113adler32_bytesEPKhm"
-  },
-  "200890c": {
-    "symbol": "unsigned_char_wm_vector_200890c",
-    "original": "__ZN2wm6vectorIhE12emplace_backIJhEEERhDpOT_"
-  },
-  "200895c": {
-    "symbol": "wm_png_200895c",
-    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater13decode_symbolERNS2_9BitReaderERKNS2_12HuffmanTableERj"
-  },
-  "2008a22": {
-    "symbol": "unsigned_char_wm_vector_2008a22",
-    "original": "__ZN2wm6vectorIhE12emplace_backIJRKhEEERhDpOT_"
-  },
-  "2008a72": {
-    "symbol": "wm_png_2008a72",
-    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater19build_huffman_tableERKNS_6vectorIjEERNS2_12HuffmanTableEb"
-  },
-  "2008bc0": {
-    "symbol": "wm_vector_vector_2008bc0",
-    "original": "__ZN2wm6vectorIjEC2EmRKj"
-  },
-  "2008bd6": {
-    "symbol": "wm_vector_resize_2008bd6",
-    "original": "__ZN2wm6vectorIjE6resizeEmRKj"
-  },
-  "2008c36": {
-    "symbol": "wm_vector_resize_2008c36",
-    "original": "__ZN2wm6vectorIjE6resizeEm"
-  },
-  "2008c7a": {
-    "symbol": "wm_vector_reserve_2008c7a",
-    "original": "__ZN2wm6vectorIjE7reserveEm"
-  },
-  "2008ccf": {
-    "symbol": "unsigned_int_wm_detail_vector_allocate_2008ccf",
-    "original": "__ZN2wm6detail15vector_allocateIjEEPT_m"
-  },
-  "2008ce6": {
-    "symbol": "wm_png_2008ce6",
-    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater12HuffmanTableaSEOS3_"
-  },
-  "2008d34": {
-    "symbol": "wm_vector_assign_2008d34",
-    "original": "__ZN2wm6vectorItE6assignEmRKt"
-  },
-  "2008d44": {
-    "symbol": "wm_vector_operator_2008d44",
-    "original": "__ZN2wm6vectorItEaSEOS1_"
-  },
-  "2008d86": {
-    "symbol": "wm_vector_resize_2008d86",
-    "original": "__ZN2wm6vectorItE6resizeEmRKt"
-  },
-  "2008de8": {
-    "symbol": "wm_vector_resize_2008de8",
-    "original": "__ZN2wm6vectorItE6resizeEm"
-  },
-  "2008e31": {
-    "symbol": "unsigned_short_wm_detail_vector_allocate_2008e31",
-    "original": "__ZN2wm6detail15vector_allocateItEEPT_m"
-  },
-  "2008e48": {
-    "symbol": "unsigned_int_wm_vector_2008e48",
-    "original": "__ZN2wm6vectorIjE12emplace_backIJRKjEEERjDpOT_"
-  },
-  "2008e92": {
-    "symbol": "unsigned_int_wm_vector_2008e92",
-    "original": "__ZN2wm6vectorIjE12emplace_backIJjEEERjDpOT_"
-  },
-  "2008edc": {
-    "symbol": "wm_vector_2008edc",
-    "original": "__ZN2wm6vectorIjEC2IPjvEET_S4_"
-  },
-  "2008efa": {
-    "symbol": "unsigned_int_wm_vector_2008efa",
-    "original": "__ZN2wm6vectorIjE6insertIPjvEES3_PKjT_S6_"
-  },
-  "2008fe2": {
-    "symbol": "wm_vector_vector_2008fe2",
-    "original": "__ZN2wm6vectorItED2Ev"
-  },
-  "2008ff4": {
-    "symbol": "wm_vector_vector_2008ff4",
-    "original": "__ZN2wm6vectorIhEC2Em"
-  },
-  "200900c": {
-    "symbol": "wm_vector_200900c",
-    "original": "__ZN2wm6vectorIhEC2IPKhvEET_S5_"
-  },
-  "200902c": {
-    "symbol": "wm_ttf_font_load_memory_200902c",
-    "original": "__Z23wm_ttf_font_load_memoryPKvmf"
-  },
-  "2009524": {
-    "symbol": "wm_ttf_font_load_2009524",
-    "original": "__Z16wm_ttf_font_loadPKcf"
-  },
-  "2009728": {
-    "symbol": "wm_ttf_font_resize_2009728",
-    "original": "__Z18wm_ttf_font_resizePvf"
-  },
-  "2009763": {
-    "symbol": "wm_ttf_font_render_2009763",
-    "original": "__Z18wm_ttf_font_renderPvPKciiid"
-  },
-  "200a740": {
-    "symbol": "_200a740",
-    "original": "__ZN12_GLOBAL__N_116make_empty_imageEv"
-  },
-  "200a76e": {
-    "symbol": "wm_vector_200a76e",
-    "original": "__ZN2wm6vectorINS0_IjEEE12emplace_backIJEEERS1_DpOT_"
-  },
-  "200a7c0": {
-    "symbol": "wm_vector_200a7c0",
-    "original": "__ZN2wm6vectorIN12_GLOBAL__N_110LineLayoutEE7reserveEm"
-  },
-  "200a836": {
-    "symbol": "_200a836",
-    "original": "__ZN12_GLOBAL__N_110LineLayoutD1Ev"
-  },
-  "200a84a": {
-    "symbol": "wm_vector_200a84a",
-    "original": "__ZN2wm6vectorIN12_GLOBAL__N_110LineLayoutEED1Ev"
-  },
-  "200a890": {
-    "symbol": "wm_ttf_font_free_200a890",
-    "original": "__Z16wm_ttf_font_freePv"
-  },
-  "200a8e0": {
-    "symbol": "_200a8e0",
-    "original": "__ZN12_GLOBAL__N_111read_u32_beERKN2wm6vectorIhEEm"
-  },
-  "200a8ee": {
-    "symbol": "wm_vector_200a8ee",
-    "original": "__ZN2wm6vectorIN12_GLOBAL__N_115TrueTypeBackend13Format12GroupEED1Ev"
-  },
-  "200a900": {
-    "symbol": "wm_unordered_map_unsigned_int_200a900",
-    "original": "__ZN2wm13unordered_mapIjN12_GLOBAL__N_111TableRecordENS_4hashIjEENS_8equal_toIjEEED1Ev"
-  },
-  "200a92e": {
-    "symbol": "_200a92e",
-    "original": "__ZN12_GLOBAL__N_115TrueTypeBackendD1Ev"
-  },
-  "200a980": {
-    "symbol": "_200a980",
-    "original": "__ZN12_GLOBAL__N_115TrueTypeBackendD0Ev"
-  },
-  "200a99c": {
-    "symbol": "_200a99c",
-    "original": "__ZN12_GLOBAL__N_115TrueTypeBackend4loadERKN2wm6vectorIhEE"
-  },
-  "200b2e0": {
-    "symbol": "_200b2e0",
-    "original": "__ZN12_GLOBAL__N_115TrueTypeBackend9rasterizeEjd"
-  },
-  "200b74c": {
-    "symbol": "_200b74c",
-    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend12units_per_emEv"
-  },
-  "200b75e": {
-    "symbol": "_200b75e",
-    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend6ascentEv"
-  },
-  "200b770": {
-    "symbol": "_200b770",
-    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend7descentEv"
-  },
-  "200b78c": {
-    "symbol": "_200b78c",
-    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend8line_gapEv"
-  },
-  "200b7a8": {
-    "symbol": "_200b7a8",
-    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend15metric_roundingEv"
-  },
-  "200b7b0": {
-    "symbol": "wm_vector_vector_200b7b0",
-    "original": "__ZN2wm6vectorImED2Ev"
-  },
-  "200b7c2": {
-    "symbol": "wm_unordered_map_unordered_map_200b7c2",
-    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEEC2Ev"
-  },
-  "200b7e0": {
-    "symbol": "wm_vector_vector_200b7e0",
-    "original": "__ZN2wm6vectorINS_4pairIjtEEED2Ev"
-  },
-  "200b7f2": {
-    "symbol": "wm_unordered_map_unordered_map_200b7f2",
-    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEED2Ev"
-  },
-  "200b81c": {
-    "symbol": "wm_vector_operator_200b81c",
-    "original": "__ZN2wm6vectorIhEaSERKS1_"
-  },
-  "200b86e": {
-    "symbol": "_200b86e",
-    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend12assign_tableEjRNS_11TableRecordE"
-  },
-  "200b8bc": {
-    "symbol": "wm_vector_vector_200b8bc",
-    "original": "__ZN2wm6vectorIhEC2ERKS1_"
-  },
-  "200b904": {
-    "symbol": "wm_unordered_map_unsigned_int_200b904",
-    "original": "__ZN2wm13unordered_mapIjN12_GLOBAL__N_111TableRecordENS_4hashIjEENS_8equal_toIjEEE10link_indexEm"
-  },
-  "200b936": {
-    "symbol": "wm_unordered_map_unsigned_int_200b936",
-    "original": "__ZNK2wm13unordered_mapIjN12_GLOBAL__N_111TableRecordENS_4hashIjEENS_8equal_toIjEEE10find_indexERKj"
-  },
-  "200b990": {
-    "symbol": "wm_unordered_map_unsigned_int_200b990",
-    "original": "__ZNK2wm13unordered_mapIjN12_GLOBAL__N_111TableRecordENS_4hashIjEENS_8equal_toIjEEE14bucket_for_keyERKj"
-  },
-  "200b9b8": {
-    "symbol": "wm_detail_hash_bytes_200b9b8",
-    "original": "__ZN2wm6detail10hash_bytesEPKhm"
-  },
-  "200b9ea": {
-    "symbol": "wm_vector_assign_200b9ea",
-    "original": "__ZN2wm6vectorImE6assignEmRKm"
-  },
-  "200b9fa": {
-    "symbol": "wm_vector_resize_200b9fa",
-    "original": "__ZN2wm6vectorImE6resizeEmRKm"
-  },
-  "200ba5e": {
-    "symbol": "wm_vector_resize_200ba5e",
-    "original": "__ZN2wm6vectorImE6resizeEm"
-  },
-  "200baa8": {
-    "symbol": "wm_vector_reserve_200baa8",
-    "original": "__ZN2wm6vectorImE7reserveEm"
-  },
-  "200bafb": {
-    "symbol": "unsigned_long_wm_detail_vector_allocate_200bafb",
-    "original": "__ZN2wm6detail15vector_allocateImEEPT_m"
-  },
-  "200bb12": {
-    "symbol": "unsigned_long_wm_vector_200bb12",
-    "original": "__ZN2wm6vectorImE12emplace_backIJRKmEEERmDpOT_"
-  },
-  "200bb62": {
-    "symbol": "wm_vector_200bb62",
-    "original": "__ZN2wm6vectorIN12_GLOBAL__N_115TrueTypeBackend13Format12GroupEE7reserveEm"
-  },
-  "200bbc8": {
-    "symbol": "_200bbc8",
-    "original": "__ZN12_GLOBAL__N_111GlyphBitmapC1Ev"
-  },
-  "200bbdc": {
-    "symbol": "_200bbdc",
-    "original": "__ZN12_GLOBAL__N_111GlyphBitmapC1EOS0_"
-  },
-  "200bbfc": {
-    "symbol": "_200bbfc",
-    "original": "__ZN12_GLOBAL__N_115TrueTypeBackend20append_glyph_outlineEtRKNS_15AffineTransformERNS_14OutlineBuilderEi"
-  },
-  "200ca40": {
-    "symbol": "_200ca40",
-    "original": "__ZN12_GLOBAL__N_117rasterize_outlineERKNS_14OutlineBuilderEd"
-  },
-  "200cdf4": {
-    "symbol": "wm_unordered_map_find_200cdf4",
-    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE4findERKj"
-  },
-  "200ce1a": {
-    "symbol": "wm_unordered_map_operator_200ce1a",
-    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEEixERKj"
-  },
-  "200ce96": {
-    "symbol": "wm_unordered_map_find_index_200ce96",
-    "original": "__ZNK2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE10find_indexERKj"
-  },
-  "200ceec": {
-    "symbol": "wm_unordered_map_bucket_for_key_200ceec",
-    "original": "__ZNK2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE14bucket_for_keyERKj"
-  },
-  "200cf14": {
-    "symbol": "wm_unordered_map_prepare_insert_200cf14",
-    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE14prepare_insertEv"
-  },
-  "200cf46": {
-    "symbol": "wm_pair_200cf46",
-    "original": "__ZN2wm6vectorINS_4pairIjtEEE12emplace_backIJRKjtEEERS2_DpOT_"
-  },
-  "200cfa4": {
-    "symbol": "wm_unordered_map_link_index_200cfa4",
-    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE10link_indexEm"
-  },
-  "200cfda": {
-    "symbol": "wm_unordered_map_rehash_200cfda",
-    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE6rehashEm"
-  },
-  "200d042": {
-    "symbol": "wm_unordered_map_bucket_count_for_size_200d042",
-    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE21bucket_count_for_sizeEm"
-  },
-  "200d056": {
-    "symbol": "wm_unordered_map_rebuild_buckets_200d056",
-    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE15rebuild_bucketsEv"
-  },
-  "200d094": {
-    "symbol": "wm_vector_reserve_200d094",
-    "original": "__ZN2wm6vectorINS_4pairIjtEEE7reserveEm"
-  },
-  "200d0e7": {
-    "symbol": "wm_pair_200d0e7",
-    "original": "__ZN2wm6detail15vector_allocateINS_4pairIjtEEEEPT_m"
-  },
-  "200d0fe": {
-    "symbol": "wm_vector_vector_200d0fe",
-    "original": "__ZN2wm6vectorIhEC2EOS1_"
-  },
-  "200d11e": {
-    "symbol": "wm_vector_200d11e",
-    "original": "__ZN2wm6vectorIN12_GLOBAL__N_15PointEE9push_backERKS2_"
-  },
-  "200d167": {
-    "symbol": "_200d167",
-    "original": "__ZN12_GLOBAL__N_18midpointERKNS_5PointES2_"
-  },
-  "200d18a": {
-    "symbol": "_200d18a",
-    "original": "__ZN12_GLOBAL__N_114OutlineBuilder7move_toERKNS_5PointE"
-  },
-  "200d1ed": {
-    "symbol": "_200d1ed",
-    "original": "__ZN12_GLOBAL__N_115transform_pointERKNS_15AffineTransformERKNS_5PointE"
-  },
-  "200d234": {
-    "symbol": "_200d234",
-    "original": "__ZN12_GLOBAL__N_114OutlineBuilder7line_toERKNS_5PointE"
-  },
-  "200d2bc": {
-    "symbol": "_200d2bc",
-    "original": "__ZN12_GLOBAL__N_114OutlineBuilder13close_contourEv"
-  },
-  "200d320": {
-    "symbol": "wm_vector_vector_200d320",
-    "original": "__ZN2wm6vectorItEC2Em"
-  },
-  "200d338": {
-    "symbol": "wm_vector_reserve_200d338",
-    "original": "__ZN2wm6vectorItE7reserveEm"
-  },
-  "200d392": {
-    "symbol": "wm_vector_vector_200d392",
-    "original": "__ZN2wm6vectorIsEC2Em"
-  },
-  "200d3a8": {
-    "symbol": "wm_vector_resize_200d3a8",
-    "original": "__ZN2wm6vectorIsE6resizeEm"
-  },
-  "200d3f1": {
-    "symbol": "short_wm_detail_vector_allocate_200d3f1",
-    "original": "__ZN2wm6detail15vector_allocateIsEEPT_m"
-  },
-  "200d408": {
-    "symbol": "wm_vector_200d408",
-    "original": "__ZN2wm6vectorIN12_GLOBAL__N_15PointEE7reserveEm"
-  },
-  "200d46a": {
-    "symbol": "bool_wm_vector_200d46a",
-    "original": "__ZN2wm6vectorIbE12emplace_backIJRKbEEERbDpOT_"
-  },
-  "200d4ba": {
-    "symbol": "wm_vector_reserve_200d4ba",
-    "original": "__ZN2wm6vectorIbE7reserveEm"
-  },
-  "200d50f": {
-    "symbol": "bool_wm_detail_vector_allocate_200d50f",
-    "original": "__ZN2wm6detail15vector_allocateIbEEPT_m"
-  },
-  "200d522": {
-    "symbol": "bool_wm_vector_200d522",
-    "original": "__ZN2wm6vectorIbE12emplace_backIJbEEERbDpOT_"
-  },
-  "200d572": {
-    "symbol": "bool_wm_vector_200d572",
-    "original": "__ZN2wm6vectorIbE7emplaceIJbEEEPbPKbDpOT_"
-  },
-  "200d5f4": {
-    "symbol": "_200d5f4",
-    "original": "__ZN12_GLOBAL__N_114OutlineBuilder13update_boundsERKNS_5PointE"
-  },
-  "200d654": {
-    "symbol": "wm_vector_200d654",
-    "original": "__ZN2wm6vectorIN12_GLOBAL__N_111LineSegmentEE9push_backEOS2_"
-  },
-  "200d6f4": {
-    "symbol": "_200d6f4",
-    "original": "__ZN12_GLOBAL__N_127flatten_quadratic_recursiveERNS_14OutlineBuilderERKNS_5PointES4_S4_i"
-  },
-  "200d80e": {
-    "symbol": "_200d80e",
-    "original": "__ZN12_GLOBAL__N_112Type1BackendD1Ev"
-  },
-  "200d84c": {
-    "symbol": "_200d84c",
-    "original": "__ZN12_GLOBAL__N_112Type1BackendD0Ev"
-  },
-  "200d868": {
-    "symbol": "_200d868",
-    "original": "__ZN12_GLOBAL__N_112Type1Backend4loadERKN2wm6vectorIhEE"
-  },
-  "200e6b4": {
-    "symbol": "_200e6b4",
-    "original": "__ZN12_GLOBAL__N_112Type1Backend9rasterizeEjd"
-  },
-  "200ec68": {
-    "symbol": "_200ec68",
-    "original": "__ZNK12_GLOBAL__N_112Type1Backend12units_per_emEv"
-  },
-  "200ec74": {
-    "symbol": "_200ec74",
-    "original": "__ZNK12_GLOBAL__N_112Type1Backend6ascentEv"
-  },
-  "200ec80": {
-    "symbol": "_200ec80",
-    "original": "__ZNK12_GLOBAL__N_112Type1Backend7descentEv"
-  },
-  "200ec8c": {
-    "symbol": "_200ec8c",
-    "original": "__ZNK12_GLOBAL__N_112Type1Backend8line_gapEv"
-  },
-  "200ec96": {
-    "symbol": "_200ec96",
-    "original": "__ZNK12_GLOBAL__N_112Type1Backend15metric_roundingEv"
-  },
-  "200eca0": {
-    "symbol": "wm_unordered_map_unordered_map_200eca0",
-    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEEC2Ev"
-  },
-  "200ecbe": {
-    "symbol": "wm_vector_vector_200ecbe",
-    "original": "__ZN2wm6vectorINS_4pairINS_6stringENS0_IhEEEEED2Ev"
-  },
-  "200ecda": {
-    "symbol": "wm_vector_clear_200ecda",
-    "original": "__ZN2wm6vectorINS_4pairINS_6stringENS0_IhEEEEE5clearEv"
-  },
-  "200ed16": {
-    "symbol": "wm_pair_pair_200ed16",
-    "original": "__ZN2wm4pairINS_6stringENS_6vectorIhEEED2Ev"
-  },
-  "200ed36": {
-    "symbol": "wm_string_string_200ed36",
-    "original": "__ZN2wm6stringD1Ev"
-  },
-  "200ed40": {
-    "symbol": "wm_string_string_200ed40",
-    "original": "__ZN2wm6stringD2Ev"
-  },
-  "200ed4e": {
-    "symbol": "wm_vector_vector_200ed4e",
-    "original": "__ZN2wm6vectorINS0_IhEEED2Ev"
-  },
-  "200ed6a": {
-    "symbol": "wm_vector_clear_200ed6a",
-    "original": "__ZN2wm6vectorINS0_IhEEE5clearEv"
-  },
-  "200eda6": {
-    "symbol": "wm_array_array_200eda6",
-    "original": "__ZN2wm5arrayINS_6stringELm256EED2Ev"
-  },
-  "200edce": {
-    "symbol": "wm_unordered_map_unordered_map_200edce",
-    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEED2Ev"
-  },
-  "200edfa": {
-    "symbol": "_200edfa",
-    "original": "__ZN12_GLOBAL__N_110find_bytesERKN2wm6vectorIhEEPKcm"
-  },
-  "200ee7e": {
-    "symbol": "wm_string_reserve_200ee7e",
-    "original": "__ZN2wm6string7reserveEm"
-  },
-  "200eed8": {
-    "symbol": "wm_string_push_back_200eed8",
-    "original": "__ZN2wm6string9push_backEc"
-  },
-  "200ef30": {
-    "symbol": "wm_string_allocate_200ef30",
-    "original": "__ZN2wm6string8allocateEm"
-  },
-  "200ef42": {
-    "symbol": "wm_string_ensure_storage_200ef42",
-    "original": "__ZN2wm6string14ensure_storageEv"
-  },
-  "200ef68": {
-    "symbol": "_200ef68",
-    "original": "__ZN12_GLOBAL__N_118parse_ascii_doubleERKN2wm6vectorIhEERmRd"
-  },
-  "200efcd": {
-    "symbol": "_200efcd",
-    "original": "__ZN12_GLOBAL__N_115parse_ascii_intERKN2wm6vectorIhEERmRi"
-  },
-  "200f065": {
-    "symbol": "_200f065",
-    "original": "__ZN12_GLOBAL__N_111skip_spacesERKN2wm6vectorIhEERm"
-  },
-  "200f09a": {
-    "symbol": "wm_string_operator_200f09a",
-    "original": "__ZN2wm6stringaSEOS0_"
-  },
-  "200f0d8": {
-    "symbol": "wm_string_string_200f0d8",
-    "original": "__ZN2wm6stringC2EPKcm"
-  },
-  "200f0f4": {
-    "symbol": "wm_string_assign_200f0f4",
-    "original": "__ZN2wm6string6assignEPKcm"
-  },
-  "200f1c0": {
-    "symbol": "wm_string_pointer_offset_200f1c0",
-    "original": "__ZNK2wm6string14pointer_offsetEPKcPm"
-  },
-  "200f1fe": {
-    "symbol": "wm_vector_erase_200f1fe",
-    "original": "__ZN2wm6vectorIhE5eraseEPKhS3_"
-  },
-  "200f25e": {
-    "symbol": "wm_vector_resize_200f25e",
-    "original": "__ZN2wm6vectorINS0_IhEEE6resizeEm"
-  },
-  "200f2e0": {
-    "symbol": "_200f2e0",
-    "original": "__ZN12_GLOBAL__N_112Type1Backend18decrypt_charstringERKN2wm6vectorIhEEi"
-  },
-  "200f494": {
-    "symbol": "wm_vector_operator_200f494",
-    "original": "__ZN2wm6vectorIhEaSEOS1_"
-  },
-  "200f4d6": {
-    "symbol": "wm_unordered_map_operator_200f4d6",
-    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEEixERKS1_"
-  },
-  "200f630": {
-    "symbol": "wm_vector_reserve_200f630",
-    "original": "__ZN2wm6vectorINS0_IhEEE7reserveEm"
-  },
-  "200f6a2": {
-    "symbol": "wm_vector_200f6a2",
+  "2010576": {
+    "symbol": "recovered_2010576",
     "original": "__ZN2wm6detail15vector_allocateINS_6vectorIhEEEEPT_m"
   },
-  "200f6ba": {
-    "symbol": "wm_unordered_map_find_200f6ba",
-    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE4findERKS1_"
-  },
-  "200f6e6": {
-    "symbol": "wm_unordered_map_prepare_insert_200f6e6",
-    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE14prepare_insertEv"
-  },
-  "200f718": {
-    "symbol": "wm_pair_200f718",
-    "original": "__ZN2wm6vectorINS_4pairINS_6stringENS0_IhEEEEE12emplace_backIJRKS2_S3_EEERS4_DpOT_"
-  },
-  "200f780": {
-    "symbol": "wm_unordered_map_link_index_200f780",
-    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE10link_indexEm"
-  },
-  "200f7b2": {
-    "symbol": "wm_unordered_map_find_index_200f7b2",
-    "original": "__ZNK2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE10find_indexERKS1_"
-  },
-  "200f814": {
-    "symbol": "wm_unordered_map_bucket_for_key_200f814",
-    "original": "__ZNK2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE14bucket_for_keyERKS1_"
-  },
-  "200f838": {
-    "symbol": "wm_hash_operator_200f838",
-    "original": "__ZNK2wm4hashINS_6stringEEclERKS1_"
-  },
-  "200f857": {
-    "symbol": "wm_operator_200f857",
-    "original": "__ZN2wmeqERKNS_6stringES2_"
-  },
-  "200f88a": {
-    "symbol": "wm_operator_200f88a",
-    "original": "__ZN2wmeqENS_11string_viewES0_"
-  },
-  "200f8b4": {
-    "symbol": "wm_unordered_map_rehash_200f8b4",
-    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE6rehashEm"
-  },
-  "200f91c": {
-    "symbol": "wm_unordered_map_bucket_count_for_size_200f91c",
-    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE21bucket_count_for_sizeEm"
-  },
-  "200f930": {
-    "symbol": "wm_unordered_map_rebuild_buckets_200f930",
-    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE15rebuild_bucketsEv"
-  },
-  "200f96e": {
-    "symbol": "wm_vector_reserve_200f96e",
-    "original": "__ZN2wm6vectorINS_4pairINS_6stringENS0_IhEEEEE7reserveEm"
-  },
-  "200f9e0": {
-    "symbol": "wm_pair_200f9e0",
-    "original": "__ZN2wm6detail15vector_allocateINS_4pairINS_6stringENS_6vectorIhEEEEEEPT_m"
-  },
-  "200f9f8": {
-    "symbol": "wm_pair_pair_200f9f8",
-    "original": "__ZN2wm4pairINS_6stringENS_6vectorIhEEEC2EOS4_"
-  },
-  "200fa22": {
-    "symbol": "wm_string_string_200fa22",
-    "original": "__ZN2wm6stringC2EOS0_"
-  },
-  "200fa42": {
-    "symbol": "wm_pair_200fa42",
-    "original": "__ZN2wm4pairINS_6stringENS_6vectorIhEEEC2IRKS1_S3_EEOT_OT0_"
-  },
-  "200fa68": {
-    "symbol": "wm_string_string_200fa68",
-    "original": "__ZN2wm6stringC2ERKS0_"
-  },
-  "200fa96": {
-    "symbol": "_200fa96",
-    "original": "__ZN12_GLOBAL__N_112Type1Backend16Type1Interpreter7executeERKN2wm6vectorIhEEi"
-  },
-  "200fef8": {
-    "symbol": "_200fef8",
-    "original": "__ZN12_GLOBAL__N_112Type1Backend16Type1InterpreterD1Ev"
-  },
-  "200ff22": {
-    "symbol": "wm_string_string_200ff22",
-    "original": "__ZN2wm6stringC2EPKc"
-  },
-  "200ff54": {
-    "symbol": "wm_string_length_200ff54",
-    "original": "__ZN2wm13string_lengthEPKc"
-  },
-  "200ff6e": {
-    "symbol": "wm_vector_vector_200ff6e",
-    "original": "__ZN2wm6vectorIdED2Ev"
-  },
-  "200ff80": {
-    "symbol": "_200ff80",
-    "original": "__ZN12_GLOBAL__N_112Type1Backend16Type1Interpreter10close_pathEv"
-  },
-  "200ffa0": {
-    "symbol": "_200ffa0",
-    "original": "__ZN12_GLOBAL__N_112Type1Backend16Type1Interpreter15move_to_currentEv"
-  },
-  "200fff4": {
-    "symbol": "_200fff4",
-    "original": "__ZN12_GLOBAL__N_112Type1Backend16Type1Interpreter15line_to_currentEv"
-  },
-  "2010064": {
-    "symbol": "double_wm_vector_2010064",
-    "original": "__ZN2wm6vectorIdE12emplace_backIJRKdEEERdDpOT_"
-  },
-  "20100b2": {
-    "symbol": "wm_vector_reserve_20100b2",
-    "original": "__ZN2wm6vectorIdE7reserveEm"
-  },
-  "201010b": {
-    "symbol": "double_wm_detail_vector_allocate_201010b",
-    "original": "__ZN2wm6detail15vector_allocateIdEEPT_m"
-  },
-  "2010122": {
-    "symbol": "wm_vector_wm_pair_unsigned_int_2010122",
-    "original": "__ZN2wm6vectorINS_4pairIjN12_GLOBAL__N_111GlyphBitmapEEEE5clearEv"
-  },
-  "2010164": {
-    "symbol": "_2010164",
-    "original": "__ZZN12_GLOBAL__N_111layout_lineEPNS_10FontHandleERKN2wm6vectorIjEEENK3$_0clEd"
-  },
-  "20101a6": {
-    "symbol": "wm_unordered_map_unsigned_int_20101a6",
-    "original": "__ZN2wm13unordered_mapIjN12_GLOBAL__N_111GlyphBitmapENS_4hashIjEENS_8equal_toIjEEE4findERKj"
-  },
-  "2010202": {
-    "symbol": "wm_unordered_map_unsigned_int_2010202",
-    "original": "__ZNK2wm13unordered_mapIjN12_GLOBAL__N_111GlyphBitmapENS_4hashIjEENS_8equal_toIjEEE14bucket_for_keyERKj"
-  },
-  "201022a": {
-    "symbol": "wm_unordered_map_unsigned_int_201022a",
-    "original": "__ZN2wm13unordered_mapIjN12_GLOBAL__N_111GlyphBitmapENS_4hashIjEENS_8equal_toIjEEE10link_indexEm"
-  },
-  "201025c": {
-    "symbol": "wm_vector_vector_201025c",
-    "original": "__ZN2wm6vectorIhED2Ev"
-  },
-  "201026e": {
-    "symbol": "wm_vector_vector_201026e",
-    "original": "__ZN2wm6vectorIhEC2EmRKh"
-  },
-  "2010284": {
-    "symbol": "wm_vector_vector_2010284",
-    "original": "__ZN2wm6vectorIjED2Ev"
-  },
-  "2010296": {
-    "symbol": "wm_vector_vector_2010296",
-    "original": "__ZN2wm6vectorINS0_IjEEED2Ev"
-  },
-  "20102b2": {
-    "symbol": "wm_vector_clear_20102b2",
-    "original": "__ZN2wm6vectorINS0_IjEEE5clearEv"
-  },
-  "20102ee": {
-    "symbol": "wm_vector_reserve_20102ee",
-    "original": "__ZN2wm6vectorINS0_IjEEE7reserveEm"
-  },
-  "2010360": {
-    "symbol": "wm_vector_2010360",
-    "original": "__ZN2wm6detail15vector_allocateINS_6vectorIjEEEEPT_m"
-  },
-  "2010378": {
-    "symbol": "wm_vector_vector_2010378",
-    "original": "__ZN2wm6vectorIjEC2EOS1_"
-  },
-  "2010398": {
-    "symbol": "_2010398",
-    "original": "__ZN12_GLOBAL__N_110LineLayoutC1EOS0_"
-  },
-  "20103c0": {
-    "symbol": "std_istream_istream_20103c0",
-    "original": "__ZNSt7istreamD1Ev"
-  },
-  "20103c6": {
-    "symbol": "std_ostream_ostream_20103c6",
-    "original": "__ZNSt7ostreamD1Ev"
-  },
-  "20103cc": {
-    "symbol": "wm_media_png_decode_memory",
-    "original": "_wm_media_png_decode_memory"
-  },
-  "2010594": {
-    "symbol": "_2010594",
-    "original": "__ZN12_GLOBAL__N_114clearImageInfoEP27WmBaremetalProgramImageInfo"
-  },
-  "20105aa": {
-    "symbol": "_20105aa",
-    "original": "__ZN12_GLOBAL__N_122copyRgbaToProgramImageEPKhjjmP27WmBaremetalProgramImageInfo"
-  },
-  "2010658": {
-    "symbol": "clang_call_terminate",
-    "original": "___clang_call_terminate"
-  },
-  "2010666": {
-    "symbol": "wm_media_wav_decode_memory",
-    "original": "_wm_media_wav_decode_memory"
-  },
-  "20108f8": {
-    "symbol": "_20108f8",
-    "original": "__ZN12_GLOBAL__N_112clearPcmInfoEP25WmBaremetalProgramPcmInfo"
-  },
-  "201090e": {
-    "symbol": "winter_wav_decode_201090e",
-    "original": "__ZN6winter3wav6decodeEPKvmPNS0_11DecodedFileERKNS0_13DecodeOptionsE"
-  },
-  "2010f10": {
-    "symbol": "wm_media_ttf_load_memory",
-    "original": "_wm_media_ttf_load_memory"
-  },
-  "2010fd4": {
-    "symbol": "wm_media_ttf_resize",
-    "original": "_wm_media_ttf_resize"
-  },
-  "2011094": {
-    "symbol": "wm_media_ttf_render",
-    "original": "_wm_media_ttf_render"
-  },
-  "2011278": {
-    "symbol": "wm_media_ttf_free",
-    "original": "_wm_media_ttf_free"
-  },
-  "2011324": {
-    "symbol": "std_istream_istream_2011324",
-    "original": "__ZNSt7istreamD0Ev"
-  },
-  "201132e": {
-    "symbol": "std_ostream_ostream_201132e",
-    "original": "__ZNSt7ostreamD0Ev"
-  },
-  "2011338": {
-    "symbol": "winter_wav_detail_resolveFormatTag_2011338",
-    "original": "__ZN6winter3wav6detail16resolveFormatTagEPtPKhm"
-  },
-  "2011379": {
-    "symbol": "winter_wav_detail_isSupportedFormat_2011379",
-    "original": "__ZN6winter3wav6detail17isSupportedFormatEtt"
-  },
-  "20113a3": {
-    "symbol": "winter_wav_detail_readSampleAsFloat_20113a3",
-    "original": "__ZN6winter3wav6detail17readSampleAsFloatEPKhtt"
-  },
-  "20114f8": {
-    "symbol": "winter_wav_detail_floatToS16_20114f8",
-    "original": "__ZN6winter3wav6detail10floatToS16Ed"
-  },
-  "201153e": {
-    "symbol": "winter_wav_DecodedFile_operator_201153e",
-    "original": "__ZN6winter3wav11DecodedFileaSEOS1_"
-  },
-  "2011568": {
-    "symbol": "wm_vector_reserve_2011568",
-    "original": "__ZN2wm6vectorIsE7reserveEm"
-  },
-  "20115c2": {
-    "symbol": "wm_vector_operator_20115c2",
-    "original": "__ZN2wm6vectorIsEaSEOS1_"
-  },
-  "2011604": {
-    "symbol": "cxx_global_var_init",
-    "original": "___cxx_global_var_init"
-  },
-  "201166a": {
-    "symbol": "cxx_global_var_init_1",
-    "original": "___cxx_global_var_init.1"
-  },
-  "20116d0": {
-    "symbol": "cxx_global_var_init_2",
-    "original": "___cxx_global_var_init.2"
-  },
-  "2011736": {
-    "symbol": "cxx_global_var_init_3",
-    "original": "___cxx_global_var_init.3"
-  },
-  "201179c": {
-    "symbol": "wm_kernel_program_clear",
-    "original": "_wm_kernel_program_clear"
-  },
-  "2011956": {
-    "symbol": "app_console_render",
-    "original": "_app_console_render"
-  },
-  "2011b76": {
-    "symbol": "wm_kernel_program_putc",
-    "original": "_wm_kernel_program_putc"
-  },
-  "2011b8d": {
-    "symbol": "app_console_putc_raw",
-    "original": "_app_console_putc_raw"
-  },
-  "2011c12": {
-    "symbol": "wm_kernel_program_write",
-    "original": "_wm_kernel_program_write"
-  },
-  "2011c42": {
-    "symbol": "wm_kernel_program_poll_key_ax",
-    "original": "_wm_kernel_program_poll_key_ax"
-  },
-  "2011ca7": {
-    "symbol": "serial_poll_char",
-    "original": "_serial_poll_char"
-  },
-  "2011ce8": {
-    "symbol": "wm_kernel_program_end",
-    "original": "_wm_kernel_program_end"
-  },
-  "2011cfd": {
-    "symbol": "render_ui",
-    "original": "_render_ui"
-  },
-  "2012268": {
-    "symbol": "wm_kernel_program_stat_file",
-    "original": "_wm_kernel_program_stat_file"
-  },
-  "20122ec": {
-    "symbol": "fs_read_file",
-    "original": "_fs_read_file"
-  },
-  "201238c": {
-    "symbol": "fs_find_file",
-    "original": "_fs_find_file"
-  },
-  "20123b9": {
-    "symbol": "wm_kernel_program_write_file",
-    "original": "_wm_kernel_program_write_file"
-  },
-  "20123c9": {
-    "symbol": "fs_write_file",
-    "original": "_fs_write_file"
-  },
-  "2012741": {
-    "symbol": "wm_kernel_program_delete_file",
-    "original": "_wm_kernel_program_delete_file"
-  },
-  "201274f": {
-    "symbol": "fs_delete_file",
-    "original": "_fs_delete_file"
-  },
-  "2012969": {
-    "symbol": "wm_kernel_program_png_decode_file",
-    "original": "_wm_kernel_program_png_decode_file"
-  },
-  "20129ee": {
-    "symbol": "wm_kernel_program_wav_decode_file",
-    "original": "_wm_kernel_program_wav_decode_file"
-  },
-  "2012a7d": {
-    "symbol": "wm_kernel_program_ttf_load_file",
-    "original": "_wm_kernel_program_ttf_load_file"
-  },
-  "2012ad7": {
-    "symbol": "wm_kernel_host_log",
-    "original": "_wm_kernel_host_log"
-  },
-  "2012b0c": {
-    "symbol": "console_log",
-    "original": "_console_log"
-  },
-  "2012ba3": {
-    "symbol": "wm_kernel_host_readline",
-    "original": "_wm_kernel_host_readline"
-  },
-  "2012bce": {
-    "symbol": "read_line_internal",
-    "original": "_read_line_internal"
-  },
-  "2012f56": {
-    "symbol": "wm_kernel_expand_disk",
-    "original": "_wm_kernel_expand_disk"
-  },
-  "20130a1": {
-    "symbol": "storage_refresh_mounted_filesystem_available_sectors",
-    "original": "_storage_refresh_mounted_filesystem_available_sectors"
-  },
-  "20131b1": {
-    "symbol": "console_logf",
-    "original": "_console_logf"
-  },
-  "201324b": {
-    "symbol": "storage_fs_name",
-    "original": "_storage_fs_name"
-  },
-  "2013271": {
-    "symbol": "fs_flush",
-    "original": "_fs_flush"
-  },
-  "2015111": {
-    "symbol": "fs_load_wmfs_volume",
-    "original": "_fs_load_wmfs_volume"
-  },
-  "2015939": {
-    "symbol": "wm_kernel_set_theme",
-    "original": "_wm_kernel_set_theme"
-  },
-  "201594f": {
-    "symbol": "display_set_theme",
-    "original": "_display_set_theme"
-  },
-  "20159a3": {
-    "symbol": "wm_kernel_enter_graphics_mode",
-    "original": "_wm_kernel_enter_graphics_mode"
-  },
-  "2015ab7": {
-    "symbol": "graphics_framebuffer_ready",
-    "original": "_graphics_framebuffer_ready"
-  },
-  "2015b23": {
-    "symbol": "graphics_rebuild_canvas_mapping",
-    "original": "_graphics_rebuild_canvas_mapping"
-  },
-  "2015bfa": {
-    "symbol": "graphics_release_canvas_mapping",
-    "original": "_graphics_release_canvas_mapping"
-  },
-  "2015c28": {
-    "symbol": "graphics_fill_canvas_present",
-    "original": "_graphics_fill_canvas_present"
-  },
-  "2015cdf": {
-    "symbol": "wm_kernel_enter_text_mode",
-    "original": "_wm_kernel_enter_text_mode"
-  },
-  "2015d34": {
-    "symbol": "textmode_sync_font",
-    "original": "_textmode_sync_font"
-  },
-  "2015f8f": {
-    "symbol": "wm_kernel_set_night_mode",
-    "original": "_wm_kernel_set_night_mode"
-  },
-  "2015faa": {
-    "symbol": "wm_kernel_assign_winterscript_function",
-    "original": "_wm_kernel_assign_winterscript_function"
-  },
-  "20162a2": {
-    "symbol": "ws_make_null",
-    "original": "_ws_make_null"
-  },
-  "20162c2": {
-    "symbol": "ws_value_free",
-    "original": "_ws_value_free"
-  },
-  "20163d8": {
-    "symbol": "wm_permafrost_main",
-    "original": "_wm_winterboot_main"
-  },
-  "20199e2": {
-    "symbol": "storage_scan_devices",
-    "original": "_storage_scan_devices"
-  },
-  "2019bf1": {
-    "symbol": "read_line",
-    "original": "_read_line"
-  },
-  "2019c0e": {
-    "symbol": "trim_in_place",
-    "original": "_trim_in_place"
-  },
-  "2019c7c": {
-    "symbol": "textmode_columns",
-    "original": "_textmode_columns"
-  },
-  "2019c8d": {
-    "symbol": "textmode_rows",
-    "original": "_textmode_rows"
-  },
-  "2019c9e": {
-    "symbol": "app_console_line",
-    "original": "_app_console_line"
-  },
-  "2019cd9": {
-    "symbol": "surface_fill",
-    "original": "_surface_fill"
-  },
-  "2019d20": {
-    "symbol": "draw_text",
-    "original": "_draw_text"
-  },
-  "2019d84": {
-    "symbol": "surface_fill_rect",
-    "original": "_surface_fill_rect"
-  },
-  "2019e4c": {
-    "symbol": "present_surface",
-    "original": "_present_surface"
-  },
-  "2019fe0": {
-    "symbol": "textmode_prepare_grids",
-    "original": "_textmode_prepare_grids"
-  },
-  "201a016": {
-    "symbol": "textmode_grid_clear",
-    "original": "_textmode_grid_clear"
-  },
-  "201a03f": {
-    "symbol": "textmode_grid_write_n",
-    "original": "_textmode_grid_write_n"
-  },
-  "201a0a6": {
-    "symbol": "textmode_present_grid",
-    "original": "_textmode_present_grid"
-  },
-  "201a22d": {
-    "symbol": "draw_text_n",
-    "original": "_draw_text_n"
-  },
-  "201a47f": {
-    "symbol": "bitmap_font_try_autoload",
-    "original": "_bitmap_font_try_autoload"
-  },
-  "201a51d": {
-    "symbol": "ensure_rom_font",
-    "original": "_ensure_rom_font"
-  },
-  "201a599": {
-    "symbol": "bitmap_font_load_asset_bytes",
-    "original": "_bitmap_font_load_asset_bytes"
-  },
-  "201a649": {
-    "symbol": "bitmap_font_set_data",
-    "original": "_bitmap_font_set_data"
-  },
-  "201a7ea": {
-    "symbol": "bitmap_font_unload",
-    "original": "_bitmap_font_unload"
-  },
-  "201a826": {
-    "symbol": "graphics_framebuffer_bytes_per_pixel",
-    "original": "_graphics_framebuffer_bytes_per_pixel"
-  },
-  "201a83a": {
-    "symbol": "clear_framebuffer_bytes",
-    "original": "_clear_framebuffer_bytes"
-  },
-  "201a857": {
-    "symbol": "pack_canvas_truecolor",
-    "original": "_pack_canvas_truecolor"
-  },
-  "201a94b": {
-    "symbol": "write_truecolor_pixel",
-    "original": "_write_truecolor_pixel"
-  },
-  "201a96d": {
-    "symbol": "pack_truecolor",
-    "original": "_pack_truecolor"
-  },
-  "201aa9d": {
-    "symbol": "pack_truecolor_with_layout",
-    "original": "_pack_truecolor_with_layout"
-  },
-  "201aafe": {
-    "symbol": "expand_channel",
-    "original": "_expand_channel"
-  },
-  "201ab35": {
-    "symbol": "textmode_grid_resize",
-    "original": "_textmode_grid_resize"
-  },
-  "201abdc": {
-    "symbol": "textmode_cache_resize",
-    "original": "_textmode_cache_resize"
-  },
-  "201ac59": {
-    "symbol": "app_console_newline",
-    "original": "_app_console_newline"
-  },
-  "201acfa": {
-    "symbol": "console_push_line_internal",
-    "original": "_console_push_line_internal"
-  },
-  "201ae96": {
-    "symbol": "text_translate_for_output_n",
-    "original": "_text_translate_for_output_n"
-  },
-  "201b156": {
-    "symbol": "ws_strdup_n",
-    "original": "_ws_strdup_n"
-  },
-  "201b1a8": {
-    "symbol": "ws_string_builder_append_n",
-    "original": "_ws_string_builder_append_n"
-  },
-  "201b24f": {
-    "symbol": "ws_string_builder_free",
-    "original": "_ws_string_builder_free"
-  },
-  "201b278": {
-    "symbol": "ws_string_builder_take",
-    "original": "_ws_string_builder_take"
-  },
-  "201b2af": {
-    "symbol": "char_is_hex",
-    "original": "_char_is_hex"
-  },
-  "201b2d7": {
-    "symbol": "hex_digit_value",
-    "original": "_hex_digit_value"
-  },
-  "201b2fb": {
-    "symbol": "cursor_blink_on",
-    "original": "_cursor_blink_on"
-  },
-  "201b312": {
-    "symbol": "build_visual_layout",
-    "original": "_build_visual_layout"
-  },
-  "201b7b4": {
-    "symbol": "format_compact_bytes",
-    "original": "_format_compact_bytes"
-  },
-  "201b862": {
-    "symbol": "fs_free_bytes",
-    "original": "_fs_free_bytes"
-  },
-  "201b959": {
-    "symbol": "visual_layout_append_line",
-    "original": "_visual_layout_append_line"
-  },
-  "201b99b": {
-    "symbol": "fs_used_cluster_count",
-    "original": "_fs_used_cluster_count"
-  },
-  "201b9f5": {
-    "symbol": "visual_layout_append_line_n",
-    "original": "_visual_layout_append_line_n"
-  },
-  "201ba61": {
-    "symbol": "normalize_path",
-    "original": "_normalize_path"
-  },
-  "201bc37": {
-    "symbol": "fs_find_file_normalized",
-    "original": "_fs_find_file_normalized"
-  },
-  "201bd44": {
-    "symbol": "fs_hash_path",
-    "original": "_fs_hash_path"
-  },
-  "201bd6e": {
-    "symbol": "fs_ensure_file_data_loaded",
-    "original": "_fs_ensure_file_data_loaded"
-  },
-  "201c13e": {
-    "symbol": "load_drive_bytes",
-    "original": "_load_drive_bytes"
-  },
-  "201c1cd": {
-    "symbol": "wmfs_load_file_from_drive",
-    "original": "_wmfs_load_file_from_drive"
-  },
-  "201c3a6": {
-    "symbol": "storage_find_ramdisk_by_drive",
-    "original": "_storage_find_ramdisk_by_drive"
-  },
-  "201c3e5": {
-    "symbol": "fat_load_cluster_chain_bytes",
-    "original": "_fat_load_cluster_chain_bytes"
-  },
-  "201c54a": {
-    "symbol": "fat_entry_get",
-    "original": "_fat_entry_get"
-  },
-  "201c5aa": {
-    "symbol": "fat_entry_is_end",
-    "original": "_fat_entry_is_end"
-  },
-  "201c5da": {
-    "symbol": "fs_reserve_file_capacity",
-    "original": "_fs_reserve_file_capacity"
-  },
-  "201c6b6": {
-    "symbol": "fs_insert_file_index",
-    "original": "_fs_insert_file_index"
-  },
-  "201c72d": {
-    "symbol": "fs_rebuild_file_index",
-    "original": "_fs_rebuild_file_index"
-  },
-  "201c7da": {
-    "symbol": "fs_ensure_file_index_capacity",
-    "original": "_fs_ensure_file_index_capacity"
-  },
-  "201c8a1": {
-    "symbol": "fs_insert_file_index_entry",
-    "original": "_fs_insert_file_index_entry"
-  },
-  "201c97a": {
-    "symbol": "wmfs64_resize_chain",
-    "original": "_wmfs64_resize_chain"
-  },
-  "201cba3": {
-    "symbol": "wmfs64_write_chain_bytes",
-    "original": "_wmfs64_write_chain_bytes"
-  },
-  "201ccdd": {
-    "symbol": "wmfs64_sync_single_directory_entry_and_metadata",
-    "original": "_wmfs64_sync_single_directory_entry_and_metadata"
-  },
-  "201ce92": {
-    "symbol": "wmfs64_sync_directory_and_metadata",
-    "original": "_wmfs64_sync_directory_and_metadata"
-  },
-  "201cf9c": {
-    "symbol": "wmfs64_free_chain",
-    "original": "_wmfs64_free_chain"
-  },
-  "201cffc": {
-    "symbol": "wmfs64_set_fat_entry",
-    "original": "_wmfs64_set_fat_entry"
-  },
-  "201d06f": {
-    "symbol": "write_drive_bytes",
-    "original": "_write_drive_bytes"
-  },
-  "201d101": {
-    "symbol": "wmfs64_write_metadata",
-    "original": "_wmfs64_write_metadata"
-  },
-  "201d29b": {
-    "symbol": "wmfs64_fill_directory_entry",
-    "original": "_wmfs64_fill_directory_entry"
-  },
-  "201d307": {
-    "symbol": "storage_find_device_by_id",
-    "original": "_storage_find_device_by_id"
-  },
-  "201d35a": {
-    "symbol": "boot_filesystem_available_sectors",
-    "original": "_boot_filesystem_available_sectors"
-  },
-  "201d3b5": {
-    "symbol": "query_drive_capacity",
-    "original": "_query_drive_capacity"
-  },
-  "201d3f4": {
-    "symbol": "fs_materialize_all_file_data",
-    "original": "_fs_materialize_all_file_data"
-  },
-  "201d462": {
-    "symbol": "wmfs64_recommended_sectors_per_cluster",
-    "original": "_wmfs64_recommended_sectors_per_cluster"
-  },
-  "201d4cc": {
-    "symbol": "wmfs64_write_contiguous_cluster_range",
-    "original": "_wmfs64_write_contiguous_cluster_range"
-  },
-  "201d601": {
-    "symbol": "fat_entry_set",
-    "original": "_fat_entry_set"
-  },
-  "201d6a3": {
-    "symbol": "fat_fill_directory_short_name",
-    "original": "_fat_fill_directory_short_name"
-  },
-  "201d6dd": {
-    "symbol": "fat_write_directory_item",
-    "original": "_fat_write_directory_item"
-  },
-  "201d92b": {
-    "symbol": "fat_tree_add_node",
-    "original": "_fat_tree_add_node"
-  },
-  "201dabf": {
-    "symbol": "fat_short_name_to_path",
-    "original": "_fat_short_name_to_path"
-  },
-  "201db66": {
-    "symbol": "fat_sanitize_short_part",
-    "original": "_fat_sanitize_short_part"
-  },
-  "201dbff": {
-    "symbol": "fat_is_valid_short_char",
-    "original": "_fat_is_valid_short_char"
-  },
-  "201dc49": {
-    "symbol": "fat_required_lfn_entries",
-    "original": "_fat_required_lfn_entries"
-  },
-  "201dc6d": {
-    "symbol": "fs_release_files",
-    "original": "_fs_release_files"
-  },
-  "201dc7e": {
-    "symbol": "fs_append_loaded_entry",
-    "original": "_fs_append_loaded_entry"
-  },
-  "201ddf5": {
-    "symbol": "fs_release_state",
-    "original": "_fs_release_state"
-  },
-  "201de9d": {
-    "symbol": "wmfs32_superblock_geometry_is_valid",
-    "original": "_wmfs32_superblock_geometry_is_valid"
-  },
-  "201dfce": {
-    "symbol": "display_fill_theme_surfaces",
-    "original": "_display_fill_theme_surfaces"
-  },
-  "201e021": {
-    "symbol": "graphics_build_axis_mapping",
-    "original": "_graphics_build_axis_mapping"
-  },
-  "201e066": {
-    "symbol": "ws_function_create",
-    "original": "_ws_function_create"
-  },
-  "201e0fa": {
-    "symbol": "ws_make_function",
-    "original": "_ws_make_function"
-  },
-  "201e129": {
-    "symbol": "ws_function_release",
-    "original": "_ws_function_release"
-  },
-  "201e19c": {
-    "symbol": "program_lines_free",
-    "original": "_program_lines_free"
-  },
-  "201e1db": {
-    "symbol": "program_line_free",
-    "original": "_program_line_free"
-  },
-  "201e1fc": {
-    "symbol": "ws_set_global_variable",
-    "original": "_ws_set_global_variable"
-  },
-  "201e32f": {
-    "symbol": "ws_try_get_global_variable",
-    "original": "_ws_try_get_global_variable"
-  },
-  "201e36d": {
-    "symbol": "ws_make_table",
-    "original": "_ws_make_table"
-  },
-  "201e3be": {
-    "symbol": "ws_table_get_mutable_entry",
-    "original": "_ws_table_get_mutable_entry"
-  },
-  "201e4ef": {
-    "symbol": "ws_value_assign",
-    "original": "_ws_value_assign"
-  },
-  "201e5f0": {
-    "symbol": "ws_find_global_variable_index",
-    "original": "_ws_find_global_variable_index"
-  },
-  "201e655": {
-    "symbol": "ws_table_find_index",
-    "original": "_ws_table_find_index"
-  },
-  "201e6be": {
-    "symbol": "ws_make_string",
-    "original": "_ws_make_string"
-  },
-  "201e6f3": {
-    "symbol": "ws_make_raw_copy",
-    "original": "_ws_make_raw_copy"
-  },
-  "201e76d": {
-    "symbol": "ws_make_string_n",
-    "original": "_ws_make_string_n"
-  },
-  "201e7ba": {
-    "symbol": "surface_allocate",
-    "original": "_surface_allocate"
-  },
-  "201e81b": {
-    "symbol": "surface_release",
-    "original": "_surface_release"
-  },
-  "201e843": {
-    "symbol": "ws_set_variable",
-    "original": "_ws_set_variable"
-  },
-  "201e8dd": {
-    "symbol": "ws_parse_float_literal",
-    "original": "_ws_parse_float_literal"
-  },
-  "201e97a": {
-    "symbol": "ws_make_float",
-    "original": "_ws_make_float"
-  },
-  "201e9ae": {
-    "symbol": "ws_find_frame_variable_index",
-    "original": "_ws_find_frame_variable_index"
-  },
-  "201ea13": {
-    "symbol": "ws_table_set_builtin_field",
-    "original": "_ws_table_set_builtin_field"
-  },
-  "201ea77": {
-    "symbol": "ws_table_set_value_field",
+  "203fbdb": {
+    "symbol": "recovered_203fbdb",
     "original": "_ws_table_set_value_field"
   },
-  "201eac4": {
-    "symbol": "ws_table_set_string_field",
-    "original": "_ws_table_set_string_field"
-  },
-  "201eb39": {
-    "symbol": "ws_make_builtin_function_value",
-    "original": "_ws_make_builtin_function_value"
-  },
-  "201ebbd": {
-    "symbol": "ws_builtin_exists",
-    "original": "_ws_builtin_exists"
-  },
-  "201f611": {
-    "symbol": "ws_token_equals",
-    "original": "_ws_token_equals"
-  },
-  "201f679": {
-    "symbol": "storage_add_scanned_drive",
-    "original": "_storage_add_scanned_drive"
-  },
-  "201f861": {
-    "symbol": "storage_add_scanned_ramdisks",
-    "original": "_storage_add_scanned_ramdisks"
-  },
-  "201f8aa": {
-    "symbol": "storage_preserve_previous_device_states",
-    "original": "_storage_preserve_previous_device_states"
-  },
-  "201f92f": {
-    "symbol": "storage_add_device",
-    "original": "_storage_add_device"
-  },
-  "201fa08": {
-    "symbol": "storage_read_partition_table",
-    "original": "_storage_read_partition_table"
-  },
-  "201ff58": {
-    "symbol": "storage_set_default_device_name",
-    "original": "_storage_set_default_device_name"
-  },
-  "2020064": {
-    "symbol": "storage_copy_device_name_bytes",
-    "original": "_storage_copy_device_name_bytes"
-  },
-  "20200ba": {
-    "symbol": "storage_detect_volume_filesystem",
-    "original": "_storage_detect_volume_filesystem"
-  },
-  "2020192": {
-    "symbol": "fat_detect_type_from_boot_sector",
-    "original": "_fat_detect_type_from_boot_sector"
-  },
-  "2020366": {
-    "symbol": "storage_sector_has_mbr_partitions",
-    "original": "_storage_sector_has_mbr_partitions"
-  },
-  "20203a9": {
-    "symbol": "storage_sector_is_empty_mbr",
-    "original": "_storage_sector_is_empty_mbr"
-  },
-  "20203f0": {
-    "symbol": "storage_parse_wbpt_header",
-    "original": "_storage_parse_wbpt_header"
-  },
-  "2020489": {
-    "symbol": "storage_copy_device_name",
-    "original": "_storage_copy_device_name"
-  },
-  "20204df": {
-    "symbol": "program_load_text",
-    "original": "_program_load_text"
-  },
-  "2020525": {
-    "symbol": "run_program",
-    "original": "_run_program"
-  },
-  "202053d": {
-    "symbol": "run_bytecode_path",
-    "original": "_run_bytecode_path"
-  },
-  "2020606": {
-    "symbol": "program_load_text_lines",
-    "original": "_program_load_text_lines"
-  },
-  "2020749": {
-    "symbol": "program_replace_lines",
-    "original": "_program_replace_lines"
-  },
-  "202078f": {
-    "symbol": "program_lines_reserve",
-    "original": "_program_lines_reserve"
-  },
-  "2020813": {
-    "symbol": "run_program_lines",
-    "original": "_run_program_lines"
-  },
-  "2020991": {
-    "symbol": "ws_execute_block",
-    "original": "_ws_execute_block"
-  },
-  "2023ac6": {
-    "symbol": "ws_errorf",
-    "original": "_ws_errorf"
-  },
-  "2023c06": {
-    "symbol": "ws_is_head_keyword",
-    "original": "_ws_is_head_keyword"
-  },
-  "2023c59": {
-    "symbol": "ws_value_move",
-    "original": "_ws_value_move"
-  },
-  "2023cb9": {
-    "symbol": "ws_tokenize_line",
-    "original": "_ws_tokenize_line"
-  },
-  "2023fb8": {
-    "symbol": "ws_token_list_free",
-    "original": "_ws_token_list_free"
-  },
-  "2023ff6": {
-    "symbol": "ws_is_identifier",
-    "original": "_ws_is_identifier"
-  },
-  "2024054": {
-    "symbol": "ws_value_list_free",
-    "original": "_ws_value_list_free"
-  },
-  "20240a1": {
-    "symbol": "ws_match_operator",
-    "original": "_ws_match_operator"
-  },
-  "20240ec": {
-    "symbol": "ws_value_list_push",
-    "original": "_ws_value_list_push"
-  },
-  "20241e0": {
-    "symbol": "ws_free_parameter_names",
-    "original": "_ws_free_parameter_names"
-  },
-  "202421e": {
-    "symbol": "ws_find_matching_end",
-    "original": "_ws_find_matching_end"
-  },
-  "202431f": {
-    "symbol": "ws_copy_program_lines",
-    "original": "_ws_copy_program_lines"
-  },
-  "2024419": {
-    "symbol": "ws_create_script_function_take_ownership",
-    "original": "_ws_create_script_function_take_ownership"
-  },
-  "2024495": {
-    "symbol": "ws_set_scoped_variable",
-    "original": "_ws_set_scoped_variable"
-  },
-  "20244db": {
-    "symbol": "ws_finish_executed_statement",
-    "original": "_ws_finish_executed_statement"
-  },
-  "2025e4c": {
-    "symbol": "ws_try_get_variable",
-    "original": "_ws_try_get_variable"
-  },
-  "2025ee6": {
-    "symbol": "ws_make_array",
-    "original": "_ws_make_array"
-  },
-  "2025f3b": {
-    "symbol": "ws_get_indexed_value_mutable",
-    "original": "_ws_get_indexed_value_mutable"
-  },
-  "2026156": {
-    "symbol": "ws_set_indexed_value",
-    "original": "_ws_set_indexed_value"
-  },
-  "2026218": {
-    "symbol": "ws_value_truthy",
-    "original": "_ws_value_truthy"
-  },
-  "20262b0": {
-    "symbol": "ws_find_if_branch_or_end",
-    "original": "_ws_find_if_branch_or_end"
-  },
-  "20263f8": {
-    "symbol": "ws_find_matching_until",
-    "original": "_ws_find_matching_until"
-  },
-  "20264f9": {
-    "symbol": "ws_make_int",
-    "original": "_ws_make_int"
-  },
-  "2026527": {
-    "symbol": "ws_find_top_level_token_index",
-    "original": "_ws_find_top_level_token_index"
-  },
-  "2026696": {
-    "symbol": "ws_evaluate_token_range",
-    "original": "_ws_evaluate_token_range"
-  },
-  "2026755": {
-    "symbol": "ws_value_to_float_number",
-    "original": "_ws_value_to_float_number"
-  },
-  "2026783": {
-    "symbol": "ws_try_assignment",
-    "original": "_ws_try_assignment"
-  },
-  "2027323": {
-    "symbol": "ws_execute_expression_line",
-    "original": "_ws_execute_expression_line"
-  },
-  "20273f2": {
-    "symbol": "ws_token_list_push_n",
-    "original": "_ws_token_list_push_n"
-  },
-  "20274a7": {
-    "symbol": "ws_token_list_push",
-    "original": "_ws_token_list_push"
-  },
-  "20274dc": {
-    "symbol": "ws_array_push_copy",
-    "original": "_ws_array_push_copy"
-  },
-  "2027530": {
-    "symbol": "ws_array_resize",
-    "original": "_ws_array_resize"
-  },
-  "20275ba": {
-    "symbol": "ws_array_reserve_capacity",
-    "original": "_ws_array_reserve_capacity"
-  },
-  "2027655": {
-    "symbol": "ws_parse_or",
-    "original": "_ws_parse_or"
-  },
-  "202774b": {
-    "symbol": "ws_parse_and",
-    "original": "_ws_parse_and"
-  },
-  "2027841": {
-    "symbol": "ws_parse_equality",
-    "original": "_ws_parse_equality"
-  },
-  "2027974": {
-    "symbol": "ws_parse_comparison",
-    "original": "_ws_parse_comparison"
-  },
-  "2027aba": {
-    "symbol": "ws_apply_binary_op",
-    "original": "_ws_apply_binary_op"
-  },
-  "2028107": {
-    "symbol": "ws_parse_additive",
-    "original": "_ws_parse_additive"
-  },
-  "2028227": {
-    "symbol": "ws_parse_multiplicative",
-    "original": "_ws_parse_multiplicative"
-  },
-  "202836d": {
-    "symbol": "ws_parse_power",
-    "original": "_ws_parse_power"
-  },
-  "2028466": {
-    "symbol": "ws_parse_unary",
-    "original": "_ws_parse_unary"
-  },
-  "202999d": {
-    "symbol": "ws_make_bool",
-    "original": "_ws_make_bool"
-  },
-  "20299d8": {
-    "symbol": "ws_numeric_table_length",
-    "original": "_ws_numeric_table_length"
-  },
-  "2029a3c": {
-    "symbol": "ws_table_literal_promote_array_entries",
-    "original": "_ws_table_literal_promote_array_entries"
-  },
-  "2029adb": {
-    "symbol": "ws_table_literal_set_entry",
-    "original": "_ws_table_literal_set_entry"
-  },
-  "2029b8a": {
-    "symbol": "ws_make_value_array",
-    "original": "_ws_make_value_array"
-  },
-  "2029bfd": {
-    "symbol": "ws_token_is_string",
-    "original": "_ws_token_is_string"
-  },
-  "2029c38": {
-    "symbol": "ws_decode_string_literal",
-    "original": "_ws_decode_string_literal"
-  },
-  "2029c9f": {
-    "symbol": "ws_parse_int_literal",
-    "original": "_ws_parse_int_literal"
-  },
-  "2029e1a": {
-    "symbol": "ws_parse_pointer_literal",
-    "original": "_ws_parse_pointer_literal"
-  },
-  "2029e68": {
-    "symbol": "ws_make_pointer",
-    "original": "_ws_make_pointer"
-  },
-  "2029e8c": {
-    "symbol": "ws_token_looks_numeric",
-    "original": "_ws_token_looks_numeric"
-  },
-  "2029ee3": {
-    "symbol": "ws_get_indexed_value",
-    "original": "_ws_get_indexed_value"
-  },
-  "202a1be": {
-    "symbol": "ws_value_list_push_call_argument",
-    "original": "_ws_value_list_push_call_argument"
-  },
-  "202a24d": {
-    "symbol": "ws_call_value",
-    "original": "_ws_call_value"
-  },
-  "202adb4": {
-    "symbol": "ws_key_to_owned_string",
-    "original": "_ws_key_to_owned_string"
-  },
-  "202aea0": {
-    "symbol": "ws_value_to_owned_string",
-    "original": "_ws_value_to_owned_string"
-  },
-  "202aef8": {
-    "symbol": "ws_value_to_owned_string_internal",
-    "original": "_ws_value_to_owned_string_internal"
-  },
-  "202b274": {
-    "symbol": "ws_string_builder_append",
-    "original": "_ws_string_builder_append"
-  },
-  "202b2a9": {
-    "symbol": "decode_string_token",
-    "original": "_decode_string_token"
-  },
-  "202b472": {
-    "symbol": "parse_uint32_token",
-    "original": "_parse_uint32_token"
-  },
-  "202b59a": {
-    "symbol": "ws_make_bound_builtin_function_value",
-    "original": "_ws_make_bound_builtin_function_value"
-  },
-  "202b627": {
-    "symbol": "ws_table_get_entry_value",
-    "original": "_ws_table_get_entry_value"
-  },
-  "202b668": {
-    "symbol": "ws_io_handle_from_value",
-    "original": "_ws_io_handle_from_value"
-  },
-  "202b687": {
-    "symbol": "ws_io_handle_lookup",
-    "original": "_ws_io_handle_lookup"
-  },
-  "202b6b4": {
-    "symbol": "ws_value_equals",
-    "original": "_ws_value_equals"
-  },
-  "202b7cc": {
-    "symbol": "ws_value_array_free",
-    "original": "_ws_value_array_free"
-  },
-  "202b7f7": {
-    "symbol": "ws_call_builtin",
-    "original": "_ws_call_builtin"
-  },
-  "2035240": {
-    "symbol": "ws_push_local_frame",
-    "original": "_ws_push_local_frame"
-  },
-  "2035307": {
-    "symbol": "ws_set_local_variable",
-    "original": "_ws_set_local_variable"
-  },
-  "2035343": {
-    "symbol": "ws_pop_local_frame",
-    "original": "_ws_pop_local_frame"
-  },
-  "2035370": {
-    "symbol": "ws_push_vararg_frame",
-    "original": "_ws_push_vararg_frame"
-  },
-  "2035427": {
-    "symbol": "ws_pop_vararg_frame",
-    "original": "_ws_pop_vararg_frame"
-  },
-  "2035454": {
-    "symbol": "ws_join_argument_text",
-    "original": "_ws_join_argument_text"
-  },
-  "2035514": {
-    "symbol": "graphics_canvas_active",
-    "original": "_graphics_canvas_active"
-  },
-  "2035546": {
-    "symbol": "ws_expect_string_arg",
-    "original": "_ws_expect_string_arg"
-  },
-  "20355ac": {
-    "symbol": "ws_require_argc",
-    "original": "_ws_require_argc"
-  },
-  "20355f3": {
-    "symbol": "graphics_make_status",
-    "original": "_graphics_make_status"
-  },
-  "2035806": {
-    "symbol": "ws_expect_uint32_arg",
-    "original": "_ws_expect_uint32_arg"
-  },
-  "2035882": {
-    "symbol": "ws_require_graphics_canvas",
-    "original": "_ws_require_graphics_canvas"
-  },
-  "20358be": {
-    "symbol": "graphics_wait_ms",
-    "original": "_graphics_wait_ms"
-  },
-  "2035912": {
-    "symbol": "starts_with",
-    "original": "_starts_with"
-  },
-  "203596f": {
-    "symbol": "ws_builtin_device",
-    "original": "_ws_builtin_device"
-  },
-  "2037e05": {
-    "symbol": "ws_expect_int_arg",
-    "original": "_ws_expect_int_arg"
-  },
-  "2037ecc": {
-    "symbol": "ws_table_erase_key",
-    "original": "_ws_table_erase_key"
-  },
-  "2037f94": {
-    "symbol": "ws_find_digit_run",
-    "original": "_ws_find_digit_run"
-  },
-  "2037fe2": {
-    "symbol": "ws_find_alpha_dash_digits_match",
-    "original": "_ws_find_alpha_dash_digits_match"
-  },
-  "20380c5": {
-    "symbol": "ws_value_compare",
-    "original": "_ws_value_compare"
-  },
-  "203818b": {
-    "symbol": "ws_make_script_function_from_text",
-    "original": "_ws_make_script_function_from_text"
-  },
-  "2038213": {
-    "symbol": "ws_make_error_result",
-    "original": "_ws_make_error_result"
-  },
-  "203829f": {
-    "symbol": "ws_load_bytecode_data",
-    "original": "_ws_load_bytecode_data"
-  },
-  "20386db": {
-    "symbol": "ws_bytecode_program_free",
-    "original": "_ws_bytecode_program_free"
-  },
-  "2038742": {
-    "symbol": "ws_decode_bytecode_lines",
-    "original": "_ws_decode_bytecode_lines"
-  },
-  "2038a24": {
-    "symbol": "ws_clear_decay_task",
-    "original": "_ws_clear_decay_task"
-  },
-  "2038a87": {
-    "symbol": "sleep_ms",
-    "original": "_sleep_ms"
-  },
-  "2038abc": {
-    "symbol": "ws_logf_local",
-    "original": "_ws_logf_local"
-  },
-  "2038b5f": {
-    "symbol": "ws_builtin_io_open_handle",
-    "original": "_ws_builtin_io_open_handle"
-  },
-  "203911a": {
-    "symbol": "read_input_instant_append",
+  "2012a56": {
+    "symbol": "recovered_2012a56",
+    "original": "_app_console_putc_raw"
+  },
+  "20019ce": {
+    "symbol": "recovered_20019ce",
+    "original": "_wm_probe_heap_append_region"
+  },
+  "200c790": {
+    "symbol": "recovered_200c790",
+    "original": "__ZN2wm6vectorIhEC2ERKS1_"
+  },
+  "20127f8": {
+    "symbol": "recovered_20127f8",
+    "original": "_app_console_render"
+  },
+  "200c9e6": {
+    "symbol": "recovered_200c9e6",
+    "original": "__ZN2wm6vectorImE12emplace_backIJRKmEEERmDpOT_"
+  },
+  "2023a3d": {
+    "symbol": "recovered_2023a3d",
+    "original": "_macho_apply_rebase_at"
+  },
+  "201093c": {
+    "symbol": "recovered_201093c",
+    "original": "__ZN2wm6stringC2ERKS0_"
+  },
+  "2000c71": {
+    "symbol": "recovered_2000c71",
+    "original": "_ceil"
+  },
+  "2003ba0": {
+    "symbol": "recovered_2003ba0",
+    "original": "_wm_platform_pointer_protocol_counts"
+  },
+  "2010842": {
+    "symbol": "recovered_2010842",
+    "original": "__ZN2wm6vectorINS_4pairINS_6stringENS0_IhEEEEE7reserveEm"
+  },
+  "201fd91": {
+    "symbol": "recovered_201fd91",
+    "original": "_wmfs64_set_fat_entry"
+  },
+  "20233ed": {
+    "symbol": "recovered_20233ed",
+    "original": "_macho_apply_bind_stream"
+  },
+  "2000650": {
+    "symbol": "recovered_2000650",
+    "original": "_free"
+  },
+  "200e0c1": {
+    "symbol": "recovered_200e0c1",
+    "original": "__ZN12_GLOBAL__N_115transform_pointERKNS_15AffineTransformERKNS_5PointE"
+  },
+  "201f36f": {
+    "symbol": "recovered_201f36f",
+    "original": "_fs_reserve_file_capacity"
+  },
+  "2011038": {
+    "symbol": "recovered_2011038",
+    "original": "__ZZN12_GLOBAL__N_111layout_lineEPNS_10FontHandleERKN2wm6vectorIjEEENK3$_0clEd"
+  },
+  "2021874": {
+    "symbol": "recovered_2021874",
+    "original": "_scheduler_restore_after_process_load"
+  },
+  "2023f93": {
+    "symbol": "recovered_2023f93",
+    "original": "_fs_materialize_all_file_data"
+  },
+  "201159a": {
+    "symbol": "recovered_201159a",
+    "original": "__ZN12_GLOBAL__N_122copyRgbaToProgramImageEPKhjjmP27WmBaremetalProgramImageInfo"
+  },
+  "200f588": {
+    "symbol": "recovered_200f588",
+    "original": "__ZN12_GLOBAL__N_112Type1Backend9rasterizeEjd"
+  },
+  "20111d2": {
+    "symbol": "recovered_20111d2",
+    "original": "__ZN2wm6vectorINS_4pairIjN12_GLOBAL__N_111GlyphBitmapEEEE7reserveEm"
+  },
+  "203fae6": {
+    "symbol": "recovered_203fae6",
     "original": "_read_input_instant_append"
   },
-  "2039183": {
-    "symbol": "ws_table_set_bool_field",
-    "original": "_ws_table_set_bool_field"
+  "20139d2": {
+    "symbol": "recovered_20139d2",
+    "original": "_wm_kernel_program_png_decode_file"
   },
-  "20391c9": {
-    "symbol": "ws_table_set_uint32_field",
-    "original": "_ws_table_set_uint32_field"
+  "2003f97": {
+    "symbol": "recovered_2003f97",
+    "original": "_platform_runtime_map_uncached_pages"
   },
-  "203920f": {
-    "symbol": "graphics_write_framebuffer_pixel",
+  "2024242": {
+    "symbol": "recovered_2024242",
+    "original": "_fat_fill_directory_short_name"
+  },
+  "200846c": {
+    "symbol": "recovered_200846c",
+    "original": "__ZN2wm6vectorIhE6assignEmRKh"
+  },
+  "2011fcc": {
+    "symbol": "recovered_2011fcc",
+    "original": "_wm_media_ttf_resize"
+  },
+  "200e2c5": {
+    "symbol": "recovered_200e2c5",
+    "original": "__ZN2wm6detail15vector_allocateIsEEPT_m"
+  },
+  "203fc28": {
+    "symbol": "recovered_203fc28",
     "original": "_graphics_write_framebuffer_pixel"
   },
-  "20392c8": {
-    "symbol": "graphics_present_canvas_pixel",
-    "original": "_graphics_present_canvas_pixel"
+  "2010368": {
+    "symbol": "recovered_2010368",
+    "original": "__ZN2wm6vectorIhEaSEOS1_"
   },
-  "2039431": {
-    "symbol": "ws_try_parse_uint32_value",
-    "original": "_ws_try_parse_uint32_value"
+  "203e64f": {
+    "symbol": "recovered_203e64f",
+    "original": "_ws_expect_int_arg"
   },
-  "20394bc": {
-    "symbol": "ws_read_scalar_memory",
-    "original": "_ws_read_scalar_memory"
+  "2009f12": {
+    "symbol": "recovered_2009f12",
+    "original": "__ZN2wm6vectorItED2Ev"
   },
-  "203953b": {
-    "symbol": "ws_write_scalar_memory",
-    "original": "_ws_write_scalar_memory"
+  "2001298": {
+    "symbol": "recovered_2001298",
+    "original": "_strtod"
   },
-  "20395cb": {
-    "symbol": "ws_join_argument_text_alloc",
-    "original": "_ws_join_argument_text_alloc"
+  "20162da": {
+    "symbol": "recovered_20162da",
+    "original": "_storage_fs_name"
   },
-  "2039715": {
-    "symbol": "ws_require_mounted_copy_device",
-    "original": "_ws_require_mounted_copy_device"
+  "200b642": {
+    "symbol": "recovered_200b642",
+    "original": "__ZN2wm6vectorINS0_IjEEE12emplace_backIJEEERS1_DpOT_"
   },
-  "20397b5": {
-    "symbol": "storage_target_device_by_id",
-    "original": "_storage_target_device_by_id"
+  "2030b2f": {
+    "symbol": "recovered_2030b2f",
+    "original": "_ws_call_builtin"
   },
-  "203980e": {
-    "symbol": "fs_load_device",
-    "original": "_fs_load_device"
+  "200ff6e": {
+    "symbol": "recovered_200ff6e",
+    "original": "__ZN2wm6stringaSEOS0_"
   },
-  "2039baf": {
-    "symbol": "fat_load_directory_from_buffer",
-    "original": "_fat_load_directory_from_buffer"
+  "200528d": {
+    "symbol": "recovered_200528d",
+    "original": "__Znam"
   },
-  "2039f77": {
-    "symbol": "bitmap_font_make_status",
-    "original": "_bitmap_font_make_status"
+  "200033a": {
+    "symbol": "recovered_200033a",
+    "original": "_wm_probe_heap_free_bytes64"
   },
-  "203a074": {
-    "symbol": "storage_query_mounted_device_space_by_id",
-    "original": "_storage_query_mounted_device_space_by_id"
+  "200d914": {
+    "symbol": "recovered_200d914",
+    "original": "__ZN12_GLOBAL__N_117rasterize_outlineERKNS_14OutlineBuilderEd"
   },
-  "203a3fe": {
-    "symbol": "storage_format_device_name",
-    "original": "_storage_format_device_name"
+  "201d706": {
+    "symbol": "recovered_201d706",
+    "original": "_pack_truecolor"
   },
-  "203a4dc": {
-    "symbol": "cpu_query_deterministic_cache_leaf",
-    "original": "_cpu_query_deterministic_cache_leaf"
+  "2042230": {
+    "symbol": "recovered_2042230",
+    "original": "_storage_parse_wbpt_header"
   },
-  "203a62c": {
-    "symbol": "storage_build_partition_geometry",
-    "original": "_storage_build_partition_geometry"
+  "201070c": {
+    "symbol": "recovered_201070c",
+    "original": "__ZNK2wm4hashINS_6stringEEclERKS1_"
   },
-  "203a895": {
-    "symbol": "storage_partition_table_name",
+  "200b7c2": {
+    "symbol": "recovered_200b7c2",
+    "original": "__ZN2wm6vectorIN12_GLOBAL__N_115TrueTypeBackend13Format12GroupEED1Ev"
+  },
+  "202188c": {
+    "symbol": "recovered_202188c",
+    "original": "_scheduler_process_entry"
+  },
+  "2022fe0": {
+    "symbol": "recovered_2022fe0",
+    "original": "_macho_select_i386_image"
+  },
+  "2042e74": {
+    "symbol": "recovered_2042e74",
+    "original": "_driver_build_device_tree"
+  },
+  "201d836": {
+    "symbol": "recovered_201d836",
+    "original": "_pack_truecolor_with_layout"
+  },
+  "201607a": {
+    "symbol": "recovered_201607a",
+    "original": "_wm_kernel_expand_disk"
+  },
+  "2000fde": {
+    "symbol": "recovered_2000fde",
+    "original": "_sqrtf"
+  },
+  "203099d": {
+    "symbol": "recovered_203099d",
+    "original": "_ws_io_handle_from_value"
+  },
+  "2009358": {
+    "symbol": "recovered_2009358",
+    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater10read_exactEPhm"
+  },
+  "204094e": {
+    "symbol": "recovered_204094e",
+    "original": "_bitmap_font_set_data"
+  },
+  "2019b20": {
+    "symbol": "recovered_2019b20",
+    "original": "_is_monitor_command_line"
+  },
+  "2005aa9": {
+    "symbol": "recovered_2005aa9",
+    "original": "__ZL15inspect_contextP17WinterSjLjContextPKvR13WinterHandler"
+  },
+  "202ba08": {
+    "symbol": "recovered_202ba08",
+    "original": "_ws_token_list_push_n"
+  },
+  "2000365": {
+    "symbol": "recovered_2000365",
+    "original": "_wm_probe_heap_total_bytes"
+  },
+  "2000af0": {
+    "symbol": "recovered_2000af0",
+    "original": "_ldexp"
+  },
+  "2016300": {
+    "symbol": "recovered_2016300",
+    "original": "_fs_flush"
+  },
+  "20213ea": {
+    "symbol": "recovered_20213ea",
+    "original": "_fat_short_name_to_path"
+  },
+  "2010fdf": {
+    "symbol": "recovered_2010fdf",
+    "original": "__ZN2wm6detail15vector_allocateIdEEPT_m"
+  },
+  "20013ee": {
+    "symbol": "recovered_20013ee",
+    "original": "_strtof"
+  },
+  "2002345": {
+    "symbol": "recovered_2002345",
+    "original": "_platform_efi_framebuffer_active"
+  },
+  "2004fc6": {
+    "symbol": "recovered_2004fc6",
+    "original": "_wmfs_image_size"
+  },
+  "2028677": {
+    "symbol": "recovered_2028677",
+    "original": "_ws_copy_program_lines"
+  },
+  "2009d18": {
+    "symbol": "recovered_2009d18",
+    "original": "__ZN2wm6vectorItE6resizeEm"
+  },
+  "2014634": {
+    "symbol": "recovered_2014634",
+    "original": "_wm_kernel_program_rename_file"
+  },
+  "2000941": {
+    "symbol": "recovered_2000941",
+    "original": "_toupper"
+  },
+  "2002d5e": {
+    "symbol": "recovered_2002d5e",
+    "original": "_wm_platform_get_rom_font_8x16"
+  },
+  "201058e": {
+    "symbol": "recovered_201058e",
+    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE4findERKS1_"
+  },
+  "2041531": {
+    "symbol": "recovered_2041531",
     "original": "_storage_partition_table_name"
   },
-  "203a8bb": {
-    "symbol": "storage_fs_type_from_text",
-    "original": "_storage_fs_type_from_text"
+  "20110d6": {
+    "symbol": "recovered_20110d6",
+    "original": "__ZNK2wm13unordered_mapIjN12_GLOBAL__N_111GlyphBitmapENS_4hashIjEENS_8equal_toIjEEE14bucket_for_keyERKj"
   },
-  "203a994": {
-    "symbol": "storage_move_partition_by_id",
-    "original": "_storage_move_partition_by_id"
+  "20041a3": {
+    "symbol": "recovered_20041a3",
+    "original": "_wm_platform_heap_free_bytes"
   },
-  "203ac21": {
-    "symbol": "storage_find_whole_disk_device",
-    "original": "_storage_find_whole_disk_device"
+  "2015ed4": {
+    "symbol": "recovered_2015ed4",
+    "original": "_wm_kernel_program_app_window_list"
   },
-  "203ac53": {
-    "symbol": "equals_ignore_case",
-    "original": "_equals_ignore_case"
+  "202bb46": {
+    "symbol": "recovered_202bb46",
+    "original": "_ws_array_resize"
   },
-  "203acb7": {
-    "symbol": "storage_classify_detected_type",
-    "original": "_storage_classify_detected_type"
+  "20045d7": {
+    "symbol": "recovered_20045d7",
+    "original": "_wmfs_fopen"
   },
-  "203acdf": {
-    "symbol": "storage_invalidate_range",
-    "original": "_storage_invalidate_range"
+  "201e048": {
+    "symbol": "recovered_201e048",
+    "original": "_char_is_hex"
   },
-  "203ada8": {
-    "symbol": "storage_fill_random_guid",
-    "original": "_storage_fill_random_guid"
+  "200446c": {
+    "symbol": "recovered_200446c",
+    "original": "_wm_lua_flush_output"
   },
-  "203ae08": {
-    "symbol": "storage_write_mbr_entry",
-    "original": "_storage_write_mbr_entry"
+  "200091e": {
+    "symbol": "recovered_200091e",
+    "original": "_isprint"
   },
-  "203ae7f": {
-    "symbol": "write_le64",
-    "original": "_write_le64"
+  "20000a5": {
+    "symbol": "recovered_20000a5",
+    "original": "_wm_probe_heap_init"
   },
-  "203aead": {
-    "symbol": "storage_crc32",
-    "original": "_storage_crc32"
+  "20058ab": {
+    "symbol": "recovered_20058ab",
+    "original": "_wm_math_isfinite"
   },
-  "203aef0": {
-    "symbol": "storage_update_partition_geometry",
-    "original": "_storage_update_partition_geometry"
+  "20056e3": {
+    "symbol": "recovered_20056e3",
+    "original": "__ZL15continue_unwindP21WinterExceptionHeader"
   },
-  "203b1e9": {
-    "symbol": "storage_invalidate_partition_table_writes",
-    "original": "_storage_invalidate_partition_table_writes"
+  "200fc7a": {
+    "symbol": "recovered_200fc7a",
+    "original": "__ZN2wm5arrayINS_6stringELm256EED2Ev"
   },
-  "203b28a": {
-    "symbol": "storage_restore_device_states",
-    "original": "_storage_restore_device_states"
+  "2004102": {
+    "symbol": "recovered_2004102",
+    "original": "_wm_platform_serial_write_n"
   },
-  "203b37f": {
-    "symbol": "ws_gsub_lookup_table_replacement",
-    "original": "_ws_gsub_lookup_table_replacement"
+  "200fc3e": {
+    "symbol": "recovered_200fc3e",
+    "original": "__ZN2wm6vectorINS0_IhEEE5clearEv"
   },
-  "203b469": {
-    "symbol": "ws_instruction_list_push",
-    "original": "_ws_instruction_list_push"
+  "2009bff": {
+    "symbol": "recovered_2009bff",
+    "original": "__ZN2wm6detail15vector_allocateIjEEPT_m"
   },
-  "203b507": {
-    "symbol": "ws_local_frame_free",
-    "original": "_ws_local_frame_free"
+  "2004ee3": {
+    "symbol": "recovered_2004ee3",
+    "original": "_wmfs_read_entire_file"
   },
-  "203b562": {
-    "symbol": "ws_vararg_frame_free",
-    "original": "_ws_vararg_frame_free"
+  "20056bb": {
+    "symbol": "recovered_20056bb",
+    "original": "__Unwind_SjLj_ForcedUnwind"
   },
-  "203b5aa": {
-    "symbol": "ws_decay_task_clear_frames",
-    "original": "_ws_decay_task_clear_frames"
+  "203ec18": {
+    "symbol": "recovered_203ec18",
+    "original": "_ws_load_bytecode_data"
   },
-  "203b5fc": {
-    "symbol": "ws_decay_frame_free",
-    "original": "_ws_decay_frame_free"
+  "201aa31": {
+    "symbol": "recovered_201aa31",
+    "original": "_run_immediate_script"
   },
-  "203b64a": {
-    "symbol": "ws_decay_frame_init",
-    "original": "_ws_decay_frame_init"
+  "20309e9": {
+    "symbol": "recovered_20309e9",
+    "original": "_ws_value_equals"
   },
-  "203b6a3": {
-    "symbol": "ws_wrap_radians",
-    "original": "_ws_wrap_radians"
+  "2001198": {
+    "symbol": "recovered_2001198",
+    "original": "_strtoul"
   },
-  "203b6df": {
-    "symbol": "ws_io_handle_reset",
-    "original": "_ws_io_handle_reset"
+  "202881c": {
+    "symbol": "recovered_202881c",
+    "original": "_ws_function_release"
   },
-  "203b71d": {
-    "symbol": "ws_make_io_handle_table",
-    "original": "_ws_make_io_handle_table"
+  "20400f4": {
+    "symbol": "recovered_20400f4",
+    "original": "_ws_read_scalar_memory"
   },
-  "203b8bb": {
-    "symbol": "ws_decay_task_push_block",
-    "original": "_ws_decay_task_push_block"
+  "201072b": {
+    "symbol": "recovered_201072b",
+    "original": "__ZN2wmeqERKNS_6stringES2_"
   },
-  "203b930": {
-    "symbol": "ws_set_local_variable_in_frame",
-    "original": "_ws_set_local_variable_in_frame"
+  "2010e28": {
+    "symbol": "recovered_2010e28",
+    "original": "__ZN2wm13string_lengthEPKc"
   },
-  "203b9e7": {
-    "symbol": "ws_vararg_frame_copy",
-    "original": "_ws_vararg_frame_copy"
+  "202427c": {
+    "symbol": "recovered_202427c",
+    "original": "_fat_write_directory_item"
   },
-  "203baa8": {
-    "symbol": "ws_decay_task_push_frame",
-    "original": "_ws_decay_task_push_frame"
+  "20045cf": {
+    "symbol": "recovered_20045cf",
+    "original": "_wmfs_is_mounted"
   },
-  "203bb50": {
-    "symbol": "ws_local_frame_reserve",
-    "original": "_ws_local_frame_reserve"
+  "2009b06": {
+    "symbol": "recovered_2009b06",
+    "original": "__ZN2wm6vectorIjE6resizeEmRKj"
   },
-  "203bbe5": {
-    "symbol": "ws_is_block_starter_tokens",
-    "original": "_ws_is_block_starter_tokens"
+  "2002a0a": {
+    "symbol": "recovered_2002a0a",
+    "original": "_wm_platform_text_set_cursor"
   },
-  "203bc73": {
-    "symbol": "ws_is_function_block_tokens",
+  "20181a0": {
+    "symbol": "recovered_20181a0",
+    "original": "_fs_load_wmfs_volume"
+  },
+  "200e05e": {
+    "symbol": "recovered_200e05e",
+    "original": "__ZN12_GLOBAL__N_114OutlineBuilder7move_toERKNS_5PointE"
+  },
+  "201ea4f": {
+    "symbol": "recovered_201ea4f",
+    "original": "_storage_find_ramdisk_by_drive"
+  },
+  "201d5dc": {
+    "symbol": "recovered_201d5dc",
+    "original": "_graphics_framebuffer_bytes_per_pixel"
+  },
+  "2044079": {
+    "symbol": "recovered_2044079",
     "original": "_ws_is_function_block_tokens"
   },
-  "203bd3f": {
-    "symbol": "ws_local_frame_copy",
-    "original": "_ws_local_frame_copy"
+  "202e23d": {
+    "symbol": "recovered_202e23d",
+    "original": "_ws_make_value_array"
   },
-  "203bdd7": {
-    "symbol": "ws_decay_task_pop_frame",
-    "original": "_ws_decay_task_pop_frame"
+  "201cc4e": {
+    "symbol": "recovered_201cc4e",
+    "original": "_draw_text"
   },
-  "203be01": {
-    "symbol": "ws_decay_evaluate_condition",
-    "original": "_ws_decay_evaluate_condition"
+  "201920e": {
+    "symbol": "recovered_201920e",
+    "original": "_wm_kernel_assign_winterscript_function"
   },
-  "203bf04": {
-    "symbol": "ws_assign_single_target",
-    "original": "_ws_assign_single_target"
+  "20006ee": {
+    "symbol": "recovered_20006ee",
+    "original": "_realloc"
   },
-  "203c537": {
-    "symbol": "load_bytecode_file",
-    "original": "_load_bytecode_file"
+  "2002611": {
+    "symbol": "recovered_2002611",
+    "original": "_platform_efi_fill_rect"
   },
-  "203c5a4": {
-    "symbol": "trim_left",
-    "original": "_trim_left"
+  "2008458": {
+    "symbol": "recovered_2008458",
+    "original": "__ZN2wm6detail15vector_allocateIhEEPT_m"
   },
-  "203c5d2": {
-    "symbol": "program_ensure_capacity",
-    "original": "_program_ensure_capacity"
+  "20009fe": {
+    "symbol": "recovered_20009fe",
+    "original": "_strchr"
   },
-  "203c5ed": {
-    "symbol": "command_basename",
-    "original": "_command_basename"
+  "2003975": {
+    "symbol": "recovered_2003975",
+    "original": "_platform_storage_write_transfer_sectors"
   },
-  "203c623": {
-    "symbol": "ws_bytecode_intern_string",
-    "original": "_ws_bytecode_intern_string"
+  "20407a1": {
+    "symbol": "recovered_20407a1",
+    "original": "_bitmap_font_make_status"
   },
-  "203c6a9": {
-    "symbol": "ws_append_u16_le",
-    "original": "_ws_append_u16_le"
+  "2001065": {
+    "symbol": "recovered_2001065",
+    "original": "_strtol"
   },
-  "203c6c9": {
-    "symbol": "ws_append_u32_le",
-    "original": "_ws_append_u32_le"
+  "200c684": {
+    "symbol": "recovered_200c684",
+    "original": "__ZN2wm6vectorImED2Ev"
   },
-  "203c6e8": {
-    "symbol": "macho_data_has_known_magic",
-    "original": "_macho_data_has_known_magic"
+  "200c6c6": {
+    "symbol": "recovered_200c6c6",
+    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEED2Ev"
   },
-  "203c729": {
-    "symbol": "storage_boot_fallback_load_type",
-    "original": "_storage_boot_fallback_load_type"
+  "2020dea": {
+    "symbol": "recovered_2020dea",
+    "original": "_bitmap_font_unload"
   },
-  "203c746": {
-    "symbol": "macho_set_error",
-    "original": "_macho_set_error"
+  "2002589": {
+    "symbol": "recovered_2002589",
+    "original": "_platform_efi_console"
   },
-  "203c773": {
-    "symbol": "read_be32",
+  "2001aaa": {
+    "symbol": "recovered_2001aaa",
+    "original": "_wm_platform_query_storage_tuning"
+  },
+  "2000396": {
+    "symbol": "recovered_2000396",
+    "original": "_wm_probe_heap_total_bytes64"
+  },
+  "200247d": {
+    "symbol": "recovered_200247d",
+    "original": "_wm_platform_text_columns"
+  },
+  "200096d": {
+    "symbol": "recovered_200096d",
+    "original": "_strcmp"
+  },
+  "203014c": {
+    "symbol": "recovered_203014c",
+    "original": "_ws_value_to_owned_string_internal"
+  },
+  "20106e8": {
+    "symbol": "recovered_20106e8",
+    "original": "__ZNK2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE14bucket_for_keyERKS1_"
+  },
+  "203fb95": {
+    "symbol": "recovered_203fb95",
+    "original": "_ws_table_set_uint32_field"
+  },
+  "20056b2": {
+    "symbol": "recovered_20056b2",
+    "original": "__Unwind_SjLj_RaiseException"
+  },
+  "2043ef1": {
+    "symbol": "recovered_2043ef1",
+    "original": "_ws_find_frame_variable_index"
+  },
+  "2013b4f": {
+    "symbol": "recovered_2013b4f",
+    "original": "_wm_kernel_host_log"
+  },
+  "2009c16": {
+    "symbol": "recovered_2009c16",
+    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater12HuffmanTableaSEOS3_"
+  },
+  "200fe04": {
+    "symbol": "recovered_200fe04",
+    "original": "__ZN2wm6string8allocateEm"
+  },
+  "2008406": {
+    "symbol": "recovered_2008406",
+    "original": "__ZN2wm6vectorIhE7reserveEm"
+  },
+  "2001004": {
+    "symbol": "recovered_2001004",
+    "original": "_lround"
+  },
+  "203090f": {
+    "symbol": "recovered_203090f",
+    "original": "_ws_table_get_entry_value"
+  },
+  "2009f3c": {
+    "symbol": "recovered_2009f3c",
+    "original": "__ZN2wm6vectorIhEC2IPKhvEET_S5_"
+  },
+  "201f56f": {
+    "symbol": "recovered_201f56f",
+    "original": "_fs_ensure_file_index_capacity"
+  },
+  "200c932": {
+    "symbol": "recovered_200c932",
+    "original": "__ZN2wm6vectorImE6resizeEm"
+  },
+  "2020740": {
+    "symbol": "recovered_2020740",
+    "original": "_equals_ignore_case"
+  },
+  "202f414": {
+    "symbol": "recovered_202f414",
+    "original": "_ws_value_list_push_call_argument"
+  },
+  "20053c8": {
+    "symbol": "recovered_20053c8",
+    "original": "__ZdlPvm"
+  },
+  "203e7dc": {
+    "symbol": "recovered_203e7dc",
+    "original": "_ws_find_digit_run"
+  },
+  "2010dcc": {
+    "symbol": "recovered_2010dcc",
+    "original": "__ZN12_GLOBAL__N_112Type1Backend16Type1InterpreterD1Ev"
+  },
+  "203abda": {
+    "symbol": "recovered_203abda",
+    "original": "_ws_expect_string_arg"
+  },
+  "20113bc": {
+    "symbol": "recovered_20113bc",
+    "original": "_wm_media_png_decode_memory"
+  },
+  "2001a2e": {
+    "symbol": "recovered_2001a2e",
+    "original": "_wm_platform_configure_storage_tuning"
+  },
+  "200e720": {
+    "symbol": "recovered_200e720",
+    "original": "__ZN12_GLOBAL__N_112Type1BackendD0Ev"
+  },
+  "2015611": {
+    "symbol": "recovered_2015611",
+    "original": "_wm_kernel_program_thread_create"
+  },
+  "201f33f": {
+    "symbol": "recovered_201f33f",
+    "original": "_fat_entry_is_end"
+  },
+  "200fb6a": {
+    "symbol": "recovered_200fb6a",
+    "original": "__ZNK12_GLOBAL__N_112Type1Backend15metric_roundingEv"
+  },
+  "2042005": {
+    "symbol": "recovered_2042005",
+    "original": "_storage_sector_is_empty_mbr"
+  },
+  "2024aa3": {
+    "symbol": "recovered_2024aa3",
+    "original": "_program_lines_free"
+  },
+  "200fb54": {
+    "symbol": "recovered_200fb54",
+    "original": "__ZNK12_GLOBAL__N_112Type1Backend7descentEv"
+  },
+  "200c67c": {
+    "symbol": "recovered_200c67c",
+    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend15metric_roundingEv"
+  },
+  "2043abe": {
+    "symbol": "recovered_2043abe",
+    "original": "_ws_make_io_handle_table"
+  },
+  "2005579": {
+    "symbol": "recovered_2005579",
+    "original": "___cxa_end_catch"
+  },
+  "2004dcb": {
+    "symbol": "recovered_2004dcb",
+    "original": "_wm_lua_app_delete_file"
+  },
+  "2027f49": {
+    "symbol": "recovered_2027f49",
+    "original": "_ws_value_move"
+  },
+  "2014aa0": {
+    "symbol": "recovered_2014aa0",
+    "original": "_wm_kernel_program_create_directory"
+  },
+  "20054f8": {
+    "symbol": "recovered_20054f8",
+    "original": "___cxa_atexit"
+  },
+  "2044348": {
+    "symbol": "recovered_2044348",
+    "original": "_ws_find_global_variable_index"
+  },
+  "2000f92": {
+    "symbol": "recovered_2000f92",
+    "original": "_trunc"
+  },
+  "2000582": {
+    "symbol": "recovered_2000582",
+    "original": "___umoddi3"
+  },
+  "2044ea7": {
+    "symbol": "recovered_2044ea7",
+    "original": "_runtime_apply_storage_tuning"
+  },
+  "201fa72": {
+    "symbol": "recovered_201fa72",
+    "original": "_wmfs64_sync_single_directory_entry_and_metadata"
+  },
+  "20229f0": {
+    "symbol": "recovered_20229f0",
+    "original": "_macho_image_vmaddr_to_loaded"
+  },
+  "201f636": {
+    "symbol": "recovered_201f636",
+    "original": "_fs_insert_file_index_entry"
+  },
+  "200445f": {
+    "symbol": "recovered_200445f",
+    "original": "_wm_lua_writeline"
+  },
+  "2008294": {
+    "symbol": "recovered_2008294",
+    "original": "__ZN2wm3png12_GLOBAL__N_111read_u32_beEPKh"
+  },
+  "201135c": {
+    "symbol": "recovered_201135c",
+    "original": "__ZN2wm6detail15vector_allocateINS_6vectorIjEEEEPT_m"
+  },
+  "20127a7": {
+    "symbol": "recovered_20127a7",
+    "original": "_scheduler_preempt_checkpoint"
+  },
+  "2004a23": {
+    "symbol": "recovered_2004a23",
+    "original": "_wmfs_getc"
+  },
+  "20034ca": {
+    "symbol": "recovered_20034ca",
+    "original": "_platform_efi_read_blocks"
+  },
+  "2001165": {
+    "symbol": "recovered_2001165",
+    "original": "_digit_value"
+  },
+  "203ac40": {
+    "symbol": "recovered_203ac40",
+    "original": "_ws_require_argc"
+  },
+  "20216b0": {
+    "symbol": "recovered_20216b0",
     "original": "_read_be32"
   },
-  "203c77d": {
-    "symbol": "macho_load_x86_64_image",
-    "original": "_macho_load_x86_64_image"
+  "200b694": {
+    "symbol": "recovered_200b694",
+    "original": "__ZN2wm6vectorIN12_GLOBAL__N_110LineLayoutEE7reserveEm"
   },
-  "203cbef": {
-    "symbol": "macho_load_i386_image",
-    "original": "_macho_load_i386_image"
+  "20051a9": {
+    "symbol": "recovered_20051a9",
+    "original": "__ZSt9terminatev"
   },
-  "203d002": {
-    "symbol": "read_be64",
-    "original": "_read_be64"
+  "2001e65": {
+    "symbol": "recovered_2001e65",
+    "original": "_platform_runtime_linear_to_physical_span"
   },
-  "203d00e": {
-    "symbol": "macho_entry_from_fileoff",
-    "original": "_macho_entry_from_fileoff"
-  },
-  "203d078": {
-    "symbol": "macho_segment_is_pagezero",
-    "original": "_macho_segment_is_pagezero"
-  },
-  "203d0a6": {
-    "symbol": "command_log_ws_value",
-    "original": "_command_log_ws_value"
-  },
-  "203d105": {
-    "symbol": "command_log_scalar_read",
+  "2044dfb": {
+    "symbol": "recovered_2044dfb",
     "original": "_command_log_scalar_read"
   },
-  "203d144": {
-    "symbol": "ws_value_to_path_text",
+  "2010132": {
+    "symbol": "recovered_2010132",
+    "original": "__ZN2wm6vectorINS0_IhEEE6resizeEm"
+  },
+  "2024a1f": {
+    "symbol": "recovered_2024a1f",
+    "original": "_program_lines_reserve"
+  },
+  "201e5fb": {
+    "symbol": "recovered_201e5fb",
+    "original": "_fs_free_bytes"
+  },
+  "2015b0a": {
+    "symbol": "recovered_2015b0a",
+    "original": "_wm_kernel_program_app_window_create"
+  },
+  "202baf2": {
+    "symbol": "recovered_202baf2",
+    "original": "_ws_array_push_copy"
+  },
+  "20099a2": {
+    "symbol": "recovered_20099a2",
+    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater19build_huffman_tableERKNS_6vectorIjEERNS2_12HuffmanTableEb"
+  },
+  "2042630": {
+    "symbol": "recovered_2042630",
+    "original": "_storage_update_partition_geometry"
+  },
+  "2004ff6": {
+    "symbol": "recovered_2004ff6",
+    "original": "_strncmp"
+  },
+  "2005263": {
+    "symbol": "recovered_2005263",
+    "original": "__Znwm"
+  },
+  "2018f93": {
+    "symbol": "recovered_2018f93",
+    "original": "_textmode_sync_font"
+  },
+  "2010916": {
+    "symbol": "recovered_2010916",
+    "original": "__ZN2wm4pairINS_6stringENS_6vectorIhEEEC2IRKS1_S3_EEOT_OT0_"
+  },
+  "2043720": {
+    "symbol": "recovered_2043720",
+    "original": "_ws_gsub_lookup_table_replacement"
+  },
+  "200fbea": {
+    "symbol": "recovered_200fbea",
+    "original": "__ZN2wm4pairINS_6stringENS_6vectorIhEEED2Ev"
+  },
+  "2044b58": {
+    "symbol": "recovered_2044b58",
+    "original": "_trim_left"
+  },
+  "200fc14": {
+    "symbol": "recovered_200fc14",
+    "original": "__ZN2wm6stringD2Ev"
+  },
+  "200fea1": {
+    "symbol": "recovered_200fea1",
+    "original": "__ZN12_GLOBAL__N_115parse_ascii_intERKN2wm6vectorIhEERmRi"
+  },
+  "2005516": {
+    "symbol": "recovered_2005516",
+    "original": "___cxa_guard_abort"
+  },
+  "20026c1": {
+    "symbol": "recovered_20026c1",
+    "original": "_platform_efi_vga_text_active"
+  },
+  "20108f6": {
+    "symbol": "recovered_20108f6",
+    "original": "__ZN2wm6stringC2EOS0_"
+  },
+  "203daf2": {
+    "symbol": "recovered_203daf2",
+    "original": "_ws_builtin_drivers"
+  },
+  "201e094": {
+    "symbol": "recovered_201e094",
+    "original": "_cursor_blink_on"
+  },
+  "201c831": {
+    "symbol": "recovered_201c831",
+    "original": "_storage_scan_devices"
+  },
+  "20100d2": {
+    "symbol": "recovered_20100d2",
+    "original": "__ZN2wm6vectorIhE5eraseEPKhS3_"
+  },
+  "200847c": {
+    "symbol": "recovered_200847c",
+    "original": "__ZN2wm6vectorIhE6resizeEmRKh"
+  },
+  "203a8d4": {
+    "symbol": "recovered_203a8d4",
+    "original": "_ws_push_local_frame"
+  },
+  "20013fd": {
+    "symbol": "recovered_20013fd",
+    "original": "_vsnprintf"
+  },
+  "2004ca7": {
+    "symbol": "recovered_2004ca7",
+    "original": "_wmfs_ftell"
+  },
+  "2004fb8": {
+    "symbol": "recovered_2004fb8",
+    "original": "_wmfs_clear_virtual_files"
+  },
+  "200c742": {
+    "symbol": "recovered_200c742",
+    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend12assign_tableEjRNS_11TableRecordE"
+  },
+  "2010f38": {
+    "symbol": "recovered_2010f38",
+    "original": "__ZN2wm6vectorIdE12emplace_backIJRKdEEERdDpOT_"
+  },
+  "20058e8": {
+    "symbol": "recovered_20058e8",
+    "original": "_wm_math_isfinitel"
+  },
+  "202ca7c": {
+    "symbol": "recovered_202ca7c",
+    "original": "_ws_parse_unary"
+  },
+  "200de1a": {
+    "symbol": "recovered_200de1a",
+    "original": "__ZN2wm6vectorINS_4pairIjtEEE12emplace_backIJRKjtEEERS2_DpOT_"
+  },
+  "20124dc": {
+    "symbol": "recovered_20124dc",
+    "original": "__ZN6winter3wav6detail10floatToS16Ed"
+  },
+  "200fbae": {
+    "symbol": "recovered_200fbae",
+    "original": "__ZN2wm6vectorINS_4pairINS_6stringENS0_IhEEEEE5clearEv"
+  },
+  "202189c": {
+    "symbol": "recovered_202189c",
+    "original": "_macho_select_x86_64_image"
+  },
+  "2011906": {
+    "symbol": "recovered_2011906",
+    "original": "__ZN6winter3wav6decodeEPKvmPNS0_11DecodedFileERKNS0_13DecodeOptionsE"
+  },
+  "20007da": {
+    "symbol": "recovered_20007da",
+    "original": "_memcpy"
+  },
+  "20283ac": {
+    "symbol": "recovered_20283ac",
+    "original": "_ws_value_list_free"
+  },
+  "200fb92": {
+    "symbol": "recovered_200fb92",
+    "original": "__ZN2wm6vectorINS_4pairINS_6stringENS0_IhEEEEED2Ev"
+  },
+  "200045d": {
+    "symbol": "recovered_200045d",
+    "original": "___ashldi3"
+  },
+  "2009dc2": {
+    "symbol": "recovered_2009dc2",
+    "original": "__ZN2wm6vectorIjE12emplace_backIJjEEERjDpOT_"
+  },
+  "20050dc": {
+    "symbol": "recovered_20050dc",
+    "original": "_system"
+  },
+  "20425ed": {
+    "symbol": "recovered_20425ed",
+    "original": "_storage_crc32"
+  },
+  "203f4d8": {
+    "symbol": "recovered_203f4d8",
+    "original": "_ws_builtin_io_open_handle"
+  },
+  "20005de": {
+    "symbol": "recovered_20005de",
+    "original": "___moddi3"
+  },
+  "20081ac": {
+    "symbol": "recovered_20081ac",
+    "original": "__ZN2wm3png12_GLOBAL__N_111write_bytesEP8WMFSFilePKhm"
+  },
+  "201e9ef": {
+    "symbol": "recovered_201e9ef",
+    "original": "_fat_entry_get"
+  },
+  "2009cb6": {
+    "symbol": "recovered_2009cb6",
+    "original": "__ZN2wm6vectorItE6resizeEmRKt"
+  },
+  "203aa04": {
+    "symbol": "recovered_203aa04",
+    "original": "_ws_push_vararg_frame"
+  },
+  "2012bbb": {
+    "symbol": "recovered_2012bbb",
+    "original": "_wm_kernel_program_end"
+  },
+  "2015fdd": {
+    "symbol": "recovered_2015fdd",
+    "original": "_wm_kernel_program_app_window_configure"
+  },
+  "2003a48": {
+    "symbol": "recovered_2003a48",
+    "original": "_wm_platform_x64_apps_supported"
+  },
+  "201d30e": {
+    "symbol": "recovered_201d30e",
+    "original": "_draw_text_n"
+  },
+  "20241a0": {
+    "symbol": "recovered_20241a0",
+    "original": "_fat_entry_set"
+  },
+  "2000acc": {
+    "symbol": "recovered_2000acc",
+    "original": "_localeconv"
+  },
+  "20057be": {
+    "symbol": "recovered_20057be",
+    "original": "__ZL12type_matchesPKvS0_"
+  },
+  "20438a8": {
+    "symbol": "recovered_20438a8",
+    "original": "_ws_local_frame_free"
+  },
+  "201d560": {
+    "symbol": "recovered_201d560",
+    "original": "_ensure_rom_font"
+  },
+  "204024c": {
+    "symbol": "recovered_204024c",
+    "original": "_fs_resolve_focused_path"
+  },
+  "2024001": {
+    "symbol": "recovered_2024001",
+    "original": "_wmfs64_recommended_sectors_per_cluster"
+  },
+  "203ae9a": {
+    "symbol": "recovered_203ae9a",
+    "original": "_ws_expect_uint32_arg"
+  },
+  "20007f7": {
+    "symbol": "recovered_20007f7",
+    "original": "_memmove"
+  },
+  "2041557": {
+    "symbol": "recovered_2041557",
+    "original": "_render_ui_if_not_autorun"
+  },
+  "2043903": {
+    "symbol": "recovered_2043903",
+    "original": "_ws_vararg_frame_free"
+  },
+  "20221bb": {
+    "symbol": "recovered_20221bb",
+    "original": "_macho_image_mapping_span"
+  },
+  "200df16": {
+    "symbol": "recovered_200df16",
+    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE21bucket_count_for_sizeEm"
+  },
+  "20287ed": {
+    "symbol": "recovered_20287ed",
+    "original": "_ws_make_function"
+  },
+  "20444e0": {
+    "symbol": "recovered_20444e0",
+    "original": "_ws_assign_single_target"
+  },
+  "2000419": {
+    "symbol": "recovered_2000419",
+    "original": "_wm_probe_heap_split"
+  },
+  "200493a": {
+    "symbol": "recovered_200493a",
+    "original": "_wmfs_freopen"
+  },
+  "200405a": {
+    "symbol": "recovered_200405a",
+    "original": "_wm_platform_serial_init"
+  },
+  "200dcc8": {
+    "symbol": "recovered_200dcc8",
+    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE4findERKj"
+  },
+  "200fc22": {
+    "symbol": "recovered_200fc22",
+    "original": "__ZN2wm6vectorINS0_IhEEED2Ev"
+  },
+  "200e27c": {
+    "symbol": "recovered_200e27c",
+    "original": "__ZN2wm6vectorIsE6resizeEm"
+  },
+  "200b854": {
+    "symbol": "recovered_200b854",
+    "original": "__ZN12_GLOBAL__N_115TrueTypeBackendD0Ev"
+  },
+  "20107f0": {
+    "symbol": "recovered_20107f0",
+    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE21bucket_count_for_sizeEm"
+  },
+  "201fd31": {
+    "symbol": "recovered_201fd31",
+    "original": "_wmfs64_free_chain"
+  },
+  "200a454": {
+    "symbol": "recovered_200a454",
+    "original": "__Z16wm_ttf_font_loadPKcf"
+  },
+  "2002de3": {
+    "symbol": "recovered_2002de3",
+    "original": "_wm_platform_query_drive_capacity"
+  },
+  "200b764": {
+    "symbol": "recovered_200b764",
+    "original": "__Z16wm_ttf_font_freePv"
+  },
+  "200b71e": {
+    "symbol": "recovered_200b71e",
+    "original": "__ZN2wm6vectorIN12_GLOBAL__N_110LineLayoutEED1Ev"
+  },
+  "2020e26": {
+    "symbol": "recovered_2020e26",
+    "original": "_storage_classify_detected_type"
+  },
+  "200555a": {
+    "symbol": "recovered_200555a",
+    "original": "___cxa_free_exception"
+  },
+  "2005297": {
+    "symbol": "recovered_2005297",
+    "original": "__ZdlPv"
+  },
+  "200588b": {
+    "symbol": "recovered_200588b",
+    "original": "_isxdigit"
+  },
+  "203eb8c": {
+    "symbol": "recovered_203eb8c",
+    "original": "_ws_make_error_result"
+  },
+  "2000edb": {
+    "symbol": "recovered_2000edb",
+    "original": "_fmodf"
+  },
+  "201ccb2": {
+    "symbol": "recovered_201ccb2",
+    "original": "_surface_fill_rect"
+  },
+  "20451fe": {
+    "symbol": "recovered_20451fe",
+    "original": "_storage_add_scanned_drive"
+  },
+  "202a244": {
+    "symbol": "recovered_202a244",
+    "original": "_ws_try_get_variable"
+  },
+  "2005850": {
+    "symbol": "recovered_2005850",
+    "original": "_isdigit"
+  },
+  "2004da0": {
+    "symbol": "recovered_2004da0",
+    "original": "_wmfs_remove"
+  },
+  "202a2de": {
+    "symbol": "recovered_202a2de",
+    "original": "_ws_make_array"
+  },
+  "2005dd4": {
+    "symbol": "recovered_2005dd4",
+    "original": "__ZL12read_uleb128PPKh"
+  },
+  "202e633": {
+    "symbol": "recovered_202e633",
+    "original": "_ws_builtin_exists"
+  },
+  "2004b15": {
+    "symbol": "recovered_2004b15",
+    "original": "_wmfs_fwrite"
+  },
+  "20239d2": {
+    "symbol": "recovered_20239d2",
+    "original": "_macho_read_uleb128"
+  },
+  "20029a2": {
+    "symbol": "recovered_20029a2",
+    "original": "_wm_platform_text_enable_cursor"
+  },
+  "203fce1": {
+    "symbol": "recovered_203fce1",
+    "original": "_wm_kernel_kext_configure_driver_graphics"
+  },
+  "2005645": {
+    "symbol": "recovered_2005645",
+    "original": "___cxa_rethrow"
+  },
+  "201126a": {
+    "symbol": "recovered_201126a",
+    "original": "__ZN2wm6vectorIhEC2EmRKh"
+  },
+  "200cad0": {
+    "symbol": "recovered_200cad0",
+    "original": "__ZN12_GLOBAL__N_115TrueTypeBackend20append_glyph_outlineEtRKNS_15AffineTransformERNS_14OutlineBuilderEi"
+  },
+  "202a941": {
+    "symbol": "recovered_202a941",
+    "original": "_ws_make_int"
+  },
+  "2004cca": {
+    "symbol": "recovered_2004cca",
+    "original": "_wmfs_fflush"
+  },
+  "2012387": {
+    "symbol": "recovered_2012387",
+    "original": "__ZN6winter3wav6detail17readSampleAsFloatEPKhtt"
+  },
+  "2010654": {
+    "symbol": "recovered_2010654",
+    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE10link_indexEm"
+  },
+  "20143c8": {
+    "symbol": "recovered_20143c8",
+    "original": "_normalize_path"
+  },
+  "204430a": {
+    "symbol": "recovered_204430a",
+    "original": "_ws_try_get_global_variable"
+  },
+  "20198ab": {
+    "symbol": "recovered_20198ab",
+    "original": "_handle_program_buffer_input"
+  },
+  "2018c12": {
+    "symbol": "recovered_2018c12",
+    "original": "_graphics_rebuild_canvas_mapping"
+  },
+  "2022ec2": {
+    "symbol": "recovered_2022ec2",
+    "original": "_macho_basename"
+  },
+  "2020328": {
+    "symbol": "recovered_2020328",
+    "original": "_resolve_app_bundle_executable_path"
+  },
+  "200dff2": {
+    "symbol": "recovered_200dff2",
+    "original": "__ZN2wm6vectorIN12_GLOBAL__N_15PointEE9push_backERKS2_"
+  },
+  "2004fbe": {
+    "symbol": "recovered_2004fbe",
+    "original": "_wmfs_image_data"
+  },
+  "201cb8d": {
+    "symbol": "recovered_201cb8d",
+    "original": "_read_line"
+  },
+  "20050d4": {
+    "symbol": "recovered_20050d4",
+    "original": "_getenv"
+  },
+  "2043558": {
+    "symbol": "recovered_2043558",
+    "original": "_driver_find_exported_symbol"
+  },
+  "201367d": {
+    "symbol": "recovered_201367d",
+    "original": "_fs_delete_file"
+  },
+  "203afa6": {
+    "symbol": "recovered_203afa6",
+    "original": "_ws_builtin_dir"
+  },
+  "200790a": {
+    "symbol": "recovered_200790a",
+    "original": "__ZN2wm3png9load_fileEPKcRNS0_5ImageE"
+  },
+  "20058cd": {
+    "symbol": "recovered_20058cd",
+    "original": "_wm_math_isfinitef"
+  },
+  "20112ea": {
+    "symbol": "recovered_20112ea",
+    "original": "__ZN2wm6vectorINS0_IjEEE7reserveEm"
+  },
+  "204032f": {
+    "symbol": "recovered_204032f",
+    "original": "_ws_table_set_string_field"
+  },
+  "2000d09": {
+    "symbol": "recovered_2000d09",
+    "original": "_log"
+  },
+  "201d6e4": {
+    "symbol": "recovered_201d6e4",
+    "original": "_write_truecolor_pixel"
+  },
+  "20222a7": {
+    "symbol": "recovered_20222a7",
+    "original": "_macho_parse_dylib_name_command"
+  },
+  "20055c5": {
+    "symbol": "recovered_20055c5",
+    "original": "___cxa_throw"
+  },
+  "2010f86": {
+    "symbol": "recovered_2010f86",
+    "original": "__ZN2wm6vectorIdE7reserveEm"
+  },
+  "2005764": {
+    "symbol": "recovered_2005764",
+    "original": "__Unwind_SjLj_Resume_or_Rethrow"
+  },
+  "2005330": {
+    "symbol": "recovered_2005330",
+    "original": "__ZdaPv"
+  },
+  "2005230": {
+    "symbol": "recovered_2005230",
+    "original": "___gxx_personality_sj0"
+  },
+  "201fe96": {
+    "symbol": "recovered_201fe96",
+    "original": "_wmfs64_write_metadata"
+  },
+  "2005e74": {
+    "symbol": "recovered_2005e74",
+    "original": "__ZN2wm3png11load_memoryEPKhmRNS0_5ImageE"
+  },
+  "200e3e3": {
+    "symbol": "recovered_200e3e3",
+    "original": "__ZN2wm6detail15vector_allocateIbEEPT_m"
+  },
+  "2004d5a": {
+    "symbol": "recovered_2004d5a",
+    "original": "_wmfs_clearerr"
+  },
+  "201d975": {
+    "symbol": "recovered_201d975",
+    "original": "_textmode_cache_resize"
+  },
+  "2009c64": {
+    "symbol": "recovered_2009c64",
+    "original": "__ZN2wm6vectorItE6assignEmRKt"
+  },
+  "20004d8": {
+    "symbol": "recovered_20004d8",
+    "original": "___ashrdi3"
+  },
+  "2011292": {
+    "symbol": "recovered_2011292",
+    "original": "__ZN2wm6vectorINS0_IjEEED2Ev"
+  },
+  "200239d": {
+    "symbol": "recovered_200239d",
+    "original": "_platform_efi_framebuffer_physical"
+  },
+  "20307ee": {
+    "symbol": "recovered_20307ee",
+    "original": "_ws_function_create"
+  },
+  "2005460": {
+    "symbol": "recovered_2005460",
+    "original": "__ZdaPvm"
+  },
+  "20112ae": {
+    "symbol": "recovered_20112ae",
+    "original": "__ZN2wm6vectorINS0_IjEEE5clearEv"
+  },
+  "200514e": {
+    "symbol": "recovered_200514e",
+    "original": "_setjmp"
+  },
+  "2000f7f": {
+    "symbol": "recovered_2000f7f",
+    "original": "_ceilf"
+  },
+  "2002263": {
+    "symbol": "recovered_2002263",
+    "original": "_platform_efi_init_fallback_font"
+  },
+  "20406a8": {
+    "symbol": "recovered_20406a8",
+    "original": "_ws_require_mounted_copy_device"
+  },
+  "200e108": {
+    "symbol": "recovered_200e108",
+    "original": "__ZN12_GLOBAL__N_114OutlineBuilder7line_toERKNS_5PointE"
+  },
+  "203f054": {
+    "symbol": "recovered_203f054",
+    "original": "_ws_bytecode_program_free"
+  },
+  "200fca2": {
+    "symbol": "recovered_200fca2",
+    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEED2Ev"
+  },
+  "203f400": {
+    "symbol": "recovered_203f400",
+    "original": "_sleep_ms"
+  },
+  "20244ca": {
+    "symbol": "recovered_20244ca",
+    "original": "_fat_tree_add_node"
+  },
+  "200e2dc": {
+    "symbol": "recovered_200e2dc",
+    "original": "__ZN2wm6vectorIN12_GLOBAL__N_15PointEE7reserveEm"
+  },
+  "2003c23": {
+    "symbol": "recovered_2003c23",
+    "original": "_wm_platform_enter_wxga_graphics_mode"
+  },
+  "2044f34": {
+    "symbol": "recovered_2044f34",
+    "original": "_wm_kernel_kext_register_device_node"
+  },
+  "2020a38": {
+    "symbol": "recovered_2020a38",
+    "original": "_fs_load_device"
+  },
+  "2000303": {
+    "symbol": "recovered_2000303",
+    "original": "_wm_probe_heap_free_bytes"
+  },
+  "20443ad": {
+    "symbol": "recovered_20443ad",
+    "original": "_ws_set_global_variable"
+  },
+  "20222e9": {
+    "symbol": "recovered_20222e9",
+    "original": "_macho_segment_is_pagezero"
+  },
+  "2010788": {
+    "symbol": "recovered_2010788",
+    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE6rehashEm"
+  },
+  "20048b4": {
+    "symbol": "recovered_20048b4",
+    "original": "_wm_lua_file_reserve"
+  },
+  "2003aac": {
+    "symbol": "recovered_2003aac",
+    "original": "_wm_platform_framebuffer_bpp_supported"
+  },
+  "201107a": {
+    "symbol": "recovered_201107a",
+    "original": "__ZN2wm13unordered_mapIjN12_GLOBAL__N_111GlyphBitmapENS_4hashIjEENS_8equal_toIjEEE4findERKj"
+  },
+  "2042516": {
+    "symbol": "recovered_2042516",
+    "original": "_storage_fill_random_guid"
+  },
+  "20439eb": {
+    "symbol": "recovered_20439eb",
+    "original": "_ws_decay_frame_init"
+  },
+  "20441dd": {
+    "symbol": "recovered_20441dd",
+    "original": "_ws_decay_task_pop_frame"
+  },
+  "2004fce": {
+    "symbol": "recovered_2004fce",
+    "original": "_wmfs_export_image"
+  },
+  "20097ce": {
+    "symbol": "recovered_20097ce",
+    "original": "__ZN2wm3png12_GLOBAL__N_113adler32_bytesEPKhm"
+  },
+  "2001028": {
+    "symbol": "recovered_2001028",
+    "original": "_sinf"
+  },
+  "200e3f6": {
+    "symbol": "recovered_200e3f6",
+    "original": "__ZN2wm6vectorIbE12emplace_backIJbEEERbDpOT_"
+  },
+  "2040aef": {
+    "symbol": "recovered_2040aef",
+    "original": "_runtime_total_unmapped_detected_ram_bytes"
+  },
+  "200451a": {
+    "symbol": "recovered_200451a",
+    "original": "_wm_lua_write_cstr"
+  },
+  "200b70a": {
+    "symbol": "recovered_200b70a",
+    "original": "__ZN12_GLOBAL__N_110LineLayoutD1Ev"
+  },
+  "200e73c": {
+    "symbol": "recovered_200e73c",
+    "original": "__ZN12_GLOBAL__N_112Type1Backend4loadERKN2wm6vectorIhEE"
+  },
+  "2000cc3": {
+    "symbol": "recovered_2000cc3",
+    "original": "_sqrt"
+  },
+  "201eafa": {
+    "symbol": "recovered_201eafa",
+    "original": "_fs_find_file_normalized"
+  },
+  "2044145": {
+    "symbol": "recovered_2044145",
+    "original": "_ws_local_frame_copy"
+  },
+  "2045111": {
+    "symbol": "recovered_2045111",
+    "original": "_surface_allocate"
+  },
+  "201950b": {
+    "symbol": "recovered_201950b",
+    "original": "_ws_make_null"
+  },
+  "201df41": {
+    "symbol": "recovered_201df41",
+    "original": "_ws_string_builder_append_n"
+  },
+  "201f1da": {
+    "symbol": "recovered_201f1da",
+    "original": "_fat_load_cluster_chain_bytes"
+  },
+  "2004170": {
+    "symbol": "recovered_2004170",
+    "original": "_wm_platform_cpuid_available"
+  },
+  "2018dd9": {
+    "symbol": "recovered_2018dd9",
+    "original": "_wm_kernel_program_framebuffer_info"
+  },
+  "20436c6": {
+    "symbol": "recovered_20436c6",
+    "original": "_driver_device_tree_find_index"
+  },
+  "202465e": {
+    "symbol": "recovered_202465e",
+    "original": "_fat_sanitize_short_part"
+  },
+  "203f435": {
+    "symbol": "recovered_203f435",
+    "original": "_ws_logf_local"
+  },
+  "202a59f": {
+    "symbol": "recovered_202a59f",
+    "original": "_ws_set_indexed_value"
+  },
+  "202888f": {
+    "symbol": "recovered_202888f",
+    "original": "_ws_set_scoped_variable"
+  },
+  "200e446": {
+    "symbol": "recovered_200e446",
+    "original": "__ZN2wm6vectorIbE10emplace_atIJbEEEPbPKbDpOT_"
+  },
+  "200583e": {
+    "symbol": "recovered_200583e",
+    "original": "___cxa_pure_virtual"
+  },
+  "20288d5": {
+    "symbol": "recovered_20288d5",
+    "original": "_ws_finish_executed_statement"
+  },
+  "2004d74": {
+    "symbol": "recovered_2004d74",
+    "original": "_wmfs_ungetc"
+  },
+  "2009c74": {
+    "symbol": "recovered_2009c74",
+    "original": "__ZN2wm6vectorItEaSEOS1_"
+  },
+  "20300f4": {
+    "symbol": "recovered_20300f4",
+    "original": "_ws_value_to_owned_string"
+  },
+  "20101b4": {
+    "symbol": "recovered_20101b4",
+    "original": "__ZN12_GLOBAL__N_112Type1Backend18decrypt_charstringERKN2wm6vectorIhEEi"
+  },
+  "200c660": {
+    "symbol": "recovered_200c660",
+    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend8line_gapEv"
+  },
+  "2044d9c": {
+    "symbol": "recovered_2044d9c",
+    "original": "_command_log_ws_value"
+  },
+  "2005024": {
+    "symbol": "recovered_2005024",
+    "original": "_strerror"
+  },
+  "200342c": {
+    "symbol": "recovered_200342c",
+    "original": "_platform_storage_cache_hit"
+  },
+  "2040203": {
+    "symbol": "recovered_2040203",
+    "original": "_fs_format_directory_prompt"
+  },
+  "201d0c1": {
+    "symbol": "recovered_201d0c1",
+    "original": "_textmode_prepare_grids"
+  },
+  "200b7d4": {
+    "symbol": "recovered_200b7d4",
+    "original": "__ZN2wm13unordered_mapIjN12_GLOBAL__N_111TableRecordENS_4hashIjEENS_8equal_toIjEEED1Ev"
+  },
+  "200103b": {
+    "symbol": "recovered_200103b",
+    "original": "_cosf"
+  },
+  "2000528": {
+    "symbol": "recovered_2000528",
+    "original": "_udivmod64"
+  },
+  "20304fd": {
+    "symbol": "recovered_20304fd",
+    "original": "_decode_string_token"
+  },
+  "2005861": {
+    "symbol": "recovered_2005861",
+    "original": "_isspace"
+  },
+  "200576d": {
+    "symbol": "recovered_200576d",
+    "original": "___gxx_personality_v0"
+  },
+  "2011650": {
+    "symbol": "recovered_2011650",
+    "original": "___clang_call_terminate"
+  },
+  "20200f9": {
+    "symbol": "recovered_20200f9",
+    "original": "_fs_path_existing_kind"
+  },
+  "2019c79": {
+    "symbol": "recovered_2019c79",
+    "original": "_execute_command_line"
+  },
+  "201d120": {
+    "symbol": "recovered_201d120",
+    "original": "_textmode_grid_write_n"
+  },
+  "200195b": {
+    "symbol": "recovered_200195b",
+    "original": "_snprintf"
+  },
+  "20084e0": {
+    "symbol": "recovered_20084e0",
+    "original": "__ZN2wm6vectorIhE6resizeEm"
+  },
+  "200399a": {
+    "symbol": "recovered_200399a",
+    "original": "_platform_efi_flush_blocks"
+  },
+  "2030b04": {
+    "symbol": "recovered_2030b04",
+    "original": "_ws_value_array_free"
+  },
+  "20024a9": {
+    "symbol": "recovered_20024a9",
+    "original": "_wm_platform_text_rows"
+  },
+  "20450ad": {
+    "symbol": "recovered_20450ad",
+    "original": "_wm_kernel_kext_configure_runtime"
+  },
+  "202e51b": {
+    "symbol": "recovered_202e51b",
+    "original": "_ws_make_pointer"
+  },
+  "201315a": {
+    "symbol": "recovered_201315a",
+    "original": "_wm_kernel_program_stat_file"
+  },
+  "203a9d7": {
+    "symbol": "recovered_203a9d7",
+    "original": "_ws_pop_local_frame"
+  },
+  "203e82a": {
+    "symbol": "recovered_203e82a",
+    "original": "_ws_find_alpha_dash_digits_match"
+  },
+  "203aae8": {
+    "symbol": "recovered_203aae8",
+    "original": "_ws_join_argument_text"
+  },
+  "200ca9c": {
+    "symbol": "recovered_200ca9c",
+    "original": "__ZN12_GLOBAL__N_111GlyphBitmapC1Ev"
+  },
+  "201da93": {
+    "symbol": "recovered_201da93",
+    "original": "_console_push_line_internal"
+  },
+  "204196c": {
+    "symbol": "recovered_204196c",
+    "original": "_storage_read_partition_table"
+  },
+  "201fe04": {
+    "symbol": "recovered_201fe04",
+    "original": "_write_drive_bytes"
+  },
+  "200e190": {
+    "symbol": "recovered_200e190",
+    "original": "__ZN12_GLOBAL__N_114OutlineBuilder13close_contourEv"
+  },
+  "20005a2": {
+    "symbol": "recovered_20005a2",
+    "original": "___divdi3"
+  },
+  "2013b93": {
+    "symbol": "recovered_2013b93",
+    "original": "_console_log"
+  },
+  "202ac65": {
+    "symbol": "recovered_202ac65",
+    "original": "_ws_value_assign"
+  },
+  "203aba8": {
+    "symbol": "recovered_203aba8",
+    "original": "_graphics_canvas_active"
+  },
+  "2012270": {
+    "symbol": "recovered_2012270",
+    "original": "_wm_media_ttf_free"
+  },
+  "203e90d": {
+    "symbol": "recovered_203e90d",
+    "original": "_ws_table_get_mutable_entry"
+  },
+  "200051c": {
+    "symbol": "recovered_200051c",
+    "original": "___udivdi3"
+  },
+  "20045c1": {
+    "symbol": "recovered_20045c1",
+    "original": "_wmfs_mount_image"
+  },
+  "2004334": {
+    "symbol": "recovered_2004334",
+    "original": "_wm_lua_write"
+  },
+  "200189d": {
+    "symbol": "recovered_200189d",
+    "original": "_append_string"
+  },
+  "200e4c8": {
+    "symbol": "recovered_200e4c8",
+    "original": "__ZN12_GLOBAL__N_114OutlineBuilder13update_boundsERKNS_5PointE"
+  },
+  "2043a80": {
+    "symbol": "recovered_2043a80",
+    "original": "_ws_io_handle_reset"
+  },
+  "2022ef8": {
+    "symbol": "recovered_2022ef8",
+    "original": "_macho_find_loaded_dylib"
+  },
+  "2000e76": {
+    "symbol": "recovered_2000e76",
+    "original": "_cos"
+  },
+  "2010686": {
+    "symbol": "recovered_2010686",
+    "original": "__ZNK2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE10find_indexERKS1_"
+  },
+  "20103aa": {
+    "symbol": "recovered_20103aa",
+    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEEixERKS1_"
+  },
+  "202dfe7": {
+    "symbol": "recovered_202dfe7",
+    "original": "_ws_make_bool"
+  },
+  "202834e": {
+    "symbol": "recovered_202834e",
+    "original": "_ws_is_identifier"
+  },
+  "202e352": {
+    "symbol": "recovered_202e352",
+    "original": "_ws_parse_int_literal"
+  },
+  "2021491": {
+    "symbol": "recovered_2021491",
+    "original": "_fs_append_loaded_entry"
+  },
+  "201e011": {
+    "symbol": "recovered_201e011",
+    "original": "_ws_string_builder_take"
+  },
+  "2020219": {
+    "symbol": "recovered_2020219",
+    "original": "_command_line_path_only"
+  },
+  "201208c": {
+    "symbol": "recovered_201208c",
+    "original": "_wm_media_ttf_render"
+  },
+  "2043463": {
+    "symbol": "recovered_2043463",
+    "original": "_driver_path_to_device_tree_path"
+  },
+  "200c620": {
+    "symbol": "recovered_200c620",
+    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend12units_per_emEv"
+  },
+  "2005988": {
+    "symbol": "recovered_2005988",
+    "original": "_strtoull"
+  },
+  "200e5c8": {
+    "symbol": "recovered_200e5c8",
+    "original": "__ZN12_GLOBAL__N_127flatten_quadratic_recursiveERNS_14OutlineBuilderERKNS_5PointES4_S4_i"
+  },
+  "200dfbb": {
+    "symbol": "recovered_200dfbb",
+    "original": "__ZN2wm6detail15vector_allocateINS_4pairIjtEEEEPT_m"
+  },
+  "203b677": {
+    "symbol": "recovered_203b677",
+    "original": "_ws_builtin_device"
+  },
+  "2015c73": {
+    "symbol": "recovered_2015c73",
+    "original": "_kernel_app_window_copy_title"
+  },
+  "2009f24": {
+    "symbol": "recovered_2009f24",
+    "original": "__ZN2wm6vectorIhEC2Em"
+  },
+  "204231f": {
+    "symbol": "recovered_204231f",
+    "original": "_storage_detect_volume_filesystem"
+  },
+  "2021022": {
+    "symbol": "recovered_2021022",
+    "original": "_fat_load_directory_from_buffer"
+  },
+  "20041ad": {
+    "symbol": "recovered_20041ad",
+    "original": "_wm_platform_heap_free_bytes64"
+  },
+  "2005cad": {
+    "symbol": "recovered_2005cad",
+    "original": "__ZL20read_encoded_pointerhPPKh"
+  },
+  "202aade": {
+    "symbol": "recovered_202aade",
+    "original": "_ws_evaluate_token_range"
+  },
+  "202bbd0": {
+    "symbol": "recovered_202bbd0",
+    "original": "_ws_array_reserve_capacity"
+  },
+  "2000e38": {
+    "symbol": "recovered_2000e38",
+    "original": "_wrap_angle"
+  },
+  "202c0d0": {
+    "symbol": "recovered_202c0d0",
+    "original": "_ws_apply_binary_op"
+  },
+  "2043f56": {
+    "symbol": "recovered_2043f56",
+    "original": "_ws_local_frame_reserve"
+  },
+  "201e070": {
+    "symbol": "recovered_201e070",
+    "original": "_hex_digit_value"
+  },
+  "2015e42": {
+    "symbol": "recovered_2015e42",
+    "original": "_kernel_app_window_find"
+  },
+  "2024896": {
+    "symbol": "recovered_2024896",
+    "original": "_program_load_text_lines"
+  },
+  "2018f16": {
+    "symbol": "recovered_2018f16",
+    "original": "_wm_kernel_enter_text_mode"
+  },
+  "2010504": {
+    "symbol": "recovered_2010504",
+    "original": "__ZN2wm6vectorINS0_IhEEE7reserveEm"
+  },
+  "200245f": {
+    "symbol": "recovered_200245f",
+    "original": "_wm_platform_ticks"
+  },
+  "2024741": {
+    "symbol": "recovered_2024741",
+    "original": "_fat_required_lfn_entries"
+  },
+  "2015ea7": {
+    "symbol": "recovered_2015ea7",
+    "original": "_kernel_app_window_release"
+  },
+  "203febd": {
+    "symbol": "recovered_203febd",
+    "original": "_graphics_present_canvas_pixel"
+  },
+  "20035b6": {
+    "symbol": "recovered_20035b6",
+    "original": "_wm_platform_write_drive_bytes"
+  },
+  "201d187": {
+    "symbol": "recovered_201d187",
+    "original": "_textmode_present_grid"
+  },
+  "202a661": {
+    "symbol": "recovered_202a661",
+    "original": "_ws_value_truthy"
+  },
+  "20152c8": {
+    "symbol": "recovered_20152c8",
+    "original": "_console_logf"
+  },
+  "2001884": {
+    "symbol": "recovered_2001884",
+    "original": "_append_char"
+  },
+  "201cbbb": {
+    "symbol": "recovered_201cbbb",
+    "original": "_textmode_rows"
+  },
+  "2010e54": {
+    "symbol": "recovered_2010e54",
+    "original": "__ZN12_GLOBAL__N_112Type1Backend16Type1Interpreter10close_pathEv"
+  },
+  "20056c4": {
+    "symbol": "recovered_20056c4",
+    "original": "__Unwind_SjLj_Resume"
+  },
+  "200dfd2": {
+    "symbol": "recovered_200dfd2",
+    "original": "__ZN2wm6vectorIhEC2EOS1_"
+  },
+  "2002ab9": {
+    "symbol": "recovered_2002ab9",
+    "original": "_wm_platform_enter_text_mode"
+  },
+  "201caef": {
+    "symbol": "recovered_201caef",
+    "original": "_bitmap_font_try_autoload"
+  },
+  "200357b": {
+    "symbol": "recovered_200357b",
+    "original": "_platform_storage_cache_store"
+  },
+  "2011130": {
+    "symbol": "recovered_2011130",
+    "original": "__ZN2wm13unordered_mapIjN12_GLOBAL__N_111GlyphBitmapENS_4hashIjEENS_8equal_toIjEEE6rehashEm"
+  },
+  "201b762": {
+    "symbol": "recovered_201b762",
+    "original": "_wm_winterboot_main"
+  },
+  "204156c": {
+    "symbol": "recovered_204156c",
+    "original": "_storage_fs_type_from_text"
+  },
+  "2010804": {
+    "symbol": "recovered_2010804",
+    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE15rebuild_bucketsEv"
+  },
+  "2043e49": {
+    "symbol": "recovered_2043e49",
+    "original": "_ws_decay_task_push_frame"
+  },
+  "2001b27": {
+    "symbol": "recovered_2001b27",
+    "original": "_wm_platform_configure_qemu_ramfb"
+  },
+  "200425d": {
+    "symbol": "recovered_200425d",
+    "original": "_wm_platform_api"
+  },
+  "20097c0": {
+    "symbol": "recovered_20097c0",
+    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater12HuffmanTableD1Ev"
+  },
+  "200ff39": {
+    "symbol": "recovered_200ff39",
+    "original": "__ZN12_GLOBAL__N_111skip_spacesERKN2wm6vectorIhEERm"
+  },
+  "2005a9f": {
+    "symbol": "recovered_2005a9f",
+    "original": "_strtoll"
+  },
+  "200fb3c": {
+    "symbol": "recovered_200fb3c",
+    "original": "__ZNK12_GLOBAL__N_112Type1Backend12units_per_emEv"
+  },
+  "201d8ce": {
+    "symbol": "recovered_201d8ce",
+    "original": "_textmode_grid_resize"
+  },
+  "2003adb": {
+    "symbol": "recovered_2003adb",
+    "original": "_wm_platform_framebuffer_ready"
+  },
+  "201365d": {
+    "symbol": "recovered_201365d",
+    "original": "_wm_kernel_program_delete_file"
+  },
+  "2004f88": {
+    "symbol": "recovered_2004f88",
+    "original": "_wmfs_write_entire_file"
+  },
+  "202a840": {
+    "symbol": "recovered_202a840",
+    "original": "_ws_find_matching_until"
+  },
+  "2004200": {
+    "symbol": "recovered_2004200",
+    "original": "_wm_platform_heap_total_bytes64"
+  },
+  "2001ac8": {
+    "symbol": "recovered_2001ac8",
+    "original": "_wm_platform_set_loader_context"
+  },
+  "20231af": {
+    "symbol": "recovered_20231af",
+    "original": "_macho_select_image_by_cpu"
+  },
+  "2002e49": {
+    "symbol": "recovered_2002e49",
+    "original": "_platform_efi_drive_capacity"
+  },
+  "20202a3": {
+    "symbol": "recovered_20202a3",
+    "original": "_macho_set_error"
+  },
+  "202f4a3": {
+    "symbol": "recovered_202f4a3",
+    "original": "_ws_call_value"
+  },
+  "2040173": {
+    "symbol": "recovered_2040173",
+    "original": "_ws_write_scalar_memory"
+  },
+  "202babd": {
+    "symbol": "recovered_202babd",
+    "original": "_ws_token_list_push"
+  },
+  "201cbcc": {
+    "symbol": "recovered_201cbcc",
+    "original": "_app_console_line"
+  },
+  "20003bb": {
+    "symbol": "recovered_20003bb",
+    "original": "_wm_probe_heap_alloc"
+  },
+  "20040a5": {
+    "symbol": "recovered_20040a5",
+    "original": "_wm_platform_serial_putc"
+  },
+  "202c983": {
+    "symbol": "recovered_202c983",
+    "original": "_ws_parse_power"
+  },
+  "2004e00": {
+    "symbol": "recovered_2004e00",
+    "original": "_wmfs_rename"
+  },
+  "2004d44": {
+    "symbol": "recovered_2004d44",
+    "original": "_wmfs_ferror"
+  },
+  "201235d": {
+    "symbol": "recovered_201235d",
+    "original": "__ZN6winter3wav6detail17isSupportedFormatEtt"
+  },
+  "201e54d": {
+    "symbol": "recovered_201e54d",
+    "original": "_format_compact_bytes"
+  },
+  "2008340": {
+    "symbol": "recovered_2008340",
+    "original": "__ZN2wm6vectorIhE6insertIPKhvEEPhS4_T_S6_"
+  },
+  "200b870": {
+    "symbol": "recovered_200b870",
+    "original": "__ZN12_GLOBAL__N_115TrueTypeBackend4loadERKN2wm6vectorIhEE"
+  },
+  "2023c66": {
+    "symbol": "recovered_2023c66",
+    "original": "_macho_lookup_symbol_in_image"
+  },
+  "2040748": {
+    "symbol": "recovered_2040748",
+    "original": "_storage_target_device_by_id"
+  },
+  "2009e2a": {
+    "symbol": "recovered_2009e2a",
+    "original": "__ZN2wm6vectorIjE6insertIPjvEES3_PKjT_S6_"
+  },
+  "2003b26": {
+    "symbol": "recovered_2003b26",
+    "original": "_wm_platform_pointer_state"
+  },
+  "2000639": {
+    "symbol": "recovered_2000639",
+    "original": "_abs"
+  },
+  "200a693": {
+    "symbol": "recovered_200a693",
+    "original": "__Z18wm_ttf_font_renderPvPKciiid"
+  },
+  "201e960": {
+    "symbol": "recovered_201e960",
+    "original": "_load_drive_bytes"
+  },
+  "200e03b": {
+    "symbol": "recovered_200e03b",
+    "original": "__ZN12_GLOBAL__N_18midpointERKNS_5PointES2_"
+  },
+  "20040da": {
+    "symbol": "recovered_20040da",
+    "original": "_wm_platform_serial_write"
+  },
+  "201401c": {
+    "symbol": "recovered_201401c",
+    "original": "_wm_kernel_program_free"
+  },
+  "2015ae8": {
+    "symbol": "recovered_2015ae8",
+    "original": "_wm_kernel_program_hardware_threads"
+  },
+  "2009392": {
+    "symbol": "recovered_2009392",
+    "original": "__ZN2wm3png12_GLOBAL__N_115unfilter_row_toEjPhPKhS4_mm"
+  },
+  "2000de9": {
+    "symbol": "recovered_2000de9",
+    "original": "_sin"
+  },
+  "2044d10": {
+    "symbol": "recovered_2044d10",
+    "original": "_ws_append_u32_le"
+  },
+  "201165e": {
+    "symbol": "recovered_201165e",
+    "original": "_wm_media_wav_decode_memory"
+  },
+  "20078b0": {
+    "symbol": "recovered_20078b0",
+    "original": "__ZN2wm3png5ImageaSEOS1_"
+  },
+  "20157c3": {
+    "symbol": "recovered_20157c3",
+    "original": "_wm_kernel_program_thread_yield"
+  },
+  "200cab0": {
+    "symbol": "recovered_200cab0",
+    "original": "__ZN12_GLOBAL__N_111GlyphBitmapC1EOS0_"
+  },
+  "2000a90": {
+    "symbol": "recovered_2000a90",
+    "original": "_strstr"
+  },
+  "2000ad9": {
+    "symbol": "recovered_2000ad9",
+    "original": "_time"
+  },
+  "200c8be": {
+    "symbol": "recovered_200c8be",
+    "original": "__ZN2wm6vectorImE6assignEmRKm"
+  },
+  "20412c8": {
+    "symbol": "recovered_20412c8",
+    "original": "_storage_build_partition_geometry"
+  },
+  "2023ef9": {
+    "symbol": "recovered_2023ef9",
+    "original": "_boot_filesystem_available_sectors"
+  },
+  "2003ac9": {
+    "symbol": "recovered_2003ac9",
+    "original": "_wm_platform_framebuffer_bytes_per_pixel"
+  },
+  "200de78": {
+    "symbol": "recovered_200de78",
+    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE10link_indexEm"
+  },
+  "20189c8": {
+    "symbol": "recovered_20189c8",
+    "original": "_wm_kernel_set_theme"
+  },
+  "2028771": {
+    "symbol": "recovered_2028771",
+    "original": "_ws_create_script_function_take_ownership"
+  },
+  "204399d": {
+    "symbol": "recovered_204399d",
+    "original": "_ws_decay_frame_free"
+  },
+  "200fb48": {
+    "symbol": "recovered_200fb48",
+    "original": "__ZNK12_GLOBAL__N_112Type1Backend6ascentEv"
+  },
+  "200fdac": {
+    "symbol": "recovered_200fdac",
+    "original": "__ZN2wm6string9push_backEc"
+  },
+  "20423f7": {
+    "symbol": "recovered_20423f7",
+    "original": "_storage_copy_device_name"
+  },
+  "2021608": {
+    "symbol": "recovered_2021608",
+    "original": "_fs_release_state"
+  },
+  "201d897": {
+    "symbol": "recovered_201d897",
+    "original": "_expand_channel"
+  },
+  "203e714": {
+    "symbol": "recovered_203e714",
+    "original": "_ws_table_erase_key"
+  },
+  "20216e9": {
+    "symbol": "recovered_20216e9",
+    "original": "_scheduler_release_address_space"
+  },
+  "20206ec": {
+    "symbol": "recovered_20206ec",
+    "original": "_macho_copy_boot_fallback_file"
+  },
+  "2002c8a": {
+    "symbol": "recovered_2002c8a",
+    "original": "_wm_platform_poll_key_ax"
+  },
+  "200c6f0": {
+    "symbol": "recovered_200c6f0",
+    "original": "__ZN2wm6vectorIhEaSERKS1_"
+  },
+  "200ffac": {
+    "symbol": "recovered_200ffac",
+    "original": "__ZN2wm6stringC2EPKcm"
+  },
+  "2044ba1": {
+    "symbol": "recovered_2044ba1",
+    "original": "_run_bytecode_path"
+  },
+  "2012b10": {
+    "symbol": "recovered_2012b10",
+    "original": "_wm_kernel_program_poll_key_ax"
+  },
+  "2011374": {
+    "symbol": "recovered_2011374",
+    "original": "__ZN2wm6vectorIjEC2EOS1_"
+  },
+  "2012bd5": {
+    "symbol": "recovered_2012bd5",
+    "original": "_render_ui"
+  },
+  "2000843": {
+    "symbol": "recovered_2000843",
+    "original": "_memset"
+  },
+  "2000907": {
+    "symbol": "recovered_2000907",
+    "original": "_isblank"
+  },
+  "204204c": {
+    "symbol": "recovered_204204c",
+    "original": "_storage_add_device"
+  },
+  "2004240": {
+    "symbol": "recovered_2004240",
+    "original": "_wm_platform_halt_forever"
+  },
+  "20023c7": {
+    "symbol": "recovered_20023c7",
+    "original": "_platform_mask_bit_count"
+  },
+  "200e266": {
+    "symbol": "recovered_200e266",
+    "original": "__ZN2wm6vectorIsEC2Em"
+  },
+  "2005500": {
+    "symbol": "recovered_2005500",
+    "original": "___cxa_guard_acquire"
+  },
+  "20043e1": {
+    "symbol": "recovered_20043e1",
+    "original": "_wm_lua_flush_output_line"
+  },
+  "202f139": {
+    "symbol": "recovered_202f139",
+    "original": "_ws_get_indexed_value"
+  },
+  "2041fc2": {
+    "symbol": "recovered_2041fc2",
+    "original": "_storage_sector_has_mbr_partitions"
+  },
+  "202250c": {
+    "symbol": "recovered_202250c",
+    "original": "_macho_load_dependencies"
+  },
+  "200085c": {
+    "symbol": "recovered_200085c",
+    "original": "_bzero"
+  },
+  "2030882": {
+    "symbol": "recovered_2030882",
+    "original": "_ws_make_bound_builtin_function_value"
+  },
+  "2004c2e": {
+    "symbol": "recovered_2004c2e",
+    "original": "_wmfs_fseek"
+  },
+  "2015e78": {
+    "symbol": "recovered_2015e78",
+    "original": "_wm_kernel_program_app_window_destroy"
+  },
+  "200c864": {
+    "symbol": "recovered_200c864",
+    "original": "__ZNK2wm13unordered_mapIjN12_GLOBAL__N_111TableRecordENS_4hashIjEENS_8equal_toIjEEE14bucket_for_keyERKj"
+  },
+  "201ec31": {
+    "symbol": "recovered_201ec31",
+    "original": "_fs_ensure_file_data_loaded"
+  },
+  "2004144": {
+    "symbol": "recovered_2004144",
+    "original": "_wm_platform_serial_poll_char"
+  },
+  "20118f0": {
+    "symbol": "recovered_20118f0",
+    "original": "__ZN12_GLOBAL__N_112clearPcmInfoEP25WmBaremetalProgramPcmInfo"
+  },
+  "202dfb3": {
+    "symbol": "recovered_202dfb3",
+    "original": "_ws_make_float"
+  },
+  "200fd52": {
+    "symbol": "recovered_200fd52",
+    "original": "__ZN2wm6string7reserveEm"
+  },
+  "200fe16": {
+    "symbol": "recovered_200fe16",
+    "original": "__ZN2wm6string14ensure_storageEv"
+  },
+  "20044cd": {
+    "symbol": "recovered_20044cd",
+    "original": "_wm_lua_show_banner"
+  },
+  "2008550": {
+    "symbol": "recovered_2008550",
+    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater5startERKNS_6vectorINS1_8ByteSpanEEE"
+  },
+  "2044b86": {
+    "symbol": "recovered_2044b86",
+    "original": "_program_ensure_capacity"
+  },
+  "202ad64": {
+    "symbol": "recovered_202ad64",
+    "original": "_ws_make_string"
+  },
+  "200577e": {
+    "symbol": "recovered_200577e",
+    "original": "___dynamic_cast"
+  },
+  "2000029": {
+    "symbol": "recovered_2000029",
+    "original": "_wm_probe_bios_poll_key_ax"
+  },
+  "202e022": {
+    "symbol": "recovered_202e022",
+    "original": "_ws_numeric_table_length"
+  },
+  "204115b": {
+    "symbol": "recovered_204115b",
+    "original": "_cpu_query_deterministic_cache_leaf"
+  },
+  "202c83d": {
+    "symbol": "recovered_202c83d",
+    "original": "_ws_parse_multiplicative"
+  },
+  "2002ea2": {
+    "symbol": "recovered_2002ea2",
+    "original": "_wm_platform_read_drive_bytes"
+  },
+  "20033d6": {
+    "symbol": "recovered_20033d6",
+    "original": "_platform_efi_io_buffer_bytes"
+  },
+  "2003407": {
+    "symbol": "recovered_2003407",
+    "original": "_platform_storage_read_transfer_sectors"
+  },
+  "20435d8": {
+    "symbol": "recovered_20435d8",
+    "original": "_driver_device_tree_upsert"
+  },
+  "200c696": {
+    "symbol": "recovered_200c696",
+    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEEC2Ev"
+  },
+  "2018d22": {
+    "symbol": "recovered_2018d22",
+    "original": "_graphics_fill_canvas_present"
+  },
+  "200c6b4": {
+    "symbol": "recovered_200c6b4",
+    "original": "__ZN2wm6vectorINS_4pairIjtEEED2Ev"
+  },
+  "200988c": {
+    "symbol": "recovered_200988c",
+    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater13decode_symbolERNS2_9BitReaderERKNS2_12HuffmanTableERj"
+  },
+  "2005775": {
+    "symbol": "recovered_2005775",
+    "original": "__Unwind_Resume"
+  },
+  "2022317": {
+    "symbol": "recovered_2022317",
+    "original": "_scheduler_copy_name"
+  },
+  "203fa93": {
+    "symbol": "recovered_203fa93",
+    "original": "_display_fill_theme_surfaces"
+  },
+  "2000b1f": {
+    "symbol": "recovered_2000b1f",
+    "original": "_frexp"
+  },
+  "2020dd9": {
+    "symbol": "recovered_2020dd9",
+    "original": "_fs_release_files"
+  },
+  "200593d": {
+    "symbol": "recovered_200593d",
+    "original": "_round"
+  },
+  "200c88c": {
+    "symbol": "recovered_200c88c",
+    "original": "__ZN2wm6detail10hash_bytesEPKhm"
+  },
+  "2043feb": {
+    "symbol": "recovered_2043feb",
+    "original": "_ws_is_block_starter_tokens"
+  },
+  "2015f5c": {
+    "symbol": "recovered_2015f5c",
+    "original": "_kernel_app_window_fill_info"
+  },
+  "203af52": {
+    "symbol": "recovered_203af52",
+    "original": "_graphics_wait_ms"
+  },
+  "2001f23": {
+    "symbol": "recovered_2001f23",
+    "original": "_wm_platform_startup"
+  },
+  "2014059": {
+    "symbol": "recovered_2014059",
+    "original": "_wm_kernel_program_list_directory"
+  },
+  "2009af0": {
+    "symbol": "recovered_2009af0",
+    "original": "__ZN2wm6vectorIjEC2EmRKj"
+  },
+  "2042576": {
+    "symbol": "recovered_2042576",
+    "original": "_storage_write_mbr_entry"
+  },
+  "2023ea6": {
+    "symbol": "recovered_2023ea6",
+    "original": "_storage_find_device_by_id"
+  },
+  "20412ac": {
+    "symbol": "recovered_20412ac",
+    "original": "_storage_restore_previous_target_state"
+  },
+  "203fdfe": {
+    "symbol": "recovered_203fdfe",
+    "original": "_kernel_request_graphics_mode"
+  },
+  "20050e5": {
+    "symbol": "recovered_20050e5",
+    "original": "_clock"
+  },
+  "2015c17": {
+    "symbol": "recovered_2015c17",
+    "original": "_kernel_app_window_current_owner"
+  },
+  "2028444": {
+    "symbol": "recovered_2028444",
+    "original": "_ws_value_list_push"
+  },
+  "2014038": {
+    "symbol": "recovered_2014038",
+    "original": "_wm_kernel_program_realloc"
+  },
+  "2004e98": {
+    "symbol": "recovered_2004e98",
+    "original": "_wm_lua_app_write_file"
+  },
+  "200c644": {
+    "symbol": "recovered_200c644",
+    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend7descentEv"
+  },
+  "2000646": {
+    "symbol": "recovered_2000646",
+    "original": "_malloc"
+  },
+  "2009610": {
+    "symbol": "recovered_2009610",
+    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater9BitReader9read_bitsEjRj"
+  },
+  "201e786": {
+    "symbol": "recovered_201e786",
+    "original": "_fat_query_space"
+  },
+  "2023a91": {
+    "symbol": "recovered_2023a91",
+    "original": "_macho_resolve_symbol"
+  },
+  "20039bb": {
+    "symbol": "recovered_20039bb",
+    "original": "_wm_platform_flush_storage"
+  },
+  "2004298": {
+    "symbol": "recovered_2004298",
+    "original": "_platform_storage_max_transfer_sectors"
+  },
+  "20108b4": {
+    "symbol": "recovered_20108b4",
+    "original": "__ZN2wm6detail15vector_allocateINS_4pairINS_6stringENS_6vectorIhEEEEEEPT_m"
+  },
+  "2000fcb": {
+    "symbol": "recovered_2000fcb",
+    "original": "_truncf"
+  },
+  "200dde8": {
+    "symbol": "recovered_200dde8",
+    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE14prepare_insertEv"
+  },
+  "2040067": {
+    "symbol": "recovered_2040067",
+    "original": "_ws_try_parse_uint32_value"
+  },
+  "20008af": {
+    "symbol": "recovered_20008af",
+    "original": "_islower"
+  },
+  "2003a0c": {
+    "symbol": "recovered_2003a0c",
+    "original": "_platform_efi_firmware_thunk_call"
+  },
+  "2044cf0": {
+    "symbol": "recovered_2044cf0",
+    "original": "_ws_append_u16_le"
+  },
+  "2005240": {
+    "symbol": "recovered_2005240",
+    "original": "___cxa_begin_catch"
+  },
+  "20111be": {
+    "symbol": "recovered_20111be",
+    "original": "__ZN2wm13unordered_mapIjN12_GLOBAL__N_111GlyphBitmapENS_4hashIjEENS_8equal_toIjEEE21bucket_count_for_sizeEm"
+  },
+  "204394b": {
+    "symbol": "recovered_204394b",
+    "original": "_ws_decay_task_clear_frames"
+  },
+  "20202cb": {
+    "symbol": "recovered_20202cb",
+    "original": "_path_ends_with_ignore_case"
+  },
+  "200fe3c": {
+    "symbol": "recovered_200fe3c",
+    "original": "__ZN12_GLOBAL__N_118parse_ascii_doubleERKN2wm6vectorIhEERmRd"
+  },
+  "2000abf": {
+    "symbol": "recovered_2000abf",
+    "original": "_setlocale"
+  },
+  "20206ff": {
+    "symbol": "recovered_20206ff",
+    "original": "_macho_data_has_known_magic"
+  },
+  "200404d": {
+    "symbol": "recovered_200404d",
+    "original": "_wm_platform_framebuffer"
+  },
+  "2009d61": {
+    "symbol": "recovered_2009d61",
+    "original": "__ZN2wm6detail15vector_allocateItEEPT_m"
+  },
+  "20042ae": {
+    "symbol": "recovered_20042ae",
+    "original": "_platform_efi_drive_block_base"
+  },
+  "202ad99": {
+    "symbol": "recovered_202ad99",
+    "original": "_ws_try_assignment"
+  },
+  "202c71d": {
+    "symbol": "recovered_202c71d",
+    "original": "_ws_parse_additive"
+  },
+  "2044c6a": {
+    "symbol": "recovered_2044c6a",
+    "original": "_ws_bytecode_intern_string"
+  },
+  "2043c5c": {
+    "symbol": "recovered_2043c5c",
+    "original": "_ws_decay_task_push_block"
+  },
+  "2000953": {
+    "symbol": "recovered_2000953",
+    "original": "_strlen"
+  },
+  "2003a8e": {
+    "symbol": "recovered_2003a8e",
+    "original": "_wm_platform_set_graphics_mode_request"
+  },
+  "2015362": {
+    "symbol": "recovered_2015362",
+    "original": "_command_basename"
+  },
+  "2010e74": {
+    "symbol": "recovered_2010e74",
+    "original": "__ZN12_GLOBAL__N_112Type1Backend16Type1Interpreter15move_to_currentEv"
+  },
+  "200df68": {
+    "symbol": "recovered_200df68",
+    "original": "__ZN2wm6vectorINS_4pairIjtEEE7reserveEm"
+  },
+  "2012b7a": {
+    "symbol": "recovered_2012b7a",
+    "original": "_serial_poll_char"
+  },
+  "203af16": {
+    "symbol": "recovered_203af16",
+    "original": "_ws_require_graphics_canvas"
+  },
+  "201096a": {
+    "symbol": "recovered_201096a",
+    "original": "__ZN12_GLOBAL__N_112Type1Backend16Type1Interpreter7executeERKN2wm6vectorIhEEi"
+  },
+  "2044e3a": {
+    "symbol": "recovered_2044e3a",
     "original": "_ws_value_to_path_text"
+  },
+  "200e6e2": {
+    "symbol": "recovered_200e6e2",
+    "original": "__ZN12_GLOBAL__N_112Type1BackendD1Ev"
+  },
+  "201e744": {
+    "symbol": "recovered_201e744",
+    "original": "_visual_layout_append_line"
+  },
+  "2042929": {
+    "symbol": "recovered_2042929",
+    "original": "_storage_invalidate_partition_table_writes"
+  },
+  "200b7b4": {
+    "symbol": "recovered_200b7b4",
+    "original": "__ZN12_GLOBAL__N_111read_u32_beERKN2wm6vectorIhEEm"
+  },
+  "2040439": {
+    "symbol": "recovered_2040439",
+    "original": "_fs_path_already_listed"
+  },
+  "2030950": {
+    "symbol": "recovered_2030950",
+    "original": "_ws_make_string_n"
+  },
+  "2000c48": {
+    "symbol": "recovered_2000c48",
+    "original": "_floor"
+  },
+  "202bd61": {
+    "symbol": "recovered_202bd61",
+    "original": "_ws_parse_and"
+  },
+  "200c1b4": {
+    "symbol": "recovered_200c1b4",
+    "original": "__ZN12_GLOBAL__N_115TrueTypeBackend9rasterizeEjd"
+  },
+  "2020a1b": {
+    "symbol": "recovered_2020a1b",
+    "original": "_storage_boot_fallback_load_type"
+  },
+  "203eb04": {
+    "symbol": "recovered_203eb04",
+    "original": "_ws_make_script_function_from_text"
+  },
+  "200550d": {
+    "symbol": "recovered_200550d",
+    "original": "___cxa_guard_release"
+  },
+  "2021a73": {
+    "symbol": "recovered_2021a73",
+    "original": "_read_be64"
+  },
+  "204048d": {
+    "symbol": "recovered_204048d",
+    "original": "_fs_note_listed_path"
+  },
+  "200098e": {
+    "symbol": "recovered_200098e",
+    "original": "_strcoll"
+  },
+  "2004fb0": {
+    "symbol": "recovered_2004fb0",
+    "original": "_wmfs_register_virtual_file"
+  },
+  "2024765": {
+    "symbol": "recovered_2024765",
+    "original": "_wmfs32_superblock_geometry_is_valid"
+  },
+  "2000f37": {
+    "symbol": "recovered_2000f37",
+    "original": "_powf"
+  },
+  "2014ae8": {
+    "symbol": "recovered_2014ae8",
+    "original": "_fs_create_directory_path"
+  },
+  "200e528": {
+    "symbol": "recovered_200e528",
+    "original": "__ZN2wm6vectorIN12_GLOBAL__N_111LineSegmentEE9push_backEOS2_"
+  },
+  "2000872": {
+    "symbol": "recovered_2000872",
+    "original": "___bzero"
+  },
+  "201952b": {
+    "symbol": "recovered_201952b",
+    "original": "_ws_value_free"
+  },
+  "200e20c": {
+    "symbol": "recovered_200e20c",
+    "original": "__ZN2wm6vectorItE7reserveEm"
+  },
+  "20026db": {
+    "symbol": "recovered_20026db",
+    "original": "_wm_platform_text_write_at"
+  },
+  "2016037": {
+    "symbol": "recovered_2016037",
+    "original": "_wm_kernel_program_app_window_query"
+  },
+  "202e0ef": {
+    "symbol": "recovered_202e0ef",
+    "original": "_ws_table_literal_promote_array_entries"
+  },
+  "20105ba": {
+    "symbol": "recovered_20105ba",
+    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE14prepare_insertEv"
+  },
+  "20110fe": {
+    "symbol": "recovered_20110fe",
+    "original": "__ZN2wm13unordered_mapIjN12_GLOBAL__N_111GlyphBitmapENS_4hashIjEENS_8equal_toIjEEE10link_indexEm"
+  },
+  "204089e": {
+    "symbol": "recovered_204089e",
+    "original": "_bitmap_font_load_asset_bytes"
+  },
+  "202e2eb": {
+    "symbol": "recovered_202e2eb",
+    "original": "_ws_decode_string_literal"
+  },
+  "2004d2e": {
+    "symbol": "recovered_2004d2e",
+    "original": "_wmfs_feof"
+  },
+  "200426a": {
+    "symbol": "recovered_200426a",
+    "original": "_platform_qemu_fwcfg_read_bytes"
+  },
+  "200566a": {
+    "symbol": "recovered_200566a",
+    "original": "__Unwind_SjLj_Register"
+  },
+  "201f001": {
+    "symbol": "recovered_201f001",
+    "original": "_wmfs_load_file_from_drive"
+  },
+  "2018ba6": {
+    "symbol": "recovered_2018ba6",
+    "original": "_graphics_framebuffer_ready"
+  },
+  "2013286": {
+    "symbol": "recovered_2013286",
+    "original": "_fs_find_file"
+  },
+  "20050fd": {
+    "symbol": "recovered_20050fd",
+    "original": "_wm_program_api_field_ready"
+  },
+  "201d5f0": {
+    "symbol": "recovered_201d5f0",
+    "original": "_pack_canvas_truecolor"
+  },
+  "200ffc8": {
+    "symbol": "recovered_200ffc8",
+    "original": "__ZN2wm6string6assignEPKcm"
+  },
+  "20422c9": {
+    "symbol": "recovered_20422c9",
+    "original": "_storage_copy_device_name_bytes"
+  },
+  "200c80a": {
+    "symbol": "recovered_200c80a",
+    "original": "__ZNK2wm13unordered_mapIjN12_GLOBAL__N_111TableRecordENS_4hashIjEENS_8equal_toIjEEE10find_indexERKj"
+  },
+  "201cc07": {
+    "symbol": "recovered_201cc07",
+    "original": "_surface_fill"
+  },
+  "200b614": {
+    "symbol": "recovered_200b614",
+    "original": "__ZN12_GLOBAL__N_116make_empty_imageEv"
+  },
+  "2005140": {
+    "symbol": "recovered_2005140",
+    "original": "_winterboot_sjlj_jump"
+  },
+  "201459e": {
+    "symbol": "recovered_201459e",
+    "original": "_fs_path_relative_to_directory"
+  },
+  "2013c2a": {
+    "symbol": "recovered_2013c2a",
+    "original": "_wm_kernel_host_readline"
+  },
+  "202e53f": {
+    "symbol": "recovered_202e53f",
+    "original": "_ws_token_looks_numeric"
+  },
+  "203ea3e": {
+    "symbol": "recovered_203ea3e",
+    "original": "_ws_value_compare"
+  },
+  "2001af6": {
+    "symbol": "recovered_2001af6",
+    "original": "_platform_efi_active"
+  },
+  "20132e5": {
+    "symbol": "recovered_20132e5",
+    "original": "_fs_write_file"
+  },
+  "203aabb": {
+    "symbol": "recovered_203aabb",
+    "original": "_ws_pop_vararg_frame"
+  },
+  "20018e6": {
+    "symbol": "recovered_20018e6",
+    "original": "_append_unsigned"
+  },
+  "201075e": {
+    "symbol": "recovered_201075e",
+    "original": "__ZN2wmeqENS_11string_viewES0_"
+  },
+  "200e38e": {
+    "symbol": "recovered_200e38e",
+    "original": "__ZN2wm6vectorIbE7reserveEm"
+  },
+  "200c8ce": {
+    "symbol": "recovered_200c8ce",
+    "original": "__ZN2wm6vectorImE6resizeEmRKm"
+  },
+  "20095f0": {
+    "symbol": "recovered_20095f0",
+    "original": "__ZN2wm3png12_GLOBAL__N_18InflaterD1Ev"
+  },
+  "200092f": {
+    "symbol": "recovered_200092f",
+    "original": "_tolower"
+  },
+  "2009baa": {
+    "symbol": "recovered_2009baa",
+    "original": "__ZN2wm6vectorIjE7reserveEm"
+  },
+  "2000094": {
+    "symbol": "recovered_2000094",
+    "original": "_lua_probe_binary_end"
+  },
+  "202e18e": {
+    "symbol": "recovered_202e18e",
+    "original": "_ws_table_literal_set_entry"
+  },
+  "20282e6": {
+    "symbol": "recovered_20282e6",
+    "original": "_ws_token_equals"
+  },
+  "2040e4a": {
+    "symbol": "recovered_2040e4a",
+    "original": "_storage_query_mounted_device_space_by_id"
+  },
+  "202a384": {
+    "symbol": "recovered_202a384",
+    "original": "_ws_get_indexed_value_mutable"
+  },
+  "202bf8a": {
+    "symbol": "recovered_202bf8a",
+    "original": "_ws_parse_comparison"
+  },
+  "2008328": {
+    "symbol": "recovered_2008328",
+    "original": "__ZN2wm6vectorIhE6assignIPKhvEEvT_S5_"
+  },
+  "202e086": {
+    "symbol": "recovered_202e086",
+    "original": "_ws_table_find_index"
+  },
+  "202e596": {
+    "symbol": "recovered_202e596",
+    "original": "_ws_parse_float_literal"
+  },
+  "2002aea": {
+    "symbol": "recovered_2002aea",
+    "original": "_wm_platform_text_load_font_plane"
+  },
+  "20152b0": {
+    "symbol": "recovered_20152b0",
+    "original": "_run_program"
+  },
+  "2013ae6": {
+    "symbol": "recovered_2013ae6",
+    "original": "_wm_kernel_program_ttf_load_file"
+  },
+  "20024d5": {
+    "symbol": "recovered_20024d5",
+    "original": "_wm_platform_text_clear"
+  },
+  "202f0b5": {
+    "symbol": "recovered_202f0b5",
+    "original": "_ws_make_builtin_function_value"
+  },
+  "20078d8": {
+    "symbol": "recovered_20078d8",
+    "original": "__ZN2wm3png12_GLOBAL__N_19ParsedPngD1Ev"
+  },
+  "200c7d8": {
+    "symbol": "recovered_200c7d8",
+    "original": "__ZN2wm13unordered_mapIjN12_GLOBAL__N_111TableRecordENS_4hashIjEENS_8equal_toIjEEE10link_indexEm"
+  },
+  "20055e8": {
+    "symbol": "recovered_20055e8",
+    "original": "__ZL15raise_exceptionP21WinterExceptionHeader"
+  },
+  "2044d2f": {
+    "symbol": "recovered_2044d2f",
+    "original": "_load_bytecode_file"
+  },
+  "2028576": {
+    "symbol": "recovered_2028576",
+    "original": "_ws_find_matching_end"
+  },
+  "20453e6": {
+    "symbol": "recovered_20453e6",
+    "original": "_storage_add_scanned_ramdisks"
+  },
+  "2011394": {
+    "symbol": "recovered_2011394",
+    "original": "__ZN12_GLOBAL__N_110LineLayoutC1EOS0_"
+  },
+  "2030008": {
+    "symbol": "recovered_2030008",
+    "original": "_ws_key_to_owned_string"
+  },
+  "200c632": {
+    "symbol": "recovered_200c632",
+    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend6ascentEv"
+  },
+  "202b939": {
+    "symbol": "recovered_202b939",
+    "original": "_ws_execute_expression_line"
+  },
+  "202e4cd": {
+    "symbol": "recovered_202e4cd",
+    "original": "_ws_parse_pointer_literal"
+  },
+  "20404e4": {
+    "symbol": "recovered_20404e4",
+    "original": "_ws_make_raw_copy"
+  },
+  "200dd6a": {
+    "symbol": "recovered_200dd6a",
+    "original": "__ZNK2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE10find_indexERKj"
+  },
+  "201d9f2": {
+    "symbol": "recovered_201d9f2",
+    "original": "_app_console_newline"
+  },
+  "203fe73": {
+    "symbol": "recovered_203fe73",
+    "original": "_ws_write_tundra_resolution_config"
+  },
+  "200e33e": {
+    "symbol": "recovered_200e33e",
+    "original": "__ZN2wm6vectorIbE12emplace_backIJRKbEEERbDpOT_"
+  },
+  "200c97c": {
+    "symbol": "recovered_200c97c",
+    "original": "__ZN2wm6vectorImE7reserveEm"
+  },
+  "202a6f8": {
+    "symbol": "recovered_202a6f8",
+    "original": "_ws_find_if_branch_or_end"
+  },
+  "2002454": {
+    "symbol": "recovered_2002454",
+    "original": "_wm_platform_runtime_state"
+  },
+  "20246f7": {
+    "symbol": "recovered_20246f7",
+    "original": "_fat_is_valid_short_char"
+  },
+  "201fc27": {
+    "symbol": "recovered_201fc27",
+    "original": "_wmfs64_sync_directory_and_metadata"
+  },
+  "2018cf4": {
+    "symbol": "recovered_2018cf4",
+    "original": "_graphics_release_canvas_mapping"
+  },
+  "200df2a": {
+    "symbol": "recovered_200df2a",
+    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE15rebuild_bucketsEv"
+  },
+  "2000ec1": {
+    "symbol": "recovered_2000ec1",
+    "original": "_fabs"
+  },
+  "2000f24": {
+    "symbol": "recovered_2000f24",
+    "original": "_ldexpf"
+  },
+  "20282a8": {
+    "symbol": "recovered_20282a8",
+    "original": "_ws_token_list_free"
+  },
+  "20008e5": {
+    "symbol": "recovered_20008e5",
+    "original": "_isalnum"
+  },
+  "20105ec": {
+    "symbol": "recovered_20105ec",
+    "original": "__ZN2wm6vectorINS_4pairINS_6stringENS0_IhEEEEE12emplace_backIJRKS2_S3_EEERS4_DpOT_"
+  },
+  "202abcb": {
+    "symbol": "recovered_202abcb",
+    "original": "_ws_set_variable"
+  },
+  "20006ad": {
+    "symbol": "recovered_20006ad",
+    "original": "_wm_probe_heap_coalesce_forward"
+  },
+  "204519a": {
+    "symbol": "recovered_204519a",
+    "original": "_ws_table_set_builtin_field"
+  },
+  "200104e": {
+    "symbol": "recovered_200104e",
+    "original": "_fabsf"
+  },
+  "201231c": {
+    "symbol": "recovered_201231c",
+    "original": "__ZN6winter3wav6detail16resolveFormatTagEPtPKhm"
+  },
+  "202009c": {
+    "symbol": "recovered_202009c",
+    "original": "_starts_with"
+  },
+  "2043d88": {
+    "symbol": "recovered_2043d88",
+    "original": "_ws_vararg_frame_copy"
+  },
+  "202be57": {
+    "symbol": "recovered_202be57",
+    "original": "_ws_parse_equality"
+  },
+  "201cd7a": {
+    "symbol": "recovered_201cd7a",
+    "original": "_present_surface"
+  },
+  "2023e4d": {
+    "symbol": "recovered_2023e4d",
+    "original": "_scheduler_task_bootstrap"
+  },
+  "2018a54": {
+    "symbol": "recovered_2018a54",
+    "original": "_wm_kernel_enter_graphics_mode"
+  },
+  "201254c": {
+    "symbol": "recovered_201254c",
+    "original": "__ZN2wm6vectorIsE7reserveEm"
+  },
+  "2027ef6": {
+    "symbol": "recovered_2027ef6",
+    "original": "_ws_is_head_keyword"
+  },
+  "2019644": {
+    "symbol": "recovered_2019644",
+    "original": "_wm_kernel_program_execute_command_line"
+  },
+  "2022592": {
+    "symbol": "recovered_2022592",
+    "original": "_macho_apply_fixups"
+  },
+  "2040b24": {
+    "symbol": "recovered_2040b24",
+    "original": "_cpu_brand_string"
+  },
+  "20025b4": {
+    "symbol": "recovered_20025b4",
+    "original": "_platform_efi_pixel"
+  },
+  "2014000": {
+    "symbol": "recovered_2014000",
+    "original": "_wm_kernel_program_malloc"
+  },
+  "200a658": {
+    "symbol": "recovered_200a658",
+    "original": "__Z18wm_ttf_font_resizePvf"
+  },
+  "204055e": {
+    "symbol": "recovered_204055e",
+    "original": "_ws_join_argument_text_alloc"
+  },
+  "2028538": {
+    "symbol": "recovered_2028538",
+    "original": "_ws_free_parameter_names"
+  },
+  "20416ad": {
+    "symbol": "recovered_20416ad",
+    "original": "_storage_move_partition_by_id"
+  },
+  "2007b48": {
+    "symbol": "recovered_2007b48",
+    "original": "__ZN2wm3png15save_rgba8_fileEPKcPKhii"
+  },
+  "2009d78": {
+    "symbol": "recovered_2009d78",
+    "original": "__ZN2wm6vectorIjE12emplace_backIJRKjEEERjDpOT_"
+  },
+  "2010ec8": {
+    "symbol": "recovered_2010ec8",
+    "original": "__ZN12_GLOBAL__N_112Type1Backend16Type1Interpreter15line_to_currentEv"
+  },
+  "201526a": {
+    "symbol": "recovered_201526a",
+    "original": "_program_load_text"
+  },
+  "2000499": {
+    "symbol": "recovered_2000499",
+    "original": "___lshrdi3"
+  },
+  "20023de": {
+    "symbol": "recovered_20023de",
+    "original": "_platform_show_startup_banner"
+  },
+  "201deef": {
+    "symbol": "recovered_201deef",
+    "original": "_ws_strdup_n"
+  },
+  "20008c0": {
+    "symbol": "recovered_20008c0",
+    "original": "_isupper"
+  },
+  "2043cd1": {
+    "symbol": "recovered_2043cd1",
+    "original": "_ws_set_local_variable_in_frame"
+  },
+  "20216ba": {
+    "symbol": "recovered_20216ba",
+    "original": "_scheduler_save_address_space_from_memory"
+  },
+  "2027db6": {
+    "symbol": "recovered_2027db6",
+    "original": "_ws_errorf"
+  },
+  "2004963": {
+    "symbol": "recovered_2004963",
+    "original": "_wmfs_fclose"
+  },
+  "200829e": {
+    "symbol": "recovered_200829e",
+    "original": "__ZN2wm3png12_GLOBAL__N_112crc32_updateEjPKhm"
+  },
+  "201ea8e": {
+    "symbol": "recovered_201ea8e",
+    "original": "_visual_layout_append_line_n"
+  },
+  "200ca36": {
+    "symbol": "recovered_200ca36",
+    "original": "__ZN2wm6vectorIN12_GLOBAL__N_115TrueTypeBackend13Format12GroupEE7reserveEm"
+  },
+  "20429ca": {
+    "symbol": "recovered_20429ca",
+    "original": "_storage_restore_device_states"
+  },
+  "2009e0c": {
+    "symbol": "recovered_2009e0c",
+    "original": "__ZN2wm6vectorIjEC2IPjvEET_S4_"
+  },
+  "2023f54": {
+    "symbol": "recovered_2023f54",
+    "original": "_query_drive_capacity"
+  },
+  "2005681": {
+    "symbol": "recovered_2005681",
+    "original": "__Unwind_SjLj_Unregister"
+  },
+  "201f938": {
+    "symbol": "recovered_201f938",
+    "original": "_wmfs64_write_chain_bytes"
+  },
+  "201f4c2": {
+    "symbol": "recovered_201f4c2",
+    "original": "_fs_rebuild_file_index"
+  },
+  "20309bc": {
+    "symbol": "recovered_20309bc",
+    "original": "_ws_io_handle_lookup"
+  },
+  "2000bb1": {
+    "symbol": "recovered_2000bb1",
+    "original": "_fmod"
+  },
+  "200551c": {
+    "symbol": "recovered_200551c",
+    "original": "___cxa_allocate_exception"
+  },
+  "200fb60": {
+    "symbol": "recovered_200fb60",
+    "original": "__ZNK12_GLOBAL__N_112Type1Backend8line_gapEv"
+  },
+  "204107d": {
+    "symbol": "recovered_204107d",
+    "original": "_storage_format_device_name"
+  },
+  "200487c": {
+    "symbol": "recovered_200487c",
+    "original": "_wm_lua_app_stat_file"
+  },
+  "2000888": {
+    "symbol": "recovered_2000888",
+    "original": "_memcmp"
+  },
+  "2011584": {
+    "symbol": "recovered_2011584",
+    "original": "__ZN12_GLOBAL__N_114clearImageInfoEP27WmBaremetalProgramImageInfo"
+  },
+  "20191ee": {
+    "symbol": "recovered_20191ee",
+    "original": "_wm_kernel_set_night_mode"
+  },
+  "201cbaa": {
+    "symbol": "recovered_201cbaa",
+    "original": "_textmode_columns"
+  },
+  "2000dc5": {
+    "symbol": "recovered_2000dc5",
+    "original": "_llround"
+  },
+  "2009b66": {
+    "symbol": "recovered_2009b66",
+    "original": "__ZN2wm6vectorIjE6resizeEm"
+  },
+  "2011258": {
+    "symbol": "recovered_2011258",
+    "original": "__ZN2wm6vectorIhED2Ev"
+  },
+  "200499d": {
+    "symbol": "recovered_200499d",
+    "original": "_wmfs_fread"
+  },
+  "204542f": {
+    "symbol": "recovered_204542f",
+    "original": "_storage_preserve_previous_device_states"
+  },
+  "2045103": {
+    "symbol": "recovered_2045103",
+    "original": "_wm_kernel_kext_configure_storage"
+  },
+  "20081db": {
+    "symbol": "recovered_20081db",
+    "original": "__ZN2wm3png12_GLOBAL__N_111write_chunkEP8WMFSFilePKcPKhm"
+  },
+  "2023a88": {
+    "symbol": "recovered_2023a88",
+    "original": "_write_le64"
+  },
+  "2009952": {
+    "symbol": "recovered_2009952",
+    "original": "__ZN2wm6vectorIhE12emplace_backIJRKhEEERhDpOT_"
+  },
+  "2010e42": {
+    "symbol": "recovered_2010e42",
+    "original": "__ZN2wm6vectorIdED2Ev"
+  },
+  "2023e0d": {
+    "symbol": "recovered_2023e0d",
+    "original": "_scheduler_restore_foreground_image"
+  },
+  "200deae": {
+    "symbol": "recovered_200deae",
+    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE6rehashEm"
+  },
+  "201e906": {
+    "symbol": "recovered_201e906",
+    "original": "_fs_used_cluster_count"
+  },
+  "201d0f7": {
+    "symbol": "recovered_201d0f7",
+    "original": "_textmode_grid_clear"
+  },
+  "20132b3": {
+    "symbol": "recovered_20132b3",
+    "original": "_wm_kernel_program_write_file"
+  },
+  "203a99b": {
+    "symbol": "recovered_203a99b",
+    "original": "_ws_set_local_variable"
+  },
+  "2004478": {
+    "symbol": "recovered_2004478",
+    "original": "_wm_lua_write_errorf"
+  },
+  "204193a": {
+    "symbol": "recovered_204193a",
+    "original": "_storage_find_whole_disk_device"
+  },
+  "2022af4": {
+    "symbol": "recovered_2022af4",
+    "original": "_macho_load_dylib_named"
+  },
+  "2012a32": {
+    "symbol": "recovered_2012a32",
+    "original": "_wm_kernel_program_putc"
+  },
+  "20249d9": {
+    "symbol": "recovered_20249d9",
+    "original": "_program_replace_lines"
+  },
+  "200453f": {
+    "symbol": "recovered_200453f",
+    "original": "_wm_lua_show_help"
+  },
+  "2000be0": {
+    "symbol": "recovered_2000be0",
+    "original": "_pow"
+  },
+  "2008528": {
+    "symbol": "recovered_2008528",
+    "original": "__ZN2wm3png12_GLOBAL__N_114bits_per_pixelERKNS1_6HeaderE"
+  },
+  "200ddc0": {
+    "symbol": "recovered_200ddc0",
+    "original": "__ZNK2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE14bucket_for_keyERKj"
+  },
+  "200fcce": {
+    "symbol": "recovered_200fcce",
+    "original": "__ZN12_GLOBAL__N_110find_bytesERKN2wm6vectorIhEEPKcm"
+  },
+  "20304c8": {
+    "symbol": "recovered_20304c8",
+    "original": "_ws_string_builder_append"
+  },
+  "201ca40": {
+    "symbol": "recovered_201ca40",
+    "original": "_storage_mount_drivers_partition"
+  },
+  "200591b": {
+    "symbol": "recovered_200591b",
+    "original": "_isfinite"
+  },
+  "2004fd6": {
+    "symbol": "recovered_2004fd6",
+    "original": "_memchr"
+  },
+  "200286d": {
+    "symbol": "recovered_200286d",
+    "original": "_platform_efi_draw_text_cell"
+  },
+  "201dfe8": {
+    "symbol": "recovered_201dfe8",
+    "original": "_ws_string_builder_free"
+  },
+  "202a333": {
+    "symbol": "recovered_202a333",
+    "original": "_ws_make_table"
+  },
+  "2044b13": {
+    "symbol": "recovered_2044b13",
+    "original": "_graphics_build_axis_mapping"
+  },
+  "2011f08": {
+    "symbol": "recovered_2011f08",
+    "original": "_wm_media_ttf_load_memory"
+  },
+  "2022a88": {
+    "symbol": "recovered_2022a88",
+    "original": "_macho_is_ignored_dylib"
+  },
+  "2011280": {
+    "symbol": "recovered_2011280",
+    "original": "__ZN2wm6vectorIjED2Ev"
+  },
+  "200fc0a": {
+    "symbol": "recovered_200fc0a",
+    "original": "__ZN2wm6stringD1Ev"
+  },
+  "20131e6": {
+    "symbol": "recovered_20131e6",
+    "original": "_fs_read_file"
+  },
+  "2010df6": {
+    "symbol": "recovered_2010df6",
+    "original": "__ZN2wm6stringC2EPKc"
+  },
+  "20306c6": {
+    "symbol": "recovered_20306c6",
+    "original": "_parse_uint32_token"
+  },
+  "2000a24": {
+    "symbol": "recovered_2000a24",
+    "original": "_strspn"
+  },
+  "2022350": {
+    "symbol": "recovered_2022350",
+    "original": "_macho_load_image_segments"
+  },
+  "2009f5c": {
+    "symbol": "recovered_2009f5c",
+    "original": "__Z23wm_ttf_font_load_memoryPKvmf"
+  },
+  "20008d1": {
+    "symbol": "recovered_20008d1",
+    "original": "_isalpha"
+  },
+  "201f44b": {
+    "symbol": "recovered_201f44b",
+    "original": "_fs_insert_file_index"
+  },
+  "203fb4f": {
+    "symbol": "recovered_203fb4f",
+    "original": "_ws_table_set_bool_field"
+  },
+  "202ab9d": {
+    "symbol": "recovered_202ab9d",
+    "original": "_ws_value_to_float_number"
+  },
+  "2003a6a": {
+    "symbol": "recovered_2003a6a",
+    "original": "_wm_platform_aarch64_apps_supported"
+  },
+  "2024c81": {
+    "symbol": "recovered_2024c81",
+    "original": "_ws_execute_block"
+  },
+  "2013c78": {
+    "symbol": "recovered_2013c78",
+    "original": "_read_line_internal"
+  },
+  "201983d": {
+    "symbol": "recovered_201983d",
+    "original": "_trim_in_place"
+  },
+  "20161ca": {
+    "symbol": "recovered_20161ca",
+    "original": "_storage_refresh_mounted_filesystem_available_sectors"
+  },
+  "2044207": {
+    "symbol": "recovered_2044207",
+    "original": "_ws_decay_evaluate_condition"
+  },
+  "2010094": {
+    "symbol": "recovered_2010094",
+    "original": "__ZNK2wm6string14pointer_offsetEPKcPm"
+  },
+  "2000998": {
+    "symbol": "recovered_2000998",
+    "original": "_strcpy"
+  },
+  "20041b7": {
+    "symbol": "recovered_20041b7",
+    "original": "_wm_platform_heap_total_bytes"
+  },
+  "2009672": {
+    "symbol": "recovered_2009672",
+    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater23decode_compressed_blockERNS2_9BitReaderERKNS2_12HuffmanTableES7_RNS_6vectorIhEE"
+  },
+  "2000a60": {
+    "symbol": "recovered_2000a60",
+    "original": "_strpbrk"
+  },
+  "2041645": {
+    "symbol": "recovered_2041645",
+    "original": "_storage_mount_device_by_id"
+  },
+  "200983c": {
+    "symbol": "recovered_200983c",
+    "original": "__ZN2wm6vectorIhE12emplace_backIJhEEERhDpOT_"
+  },
+  "2023de1": {
+    "symbol": "recovered_2023de1",
+    "original": "_scheduler_restore_address_space_to_memory"
+  },
+  "201ec07": {
+    "symbol": "recovered_201ec07",
+    "original": "_fs_hash_path"
+  },
+  "203fe48": {
+    "symbol": "recovered_203fe48",
+    "original": "_kernel_enter_graphics_mode_preserve_presentation_lock"
+  },
+  "202170e": {
+    "symbol": "recovered_202170e",
+    "original": "_scheduler_capture_foreground_image"
+  },
+  "2012adb": {
+    "symbol": "recovered_2012adb",
+    "original": "_wm_kernel_program_write"
+  },
+  "2005e28": {
+    "symbol": "recovered_2005e28",
+    "original": "__ZL12read_sleb128PPKh"
+  },
+  "202bc6b": {
+    "symbol": "recovered_202bc6b",
+    "original": "_ws_parse_or"
+  },
+  "2043a44": {
+    "symbol": "recovered_2043a44",
+    "original": "_ws_wrap_radians"
+  },
+  "2018e6e": {
+    "symbol": "recovered_2018e6e",
+    "original": "_wm_kernel_program_pointer_state"
+  },
+  "20009b0": {
+    "symbol": "recovered_20009b0",
+    "original": "_strdup"
+  },
+  "20039e0": {
+    "symbol": "recovered_20039e0",
+    "original": "_platform_efi_firmware_thunk_command"
+  },
+  "2004178": {
+    "symbol": "recovered_2004178",
+    "original": "_wm_platform_cpuid_query"
+  },
+  "200517b": {
+    "symbol": "recovered_200517b",
+    "original": "_longjmp"
+  },
+  "200dcee": {
+    "symbol": "recovered_200dcee",
+    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEEixERKj"
+  },
+  "2045172": {
+    "symbol": "recovered_2045172",
+    "original": "_surface_release"
+  },
+  "202e2b0": {
+    "symbol": "recovered_202e2b0",
+    "original": "_ws_token_is_string"
+  },
+  "20283f9": {
+    "symbol": "recovered_20283f9",
+    "original": "_ws_match_operator"
+  },
+  "20450f7": {
+    "symbol": "recovered_20450f7",
+    "original": "_wm_kernel_kext_request_graphics_mode"
+  },
+  "2005848": {
+    "symbol": "recovered_2005848",
+    "original": "__tlv_bootstrap"
+  },
+  "2012522": {
+    "symbol": "recovered_2012522",
+    "original": "__ZN6winter3wav11DecodedFileaSEOS1_"
+  },
+  "202a96f": {
+    "symbol": "recovered_202a96f",
+    "original": "_ws_find_top_level_token_index"
+  },
+  "2000f11": {
+    "symbol": "recovered_2000f11",
+    "original": "_frexpf"
+  },
+  "201e0ab": {
+    "symbol": "recovered_201e0ab",
+    "original": "_build_visual_layout"
+  },
+  "2018a00": {
+    "symbol": "recovered_2018a00",
+    "original": "_display_set_theme"
+  },
+  "203f39d": {
+    "symbol": "recovered_203f39d",
+    "original": "_ws_clear_decay_task"
+  },
+  "200e1f4": {
+    "symbol": "recovered_200e1f4",
+    "original": "__ZN2wm6vectorItEC2Em"
+  },
+  "2024b03": {
+    "symbol": "recovered_2024b03",
+    "original": "_run_program_lines"
+  },
+  "2027fa9": {
+    "symbol": "recovered_2027fa9",
+    "original": "_ws_tokenize_line"
+  },
+  "2040cf1": {
+    "symbol": "recovered_2040cf1",
+    "original": "_cpu_query_cache_info"
+  },
+  "202406b": {
+    "symbol": "recovered_202406b",
+    "original": "_wmfs64_write_contiguous_cluster_range"
+  },
+  "2000f4e": {
+    "symbol": "recovered_2000f4e",
+    "original": "_floorf"
+  },
+  "2022f8b": {
+    "symbol": "recovered_2022f8b",
+    "original": "_macho_dependency_name_matches"
+  },
+  "20033a5": {
+    "symbol": "recovered_20033a5",
+    "original": "_platform_efi_io_buffer_physical"
+  },
+  "20125a6": {
+    "symbol": "recovered_20125a6",
+    "original": "__ZN2wm6vectorIsEaSEOS1_"
+  },
+  "2042125": {
+    "symbol": "recovered_2042125",
+    "original": "_storage_set_default_device_name"
+  },
+  "200b802": {
+    "symbol": "recovered_200b802",
+    "original": "__ZN12_GLOBAL__N_115TrueTypeBackendD1Ev"
+  },
+  "20108cc": {
+    "symbol": "recovered_20108cc",
+    "original": "__ZN2wm4pairINS_6stringENS_6vectorIhEEEC2EOS4_"
+  },
+  "200455c": {
+    "symbol": "recovered_200455c",
+    "original": "_wm_lua_readline"
+  },
+  "204244d": {
+    "symbol": "recovered_204244d",
+    "original": "_storage_invalidate_range"
+  },
+  "2000ff1": {
+    "symbol": "recovered_2000ff1",
+    "original": "_logf"
+  },
+  "201dc2f": {
+    "symbol": "recovered_201dc2f",
+    "original": "_text_translate_for_output_n"
+  },
+  "200fb74": {
+    "symbol": "recovered_200fb74",
+    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEEC2Ev"
+  },
+  "201f70f": {
+    "symbol": "recovered_201f70f",
+    "original": "_wmfs64_resize_chain"
+  },
+  "2020e4e": {
+    "symbol": "recovered_2020e4e",
+    "original": "_fat_detect_type_from_boot_sector"
+  },
+  "2013a57": {
+    "symbol": "recovered_2013a57",
+    "original": "_wm_kernel_program_wav_decode_file"
+  },
+  "20403a4": {
+    "symbol": "recovered_20403a4",
+    "original": "_fs_log_directory_entry"
+  },
+  "2020030": {
+    "symbol": "recovered_2020030",
+    "original": "_wmfs64_fill_directory_entry"
+  },
+  "2010ff6": {
+    "symbol": "recovered_2010ff6",
+    "original": "__ZN2wm6vectorINS_4pairIjN12_GLOBAL__N_111GlyphBitmapEEEE5clearEv"
+  },
+  "200c9cf": {
+    "symbol": "recovered_200c9cf",
+    "original": "__ZN2wm6detail15vector_allocateImEEPT_m"
+  },
+  "2002ce5": {
+    "symbol": "recovered_2002ce5",
+    "original": "_wm_platform_wait_microseconds"
+  },
+  "20125e8": {
+    "symbol": "recovered_20125e8",
+    "original": "_wm_kernel_program_clear"
+  },
+  "20239a4": {
+    "symbol": "recovered_20239a4",
+    "original": "_macho_file_range_valid"
+  },
+  "200556f": {
+    "symbol": "recovered_200556f",
+    "original": "__ZL18object_from_headerP21WinterExceptionHeader"
+  },
+  "2024ae2": {
+    "symbol": "recovered_2024ae2",
+    "original": "_program_line_free"
+  },
+  "203f0bb": {
+    "symbol": "recovered_203f0bb",
+    "original": "_ws_decode_bytecode_lines"
+  },
+  "203ac87": {
+    "symbol": "recovered_203ac87",
+    "original": "_graphics_make_status"
+  },
+  "20045c9": {
+    "symbol": "recovered_20045c9",
+    "original": "_wmfs_unmount"
+  },
+  "2005e03": {
+    "symbol": "recovered_2005e03",
+    "original": "__ZL14read_unalignedPKhm"
+  },
+  "204380a": {
+    "symbol": "recovered_204380a",
+    "original": "_ws_instruction_list_push"
   }
 }
