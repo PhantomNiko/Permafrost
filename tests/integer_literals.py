@@ -26,6 +26,12 @@ class Machine:
         if arm:
             self.cpu.mem_map(0x40000000, 0x8000000)
         self.cpu.mem_write(metadata['base'], memory)
+        if arm:
+            # Supply a free RAM region outside the loaded kernels and test data.
+            shared = 0x40010000
+            self.cpu.mem_write(shared+0x88, struct.pack('<II', 0x48000000, 1))
+            self.cpu.mem_write(shared+0x90, struct.pack('<QQI', 0x44000000, 0x1000000, 1))
+            self.cpu.mem_write(shared+0x238, struct.pack('<IIQQ', 0x34364857, 1, 0x44000000, 0x1000000))
         self.data = 0x43000000 if arm else 0x3000000
         self.stack = 0x47fe0000 if arm else 0x4fe0000
         self.stop = self.stack + 0x10000

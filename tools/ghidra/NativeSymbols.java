@@ -20,6 +20,11 @@ public class NativeSymbols extends GhidraScript {
   var functions=currentProgram.getFunctionManager().getFunctions(true);
   while(functions.hasNext()) {
    var f=functions.next();long a=f.getEntryPoint().getOffset();
+   if(f.isThunk() && keep.contains(a)) {
+    var target=f.getThunkedFunction(false);
+    if(target!=null && !keep.contains(target.getEntryPoint().getOffset()))
+     f.setThunkedFunction(null);
+   }
    if((a>=first && a<last && !keep.contains(a)) ||
       (a>=0x30000000L && a<0x31000000L))remove.add(f);
   }
@@ -28,7 +33,8 @@ public class NativeSymbols extends GhidraScript {
       new AddressSet(toAddr(first),toAddr(last-1)),true);
   while(instructions.hasNext()) {
    var i=instructions.next();
-   if(!i.getMnemonicString().toUpperCase().startsWith("J") || i.getFlowOverride()==FlowOverride.NONE)continue;
+   String mnemonic=i.getMnemonicString().toUpperCase();
+   if(!(mnemonic.startsWith("J") || mnemonic.equals("B")) || i.getFlowOverride()==FlowOverride.NONE)continue;
    for(var target:i.getDefaultFlows()) {
     long a=target.getOffset();
     if((a>=first && a<last && !keep.contains(a)) || (a>=0x30000000L && a<0x31000000L))

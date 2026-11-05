@@ -18,3 +18,18 @@ compilation validate the behavior exercised by those checks.
 
 Older source layouts, OpenBIOS integration, and assembly build targets remain
 in Git history and are not active build paths.
+
+The 0.9 reference introduces ARM32 and ARM64. ARM64 machine-outliner helpers
+share instructions, registers, and stack slots with their callers. Ordinary
+function prototypes lose that context. `tools/ghidra/expand_arm64.py` expands
+the shared sequences in an analysis snapshot, including tail calls and
+PC-relative references. The snapshot is never a release build input.
+`tests/arm64_outline.py` compares the expanded and original execution of
+integer parsing, tokenization, and Darwin stack-vararg formatting.
+
+Library analysis snapshots must be relocated away from fixed OS service
+addresses before decompilation. Source library data must then refer to its
+compiled state array; retaining an analysis address produces an invalid
+pointer after loading. `tests/png_library.py` compares decoded pixels,
+all five PNG filters, stored and compressed streams, and malformed inputs
+between a reference and source-built x86-64 library.
