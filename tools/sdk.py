@@ -7,7 +7,7 @@ import zipfile
 
 
 def build_sdk(output=Path('build')):
-    root = output / 'Permafrost0.7.sdk'
+    root = output / 'Permafrost0.8.sdk'
     # Recreate this generated bundle so removed notices/tools cannot survive
     # from an earlier build and leak into the new archive.
     if root.exists():
@@ -23,7 +23,7 @@ def build_sdk(output=Path('build')):
         shutil.copyfile(Path('kernel')/name,root/'usr/src'/name)
     shutil.copytree('sdk/examples', root / 'Examples', dirs_exist_ok=True,
                     ignore=shutil.ignore_patterns('.DS_Store','._*','__pycache__','*.pyc'))
-    for source, target in [('tools/cc.py', 'pf-cc'), ('tools/elf32.py', 'elf32.py'), ('tools/elf64.py','elf64.py'), ('tools/macho.py','macho.py'), ('tools/fat.py','fat.py'), ('tools/gpt.py','gpt.py'),
+    for source, target in [('tools/cc.py', 'pf-cc'), ('tools/elf32.py', 'elf32.py'), ('tools/elf64.py','elf64.py'), ('tools/macho.py','macho.py'), ('tools/native.py','native.py'), ('tools/darwin.py','darwin.py'), ('tools/fat.py','fat.py'), ('tools/gpt.py','gpt.py'),
                            ('tools/wmfs.py', 'pf-wmfs')]:
         path = root / 'bin' / target
         shutil.copyfile(source, path)
@@ -34,23 +34,23 @@ def build_sdk(output=Path('build')):
     shutil.copyfile('DEPENDENCIES.md', root / 'Documentation/DEPENDENCIES.md')
     shutil.copyfile('docs/recovery.md', root / 'Documentation/recovery.md')
     shutil.copyfile('docs/sdk.md', root / 'Documentation/sdk.md')
-    settings = dict(CanonicalName='permafrost0.7', DisplayName='Permafrost 0.7',
-                    Version='0.7', MaximumDeploymentTarget='0.7',
-                    DefaultProperties=dict(PLATFORM_NAME='permafrost', ARCHS='i386 x86_64'),
-                    SupportedTargets=dict(permafrost=dict(Archs=['i386','x86_64'])))
+    settings = dict(CanonicalName='permafrost0.8', DisplayName='Permafrost 0.8',
+                    Version='0.8', MaximumDeploymentTarget='0.8',
+                    DefaultProperties=dict(PLATFORM_NAME='permafrost', ARCHS='i386 x86_64 armv7 arm64'),
+                    SupportedTargets=dict(permafrost=dict(Archs=['i386','x86_64','armv7','arm64'])))
     (root / 'SDKSettings.json').write_text(json.dumps(settings, indent=2) + '\n')
     (root / 'README.txt').write_text(
-        'Permafrost 0.7 SDK for macOS 15\n\n'
+        'Permafrost 0.8 SDK for macOS 15\n\n'
         'Requires Python 3 and Apple Command Line Tools (clang/clang++).\n'
         'Compile C: bin/pf-cc Examples/hello.c -o hello\n'
         'Compile C++: bin/pf-cc Examples/nightmode.cpp -o nightmode\n'
-        'Native callbacks: compile Examples/native-module.c with --format flat --base 0x240000.\n'
+        'Native callbacks: compile Examples/native-module.c with --format flat.\n'
         'Use --runtime for supplied 64-bit arithmetic and memory helpers.\n'
         'Install the Mach-O program in FAT32 (partition 2) and enter its filename at the OS prompt.\n'
-        'Use --arch i386, --arch x86_64, or --arch universal for Mach-O or flat code.\n'
+        'Use --arch i386, x86_64, armv7, arm64, or universal for Mach-O or flat code.\n'
         'Default i386 uses cdecl; x86-64 uses the System V register ABI.\n'
-        'WMAP v4 is 124 bytes with 32-bit service slots on both CPUs.\n'
-        'Callback values use native pointers: 24 bytes on i386 and 40 on x86-64.\n'
+        'WMAP v11 is 188 bytes with 32-bit service slots on every CPU.\n'
+        'Callback values use native pointers: 24 bytes on 32-bit CPUs and 40 on 64-bit CPUs.\n'
         'Use --format flat for explicit raw runcode/bload workflows.\n'
         'This is a freestanding SDK, without a hosted libc, C++ standard library,\n'
         'exceptions, RTTI, dynamic linking, or Apple platform/Xcode integration.\n'

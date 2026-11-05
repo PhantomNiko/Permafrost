@@ -38,6 +38,14 @@ int main(void) {
     api->deallocate(pf_blob_data(&file));
     CHECK(pf_delete_file("/api-service.tmp"));
     CHECK(!pf_read_file("/api-service.tmp",&file));
+    static uint8_t large[4108];
+    for(unsigned i=0;i<sizeof(large);++i)large[i]=(uint8_t)(i*17+3);
+    CHECK(pf_write_file("/api-large.tmp",large,sizeof(large)));
+    CHECK(pf_read_file("/api-large.tmp",&file));
+    CHECK(file.size==sizeof(large));
+    for(unsigned i=0;i<file.size;++i)CHECK(((const uint8_t *)pf_blob_data(&file))[i]==large[i]);
+    api->deallocate(pf_blob_data(&file));
+    CHECK(pf_delete_file("/api-large.tmp"));
     struct pf_image image={0};
     CHECK(api->decode_image(png,sizeof(png),&image));
     CHECK(image.data && image.width==2 && image.height==1 && image.size==8 && image.stride_bytes==8);
