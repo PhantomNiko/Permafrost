@@ -1,418 +1,681 @@
 {
-  "version": "0.8",
-  "reference_version": "0.9r123",
+  "version": "0.9",
+  "reference_version": "1.0r147-Prerelease",
+  "architectures": [
+    "i386",
+    "x86_64",
+    "armv7",
+    "arm64"
+  ],
   "images": [
     {
-      "reference": "WinterBoot-0.9r123-Beta.img",
-      "bytes": 71501312,
-      "sha256": "0d161a2e71311caa8f1e2afd79c41e742f911c62572a7d1a33dd5470105bd4d3"
+      "reference": "WinterBoot-1.0r147-Prerelease.img",
+      "bytes": 112970240,
+      "sha256": "688c92f949172cbb2d2cf8a1b3f5fb57798681d85a990e011ff4614c8a0ed7e2"
     }
   ],
   "programs": {
+    "WinterBoot": {
+      "reference_sha256": "fb69d7ea7546b46a23645408486f10416e762ed67dd9edd23ab6a26040f00ebd",
+      "architectures": {
+        "x86_64": {
+          "cpu": 16777223,
+          "base": 33554432,
+          "end": 34508800,
+          "entry": 33554452,
+          "sections": [
+            [
+              "__text",
+              33554432,
+              660572
+            ],
+            [
+              "__const",
+              34215008,
+              4408
+            ],
+            [
+              "__cstring",
+              34219416,
+              38620
+            ],
+            [
+              "__gcc_except_tab",
+              34258036,
+              1024
+            ],
+            [
+              "__got",
+              34263040,
+              48
+            ],
+            [
+              "__const",
+              34263088,
+              3376
+            ],
+            [
+              "__data",
+              34266464,
+              644
+            ],
+            [
+              "__common",
+              34267120,
+              144
+            ],
+            [
+              "__bss",
+              34267264,
+              238044
+            ]
+          ],
+          "symbols": 952,
+          "data_symbols": 308,
+          "reference_sha256": "29abf8cc65316828924a3fc925474146ec9d552dcd2ffae65f710599071dcab6"
+        },
+        "armv7": {
+          "cpu": 12,
+          "base": 1077936128,
+          "end": 1078484992,
+          "entry": 1077936148,
+          "sections": [
+            [
+              "__text",
+              1077936128,
+              393908
+            ],
+            [
+              "__cstring",
+              1078330036,
+              40038
+            ],
+            [
+              "__const",
+              1078370080,
+              2384
+            ],
+            [
+              "__gcc_except_tab",
+              1078372464,
+              964
+            ],
+            [
+              "__nl_symbol_ptr",
+              1078374400,
+              152
+            ],
+            [
+              "__const",
+              1078374552,
+              2652
+            ],
+            [
+              "__data",
+              1078377208,
+              576
+            ],
+            [
+              "__common",
+              1078377784,
+              68
+            ],
+            [
+              "__bss",
+              1078377856,
+              104532
+            ]
+          ],
+          "symbols": 1240,
+          "data_symbols": 145,
+          "reference_sha256": "f2f89edf990ecce84a59bc25e41c3a9940a17079c36fb1cbac837ccb275d8270"
+        },
+        "i386": {
+          "cpu": 7,
+          "base": 33554432,
+          "end": 34414592,
+          "entry": 33554452,
+          "sections": [
+            [
+              "__text",
+              33554432,
+              572332
+            ],
+            [
+              "__const",
+              34126768,
+              10024
+            ],
+            [
+              "__cstring",
+              34136792,
+              38588
+            ],
+            [
+              "__gcc_except_tab",
+              34175380,
+              1024
+            ],
+            [
+              "__nl_symbol_ptr",
+              34177024,
+              144
+            ],
+            [
+              "__const",
+              34177168,
+              1808
+            ],
+            [
+              "__data",
+              34178976,
+              600
+            ],
+            [
+              "__common",
+              34179576,
+              68
+            ],
+            [
+              "__bss",
+              34179648,
+              231692
+            ]
+          ],
+          "symbols": 960,
+          "data_symbols": 314,
+          "reference_sha256": "8e611dd1e0934d3fa169218d85c3d51d23531dacdc50d132d94836334ab13a61"
+        },
+        "arm64": {
+          "cpu": 16777228,
+          "base": 1077936128,
+          "end": 1078550528,
+          "entry": 1077936148,
+          "sections": [
+            [
+              "__text",
+              1077936128,
+              316580
+            ],
+            [
+              "__const",
+              1078252720,
+              3408
+            ],
+            [
+              "__cstring",
+              1078256128,
+              40082
+            ],
+            [
+              "__gcc_except_tab",
+              1078296212,
+              2300
+            ],
+            [
+              "__got",
+              1078300672,
+              8
+            ],
+            [
+              "__const",
+              1078300680,
+              4688
+            ],
+            [
+              "__data",
+              1078305368,
+              629
+            ],
+            [
+              "__common",
+              1078306000,
+              136
+            ],
+            [
+              "__bss",
+              1078306144,
+              240688
+            ]
+          ],
+          "symbols": 2218,
+          "data_symbols": 127,
+          "reference_sha256": "de70102e74121d981ce1c2d413c0c1c0afb3dcf274d6f7143231a41ae8ee64a5"
+        }
+      },
+      "other_reference_cpu_ids": [
+        "0x11000012",
+        "0x1000012",
+        "0x10000012",
+        "0x12"
+      ]
+    },
     "WinterBIOS": {
-      "reference_sha256": "a3f90d1b1932ba5bdb2342da5b1df40f3941304925e6edd71466ae62a769e390",
+      "reference_sha256": "935c2c17294b4d9d5ab1d298cc870d9eac9c11e0422e852edc743176e7baaac5",
       "architectures": {
         "i386": {
           "cpu": 7,
           "base": 131072,
-          "end": 483328,
+          "end": 991232,
           "entry": 131092,
           "sections": [
             [
               "__text",
               131072,
-              272597
+              572332
             ],
             [
               "__const",
-              403680,
-              4200
+              703408,
+              10024
             ],
             [
               "__cstring",
-              407880,
-              29135
+              713432,
+              38588
             ],
             [
               "__gcc_except_tab",
-              437016,
-              644
+              752020,
+              1024
             ],
             [
               "__nl_symbol_ptr",
-              438272,
-              152
-            ],
-            [
-              "__const",
-              438424,
-              1704
-            ],
-            [
-              "__data",
-              440128,
-              176
-            ],
-            [
-              "__common",
-              440304,
-              68
-            ],
-            [
-              "__bss",
-              440376,
-              38940
-            ]
-          ],
-          "reference_sha256": "a3f90d1b1932ba5bdb2342da5b1df40f3941304925e6edd71466ae62a769e390",
-          "symbols": 978,
-          "data_symbols": 242
-        }
-      }
-    },
-    "WinterBoot": {
-      "reference_sha256": "87a1489478b8918504308c0c124def6b3be56951a76433766fc32b6c43a2c916",
-      "architectures": {
-        "i386": {
-          "cpu": 7,
-          "base": 33554432,
-          "end": 33906688,
-          "entry": 33554452,
-          "sections": [
-            [
-              "__text",
-              33554432,
-              272597
-            ],
-            [
-              "__const",
-              33827040,
-              4200
-            ],
-            [
-              "__cstring",
-              33831240,
-              29135
-            ],
-            [
-              "__gcc_except_tab",
-              33860376,
-              644
-            ],
-            [
-              "__nl_symbol_ptr",
-              33861632,
-              152
-            ],
-            [
-              "__const",
-              33861784,
-              1704
-            ],
-            [
-              "__data",
-              33863488,
-              176
-            ],
-            [
-              "__common",
-              33863664,
-              68
-            ],
-            [
-              "__bss",
-              33863736,
-              38940
-            ]
-          ],
-          "reference_sha256": "cc8aeab3daf5d7888ae545b7b14faa0d75378f01db1670d2dc3e1cf83153251c",
-          "symbols": 978,
-          "data_symbols": 242
-        },
-        "armv7": {
-          "cpu": 12,
-          "base": 1077936128,
-          "end": 1078321152,
-          "entry": 1077936148,
-          "sections": [
-            [
-              "__text",
-              1077936128,
-              305940
-            ],
-            [
-              "__cstring",
-              1078242068,
-              29129
-            ],
-            [
-              "__const",
-              1078271200,
-              1840
-            ],
-            [
-              "__gcc_except_tab",
-              1078273040,
-              644
-            ],
-            [
-              "__nl_symbol_ptr",
-              1078276096,
-              152
-            ],
-            [
-              "__const",
-              1078276248,
-              1704
-            ],
-            [
-              "__data",
-              1078277952,
-              168
-            ],
-            [
-              "__common",
-              1078278120,
-              68
-            ],
-            [
-              "__bss",
-              1078278192,
-              38916
-            ]
-          ],
-          "reference_sha256": "568654b5b622c7e7e88e94b2800a4935f75b86558a61fa6fc120abb9ff10e24d",
-          "symbols": 990,
-          "data_symbols": 112
-        },
-        "x86_64": {
-          "cpu": 16777223,
-          "base": 33554432,
-          "end": 33918976,
-          "entry": 33554452,
-          "sections": [
-            [
-              "__text",
-              33554432,
-              283828
-            ],
-            [
-              "__const",
-              33838272,
-              2464
-            ],
-            [
-              "__cstring",
-              33840736,
-              29167
-            ],
-            [
-              "__gcc_except_tab",
-              33869904,
-              644
-            ],
-            [
-              "__got",
-              33873920,
-              48
-            ],
-            [
-              "__const",
-              33873968,
-              3256
-            ],
-            [
-              "__data",
-              33877224,
-              212
-            ],
-            [
-              "__common",
-              33877440,
+              753664,
               144
             ],
             [
-              "__bss",
-              33877584,
-              40624
-            ]
-          ],
-          "reference_sha256": "ce1b094d385a29938501df3856cef190eedc12ad3f5b63185d12de360f80acf6",
-          "symbols": 965,
-          "data_symbols": 236
-        },
-        "arm64": {
-          "cpu": 16777228,
-          "base": 1077936128,
-          "end": 1078259712,
-          "entry": 1077936148,
-          "sections": [
-            [
-              "__text",
-              1077936128,
-              245244
-            ],
-            [
               "__const",
-              1078181376,
-              2560
-            ],
-            [
-              "__cstring",
-              1078183936,
-              29163
-            ],
-            [
-              "__gcc_except_tab",
-              1078213100,
-              1544
-            ],
-            [
-              "__got",
-              1078214656,
-              8
-            ],
-            [
-              "__const",
-              1078214664,
-              3400
+              753808,
+              1808
             ],
             [
               "__data",
-              1078218064,
-              220
+              755616,
+              600
             ],
             [
               "__common",
-              1078218288,
-              136
+              756216,
+              68
             ],
             [
               "__bss",
-              1078218424,
-              40416
+              756288,
+              231692
             ]
           ],
-          "reference_sha256": "0b3018e4278794f06583d20a9a56a2477b2bdb69ade42200bd3ac9e3fbd0ecd5",
-          "symbols": 1751,
-          "data_symbols": 96
+          "symbols": 960,
+          "data_symbols": 314,
+          "reference_sha256": "935c2c17294b4d9d5ab1d298cc870d9eac9c11e0422e852edc743176e7baaac5"
         }
-      }
+      },
+      "other_reference_cpu_ids": []
     },
-    "lib/TundraWindow.dylib": {
-      "reference_sha256": "5dcf94d430a13064e71691c2563fb7a3439b6c81af57e6c9156817be04ef7e47",
+    "lib/WinterPNG.dylib": {
+      "reference_sha256": "d5437d05b30310718f657d33f620cf1e5a7fb491fdf7da27164d04792cb2ed93",
       "architectures": {
-        "i386": {
-          "cpu": 7,
+        "x86_64": {
+          "cpu": 16777223,
           "base": 0,
-          "end": 49152,
+          "end": 147456,
           "entry": null,
           "sections": [
             [
               "__text",
-              3472,
-              19814
+              1216,
+              118595
             ],
             [
               "__const",
-              23296,
-              584
+              119824,
+              1984
             ],
             [
               "__cstring",
-              23880,
-              493
+              121808,
+              569
             ],
             [
               "__gcc_except_tab",
-              24376,
-              124
-            ],
-            [
-              "__unwind_info",
-              24500,
-              72
-            ],
-            [
-              "__const",
-              24576,
-              144
-            ],
-            [
-              "__nl_symbol_ptr",
-              28672,
-              8
+              122380,
+              580
             ],
             [
               "__data",
-              28680,
-              48
-            ],
-            [
-              "__common",
-              28728,
-              111
-            ],
-            [
-              "__bss",
-              28840,
-              544
-            ]
-          ],
-          "reference_sha256": "fbb8eced036bd6f446b45667c9aeabcb94b199f85bb9425e0c8d063528b64bee",
-          "symbols": 250,
-          "data_symbols": 73
-        },
-        "x86_64": {
-          "cpu": 16777223,
-          "base": 0,
-          "end": 49152,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1376,
-              21522
-            ],
-            [
-              "__const",
-              22912,
-              360
-            ],
-            [
-              "__cstring",
-              23272,
-              493
-            ],
-            [
-              "__gcc_except_tab",
-              23768,
-              124
-            ],
-            [
-              "__const",
-              24576,
-              288
-            ],
-            [
-              "__data",
-              28672,
+              126976,
               88
             ],
             [
               "__common",
-              28768,
-              191
+              127072,
+              144
             ],
             [
               "__bss",
-              28960,
-              580
+              127216,
+              2864
             ]
           ],
-          "reference_sha256": "d5b80c9b502951115ae460440daac42f5438c70d377aaec86bfe18cfe9cb2559",
-          "symbols": 251,
-          "data_symbols": 74
+          "symbols": 219,
+          "data_symbols": 62,
+          "reference_sha256": "ddbd344d37c83be10d3ac0abefeffdbb619e9d2cdc7ad51106b607fa7aaca8b9"
+        },
+        "i386": {
+          "cpu": 7,
+          "base": 0,
+          "end": 114688,
+          "entry": null,
+          "sections": [
+            [
+              "__text",
+              4304,
+              85568
+            ],
+            [
+              "__const",
+              89872,
+              3108
+            ],
+            [
+              "__cstring",
+              92980,
+              569
+            ],
+            [
+              "__gcc_except_tab",
+              93552,
+              580
+            ],
+            [
+              "__unwind_info",
+              94132,
+              72
+            ],
+            [
+              "__nl_symbol_ptr",
+              94208,
+              8
+            ],
+            [
+              "__data",
+              94216,
+              48
+            ],
+            [
+              "__common",
+              94264,
+              64
+            ],
+            [
+              "__bss",
+              94328,
+              2784
+            ]
+          ],
+          "symbols": 220,
+          "data_symbols": 61,
+          "reference_sha256": "ff12778f60be66bf2ff1ce361a2cac9fc1b4b440b1c0afccdc3bed40d90c769c"
+        },
+        "armv7": {
+          "cpu": 12,
+          "base": 0,
+          "end": 147456,
+          "entry": null,
+          "sections": [
+            [
+              "__text",
+              13472,
+              66088
+            ],
+            [
+              "__stub_helper",
+              79560,
+              36
+            ],
+            [
+              "__cstring",
+              79596,
+              572
+            ],
+            [
+              "__gcc_except_tab",
+              80168,
+              548
+            ],
+            [
+              "__const",
+              80716,
+              1196
+            ],
+            [
+              "__symbolstub1",
+              81912,
+              8
+            ],
+            [
+              "__lazy_symbol",
+              81920,
+              8
+            ],
+            [
+              "__data",
+              81928,
+              52
+            ],
+            [
+              "__common",
+              81980,
+              64
+            ],
+            [
+              "__bss",
+              82048,
+              2780
+            ],
+            [
+              "__nl_symbol_ptr",
+              98304,
+              12
+            ]
+          ],
+          "symbols": 309,
+          "data_symbols": 55,
+          "reference_sha256": "610f88f8c02d81c026f6d62452b92deaa45912bb20bb6f49bdccc852d64cac0e"
+        },
+        "arm64": {
+          "cpu": 16777228,
+          "base": 0,
+          "end": 131072,
+          "entry": null,
+          "sections": [
+            [
+              "__text",
+              1464,
+              49436
+            ],
+            [
+              "__const",
+              50912,
+              1588
+            ],
+            [
+              "__cstring",
+              52500,
+              572
+            ],
+            [
+              "__gcc_except_tab",
+              53072,
+              1296
+            ],
+            [
+              "__unwind_info",
+              54368,
+              776
+            ],
+            [
+              "__got",
+              65536,
+              8
+            ],
+            [
+              "__data",
+              81920,
+              88
+            ],
+            [
+              "__common",
+              82008,
+              136
+            ],
+            [
+              "__bss",
+              82144,
+              2808
+            ]
+          ],
+          "symbols": 448,
+          "data_symbols": 46,
+          "reference_sha256": "8fccca1f74419150fc4a7449292e58d81124b6fa9d0341464f98ab78e2fd611f"
+        }
+      },
+      "other_reference_cpu_ids": [
+        "0x11000012",
+        "0x10000012",
+        "0x12",
+        "0x1000012"
+      ]
+    },
+    "lib/WinterAudio.dylib": {
+      "reference_sha256": "70ac0f60534a275e39fa4cdd2342a9cd043521e3e040c41eb4333d129d5b675b",
+      "architectures": {
+        "x86_64": {
+          "cpu": 16777223,
+          "base": 0,
+          "end": 69632,
+          "entry": null,
+          "sections": [
+            [
+              "__text",
+              1536,
+              41607
+            ],
+            [
+              "__const",
+              43152,
+              637
+            ],
+            [
+              "__cstring",
+              43789,
+              498
+            ],
+            [
+              "__gcc_except_tab",
+              44288,
+              300
+            ],
+            [
+              "__got",
+              45056,
+              64
+            ],
+            [
+              "__mod_init_func",
+              45120,
+              32
+            ],
+            [
+              "__const",
+              45152,
+              288
+            ],
+            [
+              "__data",
+              49152,
+              184
+            ],
+            [
+              "__common",
+              49344,
+              144
+            ],
+            [
+              "__bss",
+              49488,
+              568
+            ]
+          ],
+          "symbols": 208,
+          "data_symbols": 56,
+          "reference_sha256": "1b9b3af3892501af732d726b631734b2e2e8e735f2481dcedc102a6955022392"
+        },
+        "i386": {
+          "cpu": 7,
+          "base": 0,
+          "end": 61440,
+          "entry": null,
+          "sections": [
+            [
+              "__text",
+              2624,
+              32626
+            ],
+            [
+              "__const",
+              35264,
+              720
+            ],
+            [
+              "__cstring",
+              35984,
+              498
+            ],
+            [
+              "__gcc_except_tab",
+              36484,
+              300
+            ],
+            [
+              "__unwind_info",
+              36784,
+              72
+            ],
+            [
+              "__mod_init_func",
+              36864,
+              16
+            ],
+            [
+              "__const",
+              36880,
+              152
+            ],
+            [
+              "__nl_symbol_ptr",
+              40960,
+              76
+            ],
+            [
+              "__data",
+              41036,
+              112
+            ],
+            [
+              "__common",
+              41148,
+              64
+            ],
+            [
+              "__bss",
+              41212,
+              536
+            ]
+          ],
+          "symbols": 208,
+          "data_symbols": 55,
+          "reference_sha256": "1d93caf1fc4bc9e9bb7d1b46c771d68657bbd25964d66178f77de04753f28220"
         },
         "armv7": {
           "cpu": 12,
@@ -422,316 +685,52 @@
           "sections": [
             [
               "__text",
-              6308,
-              25724
+              3008,
+              28792
             ],
             [
               "__stub_helper",
-              32032,
+              31800,
               36
             ],
             [
               "__cstring",
-              32068,
-              493
-            ],
-            [
-              "__gcc_except_tab",
-              32564,
-              124
-            ],
-            [
-              "__const",
-              32688,
-              56
-            ],
-            [
-              "__symbolstub1",
-              32744,
-              24
-            ],
-            [
-              "__lazy_symbol",
-              32768,
-              24
-            ],
-            [
-              "__data",
-              32792,
-              52
-            ],
-            [
-              "__common",
-              32844,
-              111
-            ],
-            [
-              "__bss",
-              32956,
-              544
-            ],
-            [
-              "__nl_symbol_ptr",
-              49152,
-              12
-            ],
-            [
-              "__const",
-              49164,
-              144
-            ]
-          ],
-          "reference_sha256": "1e14fa273876a8207613ee3731172708baba3654c9012eb505c64913c3b01e89",
-          "symbols": 265,
-          "data_symbols": 73
-        },
-        "arm64": {
-          "cpu": 16777228,
-          "base": 0,
-          "end": 98304,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1544,
-              21204
-            ],
-            [
-              "__const",
-              22752,
-              287
-            ],
-            [
-              "__cstring",
-              23039,
-              493
-            ],
-            [
-              "__gcc_except_tab",
-              23532,
-              196
-            ],
-            [
-              "__unwind_info",
-              23728,
-              544
-            ],
-            [
-              "__got",
-              32768,
-              8
-            ],
-            [
-              "__const",
-              32776,
-              288
-            ],
-            [
-              "__data",
-              49152,
-              88
-            ],
-            [
-              "__common",
-              49240,
-              183
-            ],
-            [
-              "__bss",
-              49424,
-              576
-            ]
-          ],
-          "reference_sha256": "64ae876208553d321d08610977b7fc772d4322262bb6ba5fe8a92203765e73c9",
-          "symbols": 293,
-          "data_symbols": 71
-        }
-      }
-    },
-    "lib/WinterAudio.dylib": {
-      "reference_sha256": "1f7fadc8dc77fdeac1059e8f0122fa0cf724cecdfe9e7df37b260be44a6d8b2b",
-      "architectures": {
-        "i386": {
-          "cpu": 7,
-          "base": 0,
-          "end": 53248,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              4656,
-              22580
-            ],
-            [
-              "__const",
-              27248,
-              544
-            ],
-            [
-              "__cstring",
-              27792,
+              31836,
               563
             ],
             [
               "__gcc_except_tab",
-              28356,
-              236
-            ],
-            [
-              "__unwind_info",
-              28592,
-              72
-            ],
-            [
-              "__mod_init_func",
-              28672,
-              16
-            ],
-            [
-              "__const",
-              28688,
-              152
-            ],
-            [
-              "__nl_symbol_ptr",
-              32768,
-              76
-            ],
-            [
-              "__data",
-              32844,
-              112
-            ],
-            [
-              "__common",
-              32956,
-              64
-            ],
-            [
-              "__bss",
-              33020,
-              536
-            ]
-          ],
-          "reference_sha256": "4f86cdbcb5ad1b548f726938c254c1cc0081589502dbfa36bc72db48b9fe7585",
-          "symbols": 263,
-          "data_symbols": 54
-        },
-        "x86_64": {
-          "cpu": 16777223,
-          "base": 0,
-          "end": 53248,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1536,
-              24532
-            ],
-            [
-              "__const",
-              26080,
-              525
-            ],
-            [
-              "__cstring",
-              26605,
-              563
-            ],
-            [
-              "__gcc_except_tab",
-              27168,
-              236
-            ],
-            [
-              "__got",
-              28672,
-              64
-            ],
-            [
-              "__mod_init_func",
-              28736,
-              32
-            ],
-            [
-              "__const",
-              28768,
-              288
-            ],
-            [
-              "__data",
-              32768,
-              184
-            ],
-            [
-              "__common",
-              32960,
-              144
-            ],
-            [
-              "__bss",
-              33104,
-              568
-            ]
-          ],
-          "reference_sha256": "72d20c94704ac03e33f5b9498f77bc0e28915f46668bb8ee1780bb1036a594f6",
-          "symbols": 264,
-          "data_symbols": 55
-        },
-        "armv7": {
-          "cpu": 12,
-          "base": 0,
-          "end": 98304,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              3104,
-              28680
-            ],
-            [
-              "__stub_helper",
-              31784,
-              36
-            ],
-            [
-              "__cstring",
-              31820,
-              563
-            ],
-            [
-              "__gcc_except_tab",
-              32384,
+              32400,
               236
             ],
             [
               "__const",
-              32620,
+              32636,
               117
             ],
             [
               "__symbolstub1",
-              32740,
-              24
+              32756,
+              8
             ],
             [
               "__lazy_symbol",
               32768,
-              24
+              8
             ],
             [
               "__data",
-              32792,
+              32776,
               100
             ],
             [
               "__common",
-              32892,
+              32876,
               64
             ],
             [
               "__bss",
-              32956,
+              32940,
               536
             ],
             [
@@ -750,9 +749,9 @@
               152
             ]
           ],
-          "reference_sha256": "0f0619ed3dc27b505c2b7b625438fb123b4536f54e3c1a10b7e905f2f159de89",
           "symbols": 278,
-          "data_symbols": 55
+          "data_symbols": 55,
+          "reference_sha256": "f044b17f343d032fe373a0d2a48401d152abafc8d776fb02fe4e2e5882934f8e"
         },
         "arm64": {
           "cpu": 16777228,
@@ -763,26 +762,26 @@
             [
               "__text",
               1624,
-              22056
+              22308
             ],
             [
               "__const",
-              23680,
+              23936,
               297
             ],
             [
               "__cstring",
-              23977,
+              24233,
               563
             ],
             [
               "__gcc_except_tab",
-              24540,
+              24796,
               316
             ],
             [
               "__unwind_info",
-              24856,
+              25112,
               648
             ],
             [
@@ -816,126 +815,657 @@
               560
             ]
           ],
-          "reference_sha256": "e0fdae0a0beb903e1d007c4726091e706ae2d92c5166027f903ba596abd031d7",
-          "symbols": 305,
-          "data_symbols": 53
+          "symbols": 309,
+          "data_symbols": 53,
+          "reference_sha256": "5fcb0ad481473f7e74b5d01694f7aa324a476f7e4e15082f8732b72a21d9f121"
         }
-      }
+      },
+      "other_reference_cpu_ids": [
+        "0x11000012",
+        "0x10000012",
+        "0x12",
+        "0x1000012"
+      ]
     },
-    "lib/WinterBootWindow.dylib": {
-      "reference_sha256": "462525717954facb344f2e5e87f83688575251464b173855d3da342aeba4f645",
+    "lib/WinterRwby.dylib": {
+      "reference_sha256": "ff28def1b8eca3e89b9b8c9ea63008ce05be82b600f2fbc9b0183cbd29e55296",
       "architectures": {
-        "i386": {
-          "cpu": 7,
+        "x86_64": {
+          "cpu": 16777223,
           "base": 0,
-          "end": 49152,
+          "end": 348160,
           "entry": null,
           "sections": [
             [
               "__text",
-              3440,
-              19888
+              1456,
+              234391
             ],
             [
               "__const",
-              23328,
-              568
+              235856,
+              5536
             ],
             [
               "__cstring",
-              23896,
-              491
+              241392,
+              3847
             ],
             [
               "__gcc_except_tab",
-              24388,
-              116
+              245240,
+              3620
+            ],
+            [
+              "__got",
+              249856,
+              40
+            ],
+            [
+              "__const",
+              249896,
+              3184
+            ],
+            [
+              "__data",
+              253952,
+              128
+            ],
+            [
+              "__common",
+              254080,
+              144
+            ],
+            [
+              "__bss",
+              254224,
+              600
+            ]
+          ],
+          "symbols": 546,
+          "data_symbols": 297,
+          "reference_sha256": "31bac85e75d53df239f93e99356e83cc15925b18d2e1d730d56d71b56f859231"
+        },
+        "i386": {
+          "cpu": 7,
+          "base": 0,
+          "end": 315392,
+          "entry": null,
+          "sections": [
+            [
+              "__text",
+              2496,
+              192288
+            ],
+            [
+              "__const",
+              194784,
+              10640
+            ],
+            [
+              "__cstring",
+              205424,
+              3847
+            ],
+            [
+              "__gcc_except_tab",
+              209272,
+              3636
             ],
             [
               "__unwind_info",
-              24504,
+              212908,
               72
             ],
             [
               "__const",
-              24576,
-              144
+              212992,
+              1600
             ],
             [
               "__nl_symbol_ptr",
-              28672,
+              217088,
+              204
+            ],
+            [
+              "__data",
+              217296,
+              76
+            ],
+            [
+              "__common",
+              217372,
+              64
+            ],
+            [
+              "__bss",
+              217436,
+              556
+            ]
+          ],
+          "symbols": 546,
+          "data_symbols": 296,
+          "reference_sha256": "b894adab98a7cce092f765daf97acc60dcce1196d0ef223d64296bba89270522"
+        },
+        "armv7": {
+          "cpu": 12,
+          "base": 0,
+          "end": 327680,
+          "entry": null,
+          "sections": [
+            [
+              "__text",
+              17136,
+              135072
+            ],
+            [
+              "__stub_helper",
+              152208,
+              36
+            ],
+            [
+              "__cstring",
+              152244,
+              3944
+            ],
+            [
+              "__gcc_except_tab",
+              156188,
+              2600
+            ],
+            [
+              "__const",
+              158788,
+              5044
+            ],
+            [
+              "__symbolstub1",
+              163832,
+              8
+            ],
+            [
+              "__lazy_symbol",
+              163840,
               8
             ],
             [
               "__data",
-              28680,
-              48
+              163848,
+              80
             ],
             [
               "__common",
-              28728,
-              111
+              163928,
+              64
             ],
             [
               "__bss",
-              28840,
-              596
+              163992,
+              552
+            ],
+            [
+              "__nl_symbol_ptr",
+              180224,
+              220
+            ],
+            [
+              "__const",
+              180444,
+              1600
             ]
           ],
-          "reference_sha256": "64aa54f8f7f703aabd5d2af45dcc5a1a720fa15a01f471a1f04554b5429c1488",
-          "symbols": 248,
-          "data_symbols": 73
+          "symbols": 873,
+          "data_symbols": 292,
+          "reference_sha256": "e31de5d1e3846c4dbc5d3cea43e5cf59687f21831bc946cc6096554ef667832c"
         },
+        "arm64": {
+          "cpu": 16777228,
+          "base": 0,
+          "end": 278528,
+          "entry": null,
+          "sections": [
+            [
+              "__text",
+              1544,
+              89564
+            ],
+            [
+              "__const",
+              91112,
+              5496
+            ],
+            [
+              "__cstring",
+              96608,
+              3944
+            ],
+            [
+              "__gcc_except_tab",
+              100552,
+              7224
+            ],
+            [
+              "__unwind_info",
+              107776,
+              3392
+            ],
+            [
+              "__got",
+              114688,
+              64
+            ],
+            [
+              "__const",
+              114752,
+              3184
+            ],
+            [
+              "__data",
+              131072,
+              128
+            ],
+            [
+              "__common",
+              131200,
+              136
+            ],
+            [
+              "__bss",
+              131336,
+              592
+            ]
+          ],
+          "symbols": 1088,
+          "data_symbols": 290,
+          "reference_sha256": "b84e0d324905ea279313cfb3f7cc61ef0422d40add24920efdf53a34b1231d5e"
+        }
+      },
+      "other_reference_cpu_ids": [
+        "0x11000012",
+        "0x10000012",
+        "0x12",
+        "0x1000012"
+      ]
+    },
+    "lib/WinterScript.dylib": {
+      "reference_sha256": "69bb51d2155458e390ee6ba96b1bd764940d175b777f4c5cbbaa54b7ebdcd7db",
+      "architectures": {
         "x86_64": {
           "cpu": 16777223,
           "base": 0,
-          "end": 49152,
+          "end": 917504,
+          "entry": null,
+          "sections": [
+            [
+              "__text",
+              1456,
+              733412
+            ],
+            [
+              "__const",
+              734880,
+              7735
+            ],
+            [
+              "__cstring",
+              742615,
+              10882
+            ],
+            [
+              "__gcc_except_tab",
+              753500,
+              11212
+            ],
+            [
+              "__got",
+              765952,
+              48
+            ],
+            [
+              "__const",
+              766000,
+              6488
+            ],
+            [
+              "__data",
+              774144,
+              96
+            ],
+            [
+              "__common",
+              774240,
+              144
+            ],
+            [
+              "__bss",
+              774384,
+              1016
+            ]
+          ],
+          "symbols": 952,
+          "data_symbols": 598,
+          "reference_sha256": "00784796d6093273d258e67af32873ac60bc1b469f0e027f4edb417d332c0c36"
+        },
+        "i386": {
+          "cpu": 7,
+          "base": 0,
+          "end": 839680,
+          "entry": null,
+          "sections": [
+            [
+              "__text",
+              1440,
+              633042
+            ],
+            [
+              "__const",
+              634496,
+              31440
+            ],
+            [
+              "__cstring",
+              665936,
+              10919
+            ],
+            [
+              "__gcc_except_tab",
+              676856,
+              11200
+            ],
+            [
+              "__unwind_info",
+              688056,
+              72
+            ],
+            [
+              "__const",
+              688128,
+              3272
+            ],
+            [
+              "__nl_symbol_ptr",
+              692224,
+              100
+            ],
+            [
+              "__data",
+              692328,
+              56
+            ],
+            [
+              "__common",
+              692384,
+              64
+            ],
+            [
+              "__bss",
+              692448,
+              800
+            ]
+          ],
+          "symbols": 953,
+          "data_symbols": 595,
+          "reference_sha256": "8da5f7bebb6d750101f601ddb672a2d580df2deaf83d0b581428d8644566fd8b"
+        },
+        "armv7": {
+          "cpu": 12,
+          "base": 0,
+          "end": 655360,
+          "entry": null,
+          "sections": [
+            [
+              "__text",
+              15056,
+              400800
+            ],
+            [
+              "__stub_helper",
+              415856,
+              36
+            ],
+            [
+              "__cstring",
+              415892,
+              11072
+            ],
+            [
+              "__gcc_except_tab",
+              426964,
+              8248
+            ],
+            [
+              "__const",
+              435212,
+              7139
+            ],
+            [
+              "__symbolstub1",
+              442352,
+              16
+            ],
+            [
+              "__lazy_symbol",
+              442368,
+              16
+            ],
+            [
+              "__data",
+              442384,
+              64
+            ],
+            [
+              "__common",
+              442448,
+              64
+            ],
+            [
+              "__bss",
+              442512,
+              760
+            ],
+            [
+              "__nl_symbol_ptr",
+              458752,
+              124
+            ],
+            [
+              "__const",
+              458880,
+              3316
+            ]
+          ],
+          "symbols": 1442,
+          "data_symbols": 548,
+          "reference_sha256": "6815a3822760ae7e17491e76ef8e5380573b9b8ff5dfa43a2b00313f4a71ce16"
+        },
+        "arm64": {
+          "cpu": 16777228,
+          "base": 0,
+          "end": 573440,
+          "entry": null,
+          "sections": [
+            [
+              "__text",
+              1624,
+              243576
+            ],
+            [
+              "__const",
+              245200,
+              8128
+            ],
+            [
+              "__cstring",
+              253328,
+              11072
+            ],
+            [
+              "__gcc_except_tab",
+              264400,
+              25744
+            ],
+            [
+              "__unwind_info",
+              290144,
+              6064
+            ],
+            [
+              "__eh_frame",
+              296208,
+              120
+            ],
+            [
+              "__got",
+              311296,
+              88
+            ],
+            [
+              "__const",
+              311384,
+              6576
+            ],
+            [
+              "__data",
+              327680,
+              96
+            ],
+            [
+              "__common",
+              327776,
+              136
+            ],
+            [
+              "__bss",
+              327912,
+              944
+            ]
+          ],
+          "symbols": 2464,
+          "data_symbols": 544,
+          "reference_sha256": "5075c22795a60cbdcb86f73bade1e7f1fda03d4a8677034b63045655193b741b"
+        }
+      },
+      "other_reference_cpu_ids": [
+        "0x11000012",
+        "0x10000012",
+        "0x12",
+        "0x1000012"
+      ]
+    },
+    "lib/WinterBootWindow.dylib": {
+      "reference_sha256": "35a09634946f66b008b0e977cfc55bd160c91854028e3282e183c74dfd89cb67",
+      "architectures": {
+        "x86_64": {
+          "cpu": 16777223,
+          "base": 0,
+          "end": 65536,
           "entry": null,
           "sections": [
             [
               "__text",
               1376,
-              21442
+              36344
             ],
             [
               "__const",
-              22832,
-              368
+              37728,
+              448
             ],
             [
               "__cstring",
-              23200,
-              491
+              38176,
+              485
             ],
             [
               "__gcc_except_tab",
-              23692,
+              38664,
               116
             ],
             [
               "__const",
-              24576,
+              40960,
               288
             ],
             [
               "__data",
-              28672,
+              45056,
               88
             ],
             [
               "__common",
-              28768,
+              45152,
               191
             ],
             [
               "__bss",
-              28960,
+              45344,
               632
             ]
           ],
-          "reference_sha256": "6be8df3ebd635c747fae048c0dd7b135cca9cc99bb50fb675676df4dde0bfceb",
-          "symbols": 249,
-          "data_symbols": 74
+          "symbols": 196,
+          "data_symbols": 74,
+          "reference_sha256": "334ea9aaca4b397859846e90c71f504a6eb0b5846fe3a2752a7a612ef148b29b"
+        },
+        "i386": {
+          "cpu": 7,
+          "base": 0,
+          "end": 53248,
+          "entry": null,
+          "sections": [
+            [
+              "__text",
+              1424,
+              29230
+            ],
+            [
+              "__const",
+              30656,
+              1424
+            ],
+            [
+              "__cstring",
+              32080,
+              485
+            ],
+            [
+              "__gcc_except_tab",
+              32568,
+              116
+            ],
+            [
+              "__unwind_info",
+              32684,
+              72
+            ],
+            [
+              "__const",
+              32768,
+              144
+            ],
+            [
+              "__nl_symbol_ptr",
+              36864,
+              8
+            ],
+            [
+              "__data",
+              36872,
+              48
+            ],
+            [
+              "__common",
+              36920,
+              111
+            ],
+            [
+              "__bss",
+              37032,
+              596
+            ]
+          ],
+          "symbols": 196,
+          "data_symbols": 73,
+          "reference_sha256": "cc6e160012581d5b7ec7932b21772d79b8a055c8270d54271b518843402b46da"
         },
         "armv7": {
           "cpu": 12,
@@ -945,52 +1475,52 @@
           "sections": [
             [
               "__text",
-              6660,
-              25384
+              6564,
+              25496
             ],
             [
               "__stub_helper",
-              32044,
+              32060,
               36
             ],
             [
               "__cstring",
-              32080,
+              32096,
               491
             ],
             [
               "__gcc_except_tab",
-              32572,
+              32588,
               116
             ],
             [
               "__const",
-              32688,
+              32704,
               56
             ],
             [
               "__symbolstub1",
-              32744,
-              24
+              32760,
+              8
             ],
             [
               "__lazy_symbol",
               32768,
-              24
+              8
             ],
             [
               "__data",
-              32792,
+              32776,
               52
             ],
             [
               "__common",
-              32844,
+              32828,
               111
             ],
             [
               "__bss",
-              32956,
+              32940,
               596
             ],
             [
@@ -1004,9 +1534,9 @@
               144
             ]
           ],
-          "reference_sha256": "065287bd15b5a181f33fb5097ddf3e540d2c7d9c72814b8f3588f4996be96108",
           "symbols": 263,
-          "data_symbols": 73
+          "data_symbols": 73,
+          "reference_sha256": "e4bb86eec7d4c0ce4ed79421f9f1d053f530146828dcedd5245b87811183f07b"
         },
         "arm64": {
           "cpu": 16777228,
@@ -1017,26 +1547,26 @@
             [
               "__text",
               1552,
-              21132
+              21384
             ],
             [
               "__const",
-              22688,
+              22944,
               279
             ],
             [
               "__cstring",
-              22967,
+              23223,
               491
             ],
             [
               "__gcc_except_tab",
-              23460,
+              23716,
               164
             ],
             [
               "__unwind_info",
-              23624,
+              23880,
               512
             ],
             [
@@ -1065,131 +1595,647 @@
               632
             ]
           ],
-          "reference_sha256": "c905c977928b36b69aa555432902a225c27915f628dfa4b43e2bb248eb398bba",
-          "symbols": 285,
-          "data_symbols": 71
+          "symbols": 289,
+          "data_symbols": 71,
+          "reference_sha256": "6ee645446990073fa4a24b7a445812a9c2f85b4e647ee70c32c58747b37347d4"
         }
-      }
+      },
+      "other_reference_cpu_ids": [
+        "0x11000012",
+        "0x10000012",
+        "0x12",
+        "0x1000012"
+      ]
     },
-    "lib/WinterLua.dylib": {
-      "reference_sha256": "905ee4b032990e315baea28a31b4fba20313ee24120c77b3860405c8b463289e",
+    "lib/WinterTTF.dylib": {
+      "reference_sha256": "f0f50ff937bdfdbd288cd9f82c696a49ff9c29fdadff59502b7222b0bcc899f8",
       "architectures": {
-        "i386": {
-          "cpu": 7,
+        "x86_64": {
+          "cpu": 16777223,
           "base": 0,
-          "end": 331776,
+          "end": 106496,
           "entry": null,
           "sections": [
             [
               "__text",
-              3424,
-              162237
+              1376,
+              76781
             ],
             [
               "__const",
-              165664,
-              13872
+              78160,
+              599
             ],
             [
               "__cstring",
-              179536,
-              4697
+              78759,
+              554
             ],
             [
               "__gcc_except_tab",
-              184236,
-              4108
+              79316,
+              380
+            ],
+            [
+              "__const",
+              81920,
+              240
+            ],
+            [
+              "__data",
+              86016,
+              88
+            ],
+            [
+              "__common",
+              86112,
+              144
+            ],
+            [
+              "__bss",
+              86256,
+              600
+            ]
+          ],
+          "symbols": 216,
+          "data_symbols": 42,
+          "reference_sha256": "2bf33f9deeb459a96c25c96c1ae0351b5f3070b8809288e0fef3d85e3909d6c1"
+        },
+        "i386": {
+          "cpu": 7,
+          "base": 0,
+          "end": 90112,
+          "entry": null,
+          "sections": [
+            [
+              "__text",
+              4704,
+              58537
+            ],
+            [
+              "__const",
+              63248,
+              1272
+            ],
+            [
+              "__cstring",
+              64520,
+              554
+            ],
+            [
+              "__gcc_except_tab",
+              65076,
+              380
             ],
             [
               "__unwind_info",
-              188344,
+              65456,
               72
             ],
             [
               "__const",
-              188416,
-              2896
+              65536,
+              120
             ],
             [
               "__nl_symbol_ptr",
-              192512,
-              84
+              69632,
+              12
             ],
             [
               "__data",
-              192596,
+              69644,
               48
             ],
             [
               "__common",
-              192644,
+              69692,
               64
             ],
             [
               "__bss",
-              192708,
-              540
+              69756,
+              556
             ]
           ],
-          "reference_sha256": "752812c5b48798d78e2a0c31a48d182891b0a9f0488bb766fe87c51e0f2eab7b",
-          "symbols": 998,
-          "data_symbols": 482
+          "symbols": 216,
+          "data_symbols": 41,
+          "reference_sha256": "d69d43e02757a055775e8cc3b5262017c3036edaf3b036cbaf2e3049d92fc918"
         },
+        "armv7": {
+          "cpu": 12,
+          "base": 0,
+          "end": 131072,
+          "entry": null,
+          "sections": [
+            [
+              "__text",
+              15712,
+              48696
+            ],
+            [
+              "__stub_helper",
+              64408,
+              36
+            ],
+            [
+              "__cstring",
+              64444,
+              557
+            ],
+            [
+              "__gcc_except_tab",
+              65004,
+              360
+            ],
+            [
+              "__const",
+              65364,
+              168
+            ],
+            [
+              "__symbolstub1",
+              65532,
+              4
+            ],
+            [
+              "__lazy_symbol",
+              65536,
+              4
+            ],
+            [
+              "__data",
+              65540,
+              52
+            ],
+            [
+              "__common",
+              65592,
+              64
+            ],
+            [
+              "__bss",
+              65656,
+              552
+            ],
+            [
+              "__nl_symbol_ptr",
+              81920,
+              24
+            ],
+            [
+              "__const",
+              81944,
+              120
+            ]
+          ],
+          "symbols": 374,
+          "data_symbols": 45,
+          "reference_sha256": "90d2729c71936627ad443e158f6f5400037672de8e14a4877fda83c5a496856e"
+        },
+        "arm64": {
+          "cpu": 16777228,
+          "base": 0,
+          "end": 114688,
+          "entry": null,
+          "sections": [
+            [
+              "__text",
+              1544,
+              39312
+            ],
+            [
+              "__const",
+              40864,
+              400
+            ],
+            [
+              "__cstring",
+              41264,
+              557
+            ],
+            [
+              "__gcc_except_tab",
+              41824,
+              820
+            ],
+            [
+              "__unwind_info",
+              42644,
+              936
+            ],
+            [
+              "__got",
+              49152,
+              24
+            ],
+            [
+              "__const",
+              49176,
+              240
+            ],
+            [
+              "__data",
+              65536,
+              88
+            ],
+            [
+              "__common",
+              65624,
+              136
+            ],
+            [
+              "__bss",
+              65760,
+              592
+            ]
+          ],
+          "symbols": 449,
+          "data_symbols": 43,
+          "reference_sha256": "1c2a302b7b1b7073e7906b807e328fd79c491b072872f79d980f861a3f079186"
+        }
+      },
+      "other_reference_cpu_ids": [
+        "0x11000012",
+        "0x10000012",
+        "0x12",
+        "0x1000012"
+      ]
+    },
+    "lib/TundraWindow.dylib": {
+      "reference_sha256": "f585ad590dbf0511e472b020bc99b4085cae603ddb7853f9648531d989a5c036",
+      "architectures": {
         "x86_64": {
           "cpu": 16777223,
           "base": 0,
-          "end": 356352,
+          "end": 65536,
+          "entry": null,
+          "sections": [
+            [
+              "__text",
+              1376,
+              35768
+            ],
+            [
+              "__const",
+              37152,
+              424
+            ],
+            [
+              "__cstring",
+              37576,
+              487
+            ],
+            [
+              "__gcc_except_tab",
+              38064,
+              124
+            ],
+            [
+              "__const",
+              40960,
+              288
+            ],
+            [
+              "__data",
+              45056,
+              88
+            ],
+            [
+              "__common",
+              45152,
+              191
+            ],
+            [
+              "__bss",
+              45344,
+              580
+            ]
+          ],
+          "symbols": 200,
+          "data_symbols": 74,
+          "reference_sha256": "29cac65376caf757332e8be655b821eeb84b39fa3cce0df73522a68a55aa1a73"
+        },
+        "i386": {
+          "cpu": 7,
+          "base": 0,
+          "end": 53248,
+          "entry": null,
+          "sections": [
+            [
+              "__text",
+              1424,
+              29454
+            ],
+            [
+              "__const",
+              30880,
+              1196
+            ],
+            [
+              "__cstring",
+              32076,
+              487
+            ],
+            [
+              "__gcc_except_tab",
+              32564,
+              124
+            ],
+            [
+              "__unwind_info",
+              32688,
+              72
+            ],
+            [
+              "__const",
+              32768,
+              144
+            ],
+            [
+              "__nl_symbol_ptr",
+              36864,
+              8
+            ],
+            [
+              "__data",
+              36872,
+              48
+            ],
+            [
+              "__common",
+              36920,
+              111
+            ],
+            [
+              "__bss",
+              37032,
+              544
+            ]
+          ],
+          "symbols": 200,
+          "data_symbols": 73,
+          "reference_sha256": "f31879f9bec9d9a042da89949d5dc231a818169f87bc36430662aad93cc0e15f"
+        },
+        "armv7": {
+          "cpu": 12,
+          "base": 0,
+          "end": 81920,
+          "entry": null,
+          "sections": [
+            [
+              "__text",
+              6200,
+              25848
+            ],
+            [
+              "__stub_helper",
+              32048,
+              36
+            ],
+            [
+              "__cstring",
+              32084,
+              493
+            ],
+            [
+              "__gcc_except_tab",
+              32580,
+              124
+            ],
+            [
+              "__const",
+              32704,
+              56
+            ],
+            [
+              "__symbolstub1",
+              32760,
+              8
+            ],
+            [
+              "__lazy_symbol",
+              32768,
+              8
+            ],
+            [
+              "__data",
+              32776,
+              52
+            ],
+            [
+              "__common",
+              32828,
+              111
+            ],
+            [
+              "__bss",
+              32940,
+              544
+            ],
+            [
+              "__nl_symbol_ptr",
+              49152,
+              12
+            ],
+            [
+              "__const",
+              49164,
+              144
+            ]
+          ],
+          "symbols": 265,
+          "data_symbols": 73,
+          "reference_sha256": "4d6bda506b7665f8cd33cef5c9fe02649f1f6200d969329d67fc186771e7040d"
+        },
+        "arm64": {
+          "cpu": 16777228,
+          "base": 0,
+          "end": 98304,
+          "entry": null,
+          "sections": [
+            [
+              "__text",
+              1544,
+              21468
+            ],
+            [
+              "__const",
+              23024,
+              287
+            ],
+            [
+              "__cstring",
+              23311,
+              493
+            ],
+            [
+              "__gcc_except_tab",
+              23804,
+              196
+            ],
+            [
+              "__unwind_info",
+              24000,
+              544
+            ],
+            [
+              "__got",
+              32768,
+              8
+            ],
+            [
+              "__const",
+              32776,
+              288
+            ],
+            [
+              "__data",
+              49152,
+              88
+            ],
+            [
+              "__common",
+              49240,
+              183
+            ],
+            [
+              "__bss",
+              49424,
+              576
+            ]
+          ],
+          "symbols": 297,
+          "data_symbols": 71,
+          "reference_sha256": "12ba969f6cfc268d86e7eca874d80a75512cf6588c67a96f770f1c2f6b04a668"
+        }
+      },
+      "other_reference_cpu_ids": [
+        "0x11000012",
+        "0x10000012",
+        "0x12",
+        "0x1000012"
+      ]
+    },
+    "lib/WinterLua.dylib": {
+      "reference_sha256": "0c9d9db3dbe4910182691fcfe507c930ece4173ce35d5b1b7b99eb579a3e0f41",
+      "architectures": {
+        "x86_64": {
+          "cpu": 16777223,
+          "base": 0,
+          "end": 466944,
           "entry": null,
           "sections": [
             [
               "__text",
               1456,
-              188201
+              321192
             ],
             [
               "__const",
-              189664,
-              8700
+              322656,
+              8712
             ],
             [
               "__cstring",
-              198364,
-              4697
+              331368,
+              4610
             ],
             [
               "__gcc_except_tab",
-              203064,
-              4108
+              335980,
+              6800
             ],
             [
               "__got",
-              208896,
-              72
+              344064,
+              56
             ],
             [
               "__const",
-              208968,
+              344120,
               5696
             ],
             [
               "__data",
-              217088,
+              352256,
               88
             ],
             [
               "__common",
-              217184,
+              352352,
               144
             ],
             [
               "__bss",
-              217328,
+              352496,
               572
             ]
           ],
-          "reference_sha256": "ac3cc69f0d9bc7d9493c10a513545fdb4f89777127735d6977130f9bd31651d1",
-          "symbols": 997,
-          "data_symbols": 483
+          "symbols": 698,
+          "data_symbols": 538,
+          "reference_sha256": "25987df7bb0567c3a4beda5c6fc7a2c98f542a30864e68edfbdb85a67eecdf38"
+        },
+        "i386": {
+          "cpu": 7,
+          "base": 0,
+          "end": 421888,
+          "entry": null,
+          "sections": [
+            [
+              "__text",
+              1728,
+              266364
+            ],
+            [
+              "__const",
+              268096,
+              19400
+            ],
+            [
+              "__cstring",
+              287496,
+              4610
+            ],
+            [
+              "__gcc_except_tab",
+              292108,
+              6820
+            ],
+            [
+              "__unwind_info",
+              298928,
+              72
+            ],
+            [
+              "__const",
+              299008,
+              2860
+            ],
+            [
+              "__nl_symbol_ptr",
+              303104,
+              76
+            ],
+            [
+              "__data",
+              303180,
+              48
+            ],
+            [
+              "__common",
+              303228,
+              64
+            ],
+            [
+              "__bss",
+              303292,
+              540
+            ]
+          ],
+          "symbols": 699,
+          "data_symbols": 538,
+          "reference_sha256": "2481fdaee54df497e58ba4463b8828aba990c2a98e348c08bfc4246cb9f7c49b"
         },
         "armv7": {
           "cpu": 12,
@@ -1199,52 +2245,52 @@
           "sections": [
             [
               "__text",
-              2172,
-              193664
+              2076,
+              193776
             ],
             [
               "__stub_helper",
-              195836,
+              195852,
               36
             ],
             [
               "__cstring",
-              195872,
+              195888,
               4697
             ],
             [
               "__gcc_except_tab",
-              200572,
+              200588,
               4108
             ],
             [
               "__const",
-              204680,
+              204696,
               8286
             ],
             [
               "__symbolstub1",
-              212968,
-              24
+              212984,
+              8
             ],
             [
               "__lazy_symbol",
               212992,
-              24
+              8
             ],
             [
               "__data",
-              213016,
+              213000,
               52
             ],
             [
               "__common",
-              213068,
+              213052,
               64
             ],
             [
               "__bss",
-              213132,
+              213116,
               540
             ],
             [
@@ -1258,9 +2304,9 @@
               2896
             ]
           ],
-          "reference_sha256": "37ae82a9baa6b1bb2258f5e574fb63874f3d766a1f4b2181c07857ac78cccc6a",
           "symbols": 1013,
-          "data_symbols": 483
+          "data_symbols": 483,
+          "reference_sha256": "6e14ceab0b81edc5e45b49dd5da8010f8108bee24698313761274f28f64dc1d5"
         },
         "arm64": {
           "cpu": 16777228,
@@ -1271,31 +2317,31 @@
             [
               "__text",
               1624,
-              120772
+              121024
             ],
             [
               "__const",
-              122400,
+              122656,
               8768
             ],
             [
               "__cstring",
-              131168,
+              131424,
               4697
             ],
             [
               "__gcc_except_tab",
-              135868,
+              136124,
               11604
             ],
             [
               "__unwind_info",
-              147472,
+              147728,
               4128
             ],
             [
               "__eh_frame",
-              151600,
+              151856,
               56
             ],
             [
@@ -1324,370 +2370,147 @@
               564
             ]
           ],
-          "reference_sha256": "f5a8960886f864d0214f129577d7e502a7e92c9122a24c86199c1e2f14f0bce3",
-          "symbols": 1519,
-          "data_symbols": 481
+          "symbols": 1523,
+          "data_symbols": 481,
+          "reference_sha256": "48468726bbe712570adfdc44270dfd753d4c27aac7648d6ac740d81dfd596b2d"
         }
-      }
-    },
-    "lib/WinterPNG.dylib": {
-      "reference_sha256": "882e644e89e2c89cd3b81cd6435941c0e666d9e3bd2d0bee87d75e4336a91be7",
-      "architectures": {
-        "i386": {
-          "cpu": 7,
-          "base": 0,
-          "end": 53248,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              3024,
-              27493
-            ],
-            [
-              "__const",
-              30528,
-              1428
-            ],
-            [
-              "__cstring",
-              31956,
-              506
-            ],
-            [
-              "__gcc_except_tab",
-              32464,
-              228
-            ],
-            [
-              "__unwind_info",
-              32692,
-              72
-            ],
-            [
-              "__nl_symbol_ptr",
-              32768,
-              8
-            ],
-            [
-              "__data",
-              32776,
-              48
-            ],
-            [
-              "__common",
-              32824,
-              64
-            ],
-            [
-              "__bss",
-              32888,
-              1748
-            ]
-          ],
-          "reference_sha256": "74b4e374edfd6187ec1ed39475ede7fd17f020860f0736eab9f4029ad06eb594",
-          "symbols": 232,
-          "data_symbols": 41
-        },
-        "x86_64": {
-          "cpu": 16777223,
-          "base": 0,
-          "end": 57344,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1216,
-              30109
-            ],
-            [
-              "__const",
-              31328,
-              1032
-            ],
-            [
-              "__cstring",
-              32360,
-              506
-            ],
-            [
-              "__gcc_except_tab",
-              32868,
-              228
-            ],
-            [
-              "__data",
-              36864,
-              88
-            ],
-            [
-              "__common",
-              36960,
-              144
-            ],
-            [
-              "__bss",
-              37104,
-              1808
-            ]
-          ],
-          "reference_sha256": "11514686e540ed5ee69692766d90db4b3fdd55121f5c15bbe066ec825c8e60c3",
-          "symbols": 232,
-          "data_symbols": 42
-        },
-        "armv7": {
-          "cpu": 12,
-          "base": 0,
-          "end": 98304,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              13788,
-              33816
-            ],
-            [
-              "__stub_helper",
-              47604,
-              36
-            ],
-            [
-              "__cstring",
-              47640,
-              506
-            ],
-            [
-              "__gcc_except_tab",
-              48148,
-              228
-            ],
-            [
-              "__const",
-              48376,
-              752
-            ],
-            [
-              "__symbolstub1",
-              49128,
-              24
-            ],
-            [
-              "__lazy_symbol",
-              49152,
-              24
-            ],
-            [
-              "__data",
-              49176,
-              52
-            ],
-            [
-              "__common",
-              49228,
-              64
-            ],
-            [
-              "__bss",
-              49296,
-              1748
-            ],
-            [
-              "__nl_symbol_ptr",
-              65536,
-              12
-            ]
-          ],
-          "reference_sha256": "4aa994edc6944d3e5f6741a11778533b89275418516385b387fa6669554b6c57",
-          "symbols": 246,
-          "data_symbols": 40
-        },
-        "arm64": {
-          "cpu": 16777228,
-          "base": 0,
-          "end": 98304,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1464,
-              26188
-            ],
-            [
-              "__const",
-              27656,
-              944
-            ],
-            [
-              "__cstring",
-              28600,
-              506
-            ],
-            [
-              "__gcc_except_tab",
-              29108,
-              532
-            ],
-            [
-              "__unwind_info",
-              29640,
-              496
-            ],
-            [
-              "__got",
-              32768,
-              8
-            ],
-            [
-              "__data",
-              49152,
-              88
-            ],
-            [
-              "__common",
-              49240,
-              136
-            ],
-            [
-              "__bss",
-              49376,
-              1784
-            ]
-          ],
-          "reference_sha256": "8d5e71edcd8eb068c6f9b6e41c2a82e51703596fd6692e6b9816d7636f9239bc",
-          "symbols": 311,
-          "data_symbols": 35
-        }
-      }
+      },
+      "other_reference_cpu_ids": [
+        "0x11000012",
+        "0x10000012",
+        "0x12",
+        "0x1000012"
+      ]
     },
     "lib/WinterPiet.dylib": {
-      "reference_sha256": "98d970da1fcf13b41df6a4dd40d236e80fa31226be833f411f6e4d9b6067b1f6",
+      "reference_sha256": "fa0a7a8661e7950bf7ccb860f335d8cd0830ebd737a97d9eb31638dbe5996314",
       "architectures": {
-        "i386": {
-          "cpu": 7,
-          "base": 0,
-          "end": 86016,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1776,
-              31062
-            ],
-            [
-              "__const",
-              32848,
-              3139
-            ],
-            [
-              "__cstring",
-              35987,
-              475
-            ],
-            [
-              "__gcc_except_tab",
-              36464,
-              316
-            ],
-            [
-              "__unwind_info",
-              36780,
-              72
-            ],
-            [
-              "__mod_init_func",
-              36864,
-              16
-            ],
-            [
-              "__const",
-              36880,
-              848
-            ],
-            [
-              "__nl_symbol_ptr",
-              40960,
-              68
-            ],
-            [
-              "__data",
-              41028,
-              112
-            ],
-            [
-              "__common",
-              41140,
-              64
-            ],
-            [
-              "__bss",
-              41204,
-              536
-            ]
-          ],
-          "reference_sha256": "8bc162f2d9406cc005cfe2c14ed036cade51399f299d9362ada9bafd8c6b86b2",
-          "symbols": 393,
-          "data_symbols": 119
-        },
         "x86_64": {
           "cpu": 16777223,
           "base": 0,
-          "end": 90112,
+          "end": 106496,
           "entry": null,
           "sections": [
             [
               "__text",
               1536,
-              32720
+              52679
             ],
             [
               "__const",
-              34256,
-              2775
+              54224,
+              2855
             ],
             [
               "__cstring",
-              37031,
-              475
+              57079,
+              472
             ],
             [
               "__gcc_except_tab",
-              37508,
-              316
+              57552,
+              332
             ],
             [
               "__got",
-              40960,
+              61440,
               64
             ],
             [
               "__mod_init_func",
-              41024,
+              61504,
               32
             ],
             [
               "__const",
-              41056,
+              61536,
               1696
             ],
             [
               "__data",
-              45056,
+              65536,
               184
             ],
             [
               "__common",
-              45248,
+              65728,
               144
             ],
             [
               "__bss",
-              45392,
+              65872,
               568
             ]
           ],
-          "reference_sha256": "183b36f6804fada98cc0785e2ee29f02bc50250db9672bb8b4d9b9b6147dbda4",
-          "symbols": 394,
-          "data_symbols": 120
+          "symbols": 322,
+          "data_symbols": 121,
+          "reference_sha256": "d096d7834981576c241e89b643f6ccf65a598e7223377c7fd7297f81b751b6a5"
+        },
+        "i386": {
+          "cpu": 7,
+          "base": 0,
+          "end": 98304,
+          "entry": null,
+          "sections": [
+            [
+              "__text",
+              4560,
+              44370
+            ],
+            [
+              "__const",
+              48944,
+              3415
+            ],
+            [
+              "__cstring",
+              52359,
+              472
+            ],
+            [
+              "__gcc_except_tab",
+              52832,
+              332
+            ],
+            [
+              "__unwind_info",
+              53164,
+              72
+            ],
+            [
+              "__mod_init_func",
+              53248,
+              16
+            ],
+            [
+              "__const",
+              53264,
+              848
+            ],
+            [
+              "__nl_symbol_ptr",
+              57344,
+              68
+            ],
+            [
+              "__data",
+              57412,
+              112
+            ],
+            [
+              "__common",
+              57524,
+              64
+            ],
+            [
+              "__bss",
+              57588,
+              536
+            ]
+          ],
+          "symbols": 322,
+          "data_symbols": 120,
+          "reference_sha256": "b91a172a2e9b63b01c18bf83a1991b6b224aeb5c65937eaadf4d0ddc6c33b33e"
         },
         "armv7": {
           "cpu": 12,
@@ -1697,52 +2520,52 @@
           "sections": [
             [
               "__text",
-              8236,
-              37572
+              8140,
+              37684
             ],
             [
               "__stub_helper",
-              45808,
+              45824,
               36
             ],
             [
               "__cstring",
-              45844,
+              45860,
               475
             ],
             [
               "__gcc_except_tab",
-              46320,
+              46336,
               316
             ],
             [
               "__const",
-              46636,
+              46652,
               2495
             ],
             [
               "__symbolstub1",
-              49132,
-              20
+              49148,
+              4
             ],
             [
               "__lazy_symbol",
               49152,
-              20
+              4
             ],
             [
               "__data",
-              49172,
+              49156,
               100
             ],
             [
               "__common",
-              49272,
+              49256,
               64
             ],
             [
               "__bss",
-              49336,
+              49320,
               536
             ],
             [
@@ -1761,9 +2584,9 @@
               848
             ]
           ],
-          "reference_sha256": "71efcae9d996875ef8a8c5e5465cc7b38e882c0ee427ef87cc062cbbd5d347cd",
           "symbols": 408,
-          "data_symbols": 120
+          "data_symbols": 120,
+          "reference_sha256": "c17ee69b480f96e1cccd2a4e36a911d23d431f3d93013119290e110402b1f5be"
         },
         "arm64": {
           "cpu": 16777228,
@@ -1774,31 +2597,31 @@
             [
               "__text",
               1704,
-              28092
+              28344
             ],
             [
               "__const",
-              29800,
+              30048,
               2659
             ],
             [
               "__cstring",
-              32459,
+              32707,
               475
             ],
             [
               "__gcc_except_tab",
-              32936,
+              33184,
               784
             ],
             [
               "__unwind_info",
-              33720,
+              33968,
               1000
             ],
             [
               "__eh_frame",
-              34720,
+              34968,
               56
             ],
             [
@@ -1832,919 +2655,47 @@
               560
             ]
           ],
-          "reference_sha256": "42e17aff61ffc4903248d41f87bd86c59bfcd6d4501ad693669ccc2429c26081",
-          "symbols": 467,
-          "data_symbols": 118
+          "symbols": 471,
+          "data_symbols": 118,
+          "reference_sha256": "e1f46bc286a47db569b5ed190d8c49c5cf089781d453fc4f0020dedd0b5d1a26"
         }
-      }
-    },
-    "lib/WinterRwby.dylib": {
-      "reference_sha256": "9019ae0acf79cbfdf8b75b288e2f39b77f44d16e580e12e5dd45752fbb5d95cf",
-      "architectures": {
-        "i386": {
-          "cpu": 7,
-          "base": 0,
-          "end": 262144,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              3568,
-              117195
-            ],
-            [
-              "__const",
-              120768,
-              7776
-            ],
-            [
-              "__cstring",
-              128544,
-              3944
-            ],
-            [
-              "__gcc_except_tab",
-              132488,
-              2600
-            ],
-            [
-              "__unwind_info",
-              135088,
-              72
-            ],
-            [
-              "__const",
-              135168,
-              1600
-            ],
-            [
-              "__nl_symbol_ptr",
-              139264,
-              216
-            ],
-            [
-              "__data",
-              139480,
-              76
-            ],
-            [
-              "__common",
-              139556,
-              64
-            ],
-            [
-              "__bss",
-              139620,
-              556
-            ]
-          ],
-          "reference_sha256": "8404310de387ff1f0c15b80b3618cb09c9afd65e6aac02d3c113246713405d55",
-          "symbols": 858,
-          "data_symbols": 292
-        },
-        "x86_64": {
-          "cpu": 16777223,
-          "base": 0,
-          "end": 274432,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1456,
-              130739
-            ],
-            [
-              "__const",
-              132208,
-              5444
-            ],
-            [
-              "__cstring",
-              137652,
-              3944
-            ],
-            [
-              "__gcc_except_tab",
-              141596,
-              2600
-            ],
-            [
-              "__got",
-              147456,
-              64
-            ],
-            [
-              "__const",
-              147520,
-              3184
-            ],
-            [
-              "__data",
-              151552,
-              128
-            ],
-            [
-              "__common",
-              151680,
-              144
-            ],
-            [
-              "__bss",
-              151824,
-              600
-            ]
-          ],
-          "reference_sha256": "cc9100da8846f5b2d5d65cce2ecd34478162fd467f5b1a2f5e01e19a70372bad",
-          "symbols": 856,
-          "data_symbols": 293
-        },
-        "armv7": {
-          "cpu": 12,
-          "base": 0,
-          "end": 327680,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              17232,
-              134960
-            ],
-            [
-              "__stub_helper",
-              152192,
-              36
-            ],
-            [
-              "__cstring",
-              152228,
-              3944
-            ],
-            [
-              "__gcc_except_tab",
-              156172,
-              2600
-            ],
-            [
-              "__const",
-              158772,
-              5044
-            ],
-            [
-              "__symbolstub1",
-              163816,
-              24
-            ],
-            [
-              "__lazy_symbol",
-              163840,
-              24
-            ],
-            [
-              "__data",
-              163864,
-              80
-            ],
-            [
-              "__common",
-              163944,
-              64
-            ],
-            [
-              "__bss",
-              164008,
-              552
-            ],
-            [
-              "__nl_symbol_ptr",
-              180224,
-              220
-            ],
-            [
-              "__const",
-              180444,
-              1600
-            ]
-          ],
-          "reference_sha256": "16fab7aebd6dd5666d6511aa199ddb9147bd633822f72a6bb51977504332b3c0",
-          "symbols": 873,
-          "data_symbols": 292
-        },
-        "arm64": {
-          "cpu": 16777228,
-          "base": 0,
-          "end": 278528,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1544,
-              89312
-            ],
-            [
-              "__const",
-              90856,
-              5496
-            ],
-            [
-              "__cstring",
-              96352,
-              3944
-            ],
-            [
-              "__gcc_except_tab",
-              100296,
-              7224
-            ],
-            [
-              "__unwind_info",
-              107520,
-              3392
-            ],
-            [
-              "__got",
-              114688,
-              64
-            ],
-            [
-              "__const",
-              114752,
-              3184
-            ],
-            [
-              "__data",
-              131072,
-              128
-            ],
-            [
-              "__common",
-              131200,
-              136
-            ],
-            [
-              "__bss",
-              131336,
-              592
-            ]
-          ],
-          "reference_sha256": "214ed89982ca6c6ea3edeb9f7063629c98c15e23b2581693a42925ea470fd7ee",
-          "symbols": 1084,
-          "data_symbols": 290
-        }
-      }
-    },
-    "lib/WinterScript.dylib": {
-      "reference_sha256": "84409d5c3a2c6b5d2560a432aa6c7c9732b7d6f95ec0d0cd790d8dbab644866d",
-      "architectures": {
-        "i386": {
-          "cpu": 7,
-          "base": 0,
-          "end": 602112,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              5248,
-              371502
-            ],
-            [
-              "__const",
-              376752,
-              21640
-            ],
-            [
-              "__cstring",
-              398392,
-              11072
-            ],
-            [
-              "__gcc_except_tab",
-              409464,
-              8252
-            ],
-            [
-              "__unwind_info",
-              417716,
-              72
-            ],
-            [
-              "__const",
-              417792,
-              3316
-            ],
-            [
-              "__nl_symbol_ptr",
-              421888,
-              120
-            ],
-            [
-              "__data",
-              422008,
-              56
-            ],
-            [
-              "__common",
-              422064,
-              64
-            ],
-            [
-              "__bss",
-              422128,
-              800
-            ]
-          ],
-          "reference_sha256": "4d7455f32d3e1ab3c617ba6d14188c06515834f22e9e43dc93bc2851308c25ff",
-          "symbols": 1425,
-          "data_symbols": 565
-        },
-        "x86_64": {
-          "cpu": 16777223,
-          "base": 0,
-          "end": 630784,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1456,
-              411302
-            ],
-            [
-              "__const",
-              412768,
-              7635
-            ],
-            [
-              "__cstring",
-              420403,
-              11072
-            ],
-            [
-              "__gcc_except_tab",
-              431476,
-              8248
-            ],
-            [
-              "__got",
-              442368,
-              88
-            ],
-            [
-              "__const",
-              442456,
-              6488
-            ],
-            [
-              "__data",
-              450560,
-              96
-            ],
-            [
-              "__common",
-              450656,
-              144
-            ],
-            [
-              "__bss",
-              450800,
-              1016
-            ]
-          ],
-          "reference_sha256": "b683de21ad163b4d29a1034018aa36f2c561593fb13395bca5610a9f3f837a45",
-          "symbols": 1422,
-          "data_symbols": 566
-        },
-        "armv7": {
-          "cpu": 12,
-          "base": 0,
-          "end": 655360,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              15152,
-              400688
-            ],
-            [
-              "__stub_helper",
-              415840,
-              36
-            ],
-            [
-              "__cstring",
-              415876,
-              11072
-            ],
-            [
-              "__gcc_except_tab",
-              426948,
-              8248
-            ],
-            [
-              "__const",
-              435196,
-              7139
-            ],
-            [
-              "__symbolstub1",
-              442336,
-              32
-            ],
-            [
-              "__lazy_symbol",
-              442368,
-              32
-            ],
-            [
-              "__data",
-              442400,
-              64
-            ],
-            [
-              "__common",
-              442464,
-              64
-            ],
-            [
-              "__bss",
-              442528,
-              760
-            ],
-            [
-              "__nl_symbol_ptr",
-              458752,
-              124
-            ],
-            [
-              "__const",
-              458880,
-              3316
-            ]
-          ],
-          "reference_sha256": "720dda98b3e90452967537b4b243321ad02eb81b42432effcd66e7208e0d2566",
-          "symbols": 1442,
-          "data_symbols": 548
-        },
-        "arm64": {
-          "cpu": 16777228,
-          "base": 0,
-          "end": 573440,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1624,
-              243324
-            ],
-            [
-              "__const",
-              244960,
-              8128
-            ],
-            [
-              "__cstring",
-              253088,
-              11072
-            ],
-            [
-              "__gcc_except_tab",
-              264160,
-              25744
-            ],
-            [
-              "__unwind_info",
-              289904,
-              6064
-            ],
-            [
-              "__eh_frame",
-              295968,
-              120
-            ],
-            [
-              "__got",
-              311296,
-              88
-            ],
-            [
-              "__const",
-              311384,
-              6576
-            ],
-            [
-              "__data",
-              327680,
-              96
-            ],
-            [
-              "__common",
-              327776,
-              136
-            ],
-            [
-              "__bss",
-              327912,
-              944
-            ]
-          ],
-          "reference_sha256": "267971989bdcac0fffdd2b7cce5c28509d5ef5360d5cd12d34a47165f2bd2a9c",
-          "symbols": 2460,
-          "data_symbols": 544
-        }
-      }
-    },
-    "lib/WinterTTF.dylib": {
-      "reference_sha256": "ea7e95d63ca1b6a3ec8528c9ddf495f27e5164791f3a914fdf6d44bc2a6e3071",
-      "architectures": {
-        "i386": {
-          "cpu": 7,
-          "base": 0,
-          "end": 77824,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              2384,
-              40587
-            ],
-            [
-              "__const",
-              42976,
-              1080
-            ],
-            [
-              "__cstring",
-              44056,
-              557
-            ],
-            [
-              "__gcc_except_tab",
-              44616,
-              360
-            ],
-            [
-              "__unwind_info",
-              44976,
-              72
-            ],
-            [
-              "__const",
-              45056,
-              120
-            ],
-            [
-              "__nl_symbol_ptr",
-              49152,
-              20
-            ],
-            [
-              "__data",
-              49172,
-              48
-            ],
-            [
-              "__common",
-              49220,
-              64
-            ],
-            [
-              "__bss",
-              49284,
-              556
-            ]
-          ],
-          "reference_sha256": "f9a24447b65e08cab67e0f7388418deccca3ea52ff94fb4c522d3b10c579a35b",
-          "symbols": 359,
-          "data_symbols": 45
-        },
-        "x86_64": {
-          "cpu": 16777223,
-          "base": 0,
-          "end": 81920,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1456,
-              44316
-            ],
-            [
-              "__const",
-              45776,
-              560
-            ],
-            [
-              "__cstring",
-              46336,
-              557
-            ],
-            [
-              "__gcc_except_tab",
-              46896,
-              360
-            ],
-            [
-              "__got",
-              49152,
-              16
-            ],
-            [
-              "__const",
-              49168,
-              240
-            ],
-            [
-              "__data",
-              53248,
-              88
-            ],
-            [
-              "__common",
-              53344,
-              144
-            ],
-            [
-              "__bss",
-              53488,
-              600
-            ]
-          ],
-          "reference_sha256": "aaa824def5127013f25f29531a49803aae795faff6f66a4ea80b16e3df4e2c4b",
-          "symbols": 361,
-          "data_symbols": 46
-        },
-        "armv7": {
-          "cpu": 12,
-          "base": 0,
-          "end": 131072,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              15808,
-              48584
-            ],
-            [
-              "__stub_helper",
-              64392,
-              36
-            ],
-            [
-              "__cstring",
-              64428,
-              557
-            ],
-            [
-              "__gcc_except_tab",
-              64988,
-              360
-            ],
-            [
-              "__const",
-              65348,
-              168
-            ],
-            [
-              "__symbolstub1",
-              65516,
-              20
-            ],
-            [
-              "__lazy_symbol",
-              65536,
-              20
-            ],
-            [
-              "__data",
-              65556,
-              52
-            ],
-            [
-              "__common",
-              65608,
-              64
-            ],
-            [
-              "__bss",
-              65672,
-              552
-            ],
-            [
-              "__nl_symbol_ptr",
-              81920,
-              24
-            ],
-            [
-              "__const",
-              81944,
-              120
-            ]
-          ],
-          "reference_sha256": "5414d554ade67077696d97e1d9fb2b2cb9cfb59ccd260f30a2467b8fe2051e2f",
-          "symbols": 374,
-          "data_symbols": 45
-        },
-        "arm64": {
-          "cpu": 16777228,
-          "base": 0,
-          "end": 114688,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1544,
-              39060
-            ],
-            [
-              "__const",
-              40608,
-              400
-            ],
-            [
-              "__cstring",
-              41008,
-              557
-            ],
-            [
-              "__gcc_except_tab",
-              41568,
-              820
-            ],
-            [
-              "__unwind_info",
-              42388,
-              936
-            ],
-            [
-              "__got",
-              49152,
-              24
-            ],
-            [
-              "__const",
-              49176,
-              240
-            ],
-            [
-              "__data",
-              65536,
-              88
-            ],
-            [
-              "__common",
-              65624,
-              136
-            ],
-            [
-              "__bss",
-              65760,
-              592
-            ]
-          ],
-          "reference_sha256": "c9475cba73cee43f775d1c28ce8ca63f43d8b6865c454ed97eca5bbd21a7c3b9",
-          "symbols": 445,
-          "data_symbols": 43
-        }
-      }
+      },
+      "other_reference_cpu_ids": [
+        "0x11000012",
+        "0x10000012",
+        "0x12",
+        "0x1000012"
+      ]
     }
   },
-  "efi": {
-    "BOOTAA64.EFI": {
-      "machine": 43620,
-      "wide": true,
-      "entry": 4264,
-      "image_base": 0,
-      "size": 57344,
-      "sections": [
-        [
-          ".text",
-          4096,
-          30164
-        ],
-        [
-          ".data",
-          36864,
-          96
-        ],
-        [
-          ".rdata",
-          40960,
-          3032
-        ],
-        [
-          ".bss",
-          45056,
-          9784
-        ]
-      ],
-      "reference_sha256": "5189e986b9e9f49dd22e8c5302111ac85096d1d6964784dbdc6d3d0a6a7af411",
-      "relocation_count": 0
+  "partitions": [
+    {
+      "name": "firmware",
+      "type": 1,
+      "start": 66,
+      "sectors": 28692,
+      "flags": 0
     },
-    "BOOTARM.EFI": {
-      "machine": 450,
-      "wide": false,
-      "entry": 4445,
-      "image_base": 0,
-      "size": 53248,
-      "sections": [
-        [
-          ".text",
-          4096,
-          22010
-        ],
-        [
-          ".data",
-          28672,
-          96
-        ],
-        [
-          ".rdata",
-          32768,
-          2802
-        ],
-        [
-          ".bss",
-          36864,
-          9544
-        ],
-        [
-          ".reloc",
-          49152,
-          572
-        ]
-      ],
-      "reference_sha256": "5a068cbed69474fe107538acb06bf84ab5857ee6dffd5401f92a790002924e62",
-      "relocation_count": 259
+    {
+      "name": "recovery",
+      "type": 1,
+      "start": 28758,
+      "sectors": 22478,
+      "flags": 1
     },
-    "BOOTIA32.EFI": {
-      "machine": 332,
-      "wide": false,
-      "entry": 4944,
-      "image_base": 0,
-      "size": 61440,
-      "sections": [
-        [
-          ".text",
-          4096,
-          30430
-        ],
-        [
-          ".data",
-          36864,
-          96
-        ],
-        [
-          ".rdata",
-          40960,
-          2652
-        ],
-        [
-          ".bss",
-          45056,
-          9544
-        ],
-        [
-          ".reloc",
-          57344,
-          652
-        ]
-      ],
-      "reference_sha256": "2dcf42ad886365d208f1a72e6a13bf0a95171c37b11e358676be586c4ad5d171",
-      "relocation_count": 288
+    {
+      "name": "drivers",
+      "type": 5,
+      "start": 51236,
+      "sectors": 69680,
+      "flags": 0
     },
-    "BOOTX64.EFI": {
-      "machine": 34404,
-      "wide": true,
-      "entry": 4848,
-      "image_base": 0,
-      "size": 77824,
-      "sections": [
-        [
-          ".text",
-          4096,
-          46798
-        ],
-        [
-          ".data",
-          53248,
-          104
-        ],
-        [
-          ".rdata",
-          57344,
-          3494
-        ],
-        [
-          ".bss",
-          61440,
-          9816
-        ],
-        [
-          ".reloc",
-          73728,
-          12
-        ]
-      ],
-      "reference_sha256": "18778691f00f49b1a26800e844be95f3cbaa19e2fc251de1625c83cf706b040a",
-      "relocation_count": 1
+    {
+      "name": "user data",
+      "type": 3,
+      "start": 120916,
+      "sectors": 0,
+      "flags": 0
     }
-  }
+  ]
 }
