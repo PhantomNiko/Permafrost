@@ -98,6 +98,13 @@ def rewrite_double_assignments(source, name):
 
 def rewrite_scalar_storage(source):
     """Restore raw float views lost when an SSA slot is printed as a pointer."""
+    # These p-code helpers carry IEEE bits in an integer. A C numeric cast
+    # would convert the representation rather than read the floating value.
+    for match in reversed(list(re.finditer(r'\(double\)(NEON_[us]cvtf\()',source))):
+        start=match.start(1);end=match.end();depth=1
+        while depth:
+            depth+=(source[end]=='(')-(source[end]==')');end+=1
+        source=source[:match.start()]+'pf_bits_double('+source[start:end]+')'+source[end:]
     pattern=r'\(([^()\n]+\*)\)\s*\(float\)\s*'
     for match in reversed(list(re.finditer(pattern,source))):
         start=match.end()

@@ -25,6 +25,11 @@ def main():
         union { float value; unsigned int bits; } view = { value };
         return view.bits;
     }
+    static double pf_bits_double(uint64_t value) {
+        union { uint64_t bits; double value; } view = { value };
+        return view.value;
+    }
+    static uint64_t NEON_ucvtf(uint64_t value) { return pf_double_bits((double)value); }
     static int sum(int a, int b) { return a+b; }
     int main(void) {
         uint64_t slot = 0;
@@ -40,7 +45,9 @@ def main():
         void *spill = (void *)
             (float)
             (1.25);
-        return (uintptr_t)spill != 0x3fa00000U;
+        if ((uintptr_t)spill != 0x3fa00000U) return 4;
+        double units = (double)NEON_ucvtf(sum(400,600));
+        return units != 1000.0;
     }
     '''
     source = module.rewrite_double_assignments(source, 'slot')
