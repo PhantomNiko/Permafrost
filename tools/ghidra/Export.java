@@ -39,7 +39,7 @@ public class Export extends GhidraScript {
                 currentProgram.getRegister(arm?"x0":"RAX")),SourceType.USER_DEFINED);
         } else function.setReturnType(hint,SourceType.USER_DEFINED);
     }
-    private void signature(long address, String declaration, String storage) throws Exception {
+    private void signature(long address, String declaration, String storage, String returnStorage) throws Exception {
         var function=getFunctionAt(toAddr(address));
         String name=function.getName();
         int purge=function.getStackPurgeSize();
@@ -70,6 +70,17 @@ public class Export extends GhidraScript {
             function.setReturn(type.getReturnType(),new VariableStorage(currentProgram,
                 new ghidra.program.model.pcode.Varnode(currentProgram.getRegister(arm?"d1":"XMM1").getAddress(),8),
                 new ghidra.program.model.pcode.Varnode(currentProgram.getRegister(arm?"d0":"XMM0").getAddress(),8)),SourceType.USER_DEFINED);
+        }
+        if(returnStorage!=null) {
+            var pieces=new ArrayList<ghidra.program.model.pcode.Varnode>();
+            for(String returnRegister:returnStorage.split(",")) {
+                var register=currentProgram.getRegister(returnRegister);
+                if(register==null)throw new Exception("Unknown return register "+returnRegister);
+                pieces.add(new ghidra.program.model.pcode.Varnode(register.getAddress(),register.getMinimumByteSize()));
+            }
+            function.setCustomVariableStorage(true);
+            function.setReturn(type.getReturnType(),new VariableStorage(currentProgram,
+                pieces.toArray(new ghidra.program.model.pcode.Varnode[0])),SourceType.USER_DEFINED);
         }
         if(storage!=null) {
             String[] places=storage.split(",");
@@ -116,13 +127,13 @@ public class Export extends GhidraScript {
         var explicit = new HashSet<Long>();
         var returnHints = new HashMap<Long,DataType>();
         for (String line : Files.readAllLines(Path.of(getScriptArgs()[2]))) {
-            String[] fields = line.split("\\t", 3);
+            String[] fields = line.split("\\t", 4);
             long address = Long.parseLong(fields[0], 16);
             if (getFunctionAt(toAddr(address)) == null) {
                 disassemble(toAddr(address));
                 createFunction(toAddr(address), "recovered_" + fields[0]);
             }
-            signature(address, fields[1],fields.length>2?fields[2]:null);
+            signature(address, fields[1],fields.length>2?fields[2]:null,fields.length>3?fields[3]:null);
             explicit.add(address);
         }
         if (getScriptArgs().length > 1) {
@@ -167,6 +178,16 @@ public class Export extends GhidraScript {
             var symbol = allSymbols.next();
             if (symbol.getName().startsWith("s_"))
                 symbol.setName("str_" + symbol.getAddress().toString(), SourceType.USER_DEFINED);
+        }
+        // Synthetic switch labels can be promoted to functions by analysis.
+        // Their namespace-qualified names are not valid C identifiers.
+        var synthetic=currentProgram.getFunctionManager().getFunctions(true);
+        while(synthetic.hasNext()) {
+            var function=synthetic.next();
+            if(function.getParentNamespace().getName().startsWith("switchD_")) {
+                function.setName("recovered_"+Long.toHexString(function.getEntryPoint().getOffset()),SourceType.USER_DEFINED);
+                function.getSymbol().setNamespace(currentProgram.getGlobalNamespace());
+            }
         }
         decompiler.openProgram(currentProgram);
         // Commit inferred register arguments before exporting callers. A flat

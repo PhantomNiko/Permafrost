@@ -54,6 +54,8 @@ def main():
         if ((uintptr_t)spill != 0x3fa00000U) return 4;
         double units = (double)NEON_ucvtf(sum(400,600));
         if (units != 1000.0) return 5;
+        double joined=(double)((pf_double_bits(3.5)&0xffffffff00000000ULL)+(pf_double_bits(3.5)&0xffffffffULL));
+        if(joined!=3.5)return 15;
         float float_flag = (float)CONCAT31(0,1);
         if (pf_float_bits(float_flag) != 1) return 9;
         float_flag = (float)(CONCAT31(0,1)&1);

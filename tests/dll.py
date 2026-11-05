@@ -15,7 +15,8 @@ from unicorn.arm64_const import *
 
 
 class DLL:
-    def __init__(self,path):
+    def __init__(self,path,instruction_limit=20000000):
+        self.instruction_limit=instruction_limit
         binary=Path(path).read_bytes();metadata,memory=native_inspect(binary);dynamic=inspect(binary)
         self.cpu_type=metadata['cpu'];self.wide=self.cpu_type in (0x1000007,0x100000c)
         arm=self.cpu_type in (12,0x100000c)
@@ -80,7 +81,7 @@ class DLL:
         else:
             for reg,value in zip((UC_ARM64_REG_X0,UC_ARM64_REG_X1,UC_ARM64_REG_X2,UC_ARM64_REG_X3,UC_ARM64_REG_X4,UC_ARM64_REG_X5,UC_ARM64_REG_X6,UC_ARM64_REG_X7),arguments):cpu.reg_write(reg,value)
             cpu.reg_write(UC_ARM64_REG_SP,stack);cpu.reg_write(UC_ARM64_REG_LR,self.stop)
-        try:cpu.emu_start(self.exports[name],self.stop,count=20000000)
+        try:cpu.emu_start(self.exports[name],self.stop,count=self.instruction_limit)
         except UcError as error:
             raise AssertionError('%s failed at %#x'%(name,cpu.reg_read(self.pc)))from error
         if cpu.reg_read(self.pc)!=self.stop:raise AssertionError('library function did not return at %#x'%cpu.reg_read(self.pc))

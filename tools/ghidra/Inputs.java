@@ -1,4 +1,4 @@
-// Preserve register inputs omitted by generic parameter inference.
+// Preserve register and incoming stack inputs omitted by generic inference.
 // Analysis only; Pooka's Free Software License.
 // @category Permafrost
 import ghidra.app.script.GhidraScript;
@@ -20,6 +20,7 @@ public class Inputs extends GhidraScript {
   String pattern=arm?"in_(?:[xw][0-8]|[sd][0-7])":arm32?"in_(?:r[0-3]|s(?:[0-9]|1[0-5])|d[0-7])":wide?
       "in_(?:RDI|RSI|RDX|RCX|R8|R9|EDI|ESI|EDX|ECX|R8D|R9D|XMM[0-7])":
       "in_(?:EAX|ECX|EDX)";
+  pattern+="(?:_[0-9]+)?";
   long first=Long.decode(getScriptArgs()[0]),last=Long.decode(getScriptArgs()[1]);
   var functions=currentProgram.getFunctionManager().getFunctions(true);
   int fixed=0;var changed=new ArrayList<String>();
@@ -64,6 +65,30 @@ public class Inputs extends GhidraScript {
     var previous=inputs.get(address);
     if(previous==null || previous.getLength()<size)inputs.put(address,parameter);
    }
+   // An optimized private calling convention can mix register arguments
+   // with stack arguments that the generic prototype never recovered.
+   var stackBytes=new java.util.HashSet<Integer>();
+   for(var parameter:existing)if(parameter.getVariableStorage().isStackStorage()) {
+    int offset=parameter.getVariableStorage().getStackOffset();
+    for(int i=0;i<parameter.getLength();i++)stackBytes.add(offset+i);
+   }
+   var locals=result.getHighFunction().getLocalSymbolMap().getSymbols();
+   while(locals.hasNext()) {
+    var symbol=locals.next();var storage=symbol.getStorage();
+    if(symbol.isParameter() || !storage.isStackStorage() ||
+       !symbol.getName().matches("in_stack_[0-9a-fA-F]+"))continue;
+    int offset=storage.getStackOffset();
+    if(offset<0 || (!arm && !arm32 && offset==0))continue;
+    var type=symbol.getDataType();int size=type.getLength();
+    if(size<1 || size>storage.size())continue;
+    boolean overlap=false;
+    for(int i=0;i<size;i++)if(stackBytes.contains(offset+i))overlap=true;
+    if(overlap)continue;
+    var parameter=new ParameterImpl(symbol.getName(),type,
+        new VariableStorage(currentProgram,offset,size),currentProgram,SourceType.USER_DEFINED);
+    inputs.put(Long.MIN_VALUE+offset,parameter);
+    for(int i=0;i<size;i++)stackBytes.add(offset+i);
+   }
    if(inputs.isEmpty())continue;
    existing.addAll(inputs.values());
    existing.sort(java.util.Comparator.comparingLong(parameter -> {
@@ -98,6 +123,6 @@ public class Inputs extends GhidraScript {
    fixed++;changed.add(Long.toHexString(entry));decompiler.flushCache();
   }
   if(getScriptArgs().length>2)java.nio.file.Files.write(java.nio.file.Path.of(getScriptArgs()[2]),changed);
-  decompiler.dispose();println("Recovered missing register inputs in "+fixed+" functions");
+  decompiler.dispose();println("Recovered missing register and stack inputs in "+fixed+" functions");
  }
 }

@@ -28,6 +28,11 @@ def build_library(source, output):
         raise ValueError('X8 result entry adapters require ARM64')
     if not result_entries <= functions.keys():
         raise ValueError('result entry adapter has no recovered implementation')
+    stack_entries = {int(key, 16): value for key, value in profile.get('i386_sret_exports', {}).items()}
+    if stack_entries and arch != 'i386':
+        raise ValueError('stack result entry adapters require i386')
+    if not stack_entries.keys() <= functions.keys():
+        raise ValueError('stack result entry adapter has no recovered implementation')
     primary, aliases = {}, []
     for item in exports:
         address = item['address']
@@ -52,8 +57,23 @@ def build_library(source, output):
         entry_source.append('__attribute__((naked)) void ' + entry +
                             '(void) { __asm__ volatile(' +
                             json.dumps('\n'.join(moves)) + '); }\n')
+    for address, words in sorted(stack_entries.items()):
+        target = functions[address]
+        if not re.fullmatch(r'[A-Za-z_][A-Za-z_0-9]*', target) or not isinstance(words, int) or not 1 <= words <= 64:
+            raise ValueError('invalid i386 result entry description')
+        entry = 'pf_i386_result_%x' % address
+        header += '\nvoid ' + entry + '(void);\n'
+        # Darwin i386 C++ aggregate returns pop the hidden result pointer.
+        # Internal recovered calls use ordinary C with an explicit first pointer.
+        moves = ['pushl %ebp', 'movl %esp,%ebp', 'andl $-16,%esp']
+        if (-4 * words) & 15:
+            moves += ['subl $%d,%%esp' % ((-4 * words) & 15)]
+        moves += ['pushl %d(%%ebp)' % (8 + 4 * index) for index in range(words - 1, -1, -1)]
+        moves += ['call _' + target, 'movl 8(%ebp),%eax', 'leave', 'retl $4']
+        entry_source.append('__attribute__((naked)) void ' + entry +
+                            '(void) { __asm__ volatile(' + json.dumps('\n'.join(moves)) + '); }\n')
     for address, label in primary.items():
-        name = ('pf_arm64_result_%x' % address if address in result_entries else functions[address])
+        name = ('pf_arm64_result_%x' % address if address in result_entries else 'pf_i386_result_%x' % address if address in stack_entries else functions[address])
         pattern = r'(?m)^([^#\n]*\b' + re.escape(name) + r'\([^;]*\));'
         attributes = ' __asm__(' + json.dumps(label) + ')'
         if next(e for e in exports if e['name'] == label)['weak']:
@@ -102,7 +122,7 @@ def build_library(source, output):
         target = relocation['target']
         if target['kind'] == 'function':
             address = int(target['address'], 16)
-            label = ('_' + functions[address] if address in result_entries else
+            label = ('_' + functions[address] if address in result_entries or address in stack_entries else
                      primary.get(address, '_' + functions[address]))
             value = symbols[label]
         elif target['kind'] == 'data':

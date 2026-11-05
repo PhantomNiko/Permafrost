@@ -11,14 +11,12 @@ from unicorn.arm64_const import UC_ARM64_REG_X8
 
 
 def evaluate(path, language, code):
-    lib=DLL(path)
+    lib=DLL(path,instruction_limit=200000000)
     if language=='winterscript':
-        if not lib.wide:
-            raise ValueError('standalone entry fixture currently covers 64-bit targets')
         for address,text in((0x3001000,code.encode()),(0x3001200,b'answer')):
             target=address-0x1000
             lib.cpu.mem_write(target,text+b'\0')
-            lib.cpu.mem_write(address,struct.pack('<QQQ',target,len(text),len(text)))
+            lib.cpu.mem_write(address,struct.pack('<QQQ'if lib.wide else'<III',target,len(text),len(text)))
         vm,result=0x3100000,0x3110000
         lib.call('__ZN12WinterScriptC1Ev',vm)
         lib.call('__ZN12WinterScript9runScriptERKN2wm6stringE',vm,0x3001000)
@@ -27,7 +25,7 @@ def evaluate(path, language, code):
         else:arguments=(result,)+arguments
         lib.call('__ZNK12WinterScript12pullVariableERKN2wm6stringE',*arguments)
         tag=int.from_bytes(bytes(lib.cpu.mem_read(result,4)),'little')
-        payload=bytes(lib.cpu.mem_read(result+8,8))
+        payload=bytes(lib.cpu.mem_read(result+(8 if lib.wide else 4),8))
         if tag==1:return struct.unpack('<i',payload[:4])[0]
         if tag==2:return int(struct.unpack('<f',payload[:4])[0])
         raise AssertionError(('unexpected standalone numeric tag',tag))

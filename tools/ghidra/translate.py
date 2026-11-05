@@ -63,7 +63,7 @@ def signature(source):
 def rewrite_double_bits(source):
     # Wrap balanced CONCAT/mask expressions rather than attempting to parse
     # their arbitrary nesting with a regular expression.
-    pattern = r'\(double\)(?=(?:CONCAT\d+\(|\(pf_double_bits\())'
+    pattern = r'\(double\)(?=(?:CONCAT\d+\(|\(+pf_double_bits\())'
     for match in reversed(list(re.finditer(pattern, source))):
         start = match.end()
         opening = source.index('(', start)
@@ -150,6 +150,7 @@ def rewrite_scalar_storage(source):
         source=source[:match.start()]+'('+match[1]+')(uintptr_t)pf_float_bits((float)'+source[start:end]+')'+source[end:]
     source=re.sub(r'(?m)(^\s*|[=+,?:|&(]\s*|\([^()]+\*\)\s*)\*PF_PART4\((\w+), (\d+)\)',
                   r'\1*(uint32_t *)(uintptr_t)PF_PART4(\2, \3)',source)
+    source=rewrite_double_bits(source)
     source=re.sub(r'\bNAN\b(?!\s*\()', '__builtin_nanf("")', source)
     for name in re.findall(r'^  (?:undefined8|ulonglong) (\w+);',source,re.M):
         source=re.sub(r'NAN\('+name+r'\)',r'NAN(pf_bits_double('+name+'))',source)
