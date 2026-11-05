@@ -82,4 +82,7 @@ class DLL:
             cpu.reg_write(UC_ARM64_REG_SP,stack);cpu.reg_write(UC_ARM64_REG_LR,self.stop)
         cpu.emu_start(self.exports[name],self.stop,count=20000000)
         if cpu.reg_read(self.pc)!=self.stop:raise AssertionError('library function did not return at %#x'%cpu.reg_read(self.pc))
-        return cpu.reg_read(self.result)&((1<<result_bits)-1)
+        value=cpu.reg_read(self.result)
+        if result_bits>32 and not self.wide:
+            value|=cpu.reg_read(UC_ARM_REG_R1 if self.cpu_type==12 else UC_X86_REG_EDX)<<32
+        return value&((1<<result_bits)-1)

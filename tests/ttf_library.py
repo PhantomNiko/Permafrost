@@ -41,7 +41,7 @@ def decode(path,font,text,size=24,colors=(0,0,0),opacity=255):
  if not handle:return None
  bits=floating(lib,opacity,True);args=(handle,0x3001000,*colors)
  if lib.cpu_type==7:args+=(bits&0xffffffff,bits>>32)
- if lib.cpu_type==12:args+=(0,bits&0xffffffff,bits>>32)
+ if lib.cpu_type==12:args+=(bits&0xffffffff,bits>>32)
  bitmap=lib.call('__Z18wm_ttf_font_renderPvPKciiid',*args,result_bits=64 if lib.wide else 32)
  result=None
  if bitmap:

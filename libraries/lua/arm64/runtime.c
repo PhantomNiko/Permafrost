@@ -38568,4 +38568,3 @@ void recovered_1001c618(long *param_1,long param_2)
   recovered_10000ca4(buffer);
   return;
 }
-
