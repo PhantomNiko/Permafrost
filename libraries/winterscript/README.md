@@ -13,5 +13,6 @@ arithmetic. The standalone numeric payload uses signed 32-bit integers and
 python3 tools/library_native.py libraries/winterscript/arm64 build/libraries/winterscript/arm64
 ```
 
-Both targets share their C implementation in `lp64`. The 32-bit targets and
-complete 0.8 image integration remain in progress.
+The two 64-bit targets share `lp64`; i386 and ARM32 share `ilp32`. All four
+architectures pass the seven native/source comparisons. Complete 0.8 image
+integration remains in progress.
