@@ -22,7 +22,7 @@ def main():
         root = Path(directory)
         for arch in ('i386', 'x86_64', 'armv7', 'arm64'):
             objects = []
-            for index, source in enumerate(('tests/compiler_targets.c', 'kernel/compiler.c', 'kernel/runtime.c')):
+            for index, source in enumerate(('tests/compiler_targets.c', 'kernel/compiler.c', 'kernel/runtime.c', 'kernel/format.c')):
                 obj = root / (arch + '-' + str(index) + '.o')
                 compile_object(source, obj, arch, ['sdk/include'])
                 objects.append(obj)
@@ -50,7 +50,7 @@ def main():
             cpu.reg_write(stack_register, sp)
             cpu.emu_start(metadata['entry'], stop, count=2000000)
             if cpu.reg_read(result_register) != 42:
-                raise AssertionError(arch + ': compiler arithmetic mismatch')
+                raise AssertionError(arch + ': compiler arithmetic/formatting mismatch '+str(cpu.reg_read(result_register)))
             print(arch + ': source compilation, native entry, and wide arithmetic passed')
 
 

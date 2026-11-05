@@ -5,6 +5,7 @@ Pooka's Free Software License.
 """
 import argparse
 import json
+import re
 from pathlib import Path
 import struct
 
@@ -34,6 +35,7 @@ def build_kernel(source, output):
     for name, path, defines in (
         ('implementation', source/'runtime.c', []),
         ('libc', Path('kernel/runtime.c'), []),
+        ('format', Path('kernel/format.c'), []),
         ('compiler', Path('kernel/compiler.c'), []),
         ('entry', Path('kernel/entry.c'), [
             'PF_SET_LOADER_CONTEXT='+profile['set_loader_context'],
@@ -81,6 +83,12 @@ def build_kernel(source, output):
         if offset < 20 or offset+len(values) > len(image):
             raise ValueError('inline data is outside the kernel')
         image[offset:offset+len(values)] = bytes(values)
+    image=image.replace(b'WinterBoot',b'Permafrost').replace(b'WinterMoon',b'Permafrost')
+    version=profile['version'].encode()
+    def release_name(match):
+        if len(version)>len(match[1]):raise ValueError('release version exceeds its string slot')
+        return b'Permafrost OS v'+version.ljust(len(match[1]),b' ')
+    image=re.sub(rb'Permafrost OS v([0-9]+\.[0-9]+)',release_name,image)
     binary = pack_segments([(base, len(image), image),
                             (core_metadata['base'], len(core), core)], entry, arch)
     (output/'Permafrost').write_bytes(binary)

@@ -4,6 +4,9 @@
 #ifndef PF_KERNEL_LOAD_BASE
 #define PF_KERNEL_LOAD_BASE 0x20000U
 #endif
+#if defined(__i386__) || defined(__x86_64__)
+__attribute__((force_align_arg_pointer))
+#endif
 void pf_kernel_entry(void) {
 #if defined(__i386__) || defined(__x86_64__)
     __asm__ volatile("cld; fninit":::"memory");

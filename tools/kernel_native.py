@@ -70,6 +70,7 @@ def build_kernel(output, architecture='i386', profile_path=None):
         if profile.get('platform')=='uefi':
             objects.append(object_for(Path('firmware/uefi/bios-unavailable.c'),'bios-unavailable'))
     objects += [object_for(Path('kernel/runtime.c'), 'libc'),
+                object_for(Path('kernel/format.c'), 'format'),
                 object_for(Path('kernel/compiler.c'), 'compiler'),
                 object_for(Path('kernel/entry.c'), 'entry', [
                     'PF_SET_LOADER_CONTEXT=' + profile['set_loader_context'],
@@ -120,7 +121,11 @@ def build_kernel(output, architecture='i386', profile_path=None):
     image[entry - base:entry - base + 5] = b'\xe9' + struct.pack(
         '<i', symbols['pf_kernel_entry'] - entry - 5)
     image = image.replace(b'WinterBoot', b'Permafrost').replace(b'WinterMoon', b'Permafrost')
-    image = image.replace(b'Permafrost OS v0.8', b'Permafrost OS v0.7')
+    version=profile['version'].encode()
+    def release_name(match):
+        if len(version)>len(match[1]):raise ValueError('release version exceeds its string slot')
+        return b'Permafrost OS v'+version.ljust(len(match[1]),b' ')
+    image=re.sub(rb'Permafrost OS v([0-9]+\.[0-9]+)',release_name,image)
     binary = pack_segments([(base, len(image), image),
                             (profile['core_base'], len(core), core)], entry,
                            architecture=architecture)

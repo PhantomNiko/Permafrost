@@ -108,6 +108,11 @@ public class Export extends GhidraScript {
         var options=new DecompileOptions();
         if(getScriptArgs().length>8)options.setMaxPayloadMBytes(Integer.parseInt(getScriptArgs()[8]));
         decompiler.setOptions(options);
+        var selected = new HashSet<Long>();
+        if(getScriptArgs().length>9)
+            for(String line:Files.readAllLines(Path.of(getScriptArgs()[9])))
+                if(!line.isBlank())selected.add(Long.parseLong(line.trim(),16));
+        if(!selected.isEmpty() && !unitsOnly)throw new IllegalArgumentException("Selected exports require units-only");
         var explicit = new HashSet<Long>();
         var returnHints = new HashMap<Long,DataType>();
         for (String line : Files.readAllLines(Path.of(getScriptArgs()[2]))) {
@@ -173,6 +178,7 @@ public class Export extends GhidraScript {
                 var function = candidates.next();
                 long address = function.getEntryPoint().getOffset();
                 if (address < textStart || address >= textEnd) continue;
+            if(!selected.isEmpty() && !selected.contains(address))continue;
                 if (explicit.contains(address)) continue;
                 var result = decompiler.decompileFunction(function, timeout, monitor);
                 if (result.decompileCompleted()) {
@@ -196,6 +202,7 @@ public class Export extends GhidraScript {
             var function = functions.next();
             long address = function.getEntryPoint().getOffset();
             if (address < textStart || address >= textEnd) continue;
+            if(!selected.isEmpty() && !selected.contains(address))continue;
             var result = decompiler.decompileFunction(function, timeout, monitor);
             if (result.decompileCompleted()) {
                 abi.append(Long.toHexString(address)).append('\t').append(function.getName()).append('\t');
@@ -270,7 +277,15 @@ public class Export extends GhidraScript {
             }
         }
         decompiler.dispose();
-        Files.writeString(output.resolve("abi.tsv"), abi.toString());
+        Path abiFile=output.resolve("abi.tsv");
+        if(!selected.isEmpty() && Files.exists(abiFile)) {
+            StringBuilder previous=new StringBuilder();
+            for(String line:Files.readAllLines(abiFile))
+                if(!line.isBlank() && !selected.contains(Long.parseLong(line.split("\\t",2)[0],16)))
+                    previous.append(line).append('\n');
+            abi.insert(0,previous);
+        }
+        Files.writeString(abiFile, abi.toString());
         if(!unitsOnly)new CppExporter(new DecompileOptions(), false, true, false, true, true, "")
             .export(output.resolve("recovered.c").toFile(), currentProgram, null, monitor);
         println("Exported " + count + " functions");

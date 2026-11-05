@@ -1,6 +1,14 @@
 /* Cross-architecture compiler-runtime execution probe.
  * Pooka's Free Software License. */
 #include <stdint.h>
+#include <stddef.h>
+extern int pf_native_vsnprintf(char *,size_t,const char *,void *);
+static int format(char *out,size_t size,const char *pattern,...) {
+ __builtin_va_list args;__builtin_va_start(args,pattern);
+ int result=pf_native_vsnprintf(out,size,pattern,(void *)args);
+ __builtin_va_end(args);return result;
+}
+static int same(const char *left,const char *right) {while(*left && *left==*right){left++;right++;}return *left==*right;}
 volatile uint32_t small_a=4000000000u,small_b=37;
 volatile int32_t signed_a=-2147483647,signed_b=31;
 volatile uint64_t big_a=0xfedcba9876543210ull,big_b=0x1234567ull;
@@ -16,5 +24,10 @@ int main(void) {
  if((uint64_t)large32!=0x100000000ULL || (uint64_t)fraction32!=1)return 5;
  if((double)maximum!=18446744073709551616.0)return 6;
  if(high_a/high_b!=1 || high_a%high_b!=0x7fffffffU)return 7;
+ char out[96];
+ if(format(out,sizeof(out),"%s %d %X %u","ice",-42,0xabcdU,999U)!=16 || !same(out,"ice -42 ABCD 999"))return 8;
+ if(format(out,sizeof(out),"%.2f %f",1.5,-2.25)!=18 || !same(out,"1.500000 -2.250000"))return 9;
+ if(format(out,5,"%s","snowfall")!=8 || !same(out,"snow"))return 10;
+ if(format(out,sizeof(out),"%08X %q %p",0xaU,(void *)0x1234)!=10 || !same(out,"A ? 0x1234"))return 11;
  return 42;
 }
