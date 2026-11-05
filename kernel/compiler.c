@@ -84,3 +84,31 @@ uint64_t __muldi3(uint64_t a, uint64_t b) {
     }
     return out.all;
 }
+
+/* ARM32 freestanding objects can request these compiler-runtime entry points.
+ * Operate on words directly so implementing division cannot recurse through it. */
+static uint32_t divide_word(uint32_t numerator, uint32_t denominator, uint32_t *remainder) {
+    uint32_t quotient = 0, rest = 0;
+    if (denominator) {
+        for (int bit = 31; bit >= 0; --bit) {
+            rest = (rest << 1) | ((numerator >> bit) & 1u);
+            if (rest >= denominator) { rest -= denominator; quotient |= (uint32_t)1 << bit; }
+        }
+    }
+    if (remainder) *remainder = rest;
+    return quotient;
+}
+uint32_t __udivsi3(uint32_t a, uint32_t b) { return divide_word(a, b, 0); }
+uint32_t __umodsi3(uint32_t a, uint32_t b) { uint32_t rest; divide_word(a, b, &rest); return rest; }
+int32_t __divsi3(int32_t a, int32_t b) {
+    uint32_t x = a < 0 ? -(uint32_t)a : (uint32_t)a;
+    uint32_t y = b < 0 ? -(uint32_t)b : (uint32_t)b;
+    uint32_t result = divide_word(x, y, 0);
+    return (int32_t)((a < 0) != (b < 0) ? -result : result);
+}
+int32_t __modsi3(int32_t a, int32_t b) {
+    uint32_t x = a < 0 ? -(uint32_t)a : (uint32_t)a;
+    uint32_t y = b < 0 ? -(uint32_t)b : (uint32_t)b;
+    uint32_t rest; divide_word(x, y, &rest);
+    return (int32_t)(a < 0 ? -rest : rest);
+}

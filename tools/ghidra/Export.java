@@ -50,8 +50,10 @@ public class Export extends GhidraScript {
         FunctionDefinitionDataType type;
         try { type=(FunctionDefinitionDataType)new CParser(currentProgram.getDataTypeManager()).parse(parsed); }
         catch(Exception exception) { throw new Exception("Cannot parse signature: "+declaration,exception); }
+        // Reapplying a scalar signature must also discard any stale joined
+        // return storage inferred from the previous prototype.
+        function.setCustomVariableStorage(false);
         if(storage==null) {
-            function.setCustomVariableStorage(false);
             if(!declaration.matches("(?s).*__(?:fastcall|thiscall|cdecl|regparm[0-9]+).*"))
                 function.setCallingConvention(currentProgram.getCompilerSpec().getDefaultCallingConvention().getName());
         }

@@ -65,7 +65,7 @@ def inspect(binary):
                     raise ValueError('invalid symbol string')
                 name = binary[strings + ix:strings + strings_size].split(b'\0', 1)[0].decode('utf-8')
                 if tag & 0xe == 0xe:
-                    if section == 1:
+                    if any(k == '__text' and a <= address < a + n for k, a, n in sections):
                         symbols.append((address, name))
                     else:
                         data_symbols.append((address, name))

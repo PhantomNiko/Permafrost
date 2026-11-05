@@ -12,12 +12,13 @@ from capstone import Cs, CS_ARCH_X86, CS_MODE_64
 def functions(metadata):
     base = metadata['base']
     if not any(name == '_lua_probe_binary_header' for address, name in metadata['symbols']):
-        return sorted({address for address, name in metadata['symbols']} | {metadata['entry']})
+        return sorted({address for address, name in metadata['symbols']} |
+                      ({metadata['entry']} if metadata['entry'] is not None else set()))
     # The probe header contains exported mutable words in __text. They are
     # symbols, but are not functions. The shared zero-return stub is code.
     return sorted({address for address, name in metadata['symbols']
                    if address >= base + 0x84 or address in (base + 0x14, base + 0x29)} |
-                  {metadata['entry']})
+                  ({metadata['entry']} if metadata['entry'] is not None else set()))
 
 
 def main():

@@ -7,6 +7,6 @@ __asm__(
  "movl $pf_bios_gdtr,%eax\nlgdtl (%eax)\nmovl %cr0,%eax\norl $1,%eax\nmovl %eax,%cr0\n"
  "data32 ljmp $8,$.Lprotected\n.code32\n.Lprotected:\n"
  "movw $0x10,%ax\nmovw %ax,%ds\nmovw %ax,%es\nmovw %ax,%fs\nmovw %ax,%gs\nmovw %ax,%ss\n"
- "movl $0x70000,%esp\ncld\nfninit\ncall pf_firmware_main\n"
+ "movl $0x90000,%esp\ncld\nfninit\ncall pf_firmware_main\n"
  ".Lhalt:\ncli\nhlt\njmp .Lhalt\n.popsection\n"
 );
