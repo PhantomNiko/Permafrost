@@ -9,7 +9,7 @@ int main(void) {
 #if defined(PF_TEST_SERIAL_FLAG)
     *(volatile uint8_t *)(uintptr_t)PF_TEST_SERIAL_FLAG=1;
 #elif defined(__x86_64__)
-    *(volatile uint8_t *)0x2046588=1;
+    *(volatile uint8_t *)0x2050515=1;
 #else
     *(volatile uint8_t *)0x62f20=1;
 #endif

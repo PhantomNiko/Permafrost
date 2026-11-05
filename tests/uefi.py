@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Boot a temporary UEFI guest and exercise startup, SDK services, or a VM."""
 import argparse
+import re
 from pathlib import Path
 import shutil
 import socket
@@ -29,6 +30,11 @@ def main():
     parser.add_argument('--selftest',action='store_true')
     parser.add_argument('--serial-flag',type=lambda value:int(value,0))
     parser.add_argument('--timeout',type=float,default=90)
+    parser.add_argument('--memory',type=int,help='guest RAM in MiB')
+    parser.add_argument('--display-device',default='ramfb',choices=('ramfb','virtio-ramfb','virtio-gpu-pci'))
+    parser.add_argument('--command',action='append',default=[],help='type a command at the actual console')
+    parser.add_argument('--expect',action='append',default=[],help='require an exact serial output line')
+    parser.add_argument('--screenshot',type=Path,help='save the guest display as PPM')
     args=parser.parse_args();arm=args.arch in ('armv7','arm64')
     if not arm and args.vars is None:parser.error('x86 checks require --vars')
     if arm and (args.vm or args.selftest):parser.error('ARM checks currently cover startup and SDK services')
@@ -65,7 +71,7 @@ def main():
             script+='assert(runcode("/graphics.bin",$%x)==1)\n'%graphics_base
             marker='PF-GRAPHICS-PASS'
         if args.script:script+=args.script.read_text()+'\n'
-        if args.vm:script+='serial("PF-UEFI-READY")\n'
+        if args.vm or args.command:script+='serial("PF-UEFI-READY")\n'
         else:script+=('print'if arm else'serial')+'("PF-UEFI-HARDWARE-PASS")\n'
         files['startup.ws']=script.encode();disk=repack_image(base,files)
         user=Image(disk,2).files()
@@ -84,11 +90,12 @@ def main():
             '-monitor','unix:'+str(monitor)+',server=on,wait=off','-no-reboot']
         if arm:
             command+=['-machine','virt,accel=tcg','-cpu','cortex-a57'if args.arch=='arm64'else'cortex-a15',
-                '-m','512','-bios',str(args.firmware.resolve()),'-device','ramfb',
+                '-m',str(args.memory or 512),'-bios',str(args.firmware.resolve()),'-device',args.display_device,
                 '-drive','if=none,id=pf_disk,format=raw,file='+str(root/'disk.img'),'-device','virtio-blk-pci,drive=pf_disk']
+            if args.command:command+=['-device','qemu-xhci,id=pf_usb','-device','usb-kbd,bus=pf_usb.0']
         else:
             format='qcow2'if args.vars.read_bytes()[:4]==b'QFI\xfb'else'raw'
-            command+=['-machine','q35,accel=tcg','-cpu','max','-m','256',
+            command+=['-machine','q35,accel=tcg','-cpu','max','-m',str(args.memory or 256),
                 '-drive','if=pflash,format=raw,readonly=on,file='+str(args.firmware.resolve()),
                 '-drive','if=pflash,format='+format+',file='+str(root/'vars.fd'),
                 '-drive','format=raw,file='+str(root/'disk.img')]
@@ -100,7 +107,18 @@ def main():
                 deadline=time.monotonic()+args.timeout
                 while time.monotonic()<deadline and process.poll()is None:
                     output=serial.read_text(errors='replace')if serial.exists()else''
-                    if marker in output or 'PF-GRAPHICS-FAIL'in output:break
+                    complete=(bool(re.search(r'(?m)^(?:@ )*PF-CONSOLE-PASS\r?$',output))if args.command else marker in output)
+                    if complete or 'PF-GRAPHICS-FAIL'in output:break
+                    if args.command and not sent and 'PF-UEFI-READY'in output:
+                        keys={' ':'spc','+':'shift-equal','*':'shift-8','(':'shift-9',')':'shift-0','"':'shift-apostrophe','=':'equal','-':'minus','/':'slash','_':'shift-minus',',':'comma','.':'dot',':':'shift-semicolon',';':'semicolon'}
+                        with socket.socket(socket.AF_UNIX,socket.SOCK_STREAM)as control:
+                            control.settimeout(2);control.connect(str(monitor));control.recv(4096)
+                            for line in args.command+['serial("PF-CONSOLE-PASS")']:
+                                for char in line:
+                                    key=keys.get(char,'shift-'+char.lower()if char.isupper()else char)
+                                    control.sendall(('sendkey '+key+' 40\n').encode());time.sleep(.07);control.recv(8192)
+                                control.sendall(b'sendkey ret 40\n');time.sleep(.25);control.recv(8192)
+                        sent=True
                     if args.vm and not sent and 'PF-UEFI-READY'in output:
                         with socket.socket(socket.AF_UNIX,socket.SOCK_STREAM)as control:
                             control.settimeout(2);control.connect(str(monitor));control.recv(4096)
@@ -108,13 +126,22 @@ def main():
                                 control.sendall(('sendkey '+key+'\n').encode());time.sleep(.1);control.recv(8192)
                         sent=True
                     time.sleep(.1)
+                if args.screenshot and process.poll()is None:
+                    args.screenshot.parent.mkdir(parents=True,exist_ok=True)
+                    with socket.socket(socket.AF_UNIX,socket.SOCK_STREAM)as control:
+                        control.settimeout(3);control.connect(str(monitor));control.recv(4096)
+                        control.sendall(('screendump '+str(args.screenshot.resolve())+'\n').encode());time.sleep(.3);control.recv(8192)
             finally:
                 if process.poll()is None:process.terminate()
                 try:process.wait(timeout=5)
                 except subprocess.TimeoutExpired:process.kill();process.wait()
         print(output)
-        if marker not in output:
+        passed=bool(re.search(r'(?m)^(?:@ )*PF-CONSOLE-PASS\r?$',output))if args.command else marker in output
+        if not passed:
             print((root/'qemu.log').read_text(errors='replace')[-3000:]);raise SystemExit('UEFI hardware check failed')
+        results=output.split('PF-UEFI-READY',1)[-1]if args.command else output
+        for expected in args.expect:
+            if not re.search(r'(?m)^'+re.escape(expected)+r'\r?$',results):raise SystemExit('missing output line: '+expected)
         if ('PF-SDK-ARM-CALL-PASS'if arm else'PF-SDK-UEFI-CALL-PASS')not in output:raise SystemExit('native SDK service call marker missing')
         if arm and 'PF-SDK-ARM-VALUE-PASS'not in output:raise SystemExit('ARM callback value marker missing')
         if arm and 'PF-SDK-ARM-NATIVE-PASS'not in output:raise SystemExit('ARM native program marker missing')

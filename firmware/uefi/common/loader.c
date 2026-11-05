@@ -2,6 +2,7 @@
  * Boot-context fields are recovered from the 0.9 firmware and kernel.
  * Pooka's Free Software License. */
 #include "platform.h"
+#include "../../../kernel/efi_context.h"
 static System *system_table;
 static Services *services;
 static Block *disk;
@@ -226,6 +227,47 @@ static uint32_t pointer_read(uint32_t *out){
     }
     return changed;
 }
+/* GOP PixelBltOnly devices (including virtio-ramfb) expose no linear video
+ * memory. Keep a reserved BGRA surface and present it through GOP.Blt.
+ * https://uefi.org/specs/UEFI/2.10/12_Protocols_Console_Support.html */
+static Video *blt_video;
+static uint32_t *blt_pixels;
+static size_t blt_capacity;
+static uintptr_t blt_width,blt_height;
+static void video_present(void){
+    if(blt_video && blt_pixels && blt_video->blit)
+        blt_video->blit(blt_video,blt_pixels,2,0,0,0,0,blt_width,blt_height,blt_width*4);
+}
+static unsigned bit_shift(uint32_t mask);
+static int video_select(Video *video){
+    if(!video || !video->mode || !video->mode->info)return 0;
+    VideoMode *mode=video->mode;VideoInfo *info=mode->info;
+    if(info->format>3 || !info->width || !info->height)return 0;
+    uint64_t pixels=mode->framebuffer;uintptr_t bytes=mode->bytes,stride=info->stride;
+    uint32_t format=info->format;
+    if(format==3 || !pixels){
+        if(!video->blit || info->width>8192 || info->height>8192)return 0;
+        size_t needed=(size_t)info->width*info->height*4;
+        if(needed>blt_capacity){
+            uint32_t *next=allocate(needed,0);if(!next)return 0;
+            if(blt_pixels)services->free_pages((uintptr_t)blt_pixels,(blt_capacity+4095)/4096);
+            blt_pixels=next;blt_capacity=needed;clear(blt_pixels,needed);
+        }
+        blt_video=video;blt_width=info->width;blt_height=info->height;
+        pixels=(uintptr_t)blt_pixels;bytes=needed;stride=info->width;format=1;
+    }else{
+        if(stride<info->width)return 0;
+        blt_video=0;
+    }
+    context[0x13]=(uint32_t)pixels;context[0x192]=(uint32_t)(pixels>>32);
+    context[0x14]=(uint32_t)bytes;context[0x15]=stride*4;
+    context[0x16]=info->width;context[0x17]=info->height;context[0x18]=32;
+    uint32_t red=info->red,green=info->green,blue=info->blue;
+    if(format<2){red=format?0xff0000U:0xffU;green=0xff00;blue=format?0xffU:0xff0000U;}
+    context[0x19]=red;context[0x1a]=green;context[0x1b]=blue;
+    context[0x1c]=bit_shift(red);context[0x1d]=bit_shift(green);context[0x1e]=bit_shift(blue);
+    return 1;
+}
 static void video_context(void);
 static uint32_t video_change(uint32_t *request){
     uintptr_t count=0;void **handles=0;uint32_t result=0;
@@ -238,13 +280,13 @@ static uint32_t video_change(uint32_t *request){
             for(uint32_t n=0;n<video->mode->maximum;n++){
                 uintptr_t size=0;VideoInfo *info=0;
                 Status status=video->query(video,n,&size,&info);
-                int match=!failed(status) && info && info->format<3 && info->width==request[7] && info->height==request[8];
+                int match=!failed(status) && info && info->format<=3 && info->width==request[7] && info->height==request[8];
                 if(info)services->free_pool(info);
                 if(match){selected=n;break;}
             }
             if(selected!=video->mode->current && failed(video->set(video,selected)))continue;
         }
-        if(!video->mode->info || video->mode->info->format>2)continue;
+        if(!video->mode->info || video->mode->info->format>3)continue;
         video_context();
         request[11]=context[0x13];request[12]=context[0x192];
         for(unsigned n=0;n<11;n++)request[13+n]=context[0x14+n];
@@ -256,7 +298,7 @@ static uint32_t dispatch(uint32_t *request){
     if(!request)return 0;
     uint32_t result=0;
     switch(request[0]){
-    case 1:result=key_code();break;
+    case 1:video_present();result=key_code();if(blt_video && !result)services->stall(16000);break;
     case 2:case 3:{
         uint64_t lba=request[2]|(uint64_t)request[3]<<32;
         uintptr_t bytes=request[5];void *buffer=(void *)(uintptr_t)request[4];
@@ -266,7 +308,7 @@ static uint32_t dispatch(uint32_t *request){
     }
     case 7:if(request[4] && request[5]>=32)result=pointer_read((uint32_t *)(uintptr_t)request[4]);break;
     case 8:result=video_change(request);break;
-    case 4:result=!failed(services->stall(request[6]));break;
+    case 4:video_present();result=!failed(services->stall(request[6]));break;
     case 5:result=!disk->flush || !failed(disk->flush(disk));break;
     case 6:if(system_table->output && system_table->output->write && request[4])result=!failed(system_table->output->write(system_table->output,(uint16_t *)(uintptr_t)request[4]));break;
     }
@@ -282,23 +324,17 @@ static uint32_t OS_ABI bridge(uint32_t *request){
 }
 static unsigned bit_shift(uint32_t mask){unsigned n=0;if(!mask)return 0;while(!(mask&1)){mask>>=1;n++;}return n;}
 static void video_context(void){
+    Video *console=0;
+    if(system_table->output_handle && !failed(services->protocol(system_table->output_handle,&video_guid,(void **)&console)) && video_select(console))return;
     uintptr_t count=0;void **handles=0;
     if(failed(services->handles(2,&video_guid,0,&count,&handles)))return;
     for(uintptr_t i=0;i<count;i++){
         Video *video=0;
-        if(failed(services->protocol(handles[i],&video_guid,(void **)&video)) || !video || !video->mode || !video->mode->info)continue;
-        VideoMode *mode=video->mode;VideoInfo *info=mode->info;
-        if(info->format>2 || !info->width || !info->height || info->stride<info->width)continue;
-        context[0x13]=(uint32_t)mode->framebuffer;context[0x192]=(uint32_t)(mode->framebuffer>>32);
-        context[0x14]=(uint32_t)mode->bytes;context[0x15]=info->stride*4;
-        context[0x16]=info->width;context[0x17]=info->height;context[0x18]=32;
-        uint32_t red=info->red,green=info->green,blue=info->blue;
-        if(info->format<2){red=info->format?0xff0000U:0xffU;green=0xff00;blue=info->format?0xffU:0xff0000U;}
-        context[0x19]=red;context[0x1a]=green;context[0x1b]=blue;
-        context[0x1c]=bit_shift(red);context[0x1d]=bit_shift(green);context[0x1e]=bit_shift(blue);break;
+        if(!failed(services->protocol(handles[i],&video_guid,(void **)&video)) && video_select(video))break;
     }
     services->free_pool(handles);
 }
+
 static int heap_context(void){
     uintptr_t size=sizeof(map_buffer),key=0,stride=0;uint32_t version=0;
     if(failed(services->memory_map(&size,map_buffer,&key,&stride,&version)) || stride<40)return 0;
@@ -365,11 +401,13 @@ Status EFI_ABI pf_efi_entry(void *image,System *table){
         if(kernel){entry=load_kernel(kernel,bytes);services->free_pages((uintptr_t)kernel,(bytes+4095)/4096);}
     }
     if(!entry){message("Permafrost kernel could not be loaded.\r\n");return (Status)-1;}
-    context[0]=0x33454657;context[1]=3;context[2]=0xea8;
+    context[0]=0x33454657;context[1]=3;context[2]=PF_EFI_CONTEXT_BYTES;
     context[3]=(uintptr_t)table;context[4]=(uintptr_t)services;context[9]=disk->media->id;
     context[10]=payload_sectors;context[11]=starts[0];context[12]=lengths[0];context[13]=starts[1];
     context[0x12]=(uint32_t)payload_lba;context[0x21]=(uint32_t)(disk->media->last+1);
     context[0x45]=(uintptr_t)bridge;context[0x46]=(uintptr_t)command;
+    context[0xea8/4]=PF_EFI_BRIDGE_MAGIC;context[0xeac/4]=1;
+    *(uint64_t *)((uint8_t *)context+0xeb0)=(uintptr_t)bridge;
     context[0x8c]=1;context[0x8d]=(uintptr_t)io_buffer;context[0x8e]=65536;
     ((uint64_t *)(context+0x194))[0]=(uintptr_t)table;((uint64_t *)(context+0x194))[1]=(uintptr_t)services;
     ((uint64_t *)(context+0x194))[2]=(uintptr_t)table->output;((uint64_t *)(context+0x194))[3]=(uintptr_t)table->input;

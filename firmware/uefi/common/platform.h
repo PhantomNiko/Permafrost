@@ -66,7 +66,7 @@ typedef struct Video Video;
 struct Video {
     Status(EFI_ABI *query)(Video *,uint32_t,uintptr_t *,VideoInfo **);
     Status(EFI_ABI *set)(Video *,uint32_t);
-    void *blit;VideoMode *mode;
+    Status(EFI_ABI *blit)(Video *,uint32_t *,uint32_t,uintptr_t,uintptr_t,uintptr_t,uintptr_t,uintptr_t,uintptr_t,uintptr_t);VideoMode *mode;
 };
 typedef struct {int32_t x,y,z;uint8_t left,right,pad[2];} RelativeState;
 typedef struct {uint64_t x,y,z;uint8_t left,right,pad[6];} RelativeMode;

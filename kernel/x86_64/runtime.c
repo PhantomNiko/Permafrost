@@ -1,3 +1,4 @@
+#include "efi_context.h"
 /* Permafrost recovered implementation; Pooka's Free Software License.
  * Fixed entry addresses and original function boundaries are recorded
  * separately in recovery metadata. */
@@ -4995,7 +4996,7 @@ uint recovered_2003a0c(uint param_1,ulonglong param_2)
   puVar3[1] = 0;
                     /* WARNING: Could not recover jumptable at 0x02003a3d. Too many branches */
                     /* WARNING: Treating indirect jump as call */
-  uVar2 = (*(code *)(ulong)uVar2)(*(undefined4 *)(lVar1 + 0x118));
+  uVar2 = ((uint (*)(uint *))pf_efi_bridge_address((void *)lVar1))(puVar3);
   return uVar2;
 }
 
@@ -21541,7 +21542,7 @@ uchar recovered_2013c78(char *buffer,ulong capacity,char *prompt,int allow_escap
         cVar2 = (char)uVar4;
         if ((cVar2 == '\r') || (uVar5 = (ushort)(uVar4 >> 8) & 0xff, uVar5 == 0x1c)) {
           (&DAT_02050d50)[uVar8] = 0;
-          recovered_200195b(local_268,0x200,&DAT_02045ea0);
+          recovered_200195b(local_268,0x200,&DAT_02045ea0,(char *)&DAT_02050d50);
           goto LAB_02013f33;
         }
         capacity = CONCAT71((int7)(capacity >> 8),uVar5 != 1);
@@ -21590,7 +21591,7 @@ LAB_02013e08:
         DAT_02055d99 = 1;
       }
       (&DAT_02050d50)[uVar8] = 0;
-      recovered_200195b(local_268,0x200,&DAT_02045ea0);
+      recovered_200195b(local_268,0x200,&DAT_02045ea0,(char *)&DAT_02050d50);
       recovered_20040da(&DAT_02046228);
 LAB_02013f33:
       if (((char)local_38 != '\0') && (local_268[0] != '\0')) {
@@ -26734,7 +26735,7 @@ byte recovered_2019644(undefined1 *param_1,char *param_2,uint param_3,uint *in_R
     in_RCX = (uint **)param_1;
   }
   local_40 = param_2;
-  recovered_200195b((char *)local_248,0x200,&DAT_02045ea0);
+  recovered_200195b((char *)local_248,0x200,&DAT_02045ea0,(char *)in_RCX);
   recovered_201983d(local_248);
   if (local_248[0] == '\0') {
     return 1;
@@ -29286,9 +29287,9 @@ LAB_0201c6a6:
   do {
     recovered_201cb8d();
     in_RCX = (uint **)&DAT_02050d50;
-    recovered_200195b((char *)pppppppuVar12,0x200,&DAT_02045ea0);
+    recovered_200195b((char *)pppppppuVar12,0x200,&DAT_02045ea0,(char *)&DAT_02050d50);
     recovered_201983d((uchar *)pppppppuVar12);
-    if ((char)in_RDX != '\0') {
+    if (*(char *)pppppppuVar12 != '\0') {
       recovered_20152c8(&DAT_02046223,&DAT_02045d30,pppppppuVar12);
       uVar7 = recovered_20198ab((long)pppppppuVar12,in_R8_00,(ulong)in_R9_01);
       if ((char)uVar7 == '\0') {

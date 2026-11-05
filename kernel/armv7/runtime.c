@@ -71873,27 +71873,14 @@ undefined4 recovered_4044a268(int param_1,int param_2,char *param_3,undefined4 p
 /* WARNING: Removing unreachable block (ram,0x4044a310) */
 
 void recovered_4044a2dc(int param_1)
-
 {
-  unsigned char frame[572] = {0};
-
-  bool bVar1;
-  char *pcVar2;
-
-  if (param_1 == 0) {
-    recovered_40416ad4(DAT_4044a348);
-    return;
+  char *text=0;
+  if(!param_1){recovered_40416ad4(DAT_4044a348);return;}
+  if(!recovered_40434640((int *)param_1,(int *)&text)){
+    recovered_40416ad4(DAT_4044a340);return;
   }
-  bVar1 = recovered_40434640((int *)param_1,aiStack_20c + 0x80);
-  if (bVar1) {
-    pcVar2 = DAT_4044a344;
-  }
-  else {
-    pcVar2 = DAT_4044a340;
-  }
-  recovered_40416ad4(pcVar2);
-  recovered_40400b8c((void *)0x0);
-  return;
+  recovered_40416ad4(text ? text : DAT_4044a344);
+  recovered_40400b8c(text);
 }
 
 #undef DAT_4044a340

@@ -38,10 +38,6 @@ for every application or physical hardware configuration.
 
 Known limits:
 
-- The tested ARM64 QEMU/UTM firmware exposes no usable linear framebuffer;
-  its virtio GOP is PixelBltOnly with framebuffer address zero. The reference
-  has the same limitation in that VM. Serial startup and SDK services are
-  testable; a graphical ARM64 boot is not established with this firmware.
 - On ARM32, chaining the service and graphics fixtures in one boot fails in
   both the original kernel and the reconstruction. Each fixture passes in a
   separate boot; the chained workflow remains a reference compatibility limit.
@@ -52,3 +48,20 @@ Known limits:
   standard library, exceptions or RTTI. The guest DLLs preserve original C++
   export names for compatibility; exhaustive foreign vtable interoperability
   is not established by the direct-entry fixtures.
+
+UEFI follow-up fixes cover interactive x86-64 line copying, ARM32 console
+result ownership, the full-width
+firmware bridge used when ARM64 firmware loads above 4 GiB, and GOP
+PixelBltOnly displays. The loader supplies a reserved BGRA surface and
+presents it with GOP.Blt during input polling and waits. UTM virtio-ramfb
+boots now have visible output on ARM32 and ARM64; ARM64 is also tested
+with 4096 MiB of RAM.
+
+The console regression types expressions, strings and variable assignments
+through QEMU keyboard events rather than relying only on startup scripts.
+`tests/uefi.py --command` supports this check, `--expect` requires serial
+result lines, and `--screenshot` captures the display.
+
+Follow-up validation includes typed x86-64 expressions and persistent
+variables, ARM32/ARM64 virtio-ramfb framebuffer and window lifecycle checks,
+ARM64 SDK services with 4096 MiB RAM, and the BIOS hardware suite.

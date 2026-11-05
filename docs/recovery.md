@@ -33,3 +33,12 @@ WMAP v11 is a 188-byte table of 32-bit service addresses on every CPU. The SDK
 decodes those slots to native function pointers. Callback values use 24 bytes
 on 32-bit targets and 40 on 64-bit targets; other records have explicit wire
 layouts documented in `sdk/include/permafrost.h`.
+
+### Full-width EFI bridge extension
+
+The WFE3 context retains its legacy fields, including the 32-bit bridge at
+0x114. Source-built loaders append a versioned extension: total size 0xeb8,
+magic 0x34424650 at 0xea8, extension version 1 at 0xeac, and the 64-bit bridge
+address at 0xeb0. The x86-64 and ARM64 kernels prefer this extension and
+fall back to the legacy field for older contexts. This prevents truncation
+when firmware code is above 4 GiB. `tests/efi_context.c` checks both paths.

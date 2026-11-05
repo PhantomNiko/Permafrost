@@ -1,3 +1,4 @@
+#include "efi_context.h"
 /* Permafrost recovered implementation; Pooka's Free Software License.
  * Fixed entry addresses and original function boundaries are recorded
  * separately in recovery metadata. */
@@ -5275,7 +5276,7 @@ uint recovered_40403cac(uint command) {
  uint address=recovered_40403c7c();if(!address)return 0;
  uint *request=(uint *)(uintptr_t)address;
  request[0]=command;request[1]=0;
- return ((uint (*)(uint *))(uintptr_t)*(uint *)((*(uintptr_t *)0x40445ef8U)+0x114))(request);
+ return ((uint (*)(uint *))pf_efi_bridge_address((void *)*(uintptr_t *)0x40445ef8U))(request);
 }
 
 
@@ -26233,7 +26234,7 @@ void recovered_40416170(undefined4 param_1,undefined4 param_2,undefined1 param_3
 #undef DAT_4044d080
 #define DAT_4044d080 (*(uint8_t *)(0x4044d080U))
 #undef DAT_4044d0a3
-#define DAT_4044d0a3 (*(uint8_t *)(0x4044d0a3U))
+#define DAT_4044d0a3 (*(uint16_t *)(0x4044d0a3U))
 #undef DAT_4044d0a5
 #define DAT_4044d0a5 (*(byte *)(0x4044d0a5U))
 #undef DAT_4044d0a6
