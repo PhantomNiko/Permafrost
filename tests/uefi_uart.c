@@ -6,7 +6,9 @@ static void output(uint16_t port,uint8_t value) {
 int main(void) {
     output(0x3f9,0);output(0x3fb,0x80);output(0x3f8,3);output(0x3f9,0);
     output(0x3fb,3);output(0x3fc,11);
-#if defined(__x86_64__)
+#if defined(PF_TEST_SERIAL_FLAG)
+    *(volatile uint8_t *)(uintptr_t)PF_TEST_SERIAL_FLAG=1;
+#elif defined(__x86_64__)
     *(volatile uint8_t *)0x2046588=1;
 #else
     *(volatile uint8_t *)0x62f20=1;

@@ -15,7 +15,7 @@ from native import inspect
 def main():
     from unicorn import Uc, UC_ARCH_X86, UC_ARCH_ARM, UC_ARCH_ARM64, UC_MODE_32, UC_MODE_64, UC_MODE_ARM
     from unicorn.x86_const import UC_X86_REG_ESP, UC_X86_REG_EAX, UC_X86_REG_RSP, UC_X86_REG_RAX
-    from unicorn.arm_const import UC_ARM_REG_SP, UC_ARM_REG_LR, UC_ARM_REG_R0
+    from unicorn.arm_const import UC_ARM_REG_SP, UC_ARM_REG_LR, UC_ARM_REG_R0, UC_ARM_REG_FPEXC, UC_ARM_REG_C1_C0_2
     from unicorn.arm64_const import UC_ARM64_REG_SP, UC_ARM64_REG_X30, UC_ARM64_REG_X0
     base, stop, stack = 0x40400000, 0x40600000, 0x405fe000
     with tempfile.TemporaryDirectory(prefix='permafrost-compiler-') as directory:
@@ -37,6 +37,8 @@ def main():
                 cpu = Uc(UC_ARCH_ARM if arch == 'armv7' else UC_ARCH_ARM64, UC_MODE_ARM)
                 stack_register = UC_ARM_REG_SP if arch == 'armv7' else UC_ARM64_REG_SP
                 result_register = UC_ARM_REG_R0 if arch == 'armv7' else UC_ARM64_REG_X0
+            if arch=='armv7':
+                cpu.reg_write(UC_ARM_REG_C1_C0_2,0xf<<20);cpu.reg_write(UC_ARM_REG_FPEXC,1<<30)
             cpu.mem_map(base, stop - base)
             cpu.mem_write(metadata['base'], memory)
             if arch in ('i386', 'x86_64'):

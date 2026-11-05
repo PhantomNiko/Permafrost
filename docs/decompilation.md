@@ -33,3 +33,15 @@ compiled state array; retaining an analysis address produces an invalid
 pointer after loading. `tests/png_library.py` compares decoded pixels,
 all five PNG filters, stored and compressed streams, and malformed inputs
 between a reference and source-built x86-64 library.
+
+Darwin ARM64 variadic arguments occupy caller stack slots. `Varargs.java`
+recovers constant format strings, including alternatives selected by branches,
+and assigns each call an analysis signature with the required stack words.
+The emitted aliases resolve to ordinary C variadic implementations. Native
+formatting comparisons also exercise these call sites across size boundaries.
+Dynamic formats remain explicit review items.
+
+`Export.java` accepts optional timeout, inference-pass count, `units-only`,
+and maximum-payload-MiB arguments after its normal five arguments. Large
+WinterScript functions require a larger response limit than Ghidra's default.
+These limits affect analysis only; release builds consume checked-in C/C++.

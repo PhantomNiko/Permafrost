@@ -260,7 +260,7 @@ def main():
         pointer_names.update(re.findall(r'^  [\w ]+\*+\s*(\w+)(?:\s*\[.*?\])?;', source, re.M))
         locals_used = [row for row in metadata if row[0] == 'L']
         frame_size = max([32] + [-int(row[2]) + 16 for row in locals_used])
-        addressed_offsets = {int(x, 0) for x in re.findall(('register0x00000020' if WIDE else 'register0x00000010')+r'\s*\+\s*(-0x[0-9a-f]+)', source)}
+        addressed_offsets = {int(x, 0) for x in re.findall(current.get('stack_register', 'register0x00000020' if WIDE else 'register0x00000010')+r'\s*\+\s*(-0x[0-9a-f]+)', source)}
         macros = []
         for row in locals_used:
             _, name, offset, kind = row
@@ -284,7 +284,7 @@ def main():
             bits=len(raw)*4
             if offset>=1<<(bits-1): offset-=1<<bits
             macros.append('#define %s (*(uint8_t *)(frame + %d))'%(name,frame_size+offset))
-        source = source.replace('register0x00000020' if WIDE else 'register0x00000010', '(uintptr_t)(frame + %d)' % frame_size)
+        source = source.replace(current.get('stack_register', 'register0x00000020' if WIDE else 'register0x00000010'), '(uintptr_t)(frame + %d)' % frame_size)
         source = re.sub(r'__(?:fastcall|cdecl|thiscall|regparm[0-9])\s+', '', source)
         pointer_fields = {(row[1], int(row[2])): int(row[3]) for row in metadata if row[0] == 'P'}
         field_occurrences = {}

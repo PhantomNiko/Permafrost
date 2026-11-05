@@ -113,3 +113,24 @@ int32_t __modsi3(int32_t a, int32_t b) {
     uint32_t rest; divide_word(x, y, &rest);
     return (int32_t)(a < 0 ? -rest : rest);
 }
+
+/* Convert IEEE values without asking the compiler for the same u64 helper. */
+uint64_t __fixunsdfdi(double value) {
+    union {double number;uint64_t bits;} source={.number=value};
+    int exponent=(int)((source.bits>>52)&2047)-1023;
+    if((source.bits>>63) || exponent<0)return 0;
+    if(exponent>=64)return UINT64_MAX;
+    uint64_t significand=(source.bits&0xfffffffffffffULL)|0x10000000000000ULL;
+    return exponent>=52?significand<<(exponent-52):significand>>(52-exponent);
+}
+uint64_t __fixunssfdi(float value) {
+    union {float number;uint32_t bits;} source={.number=value};
+    int exponent=(int)((source.bits>>23)&255)-127;
+    if((source.bits>>31) || exponent<0)return 0;
+    if(exponent>=64)return UINT64_MAX;
+    uint64_t significand=(source.bits&0x7fffffU)|0x800000U;
+    return exponent>=23?significand<<(exponent-23):significand>>(23-exponent);
+}
+double __floatundidf(uint64_t value) {
+    return (double)(uint32_t)(value>>32)*4294967296.0+(double)(uint32_t)value;
+}

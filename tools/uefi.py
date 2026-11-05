@@ -7,13 +7,13 @@ from cc import compile_object
 from pe import inspect,pack
 
 
-def build_loader(output,architecture):
+def build_loader(output,architecture,source_root=None):
     if architecture=='x86_64':
         from elf64 import Object,link
     elif architecture=='i386':
         from elf32 import Object,link
     else:raise ValueError('unsupported EFI architecture')
-    root=Path('firmware/uefi')/architecture
+    root=Path(source_root) if source_root is not None else Path('firmware/uefi')/architecture
     output.mkdir(parents=True,exist_ok=True)
     flags=['-Wno-int-conversion','-Wno-incompatible-pointer-types',
            '-Wno-incompatible-function-pointer-types','-fshort-wchar']

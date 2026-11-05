@@ -102,6 +102,12 @@ public class Export extends GhidraScript {
         DecompInterface decompiler = new DecompInterface();
         long textStart = Long.decode(getScriptArgs()[3]);
         long textEnd = Long.decode(getScriptArgs()[4]);
+        int timeout=getScriptArgs().length>5?Integer.parseInt(getScriptArgs()[5]):60;
+        int inferencePasses=getScriptArgs().length>6?Integer.parseInt(getScriptArgs()[6]):3;
+        boolean unitsOnly=getScriptArgs().length>7 && getScriptArgs()[7].equals("units-only");
+        var options=new DecompileOptions();
+        if(getScriptArgs().length>8)options.setMaxPayloadMBytes(Integer.parseInt(getScriptArgs()[8]));
+        decompiler.setOptions(options);
         var explicit = new HashSet<Long>();
         var returnHints = new HashMap<Long,DataType>();
         for (String line : Files.readAllLines(Path.of(getScriptArgs()[2]))) {
@@ -161,14 +167,14 @@ public class Export extends GhidraScript {
         // Commit inferred register arguments before exporting callers. A flat
         // optimized binary mixes public cdecl and internal register conventions.
         // Without this pass callers misleadingly appear to omit their arguments.
-        for (int pass = 0; pass < 3; pass++) {
+        for (int pass = 0; pass < inferencePasses; pass++) {
             var candidates = currentProgram.getFunctionManager().getFunctions(false);
             while (candidates.hasNext() && !monitor.isCancelled()) {
                 var function = candidates.next();
                 long address = function.getEntryPoint().getOffset();
                 if (address < textStart || address >= textEnd) continue;
                 if (explicit.contains(address)) continue;
-                var result = decompiler.decompileFunction(function, 60, monitor);
+                var result = decompiler.decompileFunction(function, timeout, monitor);
                 if (result.decompileCompleted()) {
                     try {
                         HighFunctionDBUtil.commitParamsToDatabase(result.getHighFunction(), true,
@@ -190,7 +196,7 @@ public class Export extends GhidraScript {
             var function = functions.next();
             long address = function.getEntryPoint().getOffset();
             if (address < textStart || address >= textEnd) continue;
-            var result = decompiler.decompileFunction(function, 60, monitor);
+            var result = decompiler.decompileFunction(function, timeout, monitor);
             if (result.decompileCompleted()) {
                 abi.append(Long.toHexString(address)).append('\t').append(function.getName()).append('\t');
                 boolean firstParameter = true;
@@ -265,7 +271,7 @@ public class Export extends GhidraScript {
         }
         decompiler.dispose();
         Files.writeString(output.resolve("abi.tsv"), abi.toString());
-        new CppExporter(new DecompileOptions(), false, true, false, true, true, "")
+        if(!unitsOnly)new CppExporter(new DecompileOptions(), false, true, false, true, true, "")
             .export(output.resolve("recovered.c").toFile(), currentProgram, null, monitor);
         println("Exported " + count + " functions");
     }

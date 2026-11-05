@@ -22,6 +22,10 @@ class Machine:
         architecture = UC_ARCH_ARM if self.cpu_type == 12 else UC_ARCH_ARM64 if arm else UC_ARCH_X86
         mode = UC_MODE_ARM if arm else UC_MODE_64 if self.cpu_type == 0x1000007 else UC_MODE_32
         self.cpu = Uc(architecture, mode)
+        if self.cpu_type == 12:
+            from unicorn.arm_const import UC_ARM_REG_C1_C0_2, UC_ARM_REG_FPEXC
+            self.cpu.reg_write(UC_ARM_REG_C1_C0_2,0xf<<20)
+            self.cpu.reg_write(UC_ARM_REG_FPEXC,1<<30)
         self.cpu.mem_map(0, 0x10000 if arm else 0x5000000)
         if arm:
             self.cpu.mem_map(0x40000000, 0x8000000)

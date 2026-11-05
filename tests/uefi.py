@@ -25,13 +25,15 @@ def main():
     parser.add_argument('--script',type=Path)
     parser.add_argument('--services',action='store_true')
     parser.add_argument('--selftest',action='store_true')
+    parser.add_argument('--serial-flag',type=lambda value:int(value,0))
     parser.add_argument('--timeout',type=float,default=90)
     args=parser.parse_args();base=args.image.read_bytes();root_source=Path(__file__).parent
     with tempfile.TemporaryDirectory(prefix='permafrost-uefi-')as temporary:
         root=Path(temporary);files=Image(base,0).files()
         def compile(source,name,address):
             target=root/name
-            subprocess.run([sys.executable,str(args.sdk/'bin/pf-cc'),str(source),'--arch',args.arch,
+            defines=['-D','PF_TEST_SERIAL_FLAG='+hex(args.serial_flag)]if args.serial_flag is not None and name=='uart.bin'else[]
+            subprocess.run([sys.executable,str(args.sdk/'bin/pf-cc'),str(source),*defines,'--arch',args.arch,
                 '--format','flat','--base',hex(address),'-o',str(target)],check=True,stdout=subprocess.DEVNULL)
             files[name]=target.read_bytes()
         compile(root_source/'uefi_uart.c','uart.bin',0x240000)
