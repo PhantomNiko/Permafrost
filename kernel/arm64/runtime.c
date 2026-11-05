@@ -48328,7 +48328,7 @@ ulonglong recovered_404292a8(int *param_1,long param_2,uint param_3)
   ulong uVar4;
   long lVar5;
   char *pcVar6;
-  double vararg0;
+  ulonglong vararg0;
   long lVar7;
   ulong uVar8;
 
@@ -48345,11 +48345,11 @@ ulonglong recovered_404292a8(int *param_1,long param_2,uint param_3)
   }
   switch((uintptr_t)(*param_1)) {
   case 1:
-    vararg0 = (double)(ulong)(uint)param_1[1];
+    vararg0 = (uint)param_1[1];
     pcVar3 = &DAT_4043e242;
     goto LAB_404294ec;
   case 2:
-    vararg0 = (double)pf_bits_float((uint32_t)param_1[2]);
+    vararg0 = pf_double_bits((double)pf_bits_float((uint)param_1[2]));
     pcVar3 = &DAT_4043e416;
     goto LAB_404294ec;
   case 3:
@@ -48401,10 +48401,10 @@ ulonglong recovered_404292a8(int *param_1,long param_2,uint param_3)
     }
     break;
   case 6:
-    vararg0 = (double)(ulong)(uint)param_1[1];
+    vararg0 = (uint)param_1[1];
     pcVar3 = (char *)0x4043e422;
 LAB_404294ec:
-    pf_varargs_404018a4_1(acStack_b0,0x60,pcVar3,pf_double_bits(vararg0));
+    pf_varargs_404018a4_1(acStack_b0,0x60,pcVar3,vararg0);
     pcVar3 = acStack_b0;
 LAB_404294f4:
     uVar1 = recovered_404295bc((long *)param_2,pcVar3);

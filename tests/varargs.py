@@ -48,6 +48,9 @@ def compact_text(machine, value):
     if machine.cpu_type==0x100000c:
         from unicorn.arm64_const import UC_ARM64_REG_SP,UC_ARM64_REG_X30,UC_ARM64_REG_X0,UC_ARM64_REG_X1
         for register,argument in ((UC_ARM64_REG_SP,machine.stack),(UC_ARM64_REG_X30,machine.stop),(UC_ARM64_REG_X0,value),(UC_ARM64_REG_X1,machine.data)):cpu.reg_write(register,argument)
+    elif machine.cpu_type==12:
+        from unicorn.arm_const import UC_ARM_REG_SP,UC_ARM_REG_LR,UC_ARM_REG_R0,UC_ARM_REG_R1,UC_ARM_REG_R2
+        for register,argument in ((UC_ARM_REG_SP,machine.stack),(UC_ARM_REG_LR,machine.stop),(UC_ARM_REG_R0,value&0xffffffff),(UC_ARM_REG_R1,value>>32),(UC_ARM_REG_R2,machine.data)):cpu.reg_write(register,argument)
     else:
         from unicorn.x86_const import UC_X86_REG_RSP,UC_X86_REG_RDI,UC_X86_REG_RSI
         cpu.reg_write(UC_X86_REG_RSP,machine.stack-8);cpu.mem_write(machine.stack-8,struct.pack('<Q',machine.stop))
@@ -69,7 +72,7 @@ def main():
         actual,reference=format_text(source,text,words),format_text(native,text,words)
         assert actual==reference==expected,(actual,reference,expected)
     print('snprintf: 3 native/source varargs cases passed.')
-    if metadata['cpu'] in (0x1000007,0x100000c):
+    if metadata['cpu'] in (12,0x1000007,0x100000c):
         address=next(a for a,n in metadata['symbols']if n=='_format_compact_bytes')
         name='recovered_%x'%address;source.address=mapping.get(name,mapping.get('_'+name));native.address=address
         for value in (0,1,1023,1024,1048575,1048576,0x40000000,10*0x40000000,1<<40):

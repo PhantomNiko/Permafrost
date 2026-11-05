@@ -17,28 +17,34 @@ def main():
     parser.add_argument('image',type=Path)
     parser.add_argument('--qemu',type=Path,required=True)
     parser.add_argument('--firmware',type=Path,required=True)
-    parser.add_argument('--vars',type=Path,required=True)
+    parser.add_argument('--vars',type=Path)
     parser.add_argument('--resource-dir',type=Path)
     parser.add_argument('--sdk',type=Path,default=Path('build/Permafrost0.7.sdk'))
-    parser.add_argument('--arch',choices=('i386','x86_64'),default='x86_64')
+    parser.add_argument('--arch',choices=('i386','x86_64','armv7','arm64'),default='x86_64')
+    parser.add_argument('--compiler',type=Path,help='use a source compiler instead of the SDK compiler')
     parser.add_argument('--vm',choices=('lua','rwby','winterscript'))
     parser.add_argument('--script',type=Path)
     parser.add_argument('--services',action='store_true')
     parser.add_argument('--selftest',action='store_true')
     parser.add_argument('--serial-flag',type=lambda value:int(value,0))
     parser.add_argument('--timeout',type=float,default=90)
-    args=parser.parse_args();base=args.image.read_bytes();root_source=Path(__file__).parent
+    args=parser.parse_args();arm=args.arch in ('armv7','arm64')
+    if not arm and args.vars is None:parser.error('x86 checks require --vars')
+    if arm and (args.services or args.vm or args.selftest):parser.error('ARM checks currently cover startup and native service calls')
+    base=args.image.read_bytes();root_source=Path(__file__).parent
     with tempfile.TemporaryDirectory(prefix='permafrost-uefi-')as temporary:
         root=Path(temporary);files=Image(base,0).files()
         def compile(source,name,address):
             target=root/name
             defines=['-D','PF_TEST_SERIAL_FLAG='+hex(args.serial_flag)]if args.serial_flag is not None and name=='uart.bin'else[]
-            subprocess.run([sys.executable,str(args.sdk/'bin/pf-cc'),str(source),*defines,'--arch',args.arch,
+            subprocess.run([sys.executable,str(args.compiler or args.sdk/'bin/pf-cc'),str(source),*defines,'--arch',args.arch,
                 '--format','flat','--base',hex(address),'-o',str(target)],check=True,stdout=subprocess.DEVNULL)
             files[name]=target.read_bytes()
-        compile(root_source/'uefi_uart.c','uart.bin',0x240000)
-        script='assert(runcode("/uart.bin",$240000)==1)\ndevice("mount",4,"FAT32")\ndevice("target",4)\n'
+        program_base=0x42000000 if arm else 0x240000
+        compile(root_source/('arm_uart.c'if arm else'uefi_uart.c'),'uart.bin',program_base)
+        script='assert(runcode("/uart.bin",$%x)==1)\ndevice("mount",4,"FAT32")\ndevice("target",4)\n'%program_base
         marker='PF-UEFI-HARDWARE-PASS';script+='serial(2 + 3)\n'
+        if arm:script+='assert(pfProbe(2 + 3))\n'
         if args.services:
             compile(root_source/'services.c','services.bin',0x240000)
             compile(Path('sdk/examples/native-module.c'),'native-module.bin',0x260000)
@@ -53,7 +59,7 @@ def main():
             script+=text+'\n';marker='PF-SELFTEST-PASS'
         if args.script:script+=args.script.read_text()+'\n'
         if args.vm:script+='serial("PF-UEFI-READY")\n'
-        else:script+='serial("PF-UEFI-HARDWARE-PASS")\n'
+        else:script+=('print'if arm else'serial')+'("PF-UEFI-HARDWARE-PASS")\n'
         files['startup.ws']=script.encode();disk=repack_image(base,files)
         user=Image(disk,2).files()
         if args.services:
@@ -63,14 +69,21 @@ def main():
             source=root_source/('native-'+args.vm+'.'+extension)
             user['index.'+extension]=source.read_bytes()if source.exists()else b'assert(2+3*4==14)\nlocal n=0\nfor i=1,12 do n=n+i end\nassert(n==78)\nprint("PF-LUA-HARDWARE-PASS")\n'
             marker={'lua':'PF-LUA-HARDWARE-PASS','rwby':'PF-RWBY-PASS','winterscript':'PF-NATIVE-WS-PASS'}[args.vm]
-        (root/'disk.img').write_bytes(repack_image(disk,user,2));shutil.copyfile(args.vars,root/'vars.fd')
+        (root/'disk.img').write_bytes(repack_image(disk,user,2))
+        if not arm:shutil.copyfile(args.vars,root/'vars.fd')
         serial=root/'serial.log';monitor=root/'monitor.sock'
-        format='qcow2'if args.vars.read_bytes()[:4]==b'QFI\xfb'else'raw'
-        command=[str(args.qemu.resolve()),'-machine','q35,accel=tcg','-cpu','max','-m','256',
-            '-display','none','-serial','file:'+str(serial),'-monitor','unix:'+str(monitor)+',server=on,wait=off',
-            '-drive','if=pflash,format=raw,readonly=on,file='+str(args.firmware.resolve()),
-            '-drive','if=pflash,format='+format+',file='+str(root/'vars.fd'),
-            '-drive','format=raw,file='+str(root/'disk.img'),'-no-reboot']
+        command=[str(args.qemu.resolve()),'-display','none','-serial','file:'+str(serial),
+            '-monitor','unix:'+str(monitor)+',server=on,wait=off','-no-reboot']
+        if arm:
+            command+=['-machine','virt,accel=tcg','-cpu','cortex-a57'if args.arch=='arm64'else'cortex-a15',
+                '-m','512','-bios',str(args.firmware.resolve()),'-device','ramfb',
+                '-drive','if=none,id=pf_disk,format=raw,file='+str(root/'disk.img'),'-device','virtio-blk-pci,drive=pf_disk']
+        else:
+            format='qcow2'if args.vars.read_bytes()[:4]==b'QFI\xfb'else'raw'
+            command+=['-machine','q35,accel=tcg','-cpu','max','-m','256',
+                '-drive','if=pflash,format=raw,readonly=on,file='+str(args.firmware.resolve()),
+                '-drive','if=pflash,format='+format+',file='+str(root/'vars.fd'),
+                '-drive','format=raw,file='+str(root/'disk.img')]
         if args.resource_dir:command+=['-L',str(args.resource_dir.resolve())]
         output='';sent=False
         with(root/'qemu.log').open('wb')as log:
@@ -94,7 +107,9 @@ def main():
         print(output)
         if marker not in output:
             print((root/'qemu.log').read_text(errors='replace')[-3000:]);raise SystemExit('UEFI hardware check failed')
-        if 'PF-SDK-UEFI-CALL-PASS'not in output:raise SystemExit('native SDK service call marker missing')
+        if ('PF-SDK-ARM-CALL-PASS'if arm else'PF-SDK-UEFI-CALL-PASS')not in output:raise SystemExit('native SDK service call marker missing')
+        if arm and 'PF-SDK-ARM-VALUE-PASS'not in output:raise SystemExit('ARM callback value marker missing')
+        if arm and 'PF-SDK-ARM-NATIVE-PASS'not in output:raise SystemExit('ARM native program marker missing')
         print('UEFI '+args.arch+' '+(args.vm or 'startup')+' check passed.')
 
 

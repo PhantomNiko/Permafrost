@@ -259,7 +259,9 @@ static void enter(uintptr_t entry){
 }
 Status EFI_ABI pf_efi_entry(void *image,System *table){
     (void)image;if(!table || !table->boot)return (Status)-1;
-    system_table=table;services=table->boot;message("Permafrost 0.8 source firmware\r\n");
+    system_table=table;services=table->boot;
+    if(services->watchdog)services->watchdog(0,0,0,0);
+    message("Permafrost 0.8 source firmware\r\n");
     if(!allocate(4096,SHARED_ADDRESS) || !allocate(0x100000,PROGRAM_ADDRESS)){message("Shared memory reservation failed.\r\n");return (Status)-1;}
     clear((void *)(uintptr_t)SHARED_ADDRESS,4096);
     context=allocate(4096,0);command=allocate(4096,0);io_buffer=allocate(65536,0);

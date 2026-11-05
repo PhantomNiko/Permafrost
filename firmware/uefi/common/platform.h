@@ -7,6 +7,9 @@
 #if defined(__x86_64__)
 #define EFI_ABI __attribute__((ms_abi))
 #define OS_ABI __attribute__((sysv_abi))
+#elif defined(__arm__)
+#define EFI_ABI __attribute__((pcs("aapcs")))
+#define OS_ABI
 #else
 #define EFI_ABI
 #define OS_ABI
@@ -30,7 +33,8 @@ typedef struct {
     void *reserved,*register_notify,*locate_handle,*locate_path,*install_table;
     void *load_image,*start_image,*exit_image,*unload_image,*exit_services,*monotonic;
     Status(EFI_ABI *stall)(uintptr_t);
-    void *watchdog,*connect,*disconnect,*open_protocol,*close_protocol,*protocol_info,*protocols;
+    Status(EFI_ABI *watchdog)(uintptr_t,uint64_t,uintptr_t,uint16_t *);
+    void *connect,*disconnect,*open_protocol,*close_protocol,*protocol_info,*protocols;
     Status(EFI_ABI *handles)(uint32_t,Guid *,void *,uintptr_t *,void ***);
     void *locate_protocol;
 } Services;

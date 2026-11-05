@@ -1,4 +1,4 @@
-// Recover Darwin stack-vararg calls using the constant format string.
+// Recover Darwin ARM varargs using constant formats and their native storage.
 // Analysis only. Pooka's Free Software License.
 // @category Permafrost
 import ghidra.app.script.GhidraScript;
@@ -12,12 +12,29 @@ import java.nio.file.Path;
 import java.util.*;
 
 public class Varargs extends GhidraScript {
+ long literalFirst,literalLast;
  Set<Long> constants(Varnode v,int depth) {
   if(v==null || depth>12)return Collections.emptySet();
   if(v.isConstant())return Set.of(v.getOffset());
+  if(v.isAddress() && v.getOffset()>=literalFirst && v.getOffset()+v.getSize()<=literalLast) {
+   try {
+    if(v.getSize()==4)return Set.of(Integer.toUnsignedLong(getInt(v.getAddress())));
+    if(v.getSize()==8)return Set.of(getLong(v.getAddress()));
+   }catch(Exception exception){return Collections.emptySet();}
+  }
   var op=v.getDef();if(op==null)return Collections.emptySet();
   int k=op.getOpcode();
   if(k==PcodeOp.COPY || k==PcodeOp.CAST)return constants(op.getInput(0),depth+1);
+  if(k==PcodeOp.LOAD) {
+   var locations=constants(op.getInput(1),depth+1);var result=new HashSet<Long>();
+   try {for(long address:locations) {
+    long value=v.getSize()==8?getLong(toAddr(address)):v.getSize()==4?
+       Integer.toUnsignedLong(getInt(toAddr(address))):v.getSize()==2?
+       Short.toUnsignedLong(getShort(toAddr(address))):Byte.toUnsignedLong(getByte(toAddr(address)));
+    result.add(value);
+   }}catch(Exception exception){return Collections.emptySet();}
+   return result;
+  }
   if(k==PcodeOp.MULTIEQUAL) {
    var result=new HashSet<Long>();
    for(var input:op.getInputs()) {var values=constants(input,depth+1);if(values.isEmpty())return values;result.addAll(values);}
@@ -32,31 +49,38 @@ public class Varargs extends GhidraScript {
   }
   return Collections.emptySet();
  }
- int count(long address) throws Exception {
+ List<Integer> widths(long address) throws Exception {
   StringBuilder text=new StringBuilder();
-  for(int i=0;i<1024;i++) {int b=getByte(toAddr(address+i))&255;if(b==0)break;text.append((char)b);}
-  int n=0;
+  for(int i=0;i<1024;i++){int b=getByte(toAddr(address+i))&255;if(b==0)break;text.append((char)b);}
+  var result=new ArrayList<Integer>();
   for(int i=0;i<text.length();i++) {
    if(text.charAt(i)!='%')continue;
    if(++i==text.length())throw new Exception("unterminated format");
    if(text.charAt(i)=='%')continue;
+   StringBuilder length=new StringBuilder();
    for(;i<text.length();i++) {
     char c=text.charAt(i);
     if(c=='$')throw new Exception("positional format requires review");
-    if(c=='*')n++;
-    if("diuoxXfFeEgGaAcspn".indexOf(c)>=0) {n++;break;}
+    if(c=='*')result.add(4);
+    if("hljztL".indexOf(c)>=0)length.append(c);
+    if("diuoxXfFeEgGaAcspn".indexOf(c)>=0) {
+     boolean floating="fFeEgGaA".indexOf(c)>=0;
+     result.add(floating || length.toString().equals("ll") || length.toString().equals("j")?8:4);break;
+    }
    }
   }
-  if(n>16)throw new Exception("unexpected format argument count");
-  return n;
+  if(result.size()>16)throw new Exception("unexpected format argument count");
+  return result;
  }
  public void run() throws Exception {
+  boolean arm64=currentProgram.getRegister("x0")!=null;
   // TSV: native address, number of fixed arguments (last one is the format).
   var specs=new HashMap<Long,Integer>();
   for(String line:Files.readAllLines(Path.of(getScriptArgs()[0]))) {
    var fields=line.split("\\t");specs.put(Long.parseLong(fields[0],16),Integer.parseInt(fields[1]));
   }
   long first=Long.decode(getScriptArgs()[2]),last=Long.decode(getScriptArgs()[3]);
+  literalFirst=first;literalLast=last;
   var refs=currentProgram.getReferenceManager();
   var instructions=currentProgram.getListing().getInstructions(true);
   while(instructions.hasNext())for(var ref:instructions.next().getReferencesFrom())
@@ -66,7 +90,8 @@ public class Varargs extends GhidraScript {
   while(all.hasNext()) {var f=all.next();long a=f.getEntryPoint().getOffset();if(a>=0x60000000L && a<0x60001000L)oldAliases.add(f);}
   for(var f:oldAliases)removeFunction(f);
   if(currentProgram.getMemory().getBlock(toAddr(0x60000000L))==null) {
-   byte[] bytes=new byte[4096];for(int i=0;i<bytes.length;i+=16) {bytes[i]=(byte)0xc0;bytes[i+1]=3;bytes[i+2]=0x5f;bytes[i+3]=(byte)0xd6;}
+   byte[] bytes=new byte[4096];for(int i=0;i<bytes.length;i+=16) {if(arm64){bytes[i]=(byte)0xc0;bytes[i+1]=3;bytes[i+2]=0x5f;bytes[i+3]=(byte)0xd6;}
+    else{bytes[i]=0x1e;bytes[i+1]=(byte)0xff;bytes[i+2]=0x2f;bytes[i+3]=(byte)0xe1;}}
    var block=currentProgram.getMemory().createInitializedBlock("pf_vararg_signatures",toAddr(0x60000000L),new java.io.ByteArrayInputStream(bytes),bytes.length,monitor,false);
    block.setExecute(true);
   }
@@ -82,10 +107,19 @@ public class Varargs extends GhidraScript {
     var op=ops.next();if(op.getOpcode()!=PcodeOp.CALL)continue;
     long address=op.getInput(0).getOffset();var fixed=specs.get(address);if(fixed==null)continue;
     if(op.getNumInputs()<=fixed)continue;
-    var formats=constants(op.getInput(fixed),0);int extra=0;
-    try {if(formats.isEmpty())throw new Exception("dynamic format");for(long format:formats)extra=Math.max(extra,count(format));}
+    var formats=constants(op.getInput(fixed),0);var arguments=new ArrayList<Integer>();
+    try {
+     if(formats.isEmpty())throw new Exception("dynamic format");
+     for(long format:formats) {
+      var candidate=widths(format);
+      for(int i=0;i<Math.min(arguments.size(),candidate.size());i++)
+       if(!arm64 && !arguments.get(i).equals(candidate.get(i)))throw new Exception("format alternatives have different storage");
+      if(candidate.size()>arguments.size())arguments=new ArrayList<Integer>(candidate);
+     }
+    }
     catch(Exception e) {unknown++;println("Review varargs at "+op.getSeqnum().getTarget()+": "+e.getMessage());continue;}
-    String name="pf_varargs_"+Long.toHexString(address)+"_"+extra;
+    String suffix=arm64?Integer.toString(arguments.size()):arguments.toString().replaceAll("[^0-9]","_");
+    String name="pf_varargs_"+Long.toHexString(address)+"_"+suffix;
     Function alias=aliases.get(name);
     if(alias==null) {
      var nativeFunction=getFunctionAt(toAddr(address));
@@ -97,10 +131,24 @@ public class Varargs extends GhidraScript {
      for(int index=0;index<fixed;index++) {
       var p=nativeFunction.getParameter(index);
       parameters.add(new ParameterImpl(p.getName(),p.getDataType(),
-       new VariableStorage(currentProgram,currentProgram.getRegister("x"+index)),currentProgram,SourceType.USER_DEFINED));
+       new VariableStorage(currentProgram,currentProgram.getRegister((arm64?"x":"r")+index)),currentProgram,SourceType.USER_DEFINED));
      }
-     for(int index=0;index<extra;index++)parameters.add(new ParameterImpl("vararg"+index,
-       UnsignedLongLongDataType.dataType,new VariableStorage(currentProgram,index*8,8),currentProgram,SourceType.USER_DEFINED));
+     int word=fixed;
+     for(int index=0;index<arguments.size();index++) {
+      int width=arm64?8:arguments.get(index);VariableStorage storage;
+      if(arm64)storage=new VariableStorage(currentProgram,index*8,8);
+      else if(word>=4) {
+       storage=new VariableStorage(currentProgram,(word-4)*4,width);word+=width/4;
+      } else {
+       var pieces=new ArrayList<Varnode>();
+       for(int offset=0;offset<width;offset+=4,word++)
+        pieces.add(word<4?new Varnode(currentProgram.getRegister("r"+word).getAddress(),4):
+            new Varnode(currentProgram.getAddressFactory().getStackSpace().getAddress((word-4)*4),4));
+       Collections.reverse(pieces);storage=new VariableStorage(currentProgram,pieces.toArray(new Varnode[0]));
+      }
+      parameters.add(new ParameterImpl("vararg"+index,width==8?UnsignedLongLongDataType.dataType:
+       UnsignedIntegerDataType.dataType,storage,currentProgram,SourceType.USER_DEFINED));
+     }
      alias.setReturnType(nativeFunction.getReturnType(),SourceType.USER_DEFINED);
      alias.replaceParameters(parameters,Function.FunctionUpdateType.CUSTOM_STORAGE,true,SourceType.USER_DEFINED);
      aliases.put(name,alias);mappings.put(name,nativeFunction.getName());
@@ -114,6 +162,6 @@ public class Varargs extends GhidraScript {
   dec.dispose();
   var lines=new ArrayList<String>();for(var e:mappings.entrySet())lines.add("#define "+e.getKey()+" "+e.getValue());
   Files.write(Path.of(getScriptArgs()[1]),lines);
-  println("Recovered "+calls+" stack-vararg calls; "+unknown+" require review");
+  println("Recovered "+calls+" vararg calls; "+unknown+" require review");
  }
 }
