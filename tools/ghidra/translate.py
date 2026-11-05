@@ -110,6 +110,13 @@ def rewrite_byte_ranges(source):
 def rewrite_scalar_storage(source):
     """Restore raw float views lost when an SSA slot is printed as a pointer."""
     source=rewrite_byte_ranges(source)
+    # CONCAT reconstructs a register representation. A float cast printed
+    # over that bit string must not perform a numeric integer conversion.
+    for match in reversed(list(re.finditer(r'\(float\)\s*(?=\(?CONCAT[0-9]+\()',source))):
+        start=match.end();opening=source.index('(',start);end=opening+1;depth=1
+        while depth:
+            depth+=(source[end]=='(')-(source[end]==')');end+=1
+        source=source[:match.start()]+'pf_bits_float('+source[start:end]+')'+source[end:]
     # These p-code helpers carry IEEE bits in an integer. A C numeric cast
     # would convert the representation rather than read the floating value.
     for match in reversed(list(re.finditer(r'\(double\)(NEON_[us]cvtf\()',source))):

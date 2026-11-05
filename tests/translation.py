@@ -18,6 +18,7 @@ def main():
     typedef unsigned long long uint64_t;
     typedef unsigned long uintptr_t;
     typedef unsigned char byte;
+    #define CONCAT31(a,b) (((unsigned int)(a)<<8)|(unsigned char)(b))
     static uint64_t pf_double_bits(double value) {
         union { double value; uint64_t bits; } view = { value };
         return view.bits;
@@ -25,6 +26,10 @@ def main():
     static unsigned int pf_float_bits(float value) {
         union { float value; unsigned int bits; } view = { value };
         return view.bits;
+    }
+    static float pf_bits_float(unsigned int value) {
+        union { unsigned int bits; float value; } view = { value };
+        return view.value;
     }
     static double pf_bits_double(uint64_t value) {
         union { uint64_t bits; double value; } view = { value };
@@ -49,6 +54,10 @@ def main():
         if ((uintptr_t)spill != 0x3fa00000U) return 4;
         double units = (double)NEON_ucvtf(sum(400,600));
         if (units != 1000.0) return 5;
+        float float_flag = (float)CONCAT31(0,1);
+        if (pf_float_bits(float_flag) != 1) return 9;
+        float_flag = (float)(CONCAT31(0,1)&1);
+        if (pf_float_bits(float_flag) != 1) return 10;
         byte character = ' ';
         if ((byte)character - 0x30 < 10) return 6;
         character = '*';

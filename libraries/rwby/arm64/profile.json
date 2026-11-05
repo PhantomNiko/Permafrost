@@ -2271,6 +2271,582 @@
       "address": 11104,
       "section": 1,
       "weak": false
+    },
+    {
+      "name": "__ZTIN2wm13runtime_errorE",
+      "address": 114768,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm6detail20shared_control_blockE",
+      "address": 114872,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm6detail25shared_control_block_implIN6winter4ruby18RubyFunctionHandleEEE",
+      "address": 114888,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm6detail25shared_control_block_implINS_13unordered_mapINS_6stringEN6winter4ruby9RubyValueENS_4hashIS3_EENS_8equal_toIS3_EEEEEE",
+      "address": 115304,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm6detail25shared_control_block_implINS_6vectorIN6winter4ruby9RubyValueEEEEE",
+      "address": 115240,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE4baseE",
+      "address": 115376,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E0_EE",
+      "address": 115464,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E10_EE",
+      "address": 116184,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E11_EE",
+      "address": 116256,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E12_EE",
+      "address": 116328,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E13_EE",
+      "address": 116400,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E14_EE",
+      "address": 116472,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E15_EE",
+      "address": 116544,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E16_EE",
+      "address": 116616,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E17_EE",
+      "address": 116688,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E18_EE",
+      "address": 116760,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E19_EE",
+      "address": 116832,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E1_EE",
+      "address": 115536,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E20_EE",
+      "address": 116904,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E21_EE",
+      "address": 116976,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E22_EE",
+      "address": 117048,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E23_EE",
+      "address": 117120,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E24_EE",
+      "address": 117192,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E25_EE",
+      "address": 117264,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E26_EE",
+      "address": 117336,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E27_EE",
+      "address": 117408,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E28_EE",
+      "address": 117480,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E29_EE",
+      "address": 117552,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E2_EE",
+      "address": 115608,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E30_EE",
+      "address": 117624,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E31_EE",
+      "address": 117696,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E32_EE",
+      "address": 117768,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E33_EE",
+      "address": 117840,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E34_EE",
+      "address": 117912,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E3_EE",
+      "address": 115680,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E4_EE",
+      "address": 115752,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E5_EE",
+      "address": 115824,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E6_EE",
+      "address": 115896,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E7_EE",
+      "address": 115968,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E8_EE",
+      "address": 116040,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E9_EE",
+      "address": 116112,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E_EE",
+      "address": 115392,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTIN2wm9exceptionE",
+      "address": 114752,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTISt10basic_file",
+      "address": 114944,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTISt7istream",
+      "address": 115064,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTISt7ostream",
+      "address": 114960,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTISt8ifstream",
+      "address": 115080,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTISt8ofstream",
+      "address": 114976,
+      "section": 6,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm13runtime_errorE",
+      "address": 91312,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm6detail20shared_control_blockE",
+      "address": 91425,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm6detail25shared_control_block_implIN6winter4ruby18RubyFunctionHandleEEE",
+      "address": 91349,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm6detail25shared_control_block_implINS_13unordered_mapINS_6stringEN6winter4ruby9RubyValueENS_4hashIS3_EENS_8equal_toIS3_EEEEEE",
+      "address": 91714,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm6detail25shared_control_block_implINS_6vectorIN6winter4ruby9RubyValueEEEEE",
+      "address": 91635,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE4baseE",
+      "address": 91964,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E0_EE",
+      "address": 92043,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E10_EE",
+      "address": 93253,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E11_EE",
+      "address": 93375,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E12_EE",
+      "address": 93497,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E13_EE",
+      "address": 93619,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E14_EE",
+      "address": 93741,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E15_EE",
+      "address": 93863,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E16_EE",
+      "address": 93985,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E17_EE",
+      "address": 94107,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E18_EE",
+      "address": 94229,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E19_EE",
+      "address": 94351,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E1_EE",
+      "address": 92164,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E20_EE",
+      "address": 94473,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E21_EE",
+      "address": 94595,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E22_EE",
+      "address": 94717,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E23_EE",
+      "address": 94839,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E24_EE",
+      "address": 94961,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E25_EE",
+      "address": 95083,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E26_EE",
+      "address": 95205,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E27_EE",
+      "address": 95327,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E28_EE",
+      "address": 95449,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E29_EE",
+      "address": 95571,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E2_EE",
+      "address": 92285,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E30_EE",
+      "address": 95693,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E31_EE",
+      "address": 95815,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E32_EE",
+      "address": 95937,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E33_EE",
+      "address": 96059,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E34_EE",
+      "address": 96181,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E3_EE",
+      "address": 92406,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E4_EE",
+      "address": 92527,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E5_EE",
+      "address": 92648,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E6_EE",
+      "address": 92769,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E7_EE",
+      "address": 92890,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E8_EE",
+      "address": 93011,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E9_EE",
+      "address": 93132,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm8functionIFN6winter4ruby9RubyValueERNS2_6RubyVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E_EE",
+      "address": 91844,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSN2wm9exceptionE",
+      "address": 91333,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSSt10basic_file",
+      "address": 91508,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSSt7istream",
+      "address": 91546,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSSt7ostream",
+      "address": 91523,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSSt8ifstream",
+      "address": 91534,
+      "section": 2,
+      "weak": true
+    },
+    {
+      "name": "__ZTSSt8ofstream",
+      "address": 91496,
+      "section": 2,
+      "weak": true
     }
   ],
   "relocations": [
