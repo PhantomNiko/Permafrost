@@ -63,6 +63,12 @@ def main():
         character = '*';
         if ((byte)character - 0x30 < 10) return 7;
         if (character - 0x30 < 10) return 8;
+        byte characters[2] = {'*','7'};
+        byte *cursor=characters;
+        if (*cursor - 0x30 < 10) return 11;
+        if (characters[0] - 0x30 < 10) return 12;
+        if (*(byte *)((uintptr_t)characters+0) - 0x30 < 10) return 13;
+        if (9 < *(byte *)((uintptr_t)characters+1) - 0x30) return 14;
         character = '7';
         return !(character - 0x30 < 10);
     }

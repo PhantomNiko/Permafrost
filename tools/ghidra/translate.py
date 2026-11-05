@@ -101,10 +101,25 @@ def rewrite_byte_ranges(source):
     # after C promotes an 8-bit input to int.
     narrow = r'\(byte\)\s*[A-Za-z_]\w*(?:\[[^]\n]+\])?'
     names = re.findall(r'\b(?:byte|uchar|uint8_t)\s+(\w+)', source)
+    pointers = re.findall(r'\b(?:byte|uchar|uint8_t)\s*\*\s*(\w+)', source)
+    if pointers:
+        pointer_names='(?:'+'|'.join(map(re.escape,pointers))+')'
+        narrow+=r'|\*\s*'+pointer_names+r'\b|\b'+pointer_names+r'\[[^]\n]+\]'
+        narrow='(?:'+narrow+')'
     if names:
-        narrow = '(?:' + narrow + r'|\b(?:' + '|'.join(map(re.escape,names)) + r')\b)'
+        narrow = '(?:' + narrow + r'|\b(?:' + '|'.join(map(re.escape,names)) + r')\b(?:\[[^]\n]+\])?)'
     value = '(' + narrow + r'\s*-\s*)(0x(?:30|41|61))\b(?![Uu])'
-    return re.sub(value,lambda m:m[1]+m[2]+'U',source)
+    source=re.sub(value,lambda m:m[1]+m[2]+'U',source)
+    # Pointer casts can contain nested address arithmetic.
+    pattern=r'\*\((?:byte|uchar|uint8_t)\s*\*\)\s*\('
+    for match in reversed(list(re.finditer(pattern,source))):
+        end=match.end();depth=1
+        while depth:
+            depth+=(source[end]=='(')-(source[end]==')');end+=1
+        tail=re.match(r'\s*-\s*0x(?:30|41|61)\b(?![Uu])',source[end:])
+        if tail:
+            position=end+tail.end();source=source[:position]+'U'+source[position:]
+    return source
 
 
 def rewrite_scalar_storage(source):

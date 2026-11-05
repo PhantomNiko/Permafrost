@@ -8,7 +8,7 @@ import sys
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools'))
 from native import inspect as native_inspect
 from dylib import inspect,rebase_locations
-from unicorn import Uc,UC_ARCH_X86,UC_ARCH_ARM,UC_ARCH_ARM64,UC_MODE_32,UC_MODE_64,UC_MODE_ARM,UC_HOOK_CODE
+from unicorn import Uc,UcError,UC_ARCH_X86,UC_ARCH_ARM,UC_ARCH_ARM64,UC_MODE_32,UC_MODE_64,UC_MODE_ARM,UC_HOOK_CODE
 from unicorn.x86_const import *
 from unicorn.arm_const import *
 from unicorn.arm64_const import *
@@ -80,7 +80,9 @@ class DLL:
         else:
             for reg,value in zip((UC_ARM64_REG_X0,UC_ARM64_REG_X1,UC_ARM64_REG_X2,UC_ARM64_REG_X3,UC_ARM64_REG_X4,UC_ARM64_REG_X5,UC_ARM64_REG_X6,UC_ARM64_REG_X7),arguments):cpu.reg_write(reg,value)
             cpu.reg_write(UC_ARM64_REG_SP,stack);cpu.reg_write(UC_ARM64_REG_LR,self.stop)
-        cpu.emu_start(self.exports[name],self.stop,count=20000000)
+        try:cpu.emu_start(self.exports[name],self.stop,count=20000000)
+        except UcError as error:
+            raise AssertionError('%s failed at %#x'%(name,cpu.reg_read(self.pc)))from error
         if cpu.reg_read(self.pc)!=self.stop:raise AssertionError('library function did not return at %#x'%cpu.reg_read(self.pc))
         value=cpu.reg_read(self.result)
         if result_bits>32 and not self.wide:
