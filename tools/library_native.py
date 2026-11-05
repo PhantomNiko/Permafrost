@@ -93,6 +93,10 @@ def build_library(source, output):
                                     '-Wno-int-conversion', '-Wno-incompatible-pointer-types',
                                     '-Wno-incompatible-function-pointer-types'])
         objects.append(str(target))
+    numeric=output/'numeric.o'
+    compile_object(Path('libraries/numeric.c'),numeric,arch,['sdk/include'],pic=True,
+                   extra_flags=['-fno-inline-functions'])
+    objects.append(str(numeric))
     # A text stub satisfies ld's platform bookkeeping. No hosted runtime is
     # included; all referenced runtime functions are implemented by the C source.
     platform = 'macosx' if arch in ('i386', 'x86_64') else 'ios'
