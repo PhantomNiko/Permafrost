@@ -66,7 +66,7 @@ class DLL:
             self.cpu.mem_write(address,b'\xc3'if not arm else struct.pack('<I',0xe12fff1e if self.cpu_type==12 else 0xd65f03c0))
             self.cpu.hook_add(UC_HOOK_CODE,hook,begin=address,end=address)
 
-    def call(self,name,*arguments):
+    def call(self,name,*arguments,result_bits=8):
         cpu=self.cpu;stack=0x4fe0000
         if self.cpu_type==7:
             cpu.reg_write(UC_X86_REG_ESP,stack);cpu.mem_write(stack,struct.pack('<'+'I'*(1+len(arguments)),self.stop,*arguments))
@@ -81,5 +81,5 @@ class DLL:
             for reg,value in zip((UC_ARM64_REG_X0,UC_ARM64_REG_X1,UC_ARM64_REG_X2,UC_ARM64_REG_X3,UC_ARM64_REG_X4,UC_ARM64_REG_X5,UC_ARM64_REG_X6,UC_ARM64_REG_X7),arguments):cpu.reg_write(reg,value)
             cpu.reg_write(UC_ARM64_REG_SP,stack);cpu.reg_write(UC_ARM64_REG_LR,self.stop)
         cpu.emu_start(self.exports[name],self.stop,count=20000000)
-        if cpu.reg_read(self.pc)!=self.stop:raise AssertionError('library function did not return')
-        return cpu.reg_read(self.result)&255
+        if cpu.reg_read(self.pc)!=self.stop:raise AssertionError('library function did not return at %#x'%cpu.reg_read(self.pc))
+        return cpu.reg_read(self.result)&((1<<result_bits)-1)

@@ -174,6 +174,7 @@ typedef struct pf_affine {double a,b,c,d,e,f;} pf_affine;
 #define CONCAT62(a,b) (((uint64_t)(a)<<16)|(uint16_t)(b))
 struct pf_uint48 {uint64_t pf_payload_bits:48;} __attribute__((packed));
 #define PF_PART6(object,offset) (((struct pf_uint48 *)((uint8_t *)&(object)+(offset)))->pf_payload_bits)
+#define CONCAT25(a,b) (((uint64_t)(uint16_t)(a)<<40)|((uint64_t)(b)&0xffffffffffULL))
 #define CONCAT17(a,b) (((uint64_t)(uint8_t)(a)<<56)|((uint64_t)(b)&0xffffffffffffffULL))
 #define CONCAT43(a,b) (((uint64_t)(uint32_t)(a)<<24)|((uint64_t)(b)&0xffffffULL))
 

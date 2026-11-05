@@ -76,6 +76,26 @@ def rewrite_double_bits(source):
     return source
 
 
+def rewrite_double_assignments(source, name):
+    # A comma may end an assignment embedded in a condition. Only commas
+    # inside balanced calls/parentheses belong to its right-hand expression.
+    pattern = r'\b' + re.escape(name) + r' = \(double\)'
+    for match in reversed(list(re.finditer(pattern, source))):
+        start = match.end()
+        depth = 0
+        end = start
+        while end < len(source):
+            char = source[end]
+            if not depth and char in ',;)]}':
+                break
+            depth += char in '(['
+            depth -= char in ')]'
+            end += 1
+        source = (source[:match.start()] + name + ' = pf_double_bits((double)' +
+                  source[start:end] + ')' + source[end:])
+    return source
+
+
 def rewrite_scalar_storage(source):
     """Restore raw float views lost when an SSA slot is printed as a pointer."""
     pattern=r'\(([^()\n]+\*)\)\(float\)'
@@ -147,7 +167,7 @@ def main():
                 if not re.search(r'\b'+name+r'\s*=',s):continue
                 typ='uint64_t' if size=='8' else 'uint128'
                 s=re.sub(r'\b'+name+r'(?=\s*=(?!=))', '(*('+typ+' *)(void *)'+name+')',s)
-                s=re.sub(r'\((?:ulong|long|undefined8)\)'+name+r'\b(?!\s*\._)', '(*('+typ+' *)(void *)'+name+')',s)
+                s=re.sub(r'\((?:ulong|long|ulonglong|longlong|undefined8)\)'+name+r'\b(?!\s*\._)', '(*('+typ+' *)(void *)'+name+')',s)
             s=re.sub(r'\(undefined1\s+\[8\]\)','(uint64_t)',s)
             s=re.sub(r'\(undefined1\s*\(\*\)\s*\[16\]\)','(uint128 *)',s)
             sources[a]=s
@@ -203,8 +223,7 @@ def main():
         if current.get('scalar_storage_views'):
             for name in re.findall(r'^  undefined8 (\w+);',source,re.M):
                 if re.search(r'\b'+name+r' = \(double\)',source):
-                    source=re.sub(r'\b'+name+r' = \(double\)([^;]+);',
-                                  lambda m:name+' = pf_double_bits((double)'+m[1]+');',source)
+                    source=rewrite_double_assignments(source,name)
                     source=re.sub(r'\((double|float10)\)'+name+r'\b',r'(\1)pf_bits_double('+name+')',source)
                     source=source.replace('NAN('+name+')','NAN(pf_bits_double('+name+'))')
                     source=re.sub(r'\b'+name+r'(?=\s*(?:<=|>=|==|!=|<|>)\s*[+-]?\d+\.\d)',
