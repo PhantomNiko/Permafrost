@@ -13,6 +13,20 @@ import re
 WIDE = False
 
 
+def vector_constant_loads(source):
+    # The decompiler prints a vector byte slice as pointer arithmetic on an
+    # array-cast constant. It denotes bytes of the constant, not physical RAM.
+    pattern=r'\*\(([A-Za-z_][A-Za-z_0-9\s]*\*+)\)\(\(undefined1\s+\[(8|16)\]\)(0x[0-9a-fA-F]+)\s*\+\s*\(undefined1\s+\[\2\]\)(0x[0-9a-fA-F]+)\)'
+    def replace(match):
+        count=int(match[2]);value=int(match[3],16);offset=int(match[4],16)
+        if offset>=count or value>=(1<<(count*8)):
+            raise ValueError('invalid constant vector slice')
+        values=','.join(str(x)for x in value.to_bytes(count,'little'))
+        storage='((union { uint64_t alignment; byte bytes[%d]; }){.bytes={%s}}).bytes'%(count,values)
+        return '*(%s)(%s + %d)'%(match[1],storage,offset)
+    return re.sub(pattern,replace,source)
+
+
 def ctype(description):
     if description.startswith('P:'):
         return ctype(description[2:]) + ' *'
@@ -125,6 +139,7 @@ def main():
             text=re.sub(r'\bwchar_t\b','uint16_t',text)
             return text.replace('PF_MODEL_U64','unsigned long long').replace('PF_MODEL_I64','long long')
         sources={a:windows_types(s) for a,s in sources.items()}
+    sources={a:vector_constant_loads(s)for a,s in sources.items()}
     if WIDE:
         sources={a:re.sub(r'\(undefined1\s+\[16\]\)', '(uint128)', re.sub(r'undefined1\s+\[16\]\s+((?:recovered_|FUN_)[0-9a-f]+)',r'uint128 \1',re.sub(r'undefined1 (auVar\d+) \[16\];',r'uint128 \1;',s))) for a,s in sources.items()}
         for a,s in sources.items():
