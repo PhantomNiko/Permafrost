@@ -36,7 +36,10 @@ class Kernel(DLL):
             self.cpu.reg_write(UC_X86_REG_FPSW,0)
             self.cpu.reg_write(UC_X86_REG_FPTAG,0xffff)
         self.cpu.mem_map(0,0x5000000)
-        if arm:self.cpu.mem_map(0x40000000,0x1000000)
+        if arm:
+            region=metadata['base']&~0xffffff
+            span=max(0x1000000,(metadata['end']-region+0xfffff)&~0xfffff)
+            self.cpu.mem_map(region,span)
         self.cpu.mem_write(metadata['base'],memory)
         self.exports=addresses;self.native=native;self.stop=0x4ff0000;self.instruction_limit=20000000
         self.pc=UC_ARM_REG_PC if self.cpu_type==12 else UC_ARM64_REG_PC if arm else UC_X86_REG_RIP if self.wide else UC_X86_REG_EIP

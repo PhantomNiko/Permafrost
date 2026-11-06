@@ -249,6 +249,13 @@ def rewrite_byte_ranges(source):
 def rewrite_scalar_storage(source):
     """Restore raw float views lost when an SSA slot is printed as a pointer."""
     source=rewrite_byte_ranges(source)
+    # A float output can share an integer-typed stack slot. Its later float
+    # view reads the stored IEEE representation; casts of other integer
+    # fields in the same aggregate still perform numeric conversion.
+    float_outputs=set(re.findall(r'\(float\s*\*\)\s*&\s*(\w+)\b',source))
+    for name in float_outputs:
+        source=re.sub(r'\(float\)\s*'+re.escape(name)+r'\b(?!\s*[.\[])',
+                      'pf_bits_float((uint32_t)'+name+')',source)
     # CONCAT reconstructs a register representation. A float cast printed
     # over that bit string must not perform a numeric integer conversion.
     for match in reversed(list(re.finditer(r'\(float\)\s*(?=\(?CONCAT[0-9]+\()',source))):

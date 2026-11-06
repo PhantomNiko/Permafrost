@@ -15,9 +15,17 @@ def main():
     functions='''
 float number(unsigned char value) { return (float)CONCAT31(0,value); }
 float representation(unsigned high,unsigned char low) { return (float)CONCAT31(high,low); }
+static void output(float *out) { *out=3.5f; }
+float stack_view(void) {
+ unsigned long long slot=0;
+ output((float *)&slot);
+ return (float)slot;
+}
+float integer_conversion(unsigned value) { return (float)value; }
 '''
     source='#include "support.h"\n'+rewrite_scalar_storage(functions)+'''
 int main(void) {
+ if(stack_view()!=3.5f || integer_conversion(7)!=7.0f)return 4;
  for(unsigned i=0;i<256;i++) {
   if(number(i)!=(float)i)return 1;
   unsigned bits=(0x3fc012u<<8)|i;
