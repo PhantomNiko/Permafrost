@@ -1,13 +1,13 @@
-# Permafrost 0.8 SDK for macOS 15
+# Permafrost 0.9 SDK for macOS 15
 
 Build the SDK alongside the images or independently with
 `python3 tools/sdk.py`. It requires Python 3 and Apple Command Line Tools and
 can be moved without installation at a fixed path.
 
 ```sh
-build/Permafrost0.8.sdk/bin/pf-cc sdk/examples/hello.c -o build/hello
-build/Permafrost0.8.sdk/bin/pf-cc sdk/examples/nightmode.cpp -o build/nightmode
-build/Permafrost0.8.sdk/bin/pf-wmfs build/Permafrost-0.8.img --partition 2 \
+build/Permafrost0.9.sdk/bin/pf-cc sdk/examples/hello.c -o build/hello
+build/Permafrost0.9.sdk/bin/pf-cc sdk/examples/nightmode.cpp -o build/nightmode
+build/Permafrost0.9.sdk/bin/pf-wmfs build/Permafrost-0.9.img --partition 2 \
   --put hello=build/hello --out build/development.img
 ```
 
@@ -26,31 +26,33 @@ helpers. Their C sources are included in `usr/src`; omit the option when the
 application supplies its own helpers.
 
 ```sh
-build/Permafrost0.8.sdk/bin/pf-cc --runtime sdk/examples/wide-arithmetic.c -o build/wide-arithmetic
+build/Permafrost0.9.sdk/bin/pf-cc --runtime sdk/examples/wide-arithmetic.c -o build/wide-arithmetic
 ```
 
 For raw code and callback modules, explicitly request flat output and select
 the address used by the loading script:
 
 ```sh
-build/Permafrost0.8.sdk/bin/pf-cc --format flat --base 0x240000 \
+build/Permafrost0.9.sdk/bin/pf-cc --format flat --base 0x240000 \
   sdk/examples/native-module.c -o build/native-module.bin
 ```
 
-WMAP version 11 occupies 188 bytes at 0x6800 on x86 and 0x40010800 on ARM.
-`pf_wire_api()` exposes its 44 service addresses as 32-bit integers.
+WMAP version 13 occupies 252 bytes at 0x6800 on x86 and 0x40010800 on ARM.
+`pf_wire_api()` exposes its 60 service addresses as 32-bit integers.
 `pf_api()` decodes them into native function pointers on every architecture.
 Check the table's magic, version, and size before using its services.
 `pf_status` preserves the native byte-sized C++ boolean return convention.
 
 The header describes console, keyboard, graphics, files, callbacks, allocation,
 PNG, WAV audio, fonts, framebuffer, pointer, directory, launch, thread, and
-window entries. File blobs occupy 12 bytes, PNG images 24 bytes, and WAV
+window entries, device-specific filesystem operations, window menus, shutdown,
+and hardware information. Device query records occupy 504 bytes and hardware
+information records 160 bytes. File blobs occupy 12 bytes, PNG images 24 bytes, and WAV
 records 28 bytes. Use `pf_blob_data()`, `pf_image_data()`, and `pf_audio_data()`
 to obtain native pointers from their address fields. PNG addresses have
 separate low and high words. Callback values contain native pointers:
 24 bytes on 32-bit CPUs and 40 bytes on 64-bit CPUs. Window query records
-carry 64-bit addresses and occupy 112 bytes on every CPU; use
+carry 64-bit addresses and occupy 604 bytes on every CPU; use
 `pf_window_pixels()` to decode their pixel address.
 
 The local integer/string log formatter uses WMAP rather than a private kernel
@@ -63,9 +65,8 @@ not supply a hosted C/C++ standard library, exceptions, RTTI, dynamic linking
 or an Apple platform integration. In-house runtime implementation files are
 application source, not an upstream Lua SDK dependency. See the bundle's license-scope document for component notices.
 
-`PF_KERNEL_BASE` defaults to the BIOS i386 address, the x86-64 EFI address,
-or 0x40400000 on ARM. The IA32 EFI kernel loads at 0x02000000; define the
-macro explicitly when inspecting its private image. Public services use
+`PF_KERNEL_BASE` defaults to 0x02000000 on both x86 CPUs and
+0x40400000 on ARM. Public services use
 WMAP and require no private kernel address. `pf-wmfs` edits the nested WBPT
 volumes inside a GPT UEFI image while preserving its EFI partition.
 
@@ -75,3 +76,5 @@ original guest C++ export names for existing Mach-O software and tooling.
 
 In the current kernel scripting interface, `dir()` returns the current path;
 use `dir("list")` to print the directory listing and file sizes.
+
+File blobs returned by `read_file` and `stat_file_on_device` borrow the filesystem cache. Do not pass their data to `deallocate`; writes, deletion and device changes can invalidate the view. Copy bytes into an allocation when they must survive those operations.

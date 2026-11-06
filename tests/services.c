@@ -33,6 +33,15 @@ int main(void) {
     int32_t current=api->current_device_id();int found=0;
     for(uint32_t i=0;i<device_count;i++)if((int32_t)devices[i].id==current)found=1;
     CHECK(found);
+    struct pf_blob existing={0};
+    CHECK(pf_read_file("/bitmap-font.wbf",&existing));
+    CHECK(existing.size==4108);
+    CHECK(pf_blob_data(&existing));
+    CHECK(((const uint8_t *)pf_blob_data(&existing))[0]=='W');
+    CHECK(((const uint8_t *)pf_blob_data(&existing))[1]=='B');
+    CHECK(((const uint8_t *)pf_blob_data(&existing))[2]=='F');
+    CHECK(((const uint8_t *)pf_blob_data(&existing))[3]=='1');
+    /* stat_file exposes borrowed filesystem-cache storage. */
     uint8_t *memory=api->allocate(32);
     CHECK(memory);
     for(unsigned i=0;i<32;++i)memory[i]=(uint8_t)(i*7);
@@ -46,7 +55,7 @@ int main(void) {
     CHECK(pf_read_file("/api-service.tmp",&file));
     CHECK(file.size==sizeof(text)-1);
     for(unsigned i=0;i<file.size;++i)CHECK(((const char *)pf_blob_data(&file))[i]==text[i]);
-    api->deallocate(pf_blob_data(&file));
+
     CHECK(pf_delete_file("/api-service.tmp"));
     CHECK(!pf_read_file("/api-service.tmp",&file));
     static uint8_t large[4108];
@@ -55,7 +64,7 @@ int main(void) {
     CHECK(pf_read_file("/api-large.tmp",&file));
     CHECK(file.size==sizeof(large));
     for(unsigned i=0;i<file.size;++i)CHECK(((const uint8_t *)pf_blob_data(&file))[i]==large[i]);
-    api->deallocate(pf_blob_data(&file));
+
     CHECK(pf_delete_file("/api-large.tmp"));
     struct pf_image image={0};
     CHECK(api->decode_image(png,sizeof(png),&image));

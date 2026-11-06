@@ -37,7 +37,7 @@ def main():
     parser.add_argument('--screenshot',type=Path,help='save the guest display as PPM')
     args=parser.parse_args();arm=args.arch in ('armv7','arm64')
     if not arm and args.vars is None:parser.error('x86 checks require --vars')
-    if arm and (args.vm or args.selftest):parser.error('ARM checks currently cover startup and SDK services')
+    if arm and args.vm:parser.error('ARM checks currently cover startup and SDK services')
     base=args.image.read_bytes();root_source=Path(__file__).parent
     with tempfile.TemporaryDirectory(prefix='permafrost-uefi-')as temporary:
         root=Path(temporary);files=Image(base,0).files()
@@ -155,6 +155,7 @@ def main():
         results=output.split('PF-UEFI-READY',1)[-1]if args.command else output
         for expected in args.expect:
             if not re.search(r'(?m)^'+re.escape(expected)+r'\r?$',results):raise SystemExit('missing output line: '+expected)
+        if 'ERROR: font asset' in output:raise SystemExit('font cache or rendering check failed')
         if ('PF-SDK-ARM-CALL-PASS'if arm else'PF-SDK-UEFI-CALL-PASS')not in output:raise SystemExit('native SDK service call marker missing')
         if arm and 'PF-SDK-ARM-VALUE-PASS'not in output:raise SystemExit('ARM callback value marker missing')
         if arm and 'PF-SDK-ARM-NATIVE-PASS'not in output:raise SystemExit('ARM native program marker missing')

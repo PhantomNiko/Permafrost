@@ -38,6 +38,8 @@ typedef int (*pf_native_callback)(const struct pf_native_value *,uint32_t,
 typedef void (*pf_thread_entry)(void *);
 typedef uint8_t pf_status;
 /* File/audio addresses are 32-bit. Image addresses use low/high words. */
+/* Borrowed filesystem-cache view. Do not deallocate data; writes, deletion
+ * or device changes can invalidate it. */
 struct pf_blob { uint32_t data,size,attributes; };
 struct pf_image { uint32_t data,address_high,size,width,height,stride_bytes; };
 struct pf_audio { uint32_t data,size,sample_count,sample_rate,channels,bits_per_sample,frame_count; };
