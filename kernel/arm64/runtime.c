@@ -67121,19 +67121,20 @@ LAB_4043cb6c:
                 if ((int)uVar46 == 0) {
                   return 0;
                 }
-                if ((int)(float)uStack_488 < (int)(float)uStack_1f0) {
+                if ((int32_t)(uint32_t)(uintptr_t)uStack_488 < (int32_t)(uint32_t)(uintptr_t)uStack_1f0) {
                   pcVar50 = str_404516f8;
                   goto LAB_40435c88;
                 }
                 iVar33 = DAT_4045a2fc;
                 uVar37 = iVar33 * 0x19660d + 0x3c6ef35f;
                 DAT_4045a2fc = uVar37;
-                uVar35 = ((int)(float)uStack_488 - (int)(float)uStack_1f0) + 1;
+                uVar35 = ((int32_t)(uint32_t)(uintptr_t)uStack_488 - (int32_t)(uint32_t)(uintptr_t)uStack_1f0) + 1;
                 uVar66 = 0;
                 if (uVar35 != 0) {
                   uVar66 = uVar37 / uVar35;
                 }
-                fVar36 = (float)((uVar37 - uVar66 * uVar35) + (int)(float)uStack_1f0);
+                recovered_40430ea0((undefined4 *)param_5,(int32_t)((uVar37-uVar66*uVar35)+(uint32_t)(uintptr_t)uStack_1f0));
+                return 1;
               }
               else {
                 if (param_4 != 1) {
@@ -67153,7 +67154,7 @@ LAB_4043cb6c:
                 if ((int)uVar46 == 0) {
                   return 0;
                 }
-                if ((int)(float)uStack_1f0 < 1) {
+                if ((int32_t)(uint32_t)(uintptr_t)uStack_1f0 < 1) {
                   pcVar50 = str_404516dc;
                   goto LAB_40435c88;
                 }
@@ -67161,10 +67162,11 @@ LAB_4043cb6c:
                 uVar35 = iVar33 * 0x19660d + 0x3c6ef35f;
                 DAT_4045a2fc = uVar35;
                 uVar37 = 0;
-                if ((float)uStack_1f0 != 0.0) {
-                  uVar37 = uVar35 / (uint)(float)uStack_1f0;
+                if ((uint32_t)(uintptr_t)uStack_1f0 != 0) {
+                  uVar37 = uVar35 / (uint32_t)(uintptr_t)uStack_1f0;
                 }
-                fVar36 = (float)((uVar35 - uVar37 * (int)(float)uStack_1f0) + 1);
+                recovered_40430ea0((undefined4 *)param_5,(int32_t)(uVar35-uVar37*(uint32_t)(uintptr_t)uStack_1f0+1u));
+                return 1;
               }
             }
             goto LAB_40435e4c;

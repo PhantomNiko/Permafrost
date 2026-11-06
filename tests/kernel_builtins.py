@@ -22,7 +22,12 @@ def exercise(binary, addresses, native=False):
            ('string.upper',['winter']),('string.lower',['WS']),
            ('string.len',['winter']),('string.sub',['winter',2,4]),
            ('string.rep',['ha',3]),('string.rep',['ha',3,'-']),
-           ('string.rep',['ha',0]),('string.sub',['winter',-3,-1])]
+           ('string.rep',['ha',0]),('string.sub',['winter',-3,-1]),
+           ('string.find',['winter','nt']),('string.find',['item42','%d+']),
+           ('string.byte',['AB',1,2]),
+           ('math.random',[]),('math.random',[100]),('math.random',[2147483647]),('math.random',[3,3]),
+           ('math.random',[2,5]),('math.random',[-3,3]),('math.random',[-7,-3]),
+           ('math.randomSeed',[12345]),('utf8.len',['abc']),('utf8.offset',['abc',2])]
     for name,values in cases:
         kernel=Kernel(binary,addresses,native)
         size=64 if kernel.wide else 36
@@ -38,6 +43,13 @@ def exercise(binary, addresses, native=False):
                 arguments[offset:offset+width]=address.to_bytes(width,'little')
             else:
                 struct.pack_into('<Iif',arguments,offset,1 if isinstance(value,int) else 2,int(value),float(value))
+        if name=='math.random':
+            seed=bytearray(size)
+            struct.pack_into('<Iif',seed,0,1,12345,12345.0)
+            kernel.cpu.mem_write(0x3000000,b'math.randomSeed\0')
+            kernel.cpu.mem_write(0x3004000,bytes(seed))
+            kernel.error=False
+            assert kernel.call('_ws_call_builtin',0,0x3000000,0x3004000,1,0x3006000)
         kernel.cpu.mem_write(0x3000000,name.encode()+b'\0')
         kernel.cpu.mem_write(0x3004000,bytes(arguments))
         kernel.error=False
@@ -53,6 +65,14 @@ def exercise(binary, addresses, native=False):
             width=8 if kernel.wide else 4
             pointer=int.from_bytes(value[start:start+width],'little')
             text=bytes(kernel.cpu.mem_read(pointer,128)).split(b'\0')[0]
+        if value[0]==7:
+            width=8 if kernel.wide else 4
+            start=40 if kernel.wide else 24
+            pointer=int.from_bytes(value[start:start+width],'little')
+            count=int.from_bytes(kernel.cpu.mem_read(pointer+8,width),'little')
+            assert count<32,(name,count)
+            data=int.from_bytes(kernel.cpu.mem_read(pointer+(24 if kernel.wide else 16),width),'little')
+            text=tuple(bytes(kernel.cpu.mem_read(data+index*size,12)) for index in range(count))
         results.append((name,values,value[:12],text))
     return results
 

@@ -69,14 +69,11 @@ uint recovered_404000ac(uint param_1,uint param_2,uint *param_3)
  * Address: 0x40400124
  */
 
-undefined4 recovered_40400124(uint param_1,uint param_2)
-
+undefined4 recovered_40400124(uint numerator,uint denominator)
 {
-  unsigned char frame[576] __attribute__((aligned(16))) = {0};
-
-
-  recovered_404000ac(param_1,param_2,auStack_20c + 0x80);
-  return 0;
+  uint remainder=0;
+  recovered_404000ac(numerator,denominator,&remainder);
+  return remainder;
 }
 
 #undef auStack_20c

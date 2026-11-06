@@ -22,7 +22,7 @@ def exercise(binary, addresses, native=False, plain=False):
     results = []
     operations = ([('insert', [3]), ('insert', [1]), ('insert', [2, 2]),
                    ('remove', [1]), ('sort', []), ('concat', ['-'])] if plain else
-                  [('insert', [4]), ('remove', [2]), ('sort', []), ('concat', ['-'])])
+                  [('insert', [4]), ('insert', [2,9]), ('remove', [3]), ('sort', []), ('concat', ['-'])])
     for method, values in operations:
         arguments = bytearray(array + bytes(size * len(values)))
         for index, number in enumerate(values, 1):
@@ -44,7 +44,7 @@ def exercise(binary, addresses, native=False, plain=False):
         count = 0 if plain else int.from_bytes(kernel.cpu.mem_read(pointer + 8, width), 'little')
         data_offset = 24 if kernel.wide else 16
         data = int.from_bytes(kernel.cpu.mem_read(pointer + data_offset, width), 'little')
-        assert count <= 4, method
+        assert count <= 5, method
         elements = [bytes(kernel.cpu.mem_read(data + index * size, 12)) for index in range(count)]
         text = b''
         if value[0] == 3:
@@ -52,7 +52,7 @@ def exercise(binary, addresses, native=False, plain=False):
             address = int.from_bytes(value[offset:offset + width], 'little')
             text = bytes(kernel.cpu.mem_read(address, 128)).split(b'\0')[0]
         results.append((value[:12], elements, text))
-    assert results[-1][2] == (b'1-2' if plain else b'2-3-4'), results
+    assert results[-1][2] == (b'1-2' if plain else b'2-3-4-9'), results
     return results
 
 
