@@ -12,7 +12,7 @@ from darwin import compile_object, preload
 from native import inspect
 
 
-def main():
+def main(probe='tests/compiler_targets.c', architectures=('i386', 'x86_64', 'armv7', 'arm64')):
     from unicorn import Uc, UC_ARCH_X86, UC_ARCH_ARM, UC_ARCH_ARM64, UC_MODE_32, UC_MODE_64, UC_MODE_ARM
     from unicorn.x86_const import UC_X86_REG_ESP, UC_X86_REG_EAX, UC_X86_REG_RSP, UC_X86_REG_RAX, UC_X86_REG_FPCW, UC_X86_REG_FPSW, UC_X86_REG_FPTAG
     from unicorn.arm_const import UC_ARM_REG_SP, UC_ARM_REG_LR, UC_ARM_REG_R0, UC_ARM_REG_FPEXC, UC_ARM_REG_C1_C0_2
@@ -20,9 +20,9 @@ def main():
     base, stop, stack = 0x40400000, 0x40600000, 0x405fe000
     with tempfile.TemporaryDirectory(prefix='permafrost-compiler-') as directory:
         root = Path(directory)
-        for arch in ('i386', 'x86_64', 'armv7', 'arm64'):
+        for arch in architectures:
             objects = []
-            for index, source in enumerate(('tests/compiler_targets.c', 'kernel/compiler.c', 'kernel/runtime.c', 'kernel/format.c')):
+            for index, source in enumerate((probe, 'kernel/compiler.c', 'kernel/runtime.c', 'kernel/format.c')):
                 obj = root / (arch + '-' + str(index) + '.o')
                 compile_object(source, obj, arch, ['sdk/include'])
                 objects.append(obj)
