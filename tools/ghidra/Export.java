@@ -125,6 +125,9 @@ public class Export extends GhidraScript {
         int inferencePasses=getScriptArgs().length>6?Integer.parseInt(getScriptArgs()[6]):3;
         boolean unitsOnly=getScriptArgs().length>7 && getScriptArgs()[7].equals("units-only");
         var options=new DecompileOptions();
+        // Recovered stack aggregates can straddle inferred variable boundaries.
+        // Preserve accesses through those pointers rather than dropping writes.
+        options.setAliasBlock(DecompileOptions.AliasBlockEnum.None);
         if(getScriptArgs().length>8)options.setMaxPayloadMBytes(Integer.parseInt(getScriptArgs()[8]));
         decompiler.setOptions(options);
         var selected = new HashSet<Long>();
@@ -256,6 +259,20 @@ public class Export extends GhidraScript {
                 var tokens = new ArrayList<ClangNode>();
                 result.getCCodeMarkup().flatten(tokens);
                 var occurrences = new HashMap<String, Integer>();
+                for(var token:tokens) {
+                    if(!(token instanceof ClangVariableToken variable))continue;
+                    String name=variable.getText();
+                    if(!name.matches("[A-Za-z]*Ram[0-9a-f]+"))continue;
+                    var node=variable.getVarnode();
+                    var operation=variable.getPcodeOp();
+                    int width=node==null?0:node.getSize();
+                    if(operation!=null && operation.getOpcode()==PcodeOp.CALLOTHER) {
+                        if(operation.getOutput()!=null)width=operation.getOutput().getSize();
+                        else if(operation.getNumInputs()>1)width=operation.getInput(operation.getNumInputs()-1).getSize();
+                    }
+                    if(width>0)metadata.append("V\t").append(name).append('\t')
+                        .append(name.substring(name.indexOf("Ram")+3)).append('\t').append(width).append('\n');
+                }
                 for (int index = 0; index < tokens.size(); index++) {
                     var field = tokens.get(index).toString();
                     if (!field.matches("_[0-9]+_[0-9]+_")) continue;

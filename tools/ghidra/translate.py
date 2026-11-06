@@ -27,6 +27,15 @@ def vector_constant_loads(source):
     return re.sub(pattern,replace,source)
 
 
+def packed_vector_views(source):
+    source=re.sub(r'undefined1\s+(auVar\d+)\s*\[15\];',r'pf_u120 \1;',source)
+    source=re.sub(r'\(undefined1\s+\[15\]\)', '(pf_u120)',source)
+    names=re.findall(r'\b(?:uint128|undefined16|pf_u120)\s+(auVar\d+)\s*;',source)
+    for name in set(names):
+        source=re.sub(r'\b'+name+r'\[([^\]\n]+)\]',r'PF_PART1('+name+r',\1)',source)
+    return source
+
+
 def ctype(description):
     if description.startswith('P:'):
         return ctype(description[2:]) + ' *'
@@ -48,11 +57,68 @@ def ctype(description):
     return {1: 'uint8_t', 2: 'uint16_t', 4: 'uint32_t', 8: 'uint64_t', 10: 'long double', 16: 'uint128'}.get(int(size), 'uint32_t')
 
 
-def lvalue(typename, pointer):
+def lvalue(typename, pointer, volatile=False):
     match = re.match(r'^(.*?)\[(\d+)\]$', typename)
     if match:
-        return '(*(%s (*)[%s])(%s))' % (match[1], match[2], pointer)
+        return '(*(%s (*)[%s])(%s))' % (match[1]+(' volatile'if volatile else''), match[2], pointer)
+    if volatile:typename+=' volatile'
     return '(*(%s *)(%s))' % (typename, pointer)
+
+
+def atomic_views(source):
+    def replace(match):
+        body=match[1].strip()
+        if not body:return '__atomic_thread_fence(__ATOMIC_SEQ_CST);'
+        exchange=re.fullmatch(r'(\w+)\s*=\s*([^;]+?)\s*;\s*\2\s*=\s*([^;]+);',body)
+        if exchange:
+            old,target,value=exchange.groups()
+            update=re.fullmatch(re.escape(old)+r'\s*([+|&^])\s*(.+)',value.strip())
+            if update:
+                operation={'+':'add','|':'or','&':'and','^':'xor'}[update[1]]
+                return old+' = __atomic_fetch_'+operation+'(&('+target+'),'+update[2]+',__ATOMIC_SEQ_CST);'
+            return old+' = __atomic_exchange_n(&('+target+'),'+value+',__ATOMIC_SEQ_CST);'
+        update=re.fullmatch(r'([^;=]+?)\s*=\s*\1\s*([+|&^])\s*([^;]+);',body)
+        if update:
+            target,operator,value=update.groups()
+            operation={'+':'add','|':'or','&':'and','^':'xor'}[operator]
+            return '__atomic_fetch_'+operation+'(&('+target+'),'+value+',__ATOMIC_SEQ_CST);'
+        statements=[line.strip()for line in body.split(';')if line.strip()]
+        writes=[(index,match)for index,line in enumerate(statements)
+                if(match:=re.fullmatch(r'(_?DAT_[0-9a-f]+)\s*=\s*(.+)',line))]
+        if len(writes)==1:
+            index,write=writes[0];target,value=write.groups()
+            old_names=[match[1]for line in statements[:index]
+                       if(match:=re.fullmatch(r'(\w+)\s*=\s*'+re.escape(target),line))]
+            operands='(?:'+ '|'.join(map(re.escape,[target]+old_names))+')'
+            update=re.fullmatch(operands+r'\s*([+|&^])\s*(.+)',value)
+            if update:
+                operator,argument=update.groups()
+                operation={'+':'add','|':'or','&':'and','^':'xor'}[operator]
+                call='__atomic_fetch_'+operation+'(&('+target+'),'+argument+',__ATOMIC_SEQ_CST)'
+                new='(__typeof__('+target+'))(pf_atomic_old '+operator+' ('+argument+'))'
+            elif not any(re.search(r'\b'+re.escape(name)+r'\b',value)for name in old_names):
+                call='__atomic_exchange_n(&('+target+'),'+value+',__ATOMIC_SEQ_CST)'
+                new='(__typeof__('+target+'))('+value+')'
+            else:raise ValueError('unreviewed atomic value: '+value)
+            result=['{ __typeof__('+target+') pf_atomic_old = '+call+';']
+            for position,line in enumerate(statements):
+                if position==index:continue
+                replacement='pf_atomic_old'if position<index else new
+                result.append(re.sub(r'\b'+re.escape(target)+r'\b',lambda _:replacement,line)+';')
+            return '\n'.join(result)+'\n}'
+        raise ValueError('unreviewed atomic operation: '+body)
+    def exclusive(match):
+        prelude,flag,target,value=match.groups()
+        statements=[line.strip()+';'for line in prelude.split(';')if line.strip()]
+        load=''
+        if statements and re.fullmatch(r'\w+\s*=\s*\*'+re.escape(target)+r'\s*;',statements[-1]):
+            load=statements.pop()
+        operation=atomic_views('LOCK();'+load+'*'+target+'='+value+';UNLOCK();')
+        return '\n'.join(statements+[operation])
+    source=re.sub(r'do\s*\{([^{}]*?)\b(\w+)\s*=\s*\(bool\)hasExclusiveAccess\((\w+)\);\s*\}\s*while\s*\(!\2\);\s*\*\3\s*=\s*([^;]+);',exclusive,source)
+    if 'hasExclusiveAccess('in source:raise ValueError('unreviewed exclusive-memory operation')
+    source=re.sub(r'\bLOCK\(\);(.*?)\bUNLOCK\(\);',replace,source,flags=re.S)
+    return re.sub(r'\bLOAcquire\(\);(.*?)\bLORelease\(\);',replace,source,flags=re.S)
 
 
 def signature(source):
@@ -313,9 +379,12 @@ def main():
                 number = int(row[2], 16)
                 if number not in memory_types or int(size) > memory_types[number][0]:
                     memory_types[number] = (int(size), kind)
-        globals_used = sorted({row[1] for row in metadata if row[0] == 'G'} | set(re.findall(r'\b(?:_?DAT|str|_LAB)_[0-9a-f]{8,16}\b|\b[a-zA-Z]+Ram[0-9a-f]{8,16}\b|\bram0x[0-9a-f]{8,16}\b|\bPTR_\w+_[0-9a-f]{8,16}\b', source)))
+        volatile_views={row[1]:(int(row[2],16),int(row[3]))for row in metadata if row[0]=='V'}
+        globals_used = sorted({row[1] for row in metadata if row[0] == 'G'} | set(volatile_views) | set(re.findall(r'\b(?:_?DAT|str|_LAB)_[0-9a-f]{8,16}\b|\b[a-zA-Z]*Ram[0-9a-f]{8,16}\b|\bram0x[0-9a-f]{8,16}\b|\bPTR_\w+_[0-9a-f]{8,16}\b', source)))
         preamble = ['#include "functions.h"']
         for name in globals_used:
+            if not re.fullmatch(r'[A-Za-z_]\w*',name):continue
+            packed_width=0
             if name.startswith('recovered_') and name.removeprefix('recovered_') in sources:
                 continue
             number = global_addresses[name] if name in global_addresses else int(name[-8:], 16)
@@ -323,6 +392,10 @@ def main():
             if name.startswith(('_DAT','ram0x')):
                 kind = memory_types.get(number, (4, 'uint:4'))[1]
             typename = 'char[1]' if name.startswith('str_') else ctype(kind)
+            if name in volatile_views:
+                number,width=volatile_views[name]
+                if width in(1,2,4,8,16):typename={1:'uint8_t',2:'uint16_t',4:'uint32_t',8:'uint64_t',16:'uint128'}[width]
+                else:packed_width=width
             if name.startswith('PTR_str_'):typename='char *'
             if WIDE and name.startswith('_DAT') and typename in ('uint8_t[16]', 'byte[16]'):
                 typename='uint128'
@@ -331,7 +404,13 @@ def main():
             location='0x%xU' % number
             if current.get('state_anchor') and current['state_base'] <= number < current['state_end']:
                 location='((uintptr_t)%s + 0x%xU)' % (current['state_anchor'],number-current['state_base'])
-            preamble += ['#undef ' + name, '#define %s %s' % (name, lvalue(typename, location))]
+            volatile=any(first<=number<last for first,last in current.get('volatile_ranges',[]))
+            if packed_width:
+                tags={3:('pf_uint24','pf_payload_bits'),5:('pf_uint40','pf_payload_bits'),6:('pf_uint48','pf_payload_bits'),7:('pf_uint56','pf_payload_bits'),12:('pf_uint96','pf_payload_bits')}
+                tag,field=tags.get(packed_width,('pf_packed_'+str(packed_width),'payload'))
+                expression='((%sstruct %s *)(%s))->%s'%('volatile 'if volatile else'',tag,location,field)
+            else:expression=lvalue(typename,location,volatile)
+            preamble += ['#undef ' + name, '#define %s %s' % (name,expression)]
         pointer_names = {row[1] for row in metadata if row[0] in ('G', 'L') and row[3].startswith(('P:', 'A:'))}
         pointer_names.update(re.findall(r'^  [\w ]+\*+\s*(\w+)(?:\s*\[.*?\])?;', source, re.M))
         locals_used = [row for row in metadata if row[0] == 'L']
@@ -478,6 +557,8 @@ def main():
         if address == '20f7c7' and source.count('LAB_0020f81e:') > 1:
             point=source.rfind('LAB_0020f81e:')
             source=source[:point]+source[point:].replace('LAB_0020f81e:', '', 1)
+        if WIDE:source=packed_vector_views(source)
+        if current.get('atomic_views'):source=atomic_views(source)
         opening = source.index('\n{') + 2
         source = source[:opening] + '\n  unsigned char frame[%d] = {0};\n' % (frame_size + 32) + source[opening:]
         (args.out / (address + '.c')).write_text('\n'.join(line.rstrip() for line in ('\n'.join(preamble + macros) + '\n' + source).splitlines()).rstrip() + '\n')

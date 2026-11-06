@@ -1,4 +1,4 @@
-// Recover Darwin ARM varargs using constant formats and their native storage.
+// Recover ARM and x86 varargs using constant formats and native storage.
 // Analysis only. Pooka's Free Software License.
 // @category Permafrost
 import ghidra.app.script.GhidraScript;
@@ -13,6 +13,7 @@ import java.util.*;
 
 public class Varargs extends GhidraScript {
  long literalFirst,literalLast;
+ boolean x64;
  Set<Long> constants(Varnode v,int depth) {
   if(v==null || depth>12)return Collections.emptySet();
   if(v.isConstant())return Set.of(v.getOffset());
@@ -65,7 +66,10 @@ public class Varargs extends GhidraScript {
     if("hljztL".indexOf(c)>=0)length.append(c);
     if("diuoxXfFeEgGaAcspn".indexOf(c)>=0) {
      boolean floating="fFeEgGaA".indexOf(c)>=0;
-     result.add(floating || length.toString().equals("ll") || length.toString().equals("j")?8:4);break;
+     if(x64 && floating && length.toString().equals("L"))throw new Exception("long double format requires review");
+     boolean wide=length.toString().equals("ll") || length.toString().equals("j") ||
+       (x64 && ("spn".indexOf(c)>=0 || length.toString().matches("[lzt]")));
+     result.add(floating?(x64?-8:8):wide?8:4);break;
     }
    }
   }
@@ -74,6 +78,8 @@ public class Varargs extends GhidraScript {
  }
  public void run() throws Exception {
   boolean arm64=currentProgram.getRegister("x0")!=null;
+  x64=currentProgram.getRegister("RDI")!=null;
+  boolean i386=!x64 && currentProgram.getRegister("EAX")!=null;
   // TSV: native address, number of fixed arguments (last one is the format).
   var specs=new HashMap<Long,Integer>();
   for(String line:Files.readAllLines(Path.of(getScriptArgs()[0]))) {
@@ -91,6 +97,7 @@ public class Varargs extends GhidraScript {
   for(var f:oldAliases)removeFunction(f);
   if(currentProgram.getMemory().getBlock(toAddr(0x60000000L))==null) {
    byte[] bytes=new byte[4096];for(int i=0;i<bytes.length;i+=16) {if(arm64){bytes[i]=(byte)0xc0;bytes[i+1]=3;bytes[i+2]=0x5f;bytes[i+3]=(byte)0xd6;}
+    else if(x64 || i386)bytes[i]=(byte)0xc3;
     else{bytes[i]=0x1e;bytes[i+1]=(byte)0xff;bytes[i+2]=0x2f;bytes[i+3]=(byte)0xe1;}}
    var block=currentProgram.getMemory().createInitializedBlock("pf_vararg_signatures",toAddr(0x60000000L),new java.io.ByteArrayInputStream(bytes),bytes.length,monitor,false);
    block.setExecute(true);
@@ -118,7 +125,7 @@ public class Varargs extends GhidraScript {
      }
     }
     catch(Exception e) {unknown++;println("Review varargs at "+op.getSeqnum().getTarget()+": "+e.getMessage());continue;}
-    String suffix=arm64?Integer.toString(arguments.size()):arguments.toString().replaceAll("[^0-9]","_");
+    String suffix=arm64?Integer.toString(arguments.size()):arguments.toString().replace("-","d").replaceAll("[^0-9d]","_");
     String name="pf_varargs_"+Long.toHexString(address)+"_"+suffix;
     Function alias=aliases.get(name);
     if(alias==null) {
@@ -128,15 +135,27 @@ public class Varargs extends GhidraScript {
      alias=createFunction(virtual,name);
      if(alias==null)throw new Exception("cannot create analysis signature "+name);
      var parameters=new ArrayList<ParameterImpl>();
+     String[] gp={"RDI","RSI","RDX","RCX","R8","R9"};
      for(int index=0;index<fixed;index++) {
       var p=nativeFunction.getParameter(index);
       parameters.add(new ParameterImpl(p.getName(),p.getDataType(),
-       new VariableStorage(currentProgram,currentProgram.getRegister((arm64?"x":"r")+index)),currentProgram,SourceType.USER_DEFINED));
+       (i386?new VariableStorage(currentProgram,4+index*4,p.getLength()):new VariableStorage(currentProgram,currentProgram.getRegister(x64?gp[index]:(arm64?"x":"r")+index))),currentProgram,SourceType.USER_DEFINED));
      }
-     int word=fixed;
+     int word=fixed,fp=0,stack=8;
      for(int index=0;index<arguments.size();index++) {
-      int width=arm64?8:arguments.get(index);VariableStorage storage;
-      if(arm64)storage=new VariableStorage(currentProgram,index*8,8);
+      boolean floating=x64 && arguments.get(index)<0;
+      int width=arm64?8:Math.abs(arguments.get(index));VariableStorage storage;
+      if(i386) {
+       storage=new VariableStorage(currentProgram,4+word*4,width);word+=width/4;
+      }else if(x64) {
+       if(floating && fp<8) {
+        storage=new VariableStorage(currentProgram,currentProgram.getRegister("XMM"+fp++).getAddress(),width);
+       }else if(!floating && word<6) {
+        storage=new VariableStorage(currentProgram,currentProgram.getRegister(gp[word++]).getAddress(),width);
+       }else {
+        storage=new VariableStorage(currentProgram,stack,width);stack+=8;
+       }
+      }else if(arm64)storage=new VariableStorage(currentProgram,index*8,8);
       else if(word>=4) {
        storage=new VariableStorage(currentProgram,(word-4)*4,width);word+=width/4;
       } else {
@@ -146,7 +165,7 @@ public class Varargs extends GhidraScript {
             new Varnode(currentProgram.getAddressFactory().getStackSpace().getAddress((word-4)*4),4));
        Collections.reverse(pieces);storage=new VariableStorage(currentProgram,pieces.toArray(new Varnode[0]));
       }
-      parameters.add(new ParameterImpl("vararg"+index,width==8?UnsignedLongLongDataType.dataType:
+      parameters.add(new ParameterImpl("vararg"+index,floating?DoubleDataType.dataType:width==8?UnsignedLongLongDataType.dataType:
        UnsignedIntegerDataType.dataType,storage,currentProgram,SourceType.USER_DEFINED));
      }
      alias.setReturnType(nativeFunction.getReturnType(),SourceType.USER_DEFINED);
