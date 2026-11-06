@@ -12,5 +12,6 @@
   "core_base": 34603008,
   "main": "recovered_2037ee0",
   "set_loader_context": "recovered_2003c80",
-  "inline_constants": {}
+  "inline_constants": {},
+  "upstream_display_version": "1.0"
 }

@@ -52,7 +52,7 @@ def build_sdk(output=Path('build'),libraries=None):
         'Install the Mach-O program in FAT32 (partition 2) and enter its filename at the OS prompt.\n'
         'Use --arch i386, x86_64, armv7, arm64, or universal for Mach-O or flat code.\n'
         'Default i386 uses cdecl; x86-64 uses the System V register ABI.\n'
-        'WMAP v11 is 188 bytes with 32-bit service slots on every CPU.\n'
+        'WMAP v13 is 252 bytes with 32-bit service slots on every CPU.\n'
         'Callback values use native pointers: 24 bytes on 32-bit CPUs and 40 on 64-bit CPUs.\n'
         'Use --format flat for explicit raw runcode/bload workflows.\n'
         'This is a freestanding SDK, without a hosted libc, C++ standard library,\n'

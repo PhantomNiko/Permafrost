@@ -100,10 +100,14 @@ def build_kernel(source, output):
             raise ValueError('inline data overwrites a compiled entry shim')
     image=image.replace(b'WinterBoot',b'Permafrost').replace(b'WinterMoon',b'Permafrost')
     version=profile['version'].encode()
+    upstream=profile.get('upstream_display_version','').encode()
+    if upstream:
+        if len(version)!=len(upstream):raise ValueError('display version must fit its string slot')
+        image=image.replace(b'\0'+upstream+b'\0',b'\0'+version+b'\0')
     def release_name(match):
-        if len(version)>len(match[1]):raise ValueError('release version exceeds its string slot')
-        return b'Permafrost OS v'+version.ljust(len(match[1]),b' ')
-    image=re.sub(rb'Permafrost OS v([0-9]+\.[0-9]+)',release_name,image)
+        if len(version)>len(match[2]):raise ValueError('release version exceeds its string slot')
+        return match[1]+version.ljust(len(match[2]),b' ')
+    image=re.sub(rb'(Permafrost(?: OS)? v)([0-9]+\.[0-9]+)',release_name,image)
     binary = pack_segments([(base, len(image), image),
                             (core_metadata['base'], len(core), core)], entry, arch)
     (output/'Permafrost').write_bytes(binary)

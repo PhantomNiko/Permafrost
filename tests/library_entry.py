@@ -19,7 +19,7 @@ def main():
     (out/'functions.h').write_text('#include "support.h"\nvoid normalized_result(uint64_t *out,uint64_t a,uint64_t b,uint64_t c,double value);\nextern unsigned char pf_module_state[];\n')
     (out/'runtime.c').write_text('#include "functions.h"\nvoid normalized_result(uint64_t *out,uint64_t a,uint64_t b,uint64_t c,double value){out[0]=a+b+c;out[1]=pf_double_bits(value);out[2]=0x5046414249ULL;}\n')
     (out/'state.c').write_text('unsigned char pf_module_state[16];\n')
-    profile=dict(architecture='arm64',module='ABIProbe',version='0.8',install_name='ABIProbe',functions={'0':'normalized_result'},arm64_sret_exports=['0'],exports=[dict(address=0,name='_pf_entry_probe',weak=False,section=1)],relocations=[])
+    profile=dict(architecture='arm64',module='ABIProbe',version='0.9',install_name='ABIProbe',functions={'0':'normalized_result'},arm64_sret_exports=['0'],exports=[dict(address=0,name='_pf_entry_probe',weak=False,section=1)],relocations=[])
     (out/'profile.json').write_text(json.dumps(profile))
     lib=DLL(build_library(out,out/'linked'))
     for a,b,c,value in((1,2,3,1.5),(0,0,0,-3.25),(0x100000000,7,11,0.125)):

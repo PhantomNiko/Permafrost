@@ -25,7 +25,7 @@ int main(void) {
     struct pf_hardware_info hardware={0};
     CHECK(api->hardware_info(&hardware));
     CHECK(hardware.hardware_threads>=1);
-    if(hardware.flags&PF_HARDWARE_MEMORY)CHECK(hardware.detected_memory_bytes>0);
+    if(hardware.flags&PF_HARDWARE_MEMORY)CHECK(hardware.detected_memory_bytes || hardware.heap_total_bytes || hardware.heap_free_bytes);
     CHECK(hardware.heap_free_bytes<=hardware.heap_total_bytes);
     struct pf_device_info devices[16]={0};uint32_t device_count=0;
     CHECK(api->list_devices(devices,16,&device_count));

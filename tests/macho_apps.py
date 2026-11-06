@@ -23,7 +23,7 @@ def main():
     parser.add_argument('--runtime-only',action='store_true')
     args=parser.parse_args()
     with tempfile.TemporaryDirectory(prefix='permafrost sdk macho ') as temp:
-        root=Path(temp);sdk=root/'relocated SDK.sdk';shutil.copytree('build/Permafrost0.8.sdk',sdk)
+        root=Path(temp);sdk=root/'relocated SDK.sdk';shutil.copytree('build/Permafrost0.9.sdk',sdk)
         compiler=sdk/'bin/pf-cc'
         for language in (['runtime'] if args.runtime_only else ['c','cpp','runtime']):
             source=root/('hello.'+('c' if language=='runtime' else language))

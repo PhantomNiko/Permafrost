@@ -72,6 +72,7 @@ struct pf_hardware_info {
     uint64_t l1_cache_bytes,l2_cache_bytes,l3_cache_bytes;
     uint64_t detected_memory_bytes,heap_total_bytes,reserved_memory_bytes,heap_free_bytes;
 };
+/* PF_HARDWARE_MEMORY indicates at least one available memory measurement. */
 enum pf_hardware_flags {PF_HARDWARE_CPUID=1,PF_HARDWARE_CACHE=2,PF_HARDWARE_MEMORY=4};
 static inline void *pf_blob_data(const struct pf_blob *value) { return (void *)(uintptr_t)value->data; }
 static inline void *pf_image_data(const struct pf_image *value) { return (void *)(uintptr_t)((uint64_t)value->data|((uint64_t)value->address_high<<32)); }

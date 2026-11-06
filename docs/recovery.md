@@ -1,13 +1,13 @@
-# Permafrost 0.8 recovery record
+# Permafrost 0.9 recovery record
 
-The supplied 0.9r123 reference becomes Permafrost 0.8. `recovery/reference.json`
+The supplied 1.0r147-Prerelease reference becomes Permafrost 0.9. `recovery/reference.json`
 records its hash and architecture inventory. Reference images and decompiler
 working files are analysis inputs, never normal build inputs.
 
 `kernel/i386`, `kernel/x86_64`, `kernel/armv7` and `kernel/arm64` contain the
 recovered C implementations, initialized data and compatibility entry maps.
-The IA32 EFI profile shares the BIOS implementation with relocated addresses
-and separate initialized data. `recovery/kernels` supplies the x86 link layouts;
+The IA32 EFI profile shares the BIOS implementation and uses separate
+initialized firmware data. Both x86 kernels load at 0x02000000. `recovery/kernels` supplies the x86 link layouts;
 the ARM source directories contain their profiles. Freestanding memory,
 arithmetic and formatting support is shared in `kernel`.
 
@@ -29,16 +29,23 @@ regions are compiled from C. Compatibility entries branch to linked functions;
 function pointers in initialized data are relocated during packaging. Recovered
 ARM literal-pool cells are data, not retained executable instructions.
 
-WMAP v11 is a 188-byte table of 32-bit service addresses on every CPU. The SDK
+WMAP v13 is a 252-byte table of 32-bit service addresses on every CPU. The SDK
 decodes those slots to native function pointers. Callback values use 24 bytes
 on 32-bit targets and 40 on 64-bit targets; other records have explicit wire
 layouts documented in `sdk/include/permafrost.h`.
 
 ### Full-width EFI bridge extension
 
-The WFE3 context retains its legacy fields, including the 32-bit bridge at
-0x114. Source-built loaders append a versioned extension: total size 0xeb8,
-magic 0x34424650 at 0xea8, extension version 1 at 0xeac, and the 64-bit bridge
-address at 0xeb0. The x86-64 and ARM64 kernels prefer this extension and
+The WFE4 context retains its legacy fields, including the 32-bit bridge at
+0x114. Source-built loaders append a versioned extension: total size 0x1ac0,
+magic 0x34424650 at 0x1ab0, extension version 1 at 0x1ab4, and the 64-bit bridge
+address at 0x1ab8. The x86-64 and ARM64 kernels prefer this extension and
 fall back to the legacy field for older contexts. This prevents truncation
 when firmware code is above 4 GiB. `tests/efi_context.c` checks both paths.
+
+The kernel and WinterPNG DLL compile the same recovered C image codecs.
+The module links initialized data and relocates C function pointers; it embeds
+no reference executable instructions. Native streams for BMP, PNG, REI, TGA,
+XCF and JPEG exercise each decoder. The original reserved driver volume is
+empty; reconstructed images use the compatible compact firmware/recovery/user
+layout and a writable FAT32 user volume.
