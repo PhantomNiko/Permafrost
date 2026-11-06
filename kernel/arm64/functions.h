@@ -1279,7 +1279,7 @@ void recovered_40448bb8(long *param_1);
 void recovered_40448c04(long param_1);
 void recovered_40448c54(undefined4 *param_1);
 void recovered_40448ca8(undefined4 *param_1);
-void recovered_40448d00(float param_1);
+float recovered_40448d00(float param_1);
 void recovered_40448d44(long param_1);
 undefined8 recovered_40448d7c(int *param_1,int *param_2);
 ulong recovered_40448ef0(long param_1,undefined8 param_2,undefined8 param_3);

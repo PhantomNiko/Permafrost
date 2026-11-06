@@ -18,7 +18,9 @@ from unicorn.arm64_const import UC_ARM64_REG_PC,UC_ARM64_REG_X0,UC_ARM64_REG_LR
 
 CASES=['0','2','-3','3.5','-3.5','2+3','2 - 3','2 * 3.5','3.5 + 2','2 / 4',
        '7 % 3','2 ^ 3','(2 + 3) * 4','0.5 + 0.25','3 < 4','3 == 3',
-       'true and false','true or false','$240000','0x7fffffff']
+       'true and false','true or false','$240000','0x7fffffff',
+       '{2,4,6}','{a=1}','len({2,4,6})','#{2,4,6}','ipairs({2,4,6})','0.4','$80000000','$ffffffff',
+       '0x80000000','0xffffffff','len({1,2,["name"]="winter"})']
 
 
 class Kernel(DLL):

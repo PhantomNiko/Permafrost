@@ -782,7 +782,7 @@ uchar recovered_2065510(ulonglong *param_1,ulong *param_2);
 uchar recovered_2065680(ulonglong *param_1,ulong *param_2);
 uchar recovered_2065820(ulonglong *param_1,ulong *param_2);
 uchar recovered_2065960(ulonglong *param_1,ulong *param_2);
-double recovered_2067ab0(long param_1);
+uint recovered_2067ab0(long table);
 uint recovered_2067b70(long param_1,long param_2);
 uchar recovered_2067bf0(int *param_1,int *param_2,int *param_3,char *param_4,undefined8 in_R8,
                        undefined8 in_R9);
