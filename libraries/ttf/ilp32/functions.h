@@ -47,11 +47,11 @@ static inline uint32_t pf_arm_unsigned_sat(int64_t value,unsigned bits){uint64_t
 
 typedef struct pf_glyph { int left,top,width,height; double advance; unsigned char *pixels; unsigned long count,capacity; } pf_glyph;
 extern uint8_t pf_module_state[];
-uint recovered_10003dc0(uint param_1,uint param_2);
+uint32_t recovered_10003dc0(uint32_t a,uint32_t b);
 uint recovered_10003dc8(uint param_1,uint param_2,uint *param_3);
-uint recovered_10003e40(uint a,uint b);
-int recovered_10003e64(uint param_1,uint param_2);
-int recovered_10003e9c(int param_1,int param_2);
+uint32_t recovered_10003e40(uint32_t a,uint32_t b);
+uint32_t recovered_10003e64(uint32_t a,uint32_t b);
+uint32_t recovered_10003e9c(uint32_t a,uint32_t b);
 undefined8 recovered_10003ee0(uint param_1,uint param_2,uint param_3,uint param_4,uint *param_5);
 undefined8 recovered_10003fe8(undefined4 param_1,undefined4 param_2);
 undefined8 recovered_10004070(undefined4 param_1,undefined4 param_2);

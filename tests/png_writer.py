@@ -17,13 +17,14 @@ def main():
     for width,height in cases:
         pixels=bytes((i*37+(i>>8))&255 for i in range(width*height*4))
         for path in(args.reference,args.source):
-            writer=library(path)
+            writer=library(path);writer.instruction_limit=1000000000
             writer.cpu.mem_write(0x3000000,b'fixture.png\0')
             writer.cpu.mem_write(0x3001000,pixels)
             assert writer.call(symbol,0x3000000,0x3001000,width,height)==1
             encoded=writer.files['fixture.png']
             for decoder in(args.reference,args.source):
-                kind,image=inspect_image(library(decoder),encoded)
+                reader=library(decoder);reader.instruction_limit=1000000000
+                kind,image=inspect_image(reader,encoded)
                 assert kind==1 and image==(width,height,pixels),(width,height,str(path),str(decoder))
             for bad_width,bad_height in((0,height),(width,0),(-1,height),(width,-1)):
                 assert writer.call(symbol,0x3000000,0x3001000,
