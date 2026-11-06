@@ -9,6 +9,14 @@ from pathlib import Path
 import re
 
 
+DEFINITION = re.compile(r'(?:^|\n)(?:__attribute__\(\([^\n]*?\)\)\s*)?[\w\s*]*\b((?:thunk_)?(?:recovered_|FUN_)[0-9a-f]+)\s*\([^;{}]*\)\s*\{')
+
+def definition_name(source):
+    """Find a recovered definition, including a wrapped return-type line."""
+    match=DEFINITION.search(source)
+    return match[1] if match else None
+
+
 def merge(directory, output, header, names=None, descriptions=None):
     names = names or {}
     def rename(text):
@@ -24,9 +32,8 @@ def merge(directory, output, header, names=None, descriptions=None):
     # target once; each original entry still has its own recorded ABI stub.
     definitions = {}
     for path in sorted(directory.glob('*.c')):
-        match = re.search(r'(?:^|\n)(?:__attribute__\(\([^\n]*?\)\)\s*)?[\w\s*]*\b((?:thunk_)?(?:recovered_|FUN_)[0-9a-f]+)\s*\([^;{}]*\)\s*\{', path.read_text())
-        if match:
-            name = match[1]
+        name = definition_name(path.read_text())
+        if name:
             if name not in definitions or int(path.stem, 16) == int(name.rsplit('_', 1)[1], 16):
                 definitions[name] = path
     selected = set(definitions.values())
