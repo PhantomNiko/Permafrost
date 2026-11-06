@@ -75,7 +75,9 @@ def expand(source, output):
             continue
         end = symbols[i+1][0] if i+1 < len(symbols) else text + size
         body = list(decoder.disasm(original[address-base:end-base], address))
-        while body and body[-1].mnemonic == 'nop':
+        # Some releases align the next function with zero words (UDF #0).
+        # They are unreachable after the outlined return or tail branch.
+        while body and (body[-1].mnemonic == 'nop' or bytes(body[-1].bytes) == b'\0\0\0\0'):
             body.pop()
         if not body or body[-1].mnemonic not in ('ret', 'b', 'br'):
             raise ValueError('unrecognized outlined terminator at %#x' % address)
