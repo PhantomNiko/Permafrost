@@ -28,13 +28,14 @@ static void message(const char *text){
     while(*text && n<159)buffer[n++]=(uint8_t)*text++;
     buffer[n]=0;system_table->output->write(system_table->output,buffer);
 }
-static void *allocate(size_t bytes,uint64_t address){
+static void *allocate_kind(size_t bytes,uint64_t address,unsigned kind){
     if(!bytes || bytes>0x40000000U)return 0;
     uint64_t location=address?address:0xffffffffU;
-    Status status=services->allocate_pages(address?2:1,2,(bytes+4095)/4096,&location);
+    Status status=services->allocate_pages(address?2:1,kind,(bytes+4095)/4096,&location);
     if(failed(status) || location>UINT32_MAX)return 0;
     return (void *)(uintptr_t)location;
 }
+static void *allocate(size_t bytes,uint64_t address){return allocate_kind(bytes,address,2);}
 static int read_sectors(uint64_t lba,uint32_t count,void *out){
     if(!count || lba>disk->media->last || count-1>disk->media->last-lba)return 0;
     return !failed(disk->read(disk,disk->media->id,lba,(uintptr_t)count*512,out));
@@ -322,6 +323,25 @@ static uint32_t OS_ABI bridge(uint32_t *request){
     return dispatch(request);
 #endif
 }
+static uintptr_t legacy_bridge(void){
+    uintptr_t target=(uintptr_t)bridge;
+    if(target<=UINT32_MAX)return target;
+    uint8_t *entry=allocate_kind(4096,0,1);if(!entry)return 0;
+#if defined(__aarch64__)
+    /* The native context has a 32-bit call slot. Preserve it with a low
+       entry that branches to the full-width, source-built EFI function. */
+    ((uint32_t *)entry)[0]=0x58000050; /* ldr x16, literal at +8 */
+    ((uint32_t *)entry)[1]=0xd61f0200; /* br x16 */
+    *(uint64_t *)(entry+8)=target;
+    __asm__ volatile("dc cvau,%0; dsb ish; ic ivau,%0; dsb ish; isb"::"r"(entry):"memory");
+#elif defined(__x86_64__)
+    entry[0]=0x49;entry[1]=0xbb;*(uint64_t *)(entry+2)=target;
+    entry[10]=0x41;entry[11]=0xff;entry[12]=0xe3; /* jmp r11 */
+#else
+    return 0;
+#endif
+    return (uintptr_t)entry;
+}
 static unsigned bit_shift(uint32_t mask){unsigned n=0;if(!mask)return 0;while(!(mask&1)){mask>>=1;n++;}return n;}
 static void video_context(void){
     Video *console=0;
@@ -373,7 +393,15 @@ static void enter(uintptr_t entry){
     /* Thumb VMSR FPEXC,r0; keep the loader compiled without floating point. */
     __asm__ volatile("mov r0,#0x40000000; .short 0xeee8,0x0a10":::"r0","memory");
 #endif
+#if defined(__x86_64__)
+    __asm__ volatile("andq $-16,%%rsp; jmp *%0"::"r"(entry):"memory");
+    __builtin_unreachable();
+#elif defined(__i386__)
+    __asm__ volatile("andl $-16,%%esp; jmp *%0"::"r"(entry):"memory");
+    __builtin_unreachable();
+#else
     ((void (*)(void))entry)();
+#endif
     for(;;){
 #if defined(__x86_64__) || defined(__i386__)
         __asm__ volatile("hlt");
@@ -386,12 +414,12 @@ Status EFI_ABI pf_efi_entry(void *image,System *table){
     (void)image;if(!table || !table->boot)return (Status)-1;
     system_table=table;services=table->boot;
     if(services->watchdog)services->watchdog(0,0,0,0);
-    message("Permafrost 0.8 source firmware\r\n");
+    message("Permafrost 0.9 source firmware\r\n");
     if(!allocate(4096,SHARED_ADDRESS) || !allocate(0x100000,PROGRAM_ADDRESS)){message("Shared memory reservation failed.\r\n");return (Status)-1;}
     clear((void *)(uintptr_t)SHARED_ADDRESS,4096);
-    context=allocate(4096,0);command=allocate(4096,0);io_buffer=allocate(65536,0);
+    context=allocate(PF_EFI_CONTEXT_BYTES,0);command=allocate(4096,0);io_buffer=allocate(65536,0);
     if(!context || !command || !io_buffer || !select_disk()){message("Permafrost disk not found.\r\n");return (Status)-1;}
-    clear(context,4096);clear(command,4096);
+    clear(context,PF_EFI_CONTEXT_BYTES);clear(command,4096);
     if(!read_sectors(payload_lba+65,1,sector) || !equal(sector,"WBPT",4) || sector[6]<2)return (Status)-1;
     uint32_t starts[2]={le32(sector+36),le32(sector+68)},lengths[2]={le32(sector+40),le32(sector+72)};
     uintptr_t entry=0;
@@ -401,13 +429,14 @@ Status EFI_ABI pf_efi_entry(void *image,System *table){
         if(kernel){entry=load_kernel(kernel,bytes);services->free_pages((uintptr_t)kernel,(bytes+4095)/4096);}
     }
     if(!entry){message("Permafrost kernel could not be loaded.\r\n");return (Status)-1;}
-    context[0]=0x33454657;context[1]=3;context[2]=PF_EFI_CONTEXT_BYTES;
+    context[0]=0x33454657;context[1]=PF_EFI_CONTEXT_VERSION;context[2]=PF_EFI_CONTEXT_BYTES;
     context[3]=(uintptr_t)table;context[4]=(uintptr_t)services;context[9]=disk->media->id;
     context[10]=payload_sectors;context[11]=starts[0];context[12]=lengths[0];context[13]=starts[1];
     context[0x12]=(uint32_t)payload_lba;context[0x21]=(uint32_t)(disk->media->last+1);
-    context[0x45]=(uintptr_t)bridge;context[0x46]=(uintptr_t)command;
-    context[0xea8/4]=PF_EFI_BRIDGE_MAGIC;context[0xeac/4]=1;
-    *(uint64_t *)((uint8_t *)context+0xeb0)=(uintptr_t)bridge;
+    context[0x45]=legacy_bridge();context[0x46]=(uintptr_t)command;
+    if(!context[0x45]){message("EFI bridge reservation failed.\r\n");return (Status)-1;}
+    context[PF_EFI_BRIDGE_EXTENSION/4]=PF_EFI_BRIDGE_MAGIC;context[PF_EFI_BRIDGE_EXTENSION/4+1]=1;
+    *(uint64_t *)((uint8_t *)context+PF_EFI_BRIDGE_POINTER)=(uintptr_t)bridge;
     context[0x8c]=1;context[0x8d]=(uintptr_t)io_buffer;context[0x8e]=65536;
     ((uint64_t *)(context+0x194))[0]=(uintptr_t)table;((uint64_t *)(context+0x194))[1]=(uintptr_t)services;
     ((uint64_t *)(context+0x194))[2]=(uintptr_t)table->output;((uint64_t *)(context+0x194))[3]=(uintptr_t)table->input;

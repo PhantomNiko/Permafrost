@@ -26,6 +26,7 @@ def build_kernel(output, architecture='i386', profile_path=None):
     output.mkdir(parents=True, exist_ok=True)
     includes = [str(root), 'sdk/include', 'kernel', 'firmware']
     flags = ['-fno-inline-functions', '-Wno-int-conversion',
+             '-fbracket-depth=2048',
              '-Wno-incompatible-pointer-types', '-Wno-pointer-sign',
              '-Wno-incompatible-function-pointer-types']
     slide=profile.get('address_slide',0)
@@ -60,10 +61,14 @@ def build_kernel(output, architecture='i386', profile_path=None):
 
     bridge, bridge_symbols = b'', {}
     if architecture == 'i386' and profile.get('platform')!='uefi':
+        resident=profile.get('resident_bios_bridge',False)
+        bridge_base=0x9000 if resident else 0x20080
+        segment_base=0 if resident else 0x20000
         bridge, bridge_symbols, _ = link([
             object_for(Path('firmware/bios-transition.c'), 'bios-transition',
-                       ['PF_BIOS_CODE_BASE=0x20080', 'PF_BIOS_SEGMENT_BASE=0x20000'])
-        ], base=0x20080, shim=False)
+                       ['PF_BIOS_CODE_BASE='+hex(bridge_base), 'PF_BIOS_SEGMENT_BASE='+hex(segment_base)])
+        ], base=bridge_base, shim=False)
+        if resident:bridge=b''
     objects = [object_for(root / 'runtime.c', 'implementation')]
     if architecture == 'i386':
         objects.append(object_for(root / 'firmware.c', 'platform'))
@@ -78,7 +83,7 @@ def build_kernel(output, architecture='i386', profile_path=None):
                     'PF_KERNEL_LOAD_BASE=0x%x' % profile['base']])]
     core, symbols, _ = link(objects, base=profile['core_base'], shim=False,
                             externals=bridge_symbols)
-    if architecture == 'i386' and not slide and profile['core_base'] + len(core) >= 0x1e0000:
+    if architecture == 'i386' and not slide and profile['base']<0x1e0000 and profile['core_base'] + len(core) >= 0x1e0000:
         raise ValueError('kernel core overlaps its initial stack')
     state_object = object_for(Path(profile.get('state_source',root / 'state.c')), 'state')
     state = next(s['data'] for s in state_object.sections if s['name'] == '.pf.state')
@@ -96,8 +101,8 @@ def build_kernel(output, architecture='i386', profile_path=None):
     abi = json.loads((root / 'abi.json').read_text())
     entries = {int(a, 16)+slide: symbols[item['symbol']] for a, item in abi.items()}
     if architecture == 'i386':
-        for address in (0x2002c, 0x20113, 0x2022b, 0x20386, 0x204b9,
-                        0x205e7, 0x206a8, 0x207a6, 0x20867):
+        for offset in (0x2c,0x113,0x22b,0x386,0x4b9,0x5e7,0x6a8,0x7a6,0x867):
+            address=profile['base']+offset
             entries[address+slide] = symbols['FUN_%08x' % address]
     word = 8 if architecture == 'x86_64' else 4
     encoding = '<Q' if word == 8 else '<I'

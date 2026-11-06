@@ -44,7 +44,7 @@ def build_kernel(source, output):
             'PF_KERNEL_LOAD_BASE='+hex(profile['base'])])):
         obj = output/(name+'.o')
         compile_object(path, obj, arch, includes, defines,
-                       extra_flags=['-w', '-fno-inline-functions', '-Wno-int-conversion',
+                       extra_flags=['-w', '-fno-inline-functions', '-fbracket-depth=2048', '-Wno-int-conversion',
                                     '-Wno-incompatible-pointer-types',
                                     '-Wno-incompatible-function-pointer-types'])
         objects.append(obj)

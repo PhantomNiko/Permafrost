@@ -1,10 +1,13 @@
-/* WMFS and Mach-O loading recovered from the 0.8 BIOS boot chain.
+/* WMFS and Mach-O loading for the Permafrost BIOS boot chain.
  * Pooka's Free Software License. */
 #include "bios.h"
 #include <stddef.h>
 static uint8_t sector[512];
 static uint8_t directory[512];
 static uint8_t drive;
+static uint32_t kernel_first,kernel_last;
+#define KERNEL_MIN 0x02000000U
+#define KERNEL_MAX 0x03000000U
 static uint32_t le32(const void *p) { const uint8_t *s=p;return (uint32_t)s[0]|(uint32_t)s[1]<<8|(uint32_t)s[2]<<16|(uint32_t)s[3]<<24; }
 static uint32_t be32(const void *p) { const uint8_t *s=p;return (uint32_t)s[3]|(uint32_t)s[2]<<8|(uint32_t)s[1]<<16|(uint32_t)s[0]<<24; }
 static void copy(void *out,const void *in,uint32_t n) {uint8_t *d=out;const uint8_t *s=in;while(n--)*d++=*s++;}
@@ -73,6 +76,7 @@ static int read_file(const struct file *f,uint32_t offset,void *out,uint32_t len
  return 1;
 }
 static uint32_t load_kernel(const struct file *f) {
+ kernel_first=KERNEL_MAX;kernel_last=KERNEL_MIN;
  uint8_t header[80];uint32_t slice=0;
  if(!read_file(f,0,header,28))return 0;
  if(be32(header)==0xcafebabe) {
@@ -93,7 +97,9 @@ static uint32_t load_kernel(const struct file *f) {
   if(command==1) {
    if(size<56 || !read_file(f,position,header,56))return 0;
    uint32_t address=le32(header+24),memory=le32(header+28),offset=le32(header+32),used=le32(header+36);
-   if(used>memory || address<0x20000 || address>=0x1e0000 || memory>0x1e0000-address || slice+offset<slice)return 0;
+   if(used>memory || address<KERNEL_MIN || address>=KERNEL_MAX || memory>KERNEL_MAX-address || slice+offset<slice)return 0;
+   if(address<kernel_first)kernel_first=address;
+   if(address+memory>kernel_last)kernel_last=address+memory;
    if(!read_file(f,slice+offset,(void *)(uintptr_t)address,used))return 0;
    zero((void *)(uintptr_t)(address+used),memory-used);
   } else if(command==5) {
@@ -102,7 +108,22 @@ static uint32_t load_kernel(const struct file *f) {
   }
   position+=size;
  }
- return position==end && entry>=0x20000 && entry<0x1e0000 ? entry:0;
+ return position==end && entry>=KERNEL_MIN && entry<KERNEL_MAX ? entry:0;
+}
+static void add_memory_range(uint64_t base,uint64_t length,uint32_t *count,uint32_t *wide_count) {
+ if(!length)return;
+ if(*wide_count<64) {
+  ((uint64_t *)0x6240)[*wide_count*2]=base;((uint64_t *)0x6240)[*wide_count*2+1]=length;++*wide_count;
+ }
+ if(*count<16 && length<=0xffffffffULL) {
+  ((uint32_t *)0x6090)[*count*2]=(uint32_t)base;((uint32_t *)0x6090)[*count*2+1]=(uint32_t)length;++*count;
+ }
+}
+static void available_memory(uint64_t base,uint64_t end,uint32_t *count,uint32_t *wide_count) {
+ if(kernel_first<kernel_last && base<kernel_last && kernel_first<end) {
+  if(base<kernel_first)add_memory_range(base,kernel_first-base,count,wide_count);
+  if(kernel_last<end)add_memory_range(kernel_last,end-kernel_last,count,wide_count);
+ }else add_memory_range(base,end-base,count,wide_count);
 }
 static void memory_map(void) {
  uint32_t continuation=0,count=0,wide_count=0,maximum=0;
@@ -115,19 +136,18 @@ static void memory_map(void) {
   if(type==1 && length && base<0x100000000ULL) {
    if(length>0x100000000ULL-base)length=0x100000000ULL-base;
    uint64_t end=base+length;if(end>maximum)maximum=end>=0xffffffffULL?0xfffffff0U:(uint32_t)end;
-   if(wide_count<64) {((uint64_t *)0x6240)[wide_count*2]=base;((uint64_t *)0x6240)[wide_count*2+1]=length;++wide_count;}
-   if(count<16 && length<=0xffffffffULL) {((uint32_t *)0x6090)[count*2]=(uint32_t)base;((uint32_t *)0x6090)[count*2+1]=(uint32_t)length;++count;}
+   available_memory(base,end,&count,&wide_count);
   }
   continuation=r.ebx;
  } while(continuation);
- if(!count) {((uint32_t *)0x6090)[0]=0x100000;((uint32_t *)0x6090)[1]=0x3f00000;count=1;maximum=0x4000000;}
+ if(!count) {available_memory(0x100000,0x4000000,&count,&wide_count);maximum=0x4000000;}
  *(uint32_t *)0x6088=maximum;*(uint32_t *)0x608c=count;
  *(uint32_t *)0x6238=0x34364857;*(uint32_t *)0x623c=wide_count;
 }
 void pf_firmware_main(void) {
  drive=*(uint8_t *)0x6068;
  port(0x3f9,0);port(0x3fb,0x80);port(0x3f8,1);port(0x3f9,0);port(0x3fb,3);port(0x3fa,0xc7);port(0x3fc,0x0b);
- text("Permafrost 0.8 firmware\r\n");memory_map();
+ text("Permafrost 0.9 firmware\r\n");memory_map();
  uint32_t candidates[14],count=0;
  if(read_sector(65,sector) && le32(sector)==0x54504257) {
   unsigned n=sector[6]|(unsigned)sector[7]<<8;if(n>14)n=14;
@@ -138,8 +158,9 @@ void pf_firmware_main(void) {
   if(!open_kernel(candidates[i],&f))continue;
   uint32_t entry=load_kernel(&f);
   if(entry) {
+   memory_map();
    *(uint32_t *)0x6118=candidates[i];*(uint32_t *)0x611c=0;*(uint32_t *)0x6120=0;
-   *(uint32_t *)0x20010=0;text("Starting Permafrost.\r\n");
+   *(uint32_t *)(uintptr_t)(kernel_first+16)=0;text("Starting Permafrost.\r\n");
    __asm__ volatile("cli; movl $0x200000,%%esp; xorl %%ebp,%%ebp; jmp *%%eax"::"a"(entry):"memory");
    __builtin_unreachable();
   }
