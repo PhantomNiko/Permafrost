@@ -18,7 +18,11 @@ def exercise(binary, addresses, native=False):
            ('math.sqrt',[81]),('math.log',[1]),('math.sin',[0.5]),
            ('math.cos',[0.5]),('math.rad',[90]),
            ('string.format',['%s-%d','ws',3]),
-           ('string.format',['%.2f',1.25])]
+           ('string.format',['%.2f',1.25]),
+           ('string.upper',['winter']),('string.lower',['WS']),
+           ('string.len',['winter']),('string.sub',['winter',2,4]),
+           ('string.rep',['ha',3]),('string.rep',['ha',3,'-']),
+           ('string.rep',['ha',0]),('string.sub',['winter',-3,-1])]
     for name,values in cases:
         kernel=Kernel(binary,addresses,native)
         size=64 if kernel.wide else 36

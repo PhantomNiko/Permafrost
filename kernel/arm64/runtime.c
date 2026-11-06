@@ -64683,35 +64683,16 @@ LAB_40439488:
             }
             uVar35 = param_3[0x21];
           }
-          fVar36 = (float)uStack_1f0;
-          if ((int)(float)uStack_1f0 < 0) {
-            fVar36 = (float)((int)(float)uStack_1f0 + uVar37 + 1);
-            uStack_1f0 = (byte *)CONCAT44(PF_PART4(uStack_1f0, 4),fVar36);
-          }
-          uVar35 = (uVar37 + 1 & (int)uVar35 >> 0x1f) + uVar35;
-          uVar66 = uVar37;
-          if (fVar36 == 0.0) {
-            fVar36 = 1.4013e-45;
-            uStack_1f0 = (byte *)CONCAT44(PF_PART4(uStack_1f0, 4),1);
-            if (uVar35 != 0) {
-              uVar66 = uVar35;
-            }
-          }
-          else {
-            if (uVar35 != 0) {
-              uVar66 = uVar35;
-            }
-            if ((int)fVar36 < 1) {
-              fVar36 = 1.4013e-45;
-              uStack_1f0 = (byte *)CONCAT44(PF_PART4(uStack_1f0, 4),1);
-            }
-          }
-          if ((int)uVar37 <= (int)uVar66) {
-            uVar66 = uVar37;
-          }
-          if ((int)fVar36 <= (int)uVar66) {
-            pbVar49 = uStack_3f0 + ((ulong)(uint)fVar36 - 1);
-            pbVar51 = (byte *)(long)(int)((uVar66 - (int)fVar36) + 1);
+          int32_t pf_start=(int32_t)(uint32_t)(uintptr_t)uStack_1f0;
+          if(pf_start<0)pf_start=(int32_t)((uint32_t)pf_start+uVar37+1u);
+          if(pf_start<1)pf_start=1;
+          uVar35=(uVar37+1u & (int32_t)uVar35>>31)+uVar35;
+          int32_t pf_end=(int32_t)uVar35;
+          if(!pf_end)pf_end=(int32_t)uVar37;
+          if(pf_end>(int32_t)uVar37)pf_end=(int32_t)uVar37;
+          if(pf_start<=pf_end) {
+            pbVar49=uStack_3f0+pf_start-1;
+            pbVar51=(byte *)(intptr_t)(pf_end-pf_start+1);
             goto LAB_40439bb4;
           }
           goto LAB_40439588;

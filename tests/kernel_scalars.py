@@ -16,7 +16,7 @@ from unicorn.x86_const import UC_X86_REG_ECX,UC_X86_REG_EDX,UC_X86_REG_ESP,UC_X8
 from unicorn.arm_const import UC_ARM_REG_PC,UC_ARM_REG_R0,UC_ARM_REG_LR,UC_ARM_REG_C1_C0_2,UC_ARM_REG_FPEXC
 from unicorn.arm64_const import UC_ARM64_REG_PC,UC_ARM64_REG_X0,UC_ARM64_REG_LR
 
-CASES=['0','2','-3','3.5','-3.5','2+3','2 - 3','2 * 3.5','3.5 + 2','2 / 4',
+CASES=['"winter"["upper"]()=="WINTER"','0','2','-3','3.5','-3.5','2+3','2 - 3','2 * 3.5','3.5 + 2','2 / 4',
        '7 % 3','2 ^ 3','(2 + 3) * 4','0.5 + 0.25','3 < 4','3 == 3',
        'true and false','true or false','$240000','0x7fffffff',
        '{2,4,6}','{a=1}','len({2,4,6})','#{2,4,6}','ipairs({2,4,6})','0.4','$80000000','$ffffffff',
