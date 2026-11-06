@@ -97,6 +97,11 @@ def build_library(source, output):
     compile_object(Path('libraries/numeric.c'),numeric,arch,['sdk/include'],pic=True,
                    extra_flags=['-fno-inline-functions'])
     objects.append(str(numeric))
+    if arch in ('x86_64','arm64'):
+        wide=output/'wide.o'
+        compile_object(Path('kernel/compiler.c'),wide,arch,['sdk/include'],pic=True,
+                       extra_flags=['-DPF_COMPILER_WIDE_ONLY','-fno-inline-functions'])
+        objects.append(str(wide))
     # A text stub satisfies ld's platform bookkeeping. No hosted runtime is
     # included; all referenced runtime functions are implemented by the C source.
     platform = 'macosx' if arch in ('i386', 'x86_64') else 'ios'

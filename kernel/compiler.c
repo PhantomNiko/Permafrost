@@ -2,6 +2,35 @@
  * Freestanding compiler support, using the recovered long-division algorithm.
  */
 #include <stdint.h>
+#if defined(__SIZEOF_INT128__)
+typedef union { __uint128_t all; struct { uint64_t low,high; } word; } Wide128;
+__uint128_t __ashlti3(__uint128_t value,int shift) {
+    Wide128 in={.all=value},out={.all=0};
+    if(shift<=0)return value;
+    if(shift>=128)return 0;
+    if(shift>=64)out.word.high=in.word.low<<(shift-64);
+    else {out.word.high=(in.word.high<<shift)|(in.word.low>>(64-shift));out.word.low=in.word.low<<shift;}
+    return out.all;
+}
+__uint128_t __lshrti3(__uint128_t value,int shift) {
+    Wide128 in={.all=value},out={.all=0};
+    if(shift<=0)return value;
+    if(shift>=128)return 0;
+    if(shift>=64)out.word.low=in.word.high>>(shift-64);
+    else {out.word.low=(in.word.low>>shift)|(in.word.high<<(64-shift));out.word.high=in.word.high>>shift;}
+    return out.all;
+}
+__int128 __ashrti3(__int128 value,int shift) {
+    Wide128 in={.all=(__uint128_t)value},out;
+    if(shift<=0)return value;
+    if(shift>=128)return value<0?-1:0;
+    out.word.high=(uint64_t)((int64_t)in.word.high>>(shift>=64?63:shift));
+    if(shift>=64)out.word.low=(uint64_t)((int64_t)in.word.high>>(shift-64));
+    else out.word.low=(in.word.low>>shift)|(in.word.high<<(64-shift));
+    return (__int128)out.all;
+}
+#endif
+#ifndef PF_COMPILER_WIDE_ONLY
 #include <stddef.h>
 extern void *pf_memcpy(void *, const void *, size_t);
 extern void *pf_memset(void *, int, size_t);
@@ -38,34 +67,7 @@ int64_t __moddi3(int64_t a, int64_t b) {
 }
 
 typedef union { uint64_t all; struct { uint32_t low, high; } word; uint16_t half[4]; } Wide;
-#if defined(__SIZEOF_INT128__)
-typedef union { __uint128_t all; struct { uint64_t low,high; } word; } Wide128;
-__uint128_t __ashlti3(__uint128_t value,int shift) {
-    Wide128 in={.all=value},out={.all=0};
-    if(shift<=0)return value;
-    if(shift>=128)return 0;
-    if(shift>=64)out.word.high=in.word.low<<(shift-64);
-    else {out.word.high=(in.word.high<<shift)|(in.word.low>>(64-shift));out.word.low=in.word.low<<shift;}
-    return out.all;
-}
-__uint128_t __lshrti3(__uint128_t value,int shift) {
-    Wide128 in={.all=value},out={.all=0};
-    if(shift<=0)return value;
-    if(shift>=128)return 0;
-    if(shift>=64)out.word.low=in.word.high>>(shift-64);
-    else {out.word.low=(in.word.low>>shift)|(in.word.high<<(64-shift));out.word.high=in.word.high>>shift;}
-    return out.all;
-}
-__int128 __ashrti3(__int128 value,int shift) {
-    Wide128 in={.all=(__uint128_t)value},out;
-    if(shift<=0)return value;
-    if(shift>=128)return value<0?-1:0;
-    out.word.high=(uint64_t)((int64_t)in.word.high>>(shift>=64?63:shift));
-    if(shift>=64)out.word.low=(uint64_t)((int64_t)in.word.high>>(shift-64));
-    else out.word.low=(in.word.low>>shift)|(in.word.high<<(64-shift));
-    return (__int128)out.all;
-}
-#endif
+
 uint64_t __ashldi3(uint64_t value, int shift) {
     Wide in = { .all = value }, out = { .all = 0 };
     if (shift <= 0) return value;
@@ -162,3 +164,5 @@ uint64_t __fixunssfdi(float value) {
 double __floatundidf(uint64_t value) {
     return (double)(uint32_t)(value>>32)*4294967296.0+(double)(uint32_t)value;
 }
+
+#endif /* PF_COMPILER_WIDE_ONLY */

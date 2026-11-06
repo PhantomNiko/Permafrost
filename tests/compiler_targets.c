@@ -1,6 +1,7 @@
 /* Cross-architecture compiler-runtime execution probe.
  * Pooka's Free Software License. */
 #include <stdint.h>
+#include "../kernel/support.h"
 #include <stddef.h>
 extern int pf_native_vsnprintf(char *,size_t,const char *,void *);
 static int format(char *out,size_t size,const char *pattern,...) {
@@ -29,6 +30,20 @@ int main(void) {
  if(__lshrti3(wide,127)!=1 || __ashlti3(wide,128)!=0)return 14;
  if(__ashrti3((__int128)wide,127)!=-1)return 15;
  if(__ashlti3(wide,0)!=wide || __lshrti3(wide,0)!=wide)return 16;
+ __uint128_t joined=CONCAT88(1.0,-2.0);
+ if((uint64_t)(joined>>64)!=0x3ff0000000000000ULL || (uint64_t)joined!=0xc000000000000000ULL)return 17;
+ __uint128_t ascending=CONCAT88(0x0f0e0d0c0b0a0908ULL,0x0706050403020100ULL);
+ __uint128_t sums=psadbw(ascending,0);
+ if((uint64_t)sums!=28 || (uint64_t)(sums>>64)!=92)return 18;
+ __uint128_t shuffled=pshuflw(0,wide,0x1b);
+ if((uint64_t)shuffled!=0xcdef89ab45670123ULL || (uint64_t)(shuffled>>64)!=0xfedcba9876543210ULL)return 19;
+ __uint128_t integers=CONCAT88(0x00009c4000007fffULL,0xffffffffffff63c0ULL);
+ if((uint64_t)packssdw(integers,0)!=0x7fff7fffffff8000ULL)return 20;
+ __uint128_t shorts=CONCAT88(0x00c80080007f0001ULL,0x0000ffffff80ff38ULL);
+ if((uint64_t)packsswb(shorts,0)!=0x7f7f7f0100ff8080ULL)return 21;
+ __uint128_t packed=~(__uint128_t)0;
+ PF_PART9(packed,0)=0;
+ if(packed!=~(((__uint128_t)1<<72)-1))return 22;
 #endif
  if(small_a/small_b!=108108108u || small_a%small_b!=4u)return 1;
  if(signed_a/signed_b!=-69273666 || signed_a%signed_b!=-1)return 2;

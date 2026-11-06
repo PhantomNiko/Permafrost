@@ -14,6 +14,7 @@ typedef long double longdouble;
 typedef __uint128_t undefined16;
 typedef __uint128_t uint128;
 typedef __uint128_t uint16;
+#include "packed.h"
 static inline uint128 divpd(uint128 a,uint128 b) {
     union { uint128 bits; double lane[2]; } x={.bits=a},y={.bits=b},z;
     z.lane[0]=x.lane[0]/y.lane[0];z.lane[1]=x.lane[1]/y.lane[1];return z.bits;
@@ -34,7 +35,7 @@ struct pf_uint96 {uint128 pf_payload_bits:96;} __attribute__((packed));
 #define PF_PART12(object,offset) (((struct pf_uint96 *)((uint8_t *)&(object)+(offset)))->pf_payload_bits)
 #define SUB164(a,b) ((uint32_t)((uint128)(a)>>((b)*8)))
 #define SEXT816(a) ((__uint128_t)(__int128)(int64_t)(a))
-#define CONCAT88(a,b) (((__uint128_t)(uint64_t)(a)<<64)|(uint64_t)(b))
+#define CONCAT88(a,b) (((__uint128_t)PF_RAW64(a)<<64)|PF_RAW64(b))
 #define ZEXT816(a) ((__uint128_t)(uint64_t)(a))
 #define PF_PART8(value, offset) (*(uint64_t *)((uint8_t *)&(value)+(offset)))
 #else
@@ -96,6 +97,14 @@ static inline char *builtin_strncpy(char *out, const char *in, size_t count) {
 }
 
 #if defined(__i386__) || defined(__x86_64__)
+static inline uint64_t rdmsr(uint32_t index) {
+    uint32_t low,high;
+    __asm__ volatile("rdmsr":"=a"(low),"=d"(high):"c"(index));
+    return low|((uint64_t)high<<32);
+}
+static inline void wrmsr(uint32_t index,uint64_t value) {
+    __asm__ volatile("wrmsr"::"c"(index),"a"((uint32_t)value),"d"((uint32_t)(value>>32)):"memory");
+}
 static inline byte in(ushort port) {
     byte value;
     __asm__ volatile ("inb %1, %0" : "=a"(value) : "Nd"(port));
