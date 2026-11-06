@@ -1,7 +1,7 @@
 {
   "module": "WinterScript",
   "architecture": "armv7",
-  "version": "0.8",
+  "version": "0.9",
   "install_name": "/lib/WinterScript.dylib",
   "functions": {
     "54774": "recovered_10054774",

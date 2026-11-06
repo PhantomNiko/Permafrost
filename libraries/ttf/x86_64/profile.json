@@ -1,7 +1,7 @@
 {
   "module": "WinterTTF",
   "architecture": "x86_64",
-  "version": "0.8",
+  "version": "0.9",
   "install_name": "/lib/WinterTTF.dylib",
   "functions": {
     "127e": "recovered_1000127e",

@@ -1,7 +1,7 @@
 {
   "module": "WinterAudio",
   "architecture": "i386",
-  "version": "0.8",
+  "version": "0.9",
   "install_name": "/lib/WinterAudio.dylib",
   "functions": {
     "1240": "recovered_10001240",

@@ -1,3758 +1,3722 @@
 {
-  "21f0e": {
-    "symbol": "recovered_21f0e",
-    "original": "_digit_value"
-  },
-  "304f2": {
-    "symbol": "recovered_304f2",
-    "original": "__ZN12_GLOBAL__N_112Type1Backend9rasterizeEjd"
-  },
-  "4370d": {
-    "symbol": "recovered_4370d",
-    "original": "_scheduler_restore_foreground_image"
-  },
-  "314c6": {
-    "symbol": "recovered_314c6",
-    "original": "__ZNK2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE14bucket_for_keyERKS1_"
-  },
-  "62851": {
-    "symbol": "recovered_62851",
-    "original": "_storage_preserve_previous_device_states"
-  },
-  "309e6": {
-    "symbol": "recovered_309e6",
-    "original": "__ZNK12_GLOBAL__N_112Type1Backend12units_per_emEv"
-  },
-  "31df6": {
-    "symbol": "recovered_31df6",
-    "original": "__ZN2wm13unordered_mapIjN12_GLOBAL__N_111GlyphBitmapENS_4hashIjEENS_8equal_toIjEEE10link_indexEm"
-  },
-  "3d43b": {
-    "symbol": "recovered_3d43b",
-    "original": "_ensure_rom_font"
-  },
-  "2f134": {
-    "symbol": "recovered_2f134",
-    "original": "__ZN2wm6vectorIhEC2EOS1_"
-  },
-  "47327": {
-    "symbol": "recovered_47327",
-    "original": "_ws_value_list_free"
-  },
-  "367d4": {
-    "symbol": "recovered_367d4",
-    "original": "_storage_refresh_mounted_filesystem_available_sectors"
-  },
-  "2d870": {
-    "symbol": "recovered_2d870",
-    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend7descentEv"
-  },
-  "61f89": {
-    "symbol": "recovered_61f89",
-    "original": "_trim_left"
-  },
-  "5db0c": {
-    "symbol": "recovered_5db0c",
-    "original": "_ws_try_parse_uint32_value"
-  },
-  "3d236": {
-    "symbol": "recovered_3d236",
-    "original": "_draw_text_n"
-  },
-  "35f14": {
-    "symbol": "recovered_35f14",
-    "original": "_wm_kernel_program_thread_yield"
-  },
-  "2640b": {
-    "symbol": "recovered_2640b",
-    "original": "_wm_lua_show_help"
-  },
-  "217be": {
-    "symbol": "recovered_217be",
-    "original": "_frexp"
-  },
-  "23271": {
-    "symbol": "recovered_23271",
-    "original": "_platform_efi_fill_rect"
-  },
-  "6280e": {
-    "symbol": "recovered_6280e",
-    "original": "_storage_add_scanned_ramdisks"
-  },
-  "2f5e4": {
-    "symbol": "recovered_2f5e4",
-    "original": "__ZN2wm6vectorIbE7reserveEm"
-  },
-  "42970": {
-    "symbol": "recovered_42970",
-    "original": "_macho_select_x86_64_image"
-  },
-  "31606": {
-    "symbol": "recovered_31606",
-    "original": "__ZN2wm6vectorINS_4pairINS_6stringENS0_IhEEEEE7reserveEm"
-  },
-  "2cb38": {
-    "symbol": "recovered_2cb38",
-    "original": "__ZN12_GLOBAL__N_115TrueTypeBackendD0Ev"
-  },
-  "26348": {
-    "symbol": "recovered_26348",
-    "original": "_wm_lua_write_errorf"
-  },
-  "30ab8": {
-    "symbol": "recovered_30ab8",
-    "original": "__ZN2wm6stringD1Ev"
-  },
-  "4766c": {
-    "symbol": "recovered_4766c",
-    "original": "_ws_create_script_function_take_ownership"
-  },
-  "2250d": {
-    "symbol": "recovered_2250d",
-    "original": "_snprintf"
-  },
-  "414f1": {
-    "symbol": "recovered_414f1",
-    "original": "_read_be64"
-  },
-  "3928b": {
-    "symbol": "recovered_3928b",
-    "original": "_wm_kernel_program_pointer_state"
-  },
-  "2b0cc": {
-    "symbol": "recovered_2b0cc",
-    "original": "__ZN2wm6vectorIjEC2EmRKj"
-  },
-  "589ca": {
-    "symbol": "recovered_589ca",
-    "original": "_ws_require_argc"
-  },
-  "42afd": {
-    "symbol": "recovered_42afd",
-    "original": "_macho_select_image_by_cpu"
-  },
-  "368fd": {
-    "symbol": "recovered_368fd",
-    "original": "_fs_flush"
-  },
-  "5e47b": {
-    "symbol": "recovered_5e47b",
-    "original": "_cpu_brand_string"
-  },
-  "3e9a7": {
-    "symbol": "recovered_3e9a7",
-    "original": "_fs_hash_path"
-  },
-  "21bba": {
-    "symbol": "recovered_21bba",
-    "original": "_fabs"
-  },
-  "39b7a": {
-    "symbol": "recovered_39b7a",
-    "original": "_trim_in_place"
-  },
-  "47369": {
-    "symbol": "recovered_47369",
-    "original": "_ws_match_operator"
-  },
-  "3f0cb": {
-    "symbol": "recovered_3f0cb",
-    "original": "_fs_reserve_file_capacity"
-  },
-  "25f57": {
-    "symbol": "recovered_25f57",
-    "original": "_platform_pointer_scale_delta"
-  },
-  "343bd": {
-    "symbol": "recovered_343bd",
-    "original": "_wm_kernel_program_wav_decode_file"
-  },
-  "60130": {
-    "symbol": "recovered_60130",
-    "original": "_storage_invalidate_partition_table_writes"
-  },
-  "2699e": {
-    "symbol": "recovered_2699e",
-    "original": "_wmfs_fwrite"
-  },
-  "267ec": {
-    "symbol": "recovered_267ec",
-    "original": "_wmfs_freopen"
-  },
-  "38fbd": {
-    "symbol": "recovered_38fbd",
-    "original": "_graphics_framebuffer_ready"
-  },
-  "4958e": {
-    "symbol": "recovered_4958e",
-    "original": "_ws_make_int"
-  },
-  "2ee3a": {
-    "symbol": "recovered_2ee3a",
-    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE4findERKj"
-  },
-  "270d7": {
-    "symbol": "recovered_270d7",
-    "original": "__ZdaPv"
-  },
-  "25c26": {
-    "symbol": "recovered_25c26",
-    "original": "_platform_efi_block_io"
-  },
-  "21564": {
-    "symbol": "recovered_21564",
-    "original": "_isupper"
-  },
-  "322c9": {
-    "symbol": "recovered_322c9",
-    "original": "_wm_media_wav_decode_memory"
-  },
-  "39331": {
-    "symbol": "recovered_39331",
-    "original": "_wm_kernel_enter_text_mode"
-  },
-  "262bb": {
-    "symbol": "recovered_262bb",
-    "original": "_wm_lua_flush_output_line"
-  },
-  "2130e": {
-    "symbol": "recovered_2130e",
-    "original": "_abort"
-  },
-  "3493d": {
-    "symbol": "recovered_3493d",
-    "original": "_wm_kernel_program_realloc"
-  },
-  "2161e": {
-    "symbol": "recovered_2161e",
-    "original": "_strcmp"
-  },
-  "43286": {
-    "symbol": "recovered_43286",
-    "original": "_macho_file_range_valid"
-  },
-  "5f1a7": {
-    "symbol": "recovered_5f1a7",
-    "original": "_storage_find_whole_disk_device"
-  },
-  "3fed9": {
-    "symbol": "recovered_3fed9",
-    "original": "_path_ends_with_ignore_case"
-  },
-  "3d5e6": {
-    "symbol": "recovered_3d5e6",
-    "original": "_write_truecolor_pixel"
-  },
-  "4a4e9": {
-    "symbol": "recovered_4a4e9",
-    "original": "_ws_array_push_copy"
-  },
-  "4a71b": {
-    "symbol": "recovered_4a71b",
-    "original": "_ws_parse_and"
-  },
-  "2266e": {
-    "symbol": "recovered_2266e",
-    "original": "_platform_efi_active"
-  },
-  "5d5eb": {
-    "symbol": "recovered_5d5eb",
-    "original": "_ws_table_set_bool_field"
-  },
-  "31cc2": {
-    "symbol": "recovered_31cc2",
-    "original": "__ZN2wm6vectorINS_4pairIjN12_GLOBAL__N_111GlyphBitmapEEEE5clearEv"
-  },
-  "21070": {
-    "symbol": "recovered_21070",
-    "original": "___lshrdi3"
-  },
-  "25a1c": {
-    "symbol": "recovered_25a1c",
-    "original": "_wm_platform_serial_write"
-  },
-  "26e08": {
-    "symbol": "recovered_26e08",
-    "original": "_wmfs_image_data"
-  },
-  "331b3": {
-    "symbol": "recovered_331b3",
-    "original": "_scheduler_preempt_checkpoint"
-  },
-  "41183": {
-    "symbol": "recovered_41183",
-    "original": "_read_be32"
-  },
-  "21ce4": {
-    "symbol": "recovered_21ce4",
-    "original": "_ceilf"
-  },
-  "27627": {
-    "symbol": "recovered_27627",
-    "original": "_round"
-  },
-  "411c1": {
-    "symbol": "recovered_411c1",
-    "original": "_scheduler_release_address_space"
-  },
-  "3320c": {
-    "symbol": "recovered_3320c",
-    "original": "_app_console_render"
-  },
-  "2792b": {
-    "symbol": "recovered_2792b",
-    "original": "__ZL20read_encoded_pointerhPPKh"
-  },
-  "49929": {
-    "symbol": "recovered_49929",
-    "original": "_ws_make_string"
-  },
-  "2acac": {
-    "symbol": "recovered_2acac",
-    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater9BitReader9read_bitsEjRj"
-  },
-  "27784": {
-    "symbol": "recovered_27784",
-    "original": "_strtoll"
-  },
-  "29c3f": {
-    "symbol": "recovered_29c3f",
-    "original": "__ZN2wm3png12_GLOBAL__N_112crc32_updateEjPKhm"
-  },
-  "2371d": {
-    "symbol": "recovered_2371d",
-    "original": "_wm_platform_enter_text_mode"
-  },
-  "2b2b9": {
-    "symbol": "recovered_2b2b9",
-    "original": "__ZN2wm6detail15vector_allocateItEEPT_m"
-  },
-  "3345c": {
-    "symbol": "recovered_3345c",
-    "original": "_app_console_putc_raw"
-  },
-  "2f08c": {
-    "symbol": "recovered_2f08c",
-    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE15rebuild_bucketsEv"
-  },
-  "2d8d0": {
-    "symbol": "recovered_2d8d0",
-    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEEC2Ev"
-  },
-  "43e3e": {
-    "symbol": "recovered_43e3e",
-    "original": "_fat_sanitize_short_part"
-  },
-  "21111": {
-    "symbol": "recovered_21111",
-    "original": "_udivmod64"
-  },
-  "30a12": {
-    "symbol": "recovered_30a12",
-    "original": "__ZNK12_GLOBAL__N_112Type1Backend15metric_roundingEv"
-  },
-  "26c4b": {
-    "symbol": "recovered_26c4b",
-    "original": "_wm_lua_app_delete_file"
-  },
-  "2c984": {
-    "symbol": "recovered_2c984",
-    "original": "__ZN2wm6vectorIN12_GLOBAL__N_110LineLayoutEE7reserveEm"
-  },
-  "27237": {
-    "symbol": "recovered_27237",
-    "original": "___cxa_guard_acquire"
-  },
-  "5ef38": {
-    "symbol": "recovered_5ef38",
-    "original": "_storage_move_partition_by_id"
-  },
-  "25138": {
-    "symbol": "recovered_25138",
-    "original": "_wm_platform_enter_wxga_graphics_mode"
-  },
-  "21315": {
-    "symbol": "recovered_21315",
-    "original": "_abs"
-  },
-  "49326": {
-    "symbol": "recovered_49326",
-    "original": "_ws_value_truthy"
-  },
-  "2b1d6": {
-    "symbol": "recovered_2b1d6",
-    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater12HuffmanTableaSEOS3_"
-  },
-  "2177d": {
-    "symbol": "recovered_2177d",
-    "original": "_time"
-  },
-  "3fa3c": {
-    "symbol": "recovered_3fa3c",
-    "original": "_write_drive_bytes"
-  },
-  "27542": {
-    "symbol": "recovered_27542",
-    "original": "___cxa_pure_virtual"
-  },
-  "30d63": {
-    "symbol": "recovered_30d63",
-    "original": "__ZN12_GLOBAL__N_115parse_ascii_intERKN2wm6vectorIhEERmRi"
-  },
-  "43941": {
-    "symbol": "recovered_43941",
-    "original": "_wmfs64_write_contiguous_cluster_range"
-  },
-  "2ca91": {
-    "symbol": "recovered_2ca91",
-    "original": "__ZN12_GLOBAL__N_111read_u32_beERKN2wm6vectorIhEEm"
-  },
-  "4aa63": {
-    "symbol": "recovered_4aa63",
-    "original": "_ws_apply_binary_op"
-  },
-  "30cb2": {
-    "symbol": "recovered_30cb2",
-    "original": "__ZN2wm6string14ensure_storageEv"
-  },
-  "2f24e": {
-    "symbol": "recovered_2f24e",
-    "original": "__ZN12_GLOBAL__N_114OutlineBuilder7line_toERKNS_5PointE"
-  },
-  "3d607": {
-    "symbol": "recovered_3d607",
-    "original": "_pack_truecolor"
-  },
-  "27256": {
-    "symbol": "recovered_27256",
-    "original": "___cxa_allocate_exception"
-  },
-  "354de": {
-    "symbol": "recovered_354de",
-    "original": "_wm_kernel_program_launch_file"
-  },
-  "3f277": {
-    "symbol": "recovered_3f277",
-    "original": "_fs_ensure_file_index_capacity"
-  },
-  "29376": {
-    "symbol": "recovered_29376",
-    "original": "__ZN2wm3png9load_fileEPKcRNS0_5ImageE"
-  },
-  "20d64": {
-    "symbol": "recovered_20d64",
-    "original": "_wm_probe_heap_init"
-  },
-  "5fd46": {
-    "symbol": "recovered_5fd46",
-    "original": "_storage_fill_random_guid"
-  },
-  "393b4": {
-    "symbol": "recovered_393b4",
-    "original": "_textmode_sync_font"
-  },
-  "215dd": {
-    "symbol": "recovered_215dd",
-    "original": "_tolower"
-  },
-  "3e7d2": {
-    "symbol": "recovered_3e7d2",
-    "original": "_fat_entry_get"
-  },
-  "3cb31": {
-    "symbol": "recovered_3cb31",
-    "original": "_textmode_rows"
-  },
-  "2269b": {
-    "symbol": "recovered_2269b",
-    "original": "_wm_platform_configure_qemu_ramfb"
-  },
-  "4ccd2": {
-    "symbol": "recovered_4ccd2",
-    "original": "_ws_make_pointer"
-  },
-  "2f15a": {
-    "symbol": "recovered_2f15a",
-    "original": "__ZN2wm6vectorIN12_GLOBAL__N_15PointEE9push_backERKS2_"
-  },
-  "259a7": {
-    "symbol": "recovered_259a7",
-    "original": "_wm_platform_serial_init"
-  },
-  "335cc": {
-    "symbol": "recovered_335cc",
-    "original": "_render_ui"
-  },
-  "26746": {
-    "symbol": "recovered_26746",
-    "original": "_wm_lua_app_stat_file"
-  },
-  "314ec": {
-    "symbol": "recovered_314ec",
-    "original": "__ZNK2wm4hashINS_6stringEEclERKS1_"
-  },
-  "230a1": {
-    "symbol": "recovered_230a1",
-    "original": "_wm_platform_runtime_state"
-  },
-  "35af4": {
-    "symbol": "recovered_35af4",
-    "original": "_command_basename"
-  },
-  "31718": {
-    "symbol": "recovered_31718",
-    "original": "__ZN2wm6stringC2ERKS0_"
-  },
-  "25bb3": {
-    "symbol": "recovered_25bb3",
-    "original": "_wm_platform_halt_forever"
-  },
-  "29de8": {
-    "symbol": "recovered_29de8",
-    "original": "__ZN2wm6vectorIhE6resizeEm"
-  },
-  "2333a": {
-    "symbol": "recovered_2333a",
-    "original": "_wm_platform_text_write_at"
-  },
-  "35dda": {
-    "symbol": "recovered_35dda",
-    "original": "_wm_kernel_program_thread_create"
-  },
-  "601dd": {
-    "symbol": "recovered_601dd",
-    "original": "_storage_restore_device_states"
-  },
-  "40f83": {
-    "symbol": "recovered_40f83",
-    "original": "_fs_append_loaded_entry"
-  },
-  "31c16": {
-    "symbol": "recovered_31c16",
-    "original": "__ZN2wm6vectorIdE12emplace_backIJRKdEEERdDpOT_"
-  },
-  "21dfe": {
-    "symbol": "recovered_21dfe",
-    "original": "_fabsf"
-  },
-  "33022": {
-    "symbol": "recovered_33022",
-    "original": "_wm_kernel_program_clear"
-  },
-  "2705b": {
-    "symbol": "recovered_2705b",
-    "original": "__Znam"
-  },
-  "2f62d": {
-    "symbol": "recovered_2f62d",
-    "original": "__ZN2wm6detail15vector_allocateIbEEPT_m"
-  },
-  "2754b": {
-    "symbol": "recovered_2754b",
-    "original": "__tlv_bootstrap"
-  },
-  "21c2d": {
-    "symbol": "recovered_21c2d",
-    "original": "_frexpf"
-  },
-  "2740f": {
-    "symbol": "recovered_2740f",
-    "original": "__ZL15continue_unwindP21WinterExceptionHeader"
-  },
-  "30a46": {
-    "symbol": "recovered_30a46",
-    "original": "__ZN2wm6vectorINS_4pairINS_6stringENS0_IhEEEEED2Ev"
-  },
-  "235aa": {
-    "symbol": "recovered_235aa",
-    "original": "_platform_efi_output_string"
-  },
-  "6223a": {
-    "symbol": "recovered_6223a",
-    "original": "_ws_value_to_path_text"
-  },
-  "25a78": {
-    "symbol": "recovered_25a78",
-    "original": "_wm_platform_serial_poll_char"
-  },
-  "2129c": {
-    "symbol": "recovered_2129c",
-    "original": "___moddi3"
-  },
-  "32032": {
-    "symbol": "recovered_32032",
-    "original": "__ZN2wm6vectorIjEC2EOS1_"
-  },
-  "26b1f": {
-    "symbol": "recovered_26b1f",
-    "original": "_wmfs_ftell"
-  },
-  "440c7": {
-    "symbol": "recovered_440c7",
-    "original": "_program_load_text_lines"
-  },
-  "2f3a0": {
-    "symbol": "recovered_2f3a0",
-    "original": "__ZN2wm6vectorItE6resizeEm"
-  },
-  "4749d": {
-    "symbol": "recovered_4749d",
-    "original": "_ws_free_parameter_names"
-  },
-  "5d53b": {
-    "symbol": "recovered_5d53b",
-    "original": "_display_fill_theme_surfaces"
-  },
-  "3de81": {
-    "symbol": "recovered_3de81",
-    "original": "_char_is_hex"
-  },
-  "615c5": {
-    "symbol": "recovered_615c5",
-    "original": "_ws_is_block_starter_tokens"
-  },
-  "22461": {
-    "symbol": "recovered_22461",
-    "original": "_append_string"
-  },
-  "6130e": {
-    "symbol": "recovered_6130e",
-    "original": "_ws_set_local_variable_in_frame"
-  },
-  "614dd": {
-    "symbol": "recovered_614dd",
-    "original": "_ws_find_frame_variable_index"
-  },
-  "5fe4f": {
-    "symbol": "recovered_5fe4f",
-    "original": "_storage_update_partition_geometry"
-  },
-  "2dbb0": {
-    "symbol": "recovered_2dbb0",
-    "original": "__ZN2wm6vectorImE7reserveEm"
-  },
-  "27552": {
-    "symbol": "recovered_27552",
-    "original": "_isdigit"
-  },
-  "29c36": {
-    "symbol": "recovered_29c36",
-    "original": "__ZN2wm3png12_GLOBAL__N_111read_u32_beEPKh"
-  },
-  "2778d": {
-    "symbol": "recovered_2778d",
-    "original": "__ZL15inspect_contextP17WinterSjLjContextPKvR13WinterHandler"
-  },
-  "3fc73": {
-    "symbol": "recovered_3fc73",
-    "original": "_wmfs64_fill_directory_entry"
-  },
-  "2f93a": {
-    "symbol": "recovered_2f93a",
-    "original": "__ZN12_GLOBAL__N_112Type1Backend4loadERKN2wm6vectorIhEE"
-  },
-  "4d6da": {
-    "symbol": "recovered_4d6da",
-    "original": "_ws_make_builtin_function_value"
-  },
-  "26429": {
-    "symbol": "recovered_26429",
-    "original": "_wm_lua_readline"
-  },
-  "3d4d6": {
-    "symbol": "recovered_3d4d6",
-    "original": "_pack_canvas_truecolor"
-  },
-  "26ecf": {
-    "symbol": "recovered_26ecf",
-    "original": "_getenv"
-  },
-  "6102d": {
-    "symbol": "recovered_6102d",
-    "original": "_ws_decay_frame_init"
-  },
-  "4118c": {
-    "symbol": "recovered_4118c",
-    "original": "_scheduler_save_address_space_from_memory"
-  },
-  "27246": {
-    "symbol": "recovered_27246",
-    "original": "___cxa_guard_release"
-  },
-  "27612": {
-    "symbol": "recovered_27612",
-    "original": "_isfinite"
-  },
-  "3dec9": {
-    "symbol": "recovered_3dec9",
-    "original": "_cursor_blink_on"
-  },
-  "31c58": {
-    "symbol": "recovered_31c58",
-    "original": "__ZN2wm6vectorIdE7reserveEm"
-  },
-  "2170e": {
-    "symbol": "recovered_2170e",
-    "original": "_strpbrk"
-  },
-  "31694": {
-    "symbol": "recovered_31694",
-    "original": "__ZN2wm4pairINS_6stringENS_6vectorIhEEEC2EOS4_"
-  },
-  "30f94": {
-    "symbol": "recovered_30f94",
-    "original": "__ZN2wm6vectorIhE5eraseEPKhS3_"
-  },
-  "618ea": {
-    "symbol": "recovered_618ea",
-    "original": "_ws_set_global_variable"
-  },
-  "279df": {
-    "symbol": "recovered_279df",
-    "original": "__ZL12read_uleb128PPKh"
-  },
-  "2b226": {
-    "symbol": "recovered_2b226",
-    "original": "__ZN2wm6vectorItEaSEOS1_"
-  },
-  "35e25": {
-    "symbol": "recovered_35e25",
-    "original": "_scheduler_create_task"
-  },
-  "58c6e": {
-    "symbol": "recovered_58c6e",
-    "original": "_ws_require_graphics_canvas"
-  },
-  "4775f": {
-    "symbol": "recovered_4775f",
-    "original": "_ws_set_scoped_variable"
-  },
-  "34951": {
-    "symbol": "recovered_34951",
-    "original": "_wm_kernel_program_list_directory"
-  },
-  "30ac2": {
-    "symbol": "recovered_30ac2",
-    "original": "__ZN2wm6stringD2Ev"
-  },
-  "25b0c": {
-    "symbol": "recovered_25b0c",
-    "original": "_wm_platform_heap_free_bytes"
-  },
-  "31cf8": {
-    "symbol": "recovered_31cf8",
-    "original": "__ZN2wm6vectorIjE12emplace_backIJjEEERjDpOT_"
-  },
-  "58cea": {
-    "symbol": "recovered_58cea",
-    "original": "_ws_builtin_dir"
-  },
-  "221ae": {
-    "symbol": "recovered_221ae",
-    "original": "_vsnprintf"
-  },
-  "21551": {
-    "symbol": "recovered_21551",
-    "original": "_islower"
-  },
-  "26e0f": {
-    "symbol": "recovered_26e0f",
-    "original": "_wmfs_image_size"
-  },
-  "215ca": {
-    "symbol": "recovered_215ca",
-    "original": "_isprint"
-  },
-  "5fa48": {
-    "symbol": "recovered_5fa48",
-    "original": "_storage_parse_wbpt_header"
-  },
-  "33c95": {
-    "symbol": "recovered_33c95",
-    "original": "_fs_write_file"
-  },
-  "5d8f2": {
-    "symbol": "recovered_5d8f2",
-    "original": "_ws_write_tundra_resolution_config"
-  },
-  "4ccef": {
-    "symbol": "recovered_4ccef",
-    "original": "_ws_token_looks_numeric"
-  },
-  "30f56": {
-    "symbol": "recovered_30f56",
-    "original": "__ZNK2wm6string14pointer_offsetEPKcPm"
-  },
-  "3dd85": {
-    "symbol": "recovered_3dd85",
-    "original": "_ws_string_builder_append_n"
-  },
-  "442a8": {
-    "symbol": "recovered_442a8",
-    "original": "_program_line_free"
-  },
-  "2aef2": {
-    "symbol": "recovered_2aef2",
-    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater13decode_symbolERNS2_9BitReaderERKNS2_12HuffmanTableERj"
-  },
-  "2301d": {
-    "symbol": "recovered_2301d",
-    "original": "_platform_mask_bit_count"
-  },
-  "26d33": {
-    "symbol": "recovered_26d33",
-    "original": "_wmfs_read_entire_file"
-  },
-  "5c2c4": {
-    "symbol": "recovered_5c2c4",
-    "original": "_ws_expect_int_arg"
-  },
-  "26484": {
-    "symbol": "recovered_26484",
-    "original": "_wmfs_is_mounted"
-  },
-  "622a1": {
-    "symbol": "recovered_622a1",
-    "original": "_runtime_apply_storage_tuning"
-  },
-  "23492": {
-    "symbol": "recovered_23492",
-    "original": "_platform_efi_draw_text_cell"
-  },
-  "2afb2": {
-    "symbol": "recovered_2afb2",
-    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater19build_huffman_tableERKNS_6vectorIjEERNS2_12HuffmanTableEb"
-  },
-  "22582": {
-    "symbol": "recovered_22582",
-    "original": "_wm_platform_configure_storage_tuning"
-  },
-  "2ca9e": {
-    "symbol": "recovered_2ca9e",
-    "original": "__ZN2wm6vectorIN12_GLOBAL__N_115TrueTypeBackend13Format12GroupEED1Ev"
-  },
-  "58841": {
-    "symbol": "recovered_58841",
-    "original": "_ws_pop_vararg_frame"
-  },
-  "385bd": {
-    "symbol": "recovered_385bd",
-    "original": "_fs_load_wmfs_volume"
-  },
-  "3d0c3": {
-    "symbol": "recovered_3d0c3",
-    "original": "_textmode_present_grid"
-  },
-  "4291a": {
-    "symbol": "recovered_4291a",
-    "original": "_macho_dependency_name_matches"
-  },
-  "2f7f5": {
-    "symbol": "recovered_2f7f5",
-    "original": "__ZN12_GLOBAL__N_127flatten_quadratic_recursiveERNS_14OutlineBuilderERKNS_5PointES4_S4_i"
-  },
-  "29e26": {
-    "symbol": "recovered_29e26",
-    "original": "__ZN2wm3png12_GLOBAL__N_114bits_per_pixelERKNS1_6HeaderE"
-  },
-  "2599d": {
-    "symbol": "recovered_2599d",
-    "original": "_wm_platform_framebuffer"
-  },
-  "47237": {
-    "symbol": "recovered_47237",
-    "original": "_ws_token_list_free"
-  },
-  "215b1": {
-    "symbol": "recovered_215b1",
-    "original": "_isblank"
-  },
-  "34915": {
-    "symbol": "recovered_34915",
-    "original": "_wm_kernel_program_malloc"
-  },
-  "26e16": {
-    "symbol": "recovered_26e16",
-    "original": "_wmfs_export_image"
-  },
-  "2da14": {
-    "symbol": "recovered_2da14",
-    "original": "__ZN2wm6vectorIhE7reserveEm"
-  },
-  "2f01a": {
-    "symbol": "recovered_2f01a",
-    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE6rehashEm"
-  },
-  "61115": {
-    "symbol": "recovered_61115",
-    "original": "_ws_make_io_handle_table"
-  },
-  "5e085": {
-    "symbol": "recovered_5e085",
-    "original": "_ws_require_mounted_copy_device"
-  },
-  "23300": {
-    "symbol": "recovered_23300",
-    "original": "_platform_efi_vga_text_active"
-  },
-  "42403": {
-    "symbol": "recovered_42403",
-    "original": "_macho_image_vmaddr_to_loaded"
-  },
-  "21769": {
-    "symbol": "recovered_21769",
-    "original": "_setlocale"
-  },
-  "25aa5": {
-    "symbol": "recovered_25aa5",
-    "original": "_wm_platform_cpuid_available"
-  },
-  "4135b": {
-    "symbol": "recovered_4135b",
-    "original": "_scheduler_process_entry"
-  },
-  "2f112": {
-    "symbol": "recovered_2f112",
-    "original": "__ZN2wm6detail15vector_allocateINS_4pairIjtEEEEPT_m"
-  },
-  "21646": {
-    "symbol": "recovered_21646",
-    "original": "_strcoll"
-  },
-  "2601a": {
-    "symbol": "recovered_2601a",
-    "original": "_platform_efi_capture_graphics_output_mode"
-  },
-  "2b440": {
-    "symbol": "recovered_2b440",
-    "original": "__ZN2wm6vectorIhEC2Em"
-  },
-  "4cac0": {
-    "symbol": "recovered_4cac0",
-    "original": "_ws_decode_string_literal"
-  },
-  "41f1b": {
-    "symbol": "recovered_41f1b",
-    "original": "_macho_load_dependencies"
-  },
-  "61533": {
-    "symbol": "recovered_61533",
-    "original": "_ws_local_frame_reserve"
-  },
-  "40ef6": {
-    "symbol": "recovered_40ef6",
-    "original": "_fat_short_name_to_path"
-  },
-  "60db6": {
-    "symbol": "recovered_60db6",
-    "original": "_ws_gsub_lookup_table_replacement"
-  },
-  "2d918": {
-    "symbol": "recovered_2d918",
-    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEED2Ev"
-  },
-  "405fb": {
-    "symbol": "recovered_405fb",
-    "original": "_storage_boot_fallback_load_type"
-  },
-  "2f2f6": {
-    "symbol": "recovered_2f2f6",
-    "original": "__ZN12_GLOBAL__N_114OutlineBuilder13close_contourEv"
-  },
-  "35319": {
-    "symbol": "recovered_35319",
-    "original": "_fs_create_directory_path"
-  },
-  "31f70": {
-    "symbol": "recovered_31f70",
-    "original": "__ZN2wm6vectorINS0_IjEEE5clearEv"
-  },
-  "31560": {
-    "symbol": "recovered_31560",
-    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE6rehashEm"
-  },
-  "25ada": {
-    "symbol": "recovered_25ada",
-    "original": "_wm_platform_cpuid_query"
-  },
-  "21d94": {
-    "symbol": "recovered_21d94",
-    "original": "_logf"
-  },
-  "2f484": {
-    "symbol": "recovered_2f484",
-    "original": "__ZN2wm6vectorIsE6resizeEm"
-  },
-  "4374c": {
-    "symbol": "recovered_4374c",
-    "original": "_scheduler_task_bootstrap"
-  },
-  "3ac12": {
-    "symbol": "recovered_3ac12",
-    "original": "_run_immediate_script"
-  },
-  "5fad0": {
-    "symbol": "recovered_5fad0",
-    "original": "_storage_copy_device_name_bytes"
-  },
-  "4b2fd": {
-    "symbol": "recovered_4b2fd",
-    "original": "_ws_parse_power"
-  },
-  "6139d": {
-    "symbol": "recovered_6139d",
-    "original": "_ws_vararg_frame_copy"
-  },
-  "5fda4": {
-    "symbol": "recovered_5fda4",
-    "original": "_storage_write_mbr_entry"
-  },
-  "2ac8c": {
-    "symbol": "recovered_2ac8c",
-    "original": "__ZN2wm3png12_GLOBAL__N_18InflaterD1Ev"
-  },
-  "25bde": {
-    "symbol": "recovered_25bde",
-    "original": "_platform_qemu_fwcfg_read_bytes"
-  },
-  "24a31": {
-    "symbol": "recovered_24a31",
-    "original": "_wm_platform_flush_storage"
-  },
-  "46ded": {
-    "symbol": "recovered_46ded",
-    "original": "_ws_errorf"
-  },
-  "2d8ac": {
-    "symbol": "recovered_2d8ac",
-    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend15metric_roundingEv"
-  },
-  "365b8": {
-    "symbol": "recovered_365b8",
-    "original": "_kernel_app_window_fill_info"
-  },
-  "476ed": {
-    "symbol": "recovered_476ed",
-    "original": "_ws_function_release"
-  },
-  "2c905": {
-    "symbol": "recovered_2c905",
-    "original": "__ZN12_GLOBAL__N_116make_empty_imageEv"
-  },
-  "4a424": {
-    "symbol": "recovered_4a424",
-    "original": "_ws_token_list_push_n"
-  },
-  "2196f": {
-    "symbol": "recovered_2196f",
-    "original": "_ceil"
-  },
-  "26e41": {
-    "symbol": "recovered_26e41",
-    "original": "_strncmp"
-  },
-  "436d8": {
-    "symbol": "recovered_436d8",
-    "original": "_scheduler_restore_address_space_to_memory"
-  },
-  "5e14d": {
-    "symbol": "recovered_5e14d",
-    "original": "_bitmap_font_make_status"
-  },
-  "27251": {
-    "symbol": "recovered_27251",
-    "original": "___cxa_guard_abort"
-  },
-  "34929": {
-    "symbol": "recovered_34929",
-    "original": "_wm_kernel_program_free"
-  },
-  "2efe6": {
-    "symbol": "recovered_2efe6",
-    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE10link_indexEm"
-  },
-  "3d7a1": {
-    "symbol": "recovered_3d7a1",
-    "original": "_textmode_grid_resize"
-  },
-  "38de8": {
-    "symbol": "recovered_38de8",
-    "original": "_wm_kernel_set_theme"
-  },
-  "30cd4": {
-    "symbol": "recovered_30cd4",
-    "original": "__ZN2wm6vectorIhE12emplace_backIJhEEERhDpOT_"
-  },
-  "26f60": {
-    "symbol": "recovered_26f60",
-    "original": "_longjmp"
-  },
-  "4a641": {
-    "symbol": "recovered_4a641",
-    "original": "_ws_parse_or"
-  },
-  "268bd": {
-    "symbol": "recovered_268bd",
-    "original": "_wmfs_getc"
-  },
-  "2dc1c": {
-    "symbol": "recovered_2dc1c",
-    "original": "__ZN2wm6vectorImE12emplace_backIJRKmEEERmDpOT_"
-  },
-  "315be": {
-    "symbol": "recovered_315be",
-    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE21bucket_count_for_sizeEm"
-  },
-  "2184c": {
-    "symbol": "recovered_2184c",
-    "original": "_fmod"
-  },
-  "4356b": {
-    "symbol": "recovered_4356b",
-    "original": "_macho_lookup_symbol_in_image"
-  },
-  "31d8c": {
-    "symbol": "recovered_31d8c",
-    "original": "__ZN2wm13unordered_mapIjN12_GLOBAL__N_111GlyphBitmapENS_4hashIjEENS_8equal_toIjEEE4findERKj"
-  },
-  "4ca1d": {
-    "symbol": "recovered_4ca1d",
-    "original": "_ws_make_value_array"
-  },
-  "4247b": {
-    "symbol": "recovered_4247b",
-    "original": "_macho_is_ignored_dylib"
-  },
-  "27230": {
-    "symbol": "recovered_27230",
-    "original": "___cxa_atexit"
-  },
-  "3fce0": {
-    "symbol": "recovered_3fce0",
-    "original": "_starts_with"
-  },
-  "32fde": {
-    "symbol": "recovered_32fde",
-    "original": "__ZN2wm6vectorIsEaSEOS1_"
-  },
-  "2b26a": {
-    "symbol": "recovered_2b26a",
-    "original": "__ZN2wm6vectorItE6resizeEmRKt"
-  },
-  "21669": {
-    "symbol": "recovered_21669",
-    "original": "_strdup"
-  },
-  "5eed1": {
-    "symbol": "recovered_5eed1",
-    "original": "_storage_mount_device_by_id"
-  },
-  "5f8e1": {
-    "symbol": "recovered_5f8e1",
-    "original": "_storage_add_device"
-  },
-  "60f0b": {
-    "symbol": "recovered_60f0b",
-    "original": "_ws_local_frame_free"
-  },
-  "2714a": {
-    "symbol": "recovered_2714a",
-    "original": "__ZdlPvm"
-  },
-  "619fc": {
-    "symbol": "recovered_619fc",
-    "original": "_ws_assign_single_target"
-  },
-  "26dc5": {
-    "symbol": "recovered_26dc5",
-    "original": "_wmfs_write_entire_file"
-  },
-  "230ab": {
-    "symbol": "recovered_230ab",
-    "original": "_wm_platform_ticks"
-  },
-  "2ae64": {
-    "symbol": "recovered_2ae64",
-    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater12HuffmanTableD1Ev"
-  },
-  "5e63e": {
-    "symbol": "recovered_5e63e",
-    "original": "_cpu_query_cache_info"
-  },
-  "62338": {
-    "symbol": "recovered_62338",
-    "original": "_wm_kernel_kext_register_device_node"
-  },
-  "39be2": {
-    "symbol": "recovered_39be2",
-    "original": "_handle_program_buffer_input"
-  },
-  "31abe": {
-    "symbol": "recovered_31abe",
-    "original": "__ZN12_GLOBAL__N_112Type1Backend16Type1InterpreterD1Ev"
-  },
-  "48fea": {
-    "symbol": "recovered_48fea",
-    "original": "_ws_make_array"
-  },
-  "5de9f": {
-    "symbol": "recovered_5de9f",
-    "original": "_fs_note_listed_path"
-  },
-  "229a3": {
-    "symbol": "recovered_229a3",
-    "original": "_platform_runtime_linear_to_physical_span"
-  },
-  "27370": {
-    "symbol": "recovered_27370",
-    "original": "___cxa_rethrow"
-  },
-  "5cf0c": {
-    "symbol": "recovered_5cf0c",
-    "original": "_sleep_ms"
-  },
-  "4e937": {
-    "symbol": "recovered_4e937",
-    "original": "_ws_string_builder_append"
-  },
-  "5dbf4": {
-    "symbol": "recovered_5dbf4",
-    "original": "_ws_write_scalar_memory"
-  },
-  "38e1c": {
-    "symbol": "recovered_38e1c",
-    "original": "_display_set_theme"
-  },
-  "58ca2": {
-    "symbol": "recovered_58ca2",
-    "original": "_graphics_wait_ms"
-  },
-  "2262b": {
-    "symbol": "recovered_2262b",
-    "original": "_wm_platform_query_storage_tuning"
-  },
-  "410c8": {
-    "symbol": "recovered_410c8",
-    "original": "_fs_release_state"
-  },
-  "32e00": {
-    "symbol": "recovered_32e00",
-    "original": "__ZN6winter3wav6detail17readSampleAsFloatEPKhtt"
-  },
-  "2499c": {
-    "symbol": "recovered_2499c",
-    "original": "_platform_storage_write_transfer_sectors"
-  },
-  "41346": {
-    "symbol": "recovered_41346",
-    "original": "_scheduler_restore_after_process_load"
-  },
-  "60c9d": {
-    "symbol": "recovered_60c9d",
-    "original": "_driver_device_tree_upsert"
-  },
-  "31464": {
-    "symbol": "recovered_31464",
-    "original": "__ZNK2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE10find_indexERKS1_"
-  },
-  "5e999": {
-    "symbol": "recovered_5e999",
-    "original": "_storage_format_device_name"
-  },
-  "3c7ef": {
-    "symbol": "recovered_3c7ef",
-    "original": "_storage_scan_devices"
-  },
-  "211f2": {
-    "symbol": "recovered_211f2",
-    "original": "___umoddi3"
-  },
-  "5fd01": {
-    "symbol": "recovered_5fd01",
-    "original": "_storage_ranges_overlap"
-  },
-  "26bd0": {
-    "symbol": "recovered_26bd0",
-    "original": "_wmfs_clearerr"
-  },
-  "2d858": {
-    "symbol": "recovered_2d858",
-    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend6ascentEv"
-  },
-  "61862": {
-    "symbol": "recovered_61862",
-    "original": "_ws_try_get_global_variable"
-  },
-  "32088": {
-    "symbol": "recovered_32088",
-    "original": "_wm_media_png_decode_memory"
-  },
-  "2633d": {
-    "symbol": "recovered_2633d",
-    "original": "_wm_lua_flush_output"
-  },
-  "49040": {
-    "symbol": "recovered_49040",
-    "original": "_ws_make_table"
-  },
-  "263e4": {
-    "symbol": "recovered_263e4",
-    "original": "_wm_lua_write_cstr"
-  },
-  "4eeeb": {
-    "symbol": "recovered_4eeeb",
-    "original": "_ws_call_builtin"
-  },
-  "230f9": {
-    "symbol": "recovered_230f9",
-    "original": "_wm_platform_text_rows"
-  },
-  "4038d": {
-    "symbol": "recovered_4038d",
-    "original": "_storage_copy_boot_fallback_file"
-  },
-  "2caea": {
-    "symbol": "recovered_2caea",
-    "original": "__ZN12_GLOBAL__N_115TrueTypeBackendD1Ev"
-  },
-  "46ef5": {
-    "symbol": "recovered_46ef5",
-    "original": "_ws_value_move"
-  },
-  "3d4bd": {
-    "symbol": "recovered_3d4bd",
-    "original": "_graphics_framebuffer_bytes_per_pixel"
-  },
-  "2eee6": {
-    "symbol": "recovered_2eee6",
-    "original": "__ZNK2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE10find_indexERKj"
-  },
-  "2ae7d": {
-    "symbol": "recovered_2ae7d",
-    "original": "__ZN2wm3png12_GLOBAL__N_113adler32_bytesEPKhm"
-  },
-  "395e8": {
-    "symbol": "recovered_395e8",
-    "original": "_wm_kernel_assign_winterscript_function"
-  },
-  "33c40": {
-    "symbol": "recovered_33c40",
-    "original": "_fs_find_file"
-  },
-  "2d990": {
-    "symbol": "recovered_2d990",
-    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend12assign_tableEjRNS_11TableRecordE"
-  },
-  "30a0a": {
-    "symbol": "recovered_30a0a",
-    "original": "__ZNK12_GLOBAL__N_112Type1Backend8line_gapEv"
-  },
-  "31dd4": {
-    "symbol": "recovered_31dd4",
-    "original": "__ZNK2wm13unordered_mapIjN12_GLOBAL__N_111GlyphBitmapENS_4hashIjEENS_8equal_toIjEEE14bucket_for_keyERKj"
-  },
-  "249c1": {
-    "symbol": "recovered_249c1",
-    "original": "_platform_efi_flush_blocks"
-  },
-  "2173c": {
-    "symbol": "recovered_2173c",
-    "original": "_strstr"
-  },
-  "39f2b": {
-    "symbol": "recovered_39f2b",
-    "original": "_execute_command_line"
-  },
-  "2621a": {
-    "symbol": "recovered_2621a",
-    "original": "_platform_efi_mask_shift"
-  },
-  "3902b": {
-    "symbol": "recovered_3902b",
-    "original": "_graphics_rebuild_canvas_mapping"
-  },
-  "3cccc": {
-    "symbol": "recovered_3cccc",
-    "original": "_present_surface"
-  },
-  "273f1": {
-    "symbol": "recovered_273f1",
-    "original": "__Unwind_SjLj_Resume"
-  },
-  "29d98": {
-    "symbol": "recovered_29d98",
-    "original": "__ZN2wm6vectorIhE6resizeEmRKh"
-  },
-  "35aa6": {
-    "symbol": "recovered_35aa6",
-    "original": "_run_program"
-  },
-  "21b7c": {
-    "symbol": "recovered_21b7c",
-    "original": "_cos"
-  },
-  "2db22": {
-    "symbol": "recovered_2db22",
-    "original": "__ZN2wm6vectorImE6resizeEmRKm"
-  },
-  "41c0f": {
-    "symbol": "recovered_41c0f",
-    "original": "_macho_image_mapping_span"
-  },
-  "43347": {
-    "symbol": "recovered_43347",
-    "original": "_macho_apply_rebase_at"
-  },
-  "4ec03": {
-    "symbol": "recovered_4ec03",
-    "original": "_ws_function_create"
-  },
-  "5de54": {
-    "symbol": "recovered_5de54",
-    "original": "_fs_path_already_listed"
-  },
-  "5ea54": {
-    "symbol": "recovered_5ea54",
-    "original": "_cpu_query_deterministic_cache_leaf"
-  },
-  "3ca68": {
-    "symbol": "recovered_3ca68",
-    "original": "_bitmap_font_try_autoload"
-  },
-  "26ef1": {
-    "symbol": "recovered_26ef1",
-    "original": "_wm_program_api_field_ready"
-  },
-  "31fa4": {
-    "symbol": "recovered_31fa4",
-    "original": "__ZN2wm6vectorINS0_IjEEE7reserveEm"
-  },
-  "4b3ee": {
-    "symbol": "recovered_4b3ee",
-    "original": "_ws_parse_unary"
-  },
-  "4eec9": {
-    "symbol": "recovered_4eec9",
-    "original": "_ws_value_array_free"
-  },
-  "2ca04": {
-    "symbol": "recovered_2ca04",
-    "original": "__ZN2wm6vectorIN12_GLOBAL__N_110LineLayoutEED1Ev"
-  },
-  "2f52c": {
-    "symbol": "recovered_2f52c",
-    "original": "__ZN2wm6vectorIN12_GLOBAL__N_15PointEE7reserveEm"
-  },
-  "49092": {
-    "symbol": "recovered_49092",
-    "original": "_ws_get_indexed_value_mutable"
-  },
-  "27493": {
-    "symbol": "recovered_27493",
-    "original": "___gxx_personality_v0"
-  },
-  "3e3f4": {
-    "symbol": "recovered_3e3f4",
-    "original": "_fs_free_bytes"
-  },
-  "3c9d9": {
-    "symbol": "recovered_3c9d9",
-    "original": "_storage_mount_drivers_partition"
-  },
-  "27a0a": {
-    "symbol": "recovered_27a0a",
-    "original": "__ZL14read_unalignedPKhm"
-  },
-  "5e78f": {
-    "symbol": "recovered_5e78f",
-    "original": "_storage_query_mounted_device_space_by_id"
-  },
-  "62147": {
-    "symbol": "recovered_62147",
-    "original": "_load_bytecode_file"
-  },
-  "30afa": {
-    "symbol": "recovered_30afa",
-    "original": "__ZN2wm6vectorINS0_IhEEE5clearEv"
-  },
-  "2158d": {
-    "symbol": "recovered_2158d",
-    "original": "_isalnum"
-  },
-  "5d625": {
-    "symbol": "recovered_5d625",
-    "original": "_ws_table_set_uint32_field"
-  },
-  "43816": {
-    "symbol": "recovered_43816",
-    "original": "_query_drive_capacity"
-  },
-  "2b2da": {
-    "symbol": "recovered_2b2da",
-    "original": "__ZN2wm6vectorIjE12emplace_backIJRKjEEERjDpOT_"
-  },
-  "21473": {
-    "symbol": "recovered_21473",
-    "original": "_memcpy"
-  },
-  "4938f": {
-    "symbol": "recovered_4938f",
-    "original": "_ws_find_if_branch_or_end"
-  },
-  "26b41": {
-    "symbol": "recovered_26b41",
-    "original": "_wmfs_fflush"
-  },
-  "5d582": {
-    "symbol": "recovered_5d582",
-    "original": "_read_input_instant_append"
-  },
-  "4a5b1": {
-    "symbol": "recovered_4a5b1",
-    "original": "_ws_array_reserve_capacity"
-  },
-  "4136c": {
-    "symbol": "recovered_4136c",
-    "original": "_macho_select_i386_image"
-  },
-  "40bb8": {
-    "symbol": "recovered_40bb8",
-    "original": "_fat_load_directory_from_buffer"
-  },
-  "21494": {
-    "symbol": "recovered_21494",
-    "original": "_memmove"
-  },
-  "324e1": {
-    "symbol": "recovered_324e1",
-    "original": "__ZN6winter3wav6decodeEPKvmPNS0_11DecodedFileERKNS0_13DecodeOptionsE"
-  },
-  "3f5b5": {
-    "symbol": "recovered_3f5b5",
-    "original": "_wmfs64_write_chain_bytes"
-  },
-  "2758c": {
-    "symbol": "recovered_2758c",
-    "original": "_isxdigit"
-  },
-  "34485": {
-    "symbol": "recovered_34485",
-    "original": "_wm_kernel_host_log"
-  },
-  "433ab": {
-    "symbol": "recovered_433ab",
-    "original": "_write_le64"
-  },
-  "35a59": {
-    "symbol": "recovered_35a59",
-    "original": "_program_load_text"
-  },
-  "4d749": {
-    "symbol": "recovered_4d749",
-    "original": "_ws_get_indexed_value"
-  },
-  "414ff": {
-    "symbol": "recovered_414ff",
-    "original": "_macho_parse_image_commands"
-  },
-  "30b5a": {
-    "symbol": "recovered_30b5a",
-    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEED2Ev"
-  },
-  "3d000": {
-    "symbol": "recovered_3d000",
-    "original": "_textmode_prepare_grids"
-  },
-  "30ded": {
-    "symbol": "recovered_30ded",
-    "original": "__ZN12_GLOBAL__N_111skip_spacesERKN2wm6vectorIhEERm"
-  },
-  "4a387": {
-    "symbol": "recovered_4a387",
-    "original": "_ws_execute_expression_line"
-  },
-  "352db": {
-    "symbol": "recovered_352db",
-    "original": "_wm_kernel_program_create_directory"
-  },
-  "21c73": {
-    "symbol": "recovered_21c73",
-    "original": "_powf"
-  },
-  "23d43": {
-    "symbol": "recovered_23d43",
-    "original": "_platform_efi_drive_capacity"
-  },
-  "2189e": {
-    "symbol": "recovered_2189e",
-    "original": "_pow"
-  },
-  "473ad": {
-    "symbol": "recovered_473ad",
-    "original": "_ws_value_list_push"
-  },
-  "30a1a": {
-    "symbol": "recovered_30a1a",
-    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEEC2Ev"
-  },
-  "62478": {
-    "symbol": "recovered_62478",
-    "original": "_wm_kernel_kext_configure_runtime"
-  },
-  "2d842": {
-    "symbol": "recovered_2d842",
-    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend12units_per_emEv"
-  },
-  "4c841": {
-    "symbol": "recovered_4c841",
-    "original": "_ws_make_bool"
-  },
-  "26234": {
-    "symbol": "recovered_26234",
-    "original": "_wm_lua_write"
-  },
-  "587b3": {
-    "symbol": "recovered_587b3",
-    "original": "_ws_push_vararg_frame"
-  },
-  "5c436": {
-    "symbol": "recovered_5c436",
-    "original": "_ws_find_digit_run"
-  },
-  "2731a": {
-    "symbol": "recovered_2731a",
-    "original": "__ZL15raise_exceptionP21WinterExceptionHeader"
-  },
-  "5cc72": {
-    "symbol": "recovered_5cc72",
-    "original": "_ws_decode_bytecode_lines"
-  },
-  "235ef": {
-    "symbol": "recovered_235ef",
-    "original": "_wm_platform_text_enable_cursor"
-  },
-  "5c659": {
-    "symbol": "recovered_5c659",
-    "original": "_ws_value_compare"
-  },
-  "3350d": {
-    "symbol": "recovered_3350d",
-    "original": "_wm_kernel_program_poll_key_ax"
-  },
-  "26f30": {
-    "symbol": "recovered_26f30",
-    "original": "_winterboot_sjlj_jump"
-  },
-  "5fb20": {
-    "symbol": "recovered_5fb20",
-    "original": "_storage_detect_volume_filesystem"
-  },
-  "27064": {
-    "symbol": "recovered_27064",
-    "original": "__ZdlPv"
-  },
-  "29d88": {
-    "symbol": "recovered_29d88",
-    "original": "__ZN2wm6vectorIhE6assignEmRKh"
-  },
-  "62617": {
-    "symbol": "recovered_62617",
-    "original": "_storage_add_scanned_drive"
-  },
-  "21ab8": {
-    "symbol": "recovered_21ab8",
-    "original": "_llround"
-  },
-  "616e9": {
-    "symbol": "recovered_616e9",
-    "original": "_ws_local_frame_copy"
-  },
-  "441c4": {
-    "symbol": "recovered_441c4",
-    "original": "_program_replace_lines"
-  },
-  "242d1": {
-    "symbol": "recovered_242d1",
-    "original": "_platform_efi_io_buffer_bytes"
-  },
-  "2b344": {
-    "symbol": "recovered_2b344",
-    "original": "__ZN2wm6vectorIjE6insertIPjvEES3_PKjT_S6_"
-  },
-  "36684": {
-    "symbol": "recovered_36684",
-    "original": "_wm_kernel_program_app_window_query"
-  },
-  "3139c": {
-    "symbol": "recovered_3139c",
-    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE14prepare_insertEv"
-  },
-  "60d63": {
-    "symbol": "recovered_60d63",
-    "original": "_driver_device_tree_find_index"
-  },
-  "26e74": {
-    "symbol": "recovered_26e74",
-    "original": "_strerror"
-  },
-  "4e967": {
-    "symbol": "recovered_4e967",
-    "original": "_decode_string_token"
-  },
-  "29344": {
-    "symbol": "recovered_29344",
-    "original": "__ZN2wm3png12_GLOBAL__N_19ParsedPngD1Ev"
-  },
-  "258c5": {
-    "symbol": "recovered_258c5",
-    "original": "_platform_runtime_map_uncached_pages"
-  },
-  "3f09c": {
-    "symbol": "recovered_3f09c",
-    "original": "_fat_entry_is_end"
-  },
-  "312e0": {
-    "symbol": "recovered_312e0",
-    "original": "__ZN2wm6vectorINS0_IhEEE7reserveEm"
-  },
-  "26c1a": {
-    "symbol": "recovered_26c1a",
-    "original": "_wmfs_remove"
-  },
-  "2ef36": {
-    "symbol": "recovered_2ef36",
-    "original": "__ZNK2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE14bucket_for_keyERKj"
-  },
-  "2ad4e": {
-    "symbol": "recovered_2ad4e",
-    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater23decode_compressed_blockERNS2_9BitReaderERKNS2_12HuffmanTableES7_RNS_6vectorIhEE"
-  },
-  "311be": {
-    "symbol": "recovered_311be",
-    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEEixERKS1_"
-  },
-  "4cdc0": {
-    "symbol": "recovered_4cdc0",
-    "original": "_ws_builtin_exists"
-  },
-  "5c842": {
-    "symbol": "recovered_5c842",
-    "original": "_ws_load_bytecode_data"
-  },
-  "43b26": {
-    "symbol": "recovered_43b26",
-    "original": "_fat_write_directory_item"
-  },
-  "22443": {
-    "symbol": "recovered_22443",
-    "original": "_append_char"
-  },
-  "238e9": {
-    "symbol": "recovered_238e9",
-    "original": "_wm_platform_poll_key_ax"
-  },
-  "3e540": {
-    "symbol": "recovered_3e540",
-    "original": "_visual_layout_append_line"
-  },
-  "2f50b": {
-    "symbol": "recovered_2f50b",
-    "original": "__ZN2wm6detail15vector_allocateIsEEPT_m"
-  },
-  "61fcb": {
-    "symbol": "recovered_61fcb",
-    "original": "_run_bytecode_path"
-  },
-  "29cae": {
-    "symbol": "recovered_29cae",
-    "original": "__ZN2wm6vectorIhE6assignIPKhvEEvT_S5_"
-  },
-  "21773": {
-    "symbol": "recovered_21773",
-    "original": "_localeconv"
-  },
-  "31434": {
-    "symbol": "recovered_31434",
-    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE10link_indexEm"
-  },
-  "214f6": {
-    "symbol": "recovered_214f6",
-    "original": "_bzero"
-  },
-  "4a7f5": {
-    "symbol": "recovered_4a7f5",
-    "original": "_ws_parse_equality"
-  },
-  "3edcd": {
-    "symbol": "recovered_3edcd",
-    "original": "_wmfs_load_file_from_drive"
-  },
-  "41252": {
-    "symbol": "recovered_41252",
-    "original": "_macho_load_and_link_image"
-  },
-  "21794": {
-    "symbol": "recovered_21794",
-    "original": "_ldexp"
-  },
-  "32010": {
-    "symbol": "recovered_32010",
-    "original": "__ZN2wm6detail15vector_allocateINS_6vectorIjEEEEPT_m"
-  },
-  "25cf0": {
-    "symbol": "recovered_25cf0",
-    "original": "_platform_efi_read_absolute_pointer_state"
-  },
-  "32dd1": {
-    "symbol": "recovered_32dd1",
-    "original": "__ZN6winter3wav6detail17isSupportedFormatEtt"
-  },
-  "2f21f": {
-    "symbol": "recovered_2f21f",
-    "original": "__ZN12_GLOBAL__N_115transform_pointERKNS_15AffineTransformERKNS_5PointE"
-  },
-  "43a5c": {
-    "symbol": "recovered_43a5c",
-    "original": "_fat_entry_set"
-  },
-  "21dc6": {
-    "symbol": "recovered_21dc6",
-    "original": "_sinf"
-  },
-  "2baaa": {
-    "symbol": "recovered_2baaa",
-    "original": "__Z18wm_ttf_font_resizePvf"
-  },
-  "21577": {
-    "symbol": "recovered_21577",
-    "original": "_isalpha"
-  },
-  "34e95": {
-    "symbol": "recovered_34e95",
-    "original": "_wm_kernel_program_rename_file"
-  },
-  "2baee": {
-    "symbol": "recovered_2baee",
-    "original": "__Z18wm_ttf_font_renderPvPKciiid"
-  },
-  "3e830": {
-    "symbol": "recovered_3e830",
-    "original": "_storage_find_ramdisk_by_drive"
-  },
-  "2dacc": {
-    "symbol": "recovered_2dacc",
-    "original": "__ZNK2wm13unordered_mapIjN12_GLOBAL__N_111TableRecordENS_4hashIjEENS_8equal_toIjEEE14bucket_for_keyERKj"
-  },
-  "58757": {
-    "symbol": "recovered_58757",
-    "original": "_ws_set_local_variable"
-  },
-  "3f3dd": {
-    "symbol": "recovered_3f3dd",
-    "original": "_wmfs64_resize_chain"
-  },
-  "624f7": {
-    "symbol": "recovered_624f7",
-    "original": "_wm_kernel_kext_configure_storage"
-  },
-  "259e4": {
-    "symbol": "recovered_259e4",
-    "original": "_wm_platform_serial_putc"
-  },
-  "40616": {
-    "symbol": "recovered_40616",
-    "original": "_fs_load_device"
-  },
-  "22038": {
-    "symbol": "recovered_22038",
-    "original": "_strtod"
-  },
-  "36506": {
-    "symbol": "recovered_36506",
-    "original": "_wm_kernel_program_app_window_destroy"
-  },
-  "2f6ec": {
-    "symbol": "recovered_2f6ec",
-    "original": "__ZN12_GLOBAL__N_114OutlineBuilder13update_boundsERKNS_5PointE"
-  },
-  "43eb3": {
-    "symbol": "recovered_43eb3",
-    "original": "_fat_is_valid_short_char"
-  },
-  "31b4e": {
-    "symbol": "recovered_31b4e",
-    "original": "__ZN12_GLOBAL__N_112Type1Backend16Type1Interpreter10close_pathEv"
-  },
-  "2f3dc": {
-    "symbol": "recovered_2f3dc",
-    "original": "__ZN2wm6vectorItE7reserveEm"
-  },
-  "2164f": {
-    "symbol": "recovered_2164f",
-    "original": "_strcpy"
-  },
-  "3dee5": {
-    "symbol": "recovered_3dee5",
-    "original": "_build_visual_layout"
-  },
-  "4cc8f": {
-    "symbol": "recovered_4cc8f",
-    "original": "_ws_parse_pointer_literal"
-  },
-  "4cd40": {
-    "symbol": "recovered_4cd40",
-    "original": "_ws_parse_float_literal"
-  },
-  "31f1a": {
-    "symbol": "recovered_31f1a",
-    "original": "__ZN2wm6vectorIhEC2EmRKh"
-  },
-  "216d7": {
-    "symbol": "recovered_216d7",
-    "original": "_strspn"
-  },
-  "2432a": {
-    "symbol": "recovered_2432a",
-    "original": "_platform_storage_cache_hit"
-  },
-  "58929": {
-    "symbol": "recovered_58929",
-    "original": "_graphics_canvas_active"
-  },
-  "4eda2": {
-    "symbol": "recovered_4eda2",
-    "original": "_ws_io_handle_from_value"
-  },
-  "2db72": {
-    "symbol": "recovered_2db72",
-    "original": "__ZN2wm6vectorImE6resizeEm"
-  },
-  "2ca3e": {
-    "symbol": "recovered_2ca3e",
-    "original": "__Z16wm_ttf_font_freePv"
-  },
-  "29300": {
-    "symbol": "recovered_29300",
-    "original": "__ZN2wm6vectorIhEaSEOS1_"
-  },
-  "30e8c": {
-    "symbol": "recovered_30e8c",
-    "original": "__ZN2wm6string6assignEPKcm"
-  },
-  "2f46c": {
-    "symbol": "recovered_2f46c",
-    "original": "__ZN2wm6vectorIsEC2Em"
-  },
-  "3cb47": {
-    "symbol": "recovered_3cb47",
-    "original": "_app_console_line"
-  },
-  "610d9": {
-    "symbol": "recovered_610d9",
-    "original": "_ws_io_handle_reset"
-  },
-  "4379a": {
-    "symbol": "recovered_4379a",
-    "original": "_storage_find_device_by_id"
-  },
-  "3655b": {
-    "symbol": "recovered_3655b",
-    "original": "_wm_kernel_program_app_window_list"
-  },
-  "59302": {
-    "symbol": "recovered_59302",
-    "original": "_ws_builtin_device"
-  },
-  "27010": {
-    "symbol": "recovered_27010",
-    "original": "___cxa_begin_catch"
-  },
-  "230cb": {
-    "symbol": "recovered_230cb",
-    "original": "_wm_platform_text_columns"
-  },
-  "5d730": {
-    "symbol": "recovered_5d730",
-    "original": "_wm_kernel_kext_configure_driver_graphics"
-  },
-  "32d89": {
-    "symbol": "recovered_32d89",
-    "original": "__ZN6winter3wav6detail16resolveFormatTagEPtPKhm"
-  },
-  "2b130": {
-    "symbol": "recovered_2b130",
-    "original": "__ZN2wm6vectorIjE6resizeEm"
-  },
-  "24b0a": {
-    "symbol": "recovered_24b0a",
-    "original": "_wm_platform_set_graphics_mode_request"
-  },
-  "34590": {
-    "symbol": "recovered_34590",
-    "original": "_read_line_internal"
-  },
-  "6251f": {
-    "symbol": "recovered_6251f",
-    "original": "_surface_allocate"
-  },
-  "3b88e": {
-    "symbol": "recovered_3b88e",
-    "original": "_wm_winterboot_main"
-  },
-  "411e6": {
-    "symbol": "recovered_411e6",
-    "original": "_scheduler_capture_foreground_image"
-  },
-  "24b34": {
-    "symbol": "recovered_24b34",
-    "original": "_wm_platform_framebuffer_bpp_supported"
-  },
-  "4927d": {
-    "symbol": "recovered_4927d",
-    "original": "_ws_set_indexed_value"
-  },
-  "3f192": {
-    "symbol": "recovered_3f192",
-    "original": "_fs_insert_file_index"
-  },
-  "210af": {
-    "symbol": "recovered_210af",
-    "original": "___ashrdi3"
-  },
-  "2f5a2": {
-    "symbol": "recovered_2f5a2",
-    "original": "__ZN2wm6vectorIbE12emplace_backIJRKbEEERbDpOT_"
-  },
-  "434f8": {
-    "symbol": "recovered_434f8",
-    "original": "_macho_write_bound_value"
-  },
-  "497f5": {
-    "symbol": "recovered_497f5",
-    "original": "_ws_set_variable"
-  },
-  "272b0": {
-    "symbol": "recovered_272b0",
-    "original": "___cxa_end_catch"
-  },
-  "2d88e": {
-    "symbol": "recovered_2d88e",
-    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend8line_gapEv"
-  },
-  "4eafb": {
-    "symbol": "recovered_4eafb",
-    "original": "_parse_uint32_token"
-  },
-  "3e734": {
-    "symbol": "recovered_3e734",
-    "original": "_load_drive_bytes"
-  },
-  "5b737": {
-    "symbol": "recovered_5b737",
-    "original": "_ws_builtin_drivers"
-  },
-  "21afc": {
-    "symbol": "recovered_21afc",
-    "original": "_sin"
-  },
-  "3136e": {
-    "symbol": "recovered_3136e",
-    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE4findERKS1_"
-  },
-  "36532": {
-    "symbol": "recovered_36532",
-    "original": "_kernel_app_window_release"
-  },
-  "40979": {
-    "symbol": "recovered_40979",
-    "original": "_fs_release_files"
-  },
-  "4e5ff": {
-    "symbol": "recovered_4e5ff",
-    "original": "_ws_value_to_owned_string"
-  },
-  "42895": {
-    "symbol": "recovered_42895",
-    "original": "_macho_find_loaded_dylib"
-  },
-  "30b2e": {
-    "symbol": "recovered_30b2e",
-    "original": "__ZN2wm5arrayINS_6stringELm256EED2Ev"
-  },
-  "3f32e": {
-    "symbol": "recovered_3f32e",
-    "original": "_fs_insert_file_index_entry"
-  },
-  "23033": {
-    "symbol": "recovered_23033",
-    "original": "_platform_show_startup_banner"
-  },
-  "21d78": {
-    "symbol": "recovered_21d78",
-    "original": "_sqrtf"
-  },
-  "3dac5": {
-    "symbol": "recovered_3dac5",
-    "original": "_text_translate_for_output_n"
-  },
-  "399b7": {
-    "symbol": "recovered_399b7",
-    "original": "_wm_kernel_program_execute_command_line"
-  },
-  "2132f": {
-    "symbol": "recovered_2132f",
-    "original": "_free"
-  },
-  "2f078": {
-    "symbol": "recovered_2f078",
-    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE21bucket_count_for_sizeEm"
-  },
-  "26f86": {
-    "symbol": "recovered_26f86",
-    "original": "__ZSt9terminatev"
-  },
-  "3cc12": {
-    "symbol": "recovered_3cc12",
-    "original": "_surface_fill_rect"
-  },
-  "2429c": {
-    "symbol": "recovered_2429c",
-    "original": "_platform_efi_io_buffer_physical"
-  },
-  "4eca7": {
-    "symbol": "recovered_4eca7",
-    "original": "_ws_make_bound_builtin_function_value"
-  },
-  "26e1d": {
-    "symbol": "recovered_26e1d",
-    "original": "_memchr"
-  },
-  "334dd": {
-    "symbol": "recovered_334dd",
-    "original": "_wm_kernel_program_write"
-  },
-  "21603": {
-    "symbol": "recovered_21603",
-    "original": "_strlen"
-  },
-  "24305": {
-    "symbol": "recovered_24305",
-    "original": "_platform_storage_read_transfer_sectors"
-  },
-  "5c373": {
-    "symbol": "recovered_5c373",
-    "original": "_ws_table_erase_key"
-  },
-  "3631c": {
-    "symbol": "recovered_3631c",
-    "original": "_kernel_app_window_copy_title"
-  },
-  "31ca1": {
-    "symbol": "recovered_31ca1",
-    "original": "__ZN2wm6detail15vector_allocateIdEEPT_m"
-  },
-  "602f3": {
-    "symbol": "recovered_602f3",
-    "original": "_driver_load_kext"
-  },
-  "21e19": {
-    "symbol": "recovered_21e19",
-    "original": "_strtol"
-  },
-  "2c93a": {
-    "symbol": "recovered_2c93a",
-    "original": "__ZN2wm6vectorINS0_IjEEE12emplace_backIJEEERS1_DpOT_"
-  },
-  "22b16": {
-    "symbol": "recovered_22b16",
-    "original": "_wm_platform_startup"
-  },
-  "5df60": {
-    "symbol": "recovered_5df60",
-    "original": "_ws_join_argument_text_alloc"
-  },
-  "20f81": {
-    "symbol": "recovered_20f81",
-    "original": "_wm_probe_heap_total_bytes64"
-  },
-  "24b4e": {
-    "symbol": "recovered_24b4e",
-    "original": "_wm_platform_framebuffer_bytes_per_pixel"
-  },
-  "43cf2": {
-    "symbol": "recovered_43cf2",
-    "original": "_fat_tree_add_node"
-  },
-  "46eb4": {
-    "symbol": "recovered_46eb4",
-    "original": "_ws_is_head_keyword"
-  },
-  "3401f": {
-    "symbol": "recovered_3401f",
-    "original": "_fs_delete_file"
-  },
-  "21522": {
-    "symbol": "recovered_21522",
-    "original": "_memcmp"
-  },
-  "4c8b4": {
-    "symbol": "recovered_4c8b4",
-    "original": "_ws_table_find_index"
-  },
-  "35b1f": {
-    "symbol": "recovered_35b1f",
-    "original": "_try_run_macho_command_line"
-  },
-  "2728b": {
-    "symbol": "recovered_2728b",
-    "original": "___cxa_free_exception"
-  },
-  "2648b": {
-    "symbol": "recovered_2648b",
-    "original": "_wmfs_fopen"
-  },
-  "23c69": {
-    "symbol": "recovered_23c69",
-    "original": "_wm_platform_get_rom_font_8x16"
-  },
-  "5eded": {
-    "symbol": "recovered_5eded",
-    "original": "_storage_partition_table_name"
-  },
-  "25b1e": {
-    "symbol": "recovered_25b1e",
-    "original": "_wm_platform_heap_total_bytes"
-  },
-  "5e2ed": {
-    "symbol": "recovered_5e2ed",
-    "original": "_bitmap_font_set_data"
-  },
-  "26d00": {
-    "symbol": "recovered_26d00",
-    "original": "_wm_lua_app_write_file"
-  },
-  "316c4": {
-    "symbol": "recovered_316c4",
-    "original": "__ZN2wm6stringC2EOS0_"
-  },
-  "309fe": {
-    "symbol": "recovered_309fe",
-    "original": "__ZNK12_GLOBAL__N_112Type1Backend7descentEv"
-  },
-  "5f85a": {
-    "symbol": "recovered_5f85a",
-    "original": "_storage_sector_has_mbr_partitions"
-  },
-  "31e96": {
-    "symbol": "recovered_31e96",
-    "original": "__ZN2wm13unordered_mapIjN12_GLOBAL__N_111GlyphBitmapENS_4hashIjEENS_8equal_toIjEEE21bucket_count_for_sizeEm"
-  },
-  "2b1b5": {
-    "symbol": "recovered_2b1b5",
-    "original": "__ZN2wm6detail15vector_allocateIjEEPT_m"
-  },
-  "29e4a": {
-    "symbol": "recovered_29e4a",
-    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater5startERKNS_6vectorINS1_8ByteSpanEEE"
-  },
-  "409ec": {
-    "symbol": "recovered_409ec",
-    "original": "_fat_detect_type_from_boot_sector"
-  },
-  "2aa50": {
-    "symbol": "recovered_2aa50",
-    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater10read_exactEPhm"
-  },
-  "30bf4": {
-    "symbol": "recovered_30bf4",
-    "original": "__ZN2wm6string7reserveEm"
-  },
-  "5c729": {
-    "symbol": "recovered_5c729",
-    "original": "_ws_make_script_function_from_text"
-  },
-  "3d935": {
-    "symbol": "recovered_3d935",
-    "original": "_console_push_line_internal"
-  },
-  "33b41": {
-    "symbol": "recovered_33b41",
-    "original": "_wm_kernel_program_stat_file"
-  },
-  "391d9": {
-    "symbol": "recovered_391d9",
-    "original": "_wm_kernel_program_framebuffer_info"
-  },
-  "48f6d": {
-    "symbol": "recovered_48f6d",
-    "original": "_ws_try_get_variable"
-  },
-  "23d90": {
-    "symbol": "recovered_23d90",
-    "original": "_wm_platform_read_drive_bytes"
-  },
-  "60666": {
-    "symbol": "recovered_60666",
-    "original": "_driver_build_device_tree"
-  },
-  "31f50": {
-    "symbol": "recovered_31f50",
-    "original": "__ZN2wm6vectorINS0_IjEEED2Ev"
-  },
-  "5c527": {
-    "symbol": "recovered_5c527",
-    "original": "_ws_table_get_mutable_entry"
-  },
-  "2f428": {
-    "symbol": "recovered_2f428",
-    "original": "__ZN2wm6vectorIhE12emplace_backIJRKhEEERhDpOT_"
-  },
-  "27482": {
-    "symbol": "recovered_27482",
-    "original": "__Unwind_SjLj_Resume_or_Rethrow"
-  },
-  "30c98": {
-    "symbol": "recovered_30c98",
-    "original": "__ZN2wm6string8allocateEm"
-  },
-  "26ede": {
-    "symbol": "recovered_26ede",
-    "original": "_clock"
-  },
-  "44274": {
-    "symbol": "recovered_44274",
-    "original": "_program_lines_free"
-  },
-  "34c56": {
-    "symbol": "recovered_34c56",
-    "original": "_normalize_path"
-  },
-  "2f768": {
-    "symbol": "recovered_2f768",
-    "original": "__ZN2wm6vectorIN12_GLOBAL__N_111LineSegmentEE9push_backEOS2_"
-  },
-  "272ee": {
-    "symbol": "recovered_272ee",
-    "original": "___cxa_throw"
-  },
-  "4d9df": {
-    "symbol": "recovered_4d9df",
-    "original": "_ws_value_list_push_call_argument"
-  },
-  "5f89c": {
-    "symbol": "recovered_5f89c",
-    "original": "_storage_sector_is_empty_mbr"
-  },
-  "34002": {
-    "symbol": "recovered_34002",
-    "original": "_wm_kernel_program_delete_file"
-  },
-  "292d0": {
-    "symbol": "recovered_292d0",
-    "original": "__ZN2wm3png5ImageaSEOS1_"
-  },
-  "27565": {
-    "symbol": "recovered_27565",
-    "original": "_isspace"
-  },
-  "35abb": {
-    "symbol": "recovered_35abb",
-    "original": "_console_logf"
-  },
-  "250ca": {
-    "symbol": "recovered_250ca",
-    "original": "_wm_platform_pointer_protocol_counts"
-  },
-  "25cba": {
-    "symbol": "recovered_25cba",
-    "original": "_platform_efi_absolute_pointer_at"
-  },
-  "2d9d2": {
-    "symbol": "recovered_2d9d2",
-    "original": "__ZN2wm6vectorIhEC2ERKS1_"
-  },
-  "2da84": {
-    "symbol": "recovered_2da84",
-    "original": "__ZNK2wm13unordered_mapIjN12_GLOBAL__N_111TableRecordENS_4hashIjEENS_8equal_toIjEEE10find_indexERKj"
-  },
-  "4ca87": {
-    "symbol": "recovered_4ca87",
-    "original": "_ws_token_is_string"
-  },
-  "5886b": {
-    "symbol": "recovered_5886b",
-    "original": "_ws_join_argument_text"
-  },
-  "2b4a0": {
-    "symbol": "recovered_2b4a0",
-    "original": "__Z23wm_ttf_font_load_memoryPKvmf"
-  },
-  "41ceb": {
-    "symbol": "recovered_41ceb",
-    "original": "_macho_parse_dylib_name_command"
-  },
-  "3fe2a": {
-    "symbol": "recovered_3fe2a",
-    "original": "_command_line_path_only"
-  },
-  "5cc08": {
-    "symbol": "recovered_5cc08",
-    "original": "_ws_bytecode_program_free"
-  },
-  "3caf8": {
-    "symbol": "recovered_3caf8",
-    "original": "_read_line"
-  },
-  "2b424": {
-    "symbol": "recovered_2b424",
-    "original": "__ZN2wm6vectorItED2Ev"
-  },
-  "60e8a": {
-    "symbol": "recovered_60e8a",
-    "original": "_ws_instruction_list_push"
-  },
-  "42cdc": {
-    "symbol": "recovered_42cdc",
-    "original": "_macho_apply_bind_stream"
-  },
-  "3e861": {
-    "symbol": "recovered_3e861",
-    "original": "_visual_layout_append_line_n"
-  },
-  "58a06": {
-    "symbol": "recovered_58a06",
-    "original": "_graphics_make_status"
-  },
-  "4c7fa": {
-    "symbol": "recovered_4c7fa",
-    "original": "_ws_make_float"
-  },
-  "3988a": {
-    "symbol": "recovered_3988a",
-    "original": "_ws_make_null"
-  },
-  "4b0a4": {
-    "symbol": "recovered_4b0a4",
-    "original": "_ws_parse_additive"
-  },
-  "32d01": {
-    "symbol": "recovered_32d01",
-    "original": "_wm_media_ttf_free"
-  },
-  "5dddd": {
-    "symbol": "recovered_5dddd",
-    "original": "_fs_log_directory_entry"
-  },
-  "4da58": {
-    "symbol": "recovered_4da58",
+  "205afb0": {
+    "symbol": "recovered_205afb0",
     "original": "_ws_call_value"
   },
-  "29d74": {
-    "symbol": "recovered_29d74",
-    "original": "__ZN2wm6detail15vector_allocateIhEEPT_m"
-  },
-  "274a5": {
-    "symbol": "recovered_274a5",
-    "original": "___dynamic_cast"
-  },
-  "5deed": {
-    "symbol": "recovered_5deed",
-    "original": "_ws_make_raw_copy"
-  },
-  "3d76d": {
-    "symbol": "recovered_3d76d",
-    "original": "_expand_channel"
-  },
-  "36643": {
-    "symbol": "recovered_36643",
-    "original": "_wm_kernel_program_app_window_configure"
-  },
-  "216b3": {
-    "symbol": "recovered_216b3",
-    "original": "_strchr"
-  },
-  "36353": {
-    "symbol": "recovered_36353",
-    "original": "_wm_kernel_program_app_window_update"
-  },
-  "621a9": {
-    "symbol": "recovered_621a9",
-    "original": "_command_log_ws_value"
-  },
-  "2150c": {
-    "symbol": "recovered_2150c",
-    "original": "___bzero"
-  },
-  "335ad": {
-    "symbol": "recovered_335ad",
-    "original": "_wm_kernel_program_end"
-  },
-  "24abe": {
-    "symbol": "recovered_24abe",
-    "original": "_wm_platform_x64_apps_supported"
-  },
-  "4a52a": {
-    "symbol": "recovered_4a52a",
-    "original": "_ws_array_resize"
-  },
-  "21927": {
-    "symbol": "recovered_21927",
-    "original": "_floor"
-  },
-  "2dcf6": {
-    "symbol": "recovered_2dcf6",
-    "original": "__ZN12_GLOBAL__N_111GlyphBitmapC1EOS0_"
-  },
-  "22eb2": {
-    "symbol": "recovered_22eb2",
-    "original": "_platform_efi_init_fallback_font"
-  },
-  "362d8": {
-    "symbol": "recovered_362d8",
-    "original": "_kernel_app_window_current_owner"
-  },
-  "23127": {
-    "symbol": "recovered_23127",
-    "original": "_wm_platform_text_clear"
-  },
-  "58c0b": {
-    "symbol": "recovered_58c0b",
-    "original": "_ws_expect_uint32_arg"
-  },
-  "2331f": {
-    "symbol": "recovered_2331f",
-    "original": "_platform_efi_direct_call_end"
-  },
-  "2f1a6": {
-    "symbol": "recovered_2f1a6",
-    "original": "__ZN12_GLOBAL__N_114OutlineBuilder7move_toERKNS_5PointE"
-  },
-  "22ff2": {
-    "symbol": "recovered_22ff2",
-    "original": "_platform_efi_framebuffer_physical"
-  },
-  "5db9c": {
-    "symbol": "recovered_5db9c",
-    "original": "_ws_read_scalar_memory"
-  },
-  "34546": {
-    "symbol": "recovered_34546",
-    "original": "_wm_kernel_host_readline"
-  },
-  "38e6c": {
-    "symbol": "recovered_38e6c",
-    "original": "_wm_kernel_enter_graphics_mode"
-  },
-  "41d95": {
-    "symbol": "recovered_41d95",
-    "original": "_macho_load_image_segments"
-  },
-  "23677": {
-    "symbol": "recovered_23677",
-    "original": "_wm_platform_text_set_cursor"
-  },
-  "5d875": {
-    "symbol": "recovered_5d875",
-    "original": "_kernel_request_graphics_mode"
-  },
-  "2321f": {
-    "symbol": "recovered_2321f",
-    "original": "_platform_efi_pixel"
-  },
-  "5e23d": {
-    "symbol": "recovered_5e23d",
-    "original": "_bitmap_font_load_asset_bytes"
-  },
-  "4a91e": {
-    "symbol": "recovered_4a91e",
-    "original": "_ws_parse_comparison"
-  },
-  "3de1e": {
-    "symbol": "recovered_3de1e",
-    "original": "_ws_string_builder_free"
-  },
-  "621fb": {
-    "symbol": "recovered_621fb",
-    "original": "_command_log_scalar_read"
-  },
-  "4779b": {
-    "symbol": "recovered_4779b",
-    "original": "_ws_finish_executed_statement"
-  },
-  "21de2": {
-    "symbol": "recovered_21de2",
-    "original": "_cosf"
-  },
-  "2b0e4": {
-    "symbol": "recovered_2b0e4",
-    "original": "__ZN2wm6vectorIjE6resizeEmRKj"
-  },
-  "58790": {
-    "symbol": "recovered_58790",
-    "original": "_ws_pop_local_frame"
-  },
-  "39dfb": {
-    "symbol": "recovered_39dfb",
-    "original": "_is_monitor_command_line"
-  },
-  "3e9cd": {
-    "symbol": "recovered_3e9cd",
-    "original": "_fs_ensure_file_data_loaded"
-  },
-  "25b15": {
-    "symbol": "recovered_25b15",
-    "original": "_wm_platform_heap_free_bytes64"
-  },
-  "261ae": {
-    "symbol": "recovered_261ae",
-    "original": "_platform_efi_set_graphics_mode_direct"
-  },
-  "5e451": {
-    "symbol": "recovered_5e451",
-    "original": "_runtime_total_unmapped_detected_ram_bytes"
-  },
-  "321f5": {
-    "symbol": "recovered_321f5",
-    "original": "__ZN12_GLOBAL__N_114clearImageInfoEP27WmBaremetalProgramImageInfo"
-  },
-  "275ae": {
-    "symbol": "recovered_275ae",
-    "original": "_wm_math_isfinite"
-  },
-  "3d89f": {
-    "symbol": "recovered_3d89f",
-    "original": "_app_console_newline"
-  },
-  "31514": {
-    "symbol": "recovered_31514",
-    "original": "__ZN2wmeqERKNS_6stringES2_"
-  },
-  "43f2c": {
-    "symbol": "recovered_43f2c",
-    "original": "_wmfs32_superblock_geometry_is_valid"
-  },
-  "30b82": {
-    "symbol": "recovered_30b82",
-    "original": "__ZN12_GLOBAL__N_110find_bytesERKN2wm6vectorIhEEPKcm"
-  },
-  "32ae4": {
-    "symbol": "recovered_32ae4",
-    "original": "_wm_media_ttf_resize"
-  },
-  "60c2f": {
-    "symbol": "recovered_60c2f",
-    "original": "_driver_find_exported_symbol"
-  },
-  "224a3": {
-    "symbol": "recovered_224a3",
-    "original": "_append_unsigned"
-  },
-  "5ee1a": {
-    "symbol": "recovered_5ee1a",
-    "original": "_storage_fs_type_from_text"
-  },
-  "5d65e": {
-    "symbol": "recovered_5d65e",
-    "original": "_ws_table_set_value_field"
-  },
-  "495ba": {
-    "symbol": "recovered_495ba",
-    "original": "_ws_find_top_level_token_index"
-  },
-  "21d5c": {
-    "symbol": "recovered_21d5c",
-    "original": "_truncf"
-  },
-  "32211": {
-    "symbol": "recovered_32211",
-    "original": "__ZN12_GLOBAL__N_122copyRgbaToProgramImageEPKhjjmP27WmBaremetalProgramImageInfo"
-  },
-  "432ac": {
-    "symbol": "recovered_432ac",
-    "original": "_macho_read_uleb128"
-  },
-  "2684a": {
-    "symbol": "recovered_2684a",
-    "original": "_wmfs_fread"
-  },
-  "24a87": {
-    "symbol": "recovered_24a87",
-    "original": "_platform_efi_firmware_thunk_call"
-  },
-  "624d9": {
-    "symbol": "recovered_624d9",
-    "original": "_wm_kernel_kext_request_graphics_mode"
-  },
-  "231ff": {
-    "symbol": "recovered_231ff",
-    "original": "_platform_efi_console"
-  },
-  "402e2": {
-    "symbol": "recovered_402e2",
-    "original": "_macho_copy_boot_fallback_file"
-  },
-  "3de45": {
-    "symbol": "recovered_3de45",
-    "original": "_ws_string_builder_take"
-  },
-  "2b31a": {
-    "symbol": "recovered_2b31a",
-    "original": "__ZN2wm6vectorIjEC2IPjvEET_S4_"
-  },
-  "5cf3c": {
-    "symbol": "recovered_5cf3c",
-    "original": "_ws_logf_local"
-  },
-  "4ed5f": {
-    "symbol": "recovered_4ed5f",
-    "original": "_ws_make_string_n"
-  },
-  "21326": {
-    "symbol": "recovered_21326",
-    "original": "_malloc"
-  },
-  "316ea": {
-    "symbol": "recovered_316ea",
-    "original": "__ZN2wm4pairINS_6stringENS_6vectorIhEEEC2IRKS1_S3_EEOT_OT0_"
-  },
-  "30ada": {
-    "symbol": "recovered_30ada",
-    "original": "__ZN2wm6vectorINS0_IhEEED2Ev"
-  },
-  "271bd": {
-    "symbol": "recovered_271bd",
-    "original": "__ZdaPvm"
-  },
-  "437c2": {
-    "symbol": "recovered_437c2",
-    "original": "_boot_filesystem_available_sectors"
-  },
-  "5d935": {
-    "symbol": "recovered_5d935",
-    "original": "_graphics_present_canvas_pixel"
-  },
-  "5dd6d": {
-    "symbol": "recovered_5dd6d",
-    "original": "_ws_table_set_string_field"
-  },
-  "34429": {
-    "symbol": "recovered_34429",
-    "original": "_wm_kernel_program_ttf_load_file"
-  },
-  "2c9ea": {
-    "symbol": "recovered_2c9ea",
-    "original": "__ZN12_GLOBAL__N_110LineLayoutD1Ev"
-  },
-  "4ede7": {
-    "symbol": "recovered_4ede7",
-    "original": "_ws_value_equals"
-  },
-  "3620c": {
-    "symbol": "recovered_3620c",
-    "original": "_wm_kernel_program_app_window_create"
-  },
-  "6145c": {
-    "symbol": "recovered_6145c",
-    "original": "_ws_decay_task_push_frame"
-  },
-  "25bd4": {
-    "symbol": "recovered_25bd4",
-    "original": "_wm_platform_api"
-  },
-  "472cd": {
-    "symbol": "recovered_472cd",
-    "original": "_ws_is_identifier"
-  },
-  "60f5c": {
-    "symbol": "recovered_60f5c",
-    "original": "_ws_vararg_frame_free"
-  },
-  "30c44": {
-    "symbol": "recovered_30c44",
-    "original": "__ZN2wm6string9push_backEc"
-  },
-  "26ff0": {
-    "symbol": "recovered_26ff0",
-    "original": "___gxx_personality_sj0"
-  },
-  "29cd0": {
-    "symbol": "recovered_29cd0",
-    "original": "__ZN2wm6vectorIhE6insertIPKhvEEPhS4_T_S6_"
-  },
-  "4971e": {
-    "symbol": "recovered_4971e",
-    "original": "_ws_evaluate_token_range"
-  },
-  "3e520": {
-    "symbol": "recovered_3e520",
-    "original": "_runtime_total_detected_ram_bytes"
-  },
-  "31b6a": {
-    "symbol": "recovered_31b6a",
-    "original": "__ZN12_GLOBAL__N_112Type1Backend16Type1Interpreter15move_to_currentEv"
-  },
-  "2aa86": {
-    "symbol": "recovered_2aa86",
-    "original": "__ZN2wm3png12_GLOBAL__N_115unfilter_row_toEjPhPKhS4_mm"
-  },
-  "34e12": {
-    "symbol": "recovered_34e12",
-    "original": "_fs_path_relative_to_directory"
-  },
-  "5d6a4": {
-    "symbol": "recovered_5d6a4",
-    "original": "_graphics_write_framebuffer_pixel"
-  },
-  "243d0": {
-    "symbol": "recovered_243d0",
-    "original": "_platform_efi_read_blocks"
-  },
-  "324c5": {
-    "symbol": "recovered_324c5",
-    "original": "__ZN12_GLOBAL__N_112clearPcmInfoEP25WmBaremetalProgramPcmInfo"
-  },
-  "3cb7c": {
-    "symbol": "recovered_3cb7c",
-    "original": "_surface_fill"
-  },
-  "433b8": {
-    "symbol": "recovered_433b8",
-    "original": "_macho_resolve_symbol"
-  },
-  "26331": {
-    "symbol": "recovered_26331",
-    "original": "_wm_lua_writeline"
-  },
-  "62129": {
-    "symbol": "recovered_62129",
-    "original": "_ws_append_u32_le"
-  },
-  "3e6dd": {
-    "symbol": "recovered_3e6dd",
-    "original": "_fs_used_cluster_count"
-  },
-  "2ef94": {
-    "symbol": "recovered_2ef94",
-    "original": "__ZN2wm6vectorINS_4pairIjtEEE12emplace_backIJRKjtEEERS2_DpOT_"
-  },
-  "364db": {
-    "symbol": "recovered_364db",
-    "original": "_kernel_app_window_find"
-  },
-  "25fe4": {
-    "symbol": "recovered_25fe4",
-    "original": "_platform_efi_graphics_output_at"
-  },
-  "60b4c": {
-    "symbol": "recovered_60b4c",
-    "original": "_driver_path_to_device_tree_path"
-  },
-  "2d8fc": {
-    "symbol": "recovered_2d8fc",
-    "original": "__ZN2wm6vectorINS_4pairIjtEEED2Ev"
-  },
-  "33570": {
-    "symbol": "recovered_33570",
-    "original": "_serial_poll_char"
-  },
-  "2d3c2": {
-    "symbol": "recovered_2d3c2",
-    "original": "__ZN12_GLOBAL__N_115TrueTypeBackend9rasterizeEjd"
-  },
-  "21f43": {
-    "symbol": "recovered_21f43",
-    "original": "_strtoul"
-  },
-  "497c1": {
-    "symbol": "recovered_497c1",
-    "original": "_ws_value_to_float_number"
-  },
-  "31750": {
-    "symbol": "recovered_31750",
-    "original": "__ZN12_GLOBAL__N_112Type1Backend16Type1Interpreter7executeERKN2wm6vectorIhEEi"
-  },
-  "4edbf": {
-    "symbol": "recovered_4edbf",
-    "original": "_ws_io_handle_lookup"
-  },
-  "3cbbf": {
-    "symbol": "recovered_3cbbf",
-    "original": "_draw_text"
-  },
-  "41d2b": {
-    "symbol": "recovered_41d2b",
-    "original": "_macho_segment_is_pagezero"
-  },
-  "2680a": {
-    "symbol": "recovered_2680a",
-    "original": "_wmfs_fclose"
-  },
-  "5fe14": {
-    "symbol": "recovered_5fe14",
-    "original": "_storage_crc32"
-  },
-  "3cb1b": {
-    "symbol": "recovered_3cb1b",
-    "original": "_textmode_columns"
-  },
-  "60f9a": {
-    "symbol": "recovered_60f9a",
-    "original": "_ws_decay_task_clear_frames"
-  },
-  "24b5e": {
-    "symbol": "recovered_24b5e",
-    "original": "_wm_platform_framebuffer_ready"
-  },
-  "625b2": {
-    "symbol": "recovered_625b2",
-    "original": "_ws_table_set_builtin_field"
-  },
-  "2db12": {
-    "symbol": "recovered_2db12",
-    "original": "__ZN2wm6vectorImE6assignEmRKm"
-  },
-  "2b474": {
-    "symbol": "recovered_2b474",
-    "original": "__ZN2wm6vectorIhEC2IPKhvEET_S5_"
-  },
-  "5fc44": {
-    "symbol": "recovered_5fc44",
-    "original": "_storage_invalidate_range"
-  },
-  "31bb4": {
-    "symbol": "recovered_31bb4",
-    "original": "__ZN12_GLOBAL__N_112Type1Backend16Type1Interpreter15line_to_currentEv"
-  },
-  "5f97c": {
-    "symbol": "recovered_5f97c",
-    "original": "_storage_set_default_device_name"
-  },
-  "26776": {
-    "symbol": "recovered_26776",
-    "original": "_wm_lua_file_reserve"
-  },
-  "61771": {
-    "symbol": "recovered_61771",
-    "original": "_ws_decay_task_pop_frame"
-  },
-  "22530": {
-    "symbol": "recovered_22530",
-    "original": "_wm_probe_heap_append_region"
-  },
-  "20ffd": {
-    "symbol": "recovered_20ffd",
-    "original": "_wm_probe_heap_split"
-  },
-  "398b4": {
-    "symbol": "recovered_398b4",
-    "original": "_ws_value_free"
-  },
-  "2f640": {
-    "symbol": "recovered_2f640",
-    "original": "__ZN2wm6vectorIbE12emplace_backIJbEEERbDpOT_"
-  },
-  "20f04": {
-    "symbol": "recovered_20f04",
-    "original": "_wm_probe_heap_free_bytes"
-  },
-  "30fe6": {
-    "symbol": "recovered_30fe6",
-    "original": "__ZN2wm6vectorINS0_IhEEE6resizeEm"
-  },
-  "2375e": {
-    "symbol": "recovered_2375e",
-    "original": "_wm_platform_text_load_font_plane"
-  },
-  "5c483": {
-    "symbol": "recovered_5c483",
-    "original": "_ws_find_alpha_dash_digits_match"
-  },
-  "31d38": {
-    "symbol": "recovered_31d38",
-    "original": "__ZZN12_GLOBAL__N_111layout_lineEPNS_10FontHandleERKN2wm6vectorIjEEENK3$_0clEd"
-  },
-  "2cb52": {
-    "symbol": "recovered_2cb52",
-    "original": "__ZN12_GLOBAL__N_115TrueTypeBackend4loadERKN2wm6vectorIhEE"
-  },
-  "273d8": {
-    "symbol": "recovered_273d8",
-    "original": "__Unwind_SjLj_RaiseException"
-  },
-  "4e541": {
-    "symbol": "recovered_4e541",
-    "original": "_ws_key_to_owned_string"
-  },
-  "395be": {
-    "symbol": "recovered_395be",
+  "20211b0": {
+    "symbol": "recovered_20211b0",
+    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend8line_gapEv"
+  },
+  "2003ae0": {
+    "symbol": "recovered_2003ae0",
+    "original": "_wm_platform_firmware_root"
+  },
+  "2035760": {
+    "symbol": "recovered_2035760",
     "original": "_wm_kernel_set_night_mode"
   },
-  "273af": {
-    "symbol": "recovered_273af",
-    "original": "__Unwind_SjLj_Unregister"
+  "2029190": {
+    "symbol": "recovered_2029190",
+    "original": "_wm_kernel_program_poll_key_ax"
   },
-  "2dbfa": {
-    "symbol": "recovered_2dbfa",
-    "original": "__ZN2wm6detail15vector_allocateImEEPT_m"
+  "200ca90": {
+    "symbol": "recovered_200ca90",
+    "original": "_wmfs_remove"
   },
-  "4c90c": {
-    "symbol": "recovered_4c90c",
-    "original": "_ws_table_literal_promote_array_entries"
-  },
-  "21031": {
-    "symbol": "recovered_21031",
-    "original": "___ashldi3"
-  },
-  "219ca": {
-    "symbol": "recovered_219ca",
-    "original": "_sqrt"
-  },
-  "2d8b4": {
-    "symbol": "recovered_2d8b4",
-    "original": "__ZN2wm6vectorImED2Ev"
-  },
-  "213b4": {
-    "symbol": "recovered_213b4",
+  "20016c0": {
+    "symbol": "recovered_20016c0",
     "original": "_realloc"
   },
-  "5cfca": {
-    "symbol": "recovered_5cfca",
-    "original": "_ws_builtin_io_open_handle"
+  "200be90": {
+    "symbol": "recovered_200be90",
+    "original": "_wm_lua_show_help"
   },
-  "32b79": {
-    "symbol": "recovered_32b79",
-    "original": "_wm_media_ttf_render"
-  },
-  "4286a": {
-    "symbol": "recovered_4286a",
-    "original": "_macho_basename"
-  },
-  "3134c": {
-    "symbol": "recovered_3134c",
-    "original": "__ZN2wm6detail15vector_allocateINS_6vectorIhEEEEPT_m"
-  },
-  "26f3f": {
-    "symbol": "recovered_26f3f",
-    "original": "_setjmp"
-  },
-  "4c995": {
-    "symbol": "recovered_4c995",
-    "original": "_ws_table_literal_set_entry"
-  },
-  "30e5c": {
-    "symbol": "recovered_30e5c",
-    "original": "__ZN2wm6stringC2EPKcm"
-  },
-  "26478": {
-    "symbol": "recovered_26478",
-    "original": "_wmfs_mount_image"
-  },
-  "29567": {
-    "symbol": "recovered_29567",
-    "original": "__ZN2wm3png15save_rgba8_fileEPKcPKhii"
-  },
-  "6178f": {
-    "symbol": "recovered_6178f",
-    "original": "_ws_decay_evaluate_condition"
-  },
-  "214da": {
-    "symbol": "recovered_214da",
-    "original": "_memset"
-  },
-  "2f682": {
-    "symbol": "recovered_2f682",
-    "original": "__ZN2wm6vectorIbE10emplace_atIJbEEEPbPKbDpOT_"
-  },
-  "6109b": {
-    "symbol": "recovered_6109b",
-    "original": "_ws_wrap_radians"
-  },
-  "424e4": {
-    "symbol": "recovered_424e4",
-    "original": "_macho_load_dylib_named"
-  },
-  "25a42": {
-    "symbol": "recovered_25a42",
-    "original": "_wm_platform_serial_write_n"
-  },
-  "2b8f7": {
-    "symbol": "recovered_2b8f7",
-    "original": "__Z16wm_ttf_font_loadPKcf"
-  },
-  "4cb1b": {
-    "symbol": "recovered_4cb1b",
-    "original": "_ws_parse_int_literal"
-  },
-  "2ee64": {
-    "symbol": "recovered_2ee64",
-    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEEixERKj"
-  },
-  "25c46": {
-    "symbol": "recovered_25c46",
-    "original": "_platform_efi_drive_block_base"
-  },
-  "43f01": {
-    "symbol": "recovered_43f01",
-    "original": "_fat_required_lfn_entries"
-  },
-  "24512": {
-    "symbol": "recovered_24512",
-    "original": "_wm_platform_write_drive_bytes"
-  },
-  "5fbef": {
-    "symbol": "recovered_5fbef",
-    "original": "_storage_copy_device_name"
-  },
-  "4ed2d": {
-    "symbol": "recovered_4ed2d",
-    "original": "_ws_table_get_entry_value"
-  },
-  "474d2": {
-    "symbol": "recovered_474d2",
-    "original": "_ws_find_matching_end"
-  },
-  "25b69": {
-    "symbol": "recovered_25b69",
-    "original": "_wm_platform_heap_total_bytes64"
-  },
-  "5eb7c": {
-    "symbol": "recovered_5eb7c",
-    "original": "_storage_build_partition_geometry"
-  },
-  "23cdd": {
-    "symbol": "recovered_23cdd",
-    "original": "_wm_platform_query_drive_capacity"
-  },
-  "2b16c": {
-    "symbol": "recovered_2b16c",
-    "original": "__ZN2wm6vectorIjE7reserveEm"
-  },
-  "23bc5": {
-    "symbol": "recovered_23bc5",
-    "original": "_wm_platform_wait_microseconds"
-  },
-  "2dc64": {
-    "symbol": "recovered_2dc64",
-    "original": "__ZN2wm6vectorIN12_GLOBAL__N_115TrueTypeBackend13Format12GroupEE7reserveEm"
-  },
-  "31ae6": {
-    "symbol": "recovered_31ae6",
-    "original": "__ZN2wm6stringC2EPKc"
-  },
-  "2da5e": {
-    "symbol": "recovered_2da5e",
-    "original": "__ZN2wm13unordered_mapIjN12_GLOBAL__N_111TableRecordENS_4hashIjEENS_8equal_toIjEEE10link_indexEm"
-  },
-  "275c3": {
-    "symbol": "recovered_275c3",
+  "200d7a0": {
+    "symbol": "recovered_200d7a0",
     "original": "_wm_math_isfinitef"
   },
-  "274db": {
-    "symbol": "recovered_274db",
-    "original": "__ZL12type_matchesPKvS0_"
+  "2064d90": {
+    "symbol": "recovered_2064d90",
+    "original": "_graphics_make_status"
   },
-  "4c86f": {
-    "symbol": "recovered_4c86f",
+  "2079060": {
+    "symbol": "recovered_2079060",
+    "original": "_storage_resize_partition_by_id"
+  },
+  "203c2e0": {
+    "symbol": "recovered_203c2e0",
+    "original": "_text_translate_for_output_n"
+  },
+  "20189c0": {
+    "symbol": "recovered_20189c0",
+    "original": "__ZZN2wm3png12_GLOBAL__N_115load_tga_memoryEPKhmRNS0_5ImageEENK3$_0clES3_"
+  },
+  "2082ec0": {
+    "symbol": "recovered_2082ec0",
+    "original": "_driver_build_firmware_tree_from"
+  },
+  "2021540": {
+    "symbol": "recovered_2021540",
+    "original": "__ZN12_GLOBAL__N_115TrueTypeBackend9load_cmapEv"
+  },
+  "2058660": {
+    "symbol": "recovered_2058660",
     "original": "_ws_numeric_table_length"
   },
-  "368e4": {
-    "symbol": "recovered_368e4",
-    "original": "_storage_fs_name"
-  },
-  "2122a": {
-    "symbol": "recovered_2122a",
-    "original": "___divdi3"
-  },
-  "2b216": {
-    "symbol": "recovered_2b216",
-    "original": "__ZN2wm6vectorItE6assignEmRKt"
-  },
-  "21db0": {
-    "symbol": "recovered_21db0",
-    "original": "_lround"
-  },
-  "61f44": {
-    "symbol": "recovered_61f44",
-    "original": "_graphics_build_axis_mapping"
-  },
-  "2f4c0": {
-    "symbol": "recovered_2f4c0",
-    "original": "__ZN2wm6vectorIsE7reserveEm"
-  },
-  "361e5": {
-    "symbol": "recovered_361e5",
-    "original": "_wm_kernel_program_hardware_threads"
-  },
-  "3feaf": {
-    "symbol": "recovered_3feaf",
-    "original": "_macho_set_error"
-  },
-  "3fd32": {
-    "symbol": "recovered_3fd32",
-    "original": "_fs_path_existing_kind"
-  },
-  "26e03": {
-    "symbol": "recovered_26e03",
-    "original": "_wmfs_clear_virtual_files"
-  },
-  "3e8c7": {
-    "symbol": "recovered_3e8c7",
-    "original": "_fs_find_file_normalized"
-  },
-  "2749a": {
-    "symbol": "recovered_2749a",
-    "original": "__Unwind_Resume"
-  },
-  "5dc58": {
-    "symbol": "recovered_5dc58",
-    "original": "_fs_format_directory_prompt"
-  },
-  "44402": {
-    "symbol": "recovered_44402",
-    "original": "_ws_execute_block"
-  },
-  "3910e": {
-    "symbol": "recovered_3910e",
-    "original": "_graphics_release_canvas_mapping"
-  },
-  "26bb9": {
-    "symbol": "recovered_26bb9",
-    "original": "_wmfs_ferror"
-  },
-  "43af1": {
-    "symbol": "recovered_43af1",
-    "original": "_fat_fill_directory_short_name"
-  },
-  "33bbb": {
-    "symbol": "recovered_33bbb",
-    "original": "_fs_read_file"
-  },
-  "5eb5b": {
-    "symbol": "recovered_5eb5b",
-    "original": "_storage_restore_previous_target_state"
-  },
-  "3f1f3": {
-    "symbol": "recovered_3f1f3",
-    "original": "_fs_rebuild_file_index"
-  },
-  "31f32": {
-    "symbol": "recovered_31f32",
-    "original": "__ZN2wm6vectorIjED2Ev"
-  },
-  "6210a": {
-    "symbol": "recovered_6210a",
-    "original": "_ws_append_u16_le"
-  },
-  "210f0": {
-    "symbol": "recovered_210f0",
-    "original": "___udivdi3"
-  },
-  "30e1c": {
-    "symbol": "recovered_30e1c",
-    "original": "__ZN2wm6stringaSEOS0_"
-  },
-  "20f5d": {
-    "symbol": "recovered_20f5d",
-    "original": "_wm_probe_heap_total_bytes"
-  },
-  "26dfc": {
-    "symbol": "recovered_26dfc",
-    "original": "_wmfs_register_virtual_file"
-  },
-  "3f9d7": {
-    "symbol": "recovered_3f9d7",
-    "original": "_wmfs64_set_fat_entry"
-  },
-  "62097": {
-    "symbol": "recovered_62097",
-    "original": "_ws_bytecode_intern_string"
-  },
-  "3dd39": {
-    "symbol": "recovered_3dd39",
-    "original": "_ws_strdup_n"
-  },
-  "2639e": {
-    "symbol": "recovered_2639e",
-    "original": "_wm_lua_show_banner"
-  },
-  "62587": {
-    "symbol": "recovered_62587",
-    "original": "_surface_release"
-  },
-  "26beb": {
-    "symbol": "recovered_26beb",
-    "original": "_wmfs_ungetc"
-  },
-  "3d037": {
-    "symbol": "recovered_3d037",
-    "original": "_textmode_grid_clear"
-  },
-  "41d61": {
-    "symbol": "recovered_41d61",
-    "original": "_scheduler_copy_name"
-  },
-  "313d6": {
-    "symbol": "recovered_313d6",
-    "original": "__ZN2wm6vectorINS_4pairINS_6stringENS0_IhEEEEE12emplace_backIJRKS2_S3_EEERS4_DpOT_"
-  },
-  "244d3": {
-    "symbol": "recovered_244d3",
-    "original": "_platform_storage_cache_store"
-  },
-  "21b3e": {
-    "symbol": "recovered_21b3e",
-    "original": "_wrap_angle"
-  },
-  "33c67": {
-    "symbol": "recovered_33c67",
-    "original": "_wm_kernel_program_write_file"
-  },
-  "3d723": {
-    "symbol": "recovered_3d723",
-    "original": "_pack_truecolor_with_layout"
-  },
-  "2ef5a": {
-    "symbol": "recovered_2ef5a",
-    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE14prepare_insertEv"
-  },
-  "3e348": {
-    "symbol": "recovered_3e348",
-    "original": "_format_compact_bytes"
-  },
-  "26c76": {
-    "symbol": "recovered_26c76",
-    "original": "_wmfs_rename"
-  },
-  "2cab8": {
-    "symbol": "recovered_2cab8",
-    "original": "__ZN2wm13unordered_mapIjN12_GLOBAL__N_111TableRecordENS_4hashIjEENS_8equal_toIjEEED1Ev"
-  },
-  "27032": {
-    "symbol": "recovered_27032",
-    "original": "__Znwm"
-  },
-  "5e0ff": {
-    "symbol": "recovered_5e0ff",
-    "original": "_storage_target_device_by_id"
-  },
-  "315d2": {
-    "symbol": "recovered_315d2",
-    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE15rebuild_bucketsEv"
-  },
-  "3f884": {
-    "symbol": "recovered_3f884",
-    "original": "_wmfs64_sync_directory_and_metadata"
-  },
-  "2f920": {
-    "symbol": "recovered_2f920",
-    "original": "__ZN12_GLOBAL__N_112Type1BackendD0Ev"
-  },
-  "4a4b9": {
-    "symbol": "recovered_4a4b9",
-    "original": "_ws_token_list_push"
-  },
-  "3facc": {
-    "symbol": "recovered_3facc",
-    "original": "_wmfs64_write_metadata"
-  },
-  "29b6c": {
-    "symbol": "recovered_29b6c",
-    "original": "__ZN2wm3png12_GLOBAL__N_111write_bytesEP8WMFSFilePKhm"
-  },
-  "3d05f": {
-    "symbol": "recovered_3d05f",
-    "original": "_textmode_grid_write_n"
-  },
-  "39141": {
-    "symbol": "recovered_39141",
-    "original": "_graphics_fill_canvas_present"
-  },
-  "21a14": {
-    "symbol": "recovered_21a14",
-    "original": "_log"
-  },
-  "27a72": {
-    "symbol": "recovered_27a72",
-    "original": "__ZN2wm3png11load_memoryEPKhmRNS0_5ImageE"
-  },
-  "2ea1a": {
-    "symbol": "recovered_2ea1a",
-    "original": "__ZN12_GLOBAL__N_117rasterize_outlineERKNS_14OutlineBuilderEd"
-  },
-  "4759e": {
-    "symbol": "recovered_4759e",
-    "original": "_ws_copy_program_lines"
-  },
-  "494c2": {
-    "symbol": "recovered_494c2",
-    "original": "_ws_find_matching_until"
-  },
-  "5c7ad": {
-    "symbol": "recovered_5c7ad",
-    "original": "_ws_make_error_result"
-  },
-  "4e651": {
-    "symbol": "recovered_4e651",
-    "original": "_ws_value_to_owned_string_internal"
-  },
-  "2137e": {
-    "symbol": "recovered_2137e",
-    "original": "_wm_probe_heap_coalesce_forward"
-  },
-  "32fb2": {
-    "symbol": "recovered_32fb2",
-    "original": "__ZN6winter3wav11DecodedFileaSEOS1_"
-  },
-  "34351": {
-    "symbol": "recovered_34351",
-    "original": "_wm_kernel_program_png_decode_file"
-  },
-  "275d8": {
-    "symbol": "recovered_275d8",
-    "original": "_wm_math_isfinitel"
-  },
-  "26ed6": {
-    "symbol": "recovered_26ed6",
-    "original": "_system"
-  },
-  "3d826": {
-    "symbol": "recovered_3d826",
-    "original": "_textmode_cache_resize"
-  },
-  "58961": {
-    "symbol": "recovered_58961",
-    "original": "_ws_expect_string_arg"
-  },
-  "31e1c": {
-    "symbol": "recovered_31e1c",
-    "original": "__ZN2wm13unordered_mapIjN12_GLOBAL__N_111GlyphBitmapENS_4hashIjEENS_8equal_toIjEEE6rehashEm"
-  },
-  "3e57c": {
-    "symbol": "recovered_3e57c",
-    "original": "_fat_query_space"
-  },
-  "31b32": {
-    "symbol": "recovered_31b32",
-    "original": "__ZN2wm6vectorIdED2Ev"
-  },
-  "4b1b8": {
-    "symbol": "recovered_4b1b8",
-    "original": "_ws_parse_multiplicative"
-  },
-  "5ceba": {
-    "symbol": "recovered_5ceba",
-    "original": "_ws_clear_decay_task"
-  },
-  "49959": {
-    "symbol": "recovered_49959",
-    "original": "_ws_try_assignment"
-  },
-  "2dcd0": {
-    "symbol": "recovered_2dcd0",
-    "original": "__ZN12_GLOBAL__N_111GlyphBitmapC1Ev"
-  },
-  "6163a": {
-    "symbol": "recovered_6163a",
-    "original": "_ws_is_function_block_tokens"
-  },
-  "3105c": {
-    "symbol": "recovered_3105c",
-    "original": "__ZN12_GLOBAL__N_112Type1Backend18decrypt_charstringERKN2wm6vectorIhEEi"
-  },
-  "21c96": {
-    "symbol": "recovered_21c96",
-    "original": "_floorf"
-  },
-  "29b94": {
-    "symbol": "recovered_29b94",
-    "original": "__ZN2wm3png12_GLOBAL__N_111write_chunkEP8WMFSFilePKcPKhm"
-  },
-  "5d8cc": {
-    "symbol": "recovered_5d8cc",
-    "original": "_kernel_enter_graphics_mode_preserve_presentation_lock"
-  },
-  "20faa": {
-    "symbol": "recovered_20faa",
-    "original": "_wm_probe_heap_alloc"
-  },
-  "215f0": {
-    "symbol": "recovered_215f0",
+  "2079e20": {
+    "symbol": "recovered_2079e20",
+    "original": "_storage_create_gpt_partition"
+  },
+  "201ccd0": {
+    "symbol": "recovered_201ccd0",
+    "original": "__ZN2wm3png12_GLOBAL__N_112crc32_updateEjPKhm"
+  },
+  "205ba70": {
+    "symbol": "recovered_205ba70",
+    "original": "_ws_key_to_owned_string"
+  },
+  "200d520": {
+    "symbol": "recovered_200d520",
+    "original": "__Unwind_SjLj_Resume"
+  },
+  "200df30": {
+    "symbol": "recovered_200df30",
+    "original": "__ZN2wm3png12_GLOBAL__N_114looks_like_tgaEPKhm"
+  },
+  "2034ea0": {
+    "symbol": "recovered_2034ea0",
+    "original": "_wm_kernel_program_framebuffer_info"
+  },
+  "200d130": {
+    "symbol": "recovered_200d130",
+    "original": "__ZdaPv"
+  },
+  "2003d30": {
+    "symbol": "recovered_2003d30",
+    "original": "_wm_platform_pci_config_read"
+  },
+  "2018bd0": {
+    "symbol": "recovered_2018bd0",
+    "original": "__ZN2wm3png12_GLOBAL__N_111JpegDecoderD1Ev"
+  },
+  "2021150": {
+    "symbol": "recovered_2021150",
+    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend12units_per_emEv"
+  },
+  "2058d70": {
+    "symbol": "recovered_2058d70",
+    "original": "_ws_make_value_array"
+  },
+  "2058760": {
+    "symbol": "recovered_2058760",
+    "original": "_ws_table_literal_promote_array_entries"
+  },
+  "2001c00": {
+    "symbol": "recovered_2001c00",
     "original": "_toupper"
   },
-  "47276": {
-    "symbol": "recovered_47276",
-    "original": "_ws_token_equals"
+  "20190d0": {
+    "symbol": "recovered_20190d0",
+    "original": "__ZN2wm3png12_GLOBAL__N_126xcf_parse_image_propertiesEPKhmRyRNS1_12XcfImageInfoE"
   },
-  "41ce1": {
-    "symbol": "recovered_41ce1",
-    "original": "_read_le64"
+  "208ad80": {
+    "symbol": "recovered_208ad80",
+    "original": "_wm_kernel_kext_request_graphics_mode"
   },
-  "2647f": {
-    "symbol": "recovered_2647f",
-    "original": "_wmfs_unmount"
+  "201c2a0": {
+    "symbol": "recovered_201c2a0",
+    "original": "__ZZN2wm3png12_GLOBAL__N_18Inflater19fixed_literal_tableEvENKUlvE_clEv"
   },
-  "31672": {
-    "symbol": "recovered_31672",
-    "original": "__ZN2wm6detail15vector_allocateINS_4pairINS_6stringENS_6vectorIhEEEEEEPT_m"
+  "20354e0": {
+    "symbol": "recovered_20354e0",
+    "original": "_textmode_sync_font"
   },
-  "273e6": {
-    "symbol": "recovered_273e6",
-    "original": "__Unwind_SjLj_ForcedUnwind"
+  "2043ad0": {
+    "symbol": "recovered_2043ad0",
+    "original": "_macho_image_mapping_span"
   },
-  "2f0c0": {
-    "symbol": "recovered_2f0c0",
-    "original": "__ZN2wm6vectorINS_4pairIjtEEE7reserveEm"
+  "2003b60": {
+    "symbol": "recovered_2003b60",
+    "original": "_wm_platform_openfirmware_set_client"
   },
-  "33439": {
-    "symbol": "recovered_33439",
-    "original": "_wm_kernel_program_putc"
+  "208aa90": {
+    "symbol": "recovered_208aa90",
+    "original": "_wm_kernel_kext_register_device_node"
   },
-  "60fde": {
-    "symbol": "recovered_60fde",
-    "original": "_ws_decay_frame_free"
+  "2001350": {
+    "symbol": "recovered_2001350",
+    "original": "___divdi3"
   },
-  "261eb": {
-    "symbol": "recovered_261eb",
-    "original": "_platform_efi_graphics_info_valid"
+  "206f2c0": {
+    "symbol": "recovered_206f2c0",
+    "original": "_ws_array_clear_contents"
   },
-  "3ef73": {
-    "symbol": "recovered_3ef73",
-    "original": "_fat_load_cluster_chain_bytes"
+  "202d910": {
+    "symbol": "recovered_202d910",
+    "original": "_wm_kernel_program_png_decode_file_on_device"
   },
-  "41f92": {
-    "symbol": "recovered_41f92",
-    "original": "_macho_apply_fixups"
+  "2074950": {
+    "symbol": "recovered_2074950",
+    "original": "_graphics_write_framebuffer_pixel"
   },
-  "31b17": {
-    "symbol": "recovered_31b17",
-    "original": "__ZN2wm13string_lengthEPKc"
+  "2015460": {
+    "symbol": "recovered_2015460",
+    "original": "__ZN2wm3png19save_bmp_rgba8_fileEPKcPKhii"
   },
-  "586b1": {
-    "symbol": "recovered_586b1",
-    "original": "_ws_push_local_frame"
+  "2009a80": {
+    "symbol": "recovered_2009a80",
+    "original": "_wm_platform_qemu_usb_controller_type_counts"
   },
-  "21bd5": {
-    "symbol": "recovered_21bd5",
-    "original": "_fmodf"
+  "203c730": {
+    "symbol": "recovered_203c730",
+    "original": "_ws_string_builder_append_n"
   },
-  "2d940": {
-    "symbol": "recovered_2d940",
-    "original": "__ZN2wm6vectorIhEaSERKS1_"
+  "2001db0": {
+    "symbol": "recovered_2001db0",
+    "original": "_strchr"
   },
-  "20f2e": {
-    "symbol": "recovered_20f2e",
-    "original": "_wm_probe_heap_free_bytes64"
+  "200c380": {
+    "symbol": "recovered_200c380",
+    "original": "_wmfs_freopen"
   },
-  "272a8": {
-    "symbol": "recovered_272a8",
-    "original": "__ZL18object_from_headerP21WinterExceptionHeader"
+  "200d9b0": {
+    "symbol": "recovered_200d9b0",
+    "original": "_strtoll"
   },
-  "2daed": {
-    "symbol": "recovered_2daed",
-    "original": "__ZN2wm6detail10hash_bytesEPKhm"
+  "200ce80": {
+    "symbol": "recovered_200ce80",
+    "original": "_strerror"
   },
-  "3f984": {
-    "symbol": "recovered_3f984",
-    "original": "_wmfs64_free_chain"
+  "2003ed0": {
+    "symbol": "recovered_2003ed0",
+    "original": "_wm_platform_configure_qemu_ramfb"
   },
-  "32f58": {
-    "symbol": "recovered_32f58",
-    "original": "__ZN6winter3wav6detail10floatToS16Ed"
+  "2082510": {
+    "symbol": "recovered_2082510",
+    "original": "_driver_device_tree_path_is_immediate_child"
   },
-  "32058": {
-    "symbol": "recovered_32058",
-    "original": "__ZN12_GLOBAL__N_110LineLayoutC1EOS0_"
+  "2040970": {
+    "symbol": "recovered_2040970",
+    "original": "_fs_load_device"
   },
-  "32a48": {
-    "symbol": "recovered_32a48",
-    "original": "_wm_media_ttf_load_memory"
+  "20022e0": {
+    "symbol": "recovered_20022e0",
+    "original": "_log"
   },
-  "2dd1e": {
-    "symbol": "recovered_2dd1e",
-    "original": "__ZN12_GLOBAL__N_115TrueTypeBackend20append_glyph_outlineEtRKNS_15AffineTransformERNS_14OutlineBuilderEi"
+  "20755d0": {
+    "symbol": "recovered_20755d0",
+    "original": "_ws_require_mounted_copy_device"
   },
-  "438aa": {
-    "symbol": "recovered_438aa",
-    "original": "_wmfs64_recommended_sectors_per_cluster"
+  "2002de0": {
+    "symbol": "recovered_2002de0",
+    "original": "_sinf"
   },
-  "442c6": {
-    "symbol": "recovered_442c6",
-    "original": "_run_program_lines"
+  "20592a0": {
+    "symbol": "recovered_20592a0",
+    "original": "_ws_builtin_exists"
   },
-  "61fae": {
-    "symbol": "recovered_61fae",
-    "original": "_program_ensure_capacity"
+  "20212b0": {
+    "symbol": "recovered_20212b0",
+    "original": "__ZN12_GLOBAL__N_115TrueTypeBackend9load_locaEv"
   },
-  "30d17": {
-    "symbol": "recovered_30d17",
-    "original": "__ZN12_GLOBAL__N_118parse_ascii_doubleERKN2wm6vectorIhEERmRd"
+  "206f200": {
+    "symbol": "recovered_206f200",
+    "original": "_ws_expect_int_arg"
   },
-  "21c50": {
-    "symbol": "recovered_21c50",
-    "original": "_ldexpf"
+  "2053a90": {
+    "symbol": "recovered_2053a90",
+    "original": "_ws_evaluate_token_range"
   },
-  "5ee06": {
-    "symbol": "recovered_5ee06",
-    "original": "_render_ui_if_not_autorun"
+  "2001ef0": {
+    "symbol": "recovered_2001ef0",
+    "original": "_localeconv"
   },
-  "4384d": {
-    "symbol": "recovered_4384d",
-    "original": "_fs_materialize_all_file_data"
+  "2080020": {
+    "symbol": "recovered_2080020",
+    "original": "_installer_write_startup_files"
   },
-  "5f1d6": {
-    "symbol": "recovered_5f1d6",
-    "original": "_storage_read_partition_table"
+  "2053d80": {
+    "symbol": "recovered_2053d80",
+    "original": "_ws_set_variable"
   },
-  "26ba2": {
-    "symbol": "recovered_26ba2",
-    "original": "_wmfs_feof"
+  "202c380": {
+    "symbol": "recovered_202c380",
+    "original": "_storage_target_device_by_id"
   },
-  "4033a": {
-    "symbol": "recovered_4033a",
-    "original": "_equals_ignore_case"
+  "2000386": {
+    "symbol": "recovered_2000386",
+    "original": "_wm_probe_query_drive_capacity"
   },
-  "366bd": {
-    "symbol": "recovered_366bd",
-    "original": "_wm_kernel_expand_disk"
+  "20019d0": {
+    "symbol": "recovered_20019d0",
+    "original": "_memcpy"
   },
-  "344c1": {
-    "symbol": "recovered_344c1",
-    "original": "_console_log"
+  "20746e0": {
+    "symbol": "recovered_20746e0",
+    "original": "_graphics_fill_demo_pattern"
   },
-  "3f6f3": {
-    "symbol": "recovered_3f6f3",
-    "original": "_wmfs64_sync_single_directory_entry_and_metadata"
+  "200d2d0": {
+    "symbol": "recovered_200d2d0",
+    "original": "___cxa_guard_release"
   },
-  "30a66": {
-    "symbol": "recovered_30a66",
-    "original": "__ZN2wm6vectorINS_4pairINS_6stringENS0_IhEEEEE5clearEv"
+  "200b090": {
+    "symbol": "recovered_200b090",
+    "original": "_wm_platform_halt_forever"
   },
-  "46f49": {
-    "symbol": "recovered_46f49",
-    "original": "_ws_tokenize_line"
+  "20786a0": {
+    "symbol": "recovered_20786a0",
+    "original": "_storage_clone_partition_to_file_by_id"
   },
-  "409c5": {
-    "symbol": "recovered_409c5",
-    "original": "_storage_classify_detected_type"
+  "20010b0": {
+    "symbol": "recovered_20010b0",
+    "original": "_wm_probe_heap_alloc"
   },
-  "22645": {
-    "symbol": "recovered_22645",
-    "original": "_wm_platform_set_loader_context"
+  "20236e0": {
+    "symbol": "recovered_20236e0",
+    "original": "__ZN2wm6vectorIsEC1Em"
   },
-  "2218c": {
-    "symbol": "recovered_2218c",
-    "original": "_strtof"
+  "2003aa0": {
+    "symbol": "recovered_2003aa0",
+    "original": "_snprintf"
   },
-  "402fd": {
-    "symbol": "recovered_402fd",
-    "original": "_macho_data_has_known_magic"
+  "207c850": {
+    "symbol": "recovered_207c850",
+    "original": "_storage_restore_device_states"
   },
-  "24a5b": {
-    "symbol": "recovered_24a5b",
-    "original": "_platform_efi_firmware_thunk_command"
+  "207c760": {
+    "symbol": "recovered_207c760",
+    "original": "_storage_invalidate_partition_table_writes"
   },
-  "441ff": {
-    "symbol": "recovered_441ff",
-    "original": "_program_lines_reserve"
+  "207b360": {
+    "symbol": "recovered_207b360",
+    "original": "_storage_gpt_partition_type_guid_from_text"
   },
-  "5dca9": {
-    "symbol": "recovered_5dca9",
-    "original": "_fs_resolve_focused_path"
+  "20825b0": {
+    "symbol": "recovered_20825b0",
+    "original": "_driver_interrogate_write_report"
   },
-  "2b458": {
-    "symbol": "recovered_2b458",
-    "original": "__ZN2wm6vectorIhED2Ev"
+  "2054030": {
+    "symbol": "recovered_2054030",
+    "original": "_ws_try_assignment"
   },
-  "61893": {
-    "symbol": "recovered_61893",
-    "original": "_ws_find_global_variable_index"
+  "2001a00": {
+    "symbol": "recovered_2001a00",
+    "original": "_memmove"
   },
-  "24ba9": {
-    "symbol": "recovered_24ba9",
-    "original": "_wm_platform_pointer_state"
+  "20192d0": {
+    "symbol": "recovered_20192d0",
+    "original": "__ZN2wm3png12_GLOBAL__N_116xcf_take_pointerEPKhmRyjS4_"
   },
-  "40987": {
-    "symbol": "recovered_40987",
-    "original": "_bitmap_font_unload"
+  "2075900": {
+    "symbol": "recovered_2075900",
+    "original": "_bitmap_font_load_raw_data"
   },
-  "6128f": {
-    "symbol": "recovered_6128f",
-    "original": "_ws_decay_task_push_block"
+  "203afc0": {
+    "symbol": "recovered_203afc0",
+    "original": "_surface_fill_rect"
   },
-  "476c7": {
-    "symbol": "recovered_476c7",
-    "original": "_ws_make_function"
+  "205c560": {
+    "symbol": "recovered_205c560",
+    "original": "_ws_function_create"
   },
-  "2739a": {
-    "symbol": "recovered_2739a",
-    "original": "__Unwind_SjLj_Register"
+  "200d330": {
+    "symbol": "recovered_200d330",
+    "original": "___cxa_free_exception"
   },
-  "26aa6": {
-    "symbol": "recovered_26aa6",
-    "original": "_wmfs_fseek"
+  "2003b20": {
+    "symbol": "recovered_2003b20",
+    "original": "_wm_platform_firmware_find_node"
   },
-  "49872": {
-    "symbol": "recovered_49872",
-    "original": "_ws_value_assign"
+  "2002f20": {
+    "symbol": "recovered_2002f20",
+    "original": "_fabsf"
   },
-  "2766f": {
-    "symbol": "recovered_2766f",
-    "original": "_strtoull"
+  "200d720": {
+    "symbol": "recovered_200d720",
+    "original": "_isspace"
   },
-  "2f8e4": {
-    "symbol": "recovered_2f8e4",
-    "original": "__ZN12_GLOBAL__N_112Type1BackendD1Ev"
+  "202d660": {
+    "symbol": "recovered_202d660",
+    "original": "_fs_create_directory_path"
   },
-  "27a2b": {
-    "symbol": "recovered_27a2b",
-    "original": "__ZL12read_sleb128PPKh"
+  "205bc70": {
+    "symbol": "recovered_205bc70",
+    "original": "_ws_value_to_owned_string_internal"
   },
-  "25c0b": {
-    "symbol": "recovered_25c0b",
-    "original": "_platform_storage_max_transfer_sectors"
+  "200d230": {
+    "symbol": "recovered_200d230",
+    "original": "__ZdaPvm"
   },
-  "3ff28": {
-    "symbol": "recovered_3ff28",
+  "205c720": {
+    "symbol": "recovered_205c720",
+    "original": "_ws_table_get_entry_value"
+  },
+  "2035dd0": {
+    "symbol": "recovered_2035dd0",
+    "original": "_wm_kernel_program_execute_command_line"
+  },
+  "202eb30": {
+    "symbol": "recovered_202eb30",
+    "original": "_program_load_text"
+  },
+  "2074560": {
+    "symbol": "recovered_2074560",
+    "original": "_ws_table_set_bool_field"
+  },
+  "201bca0": {
+    "symbol": "recovered_201bca0",
+    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater23decode_compressed_blockERNS2_9BitReaderERKNS2_12HuffmanTableES7_RNS_6vectorIhEE"
+  },
+  "2078950": {
+    "symbol": "recovered_2078950",
+    "original": "_storage_move_partition_by_id"
+  },
+  "2055020": {
+    "symbol": "recovered_2055020",
+    "original": "_ws_token_list_push_n"
+  },
+  "2082bb0": {
+    "symbol": "recovered_2082bb0",
+    "original": "_driver_path_to_device_tree_path"
+  },
+  "2001f50": {
+    "symbol": "recovered_2001f50",
+    "original": "_frexp"
+  },
+  "201c570": {
+    "symbol": "recovered_201c570",
+    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater19build_huffman_tableERKNS_6vectorIjEERNS2_12HuffmanTableEb"
+  },
+  "202fef0": {
+    "symbol": "recovered_202fef0",
+    "original": "_cpu_brand_string"
+  },
+  "2000fc0": {
+    "symbol": "recovered_2000fc0",
+    "original": "_wm_probe_heap_free_bytes"
+  },
+  "200c590": {
+    "symbol": "recovered_200c590",
+    "original": "_wmfs_getc"
+  },
+  "2016b50": {
+    "symbol": "recovered_2016b50",
+    "original": "__ZN2wm3png19save_xcf_rgba8_fileEPKcPKhii"
+  },
+  "2001bc0": {
+    "symbol": "recovered_2001bc0",
+    "original": "_isprint"
+  },
+  "20011b0": {
+    "symbol": "recovered_20011b0",
+    "original": "___ashrdi3"
+  },
+  "20028c0": {
+    "symbol": "recovered_20028c0",
+    "original": "_frexpf"
+  },
+  "20021e0": {
+    "symbol": "recovered_20021e0",
+    "original": "_sqrt"
+  },
+  "200d6e0": {
+    "symbol": "recovered_200d6e0",
+    "original": "___cxa_pure_virtual"
+  },
+  "20564c0": {
+    "symbol": "recovered_20564c0",
+    "original": "_ws_parse_additive"
+  },
+  "2040050": {
+    "symbol": "recovered_2040050",
     "original": "_resolve_app_bundle_executable_path"
   },
-  "22f93": {
-    "symbol": "recovered_22f93",
-    "original": "_platform_efi_framebuffer_active"
+  "2001df0": {
+    "symbol": "recovered_2001df0",
+    "original": "_strspn"
   },
-  "24ae3": {
-    "symbol": "recovered_24ae3",
-    "original": "_wm_platform_aarch64_apps_supported"
+  "20031e0": {
+    "symbol": "recovered_20031e0",
+    "original": "_strtod"
   },
-  "309f2": {
-    "symbol": "recovered_309f2",
+  "2018810": {
+    "symbol": "recovered_2018810",
+    "original": "__ZN2wm6vectorIhE6assignEmRKh"
+  },
+  "200d2e0": {
+    "symbol": "recovered_200d2e0",
+    "original": "___cxa_guard_abort"
+  },
+  "20029b0": {
+    "symbol": "recovered_20029b0",
+    "original": "_ldexpf"
+  },
+  "2004780": {
+    "symbol": "recovered_2004780",
+    "original": "_platform_runtime_map_mmio_window"
+  },
+  "2035800": {
+    "symbol": "recovered_2035800",
+    "original": "_wm_kernel_assign_winterscript_function"
+  },
+  "2043130": {
+    "symbol": "recovered_2043130",
+    "original": "_macho_parse_image_commands"
+  },
+  "2042f20": {
+    "symbol": "recovered_2042f20",
+    "original": "_scheduler_process_entry"
+  },
+  "202dcd0": {
+    "symbol": "recovered_202dcd0",
+    "original": "_wm_kernel_program_launch_file_on_device"
+  },
+  "203aef0": {
+    "symbol": "recovered_203aef0",
+    "original": "_bitmap_font_try_autoload"
+  },
+  "205ab10": {
+    "symbol": "recovered_205ab10",
+    "original": "_ws_get_indexed_value"
+  },
+  "2001b50": {
+    "symbol": "recovered_2001b50",
+    "original": "_isalpha"
+  },
+  "2042bd0": {
+    "symbol": "recovered_2042bd0",
+    "original": "_scheduler_save_address_space_from_memory"
+  },
+  "2001200": {
+    "symbol": "recovered_2001200",
+    "original": "___udivdi3"
+  },
+  "207ae00": {
+    "symbol": "recovered_207ae00",
+    "original": "_storage_kind_is_prep"
+  },
+  "2049190": {
+    "symbol": "recovered_2049190",
+    "original": "_exfat_write_directory_contents"
+  },
+  "2002130": {
+    "symbol": "recovered_2002130",
+    "original": "_floor"
+  },
+  "206d4e0": {
+    "symbol": "recovered_206d4e0",
+    "original": "_ws_builtin_drivers"
+  },
+  "2021960": {
+    "symbol": "recovered_2021960",
+    "original": "__ZN12_GLOBAL__N_115TrueTypeBackend20append_glyph_outlineEtRKNS_15AffineTransformERNS_14OutlineBuilderEi"
+  },
+  "20823f0": {
+    "symbol": "recovered_20823f0",
+    "original": "_driver_device_tree_find"
+  },
+  "2003b30": {
+    "symbol": "recovered_2003b30",
+    "original": "_wm_platform_firmware_get_property"
+  },
+  "20822f0": {
+    "symbol": "recovered_20822f0",
+    "original": "_driver_device_tree_resolve_path"
+  },
+  "2049c80": {
+    "symbol": "recovered_2049c80",
+    "original": "_fat_fill_directory_short_name"
+  },
+  "2002030": {
+    "symbol": "recovered_2002030",
+    "original": "_fmod"
+  },
+  "2023c70": {
+    "symbol": "recovered_2023c70",
+    "original": "__ZN12_GLOBAL__N_114OutlineBuilder7line_toERKNS_5PointE"
+  },
+  "2001610": {
+    "symbol": "recovered_2001610",
+    "original": "_free"
+  },
+  "2080fd0": {
+    "symbol": "recovered_2080fd0",
+    "original": "_installer_free_saved_files"
+  },
+  "20193e0": {
+    "symbol": "recovered_20193e0",
+    "original": "__ZN2wm6vectorIhEC1EmRKh"
+  },
+  "203ed90": {
+    "symbol": "recovered_203ed90",
+    "original": "_fs_ensure_file_index_capacity"
+  },
+  "2080ce0": {
+    "symbol": "recovered_2080ce0",
+    "original": "_installer_format_user_data_device"
+  },
+  "200d800": {
+    "symbol": "recovered_200d800",
+    "original": "_isfinite"
+  },
+  "2075170": {
+    "symbol": "recovered_2075170",
+    "original": "_fs_resolve_focused_path"
+  },
+  "200d470": {
+    "symbol": "recovered_200d470",
+    "original": "___cxa_rethrow"
+  },
+  "208b880": {
+    "symbol": "recovered_208b880",
+    "original": "_wm_kernel_kext_firmware_find_node"
+  },
+  "2001c50": {
+    "symbol": "recovered_2001c50",
+    "original": "_strcmp"
+  },
+  "2001040": {
+    "symbol": "recovered_2001040",
+    "original": "_wm_probe_heap_total_bytes"
+  },
+  "2001550": {
+    "symbol": "recovered_2001550",
+    "original": "_abort"
+  },
+  "205c800": {
+    "symbol": "recovered_205c800",
+    "original": "_ws_value_equals"
+  },
+  "2079760": {
+    "symbol": "recovered_2079760",
+    "original": "_storage_create_error"
+  },
+  "203c130": {
+    "symbol": "recovered_203c130",
+    "original": "_console_push_line_internal"
+  },
+  "2083140": {
+    "symbol": "recovered_2083140",
+    "original": "_wm_kernel_kext_firmware_node_info"
+  },
+  "2019470": {
+    "symbol": "recovered_2019470",
+    "original": "__ZN2wm3png12_GLOBAL__N_115xcf_parse_layerEPKhmRKNS1_12XcfImageInfoEyRNS1_12XcfLayerInfoE"
+  },
+  "2080760": {
+    "symbol": "recovered_2080760",
+    "original": "_installer_gpt_partition_contains_wbpt"
+  },
+  "200cf90": {
+    "symbol": "recovered_200cf90",
+    "original": "__ZSt9terminatev"
+  },
+  "202c290": {
+    "symbol": "recovered_202c290",
+    "original": "_wm_kernel_program_target_device"
+  },
+  "2081020": {
+    "symbol": "recovered_2081020",
+    "original": "_driver_load_kext"
+  },
+  "2080620": {
+    "symbol": "recovered_2080620",
+    "original": "_installer_set_error"
+  },
+  "20029f0": {
+    "symbol": "recovered_20029f0",
+    "original": "_powf"
+  },
+  "2001cf0": {
+    "symbol": "recovered_2001cf0",
+    "original": "_strdup"
+  },
+  "2083f00": {
+    "symbol": "recovered_2083f00",
+    "original": "_ws_decay_frame_free"
+  },
+  "200d4d0": {
+    "symbol": "recovered_200d4d0",
+    "original": "__Unwind_SjLj_Unregister"
+  },
+  "2003ad0": {
+    "symbol": "recovered_2003ad0",
+    "original": "_wm_platform_openfirmware_active"
+  },
+  "201a540": {
+    "symbol": "recovered_201a540",
+    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater13inflate_bytesEPKhmRNS_6vectorIhEE"
+  },
+  "2034520": {
+    "symbol": "recovered_2034520",
+    "original": "_wm_kernel_set_theme"
+  },
+  "206f3b0": {
+    "symbol": "recovered_206f3b0",
+    "original": "_ws_table_erase_key"
+  },
+  "202fc10": {
+    "symbol": "recovered_202fc10",
+    "original": "_wm_kernel_program_hardware_threads"
+  },
+  "2065e90": {
+    "symbol": "recovered_2065e90",
+    "original": "_ws_builtin_graphics_color_depth"
+  },
+  "203c7e0": {
+    "symbol": "recovered_203c7e0",
+    "original": "_build_visual_layout"
+  },
+  "2086c80": {
+    "symbol": "recovered_2086c80",
+    "original": "_ws_assign_single_target"
+  },
+  "200d360": {
+    "symbol": "recovered_200d360",
+    "original": "___cxa_end_catch"
+  },
+  "2046880": {
+    "symbol": "recovered_2046880",
+    "original": "_scheduler_complete_dispatched_task"
+  },
+  "2001b10": {
+    "symbol": "recovered_2001b10",
+    "original": "_islower"
+  },
+  "2079620": {
+    "symbol": "recovered_2079620",
+    "original": "_storage_write_mbr_entry"
+  },
+  "2020440": {
+    "symbol": "recovered_2020440",
+    "original": "__ZN12_GLOBAL__N_115TrueTypeBackend4loadERKN2wm6vectorIhEE"
+  },
+  "202d470": {
+    "symbol": "recovered_202d470",
+    "original": "_wm_kernel_program_create_directory_on_device"
+  },
+  "205c670": {
+    "symbol": "recovered_205c670",
+    "original": "_ws_make_bound_builtin_function_value"
+  },
+  "200d020": {
+    "symbol": "recovered_200d020",
+    "original": "___cxa_begin_catch"
+  },
+  "2023770": {
+    "symbol": "recovered_2023770",
+    "original": "__ZN2wm6vectorIN12_GLOBAL__N_15PointEE6insertEPKS2_RS4_"
+  },
+  "2074c30": {
+    "symbol": "recovered_2074c30",
+    "original": "_graphics_draw_canvas_line_present"
+  },
+  "20352a0": {
+    "symbol": "recovered_20352a0",
+    "original": "_wm_kernel_enter_text_mode"
+  },
+  "207b720": {
+    "symbol": "recovered_207b720",
+    "original": "_storage_write_utf16le_name"
+  },
+  "2045f90": {
+    "symbol": "recovered_2045f90",
+    "original": "_macho_apply_rebase_at"
+  },
+  "2001f00": {
+    "symbol": "recovered_2001f00",
+    "original": "_time"
+  },
+  "2001000": {
+    "symbol": "recovered_2001000",
+    "original": "_wm_probe_heap_free_bytes64"
+  },
+  "2023940": {
+    "symbol": "recovered_2023940",
+    "original": "__ZN12_GLOBAL__N_114OutlineBuilder7move_toERKNS_5PointE"
+  },
+  "2082db0": {
+    "symbol": "recovered_2082db0",
+    "original": "_driver_device_tree_upsert"
+  },
+  "203c6e0": {
+    "symbol": "recovered_203c6e0",
+    "original": "_ws_strdup_n"
+  },
+  "2002c60": {
+    "symbol": "recovered_2002c60",
+    "original": "_logf"
+  },
+  "2034fd0": {
+    "symbol": "recovered_2034fd0",
+    "original": "_wm_kernel_program_pointer_state"
+  },
+  "2003b70": {
+    "symbol": "recovered_2003b70",
+    "original": "_wm_platform_requires_boot_filesystem"
+  },
+  "2001e40": {
+    "symbol": "recovered_2001e40",
+    "original": "_strpbrk"
+  },
+  "206f350": {
+    "symbol": "recovered_206f350",
+    "original": "_ws_table_clear_contents"
+  },
+  "202e9f0": {
+    "symbol": "recovered_202e9f0",
+    "original": "_wm_kernel_program_rename_file"
+  },
+  "202fcf0": {
+    "symbol": "recovered_202fcf0",
+    "original": "_wm_kernel_program_hardware_info"
+  },
+  "200d9c0": {
+    "symbol": "recovered_200d9c0",
+    "original": "__ZL15inspect_contextP17WinterSjLjContextPKvR13WinterHandler"
+  },
+  "2001ab0": {
+    "symbol": "recovered_2001ab0",
+    "original": "___bzero"
+  },
+  "201c950": {
+    "symbol": "recovered_201c950",
+    "original": "__ZZN2wm3png12_GLOBAL__N_18Inflater20fixed_distance_tableEvENKUlvE_clEv"
+  },
+  "2002ae0": {
+    "symbol": "recovered_2002ae0",
+    "original": "_ceilf"
+  },
+  "2043c60": {
+    "symbol": "recovered_2043c60",
+    "original": "_macho_entry_from_fileoff"
+  },
+  "2034760": {
+    "symbol": "recovered_2034760",
+    "original": "_wm_kernel_enter_graphics_mode"
+  },
+  "2028b80": {
+    "symbol": "recovered_2028b80",
+    "original": "_app_console_render"
+  },
+  "200d5d0": {
+    "symbol": "recovered_200d5d0",
+    "original": "__Unwind_SjLj_Resume_or_Rethrow"
+  },
+  "2050980": {
+    "symbol": "recovered_2050980",
+    "original": "_ws_find_matching_end"
+  },
+  "20073f0": {
+    "symbol": "recovered_20073f0",
+    "original": "_wm_platform_dma_sync"
+  },
+  "20701f0": {
+    "symbol": "recovered_20701f0",
+    "original": "_ws_builder_append_quoted_string"
+  },
+  "2059180": {
+    "symbol": "recovered_2059180",
+    "original": "_ws_parse_float_literal"
+  },
+  "200bdd0": {
+    "symbol": "recovered_200bdd0",
+    "original": "_wm_lua_show_banner"
+  },
+  "20079d0": {
+    "symbol": "recovered_20079d0",
+    "original": "_wm_platform_query_drive_capacity"
+  },
+  "200cee0": {
+    "symbol": "recovered_200cee0",
+    "original": "_getenv"
+  },
+  "2075080": {
+    "symbol": "recovered_2075080",
+    "original": "_ws_try_parse_uint32_value"
+  },
+  "2002a90": {
+    "symbol": "recovered_2002a90",
+    "original": "_floorf"
+  },
+  "2070db0": {
+    "symbol": "recovered_2070db0",
+    "original": "_ws_bytecode_program_free"
+  },
+  "208b640": {
+    "symbol": "recovered_208b640",
+    "original": "_wm_kernel_kext_pci_config_write"
+  },
+  "2065570": {
+    "symbol": "recovered_2065570",
+    "original": "_ws_builtin_resolution"
+  },
+  "2068850": {
+    "symbol": "recovered_2068850",
+    "original": "_ws_builtin_pixel"
+  },
+  "2084b50": {
+    "symbol": "recovered_2084b50",
+    "original": "_ws_is_block_starter_tokens"
+  },
+  "2079690": {
+    "symbol": "recovered_2079690",
+    "original": "_storage_crc32"
+  },
+  "201cb90": {
+    "symbol": "recovered_201cb90",
+    "original": "__ZN2wm6vectorIjE6insertIPjvEES3_PKjT_S6_"
+  },
+  "202ad00": {
+    "symbol": "recovered_202ad00",
+    "original": "_read_line_internal"
+  },
+  "202a710": {
+    "symbol": "recovered_202a710",
+    "original": "_wm_kernel_program_png_decode_file"
+  },
+  "20311f0": {
+    "symbol": "recovered_20311f0",
+    "original": "_storage_refresh_mounted_filesystem_available_sectors"
+  },
+  "2015390": {
+    "symbol": "recovered_2015390",
+    "original": "__ZN2wm3png12_GLOBAL__N_111write_chunkEP8WMFSFilePKcPKhm"
+  },
+  "2052f30": {
+    "symbol": "recovered_2052f30",
+    "original": "_ws_set_indexed_value"
+  },
+  "208bac0": {
+    "symbol": "recovered_208bac0",
+    "original": "_ws_table_set_builtin_field"
+  },
+  "207de60": {
+    "symbol": "recovered_207de60",
+    "original": "_installer_apply_partitioned_layout"
+  },
+  "202b420": {
+    "symbol": "recovered_202b420",
+    "original": "_wm_kernel_program_realloc"
+  },
+  "2006e00": {
+    "symbol": "recovered_2006e00",
+    "original": "_wm_platform_text_enable_cursor"
+  },
+  "2006610": {
+    "symbol": "recovered_2006610",
+    "original": "_wm_platform_text_columns"
+  },
+  "203d9b0": {
+    "symbol": "recovered_203d9b0",
+    "original": "_load_drive_bytes"
+  },
+  "208ade0": {
+    "symbol": "recovered_208ade0",
+    "original": "_wm_kernel_kext_configure_storage"
+  },
+  "2034c90": {
+    "symbol": "recovered_2034c90",
+    "original": "_graphics_fill_canvas_present"
+  },
+  "2051040": {
+    "symbol": "recovered_2051040",
+    "original": "_ws_finish_executed_statement"
+  },
+  "203b780": {
+    "symbol": "recovered_203b780",
+    "original": "_textmode_prepare_grids"
+  },
+  "201e6d0": {
+    "symbol": "recovered_201e6d0",
+    "original": "__Z18wm_ttf_font_renderPvPKciiid"
+  },
+  "2005c20": {
+    "symbol": "recovered_2005c20",
+    "original": "_wm_platform_smp_set_worker"
+  },
+  "20647e0": {
+    "symbol": "recovered_20647e0",
+    "original": "_ws_builtin_assert"
+  },
+  "207e520": {
+    "symbol": "recovered_207e520",
+    "original": "_installer_relocate_gpt_backup"
+  },
+  "200b230": {
+    "symbol": "recovered_200b230",
+    "original": "_platform_acpi_signature_matches"
+  },
+  "2008e20": {
+    "symbol": "recovered_2008e20",
+    "original": "_platform_efi_flush_blocks"
+  },
+  "2035c80": {
+    "symbol": "recovered_2035c80",
+    "original": "_ws_value_free"
+  },
+  "2042a80": {
+    "symbol": "recovered_2042a80",
+    "original": "_fat_short_name_to_path"
+  },
+  "2042290": {
+    "symbol": "recovered_2042290",
+    "original": "_ext_load_extent_node"
+  },
+  "202ac50": {
+    "symbol": "recovered_202ac50",
+    "original": "_wm_kernel_host_readline"
+  },
+  "2029370": {
+    "symbol": "recovered_2029370",
+    "original": "_render_ui"
+  },
+  "2026340": {
+    "symbol": "recovered_2026340",
     "original": "__ZNK12_GLOBAL__N_112Type1Backend6ascentEv"
   },
-  "20d54": {
-    "symbol": "recovered_20d54",
-    "original": "_lua_probe_binary_end"
+  "2028770": {
+    "symbol": "recovered_2028770",
+    "original": "__ZN6winter3wav6detail17readSampleAsFloatEPKhtt"
   },
-  "30a9a": {
-    "symbol": "recovered_30a9a",
-    "original": "__ZN2wm4pairINS_6stringENS_6vectorIhEEED2Ev"
+  "200cf60": {
+    "symbol": "recovered_200cf60",
+    "original": "_longjmp"
   },
-  "3dea9": {
-    "symbol": "recovered_3dea9",
-    "original": "_hex_digit_value"
+  "2005d70": {
+    "symbol": "recovered_2005d70",
+    "original": "_wm_platform_mmio_write_address"
   },
-  "26ff3": {
-    "symbol": "recovered_26ff3",
-    "original": "___clang_call_terminate"
+  "200a860": {
+    "symbol": "recovered_200a860",
+    "original": "_wm_platform_framebuffer"
   },
-  "31ea6": {
-    "symbol": "recovered_31ea6",
-    "original": "__ZN2wm6vectorINS_4pairIjN12_GLOBAL__N_111GlyphBitmapEEEE7reserveEm"
+  "200cc70": {
+    "symbol": "recovered_200cc70",
+    "original": "_wmfs_read_entire_file"
   },
-  "21d00": {
-    "symbol": "recovered_21d00",
+  "2024220": {
+    "symbol": "recovered_2024220",
+    "original": "__ZN12_GLOBAL__N_112Type1Backend4loadERKN2wm6vectorIhEE"
+  },
+  "207f040": {
+    "symbol": "recovered_207f040",
+    "original": "_installer_inflate_wbpt_system_partition"
+  },
+  "2015a80": {
+    "symbol": "recovered_2015a80",
+    "original": "__ZN2wm3png20save_jpeg_rgba8_fileEPKcPKhii"
+  },
+  "2048ed0": {
+    "symbol": "recovered_2048ed0",
+    "original": "_fat_build_tree"
+  },
+  "2029030": {
+    "symbol": "recovered_2029030",
+    "original": "_wm_kernel_program_write"
+  },
+  "2027b00": {
+    "symbol": "recovered_2027b00",
+    "original": "_wm_media_ttf_resize"
+  },
+  "2009170": {
+    "symbol": "recovered_2009170",
+    "original": "_wm_platform_set_graphics_mode_request"
+  },
+  "2030bf0": {
+    "symbol": "recovered_2030bf0",
+    "original": "_wm_kernel_program_app_window_configure"
+  },
+  "202bbe0": {
+    "symbol": "recovered_202bbe0",
+    "original": "_wm_kernel_program_list_devices"
+  },
+  "2079790": {
+    "symbol": "recovered_2079790",
+    "original": "_storage_create_mbr_partition"
+  },
+  "201d460": {
+    "symbol": "recovered_201d460",
+    "original": "__ZN2wm3png12_GLOBAL__N_122build_fixed_jpeg_tableEbRNS1_15JpegEncodeTableERNS_6vectorIhEES6_"
+  },
+  "208b740": {
+    "symbol": "recovered_208b740",
+    "original": "_wm_kernel_kext_mmio_read_address"
+  },
+  "203dc20": {
+    "symbol": "recovered_203dc20",
+    "original": "_fs_ensure_file_data_loaded"
+  },
+  "20264f0": {
+    "symbol": "recovered_20264f0",
+    "original": "__ZN2wm6vectorINS0_IhEEE6resizeEm"
+  },
+  "2002690": {
+    "symbol": "recovered_2002690",
+    "original": "___fixunsdfdi"
+  },
+  "2002e80": {
+    "symbol": "recovered_2002e80",
+    "original": "_cosf"
+  },
+  "2067650": {
+    "symbol": "recovered_2067650",
+    "original": "_ws_builtin_write"
+  },
+  "203fa00": {
+    "symbol": "recovered_203fa00",
+    "original": "_write_drive_bytes"
+  },
+  "208b870": {
+    "symbol": "recovered_208b870",
+    "original": "_wm_kernel_kext_firmware_parent"
+  },
+  "2070eb0": {
+    "symbol": "recovered_2070eb0",
+    "original": "_ws_decode_bytecode_lines"
+  },
+  "2009ca0": {
+    "symbol": "recovered_2009ca0",
+    "original": "_wm_platform_enter_wxga_graphics_mode"
+  },
+  "2068370": {
+    "symbol": "recovered_2068370",
+    "original": "_ws_builtin_bload"
+  },
+  "20048c0": {
+    "symbol": "recovered_20048c0",
+    "original": "_wm_platform_mmio_map_address"
+  },
+  "207b790": {
+    "symbol": "recovered_207b790",
+    "original": "_storage_wbpt_partition_type_from_text"
+  },
+  "200cde0": {
+    "symbol": "recovered_200cde0",
+    "original": "_wmfs_image_size"
+  },
+  "208b400": {
+    "symbol": "recovered_208b400",
+    "original": "_wm_kernel_kext_storage_read"
+  },
+  "2087520": {
+    "symbol": "recovered_2087520",
+    "original": "_program_insert_line"
+  },
+  "2047b50": {
+    "symbol": "recovered_2047b50",
+    "original": "_storage_set_default_device_name"
+  },
+  "2048b60": {
+    "symbol": "recovered_2048b60",
+    "original": "_storage_parse_gpt_header"
+  },
+  "20091d0": {
+    "symbol": "recovered_20091d0",
+    "original": "_wm_platform_framebuffer_ready"
+  },
+  "208b930": {
+    "symbol": "recovered_208b930",
+    "original": "_wm_kernel_kext_register_keyboard_provider"
+  },
+  "2088a10": {
+    "symbol": "recovered_2088a10",
+    "original": "_run_bytecode_path"
+  },
+  "205c390": {
+    "symbol": "recovered_205c390",
+    "original": "_parse_uint32_token"
+  },
+  "202ec90": {
+    "symbol": "recovered_202ec90",
+    "original": "_try_run_macho_command_line"
+  },
+  "20716f0": {
+    "symbol": "recovered_20716f0",
+    "original": "_ws_build_version_string"
+  },
+  "207e3d0": {
+    "symbol": "recovered_207e3d0",
+    "original": "_installer_copy_drive_prefix"
+  },
+  "208b600": {
+    "symbol": "recovered_208b600",
+    "original": "_wm_kernel_kext_pci_config_read"
+  },
+  "2073bd0": {
+    "symbol": "recovered_2073bd0",
+    "original": "_ws_builtin_io_open_handle"
+  },
+  "2012d20": {
+    "symbol": "recovered_2012d20",
+    "original": "__ZN2wm3png12_GLOBAL__N_120decode_apng_squashedERKNS1_9ParsedPngERKNS1_12DecodeTablesERNS_6vectorIhEE"
+  },
+  "2086900": {
+    "symbol": "recovered_2086900",
+    "original": "_ws_decay_consume_break"
+  },
+  "2002180": {
+    "symbol": "recovered_2002180",
+    "original": "_ceil"
+  },
+  "2046b00": {
+    "symbol": "recovered_2046b00",
+    "original": "_scheduler_end_parallel_space"
+  },
+  "200b8b0": {
+    "symbol": "recovered_200b8b0",
+    "original": "_platform_efi_capture_graphics_output_mode"
+  },
+  "2003090": {
+    "symbol": "recovered_2003090",
+    "original": "_strtoul"
+  },
+  "2003c80": {
+    "symbol": "recovered_2003c80",
+    "original": "_wm_platform_set_loader_context"
+  },
+  "2070540": {
+    "symbol": "recovered_2070540",
+    "original": "_ws_value_compare"
+  },
+  "200af40": {
+    "symbol": "recovered_200af40",
+    "original": "_wm_platform_heap_free_bytes"
+  },
+  "2051000": {
+    "symbol": "recovered_2051000",
+    "original": "_ws_set_scoped_variable"
+  },
+  "201c280": {
+    "symbol": "recovered_201c280",
+    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater12HuffmanTableD1Ev"
+  },
+  "2006650": {
+    "symbol": "recovered_2006650",
+    "original": "_wm_platform_text_rows"
+  },
+  "2049cd0": {
+    "symbol": "recovered_2049cd0",
+    "original": "_fat_write_directory_item"
+  },
+  "20857c0": {
+    "symbol": "recovered_20857c0",
+    "original": "_ws_local_frame_copy"
+  },
+  "2045ee0": {
+    "symbol": "recovered_2045ee0",
+    "original": "_macho_read_uleb128"
+  },
+  "20646a0": {
+    "symbol": "recovered_20646a0",
+    "original": "_ws_push_vararg_frame"
+  },
+  "2044dd0": {
+    "symbol": "recovered_2044dd0",
+    "original": "_macho_find_loaded_dylib"
+  },
+  "208b4c0": {
+    "symbol": "recovered_208b4c0",
+    "original": "_wm_kernel_kext_storage_write"
+  },
+  "2026820": {
+    "symbol": "recovered_2026820",
+    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEEixERKS1_"
+  },
+  "20463b0": {
+    "symbol": "recovered_20463b0",
+    "original": "_macho_lookup_symbol_in_image"
+  },
+  "2050740": {
+    "symbol": "recovered_2050740",
+    "original": "_ws_value_list_free"
+  },
+  "2007400": {
+    "symbol": "recovered_2007400",
+    "original": "_wm_platform_hardware_barrier"
+  },
+  "203c080": {
+    "symbol": "recovered_203c080",
+    "original": "_app_console_newline"
+  },
+  "2030cb0": {
+    "symbol": "recovered_2030cb0",
+    "original": "_wm_kernel_program_app_window_query"
+  },
+  "2042c80": {
+    "symbol": "recovered_2042c80",
+    "original": "_scheduler_capture_foreground_image"
+  },
+  "20689f0": {
+    "symbol": "recovered_20689f0",
+    "original": "_ws_builtin_font"
+  },
+  "20898d0": {
+    "symbol": "recovered_20898d0",
+    "original": "_ws_log_immediate_call_result"
+  },
+  "208b2f0": {
+    "symbol": "recovered_208b2f0",
+    "original": "_wm_kernel_kext_storage_device_info"
+  },
+  "20644e0": {
+    "symbol": "recovered_20644e0",
+    "original": "_ws_push_local_frame"
+  },
+  "207d220": {
+    "symbol": "recovered_207d220",
+    "original": "_installer_build_partitioned_plan"
+  },
+  "2073b30": {
+    "symbol": "recovered_2073b30",
+    "original": "_ws_sqrtf_local"
+  },
+  "200cf20": {
+    "symbol": "recovered_200cf20",
+    "original": "_winterboot_sjlj_jump"
+  },
+  "2004320": {
+    "symbol": "recovered_2004320",
+    "original": "_platform_qemu_fwcfg_dma_write"
+  },
+  "2064be0": {
+    "symbol": "recovered_2064be0",
+    "original": "_read_input_instant"
+  },
+  "2009130": {
+    "symbol": "recovered_2009130",
+    "original": "_wm_platform_aarch64_apps_supported"
+  },
+  "20663f0": {
+    "symbol": "recovered_20663f0",
+    "original": "_ws_builtin_dump"
+  },
+  "2034a90": {
+    "symbol": "recovered_2034a90",
+    "original": "_graphics_framebuffer_ready"
+  },
+  "208afe0": {
+    "symbol": "recovered_208afe0",
+    "original": "_wm_kernel_kext_kernel_log"
+  },
+  "2050640": {
+    "symbol": "recovered_2050640",
+    "original": "_ws_token_equals"
+  },
+  "200b270": {
+    "symbol": "recovered_200b270",
+    "original": "_platform_acpi_find_sdt_table"
+  },
+  "201d6a0": {
+    "symbol": "recovered_201d6a0",
+    "original": "__ZN2wm3png12_GLOBAL__N_122jpeg_forward_dct_quantEPKdRKNS_5arrayIhLm64EEERNS4_IiLm64EEE"
+  },
+  "200bd70": {
+    "symbol": "recovered_200bd70",
+    "original": "_wm_lua_write_errorf"
+  },
+  "208b0b0": {
+    "symbol": "recovered_208b0b0",
+    "original": "_wm_kernel_kext_alloc"
+  },
+  "2084ab0": {
+    "symbol": "recovered_2084ab0",
+    "original": "_ws_decay_task_push_frame"
+  },
+  "20860a0": {
+    "symbol": "recovered_20860a0",
+    "original": "_ws_decay_prepare_numeric_for"
+  },
+  "2014590": {
+    "symbol": "recovered_2014590",
+    "original": "__ZN2wm3png9load_fileEPKcRNS0_5ImageE"
+  },
+  "208aea0": {
+    "symbol": "recovered_208aea0",
+    "original": "_wm_kernel_kext_register_pointer_provider"
+  },
+  "2079490": {
+    "symbol": "recovered_2079490",
+    "original": "_storage_invalidate_range"
+  },
+  "20240e0": {
+    "symbol": "recovered_20240e0",
+    "original": "__ZN12_GLOBAL__N_112Type1BackendD1Ev"
+  },
+  "2003b80": {
+    "symbol": "recovered_2003b80",
+    "original": "_wm_platform_configure_storage_tuning"
+  },
+  "2002590": {
+    "symbol": "recovered_2002590",
+    "original": "_fabs"
+  },
+  "2046f10": {
+    "symbol": "recovered_2046f10",
+    "original": "_storage_add_scanned_drive"
+  },
+  "200d780": {
+    "symbol": "recovered_200d780",
+    "original": "_wm_math_isfinite"
+  },
+  "2075a90": {
+    "symbol": "recovered_2075a90",
+    "original": "_bitmap_font_set_data"
+  },
+  "200b0d0": {
+    "symbol": "recovered_200b0d0",
+    "original": "_wm_platform_api"
+  },
+  "200bce0": {
+    "symbol": "recovered_200bce0",
+    "original": "_wm_lua_flush_output"
+  },
+  "2025aa0": {
+    "symbol": "recovered_2025aa0",
+    "original": "__ZN12_GLOBAL__N_112Type1Backend9rasterizeEjd"
+  },
+  "2000867": {
+    "symbol": "recovered_2000867",
+    "original": "_wm_probe_set_wxga_mode"
+  },
+  "20004b9": {
+    "symbol": "recovered_20004b9",
+    "original": "_wm_probe_write_disk_sectors"
+  },
+  "200bfd0": {
+    "symbol": "recovered_200bfd0",
+    "original": "_wmfs_mount_image"
+  },
+  "208b210": {
+    "symbol": "recovered_208b210",
+    "original": "_wm_kernel_kext_framebuffer_info"
+  },
+  "208ba00": {
+    "symbol": "recovered_208ba00",
+    "original": "_wm_kernel_kext_poll_key_backend"
+  },
+  "2047350": {
+    "symbol": "recovered_2047350",
+    "original": "_storage_add_device"
+  },
+  "2046750": {
+    "symbol": "recovered_2046750",
+    "original": "_scheduler_leave_dispatch"
+  },
+  "20506b0": {
+    "symbol": "recovered_20506b0",
+    "original": "_ws_is_identifier"
+  },
+  "201df20": {
+    "symbol": "recovered_201df20",
+    "original": "__Z23wm_ttf_font_load_memoryPKvmf"
+  },
+  "2046100": {
+    "symbol": "recovered_2046100",
+    "original": "_macho_resolve_symbol"
+  },
+  "2067b40": {
+    "symbol": "recovered_2067b40",
+    "original": "_ws_builtin_copy"
+  },
+  "203e910": {
+    "symbol": "recovered_203e910",
+    "original": "_fs_reserve_file_capacity"
+  },
+  "2088b40": {
+    "symbol": "recovered_2088b40",
+    "original": "_scheduler_run_thread_selftest_command"
+  },
+  "2075680": {
+    "symbol": "recovered_2075680",
+    "original": "_bitmap_font_make_status"
+  },
+  "202a110": {
+    "symbol": "recovered_202a110",
+    "original": "_wm_kernel_program_delete_file"
+  },
+  "200af50": {
+    "symbol": "recovered_200af50",
+    "original": "_wm_platform_heap_free_bytes64"
+  },
+  "2050100": {
+    "symbol": "recovered_2050100",
+    "original": "_ws_value_move"
+  },
+  "2088fb0": {
+    "symbol": "recovered_2088fb0",
+    "original": "_scheduler_thread_selftest_logf"
+  },
+  "200ca60": {
+    "symbol": "recovered_200ca60",
+    "original": "_wmfs_ungetc"
+  },
+  "2005c70": {
+    "symbol": "recovered_2005c70",
+    "original": "_wm_platform_smp_current_cpu_index"
+  },
+  "2007860": {
+    "symbol": "recovered_2007860",
+    "original": "_wm_platform_get_rom_font_8x16"
+  },
+  "2042590": {
+    "symbol": "recovered_2042590",
+    "original": "_fat_load_directory_from_buffer"
+  },
+  "2027550": {
+    "symbol": "recovered_2027550",
+    "original": "_wm_media_png_decode_memory"
+  },
+  "20876d0": {
+    "symbol": "recovered_20876d0",
+    "original": "_program_serialize"
+  },
+  "20686d0": {
+    "symbol": "recovered_20686d0",
+    "original": "_ws_builtin_runcode"
+  },
+  "2007410": {
+    "symbol": "recovered_2007410",
+    "original": "_wm_platform_poll_key_ax"
+  },
+  "2034680": {
+    "symbol": "recovered_2034680",
+    "original": "_display_set_theme"
+  },
+  "20006a8": {
+    "symbol": "recovered_20006a8",
+    "original": "_wm_probe_wait_microseconds"
+  },
+  "208b7f0": {
+    "symbol": "recovered_208b7f0",
+    "original": "_wm_kernel_kext_cpuid"
+  },
+  "202a970": {
+    "symbol": "recovered_202a970",
+    "original": "_wm_kernel_program_ttf_load_file"
+  },
+  "200cf30": {
+    "symbol": "recovered_200cf30",
+    "original": "_setjmp"
+  },
+  "2005d20": {
+    "symbol": "recovered_2005d20",
+    "original": "_wm_platform_mmio_read_address"
+  },
+  "207dd30": {
+    "symbol": "recovered_207dd30",
+    "original": "_installer_wbpt_system_inflation_delta"
+  },
+  "202cb60": {
+    "symbol": "recovered_202cb60",
+    "original": "_wm_kernel_program_delete_file_on_device"
+  },
+  "20483a0": {
+    "symbol": "recovered_20483a0",
+    "original": "_storage_read_gpt_partition_table"
+  },
+  "204a1c0": {
+    "symbol": "recovered_204a1c0",
+    "original": "_program_load_text_lines"
+  },
+  "20467b0": {
+    "symbol": "recovered_20467b0",
+    "original": "_scheduler_resume_task_on_cpu"
+  },
+  "2006400": {
+    "symbol": "recovered_2006400",
+    "original": "_platform_efi_framebuffer_active"
+  },
+  "2042490": {
+    "symbol": "recovered_2042490",
+    "original": "_ext_copy_block_to_data"
+  },
+  "2029c70": {
+    "symbol": "recovered_2029c70",
+    "original": "_fs_read_file"
+  },
+  "200aa00": {
+    "symbol": "recovered_200aa00",
+    "original": "_wm_platform_cpuid_available"
+  },
+  "2004910": {
+    "symbol": "recovered_2004910",
+    "original": "_wm_platform_smp_bootstrap"
+  },
+  "203e3d0": {
+    "symbol": "recovered_203e3d0",
+    "original": "_fat_load_cluster_chain_bytes"
+  },
+  "202cd30": {
+    "symbol": "recovered_202cd30",
+    "original": "_wm_kernel_program_rename_file_on_device"
+  },
+  "2049be0": {
+    "symbol": "recovered_2049be0",
+    "original": "_fat_entry_set"
+  },
+  "203e9f0": {
+    "symbol": "recovered_203e9f0",
+    "original": "_fs_insert_file_index"
+  },
+  "200c950": {
+    "symbol": "recovered_200c950",
+    "original": "_wmfs_fflush"
+  },
+  "2030930": {
+    "symbol": "recovered_2030930",
+    "original": "_wm_kernel_program_app_window_destroy"
+  },
+  "203e720": {
+    "symbol": "recovered_203e720",
+    "original": "_exfat_load_cluster_chain_bytes"
+  },
+  "2066140": {
+    "symbol": "recovered_2066140",
+    "original": "_ws_builtin_peek"
+  },
+  "20538f0": {
+    "symbol": "recovered_20538f0",
+    "original": "_ws_find_top_level_token_index"
+  },
+  "20286e0": {
+    "symbol": "recovered_20286e0",
+    "original": "__ZN2wm6vectorIsE6resizeEm"
+  },
+  "20739b0": {
+    "symbol": "recovered_20739b0",
+    "original": "_ws_cosf_local"
+  },
+  "20292e0": {
+    "symbol": "recovered_20292e0",
+    "original": "_wm_kernel_program_end"
+  },
+  "2074690": {
+    "symbol": "recovered_2074690",
+    "original": "_ws_table_set_value_field"
+  },
+  "2002090": {
+    "symbol": "recovered_2002090",
+    "original": "_pow"
+  },
+  "2064940": {
+    "symbol": "recovered_2064940",
+    "original": "_ws_builtin_typeof"
+  },
+  "200a9d0": {
+    "symbol": "recovered_200a9d0",
+    "original": "_wm_platform_serial_poll_char"
+  },
+  "200b0e0": {
+    "symbol": "recovered_200b0e0",
+    "original": "_platform_acpi_find_table_from_rsdp"
+  },
+  "2085b10": {
+    "symbol": "recovered_2085b10",
+    "original": "_ws_decay_find_if_branch"
+  },
+  "208b710": {
+    "symbol": "recovered_208b710",
+    "original": "_wm_kernel_kext_mmio_map_address"
+  },
+  "200bfe0": {
+    "symbol": "recovered_200bfe0",
+    "original": "_wmfs_unmount"
+  },
+  "2084010": {
+    "symbol": "recovered_2084010",
+    "original": "_ws_io_handle_reset"
+  },
+  "205c790": {
+    "symbol": "recovered_205c790",
+    "original": "_ws_make_string_n"
+  },
+  "2068630": {
+    "symbol": "recovered_2068630",
+    "original": "_ws_builtin_call"
+  },
+  "2023e80": {
+    "symbol": "recovered_2023e80",
+    "original": "__ZN12_GLOBAL__N_114OutlineBuilder13close_contourEv"
+  },
+  "20007a6": {
+    "symbol": "recovered_20007a6",
+    "original": "_wm_probe_set_text_mode3"
+  },
+  "2000113": {
+    "symbol": "recovered_2000113",
+    "original": "_wm_probe_get_rom_font_8x16"
+  },
+  "202bea0": {
+    "symbol": "recovered_202bea0",
+    "original": "_storage_scan_devices"
+  },
+  "2076980": {
+    "symbol": "recovered_2076980",
+    "original": "_storage_write_wbpt_name_by_id"
+  },
+  "20064c0": {
+    "symbol": "recovered_20064c0",
+    "original": "_platform_show_startup_banner"
+  },
+  "208af70": {
+    "symbol": "recovered_208af70",
+    "original": "_wm_kernel_kext_poll_pointer_backend"
+  },
+  "200d080": {
+    "symbol": "recovered_200d080",
+    "original": "__Znam"
+  },
+  "20091a0": {
+    "symbol": "recovered_20091a0",
+    "original": "_wm_platform_framebuffer_bpp_supported"
+  },
+  "2003380": {
+    "symbol": "recovered_2003380",
+    "original": "_strtof"
+  },
+  "2002d90": {
+    "symbol": "recovered_2002d90",
+    "original": "_lround"
+  },
+  "2030110": {
+    "symbol": "recovered_2030110",
+    "original": "_cpu_query_cache_info"
+  },
+  "2074b90": {
+    "symbol": "recovered_2074b90",
+    "original": "_kernel_request_graphics_mode"
+  },
+  "2065f70": {
+    "symbol": "recovered_2065f70",
+    "original": "_ws_expect_uint32_arg"
+  },
+  "20535e0": {
+    "symbol": "recovered_20535e0",
+    "original": "_ws_find_matching_until"
+  },
+  "203ef30": {
+    "symbol": "recovered_203ef30",
+    "original": "_wmfs64_resize_chain"
+  },
+  "2064b70": {
+    "symbol": "recovered_2064b70",
+    "original": "_ws_expect_string_arg"
+  },
+  "2078790": {
+    "symbol": "recovered_2078790",
+    "original": "_storage_clone_partition_to_offset_by_id"
+  },
+  "203e030": {
+    "symbol": "recovered_203e030",
+    "original": "_fs_load_exfat_file_data"
+  },
+  "20867a0": {
+    "symbol": "recovered_20867a0",
+    "original": "_ws_decay_execute_single_statement"
+  },
+  "200ae50": {
+    "symbol": "recovered_200ae50",
+    "original": "_platform_runtime_map_pages_with_flags"
+  },
+  "2008460": {
+    "symbol": "recovered_2008460",
+    "original": "_platform_efi_read_blocks"
+  },
+  "2009060": {
+    "symbol": "recovered_2009060",
+    "original": "_platform_efi_firmware_thunk_command"
+  },
+  "2070650": {
+    "symbol": "recovered_2070650",
+    "original": "_ws_make_script_function_from_text"
+  },
+  "2048ad0": {
+    "symbol": "recovered_2048ad0",
+    "original": "_storage_parse_wbpt_header"
+  },
+  "2070340": {
+    "symbol": "recovered_2070340",
+    "original": "_ws_table_get_mutable_entry"
+  },
+  "2027f00": {
+    "symbol": "recovered_2027f00",
+    "original": "__ZN6winter3wav6decodeEPKvmPNS0_11DecodedFileERKNS0_13DecodeOptionsE"
+  },
+  "2047df0": {
+    "symbol": "recovered_2047df0",
+    "original": "_storage_detect_volume_filesystem"
+  },
+  "208b2c0": {
+    "symbol": "recovered_208b2c0",
+    "original": "_wm_kernel_kext_storage_device_count"
+  },
+  "2073910": {
+    "symbol": "recovered_2073910",
+    "original": "_ws_sinf_local"
+  },
+  "2007200": {
+    "symbol": "recovered_2007200",
+    "original": "_wm_platform_dma_address"
+  },
+  "200ac00": {
+    "symbol": "recovered_200ac00",
+    "original": "_wm_platform_configure_framebuffer_cache"
+  },
+  "2029a70": {
+    "symbol": "recovered_2029a70",
+    "original": "_wm_kernel_program_shutdown"
+  },
+  "203bd80": {
+    "symbol": "recovered_203bd80",
+    "original": "_pack_truecolor"
+  },
+  "2005c30": {
+    "symbol": "recovered_2005c30",
+    "original": "_wm_platform_smp_discovered_cpu_count"
+  },
+  "2065ae0": {
+    "symbol": "recovered_2065ae0",
+    "original": "_ws_builtin_graphics_fill"
+  },
+  "200ca20": {
+    "symbol": "recovered_200ca20",
+    "original": "_wmfs_ferror"
+  },
+  "202b260": {
+    "symbol": "recovered_202b260",
+    "original": "_wm_kernel_program_malloc"
+  },
+  "2006830": {
+    "symbol": "recovered_2006830",
+    "original": "_wm_platform_text_write_at"
+  },
+  "207f930": {
+    "symbol": "recovered_207f930",
+    "original": "_installer_expand_user_data_filesystem"
+  },
+  "200ce30": {
+    "symbol": "recovered_200ce30",
+    "original": "_strncmp"
+  },
+  "2009a30": {
+    "symbol": "recovered_2009a30",
+    "original": "_wm_platform_qemu_pointer_backend_counts"
+  },
+  "2009220": {
+    "symbol": "recovered_2009220",
+    "original": "_wm_platform_pointer_state"
+  },
+  "2046bb0": {
+    "symbol": "recovered_2046bb0",
+    "original": "_scheduler_task_bootstrap"
+  },
+  "2026350": {
+    "symbol": "recovered_2026350",
+    "original": "__ZNK12_GLOBAL__N_112Type1Backend7descentEv"
+  },
+  "2050f40": {
+    "symbol": "recovered_2050f40",
+    "original": "_ws_function_release"
+  },
+  "20665f0": {
+    "symbol": "recovered_20665f0",
+    "original": "_ws_builtin_dir"
+  },
+  "208b6b0": {
+    "symbol": "recovered_208b6b0",
+    "original": "_wm_kernel_kext_mmio_read"
+  },
+  "2044fe0": {
+    "symbol": "recovered_2044fe0",
+    "original": "_macho_select_x86_64_image"
+  },
+  "200a870": {
+    "symbol": "recovered_200a870",
+    "original": "_wm_platform_serial_init"
+  },
+  "20451d0": {
+    "symbol": "recovered_20451d0",
+    "original": "_macho_select_image_by_cpu_order"
+  },
+  "2007040": {
+    "symbol": "recovered_2007040",
+    "original": "_wm_platform_text_load_font_plane"
+  },
+  "200aa40": {
+    "symbol": "recovered_200aa40",
+    "original": "_wm_platform_cpuid_query"
+  },
+  "2009b70": {
+    "symbol": "recovered_2009b70",
+    "original": "_wm_platform_qemu_xhci_debug_state"
+  },
+  "2008f70": {
+    "symbol": "recovered_2008f70",
+    "original": "_wm_platform_drive_is_writable"
+  },
+  "2068da0": {
+    "symbol": "recovered_2068da0",
+    "original": "_ws_builtin_charset"
+  },
+  "2052fe0": {
+    "symbol": "recovered_2052fe0",
+    "original": "_ws_value_truthy"
+  },
+  "2065460": {
+    "symbol": "recovered_2065460",
+    "original": "_ws_builtin_graphics_resize"
+  },
+  "200022b": {
+    "symbol": "recovered_200022b",
+    "original": "_wm_probe_read_bundle_chunk"
+  },
+  "2069270": {
+    "symbol": "recovered_2069270",
+    "original": "_ws_builtin_runes"
+  },
+  "20090a0": {
+    "symbol": "recovered_20090a0",
+    "original": "_platform_efi_firmware_thunk_call"
+  },
+  "208b860": {
+    "symbol": "recovered_208b860",
+    "original": "_wm_kernel_kext_firmware_peer"
+  },
+  "20507f0": {
+    "symbol": "recovered_20507f0",
+    "original": "_ws_value_list_push"
+  },
+  "20065c0": {
+    "symbol": "recovered_20065c0",
+    "original": "_wm_platform_runtime_state"
+  },
+  "200cdd0": {
+    "symbol": "recovered_200cdd0",
+    "original": "_wmfs_image_data"
+  },
+  "203de60": {
+    "symbol": "recovered_203de60",
+    "original": "_fs_load_fat_file_data"
+  },
+  "200bee0": {
+    "symbol": "recovered_200bee0",
+    "original": "_wm_lua_readline"
+  },
+  "2069420": {
+    "symbol": "recovered_2069420",
+    "original": "_ws_builtin_hardware"
+  },
+  "202ea80": {
+    "symbol": "recovered_202ea80",
+    "original": "_wm_kernel_program_create_directory"
+  },
+  "202b8c0": {
+    "symbol": "recovered_202b8c0",
+    "original": "_normalize_path"
+  },
+  "202abc0": {
+    "symbol": "recovered_202abc0",
+    "original": "_console_log"
+  },
+  "2044840": {
+    "symbol": "recovered_2044840",
+    "original": "_macho_load_dylib_named"
+  },
+  "2049560": {
+    "symbol": "recovered_2049560",
+    "original": "_fat_tree_add_node"
+  },
+  "2055390": {
+    "symbol": "recovered_2055390",
+    "original": "_ws_parse_or"
+  },
+  "2044f50": {
+    "symbol": "recovered_2044f50",
+    "original": "_macho_name_ends_with_ignore_case"
+  },
+  "2020180": {
+    "symbol": "recovered_2020180",
+    "original": "__ZN2wm6vectorINS0_IjEEED1Ev"
+  },
+  "2053fc0": {
+    "symbol": "recovered_2053fc0",
+    "original": "_ws_make_string"
+  },
+  "202c1c0": {
+    "symbol": "recovered_202c1c0",
+    "original": "_storage_format_device_name"
+  },
+  "2087830": {
+    "symbol": "recovered_2087830",
+    "original": "_ws_compile_lines_to_bytecode"
+  },
+  "201e410": {
+    "symbol": "recovered_201e410",
+    "original": "__Z16wm_ttf_font_loadPKcf"
+  },
+  "2027ba0": {
+    "symbol": "recovered_2027ba0",
+    "original": "_wm_media_ttf_render"
+  },
+  "201de50": {
+    "symbol": "recovered_201de50",
+    "original": "__ZN2wm3png12_GLOBAL__N_113JpegBitWriter10flush_byteEh"
+  },
+  "20086b0": {
+    "symbol": "recovered_20086b0",
+    "original": "_wm_platform_write_drive_bytes"
+  },
+  "2009ac0": {
+    "symbol": "recovered_2009ac0",
+    "original": "_wm_platform_qemu_dma_debug_counts"
+  },
+  "20083c0": {
+    "symbol": "recovered_20083c0",
+    "original": "_platform_efi_io_buffer_physical"
+  },
+  "20505e0": {
+    "symbol": "recovered_20505e0",
+    "original": "_ws_token_list_free"
+  },
+  "200cd40": {
+    "symbol": "recovered_200cd40",
+    "original": "_wmfs_write_entire_file"
+  },
+  "20843a0": {
+    "symbol": "recovered_20843a0",
+    "original": "_ws_make_io_handle_table"
+  },
+  "2087fb0": {
+    "symbol": "recovered_2087fb0",
+    "original": "_ws_save_bytecode_file"
+  },
+  "20481f0": {
+    "symbol": "recovered_20481f0",
+    "original": "_wmfs32_superblock_geometry_is_valid"
+  },
+  "200af60": {
+    "symbol": "recovered_200af60",
+    "original": "_wm_platform_heap_total_bytes"
+  },
+  "2029d10": {
+    "symbol": "recovered_2029d10",
+    "original": "_wm_kernel_program_write_file"
+  },
+  "20465e0": {
+    "symbol": "recovered_20465e0",
+    "original": "_scheduler_restore_foreground_image"
+  },
+  "203e1c0": {
+    "symbol": "recovered_203e1c0",
+    "original": "_wmfs_load_file_from_drive"
+  },
+  "201d1f0": {
+    "symbol": "recovered_201d1f0",
+    "original": "__ZN2wm3png12_GLOBAL__N_115unfilter_row_toEjPhPKhS4_mm"
+  },
+  "2036b90": {
+    "symbol": "recovered_2036b90",
+    "original": "_execute_command_line"
+  },
+  "202a840": {
+    "symbol": "recovered_202a840",
+    "original": "_wm_kernel_program_wav_decode_file"
+  },
+  "2041380": {
+    "symbol": "recovered_2041380",
+    "original": "_exfat_detect_boot_sector"
+  },
+  "208b7e0": {
+    "symbol": "recovered_208b7e0",
+    "original": "_wm_kernel_kext_hardware_barrier"
+  },
+  "2008410": {
+    "symbol": "recovered_2008410",
+    "original": "_platform_storage_should_read_ahead"
+  },
+  "2009c00": {
+    "symbol": "recovered_2009c00",
+    "original": "_wm_platform_pointer_protocol_counts"
+  },
+  "2009010": {
+    "symbol": "recovered_2009010",
+    "original": "_wm_platform_flush_storage"
+  },
+  "2048db0": {
+    "symbol": "recovered_2048db0",
+    "original": "_wmfs64_write_contiguous_cluster_range"
+  },
+  "200c510": {
+    "symbol": "recovered_200c510",
+    "original": "_wmfs_fread"
+  },
+  "200cf00": {
+    "symbol": "recovered_200cf00",
+    "original": "_clock"
+  },
+  "208b6e0": {
+    "symbol": "recovered_208b6e0",
+    "original": "_wm_kernel_kext_mmio_write"
+  },
+  "200c000": {
+    "symbol": "recovered_200c000",
+    "original": "_wmfs_fopen"
+  },
+  "201d0f0": {
+    "symbol": "recovered_201d0f0",
+    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater5startERKNS_6vectorINS1_8ByteSpanEEE"
+  },
+  "2050030": {
+    "symbol": "recovered_2050030",
+    "original": "_ws_is_head_keyword"
+  },
+  "2026e20": {
+    "symbol": "recovered_2026e20",
+    "original": "__ZN12_GLOBAL__N_112Type1Backend16Type1Interpreter7executeERKN2wm6vectorIhEEi"
+  },
+  "203ffd0": {
+    "symbol": "recovered_203ffd0",
+    "original": "_command_line_path_only"
+  },
+  "2073a50": {
+    "symbol": "recovered_2073a50",
+    "original": "_ws_logf_local"
+  },
+  "208b5a0": {
+    "symbol": "recovered_208b5a0",
+    "original": "_wm_kernel_kext_io_port_read"
+  },
+  "2047430": {
+    "symbol": "recovered_2047430",
+    "original": "_storage_read_partition_table"
+  },
+  "200c8a0": {
+    "symbol": "recovered_200c8a0",
+    "original": "_wmfs_fseek"
+  },
+  "2068f50": {
+    "symbol": "recovered_2068f50",
+    "original": "_ws_builtin_mode"
+  },
+  "200cdc0": {
+    "symbol": "recovered_200cdc0",
+    "original": "_wmfs_clear_virtual_files"
+  },
+  "201dd50": {
+    "symbol": "recovered_201dd50",
+    "original": "__ZN2wm6vectorIhEC2ESt16initializer_listIhE"
+  },
+  "201e650": {
+    "symbol": "recovered_201e650",
+    "original": "__Z18wm_ttf_font_resizePvf"
+  },
+  "2001e90": {
+    "symbol": "recovered_2001e90",
+    "original": "_strstr"
+  },
+  "20090f0": {
+    "symbol": "recovered_20090f0",
+    "original": "_wm_platform_x64_apps_supported"
+  },
+  "20507a0": {
+    "symbol": "recovered_20507a0",
+    "original": "_ws_match_operator"
+  },
+  "2006fe0": {
+    "symbol": "recovered_2006fe0",
+    "original": "_wm_platform_enter_text_mode"
+  },
+  "20065d0": {
+    "symbol": "recovered_20065d0",
+    "original": "_wm_platform_ticks"
+  },
+  "2088e20": {
+    "symbol": "recovered_2088e20",
+    "original": "_load_bytecode_file"
+  },
+  "2048d50": {
+    "symbol": "recovered_2048d50",
+    "original": "_storage_copy_device_name"
+  },
+  "200bff0": {
+    "symbol": "recovered_200bff0",
+    "original": "_wmfs_is_mounted"
+  },
+  "208ba20": {
+    "symbol": "recovered_208ba20",
+    "original": "_wm_kernel_kext_msr_read"
+  },
+  "2021190": {
+    "symbol": "recovered_2021190",
+    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend7descentEv"
+  },
+  "2020280": {
+    "symbol": "recovered_2020280",
+    "original": "__ZN12_GLOBAL__N_115TrueTypeBackendD1Ev"
+  },
+  "2052ac0": {
+    "symbol": "recovered_2052ac0",
+    "original": "_ws_try_get_variable"
+  },
+  "20263a0": {
+    "symbol": "recovered_20263a0",
+    "original": "__ZN2wm6string6assignEPKcm"
+  },
+  "2030d60": {
+    "symbol": "recovered_2030d60",
+    "original": "_wm_kernel_program_app_window_set_menus"
+  },
+  "2031370": {
+    "symbol": "recovered_2031370",
+    "original": "_fs_flush"
+  },
+  "2050ca0": {
+    "symbol": "recovered_2050ca0",
+    "original": "_ws_copy_program_lines"
+  },
+  "2006ad0": {
+    "symbol": "recovered_2006ad0",
+    "original": "_platform_efi_draw_text_cell"
+  },
+  "2044010": {
+    "symbol": "recovered_2044010",
+    "original": "_macho_apply_fixups"
+  },
+  "203d400": {
+    "symbol": "recovered_203d400",
+    "original": "_format_compact_bytes"
+  },
+  "207ac80": {
+    "symbol": "recovered_207ac80",
+    "original": "_storage_kind_is_efi"
+  },
+  "201d050": {
+    "symbol": "recovered_201d050",
+    "original": "__ZN2wm6vectorINS_3png12_GLOBAL__N_18ByteSpanEE9push_backEOS3_"
+  },
+  "2005db0": {
+    "symbol": "recovered_2005db0",
+    "original": "_wm_platform_mmio_read"
+  },
+  "208b7a0": {
+    "symbol": "recovered_208b7a0",
+    "original": "_wm_kernel_kext_dma_address"
+  },
+  "202cf00": {
+    "symbol": "recovered_202cf00",
+    "original": "_fs_rename_path"
+  },
+  "203ebf0": {
+    "symbol": "recovered_203ebf0",
+    "original": "_fs_rebuild_file_index"
+  },
+  "208baa0": {
+    "symbol": "recovered_208baa0",
+    "original": "_wm_kernel_kext_configure_framebuffer_cache"
+  },
+  "2029b00": {
+    "symbol": "recovered_2029b00",
+    "original": "_wm_kernel_program_stat_file"
+  },
+  "2028f00": {
+    "symbol": "recovered_2028f00",
+    "original": "_wm_kernel_program_putc"
+  },
+  "204a0d0": {
+    "symbol": "recovered_204a0d0",
+    "original": "_wmfs_count_file_clusters_from_fat"
+  },
+  "203d6c0": {
+    "symbol": "recovered_203d6c0",
+    "original": "_exfat_query_space"
+  },
+  "2053d40": {
+    "symbol": "recovered_2053d40",
+    "original": "_ws_value_to_float_number"
+  },
+  "20465a0": {
+    "symbol": "recovered_20465a0",
+    "original": "_scheduler_restore_address_space_to_memory"
+  },
+  "20864f0": {
+    "symbol": "recovered_20864f0",
+    "original": "_ws_decay_prepare_generic_for"
+  },
+  "2027e70": {
+    "symbol": "recovered_2027e70",
+    "original": "_wm_media_ttf_free"
+  },
+  "2026360": {
+    "symbol": "recovered_2026360",
+    "original": "__ZNK12_GLOBAL__N_112Type1Backend8line_gapEv"
+  },
+  "2009a00": {
+    "symbol": "recovered_2009a00",
+    "original": "_wm_platform_qemu_pointer_state"
+  },
+  "200c920": {
+    "symbol": "recovered_200c920",
+    "original": "_wmfs_ftell"
+  },
+  "20660d0": {
+    "symbol": "recovered_20660d0",
+    "original": "_graphics_wait_ms"
+  },
+  "2027a60": {
+    "symbol": "recovered_2027a60",
+    "original": "_wm_media_ttf_load_memory"
+  },
+  "200ce00": {
+    "symbol": "recovered_200ce00",
+    "original": "_memchr"
+  },
+  "2040580": {
+    "symbol": "recovered_2040580",
+    "original": "_equals_ignore_case"
+  },
+  "208b0d0": {
+    "symbol": "recovered_208b0d0",
+    "original": "_wm_kernel_kext_free"
+  },
+  "208a9e0": {
+    "symbol": "recovered_208a9e0",
+    "original": "_ws_value_to_path_text"
+  },
+  "203d7c0": {
+    "symbol": "recovered_203d7c0",
+    "original": "_fat_query_space"
+  },
+  "204a4e0": {
+    "symbol": "recovered_204a4e0",
+    "original": "_run_program_lines"
+  },
+  "20682b0": {
+    "symbol": "recovered_20682b0",
+    "original": "_ws_builtin_delete"
+  },
+  "2024200": {
+    "symbol": "recovered_2024200",
+    "original": "__ZN12_GLOBAL__N_112Type1BackendD0Ev"
+  },
+  "202b500": {
+    "symbol": "recovered_202b500",
+    "original": "_wm_kernel_program_list_directory"
+  },
+  "2030530": {
+    "symbol": "recovered_2030530",
+    "original": "_wm_kernel_program_app_window_update"
+  },
+  "2046620": {
+    "symbol": "recovered_2046620",
+    "original": "_scheduler_run_null_parallel_one"
+  },
+  "208b850": {
+    "symbol": "recovered_208b850",
+    "original": "_wm_kernel_kext_firmware_child"
+  },
+  "2064050": {
+    "symbol": "recovered_2064050",
+    "original": "_ws_import_binary_native_value"
+  },
+  "207ab80": {
+    "symbol": "recovered_207ab80",
+    "original": "_storage_kind_is_wintershim"
+  },
+  "208ba60": {
+    "symbol": "recovered_208ba60",
+    "original": "_wm_kernel_kext_msr_write"
+  },
+  "202a1a0": {
+    "symbol": "recovered_202a1a0",
+    "original": "_fs_delete_file"
+  },
+  "2029db0": {
+    "symbol": "recovered_2029db0",
+    "original": "_fs_write_file"
+  },
+  "200afe0": {
+    "symbol": "recovered_200afe0",
+    "original": "_wm_platform_heap_total_bytes64"
+  },
+  "2006ee0": {
+    "symbol": "recovered_2006ee0",
+    "original": "_wm_platform_text_set_cursor"
+  },
+  "200cef0": {
+    "symbol": "recovered_200cef0",
+    "original": "_system"
+  },
+  "203e350": {
+    "symbol": "recovered_203e350",
+    "original": "_fat_load_file_data"
+  },
+  "2030270": {
+    "symbol": "recovered_2030270",
+    "original": "_wm_kernel_program_app_window_create"
+  },
+  "206ca50": {
+    "symbol": "recovered_206ca50",
+    "original": "_ws_builtin_installer"
+  },
+  "2065c40": {
+    "symbol": "recovered_2065c40",
+    "original": "_ws_builtin_graphics_line"
+  },
+  "2001490": {
+    "symbol": "recovered_2001490",
+    "original": "___moddi3"
+  },
+  "2052bf0": {
+    "symbol": "recovered_2052bf0",
+    "original": "_ws_make_array"
+  },
+  "203db10": {
+    "symbol": "recovered_203db10",
+    "original": "_fs_find_file_normalized"
+  },
+  "2086970": {
+    "symbol": "recovered_2086970",
+    "original": "_ws_decay_evaluate_condition"
+  },
+  "200a8b0": {
+    "symbol": "recovered_200a8b0",
+    "original": "_wm_platform_serial_putc"
+  },
+  "20091c0": {
+    "symbol": "recovered_20091c0",
+    "original": "_wm_platform_framebuffer_bytes_per_pixel"
+  },
+  "200aaa0": {
+    "symbol": "recovered_200aaa0",
+    "original": "_wm_platform_msr_read"
+  },
+  "200002c": {
+    "symbol": "recovered_200002c",
+    "original": "_wm_probe_bios_poll_key_ax"
+  },
+  "200bc50": {
+    "symbol": "recovered_200bc50",
+    "original": "_wm_lua_writeline"
+  },
+  "200a950": {
+    "symbol": "recovered_200a950",
+    "original": "_wm_platform_serial_write_n"
+  },
+  "200c440": {
+    "symbol": "recovered_200c440",
+    "original": "_wmfs_fclose"
+  },
+  "2005e40": {
+    "symbol": "recovered_2005e40",
+    "original": "_wm_platform_startup"
+  },
+  "2004740": {
+    "symbol": "recovered_2004740",
+    "original": "_wm_platform_mmio_map"
+  },
+  "200b550": {
+    "symbol": "recovered_200b550",
+    "original": "_platform_efi_drive_index"
+  },
+  "2083c90": {
+    "symbol": "recovered_2083c90",
+    "original": "_ws_gsub_lookup_table_replacement"
+  },
+  "2086ac0": {
+    "symbol": "recovered_2086ac0",
+    "original": "_ws_set_global_variable"
+  },
+  "208b8c0": {
+    "symbol": "recovered_208b8c0",
+    "original": "_wm_kernel_kext_firmware_get_property"
+  },
+  "200ca00": {
+    "symbol": "recovered_200ca00",
+    "original": "_wmfs_feof"
+  },
+  "200b610": {
+    "symbol": "recovered_200b610",
+    "original": "_platform_efi_read_absolute_pointer_state"
+  },
+  "20649e0": {
+    "symbol": "recovered_20649e0",
+    "original": "_ws_join_argument_text"
+  },
+  "2026370": {
+    "symbol": "recovered_2026370",
+    "original": "__ZNK12_GLOBAL__N_112Type1Backend15metric_roundingEv"
+  },
+  "2070120": {
+    "symbol": "recovered_2070120",
+    "original": "_ws_find_alpha_dash_digits_match"
+  },
+  "20684f0": {
+    "symbol": "recovered_20684f0",
+    "original": "_ws_builtin_bsave"
+  },
+  "2053e50": {
+    "symbol": "recovered_2053e50",
+    "original": "_ws_value_assign"
+  },
+  "208b5d0": {
+    "symbol": "recovered_208b5d0",
+    "original": "_wm_kernel_kext_io_port_write"
+  },
+  "202c740": {
+    "symbol": "recovered_202c740",
+    "original": "_wm_kernel_program_list_directory_on_device"
+  },
+  "202b340": {
+    "symbol": "recovered_202b340",
+    "original": "_wm_kernel_program_free"
+  },
+  "208b0e0": {
+    "symbol": "recovered_208b0e0",
+    "original": "_wm_kernel_kext_hardware_info"
+  },
+  "2028b00": {
+    "symbol": "recovered_2028b00",
+    "original": "_scheduler_preempt_checkpoint"
+  },
+  "20888b0": {
+    "symbol": "recovered_20888b0",
+    "original": "_load_bytecode_into_buffer"
+  },
+  "200b450": {
+    "symbol": "recovered_200b450",
+    "original": "_platform_smp_ap_entry"
+  },
+  "2070840": {
+    "symbol": "recovered_2070840",
+    "original": "_ws_load_bytecode_data"
+  },
+  "2030f30": {
+    "symbol": "recovered_2030f30",
+    "original": "_wm_kernel_expand_disk"
+  },
+  "203fd20": {
+    "symbol": "recovered_203fd20",
+    "original": "_fs_release_state"
+  },
+  "2087650": {
+    "symbol": "recovered_2087650",
+    "original": "_program_overwrite_line"
+  },
+  "2046e20": {
+    "symbol": "recovered_2046e20",
+    "original": "_query_drive_capacity"
+  },
+  "208b840": {
+    "symbol": "recovered_208b840",
+    "original": "_wm_kernel_kext_firmware_root"
+  },
+  "2001c90": {
+    "symbol": "recovered_2001c90",
+    "original": "_strcoll"
+  },
+  "208b770": {
+    "symbol": "recovered_208b770",
+    "original": "_wm_kernel_kext_mmio_write_address"
+  },
+  "2001590": {
+    "symbol": "recovered_2001590",
+    "original": "_malloc"
+  },
+  "200b5b0": {
+    "symbol": "recovered_200b5b0",
+    "original": "_platform_efi_drive_media_id"
+  },
+  "2076790": {
+    "symbol": "recovered_2076790",
+    "original": "_storage_unmount_device_by_id"
+  },
+  "2084070": {
+    "symbol": "recovered_2084070",
+    "original": "_ws_io_capture_popen_output"
+  },
+  "203fb70": {
+    "symbol": "recovered_203fb70",
+    "original": "_wmfs64_write_metadata"
+  },
+  "208ad10": {
+    "symbol": "recovered_208ad10",
+    "original": "_wm_kernel_kext_configure_runtime"
+  },
+  "202bab0": {
+    "symbol": "recovered_202bab0",
+    "original": "_fs_path_relative_to_directory"
+  },
+  "2065210": {
+    "symbol": "recovered_2065210",
+    "original": "_ws_builtin_graphics_demo_native"
+  },
+  "2064610": {
+    "symbol": "recovered_2064610",
+    "original": "_ws_pop_local_frame"
+  },
+  "200cdf0": {
+    "symbol": "recovered_200cdf0",
+    "original": "_wmfs_export_image"
+  },
+  "2013100": {
+    "symbol": "recovered_2013100",
+    "original": "__ZN2wm3png12_GLOBAL__N_116decode_png_frameERKNS1_6HeaderERKNS_6vectorINS1_8ByteSpanEEERKNS1_12DecodeTablesERNS5_IhEE"
+  },
+  "200cff0": {
+    "symbol": "recovered_200cff0",
+    "original": "___gxx_personality_sj0"
+  },
+  "200a8f0": {
+    "symbol": "recovered_200a8f0",
+    "original": "_wm_platform_serial_write"
+  },
+  "2023880": {
+    "symbol": "recovered_2023880",
+    "original": "__ZN2wm6vectorIbE6insertEPKbOb"
+  },
+  "203f940": {
+    "symbol": "recovered_203f940",
+    "original": "_wmfs64_free_chain"
+  },
+  "2045440": {
+    "symbol": "recovered_2045440",
+    "original": "_macho_apply_bind_stream"
+  },
+  "2067230": {
+    "symbol": "recovered_2067230",
+    "original": "_ws_builtin_read"
+  },
+  "208b900": {
+    "symbol": "recovered_208b900",
+    "original": "_wm_kernel_kext_apply_graphics_mode"
+  },
+  "2064750": {
+    "symbol": "recovered_2064750",
+    "original": "_ws_pop_vararg_frame"
+  },
+  "20288d0": {
+    "symbol": "recovered_20288d0",
+    "original": "_wm_kernel_program_clear"
+  },
+  "200bab0": {
+    "symbol": "recovered_200bab0",
+    "original": "_wm_lua_write"
+  },
+  "2077480": {
+    "symbol": "recovered_2077480",
+    "original": "_storage_partition_table_type_from_text"
+  },
+  "2001a90": {
+    "symbol": "recovered_2001a90",
+    "original": "_bzero"
+  },
+  "2064240": {
+    "symbol": "recovered_2064240",
+    "original": "_ws_start_decay_task"
+  },
+  "200c740": {
+    "symbol": "recovered_200c740",
+    "original": "_wmfs_fwrite"
+  },
+  "2005c50": {
+    "symbol": "recovered_2005c50",
+    "original": "_wm_platform_smp_online_cpu_count"
+  },
+  "200ca40": {
+    "symbol": "recovered_200ca40",
+    "original": "_wmfs_clearerr"
+  },
+  "20309f0": {
+    "symbol": "recovered_20309f0",
+    "original": "_wm_kernel_program_app_window_list"
+  },
+  "201a090": {
+    "symbol": "recovered_201a090",
+    "original": "__ZN2wm3png12_GLOBAL__N_116alpha_over_pixelEPhPKh"
+  },
+  "204a6d0": {
+    "symbol": "recovered_204a6d0",
+    "original": "_ws_execute_block"
+  },
+  "204a3e0": {
+    "symbol": "recovered_204a3e0",
+    "original": "_program_lines_reserve"
+  },
+  "2026d30": {
+    "symbol": "recovered_2026d30",
+    "original": "__ZN2wm6vectorINS_4pairINS_6stringENS0_IhEEEEE7reserveEm"
+  },
+  "200cb00": {
+    "symbol": "recovered_200cb00",
+    "original": "_wmfs_rename"
+  },
+  "202bb50": {
+    "symbol": "recovered_202bb50",
+    "original": "_wm_kernel_program_current_device_id"
+  },
+  "2005e00": {
+    "symbol": "recovered_2005e00",
+    "original": "_wm_platform_mmio_write"
+  },
+  "208b7d0": {
+    "symbol": "recovered_208b7d0",
+    "original": "_wm_kernel_kext_dma_sync"
+  },
+  "20845e0": {
+    "symbol": "recovered_20845e0",
+    "original": "_ws_io_handle_set_read_buffer"
+  },
+  "2052c50": {
+    "symbol": "recovered_2052c50",
+    "original": "_ws_make_table"
+  },
+  "20339a0": {
+    "symbol": "recovered_20339a0",
+    "original": "_fs_load_wmfs_volume"
+  },
+  "20496c0": {
+    "symbol": "recovered_20496c0",
+    "original": "_fat_assign_short_names"
+  },
+  "2026b60": {
+    "symbol": "recovered_2026b60",
+    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE6rehashEm"
+  },
+  "2088ed0": {
+    "symbol": "recovered_2088ed0",
+    "original": "_scheduler_thread_selftest_worker"
+  },
+  "2009b10": {
+    "symbol": "recovered_2009b10",
+    "original": "_wm_platform_qemu_ohci_debug_state"
+  },
+  "2070730": {
+    "symbol": "recovered_2070730",
+    "original": "_ws_make_error_result"
+  },
+  "203d4b0": {
+    "symbol": "recovered_203d4b0",
+    "original": "_fs_free_bytes"
+  },
+  "2053050": {
+    "symbol": "recovered_2053050",
+    "original": "_ws_find_if_branch_or_end"
+  },
+  "2050940": {
+    "symbol": "recovered_2050940",
+    "original": "_ws_free_parameter_names"
+  },
+  "2026620": {
+    "symbol": "recovered_2026620",
+    "original": "__ZN12_GLOBAL__N_112Type1Backend18decrypt_charstringERKN2wm6vectorIhEEi"
+  },
+  "201d9a0": {
+    "symbol": "recovered_201d9a0",
+    "original": "__ZN2wm3png12_GLOBAL__N_117jpeg_encode_blockERNS1_13JpegBitWriterERKNS_5arrayIiLm64EEERiRKNS1_15JpegEncodeTableESB_"
+  },
+  "20005e7": {
+    "symbol": "recovered_20005e7",
+    "original": "_wm_probe_set_video_mode13"
+  },
+  "2030ae0": {
+    "symbol": "recovered_2030ae0",
+    "original": "_kernel_app_window_fill_info"
+  },
+  "2009a50": {
+    "symbol": "recovered_2009a50",
+    "original": "_wm_platform_qemu_usb_probe_counts"
+  },
+  "2026330": {
+    "symbol": "recovered_2026330",
+    "original": "__ZNK12_GLOBAL__N_112Type1Backend12units_per_emEv"
+  },
+  "200ab60": {
+    "symbol": "recovered_200ab60",
+    "original": "_wm_platform_msr_write"
+  },
+  "201a190": {
+    "symbol": "recovered_201a190",
+    "original": "__ZN2wm6vectorIyEC1Em"
+  },
+  "2027800": {
+    "symbol": "recovered_2027800",
+    "original": "_wm_media_wav_decode_memory"
+  },
+  "20847a0": {
+    "symbol": "recovered_20847a0",
+    "original": "_ws_set_local_variable_in_frame"
+  },
+  "203f430": {
+    "symbol": "recovered_203f430",
+    "original": "_wmfs64_write_chain_bytes"
+  },
+  "2046c30": {
+    "symbol": "recovered_2046c30",
+    "original": "_cpu_query_deterministic_cache_leaf"
+  },
+  "20714a0": {
+    "symbol": "recovered_20714a0",
+    "original": "_ws_make_script_function_from_lines"
+  },
+  "2084950": {
+    "symbol": "recovered_2084950",
+    "original": "_ws_vararg_frame_copy"
+  },
+  "2084660": {
+    "symbol": "recovered_2084660",
+    "original": "_ws_decay_task_push_block"
+  },
+  "200cdb0": {
+    "symbol": "recovered_200cdb0",
+    "original": "_wmfs_register_virtual_file"
+  },
+  "202c3f0": {
+    "symbol": "recovered_202c3f0",
+    "original": "_wm_kernel_program_stat_file_on_device"
+  },
+  "200b3c0": {
+    "symbol": "recovered_200b3c0",
+    "original": "_platform_bios_find_rsdp_in_range"
+  },
+  "208bb70": {
+    "symbol": "recovered_208bb70",
+    "original": "_ws_execute_block.cold.1"
+  },
+  "203eb40": {
+    "symbol": "recovered_203eb40",
+    "original": "_wmfs64_write_file_entry"
+  },
+  "202f280": {
+    "symbol": "recovered_202f280",
+    "original": "_scheduler_create_task"
+  },
+  "2052cb0": {
+    "symbol": "recovered_2052cb0",
+    "original": "_ws_get_indexed_value_mutable"
+  },
+  "202deb0": {
+    "symbol": "recovered_202deb0",
+    "original": "_wm_kernel_program_launch_file"
+  },
+  "200d2f0": {
+    "symbol": "recovered_200d2f0",
+    "original": "___cxa_allocate_exception"
+  },
+  "20559a0": {
+    "symbol": "recovered_20559a0",
+    "original": "_ws_parse_comparison"
+  },
+  "2041900": {
+    "symbol": "recovered_2041900",
+    "original": "_fs_append_loaded_entry"
+  },
+  "2080960": {
+    "symbol": "recovered_2080960",
+    "original": "_installer_create_target_partition"
+  },
+  "200d1b0": {
+    "symbol": "recovered_200d1b0",
+    "original": "__ZdlPvm"
+  },
+  "2071790": {
+    "symbol": "recovered_2071790",
+    "original": "_show_help_summary"
+  },
+  "202ebf0": {
+    "symbol": "recovered_202ebf0",
+    "original": "_console_logf"
+  },
+  "2080650": {
+    "symbol": "recovered_2080650",
+    "original": "_installer_find_named_source"
+  },
+  "20211d0": {
+    "symbol": "recovered_20211d0",
+    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend15metric_roundingEv"
+  },
+  "2041e20": {
+    "symbol": "recovered_2041e20",
+    "original": "_ext_read_inode"
+  },
+  "2058930": {
+    "symbol": "recovered_2058930",
+    "original": "_ws_parse_table_literal_simple_key"
+  },
+  "200d050": {
+    "symbol": "recovered_200d050",
+    "original": "__Znwm"
+  },
+  "200d540": {
+    "symbol": "recovered_200d540",
+    "original": "__ZL15continue_unwindP21WinterExceptionHeader"
+  },
+  "2055100": {
+    "symbol": "recovered_2055100",
+    "original": "_ws_array_push_copy"
+  },
+  "206af90": {
+    "symbol": "recovered_206af90",
+    "original": "_ws_builtin_device"
+  },
+  "208b680": {
+    "symbol": "recovered_208b680",
+    "original": "_wm_kernel_kext_mmio_map"
+  },
+  "2020120": {
+    "symbol": "recovered_2020120",
+    "original": "__ZN2wm6vectorIN12_GLOBAL__N_110LineLayoutEED1Ev"
+  },
+  "2001170": {
+    "symbol": "recovered_2001170",
+    "original": "___lshrdi3"
+  },
+  "2002860": {
+    "symbol": "recovered_2002860",
+    "original": "_fmodf"
+  },
+  "20837e0": {
+    "symbol": "recovered_20837e0",
+    "original": "_driver_read_pci_function"
+  },
+  "2074a00": {
+    "symbol": "recovered_2074a00",
+    "original": "_wm_kernel_kext_configure_driver_graphics"
+  },
+  "200d600": {
+    "symbol": "recovered_200d600",
+    "original": "__Unwind_Resume"
+  },
+  "2030790": {
+    "symbol": "recovered_2030790",
+    "original": "_kernel_app_window_find"
+  },
+  "2083ae0": {
+    "symbol": "recovered_2083ae0",
+    "original": "_ws_string_builder_appendf"
+  },
+  "2078b00": {
+    "symbol": "recovered_2078b00",
+    "original": "_storage_defragment_device_by_id"
+  },
+  "2020360": {
+    "symbol": "recovered_2020360",
+    "original": "__ZN12_GLOBAL__N_115TrueTypeBackendD0Ev"
+  },
+  "2030e80": {
+    "symbol": "recovered_2030e80",
+    "original": "_wm_kernel_program_app_window_menu_command"
+  },
+  "2074600": {
+    "symbol": "recovered_2074600",
+    "original": "_ws_table_set_uint32_field"
+  },
+  "2003b00": {
+    "symbol": "recovered_2003b00",
+    "original": "_wm_platform_firmware_peer"
+  },
+  "200d700": {
+    "symbol": "recovered_200d700",
+    "original": "_isdigit"
+  },
+  "205af30": {
+    "symbol": "recovered_205af30",
+    "original": "_ws_value_list_push_call_argument"
+  },
+  "2001070": {
+    "symbol": "recovered_2001070",
+    "original": "_wm_probe_heap_total_bytes64"
+  },
+  "2020c30": {
+    "symbol": "recovered_2020c30",
+    "original": "__ZN12_GLOBAL__N_115TrueTypeBackend9rasterizeEjd"
+  },
+  "2056910": {
+    "symbol": "recovered_2056910",
+    "original": "_ws_parse_unary"
+  },
+  "207ce50": {
+    "symbol": "recovered_207ce50",
+    "original": "_installer_token_is_safe"
+  },
+  "2043bf0": {
+    "symbol": "recovered_2043bf0",
+    "original": "_macho_read64_ordered"
+  },
+  "201a770": {
+    "symbol": "recovered_201a770",
+    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater19inflate_zlib_streamERKNS_6vectorIhEERS4_"
+  },
+  "2001ba0": {
+    "symbol": "recovered_2001ba0",
+    "original": "_isblank"
+  },
+  "20201e0": {
+    "symbol": "recovered_20201e0",
+    "original": "__Z16wm_ttf_font_freePv"
+  },
+  "2080a50": {
+    "symbol": "recovered_2080a50",
+    "original": "_installer_clone_source_to_target"
+  },
+  "200d0b0": {
+    "symbol": "recovered_200d0b0",
+    "original": "__ZdlPv"
+  },
+  "2043c10": {
+    "symbol": "recovered_2043c10",
+    "original": "_macho_parse_dylib_name_command"
+  },
+  "20232f0": {
+    "symbol": "recovered_20232f0",
+    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEEixERKj"
+  },
+  "20033b0": {
+    "symbol": "recovered_20033b0",
+    "original": "_vsnprintf"
+  },
+  "2075fc0": {
+    "symbol": "recovered_2075fc0",
+    "original": "_storage_build_partition_geometry"
+  },
+  "20027b0": {
+    "symbol": "recovered_20027b0",
+    "original": "___floatdidf"
+  },
+  "2043f00": {
+    "symbol": "recovered_2043f00",
+    "original": "_macho_load_dependencies"
+  },
+  "20759e0": {
+    "symbol": "recovered_20759e0",
+    "original": "_bitmap_font_load_asset_bytes"
+  },
+  "20552c0": {
+    "symbol": "recovered_20552c0",
+    "original": "_ws_array_reserve_capacity"
+  },
+  "20024f0": {
+    "symbol": "recovered_20024f0",
+    "original": "_cos"
+  },
+  "200d3f0": {
+    "symbol": "recovered_200d3f0",
+    "original": "__ZL15raise_exceptionP21WinterExceptionHeader"
+  },
+  "2026380": {
+    "symbol": "recovered_2026380",
+    "original": "__ZN2wm6stringD1Ev"
+  },
+  "202aa90": {
+    "symbol": "recovered_202aa90",
+    "original": "_wm_kernel_host_log"
+  },
+  "204ff60": {
+    "symbol": "recovered_204ff60",
+    "original": "_ws_errorf"
+  },
+  "2082a70": {
+    "symbol": "recovered_2082a70",
+    "original": "_driver_log_loaded_image"
+  },
+  "2007780": {
+    "symbol": "recovered_2007780",
+    "original": "_wm_platform_wait_microseconds"
+  },
+  "2023ff0": {
+    "symbol": "recovered_2023ff0",
+    "original": "__ZN12_GLOBAL__N_127flatten_quadratic_recursiveERNS_14OutlineBuilderERKNS_5PointES4_S4_i"
+  },
+  "20025b0": {
+    "symbol": "recovered_20025b0",
+    "original": "___fixdfdi"
+  },
+  "200d7c0": {
+    "symbol": "recovered_200d7c0",
+    "original": "_wm_math_isfinitel"
+  },
+  "2035110": {
+    "symbol": "recovered_2035110",
+    "original": "_kernel_driver_pointer_state"
+  },
+  "2006690": {
+    "symbol": "recovered_2006690",
+    "original": "_wm_platform_text_clear"
+  },
+  "200d2b0": {
+    "symbol": "recovered_200d2b0",
+    "original": "___cxa_atexit"
+  },
+  "2041530": {
+    "symbol": "recovered_2041530",
+    "original": "_exfat_load_directory_from_buffer"
+  },
+  "2076ba0": {
+    "symbol": "recovered_2076ba0",
+    "original": "_storage_wipe_device_by_id"
+  },
+  "2002b50": {
+    "symbol": "recovered_2002b50",
     "original": "_trunc"
   },
-  "2f388": {
-    "symbol": "recovered_2f388",
-    "original": "__ZN2wm6vectorItEC2Em"
+  "200d350": {
+    "symbol": "recovered_200d350",
+    "original": "__ZL18object_from_headerP21WinterExceptionHeader"
+  },
+  "2075340": {
+    "symbol": "recovered_2075340",
+    "original": "_ws_make_raw_copy"
+  },
+  "2002450": {
+    "symbol": "recovered_2002450",
+    "original": "_sin"
+  },
+  "2074250": {
+    "symbol": "recovered_2074250",
+    "original": "_ws_builtin_io_handle_write"
+  },
+  "200de50": {
+    "symbol": "recovered_200de50",
+    "original": "__ZN2wm3png13detect_formatEPKhm"
+  },
+  "2003c40": {
+    "symbol": "recovered_2003c40",
+    "original": "_wm_platform_query_storage_tuning"
+  },
+  "2080bb0": {
+    "symbol": "recovered_2080bb0",
+    "original": "_installer_patch_wmfs32_available_sectors"
+  },
+  "2001a60": {
+    "symbol": "recovered_2001a60",
+    "original": "_memset"
+  },
+  "2055820": {
+    "symbol": "recovered_2055820",
+    "original": "_ws_parse_equality"
+  },
+  "20405e0": {
+    "symbol": "recovered_20405e0",
+    "original": "_storage_copy_boot_fallback_file"
+  },
+  "2059100": {
+    "symbol": "recovered_2059100",
+    "original": "_ws_token_looks_numeric"
+  },
+  "2058f10": {
+    "symbol": "recovered_2058f10",
+    "original": "_ws_parse_int_literal"
+  },
+  "208b090": {
+    "symbol": "recovered_208b090",
+    "original": "_wm_kernel_kext_wait_microseconds"
+  },
+  "2054f50": {
+    "symbol": "recovered_2054f50",
+    "original": "_ws_execute_expression_line"
+  },
+  "203bfb0": {
+    "symbol": "recovered_203bfb0",
+    "original": "_textmode_cache_resize"
+  },
+  "200d500": {
+    "symbol": "recovered_200d500",
+    "original": "__Unwind_SjLj_RaiseException"
+  },
+  "2003e10": {
+    "symbol": "recovered_2003e10",
+    "original": "_wm_platform_pci_config_write"
+  },
+  "203fe90": {
+    "symbol": "recovered_203fe90",
+    "original": "_fs_path_existing_kind"
+  },
+  "207be00": {
+    "symbol": "recovered_207be00",
+    "original": "_storage_copy_sectors_between_devices"
+  },
+  "2074400": {
+    "symbol": "recovered_2074400",
+    "original": "_ws_builtin_io_handle_close"
+  },
+  "2058e50": {
+    "symbol": "recovered_2058e50",
+    "original": "_ws_decode_string_literal"
+  },
+  "20807f0": {
+    "symbol": "recovered_20807f0",
+    "original": "_installer_wbpt_entry_name_equals"
+  },
+  "2001130": {
+    "symbol": "recovered_2001130",
+    "original": "___ashldi3"
+  },
+  "2001c20": {
+    "symbol": "recovered_2001c20",
+    "original": "_strlen"
+  },
+  "2021170": {
+    "symbol": "recovered_2021170",
+    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend6ascentEv"
+  },
+  "207bd00": {
+    "symbol": "recovered_207bd00",
+    "original": "_storage_copy_wbpt_name"
+  },
+  "20147f0": {
+    "symbol": "recovered_20147f0",
+    "original": "__ZN2wm3png19save_png_rgba8_fileEPKcPKhii"
+  },
+  "2076810": {
+    "symbol": "recovered_2076810",
+    "original": "_storage_decode_device_name_text"
+  },
+  "2047d80": {
+    "symbol": "recovered_2047d80",
+    "original": "_storage_copy_device_name_bytes"
+  },
+  "204a090": {
+    "symbol": "recovered_204a090",
+    "original": "_fat_is_valid_short_char"
+  },
+  "207a270": {
+    "symbol": "recovered_207a270",
+    "original": "_storage_create_wbpt_partition"
+  },
+  "2000d60": {
+    "symbol": "recovered_2000d60",
+    "original": "_wm_probe_heap_reset"
+  },
+  "2079140": {
+    "symbol": "recovered_2079140",
+    "original": "_storage_partition_minimum_sectors"
+  },
+  "2084e80": {
+    "symbol": "recovered_2084e80",
+    "original": "_ws_is_function_block_tokens"
+  },
+  "2076170": {
+    "symbol": "recovered_2076170",
+    "original": "_storage_fs_type_from_text"
+  },
+  "200d870": {
+    "symbol": "recovered_200d870",
+    "original": "_strtoull"
+  },
+  "201cdc0": {
+    "symbol": "recovered_201cdc0",
+    "original": "__ZN2wm6vectorINS_3png12_GLOBAL__N_19ParsedPng5FrameEE9push_backERKS4_"
+  },
+  "2003b40": {
+    "symbol": "recovered_2003b40",
+    "original": "_wm_platform_firmware_node_path"
+  },
+  "2002f40": {
+    "symbol": "recovered_2002f40",
+    "original": "_strtol"
+  },
+  "20188a0": {
+    "symbol": "recovered_20188a0",
+    "original": "__ZN2wm6vectorIhEC1Em"
+  },
+  "2075240": {
+    "symbol": "recovered_2075240",
+    "original": "_ws_table_set_string_field"
+  },
+  "207c050": {
+    "symbol": "recovered_207c050",
+    "original": "_storage_update_partition_geometry"
+  },
+  "20781b0": {
+    "symbol": "recovered_20781b0",
+    "original": "_storage_create_partition_by_id"
+  },
+  "20795b0": {
+    "symbol": "recovered_20795b0",
+    "original": "_storage_fill_random_guid"
+  },
+  "207b5b0": {
+    "symbol": "recovered_207b5b0",
+    "original": "_storage_partition_name_from_kind"
+  },
+  "200d3b0": {
+    "symbol": "recovered_200d3b0",
+    "original": "___cxa_throw"
+  },
+  "2034b10": {
+    "symbol": "recovered_2034b10",
+    "original": "_graphics_rebuild_canvas_mapping"
+  },
+  "205bbf0": {
+    "symbol": "recovered_205bbf0",
+    "original": "_ws_value_to_owned_string"
+  },
+  "205c0f0": {
+    "symbol": "recovered_205c0f0",
+    "original": "_decode_string_token"
+  },
+  "2003cc0": {
+    "symbol": "recovered_2003cc0",
+    "original": "_wm_platform_io_port_read"
+  },
+  "20766e0": {
+    "symbol": "recovered_20766e0",
+    "original": "_storage_mount_device_by_id"
+  },
+  "202f6a0": {
+    "symbol": "recovered_202f6a0",
+    "original": "_wm_kernel_program_thread_yield"
+  },
+  "20777d0": {
+    "symbol": "recovered_20777d0",
+    "original": "_storage_create_partition_table_by_id"
+  },
+  "2001be0": {
+    "symbol": "recovered_2001be0",
+    "original": "_tolower"
+  },
+  "2050e90": {
+    "symbol": "recovered_2050e90",
+    "original": "_ws_create_script_function_take_ownership"
+  },
+  "20555c0": {
+    "symbol": "recovered_20555c0",
+    "original": "_ws_parse_and"
+  },
+  "2042f40": {
+    "symbol": "recovered_2042f40",
+    "original": "_macho_select_i386_image"
+  },
+  "20588a0": {
+    "symbol": "recovered_20588a0",
+    "original": "_ws_table_literal_set_entry"
+  },
+  "2003af0": {
+    "symbol": "recovered_2003af0",
+    "original": "_wm_platform_firmware_child"
+  },
+  "2001cd0": {
+    "symbol": "recovered_2001cd0",
+    "original": "_strcpy"
+  },
+  "2036460": {
+    "symbol": "recovered_2036460",
+    "original": "_is_monitor_command_line"
+  },
+  "2080e10": {
+    "symbol": "recovered_2080e10",
+    "original": "_installer_restore_saved_files"
+  },
+  "2043d10": {
+    "symbol": "recovered_2043d10",
+    "original": "_macho_load_image_segments"
+  },
+  "200d2c0": {
+    "symbol": "recovered_200d2c0",
+    "original": "___cxa_guard_acquire"
+  },
+  "2007a90": {
+    "symbol": "recovered_2007a90",
+    "original": "_wm_platform_read_drive_bytes"
+  },
+  "203b820": {
+    "symbol": "recovered_203b820",
+    "original": "_textmode_present_grid"
+  },
+  "2019340": {
+    "symbol": "recovered_2019340",
+    "original": "__ZN2wm6vectorIyE9push_backERKy"
+  },
+  "2074d40": {
+    "symbol": "recovered_2074d40",
+    "original": "_graphics_present_canvas_pixel"
+  },
+  "2089080": {
+    "symbol": "recovered_2089080",
+    "original": "_command_log_ws_value"
+  },
+  "2066080": {
+    "symbol": "recovered_2066080",
+    "original": "_ws_require_graphics_canvas"
+  },
+  "2018eb0": {
+    "symbol": "recovered_2018eb0",
+    "original": "__ZN2wm6vectorINS_3png12_GLOBAL__N_113JpegComponentEE9push_backERKS3_"
+  },
+  "203b9e0": {
+    "symbol": "recovered_203b9e0",
+    "original": "_draw_text_n"
+  },
+  "20377d0": {
+    "symbol": "recovered_20377d0",
+    "original": "_run_immediate_script"
+  },
+  "208b080": {
+    "symbol": "recovered_208b080",
+    "original": "_wm_kernel_kext_ticks"
+  },
+  "20418b0": {
+    "symbol": "recovered_20418b0",
+    "original": "_bitmap_font_reset_for_filesystem"
+  },
+  "20157f0": {
+    "symbol": "recovered_20157f0",
+    "original": "__ZN2wm3png19save_tga_rgba8_fileEPKcPKhii"
+  },
+  "200d510": {
+    "symbol": "recovered_200d510",
+    "original": "__Unwind_SjLj_ForcedUnwind"
+  },
+  "2055150": {
+    "symbol": "recovered_2055150",
+    "original": "_ws_array_resize"
+  },
+  "2055b40": {
+    "symbol": "recovered_2055b40",
+    "original": "_ws_apply_binary_op"
+  },
+  "203b0c0": {
+    "symbol": "recovered_203b0c0",
+    "original": "_present_surface"
+  },
+  "2075c00": {
+    "symbol": "recovered_2075c00",
+    "original": "_storage_query_mounted_device_space_by_id"
+  },
+  "204a490": {
+    "symbol": "recovered_204a490",
+    "original": "_program_lines_free"
+  },
+  "200d000": {
+    "symbol": "recovered_200d000",
+    "original": "___clang_call_terminate"
+  },
+  "2046280": {
+    "symbol": "recovered_2046280",
+    "original": "_macho_write_bound_value"
+  },
+  "2046a90": {
+    "symbol": "recovered_2046a90",
+    "original": "_scheduler_begin_parallel_space"
+  },
+  "2001b30": {
+    "symbol": "recovered_2001b30",
+    "original": "_isupper"
+  },
+  "206f4e0": {
+    "symbol": "recovered_206f4e0",
+    "original": "_ws_builtin_gsub"
+  },
+  "2001f20": {
+    "symbol": "recovered_2001f20",
+    "original": "_ldexp"
+  },
+  "203f790": {
+    "symbol": "recovered_203f790",
+    "original": "_wmfs64_sync_directory_and_metadata"
+  },
+  "2003d00": {
+    "symbol": "recovered_2003d00",
+    "original": "_wm_platform_io_port_write"
+  },
+  "2075110": {
+    "symbol": "recovered_2075110",
+    "original": "_fs_format_directory_prompt"
+  },
+  "2037ee0": {
+    "symbol": "recovered_2037ee0",
+    "original": "_wm_winterboot_main"
+  },
+  "203abe0": {
+    "symbol": "recovered_203abe0",
+    "original": "_scheduler_smp_worker"
+  },
+  "2000d70": {
+    "symbol": "recovered_2000d70",
+    "original": "_wm_probe_heap_init"
+  },
+  "200d750": {
+    "symbol": "recovered_200d750",
+    "original": "_isxdigit"
+  },
+  "200dd40": {
+    "symbol": "recovered_200dd40",
+    "original": "__ZL20read_encoded_pointerhPPKh"
+  },
+  "2083ea0": {
+    "symbol": "recovered_2083ea0",
+    "original": "_ws_decay_task_clear_frames"
+  },
+  "2023510": {
+    "symbol": "recovered_2023510",
+    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE6rehashEm"
+  },
+  "2002c40": {
+    "symbol": "recovered_2002c40",
+    "original": "_sqrtf"
+  },
+  "2081550": {
+    "symbol": "recovered_2081550",
+    "original": "_driver_format_device_tree_prompt"
+  },
+  "2041b20": {
+    "symbol": "recovered_2041b20",
+    "original": "_ext_load_directory_inode"
+  },
+  "2071580": {
+    "symbol": "recovered_2071580",
+    "original": "_ws_clear_decay_task"
+  },
+  "2002bc0": {
+    "symbol": "recovered_2002bc0",
+    "original": "_truncf"
+  },
+  "20753b0": {
+    "symbol": "recovered_20753b0",
+    "original": "_ws_join_argument_text_alloc"
+  },
+  "2015450": {
+    "symbol": "recovered_2015450",
+    "original": "__ZN2wm3png15save_rgba8_fileEPKcPKhii"
+  },
+  "202daf0": {
+    "symbol": "recovered_202daf0",
+    "original": "_wm_kernel_program_ttf_load_file_on_device"
+  },
+  "201a230": {
+    "symbol": "recovered_201a230",
+    "original": "__ZN2wm3png12_GLOBAL__N_119xcf_decode_rle_tileEPKhmjjRNS_6vectorIhEE"
+  },
+  "207afe0": {
+    "symbol": "recovered_207afe0",
+    "original": "_storage_kind_is_hfs"
+  },
+  "207a5d0": {
+    "symbol": "recovered_207a5d0",
+    "original": "_storage_create_apm_partition"
+  },
+  "200d5f0": {
+    "symbol": "recovered_200d5f0",
+    "original": "___gxx_personality_v0"
+  },
+  "2074bf0": {
+    "symbol": "recovered_2074bf0",
+    "original": "_ws_write_tundra_resolution_config"
+  },
+  "207bef0": {
+    "symbol": "recovered_207bef0",
+    "original": "_storage_copy_drive_sectors"
+  },
+  "205a9c0": {
+    "symbol": "recovered_205a9c0",
+    "original": "_ws_make_builtin_function_value"
+  },
+  "202c990": {
+    "symbol": "recovered_202c990",
+    "original": "_wm_kernel_program_write_file_on_device"
+  },
+  "2027380": {
+    "symbol": "recovered_2027380",
+    "original": "__ZN2wm13unordered_mapIjN12_GLOBAL__N_111GlyphBitmapENS_4hashIjEENS_8equal_toIjEEE6rehashEm"
+  },
+  "2050180": {
+    "symbol": "recovered_2050180",
+    "original": "_ws_tokenize_line"
+  },
+  "202f1a0": {
+    "symbol": "recovered_202f1a0",
+    "original": "_wm_kernel_program_thread_create"
+  },
+  "2018d10": {
+    "symbol": "recovered_2018d10",
+    "original": "__ZN2wm3png12_GLOBAL__N_124build_jpeg_huffman_tableEPKhS3_mRNS1_16JpegHuffmanTableE"
+  },
+  "2001ee0": {
+    "symbol": "recovered_2001ee0",
+    "original": "_setlocale"
+  },
+  "200d4b0": {
+    "symbol": "recovered_200d4b0",
+    "original": "__Unwind_SjLj_Register"
+  },
+  "200e0b0": {
+    "symbol": "recovered_200e0b0",
+    "original": "__ZN2wm3png11load_memoryEPKhmRNS0_5ImageE"
+  },
+  "2042c10": {
+    "symbol": "recovered_2042c10",
+    "original": "_scheduler_release_address_space"
+  },
+  "2042000": {
+    "symbol": "recovered_2042000",
+    "original": "_ext_load_inode_data"
+  },
+  "207cec0": {
+    "symbol": "recovered_207cec0",
+    "original": "_installer_firmware_uses_partitioned_layout"
+  },
+  "2036130": {
+    "symbol": "recovered_2036130",
+    "original": "_handle_program_buffer_input"
+  },
+  "2041330": {
+    "symbol": "recovered_2041330",
+    "original": "_bitmap_font_unload"
+  },
+  "203ad30": {
+    "symbol": "recovered_203ad30",
+    "original": "_storage_mount_drivers_partition"
+  },
+  "20211e0": {
+    "symbol": "recovered_20211e0",
+    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend12assign_tableEjRNS_11TableRecordE"
+  },
+  "201a660": {
+    "symbol": "recovered_201a660",
+    "original": "__ZN2wm6vectorIhE6insertIPKhvEEPhS4_T_S6_"
+  },
+  "2019040": {
+    "symbol": "recovered_2019040",
+    "original": "__ZN2wm6vectorIjE9push_backEOj"
+  },
+  "2088d90": {
+    "symbol": "recovered_2088d90",
+    "original": "_ws_append_u32_le"
+  },
+  "201cfb0": {
+    "symbol": "recovered_201cfb0",
+    "original": "__ZN2wm6vectorINS_3png12_GLOBAL__N_18ByteSpanEE9push_backERKS3_"
+  },
+  "2002740": {
+    "symbol": "recovered_2002740",
+    "original": "___floatundidf"
+  },
+  "201bbb0": {
+    "symbol": "recovered_201bbb0",
+    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater9BitReader9read_bitsEjRj"
+  },
+  "2001b70": {
+    "symbol": "recovered_2001b70",
+    "original": "_isalnum"
+  },
+  "205c920": {
+    "symbol": "recovered_205c920",
+    "original": "_ws_call_builtin"
+  },
+  "205c040": {
+    "symbol": "recovered_205c040",
+    "original": "_ws_string_builder_append"
+  },
+  "2002400": {
+    "symbol": "recovered_2002400",
+    "original": "_llround"
+  },
+  "200d610": {
+    "symbol": "recovered_200d610",
+    "original": "___dynamic_cast"
+  },
+  "2022c40": {
+    "symbol": "recovered_2022c40",
+    "original": "__ZN12_GLOBAL__N_117rasterize_outlineERKNS_14OutlineBuilderEd"
+  },
+  "203f590": {
+    "symbol": "recovered_203f590",
+    "original": "_wmfs64_sync_single_directory_entry_and_metadata"
+  },
+  "20815f0": {
+    "symbol": "recovered_20815f0",
+    "original": "_driver_build_device_tree"
+  },
+  "200d820": {
+    "symbol": "recovered_200d820",
+    "original": "_round"
+  },
+  "2042ec0": {
+    "symbol": "recovered_2042ec0",
+    "original": "_scheduler_restore_after_process_load"
+  },
+  "2003b10": {
+    "symbol": "recovered_2003b10",
+    "original": "_wm_platform_firmware_parent"
+  },
+  "2001570": {
+    "symbol": "recovered_2001570",
+    "original": "_abs"
+  },
+  "2056630": {
+    "symbol": "recovered_2056630",
+    "original": "_ws_parse_multiplicative"
+  },
+  "207c960": {
+    "symbol": "recovered_207c960",
+    "original": "_installer_firmware_is_supported"
+  },
+  "2074040": {
+    "symbol": "recovered_2074040",
+    "original": "_ws_builtin_io_handle_read"
+  },
+  "2066280": {
+    "symbol": "recovered_2066280",
+    "original": "_ws_builtin_poke"
+  },
+  "207bd50": {
+    "symbol": "recovered_207bd50",
+    "original": "_storage_drive_is_writable"
+  },
+  "2089280": {
+    "symbol": "recovered_2089280",
+    "original": "_ws_try_execute_top_level_call"
+  },
+  "20567d0": {
+    "symbol": "recovered_20567d0",
+    "original": "_ws_parse_power"
+  },
+  "20586f0": {
+    "symbol": "recovered_20586f0",
+    "original": "_ws_table_find_index"
+  },
+  "2006480": {
+    "symbol": "recovered_2006480",
+    "original": "_platform_efi_framebuffer_physical"
+  },
+  "2083470": {
+    "symbol": "recovered_2083470",
+    "original": "_wm_kernel_kext_firmware_register_info"
+  },
+  "2018310": {
+    "symbol": "recovered_2018310",
+    "original": "__ZN2wm3png19save_rei_rgba8_fileEPKcPKhii"
+  },
+  "20012e0": {
+    "symbol": "recovered_20012e0",
+    "original": "___umoddi3"
+  },
+  "2001ad0": {
+    "symbol": "recovered_2001ad0",
+    "original": "_memcmp"
+  },
+  "2018930": {
+    "symbol": "recovered_2018930",
+    "original": "__ZN2wm3png12_GLOBAL__N_119scale_masked_sampleEjj"
+  },
+  "200d6f0": {
+    "symbol": "recovered_200d6f0",
+    "original": "__tlv_bootstrap"
+  },
+  "2042240": {
+    "symbol": "recovered_2042240",
+    "original": "_ext_read_block"
+  },
+  "2014500": {
+    "symbol": "recovered_2014500",
+    "original": "__ZN2wm3png12_GLOBAL__N_19ParsedPngD1Ev"
+  },
+  "2019820": {
+    "symbol": "recovered_2019820",
+    "original": "__ZN2wm3png12_GLOBAL__N_123xcf_decode_layer_pixelsEPKhmRKNS1_12XcfImageInfoERKNS1_12XcfLayerInfoERNS_6vectorIhEE"
+  },
+  "2042d40": {
+    "symbol": "recovered_2042d40",
+    "original": "_macho_load_and_link_image"
   }
 }

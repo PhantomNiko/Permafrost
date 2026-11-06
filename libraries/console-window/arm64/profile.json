@@ -1,7 +1,7 @@
 {
   "module": "WinterBootWindow",
   "architecture": "arm64",
-  "version": "0.8",
+  "version": "0.9",
   "install_name": "/lib/WinterBootWindow.dylib",
   "functions": {
     "2e74": "recovered_10002e74",

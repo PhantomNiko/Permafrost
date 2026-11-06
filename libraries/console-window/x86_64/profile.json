@@ -1,7 +1,7 @@
 {
   "module": "WinterBootWindow",
   "architecture": "x86_64",
-  "version": "0.8",
+  "version": "0.9",
   "install_name": "/lib/WinterBootWindow.dylib",
   "functions": {
     "1fbd": "recovered_10001fbd",

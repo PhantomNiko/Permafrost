@@ -1,7 +1,7 @@
 {
   "module": "WinterScript",
   "architecture": "x86_64",
-  "version": "0.8",
+  "version": "0.9",
   "install_name": "/lib/WinterScript.dylib",
   "functions": {
     "30078": "recovered_10030078",

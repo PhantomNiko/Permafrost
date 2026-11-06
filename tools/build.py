@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build Permafrost 0.8 BIOS/UEFI images and the macOS 15 SDK from C/C++."""
+"""Build Permafrost 0.9 BIOS/UEFI images and the macOS 15 SDK from C/C++."""
 import argparse
 import hashlib
 import json
@@ -57,7 +57,7 @@ def main():
         for arch in ARCHITECTURES:
             source=Path('libraries',directory,arch)
             profile=json.loads((source/'profile.json').read_text())
-            if profile['version']!='0.8':raise ValueError('library does not target the current release')
+            if profile['version']!='0.9':raise ValueError('library does not target the current release')
             slices.append(build_library(source,output/'libraries'/directory/arch).read_bytes())
         libraries[profile['module']+'.dylib']=universal(slices)
     files={p.name:p.read_bytes()for p in Path('assets').iterdir()
@@ -84,13 +84,13 @@ def main():
         efi_disk=repack_image(efi_disk,volume,partition)
     uefi=make_gpt_disk(make_efi_volume(efi_files),efi_disk)
     results={}
-    for name,image in [('Permafrost-0.8.img',bios),('Permafrost-0.8-UEFI.img',uefi)]:
+    for name,image in [('Permafrost-0.9.img',bios),('Permafrost-0.9-UEFI.img',uefi)]:
         (output/name).write_bytes(image)
         results[name]={'bytes':len(image),'sha256':hashlib.sha256(image).hexdigest()}
         print('Built %s (%d bytes)'%(name,len(image)),flush=True)
     sdk=build_sdk(output,libraries=libraries);archive=sdk.with_suffix('.sdk.zip')
     results[archive.name]={'bytes':archive.stat().st_size,'sha256':hashlib.sha256(archive.read_bytes()).hexdigest()}
-    (output/'release.json').write_text(json.dumps({'version':'0.8','reference_version':'0.9',
+    (output/'release.json').write_text(json.dumps({'version':'0.9','reference_version':'0.10','reference_release':'1.0r147-Prerelease',
         'architectures':list(ARCHITECTURES),'artifacts':results},indent=2)+'\n')
 
 

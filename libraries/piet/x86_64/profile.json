@@ -1,7 +1,7 @@
 {
   "module": "WinterPiet",
   "architecture": "x86_64",
-  "version": "0.8",
+  "version": "0.9",
   "install_name": "/lib/WinterPiet.dylib",
   "functions": {
     "3c70": "recovered_10003c70",

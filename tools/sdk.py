@@ -7,7 +7,7 @@ import zipfile
 
 
 def build_sdk(output=Path('build'),libraries=None):
-    root = output / 'Permafrost0.8.sdk'
+    root = output / 'Permafrost0.9.sdk'
     # Recreate this generated bundle so removed notices/tools cannot survive
     # from an earlier build and leak into the new archive.
     if root.exists():
@@ -37,13 +37,13 @@ def build_sdk(output=Path('build'),libraries=None):
     if libraries:
         (root/'usr/lib').mkdir(parents=True,exist_ok=True)
         for name,binary in libraries.items():(root/'usr/lib'/name).write_bytes(binary)
-    settings = dict(CanonicalName='permafrost0.8', DisplayName='Permafrost 0.8',
-                    Version='0.8', MaximumDeploymentTarget='0.8',
+    settings = dict(CanonicalName='permafrost0.9', DisplayName='Permafrost 0.9',
+                    Version='0.9', MaximumDeploymentTarget='0.9',
                     DefaultProperties=dict(PLATFORM_NAME='permafrost', ARCHS='i386 x86_64 armv7 arm64'),
                     SupportedTargets=dict(permafrost=dict(Archs=['i386','x86_64','armv7','arm64'])))
     (root / 'SDKSettings.json').write_text(json.dumps(settings, indent=2) + '\n')
     (root / 'README.txt').write_text(
-        'Permafrost 0.8 SDK for macOS 15\n\n'
+        'Permafrost 0.9 SDK for macOS 15\n\n'
         'Requires Python 3 and Apple Command Line Tools (clang/clang++).\n'
         'Compile C: bin/pf-cc Examples/hello.c -o hello\n'
         'Compile C++: bin/pf-cc Examples/nightmode.cpp -o nightmode\n'

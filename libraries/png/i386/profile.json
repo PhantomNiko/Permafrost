@@ -1,7 +1,7 @@
 {
   "module": "WinterPNG",
   "architecture": "i386",
-  "version": "0.8",
+  "version": "0.9",
   "install_name": "/lib/WinterPNG.dylib",
   "functions": {
     "3060": "recovered_10003060",

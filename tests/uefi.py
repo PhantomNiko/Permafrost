@@ -20,7 +20,7 @@ def main():
     parser.add_argument('--firmware',type=Path,required=True)
     parser.add_argument('--vars',type=Path)
     parser.add_argument('--resource-dir',type=Path)
-    parser.add_argument('--sdk',type=Path,default=Path('build/Permafrost0.8.sdk'))
+    parser.add_argument('--sdk',type=Path,default=Path('build/Permafrost0.9.sdk'))
     parser.add_argument('--arch',choices=('i386','x86_64','armv7','arm64'),default='x86_64')
     parser.add_argument('--compiler',type=Path,help='use a source compiler instead of the SDK compiler')
     parser.add_argument('--vm',choices=('lua','rwby','winterscript'))
@@ -108,6 +108,19 @@ def main():
                 while time.monotonic()<deadline and process.poll()is None:
                     output=serial.read_text(errors='replace')if serial.exists()else''
                     complete=(bool(re.search(r'(?m)^(?:@ )*PF-CONSOLE-PASS\r?$',output))if args.command else marker in output)
+                    if 'Synchronous Exception at'in output:
+                        try:
+                            with socket.socket(socket.AF_UNIX,socket.SOCK_STREAM)as control:
+                                control.settimeout(2);control.connect(str(monitor));control.recv(4096)
+                                control.sendall(b'info registers\n');registers=b''
+                                while b'(qemu)'not in registers:
+                                    try:chunk=control.recv(65536)
+                                    except socket.timeout:break
+                                    if not chunk:break
+                                    registers+=chunk
+                                print(registers.decode(errors='replace'),flush=True)
+                        except OSError:pass
+                        break
                     if complete or 'PF-GRAPHICS-FAIL'in output:break
                     if args.command and not sent and 'PF-UEFI-READY'in output:
                         keys={' ':'spc','+':'shift-equal','*':'shift-8','(':'shift-9',')':'shift-0','"':'shift-apostrophe','=':'equal','-':'minus','/':'slash','_':'shift-minus',',':'comma','.':'dot',':':'shift-semicolon',';':'semicolon'}

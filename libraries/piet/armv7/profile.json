@@ -1,7 +1,7 @@
 {
   "module": "WinterPiet",
   "architecture": "armv7",
-  "version": "0.8",
+  "version": "0.9",
   "install_name": "/lib/WinterPiet.dylib",
   "functions": {
     "2f34": "recovered_10002f34",

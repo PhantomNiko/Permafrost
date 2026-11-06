@@ -1,7 +1,7 @@
 {
   "module": "WinterLua",
   "architecture": "arm64",
-  "version": "0.8",
+  "version": "0.9",
   "install_name": "/lib/WinterLua.dylib",
   "functions": {
     "19da0": "recovered_10019da0",

@@ -1,7 +1,7 @@
 {
   "module": "WinterBootWindow",
   "architecture": "i386",
-  "version": "0.8",
+  "version": "0.9",
   "install_name": "/lib/WinterBootWindow.dylib",
   "functions": {
     "311a": "recovered_1000311a",

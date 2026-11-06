@@ -1,7 +1,7 @@
 {
   "module": "WinterPNG",
   "architecture": "arm64",
-  "version": "0.8",
+  "version": "0.9",
   "install_name": "/lib/WinterPNG.dylib",
   "functions": {
     "2460": "recovered_10002460",

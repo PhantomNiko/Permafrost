@@ -1,7 +1,7 @@
 {
   "module": "WinterRwby",
   "architecture": "arm64",
-  "version": "0.8",
+  "version": "0.9",
   "install_name": "/lib/WinterRwby.dylib",
   "functions": {
     "721c": "recovered_1000721c",

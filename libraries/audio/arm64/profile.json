@@ -1,7 +1,7 @@
 {
   "module": "WinterAudio",
   "architecture": "arm64",
-  "version": "0.8",
+  "version": "0.9",
   "install_name": "/lib/WinterAudio.dylib",
   "functions": {
     "4df8": "recovered_10004df8",

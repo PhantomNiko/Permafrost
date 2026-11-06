@@ -1,11 +1,11 @@
-/* Permafrost 0.8 native ABI. Pooka's Free Software License. */
+/* Permafrost 0.9 native ABI. Pooka's Free Software License. */
 #ifndef PERMAFROST_H
 #define PERMAFROST_H
 #include <stdint.h>
 #include <stddef.h>
-#define PF_VERSION "0.8"
+#define PF_VERSION "0.9"
 #define PF_API_MAGIC 0x50414d57U
-#define PF_API_VERSION 11U
+#define PF_API_VERSION 13U
 #if defined(__arm__) || defined(__aarch64__)
 #define PF_NATIVE_LOAD_ADDRESS 0x42000000U
 #define PF_API_ADDRESS 0x40010800U
@@ -19,7 +19,7 @@
 #elif defined(__x86_64__)
 #define PF_KERNEL_BASE 0x2000000U
 #else
-#define PF_KERNEL_BASE 0x20000U
+#define PF_KERNEL_BASE 0x2000000U
 #endif
 #endif
 /* Callback records use native pointers; buffers are borrowed for the call. */
@@ -49,18 +49,33 @@ struct pf_framebuffer_info {
 enum pf_pointer_flags { PF_POINTER_ABSOLUTE=1,PF_POINTER_RELATIVE=2 };
 struct pf_pointer_info { uint32_t flags,buttons; int32_t x,y,wheel; uint32_t reserved,max_x,max_y; };
 /* Window query records carry a 64-bit address on every CPU. */
-struct pf_window_info {
+struct __attribute__((packed,aligned(4))) pf_window_info {
     uint32_t id,owner;
     uint64_t pixels;
     uint32_t size,width,height,stride_bytes,background,flags;
     int32_t x,y;
+    uint32_t menu_sequence,menu_group,menu_item;
     char title[64];
+    char menus[3][160];
 };
+/* Fixed-width records recovered from the v13 service ABI. */
+struct pf_device_info {
+    char description[241],root_path[241];
+    uint32_t sectors,flags,kind,id,format;
+};
+struct pf_hardware_info {
+    uint32_t flags;
+    char cpu_brand[96];
+    uint32_t hardware_threads;
+    uint64_t l1_cache_bytes,l2_cache_bytes,l3_cache_bytes;
+    uint64_t detected_memory_bytes,heap_total_bytes,reserved_memory_bytes,heap_free_bytes;
+};
+enum pf_hardware_flags {PF_HARDWARE_CPUID=1,PF_HARDWARE_CACHE=2,PF_HARDWARE_MEMORY=4};
 static inline void *pf_blob_data(const struct pf_blob *value) { return (void *)(uintptr_t)value->data; }
 static inline void *pf_image_data(const struct pf_image *value) { return (void *)(uintptr_t)((uint64_t)value->data|((uint64_t)value->address_high<<32)); }
 static inline void *pf_window_pixels(const struct pf_window_info *value) { return (void *)(uintptr_t)value->pixels; }
 static inline void *pf_audio_data(const struct pf_audio *value) { return (void *)(uintptr_t)value->data; }
-/* WMAP v11 is exactly 188 bytes. Decode its slots before native calls. */
+/* WMAP v13 is exactly 252 bytes. Decode its slots before native calls. */
 struct pf_native_api {
     uint32_t magic,version,size;
     uint32_t expand_disk;
@@ -107,6 +122,22 @@ struct pf_native_api {
     uint32_t window_configure;
     uint32_t window_query;
     uint32_t hardware_threads;
+    uint32_t current_device_id;
+    uint32_t list_devices;
+    uint32_t target_device;
+    uint32_t stat_file_on_device;
+    uint32_t list_directory_on_device;
+    uint32_t write_file_on_device;
+    uint32_t delete_file_on_device;
+    uint32_t rename_file_on_device;
+    uint32_t create_directory_on_device;
+    uint32_t load_image_on_device;
+    uint32_t load_font_on_device;
+    uint32_t launch_file_on_device;
+    uint32_t window_set_menus;
+    uint32_t window_menu_command;
+    uint32_t shutdown;
+    uint32_t hardware_info;
 };
 struct pf_native_services {
     uint32_t magic,version,size;
@@ -154,6 +185,22 @@ struct pf_native_services {
     pf_status (*window_configure)(uint32_t,int32_t,int32_t,uint32_t,uint32_t);
     pf_status (*window_query)(uint32_t,struct pf_window_info *);
     uint32_t (*hardware_threads)(void);
+    int32_t (*current_device_id)(void);
+    pf_status (*list_devices)(struct pf_device_info *,uint32_t,uint32_t *);
+    pf_status (*target_device)(int32_t);
+    pf_status (*stat_file_on_device)(int32_t,const char *,struct pf_blob *);
+    pf_status (*list_directory_on_device)(int32_t,const char *,char *,uint32_t,uint32_t *);
+    pf_status (*write_file_on_device)(int32_t,const char *,const void *,uint32_t);
+    pf_status (*delete_file_on_device)(int32_t,const char *);
+    pf_status (*rename_file_on_device)(int32_t,const char *,const char *);
+    pf_status (*create_directory_on_device)(int32_t,const char *);
+    pf_status (*load_image_on_device)(int32_t,const char *,struct pf_image *);
+    struct pf_font *(*load_font_on_device)(int32_t,const char *,float);
+    pf_status (*launch_file_on_device)(int32_t,const char *,uint32_t);
+    pf_status (*window_set_menus)(uint32_t,const char *,const char *,const char *);
+    pf_status (*window_menu_command)(uint32_t,uint32_t,uint32_t);
+    void (*shutdown)(void);
+    pf_status (*hardware_info)(struct pf_hardware_info *);
 };
 typedef struct pf_native_services pf_services;
 static inline const struct pf_native_api *pf_wire_api(void) { return (const struct pf_native_api *)(uintptr_t)PF_API_ADDRESS; }
@@ -205,6 +252,22 @@ static inline const struct pf_native_services *pf_api(void) {
     services.window_configure=(__typeof__(services.window_configure))(uintptr_t)wire->window_configure;
     services.window_query=(__typeof__(services.window_query))(uintptr_t)wire->window_query;
     services.hardware_threads=(__typeof__(services.hardware_threads))(uintptr_t)wire->hardware_threads;
+    services.current_device_id=(__typeof__(services.current_device_id))(uintptr_t)wire->current_device_id;
+    services.list_devices=(__typeof__(services.list_devices))(uintptr_t)wire->list_devices;
+    services.target_device=(__typeof__(services.target_device))(uintptr_t)wire->target_device;
+    services.stat_file_on_device=(__typeof__(services.stat_file_on_device))(uintptr_t)wire->stat_file_on_device;
+    services.list_directory_on_device=(__typeof__(services.list_directory_on_device))(uintptr_t)wire->list_directory_on_device;
+    services.write_file_on_device=(__typeof__(services.write_file_on_device))(uintptr_t)wire->write_file_on_device;
+    services.delete_file_on_device=(__typeof__(services.delete_file_on_device))(uintptr_t)wire->delete_file_on_device;
+    services.rename_file_on_device=(__typeof__(services.rename_file_on_device))(uintptr_t)wire->rename_file_on_device;
+    services.create_directory_on_device=(__typeof__(services.create_directory_on_device))(uintptr_t)wire->create_directory_on_device;
+    services.load_image_on_device=(__typeof__(services.load_image_on_device))(uintptr_t)wire->load_image_on_device;
+    services.load_font_on_device=(__typeof__(services.load_font_on_device))(uintptr_t)wire->load_font_on_device;
+    services.launch_file_on_device=(__typeof__(services.launch_file_on_device))(uintptr_t)wire->launch_file_on_device;
+    services.window_set_menus=(__typeof__(services.window_set_menus))(uintptr_t)wire->window_set_menus;
+    services.window_menu_command=(__typeof__(services.window_menu_command))(uintptr_t)wire->window_menu_command;
+    services.shutdown=(__typeof__(services.shutdown))(uintptr_t)wire->shutdown;
+    services.hardware_info=(__typeof__(services.hardware_info))(uintptr_t)wire->hardware_info;
     return &services;
 }
 static inline int pf_expand_disk(void) { return pf_api()->expand_disk(); }

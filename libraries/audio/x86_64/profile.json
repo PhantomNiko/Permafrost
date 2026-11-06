@@ -1,7 +1,7 @@
 {
   "module": "WinterAudio",
   "architecture": "x86_64",
-  "version": "0.8",
+  "version": "0.9",
   "install_name": "/lib/WinterAudio.dylib",
   "functions": {
     "5b52": "recovered_10005b52",

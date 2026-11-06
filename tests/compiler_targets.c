@@ -1,6 +1,7 @@
 /* Cross-architecture compiler-runtime execution probe.
  * Pooka's Free Software License. */
 #include <stdint.h>
+#include <permafrost.h>
 #include "../kernel/support.h"
 #include <stddef.h>
 extern int pf_native_vsnprintf(char *,size_t,const char *,void *);
@@ -22,6 +23,11 @@ extern __uint128_t __ashlti3(__uint128_t,int);
 extern __uint128_t __lshrti3(__uint128_t,int);
 extern __int128 __ashrti3(__int128,int);
 #endif
+_Static_assert(sizeof(struct pf_native_api)==252,"WMAP v13 size");
+_Static_assert(sizeof(struct pf_window_info)==604,"window record stride");
+_Static_assert(offsetof(struct pf_window_info,title)==60,"window title offset");
+_Static_assert(sizeof(struct pf_device_info)==504,"device record stride");
+_Static_assert(sizeof(struct pf_hardware_info)==160,"hardware record size");
 int main(void) {
 #if defined(__SIZEOF_INT128__)
  __uint128_t wide=((__uint128_t)0xfedcba9876543210ULL<<64)|0x0123456789abcdefULL;
