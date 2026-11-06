@@ -22,6 +22,11 @@ volatile uint32_t high_a=0xffffffffU,high_b=0x80000000U;
 extern __uint128_t __ashlti3(__uint128_t,int);
 extern __uint128_t __lshrti3(__uint128_t,int);
 extern __int128 __ashrti3(__int128,int);
+extern __uint128_t __udivmodti4(__uint128_t,__uint128_t,__uint128_t *);
+extern __uint128_t __udivti3(__uint128_t,__uint128_t);
+extern __uint128_t __umodti3(__uint128_t,__uint128_t);
+extern __int128 __divti3(__int128,__int128);
+extern __int128 __modti3(__int128,__int128);
 #endif
 _Static_assert(sizeof(struct pf_native_api)==252,"WMAP v13 size");
 _Static_assert(sizeof(struct pf_window_info)==604,"window record stride");
@@ -50,6 +55,13 @@ int main(void) {
  __uint128_t packed=~(__uint128_t)0;
  PF_PART9(packed,0)=0;
  if(packed!=~(((__uint128_t)1<<72)-1))return 22;
+ __uint128_t top=~(__uint128_t)0,half=(__uint128_t)1<<127,remainder;
+ if(__udivti3(top,1)!=top || __udivti3(top,top)!=1)return 23;
+ if(__udivti3(top,half+1)!=1 || __umodti3(top,half+1)!=half-2)return 24;
+ if(__udivmodti4(top,(__uint128_t)1<<64,&remainder)!=UINT64_MAX || remainder!=UINT64_MAX)return 25;
+ if(__udivti3(7,top)!=0 || __umodti3(7,top)!=7)return 26;
+ if(__divti3(-(__int128)(half-1),3)!=-(__int128)((half-1)/3))return 27;
+ if(__modti3(-(__int128)(half-1),3)!=-1 || __divti3(13,-3)!=-4 || __modti3(13,-3)!=1)return 28;
 #endif
  if(small_a/small_b!=108108108u || small_a%small_b!=4u)return 1;
  if(signed_a/signed_b!=-69273666 || signed_a%signed_b!=-1)return 2;

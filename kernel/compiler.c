@@ -29,6 +29,33 @@ __int128 __ashrti3(__int128 value,int shift) {
     else out.word.low=(in.word.low>>shift)|(in.word.high<<(64-shift));
     return (__int128)out.all;
 }
+__uint128_t __udivmodti4(__uint128_t numerator,__uint128_t denominator,__uint128_t *remainder) {
+    __uint128_t quotient=0,rest=0;
+    if(denominator) {
+        for(int bit=127;bit>=0;--bit) {
+            rest=(rest<<1)|((numerator>>bit)&1);
+            if(rest>=denominator) { rest-=denominator;quotient|=(__uint128_t)1<<bit; }
+        }
+    }
+    if(remainder)*remainder=rest;
+    return quotient;
+}
+__uint128_t __udivti3(__uint128_t a,__uint128_t b) { return __udivmodti4(a,b,0); }
+__uint128_t __umodti3(__uint128_t a,__uint128_t b) {
+    __uint128_t remainder;__udivmodti4(a,b,&remainder);return remainder;
+}
+__int128 __divti3(__int128 a,__int128 b) {
+    __uint128_t x=a<0?-(__uint128_t)a:(__uint128_t)a;
+    __uint128_t y=b<0?-(__uint128_t)b:(__uint128_t)b;
+    __uint128_t quotient=__udivmodti4(x,y,0);
+    return (__int128)((a<0)!=(b<0)?-quotient:quotient);
+}
+__int128 __modti3(__int128 a,__int128 b) {
+    __uint128_t x=a<0?-(__uint128_t)a:(__uint128_t)a;
+    __uint128_t y=b<0?-(__uint128_t)b:(__uint128_t)b;
+    __uint128_t remainder;__udivmodti4(x,y,&remainder);
+    return (__int128)(a<0?-remainder:remainder);
+}
 #endif
 #ifndef PF_COMPILER_WIDE_ONLY
 #include <stddef.h>
