@@ -66368,7 +66368,7 @@ LAB_020440ac:
         bVar5 = (byte)uVar17 & 0x1f;
         uVar18 = (uint)(uVar16 >> 8) << ((byte)uVar17 & 0x1f);
         uVar19 = uVar18;
-        uVar21 = 0 << bVar5 | (uint)(ushort)((uVar16 >> 8) >> 0x20 - bVar5);
+        uVar21 = (bVar5 == 0 ? 0 : (0 << bVar5 | (uint)(ushort)((uVar16 >> 8) >> 0x20 - bVar5)));
         if ((uVar17 & 0x20) != 0) {
           uVar19 = 0;
           uVar21 = uVar18;
@@ -66404,7 +66404,7 @@ LAB_020447ea:
       bVar5 = (byte)uVar17 & 0x1f;
       uVar20 = (uint)(uVar16 >> 8) << ((byte)uVar17 & 0x1f);
       uVar21 = uVar20;
-      uVar18 = 0 << bVar5 | (uint)(ushort)((uVar16 >> 8) >> 0x20 - bVar5);
+      uVar18 = (bVar5 == 0 ? 0 : (0 << bVar5 | (uint)(ushort)((uVar16 >> 8) >> 0x20 - bVar5)));
       if ((uVar17 & 0x20) != 0) {
         uVar21 = 0;
         uVar18 = uVar20;
@@ -66425,7 +66425,7 @@ LAB_020447ea:
     bVar5 = bVar4 & 0x1f | 2;
     uVar21 = uVar11 << (bVar4 & 0x1f | 2);
     uVar19 = uVar21;
-    uVar11 = 0 << bVar5 | uVar11 >> 0x20 - bVar5;
+    uVar11 = (bVar5 == 0 ? 0 : (0 << bVar5 | uVar11 >> 0x20 - bVar5));
     if ((bVar4 & 0x20) != 0) {
       uVar19 = 0;
       uVar11 = uVar21;
@@ -66453,7 +66453,7 @@ LAB_020447f4:
         bVar9 = (byte)uVar17 & 0x1f;
         uVar20 = (uint)bVar15 << ((byte)uVar17 & 0x1f);
         uVar21 = uVar20;
-        uVar18 = 0 << bVar9 | (uint)(bVar15 >> 0x20 - bVar9);
+        uVar18 = (bVar9 == 0 ? 0 : (0 << bVar9 | (uint)(bVar15 >> 0x20 - bVar9)));
         if ((uVar17 & 0x20) != 0) {
           uVar21 = 0;
           uVar18 = uVar20;
@@ -66566,7 +66566,7 @@ LAB_02044808:
         bVar5 = (byte)uVar17 & 0x1f;
         uVar18 = (uint)(uVar16 >> 8) << ((byte)uVar17 & 0x1f);
         uVar19 = uVar18;
-        uVar21 = 0 << bVar5 | (uint)(ushort)((uVar16 >> 8) >> 0x20 - bVar5);
+        uVar21 = (bVar5 == 0 ? 0 : (0 << bVar5 | (uint)(ushort)((uVar16 >> 8) >> 0x20 - bVar5)));
         if ((uVar17 & 0x20) != 0) {
           uVar19 = 0;
           uVar21 = uVar18;
@@ -66591,7 +66591,7 @@ LAB_02044808:
           bVar9 = (byte)uVar11 & 0x1f;
           uVar18 = (uint)bVar15 << ((byte)uVar11 & 0x1f);
           uVar19 = uVar18;
-          uVar21 = 0 << bVar9 | (uint)(bVar15 >> 0x20 - bVar9);
+          uVar21 = (bVar9 == 0 ? 0 : (0 << bVar9 | (uint)(bVar15 >> 0x20 - bVar9)));
           if ((uVar11 & 0x20) != 0) {
             uVar19 = 0;
             uVar21 = uVar18;
@@ -66699,7 +66699,7 @@ LAB_0204456d:
     bVar5 = (byte)uVar17 & 0x1f;
     uVar20 = (uint)(uVar16 >> 8) << ((byte)uVar17 & 0x1f);
     uVar21 = uVar20;
-    uVar18 = 0 << bVar5 | (uint)(ushort)((uVar16 >> 8) >> 0x20 - bVar5);
+    uVar18 = (bVar5 == 0 ? 0 : (0 << bVar5 | (uint)(ushort)((uVar16 >> 8) >> 0x20 - bVar5)));
     if ((uVar17 & 0x20) != 0) {
       uVar21 = 0;
       uVar18 = uVar20;
@@ -67734,7 +67734,7 @@ LAB_020454eb:
               local_18 = CONCAT31(PF_PART3(local_18, 1),(char)uVar9);
               bVar11 = (byte)uVar12 & 0x1f;
               uVar20 = (uint)(uVar9 >> 8) << ((byte)uVar12 & 0x1f);
-              uVar15 = 0 << bVar11 | (uint)(ushort)((uVar9 >> 8) >> 0x20 - bVar11);
+              uVar15 = (bVar11 == 0 ? 0 : (0 << bVar11 | (uint)(ushort)((uVar9 >> 8) >> 0x20 - bVar11)));
               uVar10 = uVar20;
               if ((uVar12 & 0x20) != 0) {
                 uVar10 = 0;
@@ -67959,7 +67959,7 @@ LAB_02045e3d:
             bVar11 = (byte)uVar12 & 0x1f;
             uVar20 = (uint)(uVar9 >> 8) << ((byte)uVar12 & 0x1f);
             uVar15 = uVar20;
-            uVar18 = 0 << bVar11 | (uint)(ushort)((uVar9 >> 8) >> 0x20 - bVar11);
+            uVar18 = (bVar11 == 0 ? 0 : (0 << bVar11 | (uint)(ushort)((uVar9 >> 8) >> 0x20 - bVar11)));
             if ((uVar12 & 0x20) != 0) {
               uVar15 = 0;
               uVar18 = uVar20;
@@ -67997,7 +67997,7 @@ LAB_02045e4b:
             local_18 = CONCAT31(PF_PART3(local_18, 1),cVar16);
             bVar8 = (byte)uVar18 & 0x1f;
             uVar19 = (bVar11 & 0x7f) << ((byte)uVar18 & 0x1f);
-            uVar12 = 0 << bVar8 | (bVar11 & 0x7f) >> 0x20 - bVar8;
+            uVar12 = (bVar8 == 0 ? 0 : (0 << bVar8 | (bVar11 & 0x7f) >> 0x20 - bVar8));
             uVar13 = uVar19;
             if ((uVar18 & 0x20) != 0) {
               uVar13 = 0;
@@ -68073,7 +68073,7 @@ LAB_020455a8:
               bVar11 = (byte)uVar10 & 0x1f;
               uVar19 = (uint)(uVar9 >> 8) << ((byte)uVar10 & 0x1f);
               uVar18 = uVar19;
-              uVar20 = 0 << bVar11 | (uint)(ushort)((uVar9 >> 8) >> 0x20 - bVar11);
+              uVar20 = (bVar11 == 0 ? 0 : (0 << bVar11 | (uint)(ushort)((uVar9 >> 8) >> 0x20 - bVar11)));
               if ((uVar10 & 0x20) != 0) {
                 uVar18 = 0;
                 uVar20 = uVar19;
@@ -68099,7 +68099,7 @@ LAB_020455a8:
                 bVar11 = (byte)uVar18 & 0x1f;
                 uVar19 = (uint)(uVar9 >> 8) << ((byte)uVar18 & 0x1f);
                 uVar12 = uVar19;
-                uVar20 = 0 << bVar11 | (uint)(ushort)((uVar9 >> 8) >> 0x20 - bVar11);
+                uVar20 = (bVar11 == 0 ? 0 : (0 << bVar11 | (uint)(ushort)((uVar9 >> 8) >> 0x20 - bVar11)));
                 if ((uVar18 & 0x20) != 0) {
                   uVar12 = 0;
                   uVar20 = uVar19;
@@ -68211,7 +68211,7 @@ LAB_0204589d:
     bVar11 = bVar2 & 0x1f | 2;
     uVar14 = (local_34 & 0xff) << (bVar2 & 0x1f | 2);
     local_64 = uVar14;
-    uVar15 = 0 << bVar11 | (uint)((byte)local_34 >> 0x20 - bVar11);
+    uVar15 = (bVar11 == 0 ? 0 : (0 << bVar11 | (uint)((byte)local_34 >> 0x20 - bVar11)));
     if ((bVar2 & 0x20) != 0) {
       local_64 = 0;
       uVar15 = uVar14;
@@ -68312,7 +68312,7 @@ undefined4 recovered_2045ee0(int incoming_ecx,uint incoming_edx,uint *param_3,ui
       }
       bVar2 = (byte)uVar4 & 0x1f;
       uVar8 = (bVar1 & 0x7f) << ((byte)uVar4 & 0x1f);
-      uVar5 = 0 << bVar2 | (bVar1 & 0x7f) >> 0x20 - bVar2;
+      uVar5 = (bVar2 == 0 ? 0 : (0 << bVar2 | (bVar1 & 0x7f) >> 0x20 - bVar2));
       uVar9 = uVar8;
       if ((uVar4 & 0x20) != 0) {
         uVar9 = 0;
