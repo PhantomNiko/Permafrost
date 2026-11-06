@@ -129,7 +129,13 @@ def atomic_views(source):
             load=statements.pop()
         operation=atomic_views('LOCK();'+load+'*'+target+'='+value+';UNLOCK();')
         return '\n'.join(statements+[operation])
-    source=re.sub(r'do\s*\{([^{}]*?)\b(\w+)\s*=\s*\(bool\)hasExclusiveAccess\((\w+)\);\s*\}\s*while\s*\(!\2\);\s*\*\3\s*=\s*([^;]+);',exclusive,source)
+    def exclusive_global(match):
+        prelude,flag,monitor,target,value=match.groups()
+        if int(monitor,16)!=int(target.split('_')[-1],16):
+            raise ValueError('exclusive monitor and global store disagree')
+        return atomic_views('LOCK();'+prelude+target+'='+value+';UNLOCK();')
+    source=re.sub(r'do\s*\{([^{}]*?)\b(\w+)\s*=\s*\(bool\)\s*hasExclusiveAccess\((0x[0-9a-f]+)\);\s*\}\s*while\s*\(!\2\);\s*(_?DAT_[0-9a-f]+)\s*=\s*([^;]+);',exclusive_global,source)
+    source=re.sub(r'do\s*\{([^{}]*?)\b(\w+)\s*=\s*\(bool\)\s*hasExclusiveAccess\((\w+)\);\s*\}\s*while\s*\(!\2\);\s*\*\3\s*=\s*([^;]+);',exclusive,source)
     if 'hasExclusiveAccess('in source:raise ValueError('unreviewed exclusive-memory operation')
     source=re.sub(r'\bLOCK\(\);(.*?)\bUNLOCK\(\);',replace,source,flags=re.S)
     return re.sub(r'\bLOAcquire\(\);(.*?)\bLORelease\(\);',replace,source,flags=re.S)
@@ -282,7 +288,7 @@ def main():
             return text.replace('PF_MODEL_U64','unsigned long long').replace('PF_MODEL_I64','long long')
         sources={a:windows_types(s) for a,s in sources.items()}
     sources={a:vector_constant_loads(s)for a,s in sources.items()}
-    if WIDE:
+    if WIDE or current.get("integer_vector_128"):
         sources={a:re.sub(r'\(undefined1\s+\[16\]\)', '(uint128)', re.sub(r'undefined1\s+\[16\]\s+((?:recovered_|FUN_)[0-9a-f]+)',r'uint128 \1',re.sub(r'undefined1 (auVar\d+) \[16\];',r'uint128 \1;',s))) for a,s in sources.items()}
         for a,s in sources.items():
             for name,size in re.findall(r'^  undefined1 (\w+) \[(8|16)\];',s,re.M):
@@ -512,8 +518,10 @@ def main():
                     depth+=(source[end]=='(')-(source[end]==')');end+=1
                 expression=source[start:end]
                 floating_operand=re.search(r'\bdVar\d+\b',expression)
-                integral_index=re.search(r'\((?:u?long|u?int|u?int64_t)\)\s*dVar\d+',expression)
-                if not re.match(r'(?:SUB|CONCAT)\d+',expression) and ('pf_bits_double(' in expression or (floating_operand and not integral_index)):
+                integral_index=re.search(r'\((?:u?long(?:long)?|u?int|u?int64_t)\)\s*\(?\s*dVar\d+',expression)
+                root=expression.lstrip('(').lstrip()
+                pointer_expression=root.startswith('&') or any(re.match(re.escape(name)+r'\b',root) for name in pointer_names)
+                if not pointer_expression and not re.match(r'(?:SUB|CONCAT)\d+',expression) and ('pf_bits_double(' in expression or (floating_operand and not integral_index)):
                     source=source[:match.start()]+'('+match[1]+')(uintptr_t)pf_double_bits('+expression+')'+source[end:]
             for name in set(re.findall(r'\b(_local_[0-9a-f]+)\b',source)):
                 source=re.sub(r'\b'+name+r'\b','(*(uint128 *)(void *)&'+name[1:]+')',source)
@@ -587,7 +595,9 @@ def main():
             point=source.rfind('LAB_0020f81e:')
             source=source[:point]+source[point:].replace('LAB_0020f81e:', '', 1)
         if WIDE:source=packed_vector_views(source)
-        if current.get('atomic_views'):source=atomic_views(source)
+        if current.get('atomic_views'):
+            try:source=atomic_views(source)
+            except ValueError as error:raise ValueError(address+': '+str(error)) from error
         opening = source.index('\n{') + 2
         source = source[:opening] + '\n  unsigned char frame[%d] __attribute__((aligned(16))) = {0};\n' % (frame_size + 32) + source[opening:]
         (args.out / (address + '.c')).write_text('\n'.join(line.rstrip() for line in ('\n'.join(preamble + macros) + '\n' + source).splitlines()).rstrip() + '\n')

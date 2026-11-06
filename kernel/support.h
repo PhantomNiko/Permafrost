@@ -11,6 +11,16 @@ typedef unsigned int uint;
 typedef unsigned long ulong;
 #if defined(__LP64__) && !defined(__ILP32__)
 typedef long double longdouble;
+#else
+typedef double longdouble;
+#endif
+#if defined(__SIZEOF_INT128__)
+typedef __int128 pf_int128;
+#elif defined(__BITINT_MAXWIDTH__) && __BITINT_MAXWIDTH__ >= 128
+typedef unsigned _BitInt(128) __uint128_t;
+typedef signed _BitInt(128) pf_int128;
+#endif
+#if defined(__SIZEOF_INT128__) || (defined(__BITINT_MAXWIDTH__) && __BITINT_MAXWIDTH__ >= 128)
 typedef __uint128_t undefined16 __attribute__((aligned(1)));
 typedef __uint128_t uint128 __attribute__((aligned(1)));
 typedef __uint128_t uint16 __attribute__((aligned(1)));
@@ -34,11 +44,10 @@ static inline unsigned movmskps(uintptr_t ignored,uint128 value) {
 struct pf_uint96 {uint128 pf_payload_bits:96;} __attribute__((packed));
 #define PF_PART12(object,offset) (((struct pf_uint96 *)((uint8_t *)&(object)+(offset)))->pf_payload_bits)
 #define SUB164(a,b) ((uint32_t)((uint128)(a)>>((b)*8)))
-#define SEXT816(a) ((__uint128_t)(__int128)(int64_t)(a))
+#define SEXT816(a) ((__uint128_t)(pf_int128)(int64_t)(a))
 #define CONCAT88(a,b) (((__uint128_t)PF_RAW64(a)<<64)|PF_RAW64(b))
 #define ZEXT816(a) ((__uint128_t)(uint64_t)(a))
 #else
-typedef double longdouble;
 static inline bool SBORROW2(int16_t a,int16_t b) {
     int32_t result=(int32_t)a-b;return result < -32768 || result > 32767;
 }

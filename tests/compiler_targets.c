@@ -33,7 +33,32 @@ _Static_assert(sizeof(struct pf_window_info)==604,"window record stride");
 _Static_assert(offsetof(struct pf_window_info,title)==60,"window title offset");
 _Static_assert(sizeof(struct pf_device_info)==504,"device record stride");
 _Static_assert(sizeof(struct pf_hardware_info)==160,"hardware record size");
+
+static volatile unsigned vector_shift;
+static int vector_register_bits(void) {
+ const unsigned shifts[]={0,1,31,32,63,64,65,95,127};
+ const uint64_t expected[][2]={
+  {0x123456789abcdefULL,0xfedcba9876533210ULL},
+  {0x91a2b3c4d5e6f7ULL,0x7f6e5d4c3b2d1908ULL},
+  {0xeca8642002468acfULL,0x1fdbe7530ULL},
+  {0x7654321001234567ULL,0xfedbba98ULL},
+  {0xfdb97530eca86420ULL,0x70001ULL},
+  {0xfedcba9876543210ULL,0x70000ULL},
+  {0x7f6e5d4c3b2a1908ULL,0x70000ULL},
+  {0x1fdb97530ULL,0x70000ULL},
+  {0x1ULL,0x70000ULL},
+ };
+ uint128 original=((uint128)0xfedcba9876543210ULL<<64)|0x0123456789abcdefULL;
+ for(unsigned i=0;i<sizeof(shifts)/sizeof(shifts[0]);i++) {
+  vector_shift=shifts[i];
+  uint128 result=(original>>vector_shift)^((uint128)7<<80);
+  if((uint64_t)result!=expected[i][0] || (uint64_t)(result>>64)!=expected[i][1])return 0;
+ }
+ return 1;
+}
+
 int main(void) {
+ if(!vector_register_bits())return 71;
 #if defined(__SIZEOF_INT128__)
  __uint128_t wide=((__uint128_t)0xfedcba9876543210ULL<<64)|0x0123456789abcdefULL;
  if(__ashlti3(wide,64)!=((__uint128_t)0x0123456789abcdefULL<<64))return 12;
