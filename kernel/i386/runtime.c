@@ -59798,7 +59798,7 @@ LAB_0203de36:
 #define DAT_020b9d2c (*(uint32_t volatile *)(0x20b9d2cU))
 #undef DAT_020b9d30
 #define DAT_020b9d30 (*(uint32_t volatile *)(0x20b9d30U))
-#define local_64 (*(uint32_t *)(frame + 28))
+#define local_64 (*(uint8_t (*)[60])(frame + 28))
 #define local_60 (*(undefined1 *)(frame + 32))
 #define local_28 (*(uint *)(frame + 88))
 #define local_24 (*(void * *)(frame + 92))
@@ -77975,8 +77975,10 @@ void recovered_204ff60(void *context,char *token,char *format,...)
   uchar in_CL;
   char *pcVar2;
 
-  local_10 = &uStack00000010;
-  recovered_20033b0(local_110,0x100,format,local_10);
+  __builtin_va_list pf_args;
+  __builtin_va_start(pf_args,format);
+  recovered_20033b0(local_110,0x100,format,(void *)pf_args);
+  __builtin_va_end(pf_args);
   iVar1 = DAT_020c7800;
   if (iVar1 == 0) {
     pf_varargs_202ebf0__4_(str_0209745d,(uint)local_110);
@@ -85409,7 +85411,7 @@ LAB_02056b58:
           *param_2 = 1;
 LAB_020571ed:
           param_2[1] = uVar9;
-          param_2[2] = (ulong)fVar1;
+          param_2[2] = PF_RAW32(fVar1);
           param_2[3] = 0;
           param_2[4] = 0;
           param_2[5] = 0;
@@ -85663,7 +85665,7 @@ LAB_020580e4:
               goto LAB_02058340;
             }
             uVar13 = recovered_205c390((uint)incoming_edx_36,&local_60);
-            bVar15 = (int)local_60 < 0 & (byte)uVar13;
+            bVar15 = (int32_t)PF_RAW32(local_60) < 0 & (byte)uVar13;
             uVar10 = CONCAT31((int3)((uint)extraout_EDX_45 >> 8),bVar15);
             if (bVar15 != 1) goto LAB_020580e4;
             local_38 = 8.40779e-45f;
