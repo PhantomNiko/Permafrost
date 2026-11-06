@@ -45,7 +45,7 @@ class DLL:
             memory[address:address+width]=(((value&~tag)+self.base)|tag).to_bytes(width,'little')
         self.cpu.mem_write(self.base,bytes(memory));self.exports={e['name']:self.base+e['address']for e in dynamic['exports']}
         table=0x40010800 if arm else 0x6800
-        self.cpu.mem_write(table,struct.pack('<III',0x50414d57,11,188))
+        self.cpu.mem_write(table,struct.pack('<III',0x50414d57,13,252))
         self.result=UC_ARM_REG_R0 if self.cpu_type==12 else UC_ARM64_REG_X0 if arm else UC_X86_REG_RAX if self.wide else UC_X86_REG_EAX
         self.pc=UC_ARM_REG_PC if self.cpu_type==12 else UC_ARM64_REG_PC if arm else UC_X86_REG_RIP if self.wide else UC_X86_REG_EIP
         def args(count):

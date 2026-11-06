@@ -1,313 +1,317 @@
 {
   "module": "TundraWindow",
   "architecture": "arm64",
-  "version": "0.8",
+  "version": "0.9",
   "install_name": "/lib/TundraWindow.dylib",
   "functions": {
-    "2b60": "recovered_10002b60",
-    "4df8": "recovered_10004df8",
-    "56f8": "recovered_100056f8",
-    "3320": "recovered_10003320",
+    "2524": "recovered_10002524",
+    "3434": "recovered_10003434",
+    "2a20": "recovered_10002a20",
     "d98": "recovered_10000d98",
     "55b8": "recovered_100055b8",
-    "2ed0": "recovered_10002ed0",
-    "37d0": "recovered_100037d0",
-    "3de0": "recovered_10003de0",
-    "4548": "recovered_10004548",
-    "24e4": "recovered_100024e4",
+    "4d6c": "recovered_10004d6c",
+    "228c": "recovered_1000228c",
+    "4684": "recovered_10004684",
     "5208": "recovered_10005208",
+    "4d18": "recovered_10004d18",
     "df4": "recovered_10000df4",
     "2fd4": "recovered_10002fd4",
-    "2ba0": "recovered_10002ba0",
+    "19e4": "recovered_100019e4",
     "10c4": "recovered_100010c4",
-    "14f0": "recovered_100014f0",
-    "4fb8": "recovered_10004fb8",
-    "1c10": "recovered_10001c10",
+    "2e8c": "recovered_10002e8c",
     "1000": "recovered_10001000",
-    "2910": "recovered_10002910",
-    "542c": "recovered_1000542c",
-    "2070": "recovered_10002070",
-    "2a60": "recovered_10002a60",
-    "533c": "recovered_1000533c",
+    "3364": "recovered_10003364",
+    "2624": "recovered_10002624",
+    "562c": "recovered_1000562c",
+    "3164": "recovered_10003164",
     "e10": "recovered_10000e10",
     "d54": "recovered_10000d54",
-    "53c8": "recovered_100053c8",
-    "1d00": "recovered_10001d00",
-    "3f9c": "recovered_10003f9c",
-    "218c": "recovered_1000218c",
-    "2b9c": "recovered_10002b9c",
+    "25e0": "recovered_100025e0",
+    "5494": "recovered_10005494",
     "ff4": "recovered_10000ff4",
-    "4018": "recovered_10004018",
-    "4680": "recovered_10004680",
-    "5790": "recovered_10005790",
-    "319c": "recovered_1000319c",
-    "30e0": "recovered_100030e0",
+    "14b0": "recovered_100014b0",
+    "29f4": "recovered_100029f4",
+    "31a4": "recovered_100031a4",
     "2c9c": "recovered_10002c9c",
-    "52c8": "recovered_100052c8",
-    "4f6c": "recovered_10004f6c",
-    "457c": "recovered_1000457c",
+    "406c": "recovered_1000406c",
     "974": "recovered_10000974",
-    "3f64": "recovered_10003f64",
     "c04": "recovered_10000c04",
-    "2e70": "recovered_10002e70",
-    "423c": "recovered_1000423c",
-    "2904": "recovered_10002904",
-    "2b8c": "recovered_10002b8c",
-    "219c": "recovered_1000219c",
-    "4594": "recovered_10004594",
-    "5194": "recovered_10005194",
+    "3370": "recovered_10003370",
+    "3e70": "recovered_10003e70",
+    "50f8": "recovered_100050f8",
+    "1700": "recovered_10001700",
+    "4968": "recovered_10004968",
     "af0": "recovered_10000af0",
-    "2ea0": "recovered_10002ea0",
+    "37a0": "recovered_100037a0",
+    "33d4": "recovered_100033d4",
+    "5408": "recovered_10005408",
     "bb0": "recovered_10000bb0",
-    "14c0": "recovered_100014c0",
-    "39b0": "recovered_100039b0",
-    "13b4": "recovered_100013b4",
-    "4868": "recovered_10004868",
+    "26d4": "recovered_100026d4",
+    "3fd0": "recovered_10003fd0",
+    "2f9c": "recovered_10002f9c",
+    "30d0": "recovered_100030d0",
+    "2c8c": "recovered_10002c8c",
     "c98": "recovered_10000c98",
-    "46b8": "recovered_100046b8",
+    "4c6c": "recovered_10004c6c",
     "e44": "recovered_10000e44",
     "1050": "recovered_10001050",
     "b50": "recovered_10000b50",
-    "1604": "recovered_10001604",
+    "3134": "recovered_10003134",
     "d04": "recovered_10000d04",
-    "3274": "recovered_10003274",
-    "485c": "recovered_1000485c",
-    "4bb8": "recovered_10004bb8",
     "a98": "recovered_10000a98",
-    "50b8": "recovered_100050b8",
-    "1400": "recovered_10001400",
     "c10": "recovered_10000c10",
-    "36a4": "recovered_100036a4",
-    "4f48": "recovered_10004f48",
+    "24d4": "recovered_100024d4",
+    "5580": "recovered_10005580",
     "dc0": "recovered_10000dc0",
     "ec0": "recovered_10000ec0",
-    "29c4": "recovered_100029c4",
+    "2fe4": "recovered_10002fe4",
+    "1fb4": "recovered_10001fb4",
+    "328c": "recovered_1000328c",
     "c54": "recovered_10000c54",
-    "1500": "recovered_10001500",
-    "512c": "recovered_1000512c",
+    "495c": "recovered_1000495c",
     "614": "recovered_10000614",
-    "4c64": "recovered_10004c64",
-    "3ec8": "recovered_10003ec8",
-    "307c": "recovered_1000307c",
-    "509c": "recovered_1000509c",
+    "1d5c": "recovered_10001d5c",
+    "216c": "recovered_1000216c",
+    "1578": "recovered_10001578",
+    "54d0": "recovered_100054d0",
     "bfc": "recovered_10000bfc",
-    "1ffc": "recovered_10001ffc",
-    "52a0": "recovered_100052a0",
+    "56d4": "recovered_100056d4",
+    "2290": "recovered_10002290",
+    "2eec": "recovered_10002eec",
     "2d90": "recovered_10002d90",
-    "1d28": "recovered_10001d28",
-    "2194": "recovered_10002194",
-    "3e48": "recovered_10003e48",
+    "3380": "recovered_10003380",
+    "2f18": "recovered_10002f18",
+    "57d4": "recovered_100057d4",
+    "51a4": "recovered_100051a4",
+    "206c": "recovered_1000206c",
     "2eb8": "recovered_10002eb8",
-    "317c": "recovered_1000317c",
-    "4b64": "recovered_10004b64",
+    "3ab8": "recovered_10003ab8",
+    "2f6c": "recovered_10002f6c",
+    "20f8": "recovered_100020f8",
+    "2ff8": "recovered_10002ff8",
     "ae8": "recovered_10000ae8",
     "101c": "recovered_1000101c",
-    "14d8": "recovered_100014d8",
+    "2a7c": "recovered_10002a7c",
     "3284": "recovered_10003284",
-    "2190": "recovered_10002190",
+    "1538": "recovered_10001538",
     "31dc": "recovered_100031dc",
-    "3308": "recovered_10003308",
-    "3cec": "recovered_10003cec",
-    "3384": "recovered_10003384",
-    "4854": "recovered_10004854",
-    "2e6c": "recovered_10002e6c",
-    "2ef8": "recovered_10002ef8",
+    "21ec": "recovered_100021ec",
+    "1dfc": "recovered_10001dfc",
+    "2dac": "recovered_10002dac",
+    "2d94": "recovered_10002d94",
+    "469c": "recovered_1000469c",
+    "529c": "recovered_1000529c",
+    "47e0": "recovered_100047e0",
+    "5800": "recovered_10005800",
     "10e8": "recovered_100010e8",
+    "5534": "recovered_10005534",
     "fe8": "recovered_10000fe8",
+    "1d0c": "recovered_10001d0c",
     "ea8": "recovered_10000ea8",
-    "2d7c": "recovered_10002d7c",
-    "538c": "recovered_1000538c",
-    "2b90": "recovered_10002b90",
-    "3190": "recovered_10003190",
+    "35c8": "recovered_100035c8",
+    "5854": "recovered_10005854",
+    "38cc": "recovered_100038cc",
+    "15bc": "recovered_100015bc",
+    "2c90": "recovered_10002c90",
+    "3480": "recovered_10003480",
     "efc": "recovered_10000efc",
+    "3058": "recovered_10003058",
     "1278": "recovered_10001278",
+    "53d0": "recovered_100053d0",
     "11cc": "recovered_100011cc",
     "8c8": "recovered_100008c8",
-    "34c8": "recovered_100034c8",
-    "326c": "recovered_1000326c",
-    "5524": "recovered_10005524",
-    "13cc": "recovered_100013cc",
+    "295c": "recovered_1000295c",
+    "5170": "recovered_10005170",
+    "5234": "recovered_10005234",
+    "4120": "recovered_10004120",
+    "5898": "recovered_10005898",
+    "33b8": "recovered_100033b8",
+    "27b8": "recovered_100027b8",
+    "2f84": "recovered_10002f84",
+    "25ac": "recovered_100025ac",
     "2c94": "recovered_10002c94",
+    "15fc": "recovered_100015fc",
+    "2f08": "recovered_10002f08",
     "908": "recovered_10000908",
-    "2b94": "recovered_10002b94",
-    "4bd0": "recovered_10004bd0",
+    "2108": "recovered_10002108",
+    "33ec": "recovered_100033ec",
+    "14fc": "recovered_100014fc",
+    "40a4": "recovered_100040a4",
     "87c": "recovered_1000087c",
+    "15a8": "recovered_100015a8",
+    "5074": "recovered_10005074",
     "a4c": "recovered_10000a4c",
-    "2e3c": "recovered_10002e3c",
-    "4e60": "recovered_10004e60",
-    "28f8": "recovered_100028f8",
-    "30a8": "recovered_100030a8",
-    "5300": "recovered_10005300",
+    "3ee8": "recovered_10003ee8",
+    "4974": "recovered_10004974",
     "f6c": "recovered_10000f6c",
-    "32bc": "recovered_100032bc",
-    "26bc": "recovered_100026bc",
-    "1d80": "recovered_10001d80",
-    "54b0": "recovered_100054b0",
+    "19fc": "recovered_100019fc",
+    "51c0": "recovered_100051c0",
+    "4cc0": "recovered_10004cc0",
     "1380": "recovered_10001380",
-    "1758": "recovered_10001758",
+    "50c0": "recovered_100050c0",
     "fac": "recovered_10000fac",
-    "1494": "recovered_10001494",
-    "14ac": "recovered_100014ac",
+    "56f0": "recovered_100056f0",
     "e58": "recovered_10000e58",
-    "3068": "recovered_10003068",
-    "200c": "recovered_1000200c",
-    "2ed8": "recovered_10002ed8",
-    "23d8": "recovered_100023d8",
-    "18e8": "recovered_100018e8",
-    "3d68": "recovered_10003d68",
-    "34cc": "recovered_100034cc",
-    "3268": "recovered_10003268",
-    "4ff0": "recovered_10004ff0",
-    "2528": "recovered_10002528",
+    "2b5c": "recovered_10002b5c",
+    "2fcc": "recovered_10002fcc",
+    "31bc": "recovered_100031bc",
+    "2e78": "recovered_10002e78",
+    "2f38": "recovered_10002f38",
     "a08": "recovered_10000a08",
+    "15ec": "recovered_100015ec",
     "608": "recovered_10000608",
-    "2428": "recovered_10002428",
-    "3efc": "recovered_10003efc",
+    "47c0": "recovered_100047c0",
+    "1590": "recovered_10001590",
+    "1458": "recovered_10001458",
     "1148": "recovered_10001148",
-    "5100": "recovered_10005100",
-    "2e0c": "recovered_10002e0c",
-    "4860": "recovered_10004860",
-    "143c": "recovered_1000143c",
-    "5214": "recovered_10005214",
+    "3368": "recovered_10003368",
+    "2bbc": "recovered_10002bbc",
+    "1e7c": "recovered_10001e7c",
+    "4788": "recovered_10004788",
+    "2c5c": "recovered_10002c5c",
+    "4970": "recovered_10004970",
+    "2a0c": "recovered_10002a0c",
     "e7c": "recovered_10000e7c",
+    "14c8": "recovered_100014c8",
     "5444": "recovered_10005444",
+    "28c8": "recovered_100028c8",
+    "3278": "recovered_10003278",
     "d84": "recovered_10000d84",
-    "2948": "recovered_10002948",
-    "37fc": "recovered_100037fc",
-    "2efc": "recovered_10002efc",
     "1190": "recovered_10001190",
-    "39ec": "recovered_100039ec",
+    "56c0": "recovered_100056c0",
     "2980": "recovered_10002980",
-    "3f38": "recovered_10003f38",
-    "3038": "recovered_10003038",
-    "4cb4": "recovered_10004cb4",
-    "4c10": "recovered_10004c10",
-    "2f5c": "recovered_10002f5c",
-    "25d8": "recovered_100025d8",
-    "2e1c": "recovered_10002e1c",
+    "4f00": "recovered_10004f00",
+    "4650": "recovered_10004650",
+    "4960": "recovered_10004960",
     "4004": "recovered_10004004",
-    "5254": "recovered_10005254",
+    "5050": "recovered_10005050",
+    "4964": "recovered_10004964",
+    "5310": "recovered_10005310",
     "147c": "recovered_1000147c",
-    "3338": "recovered_10003338",
-    "2884": "recovered_10002884",
-    "27cc": "recovered_100027cc",
-    "2dbc": "recovered_10002dbc",
-    "1eb8": "recovered_10001eb8",
-    "4864": "recovered_10004864",
-    "2ee8": "recovered_10002ee8",
+    "4344": "recovered_10004344",
+    "3178": "recovered_10003178",
+    "2f68": "recovered_10002f68",
+    "3894": "recovered_10003894",
+    "38f8": "recovered_100038f8",
+    "4f40": "recovered_10004f40",
+    "4040": "recovered_10004040",
+    "341c": "recovered_1000341c",
     "32d8": "recovered_100032d8",
-    "3a14": "recovered_10003a14",
+    "3b1c": "recovered_10003b1c",
+    "531c": "recovered_1000531c",
+    "1730": "recovered_10001730",
+    "554c": "recovered_1000554c",
+    "53a8": "recovered_100053a8",
     "e30": "recovered_10000e30",
-    "2f54": "recovered_10002f54",
-    "3798": "recovered_10003798",
+    "13e0": "recovered_100013e0",
     "dd0": "recovered_10000dd0",
-    "2bc4": "recovered_10002bc4",
-    "20f0": "recovered_100020f0",
     "ce4": "recovered_10000ce4",
-    "1bd4": "recovered_10001bd4",
     "2ac0": "recovered_10002ac0",
+    "3af4": "recovered_10003af4",
+    "15d4": "recovered_100015d4",
     "2fb4": "recovered_10002fb4",
-    "4858": "recovered_10004858",
-    "55cc": "recovered_100055cc",
     "12e0": "recovered_100012e0",
-    "1900": "recovered_10001900",
+    "2298": "recovered_10002298",
+    "2d98": "recovered_10002d98",
     "1324": "recovered_10001324",
-    "1634": "recovered_10001634",
-    "3188": "recovered_10003188",
-    "486c": "recovered_1000486c",
-    "5478": "recovered_10005478",
-    "4e38": "recovered_10004e38",
-    "30c0": "recovered_100030c0",
-    "13e4": "recovered_100013e4",
-    "2df0": "recovered_10002df0",
-    "5068": "recovered_10005068",
-    "56cc": "recovered_100056cc",
+    "410c": "recovered_1000410c",
+    "1e24": "recovered_10001e24",
+    "3040": "recovered_10003040",
+    "1430": "recovered_10001430",
+    "535c": "recovered_1000535c",
+    "2210": "recovered_10002210",
+    "2a00": "recovered_10002a00",
+    "2c88": "recovered_10002c88",
+    "1cd0": "recovered_10001cd0",
+    "2cc0": "recovered_10002cc0",
+    "2ff4": "recovered_10002ff4",
+    "2a44": "recovered_10002a44",
+    "496c": "recovered_1000496c",
     "1164": "recovered_10001164",
-    "574c": "recovered_1000574c",
-    "2114": "recovered_10002114",
     "d70": "recovered_10000d70",
-    "2004": "recovered_10002004",
-    "3874": "recovered_10003874",
+    "3f50": "recovered_10003f50",
+    "3404": "recovered_10003404",
+    "3050": "recovered_10003050",
     "2c98": "recovered_10002c98",
-    "32f0": "recovered_100032f0",
-    "2bf4": "recovered_10002bf4",
-    "2cb0": "recovered_10002cb0",
-    "24b0": "recovered_100024b0",
-    "2b98": "recovered_10002b98",
-    "1464": "recovered_10001464",
-    "46d8": "recovered_100046d8",
+    "4f68": "recovered_10004f68",
+    "31b0": "recovered_100031b0",
+    "21c0": "recovered_100021c0",
+    "30b0": "recovered_100030b0",
+    "14e0": "recovered_100014e0",
+    "4dbc": "recovered_10004dbc",
+    "1520": "recovered_10001520",
     "1370": "recovered_10001370",
-    "2924": "recovered_10002924",
-    "55e8": "recovered_100055e8",
-    "2860": "recovered_10002860",
-    "2e04": "recovered_10002e04",
+    "3970": "recovered_10003970",
     "e20": "recovered_10000e20",
-    "2e88": "recovered_10002e88",
-    "2f44": "recovered_10002f44",
+    "3298": "recovered_10003298",
+    "2100": "recovered_10002100",
     "de0": "recovered_10000de0",
     "ea4": "recovered_10000ea4",
     "128c": "recovered_1000128c",
-    "30b4": "recovered_100030b4",
-    "20c4": "recovered_100020c4",
+    "2cf0": "recovered_10002cf0",
+    "35c4": "recovered_100035c4",
+    "3df4": "recovered_10003df4",
+    "1854": "recovered_10001854",
+    "2288": "recovered_10002288",
+    "2f00": "recovered_10002f00",
     "944": "recovered_10000944",
     "b70": "recovered_10000b70",
-    "1424": "recovered_10001424",
-    "1f70": "recovered_10001f70",
-    "f24": "recovered_10000f24",
-    "1c60": "recovered_10001c60"
+    "1560": "recovered_10001560",
+    "4cd8": "recovered_10004cd8",
+    "f24": "recovered_10000f24"
   },
   "exports": [
     {
       "name": "__Unwind_Resume",
-      "address": 12688,
+      "address": 12940,
       "section": 1,
       "weak": false
     },
     {
       "name": "__Unwind_SjLj_ForcedUnwind",
-      "address": 12468,
+      "address": 12720,
       "section": 1,
       "weak": false
     },
     {
       "name": "__Unwind_SjLj_RaiseException",
-      "address": 12456,
+      "address": 12708,
       "section": 1,
       "weak": false
     },
     {
       "name": "__Unwind_SjLj_Register",
-      "address": 12392,
+      "address": 12644,
       "section": 1,
       "weak": false
     },
     {
       "name": "__Unwind_SjLj_Resume",
-      "address": 12480,
+      "address": 12732,
       "section": 1,
       "weak": false
     },
     {
       "name": "__Unwind_SjLj_Resume_or_Rethrow",
-      "address": 12668,
+      "address": 12920,
       "section": 1,
       "weak": false
     },
     {
       "name": "__Unwind_SjLj_Unregister",
-      "address": 12412,
+      "address": 12664,
       "section": 1,
       "weak": false
     },
     {
       "name": "__ZSt7nothrow",
-      "address": 22861,
+      "address": 23133,
       "section": 2,
       "weak": false
     },
     {
       "name": "__ZSt9terminatev",
-      "address": 11760,
+      "address": 12012,
       "section": 1,
       "weak": false
     },
@@ -331,37 +335,37 @@
     },
     {
       "name": "__ZdaPv",
-      "address": 11912,
+      "address": 12164,
       "section": 1,
       "weak": false
     },
     {
       "name": "__ZdaPvm",
-      "address": 11960,
+      "address": 12212,
       "section": 1,
       "weak": false
     },
     {
       "name": "__ZdlPv",
-      "address": 11888,
+      "address": 12140,
       "section": 1,
       "weak": false
     },
     {
       "name": "__ZdlPvm",
-      "address": 11936,
+      "address": 12188,
       "section": 1,
       "weak": false
     },
     {
       "name": "__Znam",
-      "address": 11884,
+      "address": 12136,
       "section": 1,
       "weak": false
     },
     {
       "name": "__Znwm",
-      "address": 11836,
+      "address": 12088,
       "section": 1,
       "weak": false
     },
@@ -385,67 +389,67 @@
     },
     {
       "name": "___cxa_allocate_exception",
-      "address": 12028,
+      "address": 12280,
       "section": 1,
       "weak": false
     },
     {
       "name": "___cxa_atexit",
-      "address": 11984,
+      "address": 12236,
       "section": 1,
       "weak": false
     },
     {
       "name": "___cxa_begin_catch",
-      "address": 11804,
+      "address": 12056,
       "section": 1,
       "weak": false
     },
     {
       "name": "___cxa_end_catch",
-      "address": 12124,
+      "address": 12376,
       "section": 1,
       "weak": false
     },
     {
       "name": "___cxa_free_exception",
-      "address": 12100,
+      "address": 12352,
       "section": 1,
       "weak": false
     },
     {
       "name": "___cxa_guard_abort",
-      "address": 12024,
+      "address": 12276,
       "section": 1,
       "weak": false
     },
     {
       "name": "___cxa_guard_acquire",
-      "address": 11992,
+      "address": 12244,
       "section": 1,
       "weak": false
     },
     {
       "name": "___cxa_guard_release",
-      "address": 12008,
+      "address": 12260,
       "section": 1,
       "weak": false
     },
     {
       "name": "___cxa_pure_virtual",
-      "address": 12904,
+      "address": 13156,
       "section": 1,
       "weak": false
     },
     {
       "name": "___cxa_rethrow",
-      "address": 12344,
+      "address": 12596,
       "section": 1,
       "weak": false
     },
     {
       "name": "___cxa_throw",
-      "address": 12212,
+      "address": 12464,
       "section": 1,
       "weak": false
     },
@@ -463,19 +467,19 @@
     },
     {
       "name": "___dynamic_cast",
-      "address": 12700,
+      "address": 12952,
       "section": 1,
       "weak": false
     },
     {
       "name": "___gxx_personality_sj0",
-      "address": 12680,
+      "address": 12932,
       "section": 1,
       "weak": false
     },
     {
       "name": "___gxx_personality_v0",
-      "address": 11780,
+      "address": 12032,
       "section": 1,
       "weak": false
     },
@@ -505,7 +509,7 @@
     },
     {
       "name": "__tlv_bootstrap",
-      "address": 12908,
+      "address": 13160,
       "section": 1,
       "weak": false
     },
@@ -523,13 +527,13 @@
     },
     {
       "name": "_baremetal_load_raw_image",
-      "address": 18540,
+      "address": 18804,
       "section": 1,
       "weak": false
     },
     {
       "name": "_baremetal_save_raw_image",
-      "address": 18536,
+      "address": 18800,
       "section": 1,
       "weak": false
     },
@@ -541,7 +545,7 @@
     },
     {
       "name": "_captureWindow",
-      "address": 17812,
+      "address": 18076,
       "section": 1,
       "weak": false
     },
@@ -553,37 +557,37 @@
     },
     {
       "name": "_ceilf",
-      "address": 5156,
+      "address": 5408,
       "section": 1,
       "weak": false
     },
     {
       "name": "_clearTouchBar",
-      "address": 18532,
+      "address": 18796,
       "section": 1,
       "weak": false
     },
     {
       "name": "_clearWindow",
-      "address": 17788,
+      "address": 18052,
       "section": 1,
       "weak": false
     },
     {
       "name": "_clock",
-      "address": 11420,
+      "address": 11672,
       "section": 1,
       "weak": false
     },
     {
       "name": "_closeWindow",
-      "address": 15720,
+      "address": 15984,
       "section": 1,
       "weak": false
     },
     {
       "name": "_consumeKeyboardState",
-      "address": 18516,
+      "address": 18780,
       "section": 1,
       "weak": false
     },
@@ -595,19 +599,19 @@
     },
     {
       "name": "_cosf",
-      "address": 5336,
+      "address": 5588,
       "section": 1,
       "weak": false
     },
     {
       "name": "_createWindow",
-      "address": 14452,
+      "address": 14704,
       "section": 1,
       "weak": false
     },
     {
       "name": "_destroyWindow",
-      "address": 15840,
+      "address": 16104,
       "section": 1,
       "weak": false
     },
@@ -619,7 +623,7 @@
     },
     {
       "name": "_fabsf",
-      "address": 5360,
+      "address": 5612,
       "section": 1,
       "weak": false
     },
@@ -631,7 +635,7 @@
     },
     {
       "name": "_floorf",
-      "address": 5120,
+      "address": 5372,
       "section": 1,
       "weak": false
     },
@@ -643,7 +647,7 @@
     },
     {
       "name": "_fmodf",
-      "address": 4992,
+      "address": 5244,
       "section": 1,
       "weak": false
     },
@@ -661,43 +665,43 @@
     },
     {
       "name": "_frexpf",
-      "address": 5044,
+      "address": 5296,
       "section": 1,
       "weak": false
     },
     {
       "name": "_getMouseButtonState",
-      "address": 18104,
+      "address": 18368,
       "section": 1,
       "weak": false
     },
     {
       "name": "_getMousePosition",
-      "address": 18048,
+      "address": 18312,
       "section": 1,
       "weak": false
     },
     {
       "name": "_getTouchBarButtonState",
-      "address": 18528,
+      "address": 18792,
       "section": 1,
       "weak": false
     },
     {
       "name": "_getWindowSize",
-      "address": 16072,
+      "address": 16336,
       "section": 1,
       "weak": false
     },
     {
       "name": "_getWindowTitle",
-      "address": 15944,
+      "address": 16208,
       "section": 1,
       "weak": false
     },
     {
       "name": "_getenv",
-      "address": 11412,
+      "address": 11664,
       "section": 1,
       "weak": false
     },
@@ -721,13 +725,13 @@
     },
     {
       "name": "_isdigit",
-      "address": 12916,
+      "address": 13168,
       "section": 1,
       "weak": false
     },
     {
       "name": "_isfinite",
-      "address": 13088,
+      "address": 13340,
       "section": 1,
       "weak": false
     },
@@ -745,7 +749,7 @@
     },
     {
       "name": "_isspace",
-      "address": 12932,
+      "address": 13184,
       "section": 1,
       "weak": false
     },
@@ -757,7 +761,7 @@
     },
     {
       "name": "_isxdigit",
-      "address": 12988,
+      "address": 13240,
       "section": 1,
       "weak": false
     },
@@ -1051,7 +1055,7 @@
     },
     {
       "name": "_ldexpf",
-      "address": 5068,
+      "address": 5320,
       "section": 1,
       "weak": false
     },
@@ -1075,43 +1079,43 @@
     },
     {
       "name": "_logf",
-      "address": 5268,
+      "address": 5520,
       "section": 1,
       "weak": false
     },
     {
       "name": "_longjmp",
-      "address": 11708,
+      "address": 11960,
       "section": 1,
       "weak": false
     },
     {
       "name": "_lround",
-      "address": 5292,
+      "address": 5544,
       "section": 1,
       "weak": false
     },
     {
       "name": "_macos_font_free",
-      "address": 19960,
+      "address": 20224,
       "section": 1,
       "weak": false
     },
     {
       "name": "_macos_font_load",
-      "address": 19472,
+      "address": 19736,
       "section": 1,
       "weak": false
     },
     {
       "name": "_macos_font_render",
-      "address": 19636,
+      "address": 19900,
       "section": 1,
       "weak": false
     },
     {
       "name": "_macos_font_resize",
-      "address": 19556,
+      "address": 19820,
       "section": 1,
       "weak": false
     },
@@ -1123,7 +1127,7 @@
     },
     {
       "name": "_memchr",
-      "address": 11168,
+      "address": 11420,
       "section": 1,
       "weak": false
     },
@@ -1159,13 +1163,13 @@
     },
     {
       "name": "_powf",
-      "address": 5092,
+      "address": 5344,
       "section": 1,
       "weak": false
     },
     {
       "name": "_pushImage",
-      "address": 16284,
+      "address": 16548,
       "section": 1,
       "weak": false
     },
@@ -1177,37 +1181,37 @@
     },
     {
       "name": "_round",
-      "address": 13112,
+      "address": 13364,
       "section": 1,
       "weak": false
     },
     {
       "name": "_setTouchBarButtonImage",
-      "address": 18524,
+      "address": 18788,
       "section": 1,
       "weak": false
     },
     {
       "name": "_setTouchBarButtonText",
-      "address": 18520,
+      "address": 18784,
       "section": 1,
       "weak": false
     },
     {
       "name": "_setWindowSize",
-      "address": 16124,
+      "address": 16388,
       "section": 1,
       "weak": false
     },
     {
       "name": "_setWindowTitle",
-      "address": 16228,
+      "address": 16492,
       "section": 1,
       "weak": false
     },
     {
       "name": "_setjmp",
-      "address": 11664,
+      "address": 11916,
       "section": 1,
       "weak": false
     },
@@ -1225,13 +1229,13 @@
     },
     {
       "name": "_sinf",
-      "address": 5312,
+      "address": 5564,
       "section": 1,
       "weak": false
     },
     {
       "name": "_snprintf",
-      "address": 7424,
+      "address": 7676,
       "section": 1,
       "weak": false
     },
@@ -1243,7 +1247,7 @@
     },
     {
       "name": "_sqrtf",
-      "address": 5244,
+      "address": 5496,
       "section": 1,
       "weak": false
     },
@@ -1297,7 +1301,7 @@
     },
     {
       "name": "_strerror",
-      "address": 11252,
+      "address": 11504,
       "section": 1,
       "weak": false
     },
@@ -1309,7 +1313,7 @@
     },
     {
       "name": "_strncmp",
-      "address": 11204,
+      "address": 11456,
       "section": 1,
       "weak": false
     },
@@ -1333,43 +1337,43 @@
     },
     {
       "name": "_strtod",
-      "address": 5976,
+      "address": 6228,
       "section": 1,
       "weak": false
     },
     {
       "name": "_strtof",
-      "address": 6376,
+      "address": 6628,
       "section": 1,
       "weak": false
     },
     {
       "name": "_strtol",
-      "address": 5376,
+      "address": 5628,
       "section": 1,
       "weak": false
     },
     {
       "name": "_strtoll",
-      "address": 13512,
+      "address": 13764,
       "section": 1,
       "weak": false
     },
     {
       "name": "_strtoul",
-      "address": 5684,
+      "address": 5936,
       "section": 1,
       "weak": false
     },
     {
       "name": "_strtoull",
-      "address": 13188,
+      "address": 13440,
       "section": 1,
       "weak": false
     },
     {
       "name": "_system",
-      "address": 11416,
+      "address": 11668,
       "section": 1,
       "weak": false
     },
@@ -1393,43 +1397,43 @@
     },
     {
       "name": "_trunc",
-      "address": 5180,
+      "address": 5432,
       "section": 1,
       "weak": false
     },
     {
       "name": "_truncf",
-      "address": 5220,
+      "address": 5472,
       "section": 1,
       "weak": false
     },
     {
       "name": "_updateKeyboardState",
-      "address": 16956,
+      "address": 17220,
       "section": 1,
       "weak": false
     },
     {
       "name": "_updateWindow",
-      "address": 16408,
+      "address": 16672,
       "section": 1,
       "weak": false
     },
     {
       "name": "_vsnprintf",
-      "address": 6400,
+      "address": 6652,
       "section": 1,
       "weak": false
     },
     {
       "name": "_windowShouldClose",
-      "address": 17736,
+      "address": 18000,
       "section": 1,
       "weak": false
     },
     {
       "name": "_winterboot_sjlj_jump",
-      "address": 11644,
+      "address": 11896,
       "section": 1,
       "weak": false
     },
@@ -1441,61 +1445,61 @@
     },
     {
       "name": "_wm_lua_flush_output",
-      "address": 8196,
+      "address": 8448,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wm_lua_readline",
-      "address": 8468,
+      "address": 8720,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wm_lua_show_banner",
-      "address": 8304,
+      "address": 8556,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wm_lua_show_help",
-      "address": 8432,
+      "address": 8684,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wm_lua_write",
-      "address": 7864,
+      "address": 8116,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wm_lua_write_errorf",
-      "address": 8204,
+      "address": 8456,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wm_lua_writeline",
-      "address": 8188,
+      "address": 8440,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wm_math_isfinite",
-      "address": 13016,
+      "address": 13268,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wm_math_isfinitef",
-      "address": 13040,
+      "address": 13292,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wm_math_isfinitel",
-      "address": 13064,
+      "address": 13316,
       "section": 1,
       "weak": false
     },
@@ -1537,162 +1541,459 @@
     },
     {
       "name": "_wmfs_clear_virtual_files",
-      "address": 11152,
+      "address": 11404,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wmfs_clearerr",
-      "address": 10512,
+      "address": 10764,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wmfs_export_image",
-      "address": 11164,
+      "address": 11416,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wmfs_fclose",
-      "address": 9444,
+      "address": 9696,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wmfs_feof",
-      "address": 10488,
+      "address": 10740,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wmfs_ferror",
-      "address": 10500,
+      "address": 10752,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wmfs_fflush",
-      "address": 10372,
+      "address": 10624,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wmfs_fopen",
-      "address": 8604,
+      "address": 8856,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wmfs_fread",
-      "address": 9512,
+      "address": 9764,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wmfs_freopen",
-      "address": 9392,
+      "address": 9644,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wmfs_fseek",
-      "address": 10188,
+      "address": 10440,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wmfs_ftell",
-      "address": 10336,
+      "address": 10588,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wmfs_fwrite",
-      "address": 9916,
+      "address": 10168,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wmfs_getc",
-      "address": 9688,
+      "address": 9940,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wmfs_image_data",
-      "address": 11156,
+      "address": 11408,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wmfs_image_size",
-      "address": 11160,
+      "address": 11412,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wmfs_is_mounted",
-      "address": 8596,
+      "address": 8848,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wmfs_mount_image",
-      "address": 8588,
+      "address": 8840,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wmfs_read_entire_file",
-      "address": 10944,
+      "address": 11196,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wmfs_register_virtual_file",
-      "address": 11148,
+      "address": 11400,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wmfs_remove",
-      "address": 10568,
+      "address": 10820,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wmfs_rename",
-      "address": 10692,
+      "address": 10944,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wmfs_ungetc",
-      "address": 10532,
+      "address": 10784,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wmfs_unmount",
-      "address": 8592,
+      "address": 8844,
       "section": 1,
       "weak": false
     },
     {
       "name": "_wmfs_write_entire_file",
-      "address": 11104,
+      "address": 11356,
       "section": 1,
       "weak": false
     }
   ],
   "relocations": [
     {
-      "offset": 10020,
+      "offset": 9756,
       "width": 8,
       "target": {
         "kind": "function",
-        "address": "2e04"
+        "address": "2f00"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9764,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26404
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9772,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26395
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9780,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26396
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9788,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26397
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9796,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26398
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9804,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26399
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9812,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26400
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9820,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26401
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9828,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26402
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9836,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26403
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9844,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26369
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9852,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26370
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9860,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26371
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9868,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26372
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9876,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26373
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9884,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26374
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9892,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26375
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9900,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26376
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9908,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26377
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9916,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26378
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9924,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26379
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9932,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26380
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9940,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26381
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9948,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26382
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9956,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26383
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9964,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26384
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9972,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26385
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9980,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26386
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9988,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26387
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9996,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26388
+      },
+      "tag": 0
+    },
+    {
+      "offset": 10004,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26389
+      },
+      "tag": 0
+    },
+    {
+      "offset": 10012,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26390
+      },
+      "tag": 0
+    },
+    {
+      "offset": 10020,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 26391
       },
       "tag": 0
     },
@@ -1701,7 +2002,7 @@
       "width": 8,
       "target": {
         "kind": "data",
-        "offset": 26668
+        "offset": 26392
       },
       "tag": 0
     },
@@ -1710,7 +2011,7 @@
       "width": 8,
       "target": {
         "kind": "data",
-        "offset": 26659
+        "offset": 26393
       },
       "tag": 0
     },
@@ -1719,394 +2020,97 @@
       "width": 8,
       "target": {
         "kind": "data",
-        "offset": 26660
+        "offset": 26394
       },
       "tag": 0
     },
     {
-      "offset": 10052,
+      "offset": 26140,
       "width": 8,
       "target": {
         "kind": "data",
-        "offset": 26661
+        "offset": 301
       },
       "tag": 0
     },
     {
-      "offset": 10060,
+      "offset": 26148,
       "width": 8,
       "target": {
         "kind": "data",
-        "offset": 26662
+        "offset": 303
       },
       "tag": 0
     },
     {
-      "offset": 10068,
+      "offset": 26156,
       "width": 8,
       "target": {
         "kind": "data",
-        "offset": 26663
+        "offset": 303
       },
       "tag": 0
     },
     {
-      "offset": 10076,
+      "offset": 26164,
       "width": 8,
       "target": {
         "kind": "data",
-        "offset": 26664
+        "offset": 303
       },
       "tag": 0
     },
     {
-      "offset": 10084,
+      "offset": 26172,
       "width": 8,
       "target": {
         "kind": "data",
-        "offset": 26665
+        "offset": 303
       },
       "tag": 0
     },
     {
-      "offset": 10092,
+      "offset": 26180,
       "width": 8,
       "target": {
         "kind": "data",
-        "offset": 26666
+        "offset": 301
       },
       "tag": 0
     },
     {
-      "offset": 10100,
+      "offset": 26188,
       "width": 8,
       "target": {
         "kind": "data",
-        "offset": 26667
+        "offset": 303
       },
       "tag": 0
     },
     {
-      "offset": 10108,
+      "offset": 26196,
       "width": 8,
       "target": {
         "kind": "data",
-        "offset": 26633
+        "offset": 303
       },
       "tag": 0
     },
     {
-      "offset": 10116,
+      "offset": 26204,
       "width": 8,
       "target": {
         "kind": "data",
-        "offset": 26634
+        "offset": 303
       },
       "tag": 0
     },
     {
-      "offset": 10124,
+      "offset": 26212,
       "width": 8,
       "target": {
         "kind": "data",
-        "offset": 26635
-      },
-      "tag": 0
-    },
-    {
-      "offset": 10132,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 26636
-      },
-      "tag": 0
-    },
-    {
-      "offset": 10140,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 26637
-      },
-      "tag": 0
-    },
-    {
-      "offset": 10148,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 26638
-      },
-      "tag": 0
-    },
-    {
-      "offset": 10156,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 26639
-      },
-      "tag": 0
-    },
-    {
-      "offset": 10164,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 26640
-      },
-      "tag": 0
-    },
-    {
-      "offset": 10172,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 26641
-      },
-      "tag": 0
-    },
-    {
-      "offset": 10180,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 26642
-      },
-      "tag": 0
-    },
-    {
-      "offset": 10188,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 26643
-      },
-      "tag": 0
-    },
-    {
-      "offset": 10196,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 26644
-      },
-      "tag": 0
-    },
-    {
-      "offset": 10204,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 26645
-      },
-      "tag": 0
-    },
-    {
-      "offset": 10212,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 26646
-      },
-      "tag": 0
-    },
-    {
-      "offset": 10220,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 26647
-      },
-      "tag": 0
-    },
-    {
-      "offset": 10228,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 26648
-      },
-      "tag": 0
-    },
-    {
-      "offset": 10236,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 26649
-      },
-      "tag": 0
-    },
-    {
-      "offset": 10244,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 26650
-      },
-      "tag": 0
-    },
-    {
-      "offset": 10252,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 26651
-      },
-      "tag": 0
-    },
-    {
-      "offset": 10260,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 26652
-      },
-      "tag": 0
-    },
-    {
-      "offset": 10268,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 26653
-      },
-      "tag": 0
-    },
-    {
-      "offset": 10276,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 26654
-      },
-      "tag": 0
-    },
-    {
-      "offset": 10284,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 26655
-      },
-      "tag": 0
-    },
-    {
-      "offset": 10292,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 26656
-      },
-      "tag": 0
-    },
-    {
-      "offset": 10300,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 26657
-      },
-      "tag": 0
-    },
-    {
-      "offset": 10308,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 26658
-      },
-      "tag": 0
-    },
-    {
-      "offset": 26404,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 293
-      },
-      "tag": 0
-    },
-    {
-      "offset": 26412,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 295
-      },
-      "tag": 0
-    },
-    {
-      "offset": 26420,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 295
-      },
-      "tag": 0
-    },
-    {
-      "offset": 26428,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 295
-      },
-      "tag": 0
-    },
-    {
-      "offset": 26436,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 295
-      },
-      "tag": 0
-    },
-    {
-      "offset": 26444,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 293
-      },
-      "tag": 0
-    },
-    {
-      "offset": 26452,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 295
-      },
-      "tag": 0
-    },
-    {
-      "offset": 26460,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 295
-      },
-      "tag": 0
-    },
-    {
-      "offset": 26468,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 295
-      },
-      "tag": 0
-    },
-    {
-      "offset": 26476,
-      "width": 8,
-      "target": {
-        "kind": "data",
-        "offset": 295
+        "offset": 303
       },
       "tag": 0
     }

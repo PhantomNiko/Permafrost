@@ -37,10 +37,13 @@ struct pf_uint96 {uint128 pf_payload_bits:96;} __attribute__((packed));
 #define SEXT816(a) ((__uint128_t)(__int128)(int64_t)(a))
 #define CONCAT88(a,b) (((__uint128_t)PF_RAW64(a)<<64)|PF_RAW64(b))
 #define ZEXT816(a) ((__uint128_t)(uint64_t)(a))
-#define PF_PART8(value, offset) (*(uint64_t *)((uint8_t *)&(value)+(offset)))
 #else
 typedef double longdouble;
+static inline bool SBORROW2(int16_t a,int16_t b) {
+    int32_t result=(int32_t)a-b;return result < -32768 || result > 32767;
+}
 #endif
+#define PF_PART8(value, offset) (*(uint64_t *)((uint8_t *)&(value)+(offset)))
 typedef unsigned long long ulonglong;
 typedef long long longlong;
 typedef unsigned char undefined;
@@ -75,6 +78,7 @@ __attribute__((noreturn)) static inline uintptr_t halt_baddata(void) {__builtin_
 #define SUB42(a,b) ((uint16_t)((uint32_t)(a)>>((b)*8)))
 #define CONCAT71(a,b) (((uint64_t)(a)<<8)|(uint8_t)(b))
 #define SUB84(a,b) ((uint32_t)(PF_RAW64(a)>>((b)*8)))
+#define SUB82(a,b) ((uint16_t)(PF_RAW64(a)>>((b)*8)))
 static inline uint32_t (SUB84)(uint64_t value,unsigned offset) {return (uint32_t)(value>>(offset*8));}
 #define ZEXT48(a) ((uint64_t)(uint32_t)(a))
 #define CARRY1(a,b) ((uint8_t)(a) > 0xffU-(uint8_t)(b))
