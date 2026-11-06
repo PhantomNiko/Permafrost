@@ -28,11 +28,17 @@ def patch(source):
         if header.startswith(':vshr.'):
             body=re.sub(r'VectorShiftRight\(([^;]+)\);',
                         r'VectorShiftRight(\1,ShiftSize,udt);',body)
+        if header.startswith(':vaddl.'):
+            body=body.replace('VectorAdd(', 'PFVectorAddLong(')
+        if header.startswith(':vaddw.'):
+            body=body.replace('VectorAdd(', 'PFVectorAddWide(')
         return header+'{'+body+'\n}'
     source=re.sub(r'(?ms)^(:[^{]+)\{(.*?)\n\}',constructor,source)
     if conversion_count!=2:
         raise ValueError('Expected both half-precision Q-register conversions')
     declarations = []
+    declarations.extend(['define pcodeop PFVectorAddLong;',
+                         'define pcodeop PFVectorAddWide;'])
     for operation in ('Unzip', 'Zip', 'Transpose'):
         for half in ('Low', 'High'):
             declarations.append('define pcodeop PFVector' + operation + half + ';')

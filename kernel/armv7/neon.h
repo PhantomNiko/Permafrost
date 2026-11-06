@@ -70,6 +70,15 @@ static inline uint128 VectorCopyLong(uint64_t value,unsigned element,unsigned is
     }
     return result;
 }
+static inline uint128 PFVectorAddLong(uint64_t left,uint64_t right,
+        unsigned element,unsigned is_unsigned) {
+    return pf_neon_binary(VectorCopyLong(left,element,is_unsigned),
+                          VectorCopyLong(right,element,is_unsigned),element*2,0,1);
+}
+static inline uint128 PFVectorAddWide(uint128 left,uint64_t right,
+        unsigned element,unsigned is_unsigned) {
+    return pf_neon_binary(left,VectorCopyLong(right,element,is_unsigned),element*2,0,1);
+}
 static inline uint64_t VectorCopyNarrow(uint128 value,unsigned element) {
     uint64_t result=0;
     unsigned bits=element*8,narrow=bits/2;
