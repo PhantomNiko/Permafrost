@@ -40,11 +40,11 @@ static inline uint32_t pf_arm_unsigned_sat(int64_t value,unsigned bits){uint64_t
 #define VectorUnsignedToFloat(value,mode) ((double)(uint32_t)(value))
 
 extern uint8_t pf_module_state[];
-void recovered_10000c20(uint param_1,uint param_2);
+uint32_t recovered_10000c20(uint32_t a,uint32_t b);
 uint recovered_10000c28(uint param_1,uint param_2,uint *param_3);
-uint recovered_10000ca0(uint a,uint b);
-int recovered_10000cc4(uint param_1,uint param_2);
-int recovered_10000cfc(int param_1,int param_2);
+uint32_t recovered_10000ca0(uint32_t a,uint32_t b);
+uint32_t recovered_10000cc4(uint32_t a,uint32_t b);
+uint32_t recovered_10000cfc(uint32_t a,uint32_t b);
 undefined8 recovered_10000d40(uint param_1,uint param_2,uint param_3,uint param_4,uint *param_5);
 undefined8 recovered_10000e48(undefined4 param_1,undefined4 param_2);
 undefined8 recovered_10000ed0(undefined4 param_1,undefined4 param_2);

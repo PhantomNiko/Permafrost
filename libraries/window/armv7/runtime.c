@@ -1,3 +1,4 @@
+#include "word_divide.h"
 /* Permafrost recovered implementation; Pooka's Free Software License.
  * Fixed entry addresses and original function boundaries are recorded
  * separately in recovery metadata. */
@@ -7,14 +8,7 @@
  * Address: ((uintptr_t)pf_module_state+0x0U)
  */
 
-void recovered_10001838(uint param_1,uint param_2)
-
-{
-  unsigned char frame[64] = {0};
-
-  recovered_10001840(param_1,param_2,(uint *)0x0);
-  return;
-}
+uint32_t recovered_10001838(uint32_t a,uint32_t b){uint32_t rest;return pf_word_divide(a,b,0);}
 
 
 /* Recovered working notes; Pooka's Free Software License.
@@ -61,15 +55,7 @@ uint recovered_10001840(uint param_1,uint param_2,uint *param_3)
  * Address: ((uintptr_t)pf_module_state+0x80U)
  */
 
-undefined4 recovered_100018b8(uint param_1,uint param_2)
-
-{
-  unsigned char frame[572] = {0};
-
-
-  recovered_10001840(param_1,param_2,auStack_20c + 0x80);
-  return 0;
-}
+uint32_t recovered_100018b8(uint32_t a,uint32_t b){uint32_t rest;return (pf_word_divide(a,b,&rest),rest);}
 
 #undef auStack_20c
 
@@ -77,28 +63,7 @@ undefined4 recovered_100018b8(uint param_1,uint param_2)
  * Address: ((uintptr_t)pf_module_state+0xa4U)
  */
 
-int recovered_100018dc(uint param_1,uint param_2)
-
-{
-  unsigned char frame[64] = {0};
-
-  uint uVar1;
-  uint uVar2;
-
-  uVar1 = param_1;
-  if ((int)param_1 < 0) {
-    uVar1 = -param_1;
-  }
-  uVar2 = param_2;
-  if ((int)param_2 < 0) {
-    uVar2 = -param_2;
-  }
-  uVar1 = recovered_10001840(uVar1,uVar2,(uint *)0x0);
-  if ((int)(param_2 ^ param_1) < 0) {
-    uVar1 = -uVar1;
-  }
-  return uVar1;
-}
+uint32_t recovered_100018dc(uint32_t a,uint32_t b){uint32_t rest;return pf_word_signed_divide(a,b,0);}
 
 
 #define local_10 (*(uint *)(frame + 16))
@@ -106,27 +71,7 @@ int recovered_100018dc(uint param_1,uint param_2)
  * Address: ((uintptr_t)pf_module_state+0xdcU)
  */
 
-int recovered_10001914(int param_1,int param_2)
-
-{
-  unsigned char frame[64] = {0};
-
-  uint uVar1;
-
-  local_10 = 0;
-  uVar1 = param_1;
-  if (param_1 < 0) {
-    uVar1 = -param_1;
-  }
-  if (param_2 < 0) {
-    param_2 = -param_2;
-  }
-  recovered_10001840(uVar1,param_2,&local_10);
-  if (param_1 < 0) {
-    local_10 = -local_10;
-  }
-  return local_10;
-}
+uint32_t recovered_10001914(uint32_t a,uint32_t b){uint32_t rest;return pf_word_signed_divide(a,b,1);}
 
 #undef local_10
 
