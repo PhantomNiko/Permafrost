@@ -28,7 +28,9 @@ def compile_object(source, target, includes=(), defines=(), compiler=None, extra
         return compile_darwin(source,target,architecture,includes,defines,extra_flags)
     if architecture not in ('i386', 'x86_64'):
         raise ValueError('unsupported target architecture')
-    flags = FLAGS if architecture == 'i386' else [
+    # Native C++ DLLs use Darwin's 16-byte call boundary. Flat programs and
+    # kernel callbacks can enter through the older four-byte interface.
+    flags = FLAGS + ['-mstack-alignment=16', '-mstackrealign'] if architecture == 'i386' else [
         '--target=x86_64-unknown-none-elf', '-m64', '-mno-red-zone', '-fms-extensions'] + [
         flag for flag in FLAGS[3:] if flag not in ('-mno-sse', '-mno-sse2', '-mno-mmx')]
     command = [compiler] + flags

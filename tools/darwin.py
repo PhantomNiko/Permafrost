@@ -29,6 +29,9 @@ def compile_object(source, target, architecture, includes=(), defines=(), extra_
              '-fdebug-prefix-map=' + str(Path.cwd()) + '=.']
     if architecture == 'armv7':
         flags += ['-marm']
+    if architecture == 'i386':
+        # Legacy firmware exposes x87 without enabling the SSE control bits.
+        flags += ['-mstackrealign', '-mno-sse', '-mno-sse2', '-mno-mmx']
     if architecture == 'x86_64':
         flags += ['-mno-red-zone', '-fms-extensions']
     if cpp:

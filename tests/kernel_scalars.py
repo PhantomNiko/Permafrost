@@ -13,6 +13,7 @@ from dll import DLL
 from native import inspect
 from unicorn import Uc,UC_ARCH_ARM,UC_ARCH_ARM64,UC_ARCH_X86,UC_MODE_ARM,UC_MODE_32,UC_MODE_64,UC_HOOK_CODE,UcError
 from unicorn.x86_const import UC_X86_REG_ECX,UC_X86_REG_EDX,UC_X86_REG_ESP,UC_X86_REG_RSP,UC_X86_REG_EIP,UC_X86_REG_RIP,UC_X86_REG_EAX,UC_X86_REG_RAX
+from unicorn.x86_const import UC_X86_REG_FPCW,UC_X86_REG_FPSW,UC_X86_REG_FPTAG
 from unicorn.arm_const import UC_ARM_REG_PC,UC_ARM_REG_R0,UC_ARM_REG_LR,UC_ARM_REG_C1_C0_2,UC_ARM_REG_FPEXC
 from unicorn.arm64_const import UC_ARM64_REG_PC,UC_ARM64_REG_X0,UC_ARM64_REG_LR
 
@@ -30,6 +31,10 @@ class Kernel(DLL):
         arm=self.cpu_type in(12,0x100000c)
         self.cpu=Uc(UC_ARCH_ARM if self.cpu_type==12 else UC_ARCH_ARM64 if arm else UC_ARCH_X86,
                     UC_MODE_ARM if arm else UC_MODE_64 if self.wide else UC_MODE_32)
+        if not arm:
+            self.cpu.reg_write(UC_X86_REG_FPCW,0x37f)
+            self.cpu.reg_write(UC_X86_REG_FPSW,0)
+            self.cpu.reg_write(UC_X86_REG_FPTAG,0xffff)
         self.cpu.mem_map(0,0x5000000)
         if arm:self.cpu.mem_map(0x40000000,0x1000000)
         self.cpu.mem_write(metadata['base'],memory)

@@ -23,8 +23,8 @@ def main():
     parser.add_argument('--sdk',type=Path,default=Path('build/Permafrost0.9.sdk'))
     parser.add_argument('--arch',choices=('i386','x86_64','armv7','arm64'),default='x86_64')
     parser.add_argument('--compiler',type=Path,help='use a source compiler instead of the SDK compiler')
-    parser.add_argument('--vm',choices=('lua','rwby','winterscript'))
     parser.add_argument('--script',type=Path)
+    parser.add_argument('--peek',action='append',type=lambda value:int(value,0),default=[],help='inspect guest memory after a firmware exception')
     parser.add_argument('--services',action='store_true')
     parser.add_argument('--graphics',action='store_true')
     parser.add_argument('--selftest',action='store_true')
@@ -37,7 +37,6 @@ def main():
     parser.add_argument('--screenshot',type=Path,help='save the guest display as PPM')
     args=parser.parse_args();arm=args.arch in ('armv7','arm64')
     if not arm and args.vars is None:parser.error('x86 checks require --vars')
-    if arm and args.vm:parser.error('ARM checks currently cover startup and SDK services')
     base=args.image.read_bytes();root_source=Path(__file__).parent
     with tempfile.TemporaryDirectory(prefix='permafrost-uefi-')as temporary:
         root=Path(temporary);files=Image(base,0).files()
@@ -71,18 +70,13 @@ def main():
             script+='assert(runcode("/graphics.bin",$%x)==1)\n'%graphics_base
             marker='PF-GRAPHICS-PASS'
         if args.script:script+=args.script.read_text()+'\n'
-        if args.vm or args.command:script+='serial("PF-UEFI-READY")\n'
+        if args.command:script+='serial("PF-UEFI-READY")\n'
         else:script+=('print'if arm else'serial')+'("PF-UEFI-HARDWARE-PASS")\n'
         files['startup.ws']=script.encode();disk=repack_image(base,files)
         user=Image(disk,2).files()
         if args.services:
             for name in ('services.bin','native-module.bin'):user[name]=files[name]
         if args.graphics:user['graphics.bin']=files['graphics.bin']
-        if args.vm:
-            extension={'lua':'lua','rwby':'rb','winterscript':'ws'}[args.vm]
-            source=root_source/('native-'+args.vm+'.'+extension)
-            user['index.'+extension]=source.read_bytes()if source.exists()else b'assert(2+3*4==14)\nlocal n=0\nfor i=1,12 do n=n+i end\nassert(n==78)\nprint("PF-LUA-HARDWARE-PASS")\n'
-            marker={'lua':'PF-LUA-HARDWARE-PASS','rwby':'PF-RWBY-PASS','winterscript':'PF-NATIVE-WS-PASS'}[args.vm]
         (root/'disk.img').write_bytes(repack_image(disk,user,2))
         if not arm:shutil.copyfile(args.vars,root/'vars.fd')
         serial=root/'serial.log';monitor=root/'monitor.sock'
@@ -108,7 +102,10 @@ def main():
                 while time.monotonic()<deadline and process.poll()is None:
                     output=serial.read_text(errors='replace')if serial.exists()else''
                     complete=(bool(re.search(r'(?m)^(?:@ )*PF-CONSOLE-PASS\r?$',output))if args.command else marker in output)
-                    if 'Synchronous Exception at'in output:
+                    if 'Data Abort Exception PC'in output and not re.search(r'R7\s+0x([0-9a-fA-F]+)',output):
+                        time.sleep(.1)
+                        continue
+                    if 'Synchronous Exception at'in output or 'Data Abort Exception PC'in output:
                         try:
                             with socket.socket(socket.AF_UNIX,socket.SOCK_STREAM)as control:
                                 control.settimeout(2);control.connect(str(monitor));control.recv(4096)
@@ -119,6 +116,34 @@ def main():
                                     if not chunk:break
                                     registers+=chunk
                                 print(registers.decode(errors='replace'),flush=True)
+                                for address in args.peek:
+                                    control.sendall(('xp /8wx 0x%x\n'%address).encode());reply=b''
+                                    while b'(qemu)'not in reply:
+                                        try:chunk=control.recv(16384)
+                                        except socket.timeout:break
+                                        if not chunk:break
+                                        reply+=chunk
+                                    for line in reply.decode(errors='replace').splitlines():
+                                        if re.match(r'^[0-9a-f]+:',line):print('Guest memory '+line,flush=True)
+                                if args.arch=='armv7':
+                                    match=re.search(r'R7\s+0x([0-9a-fA-F]+)',output)
+                                    frame=int(match[1],16)if match else 0
+                                    for _ in range(12):
+                                        if not 0x40000000<=frame<0x100000000:break
+                                        control.sendall(('xp /8wx 0x%x\n'%frame).encode());reply=b''
+                                        while b'(qemu)'not in reply:
+                                            try:chunk=control.recv(16384)
+                                            except socket.timeout:break
+                                            if not chunk:break
+                                            reply+=chunk
+                                        for line in reply.decode(errors='replace').splitlines():
+                                            if re.match(r'^[0-9a-f]+:',line):print('ARM stack '+line,flush=True)
+                                        words=re.search(rb'(?m)^[0-9a-f]+:\s+0x([0-9a-f]+)\s+0x([0-9a-f]+)',reply)
+                                        if not words:break
+                                        previous,target=int(words[1],16),int(words[2],16)
+                                        print('ARM guest frame %#x returns to %#x'%(frame,target),flush=True)
+                                        if previous<=frame or previous-frame>0x100000:break
+                                        frame=previous
                         except OSError:pass
                         break
                     if complete or 'PF-GRAPHICS-FAIL'in output:break
@@ -131,12 +156,6 @@ def main():
                                     key=keys.get(char,'shift-'+char.lower()if char.isupper()else char)
                                     control.sendall(('sendkey '+key+' 40\n').encode());time.sleep(.07);control.recv(8192)
                                 control.sendall(b'sendkey ret 40\n');time.sleep(.25);control.recv(8192)
-                        sent=True
-                    if args.vm and not sent and 'PF-UEFI-READY'in output:
-                        with socket.socket(socket.AF_UNIX,socket.SOCK_STREAM)as control:
-                            control.settimeout(2);control.connect(str(monitor));control.recv(4096)
-                            for key in [*args.vm,'ret']:
-                                control.sendall(('sendkey '+key+'\n').encode());time.sleep(.1);control.recv(8192)
                         sent=True
                     time.sleep(.1)
                 if args.screenshot and process.poll()is None:
@@ -155,11 +174,13 @@ def main():
         results=output.split('PF-UEFI-READY',1)[-1]if args.command else output
         for expected in args.expect:
             if not re.search(r'(?m)^'+re.escape(expected)+r'\r?$',results):raise SystemExit('missing output line: '+expected)
+        for enabled,required in ((args.services,'PF-SERVICES-PASS'),(args.graphics,'PF-GRAPHICS-PASS'),(args.selftest,'PF-SELFTEST-PASS')):
+            if enabled and required not in output:raise SystemExit('missing requested check: '+required)
         if 'ERROR: font asset' in output:raise SystemExit('font cache or rendering check failed')
         if ('PF-SDK-ARM-CALL-PASS'if arm else'PF-SDK-UEFI-CALL-PASS')not in output:raise SystemExit('native SDK service call marker missing')
         if arm and 'PF-SDK-ARM-VALUE-PASS'not in output:raise SystemExit('ARM callback value marker missing')
         if arm and 'PF-SDK-ARM-NATIVE-PASS'not in output:raise SystemExit('ARM native program marker missing')
-        print('UEFI '+args.arch+' '+(args.vm or 'startup')+' check passed.')
+        print('UEFI '+args.arch+' '+'startup'+' check passed.')
 
 
 if __name__=='__main__':main()

@@ -3043,8 +3043,9 @@ undefined4 * recovered_10006674(char *param_1,int param_2)
   undefined4 *puVar4;
   char *pcVar5;
   undefined4 uVar6;
-  void *unaff_r5;
-  uint unaff_r6;
+  void *file_data;
+  uint file_info[3] = {0};
+  uint file_size;
   undefined1 uVar7;
   char *unaff_r10;
 
@@ -3114,8 +3115,9 @@ LAB_10006854:
       puVar4[0x43] = 0xffffffff;
       *(bool *)((int)puVar4 + 0x112) = pcVar5 != (char *)0x0;
       recovered_100062b8((char *)(puVar4 + 1),0xf1,DAT_1000692c,param_1);
-      recovered_10004f54(auStack_a8 + 0x80,0,0xc);
-      iVar2 = recovered_10006930(param_1,auStack_a8 + 0x80);
+      iVar2 = recovered_10006930(param_1,(uint)file_info);
+      file_data = (void *)file_info[0];
+      file_size = file_info[1];
       if (iVar2 == 0) {
         if (*(char *)((int)puVar4 + 0x111) == '\0') {
           *(undefined4 *)*DAT_1000691c = 2;
@@ -3126,16 +3128,16 @@ LAB_100068f0:
       }
       else {
         pcVar5 = recovered_10005148(unaff_r10,'w');
-        if ((pcVar5 == (char *)0x0) && (unaff_r6 != 0)) {
+        if ((pcVar5 == (char *)0x0) && (file_size != 0)) {
           if (*(char *)((int)puVar4 + 0x111) == '\x01') {
-            iVar2 = recovered_1000697c((int)puVar4,unaff_r6);
+            iVar2 = recovered_1000697c((int)puVar4,file_size);
             if (iVar2 == 0) goto LAB_100068f0;
-            recovered_10004ee4((void *)puVar4[0x3f],unaff_r5,unaff_r6);
+            recovered_10004ee4((void *)puVar4[0x3f],file_data,file_size);
           }
           else {
-            puVar4[0x3e] = unaff_r5;
+            puVar4[0x3e] = file_data;
           }
-          puVar4[0x40] = unaff_r6;
+          puVar4[0x40] = file_size;
         }
       }
       if (*(char *)((int)puVar4 + 0x112) == '\x01') {

@@ -19,4 +19,7 @@ def fixtures(language):
             ('a={3,5,8}\nanswer=a[2]',5),
             ('answer=(1.5*2.0+0.25)*4',13),
         ]
-    return common+extra
+    comparison = ('if "Perma".."frost"=="Permafrost" then answer=1 else answer=0 end'
+                  if language == 'lua' else
+                  'if "Perma"+"frost"=="Permafrost"\nanswer=1\nelse\nanswer=0\nend')
+    return common+extra+[(comparison, 1)]
