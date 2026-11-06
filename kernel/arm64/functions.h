@@ -765,7 +765,7 @@ bool recovered_4041b578(uint *param_1);
 long recovered_4041b6f8(void);
 uint recovered_4041b730(char *param_1,uint param_2,uint param_3);
 undefined4 recovered_4041b824(void);
-void recovered_4041b890(long param_1);
+void recovered_4041b890(void *window,char *title);
 uchar recovered_4041b8d8(uint param_1,char *param_2,void *param_3,uint param_4,uint param_5,
                         uint param_6,uint param_7);
 char * recovered_4041ba20(int param_1);

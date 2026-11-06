@@ -2,6 +2,8 @@
  * Fixed entry addresses and original function boundaries are recorded
  * separately in recovery metadata. */
 #include "functions.h"
+extern int pf_image_decode(const void *,uintptr_t,void *);
+extern int pf_image_detect(const void *,uintptr_t);
 
 /* Secondary CPU entry, compiled from C. Pooka's Free Software License. */
 __attribute__((naked,noreturn)) void recovered_40400030(void *context){__asm__ volatile("mov x19,x0; ldr x1,[x19]; mov sp,x1; mov x0,x19; bl _recovered_404021b8; 1: wfe; b 1b");}
@@ -20,7 +22,7 @@ uint recovered_4040004c(void){return 0;}
 void recovered_404000c0(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   DAT_4045a560 = 0;
   recovered_404000cc();
@@ -51,8 +53,8 @@ void recovered_404000c0(void)
 #define _DAT_40010238 (*(int *)(0x40010238U))
 #undef _DAT_4001023c
 #define _DAT_4001023c (*(uint *)(0x4001023cU))
-#define auStack_458 (*(ulong (*)[130])(frame + 16))
-#define local_48 (*(ulong *)(frame + 1056))
+#define auStack_458 (*(ulong (*)[130])(frame + 24))
+#define local_48 (*(ulong *)(frame + 1064))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x404000cc
  */
@@ -62,7 +64,7 @@ void recovered_404000c0(void)
 uint recovered_404000cc(void)
 
 {
-  unsigned char frame[1160] = {0};
+  unsigned char frame[1168] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   byte bVar2;
@@ -217,7 +219,7 @@ uint recovered_404000cc(void)
 ulong recovered_40400334(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long *plVar2;
@@ -247,7 +249,7 @@ ulong recovered_40400334(void)
 long recovered_40400380(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   long *plVar2;
@@ -274,7 +276,7 @@ long recovered_40400380(void)
 ulong recovered_404003c0(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long *plVar2;
@@ -302,7 +304,7 @@ ulong recovered_404003c0(void)
 long recovered_404003fc(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   long *plVar2;
@@ -327,7 +329,7 @@ long recovered_404003fc(void)
 void * recovered_4040042c(ulong size)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   ulong *puVar2;
@@ -356,7 +358,7 @@ void * recovered_4040042c(ulong size)
 void recovered_404004a0(ulong *param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long *plVar2;
@@ -383,7 +385,7 @@ void recovered_404004a0(ulong *param_1,long param_2)
 ulong recovered_404004e4(ulong param_1,uint param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -416,7 +418,7 @@ ulong recovered_404004e4(ulong param_1,uint param_2)
 ulong recovered_40400528(ulong param_1,uint param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -449,7 +451,7 @@ ulong recovered_40400528(ulong param_1,uint param_2)
 long recovered_40400574(long param_1,uint param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   uint uVar2;
@@ -477,7 +479,7 @@ long recovered_40400574(long param_1,uint param_2)
 ulong recovered_404005c4(undefined8 param_1,undefined8 param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -493,7 +495,7 @@ ulong recovered_404005c4(undefined8 param_1,undefined8 param_2)
 ulong recovered_404005cc(ulong param_1,ulong param_2,long *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   ulong uVar2;
@@ -533,7 +535,7 @@ ulong recovered_404005cc(ulong param_1,ulong param_2,long *param_3)
 }
 
 
-#define uStack_18 (*(undefined8 *)(frame + 16))
+#define uStack_18 (*(undefined8 *)(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4040062c
  */
@@ -541,7 +543,7 @@ ulong recovered_404005cc(ulong param_1,ulong param_2,long *param_3)
 undefined8 recovered_4040062c(undefined8 param_1,undefined8 param_2)
 
 {
-  unsigned char frame[72] = {0};
+  unsigned char frame[80] __attribute__((aligned(16))) = {0};
 
 
   uStack_18 = 0;
@@ -558,7 +560,7 @@ undefined8 recovered_4040062c(undefined8 param_1,undefined8 param_2)
 long recovered_4040064c(ulong param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   ulong uVar2;
@@ -585,7 +587,7 @@ long recovered_4040064c(ulong param_1,ulong param_2)
 }
 
 
-#define lStack_28 (*(long *)(frame + 16))
+#define lStack_28 (*(long *)(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40400690
  */
@@ -593,7 +595,7 @@ long recovered_4040064c(ulong param_1,ulong param_2)
 long recovered_40400690(long param_1,long param_2)
 
 {
-  unsigned char frame[88] = {0};
+  unsigned char frame[96] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   long lVar2;
@@ -627,7 +629,7 @@ long recovered_40400690(long param_1,long param_2)
 void recovered_404006dc(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   do {
     WaitForEvent();
@@ -642,7 +644,7 @@ void recovered_404006dc(void)
 int recovered_404006e4(int param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
 
@@ -663,7 +665,7 @@ int recovered_404006e4(int param_1)
 void * recovered_404006f0(ulong size)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   ulong *puVar2;
@@ -694,7 +696,7 @@ void * recovered_404006f0(ulong size)
 ulong recovered_404006f4(void *buffer)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong extraout_x0;
   long *plVar1;
@@ -730,7 +732,7 @@ ulong recovered_404006f4(void *buffer)
 void recovered_4040076c(long *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   long *plVar2;
@@ -756,7 +758,7 @@ void recovered_4040076c(long *param_1)
 void * recovered_404007b0(void *buffer,ulong size)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   void *pvVar1;
   ulong uVar2;
@@ -811,7 +813,7 @@ void * recovered_404007b0(void *buffer,ulong size)
 void * recovered_40400898(void *out,void *data,ulong size)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -829,7 +831,7 @@ void * recovered_40400898(void *out,void *data,ulong size)
 void * recovered_404008b8(void *out,void *data,ulong size)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined1 *puVar1;
 
@@ -859,7 +861,7 @@ void * recovered_404008b8(void *out,void *data,ulong size)
 void * recovered_40400908(void *out,int value,ulong size)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -877,7 +879,7 @@ void * recovered_40400908(void *out,int value,ulong size)
 void recovered_40400924(undefined1 *param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   for (; param_2 != 0; param_2 = param_2 + -1) {
     *param_1 = 0;
@@ -894,7 +896,7 @@ void recovered_40400924(undefined1 *param_1,long param_2)
 double recovered_40400938(undefined1 *param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   double in_d0;
 
@@ -913,7 +915,7 @@ double recovered_40400938(undefined1 *param_1,long param_2)
 int recovered_4040094c(void *left,void *right,ulong size)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   byte bVar2;
@@ -939,7 +941,7 @@ int recovered_4040094c(void *left,void *right,ulong size)
 bool recovered_40400974(int param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return param_1 - 0x61U < 0x1a;
 }
@@ -952,7 +954,7 @@ bool recovered_40400974(int param_1)
 bool recovered_40400984(int param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return param_1 - 0x41U < 0x1a;
 }
@@ -965,7 +967,7 @@ bool recovered_40400984(int param_1)
 bool recovered_40400994(uint param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return (param_1 & 0xffffffdf) - 0x41 < 0x1a;
 }
@@ -978,7 +980,7 @@ bool recovered_40400994(uint param_1)
 bool recovered_404009a8(uint param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return param_1 - 0x30 < 10 || (param_1 & 0xffffffdf) - 0x41 < 0x1a;
 }
@@ -991,7 +993,7 @@ bool recovered_404009a8(uint param_1)
 bool recovered_404009c4(int param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return param_1 == 0x20 || param_1 == 9;
 }
@@ -1004,7 +1006,7 @@ bool recovered_404009c4(int param_1)
 bool recovered_404009d4(int param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return param_1 - 0x20U < 0x5f;
 }
@@ -1017,7 +1019,7 @@ bool recovered_404009d4(int param_1)
 int recovered_404009e4(int param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (0xffffffe5 < param_1 - 0x5bU) {
     param_1 = param_1 + 0x20;
@@ -1033,7 +1035,7 @@ int recovered_404009e4(int param_1)
 int recovered_404009f8(int param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (0xffffffe5 < param_1 - 0x7bU) {
     param_1 = param_1 + -0x20;
@@ -1049,7 +1051,7 @@ int recovered_404009f8(int param_1)
 ulong recovered_40400a0c(char *text)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -1072,7 +1074,7 @@ ulong recovered_40400a0c(char *text)
 int recovered_40400a30(char *left,char *right)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
 
@@ -1093,7 +1095,7 @@ int recovered_40400a30(char *left,char *right)
 int recovered_40400a58(char *left,char *right)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
 
@@ -1114,7 +1116,7 @@ int recovered_40400a58(char *left,char *right)
 void recovered_40400a5c(long param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char cVar1;
   long lVar2;
@@ -1136,7 +1138,7 @@ void recovered_40400a5c(long param_1,long param_2)
 ulong * recovered_40400a74(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   void *out;
@@ -1162,7 +1164,7 @@ ulong * recovered_40400a74(long param_1)
 char * recovered_40400ab4(char *param_1,char param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   while( true ) {
     if (*param_1 == '\0') {
@@ -1185,7 +1187,7 @@ char * recovered_40400ab4(char *param_1,char param_2)
 long recovered_40400adc(long param_1,char *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char *pcVar1;
   long lVar2;
@@ -1207,7 +1209,7 @@ long recovered_40400adc(long param_1,char *param_2)
 char * recovered_40400b20(char *param_1,char *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char *pcVar1;
 
@@ -1230,7 +1232,7 @@ char * recovered_40400b20(char *param_1,char *param_2)
 char * recovered_40400b64(char *param_1,char *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char *pcVar1;
   char *pcVar2;
@@ -1263,7 +1265,7 @@ char * recovered_40400b64(char *param_1,char *param_2)
 undefined * recovered_40400ba0(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return &DAT_4044e200;
 }
@@ -1279,7 +1281,7 @@ undefined * recovered_40400ba0(void)
 undefined ** recovered_40400bac(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return &PTR_DAT_4045a258;
 }
@@ -1293,7 +1295,7 @@ undefined ** recovered_40400bac(void)
 undefined8 recovered_40400bb8(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (param_1 != (undefined8 *)0x0) {
     *param_1 = 0x574d4236;
@@ -1309,7 +1311,7 @@ undefined8 recovered_40400bb8(undefined8 *param_1)
 double recovered_40400bd4(double param_1,uint param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
 
@@ -1330,7 +1332,7 @@ double recovered_40400bd4(double param_1,uint param_2)
 uint128 recovered_40400c08(double param_1,int *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint128 auVar1;
   bool bVar2;
@@ -1381,7 +1383,7 @@ uint128 recovered_40400c08(double param_1,int *param_2)
 double recovered_40400c7c(double left,double right)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (right == 0.0) {
     return 0.0;
@@ -1397,7 +1399,7 @@ double recovered_40400c7c(double left,double right)
 double recovered_40400ca0(double left,double right)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -1439,7 +1441,7 @@ double recovered_40400ca0(double left,double right)
 double recovered_40400d00(double value)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   double dVar1;
   double dVar2;
@@ -1460,7 +1462,7 @@ double recovered_40400d00(double value)
 double recovered_40400d1c(double value)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   double dVar1;
   double dVar2;
@@ -1485,7 +1487,7 @@ double recovered_40400d1c(double value)
 double recovered_40400d48(double value)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   double dVar2;
@@ -1512,7 +1514,7 @@ double recovered_40400d48(double value)
 double recovered_40400d84(double value)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   uint uVar2;
@@ -1552,7 +1554,7 @@ double recovered_40400d84(double value)
 long recovered_40400e30(double param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   double dVar1;
 
@@ -1573,7 +1575,7 @@ long recovered_40400e30(double param_1)
 double recovered_40400e44(double value)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   double extraout_d0 = 0;
   double dVar1;
@@ -1601,7 +1603,7 @@ double recovered_40400e44(double value)
 void recovered_40400e98(double param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   for (; DAT_4044d4c0 < param_1; param_1 = param_1 + DAT_4044d4d8) {
   }
@@ -1624,7 +1626,7 @@ void recovered_40400e98(double param_1)
 double recovered_40400edc(double value)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   double extraout_d0 = 0;
   double dVar1;
@@ -1643,7 +1645,7 @@ double recovered_40400edc(double value)
 double recovered_40400f28(double value)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   double dVar1;
 
@@ -1662,7 +1664,7 @@ double recovered_40400f28(double value)
 longlong recovered_40400f38(double param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   uint uVar2;
@@ -1711,7 +1713,7 @@ longlong recovered_40400f38(double param_1)
 ulonglong recovered_40400f98(double param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   uint uVar2;
@@ -1750,7 +1752,7 @@ ulonglong recovered_40400f98(double param_1)
 double recovered_40400fe8(ulonglong param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   double dVar1;
   double dVar2;
@@ -1774,7 +1776,7 @@ double recovered_40400fe8(ulonglong param_1)
 double recovered_40401010(longlong param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   double dVar1;
 
@@ -1794,7 +1796,7 @@ double recovered_40401010(longlong param_1)
 float recovered_40401034(float left,float right)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (right == 0.0) {
     return 0.0;
@@ -1810,7 +1812,7 @@ float recovered_40401034(float left,float right)
 float recovered_40401068(float param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int *in_x0;
   uint128 auVar1;
@@ -1827,7 +1829,7 @@ float recovered_40401068(float param_1)
 float recovered_40401080(float param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint in_w0;
   double dVar1;
@@ -1844,7 +1846,7 @@ float recovered_40401080(float param_1)
 float recovered_40401098(float left,float right)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   double dVar1;
 
@@ -1860,7 +1862,7 @@ float recovered_40401098(float left,float right)
 float recovered_404010b4(float value)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   float fVar1;
   float fVar2;
@@ -1881,7 +1883,7 @@ float recovered_404010b4(float value)
 float recovered_404010d8(float value)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   double dVar1;
 
@@ -1897,7 +1899,7 @@ float recovered_404010d8(float value)
 double recovered_404010f0(double value)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   double dVar1;
   double dVar2;
@@ -1922,7 +1924,7 @@ double recovered_404010f0(double value)
 float recovered_40401118(float value)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   double dVar1;
 
@@ -1938,7 +1940,7 @@ float recovered_40401118(float value)
 float recovered_40401130(float value)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   double dVar1;
 
@@ -1954,7 +1956,7 @@ float recovered_40401130(float value)
 float recovered_40401148(float value)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   double dVar1;
 
@@ -1970,7 +1972,7 @@ float recovered_40401148(float value)
 long recovered_40401160(double param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   double dVar1;
 
@@ -1989,7 +1991,7 @@ long recovered_40401160(double param_1)
 float recovered_40401174(float value)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   double dVar1;
 
@@ -2005,7 +2007,7 @@ float recovered_40401174(float value)
 float recovered_4040118c(float value)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   double dVar1;
 
@@ -2021,7 +2023,7 @@ float recovered_4040118c(float value)
 float recovered_404011a4(float value)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   float fVar1;
 
@@ -2040,7 +2042,7 @@ float recovered_404011a4(float value)
 long recovered_404011b4(byte *param_1,undefined8 *param_2,uint param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   byte bVar2;
@@ -2111,7 +2113,7 @@ LAB_4040127c:
 uint recovered_404012bc(int param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
 
@@ -2136,7 +2138,7 @@ uint recovered_404012bc(int param_1)
 long recovered_404012ec(byte *param_1,undefined8 *param_2,uint param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   byte *pbVar2;
@@ -2223,7 +2225,7 @@ LAB_404013d4:
 double recovered_40401414(char *text,char **end)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte *pbVar1;
   byte bVar2;
@@ -2323,7 +2325,7 @@ double recovered_40401414(char *text,char **end)
 float recovered_404015a4(char *text,char **end)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   double dVar1;
 
@@ -2332,10 +2334,10 @@ float recovered_404015a4(char *text,char **end)
 }
 
 
-#define pdStack_78 (*(double * *)(frame + 36))
-#define local_8c (*(int *)(frame + 16))
-#define local_88 (*(ulong *)(frame + 20))
-#define local_80 (*(byte * *)(frame + 28))
+#define pdStack_78 (*(double * *)(frame + 40))
+#define local_8c (*(int *)(frame + 20))
+#define local_88 (*(ulong *)(frame + 24))
+#define local_80 (*(byte * *)(frame + 32))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x404015bc
  */
@@ -2343,7 +2345,7 @@ float recovered_404015a4(char *text,char **end)
 int recovered_404015bc(char *out,ulong capacity,char *format,void *arguments)
 
 {
-  unsigned char frame[188] = {0};
+  unsigned char frame[192] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   double *pdVar2;
@@ -2538,7 +2540,7 @@ LAB_4040167c:
 void recovered_40401890(long *param_1,ulong *param_2,int *param_3,undefined1 param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (1 < *param_2) {
     *(undefined1 *)*param_1 = param_4;
@@ -2559,7 +2561,7 @@ void recovered_40401890(long *param_1,ulong *param_2,int *param_3,undefined1 par
 void recovered_404018cc(long *param_1,ulong *param_2,int *param_3,char *param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char *pcVar1;
 
@@ -2588,7 +2590,7 @@ void recovered_4040191c(long *param_1,ulong *param_2,int *param_3,uint param_4,u
                        int param_6)
 
 {
-  unsigned char frame[144] = {0};
+  unsigned char frame[144] __attribute__((aligned(16))) = {0};
 
   char *pcVar1;
   uint uVar2;
@@ -2639,7 +2641,7 @@ int recovered_404019bc(char *buffer,size_t capacity,const char *format,...){
 void recovered_404019e4(long param_1,ulong param_2,ulong *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   long *plVar2;
@@ -2675,7 +2677,7 @@ void recovered_404019e4(long param_1,ulong param_2,ulong *param_3)
 undefined8 recovered_40401b20(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return 0;
 }
@@ -2688,7 +2690,7 @@ undefined8 recovered_40401b20(void)
 undefined8 recovered_40401b24(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return 0;
 }
@@ -2717,7 +2719,7 @@ uint recovered_40401b34(const char *path){return 0;}
 undefined8 recovered_40401b38(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return 0xffffffff;
 }
@@ -2730,7 +2732,7 @@ undefined8 recovered_40401b38(void)
 undefined8 recovered_40401b40(undefined8 param_1,undefined1 *param_2,int param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if ((param_2 != (undefined1 *)0x0) && (param_3 != 0)) {
     *param_2 = 0;
@@ -2746,7 +2748,7 @@ undefined8 recovered_40401b40(undefined8 param_1,undefined1 *param_2,int param_3
 void recovered_40401b50(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return;
 }
@@ -2759,7 +2761,7 @@ void recovered_40401b50(void)
 undefined8 recovered_40401b54(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return 1;
 }
@@ -2790,7 +2792,7 @@ undefined8 recovered_40401b54(void)
 void recovered_40401b58(int *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   int iVar2;
@@ -2860,7 +2862,7 @@ void recovered_40401b58(int *param_1)
 void recovered_40401bcc(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
   undefined8 uVar2;
@@ -2893,7 +2895,7 @@ void recovered_40401bcc(undefined8 *param_1)
 void recovered_40401bec(uint param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   ulong uVar2;
@@ -2921,7 +2923,7 @@ void recovered_40401bec(uint param_1)
 bool recovered_40401c24(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int *piVar1;
 
@@ -2941,7 +2943,7 @@ bool recovered_40401c24(void)
 undefined8 recovered_40401c68(undefined8 param_1,undefined8 param_2,undefined4 *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (param_3 != (undefined4 *)0x0) {
     *param_3 = 0;
@@ -2957,13 +2959,13 @@ undefined8 recovered_40401c68(undefined8 param_1,undefined8 param_2,undefined4 *
 undefined8 recovered_40401c74(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return 0;
 }
 
 
-#define puStack_28 (*(uint * *)(frame + 16))
+#define puStack_28 (*(uint * *)(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40401c78
  */
@@ -2972,7 +2974,7 @@ undefined8
 recovered_40401c78(uint param_1,uint param_2,uint param_3,uint param_4,uint param_5,uint *param_6)
 
 {
-  unsigned char frame[88] = {0};
+  unsigned char frame[96] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
   uint uVar2;
@@ -3004,7 +3006,7 @@ recovered_40401c78(uint param_1,uint param_2,uint param_3,uint param_4,uint para
 
 #undef puStack_28
 
-#define puStack_28 (*(undefined4 * *)(frame + 16))
+#define puStack_28 (*(undefined4 * *)(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40401cf0
  */
@@ -3014,7 +3016,7 @@ recovered_40401cf0(uint param_1,uint param_2,uint param_3,uint param_4,uint para
                   undefined4 param_6)
 
 {
-  unsigned char frame[88] = {0};
+  unsigned char frame[96] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -3084,32 +3086,32 @@ recovered_40401cf0(uint param_1,uint param_2,uint param_3,uint param_4,uint para
 #define uRam0000000009020010 (*(uint64_t *)(0x9020010U))
 #undef uRam000000004044d518
 #define uRam000000004044d518 (*(uint64_t *)(0x4044d518U))
-#define uStack_cc (*(undefined1 *)(frame + 16))
-#define uStack_cb (*(undefined1 *)(frame + 17))
-#define uStack_ca (*(undefined1 *)(frame + 18))
-#define uStack_c9 (*(undefined1 *)(frame + 19))
-#define uStack_c8 (*(undefined1 *)(frame + 20))
-#define uStack_c7 (*(undefined1 *)(frame + 21))
-#define uStack_c6 (*(undefined1 *)(frame + 22))
-#define uStack_c5 (*(undefined1 *)(frame + 23))
-#define uStack_c4 (*(undefined8 *)(frame + 24))
-#define uStack_bc (*(undefined1 *)(frame + 32))
-#define uStack_bb (*(undefined1 *)(frame + 33))
-#define uStack_ba (*(undefined1 *)(frame + 34))
-#define uStack_b9 (*(undefined1 *)(frame + 35))
-#define uStack_b8 (*(undefined1 *)(frame + 36))
-#define uStack_b7 (*(undefined1 *)(frame + 37))
-#define uStack_b6 (*(undefined1 *)(frame + 38))
-#define uStack_b5 (*(undefined1 *)(frame + 39))
-#define uStack_b4 (*(undefined1 *)(frame + 40))
-#define uStack_b3 (*(undefined1 *)(frame + 41))
-#define local_b0 (*(ulong *)(frame + 44))
-#define uStack_b2 (*(undefined1 *)(frame + 42))
-#define uStack_b1 (*(undefined1 *)(frame + 43))
-#define uStack_a8 (*(uint *)(frame + 52))
-#define uStack_a4 (*(uint *)(frame + 56))
-#define auStack_a0 (*(ulong (*)[7])(frame + 60))
-#define puStack_68 (*(uint * *)(frame + 116))
+#define uStack_cc (*(undefined1 *)(frame + 20))
+#define uStack_cb (*(undefined1 *)(frame + 21))
+#define uStack_ca (*(undefined1 *)(frame + 22))
+#define uStack_c9 (*(undefined1 *)(frame + 23))
+#define uStack_c8 (*(undefined1 *)(frame + 24))
+#define uStack_c7 (*(undefined1 *)(frame + 25))
+#define uStack_c6 (*(undefined1 *)(frame + 26))
+#define uStack_c5 (*(undefined1 *)(frame + 27))
+#define uStack_c4 (*(undefined8 *)(frame + 28))
+#define uStack_bc (*(undefined1 *)(frame + 36))
+#define uStack_bb (*(undefined1 *)(frame + 37))
+#define uStack_ba (*(undefined1 *)(frame + 38))
+#define uStack_b9 (*(undefined1 *)(frame + 39))
+#define uStack_b8 (*(undefined1 *)(frame + 40))
+#define uStack_b7 (*(undefined1 *)(frame + 41))
+#define uStack_b6 (*(undefined1 *)(frame + 42))
+#define uStack_b5 (*(undefined1 *)(frame + 43))
+#define uStack_b4 (*(undefined1 *)(frame + 44))
+#define uStack_b3 (*(undefined1 *)(frame + 45))
+#define local_b0 (*(ulong *)(frame + 48))
+#define uStack_b2 (*(undefined1 *)(frame + 46))
+#define uStack_b1 (*(undefined1 *)(frame + 47))
+#define uStack_a8 (*(uint *)(frame + 56))
+#define uStack_a4 (*(uint *)(frame + 60))
+#define auStack_a0 (*(ulong (*)[7])(frame + 64))
+#define puStack_68 (*(uint * *)(frame + 120))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40401d5c
  */
@@ -3120,7 +3122,7 @@ recovered_40401cf0(uint param_1,uint param_2,uint param_3,uint param_4,uint para
 undefined8 recovered_40401d5c(ulong param_1,uint param_2,uint param_3,uint param_4)
 
 {
-  unsigned char frame[252] = {0};
+  unsigned char frame[256] __attribute__((aligned(16))) = {0};
 
   uint *puVar1;
   uint uVar2;
@@ -3327,7 +3329,7 @@ undefined8 recovered_40401d5c(ulong param_1,uint param_2,uint param_3,uint param
 undefined8 recovered_40402078(ulong param_1,ulong param_2,ulong *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   uint uVar2;
@@ -3406,7 +3408,7 @@ LAB_40402134:
 undefined8 recovered_4040214c(int param_1,int param_2,int param_3,int *param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -3427,7 +3429,7 @@ undefined8 recovered_4040214c(int param_1,int param_2,int param_3,int *param_4)
 undefined8 recovered_40402178(uint param_1,int param_2,int param_3,ulong *param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -3460,7 +3462,7 @@ undefined8 recovered_40402178(uint param_1,int param_2,int param_3,ulong *param_
 void recovered_404021b8(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (param_1 != 0) {
     if ((*(ulong *)(param_1 + 0x28) & 1) != 0) {
@@ -3497,7 +3499,7 @@ void recovered_404021b8(long param_1)
 void recovered_40402238(ulong param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   undefined8 uVar2;
@@ -3561,9 +3563,9 @@ void recovered_40402238(ulong param_1,long param_2)
 #define DAT_4047afe0 (*(uint16_t volatile *)(0x4047afe0U))
 #undef DAT_4047afe2
 #define DAT_4047afe2 (*(uint8_t volatile *)(0x4047afe2U))
-#define uStack_74 (*(uint *)(frame + 16))
-#define uStack_70 (*(ulong *)(frame + 20))
-#define uStack_62 (*(ushort *)(frame + 34))
+#define uStack_74 (*(uint *)(frame + 28))
+#define uStack_70 (*(ulong *)(frame + 32))
+#define uStack_62 (*(ushort *)(frame + 46))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40402278
  */
@@ -3586,7 +3588,7 @@ void recovered_40402238(ulong param_1,long param_2)
 bool recovered_40402278(void)
 
 {
-  unsigned char frame[164] = {0};
+  unsigned char frame[176] __attribute__((aligned(16))) = {0};
 
   char *pcVar1;
   byte bVar2;
@@ -3782,7 +3784,7 @@ LAB_40402538:
 void recovered_404026f4(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char *pcVar1;
   bool bVar2;
@@ -3819,7 +3821,7 @@ void recovered_404026f4(long param_1)
 void recovered_40402740(undefined8 param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   DAT_4047af78 = param_1;
   return;
@@ -3836,7 +3838,7 @@ void recovered_40402740(undefined8 param_1)
 int recovered_4040274c(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
 
@@ -3859,7 +3861,7 @@ int recovered_4040274c(void)
 int recovered_40402764(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
 
@@ -3882,7 +3884,7 @@ int recovered_40402764(void)
 uint recovered_4040277c(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   uint uVar2;
@@ -3923,7 +3925,7 @@ uint recovered_4040277c(void)
 uint recovered_404027e0(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   bool bVar2;
@@ -3962,7 +3964,7 @@ uint recovered_404027e0(void)
 undefined8 recovered_40402838(uint *param_1,int param_2,uint *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
 
@@ -4003,7 +4005,7 @@ undefined8 recovered_40402838(uint *param_1,int param_2,uint *param_3)
 undefined8 recovered_40402894(undefined4 *param_1,int param_2,undefined4 param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -4040,7 +4042,7 @@ undefined8 recovered_40402894(undefined4 *param_1,int param_2,undefined4 param_3
 uchar recovered_404028dc(uint param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
   int in_w1;
@@ -4058,7 +4060,7 @@ uchar recovered_404028dc(uint param_1)
 uchar recovered_404028e4(uint param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
   int in_w1;
@@ -4143,7 +4145,7 @@ uchar recovered_404028e4(uint param_1)
 #define Ram000000004047b400 (*(uint64_t volatile *)(0x4047b400U))
 #undef Ram000000004047b408
 #define Ram000000004047b408 (*(uint64_t volatile *)(0x4047b408U))
-#define iStack_24 (*(int *)(frame + 16))
+#define iStack_24 (*(int *)(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x404028ec
  */
@@ -4151,7 +4153,7 @@ uchar recovered_404028e4(uint param_1)
 void recovered_404028ec(void)
 
 {
-  unsigned char frame[84] = {0};
+  unsigned char frame[96] __attribute__((aligned(16))) = {0};
 
   uint *puVar1;
   long *plVar2;
@@ -4384,7 +4386,7 @@ void recovered_404028ec(void)
 void recovered_40402c44(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   uint uVar2;
@@ -4427,7 +4429,7 @@ void recovered_40402c44(void)
 
 #undef DAT_4047af70
 #define DAT_4047af70 (*(uint64_t volatile *)(0x4047af70U))
-#define uStack_24 (*(uint *)(frame + 16))
+#define uStack_24 (*(uint *)(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40402d34
  */
@@ -4435,7 +4437,7 @@ void recovered_40402c44(void)
 undefined8 recovered_40402d34(uint param_1,int *param_2)
 
 {
-  unsigned char frame[84] = {0};
+  unsigned char frame[96] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   bool bVar2;
@@ -4487,7 +4489,7 @@ LAB_40402d78:
 ulong recovered_40402dc0(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   long lVar2;
@@ -4522,7 +4524,7 @@ ulong recovered_40402dc0(void)
 undefined8 recovered_40402e2c(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   bool bVar2;
@@ -4548,7 +4550,7 @@ undefined8 recovered_40402e2c(void)
 int recovered_40402e5c(uint param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
 
@@ -4569,7 +4571,7 @@ int recovered_40402e5c(uint param_1)
 void recovered_40402e78(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   ulong uVar2;
@@ -4603,7 +4605,7 @@ void recovered_40402e78(void)
 undefined8 recovered_40402f10(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return 0x40010000;
 }
@@ -4624,7 +4626,7 @@ undefined8 recovered_40402f10(void)
 undefined4 recovered_40402f18(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   undefined4 uVar2;
@@ -4652,7 +4654,7 @@ undefined4 recovered_40402f18(void)
 uint recovered_40402f40(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   uint uVar2;
@@ -4683,7 +4685,7 @@ uint recovered_40402f40(void)
 uint recovered_40402f78(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   uint uVar2;
@@ -4714,7 +4716,7 @@ uint recovered_40402f78(void)
 void recovered_40402fb0(ulong param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   ulong uVar2;
@@ -4760,7 +4762,7 @@ void recovered_40402fb0(ulong param_1)
 ulong recovered_40403068(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   bool bVar2;
@@ -4791,7 +4793,7 @@ ulong recovered_40403068(void)
 ulong recovered_4040309c(int param_1,int param_2,int param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   ulong uVar2;
@@ -4817,7 +4819,7 @@ ulong recovered_4040309c(int param_1,int param_2,int param_3)
 void recovered_404030fc(uint param_1,uint param_2,uint param_3,uint param_4,undefined4 param_5)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -4858,7 +4860,7 @@ void recovered_404030fc(uint param_1,uint param_2,uint param_3,uint param_4,unde
 
 #undef DAT_4047af70
 
-#define local_102 (*(ushort (*)[81])(frame + 16))
+#define local_102 (*(ushort (*)[81])(frame + 30))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x404031c0
  */
@@ -4866,7 +4868,7 @@ void recovered_404030fc(uint param_1,uint param_2,uint param_3,uint param_4,unde
 void recovered_404031c0(uint param_1,uint param_2,long param_3,ulong param_4,uint param_5)
 
 {
-  unsigned char frame[306] = {0};
+  unsigned char frame[320] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   bool bVar2;
@@ -4936,7 +4938,7 @@ void recovered_404031c0(uint param_1,uint param_2,long param_3,ulong param_4,uin
 void recovered_40403328(int param_1,int param_2,ulong param_3,uint param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   uint uVar2;
@@ -4987,7 +4989,7 @@ void recovered_40403328(int param_1,int param_2,ulong param_3,uint param_4)
 void recovered_40403450(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -5009,7 +5011,7 @@ void recovered_40403450(long param_1)
 void recovered_4040348c(undefined8 param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   ulong uVar2;
@@ -5035,7 +5037,7 @@ void recovered_4040348c(undefined8 param_1)
 void recovered_404034d4(uint param_1,uint param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -5073,7 +5075,7 @@ void recovered_404034d4(uint param_1,uint param_2)
 undefined8 recovered_40403550(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   undefined8 uVar2;
@@ -5104,7 +5106,7 @@ undefined8 recovered_40403550(void)
 ulong recovered_40403588(undefined1 *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined1 *puVar1;
   bool bVar2;
@@ -5151,7 +5153,7 @@ ulong recovered_40403588(undefined1 *param_1,ulong param_2)
 #undef DAT_4045a570
 #undef DAT_4045b570
 
-#define local_28 (*(ulong *)(frame + 16))
+#define local_28 (*(ulong *)(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40403640
  */
@@ -5161,7 +5163,7 @@ recovered_40403640(undefined8 param_1,long param_2,int param_3,undefined4 *param
                   undefined4 *param_5)
 
 {
-  unsigned char frame[88] = {0};
+  unsigned char frame[96] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -5187,7 +5189,7 @@ recovered_40403640(undefined8 param_1,long param_2,int param_3,undefined4 *param
 void recovered_404036a4(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return;
 }
@@ -5200,7 +5202,7 @@ void recovered_404036a4(void)
 void recovered_404036a8(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return;
 }
@@ -5214,8 +5216,8 @@ void recovered_404036a8(void)
 #define DAT_4044d84c (*(uint8_t *)(0x4044d84cU))
 #undef DAT_4047af70
 #define DAT_4047af70 (*(uint64_t volatile *)(0x4047af70U))
-#define local_64 (*(ushort *)(frame + 16))
-#define local_62 (*(ushort *)(frame + 18))
+#define local_64 (*(ushort *)(frame + 28))
+#define local_62 (*(ushort *)(frame + 30))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x404036ac
  */
@@ -5223,7 +5225,7 @@ void recovered_404036a8(void)
 ulong recovered_404036ac(void)
 
 {
-  unsigned char frame[148] = {0};
+  unsigned char frame[160] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   bool bVar2;
@@ -5461,7 +5463,7 @@ LAB_40403718:
 uint recovered_40403a04(ulong param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   code *pcVar1;
   int iVar2;
@@ -5537,7 +5539,7 @@ LAB_40403a6c:
 undefined8 recovered_40403aac(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   undefined8 uVar2;
@@ -5600,7 +5602,7 @@ undefined8 recovered_40403aac(undefined8 *param_1)
 undefined8 recovered_40403b44(undefined8 param_1,int *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   undefined8 uVar2;
@@ -5671,7 +5673,7 @@ undefined8 recovered_40403b44(undefined8 param_1,int *param_2)
 #define _DAT_0000000040400064 (*(uint *)(0x40400064U))
 #undef _DAT_0000000040400068
 #define _DAT_0000000040400068 (*(uint *)(0x40400068U))
-#define local_64 (*(uint *)(frame + 16))
+#define local_64 (*(uint *)(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40403bb0
  */
@@ -5679,7 +5681,7 @@ undefined8 recovered_40403b44(undefined8 param_1,int *param_2)
 bool recovered_40403bb0(undefined8 param_1,ulong param_2,long param_3,ulong param_4)
 
 {
-  unsigned char frame[148] = {0};
+  unsigned char frame[160] __attribute__((aligned(16))) = {0};
 
   undefined1 uVar1;
   ulong uVar2;
@@ -5988,7 +5990,7 @@ LAB_40403db4:
 int recovered_404040bc(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   bool bVar2;
@@ -6014,7 +6016,7 @@ int recovered_404040bc(void)
 uint recovered_404040f0(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   bool bVar2;
@@ -6039,7 +6041,7 @@ uint recovered_404040f0(void)
 uint recovered_40404124(int param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -6078,7 +6080,7 @@ uint recovered_40404124(int param_1)
 undefined8 recovered_40404158(uint param_1,ulong param_2,ulong param_3,uint param_4,long param_5)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   byte bVar2;
@@ -6143,7 +6145,7 @@ undefined8 recovered_40404158(uint param_1,ulong param_2,ulong param_3,uint para
 bool recovered_4040421c(uint param_1,uint param_2,int param_3,uint param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char cVar1;
   byte bVar2;
@@ -6171,8 +6173,8 @@ bool recovered_4040421c(uint param_1,uint param_2,int param_3,uint param_4)
 #undef DAT_4047af68
 #undef DAT_4047af6c
 
-#define uStack_5c (*(uint *)(frame + 16))
-#define auStack_58 (*(uint (*)[2])(frame + 20))
+#define uStack_5c (*(uint *)(frame + 20))
+#define auStack_58 (*(uint (*)[2])(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40404274
  */
@@ -6180,7 +6182,7 @@ bool recovered_4040421c(uint param_1,uint param_2,int param_3,uint param_4)
 ulong recovered_40404274(undefined8 param_1,uint param_2,ulong param_3,uint param_4)
 
 {
-  unsigned char frame[140] = {0};
+  unsigned char frame[144] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -6254,7 +6256,7 @@ ulong recovered_40404274(undefined8 param_1,uint param_2,ulong param_3,uint para
 void recovered_40404398(undefined1 param_1,undefined4 param_2,int param_3,undefined1 param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
 
@@ -6318,7 +6320,7 @@ void recovered_40404398(undefined1 param_1,undefined4 param_2,int param_3,undefi
 bool recovered_404043e4(undefined8 param_1,uint param_2,long param_3,ulong param_4)
 
 {
-  unsigned char frame[160] = {0};
+  unsigned char frame[160] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   byte bVar2;
@@ -6540,7 +6542,7 @@ LAB_40404740:
 uint recovered_404047b0(int param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -6560,7 +6562,7 @@ uint recovered_404047b0(int param_1)
 
 #undef DAT_4045a2b8
 
-#define local_34 (*(uint *)(frame + 16))
+#define local_34 (*(uint *)(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x404047e4
  */
@@ -6568,7 +6570,7 @@ uint recovered_404047b0(int param_1)
 uint recovered_404047e4(uint param_1)
 
 {
-  unsigned char frame[100] = {0};
+  unsigned char frame[112] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   ulong uVar2;
@@ -6608,7 +6610,7 @@ uint recovered_404047e4(uint param_1)
 bool recovered_40404878(uint param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   ulong uVar2;
@@ -6638,7 +6640,7 @@ bool recovered_40404878(uint param_1)
 
 #undef DAT_4047af70
 #define DAT_4047af70 (*(uint64_t volatile *)(0x4047af70U))
-#define uStack_24 (*(uint *)(frame + 16))
+#define uStack_24 (*(uint *)(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x404048d8
  */
@@ -6646,7 +6648,7 @@ bool recovered_40404878(uint param_1)
 ulong recovered_404048d8(uint param_1)
 
 {
-  unsigned char frame[84] = {0};
+  unsigned char frame[96] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   bool bVar2;
@@ -6694,7 +6696,7 @@ LAB_40404954:
 undefined8 recovered_40404968(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   uint uVar2;
@@ -6721,7 +6723,7 @@ undefined8 recovered_40404968(void)
 int recovered_40404994(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   bool bVar2;
@@ -6756,7 +6758,7 @@ uint recovered_404049c4(uint command){
 ulong recovered_40404a04(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   bool bVar2;
@@ -6782,7 +6784,7 @@ ulong recovered_40404a04(void)
 ulong recovered_40404a28(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   bool bVar2;
@@ -6814,7 +6816,7 @@ ulong recovered_40404a28(void)
 void recovered_40404a4c(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined1 param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   DAT_4047af50 = param_1;
   DAT_4047af54 = param_2;
@@ -6835,7 +6837,7 @@ void recovered_40404a4c(undefined4 param_1,undefined4 param_2,undefined4 param_3
 uint recovered_40404a68(ulong param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return (uint)((uint)param_1 < 0x21) & (uint)(0x101018000 >> (param_1 & 0x3f));
 }
@@ -6850,7 +6852,7 @@ uint recovered_40404a68(ulong param_1)
 uint recovered_40404a84(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
 
@@ -6877,7 +6879,7 @@ uint recovered_40404a84(void)
 uint recovered_40404a98(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   int iVar2;
@@ -6905,12 +6907,12 @@ uint recovered_40404a98(void)
 
 #undef DAT_4047af70
 #define DAT_4047af70 (*(uint64_t volatile *)(0x4047af70U))
-#define uStack_8c (*(undefined4 *)(frame + 16))
-#define uStack_88 (*(undefined4 *)(frame + 20))
-#define cStack_80 (*(char *)(frame + 28))
-#define cStack_7f (*(char *)(frame + 29))
-#define uStack_6c (*(undefined4 *)(frame + 48))
-#define uStack_68 (*(ulong *)(frame + 52))
+#define uStack_8c (*(undefined4 *)(frame + 20))
+#define uStack_88 (*(undefined4 *)(frame + 24))
+#define cStack_80 (*(char *)(frame + 32))
+#define cStack_7f (*(char *)(frame + 33))
+#define uStack_6c (*(undefined4 *)(frame + 52))
+#define uStack_68 (*(ulong *)(frame + 56))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40404ae8
  */
@@ -6918,7 +6920,7 @@ uint recovered_40404a98(void)
 uint recovered_40404ae8(uint *param_1)
 
 {
-  unsigned char frame[188] = {0};
+  unsigned char frame[192] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -7231,7 +7233,7 @@ LAB_40404b3c:
 undefined8 recovered_40404fe8(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (param_1 != 0) {
     recovered_40400908((void *)param_1,0,0x20);
@@ -7247,7 +7249,7 @@ undefined8 recovered_40404fe8(long param_1)
 void recovered_40405000(undefined4 *param_1,undefined4 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (param_1 != (undefined4 *)0x0) {
     *param_1 = 0;
@@ -7266,7 +7268,7 @@ void recovered_40405000(undefined4 *param_1,undefined4 *param_2)
 void recovered_40405014(undefined4 *param_1,undefined4 *param_2,undefined4 *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (param_1 != (undefined4 *)0x0) {
     *param_1 = 0;
@@ -7289,7 +7291,7 @@ void recovered_40405030(undefined4 *param_1,undefined4 *param_2,undefined4 *para
                        undefined4 *param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (param_1 != (undefined4 *)0x0) {
     *param_1 = 0;
@@ -7315,7 +7317,7 @@ void recovered_40405054(undefined4 *param_1,undefined4 *param_2,undefined4 *para
                        undefined4 *param_4,undefined4 *param_5)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (param_1 != (undefined4 *)0x0) {
     *param_1 = 0;
@@ -7344,7 +7346,7 @@ void recovered_40405080(undefined4 *param_1,undefined4 *param_2,undefined4 *para
                        undefined4 *param_4,undefined4 *param_5,undefined4 *param_6)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (param_1 != (undefined4 *)0x0) {
     *param_1 = 0;
@@ -7378,7 +7380,7 @@ uint recovered_404050b4(undefined4 *param_1,undefined4 *param_2,undefined4 *para
                        undefined4 *param_10)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (param_1 != (undefined4 *)0x0) {
     *param_1 = 0;
@@ -7423,7 +7425,7 @@ uint recovered_404050b4(undefined4 *param_1,undefined4 *param_2,undefined4 *para
 void recovered_40405110(undefined4 *param_1,undefined4 *param_2,undefined4 *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   bool bVar2;
@@ -7569,7 +7571,7 @@ void recovered_40405110(undefined4 *param_1,undefined4 *param_2,undefined4 *para
 #define _DAT_40010228 (*(uint *)(0x40010228U))
 #undef _DAT_4001022c
 #define _DAT_4001022c (*(uint *)(0x4001022cU))
-#define uStack_68 (*(ulong *)(frame + 16))
+#define uStack_68 (*(ulong *)(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40405198
  */
@@ -7579,7 +7581,7 @@ void recovered_40405110(undefined4 *param_1,undefined4 *param_2,undefined4 *para
 undefined8 recovered_40405198(void)
 
 {
-  unsigned char frame[152] = {0};
+  unsigned char frame[160] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   long lVar2;
@@ -7944,7 +7946,7 @@ LAB_40405710:
 undefined8 * recovered_40405754(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return &DAT_4047afa8;
 }
@@ -7960,7 +7962,7 @@ undefined8 * recovered_40405754(void)
 void recovered_40405760(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   DAT_4045b571 = 1;
   return;
@@ -7987,7 +7989,7 @@ void recovered_40405760(void)
 void recovered_40405770(uint param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char cVar1;
   bool bVar2;
@@ -8023,7 +8025,7 @@ void recovered_40405770(uint param_1)
 double recovered_404057d0(char *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   double in_d0;
   double extraout_d0 = 0;
@@ -8043,7 +8045,7 @@ double recovered_404057d0(char *param_1)
 void recovered_404057fc(char *param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if ((param_1 != (char *)0x0) || (param_2 == 0)) {
     for (; param_2 != 0; param_2 = param_2 + -1) {
@@ -8074,7 +8076,7 @@ void recovered_404057fc(char *param_1,long param_2)
 ulong recovered_40405834(undefined1 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char cVar1;
   bool bVar2;
@@ -8110,7 +8112,7 @@ ulong recovered_40405834(undefined1 *param_1)
 undefined8 recovered_4040588c(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return 0;
 }
@@ -8127,7 +8129,7 @@ uint recovered_40405890(uint32_t leaf,uint32_t subleaf,void *out){return 0;}
 undefined8 recovered_40405894(undefined8 param_1,undefined4 *param_2,undefined4 *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if ((param_2 != (undefined4 *)0x0) && (param_3 != (undefined4 *)0x0)) {
     *param_2 = 0;
@@ -8144,7 +8146,7 @@ undefined8 recovered_40405894(undefined8 param_1,undefined4 *param_2,undefined4 
 undefined8 recovered_404058a8(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return 0;
 }
@@ -8163,7 +8165,7 @@ uint recovered_404058ac(uint32_t enable){return 0;}
 ulong recovered_404058b0(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long *plVar2;
@@ -8193,7 +8195,7 @@ ulong recovered_404058b0(void)
 long recovered_404058b4(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   long *plVar2;
@@ -8224,7 +8226,7 @@ long recovered_404058b4(void)
 ulong recovered_404058b8(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   ulong uVar2;
@@ -8277,7 +8279,7 @@ ulong recovered_404058b8(void)
 ulong recovered_40405910(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   ulong uVar2;
@@ -8313,7 +8315,7 @@ LAB_40405948:
 ulonglong recovered_40405960(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
 
@@ -8335,7 +8337,7 @@ ulonglong recovered_40405960(void)
 undefined1 * recovered_40405988(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return &LAB_40459008;
 }
@@ -8364,7 +8366,7 @@ undefined8
 recovered_40405994(uint param_1,uint param_2,uint param_3,uint param_4,uint param_5,long *param_6)
 
 {
-  unsigned char frame[144] = {0};
+  unsigned char frame[144] __attribute__((aligned(16))) = {0};
 
   void *data;
   byte bVar1;
@@ -8455,7 +8457,7 @@ LAB_40405a4c:
 ulong recovered_40405b24(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   bool bVar2;
@@ -8522,7 +8524,7 @@ ulong recovered_40405b24(long param_1)
 bool recovered_40405cc4(int *param_1,int param_2,uint param_3,long param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   int iVar2;
@@ -8549,7 +8551,7 @@ bool recovered_40405cc4(int *param_1,int param_2,uint param_3,long param_4)
 bool recovered_40405d28(char *param_1,uint param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   char cVar2;
@@ -8575,7 +8577,7 @@ bool recovered_40405d28(char *param_1,uint param_2)
 bool recovered_40405d5c(char *param_1,char *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
 
@@ -8592,8 +8594,8 @@ bool recovered_40405d5c(char *param_1,char *param_2)
 }
 
 
-#define uStack_5c (*(uint *)(frame + 16))
-#define pcStack_58 (*(char * *)(frame + 20))
+#define uStack_5c (*(uint *)(frame + 20))
+#define pcStack_58 (*(char * *)(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40405db4
  */
@@ -8601,7 +8603,7 @@ bool recovered_40405d5c(char *param_1,char *param_2)
 ulong recovered_40405db4(long param_1,int param_2,char *param_3)
 
 {
-  unsigned char frame[140] = {0};
+  unsigned char frame[144] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -8661,7 +8663,7 @@ ulong recovered_40405db4(long param_1,int param_2,char *param_3)
 bool recovered_40405ec0(uint param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
 
@@ -8687,7 +8689,7 @@ bool recovered_40405ec0(uint param_1,long param_2)
 int recovered_40405f00(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   long lVar2;
@@ -8712,7 +8714,7 @@ int recovered_40405f00(void)
 bool recovered_40405f34(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   char *pcVar2;
@@ -8737,7 +8739,7 @@ bool recovered_40405f34(long param_1)
 undefined8 recovered_40405f74(uint param_1,uint *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   long lVar2;
@@ -8776,7 +8778,7 @@ undefined8 recovered_40405f74(uint param_1,uint *param_2)
 ulong recovered_40405fdc(int param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
 
@@ -8790,7 +8792,7 @@ ulong recovered_40405fdc(int param_1)
 
 #undef DAT_4047af70
 #define DAT_4047af70 (*(uint64_t volatile *)(0x4047af70U))
-#define uStack_34 (*(uint *)(frame + 16))
+#define uStack_34 (*(uint *)(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40406000
  */
@@ -8798,7 +8800,7 @@ ulong recovered_40405fdc(int param_1)
 undefined8 recovered_40406000(undefined8 param_1,undefined4 *param_2,int *param_3)
 
 {
-  unsigned char frame[100] = {0};
+  unsigned char frame[112] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   bool bVar2;
@@ -8853,7 +8855,7 @@ LAB_40406064:
 
 #undef DAT_4047af70
 #define DAT_4047af70 (*(uint64_t volatile *)(0x4047af70U))
-#define local_14 (*(uint *)(frame + 16))
+#define local_14 (*(uint *)(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x404060c4
  */
@@ -8861,7 +8863,7 @@ LAB_40406064:
 undefined4 recovered_404060c4(undefined8 param_1)
 
 {
-  unsigned char frame[68] = {0};
+  unsigned char frame[80] __attribute__((aligned(16))) = {0};
 
   undefined4 *puVar1;
   long lVar2;
@@ -8889,7 +8891,7 @@ undefined4 recovered_404060c4(undefined8 param_1)
 ulong recovered_40406110(uint param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long lVar2;
@@ -8928,7 +8930,7 @@ ulong recovered_40406110(uint param_1)
 undefined8 recovered_4040616c(long param_1,uint *param_2)
 
 {
-  unsigned char frame[112] = {0};
+  unsigned char frame[112] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   ulong uVar2;
@@ -9037,7 +9039,7 @@ undefined8 recovered_4040616c(long param_1,uint *param_2)
 ulong recovered_404062b8(ulong param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   ulong uVar2;
@@ -9094,7 +9096,7 @@ ulong recovered_404062b8(ulong param_1,ulong param_2)
 ulong recovered_40406318(uint param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long lVar2;
@@ -9132,7 +9134,7 @@ ulong recovered_40406318(uint param_1)
 undefined8 recovered_40406374(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   long lVar2;
@@ -9231,7 +9233,7 @@ undefined8 recovered_40406374(long param_1)
 bool recovered_404064e0(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (((*(uint *)(param_1 + 0xc) < 3) && (*(uint *)(param_1 + 4) != 0)) &&
      (*(int *)(param_1 + 8) != 0)) {
@@ -9249,7 +9251,7 @@ bool recovered_404064e0(long param_1)
 void recovered_40406518(uint param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
 
@@ -9273,7 +9275,7 @@ void recovered_40406518(uint param_1)
 void recovered_40406730(char *param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char cVar1;
   long lVar2;
@@ -9328,7 +9330,7 @@ void recovered_40406730(char *param_1,long param_2)
 void recovered_404067e8(int param_1)
 
 {
-  unsigned char frame[608] = {0};
+  unsigned char frame[608] __attribute__((aligned(16))) = {0};
 
   ulong size;
   bool bVar1;
@@ -9366,7 +9368,7 @@ void recovered_404067e8(int param_1)
 void recovered_40406874(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_404067e8(1);
   return;
@@ -9380,7 +9382,7 @@ void recovered_40406874(void)
 void recovered_4040687c(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_404067e8(0);
   return;
@@ -9397,7 +9399,7 @@ void recovered_4040687c(void)
 void recovered_40406884(undefined *param_1)
 
 {
-  unsigned char frame[400] = {0};
+  unsigned char frame[400] __attribute__((aligned(16))) = {0};
 
   char *format;
   uint uVar1;
@@ -9423,7 +9425,7 @@ void recovered_40406884(undefined *param_1)
 void recovered_404068e8(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_4040693c(0x4044e265);
   recovered_4040693c(0x4044e288);
@@ -9442,7 +9444,7 @@ void recovered_404068e8(void)
 void recovered_4040693c(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -9462,7 +9464,7 @@ void recovered_4040693c(long param_1)
 void recovered_40406968(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_4040693c(0x4044e34f);
   recovered_4040693c(0x4044e34c);
@@ -9483,7 +9485,7 @@ void recovered_40406968(void)
 bool recovered_4040698c(long param_1,long param_2,undefined8 param_3,undefined8 param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   bool bVar2;
@@ -9517,7 +9519,7 @@ bool recovered_4040698c(long param_1,long param_2,undefined8 param_3,undefined8 
 undefined8 recovered_40406a04(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return 0;
 }
@@ -9530,7 +9532,7 @@ undefined8 recovered_40406a04(void)
 void recovered_40406a08(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return;
 }
@@ -9543,7 +9545,7 @@ void recovered_40406a08(void)
 undefined8 recovered_40406a0c(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return 1;
 }
@@ -9559,8 +9561,8 @@ undefined8 recovered_40406a0c(void)
 #define str_4044e3f0 (*(char (*)[1])(0x4044e3f0U))
 #undef str_4044e3fe
 #define str_4044e3fe (*(char (*)[1])(0x4044e3feU))
-#define uStack_4c (*(uint *)(frame + 16))
-#define uStack_48 (*(uint *)(frame + 20))
+#define uStack_4c (*(uint *)(frame + 20))
+#define uStack_48 (*(uint *)(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40406a14
  */
@@ -9568,7 +9570,7 @@ undefined8 recovered_40406a0c(void)
 undefined4 * recovered_40406a14(long param_1,long param_2)
 
 {
-  unsigned char frame[124] = {0};
+  unsigned char frame[128] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   int iVar2;
@@ -9696,7 +9698,7 @@ LAB_40406bc0:
 undefined8 recovered_40406c50(undefined8 param_1,undefined8 param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   undefined8 uVar2;
@@ -9723,7 +9725,7 @@ undefined8 recovered_40406c50(undefined8 param_1,undefined8 param_2)
 undefined8 recovered_40406ca0(long param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   void *pvVar2;
@@ -9771,7 +9773,7 @@ undefined8 recovered_40406ca0(long param_1,ulong param_2)
 undefined4 * recovered_40406d28(long param_1,long param_2,int *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined4 *puVar1;
 
@@ -9790,7 +9792,7 @@ undefined4 * recovered_40406d28(long param_1,long param_2,int *param_3)
 undefined8 recovered_40406d5c(int *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -9815,7 +9817,7 @@ undefined8 recovered_40406d5c(int *param_1)
 long recovered_40406da0(undefined1 *param_1,long param_2,long param_3,int *param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   undefined1 *puVar2;
@@ -9856,7 +9858,7 @@ long recovered_40406da0(undefined1 *param_1,long param_2,long param_3,int *param
 uint recovered_40406e50(int *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char *text;
   uint uVar1;
@@ -9912,7 +9914,7 @@ LAB_40406ee8:
 long recovered_40406f34(long param_1,long param_2,long param_3,uint *param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
   long lVar2;
@@ -9979,7 +9981,7 @@ LAB_40407034:
 undefined8 recovered_40407044(int *param_1,ulong param_2,int param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
 
@@ -10022,7 +10024,7 @@ LAB_40407050:
 undefined8 recovered_404070d8(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (param_1 == 0) {
     DAT_4045a4d0 = 0x16;
@@ -10042,7 +10044,7 @@ undefined8 recovered_404070d8(long param_1)
 undefined8 recovered_404070fc(int *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -10077,7 +10079,7 @@ undefined8 recovered_404070fc(int *param_1)
 undefined1 recovered_40407170(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined1 uVar1;
 
@@ -10096,7 +10098,7 @@ undefined1 recovered_40407170(long param_1)
 undefined1 recovered_4040717c(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined1 uVar1;
 
@@ -10115,7 +10117,7 @@ undefined1 recovered_4040717c(long param_1)
 void recovered_40407188(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (param_1 != 0) {
     *(undefined2 *)(param_1 + 0x128) = 0;
@@ -10132,7 +10134,7 @@ void recovered_40407188(long param_1)
 uint recovered_4040719c(uint param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
 
@@ -10155,7 +10157,7 @@ uint recovered_4040719c(uint param_1,long param_2)
 undefined8 recovered_404071c0(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
   undefined4 uVar2;
@@ -10189,7 +10191,7 @@ undefined8 recovered_404071c0(long param_1)
 undefined8 recovered_404071f8(undefined8 param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   undefined8 uVar2;
@@ -10209,8 +10211,8 @@ undefined8 recovered_404071f8(undefined8 param_1)
 
 #undef DAT_4045a4d0
 #define DAT_4045a4d0 (*(uint32_t volatile *)(0x4045a4d0U))
-#define uStack_28 (*(uint *)(frame + 20))
-#define uStack_2c (*(uint *)(frame + 16))
+#define uStack_28 (*(uint *)(frame + 24))
+#define uStack_2c (*(uint *)(frame + 20))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4040723c
  */
@@ -10218,7 +10220,7 @@ undefined8 recovered_404071f8(undefined8 param_1)
 undefined8 recovered_4040723c(long param_1,long param_2)
 
 {
-  unsigned char frame[92] = {0};
+  unsigned char frame[96] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
   undefined4 uVar2;
@@ -10261,7 +10263,7 @@ undefined8 recovered_4040723c(long param_1,long param_2)
 undefined8 recovered_404072d8(undefined8 param_1,undefined8 param_2,undefined8 param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   undefined8 uVar2;
@@ -10279,8 +10281,8 @@ undefined8 recovered_404072d8(undefined8 param_1,undefined8 param_2,undefined8 p
 #undef DAT_40010838
 #undef _DAT_40010838
 
-#define uStack_3c (*(uint *)(frame + 16))
-#define uStack_38 (*(uint *)(frame + 20))
+#define uStack_3c (*(uint *)(frame + 20))
+#define uStack_38 (*(uint *)(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40407338
  */
@@ -10288,7 +10290,7 @@ undefined8 recovered_404072d8(undefined8 param_1,undefined8 param_2,undefined8 p
 undefined8 recovered_40407338(long param_1,long *param_2,ulong *param_3)
 
 {
-  unsigned char frame[108] = {0};
+  unsigned char frame[112] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   undefined8 uVar2;
@@ -10333,7 +10335,7 @@ undefined8 recovered_40407338(long param_1,long *param_2,ulong *param_3)
 bool recovered_404073d8(long param_1,long param_2,long param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   undefined8 uVar2;
@@ -10357,7 +10359,7 @@ bool recovered_404073d8(long param_1,long param_2,long param_3)
 undefined8 recovered_40407404(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return 0;
 }
@@ -10370,7 +10372,7 @@ undefined8 recovered_40407404(void)
 void recovered_40407408(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return;
 }
@@ -10383,7 +10385,7 @@ void recovered_40407408(void)
 undefined8 recovered_4040740c(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return 0;
 }
@@ -10396,7 +10398,7 @@ undefined8 recovered_4040740c(void)
 undefined8 recovered_40407410(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return 0;
 }
@@ -10409,7 +10411,7 @@ undefined8 recovered_40407410(void)
 undefined8 recovered_40407414(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return 0;
 }
@@ -10422,7 +10424,7 @@ undefined8 recovered_40407414(void)
 char * recovered_40407418(long param_1,char param_2,long param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char *pcVar1;
 
@@ -10445,7 +10447,7 @@ char * recovered_40407418(long param_1,char param_2,long param_3)
 int recovered_4040743c(char *left,char *right,ulong size)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   int iVar2;
@@ -10493,7 +10495,7 @@ int recovered_4040743c(char *left,char *right,ulong size)
 char * recovered_4040746c(int param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   switch((uintptr_t)(param_1)) {
   case 0:
@@ -10546,7 +10548,7 @@ switchD_40407498_caseD_1:
 undefined8 recovered_4040750c(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return 0;
 }
@@ -10559,7 +10561,7 @@ undefined8 recovered_4040750c(void)
 undefined8 recovered_40407510(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return 0xffffffff;
 }
@@ -10574,7 +10576,7 @@ undefined8 recovered_40407510(void)
 void recovered_40407514(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
 
@@ -10606,7 +10608,7 @@ void recovered_40407514(void)
 bool recovered_40407528(int param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (((_DAT_40010800 == 0x50414d57) && (_DAT_40010804 != 0)) && (0xb < _DAT_40010808)) {
     return param_1 + 4U <= _DAT_40010808;
@@ -10640,7 +10642,7 @@ __attribute__((naked,noreturn)) void recovered_40407634(void *context,int value)
 double recovered_40407668(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
                     /* WARNING: Subroutine does not return */
   recovered_404006dc();
@@ -10654,7 +10656,7 @@ double recovered_40407668(void)
 undefined8 recovered_4040767c(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return 0;
 }
@@ -10667,7 +10669,7 @@ undefined8 recovered_4040767c(void)
 void recovered_40407684(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_40407694(param_1);
                     /* WARNING: Subroutine does not return */
@@ -10684,7 +10686,7 @@ void recovered_40407684(long param_1)
 long recovered_40407694(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
   long lVar2;
@@ -10709,7 +10711,7 @@ long recovered_40407694(long param_1)
 void * recovered_404076b4(ulong size)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   void *pvVar1;
 
@@ -10732,7 +10734,7 @@ void * recovered_404076b4(ulong size)
 void * recovered_404076e4(ulong size)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   void *pvVar1;
 
@@ -10755,7 +10757,7 @@ void * recovered_404076e4(ulong size)
 ulong recovered_404076e8(void *data)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -10771,7 +10773,7 @@ ulong recovered_404076e8(void *data)
 void recovered_40407700(void *data)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_404006f4(data);
   return;
@@ -10785,7 +10787,7 @@ void recovered_40407700(void *data)
 void recovered_40407718(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_404006f4((void *)param_1);
   return;
@@ -10799,7 +10801,7 @@ void recovered_40407718(long param_1)
 void recovered_40407730(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_404006f4((void *)param_1);
   return;
@@ -10813,7 +10815,7 @@ void recovered_40407730(long param_1)
 undefined8 recovered_40407748(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return 0;
 }
@@ -10826,7 +10828,7 @@ undefined8 recovered_40407748(void)
 uint recovered_40407750(uint *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return (*param_1 ^ 0xffffffff) & 1;
 }
@@ -10839,7 +10841,7 @@ uint recovered_40407750(uint *param_1)
 void recovered_40407760(ulong *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   *param_1 = *param_1 | 1;
   return;
@@ -10853,7 +10855,7 @@ void recovered_40407760(ulong *param_1)
 void recovered_40407770(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return;
 }
@@ -10866,7 +10868,7 @@ void recovered_40407770(void)
 undefined1 * recovered_40407774(ulong param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined1 *puVar1;
   undefined1 *puVar2;
@@ -10897,7 +10899,7 @@ undefined1 * recovered_40407774(ulong param_1)
 void recovered_404077bc(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (param_1 == 0) {
     return;
@@ -10914,7 +10916,7 @@ void recovered_404077bc(long param_1)
 long recovered_404077cc(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return param_1 + 0x30;
 }
@@ -10929,7 +10931,7 @@ long recovered_404077cc(long param_1)
 void recovered_404077d4(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   void *buffer;
 
@@ -10957,7 +10959,7 @@ void recovered_404077d4(void)
 void recovered_4040782c(long param_1,undefined8 param_2,undefined8 param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   *(undefined8 *)(param_1 + -0x30) = param_2;
   *(undefined8 *)(param_1 + -0x28) = param_3;
@@ -10983,7 +10985,7 @@ void recovered_4040782c(long param_1,undefined8 param_2,undefined8 param_3)
 ulonglong recovered_4040784c(undefined8 *param_1)
 
 {
-  unsigned char frame[96] = {0};
+  unsigned char frame[96] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
   undefined8 *puVar2;
@@ -11023,7 +11025,7 @@ LAB_404078ac:
 void recovered_404078b0(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 *puVar1;
 
@@ -11050,7 +11052,7 @@ void recovered_404078b0(void)
 void recovered_404078e0(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -11071,7 +11073,7 @@ void recovered_404078e0(undefined8 *param_1)
 void recovered_404078f4(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 *puVar1;
   undefined8 *puVar2;
@@ -11098,7 +11100,7 @@ void recovered_404078f4(undefined8 *param_1)
 void recovered_40407920(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 *in_x0;
 
@@ -11114,7 +11116,7 @@ void recovered_40407920(void)
 void recovered_4040792c(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
                     /* WARNING: Subroutine does not return */
   recovered_40407668();
@@ -11132,7 +11134,7 @@ void recovered_4040792c(void)
 undefined8 recovered_40407938(undefined8 *param_1)
 
 {
-  unsigned char frame[128] = {0};
+  unsigned char frame[128] __attribute__((aligned(16))) = {0};
 
   undefined4 uVar1;
   undefined8 *puVar2;
@@ -11186,7 +11188,7 @@ LAB_404079ec:
 undefined8 recovered_40407958(undefined8 *param_1)
 
 {
-  unsigned char frame[112] = {0};
+  unsigned char frame[112] __attribute__((aligned(16))) = {0};
 
   undefined4 uVar1;
   long *plVar2;
@@ -11230,7 +11232,7 @@ LAB_404079ec:
 undefined8 recovered_404079f4(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 *in_x0;
 
@@ -11246,7 +11248,7 @@ undefined8 recovered_404079f4(void)
 undefined8 recovered_40407a00(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return 0;
 }
@@ -11259,7 +11261,7 @@ undefined8 recovered_40407a00(void)
 void recovered_40407a08(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
                     /* WARNING: Subroutine does not return */
   recovered_40407668();
@@ -11273,7 +11275,7 @@ void recovered_40407a08(void)
 long recovered_40407a14(long *param_1,undefined8 param_2,undefined8 *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   long lVar2;
@@ -11300,7 +11302,7 @@ long recovered_40407a14(long *param_1,undefined8 param_2,undefined8 *param_3)
 bool recovered_40407a54(undefined8 *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char cVar1;
   char cVar2;
@@ -11351,7 +11353,7 @@ LAB_40407ad8:
 void recovered_40407ae0(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   do {
     WaitForEvent();
@@ -11366,7 +11368,7 @@ void recovered_40407ae0(void)
 undefined8 recovered_40407ae4(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return 0;
 }
@@ -11379,7 +11381,7 @@ undefined8 recovered_40407ae4(void)
 bool recovered_40407aec(int param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return param_1 - 0x30U < 10;
 }
@@ -11392,7 +11394,7 @@ bool recovered_40407aec(int param_1)
 bool recovered_40407afc(uint param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if ((param_1 < 0x21) && ((1L << ((ulong)param_1 & 0x3f) & 0x100003600U) != 0)) {
     return true;
@@ -11408,7 +11410,7 @@ bool recovered_40407afc(uint param_1)
 bool recovered_40407b34(uint param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return param_1 - 0x30 < 10 || (param_1 & 0xffffffdf) - 0x41 < 6;
 }
@@ -11421,7 +11423,7 @@ bool recovered_40407b34(uint param_1)
 bool recovered_40407b50(ulong param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return (param_1 & 0x7fffffffffffffff) < 0x7ff0000000000000;
 }
@@ -11434,7 +11436,7 @@ bool recovered_40407b50(ulong param_1)
 bool recovered_40407b68(uint param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return (param_1 & 0x7fffffff) < 0x7f800000;
 }
@@ -11447,7 +11449,7 @@ bool recovered_40407b68(uint param_1)
 bool recovered_40407b80(ulong param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return (param_1 & 0x7fffffffffffffff) < 0x7ff0000000000000;
 }
@@ -11460,7 +11462,7 @@ bool recovered_40407b80(ulong param_1)
 bool recovered_40407b98(ulong param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return (param_1 & 0x7fffffffffffffff) < 0x7ff0000000000000;
 }
@@ -11473,7 +11475,7 @@ bool recovered_40407b98(ulong param_1)
 double recovered_40407bb0(double value)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   double dVar1;
   double dVar2;
@@ -11499,7 +11501,7 @@ double recovered_40407bb0(double value)
 long recovered_40407bfc(byte *param_1,undefined8 *param_2,uint param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   byte *pbVar2;
@@ -11597,7 +11599,7 @@ LAB_40407cc0:
 long recovered_40407d40(byte *param_1,undefined8 *param_2,uint param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   byte *pbVar2;
@@ -11697,7 +11699,7 @@ LAB_40407cc0:
 undefined8 recovered_40407d44(long param_1,undefined8 *param_2,undefined2 *param_3)
 
 {
-  unsigned char frame[160] = {0};
+  unsigned char frame[160] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   bool bVar2;
@@ -11797,7 +11799,7 @@ undefined8 recovered_40407d44(long param_1,undefined8 *param_2,undefined2 *param
 ulong * recovered_40407f1c(uint param_1,long *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong *puVar1;
   ulong uVar2;
@@ -11874,7 +11876,7 @@ switchD_40407f64_caseD_5:
 ulong recovered_40408010(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   ulong uVar2;
@@ -11902,7 +11904,7 @@ ulong recovered_40408010(undefined8 *param_1)
 ulong recovered_40408048(byte *param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   ulong uVar2;
@@ -11925,7 +11927,7 @@ ulong recovered_40408048(byte *param_1,long param_2)
 ulong recovered_40408074(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   ulong uVar2;
@@ -11965,61 +11967,7 @@ ulong recovered_40408074(undefined8 *param_1)
 
 undefined4 recovered_404080ec(byte *param_1,ulong param_2)
 
-{
-  unsigned char frame[64] = {0};
-
-  bool bVar1;
-  int iVar2;
-  undefined4 uVar3;
-
-  if (param_1 == (byte *)0x0) {
-    return 0;
-  }
-  if (param_2 == 0) {
-    return 0;
-  }
-  if (param_2 < 8) {
-    if (param_2 < 2) goto LAB_404081dc;
-  }
-  else {
-    iVar2 = recovered_4040094c(param_1,&DAT_4044d9df,8);
-    if (iVar2 == 0) {
-      return 1;
-    }
-  }
-  if (*param_1 == 0x42) {
-    if (param_1[1] == 0x4d) {
-      return 2;
-    }
-    if (param_2 < 3) goto LAB_404081dc;
-  }
-  else {
-    if (param_2 < 3) goto LAB_404081dc;
-    if (((*param_1 == 0xff) && (param_1[1] == 0xd8)) && (param_1[2] == 0xff)) {
-      return 4;
-    }
-  }
-  if (param_2 < 0xe) {
-    if (param_2 < 8) goto LAB_404081dc;
-  }
-  else {
-    iVar2 = recovered_4040094c(param_1,str_4044e40c,9);
-    if (iVar2 == 0) {
-      return 5;
-    }
-  }
-  iVar2 = recovered_4040094c(param_1,str_4044d9e7,8);
-  if (iVar2 == 0) {
-    return 6;
-  }
-LAB_404081dc:
-  bVar1 = recovered_404081fc(param_1,param_2);
-  uVar3 = 3;
-  if (!bVar1) {
-    uVar3 = 0;
-  }
-  return uVar3;
-}
+{return (undefined4)pf_image_detect((const void *)param_1,(uintptr_t)param_2);}
 
 #undef DAT_4044d9df
 #undef str_4044d9e7
@@ -12034,7 +11982,7 @@ LAB_404081dc:
 bool recovered_404081fc(byte *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   byte bVar2;
@@ -12273,2506 +12221,7 @@ bool recovered_404081fc(byte *param_1,ulong param_2)
 
 bool recovered_40408364(byte *param_1,uint *******param_2,uint *param_3)
 
-{
-  unsigned char frame[3440] = {0};
-
-  long *plVar1;
-  uint *******pppppppuVar2;
-  byte *pbVar3;
-  ushort *left;
-  ulong *puVar4;
-  char *pcVar5;
-  short sVar6;
-  ushort uVar7;
-  uint uVar8;
-  uint128 auVar9;
-  uint128 auVar10;
-  uint128 auVar11;
-  uint128 auVar12;
-  float fVar13;
-  double dVar14;
-  double dVar15;
-  bool bVar16;
-  bool bVar17;
-  undefined1 uVar18;
-  bool bVar19;
-  bool bVar20;
-  byte bVar21;
-  byte bVar22;
-  byte bVar23;
-  byte bVar24;
-  undefined4 uVar25;
-  int extraout_w0 = 0;
-  uint uVar26;
-  int iVar27;
-  int extraout_w0_00 = 0;
-  int extraout_w0_01 = 0;
-  int extraout_w0_02 = 0;
-  int extraout_w0_03 = 0;
-  int extraout_w0_04 = 0;
-  uint uVar28;
-  int extraout_w0_05 = 0;
-  int extraout_w0_06 = 0;
-  int extraout_w0_07 = 0;
-  int extraout_w0_08 = 0;
-  int extraout_w0_09 = 0;
-  int extraout_w0_10 = 0;
-  uint uVar29;
-  uint uVar30;
-  int extraout_w0_11 = 0;
-  int extraout_w0_12 = 0;
-  int extraout_w0_13 = 0;
-  int extraout_w0_14 = 0;
-  int extraout_w0_15 = 0;
-  byte *pbVar31;
-  void *pvVar32;
-  undefined8 *puVar33;
-  void *pvVar34;
-  int iVar35;
-  uint uVar36;
-  uint uVar37;
-  uint *******pppppppuVar38;
-  ulong uVar39;
-  uint uVar40;
-  uint *puVar41;
-  long lVar42;
-  long lVar43;
-  ulong uVar44;
-  uint uVar45;
-  uint uVar46;
-  uint uVar47;
-  undefined8 uVar48;
-  ulong uVar49;
-  undefined8 *puVar50;
-  uint uVar51;
-  uint uVar52;
-  long lVar53;
-  uint ************ppppppppppppuVar54;
-  long lVar55;
-  uint ***********pppppppppppuVar56;
-  ulong uVar57;
-  uint *puVar58;
-  ulong uVar59;
-  undefined8 *puVar60;
-  uint *puVar61;
-  ulong uVar62;
-  ulong uVar63;
-  ulong uVar64;
-  uint *******pppppppuVar65;
-  ulong uVar66;
-  ulong uVar67;
-  double dVar68;
-  undefined8 uVar69;
-  undefined8 uVar70;
-  double dVar71;
-  double dVar72;
-  double dVar73;
-  double dVar74;
-
-  PF_PART4(uStack_718, 0) = 0;
-  PF_PART4(uStack_718, 4) = 0;
-  uStack_720 = (uint ************)0x0;
-  uStack_708 = 0;
-  uStack_704 = 0;
-  uStack_702 = 0;
-  uStack_701 = 0;
-  PF_PART4(uStack_710, 0) = 0;
-  PF_PART4(uStack_710, 4) = 0;
-  recovered_4040b904((undefined8 *)param_3,&uStack_720);
-  PF_PART4(uStack_710, 0) = 0;
-  PF_PART4(uStack_710, 4) = 0;
-  recovered_404076e8((void *)CONCAT44(PF_PART4(uStack_718, 4),(uint)uStack_718));
-  if (param_1 == (byte *)0x0) {
-    return false;
-  }
-  if (param_2 == (uint *******)0x0) {
-    return false;
-  }
-  uVar25 = recovered_404080ec(param_1,(ulong)param_2);
-  switch((uintptr_t)(uVar25)) {
-  case 1:
-    recovered_40410808(&pppppppppppuStack_100,param_1,param_1 + (long)param_2);
-    lStack_c60 = 0;
-    uStack_c50 = 0;
-    uStack_c58 = 0;
-    puStack_c48 = (ushort *)0x0;
-    uStack_c38 = 0;
-    uStack_c40 = 0;
-    uStack_c28 = 0;
-    pvStack_c30 = (void *)0x0;
-    puStack_c18 = (uint *)0x0;
-    uStack_c20 = 0;
-    uStack_c08 = 0;
-    uStack_c10 = 0;
-    PF_PART4(uStack_718, 0) = 0;
-    PF_PART4(uStack_718, 4) = 0;
-    uStack_720 = (uint ************)0x0;
-    PF_PART4(uStack_710, 0) = 0;
-    PF_PART4(uStack_710, 4) = 0;
-    uStack_708 = 0;
-    uStack_704 = 0;
-    uStack_702 = 0;
-    ppvStack_700 = (void **)((ulong)ppvStack_700 & 0xffffffff00000000);
-    puStack_6f0 = (undefined8 *)0x0;
-    puStack_6f8 = (uint *)0x0;
-    ppvStack_6e0 = (void **)0x0;
-    puStack_6e8 = (ulong *)0x0;
-    pppvStack_6d8 = (void ***)0x0;
-    uStack_6c8 = 0;
-    puStack_6d0 = (undefined8 *)0x0;
-    uStack_6b0 = 0;
-    uStack_6b8 = 0;
-    pvStack_6c0 = (void *)0x0;
-    puStack_6a8 = (uint *)0x0;
-    uStack_698 = 0;
-    uStack_6a0 = 0;
-    uStack_c78 = 0;
-    PF_PART1(uStack_c74, 0) = 0;
-    PF_PART1(uStack_c74, 1) = '\0';
-    PF_PART1(uStack_c74, 2) = 0;
-    PF_PART1(uStack_c74, 3) = uStack_701;
-    uStack_c80 = 0;
-    uStack_c7c = 0;
-    lStack_c68 = 0;
-    ppvStack_c70 = ppvStack_700;
-    uStack_c88 = 0;
-    uStack_c84 = 0;
-    uStack_c90 = (uint ************)0x0;
-    recovered_4040c404(&lStack_c60,&puStack_6f0);
-    recovered_4040c404(&puStack_c48,&pppvStack_6d8);
-    uStack_c28 = 0;
-    recovered_404076e8(pvStack_c30);
-    pvStack_c30 = pvStack_6c0;
-    uStack_c20 = uStack_6b0;
-    uStack_c28 = uStack_6b8;
-    pvStack_6c0 = (void *)0x0;
-    uStack_6b0 = 0;
-    uStack_6b8 = 0;
-    recovered_4040fac0((long *)&puStack_c18);
-    recovered_404076e8(puStack_c18);
-    puStack_c18 = puStack_6a8;
-    uStack_c08 = uStack_698;
-    uStack_c10 = uStack_6a0;
-    puStack_6a8 = (uint *)0x0;
-    uStack_698 = 0;
-    uStack_6a0 = 0;
-    recovered_4040c454((long)&uStack_720);
-    if ((7 < uStack_f8) &&
-       (iVar27 = recovered_4040094c(pppppppppppuStack_100,&DAT_4044d9df,8), iVar27 == 0)) {
-      bVar19 = false;
-      lVar55 = 8;
-LAB_40409204:
-      uVar59 = uStack_f8;
-      pppppppppppuVar56 = pppppppppppuStack_100;
-      if (uStack_f8 < lVar55 + 0xcU) {
-LAB_40409d10:
-        if ((((byte)uStack_c74 == 1) && (!(PF_PART1(uStack_c74, 1) != '\x01' || lStack_c68 == 0))) &&
-           (!(uStack_c84 == 3 && uStack_c58 == 0))) {
-          if (PF_PART1(uStack_c74, 2) != 1) goto LAB_40409d90;
-          if (((int)ppvStack_c70 != 0) && (uStack_c10 - 1 < ((ulong)ppvStack_c70 & 0xffffffff))) {
-            lVar55 = uStack_c10 * 0x38;
-            bVar16 = false;
-            puVar41 = puStack_c18;
-            goto LAB_40409d78;
-          }
-        }
-        goto LAB_40408504;
-      }
-      puVar41 = (uint *)((long)pppppppppppuStack_100 + lVar55);
-      uVar30 = recovered_4040e4a8(puVar41);
-      uVar44 = (ulong)uVar30;
-      lVar55 = lVar55 + 8;
-      if (uVar59 - lVar55 < uVar44 + 4) goto LAB_40408504;
-      ppppppppppppuVar54 = (uint ************)((long)pppppppppppuVar56 + lVar55);
-      uVar28 = recovered_4040e4a8((uint *)((long)pppppppppppuVar56 + lVar55 + uVar44));
-      uVar29 = recovered_4040f9d0(0,(byte *)(puVar41 + 1),4);
-      if (uVar30 != 0) {
-        uVar29 = recovered_4040f9d0(uVar29,(byte *)ppppppppppppuVar54,uVar44);
-      }
-      if (uVar29 != uVar28) goto LAB_40408504;
-      lVar55 = lVar55 + uVar44 + 4;
-      if (((byte)uStack_c74 & 1) == 0) {
-        iVar27 = recovered_4040094c(puVar41 + 1,&DAT_4044e419,4);
-        bVar16 = false;
-        if ((uVar30 != 0xd) || (iVar27 != 0)) goto LAB_40408508;
-        uVar30 = recovered_4040e4a8((uint *)ppppppppppppuVar54);
-        uStack_c90 = (uint ************)CONCAT44(PF_PART4(uStack_c90, 4),uVar30);
-        uVar28 = recovered_4040e4a8((uint *)((long)ppppppppppppuVar54 + 4));
-        bVar16 = false;
-        uStack_c90 = (uint ************)CONCAT44(uVar28,(uint)uStack_c90);
-        bVar21 = *(byte *)(ppppppppppppuVar54 + 1);
-        uStack_c88 = (uint)bVar21;
-        bVar22 = *(byte *)((long)ppppppppppppuVar54 + 9);
-        uStack_c84 = (uint)bVar22;
-        uStack_c80 = (uint)*(byte *)((long)ppppppppppppuVar54 + 10);
-        uStack_c7c = (uint)*(byte *)((long)ppppppppppppuVar54 + 0xb);
-        uStack_c78 = (uint)*(byte *)((long)ppppppppppppuVar54 + 0xc);
-        PF_PART1(uStack_c74, 0) = 1;
-        if ((uVar30 == 0) || (uVar28 == 0)) goto LAB_40408508;
-        bVar20 = false;
-        if (uStack_c84 < 7) {
-          if ((1 << (ulong)(bVar22 & 0x1f) & 0x55U) == 0) {
-            if (bVar22 == 3) {
-              bVar20 = uStack_c88 == 8;
-            }
-          }
-          else {
-            bVar20 = true;
-            if (bVar21 != 8) {
-              bVar20 = bVar21 == 0x10;
-            }
-          }
-        }
-        bVar16 = false;
-        if ((((!bVar20) || (uStack_c80 != 0)) || (uStack_c7c != 0)) || (1 < uStack_c78))
-        goto LAB_40408508;
-        goto LAB_40409204;
-      }
-      iVar27 = recovered_4040094c(puVar41 + 1,(void *)0x4044e440,4);
-      if (iVar27 == 0) {
-        if ((uVar30 != 8 || bVar19) || ((PF_PART1(uStack_c74, 2) & 1) != 0)) goto LAB_40408504;
-        PF_PART1(uStack_c74, 2) = 1;
-        uVar30 = recovered_4040e4a8((uint *)ppppppppppppuVar54);
-        bVar19 = false;
-        ppvStack_c70 = (void **)CONCAT44(PF_PART4(ppvStack_c70, 4),uVar30);
-        goto LAB_40409204;
-      }
-      iVar27 = recovered_4040094c(puVar41 + 1,&DAT_4044e445,4);
-      if (iVar27 == 0) {
-        if ((uVar30 != 0x1a) || (PF_PART1(uStack_c74, 2) != 1)) goto LAB_40408504;
-        uVar30 = recovered_4040e4a8((uint *)((long)ppppppppppppuVar54 + 4));
-        uVar28 = recovered_4040e4a8((uint *)(ppppppppppppuVar54 + 1));
-        uVar29 = recovered_4040e4a8((uint *)((long)ppppppppppppuVar54 + 0xc));
-        uVar51 = recovered_4040e4a8((uint *)(ppppppppppppuVar54 + 2));
-        bVar16 = uStack_c10 == 0;
-        if ((uVar30 != 0) && (uVar28 != 0)) {
-          if ((uVar29 <= (uint)uStack_c90) &&
-             (uVar30 <= (uint)uStack_c90 - uVar29 && uVar51 <= PF_PART4(uStack_c90, 4))) {
-            bVar21 = *(byte *)(ppppppppppppuVar54 + 3);
-            bVar22 = *(byte *)((long)ppppppppppppuVar54 + 0x19);
-            if ((uVar28 <= PF_PART4(uStack_c90, 4) - uVar51 && bVar21 < 3) && bVar22 < 2) {
-              if (uStack_c10 == uStack_c08) {
-                uVar59 = 4;
-                if (uStack_c10 != 0) {
-                  uVar59 = uStack_c10 << 1;
-                }
-                if (uStack_c10 < uVar59) {
-                  puVar41 = recovered_404076b4(uVar59 * 0x38);
-                  lVar43 = 0;
-                  for (uVar44 = 0; uVar44 < uStack_c10; uVar44 = uVar44 + 1) {
-                    puVar60 = (undefined8 *)((long)puVar41 + lVar43);
-                    puVar50 = (undefined8 *)((long)puStack_c18 + lVar43);
-                    uVar69 = *(undefined8 *)((long)puVar50 + 0x11);
-                    uVar48 = *(undefined8 *)((long)puVar50 + 9);
-                    uVar70 = *puVar50;
-                    puVar60[1] = puVar50[1];
-                    *puVar60 = uVar70;
-                    *(undefined8 *)((long)puVar60 + 0x11) = uVar69;
-                    *(undefined8 *)((long)puVar60 + 9) = uVar48;
-                    puVar33 = puVar50 + 4;
-                    puVar60[4] = *puVar33;
-                    uVar48 = puVar50[5];
-                    puVar60[6] = puVar50[6];
-                    puVar60[5] = uVar48;
-                    puVar50[5] = 0;
-                    puVar50[6] = 0;
-                    *puVar33 = 0;
-                    recovered_4040f9ac(puVar33);
-                    lVar43 = lVar43 + 0x38;
-                  }
-                  recovered_404076e8(puStack_c18);
-                  puStack_c18 = puVar41;
-                  uStack_c08 = uVar59;
-                }
-              }
-              puVar58 = puStack_c18 + uStack_c10 * 0xe;
-              *puVar58 = uVar30;
-              puVar58[1] = uVar28;
-              puVar58[2] = uVar29;
-              puVar58[3] = uVar51;
-              puVar58[4] = (uint)bVar21;
-              puVar58[5] = (uint)bVar22;
-              *(byte *)(puVar58 + 6) = bVar16 & (bVar19 ^ 0xffU);
-              puVar41 = puVar58 + 8;
-              puVar41[0] = 0;
-              puVar41[1] = 0;
-              puVar58[10] = 0;
-              puVar58[0xb] = 0;
-              puVar58[0xc] = 0;
-              puVar58[0xd] = 0;
-              recovered_4040fb0c((long *)puVar41,0);
-              puVar58[10] = 0;
-              puVar58[0xb] = 0;
-              uStack_c10 = uStack_c10 + 1;
-              recovered_404076e8((void *)0x0);
-              goto LAB_40409204;
-            }
-          }
-        }
-        recovered_404076e8((void *)0x0);
-        goto LAB_40408504;
-      }
-      iVar27 = recovered_4040094c(puVar41 + 1,&DAT_4044e44a,4);
-      if (iVar27 == 0) {
-        if (uVar30 == 0) goto LAB_40408504;
-        bVar16 = false;
-        if ((0x300 < uVar30) || (uVar30 % 3 != 0)) goto LAB_40408508;
-        recovered_4040e5c8(&lStack_c60,(undefined1 *)ppppppppppppuVar54,
-                           (undefined1 *)((long)ppppppppppppuVar54 + uVar44));
-        goto LAB_40409204;
-      }
-      iVar27 = recovered_4040094c(puVar41 + 1,&DAT_4044e44f,4);
-      if (iVar27 == 0) {
-        if (((uVar30 != 2) && (uStack_c84 == 0)) || (uVar30 != 6 && uStack_c84 == 2))
-        goto LAB_40408504;
-        if (uStack_c84 == 3) {
-          if (uStack_c58 / 3 < uVar44) goto LAB_40408504;
-        }
-        else if (uStack_c84 == 4 || uStack_c84 == 6) goto LAB_40408504;
-        recovered_4040e5c8((long *)&puStack_c48,(undefined1 *)ppppppppppppuVar54,
-                           (undefined1 *)((long)ppppppppppppuVar54 + uVar44));
-        goto LAB_40409204;
-      }
-      iVar27 = recovered_4040094c(puVar41 + 1,&DAT_4044e454,4);
-      if (iVar27 == 0) {
-        bVar19 = true;
-        if (uVar30 != 0) {
-          PF_PART4(uStack_718, 4) = 0;
-          uStack_720 = ppppppppppppuVar54;
-          PF_PART4(uStack_718, 0) = uVar30;
-          recovered_4040fa60((long *)&pvStack_c30,&uStack_720);
-          if ((uStack_c10 != 0) && ((char)puStack_c18[uStack_c10 * 0xe + -8] == '\x01')) {
-            recovered_4040fa60((long *)(puStack_c18 + uStack_c10 * 0xe + -6),&uStack_720);
-          }
-          lStack_c68 = lStack_c68 + uVar44;
-          bVar19 = true;
-        }
-        goto LAB_40409204;
-      }
-      iVar27 = recovered_4040094c(puVar41 + 1,&DAT_4044e459,4);
-      uVar59 = uStack_c10;
-      puVar58 = puStack_c18;
-      if (iVar27 == 0) {
-        if (PF_PART1(uStack_c74, 2) != 1) goto LAB_40408504;
-        bVar16 = false;
-        if ((uVar30 < 5) || (uStack_c10 == 0)) goto LAB_40408508;
-        lVar43 = *(long *)(puStack_c18 + uStack_c10 * 0xe + -4);
-        if (lVar43 == *(long *)(puStack_c18 + uStack_c10 * 0xe + -2)) {
-          uVar44 = 4;
-          if (lVar43 != 0) {
-            uVar44 = lVar43 << 1;
-          }
-          recovered_4040fb0c((long *)(puStack_c18 + uStack_c10 * 0xe + -6),uVar44);
-          lVar43 = *(long *)(puVar58 + uVar59 * 0xe + -4);
-        }
-        plVar1 = (long *)(*(long *)(puVar58 + uVar59 * 0xe + -6) + lVar43 * 0x10);
-        *plVar1 = (long)((long)ppppppppppppuVar54 + 4);
-        plVar1[1] = (ulong)(uVar30 - 4);
-        *(long *)(puVar58 + uVar59 * 0xe + -4) = *(long *)(puVar58 + uVar59 * 0xe + -4) + 1;
-        goto LAB_40409204;
-      }
-      iVar27 = recovered_4040094c(puVar41 + 1,&DAT_4044e41e,4);
-      if (iVar27 == 0) {
-        if (uVar30 == 0) {
-          PF_PART1(uStack_c74, 1) = '\x01';
-          goto LAB_40409d10;
-        }
-        goto LAB_40408504;
-      }
-      if (((byte)puVar41[1] >> 5 & 1) != 0) goto LAB_40409204;
-    }
-LAB_40408504:
-    bVar16 = false;
-    goto LAB_40408508;
-  case 2:
-    PF_PART4(uStack_718, 0) = 0;
-    PF_PART4(uStack_718, 4) = 0;
-    uStack_720 = (uint ************)0x0;
-    uStack_708 = 0;
-    uStack_704 = 0;
-    uStack_702 = 0;
-    uStack_701 = 0;
-    PF_PART4(uStack_710, 0) = 0;
-    PF_PART4(uStack_710, 4) = 0;
-    recovered_4040b904((undefined8 *)param_3,&uStack_720);
-    PF_PART4(uStack_710, 0) = 0;
-    PF_PART4(uStack_710, 4) = 0;
-    recovered_404076e8((void *)CONCAT44(PF_PART4(uStack_718, 4),(uint)uStack_718));
-    if (param_2 < (uint *******)0x1a) {
-      return false;
-    }
-    if (*param_1 != 0x42) {
-      return false;
-    }
-    if (param_1[1] != 0x4d) {
-      return false;
-    }
-    pppppppuVar38 = (uint *******)(ulong)*(uint *)(param_1 + 10);
-    uVar30 = *(uint *)(param_1 + 0xe);
-    if ((uVar30 != 0xc) && (uVar30 < 0x28)) {
-      return false;
-    }
-    pppppppuVar65 = (uint *******)((ulong)uVar30 + 0xe);
-    if (uVar30 == 0xc) {
-      uVar26 = 0;
-      iVar27 = 0;
-      uVar29 = 0;
-      uVar28 = (uint)*(ushort *)(param_1 + 0x12);
-      uVar51 = (uint)*(ushort *)(param_1 + 0x14);
-      sVar6 = *(short *)(param_1 + 0x16);
-      uVar7 = *(ushort *)(param_1 + 0x18);
-    }
-    else {
-      if (param_2 < (uint *******)(ulong)(uVar30 + 0xe)) {
-        return false;
-      }
-      uVar28 = *(uint *)(param_1 + 0x12);
-      if ((int)uVar28 < 1) {
-        return false;
-      }
-      uVar29 = *(uint *)(param_1 + 0x16);
-      if (uVar29 == 0) {
-        return false;
-      }
-      uVar51 = -uVar29;
-      if (-1 < (int)uVar29) {
-        uVar51 = uVar29;
-      }
-      sVar6 = *(short *)(param_1 + 0x1a);
-      uVar7 = *(ushort *)(param_1 + 0x1c);
-      iVar27 = *(int *)(param_1 + 0x1e);
-      uVar26 = *(uint *)(param_1 + 0x2e);
-      if ((uVar30 == 0x28) && (iVar27 == 6 || iVar27 == 3)) {
-        lVar55 = 0x10;
-        if (iVar27 != 6) {
-          lVar55 = 0xc;
-        }
-        pppppppuVar65 = (uint *******)(lVar55 + 0x36);
-      }
-      uVar29 = uVar29 >> 0x1f;
-    }
-    if (sVar6 != 1) {
-      return false;
-    }
-    if (uVar28 == 0) {
-      return false;
-    }
-    if (uVar51 == 0) {
-      return false;
-    }
-    if (param_2 <= pppppppuVar38) {
-      return false;
-    }
-    if (iVar27 == 0) {
-      uVar40 = 0;
-      uVar36 = 0;
-      uVar45 = 0;
-      uVar46 = 0;
-    }
-    else {
-      if (iVar27 != 6 && iVar27 != 3) {
-        return false;
-      }
-      if (uVar30 < 0x34) {
-        pppppppuVar2 = (uint *******)0x46;
-        if (iVar27 != 6) {
-          pppppppuVar2 = (uint *******)0x42;
-        }
-        if (param_2 < pppppppuVar2) {
-          return false;
-        }
-        uVar36 = *(uint *)(param_1 + 0x36);
-        uVar45 = *(uint *)(param_1 + 0x3a);
-        uVar46 = *(uint *)(param_1 + 0x3e);
-        if (iVar27 != 6) goto LAB_40409b28;
-      }
-      else {
-        uVar36 = *(uint *)(param_1 + 0x36);
-        uVar45 = *(uint *)(param_1 + 0x3a);
-        uVar46 = *(uint *)(param_1 + 0x3e);
-        if (uVar30 < 0x38) {
-LAB_40409b28:
-          uVar40 = 0;
-          goto LAB_40409b2c;
-        }
-      }
-      uVar40 = *(uint *)(param_1 + 0x42);
-    }
-LAB_40409b2c:
-    bVar16 = uVar7 != 0x10;
-    bVar19 = uVar36 != 0;
-    bVar20 = uVar45 != 0;
-    bVar17 = uVar46 != 0;
-    uVar47 = 0x1f;
-    if (((bVar16 || bVar19) || bVar20) || bVar17) {
-      uVar47 = uVar46;
-    }
-    uVar46 = 0x3e0;
-    if (((bVar16 || bVar19) || bVar20) || bVar17) {
-      uVar46 = uVar45;
-    }
-    uVar45 = 0x7c00;
-    if (((bVar16 || bVar19) || bVar20) || bVar17) {
-      uVar45 = uVar36;
-    }
-    if ((((uVar7 == 0x20) && (uVar45 == 0)) && (uVar46 == 0)) && (uVar47 == 0)) {
-      uVar45 = 0xff0000;
-      uVar46 = 0xff00;
-      uVar40 = 0xff000000;
-      uVar47 = 0xff;
-    }
-    PF_PART4(uStack_710, 0) = 0;
-    PF_PART4(uStack_710, 4) = 0;
-    uStack_720 = (uint ************)0x0;
-    PF_PART4(uStack_718, 0) = 0;
-    PF_PART4(uStack_718, 4) = 0;
-    uVar36 = (uint)uVar7;
-    if (uVar7 < 9) {
-      uVar37 = 1 << (ulong)(uVar36 & 0x1f);
-      if (uVar26 != 0) {
-        uVar37 = uVar26;
-      }
-      lVar55 = 3;
-      if (uVar30 != 0xc) {
-        lVar55 = 4;
-      }
-      if (pppppppuVar65 <= param_2 &&
-          lVar55 * (ulong)uVar37 <= (ulong)((long)param_2 - (long)pppppppuVar65)) {
-        uVar44 = (ulong)uVar37 * 4;
-        uStack_c90 = (uint ************)CONCAT71(PF_PART7(uStack_c90, 1),0xff);
-        recovered_4040d914(&uStack_720,uVar44,(undefined1 *)&uStack_c90);
-        pbVar31 = (byte *)((long)pppppppuVar65 + (long)param_1) + 2;
-        for (uVar59 = 0; uVar44 != uVar59; uVar59 = uVar59 + 4) {
-          *(byte *)((long)uStack_720 + uVar59) = *pbVar31;
-          *(byte *)((long)uStack_720 + uVar59 + 1) = pbVar31[-1];
-          *(byte *)((long)uStack_720 + uVar59 + 2) = pbVar31[-2];
-          pbVar31 = pbVar31 + lVar55;
-        }
-        goto LAB_40409c64;
-      }
-LAB_40409cf4:
-      bVar16 = false;
-    }
-    else {
-LAB_40409c64:
-      bVar16 = false;
-      if ((uVar36 < 0x21) && ((1L << ((ulong)(uint)uVar7 & 0x3f) & 0x101010112U) != 0)) {
-        uVar59 = (ulong)uVar28 * (ulong)uVar36 + 0x1f >> 3 & 0x3ffffffffffc;
-        if (((uVar59 == 0) ||
-            ((uVar44 = CONCAT44(0,uVar51), PF_PART8(auVar10, 8) = 0, PF_PART8(auVar10, 0) = uVar59,
-             PF_PART8(auVar12, 8) = 0, PF_PART8(auVar12, 0) = uVar44, SUB168(auVar10 * auVar12,8) != 0 ||
-             ((ulong)((long)param_2 - (long)pppppppuVar38) < uVar59 * uVar44)))) ||
-           (uVar28 * uVar44 >> 0x3e != 0)) goto LAB_40409cf4;
-        recovered_4040dafc(&uStack_c90);
-        lStack_cd8 = 0;
-        bVar19 = false;
-        lVar55 = (ulong)uVar28 * 4;
-        for (uStack_cf8 = 0; bVar16 = uStack_cf8 == uVar44, !bVar16; uStack_cf8 = uStack_cf8 + 1) {
-          lVar43 = 0;
-          uVar57 = 0;
-          uVar30 = (uint)uStack_cf8;
-          if (uVar29 == 0) {
-            uVar30 = uVar51 + ~(uint)uStack_cf8;
-          }
-          puVar58 = (uint *)(param_1 + (long)pppppppuVar38 + uVar59 * uVar30);
-          pbVar31 = param_1 + (long)pppppppuVar38 + uVar59 * uVar30 + 2;
-          puVar61 = puVar58;
-          puVar41 = puVar58;
-          for (; ppppppppppppuVar54 = uStack_c90, lVar55 != lVar43; lVar43 = lVar43 + 4) {
-            lVar42 = lStack_cd8 + lVar43;
-            if (uVar36 == 1) {
-              uVar66 = (ulong)(*(byte *)((long)puVar58 + (uVar57 >> 3 & 0x1fffffff)) >>
-                               (ulong)(((uint)uVar57 ^ 0xffffffff) & 7) & 1);
-LAB_4040a220:
-              if (CONCAT44(PF_PART4(uStack_718, 4),(uint)uStack_718) <= (uVar66 << 2 | 3))
-              goto LAB_4040a42c;
-              recovered_40400898((void *)((long)uStack_c90 + lVar42),
-                                 (uint *)((long)uStack_720 + uVar66 * 4),4);
-            }
-            else {
-              if (uVar36 == 4) {
-                bVar21 = *(byte *)((long)puVar58 + (uVar57 >> 1 & 0x7fffffff));
-                uVar30 = (uint)(bVar21 >> 4);
-                if ((uVar57 & 1) != 0) {
-                  uVar30 = bVar21 & 0xf;
-                }
-                uVar66 = (ulong)uVar30;
-                goto LAB_4040a220;
-              }
-              if (uVar36 == 0x18) {
-                *(byte *)((long)uStack_c90 + lVar42) = *pbVar31;
-                lVar42 = lVar43 + lStack_cd8;
-                *(byte *)((long)uStack_c90 + lVar42 + 1) = pbVar31[-1];
-                *(byte *)((long)uStack_c90 + lVar42 + 2) = pbVar31[-2];
-                *(undefined1 *)((long)uStack_c90 + lVar42 + 3) = 0xff;
-              }
-              else {
-                if (uVar36 == 8) {
-                  uVar66 = (ulong)(byte)*puVar41;
-                  goto LAB_4040a220;
-                }
-                if (uVar36 == 0x10) {
-                  uVar30 = (uint)(ushort)*puVar61;
-                }
-                else {
-                  uVar30 = *puVar61;
-                }
-                uVar26 = recovered_4040d91c(uVar30,uVar45);
-                *(char *)((long)ppppppppppppuVar54 + lVar42) = (char)uVar26;
-                uVar26 = recovered_4040d91c(uVar30,uVar46);
-                lVar42 = lVar43 + lStack_cd8;
-                *(char *)((long)ppppppppppppuVar54 + lVar42 + 1) = (char)uVar26;
-                uVar26 = recovered_4040d91c(uVar30,uVar47);
-                *(char *)((long)ppppppppppppuVar54 + lVar42 + 2) = (char)uVar26;
-                if (uVar40 == 0) {
-                  uVar30 = 0xff;
-                }
-                else {
-                  uVar30 = recovered_4040d91c(uVar30,uVar40);
-                  uVar30 = uVar30 & 0xff;
-                }
-                *(char *)((long)ppppppppppppuVar54 + lVar42 + 3) = (char)uVar30;
-                bVar19 = (bool)(bVar19 | uVar30 != 0);
-              }
-            }
-            uVar57 = uVar57 + 1;
-            puVar61 = (uint *)((long)puVar61 + (ulong)(uVar7 >> 3));
-            puVar41 = (uint *)((long)puVar41 + 1);
-            pbVar31 = pbVar31 + 3;
-          }
-          lStack_cd8 = lStack_cd8 + lVar55;
-        }
-        if ((uVar36 == 0x20 && uVar40 != 0) && !bVar19) {
-          for (uVar59 = 3; uVar59 < CONCAT44(uStack_c84,uStack_c88); uVar59 = uVar59 + 4) {
-            *(undefined1 *)((long)uStack_c90 + uVar59) = 0xff;
-          }
-        }
-        *param_3 = uVar28;
-        param_3[1] = uVar51;
-        recovered_4040c404((undefined8 *)(param_3 + 2),&uStack_c90);
-LAB_4040a42c:
-        uStack_c88 = 0;
-        uStack_c84 = 0;
-        recovered_404076e8(uStack_c90);
-      }
-    }
-    break;
-  case 3:
-    PF_PART4(uStack_718, 0) = 0;
-    PF_PART4(uStack_718, 4) = 0;
-    uStack_720 = (uint ************)0x0;
-    uStack_708 = 0;
-    uStack_704 = 0;
-    uStack_702 = 0;
-    uStack_701 = 0;
-    PF_PART4(uStack_710, 0) = 0;
-    PF_PART4(uStack_710, 4) = 0;
-    recovered_4040b904((undefined8 *)param_3,&uStack_720);
-    PF_PART4(uStack_710, 0) = 0;
-    PF_PART4(uStack_710, 4) = 0;
-    recovered_404076e8((void *)CONCAT44(PF_PART4(uStack_718, 4),(uint)uStack_718));
-    bVar16 = recovered_404081fc(param_1,(ulong)param_2);
-    if (!bVar16) {
-      return false;
-    }
-    bVar21 = param_1[2];
-    pvStack_120 = (void *)CONCAT44(PF_PART4(pvStack_120, 4),(uint)*(ushort *)(param_1 + 3));
-    uStack_138 = (uint)*(ushort *)(param_1 + 5);
-    bVar22 = param_1[7];
-    pvStack_150 = (void *)CONCAT44(PF_PART4(pvStack_150, 4),(uint)*(ushort *)(param_1 + 0xc));
-    appvStack_b8[0] = (void **)CONCAT44(PF_PART4(appvStack_b8[0], 4),(uint)*(ushort *)(param_1 + 0xe));
-    uStack_d0 = CONCAT44(PF_PART4(uStack_d0, 4),(uint)param_1[0x10]);
-    uStack_d8 = CONCAT44(PF_PART4(uStack_d8, 4),(uint)param_1[0x11]);
-    uVar30 = bVar21 - 8;
-    if (bVar21 < 8) {
-      uVar30 = (uint)bVar21;
-    }
-    uStack_e8 = CONCAT44(PF_PART4(uStack_e8, 4),uVar30);
-    pppppppuVar38 = (uint *******)((ulong)*param_1 + 0x12);
-    uStack_c88 = 0;
-    uStack_c84 = 0;
-    uStack_c80 = 0;
-    uStack_c7c = 0;
-    uStack_c90 = (uint ************)0x0;
-    uVar30 = (uint)*(ushort *)(param_1 + 0xc);
-    uVar28 = (uint)*(ushort *)(param_1 + 0xe);
-    if (param_1[1] == 1) {
-      uVar59 = (ulong)bVar22 + 7 >> 3;
-      uVar44 = uVar59 * uStack_138;
-      if (pppppppuVar38 <= param_2 && uVar44 <= (ulong)((long)param_2 - (long)pppppppuVar38)) {
-        uStack_720 = (uint ************)CONCAT71(PF_PART7(uStack_720, 1),0xff);
-        recovered_4040d914(&uStack_c90,(ulong)*(ushort *)(param_1 + 5) << 2,
-                           (undefined1 *)&uStack_720);
-        uVar57 = 0xffffffffffffffff;
-        pbVar31 = param_1 + (long)pppppppuVar38;
-        lVar55 = 0;
-        do {
-          uVar57 = uVar57 + 1;
-          if (uStack_138 <= uVar57) {
-            pppppppuVar38 = (uint *******)(uVar44 + (long)pppppppuVar38);
-            uVar30 = (uint)pvStack_150;
-            uVar28 = (uint)appvStack_b8[0];
-            goto LAB_40409724;
-          }
-          uVar66 = recovered_4040db28(pbVar31,(uint)bVar22,(uint)(bVar22 == 0x20) << 3,
-                                      (byte *)((long)uStack_c90 + lVar55));
-          pbVar31 = pbVar31 + uVar59;
-          lVar55 = lVar55 + 4;
-        } while ((uVar66 & 1) != 0);
-      }
-LAB_40409734:
-      bVar16 = false;
-    }
-    else {
-LAB_40409724:
-      pppppppppppuStack_170 = (uint ***********)((ulong)uVar30 * (ulong)uVar28);
-      if ((ulong)pppppppppppuStack_170 >> 0x3e != 0) goto LAB_40409734;
-      recovered_4040dafc(&uStack_1b0);
-      uVar59 = (uStack_d0 & 0xffffffff) + 7 >> 3;
-      pppppppppppuStack_100 = (uint ***********)0x0;
-      uStack_720 = &pppppppppppuStack_100;
-      uStack_718 = &pppppppppppuStack_170;
-      uStack_710 = &uStack_e8;
-      uStack_708 = (uint)&uStack_d0;
-      uStack_704 = (undefined2)((ulong)&uStack_d0 >> 0x20);
-      uStack_702 = (undefined1)((ulong)&uStack_d0 >> 0x30);
-      uStack_701 = (undefined1)((ulong)&uStack_d0 >> 0x38);
-      ppvStack_700 = &pvStack_120;
-      puStack_6f8 = &uStack_138;
-      puStack_6f0 = &uStack_c90;
-      puStack_6e8 = &uStack_d8;
-      ppvStack_6e0 = &pvStack_150;
-      pppvStack_6d8 = appvStack_b8;
-      puStack_6d0 = &uStack_1b0;
-      if (bVar21 < 8) {
-        if (((pppppppppppuStack_170 == (uint ***********)0x0) ||
-            (PF_PART8(auVar9, 8) = 0, PF_PART8(auVar9, 0) = pppppppppppuStack_170, PF_PART8(auVar11, 8) = 0,
-            PF_PART8(auVar11, 0) = uVar59, SUB168(auVar9 * auVar11,8) == 0)) &&
-           (pppppppuVar38 <= param_2 &&
-            (long)pppppppppppuStack_170 * uVar59 <= (ulong)((long)param_2 - (long)pppppppuVar38))) {
-          pbVar31 = param_1 + (long)pppppppuVar38;
-          ppppppppppppuVar54 = (uint ************)0xffffffffffffffff;
-          do {
-            ppppppppppppuVar54 = (uint ************)((long)ppppppppppppuVar54 + 1);
-            if (pppppppppppuStack_170 <= ppppppppppppuVar54) goto LAB_40409aa8;
-            uVar44 = recovered_4040dc00(&uStack_720,pbVar31);
-            pbVar31 = pbVar31 + uVar59;
-          } while ((uVar44 & 1) != 0);
-        }
-LAB_404098bc:
-        bVar16 = false;
-      }
-      else {
-        while (pppppppppppuStack_100 < pppppppppppuStack_170) {
-          if (param_2 <= pppppppuVar38) goto LAB_404098bc;
-          pppppppuVar65 = (uint *******)((long)pppppppuVar38 + 1);
-          bVar21 = param_1[(long)pppppppuVar38];
-          if ((char)bVar21 < '\0') {
-            if ((ulong)((long)param_2 - (long)pppppppuVar65) < uVar59) goto LAB_404098bc;
-            pppppppuVar38 = (uint *******)((long)pppppppuVar65 + uVar59);
-            iVar27 = ((int)(char)bVar21 & 0x7fU) + 2;
-            while (iVar27 = iVar27 + -1, iVar27 != 0) {
-              uVar44 = recovered_4040dc00(&uStack_720,param_1 + (long)pppppppuVar65);
-              if ((uVar44 & 1) == 0) goto LAB_404098bc;
-            }
-          }
-          else {
-            uVar44 = (long)param_2 + (-1 - (long)pppppppuVar38);
-            pppppppuVar38 = pppppppuVar65;
-            for (iVar27 = (bVar21 & 0x7f) + 1; iVar27 != 0; iVar27 = iVar27 + -1) {
-              if (param_2 < pppppppuVar38 || uVar44 < uVar59) goto LAB_404098bc;
-              uVar57 = recovered_4040dc00(&uStack_720,param_1 + (long)pppppppuVar38);
-              if ((uVar57 & 1) == 0) goto LAB_404098bc;
-              pppppppuVar38 = (uint *******)((long)pppppppuVar38 + uVar59);
-              uVar44 = uVar44 - uVar59;
-            }
-          }
-        }
-LAB_40409aa8:
-        *param_3 = (uint)pvStack_150;
-        param_3[1] = (uint)appvStack_b8[0];
-        recovered_4040c404((undefined8 *)(param_3 + 2),&uStack_1b0);
-        bVar16 = true;
-      }
-      uStack_1a8 = 0;
-      recovered_404076e8(uStack_1b0);
-    }
-    uStack_c88 = 0;
-    uStack_c84 = 0;
-    ppppppppppppuVar54 = uStack_c90;
-    goto LAB_404098cc;
-  case 4:
-    PF_PART4(uStack_718, 0) = 0;
-    PF_PART4(uStack_718, 4) = 0;
-    uStack_720 = (uint ************)0x0;
-    uStack_708 = 0;
-    uStack_704 = 0;
-    uStack_702 = 0;
-    uStack_701 = 0;
-    PF_PART4(uStack_710, 0) = 0;
-    PF_PART4(uStack_710, 4) = 0;
-    recovered_4040b904((undefined8 *)param_3,&uStack_720);
-    PF_PART4(uStack_710, 0) = 0;
-    PF_PART4(uStack_710, 4) = 0;
-    recovered_404076e8((void *)CONCAT44(PF_PART4(uStack_718, 4),(uint)uStack_718));
-    pppppppppppuVar56 = _DAT_4044d9b0;
-    lVar55 = 0;
-    uStack_c88 = (uint)uRam000000004044d9b8;
-    uVar30 = uStack_c88;
-    uStack_c84 = (uint)((ulong)uRam000000004044d9b8 >> 0x20);
-    uVar28 = uStack_c84;
-    uStack_c90 = (uint ************)_DAT_4044d9b0;
-    uStack_c80 = 0;
-    uStack_c7c = 0;
-    do {
-      *(undefined1 *)((long)&uStack_c78 + lVar55) = 0;
-      recovered_40400924((undefined1 *)((long)&uStack_c74 + lVar55),0x100);
-      lVar55 = lVar55 + 0x104;
-    } while (lVar55 != 0x410);
-    recovered_4040ddac((long)acStack_868);
-    recovered_4040ddac((long)acStack_7e8);
-    puStack_768 = (uint *)0x0;
-    uStack_758 = 0;
-    uStack_760 = 0;
-    lStack_748 = 0;
-    puStack_750 = (uint *)0x0;
-    ppppppppppppuStack_738 = (uint ************)0x0;
-    uStack_740 = 0;
-    uStack_730 = 0;
-    uStack_720 = (uint ************)pppppppppppuVar56;
-    PF_PART4(uStack_710, 0) = 0;
-    PF_PART4(uStack_710, 4) = 0;
-    PF_PART4(uStack_718, 0) = uVar30;
-    PF_PART4(uStack_718, 4) = uVar28;
-    recovered_40400924((undefined1 *)&uStack_708,0x490);
-    lVar55 = 0;
-    do {
-      auStack_2f8[lVar55] = 0;
-      *(undefined8 *)((long)auStack_2f0 + lVar55) = 0;
-      *(undefined8 *)((long)auStack_2f0 + lVar55 + 0x10) = 0;
-      *(undefined8 *)((long)auStack_2f0 + lVar55 + 8) = 0;
-      lVar55 = lVar55 + 0x20;
-    } while (lVar55 != 0x80);
-    lVar55 = 0;
-    apuStack_270[0xc] = (uint *)0x0;
-    apuStack_270[0xb] = (uint *)0x0;
-    apuStack_270[0xe] = (uint *)0x0;
-    apuStack_270[0xd] = (uint *)0x0;
-    apuStack_270[8] = (uint *)0x0;
-    apuStack_270[7] = (uint *)0x0;
-    apuStack_270[10] = (uint *)0x0;
-    apuStack_270[9] = (uint *)0x0;
-    apuStack_270[4] = (uint *)0x0;
-    apuStack_270[3] = (uint *)0x0;
-    apuStack_270[6] = (uint *)0x0;
-    apuStack_270[5] = (uint *)0x0;
-    apuStack_270[0] = (uint *)0x0;
-    uStack_278 = 0;
-    apuStack_270[2] = (uint *)0x0;
-    apuStack_270[1] = (uint *)0x0;
-    do {
-      *(undefined1 *)((long)auStack_2f0 + lVar55 + 0x78) = 0;
-      *(undefined8 *)((long)apuStack_270 + lVar55) = 0;
-      *(undefined8 *)((long)apuStack_270 + lVar55 + 0x10) = 0;
-      *(undefined8 *)((long)apuStack_270 + lVar55 + 8) = 0;
-      lVar55 = lVar55 + 0x20;
-    } while (lVar55 != 0x80);
-    apuStack_270[0xf] = (uint *)0x0;
-    uStack_1e8 = 0;
-    uStack_1f0 = 0;
-    uStack_1d8 = 0;
-    uStack_1e0 = 0;
-    ppppppppppppuStack_1c8 = (uint ************)0x0;
-    uStack_1d0 = 0;
-    uStack_1c0 = 0;
-    recovered_40400898(&uStack_c90,&uStack_720,0x428);
-    recovered_4040de90((long)acStack_868,(long)auStack_2f8);
-    recovered_4040de90((long)acStack_7e8,(long)&uStack_278);
-    recovered_4040de48((long *)&puStack_768);
-    recovered_404076e8(puStack_768);
-    puStack_768 = apuStack_270[0xf];
-    uStack_758 = uStack_1e8;
-    uStack_760 = uStack_1f0;
-    apuStack_270[0xf] = (uint *)0x0;
-    uStack_1e8 = 0;
-    uStack_1f0 = 0;
-    recovered_4040dedc(&puStack_750,&uStack_1e0);
-    uStack_730 = uStack_1c0;
-    ppppppppppppuStack_738 = ppppppppppppuStack_1c8;
-    recovered_4040dd74((long)&uStack_720);
-    if ((uint *******)0x3 < param_2) {
-      if (*param_1 == 0xff) {
-        if (param_1[1] == 0xd8) {
-          pppppppuVar38 = (uint *******)0x2;
-          while( true ) {
-            if (param_2 <= (uint *******)((long)pppppppuVar38 + 1U)) break;
-            pbVar31 = param_1 + 3 + (long)pppppppuVar38;
-            while( true ) {
-              if (param_2 <= pppppppuVar38) goto LAB_4040a474;
-              if (param_1[(long)pppppppuVar38] == 0xff) break;
-              pppppppuVar38 = (uint *******)((long)pppppppuVar38 + 1);
-              pbVar31 = pbVar31 + 1;
-            }
-            do {
-              pppppppuVar65 = pppppppuVar38;
-              if (param_2 <= pppppppuVar65) goto LAB_4040a474;
-              bVar21 = param_1[(long)pppppppuVar65];
-              pppppppuVar38 = (uint *******)((long)pppppppuVar65 + 1);
-              pbVar31 = pbVar31 + 1;
-            } while (bVar21 == 0xff);
-            if (bVar21 == 0xd9) break;
-            uVar30 = (uint)bVar21;
-            if (((uVar30 & 0xf8) != 0xd0) && (uVar30 != 1 && 9 < uVar30 - 0xd0)) {
-              pppppppuVar2 = (uint *******)((long)pppppppuVar65 + 3);
-              if (param_2 < pppppppuVar2) break;
-              uVar28 = CONCAT11(param_1[(long)pppppppuVar38],(param_1 + 2)[(long)pppppppuVar65]) - 2
-              ;
-              uVar59 = (ulong)uVar28;
-              if (CONCAT11(param_1[(long)pppppppuVar38],(param_1 + 2)[(long)pppppppuVar65]) < 2)
-              break;
-              if ((ulong)((long)param_2 - (long)pppppppuVar2) < uVar59) break;
-              left = (ushort *)(param_1 + (long)pppppppuVar2);
-              if (uVar30 == 0xc0) {
-                if ((uVar28 < 6) || ((byte)*left != 8)) break;
-                bVar16 = false;
-                uVar30 = (uint)(*(ushort *)((long)left + 1) >> 8) |
-                         (*(ushort *)((long)left + 1) & 0xff00ff) << 8;
-                uVar29 = (uint)(*(ushort *)((long)left + 3) >> 8) |
-                         (*(ushort *)((long)left + 3) & 0xff00ff) << 8;
-                uStack_c90 = (uint ************)CONCAT44(uVar30,uVar29);
-                if ((uVar29 == 0) || (uVar30 == 0)) goto LAB_4040a478;
-                bVar16 = false;
-                bVar21 = *(byte *)((long)left + 5);
-                if ((4 < bVar21) || ((1 << (ulong)(bVar21 & 0x1f) & 0x1aU) == 0)) goto LAB_4040a478;
-                if (uVar28 < (uint)bVar21 * 3 + 6) break;
-                recovered_4040de48((long *)&puStack_768);
-                uVar44 = 0;
-                uStack_c88 = 1;
-                uStack_c84 = 1;
-                while (uVar44 != bVar21) {
-                  pbVar31 = (byte *)((long)left + uVar44 * 3 + 6);
-                  uStack_708 = 0;
-                  uStack_704 = 0;
-                  uStack_702 = 0;
-                  uStack_701 = 0;
-                  PF_PART4(uStack_710, 0) = 0;
-                  PF_PART4(uStack_710, 4) = 0;
-                  ppvStack_700 = (void **)((ulong)ppvStack_700 & 0xffffffff00000000);
-                  puStack_6e8 = (ulong *)0x0;
-                  puStack_6f8 = (uint *)0x0;
-                  puStack_6f0 = (undefined8 *)0x0;
-                  bVar22 = pbVar31[1] >> 4;
-                  uVar30 = (uint)bVar22;
-                  uStack_720 = (uint ************)(ulong)CONCAT14(bVar22,(uint)*pbVar31);
-                  PF_PART4(uStack_718, 0) = pbVar31[1] & 0xf;
-                  bVar22 = pbVar31[2];
-                  PF_PART4(uStack_718, 4) = (uint)bVar22;
-                  bVar19 = uVar30 - 1 < 4;
-                  bVar20 = (uint)uStack_718 - 1 < 4;
-                  if ((bVar19 && bVar20) && bVar22 < 4) {
-                    if (uStack_c88 <= uVar30) {
-                      uStack_c88 = uVar30;
-                    }
-                    if (uStack_c84 <= (uint)uStack_718) {
-                      uStack_c84 = (uint)uStack_718;
-                    }
-                    if (uStack_760 == uStack_758) {
-                      uVar57 = 4;
-                      if (uStack_760 != 0) {
-                        uVar57 = uStack_760 << 1;
-                      }
-                      if (uStack_760 < uVar57) {
-                        puVar41 = recovered_404076b4(uVar57 << 6);
-                        lVar55 = 0;
-                        for (uVar66 = 0; uVar66 < uStack_760; uVar66 = uVar66 + 1) {
-                          puVar60 = (undefined8 *)((long)puVar41 + lVar55);
-                          puVar50 = (undefined8 *)((long)puStack_768 + lVar55);
-                          uVar25 = *(undefined4 *)(puVar50 + 4);
-                          uVar70 = *puVar50;
-                          uVar69 = puVar50[3];
-                          uVar48 = puVar50[2];
-                          puVar60[1] = puVar50[1];
-                          *puVar60 = uVar70;
-                          puVar60[3] = uVar69;
-                          puVar60[2] = uVar48;
-                          *(undefined4 *)(puVar60 + 4) = uVar25;
-                          recovered_4040df7c(puVar60 + 5,puVar50 + 5);
-                          recovered_40410840((undefined8 *)((long)puStack_768 + lVar55 + 0x28));
-                          lVar55 = lVar55 + 0x40;
-                        }
-                        recovered_404076e8(puStack_768);
-                        puStack_768 = puVar41;
-                        uStack_758 = uVar57;
-                      }
-                    }
-                    puVar4 = (ulong *)(puStack_768 + uStack_760 * 0x10);
-                    *(int *)(puVar4 + 4) = (int)ppvStack_700;
-                    puVar4[1] = CONCAT44(PF_PART4(uStack_718, 4),(uint)uStack_718);
-                    *puVar4 = (ulong)uStack_720;
-                    puVar4[3] = CONCAT17(uStack_701,
-                                         CONCAT16(uStack_702,CONCAT24(uStack_704,uStack_708)));
-                    puVar4[2] = CONCAT44(PF_PART4(uStack_710, 4),(uint)uStack_710);
-                    recovered_4040df98((long *)(puVar4 + 5),(long *)&puStack_6f8);
-                    uStack_760 = uStack_760 + 1;
-                  }
-                  puStack_6f0 = (undefined8 *)0x0;
-                  recovered_404076e8(puStack_6f8);
-                  bVar16 = false;
-                  uVar44 = uVar44 + 1;
-                  if ((!bVar19 || !bVar20) || bVar22 >= 4) goto LAB_4040a478;
-                }
-              }
-              else {
-                uVar30 = (uint)bVar21;
-                if (uVar30 == 0xc4) {
-                  uVar44 = 0;
-                  while (uVar44 < uVar59) {
-                    if (uVar59 - uVar44 < 0x11) goto LAB_4040a474;
-                    bVar21 = *(byte *)((long)left + uVar44);
-                    uVar57 = (ulong)bVar21 & 0xf;
-                    bVar16 = false;
-                    bVar19 = true;
-                    if (bVar21 < 0x20) {
-                      bVar19 = 2 < (uint)uVar57;
-                      bVar16 = (uint)uVar57 == 3;
-                    }
-                    if (bVar19 && !bVar16) goto LAB_4040a474;
-                    uVar66 = 0;
-                    for (lVar55 = 0; lVar55 != 0x10; lVar55 = lVar55 + 1) {
-                      uVar66 = uVar66 + pbVar31[lVar55 + uVar44];
-                    }
-                    lVar55 = uVar44 + 0x11;
-                    if (uVar59 - lVar55 < uVar66) goto LAB_4040a474;
-                    uStack_720 = (uint ************)((ulong)uStack_720 & 0xffffffffffffff00);
-                    uStack_708 = 0;
-                    uStack_704 = 0;
-                    uStack_702 = 0;
-                    uStack_701 = 0;
-                    pcVar5 = acStack_868 + uVar57 * 0x20;
-                    if (0xf < bVar21) {
-                      pcVar5 = acStack_7e8 + uVar57 * 0x20;
-                    }
-                    PF_PART4(uStack_718, 0) = 0;
-                    PF_PART4(uStack_718, 4) = 0;
-                    PF_PART4(uStack_710, 0) = 0;
-                    PF_PART4(uStack_710, 4) = 0;
-                    recovered_4040df2c(pcVar5,(undefined1 *)&uStack_720);
-                    PF_PART4(uStack_710, 0) = 0;
-                    PF_PART4(uStack_710, 4) = 0;
-                    recovered_404076e8((void *)CONCAT44(PF_PART4(uStack_718, 4),(uint)uStack_718));
-                    uVar57 = 0;
-                    uVar30 = 0;
-                    for (lVar43 = 1; lVar43 != 0x11; lVar43 = lVar43 + 1) {
-                      bVar21 = ((byte *)((long)left + uVar44))[lVar43];
-                      iVar27 = (int)uVar57;
-                      for (; (uint)bVar21 + iVar27 != (int)uVar57; uVar57 = uVar57 + 1) {
-                        if (uVar66 <= uVar57) goto LAB_4040a474;
-                        bVar22 = *(byte *)((long)left + uVar57 + lVar55);
-                        uVar62 = *(ulong *)(pcVar5 + 0x10);
-                        if (uVar62 == *(ulong *)(pcVar5 + 0x18)) {
-                          uVar64 = 4;
-                          if (uVar62 != 0) {
-                            uVar64 = uVar62 << 1;
-                          }
-                          if (uVar62 < uVar64) {
-                            pvVar32 = recovered_404076b4(uVar64 * 0xc);
-                            lVar42 = 0;
-                            pvVar34 = *(void **)(pcVar5 + 8);
-                            for (lVar53 = *(long *)(pcVar5 + 0x10); lVar53 != 0;
-                                lVar53 = lVar53 + -1) {
-                              puVar60 = (undefined8 *)((long)pvVar34 + lVar42);
-                              uVar48 = *puVar60;
-                              *(undefined4 *)((undefined8 *)((long)pvVar32 + lVar42) + 1) =
-                                   *(undefined4 *)(puVar60 + 1);
-                              *(undefined8 *)((long)pvVar32 + lVar42) = uVar48;
-                              lVar42 = lVar42 + 0xc;
-                            }
-                            recovered_404076e8(pvVar34);
-                            *(void **)(pcVar5 + 8) = pvVar32;
-                            *(ulong *)(pcVar5 + 0x18) = uVar64;
-                            uVar62 = *(ulong *)(pcVar5 + 0x10);
-                          }
-                        }
-                        puVar41 = (uint *)(*(long *)(pcVar5 + 8) + uVar62 * 0xc);
-                        *puVar41 = uVar30;
-                        puVar41[1] = (uint)lVar43;
-                        puVar41[2] = (uint)bVar22;
-                        *(ulong *)(pcVar5 + 0x10) = uVar62 + 1;
-                        uVar30 = uVar30 + 1;
-                      }
-                      if ((uint)(1 << (ulong)((uint)lVar43 & 0x1f)) < uVar30) goto LAB_4040a474;
-                      uVar30 = uVar30 << 1;
-                    }
-                    bVar16 = false;
-                    uVar44 = uVar66 + lVar55;
-                    *pcVar5 = uVar57 == uVar66;
-                    if (uVar57 != uVar66) goto LAB_4040a478;
-                  }
-                }
-                else if (uVar30 == 0xdb) {
-                  uVar44 = 0;
-                  while (uVar44 < uVar59) {
-                    uVar28 = (uint)*(byte *)((long)left + uVar44);
-                    uVar30 = uVar28 & 0xf;
-                    if (0x1f < *(byte *)((long)left + uVar44) || 3 < uVar30) goto LAB_4040a474;
-                    uVar44 = uVar44 + 1;
-                    uVar57 = 0x40;
-                    if (0xf < uVar28) {
-                      uVar57 = 0x80;
-                    }
-                    if (uVar59 - uVar44 < uVar57) goto LAB_4040a474;
-                    for (lVar55 = 0; lVar55 != 0x100; lVar55 = lVar55 + 4) {
-                      if (uVar28 < 0x10) {
-                        uVar29 = (uint)*(byte *)((long)left + uVar44);
-                        uVar44 = uVar44 + 1;
-                      }
-                      else {
-                        uVar29 = (uint)(*(ushort *)((long)left + uVar44) >> 8) |
-                                 (*(ushort *)((long)left + uVar44) & 0xff00ff) << 8;
-                      }
-                      if (0xf < uVar28) {
-                        uVar44 = uVar44 + 2;
-                      }
-                      (&uStack_c74)
-                      [(ulong)uVar30 * 0x41 + (ulong)*(uint *)((long)&DAT_4044d9f0 + lVar55)] =
-                           uVar29;
-                    }
-                    *(undefined1 *)(&uStack_c78 + (ulong)uVar30 * 0x41) = 1;
-                  }
-                }
-                else if (uVar30 == 0xdd) {
-                  if (uVar28 != 4) break;
-                  uStack_c80 = (uint)(*left >> 8) | (*left & 0xff00ff) << 8;
-                }
-                else if (uVar30 == 0xee) {
-                  if ((0xb < uVar28) &&
-                     (iVar27 = recovered_4040094c(left,str_4044e435,5), iVar27 == 0)) {
-                    uStack_c7c = (uint)*(byte *)((long)left + 0xb);
-                  }
-                }
-                else {
-                  if (uVar30 == 0xda) {
-                    bVar16 = false;
-                    if ((uVar28 < 6) || (uStack_760 == 0)) goto LAB_4040a478;
-                    uVar44 = (ulong)(byte)*left;
-                    if ((byte)*left != 0) {
-                      lVar55 = uVar44 * 2;
-                      if ((int)lVar55 + 4U <= uVar28) {
-                        uVar57 = 0;
-                        lStack_748 = 0;
-                        goto LAB_4040ae50;
-                      }
-                    }
-                    break;
-                  }
-                  if (uVar30 != 200 && uVar30 - 0xc1 < 0xf) break;
-                }
-              }
-              pppppppuVar38 = (uint *******)((long)pppppppuVar2 + uVar59);
-            }
-          }
-        }
-      }
-    }
-    goto LAB_4040a474;
-  case 5:
-    PF_PART4(uStack_718, 0) = 0;
-    PF_PART4(uStack_718, 4) = 0;
-    uStack_720 = (uint ************)0x0;
-    uStack_708 = 0;
-    uStack_704 = 0;
-    uStack_702 = 0;
-    uStack_701 = 0;
-    PF_PART4(uStack_710, 0) = 0;
-    PF_PART4(uStack_710, 4) = 0;
-    recovered_4040b904((undefined8 *)param_3,&uStack_720);
-    PF_PART4(uStack_710, 0) = 0;
-    PF_PART4(uStack_710, 4) = 0;
-    recovered_404076e8((void *)CONCAT44(PF_PART4(uStack_718, 4),(uint)uStack_718));
-    if (param_2 < (uint *******)0x1e) {
-      return false;
-    }
-    iVar27 = recovered_4040094c(param_1,str_4044e40c,9);
-    if (iVar27 != 0) {
-      return false;
-    }
-    if (param_1[0xd] != 0) {
-      return false;
-    }
-    PF_PART4(uStack_718, 0) = 0;
-    PF_PART4(uStack_718, 4) = 0;
-    uStack_720 = (uint ************)0x0;
-    PF_PART4(uStack_710, 0) = (uint)DAT_4044d8f0;
-    PF_PART4(uStack_710, 4) = (uint)((ulong)DAT_4044d8f0 >> 0x20);
-    puStack_6f8 = (uint *)0x0;
-    uStack_708 = 0;
-    uStack_704 = 0;
-    uStack_702 = 0;
-    uStack_701 = 0;
-    ppvStack_700 = (void **)0x0;
-    iVar27 = recovered_4040094c(param_1 + 9,&DAT_4044e43b,4);
-    if (iVar27 == 0) {
-      PF_PART4(uStack_718, 4) = 0;
-      PF_PART4(uStack_710, 0) = 4;
-LAB_40409948:
-      pppppppuStack_108 = (uint *******)0xe;
-      recovered_4040e31c((long)param_1,(ulong)param_2,(ulong *)&pppppppuStack_108,
-                         (uint *)&uStack_720);
-      if (extraout_w0_00 == 0) goto LAB_4040a0d8;
-      recovered_4040e31c((long)param_1,(ulong)param_2,(ulong *)&pppppppuStack_108,
-                         (uint *)((ulong)&uStack_720 | 4));
-      if (extraout_w0_01 == 0) goto LAB_4040a0d8;
-      recovered_4040e31c((long)param_1,(ulong)param_2,(ulong *)&pppppppuStack_108,
-                         (uint *)((ulong)&uStack_720 | 8));
-      bVar16 = false;
-      if (((extraout_w0_02 != 0) && ((uint)uStack_720 != 0)) &&
-         ((PF_PART4(uStack_720, 4) != 0 && ((uint)uStack_718 < 3)))) {
-        if (3 < PF_PART4(uStack_718, 4)) {
-          uStack_c90 = (uint ************)((ulong)uStack_c90 & 0xffffffff00000000);
-          recovered_4040e31c((long)param_1,(ulong)param_2,(ulong *)&pppppppuStack_108,
-                             (uint *)&uStack_c90);
-          if ((extraout_w0_03 == 0) ||
-             ((((uint)uStack_c90 != 0 && ((uint)uStack_c90 != 0x96)) && ((uint)uStack_c90 != 100))))
-          goto LAB_4040a0d8;
-        }
-        while( true ) {
-          uStack_c90 = (uint ************)((ulong)uStack_c90 & 0xffffffff00000000);
-          uStack_1b0 = (uint *******)((ulong)uStack_1b0 & 0xffffffff00000000);
-          recovered_4040e31c((long)param_1,(ulong)param_2,(ulong *)&pppppppuStack_108,
-                             (uint *)&uStack_c90);
-          if (extraout_w0 == 0) break;
-          recovered_4040e31c((long)param_1,(ulong)param_2,(ulong *)&pppppppuStack_108,
-                             (uint *)&uStack_1b0);
-          pppppppuVar38 = pppppppuStack_108;
-          if (extraout_w0_04 == 0) break;
-          uVar30 = (uint)uStack_1b0;
-          if ((uint)uStack_c90 == 0) {
-            if ((uint)uStack_1b0 == 0) {
-              uStack_110 = 0;
-              pvStack_120 = (void *)0x0;
-              lStack_118 = 0;
-              goto LAB_4040a320;
-            }
-            break;
-          }
-          if ((param_2 < pppppppuStack_108) ||
-             (uVar59 = (ulong)uStack_1b0 & 0xffffffff,
-             (ulong)((long)param_2 - (long)pppppppuStack_108) < uVar59)) break;
-          puVar41 = (uint *)(param_1 + (long)pppppppuStack_108);
-          if ((uint)uStack_c90 == 1 && 3 < (uint)uStack_1b0) {
-            uVar28 = recovered_4040e4a8(puVar41);
-            if (uVar28 < 0x101 && uVar28 * 3 + 4 <= uVar30) {
-              pppppppppppuStack_170 =
-                   (uint ***********)((ulong)pppppppppppuStack_170 & 0xffffffffffffff00);
-              recovered_4040d914((long *)&uStack_708,(ulong)(uVar28 * 3),
-                                 (undefined1 *)&pppppppppppuStack_170);
-              recovered_40400898((void *)CONCAT17(uStack_701,
-                                                  CONCAT16(uStack_702,
-                                                           CONCAT24(uStack_704,uStack_708))),
-                                 puVar41 + 1,(ulong)ppvStack_700);
-            }
-          }
-          else if (((uint)uStack_c90 == 0x11) && ((uint)uStack_1b0 != 0)) {
-            PF_PART4(uStack_710, 4) = (uint)(byte)*puVar41;
-          }
-          pppppppuStack_108 = (uint *******)((long)pppppppuVar38 + uVar59);
-        }
-        goto LAB_4040a0d8;
-      }
-    }
-    else {
-      if ((((param_1[9] == 0x76) && (param_1[10] - 0x30U < 10)) && (param_1[0xb] - 0x30U < 10)) &&
-         (param_1[0xc] - 0x30U < 10)) {
-        PF_PART4(uStack_718, 4) =
-             ((uint)param_1[0xb] * 10 + (uint)param_1[10] * 100 + (uint)param_1[0xc]) - 0x14d0;
-        PF_PART4(uStack_710, 0) = 8;
-        if (PF_PART4(uStack_718, 4) < 0xb) {
-          PF_PART4(uStack_710, 0) = 4;
-        }
-        goto LAB_40409948;
-      }
-LAB_4040a0d8:
-      bVar16 = false;
-    }
-    goto LAB_4040a0dc;
-  case 6:
-    PF_PART4(uStack_718, 0) = 0;
-    PF_PART4(uStack_718, 4) = 0;
-    uStack_720 = (uint ************)0x0;
-    uStack_708 = 0;
-    uStack_704 = 0;
-    uStack_702 = 0;
-    uStack_701 = 0;
-    PF_PART4(uStack_710, 0) = 0;
-    PF_PART4(uStack_710, 4) = 0;
-    recovered_4040b904((undefined8 *)param_3,&uStack_720);
-    PF_PART4(uStack_710, 0) = 0;
-    PF_PART4(uStack_710, 4) = 0;
-    recovered_404076e8((void *)CONCAT44(PF_PART4(uStack_718, 4),(uint)uStack_718));
-    if (param_2 < (uint *******)0x14) {
-      return false;
-    }
-    iVar27 = recovered_4040094c(param_1,str_4044d9e7,8);
-    if (iVar27 != 0) {
-      return false;
-    }
-    uVar30 = *(uint *)(param_1 + 8);
-    if (uVar30 == 0) {
-      return false;
-    }
-    uVar28 = *(uint *)(param_1 + 0xc);
-    if (uVar28 == 0) {
-      return false;
-    }
-    iVar27 = *(int *)(param_1 + 0x10);
-    if (iVar27 == 0) {
-      return false;
-    }
-    if ((ulong)uVar28 * (ulong)uVar30 >> 0x3e != 0) {
-      return false;
-    }
-    uStack_c90 = (uint ************)((ulong)uStack_c90 & 0xffffffffffffff00);
-    recovered_4040e59c(&uStack_720);
-    pppppppuVar38 = (uint *******)0x14;
-    for (iVar35 = 0; bVar16 = iVar35 == iVar27, !bVar16; iVar35 = iVar35 + 1) {
-      if (param_2 < pppppppuVar38 || (ulong)((long)param_2 - (long)pppppppuVar38) < 0x1c)
-      goto LAB_40409cf8;
-      puVar41 = (uint *)(param_1 + (long)pppppppuVar38);
-      uVar59 = (ulong)puVar41[3];
-      uVar29 = puVar41[4];
-      uVar44 = uVar29 * uVar59;
-      if (uVar44 >> 0x3e != 0) goto LAB_40409cf8;
-      pppppppuVar38 = (uint *******)((long)pppppppuVar38 + 0x1c);
-      uVar44 = uVar44 * 4;
-      if (param_2 < pppppppuVar38 || (ulong)((long)param_2 - (long)pppppppuVar38) < uVar44)
-      goto LAB_40409cf8;
-      if ((*puVar41 & 1) != 0) {
-        uVar51 = puVar41[1];
-        uVar26 = puVar41[2];
-        pbVar31 = param_1 + (long)pppppppuVar38;
-        uVar36 = puVar41[5];
-        for (uVar57 = 0; uVar57 != uVar29; uVar57 = uVar57 + 1) {
-          uVar45 = uVar26 + (int)uVar57;
-          if ((-1 < (int)uVar45) && ((int)uVar45 < (int)uVar28)) {
-            uVar46 = uVar51;
-            pbVar3 = pbVar31;
-            for (uVar66 = uVar59; uVar66 != 0; uVar66 = uVar66 - 1) {
-              if ((-1 < (int)uVar46) && ((int)uVar46 < (int)uVar30)) {
-                recovered_40400898(&uStack_c90,pbVar3,4);
-                PF_PART4(uStack_c90, 0) =
-                     CONCAT13((char)(((uint)PF_PART1(uStack_c90, 3) * (uint)(byte)uVar36 + 0x7f) / 0xff),
-                              (undefined3)uStack_c90);
-                recovered_4040e3e0((long)((long)uStack_720 +
-                                         ((ulong)uVar30 * (ulong)uVar45 + (ulong)uVar46) * 4),
-                                   (long)&uStack_c90);
-              }
-              pbVar3 = pbVar3 + 4;
-              uVar46 = uVar46 + 1;
-            }
-          }
-          pbVar31 = pbVar31 + uVar59 * 4;
-        }
-      }
-      pppppppuVar38 = (uint *******)(uVar44 + (long)pppppppuVar38);
-    }
-    *param_3 = uVar30;
-    param_3[1] = uVar28;
-    recovered_4040c404((undefined8 *)(param_3 + 2),&uStack_720);
-    break;
-  default:
-    return false;
-  }
-LAB_40409cf8:
-  uStack_718 = (uint ************)0x0;
-  ppppppppppppuVar54 = uStack_720;
-  goto LAB_404098cc;
-LAB_4040a320:
-  uStack_c90 = (uint ************)0x0;
-  bVar16 = recovered_4040e34c((long)param_1,(ulong)param_2,(ulong *)&pppppppuStack_108,
-                              (uint)uStack_710,&uStack_c90);
-  if (!bVar16) goto LAB_4040a3e4;
-  if (uStack_c90 == (uint ************)0x0) {
-    if ((lStack_118 != 0) &&
-       (((ulong)uStack_720 >> 0x20) * ((ulong)uStack_720 & 0xffffffff) >> 0x3e == 0)) {
-      uStack_c90 = (uint ************)0x0;
-      recovered_4040e59c((undefined8 *)&uStack_138);
-      lStack_cb0 = lStack_118;
-      goto LAB_4040a4bc;
-    }
-    goto LAB_4040a3e4;
-  }
-  if (param_2 <= uStack_c90) goto LAB_4040a3e4;
-  recovered_4040e4b4((long *)&pvStack_120,&uStack_c90);
-  goto LAB_4040a320;
-LAB_4040a4bc:
-  bVar16 = lStack_cb0 == 0;
-  if (lStack_cb0 != 0) {
-    uStack_c90 = (uint ************)0x0;
-    uStack_c88 = 0;
-    uStack_c84 = CONCAT31(PF_PART3(uStack_c84, 1),1);
-    uStack_c80 = 0xff;
-    uStack_c7c = 0;
-    uStack_c78 = 0;
-    ppvStack_c70 = (void **)0x0;
-    lStack_cb0 = lStack_cb0 + -1;
-    uStack_1b0 = *(uint ********)((long)pvStack_120 + lStack_cb0 * 8);
-    recovered_4040e31c((long)param_1,(ulong)param_2,&uStack_1b0,(uint *)&uStack_c90);
-    if (extraout_w0_05 == 0) goto LAB_4040af00;
-    recovered_4040e31c((long)param_1,(ulong)param_2,&uStack_1b0,(uint *)((ulong)&uStack_c90 | 4));
-    if (extraout_w0_06 == 0) goto LAB_4040af00;
-    recovered_4040e31c((long)param_1,(ulong)param_2,&uStack_1b0,&uStack_c88);
-    if (extraout_w0_07 == 0) goto LAB_4040af00;
-    pppppppppppuStack_170 = (uint ***********)((ulong)pppppppppppuStack_170 & 0xffffffff00000000);
-    recovered_4040e31c((long)param_1,(ulong)param_2,&uStack_1b0,(uint *)&pppppppppppuStack_170);
-    if (extraout_w0_08 == 0) goto LAB_4040af00;
-    if ((int)pppppppppppuStack_170 != 0) {
-      if (param_2 < uStack_1b0) goto LAB_4040af00;
-      if ((ulong)((long)param_2 - (long)uStack_1b0) < ((ulong)pppppppppppuStack_170 & 0xffffffff))
-      goto LAB_4040af00;
-      uStack_1b0 = (uint *******)((long)uStack_1b0 + ((ulong)pppppppppppuStack_170 & 0xffffffff));
-    }
-    uVar59 = (ulong)uStack_c80;
-    uVar30 = uStack_c7c;
-    uVar28 = uStack_c78;
-    uVar18 = (char)uStack_c84;
-    while( true ) {
-      pvStack_150 = (void *)((ulong)pvStack_150 & 0xffffffff00000000);
-      appvStack_b8[0] = (void **)((ulong)appvStack_b8[0] & 0xffffffff00000000);
-      recovered_4040e31c((long)param_1,(ulong)param_2,&uStack_1b0,(uint *)&pvStack_150);
-      if (extraout_w0_09 == 0) goto LAB_4040af00;
-      recovered_4040e31c((long)param_1,(ulong)param_2,&uStack_1b0,(uint *)appvStack_b8);
-      pppppppuVar38 = uStack_1b0;
-      uVar29 = (uint)uStack_710;
-      if (extraout_w0_10 == 0) goto LAB_4040af00;
-      if ((uint)pvStack_150 == 0) break;
-      if (param_2 < uStack_1b0) goto LAB_4040af00;
-      uVar44 = (ulong)appvStack_b8[0] & 0xffffffff;
-      if ((ulong)((long)param_2 - (long)uStack_1b0) < uVar44) goto LAB_4040af00;
-      puVar41 = (uint *)(param_1 + (long)uStack_1b0);
-      if ((uint)pvStack_150 == 6 && 3 < (uint)appvStack_b8[0]) {
-        uVar29 = recovered_4040e4a8(puVar41);
-        if (0xfe < uVar29) {
-          uVar29 = 0xff;
-        }
-        uVar59 = (ulong)uVar29;
-      }
-      else if ((uint)pvStack_150 == 8 && 3 < (uint)appvStack_b8[0]) {
-        uVar29 = recovered_4040e4a8(puVar41);
-        uVar18 = uVar29 != 0;
-      }
-      else if ((uint)pvStack_150 == 0xf && 7 < (uint)appvStack_b8[0]) {
-        uVar30 = recovered_4040e4a8(puVar41);
-        uVar28 = recovered_4040e4a8(puVar41 + 1);
-      }
-      else if ((uint)pvStack_150 == 0x21 && 3 < (uint)appvStack_b8[0]) {
-        uVar29 = recovered_4040e4a8(puVar41);
-        pppppppppppuStack_170 = (uint ***********)CONCAT44(PF_PART4(pppppppppppuStack_170, 4),uVar29);
-        pppppppppppuStack_100 =
-             (uint ***********)((ulong)pppppppppppuStack_100 & 0xffffffff00000000);
-        recovered_40400898(&pppppppppppuStack_100,&pppppppppppuStack_170,4);
-        if (PF_PART4(pppppppppppuStack_100, 0) <= 0.0) {
-          uVar59 = 0;
-        }
-        else if (1.0 <= PF_PART4(pppppppppppuStack_100, 0)) {
-          uVar59 = 0xff;
-        }
-        else {
-          fVar13 = 0.5;
-          if (PF_PART4(pppppppppppuStack_100, 0) * 255.0 < 0.0) {
-            fVar13 = -0.5;
-          }
-          uVar59 = (ulong)(fVar13 + PF_PART4(pppppppppppuStack_100, 0) * 255.0);
-        }
-      }
-      uStack_1b0 = (uint *******)((long)pppppppuVar38 + uVar44);
-    }
-    uStack_c80 = (uint)uVar59;
-    uStack_c84 = CONCAT31(PF_PART3(uStack_c84, 1),uVar18);
-    uStack_c7c = uVar30;
-    uStack_c78 = uVar28;
-    if (((uint)appvStack_b8[0] != 0) ||
-       (bVar19 = recovered_4040e34c((long)param_1,(ulong)param_2,&uStack_1b0,(uint)uStack_710,
-                                    (ulong *)&ppvStack_c70), !bVar19)) goto LAB_4040af00;
-    bVar19 = recovered_4040e34c((long)param_1,(ulong)param_2,&uStack_1b0,uVar29,
-                                (ulong *)&pppppppppppuStack_170);
-    uVar30 = uStack_c80;
-    if (!bVar19) goto LAB_4040af00;
-    uVar28 = (uint)uStack_c90;
-    uVar59 = (ulong)uStack_c90 & 0xffffffff;
-    if ((uint)uStack_c90 == 0) goto LAB_4040af00;
-    uVar51 = PF_PART4(uStack_c90, 4);
-    uVar44 = (ulong)PF_PART4(uStack_c90, 4);
-    if ((PF_PART4(uStack_c90, 4) == 0) || (ppvStack_c70 == (void **)0x0)) goto LAB_4040af00;
-    if (((char)uStack_c84 == '\x01') && (uStack_c80 != 0)) {
-      uStack_140 = 0;
-      pvStack_150 = (void *)0x0;
-      uStack_148 = 0;
-      uStack_c0 = 0;
-      appvStack_b8[0] = ppvStack_c70;
-      uStack_c4 = 0;
-      uStack_d0 = 0;
-      recovered_4040e31c((long)param_1,(ulong)param_2,(ulong *)appvStack_b8,
-                         (uint *)((long)&uStack_c0 + 4));
-      if (((extraout_w0_11 != 0) &&
-          (recovered_4040e31c((long)param_1,(ulong)param_2,(ulong *)appvStack_b8,(uint *)&uStack_c0)
-          , extraout_w0_12 != 0)) &&
-         (recovered_4040e31c((long)param_1,(ulong)param_2,(ulong *)appvStack_b8,&uStack_c4),
-         extraout_w0_13 != 0)) {
-        bVar19 = recovered_4040e34c((long)param_1,(ulong)param_2,(ulong *)appvStack_b8,uVar29,
-                                    &uStack_d0);
-        uVar29 = uStack_c88;
-        if ((((bVar19) && (PF_PART4(uStack_c0, 4) == uVar28)) && ((uint)uStack_c0 == uVar51)) &&
-           ((uStack_d0 != 0 && (uStack_c88 < 6)))) {
-          uVar26 = *(uint *)(&DAT_4044de20 + (ulong)uStack_c88 * 4);
-          if (uStack_c4 == uVar26) {
-            uStack_e0 = 0;
-            uStack_d8 = uStack_d0;
-            recovered_4040e31c((long)param_1,(ulong)param_2,&uStack_d8,
-                               (uint *)((long)&uStack_e0 + 4));
-            if ((extraout_w0_14 != 0) &&
-               (recovered_4040e31c((long)param_1,(ulong)param_2,&uStack_d8,(uint *)&uStack_e0),
-               extraout_w0_15 != 0)) {
-              if (PF_PART4(uStack_e0, 4) == uVar28 && (uint)uStack_e0 == uVar51) {
-                uVar66 = (ulong)(uVar28 + 0x3f >> 6);
-                uVar57 = (ulong)(uVar51 + 0x3f >> 6);
-                uVar62 = uVar57 * uVar66;
-                recovered_4040e5dc((long *)&pppppppppppuStack_170,uVar62);
-                lVar55 = 0;
-LAB_4040a824:
-                if (uVar62 == 0) {
-                  uStack_e8 = 0;
-                  bVar20 = recovered_4040e34c((long)param_1,(ulong)param_2,&uStack_d8,
-                                              (uint)uStack_710,&uStack_e8);
-                  bVar19 = false;
-                  if ((!bVar20) || (uStack_e8 != 0)) goto LAB_4040ad70;
-                  if (uVar44 * uVar59 >> 0x3e == 0) {
-                    uStack_1b0 = (uint *******)((ulong)uStack_1b0 & 0xffffffffffffff00);
-                    recovered_4040d914((long *)&pvStack_150,uVar44 * uVar59 * 4,
-                                       (undefined1 *)&uStack_1b0);
-                    uStack_d40 = 0;
-                    uVar62 = uVar44;
-                    while( true ) {
-                      uVar36 = (uint)uVar62;
-                      uVar45 = uVar36 - 0x40;
-                      if (0x3f < uVar36) {
-                        uVar36 = 0x40;
-                      }
-                      if (uStack_d40 == uVar57) break;
-                      uVar46 = 0;
-                      uStack_d20 = 0;
-                      uVar40 = uVar51 + (int)uStack_d40 * -0x40;
-                      if (0x3f < uVar40) {
-                        uVar40 = 0x40;
-                      }
-                      uStack_d24 = uVar28;
-                      while( true ) {
-                        uVar62 = (ulong)uStack_d24;
-                        if (0x3f < uVar62) {
-                          uVar62 = 0x40;
-                        }
-                        if (uStack_d20 == uVar66) break;
-                        lVar55 = uStack_d20 + uStack_d40 * uVar66;
-                        pppppppppppuVar56 = (uint ***********)pppppppppppuStack_170[lVar55];
-                        uVar64 = (long)param_2 - (long)pppppppppppuVar56;
-                        if (param_2 < pppppppppppuVar56 || uVar64 == 0) goto LAB_4040ad6c;
-                        uVar47 = uVar28 + (int)uStack_d20 * -0x40;
-                        if (0x3f < uVar47) {
-                          uVar47 = 0x40;
-                        }
-                        uVar39 = lVar55 + 1;
-                        uVar63 = uVar64;
-                        if ((uVar39 < uStack_168) &&
-                           (uVar63 = (long)pppppppppppuStack_170[uVar39] - (long)pppppppppppuVar56,
-                           pppppppppppuStack_170[uVar39] < pppppppppppuVar56 || uVar63 == 0)) {
-                          uVar63 = uVar64;
-                        }
-                        uVar47 = uVar47 * uVar40;
-                        uVar67 = (ulong)(uVar47 * uVar26);
-                        uStack_f8 = 0;
-                        uStack_f0 = 0;
-                        pppppppppppuStack_100 = (uint ***********)0x0;
-                        if (PF_PART4(uStack_710, 4) == 2) {
-                          if ((uVar39 < uStack_168) && (uVar63 != 0)) {
-                            recovered_40410808(&uStack_1b0,param_1 + (long)pppppppppppuVar56,
-                                               param_1 + (long)pppppppppppuVar56 + uVar63);
-                            bVar20 = recovered_4040e764(&uStack_1b0,(long *)&pppppppppppuStack_100);
-                            uStack_1a8 = 0;
-                            recovered_404076e8(uStack_1b0);
-                            bVar19 = false;
-                            if (uStack_f8 == uVar67) {
-                              bVar19 = bVar20;
-                            }
-                            if (bVar19 == true) goto LAB_4040aa10;
-                          }
-LAB_4040ad68:
-                          uStack_f8 = 0;
-                          recovered_404076e8(pppppppppppuStack_100);
-                          goto LAB_4040ad6c;
-                        }
-                        if (PF_PART4(uStack_710, 4) == 1) {
-                          uStack_1b0 = (uint *******)((ulong)uStack_1b0 & 0xffffffffffffff00);
-                          recovered_4040d914((long *)&pppppppppppuStack_100,uVar67,
-                                             (undefined1 *)&uStack_1b0);
-                          uVar39 = 0;
-                          uVar64 = 0;
-                          pbVar31 = param_1 + (long)pppppppppppuVar56;
-                          while (uVar39 != uVar26) {
-                            for (uVar37 = 0; uVar8 = uVar47 - uVar37,
-                                uVar37 < uVar47 && uVar64 < uVar63; uVar37 = (int)uVar49 + uVar37) {
-                              uVar67 = uVar64 + 1;
-                              pbVar3 = pbVar31 + uVar64;
-                              bVar21 = *pbVar3;
-                              uVar52 = (uint)bVar21;
-                              if (bVar21 < 0x7f) {
-                                if ((uVar63 <= uVar67) || (uVar8 <= uVar52)) goto LAB_4040ad68;
-                                uVar64 = uVar64 + 2;
-                                bVar22 = pbVar31[uVar67];
-                                uVar49 = (ulong)bVar21 + 1;
-                                uVar8 = uVar37;
-                                for (uVar67 = uVar49; uVar67 != 0; uVar67 = uVar67 - 1) {
-                                  *(byte *)((long)pppppppppppuStack_100 +
-                                           uVar39 + (ulong)uVar26 * (ulong)uVar8) = bVar22;
-                                  uVar8 = uVar8 + 1;
-                                }
-                              }
-                              else if (uVar52 == 0x80) {
-                                if (uVar63 - uVar67 < 2) goto LAB_4040ad68;
-                                uVar52 = (uint)CONCAT11(pbVar31[uVar67],pbVar3[2]);
-                                uVar49 = (ulong)uVar52;
-                                if ((uVar8 <= uVar52 - 1) ||
-                                   (lVar55 = uVar64 + 3, uVar63 - lVar55 < (ulong)uVar52))
-                                goto LAB_4040ad68;
-                                pbVar3 = pbVar31 + lVar55;
-                                uVar8 = uVar37;
-                                for (uVar64 = uVar49; uVar64 != 0; uVar64 = uVar64 - 1) {
-                                  *(byte *)((long)pppppppppppuStack_100 +
-                                           uVar39 + (ulong)uVar26 * (ulong)uVar8) = *pbVar3;
-                                  uVar8 = uVar8 + 1;
-                                  pbVar3 = pbVar3 + 1;
-                                }
-                                uVar64 = lVar55 + uVar49;
-                              }
-                              else if (uVar52 == 0x7f) {
-                                if ((uVar63 - uVar67 < 3) ||
-                                   (uVar49 = (ulong)(uint)CONCAT11(pbVar31[uVar67],pbVar3[2]),
-                                   uVar8 <= CONCAT11(pbVar31[uVar67],pbVar3[2]) - 1))
-                                goto LAB_4040ad68;
-                                uVar64 = uVar64 + 4;
-                                bVar21 = pbVar3[3];
-                                uVar8 = uVar37;
-                                for (uVar67 = uVar49; uVar67 != 0; uVar67 = uVar67 - 1) {
-                                  *(byte *)((long)pppppppppppuStack_100 +
-                                           uVar39 + (ulong)uVar26 * (ulong)uVar8) = bVar21;
-                                  uVar8 = uVar8 + 1;
-                                }
-                              }
-                              else {
-                                uVar49 = 0x100 - (ulong)bVar21;
-                                if ((uVar8 < (uint)uVar49) || (uVar63 - uVar67 < uVar49))
-                                goto LAB_4040ad68;
-                                pbVar3 = pbVar31 + uVar67;
-                                uVar8 = uVar37;
-                                for (uVar64 = uVar49; uVar64 != 0; uVar64 = uVar64 - 1) {
-                                  *(byte *)((long)pppppppppppuStack_100 +
-                                           uVar39 + (ulong)uVar26 * (ulong)uVar8) = *pbVar3;
-                                  uVar8 = uVar8 + 1;
-                                  pbVar3 = pbVar3 + 1;
-                                }
-                                uVar64 = uVar67 + uVar49;
-                              }
-                            }
-                            uVar39 = uVar39 + 1;
-                            if (uVar37 < uVar47) goto LAB_4040ad68;
-                          }
-                        }
-                        else {
-                          if ((PF_PART4(uStack_710, 4) != 0) || (uVar64 < uVar67)) goto LAB_4040ad68;
-                          recovered_4040e5c8((long *)&pppppppppppuStack_100,
-                                             param_1 + (long)pppppppppppuVar56,
-                                             param_1 + (long)pppppppppppuVar56 + uVar67);
-                        }
-LAB_4040aa10:
-                        lVar55 = 0;
-                        for (puStack_cc8 = (uint *)0x0; puStack_cc8 != (uint *)(ulong)uVar36;
-                            puStack_cc8 = (uint *)((long)puStack_cc8 + 1)) {
-                          lVar43 = lVar55;
-                          uVar47 = uVar46;
-                          for (uVar64 = uVar62; uVar64 != 0; uVar64 = uVar64 - 1) {
-                            PF_PART4(uStack_1b0, 4) = (undefined4)((ulong)uStack_1b0 >> 0x20);
-                            uStack_1b0 = (uint *******)CONCAT44(PF_PART4(uStack_1b0, 4),0xff000000);
-                            if (uVar29 < 6) {
-                              uVar37 = 1 << (ulong)(uVar29 & 0x1f);
-                              if ((uVar37 & 3) == 0) {
-                                if ((uVar37 & 0xc) == 0) {
-                                  lVar42 = (ulong)*(byte *)((long)pppppppppppuStack_100 + lVar43) *
-                                           3;
-                                  uVar39 = lVar42 + 2;
-                                  if (uVar39 < ppvStack_700) {
-                                    lVar53 = CONCAT17(uStack_701,
-                                                      CONCAT16(uStack_702,
-                                                               CONCAT24(uStack_704,uStack_708)));
-                                    PF_PART3(uStack_1b0, 0) =
-                                         CONCAT12(*(undefined1 *)(lVar53 + uVar39),
-                                                  *(undefined2 *)(lVar53 + lVar42));
-                                  }
-                                  if (uVar29 == 5) goto LAB_4040ab0c;
-                                }
-                                else {
-                                  PF_PART3(uStack_1b0, 0) =
-                                       CONCAT12(*(undefined1 *)
-                                                 ((long)pppppppppppuStack_100 + lVar43),
-                                                CONCAT11(*(undefined1 *)
-                                                          ((long)pppppppppppuStack_100 + lVar43),
-                                                         *(undefined1 *)
-                                                          ((long)pppppppppppuStack_100 + lVar43)));
-                                  if (uVar29 == 3) {
-LAB_4040ab0c:
-                                    lVar42 = 1;
-                                    goto LAB_4040ab10;
-                                  }
-                                }
-                                goto LAB_4040ab1c;
-                              }
-                              uStack_1b0 = (uint *******)
-                                           CONCAT53(PF_PART5(uStack_1b0, 3),
-                                                    *(undefined3 *)
-                                                     ((long)pppppppppppuStack_100 + lVar43));
-                              if (uVar29 != 1) goto LAB_4040ab1c;
-                              lVar42 = 3;
-LAB_4040ab10:
-                              uVar37 = (uint)*(byte *)((long)pppppppppppuStack_100 + lVar43 + lVar42
-                                                      );
-                            }
-                            else {
-LAB_4040ab1c:
-                              uVar37 = 0xff;
-                            }
-                            PF_PART4(uStack_1b0, 0) =
-                                 CONCAT13((char)((uVar37 * uVar30 + 0x7f) / 0xff),
-                                          (undefined3)uStack_1b0);
-                            recovered_40400898((void *)((long)pvStack_150 +
-                                                       (uVar59 * (uint)((int)uStack_d40 * 0x40 +
-                                                                       (int)puStack_cc8) +
-                                                       (ulong)uVar47) * 4),&uStack_1b0,4);
-                            uVar47 = uVar47 + 1;
-                            lVar43 = lVar43 + (ulong)uVar26;
-                          }
-                          lVar55 = lVar55 + uVar26 * uVar62;
-                        }
-                        uStack_f8 = 0;
-                        recovered_404076e8(pppppppppppuStack_100);
-                        uStack_d20 = uStack_d20 + 1;
-                        uStack_d24 = uStack_d24 - 0x40;
-                        uVar46 = uVar46 + 0x40;
-                      }
-                      uStack_d40 = uStack_d40 + 1;
-                      uVar62 = (ulong)uVar45;
-                    }
-                    bVar19 = true;
-                    goto LAB_4040ad70;
-                  }
-                }
-                else {
-                  bVar19 = recovered_4040e34c((long)param_1,(ulong)param_2,&uStack_d8,
-                                              (uint)uStack_710,
-                                              (ulong *)((long)pppppppppppuStack_170 + lVar55));
-                  if (bVar19) goto code_r0x4040a840;
-                }
-                goto LAB_4040ad6c;
-              }
-            }
-          }
-        }
-      }
-      pvVar34 = (void *)0x0;
-      goto LAB_4040aef8;
-    }
-    goto LAB_4040a4bc;
-  }
-  *(uint *************)param_3 = uStack_720;
-  recovered_4040c404((undefined8 *)(param_3 + 2),(undefined8 *)&uStack_138);
-LAB_4040af00:
-  uStack_130 = 0;
-  recovered_404076e8((void *)CONCAT44(uStack_134,uStack_138));
-LAB_4040a3e8:
-  lStack_118 = 0;
-  recovered_404076e8(pvStack_120);
-LAB_4040a0dc:
-  ppvStack_700 = (void **)0x0;
-  ppppppppppppuVar54 =
-       (uint ************)CONCAT17(uStack_701,CONCAT16(uStack_702,CONCAT24(uStack_704,uStack_708)));
-  goto LAB_404098cc;
-code_r0x4040a840:
-  plVar1 = (long *)((long)pppppppppppuStack_170 + lVar55);
-  lVar55 = lVar55 + 8;
-  uVar62 = uVar62 - 1;
-  if (*plVar1 == 0) goto LAB_4040ad6c;
-  goto LAB_4040a824;
-LAB_4040ad6c:
-  bVar19 = false;
-LAB_4040ad70:
-  uStack_168 = 0;
-  recovered_404076e8(pppppppppppuStack_170);
-  uVar28 = uStack_c78;
-  uVar30 = uStack_c7c;
-  if (!bVar19) {
-    pvVar34 = pvStack_150;
-LAB_4040aef8:
-    uStack_148 = 0;
-    recovered_404076e8(pvVar34);
-    goto LAB_4040af00;
-  }
-  lVar55 = 0;
-  for (uVar57 = 0; uVar57 != uVar44; uVar57 = uVar57 + 1) {
-    uVar29 = uVar28 + (int)uVar57;
-    if (-1 < (int)uVar29) {
-      uVar66 = uVar59;
-      lVar43 = lVar55;
-      uVar51 = uVar30;
-      if ((int)uVar29 < PF_PART4(uStack_720, 4)) {
-        for (; uVar66 != 0; uVar66 = uVar66 - 1) {
-          if ((-1 < (int)uVar51) && ((int)uVar51 < (int)(uint)uStack_720)) {
-            recovered_4040e3e0(CONCAT44(uStack_134,uStack_138) +
-                               (((ulong)uStack_720 & 0xffffffff) * (ulong)uVar29 + (ulong)uVar51) *
-                               4,(long)pvStack_150 + lVar43);
-          }
-          lVar43 = lVar43 + 4;
-          uVar51 = uVar51 + 1;
-        }
-      }
-    }
-    lVar55 = lVar55 + uVar59 * 4;
-  }
-  uStack_148 = 0;
-  recovered_404076e8(pvStack_150);
-  goto LAB_4040a4bc;
-LAB_4040a3e4:
-  bVar16 = false;
-  goto LAB_4040a3e8;
-LAB_4040ae50:
-  if (uVar57 == uVar44) goto LAB_4040af08;
-  uVar66 = 0;
-  bVar21 = (byte)left[uVar57 + 1];
-  puVar41 = puStack_768;
-  while( true ) {
-    if (uStack_760 == uVar66) goto LAB_4040a474;
-    if (*puVar41 == (uint)*(byte *)((long)left + uVar57 * 2 + 1)) break;
-    uVar66 = uVar66 + 1;
-    puVar41 = puVar41 + 0x10;
-  }
-  if ((int)uVar66 < 0) goto LAB_4040a474;
-  uVar30 = bVar21 & 0xf;
-  puStack_768[(uVar66 & 0x7fffffff) * 0x10 + 4] = (uint)(bVar21 >> 4);
-  puStack_768[(uVar66 & 0x7fffffff) * 0x10 + 5] = uVar30;
-  if (0x3f < bVar21 || 3 < uVar30) goto LAB_4040a474;
-  uStack_720 = (uint ************)CONCAT44(PF_PART4(uStack_720, 4),(int)uVar66);
-  recovered_4040dff8((long *)&puStack_750,(undefined4 *)&uStack_720);
-  uVar57 = uVar57 + 1;
-  goto LAB_4040ae50;
-LAB_40409d90:
-  uStack_1b0 = (uint *******)0x0;
-  uStack_1a0 = 0;
-  uStack_1a8 = 0;
-  uStack_190 = (void **)0x0;
-  uStack_198 = 0;
-  uStack_188 = uStack_188 & 0xffffffffffff0000;
-  uStack_720 = (uint ************)0x0;
-  PF_PART4(uStack_710, 0) = 0;
-  PF_PART4(uStack_710, 4) = 0;
-  PF_PART4(uStack_718, 0) = 0;
-  PF_PART4(uStack_718, 4) = 0;
-  ppvStack_700 = (void **)0x0;
-  uStack_708 = 0;
-  uStack_704 = 0;
-  uStack_702 = 0;
-  uStack_701 = 0;
-  puStack_6f8 = (uint *)((ulong)puStack_6f8 & 0xffffffffffff0000);
-  recovered_4040c404(&uStack_1b0,&uStack_720);
-  uStack_198 = CONCAT17(uStack_701,CONCAT16(uStack_702,CONCAT24(uStack_704,uStack_708)));
-  uStack_190 = ppvStack_700;
-  uStack_188 = CONCAT62(PF_PART6(uStack_188, 2),PF_PART2(puStack_6f8, 0));
-  PF_PART4(uStack_718, 0) = 0;
-  PF_PART4(uStack_718, 4) = 0;
-  recovered_404076e8(uStack_720);
-  if (uStack_c84 == 0) {
-    if (uStack_c40 != 0) {
-      if (uStack_c40 != 2) goto LAB_40409f2c;
-      uStack_198 = CONCAT44(PF_PART4(uStack_198, 4),
-                            (uint)(*puStack_c48 >> 8) | (*puStack_c48 & 0xff00ff) << 8);
-      uStack_188 = CONCAT71(PF_PART7(uStack_188, 1),1);
-    }
-LAB_40409f34:
-    uStack_110 = 0;
-    pvStack_120 = (void *)0x0;
-    lStack_118 = 0;
-    if (PF_PART1(uStack_c74, 2) == 1 && uStack_c10 != 0) {
-      uVar59 = ((ulong)uStack_c90 >> 0x20) * ((ulong)uStack_c90 & 0xffffffff);
-      if (uVar59 >> 0x3e != 0) goto LAB_4040a3bc;
-      uStack_720 = (uint ************)((ulong)uStack_720 & 0xffffffffffffff00);
-      recovered_4040d914((long *)&pvStack_120,uVar59 * 4,(undefined1 *)&uStack_720);
-      bVar21 = 0;
-      puVar41 = puStack_c18 + 6;
-      for (lVar55 = uStack_c10 * 0x38; lVar55 != 0; lVar55 = lVar55 + -0x38) {
-        if ((bVar21 & 1) == 0) {
-          bVar21 = (byte)*puVar41;
-        }
-        else {
-          bVar21 = 1;
-        }
-        puVar41 = puVar41 + 0xe;
-      }
-      if ((bVar21 & 1) == 0) {
-        PF_PART4(uStack_710, 0) = 0;
-        PF_PART4(uStack_710, 4) = 0;
-        uStack_720 = (uint ************)0x0;
-        PF_PART4(uStack_718, 0) = 0;
-        PF_PART4(uStack_718, 4) = 0;
-        bVar16 = recovered_4040b930((uint *)&uStack_c90,(long *)&pvStack_c30,&uStack_1b0,&uStack_720
-                                   );
-        if ((!bVar16) || (CONCAT44(PF_PART4(uStack_718, 4),(uint)uStack_718) != lStack_118)) {
-          PF_PART4(uStack_718, 0) = 0;
-          PF_PART4(uStack_718, 4) = 0;
-          ppppppppppppuVar54 = uStack_720;
-LAB_4040a3b8:
-          recovered_404076e8(ppppppppppppuVar54);
-          goto LAB_4040a3bc;
-        }
-        recovered_4040c404(&pvStack_120,&uStack_720);
-        PF_PART4(uStack_718, 0) = 0;
-        PF_PART4(uStack_718, 4) = 0;
-        recovered_404076e8(uStack_720);
-      }
-      puVar58 = puStack_c18 + uStack_c10 * 0xe;
-      for (puVar41 = puStack_c18; puVar41 != puVar58; puVar41 = puVar41 + 0xe) {
-        PF_PART4(uStack_718, 0) = uStack_c88;
-        PF_PART4(uStack_710, 4) = uStack_c7c;
-        uStack_708 = uStack_c78;
-        PF_PART4(uStack_718, 4) = uStack_c84;
-        PF_PART4(uStack_710, 0) = uStack_c80;
-        uVar30 = *puVar41;
-        uVar28 = puVar41[1];
-        uStack_720 = *(uint *************)puVar41;
-        uStack_160 = 0;
-        pppppppppppuStack_170 = (uint ***********)0x0;
-        uStack_168 = 0;
-        bVar16 = recovered_4040b930((uint *)&uStack_720,(long *)(puVar41 + 8),&uStack_1b0,
-                                    (long *)&pppppppppppuStack_170);
-        if (!bVar16) {
-          uStack_168 = 0;
-          ppppppppppppuVar54 = (uint ************)pppppppppppuStack_170;
-          goto LAB_4040a3b8;
-        }
-        lVar55 = 0;
-        uVar44 = (ulong)uStack_c90 & 0xffffffff;
-        for (uVar59 = 0; uVar59 != uVar28; uVar59 = uVar59 + 1) {
-          pvVar34 = (void *)((long)pppppppppppuStack_170 + lVar55);
-          pvVar32 = (void *)((long)pvStack_120 +
-                            uVar44 * 4 * (ulong)(puVar41[3] + (int)uVar59) + (ulong)puVar41[2] * 4);
-          for (uVar57 = (ulong)uVar30; uVar57 != 0; uVar57 = uVar57 - 1) {
-            if (puVar41[5] == 0) {
-              recovered_40400898(pvVar32,pvVar34,4);
-            }
-            else {
-              recovered_4040e3e0((long)pvVar32,(long)pvVar34);
-            }
-            pvVar34 = (void *)((long)pvVar34 + 4);
-            pvVar32 = (void *)((long)pvVar32 + 4);
-          }
-          lVar55 = lVar55 + (ulong)uVar30 * 4;
-        }
-        uStack_168 = 0;
-        recovered_404076e8(pppppppppppuStack_170);
-      }
-LAB_40409f6c:
-      *(uint *************)param_3 = uStack_c90;
-      recovered_4040c404((undefined8 *)(param_3 + 2),&pvStack_120);
-      bVar16 = true;
-    }
-    else {
-      bVar16 = recovered_4040b930((uint *)&uStack_c90,(long *)&pvStack_c30,&uStack_1b0,
-                                  (long *)&pvStack_120);
-      if (bVar16) goto LAB_40409f6c;
-LAB_4040a3bc:
-      bVar16 = false;
-    }
-    lStack_118 = 0;
-    recovered_404076e8(pvStack_120);
-  }
-  else {
-    if (uStack_c84 == 2) {
-      if (uStack_c40 != 0) {
-        if (uStack_c40 != 6) goto LAB_40409f2c;
-        uStack_198 = CONCAT44((uint)(*puStack_c48 >> 8) | (*puStack_c48 & 0xff00ff) << 8,
-                              (undefined4)uStack_198);
-        uStack_190 = (void **)CONCAT44((uint)(puStack_c48[2] >> 8) |
-                                       (puStack_c48[2] & 0xff00ff) << 8,
-                                       (uint)(puStack_c48[1] >> 8) |
-                                       (puStack_c48[1] & 0xff00ff) << 8);
-        PF_PART2(uStack_188, 0) = CONCAT11(1,(undefined1)uStack_188);
-      }
-      goto LAB_40409f34;
-    }
-    if (uStack_c84 == 3) {
-      bVar16 = false;
-      if ((uStack_c58 != 0) && (uVar59 = uStack_c58 / 3, uStack_c58 == uVar59 * 3)) {
-        uStack_720 = (uint ************)CONCAT71(PF_PART7(uStack_720, 1),0xff);
-        recovered_4040d914(&uStack_1b0,uVar59 << 2,(undefined1 *)&uStack_720);
-        lVar43 = 0;
-        lVar55 = 0;
-        for (; uVar59 != 0; uVar59 = uVar59 - 1) {
-          *(undefined1 *)((long)uStack_1b0 + lVar55) = *(undefined1 *)(lStack_c60 + lVar43);
-          *(undefined1 *)((long)uStack_1b0 + lVar55 + 1) = *(undefined1 *)(lStack_c60 + lVar43 + 1);
-          *(undefined1 *)((long)uStack_1b0 + lVar55 + 2) = *(undefined1 *)(lStack_c60 + lVar43 + 2);
-          lVar55 = lVar55 + 4;
-          lVar43 = lVar43 + 3;
-        }
-        lVar55 = 3;
-        for (uVar59 = 0; uVar59 < uStack_c40; uVar59 = uVar59 + 1) {
-          *(undefined1 *)((long)uStack_1b0 + lVar55) = *(undefined1 *)((long)puStack_c48 + uVar59);
-          lVar55 = lVar55 + 4;
-        }
-        goto LAB_40409f34;
-      }
-    }
-    else {
-      if (uStack_c40 == 0) goto LAB_40409f34;
-LAB_40409f2c:
-      bVar16 = false;
-    }
-  }
-  uStack_1a8 = 0;
-  recovered_404076e8(uStack_1b0);
-  goto LAB_40408508;
-LAB_4040af08:
-  if (*(byte *)((long)left + lVar55 + 1) == 0) {
-    if ((byte)left[uVar44 + 1] == 0x3f) {
-      if (*(byte *)((long)left + lVar55 + 3) == 0) {
-        pppppppuVar2 = (uint *******)((long)pppppppuVar2 + uVar59);
-        pppppppuVar38 = pppppppuVar2;
-        while( true ) {
-          pppppppuVar65 = pppppppuVar38;
-          pppppppuVar38 = (uint *******)((long)pppppppuVar65 + 1);
-          if (param_2 <= pppppppuVar38) break;
-          if (param_1[(long)pppppppuVar65] == 0xff) {
-            do {
-              if (param_2 <= pppppppuVar38) goto LAB_4040af80;
-              bVar21 = param_1[(long)pppppppuVar38];
-              pppppppuVar38 = (uint *******)((long)pppppppuVar38 + 1);
-            } while (bVar21 == 0xff);
-            if ((bVar21 != 0) && ((bVar21 & 0xf8) != 0xd0)) break;
-          }
-        }
-LAB_4040af80:
-        ppppppppppppuStack_738 = (uint ************)(param_1 + (long)pppppppuVar2);
-        uStack_730 = (long)pppppppuVar65 - (long)pppppppuVar2;
-        if ((long)pppppppuVar65 - (long)pppppppuVar2 != 0) {
-          if ((uint)uStack_c90 != 0) {
-            if (PF_PART4(uStack_c90, 4) != 0) {
-              uVar30 = 0;
-              if (uStack_c88 << 3 != 0) {
-                uVar30 = (((uint)uStack_c90 + uStack_c88 * 8) - 1) / (uStack_c88 << 3);
-              }
-              uVar28 = 0;
-              if (uStack_c84 << 3 != 0) {
-                uVar28 = ((PF_PART4(uStack_c90, 4) + uStack_c84 * 8) - 1) / (uStack_c84 << 3);
-              }
-              lVar55 = uStack_760 << 6;
-              dVar14 = DAT_4044d4c0;
-              dVar15 = DAT_4044d918;
-              puVar41 = puStack_768;
-              while( true ) {
-                DAT_4044d4c0 = dVar14;
-                DAT_4044d918 = dVar15;
-                if (lVar55 == 0) break;
-                if ((((char)(&uStack_c78)[(ulong)puVar41[3] * 0x41] != '\x01') ||
-                    (acStack_868[(ulong)puVar41[4] * 0x20] != '\x01')) ||
-                   (acStack_7e8[(ulong)puVar41[5] * 0x20] != '\x01')) goto LAB_4040a474;
-                uVar29 = puVar41[1] * uVar30 * 8;
-                uVar51 = puVar41[2] * uVar28 * 8;
-                puVar41[7] = uVar29;
-                puVar41[8] = uVar51;
-                uStack_720 = (uint ************)((ulong)uStack_720 & 0xffffffffffffff00);
-                recovered_4040d914((long *)(puVar41 + 10),(ulong)uVar51 * (ulong)uVar29,
-                                   (undefined1 *)&uStack_720);
-                puVar41[6] = 0;
-                puVar41 = puVar41 + 0x10;
-                lVar55 = lVar55 + -0x40;
-                dVar14 = DAT_4044d4c0;
-                dVar15 = DAT_4044d918;
-              }
-              uVar29 = 0;
-              pppppppppppuStack_170 = (uint ***********)ppppppppppppuStack_738;
-              uStack_168 = uStack_730;
-              uStack_160 = 0;
-              uStack_158 = 0;
-              uStack_178 = 0;
-              uStack_180 = 0;
-              uStack_188 = 0;
-              uStack_190 = (void **)0x0;
-              uStack_198 = 0;
-              uStack_1a0 = 0;
-              uStack_1a8 = 0;
-              uStack_1b0 = (uint *******)0x0;
-              uStack_154 = 0;
-              for (uVar51 = 0; uVar51 < uVar28; uVar51 = uVar51 + 1) {
-                for (uVar26 = 0; uVar26 < uVar30; uVar26 = uVar26 + 1) {
-                  if (uStack_c80 != 0 && uVar29 == uStack_c80) {
-                    uStack_154 = 0;
-                    if ((uStack_160 < uStack_168) &&
-                       (*(char *)((long)pppppppppppuStack_170 + uStack_160) == -1)) {
-                      uVar59 = uStack_160 + 1;
-                      do {
-                        uVar44 = uVar59;
-                        if (uStack_168 <= uVar44) goto LAB_4040a474;
-                        bVar21 = *(byte *)((long)pppppppppppuStack_170 + uVar44);
-                        uVar59 = uVar44 + 1;
-                      } while (bVar21 == 0xff);
-                      if ((bVar21 & 0xf8) != 0xd0) {
-                        if (bVar21 != 0) goto LAB_4040a474;
-                        uVar59 = uVar44 - 1;
-                      }
-                      uStack_160 = uVar59;
-                    }
-                    puVar41 = puStack_768;
-                    for (lVar55 = uStack_760 << 6; lVar55 != 0; lVar55 = lVar55 + -0x40) {
-                      puVar41[6] = 0;
-                      puVar41 = puVar41 + 0x10;
-                    }
-                    uVar29 = 0;
-                  }
-                  puVar41 = puStack_750 + lStack_748;
-                  for (puStack_cc8 = puStack_750; puVar58 = puStack_768, puStack_cc8 != puVar41;
-                      puStack_cc8 = puStack_cc8 + 1) {
-                    uVar59 = (ulong)*puStack_cc8;
-                    if (uStack_760 <= uVar59) goto LAB_4040a474;
-                    for (uVar36 = 0; uVar36 < puVar58[uVar59 * 0x10 + 2]; uVar36 = uVar36 + 1) {
-                      for (uVar45 = 0; uVar45 < puVar58[uVar59 * 0x10 + 1]; uVar45 = uVar45 + 1) {
-                        uVar46 = puVar58[uVar59 * 0x10 + 3];
-                        if (((3 < uVar46) || (uVar40 = puVar58[uVar59 * 0x10 + 4], 3 < uVar40)) ||
-                           ((uVar47 = puVar58[uVar59 * 0x10 + 5], 3 < uVar47 ||
-                            ((char)(&uStack_c78)[(ulong)uVar46 * 0x41] != '\x01'))))
-                        goto LAB_4040a474;
-                        recovered_40400924((undefined1 *)((long)&uStack_720 + 4),0xfc);
-                        pppppppppppuStack_100 =
-                             (uint ***********)((ulong)pppppppppppuStack_100 & 0xffffffff00000000);
-                        iVar27 = recovered_4040e128((long *)&pppppppppppuStack_170,
-                                                    acStack_868 + (ulong)uVar40 * 0x20,
-                                                    (undefined4 *)&pppppppppppuStack_100);
-                        if (iVar27 == 0) goto LAB_4040a474;
-                        uVar40 = (uint)PF_PART4(pppppppppppuStack_100, 0);
-                        if (0xb < (uint)PF_PART4(pppppppppppuStack_100, 0)) goto LAB_4040a474;
-                        pvStack_120 = (void *)((ulong)pvStack_120 & 0xffffffff00000000);
-                        bVar16 = recovered_4040e1dc((long *)&pppppppppppuStack_170,
-                                                    (uint)PF_PART4(pppppppppppuStack_100, 0),
-                                                    (uint *)&pvStack_120);
-                        if (!bVar16) goto LAB_4040a474;
-                        iVar27 = recovered_4040e23c((uint)pvStack_120,uVar40);
-                        uVar40 = puVar58[uVar59 * 0x10 + 6];
-                        puVar58[uVar59 * 0x10 + 6] = uVar40 + iVar27;
-                        uStack_720 = (uint ************)
-                                     CONCAT44(PF_PART4(uStack_720, 4),
-                                              (&uStack_c74)[(ulong)uVar46 * 0x41] *
-                                              (uVar40 + iVar27));
-                        uVar40 = 1;
-                        do {
-                          while( true ) {
-                            if (0x3f < uVar40) goto LAB_4040b338;
-                            iVar27 = recovered_4040e128((long *)&pppppppppppuStack_170,
-                                                        acStack_7e8 + (ulong)uVar47 * 0x20,
-                                                        (undefined4 *)&pppppppppppuStack_100);
-                            if (iVar27 == 0) goto LAB_4040a474;
-                            uVar37 = (uint)PF_PART4(pppppppppppuStack_100, 0) & 0xf;
-                            if (((ulong)pppppppppppuStack_100 & 0xf) == 0) break;
-                            uVar40 = ((uint)PF_PART4(pppppppppppuStack_100, 0) >> 4) + uVar40;
-                            if (0x3f < uVar40) goto LAB_4040a474;
-                            uStack_138 = 0;
-                            bVar16 = recovered_4040e1dc((long *)&pppppppppppuStack_170,uVar37,
-                                                        &uStack_138);
-                            if (!bVar16) goto LAB_4040a474;
-                            uVar8 = (&DAT_4044d9f0)[uVar40];
-                            iVar27 = recovered_4040e23c(uStack_138,uVar37);
-                            *(int *)((long)&uStack_720 + (ulong)uVar8 * 4) =
-                                 (&uStack_c74 + (ulong)uVar46 * 0x41)[uVar8] * iVar27;
-                            uVar40 = uVar40 + 1;
-                          }
-                          uVar40 = uVar40 + 0x10;
-                        } while ((uint)PF_PART4(pppppppppppuStack_100, 0) >> 4 == 0xf);
-LAB_4040b338:
-                        bVar21 = DAT_4047ba40;
-                        if ((bVar21 & 1) == 0) {
-                          puVar60 = &DAT_4047bb08;
-                          for (uVar44 = 0; uVar44 != 8; uVar44 = uVar44 + 1) {
-                            for (uVar57 = 0; uVar57 != 8; uVar57 = uVar57 + 1) {
-                              dVar68 = recovered_40400edc(((double)(uVar44 & 0xffffffff) * 2.0 + 1.0
-                                                          ) * (double)(uVar57 & 0xffffffff) * dVar14
-                                                          * 0.0625);
-                              puVar60[uVar57] = dVar68;
-                            }
-                            puVar60 = puVar60 + 8;
-                          }
-                          DAT_4047ba40 = 1;
-                        }
-                        for (lVar55 = 0; lVar55 != 8; lVar55 = lVar55 + 1) {
-                          puVar60 = &DAT_4047bb08;
-                          for (lVar43 = 0; lVar43 != 8; lVar43 = lVar43 + 1) {
-                            dVar68 = 0.0;
-                            puVar50 = &uStack_720;
-                            for (lVar42 = 0; lVar42 != 8; lVar42 = lVar42 + 1) {
-                              lVar53 = 0;
-                              dVar71 = dVar15;
-                              if (lVar42 != 0) {
-                                dVar71 = 1.0;
-                              }
-                              for (; lVar53 != 8; lVar53 = lVar53 + 1) {
-                                dVar73 = dVar15;
-                                if (lVar53 != 0) {
-                                  dVar73 = 1.0;
-                                }
-                                dVar68 = dVar68 + (double)(&DAT_4047bb08)[lVar42 + lVar55 * 8] *
-                                                  pf_bits_double((uintptr_t)puVar60[lVar53]) *
-                                                  dVar71 * dVar73 *
-                                                  (double)*(int *)((long)puVar50 + lVar53 * 4);
-                              }
-                              puVar50 = puVar50 + 4;
-                            }
-                            dVar68 = dVar68 * 0.25 + 128.0;
-                            dVar71 = 0.5;
-                            if (dVar68 < 0.0) {
-                              dVar71 = -0.5;
-                            }
-                            uVar40 = (uint)(long)(dVar68 + dVar71);
-                            uVar46 = uVar40;
-                            if (0xfe < uVar40) {
-                              uVar46 = 0xffffffff;
-                            }
-                            uVar18 = 0;
-                            if (0 < (int)uVar40) {
-                              uVar18 = (char)uVar46;
-                            }
-                            *(undefined1 *)((long)&uStack_1b0 + lVar43 + lVar55 * 8) = uVar18;
-                            puVar60 = puVar60 + 8;
-                          }
-                        }
-                        uVar46 = puVar58[uVar59 * 0x10 + 1];
-                        uVar44 = (ulong)((uVar36 + uVar51 * puVar58[uVar59 * 0x10 + 2]) * 8);
-                        puVar60 = &uStack_1b0;
-                        lVar55 = 8;
-                        do {
-                          if (uVar44 < puVar58[uVar59 * 0x10 + 8]) {
-                            recovered_40400898((void *)(*(long *)(puVar58 + uVar59 * 0x10 + 10) +
-                                                        uVar44 * puVar58[uVar59 * 0x10 + 7] +
-                                                       (ulong)((uVar45 + uVar46 * uVar26) * 8)),
-                                               puVar60,8);
-                          }
-                          puVar60 = puVar60 + 1;
-                          uVar44 = uVar44 + 1;
-                          lVar55 = lVar55 + -1;
-                        } while (lVar55 != 0);
-                      }
-                    }
-                  }
-                  uVar29 = uVar29 + 1;
-                }
-              }
-              if (((ulong)uStack_c90 >> 0x20) * ((ulong)uStack_c90 & 0xffffffff) >> 0x3e == 0) {
-                recovered_4040dafc(&uStack_720);
-                dVar71 = DAT_4044d910;
-                dVar68 = DAT_4044d908;
-                dVar15 = DAT_4044d900;
-                dVar14 = DAT_4044d8f8;
-                pppppppppppuStack_100 = (uint ***********)&uStack_c90;
-                for (uVar59 = 0; uVar59 < PF_PART4(uStack_c90, 4); uVar59 = uVar59 + 1) {
-                  uVar44 = 0;
-                  while( true ) {
-                    uVar57 = uStack_760;
-                    puVar41 = puStack_768;
-                    if (((ulong)uStack_c90 & 0xffffffff) <= uVar44) break;
-                    pbVar31 = (byte *)((long)uStack_720 +
-                                      (uVar44 + uVar59 * ((ulong)uStack_c90 & 0xffffffff)) * 4);
-                    iVar27 = (int)uVar44;
-                    iVar35 = (int)uVar59;
-                    bVar21 = recovered_4040e0e0((long *)&pppppppppppuStack_100,(long)puStack_768,
-                                                iVar27,iVar35);
-                    uVar30 = (uint)bVar21;
-                    if (uVar57 == 3) {
-                      bVar22 = recovered_4040e0e0((long *)&pppppppppppuStack_100,
-                                                  (long)(puVar41 + 0x10),iVar27,iVar35);
-                      bVar23 = recovered_4040e0e0((long *)&pppppppppppuStack_100,
-                                                  (long)(puVar41 + 0x20),iVar27,iVar35);
-                      dVar73 = (double)bVar21;
-                      dVar72 = dVar73 + dVar14 * (double)(int)(bVar23 - 0x80);
-                      dVar74 = 0.5;
-                      if (dVar72 < 0.0) {
-                        dVar74 = -0.5;
-                      }
-                      uVar28 = (uint)(long)(dVar72 + dVar74);
-                      uVar30 = uVar28;
-                      if (0xfe < uVar28) {
-                        uVar30 = 0xffffffff;
-                      }
-                      bVar21 = 0;
-                      if (0 < (int)uVar28) {
-                        bVar21 = (byte)uVar30;
-                      }
-                      *pbVar31 = bVar21;
-                      dVar72 = dVar73 + dVar15 * (double)(int)(bVar22 - 0x80) +
-                               dVar68 * (double)(int)(bVar23 - 0x80);
-                      dVar74 = 0.5;
-                      if (dVar72 < 0.0) {
-                        dVar74 = -0.5;
-                      }
-                      uVar28 = (uint)(long)(dVar72 + dVar74);
-                      uVar30 = uVar28;
-                      if (0xfe < uVar28) {
-                        uVar30 = 0xffffffff;
-                      }
-                      bVar21 = 0;
-                      if (0 < (int)uVar28) {
-                        bVar21 = (byte)uVar30;
-                      }
-                      pbVar31[1] = bVar21;
-                      dVar73 = dVar73 + dVar71 * (double)(int)(bVar22 - 0x80);
-                      dVar72 = 0.5;
-                      if (dVar73 < 0.0) {
-                        dVar72 = -0.5;
-                      }
-                      uVar28 = (uint)(long)(dVar73 + dVar72);
-                      uVar30 = uVar28;
-                      if (0xfe < uVar28) {
-                        uVar30 = 0xffffffff;
-                      }
-                      bVar21 = 0;
-                      if (0 < (int)uVar28) {
-                        bVar21 = (byte)uVar30;
-                      }
-                    }
-                    else if (uVar57 == 1) {
-                      *pbVar31 = bVar21;
-                      pbVar31[1] = bVar21;
-                    }
-                    else {
-                      bVar22 = recovered_4040e0e0((long *)&pppppppppppuStack_100,
-                                                  (long)(puVar41 + 0x10),iVar27,iVar35);
-                      uVar28 = (uint)bVar22;
-                      bVar23 = recovered_4040e0e0((long *)&pppppppppppuStack_100,
-                                                  (long)(puVar41 + 0x20),iVar27,iVar35);
-                      uVar29 = (uint)bVar23;
-                      bVar24 = recovered_4040e0e0((long *)&pppppppppppuStack_100,
-                                                  (long)(puVar41 + 0x30),iVar27,iVar35);
-                      if (uStack_c7c == 2) {
-                        dVar73 = (double)bVar21;
-                        dVar72 = dVar73 + dVar14 * (double)(int)(bVar23 - 0x80);
-                        dVar74 = 0.5;
-                        if (dVar72 < 0.0) {
-                          dVar74 = -0.5;
-                        }
-                        uVar28 = (uint)(long)(dVar72 + dVar74);
-                        uVar30 = uVar28 & 0xff;
-                        if (0xfe < uVar28) {
-                          uVar30 = 0xff;
-                        }
-                        if ((int)uVar28 < 1) {
-                          uVar30 = 0;
-                        }
-                        dVar72 = dVar73 + dVar15 * (double)(int)(bVar22 - 0x80) +
-                                 dVar68 * (double)(int)(bVar23 - 0x80);
-                        dVar74 = 0.5;
-                        if (dVar72 < 0.0) {
-                          dVar74 = -0.5;
-                        }
-                        uVar29 = (uint)(long)(dVar72 + dVar74);
-                        uVar28 = uVar29 & 0xff;
-                        if (0xfe < uVar29) {
-                          uVar28 = 0xff;
-                        }
-                        if ((int)uVar29 < 1) {
-                          uVar28 = 0;
-                        }
-                        dVar73 = dVar73 + dVar71 * (double)(int)(bVar22 - 0x80);
-                        dVar72 = 0.5;
-                        if (dVar73 < 0.0) {
-                          dVar72 = -0.5;
-                        }
-                        uVar51 = (uint)(long)(dVar73 + dVar72);
-                        uVar29 = uVar51 & 0xff;
-                        if (0xfe < uVar51) {
-                          uVar29 = 0xff;
-                        }
-                        if ((int)uVar51 < 1) {
-                          uVar29 = 0;
-                        }
-                      }
-                      uVar30 = uVar30 + bVar24;
-                      uVar51 = uVar30;
-                      if (0xfe < uVar30) {
-                        uVar51 = 0xff;
-                      }
-                      bVar21 = 0;
-                      if (uVar30 < 0xff) {
-                        bVar21 = ~(byte)uVar51;
-                      }
-                      *pbVar31 = bVar21;
-                      uVar28 = uVar28 + bVar24;
-                      uVar30 = uVar28;
-                      if (0xfe < uVar28) {
-                        uVar30 = 0xff;
-                      }
-                      bVar21 = 0;
-                      if (uVar28 < 0xff) {
-                        bVar21 = ~(byte)uVar30;
-                      }
-                      pbVar31[1] = bVar21;
-                      uVar29 = uVar29 + bVar24;
-                      uVar30 = uVar29;
-                      if (0xfe < uVar29) {
-                        uVar30 = 0xff;
-                      }
-                      bVar21 = 0;
-                      if (uVar29 < 0xff) {
-                        bVar21 = ~(byte)uVar30;
-                      }
-                    }
-                    pbVar31[2] = bVar21;
-                    pbVar31[3] = 0xff;
-                    uVar44 = uVar44 + 1;
-                  }
-                }
-                *param_3 = (uint)uStack_c90;
-                param_3[1] = PF_PART4(uStack_c90, 4);
-                recovered_4040c404((undefined8 *)(param_3 + 2),&uStack_720);
-                PF_PART4(uStack_718, 0) = 0;
-                PF_PART4(uStack_718, 4) = 0;
-                recovered_404076e8(uStack_720);
-                bVar16 = true;
-                goto LAB_4040a478;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-LAB_4040a474:
-  bVar16 = false;
-LAB_4040a478:
-  recovered_4040dd74((long)&uStack_c90);
-  return bVar16;
-  while( true ) {
-    puVar58 = puVar41 + 10;
-    puVar41 = puVar41 + 0xe;
-    lVar55 = lVar55 + -0x38;
-    if (*(long *)puVar58 == 0) break;
-LAB_40409d78:
-    if (lVar55 == 0) goto LAB_40409d90;
-  }
-LAB_40408508:
-  recovered_4040c454((long)&uStack_c90);
-  uStack_f8 = 0;
-  ppppppppppppuVar54 = (uint ************)pppppppppppuStack_100;
-LAB_404098cc:
-  recovered_404076e8(ppppppppppppuVar54);
-  return bVar16;
-}
+{return (bool)pf_image_decode((const void *)param_1,(uintptr_t)param_2,param_3);}
 
 #undef DAT_4044d4c0
 #undef DAT_4044d8f0
@@ -14912,7 +12361,7 @@ LAB_404098cc:
 undefined8 * recovered_4040b904(undefined8 *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   *param_1 = *param_2;
   recovered_4040c404(param_1 + 1,param_2 + 1);
@@ -14928,21 +12377,21 @@ undefined8 * recovered_4040b904(undefined8 *param_1,undefined8 *param_2)
 #define DAT_4044dd4c (*(uint8_t *)(0x4044dd4cU))
 #undef DAT_4044dd68
 #define DAT_4044dd68 (*(uint8_t *)(0x4044dd68U))
-#define local_a0 (*(ulong *)(frame + 88))
-#define uStack_e0 (*(undefined8 *)(frame + 24))
-#define pbStack_e8 (*(byte * *)(frame + 16))
-#define pbStack_d0 (*(byte * *)(frame + 40))
-#define uStack_d8 (*(undefined8 *)(frame + 32))
-#define uStack_c0 (*(undefined8 *)(frame + 56))
-#define uStack_c8 (*(undefined8 *)(frame + 48))
-#define uStack_b0 (*(ulong *)(frame + 72))
-#define pbStack_b8 (*(byte * *)(frame + 64))
-#define uStack_98 (*(undefined8 *)(frame + 96))
-#define uStack_88 (*(undefined8 *)(frame + 112))
-#define uStack_90 (*(undefined8 *)(frame + 104))
-#define uStack_78 (*(undefined8 *)(frame + 128))
-#define lStack_80 (*(long *)(frame + 120))
-#define lStack_70 (*(long *)(frame + 136))
+#define local_a0 (*(ulong *)(frame + 96))
+#define uStack_e0 (*(undefined8 *)(frame + 32))
+#define pbStack_e8 (*(byte * *)(frame + 24))
+#define pbStack_d0 (*(byte * *)(frame + 48))
+#define uStack_d8 (*(undefined8 *)(frame + 40))
+#define uStack_c0 (*(undefined8 *)(frame + 64))
+#define uStack_c8 (*(undefined8 *)(frame + 56))
+#define uStack_b0 (*(ulong *)(frame + 80))
+#define pbStack_b8 (*(byte * *)(frame + 72))
+#define uStack_98 (*(undefined8 *)(frame + 104))
+#define uStack_88 (*(undefined8 *)(frame + 120))
+#define uStack_90 (*(undefined8 *)(frame + 112))
+#define uStack_78 (*(undefined8 *)(frame + 136))
+#define lStack_80 (*(long *)(frame + 128))
+#define lStack_70 (*(long *)(frame + 144))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4040b930
  */
@@ -14950,7 +12399,7 @@ undefined8 * recovered_4040b904(undefined8 *param_1,undefined8 *param_2)
 bool recovered_4040b930(uint *param_1,long *param_2,long *param_3,long *param_4)
 
 {
-  unsigned char frame[280] = {0};
+  unsigned char frame[288] __attribute__((aligned(16))) = {0};
 
   byte *pbVar1;
   undefined1 *puVar2;
@@ -15524,7 +12973,7 @@ LAB_4040c36c:
 undefined8 * recovered_4040c404(undefined8 *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -15550,7 +12999,7 @@ undefined8 * recovered_4040c404(undefined8 *param_1,undefined8 *param_2)
 long recovered_4040c454(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_4040fac0((long *)(param_1 + 0x78));
   recovered_404076e8(*(void **)(param_1 + 0x78));
@@ -15572,7 +13021,7 @@ long recovered_4040c454(long param_1)
 ulong recovered_4040c494(long param_1,uint *param_2)
 
 {
-  unsigned char frame[128] = {0};
+  unsigned char frame[128] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   bool bVar2;
@@ -15639,13 +13088,13 @@ LAB_4040c538:
 #define DAT_4044e41e (*(uint8_t *)(0x4044e41eU))
 #undef DAT_4044e454
 #define DAT_4044e454 (*(uint8_t *)(0x4044e454U))
-#define uStack_88 (*(undefined8 *)(frame + 32))
-#define uStack_70 (*(undefined8 *)(frame + 56))
-#define local_98 (*(void * *)(frame + 16))
-#define local_90 (*(ulong *)(frame + 24))
-#define local_80 (*(undefined8 *)(frame + 40))
-#define local_78 (*(ulong *)(frame + 48))
-#define local_61 (*(undefined1 *)(frame + 71))
+#define uStack_88 (*(undefined8 *)(frame + 40))
+#define uStack_70 (*(undefined8 *)(frame + 64))
+#define local_98 (*(void * *)(frame + 24))
+#define local_90 (*(ulong *)(frame + 32))
+#define local_80 (*(undefined8 *)(frame + 48))
+#define local_78 (*(ulong *)(frame + 56))
+#define local_61 (*(undefined1 *)(frame + 79))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4040c5b4
  */
@@ -15653,7 +13102,7 @@ LAB_4040c538:
 undefined4 recovered_4040c5b4(long param_1,long param_2,ulong param_3,ulong param_4)
 
 {
-  unsigned char frame[200] = {0};
+  unsigned char frame[208] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   uint uVar2;
@@ -15870,7 +13319,7 @@ LAB_4040c94c:
 bool recovered_4040c9c8(uint *param_1,long param_2,long param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
 
@@ -15882,8 +13331,8 @@ bool recovered_4040c9c8(uint *param_1,long param_2,long param_3)
 }
 
 
-#define uStack_38 (*(uint *)(frame + 16))
-#define local_34 (*(uint *)(frame + 20))
+#define uStack_38 (*(uint *)(frame + 24))
+#define local_34 (*(uint *)(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4040ca00
  */
@@ -15891,7 +13340,7 @@ bool recovered_4040c9c8(uint *param_1,long param_2,long param_3)
 ulong recovered_4040ca00(uint *param_1,byte *param_2,byte *param_3,ulong param_4)
 
 {
-  unsigned char frame[104] = {0};
+  unsigned char frame[112] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   uint uVar2;
@@ -15936,13 +13385,13 @@ ulong recovered_4040ca00(uint *param_1,byte *param_2,byte *param_3,ulong param_4
 #define DAT_4044e41e (*(uint8_t *)(0x4044e41eU))
 #undef DAT_4044e454
 #define DAT_4044e454 (*(uint8_t *)(0x4044e454U))
-#define pvStack_98 (*(void * *)(frame + 16))
-#define uStack_88 (*(undefined8 *)(frame + 32))
-#define uStack_90 (*(ulong *)(frame + 24))
-#define uStack_78 (*(ulong *)(frame + 48))
-#define uStack_80 (*(undefined8 *)(frame + 40))
-#define uStack_61 (*(undefined1 *)(frame + 71))
-#define uStack_70 (*(undefined8 *)(frame + 56))
+#define pvStack_98 (*(void * *)(frame + 24))
+#define uStack_88 (*(undefined8 *)(frame + 40))
+#define uStack_90 (*(ulong *)(frame + 32))
+#define uStack_78 (*(ulong *)(frame + 56))
+#define uStack_80 (*(undefined8 *)(frame + 48))
+#define uStack_61 (*(undefined1 *)(frame + 79))
+#define uStack_70 (*(undefined8 *)(frame + 64))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4040caac
  */
@@ -15950,7 +13399,7 @@ ulong recovered_4040ca00(uint *param_1,byte *param_2,byte *param_3,ulong param_4
 undefined4 recovered_4040caac(long param_1,long param_2,ulong param_3,ulong param_4)
 
 {
-  unsigned char frame[200] = {0};
+  unsigned char frame[208] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   uint uVar2;
@@ -16166,45 +13615,45 @@ LAB_4040c94c:
 #define DAT_4044d930 (*(uint64_t *)(0x4044d930U))
 #undef DAT_4044d938
 #define DAT_4044d938 (*(uint64_t *)(0x4044d938U))
-#define local_e8 (*(void * *)(frame + 16))
-#define local_cc (*(undefined4 *)(frame + 44))
-#define local_c8 (*(undefined1 *)(frame + 48))
-#define local_c7 (*(undefined1 *)(frame + 49))
-#define local_c6 (*(undefined1 *)(frame + 50))
-#define local_c5 (*(undefined1 *)(frame + 51))
-#define local_c4 (*(undefined1 *)(frame + 52))
-#define local_c3 (*(undefined1 *)(frame + 53))
-#define local_c2 (*(undefined1 *)(frame + 54))
-#define local_c1 (*(undefined1 *)(frame + 55))
-#define local_c0 (*(undefined8 *)(frame + 56))
-#define local_b8 (*(undefined1 *)(frame + 64))
-#define local_b7 (*(undefined1 *)(frame + 65))
-#define lStack_e0 (*(long *)(frame + 24))
-#define local_b6 (*(undefined1 *)(frame + 66))
-#define local_b5 (*(undefined1 *)(frame + 67))
-#define local_b4 (*(undefined8 *)(frame + 68))
-#define local_ac (*(undefined8 *)(frame + 76))
-#define local_9c (*(undefined4 *)(frame + 92))
-#define local_8c (*(undefined8 *)(frame + 108))
-#define local_70 (*(undefined4 *)(frame + 136))
-#define local_5e (*(undefined2 *)(frame + 154))
-#define local_5c (*(undefined1 *)(frame + 156))
-#define local_5b (*(undefined1 *)(frame + 157))
-#define local_5a (*(undefined1 *)(frame + 158))
-#define local_59 (*(undefined1 *)(frame + 159))
-#define local_58 (*(undefined4 *)(frame + 160))
-#define local_54 (*(undefined4 *)(frame + 164))
-#define uStack_a4 (*(undefined8 *)(frame + 84))
-#define uStack_97 (*(undefined2 *)(frame + 97))
-#define uStack_98 (*(undefined1 *)(frame + 96))
-#define uStack_91 (*(undefined1 *)(frame + 103))
-#define uStack_95 (*(undefined4 *)(frame + 99))
-#define uStack_90 (*(undefined4 *)(frame + 104))
-#define uStack_7c (*(undefined8 *)(frame + 124))
-#define uStack_84 (*(undefined8 *)(frame + 116))
-#define uStack_74 (*(undefined4 *)(frame + 132))
-#define uStack_68 (*(undefined8 *)(frame + 144))
-#define uStack_6c (*(undefined4 *)(frame + 140))
+#define local_e8 (*(void * *)(frame + 24))
+#define local_cc (*(undefined4 *)(frame + 52))
+#define local_c8 (*(undefined1 *)(frame + 56))
+#define local_c7 (*(undefined1 *)(frame + 57))
+#define local_c6 (*(undefined1 *)(frame + 58))
+#define local_c5 (*(undefined1 *)(frame + 59))
+#define local_c4 (*(undefined1 *)(frame + 60))
+#define local_c3 (*(undefined1 *)(frame + 61))
+#define local_c2 (*(undefined1 *)(frame + 62))
+#define local_c1 (*(undefined1 *)(frame + 63))
+#define local_c0 (*(undefined8 *)(frame + 64))
+#define local_b8 (*(undefined1 *)(frame + 72))
+#define local_b7 (*(undefined1 *)(frame + 73))
+#define lStack_e0 (*(long *)(frame + 32))
+#define local_b6 (*(undefined1 *)(frame + 74))
+#define local_b5 (*(undefined1 *)(frame + 75))
+#define local_b4 (*(undefined8 *)(frame + 76))
+#define local_ac (*(undefined8 *)(frame + 84))
+#define local_9c (*(undefined4 *)(frame + 100))
+#define local_8c (*(undefined8 *)(frame + 116))
+#define local_70 (*(undefined4 *)(frame + 144))
+#define local_5e (*(undefined2 *)(frame + 162))
+#define local_5c (*(undefined1 *)(frame + 164))
+#define local_5b (*(undefined1 *)(frame + 165))
+#define local_5a (*(undefined1 *)(frame + 166))
+#define local_59 (*(undefined1 *)(frame + 167))
+#define local_58 (*(undefined4 *)(frame + 168))
+#define local_54 (*(undefined4 *)(frame + 172))
+#define uStack_a4 (*(undefined8 *)(frame + 92))
+#define uStack_97 (*(undefined2 *)(frame + 105))
+#define uStack_98 (*(undefined1 *)(frame + 104))
+#define uStack_91 (*(undefined1 *)(frame + 111))
+#define uStack_95 (*(undefined4 *)(frame + 107))
+#define uStack_90 (*(undefined4 *)(frame + 112))
+#define uStack_7c (*(undefined8 *)(frame + 132))
+#define uStack_84 (*(undefined8 *)(frame + 124))
+#define uStack_74 (*(undefined4 *)(frame + 140))
+#define uStack_68 (*(undefined8 *)(frame + 152))
+#define uStack_6c (*(undefined4 *)(frame + 148))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4040cab0
  */
@@ -16212,7 +13661,7 @@ LAB_4040c94c:
 byte recovered_4040cab0(long param_1,long param_2,ulong param_3,uint param_4)
 
 {
-  unsigned char frame[280] = {0};
+  unsigned char frame[288] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   undefined1 *puVar2;
@@ -16358,7 +13807,7 @@ byte recovered_4040cab0(long param_1,long param_2,ulong param_3,uint param_4)
 uint recovered_4040cd10(long param_1,long param_2,uint param_3,uint param_4)
 
 {
-  unsigned char frame[160] = {0};
+  unsigned char frame[160] __attribute__((aligned(16))) = {0};
 
   undefined1 *puVar1;
   bool bVar2;
@@ -16454,42 +13903,42 @@ uint recovered_4040cd10(long param_1,long param_2,uint param_3,uint param_4)
 #define DAT_4044d988 (*(double *)(0x4044d988U))
 #undef DAT_4044d9f0
 #define DAT_4044d9f0 (*(uint32_t *)(0x4044d9f0U))
-#define uStack_1630 (*(undefined2 *)(frame + 536))
-#define uStack_1634 (*(undefined4 *)(frame + 532))
-#define uStack_162c (*(undefined1 *)(frame + 540))
-#define uStack_162e (*(undefined2 *)(frame + 538))
-#define uStack_162a (*(undefined1 *)(frame + 542))
-#define uStack_162b (*(undefined1 *)(frame + 541))
-#define lStack_1430 (*(long *)(frame + 1048))
-#define pvStack_1438 (*(void * *)(frame + 1040))
-#define aiStack_1234 (*(int (*)[64])(frame + 1556))
-#define uStack_1428 (*(undefined8 *)(frame + 1056))
-#define aiStack_1130 (*(int (*)[2])(frame + 1816))
-#define iStack_1134 (*(int *)(frame + 1812))
-#define lStack_1120 (*(long *)(frame + 1832))
-#define pvStack_1128 (*(void * *)(frame + 1824))
-#define bStack_1110 (*(byte *)(frame + 1848))
-#define uStack_1118 (*(undefined8 *)(frame + 1840))
-#define puStack_1108 (*(undefined1 * *)(frame + 1856))
-#define iStack_110c (*(int *)(frame + 1852))
-#define uStack_10f8 (*(undefined8 *)(frame + 1872))
-#define lStack_1100 (*(long *)(frame + 1864))
-#define lStack_10e8 (*(long *)(frame + 1888))
-#define puStack_10f0 (*(undefined1 * *)(frame + 1880))
-#define puStack_10d8 (*(undefined1 * *)(frame + 1904))
-#define uStack_10e0 (*(undefined8 *)(frame + 1896))
-#define uStack_10c8 (*(undefined8 *)(frame + 1920))
-#define lStack_10d0 (*(long *)(frame + 1912))
-#define lStack_10b8 (*(long *)(frame + 1936))
-#define puStack_10c0 (*(undefined1 * *)(frame + 1928))
-#define auStack_10a8 (*(undefined1 (*)[2048])(frame + 1952))
-#define uStack_10b0 (*(undefined8 *)(frame + 1944))
-#define auStack_8a8 (*(undefined1 (*)[2056])(frame + 4000))
-#define auStack_1838 (*(undefined1 (*)[512])(frame + 16))
-#define uStack_1637 (*(undefined1 *)(frame + 529))
-#define uStack_1638 (*(undefined1 *)(frame + 528))
-#define uStack_1635 (*(undefined1 *)(frame + 531))
-#define uStack_1636 (*(undefined1 *)(frame + 530))
+#define uStack_1630 (*(undefined2 *)(frame + 544))
+#define uStack_1634 (*(undefined4 *)(frame + 540))
+#define uStack_162c (*(undefined1 *)(frame + 548))
+#define uStack_162e (*(undefined2 *)(frame + 546))
+#define uStack_162a (*(undefined1 *)(frame + 550))
+#define uStack_162b (*(undefined1 *)(frame + 549))
+#define lStack_1430 (*(long *)(frame + 1056))
+#define pvStack_1438 (*(void * *)(frame + 1048))
+#define aiStack_1234 (*(int (*)[64])(frame + 1564))
+#define uStack_1428 (*(undefined8 *)(frame + 1064))
+#define aiStack_1130 (*(int (*)[2])(frame + 1824))
+#define iStack_1134 (*(int *)(frame + 1820))
+#define lStack_1120 (*(long *)(frame + 1840))
+#define pvStack_1128 (*(void * *)(frame + 1832))
+#define bStack_1110 (*(byte *)(frame + 1856))
+#define uStack_1118 (*(undefined8 *)(frame + 1848))
+#define puStack_1108 (*(undefined1 * *)(frame + 1864))
+#define iStack_110c (*(int *)(frame + 1860))
+#define uStack_10f8 (*(undefined8 *)(frame + 1880))
+#define lStack_1100 (*(long *)(frame + 1872))
+#define lStack_10e8 (*(long *)(frame + 1896))
+#define puStack_10f0 (*(undefined1 * *)(frame + 1888))
+#define puStack_10d8 (*(undefined1 * *)(frame + 1912))
+#define uStack_10e0 (*(undefined8 *)(frame + 1904))
+#define uStack_10c8 (*(undefined8 *)(frame + 1928))
+#define lStack_10d0 (*(long *)(frame + 1920))
+#define lStack_10b8 (*(long *)(frame + 1944))
+#define puStack_10c0 (*(undefined1 * *)(frame + 1936))
+#define auStack_10a8 (*(undefined1 (*)[2048])(frame + 1960))
+#define uStack_10b0 (*(undefined8 *)(frame + 1952))
+#define auStack_8a8 (*(undefined1 (*)[2056])(frame + 4008))
+#define auStack_1838 (*(undefined1 (*)[512])(frame + 24))
+#define uStack_1637 (*(undefined1 *)(frame + 537))
+#define uStack_1638 (*(undefined1 *)(frame + 536))
+#define uStack_1635 (*(undefined1 *)(frame + 539))
+#define uStack_1636 (*(undefined1 *)(frame + 538))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4040ce9c
  */
@@ -16497,7 +13946,7 @@ uint recovered_4040cd10(long param_1,long param_2,uint param_3,uint param_4)
 uint recovered_4040ce9c(long param_1,long param_2,uint param_3,int param_4)
 
 {
-  unsigned char frame[6248] = {0};
+  unsigned char frame[6256] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   byte *pbVar2;
@@ -16819,7 +14268,7 @@ LAB_4040d24c:
 uint recovered_4040d464(long param_1,undefined1 *param_2,uint param_3,uint param_4)
 
 {
-  unsigned char frame[192] = {0};
+  unsigned char frame[192] __attribute__((aligned(16))) = {0};
 
   undefined1 *puVar1;
   ulong uVar2;
@@ -16980,10 +14429,10 @@ uint recovered_4040d464(long param_1,undefined1 *param_2,uint param_3,uint param
 #define DAT_4044d9ef (*(uint8_t *)(0x4044d9efU))
 #undef str_4044d9e7
 #define str_4044d9e7 (*(char (*)[1])(0x4044d9e7U))
-#define uStack_49 (*(undefined1 *)(frame + 16))
-#define uStack_38 (*(undefined8 *)(frame + 33))
-#define local_48 (*(void * *)(frame + 17))
-#define local_40 (*(long *)(frame + 25))
+#define uStack_49 (*(undefined1 *)(frame + 23))
+#define uStack_38 (*(undefined8 *)(frame + 40))
+#define local_48 (*(void * *)(frame + 24))
+#define local_40 (*(long *)(frame + 32))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4040d7f8
  */
@@ -16991,7 +14440,7 @@ uint recovered_4040d464(long param_1,undefined1 *param_2,uint param_3,uint param
 uint recovered_4040d7f8(long param_1,long param_2,uint param_3,uint param_4)
 
 {
-  unsigned char frame[121] = {0};
+  unsigned char frame[128] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   uint uVar2;
@@ -17059,7 +14508,7 @@ uint recovered_4040d7f8(long param_1,long param_2,uint param_3,uint param_4)
 void recovered_4040d914(long *param_1,ulong param_2,undefined1 *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   param_1[1] = 0;
   recovered_4040d990(param_1,param_2,param_3);
@@ -17074,7 +14523,7 @@ void recovered_4040d914(long *param_1,ulong param_2,undefined1 *param_3)
 uint recovered_4040d91c(uint param_1,uint param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -17113,7 +14562,7 @@ uint recovered_4040d91c(uint param_1,uint param_2)
 void recovered_4040d990(long *param_1,ulong param_2,undefined1 *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -17139,7 +14588,7 @@ void recovered_4040d990(long *param_1,ulong param_2,undefined1 *param_3)
 void recovered_4040da14(long *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -17166,7 +14615,7 @@ void recovered_4040da14(long *param_1,ulong param_2)
 void recovered_4040da7c(long *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   ulong uVar2;
@@ -17191,7 +14640,7 @@ void recovered_4040da7c(long *param_1,ulong param_2)
 ulong recovered_4040daf0(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   void *pvVar1;
 
@@ -17210,7 +14659,7 @@ ulong recovered_4040daf0(long param_1)
 undefined8 * recovered_4040dafc(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong in_x1;
 
@@ -17229,7 +14678,7 @@ undefined8 * recovered_4040dafc(undefined8 *param_1)
 undefined8 recovered_4040db28(byte *param_1,int param_2,uint param_3,byte *param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   short sVar2;
@@ -17275,7 +14724,7 @@ LAB_4040dbf4:
 }
 
 
-#define local_24 (*(byte (*)[4])(frame + 16))
+#define local_24 (*(byte (*)[4])(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4040dc00
  */
@@ -17283,7 +14732,7 @@ LAB_4040dbf4:
 undefined8 recovered_4040dc00(undefined8 *param_1,byte *param_2)
 
 {
-  unsigned char frame[84] = {0};
+  unsigned char frame[96] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   uint uVar2;
@@ -17357,7 +14806,7 @@ LAB_4040dd08:
 long recovered_4040dd74(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_4040e2f0((undefined8 *)(param_1 + 0x540));
   recovered_4040ddd0((long *)(param_1 + 0x528));
@@ -17374,7 +14823,7 @@ long recovered_4040dd74(long param_1)
 void recovered_4040ddac(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined1 *puVar1;
   long lVar2;
@@ -17399,7 +14848,7 @@ void recovered_4040ddac(long param_1)
 long * recovered_4040ddd0(long *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_4040de48(param_1);
   recovered_404076e8((void *)*param_1);
@@ -17414,7 +14863,7 @@ long * recovered_4040ddd0(long *param_1)
 long recovered_4040ddf4(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   long lVar2;
@@ -17436,7 +14885,7 @@ long recovered_4040ddf4(long param_1)
 long recovered_4040de24(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   *(undefined8 *)(param_1 + 0x10) = 0;
   recovered_404076e8(*(void **)(param_1 + 8));
@@ -17451,7 +14900,7 @@ long recovered_4040de24(long param_1)
 void recovered_4040de48(long *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   long lVar2;
@@ -17474,7 +14923,7 @@ void recovered_4040de48(long *param_1)
 long recovered_4040de90(long param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
 
@@ -17492,7 +14941,7 @@ long recovered_4040de90(long param_1,long param_2)
 undefined8 * recovered_4040dedc(undefined8 *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -17518,7 +14967,7 @@ undefined8 * recovered_4040dedc(undefined8 *param_1,undefined8 *param_2)
 undefined1 * recovered_4040df2c(undefined1 *param_1,undefined1 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -17545,7 +14994,7 @@ undefined1 * recovered_4040df2c(undefined1 *param_1,undefined1 *param_2)
 void recovered_4040df7c(undefined8 *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -17567,7 +15016,7 @@ void recovered_4040df7c(undefined8 *param_1,undefined8 *param_2)
 long * recovered_4040df98(long *param_1,long *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -17590,7 +15039,7 @@ long * recovered_4040df98(long *param_1,long *param_2)
 long recovered_4040dff8(long *param_1,undefined4 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long lVar2;
@@ -17619,7 +15068,7 @@ long recovered_4040dff8(long *param_1,undefined4 *param_2)
 void recovered_4040e05c(long *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   ulong uVar2;
@@ -17646,7 +15095,7 @@ void recovered_4040e05c(long *param_1,ulong param_2)
 ulong recovered_4040e0d0(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   void *pvVar1;
 
@@ -17665,7 +15114,7 @@ ulong recovered_4040e0d0(long param_1)
 undefined1 recovered_4040e0e0(long *param_1,long param_2,int param_3,int param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -17696,7 +15145,7 @@ undefined1 recovered_4040e0e0(long *param_1,long param_2,int param_3,int param_4
 }
 
 
-#define uStack_44 (*(uint *)(frame + 16))
+#define uStack_44 (*(uint *)(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4040e128
  */
@@ -17704,7 +15153,7 @@ undefined1 recovered_4040e0e0(long *param_1,long param_2,int param_3,int param_4
 int recovered_4040e128(long *param_1,char *param_2,undefined4 *param_3)
 
 {
-  unsigned char frame[116] = {0};
+  unsigned char frame[128] __attribute__((aligned(16))) = {0};
 
   undefined4 *puVar1;
   int iVar2;
@@ -17746,7 +15195,7 @@ LAB_4040e1c4:
 
 #undef uStack_44
 
-#define uStack_34 (*(uint *)(frame + 16))
+#define uStack_34 (*(uint *)(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4040e1dc
  */
@@ -17754,7 +15203,7 @@ LAB_4040e1c4:
 bool recovered_4040e1dc(long *param_1,uint param_2,uint *param_3)
 
 {
-  unsigned char frame[100] = {0};
+  unsigned char frame[112] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
   uint uVar2;
@@ -17778,7 +15227,7 @@ bool recovered_4040e1dc(long *param_1,uint param_2,uint *param_3)
 int recovered_4040e23c(uint param_1,uint param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   int iVar2;
@@ -17802,7 +15251,7 @@ int recovered_4040e23c(uint param_1,uint param_2)
 undefined8 recovered_4040e264(long *param_1,uint *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   byte bVar2;
@@ -17847,7 +15296,7 @@ undefined8 recovered_4040e264(long *param_1,uint *param_2)
 undefined8 * recovered_4040e2f0(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   param_1[1] = 0;
   recovered_404076e8((void *)*param_1);
@@ -17862,7 +15311,7 @@ undefined8 * recovered_4040e2f0(undefined8 *param_1)
 void recovered_4040e31c(long param_1,ulong param_2,ulong *param_3,uint *param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
 
@@ -17874,7 +15323,7 @@ void recovered_4040e31c(long param_1,ulong param_2,ulong *param_3,uint *param_4)
 }
 
 
-#define local_44 (*(uint *)(frame + 16))
+#define local_44 (*(uint *)(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4040e34c
  */
@@ -17882,7 +15331,7 @@ void recovered_4040e31c(long param_1,ulong param_2,ulong *param_3,uint *param_4)
 bool recovered_4040e34c(long param_1,ulong param_2,ulong *param_3,uint param_4,ulong *param_5)
 
 {
-  unsigned char frame[116] = {0};
+  unsigned char frame[128] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   uint uVar2;
@@ -17920,7 +15369,7 @@ bool recovered_4040e34c(long param_1,ulong param_2,ulong *param_3,uint param_4,u
 void recovered_4040e3e0(long param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   byte bVar2;
@@ -17965,7 +15414,7 @@ void recovered_4040e3e0(long param_1,long param_2)
 bool recovered_4040e46c(long param_1,ulong param_2,ulong param_3,uint *param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   bool bVar2;
@@ -17988,7 +15437,7 @@ bool recovered_4040e46c(long param_1,ulong param_2,ulong param_3,uint *param_4)
 uint recovered_4040e4a8(uint *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
 
@@ -18004,7 +15453,7 @@ uint recovered_4040e4a8(uint *param_1)
 long recovered_4040e4b4(long *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long lVar2;
@@ -18033,7 +15482,7 @@ long recovered_4040e4b4(long *param_1,undefined8 *param_2)
 void recovered_4040e518(long *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   ulong uVar2;
@@ -18060,7 +15509,7 @@ void recovered_4040e518(long *param_1,ulong param_2)
 ulong recovered_4040e58c(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   void *pvVar1;
 
@@ -18079,7 +15528,7 @@ ulong recovered_4040e58c(long param_1)
 undefined8 * recovered_4040e59c(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong in_x1;
   undefined1 *in_x2;
@@ -18099,7 +15548,7 @@ undefined8 * recovered_4040e59c(undefined8 *param_1)
 void recovered_4040e5c8(long *param_1,undefined1 *param_2,undefined1 *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   param_1[1] = 0;
   recovered_4040e66c(param_1,*param_1,param_2,param_3);
@@ -18114,7 +15563,7 @@ void recovered_4040e5c8(long *param_1,undefined1 *param_2,undefined1 *param_3)
 long * recovered_4040e5dc(long *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   param_1[1] = 0;
   param_1[2] = 0;
@@ -18131,7 +15580,7 @@ long * recovered_4040e5dc(long *param_1,ulong param_2)
 void recovered_4040e608(long *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -18158,7 +15607,7 @@ void recovered_4040e608(long *param_1,ulong param_2)
 long recovered_4040e66c(long *param_1,long param_2,undefined1 *param_3,undefined1 *param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined1 *puVar1;
   ulong uVar2;
@@ -18354,7 +15803,7 @@ long recovered_4040e66c(long *param_1,long param_2,undefined1 *param_3,undefined
 bool recovered_4040e764(long *param_1,long *param_2)
 
 {
-  unsigned char frame[720] = {0};
+  unsigned char frame[720] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   byte bVar2;
@@ -18815,7 +16264,7 @@ LAB_4040eb94:
 undefined8 recovered_4040ef28(long *param_1,uint param_2,uint *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   ulong uVar2;
@@ -18842,9 +16291,9 @@ undefined8 recovered_4040ef28(long *param_1,uint param_2,uint *param_3)
 }
 
 
-#define local_68 (*(uint *)(frame + 20))
-#define local_64 (*(uint *)(frame + 24))
-#define uStack_6c (*(uint *)(frame + 16))
+#define local_68 (*(uint *)(frame + 24))
+#define local_64 (*(uint *)(frame + 28))
+#define uStack_6c (*(uint *)(frame + 20))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4040efa4
  */
@@ -18852,7 +16301,7 @@ undefined8 recovered_4040ef28(long *param_1,uint param_2,uint *param_3)
 undefined8 recovered_4040efa4(long *param_1,long param_2,long param_3,long *param_4)
 
 {
-  unsigned char frame[156] = {0};
+  unsigned char frame[160] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -18926,7 +16375,7 @@ undefined8 recovered_4040efa4(long *param_1,long param_2,long param_3,long *para
 long recovered_4040f114(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_4040f980((undefined8 *)(param_1 + 0x40));
   return param_1;
@@ -18940,7 +16389,7 @@ long recovered_4040f114(long param_1)
 uint recovered_4040f134(long param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   byte *pbVar2;
@@ -18975,7 +16424,7 @@ uint recovered_4040f134(long param_1,ulong param_2)
 long recovered_4040f198(long *param_1,undefined1 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long lVar2;
@@ -18996,7 +16445,7 @@ long recovered_4040f198(long *param_1,undefined1 *param_2)
 }
 
 
-#define local_54 (*(uint *)(frame + 16))
+#define local_54 (*(uint *)(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4040f200
  */
@@ -19004,7 +16453,7 @@ long recovered_4040f198(long *param_1,undefined1 *param_2)
 uint recovered_4040f200(long *param_1,long param_2,uint *param_3)
 
 {
-  unsigned char frame[132] = {0};
+  unsigned char frame[144] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   uint uVar2;
@@ -19064,7 +16513,7 @@ LAB_4040f2d0:
 long recovered_4040f2fc(long *param_1,undefined1 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long lVar2;
@@ -19099,7 +16548,7 @@ long recovered_4040f2fc(long *param_1,undefined1 *param_2)
 undefined8 recovered_4040f364(long *param_1,uint *param_2,undefined8 param_3)
 
 {
-  unsigned char frame[256] = {0};
+  unsigned char frame[256] __attribute__((aligned(16))) = {0};
 
   int *piVar1;
   uint *puVar2;
@@ -19212,7 +16661,7 @@ LAB_4040f41c:
 long * recovered_4040f4c8(long *param_1,ulong param_2,undefined4 *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   param_1[1] = 0;
   param_1[2] = 0;
@@ -19229,7 +16678,7 @@ long * recovered_4040f4c8(long *param_1,ulong param_2,undefined4 *param_3)
 void recovered_4040f4f4(long *param_1,ulong param_2,undefined4 *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -19255,7 +16704,7 @@ void recovered_4040f4f4(long *param_1,ulong param_2,undefined4 *param_3)
 void recovered_4040f574(long *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -19282,7 +16731,7 @@ void recovered_4040f574(long *param_1,ulong param_2)
 undefined8 * recovered_4040f5d8(undefined8 *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined1 uVar1;
   undefined8 uVar2;
@@ -19323,7 +16772,7 @@ undefined8 * recovered_4040f5d8(undefined8 *param_1,undefined8 *param_2)
 void recovered_4040f61c(long *param_1,ulong param_2,undefined2 *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   param_1[1] = 0;
   recovered_4040f674(param_1,param_2,param_3);
@@ -19338,7 +16787,7 @@ void recovered_4040f61c(long *param_1,ulong param_2,undefined2 *param_3)
 undefined8 * recovered_4040f624(undefined8 *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -19364,7 +16813,7 @@ undefined8 * recovered_4040f624(undefined8 *param_1,undefined8 *param_2)
 void recovered_4040f674(long *param_1,ulong param_2,undefined2 *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -19390,7 +16839,7 @@ void recovered_4040f674(long *param_1,ulong param_2,undefined2 *param_3)
 void recovered_4040f6f4(long *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -19417,7 +16866,7 @@ void recovered_4040f6f4(long *param_1,ulong param_2)
 void recovered_4040f758(long *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   ulong uVar2;
@@ -19444,7 +16893,7 @@ void recovered_4040f758(long *param_1,ulong param_2)
 ulong recovered_4040f7cc(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   void *pvVar1;
 
@@ -19463,7 +16912,7 @@ ulong recovered_4040f7cc(long param_1)
 long recovered_4040f7dc(long *param_1,undefined4 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long lVar2;
@@ -19492,7 +16941,7 @@ long recovered_4040f7dc(long *param_1,undefined4 *param_2)
 long * recovered_4040f840(long *param_1,undefined4 *param_2,undefined4 *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   param_1[1] = 0;
   param_1[2] = 0;
@@ -19509,7 +16958,7 @@ long * recovered_4040f840(long *param_1,undefined4 *param_2,undefined4 *param_3)
 long recovered_4040f878(long *param_1,long param_2,undefined4 *param_3,undefined4 *param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined4 *puVar1;
   long lVar2;
@@ -19573,7 +17022,7 @@ long recovered_4040f878(long *param_1,long param_2,undefined4 *param_3,undefined
 undefined8 * recovered_4040f980(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   param_1[1] = 0;
   recovered_404076e8((void *)*param_1);
@@ -19588,7 +17037,7 @@ undefined8 * recovered_4040f980(undefined8 *param_1)
 undefined8 * recovered_4040f9ac(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   param_1[1] = 0;
   recovered_404076e8((void *)*param_1);
@@ -19607,7 +17056,7 @@ undefined8 * recovered_4040f9ac(undefined8 *param_1)
 uint recovered_4040f9d0(uint param_1,byte *param_2,long param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   byte bVar2;
@@ -19650,7 +17099,7 @@ uint recovered_4040f9d0(uint param_1,byte *param_2,long param_3)
 void recovered_4040fa60(long *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   undefined8 *puVar2;
@@ -19682,7 +17131,7 @@ void recovered_4040fa60(long *param_1,undefined8 *param_2)
 void recovered_4040fac0(long *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   long lVar2;
@@ -19705,7 +17154,7 @@ void recovered_4040fac0(long *param_1)
 void recovered_4040fb0c(long *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   void *pvVar1;
   long lVar2;
@@ -19740,7 +17189,7 @@ void recovered_4040fb0c(long *param_1,ulong param_2)
 int recovered_4040fb84(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
 
@@ -19760,7 +17209,7 @@ int recovered_4040fb84(long param_1)
 ulong recovered_4040fbb8(long *param_1,long *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 *puVar1;
   bool bVar2;
@@ -19802,7 +17251,7 @@ ulong recovered_4040fbb8(long *param_1,long *param_2)
 bool recovered_4040fc60(long param_1,long param_2,ulong param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   ulong uVar2;
@@ -19831,7 +17280,7 @@ recovered_4040fcbc(undefined4 param_1,char *param_2,char *param_3,byte *param_4,
                   ulong param_6)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   byte bVar2;
@@ -19993,7 +17442,7 @@ recovered_4040fcbc(undefined4 param_1,char *param_2,char *param_3,byte *param_4,
 void recovered_4040fe8c(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_40410840(param_1 + 3);
   recovered_40410840(param_1);
@@ -20001,9 +17450,9 @@ void recovered_4040fe8c(undefined8 *param_1)
 }
 
 
-#define uStack_33 (*(undefined1 *)(frame + 16))
-#define uStack_31 (*(undefined1 *)(frame + 18))
-#define uStack_32 (*(undefined1 *)(frame + 17))
+#define uStack_33 (*(undefined1 *)(frame + 29))
+#define uStack_31 (*(undefined1 *)(frame + 31))
+#define uStack_32 (*(undefined1 *)(frame + 30))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4040feb0
  */
@@ -20011,7 +17460,7 @@ void recovered_4040fe8c(undefined8 *param_1)
 void recovered_4040feb0(int param_1,long param_2,long *param_3,long *param_4)
 
 {
-  unsigned char frame[99] = {0};
+  unsigned char frame[112] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   long lVar2;
@@ -20064,10 +17513,10 @@ void recovered_4040feb0(int param_1,long param_2,long *param_3,long *param_4)
 #undef uStack_31
 #undef uStack_32
 
-#define local_24 (*(undefined1 *)(frame + 16))
-#define local_23 (*(undefined1 *)(frame + 17))
-#define local_22 (*(undefined1 *)(frame + 18))
-#define local_21 (*(undefined1 *)(frame + 19))
+#define local_24 (*(undefined1 *)(frame + 28))
+#define local_23 (*(undefined1 *)(frame + 29))
+#define local_22 (*(undefined1 *)(frame + 30))
+#define local_21 (*(undefined1 *)(frame + 31))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4040ffcc
  */
@@ -20075,7 +17524,7 @@ void recovered_4040feb0(int param_1,long param_2,long *param_3,long *param_4)
 undefined8 recovered_4040ffcc(uint *param_1,undefined1 param_2,undefined8 *param_3)
 
 {
-  unsigned char frame[84] = {0};
+  unsigned char frame[96] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   bool bVar2;
@@ -20109,7 +17558,7 @@ undefined8 recovered_4040ffcc(uint *param_1,undefined1 param_2,undefined8 *param
 long recovered_40410030(long *param_1,long param_2,undefined1 *param_3,undefined1 *param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined1 *puVar1;
   ulong uVar2;
@@ -20180,7 +17629,7 @@ long recovered_40410030(long *param_1,long param_2,undefined1 *param_3,undefined
 void recovered_40410128(long param_1,long param_2,long param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   double dVar2;
@@ -20263,7 +17712,7 @@ void recovered_40410128(long param_1,long param_2,long param_3)
 void recovered_404102e4(long param_1,int *param_2,int *param_3,long param_4,long param_5)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   uint uVar2;
@@ -20324,7 +17773,7 @@ void recovered_404102e4(long param_1,int *param_2,int *param_3,long param_4,long
 undefined8 * recovered_40410444(undefined8 *param_1,long param_2,long param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   param_1[1] = 0;
   param_1[2] = 0;
@@ -20345,7 +17794,7 @@ undefined8 * recovered_40410444(undefined8 *param_1,long param_2,long param_3)
 int recovered_404104a0(uint param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   int iVar2;
@@ -20369,7 +17818,7 @@ int recovered_404104a0(uint param_1)
 void recovered_404104c4(long param_1,long param_2,ulong param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint *puVar1;
 
@@ -20386,7 +17835,7 @@ void recovered_404104c4(long param_1,long param_2,ulong param_3)
 void recovered_404104d4(long param_1,uint param_2,uint param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   byte bVar2;
@@ -20406,8 +17855,8 @@ void recovered_404104d4(long param_1,uint param_2,uint param_3)
 }
 
 
-#define local_21 (*(char *)(frame + 17))
-#define local_22 (*(undefined1 *)(frame + 16))
+#define local_21 (*(char *)(frame + 31))
+#define local_22 (*(undefined1 *)(frame + 30))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40410544
  */
@@ -20415,7 +17864,7 @@ void recovered_404104d4(long param_1,uint param_2,uint param_3)
 uint recovered_40410544(long *param_1,char param_2)
 
 {
-  unsigned char frame[82] = {0};
+  unsigned char frame[96] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   long lVar2;
@@ -20441,7 +17890,7 @@ uint recovered_40410544(long *param_1,char param_2)
 void recovered_4041058c(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long *in_x0;
   long in_x1;
@@ -20453,7 +17902,7 @@ void recovered_4041058c(void)
 }
 
 
-#define local_14 (*(undefined4 *)(frame + 16))
+#define local_14 (*(undefined4 *)(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40410594
  */
@@ -20461,14 +17910,14 @@ void recovered_4041058c(void)
 void recovered_40410594(long *param_1,uint param_2)
 
 {
-  unsigned char frame[68] = {0};
+  unsigned char frame[80] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
 
   uVar1 = (param_2 & 0xff00ff00) >> 8 | (param_2 & 0xff00ff) << 8;
   local_14 = uVar1 >> 0x10 | uVar1 << 0x10;
   recovered_40410030(param_1,*param_1 + param_1[1],(undefined1 *)&local_14,
-                     (undefined1 *)((long)(uintptr_t)(frame + 36) + -0x10));
+                     (undefined1 *)((long)(uintptr_t)(frame + 48) + -0x10));
   return;
 }
 
@@ -20481,7 +17930,7 @@ void recovered_40410594(long *param_1,uint param_2)
 void recovered_404105b8(long *param_1,long param_2,uint param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
 
@@ -20500,7 +17949,7 @@ void recovered_404105b8(long *param_1,long param_2,uint param_3)
 long recovered_404105d8(long *param_1,long param_2,undefined1 *param_3,undefined1 *param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined1 *puVar1;
   ulong uVar2;
@@ -20561,7 +18010,7 @@ long recovered_404105d8(long *param_1,long param_2,undefined1 *param_3,undefined
 long * recovered_404106d0(long *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   param_1[1] = 0;
   param_1[2] = 0;
@@ -20578,7 +18027,7 @@ long * recovered_404106d0(long *param_1,ulong param_2)
 void recovered_404106fc(long *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -20605,7 +18054,7 @@ void recovered_404106fc(long *param_1,ulong param_2)
 void recovered_40410764(long *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   ulong uVar2;
@@ -20630,7 +18079,7 @@ void recovered_40410764(long *param_1,ulong param_2)
 ulong recovered_404107d8(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   void *pvVar1;
 
@@ -20642,7 +18091,7 @@ ulong recovered_404107d8(long param_1)
 }
 
 
-#define local_14 (*(undefined4 *)(frame + 16))
+#define local_14 (*(undefined4 *)(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x404107e8
  */
@@ -20650,12 +18099,12 @@ ulong recovered_404107d8(long param_1)
 void recovered_404107e8(long *param_1,undefined4 param_2)
 
 {
-  unsigned char frame[68] = {0};
+  unsigned char frame[80] __attribute__((aligned(16))) = {0};
 
 
   local_14 = param_2;
   recovered_40410030(param_1,*param_1 + param_1[1],(undefined1 *)&local_14,
-                     (undefined1 *)((long)(uintptr_t)(frame + 36) + -0x10));
+                     (undefined1 *)((long)(uintptr_t)(frame + 48) + -0x10));
   return;
 }
 
@@ -20668,7 +18117,7 @@ void recovered_404107e8(long *param_1,undefined4 param_2)
 undefined8 * recovered_40410808(undefined8 *param_1,undefined1 *param_2,undefined1 *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   param_1[1] = 0;
   param_1[2] = 0;
@@ -20685,7 +18134,7 @@ undefined8 * recovered_40410808(undefined8 *param_1,undefined1 *param_2,undefine
 undefined8 * recovered_40410840(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   param_1[1] = 0;
   recovered_404076e8((void *)*param_1);
@@ -20705,8 +18154,8 @@ undefined8 * recovered_40410840(undefined8 *param_1)
 #define _DAT_4044de60 (*(uint64_t *)(0x4044de60U))
 #undef lRam000000004044de68
 #define lRam000000004044de68 (*(uint64_t *)(0x4044de68U))
-#define local_50 (*(ulong *)(frame + 24))
-#define pcStack_58 (*(char * *)(frame + 16))
+#define local_50 (*(ulong *)(frame + 32))
+#define pcStack_58 (*(char * *)(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40410ea0
  */
@@ -20716,7 +18165,7 @@ undefined8 * recovered_40410840(undefined8 *param_1)
 undefined8 * recovered_40410ea0(undefined4 param_1,long param_2,long param_3)
 
 {
-  unsigned char frame[136] = {0};
+  unsigned char frame[144] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   long *plVar2;
@@ -20824,9 +18273,9 @@ LAB_4041103c:
 #undef local_50
 #undef pcStack_58
 
-#define uStack_38 (*(undefined8 *)(frame + 32))
-#define local_48 (*(undefined1 * *)(frame + 16))
-#define local_40 (*(long *)(frame + 24))
+#define uStack_38 (*(undefined8 *)(frame + 40))
+#define local_48 (*(undefined1 * *)(frame + 24))
+#define local_40 (*(long *)(frame + 32))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40411108
  */
@@ -20834,7 +18283,7 @@ LAB_4041103c:
 undefined8 * recovered_40411108(undefined4 param_1,long param_2)
 
 {
-  unsigned char frame[120] = {0};
+  unsigned char frame[128] __attribute__((aligned(16))) = {0};
 
   int *piVar1;
   undefined8 uVar2;
@@ -20880,7 +18329,7 @@ LAB_40411160:
 void recovered_404111f8(float param_1,long *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if ((param_2 != (long *)0x0) && (*param_2 != 0)) {
     if (param_1 <= 1.0) {
@@ -20925,7 +18374,7 @@ uint128 recovered_40411238(double param_1,byte *param_2,byte *param_3,uint param
                   )
 
 {
-  unsigned char frame[368] = {0};
+  unsigned char frame[368] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   int iVar2;
@@ -21404,7 +18853,7 @@ joined_r0x40411318:
 void recovered_40411b78(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined4 *puVar1;
 
@@ -21425,7 +18874,7 @@ void recovered_40411b78(undefined8 *param_1)
 void recovered_40411bb0(long *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   undefined8 *puVar2;
@@ -21456,7 +18905,7 @@ void recovered_40411bb0(long *param_1)
 void recovered_40411c10(long *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   void *pvVar1;
   long lVar2;
@@ -21485,7 +18934,7 @@ void recovered_40411c10(long *param_1,ulong param_2)
 long recovered_40411c98(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   *(undefined8 *)(param_1 + 0x10) = 0;
   recovered_404076e8(*(void **)(param_1 + 8));
@@ -21500,7 +18949,7 @@ long recovered_40411c98(long param_1)
 long * recovered_40411cbc(long *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   long lVar2;
@@ -21524,7 +18973,7 @@ long * recovered_40411cbc(long *param_1)
 void recovered_40411d0c(long *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (param_1 != (long *)0x0) {
     recovered_404128c4(param_1 + 8);
@@ -21547,7 +18996,7 @@ void recovered_40411d0c(long *param_1)
 uint recovered_40411d60(long *param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
 
@@ -21564,7 +19013,7 @@ uint recovered_40411d60(long *param_1,long param_2)
 undefined8 * recovered_40411d70(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   param_1[1] = 0;
   recovered_404076e8((void *)*param_1);
@@ -21579,7 +19028,7 @@ undefined8 * recovered_40411d70(undefined8 *param_1)
 undefined8 * recovered_40411d94(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_404128c4(param_1 + 6);
   recovered_404128c4(param_1 + 3);
@@ -21598,7 +19047,7 @@ undefined8 * recovered_40411d94(undefined8 *param_1)
 undefined8 * recovered_40411dc4(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   *param_1 = &PTR_recovered_40411dc4_404590e0;
   recovered_4041293c((long)(param_1 + 0x20));
@@ -21618,7 +19067,7 @@ undefined8 * recovered_40411dc4(undefined8 *param_1)
 void recovered_40411e14(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 *in_x0;
   undefined8 *data;
@@ -21629,7 +19078,7 @@ void recovered_40411e14(void)
 }
 
 
-#define uStack_64 (*(uint *)(frame + 16))
+#define uStack_64 (*(uint *)(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40411e28
  */
@@ -21637,7 +19086,7 @@ void recovered_40411e14(void)
 ulong recovered_40411e28(long param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[148] = {0};
+  unsigned char frame[160] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   int iVar2;
@@ -21989,7 +19438,7 @@ int * recovered_4041259c(int *param_1,double param_2,undefined1 *param_3,long pa
                         undefined4 param_5)
 
 {
-  unsigned char frame[304] = {0};
+  unsigned char frame[304] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   ulong uVar2;
@@ -22166,7 +19615,7 @@ LAB_4041284c:
 uint128 recovered_40412894(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint128 auVar1;
   ulong uVar2;
@@ -22185,7 +19634,7 @@ uint128 recovered_40412894(long param_1)
 uint128 recovered_404128a0(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint128 auVar1;
 
@@ -22202,7 +19651,7 @@ uint128 recovered_404128a0(long param_1)
 uint128 recovered_404128ac(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint128 auVar1;
 
@@ -22220,7 +19669,7 @@ uint128 recovered_404128ac(long param_1)
 uint128 recovered_404128b4(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint128 auVar1;
 
@@ -22238,7 +19687,7 @@ uint128 recovered_404128b4(long param_1)
 undefined8 recovered_404128bc(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return 0;
 }
@@ -22251,7 +19700,7 @@ undefined8 recovered_404128bc(void)
 undefined8 * recovered_404128c4(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   param_1[1] = 0;
   recovered_404076e8((void *)*param_1);
@@ -22266,7 +19715,7 @@ undefined8 * recovered_404128c4(undefined8 *param_1)
 void recovered_404128f0(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   *param_1 = 0;
   param_1[2] = 0;
@@ -22288,7 +19737,7 @@ void recovered_404128f0(undefined8 *param_1)
 undefined8 * recovered_40412910(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   param_1[1] = 0;
   recovered_404076e8((void *)*param_1);
@@ -22303,7 +19752,7 @@ undefined8 * recovered_40412910(undefined8 *param_1)
 void recovered_4041293c(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_404128c4((undefined8 *)(param_1 + 0x30));
   recovered_404128c4((undefined8 *)(param_1 + 0x18));
@@ -22312,9 +19761,9 @@ void recovered_4041293c(long param_1)
 }
 
 
-#define local_38 (*(void * *)(frame + 16))
-#define local_30 (*(undefined8 *)(frame + 24))
-#define uStack_28 (*(undefined8 *)(frame + 32))
+#define local_38 (*(void * *)(frame + 24))
+#define local_30 (*(undefined8 *)(frame + 32))
+#define uStack_28 (*(undefined8 *)(frame + 40))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4041296c
  */
@@ -22322,7 +19771,7 @@ void recovered_4041293c(long param_1)
 undefined8 * recovered_4041296c(undefined8 *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[104] = {0};
+  unsigned char frame[112] __attribute__((aligned(16))) = {0};
 
   void *data;
   undefined8 uVar1;
@@ -22346,7 +19795,7 @@ undefined8 * recovered_4041296c(undefined8 *param_1,undefined8 *param_2)
 #undef local_30
 #undef uStack_28
 
-#define local_24 (*(undefined4 *)(frame + 16))
+#define local_24 (*(undefined4 *)(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x404129c8
  */
@@ -22354,7 +19803,7 @@ undefined8 * recovered_4041296c(undefined8 *param_1,undefined8 *param_2)
 undefined8 recovered_404129c8(long param_1,undefined4 param_2,undefined8 *param_3)
 
 {
-  unsigned char frame[84] = {0};
+  unsigned char frame[96] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   undefined8 uVar2;
@@ -22380,7 +19829,7 @@ undefined8 recovered_404129c8(long param_1,undefined4 param_2,undefined8 *param_
 void recovered_40412a34(long *param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long lVar2;
@@ -22400,7 +19849,7 @@ void recovered_40412a34(long *param_1,long param_2)
 long recovered_40412a60(long *param_1,byte *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long lVar2;
@@ -22425,7 +19874,7 @@ long recovered_40412a60(long *param_1,byte *param_2)
 ulong recovered_40412ac8(long param_1,byte *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -22441,7 +19890,7 @@ ulong recovered_40412ac8(long param_1,byte *param_2)
 ulong recovered_40412ae0(byte *param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -22461,7 +19910,7 @@ ulong recovered_40412ae0(byte *param_1,long param_2)
 void recovered_40412b18(long *param_1,ulong param_2,undefined8 *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   param_1[1] = 0;
   recovered_40412b20(param_1,param_2,param_3);
@@ -22476,7 +19925,7 @@ void recovered_40412b18(long *param_1,ulong param_2,undefined8 *param_3)
 void recovered_40412b20(long *param_1,ulong param_2,undefined8 *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -22502,7 +19951,7 @@ void recovered_40412b20(long *param_1,ulong param_2,undefined8 *param_3)
 long recovered_40412ba4(long *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long lVar2;
@@ -22532,7 +19981,7 @@ long recovered_40412ba4(long *param_1,undefined8 *param_2)
 void recovered_40412c0c(long *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined4 uVar1;
   void *pvVar2;
@@ -22565,7 +20014,7 @@ void recovered_40412c0c(long *param_1,ulong param_2)
 void recovered_40412c8c(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   *param_1 = 0;
   param_1[1] = 0;
@@ -22584,7 +20033,7 @@ void recovered_40412c8c(undefined8 *param_1)
 undefined8 * recovered_40412c9c(undefined8 *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
   undefined8 uVar2;
@@ -22635,7 +20084,7 @@ bool recovered_40412ccc(undefined1 param_1 [16],undefined1 param_2 [16],long par
                        double *param_5,long *param_6,int param_7)
 
 {
-  unsigned char frame[400] = {0};
+  unsigned char frame[400] __attribute__((aligned(16))) = {0};
 
   byte *pbVar1;
   ulong uVar2;
@@ -23118,7 +20567,7 @@ LAB_40413508:
 #undef dStack_a0
 #undef dStack_98
 
-#define uStack_61 (*(undefined1 *)(frame + 16))
+#define uStack_61 (*(undefined1 *)(frame + 31))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40413588
  */
@@ -23126,7 +20575,7 @@ LAB_40413508:
 int * recovered_40413588(int *param_1,undefined8 param_2,long *param_3)
 
 {
-  unsigned char frame[145] = {0};
+  unsigned char frame[160] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -23256,7 +20705,7 @@ LAB_40413764:
 long recovered_404137d8(long *param_1,int *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
 
@@ -23270,7 +20719,7 @@ long recovered_404137d8(long *param_1,int *param_2)
 
 #undef DAT_4044ded8
 #define DAT_4044ded8 (*(uint8_t *)(0x4044ded8U))
-#define local_22 (*(undefined2 *)(frame + 16))
+#define local_22 (*(undefined2 *)(frame + 30))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4041380c
  */
@@ -23278,7 +20727,7 @@ long recovered_404137d8(long *param_1,int *param_2)
 long recovered_4041380c(long *param_1,undefined4 *param_2)
 
 {
-  unsigned char frame[82] = {0};
+  unsigned char frame[96] __attribute__((aligned(16))) = {0};
 
   long lVar1;
 
@@ -23304,7 +20753,7 @@ long recovered_4041380c(long *param_1,undefined4 *param_2)
 long recovered_40413894(long *param_1,int *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long lVar2;
@@ -23329,7 +20778,7 @@ long recovered_40413894(long *param_1,int *param_2)
 ulong recovered_40413900(long param_1,byte *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -23345,7 +20794,7 @@ ulong recovered_40413900(long param_1,byte *param_2)
 void recovered_40413934(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (*(long *)(param_1 + 0x20) == 0 ||
       (ulong)(*(long *)(param_1 + 0x20) * 3) < *(long *)(param_1 + 8) * 4 + 4U) {
@@ -23363,7 +20812,7 @@ void recovered_40413934(long param_1)
 long recovered_40413964(long *param_1,undefined4 *param_2,undefined2 *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined4 *puVar1;
   ulong uVar2;
@@ -23395,7 +20844,7 @@ long recovered_40413964(long *param_1,undefined4 *param_2,undefined2 *param_3)
 void recovered_404139e0(long *param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long lVar2;
@@ -23417,7 +20866,7 @@ void recovered_404139e0(long *param_1,long param_2)
 void recovered_40413a20(long param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -23444,7 +20893,7 @@ void recovered_40413a20(long param_1,ulong param_2)
 ulong recovered_40413a88(ulong param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   ulong uVar2;
@@ -23465,7 +20914,7 @@ ulong recovered_40413a88(ulong param_1)
 void recovered_40413aa4(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -23486,7 +20935,7 @@ void recovered_40413aa4(long param_1)
 void recovered_40413b08(long *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   ulong uVar2;
@@ -23511,7 +20960,7 @@ void recovered_40413b08(long *param_1,ulong param_2)
 ulong recovered_40413b7c(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   void *pvVar1;
 
@@ -23530,7 +20979,7 @@ ulong recovered_40413b7c(long param_1)
 void recovered_40413b8c(long *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   undefined8 *puVar2;
@@ -23566,7 +21015,7 @@ pf_blob24 recovered_40413be4(double *a,double *b){pf_blob24 out={{pf_double_bits
 uint recovered_40413c00(long *param_1,double *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint extraout_w0 = 0;
   double dVar1;
@@ -23594,7 +21043,7 @@ uint recovered_40413c00(long *param_1,double *param_2)
 uint128 recovered_40413c74(double *param_1,double *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint128 auVar1;
 
@@ -23615,7 +21064,7 @@ uint128 recovered_40413c74(double *param_1,double *param_2)
 void recovered_40413ca0(long *param_1,double *param_2)
 
 {
-  unsigned char frame[128] = {0};
+  unsigned char frame[128] __attribute__((aligned(16))) = {0};
 
   double *pdVar1;
   double dVar2;
@@ -23655,7 +21104,7 @@ void recovered_40413ca0(long *param_1,double *param_2)
 void recovered_40413d3c(long *param_1)
 
 {
-  unsigned char frame[112] = {0};
+  unsigned char frame[112] __attribute__((aligned(16))) = {0};
 
 
   if ((char)param_1[3] == '\x01') {
@@ -23685,7 +21134,7 @@ void recovered_40413d3c(long *param_1)
 undefined8 * recovered_40413db8(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong in_x1;
 
@@ -23704,7 +21153,7 @@ undefined8 * recovered_40413db8(undefined8 *param_1)
 long * recovered_40413de4(long *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   param_1[1] = 0;
   param_1[2] = 0;
@@ -23721,7 +21170,7 @@ long * recovered_40413de4(long *param_1,ulong param_2)
 double recovered_40413e10(long *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   double in_d0;
@@ -23750,7 +21199,7 @@ double recovered_40413e10(long *param_1,ulong param_2)
 void recovered_40413e74(long *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   ulong uVar2;
@@ -23777,7 +21226,7 @@ void recovered_40413e74(long *param_1,ulong param_2)
 ulong recovered_40413ee8(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   void *pvVar1;
 
@@ -23796,7 +21245,7 @@ ulong recovered_40413ee8(long param_1)
 void recovered_40413ef8(long *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   void *pvVar1;
   long lVar2;
@@ -23829,7 +21278,7 @@ void recovered_40413ef8(long *param_1,ulong param_2)
 long recovered_40413f64(long *param_1,undefined1 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long lVar2;
@@ -23858,7 +21307,7 @@ long recovered_40413f64(long *param_1,undefined1 *param_2)
 void recovered_40413fc8(long *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   ulong uVar2;
@@ -23885,7 +21334,7 @@ void recovered_40413fc8(long *param_1,ulong param_2)
 ulong recovered_4041403c(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   void *pvVar1;
 
@@ -23904,7 +21353,7 @@ ulong recovered_4041403c(long param_1)
 long recovered_40414048(long *param_1,undefined1 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long lVar2;
@@ -23933,7 +21382,7 @@ long recovered_40414048(long *param_1,undefined1 *param_2)
 long recovered_404140ac(long *param_1,long param_2,undefined1 *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   ulong uVar2;
@@ -23976,7 +21425,7 @@ long recovered_404140ac(long *param_1,long param_2,undefined1 *param_3)
 void recovered_40414154(long param_1,double *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   double dVar1;
   double dVar2;
@@ -24022,7 +21471,7 @@ void recovered_40414154(long param_1,double *param_2)
 void recovered_404141c4(long *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 *puVar1;
   undefined8 *puVar2;
@@ -24091,7 +21540,7 @@ void recovered_40414264(undefined1 param_1 [16],double param_2,long *param_3,dou
                        double *param_5,double *param_6,int param_7)
 
 {
-  unsigned char frame[176] = {0};
+  unsigned char frame[176] __attribute__((aligned(16))) = {0};
 
   uint128 auVar1;
   uint128 auVar2;
@@ -24144,7 +21593,7 @@ void recovered_40414264(undefined1 param_1 [16],double param_2,long *param_3,dou
 undefined8 * recovered_4041437c(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   *param_1 = &PTR_recovered_4041437c_40459160;
   recovered_4041527c((long)(param_1 + 0x308));
@@ -24162,7 +21611,7 @@ undefined8 * recovered_4041437c(undefined8 *param_1)
 void recovered_404143c4(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 *in_x0;
   undefined8 *data;
@@ -24173,24 +21622,24 @@ void recovered_404143c4(void)
 }
 
 
-#define uStack_f8 (*(undefined8 *)(frame + 32))
-#define pbStack_f0 (*(byte * *)(frame + 40))
-#define pvStack_108 (*(void * *)(frame + 16))
-#define pvStack_100 (*(void * *)(frame + 24))
-#define pbStack_d8 (*(byte * *)(frame + 64))
-#define pvStack_d0 (*(void * *)(frame + 72))
-#define uStack_e8 (*(ulong *)(frame + 48))
-#define uStack_e0 (*(undefined8 *)(frame + 56))
-#define uStack_b8 (*(undefined8 *)(frame + 96))
-#define pvStack_a8 (*(void * *)(frame + 112))
-#define uStack_c8 (*(undefined8 *)(frame + 80))
-#define pvStack_c0 (*(void * *)(frame + 88))
-#define pvStack_88 (*(void * *)(frame + 144))
-#define pvStack_80 (*(void * *)(frame + 152))
-#define pvStack_a0 (*(void * *)(frame + 120))
-#define uStack_98 (*(undefined8 *)(frame + 128))
-#define uStack_78 (*(undefined8 *)(frame + 160))
-#define auStack_6c (*(uint (*)[3])(frame + 172))
+#define uStack_f8 (*(undefined8 *)(frame + 40))
+#define pbStack_f0 (*(byte * *)(frame + 48))
+#define pvStack_108 (*(void * *)(frame + 24))
+#define pvStack_100 (*(void * *)(frame + 32))
+#define pbStack_d8 (*(byte * *)(frame + 72))
+#define pvStack_d0 (*(void * *)(frame + 80))
+#define uStack_e8 (*(ulong *)(frame + 56))
+#define uStack_e0 (*(undefined8 *)(frame + 64))
+#define uStack_b8 (*(undefined8 *)(frame + 104))
+#define pvStack_a8 (*(void * *)(frame + 120))
+#define uStack_c8 (*(undefined8 *)(frame + 88))
+#define pvStack_c0 (*(void * *)(frame + 96))
+#define pvStack_88 (*(void * *)(frame + 152))
+#define pvStack_80 (*(void * *)(frame + 160))
+#define pvStack_a0 (*(void * *)(frame + 128))
+#define uStack_98 (*(undefined8 *)(frame + 136))
+#define uStack_78 (*(undefined8 *)(frame + 168))
+#define auStack_6c (*(uint (*)[3])(frame + 180))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x404143d8
  */
@@ -24198,7 +21647,7 @@ void recovered_404143c4(void)
 bool recovered_404143d8(long param_1,long *param_2)
 
 {
-  unsigned char frame[312] = {0};
+  unsigned char frame[320] __attribute__((aligned(16))) = {0};
 
   byte *pbVar1;
   char *pcVar2;
@@ -24595,32 +22044,32 @@ LAB_40414bec:
 #define DAT_4047c308 (*(uint8_t volatile *)(0x4047c308U))
 #undef DAT_4047c310
 #define DAT_4047c310 (*(uint8_t volatile *)(0x4047c310U))
-#define apiStack_148 (*(int * (*)[2])(frame + 16))
-#define uStack_138 (*(undefined8 *)(frame + 32))
-#define uStack_120 (*(undefined8 *)(frame + 56))
-#define uStack_118 (*(undefined8 *)(frame + 64))
-#define uStack_130 (*(undefined8 *)(frame + 40))
-#define uStack_128 (*(undefined8 *)(frame + 48))
-#define uStack_100 (*(undefined8 *)(frame + 88))
-#define uStack_f8 (*(undefined8 *)(frame + 96))
-#define uStack_110 (*(undefined8 *)(frame + 72))
-#define uStack_108 (*(undefined2 *)(frame + 80))
-#define uStack_e0 (*(undefined8 *)(frame + 120))
-#define uStack_d8 (*(undefined8 *)(frame + 128))
-#define uStack_f0 (*(undefined8 *)(frame + 104))
-#define uStack_e8 (*(undefined8 *)(frame + 112))
-#define uStack_c0 (*(undefined8 *)(frame + 152))
-#define uStack_b8 (*(undefined8 *)(frame + 160))
-#define uStack_d0 (*(undefined8 *)(frame + 136))
-#define uStack_c8 (*(undefined8 *)(frame + 144))
-#define uStack_a0 (*(undefined8 *)(frame + 184))
-#define uStack_98 (*(undefined2 *)(frame + 192))
-#define uStack_b0 (*(undefined8 *)(frame + 168))
-#define uStack_a8 (*(undefined8 *)(frame + 176))
-#define pvStack_88 (*(void * *)(frame + 208))
-#define uStack_80 (*(undefined8 *)(frame + 216))
-#define uStack_96 (*(undefined1 *)(frame + 194))
-#define uStack_89 (*(undefined1 *)(frame + 207))
+#define apiStack_148 (*(int * (*)[2])(frame + 24))
+#define uStack_138 (*(undefined8 *)(frame + 40))
+#define uStack_120 (*(undefined8 *)(frame + 64))
+#define uStack_118 (*(undefined8 *)(frame + 72))
+#define uStack_130 (*(undefined8 *)(frame + 48))
+#define uStack_128 (*(undefined8 *)(frame + 56))
+#define uStack_100 (*(undefined8 *)(frame + 96))
+#define uStack_f8 (*(undefined8 *)(frame + 104))
+#define uStack_110 (*(undefined8 *)(frame + 80))
+#define uStack_108 (*(undefined2 *)(frame + 88))
+#define uStack_e0 (*(undefined8 *)(frame + 128))
+#define uStack_d8 (*(undefined8 *)(frame + 136))
+#define uStack_f0 (*(undefined8 *)(frame + 112))
+#define uStack_e8 (*(undefined8 *)(frame + 120))
+#define uStack_c0 (*(undefined8 *)(frame + 160))
+#define uStack_b8 (*(undefined8 *)(frame + 168))
+#define uStack_d0 (*(undefined8 *)(frame + 144))
+#define uStack_c8 (*(undefined8 *)(frame + 152))
+#define uStack_a0 (*(undefined8 *)(frame + 192))
+#define uStack_98 (*(undefined2 *)(frame + 200))
+#define uStack_b0 (*(undefined8 *)(frame + 176))
+#define uStack_a8 (*(undefined8 *)(frame + 184))
+#define pvStack_88 (*(void * *)(frame + 216))
+#define uStack_80 (*(undefined8 *)(frame + 224))
+#define uStack_96 (*(undefined1 *)(frame + 202))
+#define uStack_89 (*(undefined1 *)(frame + 215))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40414cb4
  */
@@ -24628,7 +22077,7 @@ LAB_40414bec:
 int * recovered_40414cb4(int *param_1,undefined8 param_2,long param_3,uint param_4)
 
 {
-  unsigned char frame[376] = {0};
+  unsigned char frame[384] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -24873,7 +22322,7 @@ LAB_40414e70:
 uint128 recovered_404150a4(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint128 auVar1;
 
@@ -24890,7 +22339,7 @@ uint128 recovered_404150a4(long param_1)
 uint128 recovered_404150ac(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint128 auVar1;
 
@@ -24907,7 +22356,7 @@ uint128 recovered_404150ac(long param_1)
 uint128 recovered_404150b4(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint128 auVar1;
 
@@ -24924,7 +22373,7 @@ uint128 recovered_404150b4(long param_1)
 uint128 recovered_404150bc(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return ZEXT816(0);
 }
@@ -24937,7 +22386,7 @@ uint128 recovered_404150bc(void)
 undefined8 recovered_404150c4(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return 1;
 }
@@ -24950,7 +22399,7 @@ undefined8 recovered_404150c4(void)
 void recovered_404150cc(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   *param_1 = 0;
   param_1[2] = 0;
@@ -24972,7 +22421,7 @@ void recovered_404150cc(undefined8 *param_1)
 long * recovered_404150ec(long *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_40415118(param_1);
   recovered_404076e8((void *)*param_1);
@@ -24987,7 +22436,7 @@ long * recovered_404150ec(long *param_1)
 void recovered_40415118(long *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   long lVar2;
@@ -25010,7 +22459,7 @@ void recovered_40415118(long *param_1)
 void recovered_4041516c(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_40410840(param_1 + 3);
   recovered_40415198(param_1);
@@ -25025,7 +22474,7 @@ void recovered_4041516c(undefined8 *param_1)
 undefined8 * recovered_40415194(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_404076e8((void *)*param_1);
   return param_1;
@@ -25039,7 +22488,7 @@ undefined8 * recovered_40415194(undefined8 *param_1)
 undefined8 * recovered_40415198(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_404076e8((void *)*param_1);
   return param_1;
@@ -25053,7 +22502,7 @@ undefined8 * recovered_40415198(undefined8 *param_1)
 long * recovered_404151c0(long *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_404151ec(param_1);
   recovered_404076e8((void *)*param_1);
@@ -25068,7 +22517,7 @@ long * recovered_404151c0(long *param_1)
 void recovered_404151ec(long *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   long lVar2;
@@ -25091,7 +22540,7 @@ void recovered_404151ec(long *param_1)
 long recovered_40415240(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 *puVar1;
   long lVar2;
@@ -25114,7 +22563,7 @@ long recovered_40415240(long param_1)
 void recovered_4041527c(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_404128c4((undefined8 *)(param_1 + 0x30));
   recovered_404128c4((undefined8 *)(param_1 + 0x18));
@@ -25130,7 +22579,7 @@ void recovered_4041527c(long param_1)
 ulong recovered_404152ac(long *param_1,long param_2,ulong param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   ulong size;
@@ -25158,7 +22607,7 @@ ulong recovered_404152ac(long *param_1,long param_2,ulong param_3)
 void recovered_40415338(long *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   ulong uVar2;
@@ -25184,7 +22633,7 @@ void recovered_40415338(long *param_1,ulong param_2)
 void recovered_404153b0(long *param_1,undefined1 param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long lVar2;
@@ -25213,7 +22662,7 @@ void recovered_404153b0(long *param_1,undefined1 param_2)
 ulong recovered_40415414(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined1 *puVar1;
 
@@ -25230,7 +22679,7 @@ ulong recovered_40415414(long param_1)
 void recovered_40415430(long *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -25244,7 +22693,7 @@ void recovered_40415430(long *param_1)
 }
 
 
-#define local_38 (*(char * *)(frame + 16))
+#define local_38 (*(char * *)(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40415468
  */
@@ -25252,7 +22701,7 @@ void recovered_40415430(long *param_1)
 bool recovered_40415468(long *param_1,ulong *param_2,undefined8 *param_3)
 
 {
-  unsigned char frame[104] = {0};
+  unsigned char frame[112] __attribute__((aligned(16))) = {0};
 
   char *text;
   long lVar1;
@@ -25286,7 +22735,7 @@ bool recovered_40415468(long *param_1,ulong *param_2,undefined8 *param_3)
 undefined8 recovered_404154f0(long *param_1,ulong *param_2,int *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   char cVar2;
@@ -25333,7 +22782,7 @@ undefined8 recovered_404154f0(long *param_1,ulong *param_2,int *param_3)
 void recovered_404155bc(long *param_1,ulong *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   ulong uVar2;
@@ -25357,7 +22806,7 @@ void recovered_404155bc(long *param_1,ulong *param_2)
 undefined8 * recovered_40415604(undefined8 *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -25382,7 +22831,7 @@ undefined8 * recovered_40415604(undefined8 *param_1,undefined8 *param_2)
 long * recovered_40415650(long *param_1,long param_2,ulong param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -25409,7 +22858,7 @@ long * recovered_40415650(long *param_1,long param_2,ulong param_3)
 double recovered_40415684(long *param_1,long param_2,ulong param_3)
 
 {
-  unsigned char frame[128] = {0};
+  unsigned char frame[128] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   undefined8 uVar2;
@@ -25479,7 +22928,7 @@ double recovered_40415684(long *param_1,long param_2,ulong param_3)
 undefined8 recovered_4041576c(long *param_1,long param_2,long *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
   long lVar2;
@@ -25509,7 +22958,7 @@ undefined8 recovered_4041576c(long *param_1,long param_2,long *param_3)
 long recovered_404157b8(long *param_1,long param_2,long param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   ulong uVar2;
@@ -25555,7 +23004,7 @@ LAB_4041581c:
 double recovered_40415824(long *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 *puVar1;
   ulong uVar2;
@@ -25591,10 +23040,10 @@ double recovered_40415824(long *param_1,ulong param_2)
 }
 
 
-#define local_69 (*(byte *)(frame + 16))
-#define local_68 (*(void * *)(frame + 17))
-#define local_60 (*(ulong *)(frame + 25))
-#define lStack_58 (*(long *)(frame + 33))
+#define local_69 (*(byte *)(frame + 23))
+#define local_68 (*(void * *)(frame + 24))
+#define local_60 (*(ulong *)(frame + 32))
+#define lStack_58 (*(long *)(frame + 40))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x404158d0
  */
@@ -25602,7 +23051,7 @@ double recovered_40415824(long *param_1,ulong param_2)
 long * recovered_404158d0(long *param_1,undefined8 *param_2,uint param_3)
 
 {
-  unsigned char frame[153] = {0};
+  unsigned char frame[160] __attribute__((aligned(16))) = {0};
 
   byte *pbVar1;
   byte bVar2;
@@ -25654,9 +23103,9 @@ long * recovered_404158d0(long *param_1,undefined8 *param_2,uint param_3)
 
 #undef DAT_4044df00
 #define DAT_4044df00 (*(uint8_t *)(0x4044df00U))
-#define uStack_28 (*(undefined8 *)(frame + 32))
-#define local_38 (*(void * *)(frame + 16))
-#define local_30 (*(undefined8 *)(frame + 24))
+#define uStack_28 (*(undefined8 *)(frame + 40))
+#define local_38 (*(void * *)(frame + 24))
+#define local_30 (*(undefined8 *)(frame + 32))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x404159c8
  */
@@ -25664,7 +23113,7 @@ long * recovered_404158d0(long *param_1,undefined8 *param_2,uint param_3)
 long recovered_404159c8(long *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[104] = {0};
+  unsigned char frame[112] __attribute__((aligned(16))) = {0};
 
   long lVar1;
 
@@ -25696,7 +23145,7 @@ long recovered_404159c8(long *param_1,undefined8 *param_2)
 void recovered_40415a80(long *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long extraout_x0;
   long lVar1;
@@ -25725,7 +23174,7 @@ void recovered_40415a80(long *param_1,ulong param_2)
 void recovered_40415b14(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (param_1 == 0) {
     return;
@@ -25742,7 +23191,7 @@ void recovered_40415b14(long param_1)
 long recovered_40415b28(long *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
 
@@ -25761,7 +23210,7 @@ long recovered_40415b28(long *param_1,undefined8 *param_2)
 void recovered_40415b60(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (*(long *)(param_1 + 0x20) == 0 ||
       (ulong)(*(long *)(param_1 + 0x20) * 3) < *(long *)(param_1 + 8) * 4 + 4U) {
@@ -25779,7 +23228,7 @@ void recovered_40415b60(long param_1)
 long recovered_40415b90(long *param_1,undefined8 *param_2,undefined8 *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long lVar2;
@@ -25807,7 +23256,7 @@ long recovered_40415b90(long *param_1,undefined8 *param_2,undefined8 *param_3)
 void recovered_40415c0c(long *param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long lVar2;
@@ -25827,7 +23276,7 @@ void recovered_40415c0c(long *param_1,long param_2)
 long recovered_40415c50(long *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   ulong uVar2;
@@ -25856,7 +23305,7 @@ long recovered_40415c50(long *param_1,undefined8 *param_2)
 ulong recovered_40415cc4(long param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -25874,7 +23323,7 @@ ulong recovered_40415cc4(long param_1,undefined8 *param_2)
 ulong recovered_40415cf4(undefined8 param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte *pbVar1;
   ulong uVar2;
@@ -25898,7 +23347,7 @@ ulong recovered_40415cf4(undefined8 param_1,undefined8 *param_2)
 bool recovered_40415d0c(undefined8 *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char *pcVar1;
   char *pcVar2;
@@ -25925,7 +23374,7 @@ bool recovered_40415d0c(undefined8 *param_1,undefined8 *param_2)
 bool recovered_40415d34(char *param_1,long param_2,char *param_3,long param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char cVar1;
   char cVar2;
@@ -25960,7 +23409,7 @@ bool recovered_40415d34(char *param_1,long param_2,char *param_3,long param_4)
 void recovered_40415d6c(long param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -25987,7 +23436,7 @@ void recovered_40415d6c(long param_1,ulong param_2)
 ulong recovered_40415dd4(ulong param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   ulong uVar2;
@@ -26008,7 +23457,7 @@ ulong recovered_40415dd4(ulong param_1)
 void recovered_40415df0(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -26029,7 +23478,7 @@ void recovered_40415df0(long param_1)
 double recovered_40415e54(long *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long extraout_x0;
   long lVar1;
@@ -26061,7 +23510,7 @@ double recovered_40415e54(long *param_1,ulong param_2)
 void recovered_40415ee8(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (param_1 == 0) {
     return;
@@ -26078,7 +23527,7 @@ void recovered_40415ee8(long param_1)
 undefined8 * recovered_40415efc(undefined8 *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long extraout_x0;
 
@@ -26095,7 +23544,7 @@ undefined8 * recovered_40415efc(undefined8 *param_1,undefined8 *param_2)
 void recovered_40415f30(undefined8 *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -26117,7 +23566,7 @@ void recovered_40415f30(undefined8 *param_1,undefined8 *param_2)
 undefined8 * recovered_40415f4c(undefined8 *param_1,undefined8 *param_2,undefined8 *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 *puVar1;
 
@@ -26136,7 +23585,7 @@ undefined8 * recovered_40415f4c(undefined8 *param_1,undefined8 *param_2,undefine
 undefined8 * recovered_40415f80(undefined8 *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined1 *puVar1;
 
@@ -26153,7 +23602,7 @@ undefined8 * recovered_40415f80(undefined8 *param_1,undefined8 *param_2)
 
 #undef DAT_4044e204
 
-#define dStack_68 (*(double *)(frame + 16))
+#define dStack_68 (*(double *)(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40415fc0
  */
@@ -26161,7 +23610,7 @@ undefined8 * recovered_40415f80(undefined8 *param_1,undefined8 *param_2)
 undefined8 recovered_40415fc0(long *param_1,long *param_2,int param_3)
 
 {
-  unsigned char frame[152] = {0};
+  unsigned char frame[160] __attribute__((aligned(16))) = {0};
 
   undefined1 *puVar1;
   byte bVar2;
@@ -26366,7 +23815,7 @@ switchD_404160c8_caseD_2:
 long recovered_40416338(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   *(undefined8 *)(param_1 + 0x30) = 0;
   recovered_404076e8(*(void **)(param_1 + 0x28));
@@ -26382,7 +23831,7 @@ long recovered_40416338(long param_1)
 undefined8 * recovered_40416364(undefined8 *param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -26402,7 +23851,7 @@ undefined8 * recovered_40416364(undefined8 *param_1,long param_2)
 long recovered_404163a8(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
 
@@ -26425,7 +23874,7 @@ long recovered_404163a8(long param_1)
 undefined8 * recovered_404163cc(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   param_1[1] = 0;
   recovered_404076e8((void *)*param_1);
@@ -26440,7 +23889,7 @@ undefined8 * recovered_404163cc(undefined8 *param_1)
 void recovered_404163f8(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_40413d3c((long *)(param_1 + 0x28));
   *(undefined1 *)(param_1 + 0xb0) = 0;
@@ -26457,7 +23906,7 @@ void recovered_404163f8(long param_1)
 void recovered_4041641c(long param_1)
 
 {
-  unsigned char frame[96] = {0};
+  unsigned char frame[96] __attribute__((aligned(16))) = {0};
 
 
   recovered_404163f8(param_1);
@@ -26482,7 +23931,7 @@ void recovered_4041641c(long param_1)
 void recovered_4041645c(long param_1)
 
 {
-  unsigned char frame[96] = {0};
+  unsigned char frame[96] __attribute__((aligned(16))) = {0};
 
 
   if ((*(byte *)(param_1 + 0xb0) & 1) == 0) {
@@ -26507,7 +23956,7 @@ void recovered_4041645c(long param_1)
 long recovered_404164a8(long *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long lVar2;
@@ -26536,7 +23985,7 @@ long recovered_404164a8(long *param_1,undefined8 *param_2)
 void recovered_4041650c(long *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   ulong uVar2;
@@ -26563,7 +24012,7 @@ void recovered_4041650c(long *param_1,ulong param_2)
 ulong recovered_40416580(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   void *pvVar1;
 
@@ -26582,7 +24031,7 @@ ulong recovered_40416580(long param_1)
 void recovered_40416590(long *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   long lVar2;
@@ -26605,7 +24054,7 @@ void recovered_40416590(long *param_1)
 ulong recovered_404165dc(double param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   ulong uVar2;
@@ -26630,7 +24079,7 @@ ulong recovered_404165dc(double param_1,undefined8 *param_2)
 int * recovered_4041662c(long *param_1,int *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   int *piVar2;
@@ -26659,7 +24108,7 @@ int * recovered_4041662c(long *param_1,int *param_2)
 ulong recovered_4041669c(long param_1,byte *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -26675,7 +24124,7 @@ ulong recovered_4041669c(long param_1,byte *param_2)
 void recovered_404166b4(long *param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long lVar2;
@@ -26697,7 +24146,7 @@ void recovered_404166b4(long *param_1,long param_2)
 double recovered_404166e0(long param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   double dVar2;
@@ -26734,7 +24183,7 @@ double recovered_404166e0(long param_1,ulong param_2)
 ulong recovered_40416780(ulong param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   ulong uVar2;
@@ -26755,7 +24204,7 @@ ulong recovered_40416780(ulong param_1)
 void recovered_4041679c(long *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   void *pvVar1;
   long lVar2;
@@ -26788,7 +24237,7 @@ void recovered_4041679c(long *param_1,ulong param_2)
 long * recovered_40416834(long *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_40416860(param_1);
   recovered_404076e8((void *)*param_1);
@@ -26803,7 +24252,7 @@ long * recovered_40416834(long *param_1)
 void recovered_40416860(long *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   long lVar2;
@@ -26826,7 +24275,7 @@ void recovered_40416860(long *param_1)
 void recovered_404168b4(long *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long extraout_x0;
   long lVar1;
@@ -26855,7 +24304,7 @@ void recovered_404168b4(long *param_1,ulong param_2)
 void recovered_40416948(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (param_1 == 0) {
     return;
@@ -26872,7 +24321,7 @@ void recovered_40416948(long param_1)
 void recovered_4041695c(undefined8 *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -26894,7 +24343,7 @@ void recovered_4041695c(undefined8 *param_1,undefined8 *param_2)
 void recovered_40416978(undefined8 *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -26921,7 +24370,7 @@ void recovered_40416978(undefined8 *param_1,undefined8 *param_2)
 undefined8 recovered_40416c6c(long param_1,int param_2,undefined4 *param_3)
 
 {
-  unsigned char frame[128] = {0};
+  unsigned char frame[128] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   undefined8 uVar2;
@@ -26959,7 +24408,7 @@ undefined8 recovered_40416c6c(long param_1,int param_2,undefined4 *param_3)
 void recovered_40416d44(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (param_1 == 0) {
     return;
@@ -26969,12 +24418,12 @@ void recovered_40416d44(long param_1)
 }
 
 
-#define uStack_48 (*(undefined8 *)(frame + 32))
-#define local_58 (*(void * *)(frame + 16))
-#define local_50 (*(ulong *)(frame + 24))
-#define local_40 (*(int *)(frame + 40))
-#define local_3c (*(ushort *)(frame + 44))
-#define local_32 (*(ushort *)(frame + 54))
+#define uStack_48 (*(undefined8 *)(frame + 40))
+#define local_58 (*(void * *)(frame + 24))
+#define local_50 (*(ulong *)(frame + 32))
+#define local_40 (*(int *)(frame + 48))
+#define local_3c (*(ushort *)(frame + 52))
+#define local_32 (*(ushort *)(frame + 62))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40416d58
  */
@@ -26982,7 +24431,7 @@ void recovered_40416d44(long param_1)
 undefined8 recovered_40416d58(long param_1,ulong param_2,ulong param_3,undefined4 *param_4)
 
 {
-  unsigned char frame[136] = {0};
+  unsigned char frame[144] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
   void *out;
@@ -27047,7 +24496,7 @@ LAB_40416e3c:
 void recovered_40416e90(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (param_1 == 0) {
     return;
@@ -27064,7 +24513,7 @@ void recovered_40416e90(long param_1)
 ulong recovered_40416ea4(long param_1,uint param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 *puVar1;
   undefined4 in_s0;
@@ -27081,7 +24530,7 @@ ulong recovered_40416ea4(long param_1,uint param_2)
 void recovered_40416ecc(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long *in_x0;
   float in_s0;
@@ -27100,7 +24549,7 @@ recovered_40416eec(byte *param_1,byte *param_2,undefined8 param_3,undefined8 par
                   undefined8 param_5,uint param_6,undefined4 *param_7)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -27143,7 +24592,7 @@ recovered_40416eec(byte *param_1,byte *param_2,undefined8 param_3,undefined8 par
 void recovered_40416fd8(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long *in_x0;
 
@@ -27160,7 +24609,7 @@ undefined8
 recovered_40416ff8(long param_1,uint param_2,uint param_3,ulong param_4,undefined4 *param_5)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
   void *out;
@@ -27215,7 +24664,7 @@ recovered_40416ff8(long param_1,uint param_2,uint param_3,ulong param_4,undefine
 undefined8 recovered_404170a4(long param_1,ulong param_2,undefined8 *param_3,ushort *param_4)
 
 {
-  unsigned char frame[240] = {0};
+  unsigned char frame[240] __attribute__((aligned(16))) = {0};
 
   void *left;
   ushort *puVar1;
@@ -27418,7 +24867,7 @@ undefined8 recovered_404170a4(long param_1,ulong param_2,undefined8 *param_3,ush
 undefined8 recovered_404174a4(ushort *param_1,long param_2,ulong param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -27451,7 +24900,7 @@ LAB_404174ec:
 bool recovered_404174f8(int param_1,int param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
 
@@ -27472,7 +24921,7 @@ bool recovered_404174f8(int param_1,int param_2)
 uint128 recovered_4041752c(uint3 *param_1,int param_2,int param_3)
 
 {
-  unsigned char frame[80] = {0};
+  unsigned char frame[80] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint128 auVar2;
@@ -27553,7 +25002,7 @@ uint128 recovered_4041752c(uint3 *param_1,int param_2,int param_3)
 int recovered_4041764c(double param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   short sVar1;
   long lVar2;
@@ -27585,7 +25034,7 @@ int recovered_4041764c(double param_1)
 undefined8 * recovered_404176a8(undefined8 *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined2 uVar1;
 
@@ -27604,7 +25053,7 @@ undefined8 * recovered_404176a8(undefined8 *param_1,undefined8 *param_2)
 undefined8 * recovered_404176e0(undefined8 *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -27658,7 +25107,7 @@ undefined8 * recovered_404176e0(undefined8 *param_1,undefined8 *param_2)
 ulonglong recovered_40417758(uint param_1,uint param_2,uchar param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   uint uVar2;
@@ -27771,7 +25220,7 @@ LAB_404177d8:
 void recovered_40417900(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined4 uVar1;
   int iVar2;
@@ -27846,7 +25295,7 @@ void recovered_40417900(void)
 void recovered_40417968(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined1 *puVar1;
   uint uVar2;
@@ -27973,7 +25422,7 @@ void recovered_40417968(void)
 ulonglong recovered_40417ba8(uchar param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_40417900();
   recovered_40417bd0((int)(char)param_1);
@@ -27997,7 +25446,7 @@ ulonglong recovered_40417ba8(uchar param_1)
 void recovered_40417bd0(uint param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char cVar1;
   uint uVar2;
@@ -28047,7 +25496,7 @@ LAB_40417c7c:
 ulonglong recovered_40417c88(char *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_40417900();
   for (; (param_1 != (char *)0x0 && ((int)*param_1 != 0)); param_1 = param_1 + 1) {
@@ -28058,7 +25507,7 @@ ulonglong recovered_40417c88(char *param_1)
 }
 
 
-#define bStack_11 (*(byte *)(frame + 16))
+#define bStack_11 (*(byte *)(frame + 31))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40417cbc
  */
@@ -28066,7 +25515,7 @@ ulonglong recovered_40417c88(char *param_1)
 ushort recovered_40417cbc(void)
 
 {
-  unsigned char frame[65] = {0};
+  unsigned char frame[80] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   ulong uVar2;
@@ -28113,7 +25562,7 @@ ushort recovered_40417cbc(void)
 ulong recovered_40417d30(char *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char cVar1;
   ulong uVar2;
@@ -28148,7 +25597,7 @@ ulong recovered_40417d30(char *param_1)
 ulong recovered_40417d84(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   ulong uVar2;
@@ -28191,7 +25640,7 @@ ulong recovered_40417d84(void)
 ulonglong recovered_40417de8(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_40417900();
   DAT_40494730 = 0;
@@ -28251,7 +25700,7 @@ ulonglong recovered_40417de8(void)
 #define DAT_404949d0 (*(uint32_t volatile *)(0x404949d0U))
 #undef DAT_404949d8
 #define DAT_404949d8 (*(uint8_t volatile *)(0x404949d8U))
-#define acStack_288 (*(char (*)[552])(frame + 16))
+#define acStack_288 (*(char (*)[552])(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40417e08
  */
@@ -28259,7 +25708,7 @@ ulonglong recovered_40417de8(void)
 uint recovered_40417e08(void)
 
 {
-  unsigned char frame[696] = {0};
+  unsigned char frame[704] __attribute__((aligned(16))) = {0};
 
   undefined *vararg0;
   ulong uVar1;
@@ -28555,7 +26004,7 @@ LAB_404182b0:
 void recovered_404182e0(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_40417900();
                     /* WARNING: Subroutine does not return */
@@ -28573,7 +26022,7 @@ void recovered_404182e0(void)
 ulonglong recovered_404182f8(long param_1,uint *param_2)
 
 {
-  unsigned char frame[96] = {0};
+  unsigned char frame[96] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   ulonglong uVar2;
@@ -28614,7 +26063,7 @@ ulonglong recovered_404182f8(long param_1,uint *param_2)
 undefined8 recovered_40418368(long param_1,undefined8 *param_2,ulong *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   byte bVar2;
@@ -28647,7 +26096,7 @@ undefined8 recovered_40418368(long param_1,undefined8 *param_2,ulong *param_3)
 #undef DAT_40494ab8
 #undef DAT_40494b6c
 
-#define abStack_111 (*(byte (*)[241])(frame + 16))
+#define abStack_111 (*(byte (*)[241])(frame + 31))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4041841c
  */
@@ -28655,7 +26104,7 @@ undefined8 recovered_40418368(long param_1,undefined8 *param_2,ulong *param_3)
 long recovered_4041841c(char *path)
 
 {
-  unsigned char frame[321] = {0};
+  unsigned char frame[336] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -28673,7 +26122,7 @@ long recovered_4041841c(char *path)
 uchar recovered_40418448(char *param_1,void *param_2,uint param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -28709,7 +26158,7 @@ uchar recovered_40418448(char *param_1,void *param_2,uint param_3)
 undefined8 recovered_40418478(long param_1,long param_2,long param_3)
 
 {
-  unsigned char frame[656] = {0};
+  unsigned char frame[656] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   byte bVar2;
@@ -28868,7 +26317,7 @@ LAB_40499574:
 uchar recovered_404186dc(char *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint128 auVar1;
 
@@ -28888,7 +26337,7 @@ uchar recovered_404186dc(char *param_1)
 #define DAT_40494b04 (*(uint32_t volatile *)(0x40494b04U))
 #undef DAT_40494b6c
 #define DAT_40494b6c (*(uint8_t volatile *)(0x40494b6cU))
-#define abStack_159 (*(byte (*)[249])(frame + 16))
+#define abStack_159 (*(byte (*)[249])(frame + 23))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x404186f8
  */
@@ -28896,7 +26345,7 @@ uchar recovered_404186dc(char *param_1)
 uint128 recovered_404186f8(long param_1)
 
 {
-  unsigned char frame[393] = {0};
+  unsigned char frame[400] __attribute__((aligned(16))) = {0};
 
   char *pcVar1;
   long lVar2;
@@ -29063,7 +26512,7 @@ LAB_40418910:
 uchar recovered_404189c4(char *param_1,void *param_2)
 
 {
-  unsigned char frame[96] = {0};
+  unsigned char frame[96] __attribute__((aligned(16))) = {0};
 
   uchar uVar1;
   undefined8 uVar2;
@@ -29097,7 +26546,7 @@ uchar recovered_404189c4(char *param_1,void *param_2)
 uchar recovered_40418a24(char *param_1,uint param_2,void *param_3)
 
 {
-  unsigned char frame[112] = {0};
+  unsigned char frame[112] __attribute__((aligned(16))) = {0};
 
   uchar uVar1;
   undefined8 uVar2;
@@ -29131,7 +26580,7 @@ uchar recovered_40418a24(char *param_1,uint param_2,void *param_3)
 void * recovered_40418a90(char *param_1,float param_2)
 
 {
-  unsigned char frame[112] = {0};
+  unsigned char frame[112] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
   void *pvVar2;
@@ -29170,7 +26619,7 @@ void * recovered_40418a90(char *param_1,float param_2)
 undefined8 recovered_40418af8(char *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char *pcVar1;
 
@@ -29202,7 +26651,7 @@ undefined8 recovered_40418af8(char *param_1)
 ulong recovered_40418b3c(char *param_1)
 
 {
-  unsigned char frame[1120] = {0};
+  unsigned char frame[1120] __attribute__((aligned(16))) = {0};
 
   char *pcVar1;
   char cVar2;
@@ -29248,7 +26697,7 @@ ulong recovered_40418b3c(char *param_1)
 ulong recovered_40418bc8(undefined1 *param_1,ulong param_2,char *param_3,int param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -29284,8 +26733,8 @@ ulong recovered_40418bc8(undefined1 *param_1,ulong param_2,char *param_3,int par
 #define DAT_40494f90 (*(uint8_t volatile *)(0x40494f90U))
 #undef DAT_40494f91
 #define DAT_40494f91 (*(uint8_t volatile *)(0x40494f91U))
-#define acStack_269 (*(char (*)[512])(frame + 16))
-#define acStack_69 (*(char (*)[9])(frame + 528))
+#define acStack_269 (*(char (*)[512])(frame + 23))
+#define acStack_69 (*(char (*)[9])(frame + 535))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40418c1c
  */
@@ -29294,7 +26743,7 @@ undefined8
 recovered_40418c1c(undefined1 *param_1,long param_2,char *param_3,int param_4,int param_5)
 
 {
-  unsigned char frame[665] = {0};
+  unsigned char frame[672] __attribute__((aligned(16))) = {0};
 
   char *vararg0;
   uint uVar1;
@@ -29456,7 +26905,7 @@ LAB_40418e2c:
 void * recovered_40418f60(uint param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   void *pvVar1;
 
@@ -29477,7 +26926,7 @@ void * recovered_40418f60(uint param_1)
 ulong recovered_40418f7c(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   void *pvVar1;
 
@@ -29498,7 +26947,7 @@ ulong recovered_40418f7c(long param_1)
 void recovered_40418fa4(void *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_40417900();
   recovered_40418fc0((long)param_1);
@@ -29517,7 +26966,7 @@ void recovered_40418fa4(void *param_1)
 void recovered_40418fc0(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_40423b60((int *)&DAT_404835a8);
   recovered_404006f4((void *)param_1);
@@ -29536,7 +26985,7 @@ void recovered_40418fc0(long param_1)
 void * recovered_40418fe8(void *param_1,uint param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   void *pvVar1;
 
@@ -29557,7 +27006,7 @@ void * recovered_40418fe8(void *param_1,uint param_2)
 ulong recovered_40419008(long param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   void *pvVar1;
 
@@ -29604,7 +27053,7 @@ ulong recovered_40419008(long param_1,long param_2)
 uchar recovered_40419044(char *param_1,char *param_2,uint param_3,uint *param_4)
 
 {
-  unsigned char frame[704] = {0};
+  unsigned char frame[704] __attribute__((aligned(16))) = {0};
 
   undefined4 uVar1;
   uint uVar2;
@@ -29783,9 +27232,9 @@ LAB_40419308:
 #define DAT_4044e262 (*(uint8_t *)(0x4044e262U))
 #undef DAT_4044eae4
 #define DAT_4044eae4 (*(uint8_t *)(0x4044eae4U))
-#define acStack_159 (*(char (*)[249])(frame + 15681))
-#define acStack_3e8a (*(char (*)[241])(frame + 16))
-#define acStack_3d99 (*(char (*)[15424])(frame + 257))
+#define acStack_159 (*(char (*)[249])(frame + 15687))
+#define acStack_3e8a (*(char (*)[241])(frame + 22))
+#define acStack_3d99 (*(char (*)[15424])(frame + 263))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40419338
  */
@@ -29793,7 +27242,7 @@ LAB_40419308:
 long recovered_40419338(long param_1,undefined1 *param_2)
 
 {
-  unsigned char frame[16058] = {0};
+  unsigned char frame[16064] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   int iVar2;
@@ -29891,7 +27340,7 @@ long recovered_40419338(long param_1,undefined1 *param_2)
 bool recovered_40419500(char *param_1,char *param_2,undefined8 *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   int iVar2;
@@ -29943,7 +27392,7 @@ bool recovered_40419500(char *param_1,char *param_2,undefined8 *param_3)
 int recovered_404195a0(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
 
@@ -29968,8 +27417,8 @@ int recovered_404195a0(void)
 #define str_4044e4e7 (*(char (*)[1])(0x4044e4e7U))
 #undef str_4044e4ee
 #define str_4044e4ee (*(char (*)[1])(0x4044e4eeU))
-#define acStack_199 (*(char (*)[241])(frame + 16))
-#define acStack_a8 (*(char (*)[72])(frame + 257))
+#define acStack_199 (*(char (*)[241])(frame + 23))
+#define acStack_a8 (*(char (*)[72])(frame + 264))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x404195b8
  */
@@ -29977,7 +27426,7 @@ int recovered_404195a0(void)
 uint recovered_404195b8(void *devices,uint capacity,uint *count)
 
 {
-  unsigned char frame[457] = {0};
+  unsigned char frame[464] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   byte bVar2;
@@ -30089,8 +27538,8 @@ uint recovered_404195b8(void *devices,uint capacity,uint *count)
 #define DAT_40494820 (*(uint64_t volatile *)(0x40494820U))
 #undef DAT_40494a40
 #define DAT_40494a40 (*(uint64_t volatile *)(0x40494a40U))
-#define local_34 (*(uint *)(frame + 20))
-#define uStack_38 (*(uint *)(frame + 16))
+#define local_34 (*(uint *)(frame + 28))
+#define uStack_38 (*(uint *)(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40419744
  */
@@ -30098,7 +27547,7 @@ uint recovered_404195b8(void *devices,uint capacity,uint *count)
 bool recovered_40419744(void)
 
 {
-  unsigned char frame[104] = {0};
+  unsigned char frame[112] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   ulong uVar2;
@@ -30203,7 +27652,7 @@ LAB_404197e4:
 void recovered_4041995c(char *param_1,long param_2,char *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   ulong uVar2;
@@ -30258,7 +27707,7 @@ void recovered_4041995c(char *param_1,long param_2,char *param_3)
 char * recovered_40419a4c(int param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (param_1 - 1U < 10) {
     return (&PTR_str_4044eaf0_4045a178)[param_1 - 1U];
@@ -30276,7 +27725,7 @@ char * recovered_40419a4c(int param_1)
 uint recovered_40419a74(int device)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   undefined8 extraout_x1 = 0;
@@ -30305,7 +27754,7 @@ ulong recovered_40419a94(int param_1,undefined8 param_2,undefined8 param_3,undef
                         undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   byte bVar2;
@@ -30350,9 +27799,9 @@ ulong recovered_40419a94(int param_1,undefined8 param_2,undefined8 param_3,undef
 #define DAT_40494810 (*(uint64_t volatile *)(0x40494810U))
 #undef DAT_40494ab8
 #define DAT_40494ab8 (*(uint64_t volatile *)(0x40494ab8U))
-#define iStack_54 (*(int *)(frame + 16))
-#define uStack_50 (*(ulong *)(frame + 20))
-#define pvStack_48 (*(void * *)(frame + 28))
+#define iStack_54 (*(int *)(frame + 28))
+#define uStack_50 (*(ulong *)(frame + 32))
+#define pvStack_48 (*(void * *)(frame + 40))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40419af8
  */
@@ -30360,7 +27809,7 @@ ulong recovered_40419a94(int param_1,undefined8 param_2,undefined8 param_3,undef
 uint recovered_40419af8(int device,char *path,void *blob)
 
 {
-  unsigned char frame[132] = {0};
+  unsigned char frame[144] __attribute__((aligned(16))) = {0};
 
   undefined4 uVar1;
   long lVar2;
@@ -30453,7 +27902,7 @@ LAB_40419c34:
 ulong recovered_40419c50(int param_1,int *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   ulong uVar2;
@@ -30484,7 +27933,7 @@ ulong recovered_40419c50(int param_1,int *param_2)
 ulong recovered_40419c74(int param_1,int param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -30502,7 +27951,7 @@ ulong recovered_40419c74(int param_1,int param_2)
 #define DAT_40494b00 (*(uint8_t volatile *)(0x40494b00U))
 #undef Ram0000000040494b00
 #define Ram0000000040494b00 (*(uint32_t volatile *)(0x40494b00U))
-#define iStack_44 (*(int *)(frame + 16))
+#define iStack_44 (*(int *)(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40419c88
  */
@@ -30510,7 +27959,7 @@ ulong recovered_40419c74(int param_1,int param_2)
 uint recovered_40419c88(int device,char *path,char *buffer,uint capacity,uint *count)
 
 {
-  unsigned char frame[116] = {0};
+  unsigned char frame[128] __attribute__((aligned(16))) = {0};
 
   char *pcVar1;
   int iVar2;
@@ -30562,7 +28011,7 @@ uint recovered_40419c88(int device,char *path,char *buffer,uint capacity,uint *c
 #undef Ram0000000040494b00
 #undef iStack_44
 
-#define iStack_34 (*(int *)(frame + 16))
+#define iStack_34 (*(int *)(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40419d2c
  */
@@ -30570,7 +28019,7 @@ uint recovered_40419c88(int device,char *path,char *buffer,uint capacity,uint *c
 uint recovered_40419d2c(int device,char *path,void *bytes,uint count)
 
 {
-  unsigned char frame[100] = {0};
+  unsigned char frame[112] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   undefined8 uVar2;
@@ -30596,7 +28045,7 @@ uint recovered_40419d2c(int device,char *path,void *bytes,uint count)
 
 #undef iStack_34
 
-#define iStack_24 (*(int *)(frame + 16))
+#define iStack_24 (*(int *)(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40419d7c
  */
@@ -30604,7 +28053,7 @@ uint recovered_40419d2c(int device,char *path,void *bytes,uint count)
 uint recovered_40419d7c(int device,char *path)
 
 {
-  unsigned char frame[84] = {0};
+  unsigned char frame[96] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   ulong uVar2;
@@ -30624,7 +28073,7 @@ uint recovered_40419d7c(int device,char *path)
 
 #undef iStack_24
 
-#define iStack_34 (*(int *)(frame + 16))
+#define iStack_34 (*(int *)(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40419db4
  */
@@ -30632,7 +28081,7 @@ uint recovered_40419d7c(int device,char *path)
 uint recovered_40419db4(int device,char *old_path,char *new_path)
 
 {
-  unsigned char frame[100] = {0};
+  unsigned char frame[112] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   undefined8 uVar2;
@@ -30666,9 +28115,9 @@ uint recovered_40419db4(int device,char *old_path,char *new_path)
 #define DAT_40494b04 (*(uint32_t volatile *)(0x40494b04U))
 #undef DAT_40494b6c
 #define DAT_40494b6c (*(uint8_t volatile *)(0x40494b6cU))
-#define acStack_33b (*(char (*)[241])(frame + 16))
-#define abStack_24a (*(byte (*)[241])(frame + 257))
-#define abStack_159 (*(byte (*)[249])(frame + 498))
+#define acStack_33b (*(char (*)[241])(frame + 21))
+#define abStack_24a (*(byte (*)[241])(frame + 262))
+#define abStack_159 (*(byte (*)[249])(frame + 503))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40419df0
  */
@@ -30676,7 +28125,7 @@ uint recovered_40419db4(int device,char *old_path,char *new_path)
 undefined8 recovered_40419df0(long param_1,long param_2)
 
 {
-  unsigned char frame[875] = {0};
+  unsigned char frame[880] __attribute__((aligned(16))) = {0};
 
   undefined1 *puVar1;
   long lVar2;
@@ -30862,8 +28311,8 @@ LAB_4041a184:
 #undef abStack_24a
 #undef abStack_159
 
-#define acStack_121 (*(char (*)[241])(frame + 23))
-#define iStack_128 (*(int *)(frame + 16))
+#define acStack_121 (*(char (*)[241])(frame + 31))
+#define iStack_128 (*(int *)(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4041a1ac
  */
@@ -30871,7 +28320,7 @@ LAB_4041a184:
 uint recovered_4041a1ac(int device,char *path)
 
 {
-  unsigned char frame[344] = {0};
+  unsigned char frame[352] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   uint uVar2;
@@ -30910,11 +28359,11 @@ uint recovered_4041a1ac(int device,char *path)
 #define DAT_40494b04 (*(uint32_t volatile *)(0x40494b04U))
 #undef DAT_40494b6c
 #define DAT_40494b6c (*(uint8_t volatile *)(0x40494b6cU))
-#define local_135 (*(byte *)(frame + 16))
-#define local_134 (*(byte *)(frame + 17))
-#define bStack_133 (*(byte *)(frame + 18))
-#define bStack_132 (*(byte *)(frame + 19))
-#define acStack_131 (*(char (*)[241])(frame + 20))
+#define local_135 (*(byte *)(frame + 27))
+#define local_134 (*(byte *)(frame + 28))
+#define bStack_133 (*(byte *)(frame + 29))
+#define bStack_132 (*(byte *)(frame + 30))
+#define acStack_131 (*(char (*)[241])(frame + 31))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4041a210
  */
@@ -30922,7 +28371,7 @@ uint recovered_4041a1ac(int device,char *path)
 byte recovered_4041a210(char *param_1)
 
 {
-  unsigned char frame[357] = {0};
+  unsigned char frame[368] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   uint uVar2;
@@ -31019,7 +28468,7 @@ LAB_4041a3cc:
 #undef bStack_132
 #undef acStack_131
 
-#define iStack_34 (*(int *)(frame + 16))
+#define iStack_34 (*(int *)(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4041a3e4
  */
@@ -31027,7 +28476,7 @@ LAB_4041a3cc:
 uint recovered_4041a3e4(int device,char *path,void *image)
 
 {
-  unsigned char frame[100] = {0};
+  unsigned char frame[112] __attribute__((aligned(16))) = {0};
 
   uchar uVar1;
   uint uVar2;
@@ -31050,7 +28499,7 @@ uint recovered_4041a3e4(int device,char *path,void *image)
 
 #undef iStack_34
 
-#define iStack_34 (*(int *)(frame + 16))
+#define iStack_34 (*(int *)(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4041a424
  */
@@ -31058,7 +28507,7 @@ uint recovered_4041a3e4(int device,char *path,void *image)
 void * recovered_4041a424(int device,char *path,float pixels)
 
 {
-  unsigned char frame[100] = {0};
+  unsigned char frame[112] __attribute__((aligned(16))) = {0};
 
   void *pvVar1;
   ulong uVar2;
@@ -31082,7 +28531,7 @@ void * recovered_4041a424(int device,char *path,float pixels)
 
 #undef iStack_34
 
-#define iStack_34 (*(int *)(frame + 16))
+#define iStack_34 (*(int *)(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4041a47c
  */
@@ -31090,7 +28539,7 @@ void * recovered_4041a424(int device,char *path,float pixels)
 uint recovered_4041a47c(int device,char *path,uint flags)
 
 {
-  unsigned char frame[100] = {0};
+  unsigned char frame[112] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -31133,21 +28582,21 @@ uint recovered_4041a47c(int device,char *path,uint flags)
 #define str_4044e501 (*(char (*)[1])(0x4044e501U))
 #undef str_4044e508
 #define str_4044e508 (*(char (*)[1])(0x4044e508U))
-#define acStack_46e1 (*(char (*)[241])(frame + 177))
-#define uStack_45f0 (*(ulong *)(frame + 418))
-#define auStack_4782 (*(undefined1 (*)[160])(frame + 16))
-#define bStack_46e2 (*(byte *)(frame + 176))
-#define acStack_45d1 (*(char (*)[241])(frame + 449))
-#define auStack_44e0 (*(ulong (*)[30])(frame + 690))
-#define puStack_45e8 (*(uint * *)(frame + 426))
-#define puStack_45e0 (*(uint * *)(frame + 434))
-#define uStack_43e0 (*(ulong *)(frame + 946))
-#define uStack_43d8 (*(ulong *)(frame + 954))
-#define uStack_43ec (*(uint *)(frame + 934))
-#define uStack_43e8 (*(ulong *)(frame + 938))
-#define auStack_43c0 (*(ulong (*)[2158])(frame + 978))
-#define puStack_43d0 (*(uint * *)(frame + 962))
-#define iStack_43c4 (*(int *)(frame + 974))
+#define acStack_46e1 (*(char (*)[241])(frame + 191))
+#define uStack_45f0 (*(ulong *)(frame + 432))
+#define auStack_4782 (*(undefined1 (*)[160])(frame + 30))
+#define bStack_46e2 (*(byte *)(frame + 190))
+#define acStack_45d1 (*(char (*)[241])(frame + 463))
+#define auStack_44e0 (*(ulong (*)[30])(frame + 704))
+#define puStack_45e8 (*(uint * *)(frame + 440))
+#define puStack_45e0 (*(uint * *)(frame + 448))
+#define uStack_43e0 (*(ulong *)(frame + 960))
+#define uStack_43d8 (*(ulong *)(frame + 968))
+#define uStack_43ec (*(uint *)(frame + 948))
+#define uStack_43e8 (*(ulong *)(frame + 952))
+#define auStack_43c0 (*(ulong (*)[2158])(frame + 992))
+#define puStack_43d0 (*(uint * *)(frame + 976))
+#define iStack_43c4 (*(int *)(frame + 988))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4041a4c8
  */
@@ -31155,7 +28604,7 @@ uint recovered_4041a47c(int device,char *path,uint flags)
 uint recovered_4041a4c8(char *param_1,uint param_2)
 
 {
-  unsigned char frame[18354] = {0};
+  unsigned char frame[18368] __attribute__((aligned(16))) = {0};
 
   char cVar1;
   uint *puVar2;
@@ -31391,7 +28840,7 @@ LAB_4041a58c:
 uchar recovered_4041a974(char *param_1,char *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -31401,7 +28850,7 @@ uchar recovered_4041a974(char *param_1,char *param_2)
 }
 
 
-#define acStack_111 (*(char (*)[241])(frame + 16))
+#define acStack_111 (*(char (*)[241])(frame + 31))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4041a994
  */
@@ -31409,7 +28858,7 @@ uchar recovered_4041a974(char *param_1,char *param_2)
 uchar recovered_4041a994(char *param_1)
 
 {
-  unsigned char frame[321] = {0};
+  unsigned char frame[336] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
 
@@ -31426,9 +28875,9 @@ uchar recovered_4041a994(char *param_1)
 
 #undef acStack_111
 
-#define lStack_28 (*(long *)(frame + 32))
-#define uStack_38 (*(ulong *)(frame + 16))
-#define uStack_30 (*(ulong *)(frame + 24))
+#define lStack_28 (*(long *)(frame + 40))
+#define uStack_38 (*(ulong *)(frame + 24))
+#define uStack_30 (*(ulong *)(frame + 32))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4041a9d0
  */
@@ -31436,7 +28885,7 @@ uchar recovered_4041a994(char *param_1)
 undefined8 recovered_4041a9d0(long param_1,ulong param_2)
 
 {
-  unsigned char frame[104] = {0};
+  unsigned char frame[112] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -31465,7 +28914,7 @@ undefined8 recovered_4041a9d0(long param_1,ulong param_2)
 void recovered_4041aa08(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   int *****pppppiVar2;
@@ -31499,7 +28948,7 @@ void recovered_4041aa18(const char *format,...){
 char * recovered_4041aa40(char *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char cVar1;
   char *pcVar2;
@@ -31556,7 +29005,7 @@ char * recovered_4041aa40(char *param_1)
 undefined8 recovered_4041aa7c(long param_1,undefined1 *param_2)
 
 {
-  unsigned char frame[784] = {0};
+  unsigned char frame[784] __attribute__((aligned(16))) = {0};
 
   char cVar1;
   bool bVar2;
@@ -31683,7 +29132,7 @@ LAB_4041ac3c:
 uint recovered_4041ac68(void *param_1,void *param_2,uint param_3)
 
 {
-  unsigned char frame[192] = {0};
+  unsigned char frame[192] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   long lVar2;
@@ -31715,7 +29164,7 @@ uint recovered_4041ac68(void *param_1,void *param_2,uint param_3)
 undefined8 recovered_4041acbc(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 *puVar1;
 
@@ -31743,7 +29192,7 @@ recovered_4041acd4(long param_1,long param_2,undefined8 param_3,long param_4,und
                   long param_6,undefined8 param_7)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   long *plVar2;
@@ -31829,7 +29278,7 @@ LAB_4041add8:
 #define DAT_40494818 (*(uint64_t volatile *)(0x40494818U))
 #undef Ram00000000404947bc
 #define Ram00000000404947bc (*(uint32_t volatile *)(0x404947bcU))
-#define uStack_48 (*(ulong *)(frame + 16))
+#define uStack_48 (*(ulong *)(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4041ae00
  */
@@ -31837,7 +29286,7 @@ LAB_4041add8:
 void recovered_4041ae00(void)
 
 {
-  unsigned char frame[120] = {0};
+  unsigned char frame[128] __attribute__((aligned(16))) = {0};
 
   undefined4 uVar1;
   uint uVar2;
@@ -32003,7 +29452,7 @@ LAB_4041afbc:
 ulong recovered_4041b030(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -32031,7 +29480,7 @@ ulong recovered_4041b030(void)
 uint recovered_4041b060(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   long lVar2;
@@ -32076,7 +29525,7 @@ uint recovered_4041b060(void)
 uint recovered_4041b0ac(void *hardware)
 
 {
-  unsigned char frame[128] = {0};
+  unsigned char frame[128] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   bool bVar2;
@@ -32188,18 +29637,18 @@ uint recovered_4041b0ac(void *hardware)
 #define str_4044fbef (*(char (*)[1])(0x4044fbefU))
 #undef str_4044fbf5
 #define str_4044fbf5 (*(char (*)[1])(0x4044fbf5U))
-#define uStack_c0 (*(undefined8 *)(frame + 56))
-#define uStack_8f (*(undefined7 *)(frame + 105))
-#define uStack_88 (*(undefined8 *)(frame + 112))
-#define uStack_b8 (*(undefined8 *)(frame + 64))
-#define bStack_90 (*(byte *)(frame + 104))
-#define auStack_39 (*(undefined1 (*)[4])(frame + 191))
-#define auStack_35 (*(undefined1 (*)[4])(frame + 195))
-#define auStack_50 (*(uint (*)[4])(frame + 168))
-#define auStack_3d (*(undefined1 (*)[4])(frame + 187))
-#define uStack_31 (*(undefined1 *)(frame + 199))
-#define in_stack_ffffffffffffff28 (*(ulong *)(frame + 32))
-#define in_stack_ffffffffffffff30 (*(ulong *)(frame + 40))
+#define uStack_c0 (*(undefined8 *)(frame + 64))
+#define uStack_8f (*(undefined7 *)(frame + 113))
+#define uStack_88 (*(undefined8 *)(frame + 120))
+#define uStack_b8 (*(undefined8 *)(frame + 72))
+#define bStack_90 (*(byte *)(frame + 112))
+#define auStack_39 (*(undefined1 (*)[4])(frame + 199))
+#define auStack_35 (*(undefined1 (*)[4])(frame + 203))
+#define auStack_50 (*(uint (*)[4])(frame + 176))
+#define auStack_3d (*(undefined1 (*)[4])(frame + 195))
+#define uStack_31 (*(undefined1 *)(frame + 207))
+#define in_stack_ffffffffffffff28 (*(ulong *)(frame + 40))
+#define in_stack_ffffffffffffff30 (*(ulong *)(frame + 48))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4041b1c8
  */
@@ -32207,7 +29656,7 @@ uint recovered_4041b0ac(void *hardware)
 uint recovered_4041b1c8(char *param_1)
 
 {
-  unsigned char frame[280] = {0};
+  unsigned char frame[288] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   uint uVar2;
@@ -32444,7 +29893,7 @@ LAB_4041b504:
 bool recovered_4041b578(uint *param_1)
 
 {
-  unsigned char frame[144] = {0};
+  unsigned char frame[144] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   undefined8 uVar2;
@@ -32514,7 +29963,7 @@ LAB_4041b6e0:
 long recovered_4041b6f8(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   ulong uVar2;
@@ -32547,10 +29996,21 @@ long recovered_4041b6f8(void)
  * Address: 0x4041b730
  */
 
+
+#undef DAT_4044df20
+#define DAT_4044df20 (*(uint64_t *)(0x4044df20U))
+#undef DAT_4045a2d0
+#define DAT_4045a2d0 (*(uint32_t volatile *)(0x4045a2d0U))
+#undef UNK_4047fcc0
+#define UNK_4047fcc0 (*(uint8_t volatile *)(0x4047fcc0U))
+/* Recovered working notes; Pooka's Free Software License.
+ * Address: 0x4041b730
+ */
+
 uint recovered_4041b730(char *param_1,uint param_2,uint param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined *out;
   uint uVar1;
@@ -32597,9 +30057,14 @@ uint recovered_4041b730(char *param_1,uint param_2,uint param_3)
   *(undefined8 *)(puVar5 + 0x294) = DAT_4044df20;
   *(uint *)(puVar5 + 0x29c) = (uVar3 % 5) * 0x16 + 0x7e;
   *(uint *)(puVar5 + 0x2a0) = (uVar3 % 5) * 0x10 + 0x48;
-  recovered_4041b890((long)out);
+  recovered_4041b890(out,param_1);
   return uVar3;
 }
+
+#undef DAT_4044df20
+#undef DAT_4045a2d0
+#undef UNK_4047fcc0
+
 
 #undef DAT_4044df20
 #undef DAT_4045a2d0
@@ -32614,7 +30079,7 @@ uint recovered_4041b730(char *param_1,uint param_2,uint param_3)
 undefined4 recovered_4041b824(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined4 uVar1;
   char *pcVar2;
@@ -32652,26 +30117,43 @@ undefined4 recovered_4041b824(void)
  * Address: 0x4041b890
  */
 
-void recovered_4041b890(long param_1)
+
+#undef DAT_4044e262
+#define DAT_4044e262 (*(uint8_t *)(0x4044e262U))
+#undef str_4044fbfc
+#define str_4044fbfc (*(char (*)[1])(0x4044fbfcU))
+/* Recovered working notes; Pooka's Free Software License.
+ * Address: 0x4041b890
+ */
+
+void recovered_4041b890(void *window,char *title)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
-  char *in_x1;
   char *vararg0;
 
-  if (param_1 != 0) {
+  if (window != (void *)0x0) {
     vararg0 = str_4044fbfc;
-    if ((in_x1 != (char *)0x0) && (vararg0 = str_4044fbfc, *in_x1 != '\0')) {
-      vararg0 = in_x1;
+    if ((title != (char *)0x0) && (vararg0 = str_4044fbfc, *title != '\0')) {
+      vararg0 = title;
     }
-    pf_varargs_404019bc_1((char *)(param_1 + 0x48),0x40,&DAT_4044e262,(ulonglong)vararg0);
+    pf_varargs_404019bc_1((char *)((long)window + 0x48),0x40,&DAT_4044e262,(ulonglong)vararg0);
   }
   return;
 }
 
 #undef DAT_4044e262
 #undef str_4044fbfc
+
+
+#undef DAT_4044e262
+#undef str_4044fbfc
+
+/* Recovered working notes; Pooka's Free Software License.
+ * Address: 0x4041b8d8
+ */
+
 
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4041b8d8
@@ -32681,7 +30163,7 @@ uchar recovered_4041b8d8(uint param_1,char *param_2,void *param_3,uint param_4,u
                         uint param_6,uint param_7)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   ulong size;
@@ -32695,7 +30177,7 @@ uchar recovered_4041b8d8(uint param_1,char *param_2,void *param_3,uint param_4,u
   uVar2 = '\0';
   if (pcVar3 != (char *)0x0) {
     if (param_2 != (char *)0x0) {
-      recovered_4041b890((long)pcVar3);
+      recovered_4041b890((long)pcVar3,param_2);
     }
     if (param_7 >> 0x18 == 0) {
       *(uint *)(pcVar3 + 0x2c) = param_7;
@@ -32767,6 +30249,9 @@ uchar recovered_4041b8d8(uint param_1,char *param_2,void *param_3,uint param_4,u
 }
 
 
+
+
+
 #undef DAT_4047ff28
 #define DAT_4047ff28 (*(uint8_t volatile *)(0x4047ff28U))
 /* Recovered working notes; Pooka's Free Software License.
@@ -32776,7 +30261,7 @@ uchar recovered_4041b8d8(uint param_1,char *param_2,void *param_3,uint param_4,u
 char * recovered_4041ba20(int param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char *pcVar1;
   long lVar2;
@@ -32804,7 +30289,7 @@ char * recovered_4041ba20(int param_1)
 uchar recovered_4041ba64(uint param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char *pcVar1;
 
@@ -32824,7 +30309,7 @@ uchar recovered_4041ba64(uint param_1)
 void recovered_4041ba90(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (param_1 == 0) {
     return;
@@ -32844,7 +30329,7 @@ void recovered_4041ba90(long param_1)
 uchar recovered_4041bac0(void *param_1,uint param_2,uint *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char *pcVar1;
   uint uVar2;
@@ -32881,7 +30366,7 @@ uchar recovered_4041bac0(void *param_1,uint param_2,uint *param_3)
 void recovered_4041bb38(long param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -32916,7 +30401,7 @@ void recovered_4041bb38(long param_1,undefined8 *param_2)
 uchar recovered_4041bbfc(uint param_1,int param_2,int param_3,uint param_4,uint param_5)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char *pcVar1;
 
@@ -32939,7 +30424,7 @@ uchar recovered_4041bbfc(uint param_1,int param_2,int param_3,uint param_4,uint 
 uchar recovered_4041bc58(uint param_1,void *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uchar uVar1;
   char *pcVar2;
@@ -32966,7 +30451,7 @@ uchar recovered_4041bc58(uint param_1,void *param_2)
 uint recovered_4041bc9c(uint window,char *first,char *second,char *third)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char *pcVar1;
   uint uVar2;
@@ -33006,7 +30491,7 @@ uint recovered_4041bc9c(uint window,char *first,char *second,char *third)
 uint recovered_4041bd38(uint window,uint group,uint item)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char *pcVar1;
   int iVar2;
@@ -33063,7 +30548,7 @@ uint recovered_4041bd38(uint window,uint group,uint item)
 #define str_4044e5b4 (*(char (*)[1])(0x4044e5b4U))
 #undef str_4044e5d7
 #define str_4044e5d7 (*(char (*)[1])(0x4044e5d7U))
-#define in_stack_ffffffffffffffb8 (*(ulong *)(frame + 16))
+#define in_stack_ffffffffffffffb8 (*(ulong *)(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4041bd94
  */
@@ -33071,7 +30556,7 @@ uint recovered_4041bd38(uint window,uint group,uint item)
 undefined8 recovered_4041bd94(void)
 
 {
-  unsigned char frame[120] = {0};
+  unsigned char frame[128] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   byte bVar2;
@@ -33190,7 +30675,7 @@ LAB_4041be70:
 uint recovered_4041bed8(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   int iVar2;
@@ -33392,39 +30877,39 @@ LAB_4041c02c:
 #define str_4044fcca (*(char (*)[1])(0x4044fccaU))
 #undef uRam000000004044df30
 #define uRam000000004044df30 (*(uint64_t *)(0x4044df30U))
-#define pcStack_508 (*(char * *)(frame + 16))
-#define uStack_490 (*(uint *)(frame + 136))
-#define uStack_488 (*(ulong *)(frame + 144))
-#define pbStack_4e8 (*(byte * *)(frame + 48))
-#define uStack_4b0 (*(ulong *)(frame + 104))
-#define uStack_478 (*(uint *)(frame + 160))
-#define uStack_474 (*(uint *)(frame + 164))
-#define uStack_480 (*(undefined4 *)(frame + 152))
-#define uStack_47c (*(uint *)(frame + 156))
-#define uStack_468 (*(undefined4 *)(frame + 176))
-#define uStack_464 (*(uint *)(frame + 180))
-#define uStack_470 (*(undefined4 *)(frame + 168))
-#define uStack_46c (*(uint *)(frame + 172))
-#define uStack_458 (*(uint *)(frame + 192))
-#define uStack_288 (*(ulong *)(frame + 656))
-#define uStack_460 (*(undefined4 *)(frame + 184))
-#define uStack_45c (*(undefined4 *)(frame + 188))
-#define auStack_270 (*(ulong (*)[30])(frame + 680))
-#define acStack_17c (*(char (*)[16])(frame + 924))
-#define abStack_27b (*(byte (*)[8])(frame + 669))
-#define abStack_273 (*(byte (*)[3])(frame + 677))
-#define uStack_160 (*(undefined4 *)(frame + 952))
-#define uStack_15c (*(uint *)(frame + 956))
-#define acStack_16c (*(char (*)[8])(frame + 940))
-#define uStack_164 (*(undefined4 *)(frame + 948))
-#define iStack_150 (*(int *)(frame + 968))
-#define uStack_14c (*(undefined4 *)(frame + 972))
-#define uStack_158 (*(undefined4 *)(frame + 960))
-#define uStack_154 (*(undefined4 *)(frame + 964))
-#define uStack_140 (*(undefined4 *)(frame + 984))
-#define uStack_13c (*(undefined4 *)(frame + 988))
-#define uStack_148 (*(uint *)(frame + 976))
-#define uStack_144 (*(uint *)(frame + 980))
+#define pcStack_508 (*(char * *)(frame + 24))
+#define uStack_490 (*(uint *)(frame + 144))
+#define uStack_488 (*(ulong *)(frame + 152))
+#define pbStack_4e8 (*(byte * *)(frame + 56))
+#define uStack_4b0 (*(ulong *)(frame + 112))
+#define uStack_478 (*(uint *)(frame + 168))
+#define uStack_474 (*(uint *)(frame + 172))
+#define uStack_480 (*(undefined4 *)(frame + 160))
+#define uStack_47c (*(uint *)(frame + 164))
+#define uStack_468 (*(undefined4 *)(frame + 184))
+#define uStack_464 (*(uint *)(frame + 188))
+#define uStack_470 (*(undefined4 *)(frame + 176))
+#define uStack_46c (*(uint *)(frame + 180))
+#define uStack_458 (*(uint *)(frame + 200))
+#define uStack_288 (*(ulong *)(frame + 664))
+#define uStack_460 (*(undefined4 *)(frame + 192))
+#define uStack_45c (*(undefined4 *)(frame + 196))
+#define auStack_270 (*(ulong (*)[30])(frame + 688))
+#define acStack_17c (*(char (*)[16])(frame + 932))
+#define abStack_27b (*(byte (*)[8])(frame + 677))
+#define abStack_273 (*(byte (*)[3])(frame + 685))
+#define uStack_160 (*(undefined4 *)(frame + 960))
+#define uStack_15c (*(uint *)(frame + 964))
+#define acStack_16c (*(char (*)[8])(frame + 948))
+#define uStack_164 (*(undefined4 *)(frame + 956))
+#define iStack_150 (*(int *)(frame + 976))
+#define uStack_14c (*(undefined4 *)(frame + 980))
+#define uStack_158 (*(undefined4 *)(frame + 968))
+#define uStack_154 (*(undefined4 *)(frame + 972))
+#define uStack_140 (*(undefined4 *)(frame + 992))
+#define uStack_13c (*(undefined4 *)(frame + 996))
+#define uStack_148 (*(uint *)(frame + 984))
+#define uStack_144 (*(uint *)(frame + 988))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4041c04c
  */
@@ -33432,7 +30917,7 @@ LAB_4041c02c:
 undefined8 recovered_4041c04c(void)
 
 {
-  unsigned char frame[1336] = {0};
+  unsigned char frame[1344] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -35241,28 +32726,28 @@ LAB_4041c564:
 #define Ram0000000040494b4c (*(uint64_t volatile *)(0x40494b4cU))
 #undef str_4044dfe0
 #define str_4044dfe0 (*(char (*)[1])(0x4044dfe0U))
-#define auStack_6ac (*(undefined1 (*)[512])(frame + 16))
-#define iStack_4ac (*(int *)(frame + 528))
-#define uStack_3ad (*(undefined1 *)(frame + 783))
-#define auStack_3ac (*(undefined1 (*)[240])(frame + 784))
-#define uStack_4a8 (*(undefined8 *)(frame + 532))
-#define acStack_49d (*(char (*)[240])(frame + 543))
-#define uStack_2b4 (*(uint *)(frame + 1032))
-#define auStack_2ac (*(undefined1 (*)[8])(frame + 1040))
-#define uStack_2bc (*(uint *)(frame + 1024))
-#define uStack_2b8 (*(uint *)(frame + 1028))
-#define uStack_29c (*(uint *)(frame + 1056))
-#define iStack_298 (*(int *)(frame + 1060))
-#define iStack_2a4 (*(int *)(frame + 1048))
-#define uStack_2a0 (*(uint *)(frame + 1052))
-#define uStack_28c (*(uint *)(frame + 1072))
-#define uStack_288 (*(uint *)(frame + 1076))
-#define uStack_294 (*(uint *)(frame + 1064))
-#define uStack_290 (*(uint *)(frame + 1068))
-#define uStack_27c (*(uint *)(frame + 1088))
-#define auStack_268 (*(undefined1 (*)[520])(frame + 1108))
-#define uStack_284 (*(uint *)(frame + 1080))
-#define uStack_280 (*(uint *)(frame + 1084))
+#define auStack_6ac (*(undefined1 (*)[512])(frame + 20))
+#define iStack_4ac (*(int *)(frame + 532))
+#define uStack_3ad (*(undefined1 *)(frame + 787))
+#define auStack_3ac (*(undefined1 (*)[240])(frame + 788))
+#define uStack_4a8 (*(undefined8 *)(frame + 536))
+#define acStack_49d (*(char (*)[240])(frame + 547))
+#define uStack_2b4 (*(uint *)(frame + 1036))
+#define auStack_2ac (*(undefined1 (*)[8])(frame + 1044))
+#define uStack_2bc (*(uint *)(frame + 1028))
+#define uStack_2b8 (*(uint *)(frame + 1032))
+#define uStack_29c (*(uint *)(frame + 1060))
+#define iStack_298 (*(int *)(frame + 1064))
+#define iStack_2a4 (*(int *)(frame + 1052))
+#define uStack_2a0 (*(uint *)(frame + 1056))
+#define uStack_28c (*(uint *)(frame + 1076))
+#define uStack_288 (*(uint *)(frame + 1080))
+#define uStack_294 (*(uint *)(frame + 1068))
+#define uStack_290 (*(uint *)(frame + 1072))
+#define uStack_27c (*(uint *)(frame + 1092))
+#define auStack_268 (*(undefined1 (*)[520])(frame + 1112))
+#define uStack_284 (*(uint *)(frame + 1084))
+#define uStack_280 (*(uint *)(frame + 1088))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4041e3e8
  */
@@ -35270,7 +32755,7 @@ LAB_4041c564:
 undefined8 recovered_4041e3e8(undefined8 param_1,ulong param_2,uint param_3,undefined4 param_4)
 
 {
-  unsigned char frame[1756] = {0};
+  unsigned char frame[1760] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   uint uVar2;
@@ -35614,7 +33099,7 @@ LAB_4041e6f8:
 undefined8 recovered_4041e964(undefined4 param_1,undefined4 param_2,undefined1 param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_40417900();
   recovered_4041e998(param_1,param_2,param_3);
@@ -35648,7 +33133,7 @@ undefined8 recovered_4041e964(undefined4 param_1,undefined4 param_2,undefined1 p
 void recovered_4041e998(undefined4 param_1,undefined4 param_2,undefined1 param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   DAT_40494753 = 0;
   DAT_4045a2e0 = (char)((uint)param_1 >> 0x10);
@@ -35704,7 +33189,7 @@ void recovered_4041e998(undefined4 param_1,undefined4 param_2,undefined1 param_3
 undefined8 recovered_4041e9f4(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   byte bVar2;
@@ -35828,7 +33313,7 @@ LAB_4041eaa8:
 bool recovered_4041eb90(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char cVar1;
   bool bVar2;
@@ -35875,7 +33360,7 @@ bool recovered_4041eb90(void)
 int recovered_4041ec20(uint param_1,uint param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   bool bVar2;
@@ -35937,7 +33422,7 @@ LAB_4041ecd0:
 void recovered_4041ece8(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   void *pvVar1;
 
@@ -35960,7 +33445,7 @@ void recovered_4041ece8(void)
 double recovered_4041ed18(uint param_1,uint param_2,uint param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -36012,7 +33497,7 @@ double recovered_4041ed18(uint param_1,uint param_2,uint param_3)
 uchar recovered_4041edb8(void *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -36077,7 +33562,7 @@ uchar recovered_4041edb8(void *param_1)
 uchar recovered_4041ee48(void *param_1)
 
 {
-  unsigned char frame[112] = {0};
+  unsigned char frame[112] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   uint uVar2;
@@ -36153,7 +33638,7 @@ uchar recovered_4041ee48(void *param_1)
 uint recovered_4041ef2c(uint *param_1)
 
 {
-  unsigned char frame[176] = {0};
+  unsigned char frame[176] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   uint uVar2;
@@ -36229,7 +33714,7 @@ uint recovered_4041ef2c(uint *param_1)
 undefined8 recovered_4041effc(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   int iVar2;
@@ -36298,7 +33783,7 @@ undefined8 recovered_4041effc(void)
 ulong recovered_4041f078(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   char cVar2;
@@ -36412,7 +33897,7 @@ ulong recovered_4041f078(void)
 undefined8 recovered_4041f290(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_40417900();
   recovered_4041e964(0xaa,0x55ffff,0x1b);
@@ -36452,7 +33937,7 @@ undefined8 recovered_4041f290(void)
 undefined8 recovered_4041f2b4(char *param_1,long param_2)
 
 {
-  unsigned char frame[288] = {0};
+  unsigned char frame[288] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   uint uVar2;
@@ -36617,7 +34102,7 @@ LAB_4041f49c:
 void recovered_4041f4f4(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   *param_1 = 0;
   *(undefined4 *)(param_1 + 1) = 0;
@@ -36638,7 +34123,7 @@ void recovered_4041f4f4(undefined8 *param_1)
 ulong recovered_4041f504(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 *puVar1;
   void *buffer;
@@ -36723,8 +34208,8 @@ switchD_4041f53c_caseD_5:
 #define str_4044e5f4 (*(char (*)[1])(0x4044e5f4U))
 #undef str_40457cee
 #define str_40457cee (*(char (*)[1])(0x40457ceeU))
-#define bStack_269 (*(byte *)(frame + 16))
-#define abStack_268 (*(byte (*)[520])(frame + 17))
+#define bStack_269 (*(byte *)(frame + 23))
+#define abStack_268 (*(byte (*)[520])(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4041f60c
  */
@@ -36732,7 +34217,7 @@ switchD_4041f53c_caseD_5:
 uint recovered_4041f60c(char *param_1,char *param_2,uint param_3)
 
 {
-  unsigned char frame[665] = {0};
+  unsigned char frame[672] __attribute__((aligned(16))) = {0};
 
   char *pcVar1;
   ushort uVar2;
@@ -36861,7 +34346,7 @@ LAB_4041f750:
 void recovered_4041f850(byte *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte *text;
   ulong uVar1;
@@ -36910,7 +34395,7 @@ void recovered_4041f850(byte *param_1)
 undefined8 recovered_4041f8c8(long param_1)
 
 {
-  unsigned char frame[416] = {0};
+  unsigned char frame[416] __attribute__((aligned(16))) = {0};
 
   void *data;
   byte bVar1;
@@ -37091,7 +34576,7 @@ LAB_4041fab4:
 bool recovered_4041fb14(char *text)
 
 {
-  unsigned char frame[464] = {0};
+  unsigned char frame[464] __attribute__((aligned(16))) = {0};
 
   char *vararg0;
   bool bVar1;
@@ -37227,36 +34712,36 @@ bool recovered_4041fb14(char *text)
 #define str_40457bfa (*(char (*)[1])(0x40457bfaU))
 #undef str_40457c0b
 #define str_40457c0b (*(char (*)[1])(0x40457c0bU))
-#define uStack_198 (*(undefined8 *)(frame + 2697))
-#define uStack_190 (*(undefined1 *)(frame + 2705))
-#define abStack_318 (*(byte (*)[64])(frame + 2313))
-#define abStack_2d8 (*(byte (*)[320])(frame + 2377))
-#define bStack_18d (*(byte *)(frame + 2708))
-#define lStack_188 (*(long *)(frame + 2713))
-#define uStack_18f (*(undefined1 *)(frame + 2706))
-#define uStack_18e (*(undefined1 *)(frame + 2707))
-#define pvStack_170 (*(void * *)(frame + 2737))
-#define uStack_168 (*(undefined8 *)(frame + 2745))
-#define pvStack_180 (*(void * *)(frame + 2721))
-#define uStack_178 (*(undefined8 *)(frame + 2729))
-#define uStack_d8 (*(ulong *)(frame + 2889))
-#define pvStack_d0 (*(void * *)(frame + 2897))
-#define auStack_160 (*(ulong (*)[16])(frame + 2753))
-#define uStack_e0 (*(ulong *)(frame + 2881))
-#define lStack_b8 (*(long *)(frame + 2921))
-#define uStack_b0 (*(ulong *)(frame + 2929))
-#define uStack_c8 (*(ulong *)(frame + 2905))
-#define uStack_c0 (*(undefined8 *)(frame + 2913))
-#define lStack_98 (*(long *)(frame + 2953))
-#define uStack_90 (*(ulong *)(frame + 2961))
-#define uStack_a8 (*(undefined8 *)(frame + 2937))
-#define lStack_a0 (*(long *)(frame + 2945))
-#define pcStack_78 (*(char * *)(frame + 2985))
-#define uStack_88 (*(undefined8 *)(frame + 2969))
-#define pcStack_80 (*(char * *)(frame + 2977))
-#define uStack_b20 (*(ulong *)(frame + 257))
-#define abStack_b18 (*(byte (*)[2048])(frame + 265))
-#define abStack_c11 (*(byte (*)[241])(frame + 16))
+#define uStack_198 (*(undefined8 *)(frame + 2712))
+#define uStack_190 (*(undefined1 *)(frame + 2720))
+#define abStack_318 (*(byte (*)[64])(frame + 2328))
+#define abStack_2d8 (*(byte (*)[320])(frame + 2392))
+#define bStack_18d (*(byte *)(frame + 2723))
+#define lStack_188 (*(long *)(frame + 2728))
+#define uStack_18f (*(undefined1 *)(frame + 2721))
+#define uStack_18e (*(undefined1 *)(frame + 2722))
+#define pvStack_170 (*(void * *)(frame + 2752))
+#define uStack_168 (*(undefined8 *)(frame + 2760))
+#define pvStack_180 (*(void * *)(frame + 2736))
+#define uStack_178 (*(undefined8 *)(frame + 2744))
+#define uStack_d8 (*(ulong *)(frame + 2904))
+#define pvStack_d0 (*(void * *)(frame + 2912))
+#define auStack_160 (*(ulong (*)[16])(frame + 2768))
+#define uStack_e0 (*(ulong *)(frame + 2896))
+#define lStack_b8 (*(long *)(frame + 2936))
+#define uStack_b0 (*(ulong *)(frame + 2944))
+#define uStack_c8 (*(ulong *)(frame + 2920))
+#define uStack_c0 (*(undefined8 *)(frame + 2928))
+#define lStack_98 (*(long *)(frame + 2968))
+#define uStack_90 (*(ulong *)(frame + 2976))
+#define uStack_a8 (*(undefined8 *)(frame + 2952))
+#define lStack_a0 (*(long *)(frame + 2960))
+#define pcStack_78 (*(char * *)(frame + 3000))
+#define uStack_88 (*(undefined8 *)(frame + 2984))
+#define pcStack_80 (*(char * *)(frame + 2992))
+#define uStack_b20 (*(ulong *)(frame + 272))
+#define abStack_b18 (*(byte (*)[2048])(frame + 280))
+#define abStack_c11 (*(byte (*)[241])(frame + 31))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4041fc70
  */
@@ -37266,7 +34751,7 @@ bool recovered_4041fb14(char *text)
 uint recovered_4041fc70(char *text)
 
 {
-  unsigned char frame[3137] = {0};
+  unsigned char frame[3152] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   byte bVar2;
@@ -38126,37 +35611,37 @@ LAB_404208ac:
 #define str_40457c91 (*(char (*)[1])(0x40457c91U))
 #undef str_40457cad
 #define str_40457cad (*(char (*)[1])(0x40457cadU))
-#define uStack_328 (*(undefined8 *)(frame + 144))
-#define uStack_320 (*(undefined8 *)(frame + 152))
-#define uStack_338 (*(undefined8 *)(frame + 128))
-#define uStack_330 (*(undefined8 *)(frame + 136))
-#define cStack_301 (*(char *)(frame + 183))
-#define auStack_300 (*(ulong (*)[2])(frame + 184))
-#define uStack_318 (*(undefined8 *)(frame + 160))
-#define uStack_310 (*(undefined8 *)(frame + 168))
-#define puStack_2d0 (*(undefined8 * *)(frame + 232))
-#define uStack_2c8 (*(ulong *)(frame + 240))
-#define puStack_2f0 (*(ulong * *)(frame + 200))
-#define auStack_2e0 (*(ulong (*)[2])(frame + 216))
-#define acStack_2ac (*(char (*)[320])(frame + 268))
-#define uStack_16c (*(uint *)(frame + 588))
-#define pcStack_2c0 (*(char * *)(frame + 248))
-#define pcStack_2b8 (*(char * *)(frame + 256))
-#define uStack_158 (*(undefined8 *)(frame + 608))
-#define uStack_150 (*(undefined8 *)(frame + 616))
-#define uStack_168 (*(ulong *)(frame + 592))
-#define uStack_160 (*(undefined4 *)(frame + 600))
-#define uStack_138 (*(undefined8 *)(frame + 640))
-#define uStack_130 (*(undefined8 *)(frame + 648))
-#define uStack_148 (*(undefined8 *)(frame + 624))
-#define uStack_140 (*(undefined8 *)(frame + 632))
-#define auStack_74 (*(uint (*)[5])(frame + 836))
-#define in_stack_fffffffffffffc58 (*(ulong *)(frame + 16))
-#define in_stack_fffffffffffffc60 (*(ulong *)(frame + 24))
-#define uStack_348 (*(ulong *)(frame + 112))
-#define uStack_340 (*(undefined4 *)(frame + 120))
-#define uStack_390 (*(ulong *)(frame + 40))
-#define auStack_388 (*(uint (*)[16])(frame + 48))
+#define uStack_328 (*(undefined8 *)(frame + 152))
+#define uStack_320 (*(undefined8 *)(frame + 160))
+#define uStack_338 (*(undefined8 *)(frame + 136))
+#define uStack_330 (*(undefined8 *)(frame + 144))
+#define cStack_301 (*(char *)(frame + 191))
+#define auStack_300 (*(ulong (*)[2])(frame + 192))
+#define uStack_318 (*(undefined8 *)(frame + 168))
+#define uStack_310 (*(undefined8 *)(frame + 176))
+#define puStack_2d0 (*(undefined8 * *)(frame + 240))
+#define uStack_2c8 (*(ulong *)(frame + 248))
+#define puStack_2f0 (*(ulong * *)(frame + 208))
+#define auStack_2e0 (*(ulong (*)[2])(frame + 224))
+#define acStack_2ac (*(char (*)[320])(frame + 276))
+#define uStack_16c (*(uint *)(frame + 596))
+#define pcStack_2c0 (*(char * *)(frame + 256))
+#define pcStack_2b8 (*(char * *)(frame + 264))
+#define uStack_158 (*(undefined8 *)(frame + 616))
+#define uStack_150 (*(undefined8 *)(frame + 624))
+#define uStack_168 (*(ulong *)(frame + 600))
+#define uStack_160 (*(undefined4 *)(frame + 608))
+#define uStack_138 (*(undefined8 *)(frame + 648))
+#define uStack_130 (*(undefined8 *)(frame + 656))
+#define uStack_148 (*(undefined8 *)(frame + 632))
+#define uStack_140 (*(undefined8 *)(frame + 640))
+#define auStack_74 (*(uint (*)[5])(frame + 844))
+#define in_stack_fffffffffffffc58 (*(ulong *)(frame + 24))
+#define in_stack_fffffffffffffc60 (*(ulong *)(frame + 32))
+#define uStack_348 (*(ulong *)(frame + 120))
+#define uStack_340 (*(undefined4 *)(frame + 128))
+#define uStack_390 (*(ulong *)(frame + 48))
+#define auStack_388 (*(uint (*)[16])(frame + 56))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40420984
  */
@@ -38164,7 +35649,7 @@ LAB_404208ac:
 void recovered_40420984(char *text)
 
 {
-  unsigned char frame[984] = {0};
+  unsigned char frame[992] __attribute__((aligned(16))) = {0};
 
   undefined8 *puVar1;
   uchar uVar2;
@@ -39228,7 +36713,7 @@ LAB_40420b80:
 void recovered_40421354(void)
 
 {
-  unsigned char frame[720] = {0};
+  unsigned char frame[720] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   int iVar2;
@@ -39431,7 +36916,7 @@ void recovered_40421354(void)
   local_a0 = local_a0 & 0xffffffff00000000;
   uVar5 = recovered_40433c4c(&DAT_4044ea13,(float *)&local_a0);
   if (uVar5 != '\0') {
-    recovered_4043365c((undefined4 *)&local_2a0,(float)local_a0);
+    recovered_4043365c((undefined4 *)&local_2a0,pf_bits_float((uint32_t)local_a0));
     recovered_40431110(0x40457d31,&local_2a0);
     recovered_4041f504(&local_2a0);
   }
@@ -40078,7 +37563,7 @@ LAB_40422310:
 void recovered_404223c0(uint param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   char *pcVar2;
@@ -40169,7 +37654,7 @@ LAB_4042241c:
 undefined8 recovered_404224f0(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   bool bVar2;
@@ -40239,7 +37724,7 @@ LAB_40422594:
 void recovered_404225bc(void)
 
 {
-  unsigned char frame[224] = {0};
+  unsigned char frame[224] __attribute__((aligned(16))) = {0};
 
   char cVar1;
   byte bVar2;
@@ -40281,7 +37766,7 @@ void recovered_404225bc(void)
 void recovered_4042265c(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_40418c1c(&DAT_40494f90,0x200,(char *)0x0,0,0);
   return;
@@ -40296,7 +37781,7 @@ void recovered_4042265c(void)
 uint recovered_40422678(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
 
@@ -40315,7 +37800,7 @@ uint recovered_40422678(void)
 uint recovered_40422694(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
 
@@ -40340,7 +37825,7 @@ uint recovered_40422694(void)
 long recovered_404226b0(uint param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   int iVar2;
@@ -40368,7 +37853,7 @@ long recovered_404226b0(uint param_1)
 void recovered_404226e8(uint *param_1,undefined1 param_2,undefined1 param_3,undefined1 param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined1 *puVar1;
   long lVar2;
@@ -40399,7 +37884,7 @@ void recovered_4042273c(int param_1,int param_2,undefined1 *param_3,undefined8 p
                        undefined4 param_5,undefined4 param_6)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char *text;
   ulong uVar1;
@@ -40423,7 +37908,7 @@ void recovered_404227a8(uint *param_1,uint param_2,uint param_3,int param_4,int 
                        undefined1 param_6,undefined1 param_7,undefined1 param_8)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -40478,7 +37963,7 @@ void recovered_404227a8(uint *param_1,uint param_2,uint param_3,int param_4,int 
 undefined8 recovered_40422868(undefined8 param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte *pbVar1;
   uint uVar2;
@@ -40695,7 +38180,7 @@ LAB_40422a54:
 uchar recovered_40422bc4(undefined8 param_1,undefined8 param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uchar uVar1;
   undefined8 uVar2;
@@ -40717,7 +38202,7 @@ uchar recovered_40422bc4(undefined8 param_1,undefined8 param_2)
 void recovered_40422c0c(uint *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if ((param_1 == (uint *)0x0) || (*(void **)(param_1 + 2) == (void *)0x0)) {
     return;
@@ -40740,7 +38225,7 @@ void recovered_40422c0c(uint *param_1)
 void recovered_40422c30(uint param_1,uint param_2,long param_3,ulong param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong size;
   uint uVar1;
@@ -40792,7 +38277,7 @@ void recovered_40422c30(uint param_1,uint param_2,long param_3,ulong param_4)
 ulong recovered_40422c8c(ulong param_1)
 
 {
-  unsigned char frame[160] = {0};
+  unsigned char frame[160] __attribute__((aligned(16))) = {0};
 
   char *pcVar1;
   char *pcVar2;
@@ -40925,7 +38410,7 @@ recovered_40422e24(int param_1,int param_2,long param_3,long param_4,undefined8 
                   undefined4 param_6,undefined4 param_7)
 
 {
-  unsigned char frame[160] = {0};
+  unsigned char frame[160] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   uint uVar2;
@@ -41060,7 +38545,7 @@ LAB_40422ef0:
 undefined8 recovered_40423070(void)
 
 {
-  unsigned char frame[96] = {0};
+  unsigned char frame[96] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   byte bVar2;
@@ -41108,7 +38593,7 @@ undefined8 recovered_40423070(void)
 uint recovered_40423104(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 *puVar1;
 
@@ -41126,7 +38611,7 @@ uint recovered_40423104(void)
 uint recovered_40423124(uint param_1,uint param_2,uint param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   int iVar2;
@@ -41193,7 +38678,7 @@ LAB_404231f0:
 void recovered_40423200(undefined1 *param_1,uint param_2,ulong param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
 
@@ -41212,7 +38697,7 @@ void recovered_40423200(undefined1 *param_1,uint param_2,ulong param_3)
 uint recovered_40423224(int param_1,int param_2,uint param_3)
 
 {
-  unsigned char frame[144] = {0};
+  unsigned char frame[144] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   undefined8 *puVar2;
@@ -41275,7 +38760,7 @@ uint recovered_4042334c(int param_1,int param_2,int param_3,uint param_4,uint pa
                        uint param_7,uint param_8,uint param_9)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -41296,7 +38781,7 @@ uint recovered_4042334c(int param_1,int param_2,int param_3,uint param_4,uint pa
 uint recovered_404233b8(int param_1,uint param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (param_2 == 0) {
     return 0;
@@ -41315,7 +38800,7 @@ uint recovered_404233b8(int param_1,uint param_2)
 undefined8 recovered_404233e8(uint *param_1,uint param_2,uint param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   undefined8 uVar2;
@@ -41370,7 +38855,7 @@ undefined8 recovered_404233e8(uint *param_1,uint param_2,uint param_3)
 uchar recovered_40423490(undefined8 param_1,undefined8 param_2)
 
 {
-  unsigned char frame[96] = {0};
+  unsigned char frame[96] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   int iVar2;
@@ -41424,7 +38909,7 @@ LAB_4049c2a0:
 ulonglong recovered_40423524(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   uint uVar2;
@@ -41490,7 +38975,7 @@ ulonglong recovered_40423524(void)
 uint recovered_404235d4(undefined1 *param_1,ulong param_2,int param_3,int param_4)
 
 {
-  unsigned char frame[128] = {0};
+  unsigned char frame[128] __attribute__((aligned(16))) = {0};
 
   char cVar1;
   ulong uVar2;
@@ -41579,11 +39064,11 @@ LAB_40423708:
 #define PTR_DAT_404591c0 (*(void * *)(0x404591c0U))
 #undef PTR_DAT_404591c8
 #define PTR_DAT_404591c8 (*(uint8_t * *)(0x404591c8U))
-#define abStack_a0 (*(byte (*)[32])(frame + 24))
-#define pvStack_a8 (*(void * *)(frame + 16))
-#define pvStack_70 (*(void * *)(frame + 72))
-#define uStack_78 (*(undefined8 *)(frame + 64))
-#define uStack_80 (*(ulong *)(frame + 56))
+#define abStack_a0 (*(byte (*)[32])(frame + 32))
+#define pvStack_a8 (*(void * *)(frame + 24))
+#define pvStack_70 (*(void * *)(frame + 80))
+#define uStack_78 (*(undefined8 *)(frame + 72))
+#define uStack_80 (*(ulong *)(frame + 64))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40423758
  */
@@ -41591,7 +39076,7 @@ LAB_40423708:
 undefined8 recovered_40423758(undefined1 *param_1,ulong param_2,long *param_3,ulong *param_4)
 
 {
-  unsigned char frame[216] = {0};
+  unsigned char frame[224] __attribute__((aligned(16))) = {0};
 
   byte *pbVar1;
   undefined1 *puVar2;
@@ -41741,7 +39226,7 @@ LAB_4042396c:
 long recovered_404239b8(long param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   void *out;
 
@@ -41763,7 +39248,7 @@ long recovered_404239b8(long param_1,long param_2)
 uchar recovered_40423a00(long *param_1,long param_2,long param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   ulong uVar2;
@@ -41813,7 +39298,7 @@ uchar recovered_40423a00(long *param_1,long param_2,long param_3)
 void recovered_40423aa4(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (param_1 != (undefined8 *)0x0) {
     recovered_404006f4((void *)param_1[2]);
@@ -41832,7 +39317,7 @@ void recovered_40423aa4(undefined8 *param_1)
 ulong recovered_40423ad0(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   undefined1 *puVar2;
@@ -41862,7 +39347,7 @@ ulong recovered_40423ad0(undefined8 *param_1)
 bool recovered_40423b0c(uint param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
 
@@ -41878,7 +39363,7 @@ bool recovered_40423b0c(uint param_1)
 uint recovered_40423b38(int param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   uint uVar2;
@@ -41902,7 +39387,7 @@ uint recovered_40423b38(int param_1)
 void recovered_40423b60(int *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
 
@@ -41924,7 +39409,7 @@ void recovered_40423b60(int *param_1)
 bool recovered_40423b84(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
 
@@ -42004,7 +39489,7 @@ bool recovered_40423b84(void)
 ulong recovered_40423ba8(ulong param_1)
 
 {
-  unsigned char frame[2352] = {0};
+  unsigned char frame[2352] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   undefined *vararg0;
@@ -42235,7 +39720,7 @@ LAB_40423f8c:
 #define str_4044ead3 (*(char (*)[1])(0x4044ead3U))
 #undef str_4044ead9
 #define str_4044ead9 (*(char (*)[1])(0x4044ead9U))
-#define in_stack_ffffffffffffffe8 (*(ulong *)(frame + 16))
+#define in_stack_ffffffffffffffe8 (*(ulong *)(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40423fb8
  */
@@ -42243,7 +39728,7 @@ LAB_40423f8c:
 uint recovered_40423fb8(ulong param_1,long param_2)
 
 {
-  unsigned char frame[72] = {0};
+  unsigned char frame[80] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   bool bVar2;
@@ -42319,7 +39804,7 @@ uint recovered_40423fb8(ulong param_1,long param_2)
 long recovered_40424064(void)
 
 {
-  unsigned char frame[80] = {0};
+  unsigned char frame[80] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   ulong uVar2;
@@ -42436,7 +39921,7 @@ LAB_404240e8:
 void recovered_404241b0(long *param_1,undefined1 *param_2,undefined1 param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char *text;
   ulong uVar1;
@@ -42475,7 +39960,7 @@ void recovered_404241b0(long *param_1,undefined1 *param_2,undefined1 param_3)
 undefined8 recovered_404241f8(long *param_1,long *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   uint uVar2;
@@ -42565,7 +40050,7 @@ undefined8 recovered_404241f8(long *param_1,long *param_2)
 undefined8 recovered_404242e0(long *param_1,long *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   byte bVar2;
@@ -42667,7 +40152,7 @@ undefined8 recovered_404242e0(long *param_1,long *param_2)
 long recovered_40424424(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int *piVar1;
   uint uVar2;
@@ -42708,7 +40193,7 @@ long recovered_40424424(void)
 undefined8 recovered_40424480(undefined8 param_1,ulong param_2,long param_3,long param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   char *pcVar2;
@@ -42745,7 +40230,7 @@ LAB_404244c8:
 char * recovered_4042450c(uint param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char *pcVar1;
   long lVar2;
@@ -42773,7 +40258,7 @@ char * recovered_4042450c(uint param_1)
 uint recovered_40424558(long param_1,int param_2,uint param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
 
@@ -42805,7 +40290,7 @@ uint recovered_40424558(long param_1,int param_2,uint param_3)
 void recovered_404245c4(long *param_1,long param_2,ulong param_3,undefined1 param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   void *out;
@@ -42843,7 +40328,7 @@ void recovered_404245c4(long *param_1,long param_2,ulong param_3,undefined1 para
 ulong recovered_40424630(byte *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -42907,7 +40392,7 @@ ulong recovered_40424630(byte *param_1)
 uint recovered_4042471c(byte *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
 
@@ -42986,7 +40471,7 @@ uint recovered_4042471c(byte *param_1)
 undefined8 recovered_40424750(ulong param_1)
 
 {
-  unsigned char frame[208] = {0};
+  unsigned char frame[208] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -43266,7 +40751,7 @@ LAB_404248a0:
 long recovered_40424b88(long param_1,uint param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -43287,7 +40772,7 @@ bool recovered_40424ba4(uint param_1,int param_2,int param_3,int param_4,uint pa
                        uint param_7,uint param_8,uint param_9,long *param_10,int *param_11)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   ulong uVar2;
@@ -43369,7 +40854,7 @@ recovered_40424d40(long param_1,undefined8 param_2,long param_3,uint param_4,int
                   ,uint param_7,undefined8 param_8,long *param_9,ulong *param_10)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -43460,7 +40945,7 @@ recovered_40424d40(long param_1,undefined8 param_2,long param_3,uint param_4,int
 bool recovered_40424ef8(int param_1,uint param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   bool bVar2;
@@ -43486,7 +40971,7 @@ recovered_40424f3c(long param_1,long param_2,uint param_3,int param_4,int param_
                   uint param_7,uint param_8,long param_9,long *param_10,long *param_11)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint128 auVar1;
   uint128 auVar2;
@@ -43587,7 +41072,7 @@ LAB_404250d4:
 bool recovered_404250e0(ulong param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   bool bVar2;
@@ -43661,7 +41146,7 @@ bool recovered_404250e0(ulong param_1)
 ulong recovered_404251c4(ulong param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   long lVar2;
@@ -43710,7 +41195,7 @@ ulong recovered_404251c4(ulong param_1)
 undefined1 recovered_4042524c(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long lVar2;
@@ -43769,7 +41254,7 @@ undefined1 recovered_4042524c(void)
 undefined8 recovered_40425324(long *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   uint uVar2;
@@ -43830,7 +41315,7 @@ LAB_404253f8:
 undefined4 recovered_40425404(long *param_1,long param_2,uint param_3,ulong param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -43886,7 +41371,7 @@ LAB_404254b8:
 bool recovered_404254c8(uint *param_1,uint param_2,uint param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   bool bVar2;
@@ -44047,7 +41532,7 @@ LAB_404255d0:
 bool recovered_404256dc(ulong param_1,long param_2,uint param_3,uint param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   uint uVar2;
@@ -44157,7 +41642,7 @@ LAB_4049c97c:
 undefined8 recovered_404257f0(ulong param_1,ulong param_2)
 
 {
-  unsigned char frame[384] = {0};
+  unsigned char frame[384] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   ulong uVar2;
@@ -44279,7 +41764,7 @@ undefined8 recovered_404257f0(ulong param_1,ulong param_2)
 #define DAT_40494b18 (*(uint32_t volatile *)(0x40494b18U))
 #undef DAT_40494b1c
 #define DAT_40494b1c (*(uint32_t volatile *)(0x40494b1cU))
-#define uStack_54 (*(uint *)(frame + 16))
+#define uStack_54 (*(uint *)(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40425958
  */
@@ -44287,7 +41772,7 @@ undefined8 recovered_404257f0(ulong param_1,ulong param_2)
 undefined8 recovered_40425958(void)
 
 {
-  unsigned char frame[132] = {0};
+  unsigned char frame[144] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   int iVar2;
@@ -44375,7 +41860,7 @@ undefined8 recovered_40425958(void)
 void recovered_40425a64(uint param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   long lVar2;
@@ -44427,7 +41912,7 @@ void recovered_40425a64(uint param_1)
 void recovered_40425ae0(uint param_1,int param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   ulong uVar2;
@@ -44472,7 +41957,7 @@ void recovered_40425ae0(uint param_1,int param_2)
 undefined8 recovered_40425b74(undefined8 param_1,ulong param_2,long param_3,ulong param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   undefined8 uVar2;
@@ -44539,16 +42024,16 @@ undefined8 recovered_40425b74(undefined8 param_1,ulong param_2,long param_3,ulon
 #define Ram0000000040494b28 (*(uint64_t volatile *)(0x40494b28U))
 #undef str_4044dfe0
 #define str_4044dfe0 (*(char (*)[1])(0x4044dfe0U))
-#define uStack_488 (*(undefined8 *)(frame + 44))
-#define uStack_490 (*(undefined8 *)(frame + 36))
-#define uStack_498 (*(undefined8 *)(frame + 28))
-#define uStack_49c (*(undefined4 *)(frame + 24))
-#define auStack_460 (*(undefined1 (*)[512])(frame + 84))
-#define uStack_474 (*(undefined4 *)(frame + 64))
-#define uStack_478 (*(undefined4 *)(frame + 60))
-#define uStack_480 (*(undefined8 *)(frame + 52))
-#define auStack_260 (*(undefined1 (*)[512])(frame + 596))
-#define auStack_4a4 (*(undefined1 (*)[8])(frame + 16))
+#define uStack_488 (*(undefined8 *)(frame + 56))
+#define uStack_490 (*(undefined8 *)(frame + 48))
+#define uStack_498 (*(undefined8 *)(frame + 40))
+#define uStack_49c (*(undefined4 *)(frame + 36))
+#define auStack_460 (*(undefined1 (*)[512])(frame + 96))
+#define uStack_474 (*(undefined4 *)(frame + 76))
+#define uStack_478 (*(undefined4 *)(frame + 72))
+#define uStack_480 (*(undefined8 *)(frame + 64))
+#define auStack_260 (*(undefined1 (*)[512])(frame + 608))
+#define auStack_4a4 (*(undefined1 (*)[8])(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40425c0c
  */
@@ -44556,7 +42041,7 @@ undefined8 recovered_40425b74(undefined8 param_1,ulong param_2,long param_3,ulon
 undefined8 recovered_40425c0c(void)
 
 {
-  unsigned char frame[1236] = {0};
+  unsigned char frame[1248] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -44683,7 +42168,7 @@ LAB_40425ce4:
 void recovered_40425d60(long param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
 
@@ -44707,7 +42192,7 @@ void recovered_40425d60(long param_1,long param_2)
 bool recovered_40425dcc(long param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   int iVar2;
@@ -44739,7 +42224,7 @@ bool recovered_40425dcc(long param_1,long param_2)
 ulong recovered_40425e24(int param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   undefined8 in_x1;
@@ -44770,7 +42255,7 @@ ulong recovered_40425e24(int param_1)
 void recovered_40425e4c(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_40425e58(&DAT_40494ab8);
   return;
@@ -44785,7 +42270,7 @@ void recovered_40425e4c(void)
 void recovered_40425e58(long *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   void *buffer;
   ulong uVar1;
@@ -44844,7 +42329,7 @@ void recovered_40425e58(long *param_1)
 uint recovered_40425f0c(char *param_1,byte *param_2,byte *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   byte bVar2;
@@ -44934,7 +42419,7 @@ joined_r0x40426034:
 undefined8 recovered_4042603c(long param_1,undefined1 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   undefined8 uVar2;
@@ -44974,7 +42459,7 @@ LAB_40426070:
 void recovered_404260cc(long param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char *vararg0;
   char *in_x2;
@@ -44999,7 +42484,7 @@ void recovered_404260cc(long param_1,ulong param_2)
 bool recovered_40426108(long param_1,byte *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   ulong uVar2;
@@ -45041,13 +42526,13 @@ bool recovered_40426108(long param_1,byte *param_2)
 #define str_4044ed1c (*(char (*)[1])(0x4044ed1cU))
 #undef str_4044ed22
 #define str_4044ed22 (*(char (*)[1])(0x4044ed22U))
-#define bStack_359 (*(byte *)(frame + 16))
-#define acStack_33b (*(char (*)[241])(frame + 46))
-#define pvStack_348 (*(void * *)(frame + 33))
-#define pvStack_350 (*(void * *)(frame + 25))
-#define uStack_358 (*(ulong *)(frame + 17))
-#define acStack_159 (*(char (*)[249])(frame + 528))
-#define acStack_24a (*(char (*)[241])(frame + 287))
+#define bStack_359 (*(byte *)(frame + 23))
+#define acStack_33b (*(char (*)[241])(frame + 53))
+#define pvStack_348 (*(void * *)(frame + 40))
+#define pvStack_350 (*(void * *)(frame + 32))
+#define uStack_358 (*(ulong *)(frame + 24))
+#define acStack_159 (*(char (*)[249])(frame + 535))
+#define acStack_24a (*(char (*)[241])(frame + 294))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40426164
  */
@@ -45055,7 +42540,7 @@ bool recovered_40426108(long param_1,byte *param_2)
 undefined8 recovered_40426164(long param_1,undefined1 *param_2,long param_3)
 
 {
-  unsigned char frame[905] = {0};
+  unsigned char frame[912] __attribute__((aligned(16))) = {0};
 
   void *data;
   bool bVar1;
@@ -45229,7 +42714,7 @@ void recovered_40426494(long param_1,long *param_2,long *param_3,undefined1 *par
                        undefined8 param_6,undefined8 param_7,undefined8 param_8)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_40426560(param_1,param_2,param_3,1,param_4,param_5,param_7,param_8);
   return;
@@ -45243,7 +42728,7 @@ void recovered_40426494(long param_1,long *param_2,long *param_3,undefined1 *par
 bool recovered_404264a4(uint *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   bool bVar2;
@@ -45267,7 +42752,7 @@ bool recovered_404264a4(uint *param_1,ulong param_2)
 bool recovered_4042650c(byte *param_1,byte *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   byte bVar2;
@@ -45312,10 +42797,10 @@ bool recovered_4042650c(byte *param_1,byte *param_2)
 #define DAT_40494ab8 (*(uint64_t volatile *)(0x40494ab8U))
 #undef DAT_40494d68
 #define DAT_40494d68 (*(uint8_t volatile *)(0x40494d68U))
-#define auStack_228 (*(undefined1 (*)[264])(frame + 32))
-#define puStack_230 (*(uint * *)(frame + 24))
-#define uStack_238 (*(ulong *)(frame + 16))
-#define auStack_120 (*(undefined1 (*)[192])(frame + 296))
+#define auStack_228 (*(undefined1 (*)[264])(frame + 40))
+#define puStack_230 (*(uint * *)(frame + 32))
+#define uStack_238 (*(ulong *)(frame + 24))
+#define auStack_120 (*(undefined1 (*)[192])(frame + 304))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40426560
  */
@@ -45324,7 +42809,7 @@ ulong recovered_40426560(long param_1,long *param_2,long *param_3,undefined8 par
                         undefined1 *param_5,long param_6,undefined8 param_7,undefined8 param_8)
 
 {
-  unsigned char frame[616] = {0};
+  unsigned char frame[624] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   byte bVar2;
@@ -45464,7 +42949,7 @@ LAB_40426714:
 ulong recovered_4042676c(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -45536,32 +43021,32 @@ ulong recovered_4042676c(long param_1)
 #define _DAT_4044e1b0 (*(uint64_t *)(0x4044e1b0U))
 #undef uRam000000004044e1b8
 #define uRam000000004044e1b8 (*(uint64_t *)(0x4044e1b8U))
-#define uStack_4d0 (*(uint *)(frame + 24))
-#define uStack_4d8 (*(undefined8 *)(frame + 16))
-#define uStack_4c0 (*(uint *)(frame + 40))
-#define iStack_4c4 (*(int *)(frame + 36))
-#define uStack_4c8 (*(uint *)(frame + 32))
-#define iStack_4cc (*(int *)(frame + 28))
-#define bStack_4b0 (*(byte *)(frame + 56))
-#define uStack_4b4 (*(uint *)(frame + 52))
-#define uStack_4b8 (*(uint *)(frame + 48))
-#define iStack_4bc (*(int *)(frame + 44))
-#define uStack_478 (*(uint *)(frame + 112))
-#define iStack_47c (*(int *)(frame + 108))
-#define auStack_490 (*(undefined1 (*)[20])(frame + 88))
-#define uStack_498 (*(ulong *)(frame + 80))
-#define uStack_438 (*(ushort *)(frame + 176))
-#define sStack_458 (*(short *)(frame + 144))
-#define iStack_468 (*(int *)(frame + 128))
-#define uStack_470 (*(uint *)(frame + 120))
-#define pvStack_90 (*(void * *)(frame + 1112))
-#define uStack_392 (*(ushort *)(frame + 342))
-#define bStack_422 (*(byte *)(frame + 198))
-#define uStack_430 (*(uint *)(frame + 184))
-#define uStack_70 (*(undefined8 *)(frame + 1144))
-#define uStack_78 (*(undefined8 *)(frame + 1136))
-#define uStack_80 (*(undefined8 *)(frame + 1128))
-#define uStack_88 (*(undefined8 *)(frame + 1120))
+#define uStack_4d0 (*(uint *)(frame + 32))
+#define uStack_4d8 (*(undefined8 *)(frame + 24))
+#define uStack_4c0 (*(uint *)(frame + 48))
+#define iStack_4c4 (*(int *)(frame + 44))
+#define uStack_4c8 (*(uint *)(frame + 40))
+#define iStack_4cc (*(int *)(frame + 36))
+#define bStack_4b0 (*(byte *)(frame + 64))
+#define uStack_4b4 (*(uint *)(frame + 60))
+#define uStack_4b8 (*(uint *)(frame + 56))
+#define iStack_4bc (*(int *)(frame + 52))
+#define uStack_478 (*(uint *)(frame + 120))
+#define iStack_47c (*(int *)(frame + 116))
+#define auStack_490 (*(undefined1 (*)[20])(frame + 96))
+#define uStack_498 (*(ulong *)(frame + 88))
+#define uStack_438 (*(ushort *)(frame + 184))
+#define sStack_458 (*(short *)(frame + 152))
+#define iStack_468 (*(int *)(frame + 136))
+#define uStack_470 (*(uint *)(frame + 128))
+#define pvStack_90 (*(void * *)(frame + 1120))
+#define uStack_392 (*(ushort *)(frame + 350))
+#define bStack_422 (*(byte *)(frame + 206))
+#define uStack_430 (*(uint *)(frame + 192))
+#define uStack_70 (*(undefined8 *)(frame + 1152))
+#define uStack_78 (*(undefined8 *)(frame + 1144))
+#define uStack_80 (*(undefined8 *)(frame + 1136))
+#define uStack_88 (*(undefined8 *)(frame + 1128))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40426788
  */
@@ -45572,7 +43057,7 @@ bool recovered_40426788(long param_1,int param_2,undefined8 param_3,undefined8 p
                        undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8)
 
 {
-  unsigned char frame[1288] = {0};
+  unsigned char frame[1296] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   uint uVar2;
@@ -45939,7 +43424,7 @@ LAB_40426d8c:
 void recovered_40426db0(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   void *buffer;
 
@@ -45969,7 +43454,7 @@ void recovered_40426db0(void)
 undefined8 recovered_40426df0(long param_1,undefined8 param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (((((int)param_2 == 1) && (*(int *)(param_1 + 0x1c) < 0)) && (*(int *)(param_1 + 0x30) == 4))
      && ((*(int *)(param_1 + 8) == 0x41 && ((*(byte *)(param_1 + 0x18) & 1) != 0)))) {
@@ -45989,7 +43474,7 @@ uint128 recovered_40426e2c(long param_1,ulong param_2,uint *param_3,int *param_4
                   ,uint *param_7,int *param_8,undefined4 *param_9)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -46082,7 +43567,7 @@ uint128 recovered_40426f88(long param_1,long param_2,uint param_3,int param_4,in
                   long param_7,ulong param_8,char *param_9,uint param_10)
 
 {
-  unsigned char frame[752] = {0};
+  unsigned char frame[752] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   uint uVar2;
@@ -46258,7 +43743,7 @@ LAB_40427264:
 void recovered_4042727c(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_40426db0();
   DAT_40494d69 = 0;
@@ -46274,7 +43759,7 @@ void recovered_4042727c(void)
 #define DAT_40494ab8 (*(uint64_t volatile *)(0x40494ab8U))
 #undef DAT_40494ac0
 #define DAT_40494ac0 (*(uint64_t volatile *)(0x40494ac0U))
-#define abStack_141 (*(byte (*)[241])(frame + 16))
+#define abStack_141 (*(byte (*)[241])(frame + 31))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40427298
  */
@@ -46284,7 +43769,7 @@ recovered_40427298(long param_1,long param_2,int param_3,uint param_4,undefined4
                   undefined4 param_6)
 
 {
-  unsigned char frame[369] = {0};
+  unsigned char frame[384] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   long lVar2;
@@ -46359,7 +43844,7 @@ recovered_4042739c(long *param_1,int param_2,char *param_3,uint param_4,undefine
                   undefined8 param_6,undefined8 param_7,undefined8 param_8)
 
 {
-  unsigned char frame[688] = {0};
+  unsigned char frame[688] __attribute__((aligned(16))) = {0};
 
   uint *puVar1;
   uint uVar2;
@@ -46493,7 +43978,7 @@ LAB_404275fc:
 undefined8 recovered_40427608(long *param_1,int param_2,long param_3)
 
 {
-  unsigned char frame[192] = {0};
+  unsigned char frame[192] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -46586,7 +44071,7 @@ LAB_40427708:
 undefined8 recovered_40427734(long *param_1,long param_2,long *param_3,ulong *param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   bool bVar2;
@@ -46679,7 +44164,7 @@ LAB_4049d1a8:
 undefined8 recovered_40427890(long *param_1,int param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   undefined8 uVar2;
@@ -46707,7 +44192,7 @@ undefined8 recovered_40427890(long *param_1,int param_2)
 bool recovered_404278c4(long param_1,short *param_2,long param_3,ulong param_4,int param_5)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   int iVar2;
@@ -46798,7 +44283,7 @@ undefined8
 recovered_40427a14(long param_1,undefined8 param_2,long param_3,ulong param_4,ulong param_5)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong size;
   ulong uVar1;
@@ -46842,7 +44327,7 @@ recovered_40427ab0(long param_1,uint param_2,undefined4 *param_3,uint *param_4,u
                   uint *param_11)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   byte bVar2;
@@ -47021,7 +44506,7 @@ recovered_40427c1c(long param_1,uint param_2,long param_3,uint param_4,int param
                   uint param_7,long param_8,ulong param_9,char *param_10)
 
 {
-  unsigned char frame[1088] = {0};
+  unsigned char frame[1088] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   ulong uVar2;
@@ -47213,7 +44698,7 @@ LAB_40427e14:
 uint recovered_40427f20(long param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   byte bVar2;
@@ -47277,7 +44762,7 @@ uint recovered_40427f20(long param_1,long param_2)
 uint recovered_40427ff4(uint *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
 
@@ -47293,7 +44778,7 @@ uint recovered_40427ff4(uint *param_1)
 undefined8 recovered_40428000(char *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -47319,7 +44804,7 @@ undefined8 recovered_40428000(char *param_1)
 uint recovered_40428040(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   void *pvVar1;
 
@@ -47342,7 +44827,7 @@ uint recovered_40428040(long param_1)
 undefined8 recovered_40428068(ulong param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   void *out;
@@ -47370,9 +44855,9 @@ undefined8 recovered_40428068(ulong param_1)
 #undef DAT_40494860
 #undef DAT_40494868
 
-#define auStack_43b0 (*(uint (*)[8])(frame + 20))
-#define local_43b4 (*(uint *)(frame + 16))
-#define local_4390 (*(undefined8 *)(frame + 52))
+#define auStack_43b0 (*(uint (*)[8])(frame + 32))
+#define local_43b4 (*(uint *)(frame + 28))
+#define local_4390 (*(undefined8 *)(frame + 64))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x404280d4
  */
@@ -47381,7 +44866,7 @@ ulong recovered_404280d4(uint *param_1,ulong param_2,undefined8 param_3,undefine
                         int *param_5,undefined8 *param_6,long param_7)
 
 {
-  unsigned char frame[17380] = {0};
+  unsigned char frame[17392] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   char cVar2;
@@ -47429,7 +44914,7 @@ ulong recovered_404280d4(uint *param_1,ulong param_2,undefined8 param_3,undefine
 ulong recovered_404281b8(char *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   ulong uVar2;
@@ -47450,7 +44935,7 @@ ulong recovered_404281b8(char *param_1,ulong param_2)
 undefined8 recovered_404281c8(undefined *UNRECOVERED_JUMPTABLE)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -47473,7 +44958,7 @@ undefined8 recovered_404281c8(undefined *UNRECOVERED_JUMPTABLE)
 ulong recovered_404281d4(uint *param_1,ulong param_2,long *param_3,ulong *param_4,long param_5)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong extraout_x0;
 
@@ -47492,7 +44977,7 @@ void recovered_40428214(uint *param_1,ulong param_2,uint param_3,uint param_4,ul
                        undefined8 param_6,long *param_7,ulong *param_8,long param_9)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_40428244(param_1,param_2,param_3,param_4,param_5,0,param_6,param_7,param_8,param_9);
   return;
@@ -47513,7 +44998,7 @@ recovered_40428244(uint *param_1,ulong param_2,uint param_3,uint param_4,ulong p
                   ulonglong param_7,long *param_8,ulong *param_9,long param_10)
 
 {
-  unsigned char frame[224] = {0};
+  unsigned char frame[224] __attribute__((aligned(16))) = {0};
 
   ulong *puVar1;
   uint *puVar2;
@@ -47630,7 +45115,7 @@ LAB_4049d390:
 ulong recovered_404284dc(ulong *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -47640,8 +45125,8 @@ ulong recovered_404284dc(ulong *param_1)
 }
 
 
-#define uStack_90 (*(uint *)(frame + 88))
-#define uStack_d8 (*(ulong *)(frame + 16))
+#define uStack_90 (*(uint *)(frame + 96))
+#define uStack_d8 (*(ulong *)(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x404284e8
  */
@@ -47651,7 +45136,7 @@ recovered_404284e8(uint *param_1,ulong param_2,uint param_3,uint param_4,uint *p
                   long param_7)
 
 {
-  unsigned char frame[264] = {0};
+  unsigned char frame[272] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -47984,7 +45469,7 @@ LAB_4049d3e8:
 undefined8 recovered_40428d90(long param_1,uint *param_2,uint *param_3,ulong *param_4,long param_5)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   bool bVar2;
@@ -48042,7 +45527,7 @@ LAB_4049d594:
 ulong recovered_40428e78(uint *param_1,int param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
 
@@ -48061,7 +45546,7 @@ ulong recovered_40428e78(uint *param_1,int param_2)
 ulong recovered_40428e88(undefined8 *param_1,int param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -48082,7 +45567,7 @@ ulong recovered_40428e88(undefined8 *param_1,int param_2)
 undefined8 recovered_40428e98(long param_1,uint param_2,undefined8 param_3,long param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   undefined8 uVar2;
@@ -48112,7 +45597,7 @@ undefined8 recovered_40428e98(long param_1,uint param_2,undefined8 param_3,long 
 bool recovered_40428f04(int *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   int iVar2;
@@ -48141,7 +45626,7 @@ bool recovered_40428f04(int *param_1)
 void recovered_40428f44(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char *in_x1;
   char *vararg0;
@@ -48169,7 +45654,7 @@ void recovered_40428f44(long param_1)
 undefined8 recovered_40428f88(long param_1,int param_2,uint param_3,long param_4)
 
 {
-  unsigned char frame[128] = {0};
+  unsigned char frame[128] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   bool bVar2;
@@ -48250,7 +45735,7 @@ LAB_4042901c:
 bool recovered_40429140(long param_1,undefined8 param_2,undefined8 param_3,long param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   bool bVar2;
@@ -48275,12 +45760,12 @@ bool recovered_40429140(long param_1,undefined8 param_2,undefined8 param_3,long 
 }
 
 
-#define uStack_78 (*(ulong *)(frame + 36))
-#define uStack_80 (*(ulong *)(frame + 28))
-#define uStack_88 (*(ulong *)(frame + 20))
-#define uStack_8c (*(uint *)(frame + 16))
-#define uStack_68 (*(ulong *)(frame + 52))
-#define uStack_70 (*(ulong *)(frame + 44))
+#define uStack_78 (*(ulong *)(frame + 40))
+#define uStack_80 (*(ulong *)(frame + 32))
+#define uStack_88 (*(ulong *)(frame + 24))
+#define uStack_8c (*(uint *)(frame + 20))
+#define uStack_68 (*(ulong *)(frame + 56))
+#define uStack_70 (*(ulong *)(frame + 48))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x404291cc
  */
@@ -48288,7 +45773,7 @@ bool recovered_40429140(long param_1,undefined8 param_2,undefined8 param_3,long 
 undefined1 recovered_404291cc(long param_1,long param_2)
 
 {
-  unsigned char frame[188] = {0};
+  unsigned char frame[192] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   long lVar2;
@@ -48465,7 +45950,7 @@ switchD_404292a4_caseD_0:
 undefined8 recovered_40429514(long param_1,uint param_2,uint param_3,int *param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   bool bVar2;
@@ -48496,7 +45981,7 @@ undefined8 recovered_40429514(long param_1,uint param_2,uint param_3,int *param_
 void recovered_404295b4(ulong param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long lVar2;
@@ -48536,7 +46021,7 @@ void recovered_404295b4(ulong param_1,long param_2)
 bool recovered_40429628(char *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   int iVar2;
@@ -48587,16 +46072,16 @@ bool recovered_40429628(char *param_1)
 #define str_4044f347 (*(char (*)[1])(0x4044f347U))
 #undef str_4044f34f
 #define str_4044f34f (*(char (*)[1])(0x4044f34fU))
-#define uStack_198 (*(undefined8 *)(frame + 257))
-#define acStack_289 (*(char (*)[241])(frame + 16))
-#define puStack_178 (*(uint * *)(frame + 289))
-#define uStack_180 (*(ulong *)(frame + 281))
-#define puStack_188 (*(uint * *)(frame + 273))
-#define uStack_190 (*(ulong *)(frame + 265))
-#define apvStack_70 (*(void * (*)[2])(frame + 553))
-#define uStack_78 (*(ulong *)(frame + 545))
-#define bStack_79 (*(byte *)(frame + 544))
-#define abStack_16a (*(byte (*)[241])(frame + 303))
+#define uStack_198 (*(undefined8 *)(frame + 264))
+#define acStack_289 (*(char (*)[241])(frame + 23))
+#define puStack_178 (*(uint * *)(frame + 296))
+#define uStack_180 (*(ulong *)(frame + 288))
+#define puStack_188 (*(uint * *)(frame + 280))
+#define uStack_190 (*(ulong *)(frame + 272))
+#define apvStack_70 (*(void * (*)[2])(frame + 560))
+#define uStack_78 (*(ulong *)(frame + 552))
+#define bStack_79 (*(byte *)(frame + 551))
+#define abStack_16a (*(byte (*)[241])(frame + 310))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40429690
  */
@@ -48606,7 +46091,7 @@ bool recovered_40429628(char *param_1)
 undefined8 recovered_40429690(char *param_1,undefined8 param_2,undefined8 param_3,long param_4)
 
 {
-  unsigned char frame[697] = {0};
+  unsigned char frame[704] __attribute__((aligned(16))) = {0};
 
   ulong *puVar1;
   uint *puVar2;
@@ -48935,7 +46420,7 @@ LAB_40429cd8:
 char * recovered_40429dfc(char *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char cVar1;
   char *pcVar2;
@@ -48973,7 +46458,7 @@ char * recovered_40429dfc(char *param_1)
 long recovered_40429e38(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long lVar2;
@@ -49016,7 +46501,7 @@ long recovered_40429e38(long param_1)
 bool recovered_40429ec4(long param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   int iVar2;
@@ -49040,15 +46525,15 @@ bool recovered_40429ec4(long param_1,long param_2)
 }
 
 
-#define uStack_b8 (*(ulong *)(frame + 16))
-#define uStack_88 (*(ulong *)(frame + 64))
-#define uStack_90 (*(undefined8 *)(frame + 56))
-#define lStack_a8 (*(long *)(frame + 32))
-#define iStack_ac (*(int *)(frame + 28))
-#define uStack_68 (*(ulong *)(frame + 96))
-#define uStack_70 (*(ulong *)(frame + 88))
-#define uStack_78 (*(ulong *)(frame + 80))
-#define uStack_80 (*(ulong *)(frame + 72))
+#define uStack_b8 (*(ulong *)(frame + 24))
+#define uStack_88 (*(ulong *)(frame + 72))
+#define uStack_90 (*(undefined8 *)(frame + 64))
+#define lStack_a8 (*(long *)(frame + 40))
+#define iStack_ac (*(int *)(frame + 36))
+#define uStack_68 (*(ulong *)(frame + 104))
+#define uStack_70 (*(ulong *)(frame + 96))
+#define uStack_78 (*(ulong *)(frame + 88))
+#define uStack_80 (*(ulong *)(frame + 80))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40429f20
  */
@@ -49056,7 +46541,7 @@ bool recovered_40429ec4(long param_1,long param_2)
 bool recovered_40429f20(long param_1,uint param_2,uint param_3,int param_4,long param_5)
 
 {
-  unsigned char frame[232] = {0};
+  unsigned char frame[240] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   char *pcVar2;
@@ -49272,7 +46757,7 @@ LAB_4042a2ac:
 bool recovered_4042a2f8(long param_1,uint param_2,uint param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
 
@@ -49295,7 +46780,7 @@ bool recovered_4042a2f8(long param_1,uint param_2,uint param_3)
 undefined8 recovered_4042a320(long param_1,ulong param_2,ulong *param_3,ulong *param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte *pbVar1;
   undefined8 uVar2;
@@ -49337,7 +46822,7 @@ undefined8 recovered_4042a320(long param_1,ulong param_2,ulong *param_3,ulong *p
 undefined8 recovered_4042a388(long param_1,ulong param_2,int param_3,long param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   ulong uVar2;
@@ -49379,7 +46864,7 @@ undefined8 recovered_4042a388(long param_1,ulong param_2,int param_3,long param_
 void recovered_4042a430(ulong *param_1,ulong param_2,int param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -49401,7 +46886,7 @@ void recovered_4042a430(ulong *param_1,ulong param_2,int param_3)
 void recovered_4042a444(undefined1 *param_1,uint param_2,int param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   undefined1 uVar2;
@@ -49436,7 +46921,7 @@ void recovered_4042a444(undefined1 *param_1,uint param_2,int param_3)
 void recovered_4042a478(undefined8 *param_1,undefined8 param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   *param_1 = param_2;
   return;
@@ -49463,7 +46948,7 @@ recovered_4042a480(long param_1,uint param_2,long param_3,int param_4,undefined4
                   long param_6)
 
 {
-  unsigned char frame[304] = {0};
+  unsigned char frame[304] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long lVar2;
@@ -49530,7 +47015,7 @@ undefined8
 recovered_4042a5a8(long param_1,int param_2,int param_3,uint param_4,long param_5,long param_6)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   ulong uVar2;
@@ -49567,7 +47052,7 @@ LAB_4049dc68:
 uint recovered_4042a63c(long param_1,long param_2,undefined4 *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   byte bVar2;
@@ -49655,7 +47140,7 @@ LAB_4042a790:
 undefined8 recovered_4042a7a4(char *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -49687,7 +47172,7 @@ undefined8 recovered_4042a7a4(char *param_1)
 char recovered_4042a7f8(ulong param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char cVar1;
   char cVar2;
@@ -49747,7 +47232,7 @@ char recovered_4042a7f8(ulong param_1)
 undefined8 recovered_4042a850(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   char *pcVar2;
@@ -49820,7 +47305,7 @@ undefined8 recovered_4042a850(undefined8 *param_1)
 void recovered_4042a974(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_40423b60(&DAT_404947c4);
   DAT_40494771 = 0;
@@ -49855,7 +47340,7 @@ void recovered_4042a974(void)
 char * recovered_4042a9a8(long param_1,int param_2,ulong *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   int iVar2;
@@ -49925,10 +47410,10 @@ LAB_4042aa54:
 
 #undef DAT_4045a2e8
 #define DAT_4045a2e8 (*(uint32_t volatile *)(0x4045a2e8U))
-#define pcStack_30 (*(code * *)(frame + 88))
-#define auStack_78 (*(undefined1 (*)[64])(frame + 16))
-#define local_38 (*(undefined8 *)(frame + 80))
-#define local_28 (*(ulong *)(frame + 96))
+#define pcStack_30 (*(code * *)(frame + 96))
+#define auStack_78 (*(undefined1 (*)[64])(frame + 24))
+#define local_38 (*(undefined8 *)(frame + 88))
+#define local_28 (*(ulong *)(frame + 104))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4042aac8
  */
@@ -49936,7 +47421,7 @@ LAB_4042aa54:
 void recovered_4042aac8(char *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[168] = {0};
+  unsigned char frame[176] __attribute__((aligned(16))) = {0};
 
   undefined4 uVar1;
   int iVar2;
@@ -49997,7 +47482,7 @@ void recovered_4042aac8(char *param_1,undefined8 *param_2)
 ulonglong recovered_4042ab88(char *param_1,int param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   uint uVar2;
@@ -50069,7 +47554,7 @@ ulonglong recovered_4042ab88(char *param_1,int param_2)
 bool recovered_4042acd4(char *param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
 
@@ -50096,7 +47581,7 @@ bool recovered_4042acd4(char *param_1,long param_2)
 void recovered_4042ad10(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   ulonglong vararg1;
@@ -50130,7 +47615,7 @@ void recovered_4042ad10(void)
 void recovered_4042ad78(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_40400908(param_1,0,0x1c);
   *param_1 = 0x800000008000;
@@ -50150,7 +47635,7 @@ void recovered_4042ad78(undefined8 *param_1)
 undefined8 recovered_4042adac(undefined8 param_1,uint *param_2)
 
 {
-  unsigned char frame[160] = {0};
+  unsigned char frame[160] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   ulong uVar2;
@@ -50229,7 +47714,7 @@ LAB_4042aeb8:
 undefined8 recovered_4042aee8(undefined8 param_1,undefined4 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char *pcVar1;
   undefined8 uVar2;
@@ -50264,9 +47749,9 @@ undefined8 recovered_4042aee8(undefined8 param_1,undefined4 *param_2)
 #define DAT_40494b04 (*(uint32_t volatile *)(0x40494b04U))
 #undef DAT_40494b6c
 #define DAT_40494b6c (*(uint8_t volatile *)(0x40494b6cU))
-#define auStack_278 (*(undefined1 (*)[8])(frame + 16))
-#define aiStack_78 (*(int (*)[14])(frame + 528))
-#define auStack_270 (*(undefined1 (*)[504])(frame + 24))
+#define auStack_278 (*(undefined1 (*)[8])(frame + 24))
+#define aiStack_78 (*(int (*)[14])(frame + 536))
+#define auStack_270 (*(undefined1 (*)[504])(frame + 32))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4042af34
  */
@@ -50274,7 +47759,7 @@ undefined8 recovered_4042aee8(undefined8 param_1,undefined4 *param_2)
 void recovered_4042af34(ulong param_1,ulong param_2,int param_3)
 
 {
-  unsigned char frame[680] = {0};
+  unsigned char frame[688] __attribute__((aligned(16))) = {0};
 
   char cVar1;
   bool bVar2;
@@ -50402,7 +47887,7 @@ int * recovered_4042b14c(undefined8 param_1,ulong param_2,ulong param_3,undefine
                         int param_5,undefined1 param_6,undefined4 param_7)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   int iVar2;
@@ -50459,21 +47944,21 @@ int * recovered_4042b14c(undefined8 param_1,ulong param_2,ulong param_3,undefine
 #define DAT_4044df70 (*(uint64_t *)(0x4044df70U))
 #undef str_4044fc11
 #define str_4044fc11 (*(char (*)[1])(0x4044fc11U))
-#define auStack_689 (*(undefined1 (*)[450])(frame + 16))
-#define abStack_489 (*(byte (*)[32])(frame + 528))
-#define sStack_48b (*(short *)(frame + 526))
-#define auStack_4c3 (*(uint (*)[14])(frame + 470))
-#define auStack_4c7 (*(undefined1 (*)[4])(frame + 466))
-#define uStack_45c (*(uint *)(frame + 573))
-#define uStack_460 (*(uint *)(frame + 569))
-#define auStack_468 (*(ushort (*)[4])(frame + 561))
-#define uStack_469 (*(undefined1 *)(frame + 560))
-#define uStack_264 (*(uint *)(frame + 1077))
-#define auStack_268 (*(ushort (*)[2])(frame + 1073))
-#define auStack_438 (*(undefined1 (*)[464])(frame + 609))
-#define auStack_458 (*(undefined1 (*)[32])(frame + 577))
-#define auStack_238 (*(undefined1 (*)[472])(frame + 1121))
-#define aiStack_248 (*(int (*)[4])(frame + 1105))
+#define auStack_689 (*(undefined1 (*)[450])(frame + 23))
+#define abStack_489 (*(byte (*)[32])(frame + 535))
+#define sStack_48b (*(short *)(frame + 533))
+#define auStack_4c3 (*(uint (*)[14])(frame + 477))
+#define auStack_4c7 (*(undefined1 (*)[4])(frame + 473))
+#define uStack_45c (*(uint *)(frame + 580))
+#define uStack_460 (*(uint *)(frame + 576))
+#define auStack_468 (*(ushort (*)[4])(frame + 568))
+#define uStack_469 (*(undefined1 *)(frame + 567))
+#define uStack_264 (*(uint *)(frame + 1084))
+#define auStack_268 (*(ushort (*)[2])(frame + 1080))
+#define auStack_438 (*(undefined1 (*)[464])(frame + 616))
+#define auStack_458 (*(undefined1 (*)[32])(frame + 584))
+#define auStack_238 (*(undefined1 (*)[472])(frame + 1128))
+#define aiStack_248 (*(int (*)[4])(frame + 1112))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4042b20c
  */
@@ -50481,7 +47966,7 @@ int * recovered_4042b14c(undefined8 param_1,ulong param_2,ulong param_3,undefine
 undefined8 recovered_4042b20c(ulong param_1,ulong param_2,undefined8 *param_3,int param_4)
 
 {
-  unsigned char frame[1721] = {0};
+  unsigned char frame[1728] __attribute__((aligned(16))) = {0};
 
   undefined1 *puVar1;
   uint uVar2;
@@ -50690,7 +48175,7 @@ LAB_4042b49c:
 #define str_4044fc8a (*(char (*)[1])(0x4044fc8aU))
 #undef str_4044fc95
 #define str_4044fc95 (*(char (*)[1])(0x4044fc95U))
-#define local_2d (*(char (*)[13])(frame + 16))
+#define local_2d (*(char (*)[13])(frame + 19))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4042b5ac
  */
@@ -50698,7 +48183,7 @@ LAB_4042b49c:
 void recovered_4042b5ac(long param_1)
 
 {
-  unsigned char frame[93] = {0};
+  unsigned char frame[96] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   char *pcVar2;
@@ -50772,7 +48257,7 @@ void recovered_4042b5ac(long param_1)
 void recovered_4042b6dc(long param_1,long param_2,ulong param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if ((param_1 != 0) && (recovered_40400908((void *)param_1,0,0xd), param_2 != 0)) {
     if (0xb < param_3) {
@@ -50789,15 +48274,15 @@ void recovered_4042b6dc(long param_1,long param_2,ulong param_3)
 
 #undef str_4044dfe0
 #define str_4044dfe0 (*(char (*)[1])(0x4044dfe0U))
-#define iStack_4ac (*(int *)(frame + 28))
-#define iStack_4b0 (*(int *)(frame + 24))
-#define auStack_4b8 (*(undefined1 (*)[8])(frame + 16))
-#define sStack_3f8 (*(short *)(frame + 208))
-#define auStack_430 (*(ushort (*)[28])(frame + 152))
-#define auStack_474 (*(undefined1 (*)[68])(frame + 84))
-#define iStack_4a8 (*(int *)(frame + 32))
-#define auStack_230 (*(undefined1 (*)[512])(frame + 664))
-#define bStack_3d0 (*(byte *)(frame + 248))
+#define iStack_4ac (*(int *)(frame + 36))
+#define iStack_4b0 (*(int *)(frame + 32))
+#define auStack_4b8 (*(undefined1 (*)[8])(frame + 24))
+#define sStack_3f8 (*(short *)(frame + 216))
+#define auStack_430 (*(ushort (*)[28])(frame + 160))
+#define auStack_474 (*(undefined1 (*)[68])(frame + 92))
+#define iStack_4a8 (*(int *)(frame + 40))
+#define auStack_230 (*(undefined1 (*)[512])(frame + 672))
+#define bStack_3d0 (*(byte *)(frame + 256))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4042b740
  */
@@ -50805,7 +48290,7 @@ void recovered_4042b6dc(long param_1,long param_2,ulong param_3)
 ulong recovered_4042b740(undefined8 param_1,ulong param_2,ulong param_3)
 
 {
-  unsigned char frame[1256] = {0};
+  unsigned char frame[1264] __attribute__((aligned(16))) = {0};
 
   ushort uVar1;
   int iVar2;
@@ -50881,7 +48366,7 @@ ulong recovered_4042b740(undefined8 param_1,ulong param_2,ulong param_3)
 void recovered_4042b894(long param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
 
@@ -50915,7 +48400,7 @@ void recovered_4042b894(long param_1,long param_2)
 undefined8 recovered_4042b8ec(long param_1,uint param_2,uint *param_3,uint *param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -50981,7 +48466,7 @@ undefined8 recovered_4042b8ec(long param_1,uint param_2,uint *param_3,uint *para
 void recovered_4042ba10(long param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
 
@@ -51022,7 +48507,7 @@ void recovered_4042ba10(long param_1,long param_2)
 undefined8 recovered_4042ba70(ulong param_1,ulong param_2,undefined4 *param_3,int param_4)
 
 {
-  unsigned char frame[1232] = {0};
+  unsigned char frame[1232] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -51159,7 +48644,7 @@ undefined8 recovered_4042ba70(ulong param_1,ulong param_2,undefined4 *param_3,in
 bool recovered_4042bd4c(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   int *piVar2;
@@ -51193,7 +48678,7 @@ bool recovered_4042bd4c(long param_1)
 undefined8 recovered_4042bd9c(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char *pcVar1;
   long lVar2;
@@ -51234,7 +48719,7 @@ undefined8 recovered_4042bd9c(long param_1)
 undefined8 recovered_4042bdf0(int *param_1,uint param_2,undefined8 *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ushort uVar1;
   undefined8 uVar2;
@@ -51271,7 +48756,7 @@ undefined8 recovered_4042bdf0(int *param_1,uint param_2,undefined8 *param_3)
 undefined8 recovered_4042be9c(long param_1,ulong param_2,undefined4 *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   ulong uVar2;
@@ -51351,7 +48836,7 @@ undefined8 recovered_4042be9c(long param_1,ulong param_2,undefined4 *param_3)
 void recovered_4042bfc0(long param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong size;
 
@@ -51378,7 +48863,7 @@ void recovered_4042bfc0(long param_1,long param_2)
 undefined4 * recovered_4042c00c(int param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   long lVar2;
@@ -51409,7 +48894,7 @@ undefined4 * recovered_4042c00c(int param_1)
 
 #undef DAT_40494820
 #define DAT_40494820 (*(uint64_t volatile *)(0x40494820U))
-#define uStack_24 (*(uint *)(frame + 16))
+#define uStack_24 (*(uint *)(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4042c068
  */
@@ -51417,7 +48902,7 @@ undefined4 * recovered_4042c00c(int param_1)
 int recovered_4042c068(void)
 
 {
-  unsigned char frame[84] = {0};
+  unsigned char frame[96] __attribute__((aligned(16))) = {0};
 
   uint *puVar1;
   long lVar2;
@@ -51466,7 +48951,7 @@ int recovered_4042c068(void)
 bool recovered_4042c0d0(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   char cVar2;
@@ -51510,7 +48995,7 @@ bool recovered_4042c0d0(void)
 ulong recovered_4042c148(uint param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   uint uVar2;
@@ -51556,7 +49041,7 @@ bool recovered_4042c1b8(uint param_1,int param_2,long param_3,uint param_4,uint 
                        int param_7)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong size;
   int iVar1;
@@ -51641,7 +49126,7 @@ LAB_4042c294:
 undefined8 recovered_4042c2a0(undefined4 *param_1,ulong *param_2)
 
 {
-  unsigned char frame[928] = {0};
+  unsigned char frame[928] __attribute__((aligned(16))) = {0};
 
   char cVar1;
   long lVar2;
@@ -51766,7 +49251,7 @@ LAB_4042c4a0:
 void recovered_4042c4e4(long param_1,uint param_2,uint param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   int iVar2;
@@ -51794,7 +49279,7 @@ void recovered_4042c4e4(long param_1,uint param_2,uint param_3)
 void recovered_4042c510(long param_1,int param_2,int param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
 
@@ -51821,7 +49306,7 @@ recovered_4042c550(long param_1,ulong *param_2,int param_3,long param_4,long par
                   uint param_7,undefined4 param_8,int *param_9)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   undefined8 uVar2;
@@ -51890,7 +49375,7 @@ LAB_4042c61c:
 ulong recovered_4042c6a8(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -51910,7 +49395,7 @@ ulong recovered_4042c6a8(long param_1)
 void recovered_4042c6cc(long param_1,int param_2,uint param_3,uint param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined4 *puVar1;
   uint uVar2;
@@ -51960,7 +49445,7 @@ void recovered_4042c6cc(long param_1,int param_2,uint param_3,uint param_4)
 void recovered_4042c760(long param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -52010,7 +49495,7 @@ recovered_4042c7a0(long param_1,ulong param_2,long *param_3,long param_4,long pa
                   undefined1 param_7,undefined4 param_8,undefined4 param_9)
 
 {
-  unsigned char frame[208] = {0};
+  unsigned char frame[208] __attribute__((aligned(16))) = {0};
 
   byte *out;
   void *out_00;
@@ -52146,7 +49631,7 @@ recovered_4042c7a0(long param_1,ulong param_2,long *param_3,long param_4,long pa
 void recovered_4042c9f0(byte *param_1,long param_2,long param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   ulong uVar2;
@@ -52190,7 +49675,7 @@ void recovered_4042c9f0(byte *param_1,long param_2,long param_3)
 bool recovered_4042ca84(uint param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
 
@@ -52211,7 +49696,7 @@ bool recovered_4042ca84(uint param_1)
 ulong recovered_4042cae0(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   ulong uVar2;
@@ -52231,7 +49716,7 @@ ulong recovered_4042cae0(long param_1)
 void recovered_4042cb08(long param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if ((param_1 != 0) && (param_2 != 0)) {
     recovered_40400908((void *)param_1,0,0x100);
@@ -52255,7 +49740,7 @@ undefined8
 recovered_4042cb60(long param_1,ulong param_2,long *param_3,ulong *param_4,ulong *param_5)
 
 {
-  unsigned char frame[160] = {0};
+  unsigned char frame[160] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
   ulong uVar2;
@@ -52326,7 +49811,7 @@ LAB_4042cbe4:
 void recovered_4042cc88(undefined8 param_1,undefined8 param_2,undefined8 param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long *plVar1;
   long lVar2;
@@ -52351,7 +49836,7 @@ void recovered_4042cc88(undefined8 param_1,undefined8 param_2,undefined8 param_3
 undefined8 recovered_4042ccbc(long *param_1,ulong *param_2,ulong param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   void *pvVar1;
   undefined8 uVar2;
@@ -52395,7 +49880,7 @@ undefined8 recovered_4042ccbc(long *param_1,ulong *param_2,ulong param_3)
 void recovered_4042cd48(long *param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long *plVar1;
 
@@ -52419,7 +49904,7 @@ void recovered_4042cd48(long *param_1,long param_2)
 void recovered_4042cd8c(long *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (param_1 != (long *)0x0) {
     recovered_404006f4((void *)*param_1);
@@ -52466,7 +49951,7 @@ void recovered_4042cd8c(long *param_1)
 undefined8 recovered_4042cdb4(long param_1,int *****param_2)
 
 {
-  unsigned char frame[224] = {0};
+  unsigned char frame[224] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   bool bVar2;
@@ -52731,7 +50216,7 @@ LAB_4042cef0:
 byte recovered_4042cf14(long param_1,int *****param_2,ulong *param_3,uint *param_4,ulong *param_5)
 
 {
-  unsigned char frame[656] = {0};
+  unsigned char frame[656] __attribute__((aligned(16))) = {0};
 
   int ********ppppppppiVar1;
   long lVar2;
@@ -54576,9 +52061,9 @@ LAB_4042e06c:
 #define str_40457972 (*(char (*)[1])(0x40457972U))
 #undef str_40457989
 #define str_40457989 (*(char (*)[1])(0x40457989U))
-#define uStack0000000000000000 (*(undefined1 *)(frame + 344))
-#define acStack_130 (*(char (*)[256])(frame + 40))
-#define in_stack_fffffffffffffeb8 (*(char * *)(frame + 16))
+#define uStack0000000000000000 (*(undefined1 *)(frame + 352))
+#define acStack_130 (*(char (*)[256])(frame + 48))
+#define in_stack_fffffffffffffeb8 (*(char * *)(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4042ecb8
  */
@@ -54586,7 +52071,7 @@ LAB_4042e06c:
 void recovered_4042ecb8(void *context,char *token,char *format,...)
 
 {
-  unsigned char frame[376] = {0};
+  unsigned char frame[384] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   long lVar2;
@@ -54633,8 +52118,8 @@ void recovered_4042ecb8(void *context,char *token,char *format,...)
 #undef acStack_130
 #undef in_stack_fffffffffffffeb8
 
-#define puStack_28 (*(undefined8 * *)(frame + 32))
-#define auStack_38 (*(ulong (*)[2])(frame + 16))
+#define puStack_28 (*(undefined8 * *)(frame + 40))
+#define auStack_38 (*(ulong (*)[2])(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4042eda4
  */
@@ -54642,7 +52127,7 @@ void recovered_4042ecb8(void *context,char *token,char *format,...)
 bool recovered_4042eda4(long param_1,byte *param_2)
 
 {
-  unsigned char frame[104] = {0};
+  unsigned char frame[112] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   undefined8 uVar2;
@@ -54666,7 +52151,7 @@ bool recovered_4042eda4(long param_1,byte *param_2)
 void recovered_4042edf0(undefined8 *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
   undefined8 uVar2;
@@ -54713,7 +52198,7 @@ void recovered_4042edf0(undefined8 *param_1,undefined8 *param_2)
 undefined8 recovered_4042ee30(long param_1,ulong *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   char cVar2;
@@ -54851,7 +52336,7 @@ LAB_4042f0b0:
 ulong recovered_4042f0c4(ulong *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -54876,7 +52361,7 @@ ulong recovered_4042f0c4(ulong *param_1)
 bool recovered_4042f10c(byte *param_1,byte *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   byte bVar2;
@@ -54922,7 +52407,7 @@ bool recovered_4042f10c(byte *param_1,byte *param_2)
 bool recovered_4042f168(byte *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   bool bVar2;
@@ -54961,7 +52446,7 @@ bool recovered_4042f168(byte *param_1)
 uint recovered_4042f1e8(ulong *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   long lVar2;
@@ -54991,7 +52476,7 @@ uint recovered_4042f1e8(ulong *param_1)
 undefined8 recovered_4042f23c(long param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   undefined8 uVar2;
@@ -55020,7 +52505,7 @@ undefined8 recovered_4042f23c(long param_1,long param_2)
 undefined8 recovered_4042f290(long *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 *puVar1;
   ulong uVar2;
@@ -55097,7 +52582,7 @@ undefined8 recovered_4042f290(long *param_1,undefined8 *param_2)
 void recovered_4042f364(long param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
 
@@ -55116,8 +52601,8 @@ void recovered_4042f364(long param_1,long param_2)
 #define DAT_4044fd1d (*(uint8_t *)(0x4044fd1dU))
 #undef str_4044fd2d
 #define str_4044fd2d (*(char (*)[1])(0x4044fd2dU))
-#define puStack_58 (*(undefined8 * *)(frame + 32))
-#define auStack_68 (*(ulong (*)[2])(frame + 16))
+#define puStack_58 (*(undefined8 * *)(frame + 40))
+#define auStack_68 (*(ulong (*)[2])(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4042f3a8
  */
@@ -55125,7 +52610,7 @@ void recovered_4042f364(long param_1,long param_2)
 bool recovered_4042f3a8(long param_1,ulong param_2,ulong param_3,ulong *param_4)
 
 {
-  unsigned char frame[152] = {0};
+  unsigned char frame[160] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   uint uVar2;
@@ -55192,7 +52677,7 @@ undefined8
 recovered_4042f474(long param_1,long param_2,long *param_3,long *param_4,undefined8 *param_5)
 
 {
-  unsigned char frame[160] = {0};
+  unsigned char frame[160] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long lVar2;
@@ -55247,7 +52732,7 @@ recovered_4042f554(long param_1,long param_2,long param_3,long *param_4,long par
                   undefined8 param_6,undefined1 param_7)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined4 *puVar1;
 
@@ -55275,7 +52760,7 @@ recovered_4042f554(long param_1,long param_2,long param_3,long *param_4,long par
 bool recovered_4042f5c8(undefined4 *param_1,undefined8 param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (param_1 != (undefined4 *)0x0) {
     recovered_4041f504((undefined8 *)param_1);
@@ -55293,7 +52778,7 @@ bool recovered_4042f5c8(undefined4 *param_1,undefined8 param_2)
 ulonglong recovered_4042f5fc(int *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   ulong uVar2;
@@ -55329,7 +52814,7 @@ ulonglong recovered_4042f5fc(int *param_1)
 ulong recovered_4042f678(int param_1,long param_2,undefined8 *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   long lVar2;
@@ -55522,7 +53007,7 @@ ulong recovered_4042f678(int param_1,long param_2,undefined8 *param_3)
 char recovered_4042f6c0(undefined4 *param_1)
 
 {
-  unsigned char frame[752] = {0};
+  unsigned char frame[752] __attribute__((aligned(16))) = {0};
 
   int *piVar1;
   int *****pppppiVar2;
@@ -56630,7 +54115,7 @@ joined_r0x4043077c:
 undefined8 recovered_40430870(long param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   ulong uVar2;
@@ -56672,7 +54157,7 @@ undefined8 recovered_40430870(long param_1,undefined8 *param_2)
 undefined8 recovered_404308f0(undefined4 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined4 *puVar1;
   undefined8 uVar2;
@@ -56703,7 +54188,7 @@ undefined8 recovered_404308f0(undefined4 *param_1)
 undefined8 recovered_40430948(undefined4 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined4 *puVar1;
   undefined8 uVar2;
@@ -56728,17 +54213,17 @@ undefined8 recovered_40430948(undefined4 *param_1)
 
 #undef DAT_40450398
 #define DAT_40450398 (*(uint8_t *)(0x40450398U))
-#define uStack_7c (*(undefined4 *)(frame + 60))
-#define uStack_80 (*(undefined4 *)(frame + 56))
-#define uStack_88 (*(undefined8 *)(frame + 48))
-#define acStack_a8 (*(char (*)[32])(frame + 16))
-#define uStack_60 (*(undefined8 *)(frame + 88))
-#define uStack_68 (*(undefined8 *)(frame + 80))
-#define uStack_70 (*(undefined8 *)(frame + 72))
-#define uStack_78 (*(undefined8 *)(frame + 64))
-#define local_48 (*(void * *)(frame + 112))
-#define uStack_50 (*(undefined8 *)(frame + 104))
-#define lStack_58 (*(long *)(frame + 96))
+#define uStack_7c (*(undefined4 *)(frame + 68))
+#define uStack_80 (*(undefined4 *)(frame + 64))
+#define uStack_88 (*(undefined8 *)(frame + 56))
+#define acStack_a8 (*(char (*)[32])(frame + 24))
+#define uStack_60 (*(undefined8 *)(frame + 96))
+#define uStack_68 (*(undefined8 *)(frame + 88))
+#define uStack_70 (*(undefined8 *)(frame + 80))
+#define uStack_78 (*(undefined8 *)(frame + 72))
+#define local_48 (*(void * *)(frame + 120))
+#define uStack_50 (*(undefined8 *)(frame + 112))
+#define lStack_58 (*(long *)(frame + 104))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4043099c
  */
@@ -56746,7 +54231,7 @@ undefined8 recovered_40430948(undefined4 *param_1)
 long recovered_4043099c(int *param_1,int *param_2,uint param_3)
 
 {
-  unsigned char frame[216] = {0};
+  unsigned char frame[224] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   long lVar2;
@@ -56874,7 +54359,7 @@ long recovered_4043099c(int *param_1,int *param_2,uint param_3)
 undefined8 recovered_40430b64(int *param_1,int *param_2,int *param_3,undefined8 param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   undefined8 *puVar2;
@@ -56915,7 +54400,7 @@ undefined8 recovered_40430b64(int *param_1,int *param_2,int *param_3,undefined8 
 bool recovered_40430c2c(undefined4 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   uint uVar2;
@@ -56979,8 +54464,8 @@ LAB_40430cb0:
 #define str_4044fd21 (*(char (*)[1])(0x4044fd21U))
 #undef str_4044fd2d
 #define str_4044fd2d (*(char (*)[1])(0x4044fd2dU))
-#define auStack_78 (*(ulong (*)[2])(frame + 16))
-#define puStack_68 (*(undefined8 * *)(frame + 32))
+#define auStack_78 (*(ulong (*)[2])(frame + 24))
+#define puStack_68 (*(undefined8 * *)(frame + 40))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40430cb8
  */
@@ -56988,7 +54473,7 @@ LAB_40430cb0:
 bool recovered_40430cb8(long param_1,ulong param_2,ulong param_3,ulong *param_4,undefined1 *param_5)
 
 {
-  unsigned char frame[168] = {0};
+  unsigned char frame[176] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   bool bVar2;
@@ -57070,8 +54555,8 @@ LAB_40430d98:
 #define DAT_4044fd1d (*(uint8_t *)(0x4044fd1dU))
 #undef str_4044fd2d
 #define str_4044fd2d (*(char (*)[1])(0x4044fd2dU))
-#define puStack_58 (*(undefined8 * *)(frame + 32))
-#define auStack_68 (*(ulong (*)[2])(frame + 16))
+#define puStack_58 (*(undefined8 * *)(frame + 40))
+#define auStack_68 (*(ulong (*)[2])(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40430dd4
  */
@@ -57079,7 +54564,7 @@ LAB_40430d98:
 bool recovered_40430dd4(long param_1,ulong param_2,ulong param_3,ulong *param_4)
 
 {
-  unsigned char frame[152] = {0};
+  unsigned char frame[160] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   uint uVar2;
@@ -57141,7 +54626,7 @@ LAB_40430e70:
 void recovered_40430ea0(undefined4 *param_1,int param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_4041f4f4((undefined8 *)param_1);
   *param_1 = 1;
@@ -57170,7 +54655,7 @@ void recovered_40430ea0(undefined4 *param_1,int param_2)
 undefined8 recovered_40430ec4(ulong *param_1,ulong param_2,long param_3,ulong *param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   bool bVar2;
@@ -57288,7 +54773,7 @@ allocation_failed:
 float recovered_404310d8(int *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   float fVar2;
@@ -57318,7 +54803,7 @@ float recovered_404310d8(int *param_1)
 undefined8 recovered_40431110(long param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   ulong uVar2;
@@ -57371,7 +54856,7 @@ undefined8 recovered_40431110(long param_1,undefined8 *param_2)
 undefined8 recovered_40431198(undefined8 *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[144] = {0};
+  unsigned char frame[144] __attribute__((aligned(16))) = {0};
 
   undefined1 *puVar1;
   bool bVar2;
@@ -57459,7 +54944,7 @@ LAB_40431258:
 bool recovered_40431294(undefined4 *param_1,undefined1 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char *text;
   bool bVar1;
@@ -57538,7 +55023,7 @@ bool recovered_40431294(undefined4 *param_1,undefined1 *param_2)
 ulong recovered_404312c8(long param_1,ulong *param_2,undefined1 *param_3)
 
 {
-  unsigned char frame[304] = {0};
+  unsigned char frame[304] __attribute__((aligned(16))) = {0};
 
   byte *pbVar1;
   char cVar2;
@@ -58102,7 +55587,7 @@ uchar recovered_40431bc0(int *environment,long *tokens,ulong *result) {
 undefined8 recovered_40431c4c(long *param_1,undefined1 *param_2,long param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined1 *puVar1;
   ulong uVar2;
@@ -58165,7 +55650,7 @@ undefined8 recovered_40431c4c(long *param_1,undefined1 *param_2,long param_3)
 ulong recovered_40431d04(long *param_1,undefined1 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char *text;
   ulong uVar1;
@@ -58188,7 +55673,7 @@ ulong recovered_40431d04(long *param_1,undefined1 *param_2)
 undefined8 recovered_40431d38(long param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -58210,7 +55695,7 @@ undefined8 recovered_40431d38(long param_1,long param_2)
 undefined8 recovered_40431d8c(long param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 *puVar1;
   undefined8 uVar2;
@@ -58252,7 +55737,7 @@ undefined8 recovered_40431d8c(long param_1,ulong param_2)
 undefined8 recovered_40431e08(long param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 *puVar1;
   void *pvVar2;
@@ -58321,7 +55806,7 @@ undefined8 recovered_40431e08(long param_1,ulong param_2)
 uchar recovered_40431e98(ulonglong *param_1,ulong *param_2)
 
 {
-  unsigned char frame[176] = {0};
+  unsigned char frame[176] __attribute__((aligned(16))) = {0};
 
   uchar uVar1;
   byte bVar2;
@@ -58400,7 +55885,7 @@ uchar recovered_40431e98(ulonglong *param_1,ulong *param_2)
 uchar recovered_40431f4c(ulonglong *param_1,ulong *param_2)
 
 {
-  unsigned char frame[176] = {0};
+  unsigned char frame[176] __attribute__((aligned(16))) = {0};
 
   uchar uVar1;
   byte bVar2;
@@ -58489,7 +55974,7 @@ uchar recovered_40431f4c(ulonglong *param_1,ulong *param_2)
 uchar recovered_40432000(ulonglong *param_1,ulong *param_2)
 
 {
-  unsigned char frame[240] = {0};
+  unsigned char frame[240] __attribute__((aligned(16))) = {0};
 
   uchar uVar1;
   byte bVar2;
@@ -58592,7 +56077,7 @@ uchar recovered_40432000(ulonglong *param_1,ulong *param_2)
 uchar recovered_404320cc(ulonglong *param_1,ulong *param_2)
 
 {
-  unsigned char frame[256] = {0};
+  unsigned char frame[256] __attribute__((aligned(16))) = {0};
 
   uchar uVar1;
   byte bVar2;
@@ -58708,10 +56193,10 @@ uchar recovered_404320cc(ulonglong *param_1,ulong *param_2)
 #define str_40457481 (*(char (*)[1])(0x40457481U))
 #undef str_404574a9
 #define str_404574a9 (*(char (*)[1])(0x404574a9U))
-#define local_58 (*(ulong (*)[2])(frame + 16))
-#define local_48 (*(uint * *)(frame + 32))
-#define local_40 (*(ulong *)(frame + 40))
-#define local_38 (*(undefined8 * *)(frame + 48))
+#define local_58 (*(ulong (*)[2])(frame + 24))
+#define local_48 (*(uint * *)(frame + 40))
+#define local_40 (*(ulong *)(frame + 48))
+#define local_38 (*(undefined8 * *)(frame + 56))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x404321a4
  */
@@ -58719,7 +56204,7 @@ uchar recovered_404320cc(ulonglong *param_1,ulong *param_2)
 uint recovered_404321a4(int *param_1,byte *param_2,uint *param_3,uint *param_4,undefined8 *param_5)
 
 {
-  unsigned char frame[136] = {0};
+  unsigned char frame[144] __attribute__((aligned(16))) = {0};
 
   undefined8 *puVar1;
   uchar uVar2;
@@ -59100,7 +56585,7 @@ LAB_02065454:
 uchar recovered_404326b0(ulonglong *param_1,ulong *param_2)
 
 {
-  unsigned char frame[240] = {0};
+  unsigned char frame[240] __attribute__((aligned(16))) = {0};
 
   uchar uVar1;
   byte bVar2;
@@ -59201,7 +56686,7 @@ uchar recovered_404326b0(ulonglong *param_1,ulong *param_2)
 uchar recovered_40432768(ulonglong *param_1,ulong *param_2)
 
 {
-  unsigned char frame[256] = {0};
+  unsigned char frame[256] __attribute__((aligned(16))) = {0};
 
   uchar uVar1;
   byte bVar2;
@@ -59300,7 +56785,7 @@ uchar recovered_40432768(ulonglong *param_1,ulong *param_2)
 uchar recovered_40432840(ulonglong *param_1,ulong *param_2)
 
 {
-  unsigned char frame[208] = {0};
+  unsigned char frame[208] __attribute__((aligned(16))) = {0};
 
   uchar uVar1;
   byte bVar2;
@@ -59525,7 +57010,7 @@ LAB_40432878:
 uchar recovered_404328d8(ulonglong *param_1,ulong *param_2)
 
 {
-  unsigned char frame[624] = {0};
+  unsigned char frame[624] __attribute__((aligned(16))) = {0};
 
   ulonglong uVar1;
   bool bVar2;
@@ -60438,7 +57923,7 @@ LAB_40432bb0:
 void recovered_4043365c(undefined4 *param_1,float param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_4041f4f4((undefined8 *)param_1);
   param_1[2] = PF_RAW32(param_2);
@@ -60455,7 +57940,7 @@ void recovered_4043365c(undefined4 *param_1,float param_2)
 void recovered_40433698(undefined4 *param_1,int param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined4 uVar1;
 
@@ -60481,7 +57966,7 @@ void recovered_40433698(undefined4 *param_1,int param_2)
 int recovered_404336c8(long param_1)
 
 {
-  unsigned char frame[128] = {0};
+  unsigned char frame[128] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   int iVar2;
@@ -60510,7 +57995,7 @@ int recovered_404336c8(long param_1)
 ulong recovered_40433734(long param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   char *left;
@@ -60539,7 +58024,7 @@ ulong recovered_40433734(long param_1,long param_2)
 undefined1 recovered_4043379c(long param_1,int *param_2,int *param_3,char *param_4)
 
 {
-  unsigned char frame[192] = {0};
+  unsigned char frame[192] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   ulong uVar2;
@@ -60579,7 +58064,7 @@ undefined1 recovered_4043379c(long param_1,int *param_2,int *param_3,char *param
 #define str_40450400 (*(char (*)[1])(0x40450400U))
 #undef str_4045055a
 #define str_4045055a (*(char (*)[1])(0x4045055aU))
-#define pvStack_48 (*(void * *)(frame + 16))
+#define pvStack_48 (*(void * *)(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40433858
  */
@@ -60587,7 +58072,7 @@ undefined1 recovered_4043379c(long param_1,int *param_2,int *param_3,char *param
 undefined8 recovered_40433858(long param_1,int *param_2,int *param_3,long param_4,char *param_5)
 
 {
-  unsigned char frame[120] = {0};
+  unsigned char frame[128] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   ulong uVar2;
@@ -60632,7 +58117,7 @@ undefined8 recovered_40433858(long param_1,int *param_2,int *param_3,long param_
 undefined8 recovered_404338f8(long param_1,long param_2,long param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   undefined8 uVar2;
@@ -60666,7 +58151,7 @@ undefined8 recovered_404338f8(long param_1,long param_2,long param_3)
 bool recovered_40433978(char *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char cVar1;
   bool bVar2;
@@ -60694,7 +58179,7 @@ bool recovered_40433978(char *param_1)
 ulong recovered_404339cc(long param_1,long param_2)
 
 {
-  unsigned char frame[352] = {0};
+  unsigned char frame[352] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   ulong uVar2;
@@ -60729,7 +58214,7 @@ ulong recovered_404339cc(long param_1,long param_2)
 uchar recovered_40433a20(long text,int *out)
 
 {
-  unsigned char frame[352] = {0};
+  unsigned char frame[352] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   int iVar2;
@@ -60829,7 +58314,7 @@ LAB_020685fe:
 #undef uStack_130
 #undef local_128
 
-#define local_24 (*(int *)(frame + 16))
+#define local_24 (*(int *)(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40433b6c
  */
@@ -60837,7 +58322,7 @@ LAB_020685fe:
 undefined8 recovered_40433b6c(long param_1,int *param_2)
 
 {
-  unsigned char frame[84] = {0};
+  unsigned char frame[96] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
   undefined8 uVar2;
@@ -60864,7 +58349,7 @@ undefined8 recovered_40433b6c(long param_1,int *param_2)
 void recovered_40433bbc(undefined4 *param_1,undefined4 param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_4041f4f4((undefined8 *)param_1);
   *param_1 = 6;
@@ -60880,7 +58365,7 @@ void recovered_40433bbc(undefined4 *param_1,undefined4 param_2)
 undefined8 recovered_40433bd8(char *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   char cVar2;
@@ -60930,7 +58415,7 @@ undefined8 recovered_40433bd8(char *param_1)
 uchar recovered_40433c4c(char *text,float *out)
 
 {
-  unsigned char frame[352] = {0};
+  unsigned char frame[352] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long lVar2;
@@ -61209,7 +58694,7 @@ uchar recovered_40433c4c(char *text,float *out)
 undefined8 recovered_40433ce4(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   undefined8 uVar2;
@@ -61469,7 +58954,7 @@ undefined8 recovered_40433ce4(long param_1)
 ulong recovered_4043446c(long param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   undefined8 uVar2;
@@ -61500,8 +58985,8 @@ ulong recovered_4043446c(long param_1,long param_2)
 #define str_404509f2 (*(char (*)[1])(0x404509f2U))
 #undef str_404509f8
 #define str_404509f8 (*(char (*)[1])(0x404509f8U))
-#define acStack_78 (*(char (*)[64])(frame + 16))
-#define pvStack_38 (*(void * *)(frame + 80))
+#define acStack_78 (*(char (*)[64])(frame + 24))
+#define pvStack_38 (*(void * *)(frame + 88))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x404344e8
  */
@@ -61511,7 +58996,7 @@ ulong recovered_4043446c(long param_1,long param_2)
 ulong recovered_404344e8(int *param_1,int *param_2,undefined8 *param_3)
 
 {
-  unsigned char frame[168] = {0};
+  unsigned char frame[176] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   bool bVar2;
@@ -61646,7 +59131,7 @@ LAB_404a1e98:
 undefined8 recovered_40434798(long *param_1,int *param_2,int param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   undefined8 uVar2;
@@ -61769,7 +59254,7 @@ undefined8 recovered_40434798(long *param_1,int *param_2,int param_3)
 ulong recovered_40434840(ulong *param_1,int *param_2,ulong *param_3,ulong param_4,int *param_5)
 
 {
-  unsigned char frame[512] = {0};
+  unsigned char frame[512] __attribute__((aligned(16))) = {0};
 
   undefined8 *puVar1;
   ulong *puVar2;
@@ -62391,7 +59876,7 @@ switchD_40434da4_default:
 bool recovered_404350e8(int *param_1,long *param_2)
 
 {
-  unsigned char frame[176] = {0};
+  unsigned char frame[176] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   uchar uVar2;
@@ -62450,8 +59935,8 @@ switchD_40435138_caseD_4:
 #undef str_404504c5
 #undef acStack_80
 
-#define local_28 (*(long (*)[2])(frame + 16))
-#define local_18 (*(undefined1 * *)(frame + 32))
+#define local_28 (*(long (*)[2])(frame + 24))
+#define local_18 (*(undefined1 * *)(frame + 40))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x404351dc
  */
@@ -62459,7 +59944,7 @@ switchD_40435138_caseD_4:
 uchar recovered_404351dc(int *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[88] = {0};
+  unsigned char frame[96] __attribute__((aligned(16))) = {0};
 
   uchar uVar1;
   bool bVar2;
@@ -62535,8 +60020,8 @@ uchar recovered_404351dc(int *param_1,undefined8 *param_2)
 #define str_40450593 (*(char (*)[1])(0x40450593U))
 #undef str_4045059e
 #define str_4045059e (*(char (*)[1])(0x4045059eU))
-#define local_98 (*(char (*)[96])(frame + 16))
-#define local_38 (*(ulong *)(frame + 112))
+#define local_98 (*(char (*)[96])(frame + 24))
+#define local_38 (*(ulong *)(frame + 120))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40435240
  */
@@ -62544,7 +60029,7 @@ uchar recovered_404351dc(int *param_1,undefined8 *param_2)
 uchar recovered_40435240(int *param_1,long *param_2,uint param_3)
 
 {
-  unsigned char frame[200] = {0};
+  unsigned char frame[208] __attribute__((aligned(16))) = {0};
 
   uchar uVar1;
   uint uVar2;
@@ -62765,7 +60250,7 @@ LAB_0206b670:
 uint recovered_40435544(long *param_1,undefined1 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long lVar2;
@@ -62823,7 +60308,7 @@ LAB_0206bb57:
 
 #undef DAT_4044e262
 #define DAT_4044e262 (*(uint8_t *)(0x4044e262U))
-#define abStack_168 (*(byte (*)[264])(frame + 16))
+#define abStack_168 (*(byte (*)[264])(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40435578
  */
@@ -62831,7 +60316,7 @@ LAB_0206bb57:
 uint128 recovered_40435578(long param_1,byte *param_2,ulong param_3)
 
 {
-  unsigned char frame[408] = {0};
+  unsigned char frame[416] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   bool bVar2;
@@ -62934,7 +60419,7 @@ LAB_40435720:
 undefined8 recovered_40435734(ulonglong param_1,undefined4 *param_2)
 
 {
-  unsigned char frame[384] = {0};
+  unsigned char frame[384] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   byte bVar2;
@@ -63025,7 +60510,7 @@ undefined8 recovered_40435734(ulonglong param_1,undefined4 *param_2)
 undefined4 * recovered_40435854(undefined4 param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined4 *buffer;
   ulong uVar1;
@@ -63081,7 +60566,7 @@ undefined4 * recovered_40435854(undefined4 param_1,long param_2)
 undefined8 recovered_404358d0(undefined8 *param_1,long param_2,long param_3)
 
 {
-  unsigned char frame[144] = {0};
+  unsigned char frame[144] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -63122,7 +60607,7 @@ undefined8 recovered_404358d0(undefined8 *param_1,long param_2,long param_3)
 long recovered_40435948(long param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   ulong uVar2;
@@ -63150,7 +60635,7 @@ long recovered_40435948(long param_1,long param_2)
 bool recovered_4043598c(undefined4 *param_1,undefined1 *param_2,long param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined1 *puVar1;
   bool bVar2;
@@ -63182,7 +60667,7 @@ bool recovered_4043598c(undefined4 *param_1,undefined1 *param_2,long param_3)
 undefined8 recovered_404359d8(int *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -63205,7 +60690,7 @@ undefined8 recovered_404359d8(int *param_1)
 undefined8 recovered_404359f8(int param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 *puVar1;
   long lVar2;
@@ -63237,7 +60722,7 @@ undefined8 recovered_404359f8(int param_1)
 bool recovered_40435a30(uint *param_1,uint *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char *left;
   char *right;
@@ -63332,7 +60817,7 @@ switchD_40435ad0_caseD_0:
 void recovered_40435b74(long param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (param_1 != 0) {
     for (; param_2 != 0; param_2 = param_2 + -1) {
@@ -64408,7 +61893,7 @@ void recovered_40435b74(long param_1,long param_2)
 ulong recovered_40435ba8(ulong *param_1,char *param_2,uint *param_3,ulong param_4,int *param_5)
 
 {
-  unsigned char frame[1264] = {0};
+  unsigned char frame[1264] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   byte bVar2;
@@ -66672,7 +64157,7 @@ LAB_40438ad8:
 LAB_40438b18:
         lVar70 = *(long *)(param_3 + 10);
 LAB_40438a84:
-        fVar36 = *(float *)(lVar70 + 8);
+        fVar36 = (float)*(uintptr_t *)(lVar70 + 8);
         goto LAB_40435e4c;
       }
       bVar30 = recovered_4042f10c((byte *)param_2,(byte *)str_4045072c);
@@ -70799,7 +68284,7 @@ LAB_40435c88:
 undefined8 recovered_4043cbc8(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long lVar2;
@@ -70860,7 +68345,7 @@ undefined8 recovered_4043cbc8(void)
 undefined8 recovered_4043cc8c(long param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   long lVar2;
@@ -70891,7 +68376,7 @@ undefined8 recovered_4043cc8c(long param_1,long param_2)
 void recovered_4043ccc0(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   long lVar2;
@@ -70922,7 +68407,7 @@ void recovered_4043ccc0(void)
 undefined8 recovered_4043ccf0(long param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long lVar2;
@@ -70979,7 +68464,7 @@ undefined8 recovered_4043ccf0(long param_1,long param_2)
 void recovered_4043cda0(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   long lVar2;
@@ -70997,7 +68482,7 @@ void recovered_4043cda0(void)
 #undef DAT_404948a8
 #undef DAT_404948b0
 
-#define pcStack_58 (*(char * *)(frame + 16))
+#define pcStack_58 (*(char * *)(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4043cdcc
  */
@@ -71005,7 +68490,7 @@ void recovered_4043cda0(void)
 undefined8 recovered_4043cdcc(long param_1,long param_2,undefined1 *param_3)
 
 {
-  unsigned char frame[136] = {0};
+  unsigned char frame[144] __attribute__((aligned(16))) = {0};
 
   ulong size;
   uchar uVar1;
@@ -71060,7 +68545,7 @@ undefined8 recovered_4043cdcc(long param_1,long param_2,undefined1 *param_3)
 bool recovered_4043ce6c(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char cVar1;
   int iVar2;
@@ -71097,7 +68582,7 @@ recovered_4043ceb8(long param_1,char *param_2,long param_3,ulong param_4,ulong p
                   )
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int *piVar1;
   char *format;
@@ -71135,7 +68620,7 @@ recovered_4043ceb8(long param_1,char *param_2,long param_3,ulong param_4,ulong p
 bool recovered_4043cf2c(long param_1,char *param_2,long param_3,long param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined1 *vararg2;
 
@@ -71171,7 +68656,7 @@ bool recovered_4043cf2c(long param_1,char *param_2,long param_3,long param_4)
 undefined8 recovered_4043cf88(int *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   byte bVar2;
@@ -71267,7 +68752,7 @@ undefined8
 recovered_4043d148(long param_1,char *param_2,long param_3,ulong param_4,ulong param_5,int *param_6)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   char *format;
@@ -71302,7 +68787,7 @@ recovered_4043d148(long param_1,char *param_2,long param_3,ulong param_4,ulong p
 ulong recovered_4043d1c4(long param_1,char *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
 
@@ -71322,7 +68807,7 @@ ulong recovered_4043d1c4(long param_1,char *param_2)
 double recovered_4043d1fc(uint param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -71426,7 +68911,7 @@ undefined8
 recovered_4043d250(long param_1,char *param_2,long param_3,ulong param_4,undefined8 *param_5)
 
 {
-  unsigned char frame[784] = {0};
+  unsigned char frame[784] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   ulong uVar2;
@@ -71970,7 +69455,7 @@ LAB_4043d704:
 ulong recovered_4043d74c(long param_1,char *param_2,long param_3,ulong param_4,undefined8 *param_5)
 
 {
-  unsigned char frame[992] = {0};
+  unsigned char frame[992] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   undefined4 uVar2;
@@ -73452,7 +70937,7 @@ undefined8
 recovered_4043ebec(long param_1,char *param_2,long param_3,ulong param_4,undefined8 *param_5)
 
 {
-  unsigned char frame[4880] = {0};
+  unsigned char frame[4880] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   uint uVar2;
@@ -75040,7 +72525,7 @@ undefined8
 recovered_4044070c(long param_1,char *param_2,long param_3,ulong param_4,undefined8 *param_5)
 
 {
-  unsigned char frame[1840] = {0};
+  unsigned char frame[1840] __attribute__((aligned(16))) = {0};
 
   char *pcVar1;
   undefined1 *puVar2;
@@ -75846,7 +73331,7 @@ undefined8
 recovered_40441660(long param_1,char *param_2,long param_3,ulong param_4,ulong param_5,int *param_6)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined4 *puVar1;
   byte bVar2;
@@ -75893,7 +73378,7 @@ LAB_404416d0:
 undefined8 recovered_4044171c(long param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   undefined8 uVar2;
@@ -75945,7 +73430,7 @@ undefined8 recovered_4044171c(long param_1,long param_2)
 byte recovered_404417e0(long param_1,long param_2,long *param_3,long *param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
 
@@ -75978,7 +73463,7 @@ recovered_40441834(long param_1,long param_2,long *param_3,long *param_4,long *p
                   )
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte *pbVar1;
   long lVar2;
@@ -76032,7 +73517,7 @@ LAB_404418b4:
 long recovered_404418fc(long param_1,long param_2,int param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 *puVar1;
   ulong uVar2;
@@ -76126,7 +73611,7 @@ long recovered_404418fc(long param_1,long param_2,int param_3)
 undefined8 recovered_40441a10(int *param_1,uint *param_2,uint *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char *left;
   char *right;
@@ -76189,9 +73674,9 @@ LAB_40441acc:
 
 #undef DAT_4044e204
 
-#define uStack_38 (*(ulong *)(frame + 16))
-#define uStack_30 (*(ulong *)(frame + 24))
-#define plStack_28 (*(long * *)(frame + 32))
+#define uStack_38 (*(ulong *)(frame + 24))
+#define uStack_30 (*(ulong *)(frame + 32))
+#define plStack_28 (*(long * *)(frame + 40))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40441aec
  */
@@ -76199,7 +73684,7 @@ LAB_40441acc:
 ulong recovered_40441aec(undefined4 *param_1,long param_2,long param_3,ulong param_4)
 
 {
-  unsigned char frame[104] = {0};
+  unsigned char frame[112] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   ulong uVar2;
@@ -76247,7 +73732,7 @@ ulong recovered_40441aec(undefined4 *param_1,long param_2,long param_3,ulong par
 undefined8 recovered_40441b38(long param_1,char *param_2)
 
 {
-  unsigned char frame[224] = {0};
+  unsigned char frame[224] __attribute__((aligned(16))) = {0};
 
   char *pcVar1;
   bool bVar2;
@@ -76348,7 +73833,7 @@ undefined8 recovered_40441b38(long param_1,char *param_2)
 undefined8 recovered_40441bdc(long param_1,ulong param_2,long param_3,char *param_4,ulong param_5)
 
 {
-  unsigned char frame[256] = {0};
+  unsigned char frame[256] __attribute__((aligned(16))) = {0};
 
   uint *puVar1;
   uint uVar2;
@@ -76568,7 +74053,7 @@ LAB_40441f14:
 uint recovered_40441f58(undefined2 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   ulong uVar2;
@@ -76620,7 +74105,7 @@ recovered_40441fbc(long param_1,long *param_2,ulong *param_3,undefined8 *param_4
                   ulong param_6)
 
 {
-  unsigned char frame[160] = {0};
+  unsigned char frame[160] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   ulong uVar2;
@@ -76750,7 +74235,7 @@ LAB_40442140:
 double recovered_404421bc(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int *piVar1;
   double extraout_d0 = 0;
@@ -76783,7 +74268,7 @@ double recovered_404421bc(void)
 void recovered_40442214(int param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   int iVar2;
@@ -76805,7 +74290,7 @@ void recovered_40442214(int param_1)
 float recovered_4044225c(float param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   uint uVar2;
@@ -76858,7 +74343,7 @@ ulong recovered_40442300(long param_1,char *param_2,int *param_3,long param_4,un
                         int param_6)
 
 {
-  unsigned char frame[224] = {0};
+  unsigned char frame[224] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   bool bVar2;
@@ -77125,7 +74610,7 @@ LAB_40442728:
 void recovered_40442770(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined1 uVar1;
   undefined1 uVar2;
@@ -77152,7 +74637,7 @@ void recovered_40442770(void)
 void recovered_404427d0(long param_1,ulong *param_2,int param_3,int param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -77188,7 +74673,7 @@ void recovered_404427d0(long param_1,ulong *param_2,int param_3,int param_4)
 undefined8 recovered_40442844(int *param_1,long param_2,undefined8 param_3)
 
 {
-  unsigned char frame[144] = {0};
+  unsigned char frame[144] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -77208,7 +74693,7 @@ undefined8 recovered_40442844(int *param_1,long param_2,undefined8 param_3)
 undefined8 recovered_4044287c(int *param_1,long param_2,undefined8 param_3)
 
 {
-  unsigned char frame[144] = {0};
+  unsigned char frame[144] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -77227,7 +74712,7 @@ undefined8 recovered_4044287c(int *param_1,long param_2,undefined8 param_3)
 undefined8 recovered_404428b4(int *param_1,long param_2,long param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 *puVar1;
   undefined8 uVar2;
@@ -77251,7 +74736,7 @@ uint recovered_40442904(uint param_1,uint param_2,undefined8 param_3,undefined8 
                        undefined8 param_5)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -77299,7 +74784,7 @@ uint recovered_40442904(uint param_1,uint param_2,undefined8 param_3,undefined8 
 undefined8 recovered_404429ac(ulong param_1,ulong param_2,ulong param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char cVar1;
   void *buffer;
@@ -77373,7 +74858,7 @@ undefined8 recovered_404429ac(ulong param_1,ulong param_2,ulong param_3)
 undefined8 recovered_40442ab4(undefined4 param_1,undefined4 param_2,uint param_3,undefined1 param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -77407,7 +74892,7 @@ undefined8 recovered_40442ab4(undefined4 param_1,undefined4 param_2,uint param_3
 void recovered_40442b1c(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined1 uVar1;
   undefined4 uVar2;
@@ -77433,7 +74918,7 @@ void recovered_40442b1c(void)
 undefined8 recovered_40442b50(void)
 
 {
-  unsigned char frame[160] = {0};
+  unsigned char frame[160] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   ulonglong in_x0;
@@ -77470,7 +74955,7 @@ recovered_40442ba4(uint param_1,uint param_2,undefined8 param_3,undefined8 param
                   undefined8 param_5)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -77584,7 +75069,7 @@ recovered_40442ba4(uint param_1,uint param_2,undefined8 param_3,undefined8 param
 undefined8 recovered_40442d24(int *param_1,int *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
   int iVar2;
@@ -77647,7 +75132,7 @@ undefined8
 recovered_40442db4(long param_1,char *param_2,ulong param_3,int param_4,undefined8 *param_5)
 
 {
-  unsigned char frame[144] = {0};
+  unsigned char frame[144] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
 
@@ -77705,7 +75190,7 @@ recovered_40442e30(long param_1,char *param_2,ulong param_3,ulong param_4,int pa
                   undefined8 *param_6)
 
 {
-  unsigned char frame[144] = {0};
+  unsigned char frame[144] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
 
@@ -77755,7 +75240,7 @@ recovered_40442e30(long param_1,char *param_2,ulong param_3,ulong param_4,int pa
 #define str_40451fad (*(char (*)[1])(0x40451fadU))
 #undef str_40451fb6
 #define str_40451fb6 (*(char (*)[1])(0x40451fb6U))
-#define in_stack_ffffffffffffffe8 (*(undefined1 * *)(frame + 16))
+#define in_stack_ffffffffffffffe8 (*(undefined1 * *)(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40442ec0
  */
@@ -77763,7 +75248,7 @@ recovered_40442e30(long param_1,char *param_2,ulong param_3,ulong param_4,int pa
 void recovered_40442ec0(long param_1)
 
 {
-  unsigned char frame[72] = {0};
+  unsigned char frame[80] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   char cVar2;
@@ -77799,7 +75284,7 @@ void recovered_40442ec0(long param_1)
 #define DAT_40494b70 (*(uint8_t volatile *)(0x40494b70U))
 #undef str_4044ece4
 #define str_4044ece4 (*(char (*)[1])(0x4044ece4U))
-#define acStack_214 (*(char (*)[484])(frame + 16))
+#define acStack_214 (*(char (*)[484])(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40442f14
  */
@@ -77807,7 +75292,7 @@ void recovered_40442ec0(long param_1)
 void recovered_40442f14(char *param_1,undefined1 *param_2)
 
 {
-  unsigned char frame[580] = {0};
+  unsigned char frame[592] __attribute__((aligned(16))) = {0};
 
   char *left;
   char cVar1;
@@ -77874,7 +75359,7 @@ LAB_40442fb8:
 undefined8 recovered_40443008(int *param_1,long param_2,undefined1 *param_3)
 
 {
-  unsigned char frame[160] = {0};
+  unsigned char frame[160] __attribute__((aligned(16))) = {0};
 
   undefined1 *puVar1;
   bool bVar2;
@@ -77929,7 +75414,7 @@ undefined8 recovered_40443008(int *param_1,long param_2,undefined1 *param_3)
 void recovered_40443068(char *param_1,int param_2)
 
 {
-  unsigned char frame[368] = {0};
+  unsigned char frame[368] __attribute__((aligned(16))) = {0};
 
   ulonglong in_x2;
   char *pcVar1;
@@ -77968,7 +75453,7 @@ void recovered_40443068(char *param_1,int param_2)
 bool recovered_404430ec(long param_1,long param_2,long param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   int iVar2;
@@ -78002,7 +75487,7 @@ bool recovered_404430ec(long param_1,long param_2,long param_3)
 void recovered_4044313c(long param_1,ulong *param_2,long param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -78026,7 +75511,7 @@ void recovered_4044313c(long param_1,ulong *param_2,long param_3)
 undefined8 recovered_404431a4(undefined4 *param_1,long param_2,long param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
   void *out;
@@ -78058,7 +75543,7 @@ undefined8 recovered_404431a4(undefined4 *param_1,long param_2,long param_3)
 }
 
 
-#define pcStack_68 (*(char * *)(frame + 16))
+#define pcStack_68 (*(char * *)(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40443210
  */
@@ -78066,7 +75551,7 @@ undefined8 recovered_404431a4(undefined4 *param_1,long param_2,long param_3)
 undefined8 recovered_40443210(long param_1,ulong param_2,long *param_3)
 
 {
-  unsigned char frame[152] = {0};
+  unsigned char frame[160] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   uchar uVar2;
@@ -78153,7 +75638,7 @@ LAB_40443304:
 undefined8 recovered_40443314(long param_1,char *param_2,undefined8 param_3)
 
 {
-  unsigned char frame[112] = {0};
+  unsigned char frame[112] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   bool bVar2;
@@ -78219,7 +75704,7 @@ undefined8 recovered_40443314(long param_1,char *param_2,undefined8 param_3)
 undefined8 recovered_404433b4(int *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   ushort uVar2;
@@ -78268,7 +75753,7 @@ undefined8 recovered_404433b4(int *param_1)
 undefined8 recovered_404434a4(long param_1,ulong param_2,long param_3,char *param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   int iVar2;
@@ -78346,7 +75831,7 @@ recovered_40443544(long param_1,long param_2,int param_3,uint param_4,uint param
                   uint param_7,long param_8,char *param_9)
 
 {
-  unsigned char frame[160] = {0};
+  unsigned char frame[160] __attribute__((aligned(16))) = {0};
 
   undefined1 *vararg0;
   void *out;
@@ -78445,7 +75930,7 @@ recovered_40443544(long param_1,long param_2,int param_3,uint param_4,uint param
 undefined8 recovered_404436b0(undefined8 param_1,undefined8 *param_2,long *param_3)
 
 {
-  unsigned char frame[144] = {0};
+  unsigned char frame[144] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   ulong uVar2;
@@ -78624,14 +76109,14 @@ LAB_404438a0:
 #define DAT_40494800 (*(uint64_t volatile *)(0x40494800U))
 #undef str_4044dfe0
 #define str_4044dfe0 (*(char (*)[1])(0x4044dfe0U))
-#define iStack_2ac (*(int *)(frame + 32))
-#define iStack_2a8 (*(int *)(frame + 36))
-#define uStack_288 (*(uint *)(frame + 68))
-#define auStack_274 (*(undefined1 (*)[68])(frame + 88))
-#define uStack_2bc (*(uint *)(frame + 16))
-#define auStack_2b8 (*(undefined1 (*)[8])(frame + 20))
-#define iStack_2b0 (*(int *)(frame + 28))
-#define auStack_230 (*(undefined1 (*)[512])(frame + 156))
+#define iStack_2ac (*(int *)(frame + 36))
+#define iStack_2a8 (*(int *)(frame + 40))
+#define uStack_288 (*(uint *)(frame + 72))
+#define auStack_274 (*(undefined1 (*)[68])(frame + 92))
+#define uStack_2bc (*(uint *)(frame + 20))
+#define auStack_2b8 (*(undefined1 (*)[8])(frame + 24))
+#define iStack_2b0 (*(int *)(frame + 32))
+#define auStack_230 (*(undefined1 (*)[512])(frame + 160))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x404438c8
  */
@@ -78639,7 +76124,7 @@ LAB_404438a0:
 undefined8 recovered_404438c8(int *param_1,int *param_2)
 
 {
-  unsigned char frame[748] = {0};
+  unsigned char frame[752] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -78781,7 +76266,7 @@ LAB_40443ab0:
 undefined * recovered_40443afc(int param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (param_1 - 1U < 5) {
     return (&PTR_DAT_4045a210)[param_1 - 1U];
@@ -78801,7 +76286,7 @@ undefined * recovered_40443afc(int param_1)
 void recovered_40443b24(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
 
@@ -78850,7 +76335,7 @@ void recovered_40443b24(void)
 undefined8 recovered_40443b38(long param_1,undefined4 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   undefined8 uVar2;
@@ -78952,7 +76437,7 @@ undefined8 recovered_40443b38(long param_1,undefined4 *param_2)
 undefined8 recovered_40443c8c(undefined8 param_1,int param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   bool bVar2;
@@ -79029,7 +76514,7 @@ undefined8 recovered_40443c8c(undefined8 param_1,int param_2)
 undefined8 recovered_40443d08(undefined8 param_1,uint param_2)
 
 {
-  unsigned char frame[480] = {0};
+  unsigned char frame[480] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   int iVar2;
@@ -79252,46 +76737,46 @@ LAB_40443f4c:
 #define str_4045374d (*(char (*)[1])(0x4045374dU))
 #undef uRam000000004044e1f8
 #define uRam000000004044e1f8 (*(uint64_t *)(0x4044e1f8U))
-#define auStack_aa (*(undefined1 (*)[64])(frame + 1502))
-#define uStack_6a (*(undefined2 *)(frame + 1566))
-#define uStack_658 (*(uint *)(frame + 48))
-#define uStack_650 (*(undefined1 *)(frame + 56))
-#define uStack_64f (*(undefined1 *)(frame + 57))
-#define uStack_64e (*(undefined1 *)(frame + 58))
-#define auStack_678 (*(undefined1 (*)[16])(frame + 16))
-#define auStack_668 (*(undefined1 (*)[16])(frame + 32))
-#define uStack_61f (*(undefined1 *)(frame + 105))
-#define uStack_61e (*(undefined1 *)(frame + 106))
-#define uStack_61d (*(undefined1 *)(frame + 107))
-#define uStack_61c (*(undefined4 *)(frame + 108))
-#define uStack_64d (*(undefined1 *)(frame + 59))
-#define uStack_64c (*(undefined8 *)(frame + 60))
-#define uStack_644 (*(undefined4 *)(frame + 68))
-#define uStack_620 (*(undefined1 *)(frame + 104))
-#define uStack_448 (*(undefined1 *)(frame + 576))
-#define uStack_447 (*(undefined1 *)(frame + 577))
-#define uStack_446 (*(undefined1 *)(frame + 578))
-#define uStack_445 (*(undefined1 *)(frame + 579))
-#define auStack_468 (*(undefined2 (*)[4])(frame + 544))
-#define uStack_460 (*(undefined8 *)(frame + 552))
-#define uStack_458 (*(uint *)(frame + 560))
-#define uStack_450 (*(undefined8 *)(frame + 568))
-#define uStack_436 (*(undefined1 *)(frame + 594))
-#define uStack_435 (*(undefined1 *)(frame + 595))
-#define uStack_434 (*(undefined4 *)(frame + 596))
-#define auStack_430 (*(undefined1 (*)[16])(frame + 600))
-#define uStack_444 (*(undefined8 *)(frame + 580))
-#define uStack_43c (*(undefined4 *)(frame + 588))
-#define uStack_438 (*(undefined1 *)(frame + 592))
-#define uStack_437 (*(undefined1 *)(frame + 593))
-#define uStack_b0 (*(undefined1 *)(frame + 1496))
-#define uStack_af (*(undefined1 *)(frame + 1497))
-#define uStack_ae (*(undefined1 *)(frame + 1498))
-#define uStack_ad (*(undefined1 *)(frame + 1499))
-#define uStack_420 (*(undefined8 *)(frame + 616))
-#define uStack_418 (*(undefined8 *)(frame + 624))
-#define uStack_410 (*(uint *)(frame + 632))
-#define auStack_268 (*(undefined8 (*)[55])(frame + 1056))
+#define auStack_aa (*(undefined1 (*)[64])(frame + 1510))
+#define uStack_6a (*(undefined2 *)(frame + 1574))
+#define uStack_658 (*(uint *)(frame + 56))
+#define uStack_650 (*(undefined1 *)(frame + 64))
+#define uStack_64f (*(undefined1 *)(frame + 65))
+#define uStack_64e (*(undefined1 *)(frame + 66))
+#define auStack_678 (*(undefined1 (*)[16])(frame + 24))
+#define auStack_668 (*(undefined1 (*)[16])(frame + 40))
+#define uStack_61f (*(undefined1 *)(frame + 113))
+#define uStack_61e (*(undefined1 *)(frame + 114))
+#define uStack_61d (*(undefined1 *)(frame + 115))
+#define uStack_61c (*(undefined4 *)(frame + 116))
+#define uStack_64d (*(undefined1 *)(frame + 67))
+#define uStack_64c (*(undefined8 *)(frame + 68))
+#define uStack_644 (*(undefined4 *)(frame + 76))
+#define uStack_620 (*(undefined1 *)(frame + 112))
+#define uStack_448 (*(undefined1 *)(frame + 584))
+#define uStack_447 (*(undefined1 *)(frame + 585))
+#define uStack_446 (*(undefined1 *)(frame + 586))
+#define uStack_445 (*(undefined1 *)(frame + 587))
+#define auStack_468 (*(undefined2 (*)[4])(frame + 552))
+#define uStack_460 (*(undefined8 *)(frame + 560))
+#define uStack_458 (*(uint *)(frame + 568))
+#define uStack_450 (*(undefined8 *)(frame + 576))
+#define uStack_436 (*(undefined1 *)(frame + 602))
+#define uStack_435 (*(undefined1 *)(frame + 603))
+#define uStack_434 (*(undefined4 *)(frame + 604))
+#define auStack_430 (*(undefined1 (*)[16])(frame + 608))
+#define uStack_444 (*(undefined8 *)(frame + 588))
+#define uStack_43c (*(undefined4 *)(frame + 596))
+#define uStack_438 (*(undefined1 *)(frame + 600))
+#define uStack_437 (*(undefined1 *)(frame + 601))
+#define uStack_b0 (*(undefined1 *)(frame + 1504))
+#define uStack_af (*(undefined1 *)(frame + 1505))
+#define uStack_ae (*(undefined1 *)(frame + 1506))
+#define uStack_ad (*(undefined1 *)(frame + 1507))
+#define uStack_420 (*(undefined8 *)(frame + 624))
+#define uStack_418 (*(undefined8 *)(frame + 632))
+#define uStack_410 (*(uint *)(frame + 640))
+#define auStack_268 (*(undefined8 (*)[55])(frame + 1064))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40444024
  */
@@ -79301,7 +76786,7 @@ LAB_40443f4c:
 ulong recovered_40444024(undefined8 param_1,uint param_2)
 
 {
-  unsigned char frame[1704] = {0};
+  unsigned char frame[1712] __attribute__((aligned(16))) = {0};
 
   undefined1 uVar1;
   undefined1 uVar2;
@@ -79676,7 +77161,7 @@ undefined8
 recovered_40444484(undefined8 param_1,ulong param_2,ulong param_3,char *param_4,undefined1 *param_5)
 
 {
-  unsigned char frame[1296] = {0};
+  unsigned char frame[1296] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   byte bVar2;
@@ -80332,9 +77817,9 @@ LAB_4044467c:
 #define DAT_40494754 (*(uint8_t volatile *)(0x40494754U))
 #undef DAT_40494800
 #define DAT_40494800 (*(uint64_t volatile *)(0x40494800U))
-#define iStack_84 (*(int *)(frame + 16))
-#define uStack_80 (*(uint *)(frame + 20))
-#define uStack_7c (*(uint *)(frame + 24))
+#define iStack_84 (*(int *)(frame + 28))
+#define uStack_80 (*(uint *)(frame + 32))
+#define uStack_7c (*(uint *)(frame + 36))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4044529c
  */
@@ -80342,7 +77827,7 @@ LAB_4044467c:
 undefined8 recovered_4044529c(undefined8 param_1,ulong param_2)
 
 {
-  unsigned char frame[180] = {0};
+  unsigned char frame[192] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   ulong uVar2;
@@ -80425,7 +77910,7 @@ undefined8 recovered_4044529c(undefined8 param_1,ulong param_2)
 undefined4 * recovered_40445408(uint param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   undefined4 *puVar2;
@@ -80472,7 +77957,7 @@ undefined4 * recovered_40445408(uint param_1)
 void recovered_4044545c(uint param_1,uint param_2,uint param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   byte bVar2;
@@ -80534,7 +78019,7 @@ void recovered_4044545c(uint param_1,uint param_2,uint param_3)
 void recovered_40445544(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   uint uVar2;
@@ -80572,7 +78057,7 @@ void recovered_40445544(long param_1)
 void recovered_404455c0(long param_1,undefined1 param_2,undefined4 param_3,undefined8 param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (param_1 != 0) {
     recovered_40400908((void *)param_1,0,0x10);
@@ -80601,7 +78086,7 @@ void recovered_404455c0(long param_1,undefined1 param_2,undefined4 param_3,undef
 uint recovered_40445640(long param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   long lVar2;
@@ -80630,7 +78115,7 @@ void recovered_4044568c(undefined2 *param_1,undefined8 param_2,undefined8 param_
                        ,long param_5,long param_6)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined1 uVar1;
   undefined1 uVar2;
@@ -80680,7 +78165,7 @@ void recovered_4044568c(undefined2 *param_1,undefined8 param_2,undefined8 param_
 void recovered_40445788(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong in_x1;
   char *in_x2;
@@ -80704,7 +78189,7 @@ void recovered_40445788(long param_1)
 undefined8 recovered_404457a8(char *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
 
@@ -80732,7 +78217,7 @@ undefined8 recovered_404457a8(char *param_1)
 undefined8 recovered_404457f0(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   undefined8 uVar2;
@@ -80768,7 +78253,7 @@ undefined8 recovered_404457f0(long param_1)
 undefined8 recovered_40445844(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   undefined8 uVar2;
@@ -80810,7 +78295,7 @@ undefined8 recovered_40445844(long param_1)
 undefined8 recovered_404458a8(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   undefined8 uVar2;
@@ -80860,7 +78345,7 @@ undefined8 recovered_404458a8(long param_1)
 char * recovered_4044592c(char *param_1,ulonglong param_2,char *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   ulong uVar2;
@@ -80924,7 +78409,7 @@ char * recovered_4044592c(char *param_1,ulonglong param_2,char *param_3)
 undefined8 recovered_40445a1c(undefined8 param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   char *pcVar2;
@@ -80946,7 +78431,7 @@ bool recovered_40445a50(undefined8 param_1,uint param_2,undefined8 param_3,uint 
                        )
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   ulong uVar2;
@@ -80999,7 +78484,7 @@ LAB_40445b10:
 bool recovered_40445b1c(undefined8 param_1,uint param_2,uint param_3,uint param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   void *buffer;
@@ -81056,39 +78541,39 @@ bool recovered_40445b1c(undefined8 param_1,uint param_2,uint param_3,uint param_
 
 #undef DAT_4044e0a8
 #define DAT_4044e0a8 (*(uint8_t *)(0x4044e0a8U))
-#define uStack_428 (*(undefined1 *)(frame + 160))
-#define uStack_427 (*(undefined1 *)(frame + 161))
-#define uStack_426 (*(undefined1 *)(frame + 162))
-#define uStack_425 (*(undefined1 *)(frame + 163))
-#define uStack_468 (*(undefined8 *)(frame + 96))
-#define uStack_460 (*(undefined8 *)(frame + 104))
-#define uStack_458 (*(undefined8 *)(frame + 112))
-#define uStack_450 (*(undefined8 *)(frame + 120))
-#define auStack_250 (*(uint (*)[8])(frame + 632))
-#define auStack_230 (*(undefined1 (*)[36])(frame + 664))
-#define uStack_20c (*(undefined1 *)(frame + 700))
-#define uStack_20b (*(undefined1 *)(frame + 701))
-#define auStack_280 (*(undefined1 (*)[32])(frame + 584))
-#define auStack_260 (*(ushort (*)[2])(frame + 616))
-#define auStack_25c (*(undefined1 (*)[8])(frame + 620))
-#define uStack_254 (*(undefined4 *)(frame + 628))
-#define acStack_ae (*(char (*)[78])(frame + 1050))
-#define uStack_20a (*(undefined1 *)(frame + 702))
-#define uStack_209 (*(undefined1 *)(frame + 703))
-#define uStack_208 (*(uint *)(frame + 704))
-#define auStack_b2 (*(undefined1 (*)[4])(frame + 1046))
-#define auStack_4b8 (*(undefined4 (*)[2])(frame + 16))
-#define iStack_4b0 (*(int *)(frame + 24))
-#define uStack_4ac (*(uint *)(frame + 28))
-#define uStack_4a8 (*(uint *)(frame + 32))
-#define uStack_494 (*(uint *)(frame + 52))
-#define uStack_480 (*(undefined8 *)(frame + 72))
-#define uStack_478 (*(undefined8 *)(frame + 80))
-#define uStack_470 (*(undefined8 *)(frame + 88))
-#define uStack_4a4 (*(uint *)(frame + 36))
-#define uStack_4a0 (*(uint *)(frame + 40))
-#define uStack_49c (*(uint *)(frame + 44))
-#define uStack_498 (*(uint *)(frame + 48))
+#define uStack_428 (*(undefined1 *)(frame + 168))
+#define uStack_427 (*(undefined1 *)(frame + 169))
+#define uStack_426 (*(undefined1 *)(frame + 170))
+#define uStack_425 (*(undefined1 *)(frame + 171))
+#define uStack_468 (*(undefined8 *)(frame + 104))
+#define uStack_460 (*(undefined8 *)(frame + 112))
+#define uStack_458 (*(undefined8 *)(frame + 120))
+#define uStack_450 (*(undefined8 *)(frame + 128))
+#define auStack_250 (*(uint (*)[8])(frame + 640))
+#define auStack_230 (*(undefined1 (*)[36])(frame + 672))
+#define uStack_20c (*(undefined1 *)(frame + 708))
+#define uStack_20b (*(undefined1 *)(frame + 709))
+#define auStack_280 (*(undefined1 (*)[32])(frame + 592))
+#define auStack_260 (*(ushort (*)[2])(frame + 624))
+#define auStack_25c (*(undefined1 (*)[8])(frame + 628))
+#define uStack_254 (*(undefined4 *)(frame + 636))
+#define acStack_ae (*(char (*)[78])(frame + 1058))
+#define uStack_20a (*(undefined1 *)(frame + 710))
+#define uStack_209 (*(undefined1 *)(frame + 711))
+#define uStack_208 (*(uint *)(frame + 712))
+#define auStack_b2 (*(undefined1 (*)[4])(frame + 1054))
+#define auStack_4b8 (*(undefined4 (*)[2])(frame + 24))
+#define iStack_4b0 (*(int *)(frame + 32))
+#define uStack_4ac (*(uint *)(frame + 36))
+#define uStack_4a8 (*(uint *)(frame + 40))
+#define uStack_494 (*(uint *)(frame + 60))
+#define uStack_480 (*(undefined8 *)(frame + 80))
+#define uStack_478 (*(undefined8 *)(frame + 88))
+#define uStack_470 (*(undefined8 *)(frame + 96))
+#define uStack_4a4 (*(uint *)(frame + 44))
+#define uStack_4a0 (*(uint *)(frame + 48))
+#define uStack_49c (*(uint *)(frame + 52))
+#define uStack_498 (*(uint *)(frame + 56))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40445c08
  */
@@ -81096,7 +78581,7 @@ bool recovered_40445b1c(undefined8 param_1,uint param_2,uint param_3,uint param_
 undefined8 recovered_40445c08(long param_1,ulong param_2,ulong param_3)
 
 {
-  unsigned char frame[1256] = {0};
+  unsigned char frame[1264] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   undefined1 uVar2;
@@ -81308,12 +78793,12 @@ LAB_40445fa4:
 #undef uStack_49c
 #undef uStack_498
 
-#define uStack_3c (*(uint *)(frame + 44))
-#define uStack_38 (*(uint *)(frame + 48))
-#define uStack_34 (*(uint *)(frame + 52))
-#define auStack_58 (*(undefined4 (*)[4])(frame + 16))
-#define uStack_48 (*(uint *)(frame + 32))
-#define uStack_40 (*(uint *)(frame + 40))
+#define uStack_3c (*(uint *)(frame + 52))
+#define uStack_38 (*(uint *)(frame + 56))
+#define uStack_34 (*(uint *)(frame + 60))
+#define auStack_58 (*(undefined4 (*)[4])(frame + 24))
+#define uStack_48 (*(uint *)(frame + 40))
+#define uStack_40 (*(uint *)(frame + 48))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40445fd0
  */
@@ -81321,7 +78806,7 @@ LAB_40445fa4:
 void recovered_40445fd0(long param_1)
 
 {
-  unsigned char frame[136] = {0};
+  unsigned char frame[144] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   undefined4 *puVar2;
@@ -81400,7 +78885,7 @@ switchD_4044601c_caseD_4:
 void recovered_40446088(long param_1,int param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   int iVar2;
@@ -81485,10 +78970,10 @@ void recovered_40446088(long param_1,int param_2)
 #undef DAT_40494800
 #undef UNK_4048af74
 
-#define uStack_278 (*(undefined8 *)(frame + 16))
-#define uStack_26c (*(uint *)(frame + 28))
-#define aiStack_240 (*(int (*)[8])(frame + 72))
-#define aiStack_220 (*(int (*)[120])(frame + 104))
+#define uStack_278 (*(undefined8 *)(frame + 24))
+#define uStack_26c (*(uint *)(frame + 36))
+#define aiStack_240 (*(int (*)[8])(frame + 80))
+#define aiStack_220 (*(int (*)[120])(frame + 112))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x404461c8
  */
@@ -81496,7 +78981,7 @@ void recovered_40446088(long param_1,int param_2)
 ulong recovered_404461c8(undefined8 param_1,int param_2,undefined8 param_3)
 
 {
-  unsigned char frame[680] = {0};
+  unsigned char frame[688] __attribute__((aligned(16))) = {0};
 
   int *piVar1;
   uint uVar2;
@@ -81575,21 +79060,21 @@ ulong recovered_404461c8(undefined8 param_1,int param_2,undefined8 param_3)
 #define str_40454338 (*(char (*)[1])(0x40454338U))
 #undef str_4045436c
 #define str_4045436c (*(char (*)[1])(0x4045436cU))
-#define auStack_56c (*(uint (*)[2])(frame + 16))
-#define uStack_564 (*(undefined8 *)(frame + 24))
-#define uStack_2f4 (*(uint *)(frame + 648))
-#define auStack_2f0 (*(undefined1 (*)[8])(frame + 652))
-#define iStack_2e8 (*(int *)(frame + 660))
-#define iStack_2e4 (*(int *)(frame + 664))
-#define uStack_52c (*(undefined8 *)(frame + 80))
-#define uStack_520 (*(uint *)(frame + 92))
-#define aiStack_4f4 (*(int (*)[8])(frame + 136))
-#define auStack_4d4 (*(uint (*)[120])(frame + 168))
-#define uStack_238 (*(undefined4 *)(frame + 836))
-#define iStack_2e0 (*(int *)(frame + 668))
-#define uStack_2c0 (*(uint *)(frame + 700))
-#define auStack_2ac (*(undefined1 (*)[68])(frame + 720))
-#define auStack_268 (*(undefined1 (*)[48])(frame + 788))
+#define auStack_56c (*(uint (*)[2])(frame + 20))
+#define uStack_564 (*(undefined8 *)(frame + 28))
+#define uStack_2f4 (*(uint *)(frame + 652))
+#define auStack_2f0 (*(undefined1 (*)[8])(frame + 656))
+#define iStack_2e8 (*(int *)(frame + 664))
+#define iStack_2e4 (*(int *)(frame + 668))
+#define uStack_52c (*(undefined8 *)(frame + 84))
+#define uStack_520 (*(uint *)(frame + 96))
+#define aiStack_4f4 (*(int (*)[8])(frame + 140))
+#define auStack_4d4 (*(uint (*)[120])(frame + 172))
+#define uStack_238 (*(undefined4 *)(frame + 840))
+#define iStack_2e0 (*(int *)(frame + 672))
+#define uStack_2c0 (*(uint *)(frame + 704))
+#define auStack_2ac (*(undefined1 (*)[68])(frame + 724))
+#define auStack_268 (*(undefined1 (*)[48])(frame + 792))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4044628c
  */
@@ -81597,7 +79082,7 @@ ulong recovered_404461c8(undefined8 param_1,int param_2,undefined8 param_3)
 undefined8 recovered_4044628c(undefined8 param_1,undefined8 param_2,undefined8 param_3,long param_4)
 
 {
-  unsigned char frame[1436] = {0};
+  unsigned char frame[1440] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   int iVar2;
@@ -81893,7 +79378,7 @@ LAB_40446368:
 void recovered_4044674c(long param_1,undefined8 param_2,byte *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
 
   if (param_1 != 0) {
@@ -81911,7 +79396,7 @@ void recovered_4044674c(long param_1,undefined8 param_2,byte *param_3)
 ulong recovered_40446770(uint param_1,byte *param_2,undefined1 *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   undefined4 *puVar2;
@@ -81933,7 +79418,7 @@ ulong recovered_40446770(uint param_1,byte *param_2,undefined1 *param_3)
 undefined4 * recovered_40446794(uint param_1,byte *param_2,int param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   undefined4 *puVar2;
@@ -81965,8 +79450,8 @@ undefined4 * recovered_40446794(uint param_1,byte *param_2,int param_3)
 #undef DAT_4047c328
 #undef DAT_40494800
 
-#define aiStack_220 (*(int (*)[128])(frame + 72))
-#define auStack_258 (*(undefined8 (*)[7])(frame + 16))
+#define aiStack_220 (*(int (*)[128])(frame + 80))
+#define auStack_258 (*(undefined8 (*)[7])(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4044683c
  */
@@ -81974,7 +79459,7 @@ undefined4 * recovered_40446794(uint param_1,byte *param_2,int param_3)
 undefined8 recovered_4044683c(undefined8 param_1,uint param_2,undefined8 param_3)
 
 {
-  unsigned char frame[648] = {0};
+  unsigned char frame[656] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -82001,7 +79486,7 @@ undefined8 recovered_4044683c(undefined8 param_1,uint param_2,undefined8 param_3
 undefined8 recovered_40446894(long param_1,undefined1 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   undefined8 uVar2;
@@ -82026,7 +79511,7 @@ undefined8 recovered_40446894(long param_1,undefined1 *param_2)
 
 #undef str_4045401b
 #define str_4045401b (*(char (*)[1])(0x4045401bU))
-#define abStack_2d (*(byte (*)[13])(frame + 16))
+#define abStack_2d (*(byte (*)[13])(frame + 19))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x404468e8
  */
@@ -82034,7 +79519,7 @@ undefined8 recovered_40446894(long param_1,undefined1 *param_2)
 uchar recovered_404468e8(long param_1)
 
 {
-  unsigned char frame[93] = {0};
+  unsigned char frame[96] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
 
@@ -82067,7 +79552,7 @@ undefined8
 recovered_40446934(undefined8 param_1,ulong param_2,ulong param_3,char *param_4,long param_5)
 
 {
-  unsigned char frame[272] = {0};
+  unsigned char frame[272] __attribute__((aligned(16))) = {0};
 
   uint *puVar1;
   ulong uVar2;
@@ -82121,7 +79606,7 @@ undefined8
 recovered_40446a14(char *param_1,undefined8 param_2,undefined8 param_3,long param_4,long param_5)
 
 {
-  unsigned char frame[144] = {0};
+  unsigned char frame[144] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   undefined8 extraout_x1 = 0;
@@ -82164,7 +79649,7 @@ recovered_40446a14(char *param_1,undefined8 param_2,undefined8 param_3,long para
 void recovered_40446afc(long param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
 
@@ -82182,7 +79667,7 @@ void recovered_40446afc(long param_1,long param_2)
 }
 
 
-#define acStack_121 (*(char (*)[241])(frame + 16))
+#define acStack_121 (*(char (*)[241])(frame + 31))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40446b44
  */
@@ -82190,7 +79675,7 @@ void recovered_40446afc(long param_1,long param_2)
 undefined8 recovered_40446b44(long param_1)
 
 {
-  unsigned char frame[337] = {0};
+  unsigned char frame[352] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   ulong size;
@@ -82248,17 +79733,17 @@ undefined8 recovered_40446b44(long param_1)
 #define str_40454f11 (*(char (*)[1])(0x40454f11U))
 #undef str_40454f19
 #define str_40454f19 (*(char (*)[1])(0x40454f19U))
-#define acStack_748 (*(char (*)[64])(frame + 274))
-#define acStack_708 (*(char (*)[241])(frame + 338))
-#define acStack_617 (*(char (*)[1361])(frame + 579))
-#define acStack_c6 (*(char (*)[32])(frame + 1940))
-#define acStack_84a (*(char (*)[242])(frame + 16))
-#define uStack_758 (*(undefined8 *)(frame + 258))
-#define acStack_750 (*(char (*)[4])(frame + 266))
-#define uStack_74c (*(undefined4 *)(frame + 270))
-#define acStack_a6 (*(char (*)[65])(frame + 1972))
-#define uStack_65 (*(undefined1 *)(frame + 2037))
-#define iStack_64 (*(int *)(frame + 2038))
+#define acStack_748 (*(char (*)[64])(frame + 280))
+#define acStack_708 (*(char (*)[241])(frame + 344))
+#define acStack_617 (*(char (*)[1361])(frame + 585))
+#define acStack_c6 (*(char (*)[32])(frame + 1946))
+#define acStack_84a (*(char (*)[242])(frame + 22))
+#define uStack_758 (*(undefined8 *)(frame + 264))
+#define acStack_750 (*(char (*)[4])(frame + 272))
+#define uStack_74c (*(undefined4 *)(frame + 276))
+#define acStack_a6 (*(char (*)[65])(frame + 1978))
+#define uStack_65 (*(undefined1 *)(frame + 2043))
+#define iStack_64 (*(int *)(frame + 2044))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40446bc8
  */
@@ -82267,7 +79752,7 @@ undefined8
 recovered_40446bc8(long param_1,long param_2,char *param_3,long param_4,undefined1 *param_5)
 
 {
-  unsigned char frame[2170] = {0};
+  unsigned char frame[2176] __attribute__((aligned(16))) = {0};
 
   undefined1 *vararg0;
   bool bVar1;
@@ -82420,8 +79905,8 @@ LAB_40446cbc:
 #define str_40451fad (*(char (*)[1])(0x40451fadU))
 #undef str_40455080
 #define str_40455080 (*(char (*)[1])(0x40455080U))
-#define acStack_121 (*(char (*)[241])(frame + 39))
-#define in_stack_fffffffffffffec8 (*(char * *)(frame + 16))
+#define acStack_121 (*(char (*)[241])(frame + 47))
+#define in_stack_fffffffffffffec8 (*(char * *)(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40446f54
  */
@@ -82429,7 +79914,7 @@ LAB_40446cbc:
 void recovered_40446f54(ulonglong param_1,long param_2,long param_3)
 
 {
-  unsigned char frame[360] = {0};
+  unsigned char frame[368] __attribute__((aligned(16))) = {0};
 
   char *format;
 
@@ -82468,7 +79953,7 @@ void recovered_40446f54(ulonglong param_1,long param_2,long param_3)
 double recovered_40446fc4(char *param_1,long param_2)
 
 {
-  unsigned char frame[352] = {0};
+  unsigned char frame[352] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   char *format;
@@ -82515,7 +80000,7 @@ double recovered_40446fc4(char *param_1,long param_2)
 void recovered_40447078(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (param_1 != 0) {
     pf_varargs_404019bc_2((char *)param_1,0x20,str_404550ad,1,0);
@@ -82693,7 +80178,7 @@ void recovered_40447078(long param_1)
 uint recovered_404470a8(void)
 
 {
-  unsigned char frame[2320] = {0};
+  unsigned char frame[2320] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   long lVar2;
@@ -83149,7 +80634,7 @@ LAB_404477fc:
 bool recovered_4044794c(char *param_1,long param_2)
 
 {
-  unsigned char frame[608] = {0};
+  unsigned char frame[608] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   char *pcVar2;
@@ -83214,8 +80699,8 @@ LAB_40447a2c:
 #define DAT_40451fda (*(uint8_t *)(0x40451fdaU))
 #undef DAT_40494908
 #define DAT_40494908 (*(uint64_t volatile *)(0x40494908U))
-#define acStack_213 (*(char (*)[242])(frame + 16))
-#define acStack_121 (*(char (*)[241])(frame + 258))
+#define acStack_213 (*(char (*)[242])(frame + 29))
+#define acStack_121 (*(char (*)[241])(frame + 271))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40447a40
  */
@@ -83223,7 +80708,7 @@ LAB_40447a2c:
 long recovered_40447a40(char *param_1)
 
 {
-  unsigned char frame[579] = {0};
+  unsigned char frame[592] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   char *pcVar2;
@@ -83268,10 +80753,10 @@ LAB_40447aa4:
 #define DAT_4044e372 (*(uint8_t *)(0x4044e372U))
 #undef str_40454f4b
 #define str_40454f4b (*(char (*)[1])(0x40454f4bU))
-#define auStack_371 (*(undefined1 (*)[32])(frame + 16))
-#define acStack_351 (*(char (*)[241])(frame + 48))
-#define auStack_260 (*(undefined1 (*)[272])(frame + 289))
-#define auStack_150 (*(undefined1 (*)[272])(frame + 561))
+#define auStack_371 (*(undefined1 (*)[32])(frame + 31))
+#define acStack_351 (*(char (*)[241])(frame + 63))
+#define auStack_260 (*(undefined1 (*)[272])(frame + 304))
+#define auStack_150 (*(undefined1 (*)[272])(frame + 576))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40447ae4
  */
@@ -83279,7 +80764,7 @@ LAB_40447aa4:
 void recovered_40447ae4(long param_1)
 
 {
-  unsigned char frame[929] = {0};
+  unsigned char frame[944] __attribute__((aligned(16))) = {0};
 
   undefined *vararg3;
   undefined *in_x1;
@@ -83309,9 +80794,9 @@ void recovered_40447ae4(long param_1)
 
 #undef DAT_4044f25f
 #define DAT_4044f25f (*(uint8_t *)(0x4044f25fU))
-#define acStack_227 (*(char (*)[5])(frame + 16))
-#define acStack_222 (*(char (*)[241])(frame + 21))
-#define acStack_131 (*(char (*)[241])(frame + 262))
+#define acStack_227 (*(char (*)[5])(frame + 25))
+#define acStack_222 (*(char (*)[241])(frame + 30))
+#define acStack_131 (*(char (*)[241])(frame + 271))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40447b7c
  */
@@ -83319,7 +80804,7 @@ void recovered_40447ae4(long param_1)
 ulong recovered_40447b7c(long param_1,char *param_2)
 
 {
-  unsigned char frame[599] = {0};
+  unsigned char frame[608] __attribute__((aligned(16))) = {0};
 
   char cVar1;
   bool bVar2;
@@ -83387,7 +80872,7 @@ ulong recovered_40447b7c(long param_1,char *param_2)
 undefined8 recovered_40447c7c(long param_1,char *param_2,long param_3)
 
 {
-  unsigned char frame[192] = {0};
+  unsigned char frame[192] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   int iVar2;
@@ -83426,7 +80911,7 @@ undefined8 recovered_40447c7c(long param_1,char *param_2,long param_3)
 void recovered_40447cfc(long param_1,undefined1 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -83461,7 +80946,7 @@ void recovered_40447cfc(long param_1,undefined1 *param_2)
 ulonglong recovered_40447d74(char *param_1,long param_2,long param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long lVar2;
@@ -83515,7 +81000,7 @@ ulonglong recovered_40447d74(char *param_1,long param_2,long param_3)
 ulong recovered_40447e3c(char *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long lVar2;
@@ -83587,7 +81072,7 @@ ulong recovered_40447e3c(char *param_1)
 void recovered_40447ea8(ulong param_1,uint param_2)
 
 {
-  unsigned char frame[1968] = {0};
+  unsigned char frame[1968] __attribute__((aligned(16))) = {0};
 
   char *pcVar1;
   int iVar2;
@@ -83706,7 +81191,7 @@ void recovered_40447ea8(ulong param_1,uint param_2)
 #define str_40455754 (*(char (*)[1])(0x40455754U))
 #undef str_4045575f
 #define str_4045575f (*(char (*)[1])(0x4045575fU))
-#define local_24 (*(int *)(frame + 16))
+#define local_24 (*(int *)(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x404480c4
  */
@@ -83714,7 +81199,7 @@ void recovered_40447ea8(ulong param_1,uint param_2)
 undefined8 recovered_404480c4(undefined8 param_1,int *param_2)
 
 {
-  unsigned char frame[84] = {0};
+  unsigned char frame[96] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   undefined8 uVar2;
@@ -83780,12 +81265,12 @@ undefined8 recovered_404480c4(undefined8 param_1,int *param_2)
 #define str_40455782 (*(char (*)[1])(0x40455782U))
 #undef str_40455791
 #define str_40455791 (*(char (*)[1])(0x40455791U))
-#define auStack_184 (*(undefined1 (*)[308])(frame + 40))
-#define uStack_198 (*(uint *)(frame + 20))
-#define uStack_194 (*(uint *)(frame + 24))
-#define uStack_190 (*(uint *)(frame + 28))
-#define auStack_18c (*(undefined1 (*)[8])(frame + 32))
-#define uStack_19c (*(uint *)(frame + 16))
+#define auStack_184 (*(undefined1 (*)[308])(frame + 44))
+#define uStack_198 (*(uint *)(frame + 24))
+#define uStack_194 (*(uint *)(frame + 28))
+#define uStack_190 (*(uint *)(frame + 32))
+#define auStack_18c (*(undefined1 (*)[8])(frame + 36))
+#define uStack_19c (*(uint *)(frame + 20))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40448220
  */
@@ -83793,7 +81278,7 @@ undefined8 recovered_404480c4(undefined8 param_1,int *param_2)
 undefined8 recovered_40448220(undefined8 param_1,int param_2,int *param_3)
 
 {
-  unsigned char frame[460] = {0};
+  unsigned char frame[464] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   uint uVar2;
@@ -83920,7 +81405,7 @@ void recovered_40448464(undefined8 param_1,undefined8 param_2,char *param_3,ulon
                        uint param_5,long param_6)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   ulong uVar2;
@@ -83969,7 +81454,7 @@ LAB_404484dc:
 undefined8 recovered_40448544(undefined8 param_1,undefined8 param_2,undefined4 *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -83991,7 +81476,7 @@ undefined8 recovered_40448544(undefined8 param_1,undefined8 param_2,undefined4 *
 undefined8 recovered_4044857c(undefined8 param_1,undefined8 param_2,long param_3,uint *param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   undefined8 uVar2;
@@ -84017,7 +81502,7 @@ undefined8 recovered_4044857c(undefined8 param_1,undefined8 param_2,long param_3
 ulong recovered_404485d8(long param_1,uint param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint *puVar2;
@@ -84044,7 +81529,7 @@ ulong recovered_404485d8(long param_1,uint param_2)
 }
 
 
-#define iStack_24 (*(int *)(frame + 16))
+#define iStack_24 (*(int *)(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40448618
  */
@@ -84052,7 +81537,7 @@ ulong recovered_404485d8(long param_1,uint param_2)
 void recovered_40448618(long param_1)
 
 {
-  unsigned char frame[84] = {0};
+  unsigned char frame[96] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
   uint uVar2;
@@ -84082,7 +81567,7 @@ void recovered_40448618(long param_1)
 void recovered_40448688(undefined4 param_1,undefined8 param_2,undefined4 *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -84131,7 +81616,7 @@ void recovered_40448688(undefined4 param_1,undefined8 param_2,undefined4 *param_
 uchar recovered_404486b8(void)
 
 {
-  unsigned char frame[576] = {0};
+  unsigned char frame[576] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -84251,7 +81736,7 @@ LAB_404488f0:
 void recovered_404488fc(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint in_w0;
   uint in_w1;
@@ -84273,7 +81758,7 @@ void recovered_404488fc(void)
 undefined8 recovered_40448908(long param_1,long param_2)
 
 {
-  unsigned char frame[496] = {0};
+  unsigned char frame[496] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   uint uVar2;
@@ -84320,7 +81805,7 @@ recovered_404489d0(long param_1,char *param_2,long param_3,undefined1 *param_4,l
                   long *param_6)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined1 *puVar1;
   byte bVar2;
@@ -84377,7 +81862,7 @@ undefined8
 recovered_40448ab8(ulong *param_1,undefined1 param_2,undefined4 param_3,undefined4 param_4)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   void *pvVar2;
@@ -84432,7 +81917,7 @@ recovered_40448ab8(ulong *param_1,undefined1 param_2,undefined4 param_3,undefine
 void recovered_40448b5c(long *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   ulong uVar2;
@@ -84460,7 +81945,7 @@ void recovered_40448b5c(long *param_1)
 void recovered_40448bb8(long *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   ulong uVar2;
@@ -84486,7 +81971,7 @@ void recovered_40448bb8(long *param_1)
 void recovered_40448c04(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   ulong uVar2;
@@ -84513,7 +81998,7 @@ void recovered_40448c04(long param_1)
 void recovered_40448c54(undefined4 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -84538,7 +82023,7 @@ void recovered_40448c54(undefined4 *param_1)
 void recovered_40448ca8(undefined4 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (param_1 != (undefined4 *)0x0) {
     *param_1 = 0;
@@ -84583,7 +82068,7 @@ void recovered_40448ca8(undefined4 *param_1)
 void recovered_40448d00(float param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   for (; DAT_4044e18c < param_1; param_1 = param_1 + DAT_4044e1a4) {
   }
@@ -84604,7 +82089,7 @@ void recovered_40448d00(float param_1)
 void recovered_40448d44(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   recovered_404006f4(*(void **)(param_1 + 8));
   *(undefined8 *)(param_1 + 8) = 0;
@@ -84640,7 +82125,7 @@ void recovered_40448d44(long param_1)
 undefined8 recovered_40448d7c(int *param_1,int *param_2)
 
 {
-  unsigned char frame[192] = {0};
+  unsigned char frame[192] __attribute__((aligned(16))) = {0};
 
   int *piVar1;
   int iVar2;
@@ -84745,28 +82230,28 @@ LAB_40448ee0:
 #undef uStack_90
 #undef uStack_88
 
-#define uStack_18 (*(undefined8 *)(frame + 176))
-#define uStack_40 (*(undefined8 *)(frame + 136))
-#define uStack_28 (*(undefined8 *)(frame + 160))
-#define local_b8 (*(undefined4 (*)[2])(frame + 16))
-#define local_b0 (*(undefined8 *)(frame + 24))
-#define local_a0 (*(undefined8 *)(frame + 40))
-#define local_90 (*(undefined8 *)(frame + 56))
-#define local_88 (*(undefined2 *)(frame + 64))
-#define local_86 (*(undefined1 *)(frame + 66))
-#define local_80 (*(undefined8 *)(frame + 72))
-#define local_70 (*(undefined4 *)(frame + 88))
-#define local_68 (*(undefined8 *)(frame + 96))
-#define local_58 (*(undefined8 *)(frame + 112))
-#define local_50 (*(undefined4 *)(frame + 120))
-#define local_48 (*(undefined8 *)(frame + 128))
-#define local_38 (*(undefined8 *)(frame + 144))
-#define local_30 (*(undefined8 *)(frame + 152))
-#define local_20 (*(undefined8 *)(frame + 168))
-#define uStack_98 (*(undefined8 *)(frame + 48))
-#define uStack_a8 (*(undefined8 *)(frame + 32))
-#define uStack_60 (*(undefined8 *)(frame + 104))
-#define uStack_78 (*(undefined8 *)(frame + 80))
+#define uStack_18 (*(undefined8 *)(frame + 184))
+#define uStack_40 (*(undefined8 *)(frame + 144))
+#define uStack_28 (*(undefined8 *)(frame + 168))
+#define local_b8 (*(undefined4 (*)[2])(frame + 24))
+#define local_b0 (*(undefined8 *)(frame + 32))
+#define local_a0 (*(undefined8 *)(frame + 48))
+#define local_90 (*(undefined8 *)(frame + 64))
+#define local_88 (*(undefined2 *)(frame + 72))
+#define local_86 (*(undefined1 *)(frame + 74))
+#define local_80 (*(undefined8 *)(frame + 80))
+#define local_70 (*(undefined4 *)(frame + 96))
+#define local_68 (*(undefined8 *)(frame + 104))
+#define local_58 (*(undefined8 *)(frame + 120))
+#define local_50 (*(undefined4 *)(frame + 128))
+#define local_48 (*(undefined8 *)(frame + 136))
+#define local_38 (*(undefined8 *)(frame + 152))
+#define local_30 (*(undefined8 *)(frame + 160))
+#define local_20 (*(undefined8 *)(frame + 176))
+#define uStack_98 (*(undefined8 *)(frame + 56))
+#define uStack_a8 (*(undefined8 *)(frame + 40))
+#define uStack_60 (*(undefined8 *)(frame + 112))
+#define uStack_78 (*(undefined8 *)(frame + 88))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40448ef0
  */
@@ -84774,7 +82259,7 @@ LAB_40448ee0:
 ulong recovered_40448ef0(long param_1,undefined8 param_2,undefined8 param_3)
 
 {
-  unsigned char frame[232] = {0};
+  unsigned char frame[240] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -84834,7 +82319,7 @@ ulong recovered_40448ef0(long param_1,undefined8 param_2,undefined8 param_3)
 undefined8 recovered_40448f60(long *param_1,long param_2,long param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   long lVar2;
@@ -84877,7 +82362,7 @@ LAB_40448f98:
 undefined8 recovered_40448ff0(long *param_1,long param_2,long param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 *puVar1;
   void *pvVar2;
@@ -84935,7 +82420,7 @@ undefined8 recovered_40448ff0(long *param_1,long param_2,long param_3)
 undefined8 recovered_404490b4(long param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   void *pvVar2;
@@ -84987,7 +82472,7 @@ undefined8 recovered_404490b4(long param_1,long param_2)
 ulong recovered_40449158(long *param_1,byte *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   char *left;
@@ -85016,7 +82501,7 @@ ulong recovered_40449158(long *param_1,byte *param_2)
 undefined8 recovered_404491c4(long *param_1,ulong param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 *puVar1;
   void *pvVar2;
@@ -85085,7 +82570,7 @@ LAB_40449204:
 undefined8 recovered_40449258(long *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   undefined8 uVar2;
@@ -85131,7 +82616,7 @@ undefined8 recovered_40449258(long *param_1)
 undefined8 recovered_404492e0(long *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   undefined8 uVar2;
@@ -85182,7 +82667,7 @@ LAB_40449324:
 undefined8 recovered_404493a4(undefined8 *param_1,long *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
   ulong uVar2;
@@ -85223,7 +82708,7 @@ undefined8 recovered_404493a4(undefined8 *param_1,long *param_2)
 void recovered_4044944c(long param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
 
@@ -85262,7 +82747,7 @@ void recovered_4044944c(long param_1)
 undefined8 recovered_40449470(long param_1,ulong *param_2,char *param_3,undefined1 *param_4)
 
 {
-  unsigned char frame[192] = {0};
+  unsigned char frame[192] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   uchar uVar2;
@@ -85333,7 +82818,7 @@ undefined8 recovered_40449470(long param_1,ulong *param_2,char *param_3,undefine
 undefined8 recovered_40449540(byte *param_1,undefined8 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   ulong uVar2;
@@ -85361,7 +82846,7 @@ undefined8 recovered_40449540(byte *param_1,undefined8 *param_2)
 ulong recovered_40449578(byte *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   int iVar2;
@@ -85405,7 +82890,7 @@ ulong recovered_40449578(byte *param_1)
 undefined8 recovered_404495f0(long param_1,long param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 *puVar1;
   ulong uVar2;
@@ -85536,7 +83021,7 @@ recovered_404496e8(long param_1,undefined8 param_2,long param_3,ulong *param_4,b
                   long param_6)
 
 {
-  unsigned char frame[368] = {0};
+  unsigned char frame[368] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   byte bVar2;
@@ -85815,7 +83300,7 @@ LAB_40449b30:
 bool recovered_40449b58(uint param_1,uint param_2,undefined4 *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   uint uVar2;
@@ -85850,7 +83335,7 @@ bool recovered_40449b58(uint param_1,uint param_2,undefined4 *param_3)
 void recovered_40449bb0(uint *param_1,uint *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
 
@@ -85882,7 +83367,7 @@ void recovered_40449bb0(uint *param_1,uint *param_2)
 char * recovered_40449c0c(char *text)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   for (; ((byte *)text != (byte *)0x0 &&
          ((byte)*text < 0x21 && (1L << ((ulong)(byte)*text & 0x3f) & 0x100003e00U) != 0));
@@ -85903,7 +83388,7 @@ char * recovered_40449c0c(char *text)
 ulong recovered_40449c40(ulong param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -85916,22 +83401,22 @@ ulong recovered_40449c40(ulong param_1)
 
 #undef str_4044e4f7
 #define str_4044e4f7 (*(char (*)[1])(0x4044e4f7U))
-#define uStack_28 (*(undefined8 *)(frame + 288))
-#define uStack_48 (*(undefined8 *)(frame + 256))
-#define uStack_38 (*(undefined8 *)(frame + 272))
-#define uStack_30 (*(undefined8 *)(frame + 280))
-#define auStack_138 (*(undefined1 (*)[160])(frame + 16))
-#define local_98 (*(undefined8 *)(frame + 176))
-#define local_90 (*(int ***** *)(frame + 184))
-#define uStack_58 (*(undefined8 *)(frame + 240))
-#define local_80 (*(undefined2 (*)[4])(frame + 200))
-#define uStack_50 (*(undefined8 *)(frame + 248))
-#define local_78 (*(undefined8 *)(frame + 208))
-#define plStack_88 (*(long * *)(frame + 192))
-#define local_68 (*(undefined8 *)(frame + 224))
-#define local_60 (*(undefined8 *)(frame + 232))
-#define local_40 (*(undefined8 *)(frame + 264))
-#define uStack_70 (*(undefined8 *)(frame + 216))
+#define uStack_28 (*(undefined8 *)(frame + 296))
+#define uStack_48 (*(undefined8 *)(frame + 264))
+#define uStack_38 (*(undefined8 *)(frame + 280))
+#define uStack_30 (*(undefined8 *)(frame + 288))
+#define auStack_138 (*(undefined1 (*)[160])(frame + 24))
+#define local_98 (*(undefined8 *)(frame + 184))
+#define local_90 (*(int ***** *)(frame + 192))
+#define uStack_58 (*(undefined8 *)(frame + 248))
+#define local_80 (*(undefined2 (*)[4])(frame + 208))
+#define uStack_50 (*(undefined8 *)(frame + 256))
+#define local_78 (*(undefined8 *)(frame + 216))
+#define plStack_88 (*(long * *)(frame + 200))
+#define local_68 (*(undefined8 *)(frame + 232))
+#define local_60 (*(undefined8 *)(frame + 240))
+#define local_40 (*(undefined8 *)(frame + 272))
+#define uStack_70 (*(undefined8 *)(frame + 224))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40449c54
  */
@@ -85939,7 +83424,7 @@ ulong recovered_40449c40(ulong param_1)
 undefined8 recovered_40449c54(long param_1)
 
 {
-  unsigned char frame[360] = {0};
+  unsigned char frame[368] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   undefined8 uVar2;
@@ -86002,7 +83487,7 @@ undefined8 recovered_40449c54(long param_1)
 ulong recovered_40449d10(long param_1,undefined1 *param_2,undefined4 *param_3)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char *right;
   int iVar1;
@@ -86031,7 +83516,7 @@ LAB_40449d80:
 
 #undef DAT_4044e204
 
-#define local_12 (*(undefined2 *)(frame + 16))
+#define local_12 (*(undefined2 *)(frame + 30))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40449d90
  */
@@ -86039,7 +83524,7 @@ LAB_40449d80:
 ulong recovered_40449d90(long *param_1,undefined2 param_2)
 
 {
-  unsigned char frame[66] = {0};
+  unsigned char frame[80] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
 
@@ -86050,7 +83535,7 @@ ulong recovered_40449d90(long *param_1,undefined2 param_2)
 
 #undef local_12
 
-#define local_14 (*(undefined4 *)(frame + 16))
+#define local_14 (*(undefined4 *)(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40449db4
  */
@@ -86058,7 +83543,7 @@ ulong recovered_40449d90(long *param_1,undefined2 param_2)
 uchar recovered_40449db4(long *param_1,undefined4 param_2)
 
 {
-  unsigned char frame[68] = {0};
+  unsigned char frame[80] __attribute__((aligned(16))) = {0};
 
   uchar uVar1;
 
@@ -86080,7 +83565,7 @@ uchar recovered_40449db4(long *param_1,undefined4 param_2)
 undefined8 recovered_40449dd8(long param_1,long param_2,char *param_3)
 
 {
-  unsigned char frame[96] = {0};
+  unsigned char frame[96] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   undefined8 uVar2;
@@ -86108,7 +83593,7 @@ undefined8 recovered_40449dd8(long param_1,long param_2,char *param_3)
 #define DAT_404947f0 (*(uint32_t volatile *)(0x404947f0U))
 #undef DAT_404947f4
 #define DAT_404947f4 (*(uint32_t volatile *)(0x404947f4U))
-#define uStack_64 (*(uint *)(frame + 16))
+#define uStack_64 (*(uint *)(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40449e30
  */
@@ -86116,7 +83601,7 @@ undefined8 recovered_40449dd8(long param_1,long param_2,char *param_3)
 uint recovered_40449e30(int *param_1)
 
 {
-  unsigned char frame[148] = {0};
+  unsigned char frame[160] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   uint uVar2;
@@ -86167,7 +83652,7 @@ uint recovered_40449e30(int *param_1)
 ulonglong recovered_40449f40(char *format,...)
 
 {
-  unsigned char frame[592] = {0};
+  unsigned char frame[592] __attribute__((aligned(16))) = {0};
 
   char cVar1;
   ulong uVar2;
@@ -86192,7 +83677,7 @@ ulonglong recovered_40449f40(char *format,...)
 #define DAT_404504cb (*(uint8_t *)(0x404504cbU))
 #undef str_40457c2e
 #define str_40457c2e (*(char (*)[1])(0x40457c2eU))
-#define local_18 (*(char * *)(frame + 16))
+#define local_18 (*(char * *)(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x40449f70
  */
@@ -86200,7 +83685,7 @@ ulonglong recovered_40449f40(char *format,...)
 void recovered_40449f70(long param_1)
 
 {
-  unsigned char frame[72] = {0};
+  unsigned char frame[80] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   char *pcVar2;
@@ -86243,7 +83728,7 @@ void recovered_40449f70(long param_1)
 void recovered_40449fd4(ulonglong param_1,int param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char *format;
   uint in_w2;
@@ -86272,7 +83757,7 @@ void recovered_40449fd4(ulonglong param_1,int param_2)
 
 #undef DAT_4044e262
 #define DAT_4044e262 (*(uint8_t *)(0x4044e262U))
-#define local_28 (*(void * *)(frame + 16))
+#define local_28 (*(void * *)(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4044a040
  */
@@ -86280,7 +83765,7 @@ void recovered_40449fd4(ulonglong param_1,int param_2)
 undefined8 recovered_4044a040(long param_1,long param_2)
 
 {
-  unsigned char frame[88] = {0};
+  unsigned char frame[96] __attribute__((aligned(16))) = {0};
 
   uchar uVar1;
   undefined8 uVar2;
@@ -86314,11 +83799,11 @@ undefined8 recovered_4044a040(long param_1,long param_2)
 #define DAT_4045a310 (*(uint32_t volatile *)(0x4045a310U))
 #undef DAT_4045a314
 #define DAT_4045a314 (*(uint32_t volatile *)(0x4045a314U))
-#define uStack_20 (*(uint *)(frame + 20))
-#define local_24 (*(uint *)(frame + 16))
-#define local_1c (*(uint *)(frame + 24))
-#define uStack_18 (*(uint *)(frame + 28))
-#define local_14 (*(uint *)(frame + 32))
+#define uStack_20 (*(uint *)(frame + 32))
+#define local_24 (*(uint *)(frame + 28))
+#define local_1c (*(uint *)(frame + 36))
+#define uStack_18 (*(uint *)(frame + 40))
+#define local_14 (*(uint *)(frame + 44))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4044a0b0
  */
@@ -86326,7 +83811,7 @@ undefined8 recovered_4044a040(long param_1,long param_2)
 void recovered_4044a0b0(uint param_1,uint param_2,uint param_3,uint param_4,uint param_5)
 
 {
-  unsigned char frame[84] = {0};
+  unsigned char frame[96] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
 
@@ -86401,7 +83886,7 @@ void recovered_4044a0b0(uint param_1,uint param_2,uint param_3,uint param_4,uint
 undefined8 recovered_4044a138(char *param_1,long param_2,long param_3)
 
 {
-  unsigned char frame[640] = {0};
+  unsigned char frame[640] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   int iVar2;
@@ -86523,7 +84008,7 @@ LAB_4044a28c:
 undefined8 recovered_4044a350(uint param_1,uint param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
@@ -86568,7 +84053,7 @@ undefined8 recovered_4044a350(uint param_1,uint param_2)
 undefined8 recovered_4044a3a8(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined4 in_w0;
   undefined8 uVar1;
@@ -86587,7 +84072,7 @@ undefined8 recovered_4044a3a8(void)
 undefined8 recovered_4044a3b0(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint in_w0;
   uint in_w1;
@@ -86623,7 +84108,7 @@ undefined8 recovered_4044a3b0(void)
 undefined8 recovered_4044a3c8(long param_1,undefined4 param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   ulong uVar2;
@@ -86673,7 +84158,7 @@ undefined8 recovered_4044a3c8(long param_1,undefined4 param_2)
 undefined8 recovered_4044a47c(undefined8 *param_1)
 
 {
-  unsigned char frame[112] = {0};
+  unsigned char frame[112] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -86706,7 +84191,7 @@ undefined8 recovered_4044a47c(undefined8 *param_1)
 undefined8 recovered_4044a4c4(undefined1 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   char *pcVar1;
 
@@ -86735,7 +84220,7 @@ undefined8 recovered_4044a4c4(undefined1 *param_1)
 undefined4 recovered_4044a4ec(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   undefined4 uVar2;
@@ -86761,7 +84246,7 @@ undefined4 recovered_4044a4ec(void)
 bool recovered_4044a4f0(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   ulong in_x0;
@@ -86778,7 +84263,7 @@ bool recovered_4044a4f0(void)
 ulong * recovered_4044a504(int param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong *puVar1;
 
@@ -86799,7 +84284,7 @@ ulong * recovered_4044a504(int param_1)
 ulong recovered_4044a514(void *buffer)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong extraout_x0;
   long *plVar1;
@@ -86847,7 +84332,7 @@ ulong recovered_4044a514(void *buffer)
 ulong recovered_4044a518(undefined4 *param_1)
 
 {
-  unsigned char frame[256] = {0};
+  unsigned char frame[256] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   long lVar2;
@@ -86908,7 +84393,7 @@ ulong recovered_4044a518(undefined4 *param_1)
 ulong recovered_4044a5d8(undefined8 *param_1)
 
 {
-  unsigned char frame[144] = {0};
+  unsigned char frame[144] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   ulong uVar2;
@@ -86952,7 +84437,7 @@ ulong recovered_4044a5d8(undefined8 *param_1)
 ulong recovered_4044a638(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
   uint uVar2;
@@ -86979,7 +84464,7 @@ ulong recovered_4044a638(void)
 undefined8 recovered_4044a668(int param_1,undefined4 *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   byte bVar2;
@@ -87030,7 +84515,7 @@ undefined8 recovered_4044a668(int param_1,undefined4 *param_2)
 undefined8 recovered_4044a710(int param_1,uint param_2,long param_3,uint param_4)
 
 {
-  unsigned char frame[112] = {0};
+  unsigned char frame[112] __attribute__((aligned(16))) = {0};
 
   undefined4 *puVar1;
   undefined8 uVar2;
@@ -87062,7 +84547,7 @@ undefined8 recovered_4044a710(int param_1,uint param_2,long param_3,uint param_4
 undefined8 recovered_4044a780(int param_1,uint param_2,long param_3,undefined8 param_4)
 
 {
-  unsigned char frame[112] = {0};
+  unsigned char frame[112] __attribute__((aligned(16))) = {0};
 
   undefined4 *puVar1;
   undefined8 uVar2;
@@ -87096,7 +84581,7 @@ undefined8 recovered_4044a780(int param_1,uint param_2,long param_3,undefined8 p
 uchar recovered_4044a808(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 in_x0;
   undefined8 uVar1;
@@ -87115,7 +84600,7 @@ uchar recovered_4044a808(void)
 uchar recovered_4044a81c(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uchar uVar1;
 
@@ -87131,7 +84616,7 @@ uchar recovered_4044a81c(void)
 undefined1 recovered_4044a830(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint in_w0;
   undefined8 uVar1;
@@ -87153,7 +84638,7 @@ undefined1 recovered_4044a830(void)
 uchar recovered_4044a844(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint in_w0;
   undefined8 uVar1;
@@ -87175,7 +84660,7 @@ uchar recovered_4044a844(void)
 uchar recovered_4044a858(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int in_w0;
   undefined8 uVar1;
@@ -87195,7 +84680,7 @@ uchar recovered_4044a858(void)
 uchar recovered_4044a86c(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uchar uVar1;
   uint in_w0;
@@ -87212,7 +84697,7 @@ uchar recovered_4044a86c(void)
 uchar recovered_4044a880(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uchar uVar1;
   uint in_w0;
@@ -87229,7 +84714,7 @@ uchar recovered_4044a880(void)
 uchar recovered_4044a894(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint in_w0;
   undefined8 uVar1;
@@ -87249,7 +84734,7 @@ uchar recovered_4044a894(void)
 uchar recovered_4044a8a8(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint *in_x0;
   undefined8 uVar1;
@@ -87268,7 +84753,7 @@ uchar recovered_4044a8a8(void)
 uchar recovered_4044a8bc(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined4 *in_x0;
   undefined8 uVar1;
@@ -87287,7 +84772,7 @@ uchar recovered_4044a8bc(void)
 uchar recovered_4044a8d0(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 in_x0;
   undefined8 uVar1;
@@ -87308,7 +84793,7 @@ uchar recovered_4044a8d0(void)
 void recovered_4044a8e4(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return;
 }
@@ -87321,7 +84806,7 @@ void recovered_4044a8e4(void)
 void recovered_4044a8e8(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return;
 }
@@ -87336,7 +84821,7 @@ void recovered_4044a8e8(void)
 undefined8 recovered_4044a8ec(undefined8 param_1,undefined8 param_2,undefined8 *param_3)
 
 {
-  unsigned char frame[96] = {0};
+  unsigned char frame[96] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -87362,7 +84847,7 @@ undefined8 recovered_4044a8ec(undefined8 param_1,undefined8 param_2,undefined8 *
 undefined8 recovered_4044a924(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return 0;
 }
@@ -87375,7 +84860,7 @@ undefined8 recovered_4044a924(void)
 undefined8 recovered_4044a928(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return 0;
 }
@@ -87388,7 +84873,7 @@ undefined8 recovered_4044a928(void)
 undefined8 recovered_4044a92c(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return 0;
 }
@@ -87401,7 +84886,7 @@ undefined8 recovered_4044a92c(void)
 undefined8 recovered_4044a930(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   return 0;
 }
@@ -87414,7 +84899,7 @@ undefined8 recovered_4044a930(void)
 bool recovered_4044a934(long param_1,int *param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   bool bVar1;
   int iVar2;
@@ -87436,7 +84921,7 @@ bool recovered_4044a934(long param_1,int *param_2)
 uint recovered_4044a970(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   undefined8 uVar2;
@@ -87462,7 +84947,7 @@ uint recovered_4044a970(void)
 void recovered_4044a9a0(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined1 uVar1;
   undefined4 uVar2;
@@ -87501,7 +84986,7 @@ void recovered_4044a9a0(void)
 undefined8 recovered_4044a9a4(long param_1,undefined4 param_2)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   long lVar1;
   long lVar2;
@@ -87547,7 +85032,7 @@ undefined8 recovered_4044a9a4(long param_1,undefined4 param_2)
 short recovered_4044aa58(void)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
 
@@ -87563,7 +85048,7 @@ short recovered_4044aa58(void)
 undefined8 recovered_4044aa6c(undefined8 param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   undefined8 uVar2;
@@ -87586,7 +85071,7 @@ undefined8 recovered_4044aa6c(undefined8 param_1)
 undefined8 recovered_4044aab0(int param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -87605,7 +85090,7 @@ undefined8 recovered_4044aab0(int param_1)
 uint recovered_4044aad8(uint param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
 
@@ -87625,7 +85110,7 @@ uint recovered_4044aad8(uint param_1)
 undefined4 * recovered_4044aaf4(int param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   byte bVar2;
@@ -87656,7 +85141,7 @@ undefined4 * recovered_4044aaf4(int param_1)
 undefined8 recovered_4044ab44(long param_1,uint param_2,uint param_3,int *param_4,long *param_5)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   undefined8 uVar1;
 
@@ -87683,7 +85168,7 @@ undefined8 recovered_4044ab44(long param_1,uint param_2,uint param_3,int *param_
 undefined8 recovered_4044ab90(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   void *out;
   undefined8 uVar1;
@@ -87713,7 +85198,7 @@ undefined8 recovered_4044ab90(undefined8 *param_1)
 void recovered_4044ac08(undefined8 *param_1)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   if (param_1 != (undefined8 *)0x0) {
     recovered_404006f4((void *)param_1[1]);
@@ -87740,7 +85225,7 @@ void recovered_4044ac08(undefined8 *param_1)
 undefined8 recovered_4044ac40(int *param_1,long param_2,long param_3)
 
 {
-  unsigned char frame[160] = {0};
+  unsigned char frame[160] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   undefined8 uVar2;
@@ -87770,3 +85255,10 @@ undefined8 recovered_4044ac40(int *param_1,long param_2,long param_3)
 #undef uStack_58
 #undef uStack_50
 #undef uStack_48
+
+/* The kernel and DLL share the recovered C image codecs. */
+extern int pf_image_decode(const void *,uintptr_t,void *);
+extern int pf_image_detect(const void *,uintptr_t);
+void * pf_image_allocate(uintptr_t size){return recovered_404006f0(size);}
+void pf_image_release(void *pointer){recovered_404006f4(pointer);}
+void * pf_image_reallocate(void *pointer,uintptr_t size){return recovered_404007b0(pointer,size);}

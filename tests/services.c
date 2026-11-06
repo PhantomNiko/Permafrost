@@ -1,15 +1,15 @@
-/* Public WMAP v11 allocation, file and image service integration probe.
+/* Public WMAP v13 allocation, file and image service integration probe.
  * Pooka's Free Software License. */
 #include <permafrost.h>
-_Static_assert(sizeof(struct pf_native_api)==188,"WMAP wire layout");
+_Static_assert(sizeof(struct pf_native_api)==252,"WMAP wire layout");
 _Static_assert(sizeof(struct pf_blob)==12,"file wire layout");
 _Static_assert(sizeof(struct pf_image)==24,"image wire layout");
 _Static_assert(sizeof(struct pf_audio)==28,"audio wire layout");
 _Static_assert(sizeof(struct pf_framebuffer_info)==52,"framebuffer wire layout");
 _Static_assert(sizeof(struct pf_pointer_info)==32,"pointer wire layout");
-_Static_assert(sizeof(struct pf_window_info)==112,"window native layout");
+_Static_assert(sizeof(struct pf_window_info)==604,"window native layout");
 _Static_assert(offsetof(struct pf_native_api,framebuffer_info)==0x7c,"framebuffer slot");
-_Static_assert(offsetof(struct pf_native_api,hardware_threads)==0xb8,"last service slot");
+_Static_assert(offsetof(struct pf_native_api,hardware_info)==0xf8,"last service slot");
 _Static_assert(sizeof(struct pf_native_value)==(__SIZEOF_POINTER__==8?40:24),"native callback layout");
 #define CHECK(value) do {if(!(value)){pf_log("PF-SERVICE-FAIL %u",__LINE__);return 0;}}while(0)
 static const uint8_t png[] = {
@@ -22,6 +22,17 @@ static const uint8_t png[] = {
 int main(void) {
     const pf_services *api=pf_api();
     CHECK(api->magic==PF_API_MAGIC && api->version==PF_API_VERSION && api->size==sizeof(struct pf_native_api));
+    struct pf_hardware_info hardware={0};
+    CHECK(api->hardware_info(&hardware));
+    CHECK(hardware.hardware_threads>=1);
+    if(hardware.flags&PF_HARDWARE_MEMORY)CHECK(hardware.detected_memory_bytes>0);
+    CHECK(hardware.heap_free_bytes<=hardware.heap_total_bytes);
+    struct pf_device_info devices[16]={0};uint32_t device_count=0;
+    CHECK(api->list_devices(devices,16,&device_count));
+    CHECK(device_count>0 && device_count<=16);
+    int32_t current=api->current_device_id();int found=0;
+    for(uint32_t i=0;i<device_count;i++)if((int32_t)devices[i].id==current)found=1;
+    CHECK(found);
     uint8_t *memory=api->allocate(32);
     CHECK(memory);
     for(unsigned i=0;i<32;++i)memory[i]=(uint8_t)(i*7);

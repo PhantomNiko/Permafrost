@@ -6,7 +6,6 @@ Pooka's Free Software License.
 import argparse
 import json
 import re
-import re
 from pathlib import Path
 import struct
 
@@ -33,8 +32,11 @@ def build_kernel(source, output):
     output.mkdir(parents=True, exist_ok=True)
     objects = []
     includes = [str(source), 'sdk/include', 'kernel']
+    from image_module import make_image_module
+    image_module = make_image_module(output, arch)
     for name, path, defines in (
         ('implementation', source/'runtime.c', []),
+        ('image-module', image_module, []),
         ('libc', Path('kernel/runtime.c'), []),
         ('format', Path('kernel/format.c'), []),
         ('compiler', Path('kernel/compiler.c'), []),

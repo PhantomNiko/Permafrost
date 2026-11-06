@@ -125,8 +125,8 @@ undefined8 recovered_10004ee0(void);
 undefined8 recovered_10004ef0(void);
 void recovered_10004f00(void);
 void recovered_10004f20(long param_1,undefined8 param_2);
-undefined8 recovered_10004f30(undefined8 *param_1);
-void recovered_10004f60(long param_1,undefined4 param_2);
+__attribute__((naked,returns_twice)) int recovered_10004f30(void *context);
+__attribute__((naked,noreturn)) void recovered_10004f60(void *context,int value);
 void recovered_10004f90(void);
 undefined8 recovered_10005010(void);
 void recovered_10005020(long param_1);
@@ -225,5 +225,7 @@ void recovered_1001c730(long param_1,long param_2,long param_3);
 void recovered_1001cac0(long *param_1,int *param_2,int *param_3,long param_4,uint *param_5);
 void recovered_1001ce60(long *param_1,undefined1 *param_2,long param_3);
 void recovered_1001d140(long *param_1,char param_2);
+
+/* Original analysis identifiers for manual recovery units. */
 
 /* Original analysis identifiers for manual recovery units. */

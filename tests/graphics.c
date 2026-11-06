@@ -1,4 +1,4 @@
-/* WMAP v11 framebuffer and window lifecycle integration.
+/* WMAP v13 framebuffer and window lifecycle integration.
  * Pooka's Free Software License. */
 #include <permafrost.h>
 #define CHECK(value) do{if(!(value)){pf_log("PF-GRAPHICS-FAIL %u",__LINE__);return 0;}}while(0)
@@ -30,6 +30,12 @@ int main(void){
     CHECK(equal(info.title,"SDK Updated"));
     CHECK(((const uint32_t *)pf_window_pixels(&info))[0]==pixels[0]);
     CHECK(((const uint32_t *)pf_window_pixels(&info))[1]==pixels[1]);
+    CHECK(api->window_set_menus(id,"File|Open|Close","View|Zoom","Help|About"));
+    CHECK(api->window_query(id,&info));
+    CHECK(equal(info.menus[0],"File|Open|Close"));
+    CHECK(api->window_menu_command(id,0,1));
+    CHECK(api->window_query(id,&info));
+    CHECK(info.menu_sequence && info.menu_group==0 && info.menu_item==1);
     CHECK(api->window_destroy(id));
     CHECK(!api->window_query(id,&info));
     CHECK(api->video_vga());

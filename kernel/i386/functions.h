@@ -779,8 +779,7 @@ undefined4 recovered_205c670(int *incoming_ecx,uint incoming_edx,int param_3);
 int recovered_205c720(int incoming_ecx,char *incoming_edx);
 undefined4 recovered_205c790(undefined4 *incoming_ecx,undefined1 *incoming_edx,int param_3);
 bool recovered_205c800(uint *incoming_ecx,uint *incoming_edx);
-int * recovered_205c920(int *incoming_ecx,float *******incoming_edx,float *param_3,int *param_4,
-                       float *param_5);
+int recovered_205c920(void *context,char *name,uint *arguments,int count,uint *out);
 undefined4
 recovered_2064050(int *incoming_ecx,char *incoming_edx,undefined4 *param_3,undefined4 *param_4);
 undefined4

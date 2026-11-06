@@ -69,7 +69,9 @@ def build_kernel(output, architecture='i386', profile_path=None):
                        ['PF_BIOS_CODE_BASE='+hex(bridge_base), 'PF_BIOS_SEGMENT_BASE='+hex(segment_base)])
         ], base=bridge_base, shim=False)
         if resident:bridge=b''
-    objects = [object_for(root / 'runtime.c', 'implementation')]
+    from image_module import make_image_module
+    objects = [object_for(root / 'runtime.c', 'implementation'),
+               object_for(make_image_module(output, architecture), 'image-module')]
     if architecture == 'i386':
         objects.append(object_for(root / 'firmware.c', 'platform'))
         if profile.get('platform')=='uefi':

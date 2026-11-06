@@ -11,9 +11,9 @@ typedef unsigned int uint;
 typedef unsigned long ulong;
 #if defined(__LP64__) && !defined(__ILP32__)
 typedef long double longdouble;
-typedef __uint128_t undefined16;
-typedef __uint128_t uint128;
-typedef __uint128_t uint16;
+typedef __uint128_t undefined16 __attribute__((aligned(1)));
+typedef __uint128_t uint128 __attribute__((aligned(1)));
+typedef __uint128_t uint16 __attribute__((aligned(1)));
 #include "packed.h"
 static inline uint128 divpd(uint128 a,uint128 b) {
     union { uint128 bits; double lane[2]; } x={.bits=a},y={.bits=b},z;
