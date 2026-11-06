@@ -860,7 +860,7 @@ undefined4 recovered_4042faa0(int param_1,undefined1 *param_2);
 void recovered_4042fb44(int param_1,ulong param_2,int param_3);
 bool recovered_4042fb68(int param_1,char *param_2);
 undefined4 recovered_4042fbb8(int param_1,undefined1 *param_2,int param_3);
-void recovered_4042ffec(int param_1,int *param_2,int *param_3,undefined1 *param_4,int param_5);
+undefined4 recovered_4042ffec(int param_1,int *param_2,int *param_3,undefined1 *param_4,int param_5);
 bool recovered_4043000c(uint *param_1,uint param_2);
 bool recovered_40430088(char *param_1,char *param_2);
 undefined4
@@ -907,8 +907,8 @@ recovered_40432510(int *param_1,uint param_2,uint param_3,uint param_4,int *para
                   undefined4 *param_6,int param_7);
 uint recovered_4043261c(char *param_1,uint param_2,int param_3);
 longlong recovered_40432630(undefined *UNRECOVERED_JUMPTABLE);
-void recovered_40432640(uint *param_1,uint param_2,int *param_3,uint *param_4,int param_5);
-void recovered_40432680(uint *param_1,uint param_2,uint param_3,uint param_4,uint param_5,
+undefined4 recovered_40432640(uint *param_1,uint param_2,int *param_3,uint *param_4,int param_5);
+undefined4 recovered_40432680(uint *param_1,uint param_2,uint param_3,uint param_4,uint param_5,
                        undefined4 param_6,int *param_7,uint *param_8,int param_9);
 undefined4
 recovered_404326c4(uint *param_1,uint param_2,uint param_3,uint param_4,uint param_5,int param_6,
@@ -918,24 +918,24 @@ undefined4
 recovered_404329c8(int *param_1,uint param_2,uint param_3,uint param_4,uint *param_5,int *param_6,
                   int param_7);
 undefined4 recovered_40433438(int param_1,uint *param_2,uint *param_3,int *param_4,int param_5);
-void recovered_40433538(uint *param_1,int param_2);
+uint recovered_40433538(uint *data,uint swap);
 ulonglong recovered_40433548(uint *param_1,int param_2);
 undefined4 recovered_40433558(int param_1,uint param_2,int param_3,int param_4);
 bool recovered_404335c8(int *param_1);
 void recovered_40433618(int param_1,char *param_2);
 undefined4 recovered_40433654(int param_1,int param_2,uint param_3,int param_4);
 bool recovered_40433848(int param_1,int param_2,uint param_3,int param_4);
-undefined4 recovered_404338f8(int param_1,int param_2,undefined4 param_3,int param_4);
+uint recovered_404338f8(void *image,char *error);
 undefined4 recovered_40433e58(int param_1,uint param_2,uint param_3,int *param_4);
 void recovered_40433f10(uint param_1,int param_2);
 bool recovered_40433f90(char *param_1);
-undefined4 recovered_40434000(char *param_1,int param_2,uint param_3,int param_4);
+uint recovered_40434000(char *name,uint cpu,uint wide,char *error);
 char * recovered_40434948(char *param_1);
 int recovered_40434988(int param_1);
 bool recovered_40434a2c(int param_1,int param_2);
-undefined1 recovered_40434a98(int param_1,uint param_2,uint param_3,int param_4,int param_5);
-longlong recovered_40435114(int param_1,uint param_2,uint param_3,int param_4);
-undefined4 recovered_4043515c(int param_1,uint param_2,uint *param_3,uint *param_4);
+uint recovered_40434a98(void *image,uint offset,uint size,uint weak,char *error);
+uint recovered_40435114(void *image,uint offset,uint size);
+uint recovered_4043515c(uchar *data,uint size,uint *cursor,ulonglong *value);
 undefined4 recovered_40435210(int param_1,undefined1 *param_2,int param_3,int param_4);
 void recovered_404352d0(undefined1 *param_1,undefined4 param_2,undefined4 param_3,int param_4);
 void recovered_40435318(undefined1 *param_1,uint param_2,int param_3);

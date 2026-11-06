@@ -42710,14 +42710,13 @@ LAB_404261e8:
  * Address: 0x40426494
  */
 
-void recovered_40426494(long param_1,long *param_2,long *param_3,undefined1 *param_4,long param_5,
+ulong recovered_40426494(long param_1,long *param_2,long *param_3,undefined1 *param_4,long param_5,
                        undefined8 param_6,undefined8 param_7,undefined8 param_8)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
-  recovered_40426560(param_1,param_2,param_3,1,param_4,param_5,param_7,param_8);
-  return;
+  return recovered_40426560(param_1,param_2,param_3,1,param_4,param_5,param_7,param_8);
 }
 
 
@@ -44962,9 +44961,8 @@ ulong recovered_404281d4(uint *param_1,ulong param_2,long *param_3,ulong *param_
 
   ulong extraout_x0;
 
-  recovered_40428214(param_1,param_2,0x100000c,0xfeedfacf,0x20,str_4044ee27,param_3,param_4,param_5)
+  return recovered_40428214(param_1,param_2,0x100000c,0xfeedfacf,0x20,str_4044ee27,param_3,param_4,param_5)
   ;
-  return extraout_x0;
 }
 
 #undef str_4044ee27
@@ -44973,14 +44971,13 @@ ulong recovered_404281d4(uint *param_1,ulong param_2,long *param_3,ulong *param_
  * Address: 0x40428214
  */
 
-void recovered_40428214(uint *param_1,ulong param_2,uint param_3,uint param_4,ulong param_5,
+undefined8 recovered_40428214(uint *param_1,ulong param_2,uint param_3,uint param_4,ulong param_5,
                        undefined8 param_6,long *param_7,ulong *param_8,long param_9)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
-  recovered_40428244(param_1,param_2,param_3,param_4,param_5,0,param_6,param_7,param_8,param_9);
-  return;
+  return recovered_40428244(param_1,param_2,param_3,param_4,param_5,0,param_6,param_7,param_8,param_9);
 }
 
 
@@ -46150,7 +46147,7 @@ undefined8 recovered_40429690(char *param_1,undefined8 param_2,undefined8 param_
   }
   else {
     bStack_79 = 0;
-    recovered_40426494((long)abStack_16a,(long *)&puStack_188,(long *)&uStack_190,&bStack_79,param_4
+    extraout_x0 = recovered_40426494((long)abStack_16a,(long *)&puStack_188,(long *)&uStack_190,&bStack_79,param_4
                        ,in_x5,in_x6,in_x7);
     if ((extraout_x0 & 1) == 0) {
       if ((bStack_79 & 1) != 0) {
@@ -46169,7 +46166,7 @@ undefined8 recovered_40429690(char *param_1,undefined8 param_2,undefined8 param_
     uVar6 = 0x11000012;
     uVar11 = 0x20;
 LAB_40429a20:
-    recovered_40428214(puStack_188,uStack_190,uVar6,uVar7,uVar11,pcVar14,(long *)&puStack_178,
+    extraout_x0_00 = recovered_40428214(puStack_188,uStack_190,uVar6,uVar7,uVar11,pcVar14,(long *)&puStack_178,
                        &uStack_180,param_4);
     uVar11 = extraout_x0_00;
 joined_r0x404299e8:
