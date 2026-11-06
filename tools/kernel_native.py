@@ -103,9 +103,8 @@ def build_kernel(output, architecture='i386', profile_path=None):
     abi = json.loads((root / 'abi.json').read_text())
     entries = {int(a, 16)+slide: symbols[item['symbol']] for a, item in abi.items()}
     if architecture == 'i386':
-        for offset in (0x2c,0x113,0x22b,0x386,0x4b9,0x5e7,0x6a8,0x7a6,0x867):
-            address=profile['base']+offset
-            entries[address+slide] = symbols['FUN_%08x' % address]
+        for address,name in profile['firmware_entries'].items():
+            entries[int(address,16)+slide] = symbols[name]
     word = 8 if architecture == 'x86_64' else 4
     encoding = '<Q' if word == 8 else '<I'
     first = (start - base + word - 1) & ~(word - 1)

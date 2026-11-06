@@ -3,6 +3,7 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <stdbool.h>
+#include "value.h"
 typedef unsigned char byte;
 typedef unsigned char uchar;
 typedef signed char sbyte;

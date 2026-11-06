@@ -13,5 +13,16 @@
   "main": "recovered_2037ee0",
   "set_loader_context": "recovered_2003c80",
   "inline_constants": {},
-  "upstream_display_version": "1.0"
+  "upstream_display_version": "1.0",
+  "firmware_entries": {
+    "200002c": "FUN_0200002c",
+    "2000113": "FUN_02000113",
+    "200022b": "FUN_0200022b",
+    "2000386": "FUN_02000386",
+    "20004b9": "FUN_020004b9",
+    "20005e7": "FUN_020005e7",
+    "20006a8": "FUN_020006a8",
+    "20007a6": "FUN_020007a6",
+    "2000867": "FUN_02000867"
+  }
 }
