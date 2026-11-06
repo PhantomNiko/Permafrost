@@ -6784,7 +6784,7 @@ void recovered_10009500(int *param_1)
     recovered_1000f5fc(param_1 + 2);
     recovered_10006e94((void *)param_1[2]);
     if ((int *)*param_1 != (int *)0x0) {
-      (**(code **)(*(int *)*param_1 + 4))();
+      ((uintptr_t (*)(void *))(*(uintptr_t *)(*(uintptr_t *)(uintptr_t)*param_1 + 4)))((void *)(uintptr_t)*param_1);
     }
   }
   recovered_10006e94(param_1);

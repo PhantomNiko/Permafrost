@@ -7911,7 +7911,7 @@ void recovered_10009d8c(undefined4 *param_1,int *param_2,undefined4 *param_3)
   recovered_100078f0(&uStack_94);
   recovered_10009ea4(piVar1,param_2,&local_98);
   if (local_98 != (int *)0x0) {
-    (**(code **)(*local_98 + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_98 + 4)))(local_98);
   }
   recovered_10007908(&uStack_94);
   return;
@@ -8025,7 +8025,7 @@ LAB_10009f98:
   uVar6 = extraout_r2;
   uVar7 = extraout_r3;
   if (local_c4 != (int *)0x0) {
-    (**(code **)(*local_c4 + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_c4 + 4)))(local_c4);
     uVar6 = extraout_r2_00;
     uVar7 = extraout_r3_00;
   }
@@ -9961,7 +9961,7 @@ void recovered_1000ce78(undefined4 *param_1,int *param_2,undefined4 *param_3)
   recovered_100078f0(&uStack_94);
   recovered_10009d8c(param_1,param_2,&local_98);
   if (local_98 != (int *)0x0) {
-    (**(code **)(*local_98 + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_98 + 4)))(local_98);
   }
   recovered_10007908(&uStack_94);
   return;
@@ -10617,7 +10617,7 @@ void recovered_1000d4cc(int *param_1)
       iVar1 = piVar2[2];
       piVar2[2] = iVar1 + -1;
       if (iVar1 + -1 == 0) {
-        (**(code **)(*piVar2 + 4))();
+        ((uintptr_t (*)(void *))(*(uintptr_t *)(*piVar2 + 4)))(piVar2);
       }
     }
     param_1[1] = 0;
@@ -11403,7 +11403,7 @@ int * recovered_1000e12c(int *param_1,int *param_2)
 
   if (param_1 != param_2) {
     if ((int *)*param_1 != (int *)0x0) {
-      (**(code **)(*(int *)*param_1 + 4))();
+      ((uintptr_t (*)(void *))(*(uintptr_t *)(*(int *)*param_1 + 4)))((void *)(uintptr_t)*param_1);
     }
     *param_1 = *param_2;
     *param_2 = 0;
@@ -11583,7 +11583,7 @@ int recovered_1000e268(int param_1)
 
   recovered_1000d288((undefined4 *)(param_1 + 0x14));
   if (*(int **)(param_1 + 0x10) != (int *)0x0) {
-    (**(code **)(**(int **)(param_1 + 0x10) + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(**(int **)(param_1 + 0x10) + 4)))(*(int **)(param_1 + 0x10));
   }
   recovered_1000e2a4((int *)(param_1 + 8));
   return param_1;
@@ -11637,7 +11637,7 @@ int * recovered_1000e2a4(int *param_1)
       iVar1 = piVar2[2];
       piVar2[2] = iVar1 + -1;
       if (iVar1 + -1 == 0) {
-        (**(code **)(*piVar2 + 4))();
+        ((uintptr_t (*)(void *))(*(uintptr_t *)(*piVar2 + 4)))(piVar2);
       }
     }
     param_1[1] = 0;
@@ -24308,7 +24308,7 @@ void recovered_1001cd5c(int *param_1)
       iVar1 = piVar2[2];
       piVar2[2] = iVar1 + -1;
       if (iVar1 + -1 == 0) {
-        (**(code **)(*piVar2 + 4))();
+        ((uintptr_t (*)(void *))(*(uintptr_t *)(*piVar2 + 4)))(piVar2);
       }
     }
     param_1[1] = 0;
@@ -24640,7 +24640,7 @@ void recovered_1001d19c(int *param_1)
       iVar1 = piVar2[2];
       piVar2[2] = iVar1 + -1;
       if (iVar1 + -1 == 0) {
-        (**(code **)(*piVar2 + 4))();
+        ((uintptr_t (*)(void *))(*(uintptr_t *)(*piVar2 + 4)))(piVar2);
       }
     }
     param_1[1] = 0;
@@ -25027,7 +25027,7 @@ void recovered_1001d534(int param_1)
   local_90 = 6;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_bc);
   if (local_bc != (int *)0x0) {
-    (**(code **)(*local_bc + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_bc + 4)))(local_bc);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25037,7 +25037,7 @@ void recovered_1001d534(int param_1)
   local_90 = 8;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_c0);
   if (local_c0 != (int *)0x0) {
-    (**(code **)(*local_c0 + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_c0 + 4)))(local_c0);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25047,7 +25047,7 @@ void recovered_1001d534(int param_1)
   local_90 = 10;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_c4);
   if (local_c4 != (int *)0x0) {
-    (**(code **)(*local_c4 + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_c4 + 4)))(local_c4);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25057,7 +25057,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0xc;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_c8);
   if (local_c8 != (int *)0x0) {
-    (**(code **)(*local_c8 + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_c8 + 4)))(local_c8);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25067,7 +25067,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0xe;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_cc);
   if (local_cc != (int *)0x0) {
-    (**(code **)(*local_cc + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_cc + 4)))(local_cc);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25077,7 +25077,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0x10;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_d0);
   if (local_d0 != (int *)0x0) {
-    (**(code **)(*local_d0 + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_d0 + 4)))(local_d0);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25087,7 +25087,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0x12;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_d4);
   if (local_d4 != (int *)0x0) {
-    (**(code **)(*local_d4 + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_d4 + 4)))(local_d4);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25097,7 +25097,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0x14;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_d8);
   if (local_d8 != (int *)0x0) {
-    (**(code **)(*local_d8 + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_d8 + 4)))(local_d8);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25107,7 +25107,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0x16;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_dc);
   if (local_dc != (int *)0x0) {
-    (**(code **)(*local_dc + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_dc + 4)))(local_dc);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25117,7 +25117,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0x18;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_e0);
   if (local_e0 != (int *)0x0) {
-    (**(code **)(*local_e0 + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_e0 + 4)))(local_e0);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25127,7 +25127,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0x1a;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_e4);
   if (local_e4 != (int *)0x0) {
-    (**(code **)(*local_e4 + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_e4 + 4)))(local_e4);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25137,7 +25137,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0x1c;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_e8);
   if (local_e8 != (int *)0x0) {
-    (**(code **)(*local_e8 + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_e8 + 4)))(local_e8);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25147,7 +25147,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0x1e;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_ec);
   if (local_ec != (int *)0x0) {
-    (**(code **)(*local_ec + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_ec + 4)))(local_ec);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25157,7 +25157,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0x20;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_f0);
   if (local_f0 != (int *)0x0) {
-    (**(code **)(*local_f0 + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_f0 + 4)))(local_f0);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25167,7 +25167,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0x22;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_f4);
   if (local_f4 != (int *)0x0) {
-    (**(code **)(*local_f4 + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_f4 + 4)))(local_f4);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25177,7 +25177,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0x24;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_f8);
   if (local_f8 != (int *)0x0) {
-    (**(code **)(*local_f8 + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_f8 + 4)))(local_f8);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25187,7 +25187,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0x26;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_fc);
   if (local_fc != (int *)0x0) {
-    (**(code **)(*local_fc + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_fc + 4)))(local_fc);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25197,7 +25197,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0x28;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_100);
   if (local_100 != (int *)0x0) {
-    (**(code **)(*local_100 + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_100 + 4)))(local_100);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25207,7 +25207,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0x2a;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_104);
   if (local_104 != (int *)0x0) {
-    (**(code **)(*local_104 + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_104 + 4)))(local_104);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25217,7 +25217,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0x2c;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_108);
   if (local_108 != (int *)0x0) {
-    (**(code **)(*local_108 + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_108 + 4)))(local_108);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25227,7 +25227,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0x2e;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_10c);
   if (local_10c != (int *)0x0) {
-    (**(code **)(*local_10c + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_10c + 4)))(local_10c);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25237,7 +25237,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0x30;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_110);
   if (local_110 != (int *)0x0) {
-    (**(code **)(*local_110 + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_110 + 4)))(local_110);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25247,7 +25247,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0x32;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_114);
   if (local_114 != (int *)0x0) {
-    (**(code **)(*local_114 + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_114 + 4)))(local_114);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25257,7 +25257,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0x34;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_118);
   if (local_118 != (int *)0x0) {
-    (**(code **)(*local_118 + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_118 + 4)))(local_118);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25267,7 +25267,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0x36;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_11c);
   if (local_11c != (int *)0x0) {
-    (**(code **)(*local_11c + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_11c + 4)))(local_11c);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25277,7 +25277,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0x38;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_120);
   if (local_120 != (int *)0x0) {
-    (**(code **)(*local_120 + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_120 + 4)))(local_120);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25287,7 +25287,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0x3a;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_124);
   if (local_124 != (int *)0x0) {
-    (**(code **)(*local_124 + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_124 + 4)))(local_124);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25297,7 +25297,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0x3c;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_128);
   if (local_128 != (int *)0x0) {
-    (**(code **)(*local_128 + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_128 + 4)))(local_128);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25307,7 +25307,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0x3e;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_12c);
   if (local_12c != (int *)0x0) {
-    (**(code **)(*local_12c + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_12c + 4)))(local_12c);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25317,7 +25317,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0x40;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_130);
   if (local_130 != (int *)0x0) {
-    (**(code **)(*local_130 + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_130 + 4)))(local_130);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25327,7 +25327,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0x42;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_134);
   if (local_134 != (int *)0x0) {
-    (**(code **)(*local_134 + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_134 + 4)))(local_134);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25337,7 +25337,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0x44;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_138);
   if (local_138 != (int *)0x0) {
-    (**(code **)(*local_138 + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_138 + 4)))(local_138);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25347,7 +25347,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0x46;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_13c);
   if (local_13c != (int *)0x0) {
-    (**(code **)(*local_13c + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_13c + 4)))(local_13c);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25357,7 +25357,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0x48;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_140);
   if (local_140 != (int *)0x0) {
-    (**(code **)(*local_140 + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_140 + 4)))(local_140);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25367,7 +25367,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0x4a;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_144);
   if (local_144 != (int *)0x0) {
-    (**(code **)(*local_144 + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_144 + 4)))(local_144);
   }
   recovered_10007424(local_b8[0]);
   local_90 = 0xffffffff;
@@ -25377,7 +25377,7 @@ void recovered_1001d534(int param_1)
   local_90 = 0x4c;
   recovered_10009ea4(local_14c,(int *)local_b8,&local_148);
   if (local_148 != (int *)0x0) {
-    (**(code **)(*local_148 + 4))();
+    ((uintptr_t (*)(void *))(*(uintptr_t *)(*local_148 + 4)))(local_148);
   }
   recovered_10007424(local_b8[0]);
   recovered_10007908(&uStack_94);

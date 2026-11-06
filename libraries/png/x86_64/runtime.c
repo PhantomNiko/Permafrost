@@ -14978,7 +14978,7 @@ LAB_10010a37:
   recovered_100050c0(local_150);
   recovered_100050c0(local_168);
   recovered_100050c0(local_180);
-  recovered_100050c0(*(uint64_t *)(void *)local_198);
+  recovered_100050c0(local_198);
 LAB_10010a99:
   recovered_100055b0(&local_e0);
   return bVar14;

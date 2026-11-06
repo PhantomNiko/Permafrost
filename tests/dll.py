@@ -15,8 +15,9 @@ from unicorn.arm64_const import *
 
 
 class DLL:
-    def __init__(self,path,instruction_limit=20000000):
+    def __init__(self,path,instruction_limit=20000000,poison_allocations=False,poison_stack=False):
         self.instruction_limit=instruction_limit
+        self.poison_stack=poison_stack
         binary=Path(path).read_bytes();metadata,memory=native_inspect(binary);dynamic=inspect(binary)
         self.cpu_type=metadata['cpu'];self.wide=self.cpu_type in (0x1000007,0x100000c)
         arm=self.cpu_type in (12,0x100000c)
@@ -55,12 +56,22 @@ class DLL:
             return [self.cpu.reg_read(r)for r in registers[:count]]
         def allocate(size):
             if size>0x1000000 or self.next+size>=0x2000000:raise AssertionError('unbounded library allocation')
-            address=self.next;self.next=(address+max(size,1)+15)&-16;self.allocs[address]=size;return address
+            address=self.next;self.next=(address+max(size,1)+15)&-16;self.allocs[address]=size
+            if poison_allocations:self.cpu.mem_write(address,b'\xa5'*max(size,1))
+            return address
         def malloc(cpu,address,size,user):cpu.reg_write(self.result,allocate(args(1)[0]))
-        def free(cpu,address,size,user):cpu.reg_write(self.result,0)
+        def free(cpu,address,size,user):
+            pointer=args(1)[0]
+            if pointer:
+                if pointer not in self.allocs:raise AssertionError('library released an unowned address %#x'%pointer)
+                del self.allocs[pointer]
+            cpu.reg_write(self.result,0)
         def realloc(cpu,address,size,user):
             old,count=args(2);result=allocate(count)
-            if old:cpu.mem_write(result,bytes(cpu.mem_read(old,min(self.allocs.get(old,0),count))))
+            if old:
+                if old not in self.allocs:raise AssertionError('library resized an unowned address %#x'%old)
+                cpu.mem_write(result,bytes(cpu.mem_read(old,min(self.allocs[old],count))))
+                del self.allocs[old]
             cpu.reg_write(self.result,result)
         for slot,address,hook in ((0x4c,0x10000,malloc),(0x50,0x10010,free),(0x54,0x10020,realloc)):
             self.cpu.mem_write(table+slot,struct.pack('<I',address))
@@ -69,6 +80,7 @@ class DLL:
 
     def call(self,name,*arguments,result_bits=8):
         cpu=self.cpu;stack=0x4fe0000
+        if self.poison_stack:cpu.mem_write(stack-0x10000,b"\x5a"*0x10000)
         if self.cpu_type==7:
             cpu.reg_write(UC_X86_REG_ESP,stack);cpu.mem_write(stack,struct.pack('<'+'I'*(1+len(arguments)),self.stop,*arguments))
         elif self.cpu_type==0x1000007:

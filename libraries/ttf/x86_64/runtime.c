@@ -5969,7 +5969,7 @@ void recovered_100051cc(long *param_1)
     recovered_1000ae56(param_1 + 2);
     recovered_10002de7((void *)param_1[2]);
     if ((long *)*param_1 != (long *)0x0) {
-      (**(code **)(*(long *)*param_1 + 8))();
+      ((uintptr_t (*)(void *))(*(uintptr_t *)(*(uintptr_t *)(uintptr_t)*param_1 + 8)))((void *)(uintptr_t)*param_1);
     }
   }
   recovered_10002de7(param_1);
@@ -11796,7 +11796,7 @@ uint recovered_1000aee0(double param_1,undefined8 *param_2)
   ulonglong uVar3;
   double dVar4;
 
-  iVar1 = (**(code **)(*(long *)**(undefined8 **)*param_2 + 0x40))();
+  iVar1 = ((uintptr_t (*)(void *))(*(uintptr_t *)(*(long *)**(undefined8 **)*param_2 + 0x40)))((void *)(uintptr_t)((long *)**(undefined8 **)*param_2));
   if (iVar1 == 1) {
     uVar3 = recovered_1000140c(param_1);
     uVar2 = (uint)uVar3;
