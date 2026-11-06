@@ -20271,7 +20271,7 @@ undefined4 recovered_10012f04(int param_1)
     if (iVar4 == 0) {
       return 0;
     }
-    if (6 < *(byte *)(iVar4 + 4) - 2) {
+    if (6U < *(byte *)(iVar4 + 4) - 2U) {
       return 0;
     }
     iVar2 = 0xc;
@@ -27328,7 +27328,7 @@ void recovered_10019e80(int param_1,int *param_2)
   recovered_10003e1c(&uStack_94);
   do {
     iVar3 = param_2[1];
-    if ((iVar3 == 0) || (7 < *(byte *)(iVar3 + 4) - 1)) goto LAB_10019fd0;
+    if ((iVar3 == 0) || (7U < (uint)(*(byte *)(iVar3 + 4) - 1U))) goto LAB_10019fd0;
     piVar4 = (int *)(iVar3 + 0xc);
     iVar1 = 0xc;
     switch((uintptr_t)(*(byte *)(iVar3 + 4))) {

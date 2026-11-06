@@ -36928,7 +36928,7 @@ LAB_10030940:
             else {
               bVar3 = true;
               if ((bVar4) ||
-                 (bVar3 = false, 1 < *(byte *)((int)ppppppppuVar19 * 0x1c8 + *param_3 + 0x28) - 3))
+                 (bVar3 = false, 1U < *(byte *)((int)ppppppppuVar19 * 0x1c8 + *param_3 + 0x28) - 3U))
               {
 LAB_10030910:
                 local_90 = 10;

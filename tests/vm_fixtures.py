@@ -1,0 +1,22 @@
+"""Native/source and booted guest VM fixtures. Pooka's Free Software License."""
+
+def fixtures(language):
+    common=[('answer=6*7',42),('answer=2+3*4',14),('answer=-19+7',-12)]
+    extra=([
+        ('answer=0; for i=1,12 do answer=answer+i end',78),
+                ('a={3,5,8}; answer=a[2]',5),
+        ('answer=(1.5*2.0+0.25)*4',13),
+    ]if language=='lua'else[
+        ('answer=0\ni=1\nwhile i<=12\nanswer=answer+i\ni=i+1\nend',78),
+        ('def twice(x)\nreturn x*2\nend\nanswer=twice(7)',14),
+        ('a=[3,5,8]\nanswer=a[1]',5),
+        ('answer=(1.5*2.0+0.25)*4',13),
+    ])
+    if language=='winterscript':
+        extra=[
+            ('answer=0\ni=1\nwhile i<=12\nanswer=answer+i\ni=i+1\nend',78),
+            ('function twice(x)\nreturn x*2\nend\nanswer=twice(7)',14),
+            ('a={3,5,8}\nanswer=a[2]',5),
+            ('answer=(1.5*2.0+0.25)*4',13),
+        ]
+    return common+extra

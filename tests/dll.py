@@ -27,6 +27,9 @@ class DLL:
             self.cpu.reg_write(UC_ARM_REG_C1_C0_2,15<<20);self.cpu.reg_write(UC_ARM_REG_FPEXC,1<<30)
         self.base=0x2800000;self.stop=0x4ff0000;self.next=0x300000;self.allocs={}
         self.cpu.mem_map(0,0x5000000)
+        # Firmware leaves the null page inaccessible; a mapped zero page can
+        # conceal invalid AST pointers and other bad native/source accesses.
+        self.cpu.mem_unmap(0,0x1000)
         if arm:self.cpu.mem_map(0x40010000,0x10000)
         memory=bytearray(memory);locations=rebase_locations(binary,dynamic);handled=set()
         if self.cpu_type==12:
@@ -80,7 +83,7 @@ class DLL:
 
     def call(self,name,*arguments,result_bits=8):
         cpu=self.cpu;stack=0x4fe0000
-        if self.poison_stack:cpu.mem_write(stack-0x10000,b"\x5a"*0x10000)
+        if getattr(self,"poison_stack",False):cpu.mem_write(stack-0x10000,b"\x5a"*0x10000)
         if self.cpu_type==7:
             cpu.reg_write(UC_X86_REG_ESP,stack);cpu.mem_write(stack,struct.pack('<'+'I'*(1+len(arguments)),self.stop,*arguments))
         elif self.cpu_type==0x1000007:
