@@ -10,6 +10,28 @@ import re
 
 
 def patch(source):
+    # The Q-register half-precision conversion patterns otherwise overlap
+    # integer VSHR encodings, turning CRC and sector arithmetic into floats.
+    conversion_count=0
+    def constructor(match):
+        nonlocal conversion_count
+        header,body=match.groups()
+        if header.startswith((':vcvt.f16.s16 Qd,Qm,fbits',':vcvt.f16.u16 Qd,Qm,fbits')):
+            if 'c0911=0' not in header:
+                raise ValueError('Unexpected half-precision conversion pattern')
+            header=header.replace('c0911=0','c0911=6')
+            conversion_count+=1
+        for operation in ('VectorCompareGreaterThan','VectorCompareGreaterThanOrEqual'):
+            unsigned='udt' if re.search(r'\budt\b',header) else '0:1'
+            body=re.sub(r'\b'+operation+r'\(([^;]+)\);',
+                        lambda call:operation+'('+call[1]+','+unsigned+');',body)
+        if header.startswith(':vshr.'):
+            body=re.sub(r'VectorShiftRight\(([^;]+)\);',
+                        r'VectorShiftRight(\1,ShiftSize,udt);',body)
+        return header+'{'+body+'\n}'
+    source=re.sub(r'(?ms)^(:[^{]+)\{(.*?)\n\}',constructor,source)
+    if conversion_count!=2:
+        raise ValueError('Expected both half-precision Q-register conversions')
     declarations = []
     for operation in ('Unzip', 'Zip', 'Transpose'):
         for half in ('Low', 'High'):

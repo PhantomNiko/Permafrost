@@ -24,7 +24,7 @@ def main(probe='tests/compiler_targets.c', architectures=('i386', 'x86_64', 'arm
             objects = []
             for index, source in enumerate((probe, 'kernel/compiler.c', 'kernel/runtime.c', 'kernel/format.c')):
                 obj = root / (arch + '-' + str(index) + '.o')
-                compile_object(source, obj, arch, ['sdk/include'])
+                compile_object(source, obj, arch, ['sdk/include', 'kernel'])
                 objects.append(obj)
             binary = preload(objects, root / (arch + '.linked'), arch, base)
             metadata, memory = inspect(binary)
