@@ -61,6 +61,11 @@ public class Export extends GhidraScript {
         }
         if(!new ApplyFunctionSignatureCmd(toAddr(address), type, SourceType.USER_DEFINED).applyTo(currentProgram, monitor))
             throw new Exception("Could not apply signature at "+Long.toHexString(address));
+        // A CParser declaration without an explicit convention has an unknown
+        // model. Variadic calls need the native model even with fixed custom
+        // register storage, or the decompiler can discard their arguments.
+        if(!declaration.matches("(?s).*__(?:fastcall|thiscall|cdecl|regparm[0-9]+).*"))
+            function.setCallingConvention(currentProgram.getCompilerSpec().getDefaultCallingConvention().getName());
         function.setName(name,SourceType.USER_DEFINED);
         if(currentProgram.getDefaultPointerSize()==8 && type.getReturnType().getName().equals("pf_point")) {
             boolean arm=currentProgram.getRegister("x0")!=null;
@@ -101,7 +106,12 @@ public class Export extends GhidraScript {
                     }
                     location=new VariableStorage(currentProgram,pieces.toArray(new ghidra.program.model.pcode.Varnode[0]));
                 }
-                else location=new VariableStorage(currentProgram,currentProgram.getRegister(places[index]));
+                else {
+                    var register=currentProgram.getRegister(places[index]);
+                    while(register.getMinimumByteSize()<data.getLength() && register.getParentRegister()!=null)
+                        register=register.getParentRegister();
+                    location=new VariableStorage(currentProgram,register.getAddress(),data.getLength());
+                }
                 custom.add(new ParameterImpl(parameter.getName(),data,location,currentProgram,SourceType.USER_DEFINED));
             }
             function.replaceParameters(custom,FunctionUpdateType.CUSTOM_STORAGE,true,SourceType.USER_DEFINED);
@@ -144,7 +154,11 @@ public class Export extends GhidraScript {
                 disassemble(toAddr(address));
                 createFunction(toAddr(address), "recovered_" + fields[0]);
             }
-            signature(address, fields[1],fields.length>2?fields[2]:null,fields.length>3?fields[3]:null);
+            try {
+                signature(address, fields[1],fields.length>2?fields[2]:null,fields.length>3?fields[3]:null);
+            } catch(Exception exception) {
+                throw new Exception("Signature at 0x"+Long.toHexString(address)+": "+fields[1],exception);
+            }
             explicit.add(address);
         }
         if (getScriptArgs().length > 1) {
