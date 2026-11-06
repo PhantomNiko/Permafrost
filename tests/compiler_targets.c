@@ -16,7 +16,20 @@ volatile double fraction64=4294967295.75,large64=18446744073709549568.0;
 volatile float large32=4294967296.0f,fraction32=1.5f;
 volatile uint64_t maximum=0xffffffffffffffffULL;
 volatile uint32_t high_a=0xffffffffU,high_b=0x80000000U;
+#if defined(__SIZEOF_INT128__)
+extern __uint128_t __ashlti3(__uint128_t,int);
+extern __uint128_t __lshrti3(__uint128_t,int);
+extern __int128 __ashrti3(__int128,int);
+#endif
 int main(void) {
+#if defined(__SIZEOF_INT128__)
+ __uint128_t wide=((__uint128_t)0xfedcba9876543210ULL<<64)|0x0123456789abcdefULL;
+ if(__ashlti3(wide,64)!=((__uint128_t)0x0123456789abcdefULL<<64))return 12;
+ if(__lshrti3(wide,64)!=0xfedcba9876543210ULL)return 13;
+ if(__lshrti3(wide,127)!=1 || __ashlti3(wide,128)!=0)return 14;
+ if(__ashrti3((__int128)wide,127)!=-1)return 15;
+ if(__ashlti3(wide,0)!=wide || __lshrti3(wide,0)!=wide)return 16;
+#endif
  if(small_a/small_b!=108108108u || small_a%small_b!=4u)return 1;
  if(signed_a/signed_b!=-69273666 || signed_a%signed_b!=-1)return 2;
  if(big_a/big_b!=0xe0000069e0ull || big_a%big_b!=0x38f0ull)return 3;
