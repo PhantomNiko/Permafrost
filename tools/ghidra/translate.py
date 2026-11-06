@@ -58,11 +58,25 @@ def ctype(description):
 
 
 def lvalue(typename, pointer, volatile=False):
-    match = re.match(r'^(.*?)\[(\d+)\]$', typename)
+    indirect = re.fullmatch(r'(.*?)\(\s*(\*+)\s*\)((?:\[\d+\])+)', typename)
+    if indirect:
+        return '(*(%s(%s%s*)%s)(%s))' % (indirect[1], indirect[2], ' volatile ' if volatile else '', indirect[3], pointer)
+    match = re.fullmatch(r'(.*?)((?:\[\d+\])+)', typename)
     if match:
-        return '(*(%s (*)[%s])(%s))' % (match[1]+(' volatile'if volatile else''), match[2], pointer)
+        return '(*(%s (*)%s)(%s))' % (match[1]+(' volatile'if volatile else''), match[2], pointer)
     if volatile:typename+=' volatile'
     return '(*(%s *)(%s))' % (typename, pointer)
+
+
+def stack_declaration(source, name):
+    """Locate a declaration without mistaking assignments for type names."""
+    indirect = r'^  ([A-Za-z_][A-Za-z_0-9 \t*]*?)\s*\(\s*(\*+)\s*' + re.escape(name) + r'\s*\)\s*((?:\[\s*\d+\s*\]\s*)+);\n'
+    match = re.search(indirect, source, re.M)
+    if match:
+        return match, match[1].strip() + '(' + match[2] + ')' + re.sub(r'\s', '', match[3])
+    pattern = r'^  ([A-Za-z_][A-Za-z_0-9 \t*]*?)\b' + re.escape(name) + r'((?:\s*\[\s*\d+\s*\])*)\s*;\n'
+    match = re.search(pattern, source, re.M)
+    return (match, match[1].strip() + re.sub(r'\s', '', match[2])) if match else (None, None)
 
 
 def atomic_views(source):
@@ -430,11 +444,11 @@ def main():
                 continue
             # Use the printed declaration's type, including its inferred array
             # extent; the stack offset preserves aliasing between adjacent fields.
-            pattern = r'^  (.*?)\b' + re.escape(name) + r'(\s*\[\s*\d+\s*\])?;\n'
-            match = re.search(pattern, source, re.M)
+            # An assignment mentioning the slot is not a declaration. Handle
+            # pointer-to-array declarators before the ordinary array form.
+            match, typename = stack_declaration(source, name)
             if not match:
                 continue
-            typename = match[1].strip() + (re.sub(r'\s', '', match[2]) if match[2] else '')
             source = source[:match.start()] + source[match.end():]
             macros.append('#define %s %s' % (name, lvalue(typename, 'frame + %d' % (frame_size + int(offset)))))
         stack_widths = {}
