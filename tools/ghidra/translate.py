@@ -129,7 +129,7 @@ def signature(source):
 def rewrite_double_bits(source):
     # Wrap balanced CONCAT/mask expressions rather than attempting to parse
     # their arbitrary nesting with a regular expression.
-    pattern = r'\(double\)(?=(?:CONCAT\d+\(|\(+pf_double_bits\())'
+    pattern = r'\(double\)(?=(?:\(*CONCAT(?:17|26|35|44|53|62|71)\(|\(+pf_double_bits\())'
     for match in reversed(list(re.finditer(pattern, source))):
         start = match.end()
         opening = source.index('(', start)
@@ -415,6 +415,9 @@ def main():
         pointer_names.update(re.findall(r'^  [\w ]+\*+\s*(\w+)(?:\s*\[.*?\])?;', source, re.M))
         locals_used = [row for row in metadata if row[0] == 'L']
         frame_size = max([32] + [-int(row[2]) + 16 for row in locals_used])
+        # Native code can select adjacent fields with address OR operations.
+        # Preserve the stack origin's alignment as well as relative offsets.
+        frame_size = (frame_size + 15) & ~15
         addressed_offsets = {int(x, 0) for x in re.findall(current.get('stack_register', 'register0x00000020' if WIDE else 'register0x00000010')+r'\s*\+\s*(-0x[0-9a-f]+)', source)}
         macros = []
         for row in locals_used:
@@ -434,11 +437,23 @@ def main():
             typename = match[1].strip() + (re.sub(r'\s', '', match[2]) if match[2] else '')
             source = source[:match.start()] + source[match.end():]
             macros.append('#define %s %s' % (name, lvalue(typename, 'frame + %d' % (frame_size + int(offset)))))
-        for name, raw in re.findall(r'\b(stack0x([0-9a-f]{8}(?:[0-9a-f]{8})?))\b', source):
+        stack_widths = {}
+        for row in metadata:
+            if row[0] == 'S':
+                offset, width = int(row[2]), int(row[3])
+                stack_widths[offset] = max(stack_widths.get(offset, 0), width)
+        for name, raw in sorted(set(re.findall(r'\b(stack0x([0-9a-f]{8}(?:[0-9a-f]{8})?))\b', source))):
             offset=int(raw,16)
             bits=len(raw)*4
             if offset>=1<<(bits-1): offset-=1<<bits
-            macros.append('#define %s (*(uint8_t *)(frame + %d))'%(name,frame_size+offset))
+            width = stack_widths.get(offset, 1)
+            if width == 1:
+                assigned = re.findall(r'\b'+re.escape(name)+r'\s*=\s*(\w+)\s*;', source)
+                if any(value in pointer_names for value in assigned):
+                    width = 8 if WIDE else 4
+            if width not in (1, 2, 4, 8):
+                width = 8 if WIDE else 4
+            macros.append('#define %s (*(uint%d_t *)(frame + %d))'%(name,width*8,frame_size+offset))
         source = source.replace(current.get('stack_register', 'register0x00000020' if WIDE else 'register0x00000010'), '(uintptr_t)(frame + %d)' % frame_size)
         source = re.sub(r'__(?:fastcall|cdecl|thiscall|regparm[0-9])\s+', '', source)
         pointer_fields = {(row[1], int(row[2])): int(row[3]) for row in metadata if row[0] == 'P'}
@@ -560,7 +575,7 @@ def main():
         if WIDE:source=packed_vector_views(source)
         if current.get('atomic_views'):source=atomic_views(source)
         opening = source.index('\n{') + 2
-        source = source[:opening] + '\n  unsigned char frame[%d] = {0};\n' % (frame_size + 32) + source[opening:]
+        source = source[:opening] + '\n  unsigned char frame[%d] __attribute__((aligned(16))) = {0};\n' % (frame_size + 32) + source[opening:]
         (args.out / (address + '.c')).write_text('\n'.join(line.rstrip() for line in ('\n'.join(preamble + macros) + '\n' + source).splitlines()).rstrip() + '\n')
     for name, content in manual.items():
         (args.out / (name + '.c')).write_text(rewrite_void_results(content,current.get('void_result_calls',[]),name))

@@ -56,6 +56,11 @@ def main():
         if (units != 1000.0) return 5;
         double joined=(double)((pf_double_bits(3.5)&0xffffffff00000000ULL)+(pf_double_bits(3.5)&0xffffffffULL));
         if(joined!=3.5)return 15;
+        double joined_words;
+        joined_words=(double)(CONCAT44(0x400c0000,0));
+        if(joined_words!=3.5)return 16;
+        double integer_words=(double)CONCAT31(0,3);
+        if(integer_words!=3.0)return 17;
         float float_flag = (float)CONCAT31(0,1);
         if (pf_float_bits(float_flag) != 1) return 9;
         float_flag = (float)(CONCAT31(0,1)&1);
@@ -75,6 +80,8 @@ def main():
         return !(character - 0x30 < 10);
     }
     '''
+    source = '#define CONCAT44(a,b) (((uint64_t)(a)<<32)|(unsigned int)(b))\n'+source
+    source = module.rewrite_double_bits(source)
     source = module.rewrite_double_assignments(source, 'slot')
     source = module.rewrite_scalar_storage(source)
     with tempfile.TemporaryDirectory(prefix='permafrost-translation-') as directory:

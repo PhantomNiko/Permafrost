@@ -300,6 +300,15 @@ public class Export extends GhidraScript {
                             .append(Long.toHexString(symbol.getStorage().getMinAddress().getOffset())).append('\t')
                             .append(type(symbol.getDataType())).append('\n');
                 }
+                var stackSpace=currentProgram.getAddressFactory().getStackSpace();
+                if(stackSpace!=null) {
+                    var stackNodes=result.getHighFunction().getVarnodes(stackSpace);
+                    while(stackNodes.hasNext()) {
+                        var node=stackNodes.next();
+                        metadata.append("S\tstack\t").append(node.getAddress().getOffset())
+                            .append('\t').append(node.getSize()).append('\n');
+                    }
+                }
                 var nodes = result.getHighFunction().getVarnodes(currentProgram.getAddressFactory().getDefaultAddressSpace());
                 while (nodes.hasNext()) {
                     var node = nodes.next();
