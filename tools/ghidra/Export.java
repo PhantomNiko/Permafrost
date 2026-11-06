@@ -148,14 +148,17 @@ public class Export extends GhidraScript {
         var explicit = new HashSet<Long>();
         var returnHints = new HashMap<Long,DataType>();
         for (String line : Files.readAllLines(Path.of(getScriptArgs()[2]))) {
-            String[] fields = line.split("\\t", 4);
+            String[] fields = line.split("\\t", 5);
             long address = Long.parseLong(fields[0], 16);
             if (getFunctionAt(toAddr(address)) == null) {
                 disassemble(toAddr(address));
                 createFunction(toAddr(address), "recovered_" + fields[0]);
             }
             try {
-                signature(address, fields[1],fields.length>2?fields[2]:null,fields.length>3?fields[3]:null);
+                signature(address, fields[1],fields.length>2 && !fields[2].isBlank()?fields[2]:null,
+                    fields.length>3 && !fields[3].isBlank()?fields[3]:null);
+                if(fields.length>4 && !fields[4].isBlank())
+                    getFunctionAt(toAddr(address)).setCallingConvention(fields[4]);
             } catch(Exception exception) {
                 throw new Exception("Signature at 0x"+Long.toHexString(address)+": "+fields[1],exception);
             }

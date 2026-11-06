@@ -19,7 +19,18 @@ def main():
 DAT_4055cc40 = VALUE;'''
     exchange = atomic_views(pattern.replace('VALUE', '1'))
     increment = atomic_views(pattern.replace('VALUE', 'old + 1'))
+    arm64 = '''do {
+ old = DAT_4055cc40;
+ status = 1;
+ success = (bool)ExclusiveMonitorPass(0x4055cc40,0x10);
+ if(success) {
+  DAT_4055cc40 = old + 1;
+  status = ExclusiveMonitorsStatus();
+ }
+} while(status != 0);'''
+    arm64_increment = 'bool success;char status;\n' + atomic_views(arm64)
     code = '''#include <stdint.h>
+#include <stdbool.h>
 #include <pthread.h>
 static uint32_t DAT_4055cc40=3;
 static uint64_t sums[4];
@@ -43,13 +54,14 @@ int main(void) {
  uint64_t sum=sums[0]+sums[1]+sums[2]+sums[3];
  return DAT_4055cc40!=40001 || sum!=40000ULL*40001/2;
 }
-'''.replace('INCREMENT', increment).replace('EXCHANGE', exchange)
+'''.replace('EXCHANGE', exchange)
     with tempfile.TemporaryDirectory(prefix='permafrost-atomics-') as directory:
         root=Path(directory)
-        (root/'probe.c').write_text(code)
-        subprocess.run(['clang','-std=c11','-O2','-pthread','-Wall','-Wextra','-Werror',
-                        str(root/'probe.c'),'-o',str(root/'probe')],check=True)
-        subprocess.run([str(root/'probe')],check=True)
+        for update in (increment,arm64_increment):
+            (root/'probe.c').write_text(code.replace('INCREMENT',update))
+            subprocess.run(['clang','-std=c11','-O2','-pthread','-Wall','-Wextra','-Werror',
+                            str(root/'probe.c'),'-o',str(root/'probe')],check=True)
+            subprocess.run([str(root/'probe')],check=True)
     print('Recovered exchange and concurrent increment preserve native values.')
 
 

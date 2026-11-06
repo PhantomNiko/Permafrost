@@ -3,6 +3,7 @@
 #define DataMemoryBarrier(...) __asm__ volatile("dmb sy":::"memory")
 #define DataSynchronizationBarrier(...) __asm__ volatile("dsb sy":::"memory")
 #define InstructionSynchronizationBarrier(...) __asm__ volatile("isb":::"memory")
+#define Yield(...) __asm__ volatile("yield":::"memory")
 #define TLBI_VMALLE1() __asm__ volatile("tlbi vmalle1":::"memory")
 #define PF_SYSREG(name) static inline uint64_t pf_read_##name(void) {uint64_t v;__asm__ volatile("mrs %0," #name:"=r"(v));return v;} static inline void pf_write_##name(uint64_t v){__asm__ volatile("msr " #name ",%0"::"r"(v):"memory");}
 PF_SYSREG(mair_el1)
@@ -10,12 +11,33 @@ PF_SYSREG(tcr_el1)
 PF_SYSREG(ttbr0_el1)
 PF_SYSREG(ttbr1_el1)
 PF_SYSREG(sctlr_el1)
+PF_SYSREG(mair_el2)
+PF_SYSREG(tcr_el2)
+PF_SYSREG(ttbr0_el2)
+PF_SYSREG(sctlr_el2)
+PF_SYSREG(daif)
+PF_SYSREG(elr_el1)
+PF_SYSREG(spsr_el1)
+PF_SYSREG(vbar_el1)
+PF_SYSREG(vbar_el2)
+PF_SYSREG(mdscr_el1)
+PF_SYSREG(dbgwcr0_el1)
+PF_SYSREG(dbgwvr0_el1)
+PF_SYSREG(par_el1)
+PF_SYSREG(cntv_tval_el0)
+PF_SYSREG(cntv_ctl_el0)
+PF_SYSREG(cntfrq_el0)
 #undef PF_SYSREG
 #define PF_SYSREG_RO(name) static inline uint64_t pf_read_##name(void) {uint64_t v;__asm__ volatile("mrs %0," #name:"=r"(v));return v;}
 PF_SYSREG_RO(mpidr_el1)
 PF_SYSREG_RO(midr_el1)
 PF_SYSREG_RO(ctr_el0)
+PF_SYSREG_RO(currentel)
+PF_SYSREG_RO(cntvct_el0)
+PF_SYSREG_RO(esr_el1)
+PF_SYSREG_RO(far_el1)
 #undef PF_SYSREG_RO
+static inline void pf_write_oslar_el1(uint64_t value){__asm__ volatile("msr oslar_el1,%0"::"r"(value):"memory");}
 static inline void DC_CVAC(uint64_t p){__asm__ volatile("dc cvac,%0"::"r"(p):"memory");}
 static inline void DC_CVAU(uint64_t p){__asm__ volatile("dc cvau,%0"::"r"(p):"memory");}
 static inline void IC_IVAU(uint64_t p){__asm__ volatile("ic ivau,%0"::"r"(p):"memory");}

@@ -12,6 +12,27 @@ import re
 
 WIDE = False
 
+def system_register_views(source, registers):
+    """Lower architectural register storage to explicit hardware accessors."""
+    if not registers:
+        return source
+    names='|'.join(re.escape(name) for name in registers)
+    quoted=re.compile(r'("(?:\\.|[^"\\])*"|\'(?:\\.|[^\'\\])*\'|//[^\n]*|/\*.*?\*/)',re.S)
+    def code(text):
+        def store(match):
+            name=match[1]
+            if registers[name]=='ro':
+                raise ValueError('Write to read-only system register '+name)
+            return 'pf_write_'+name+'('+match[2]+');'
+        text=re.sub(r'(?<![.\w])('+names+r')\s*=(?!=)\s*([^;]+);',store,text)
+        def load(match):
+            name=match[0]
+            if registers[name]=='wo':
+                raise ValueError('Read from write-only system register '+name)
+            return 'pf_read_'+name+'()'
+        return re.sub(r'(?<![.\w])(?:'+names+r')\b',load,text)
+    return ''.join(part if i%2 else code(part) for i,part in enumerate(quoted.split(source)))
+
 
 def vector_constant_loads(source):
     # The decompiler prints a vector byte slice as pointer arithmetic on an
@@ -80,6 +101,23 @@ def stack_declaration(source, name):
 
 
 def atomic_views(source):
+    monitor_pattern=re.compile(r'(\w+)\s*=\s*\(bool\)\s*ExclusiveMonitorPass\(([^,]+),0x10\);\s*if\s*\(\1\)\s*\{\s*(_?DAT_[0-9a-f]+|\*\w+)\s*=\s*([^;]+);\s*(\w+)\s*=\s*ExclusiveMonitorsStatus\(\);\s*\}')
+    while (monitor:=monitor_pattern.search(source)):
+        success,address,target,value,status=monitor.groups()
+        if target.startswith('*'):
+            if address.strip()!=target[1:]:raise ValueError('exclusive pointer and store disagree')
+        elif int(address,16)!=int(target.split('_')[-1],16):
+            raise ValueError('exclusive address and store disagree')
+        loads=list(re.finditer(r'\b(\w+)\s*=\s*'+re.escape(target)+r'\s*;',source[:monitor.start()]))
+        if not loads:raise ValueError('exclusive store has no preceding load: '+target)
+        expected=loads[-1][1]
+        operation=('{ __typeof__('+target+') pf_exclusive_expected = '+expected+';\n'+
+                   success+' = __atomic_compare_exchange_n(&('+target+'),&pf_exclusive_expected,'+
+                   value+',0,__ATOMIC_ACQ_REL,__ATOMIC_RELAXED);\n'+
+                   status+' = '+success+' ? 0 : 1;\n}')
+        source=source[:monitor.start()]+operation+source[monitor.end():]
+    if 'ExclusiveMonitorPass('in source or 'ExclusiveMonitorsStatus('in source:
+        raise ValueError('unreviewed ARM64 exclusive-memory operation')
     def replace(match):
         body=match[1].strip()
         if not body:return '__atomic_thread_fence(__ATOMIC_SEQ_CST);'
@@ -217,6 +255,10 @@ def rewrite_scalar_storage(source):
         start=match.end();opening=source.index('(',start);end=opening+1;depth=1
         while depth:
             depth+=(source[end]=='(')-(source[end]==')');end+=1
+        # A zero-extended byte is also used for genuine byte-to-float
+        # conversion, for example the numeric values returned by string.byte.
+        if re.match(r'CONCAT31\(\s*0\s*,',source[start:end]):
+            continue
         source=source[:match.start()]+'pf_bits_float('+source[start:end]+')'+source[end:]
     # These p-code helpers carry IEEE bits in an integer. A C numeric cast
     # would convert the representation rather than read the floating value.
@@ -287,7 +329,7 @@ def main():
             text=re.sub(r'\bwchar_t\b','uint16_t',text)
             return text.replace('PF_MODEL_U64','unsigned long long').replace('PF_MODEL_I64','long long')
         sources={a:windows_types(s) for a,s in sources.items()}
-    sources={a:vector_constant_loads(s)for a,s in sources.items()}
+    sources={a:system_register_views(vector_constant_loads(s),current.get('system_registers',{}))for a,s in sources.items()}
     if WIDE or current.get("integer_vector_128"):
         sources={a:re.sub(r'\(undefined1\s+\[16\]\)', '(uint128)', re.sub(r'undefined1\s+\[16\]\s+((?:recovered_|FUN_)[0-9a-f]+)',r'uint128 \1',re.sub(r'undefined1 (auVar\d+) \[16\];',r'uint128 \1;',s))) for a,s in sources.items()}
         for a,s in sources.items():

@@ -3,7 +3,14 @@
 #include <stdint.h>
 #include <permafrost.h>
 #include "../kernel/support.h"
+#include "../kernel/value.h"
+#include "../kernel/workspace.h"
 #include <stddef.h>
+_Static_assert(sizeof(pf_kernel_value)==(sizeof(void *)==8?64:36),"native interpreter value size");
+_Static_assert(offsetof(pf_kernel_value,text)==(sizeof(void *)==8?16:12),"native interpreter text slot");
+_Static_assert(offsetof(pf_kernel_value,array)==(sizeof(void *)==8?48:28),"native interpreter array slot");
+_Static_assert(sizeof(pf_workspace)==sizeof(pf_kernel_value),"native reused value storage");
+_Static_assert(offsetof(pf_string_builder,data)==2*sizeof(void *),"native builder data slot");
 extern int pf_native_vsnprintf(char *,size_t,const char *,void *);
 static int format(char *out,size_t size,const char *pattern,...) {
  __builtin_va_list args;__builtin_va_start(args,pattern);
