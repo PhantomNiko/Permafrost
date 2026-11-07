@@ -64,6 +64,19 @@ unsigned bytes(void *memory) {
  pointer=memory;
  return (*pointer)[0]+pointer[1][2]+*(unsigned char *)(*pointer+3);
 }
+unsigned byte_offset(void *memory,unsigned offset) {
+ undefined1 (*pointer) [16];
+ pointer=memory;
+ unsigned char *position=*pointer+offset;
+ return *position;
+}
+unsigned byte_alias(void *memory,unsigned offset) {
+ undefined1 (*pointer) [16];
+ unsigned char *position;
+ pointer=memory;
+ position=*pointer;
+ return position[offset];
+}
 int main(void) {
  uint128 value=((uint128)0x12345678<<64)|0xabcdef;
  if(copy_word(0x123456789abcdef0ULL)!=0x123456789abcdef0ULL)return 4;
@@ -75,6 +88,8 @@ int main(void) {
  if(address(3)!=0x2030 || load(&value)!=value)return 2;
  unsigned char data[32]={0};data[0]=2;data[18]=3;data[3]=5;
  if(bytes(data)!=10)return 3;
+ if(byte_offset(data,18)!=3)return 8;
+ if(byte_alias(data,18)!=3)return 9;
  for(unsigned index=0;index<16;index++)
  for(unsigned value=0;value<256;value++)
   if(probe(index,value)!=((uint128)value<<(index*8)))return 1;

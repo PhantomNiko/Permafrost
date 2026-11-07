@@ -361,9 +361,18 @@ def rewrite_array_words(source):
 def rewrite_integer_vectors(source):
     """Retain byte access when vector SSA values become C integers."""
     pointers=re.findall(r'undefined1\s*\(\*\s*(\w+)\)\s*\[16\]',source)
+    byte_pointers=re.findall(r'\b(?:undefined1|uint8_t|char|byte)\s*\*\s*(\w+)\b',source)
     source=re.sub(r'undefined1\s*\((\*+)\s*(\w+)?\)\s*\[16\]',
                   lambda match:'uint128 '+match[1]+(match[2] or ''),source)
     for name in pointers:
+        for target in byte_pointers:
+            source=re.sub(r'\b'+re.escape(target)+r'\s*=\s*\*\s*'+re.escape(name)+r'\s*;',
+                          target+' = (uint8_t *)(void *)'+name+';',source)
+        # In byte arithmetic the dereferenced array decays to its address.
+        # Reading its integer vector value instead would turn pixel bytes
+        # into a pointer when processing a short PNG scanline.
+        source=re.sub(r'(?<![\w*])\*\s*'+re.escape(name)+r'\s*\+',
+                      '((uint8_t *)(void *)'+name+') +',source)
         source=re.sub(r'\(\s*\*'+re.escape(name)+r'\s*\)\s*\[',
                       '((uint8_t *)(void *)'+name+')[',source)
         source=re.sub(r'\b'+re.escape(name)+r'\s*\[([^]\n]+)\]\s*\[',
