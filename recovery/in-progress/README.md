@@ -46,6 +46,23 @@ primitives now restore the full native register sets; the shared scope-unwind
 entry restores the saved stack and frame before transferring control. These
 entry points use the required architecture instructions in C translation units.
 
+The TLS candidates are also entirely C on all four architectures. Each passes
+85 independent hash, key-derivation, stream-cipher, curve and authentication-tag
+checks, 27 initialization/date/entropy scenarios with repeated state transitions,
+and the numeric, math and context ABI corpora. Native and source clients complete
+TLS 1.3 handshakes, certificate-digest and verifier-callback checks, and encrypted
+HTTP exchanges with an independent in-memory OpenSSL server. These tests require
+PyOpenSSL and cryptography as host test dependencies; neither is linked into the
+guest library. ARM64 also passes with only the current shared-service base mapped.
+
+TLS field arithmetic, ChaCha blocks and Poly1305 padding use explicit portable C
+implementations validated against the reference. Obsolete private field-helper
+units are removed from the candidate after their callers move to that C core.
+ARM32 additionally corrects an implicit argument in the program-memory release
+wrapper and a certificate-data offset that generic decompilation lost on one
+length branch. Known ABI declarations can now be excluded from speculative
+incoming-register recovery.
+
 Diagnostic snapshots and VM disks remain outside tracked source. The normal
 build continues to use the last completed source tree until the next milestone
 passes its complete source build and VM comparisons. That transition must move

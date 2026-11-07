@@ -26,6 +26,15 @@ typedef __uint128_t undefined16 __attribute__((aligned(1)));
 typedef __uint128_t uint128 __attribute__((aligned(1)));
 typedef __uint128_t uint16 __attribute__((aligned(1)));
 #include "packed.h"
+static inline uint128 VectorCompareEqual(uint128 a,uint128 b,unsigned width) {
+    union {uint128 bits;uint8_t bytes[16];} x={.bits=a},y={.bits=b},out={.bits=0};
+    for(unsigned offset=0;offset<16;offset+=width) {
+        bool equal=true;
+        for(unsigned i=0;i<width;++i)equal&=x.bytes[offset+i]==y.bytes[offset+i];
+        for(unsigned i=0;i<width;++i)out.bytes[offset+i]=equal?255:0;
+    }
+    return out.bits;
+}
 static inline uint128 divpd(uint128 a,uint128 b) {
     union { uint128 bits; double lane[2]; } x={.bits=a},y={.bits=b},z;
     z.lane[0]=x.lane[0]/y.lane[0];z.lane[1]=x.lane[1]/y.lane[1];return z.bits;
@@ -82,6 +91,7 @@ __attribute__((noreturn)) static inline uintptr_t halt_baddata(void) {__builtin_
 #define CONCAT22(a,b) (((uint32_t)(a)<<16)|(uint16_t)(b))
 #define CONCAT31(a,b) (((uint32_t)(a)<<8)|(uint8_t)(b))
 #define CONCAT44(a,b) (((uint64_t)PF_RAW32(a)<<32)|PF_RAW32(b))
+#define CONCAT42(a,b) (((uint64_t)(uint32_t)(a)<<16)|(uint16_t)(b))
 #define CONCAT14(a,b) (((uint64_t)(uint8_t)(a)<<32)|(uint32_t)(b))
 #define CONCAT35(a,b) (((uint64_t)(a)<<40)|((uint64_t)(b)&0xffffffffffULL))
 #define CONCAT34(a,b) (((uint64_t)(a)<<32)|(uint32_t)(b))
@@ -89,6 +99,7 @@ __attribute__((noreturn)) static inline uintptr_t halt_baddata(void) {__builtin_
 #define CONCAT71(a,b) (((uint64_t)(a)<<8)|(uint8_t)(b))
 #define SUB84(a,b) ((uint32_t)(PF_RAW64(a)>>((b)*8)))
 #define SUB82(a,b) ((uint16_t)(PF_RAW64(a)>>((b)*8)))
+#define SUB83(a,b) ((uint32_t)((PF_RAW64(a)>>((b)*8))&0xffffffU))
 static inline uint32_t (SUB84)(uint64_t value,unsigned offset) {return (uint32_t)(value>>(offset*8));}
 #define ZEXT48(a) ((uint64_t)(uint32_t)(a))
 #define CARRY1(a,b) ((uint8_t)(a) > 0xffU-(uint8_t)(b))

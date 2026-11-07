@@ -22,11 +22,18 @@ public class Inputs extends GhidraScript {
       "in_(?:EAX|ECX|EDX)";
   pattern+="(?:_(?:[0-9]+|[A-Z][a-z]))?";
   long first=Long.decode(getScriptArgs()[0]),last=Long.decode(getScriptArgs()[1]);
+  var known=new java.util.HashSet<Long>();
+  if(getScriptArgs().length>3)
+   for(String line:java.nio.file.Files.readAllLines(java.nio.file.Path.of(getScriptArgs()[3])))
+    if(!line.isBlank())known.add(Long.parseLong(line.split("\\t",2)[0],16));
   var functions=currentProgram.getFunctionManager().getFunctions(true);
   int fixed=0;var changed=new ArrayList<String>();
   while(functions.hasNext()) {
    var function=functions.next();long entry=function.getEntryPoint().getOffset();
    if(entry<first || entry>=last)continue;
+   // An explicit ABI declaration takes precedence over speculative inputs
+   // propagated from a callee whose prototype is still being recovered.
+   if(known.contains(entry))continue;
    if(function.hasVarArgs())continue;
    var result=decompiler.decompileFunction(function,60,monitor);
    if(!result.decompileCompleted())continue;
