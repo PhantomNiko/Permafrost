@@ -70,7 +70,12 @@ source output for all four formats. Rebuilt exports include C++ type information
 stream data symbols. ARM64 recovery expands machine-outliner sequences before
 decompilation. The x86-64 window DLL matches native window creation arguments,
 titles, dimensions and query records. The other DLL behavior remains under
-recovery, including the font rasterizer's virtual-call signatures.
+recovery. The retained C font core, with updated exports, passes all 12 native
+raster fixtures on each architecture. Its new exponential and time exports
+pass 63 ABI comparisons per architecture, and its numeric exports pass 46.
+The ARM candidates also pass the font corpus with only their current shared
+service base mapped; the ARM64 port moves those accesses to the new base.
+Broader font and application behavior still requires VM validation.
 
 Corrections identified during this recovery include ARM32 soft-float and
 Darwin variadic argument packing, literal pools embedded in ARM32 text, scalar

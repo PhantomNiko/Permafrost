@@ -6,6 +6,7 @@ Pooka's Free Software License. The fixtures contain no third-party font data.
 from pathlib import Path
 import struct
 import sys
+import argparse
 from dll import DLL
 from unicorn.x86_const import UC_X86_REG_XMM0
 from unicorn.arm_const import UC_ARM_REG_S0,UC_ARM_REG_D0
@@ -34,8 +35,8 @@ def floating(lib,value,double=False):
  return None
 
 
-def decode(path,font,text,size=24,colors=(0,0,0),opacity=255):
- lib=DLL(path);lib.cpu.mem_write(0x3000000,font);lib.cpu.mem_write(0x3001000,text+b'\0')
+def decode(path,font,text,size=24,colors=(0,0,0),opacity=255,api_base=None):
+ lib=DLL(path,api_base=api_base);lib.cpu.mem_write(0x3000000,font);lib.cpu.mem_write(0x3001000,text+b'\0')
  bits=floating(lib,size);args=(0x3000000,len(font))+((bits,)if lib.cpu_type in(7,12)else())
  handle=lib.call('__Z23wm_ttf_font_load_memoryPKvmf',*args,result_bits=64 if lib.wide else 32)
  if not handle:return None
@@ -53,13 +54,16 @@ def decode(path,font,text,size=24,colors=(0,0,0),opacity=255):
 
 
 def main():
- reference,source=map(Path,sys.argv[1:]);cases=[]
+ parser=argparse.ArgumentParser(description=__doc__)
+ parser.add_argument('reference',type=Path);parser.add_argument('source',type=Path)
+ parser.add_argument('--api-base',type=lambda value:int(value,0))
+ args=parser.parse_args();reference,source=args.reference,args.source;cases=[]
  for curved in(False,True):
   for text,size in((b'A',12),(b'A',24),(b'AA',40),(b'A\nA',24),(b'',24),(b'?',24)):
    cases.append((fixture(curved),text,size,(21,82,173),192))
  for index,case in enumerate(cases):
-  expected=decode(reference,*case);assert expected is not None,index
-  try:actual=decode(source,*case)
+  expected=decode(reference,*case,api_base=args.api_base);assert expected is not None,index
+  try:actual=decode(source,*case,api_base=args.api_base)
   except Exception as error:raise AssertionError(('TrueType source case failed',index))from error
   assert actual==expected,('TrueType raster mismatch',index,None if actual is None else actual[:2],expected[:2])
  print('TrueType library: %d native/source raster cases passed.'%len(cases))

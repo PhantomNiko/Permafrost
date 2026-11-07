@@ -112,7 +112,8 @@ def build_library(source, output):
     numeric_source=Path('libraries/numeric.c')
     numeric_names=set(re.findall(r'\b(__\w+)\s*\([^;{}]*\)\s*\{',numeric_source.read_text()))
     numeric_flags=['-D%s=pf_numeric_fallback_%s' % (item['name'][1:],item['name'][1:])
-                   for item in exports if item['name'][1:] in numeric_names]
+                   for item in exports if item['address'] in functions and
+                   item['name'][1:] in numeric_names]
     compile_object(numeric_source,numeric,arch,['sdk/include'],pic=True,
                    extra_flags=['-fno-inline-functions']+numeric_flags)
     objects.append(str(numeric))

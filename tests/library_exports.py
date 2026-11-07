@@ -34,6 +34,7 @@ uint64_t call_conversion(void) { return provided_conversion(3.0); }
                    functions={'0': 'provided_conversion', '1': 'call_conversion'},
                    exports=[dict(name='___fixdfdi', address=0, weak=False, section=1),
                             dict(name='_call_conversion', address=1, weak=False, section=1),
+                            dict(name='___fixunsdfdi', address=3, weak=False, section=1),
                             dict(name='_pf_exported_byte', address=2, weak=False, section=2)],
                    data_exports=[dict(name='_pf_exported_byte', offset=3, weak=False)])
     (root / 'profile.json').write_text(json.dumps(profile))
@@ -44,6 +45,8 @@ uint64_t call_conversion(void) { return provided_conversion(3.0); }
     assert memory[exports['_pf_exported_byte'] - metadata['base']] == 0x7b
     library = DLL(path)
     assert library.call('_call_conversion') == 10
+    from numeric_library import integer
+    assert integer(library, '___fixunsdfdi', 4294967313.0) == 4294967313
     import struct
     pointer = exports['_pf_exported_byte'] + library.base + 5
     assert struct.unpack('<Q', library.cpu.mem_read(pointer, 8))[0] == library.base

@@ -10,11 +10,13 @@ explicit C implementations. The firmware directory contains the current shared
 EFI loader work. The repository license applies throughout.
 
 The library directories contain candidate C implementations, initialized data
-and export/relocation metadata. All four PNG slices pass the decoding corpus;
-x86-64, ARM64 and i386 pass reader/writer checks for the reference's four
-supported formats. ARM32 file output remains under recovery. The x86-64 window
+and export/relocation metadata. All four PNG slices pass the decoding corpus and reader/writer checks for
+the reference's four supported formats. ARM32 also cross-decodes both native
+and source output. The x86-64 window
 slice passes creation, title, size and query-record comparisons. These checks
-do not establish release-wide VM equivalence. ARM32's `missing-inputs.txt`
+do not establish release-wide VM equivalence. The retained C font candidates
+pass the raster, numeric and new math ABI corpora on all four architectures;
+ARM64 shared-service addresses have been moved to the current kernel base. ARM32's `missing-inputs.txt`
 records functions reviewed through the incoming-register recovery pass before
 export; obsolete manual units for those functions have been removed.
 

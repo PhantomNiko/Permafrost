@@ -15,7 +15,7 @@ from unicorn.arm64_const import *
 
 
 class DLL:
-    def __init__(self,path,instruction_limit=20000000,poison_allocations=False,poison_stack=False):
+    def __init__(self,path,instruction_limit=20000000,poison_allocations=False,poison_stack=False,api_base=None):
         self.instruction_limit=instruction_limit
         self.poison_stack=poison_stack
         binary=Path(path).read_bytes();metadata,memory=native_inspect(binary);dynamic=inspect(binary)
@@ -34,8 +34,10 @@ class DLL:
         # Firmware leaves the null page inaccessible; a mapped zero page can
         # conceal invalid AST pointers and other bad native/source accesses.
         self.cpu.mem_unmap(0,0x1000)
-        if arm:self.cpu.mem_map(0x40010000,0x10000)
-        if self.cpu_type==0x100000c:self.cpu.mem_map(0x82010000,0x10000)
+        shared=([api_base]if api_base is not None else
+                [0x40010000,0x82010000]if self.cpu_type==0x100000c else[0x40010000])
+        if arm:
+            for address in shared:self.cpu.mem_map(address,0x10000)
         memory=bytearray(memory);locations=rebase_locations(binary,dynamic);handled=set()
         if self.cpu_type==12:
             text,size=next((a,n)for k,a,n in metadata['sections']if k=='__text');pending={}
@@ -53,8 +55,7 @@ class DLL:
             value=int.from_bytes(memory[address:address+width],'little');tag=value&(1<<63)if width==8 else 0
             memory[address:address+width]=(((value&~tag)+self.base)|tag).to_bytes(width,'little')
         self.cpu.mem_write(self.base,bytes(memory));self.exports={e['name']:self.base+e['address']for e in dynamic['exports']}
-        table=0x40010800 if arm else 0x6800
-        tables=[table]+([0x82010800]if self.cpu_type==0x100000c else[])
+        tables=[address+0x800 for address in shared]if arm else[0x6800]
         self.api_tables=tables
         for entry in tables:self.cpu.mem_write(entry,struct.pack('<III',0x50414d57,1000000,412))
         self.result=UC_ARM_REG_R0 if self.cpu_type==12 else UC_ARM64_REG_X0 if arm else UC_X86_REG_RAX if self.wide else UC_X86_REG_EAX
