@@ -27,6 +27,20 @@ void *double_pointer(double d_value) { return (void *)d_value; }
 void *value_pointer(pf_kernel_value *value) { return (void *)value->number; }
 #define VectorSignedToFloat(v,m) ((double)(int32_t)(v))
 void *converted_pointer(int v) { return (void *)VectorSignedToFloat(v,0); }
+uint raw_conversion(int value) {
+ uint bits;
+ bits=VectorSignedToFloat(value,0);
+ return bits;
+}
+float converted_view(int value) {
+ uint bits;
+ bits=VectorSignedToFloat(value,0);
+ return (float)bits;
+}
+void value_storage(uint *out,float f_storage) {
+ out[1]=(int)f_storage;
+ out[2]=f_storage;
+}
 '''
     source='#include "support.h"\n'+rewrite_scalar_storage(functions)+'''
 int main(void) {
@@ -36,6 +50,9 @@ int main(void) {
  pf_kernel_value value={.number=pf_bits_float(0x240000)};
  if((uintptr_t)value_pointer(&value)!=0x240000)return 7;
  if((uintptr_t)converted_pointer(-7)!=pf_float_bits(-7.0f))return 8;
+ if(raw_conversion(-7)!=pf_float_bits(-7.0f)||converted_view(-7)!=-7.0f)return 9;
+ uint stored[3]={0};value_storage(stored,3.5f);
+ if(stored[1]!=3||stored[2]!=pf_float_bits(3.5f))return 10;
  for(unsigned i=0;i<256;i++) {
   if(number(i)!=(float)i)return 1;
   unsigned bits=(0x3fc012u<<8)|i;

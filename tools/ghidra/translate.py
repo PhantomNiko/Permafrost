@@ -249,7 +249,25 @@ def rewrite_byte_ranges(source):
 def rewrite_scalar_storage(source):
     """Restore raw float views lost when an SSA slot is printed as a pointer."""
     source=rewrite_byte_ranges(source)
+    integers=set(re.findall(r'\b(?:uint|int|undefined4|uint32_t|int32_t)\s+(\w+)\s*;',source))
+    converted=set()
+    for match in reversed(list(re.finditer(r'\b(\w+)\s*=\s*(Vector(?:Signed|Unsigned)ToFloat)\(',source))):
+        if match[1] not in integers:continue
+        start=match.start(2);end=match.end();depth=1
+        while depth:
+            depth+=(source[end]=='(')-(source[end]==')');end+=1
+        converted.add(match[1])
+        source=source[:start]+'pf_float_bits((float)'+source[start:end]+')'+source[end:]
+    for name in converted:
+        source=re.sub(r'\(float\)\s*'+re.escape(name)+r'\b',
+                      'pf_bits_float((uint32_t)'+name+')',source)
     floating_variables=re.findall(r'\b(float|double)\s+(\w+)\b(?!\s*\()',source)
+    integer_pointers=set(re.findall(r'\b(?:uint|int|undefined4|uint32_t|int32_t)\s*\*\s*(\w+)',source))
+    for typename,name in floating_variables:
+        if typename!='float':continue
+        source=re.sub(r'\b(\w+)\s*\[([^]\n]+)\]\s*=\s*'+re.escape(name)+r'\s*;',
+                      lambda m:m[1]+'['+m[2]+'] = pf_float_bits('+name+');'
+                      if m[1] in integer_pointers else m[0],source)
     for typename,name in floating_variables:
         bits='pf_float_bits' if typename=='float' else 'pf_double_bits'
         source=re.sub(r'\(([^()\n]+\*)\)\s*'+re.escape(name)+r'\b',
@@ -302,6 +320,25 @@ def rewrite_scalar_storage(source):
     for name in re.findall(r'^  (?:undefined8|ulonglong) (\w+);',source,re.M):
         source=re.sub(r'NAN\('+name+r'\)',r'NAN(pf_bits_double('+name+'))',source)
     return source
+
+
+def rewrite_array_words(source):
+    s=source
+    arrays=dict(re.findall(r'^  undefined1 (\w+) \[(8|16)\];',s,re.M))
+    for name,size in arrays.items():
+        typ='uint64_t'if size=='8'else'uint128'
+        for other,width in arrays.items():
+            if int(width)<int(size):continue
+            s=re.sub(r'\b'+re.escape(name)+r'\s*=\s*'+re.escape(other)+r'\s*;',
+                      name+' = (*('+typ+' *)(void *)'+other+');',s)
+    for name,size in re.findall(r'^  undefined1 (\w+) \[(8|16)\];',s,re.M):
+        if not re.search(r'\b'+name+r'\s*=',s):continue
+        typ='uint64_t' if size=='8' else 'uint128'
+        s=re.sub(r'\b'+name+r'(?=\s*=(?!=))', '(*('+typ+' *)(void *)'+name+')',s)
+        s=re.sub(r'\((?:ulong|long|ulonglong|longlong|undefined8)\)'+name+r'\b(?!\s*\._)', '(*('+typ+' *)(void *)'+name+')',s)
+    s=re.sub(r'\(undefined1\s+\[8\]\)','(uint64_t)',s)
+    s=re.sub(r'\(undefined1\s*\(\*\)\s*\[16\]\)','(uint128 *)',s)
+    return s
 
 
 def rewrite_integer_vectors(source):
@@ -373,6 +410,7 @@ def main():
             lambda m:m[0] if int(m[2],16) in function_addresses else
                 m[1]+'DAT_'+('%016x' if WIDE else '%08x')%int(m[2],16),text)
     sources={a:data_labels(s) for a,s in sources.items()}
+    sources={a:re.sub(r'__stdcall_softfp\s+','',s)for a,s in sources.items()}
     if current.get('windows_types'):
         def windows_types(text):
             text=re.sub(r'\bunsigned long long\b','PF_MODEL_U64',text)
@@ -386,15 +424,7 @@ def main():
     sources={a:system_register_views(vector_constant_loads(s),current.get('system_registers',{}))for a,s in sources.items()}
     if WIDE or current.get("integer_vector_128"):
         sources={a:rewrite_integer_vectors(s) for a,s in sources.items()}
-        for a,s in sources.items():
-            for name,size in re.findall(r'^  undefined1 (\w+) \[(8|16)\];',s,re.M):
-                if not re.search(r'\b'+name+r'\s*=',s):continue
-                typ='uint64_t' if size=='8' else 'uint128'
-                s=re.sub(r'\b'+name+r'(?=\s*=(?!=))', '(*('+typ+' *)(void *)'+name+')',s)
-                s=re.sub(r'\((?:ulong|long|ulonglong|longlong|undefined8)\)'+name+r'\b(?!\s*\._)', '(*('+typ+' *)(void *)'+name+')',s)
-            s=re.sub(r'\(undefined1\s+\[8\]\)','(uint64_t)',s)
-            s=re.sub(r'\(undefined1\s*\(\*\)\s*\[16\]\)','(uint128 *)',s)
-            sources[a]=s
+        sources={a:rewrite_array_words(s)for a,s in sources.items()}
     for stale in args.out.glob('*.c'):
         if stale.stem not in sources and stale.stem not in manual:stale.unlink()
     # Signature corrections must also reach declarations shared by callers.
@@ -571,7 +601,7 @@ def main():
                 width = 8 if WIDE else 4
             macros.append('#define %s (*(uint%d_t *)(frame + %d))'%(name,width*8,frame_size+offset))
         source = source.replace(current.get('stack_register', 'register0x00000020' if WIDE else 'register0x00000010'), '(uintptr_t)(frame + %d)' % frame_size)
-        source = re.sub(r'__(?:fastcall|cdecl|thiscall|regparm[0-9])\s+', '', source)
+        source = re.sub(r'__(?:fastcall|cdecl|thiscall|stdcall_softfp|regparm[0-9])\s+', '', source)
         pointer_fields = {(row[1], int(row[2])): int(row[3]) for row in metadata if row[0] == 'P'}
         field_occurrences = {}
         def partial_field(match):

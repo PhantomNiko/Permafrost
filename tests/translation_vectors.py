@@ -8,12 +8,19 @@ import subprocess
 import sys
 import tempfile
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'tools/ghidra'))
-from translate import rewrite_integer_vectors
+from translate import rewrite_integer_vectors, rewrite_array_words
 
 
 def main():
     source = '''
 #include "support.h"
+uint64_t copy_word(uint64_t value) {
+  undefined1 first [8];
+  undefined1 second [8];
+ first=(undefined1 [8])value;
+ second=first;
+ return *(uint64_t *)(void *)second;
+}
 uint128 probe(unsigned byte_index,unsigned byte_value) {
  undefined1 auVar1 [16];
  auVar1=0;
@@ -39,6 +46,7 @@ unsigned bytes(void *memory) {
 }
 int main(void) {
  uint128 value=((uint128)0x12345678<<64)|0xabcdef;
+ if(copy_word(0x123456789abcdef0ULL)!=0x123456789abcdef0ULL)return 4;
  if(address(3)!=0x2030 || load(&value)!=value)return 2;
  unsigned char data[32]={0};data[0]=2;data[18]=3;data[3]=5;
  if(bytes(data)!=10)return 3;
@@ -51,7 +59,7 @@ int main(void) {
     with tempfile.TemporaryDirectory(prefix='permafrost-vector-views-') as directory:
         root=Path(directory)
         path=root/'probe.c'
-        path.write_text(rewrite_integer_vectors(source))
+        path.write_text(rewrite_array_words(rewrite_integer_vectors(source)))
         subprocess.run(['clang','-std=c11','-O2','-I','kernel',str(path),
                         '-o',str(root/'probe')],check=True)
         subprocess.run([str(root/'probe')],check=True)

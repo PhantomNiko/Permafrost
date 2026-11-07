@@ -29,6 +29,8 @@ def build_kernel(output, architecture='i386', profile_path=None):
              '-fbracket-depth=2048',
              '-Wno-incompatible-pointer-types', '-Wno-pointer-sign',
              '-Wno-incompatible-function-pointer-types']
+    if architecture == 'x86_64':
+        flags.append('-mstackrealign')
     slide=profile.get('address_slide',0)
     constants={int(x,16) for x in profile.get('address_constants',[])}
     if slide:
