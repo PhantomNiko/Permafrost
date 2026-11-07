@@ -77,6 +77,16 @@ repeated RGBA vectors instead of reading Ghidra register-space addresses as RAM.
 ARM64 restores hash return values and text-image field loads omitted by analysis.
 These library-level checks still need integration into the source-built VM image.
 
+The current console-window implementation is recovered afresh on all four
+architectures. Its retained predecessor failed window creation under poisoned
+allocation checks. The replacements pass 78 offscreen-raster, framebuffer,
+resizing, title, mouse and keyboard comparisons per architecture, including
+framebuffer row padding and boundary guards. Numeric, math and context checks
+also pass. Raster composition and framebuffer presentation use portable C.
+ARM64 explicitly preserves the string allocator's pointer return and all four
+signed min/max lanes when resizing. Direct framebuffer comparison includes the
+software cursor rather than relying only on offscreen captures.
+
 The untouched x86-64 reference reaches its desktop under QEMU. The BIOS
 reference reaches the Batagaika first-boot setup. With the current virtio-ramfb
 configuration, the ARM32 reference stops after kernel handoff and ARM64 displays
