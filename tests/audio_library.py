@@ -115,6 +115,20 @@ def transformed(path, method, factor, api_base=None):
     return status, result
 
 
+def mixed(path, offset, source_rate, api_base=None):
+    lib = library(path, api_base)
+    destination = create(lib, 440, 11, 'square', 'both')
+    source = create(lib, 880, 5, 'sine', 'right')
+    lib.cpu.mem_write(source + (24 if lib.wide else 12), struct.pack('<I', source_rate))
+    arguments = (destination, source, offset & 0xffffffffffffffff) if lib.wide else (
+        destination, source, offset & 0xffffffff, (offset >> 32) & 0xffffffff)
+    status = lib.call(PREFIX + '3addEPNS0_5TrackEPKS1_x', *arguments)
+    result = snapshot(lib, destination)
+    for track in (source, destination):
+        lib.call(PREFIX + '5closeEPNS0_5TrackE', track)
+    return status, result
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('reference', type=Path)
@@ -129,6 +143,11 @@ def main():
             assert expected is not None, case
             assert actual == expected, ('audio samples differ', case, None if actual is None else actual[:3], expected[:3])
             count += 1
+    for offset, rate in ((0, 44100), (2, 44100), (10, 44100), (50, 44100),
+                         (-1, 44100), (0, 22050), (0, 48000), (0, 0)):
+        expected, actual = (mixed(path, offset, rate, args.api_base) for path in (args.reference, args.source))
+        assert actual == expected, ('audio mixing differs', offset, rate)
+        count += 1
     for case in ((0, 2, 'square', 'both'), (440, 0, 'sine', 'both'), (440, 1, 'sine', 'both'), (440, 5, 'sine', 'both'), (22050, 11, 'saw', 'both')):
         expected, actual = (generated(path, *case, api_base=args.api_base) for path in (args.reference, args.source))
         assert actual == expected, ('audio boundary differs', case)
@@ -146,7 +165,7 @@ def main():
             expected, actual = (transformed(path, method, factor, args.api_base) for path in (args.reference, args.source))
             assert actual == expected, ('audio transform differs', method, factor)
             count += 1
-    print('Audio library: %d native/source generation, trim and invalid-input cases passed.' % count)
+    print('Audio library: %d native/source generation, mixing, trim, transform and invalid-input cases passed.' % count)
 
 
 if __name__ == '__main__':

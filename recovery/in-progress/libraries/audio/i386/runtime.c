@@ -8152,185 +8152,40 @@ LAB_100072d2:
 #undef local_18
 #undef local_14
 
-#undef DAT_10009d1c
-#define DAT_10009d1c (*(uint8_t *)(((uintptr_t)pf_module_state + 0x3b7U)))
-#undef DAT_10009d20
-#define DAT_10009d20 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x3bbU)))
-#undef DAT_10009d24
-#define DAT_10009d24 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x3bfU)))
-#undef DAT_10009d38
-#define DAT_10009d38 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x3d3U)))
-#undef _DAT_10009d1c
-#define _DAT_10009d1c (*(float *)(((uintptr_t)pf_module_state + 0x3b7U)))
-#undef _DAT_10009d20
-#define _DAT_10009d20 (*(float *)(((uintptr_t)pf_module_state + 0x3bbU)))
-#undef _DAT_10009d24
-#define _DAT_10009d24 (*(float *)(((uintptr_t)pf_module_state + 0x3bfU)))
-#undef _DAT_10009d38
-#define _DAT_10009d38 (*(double *)(((uintptr_t)pf_module_state + 0x3d3U)))
-#define local_a4 (*(uint *)(frame + 28))
-#define local_9c (*(int *)(frame + 36))
-#define local_94 (*(int *)(frame + 44))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x10007370
- */
-
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
-undefined4 recovered_10007370(int *param_1,int *param_2,int param_3,int param_4)
-
-{
-  unsigned char frame[224] __attribute__((aligned(16))) = {0};
-
-  short sVar1;
-  uint uVar2;
-  int iVar3;
-  double value;
-  double dVar4;
-  long lVar5;
-  int iVar6;
-  undefined2 uVar7;
-  uint uVar8;
-  uint uVar9;
-  uint uVar10;
-  uint uVar11;
-  ushort in_FPUControlWord = pf_fpu_control();
-  longdouble lVar12;
-  longdouble lVar13;
-  longlong lVar14;
-  double dVar15;
-  double dVar16;
-
-  if ((((param_4 < 0 || (param_2 == (int *)0x0 || param_1 == (int *)0x0)) ||
-       ((short)param_1[4] != 2)) || ((short)param_2[4] != 2)) ||
-     ((param_1[3] == 0 || (param_2[3] == 0)))) {
-    return 0;
+/* Recovered stereo mixing, interpolation and saturation; Pooka's Free Software License. */
+uint recovered_10007370(void *destination,void *source,uint low,uint high) {
+ struct track {short *samples;unsigned long count,capacity;uint rate;ushort channels;unsigned long mixer;};
+ struct track *out=(struct track *)destination,*in=(struct track *)source;
+ long long offset=(long long)(((unsigned long long)high<<32)|low);
+ if(!out||!in||offset<0||out->channels!=2||in->channels!=2||!out->rate||!in->rate)return 0;
+ unsigned long frames=out->count/2,input_frames=in->count/2;
+ if(!frames||!input_frames)return 1;
+ long double position=(long double)out->rate*(long double)offset/1000.0L;
+ if(position>=2147483647.0L)return 1;
+ unsigned long first=(unsigned long)(position+0.5L);
+ if(first>=frames)return 1;
+ double ratio=(double)in->rate/(double)out->rate;
+ double extent=(double)input_frames/ratio;
+ unsigned long count=(unsigned long)extent;
+ if((double)count<extent)++count;
+ if(count>frames-first)count=frames-first;
+ for(unsigned long i=0;i<count;++i){
+  double pos=(double)i*ratio;
+  for(unsigned channel=0;channel<2;++channel){
+   double added=0.0;
+   if(pos>=0.0&&pos<(double)input_frames){
+    unsigned long a=(unsigned long)pos,b=a+1<input_frames?a+1:input_frames-1;
+    double left=in->samples[a*2+channel];
+    added=((double)in->samples[b*2+channel]-left)*(pos-(double)a)+left;
+   }
+   double value=(double)out->samples[(first+i)*2+channel]+added;
+   out->samples[(first+i)*2+channel]=value<=-32768.0?-32768:value>=32767.0?32767:(short)(long)(value+(value>=0.0?0.5:-0.5));
   }
-  uVar8 = param_1[1];
-  uVar10 = param_2[1];
-  if (1 < uVar10 && 1 < uVar8) {
-    if (param_3 == 0 && param_4 == 0) {
-      uVar11 = 0;
-    }
-    else {
-      lVar12 = ((longdouble)(uint)param_1[3] * (longdouble)CONCAT44(param_4,param_3)) /
-               (longdouble)_DAT_10009d1c;
-      lVar13 = (longdouble)_DAT_10009d38;
-      param_4 = CONCAT22((short)((uint)param_4 >> 0x10),
-                         (ushort)(lVar12 < lVar13) << 8 | (ushort)(NAN(lVar12) || NAN(lVar13)) << 10
-                         | (ushort)(lVar12 == lVar13) << 0xe);
-      if (lVar12 < lVar13 == 0) goto LAB_1000779c;
-      lVar14 = recovered_10009966(lVar12);
-      uVar11 = (uint)lVar14;
-    }
-    uVar8 = uVar8 >> 1;
-    uVar9 = uVar8 - uVar11;
-    param_4 = uVar11;
-    if (uVar11 <= uVar8 && uVar9 != 0) {
-      uVar8 = param_2[3];
-      uVar2 = param_1[3];
-      dVar15 = recovered_10002220((double)(uVar10 >> 1) / ((double)uVar8 / (double)uVar2));
-      param_4 = in_FPUControlWord | 0xc00;
-      local_a4 = (uint)(longlong)ROUND(dVar15);
-      if (uVar9 <= local_a4) {
-        local_a4 = uVar9;
-      }
-      if (local_a4 != 0) {
-        param_4 = *param_1;
-        iVar6 = uVar11 * 4;
-        uVar10 = 0;
-        dVar15 = 0.0;
-        do {
-          value = ((double)uVar8 / (double)uVar2) * dVar15;
-          sVar1 = *(short *)(param_4 + iVar6 + uVar10 * 4);
-          uVar11 = (uint)*(ushort *)(param_2 + 4);
-          dVar4 = 0.0;
-          if (uVar11 != 0) {
-            dVar4 = 0.0;
-            uVar9 = param_2[1];
-            if (uVar9 != 0 && 0.0 <= value) {
-              dVar4 = 0.0;
-              if ((uVar11 <= uVar9) && (value < (double)(uVar9 / uVar11))) {
-                dVar16 = recovered_100021d0(value);
-                local_9c = (int)(longlong)ROUND(dVar16);
-                uVar11 = uVar9 / uVar11 - 1;
-                if (local_9c + 1U <= uVar11) {
-                  uVar11 = local_9c + 1U;
-                }
-                dVar4 = (double)*(short *)(*param_2 + local_9c * (uint)*(ushort *)(param_2 + 4) * 2)
-                ;
-                dVar4 = dVar4 + ((double)*(short *)(*param_2 + uVar11 * *(ushort *)(param_2 + 4) * 2
-                                                   ) - dVar4) *
-                                (value - (double)((longlong)ROUND(dVar16) & 0xffffffff));
-              }
-            }
-          }
-          dVar4 = dVar4 + (double)sVar1;
-          uVar7 = 0x8000;
-          if (((double)_DAT_10009d24 < dVar4) && (uVar7 = 0x7fff, dVar4 < (double)_DAT_10009d20)) {
-            lVar5 = recovered_10002e30(dVar4);
-            uVar7 = (undefined2)lVar5;
-          }
-          iVar3 = *param_1;
-          *(undefined2 *)(iVar3 + iVar6 + uVar10 * 4) = uVar7;
-          sVar1 = *(short *)(iVar3 + iVar6 + 2 + uVar10 * 4);
-          uVar11 = (uint)*(ushort *)(param_2 + 4);
-          dVar4 = 0.0;
-          if (uVar11 != 0) {
-            uVar9 = param_2[1];
-            dVar4 = 0.0;
-            if ((uVar9 == 0) || (*(ushort *)(param_2 + 4) == 1)) {
-LAB_10007740:
-              dVar4 = 0.0;
-            }
-            else if (0.0 <= value) {
-              dVar4 = 0.0;
-              if (uVar9 < uVar11) goto LAB_10007740;
-              if (value < (double)(int)(uVar9 / uVar11)) {
-                dVar16 = recovered_100021d0(value);
-                local_94 = (int)(longlong)ROUND(dVar16);
-                uVar11 = uVar9 / uVar11 - 1;
-                if (local_94 + 1U <= uVar11) {
-                  uVar11 = local_94 + 1U;
-                }
-                dVar4 = (double)*(short *)(*param_2 + 2 +
-                                          local_94 * (uint)*(ushort *)(param_2 + 4) * 2);
-                dVar4 = dVar4 + ((double)*(short *)(*param_2 + 2 +
-                                                   uVar11 * *(ushort *)(param_2 + 4) * 2) - dVar4) *
-                                (value - (double)((longlong)ROUND(dVar16) & 0xffffffff));
-              }
-            }
-          }
-          dVar4 = (double)sVar1 + dVar4;
-          uVar7 = 0x8000;
-          if (((double)_DAT_10009d24 < dVar4) && (uVar7 = 0x7fff, dVar4 < (double)_DAT_10009d20)) {
-            lVar5 = recovered_10002e30(dVar4);
-            uVar7 = (undefined2)lVar5;
-          }
-          param_4 = *param_1;
-          *(undefined2 *)(param_4 + iVar6 + 2 + uVar10 * 4) = uVar7;
-          dVar15 = dVar15 + 1.0;
-          uVar10 = uVar10 + 1;
-        } while (uVar10 < local_a4);
-      }
-      param_1[5] = 0;
-    }
-  }
-LAB_1000779c:
-  return CONCAT31((int3)((uint)param_4 >> 8),1);
+ }
+ out->mixer=0;
+ return 1;
 }
 
-#undef DAT_10009d1c
-#undef DAT_10009d20
-#undef DAT_10009d24
-#undef DAT_10009d38
-#undef _DAT_10009d1c
-#undef _DAT_10009d20
-#undef _DAT_10009d24
-#undef _DAT_10009d38
-#undef local_a4
-#undef local_9c
-#undef local_94
 
 #undef DAT_10009d1c
 #define DAT_10009d1c (*(uint8_t *)(((uintptr_t)pf_module_state + 0x3b7U)))

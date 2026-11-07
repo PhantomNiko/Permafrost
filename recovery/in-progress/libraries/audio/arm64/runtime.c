@@ -6711,73 +6711,38 @@ byte recovered_1000482c(long param_1,undefined8 *param_2)
 #undef local_38
 #undef local_30
 
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x100048f4
- */
-
-undefined8 recovered_100048f4(long *param_1,long *param_2,long param_3)
-
-{
-  unsigned char frame[64] __attribute__((aligned(16))) = {0};
-
-  short sVar1;
-  ulong uVar2;
-  int iVar3;
-  undefined8 uVar4;
-  ulong uVar5;
-  long lVar6;
-  ulong uVar7;
-  ulong uVar8;
-  long lVar9;
-  long lVar10;
-  double dVar11;
-  double dVar12;
-  uint128 auVar13;
-  double dVar14;
-
-  uVar4 = 0;
-  if (((param_1 != (long *)0x0) && (param_2 != (long *)0x0)) && (-1 < param_3)) {
-    if (((*(short *)((long)param_1 + 0x1c) == 2) && (*(short *)((long)param_2 + 0x1c) == 2)) &&
-       ((*(uint *)(param_1 + 3) != 0 && ((int)param_2[3] != 0)))) {
-      uVar7 = param_2[1];
-      if (1 < (ulong)param_1[1] && 1 < uVar7) {
-        uVar8 = (ulong)param_1[1] >> 1;
-        uVar5 = recovered_100046e8(param_3,*(uint *)(param_1 + 3));
-        uVar2 = uVar8 - uVar5;
-        if (uVar5 <= uVar8 && uVar2 != 0) {
-          dVar11 = pf_bits_double(NEON_ucvtf((ulong)*(uint *)(param_2 + 3)));
-          dVar14 = pf_bits_double(NEON_ucvtf((ulong)*(uint *)(param_1 + 3)));
-          dVar12 = recovered_1000160c((double)(uVar7 >> 1) / (dVar11 / dVar14));
-          uVar7 = 0;
-          uVar8 = (long)dVar12;
-          if (uVar2 <= (ulong)(long)dVar12) {
-            uVar8 = uVar2;
-          }
-          lVar6 = uVar5 << 2;
-          for (; uVar7 < uVar8; uVar7 = uVar7 + 1) {
-            lVar9 = -2;
-            lVar10 = lVar6;
-            do {
-              sVar1 = *(short *)(*param_1 + lVar10);
-              auVar13 = recovered_10004a4c((dVar11 / dVar14) * (double)uVar7,param_2,
-                                           (int)lVar9 + 2U & 0xffff);
-              iVar3 = recovered_10004738((*(double *)((uint8_t *)&(auVar13)+0)) + (double)(int)sVar1);
-              *(short *)(*param_1 + lVar10) = (short)iVar3;
-              lVar9 = lVar9 + 1;
-              lVar10 = lVar10 + 2;
-            } while (lVar9 != 0);
-            lVar6 = lVar6 + 4;
-          }
-          param_1[4] = 0;
-        }
-      }
-      uVar4 = 1;
-    }
-    else {
-      uVar4 = 0;
-    }
+/* Recovered stereo mixing, interpolation and saturation; Pooka's Free Software License. */
+uint recovered_100048f4(void *destination,void *source,long offset) {
+ struct track {short *samples;unsigned long count,capacity;uint rate;ushort channels;unsigned long mixer;};
+ struct track *out=(struct track *)destination,*in=(struct track *)source;
+ 
+ if(!out||!in||offset<0||out->channels!=2||in->channels!=2||!out->rate||!in->rate)return 0;
+ unsigned long frames=out->count/2,input_frames=in->count/2;
+ if(!frames||!input_frames)return 1;
+ long double position=(long double)out->rate*(long double)offset/1000.0L;
+ if(position>=9223372036854775807.0L)return 1;
+ unsigned long first=(unsigned long)(position+0.5L);
+ if(first>=frames)return 1;
+ double ratio=(double)in->rate/(double)out->rate;
+ double extent=(double)input_frames/ratio;
+ unsigned long count=(unsigned long)extent;
+ if((double)count<extent)++count;
+ if(count>frames-first)count=frames-first;
+ for(unsigned long i=0;i<count;++i){
+  double pos=(double)i*ratio;
+  for(unsigned channel=0;channel<2;++channel){
+   double added=0.0;
+   if(pos>=0.0&&pos<(double)input_frames){
+    unsigned long a=(unsigned long)pos,b=a+1<input_frames?a+1:input_frames-1;
+    double left=in->samples[a*2+channel];
+    added=((double)in->samples[b*2+channel]-left)*(pos-(double)a)+left;
+   }
+   double value=(double)out->samples[(first+i)*2+channel]+added;
+   out->samples[(first+i)*2+channel]=value<=-32768.0?-32768:value>=32767.0?32767:(short)(long)(value+(value>=0.0?0.5:-0.5));
   }
-  return uVar4;
+ }
+ out->mixer=0;
+ return 1;
 }
 
 

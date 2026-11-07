@@ -476,7 +476,7 @@ undefined4
 recovered_10009080(long param_1,undefined8 *param_2,undefined8 *in_R8,undefined8 in_XMM1_Qa,
                   undefined8 in_XMM2_Qa,undefined8 in_XMM3_Qa,undefined8 in_XMM4_Qa,
                   undefined8 in_XMM5_Qa,undefined8 in_XMM6_Qa,undefined8 in_XMM7_Qa);
-ulong recovered_100092e0(long *param_1,long *param_2,long param_3,double in_XMM0_Qa);
+uint recovered_100092e0(void *destination,void *source,long offset);
 ulong recovered_100097a0(long *opaque,ulong start,ulong end);
 undefined8 recovered_10009a30(double param_1,long *param_2);
 undefined8 * recovered_10009b00(double ratio,undefined8 *opaque,long *source,long requested);

@@ -515,7 +515,7 @@ long * recovered_10008330(uint frequency,uint duration,long waveform,uintptr_t s
 int recovered_10008af8(void *track,void *view);
 void recovered_10008b80(ushort *param_1,int param_2);
 uint recovered_10008ba0(int param_1,ushort *param_2);
-undefined4 recovered_10008e20(int *param_1,int *param_2,int param_3,int param_4,undefined8 in_d0);
+uint recovered_10008e20(void *destination,void *source,uint low,uint high);
 uint recovered_10009280(void **opaque,uint slo,uint shi,uint elo,uint ehi);
 int recovered_10009548(void *track,double factor);
 void recovered_10009620(uint lo,uint hi,undefined4 *opaque,int *source,float requested);

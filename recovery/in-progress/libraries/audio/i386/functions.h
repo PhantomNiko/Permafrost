@@ -455,7 +455,7 @@ long * recovered_10006970(uint frequency,uint duration,long waveform,uintptr_t s
 int recovered_100070c0(void *track,void *view);
 int recovered_10007130(undefined4 *param_1,int param_2);
 int recovered_10007160(int param_1,undefined4 *param_2);
-undefined4 recovered_10007370(int *param_1,int *param_2,int param_3,int param_4);
+uint recovered_10007370(void *destination,void *source,uint low,uint high);
 uint recovered_100077b0(void **param_1,uint param_2,uint param_3,uint param_4,uint param_5);
 undefined4 recovered_10007a40(undefined4 *param_1,double param_2);
 undefined4 *

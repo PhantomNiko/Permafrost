@@ -9702,233 +9702,40 @@ LAB_10009213:
 #undef local_38
 #undef puStack_78
 
-#undef DAT_1000cd50
-#define DAT_1000cd50 (*(double *)(((uintptr_t)pf_module_state + 0xa1U)))
-#undef DAT_1000ceb0
-#define DAT_1000ceb0 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x201U)))
-#undef DAT_1000cec0
-#define DAT_1000cec0 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x211U)))
-#undef DAT_1000ced0
-#define DAT_1000ced0 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x221U)))
-#undef DAT_1000cf04
-#define DAT_1000cf04 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x255U)))
-#undef DAT_1000cf18
-#define DAT_1000cf18 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x269U)))
-#undef DAT_1000cf20
-#define DAT_1000cf20 (*(double *)(((uintptr_t)pf_module_state + 0x271U)))
-#undef UNK_1000ced8
-#define UNK_1000ced8 (*(double *)(((uintptr_t)pf_module_state + 0x229U)))
-#undef _DAT_1000ceb0
-#define _DAT_1000ceb0 (*(long double *)(((uintptr_t)pf_module_state + 0x201U)))
-#undef _DAT_1000ced0
-#define _DAT_1000ced0 (*(double *)(((uintptr_t)pf_module_state + 0x221U)))
-#undef _DAT_1000cf04
-#define _DAT_1000cf04 (*(float *)(((uintptr_t)pf_module_state + 0x255U)))
-#undef _DAT_1000cf18
-#define _DAT_1000cf18 (*(double *)(((uintptr_t)pf_module_state + 0x269U)))
-#undef dRam000000001000ced8
-#define dRam000000001000ced8 (*(double *)(((uintptr_t)pf_module_state + 0x229U)))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x100092e0
- */
-
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
-ulong recovered_100092e0(long *param_1,long *param_2,long param_3,double in_XMM0_Qa)
-
-{
-  unsigned char frame[64] __attribute__((aligned(16))) = {0};
-
-  short sVar1;
-  uint uVar2;
-  uint uVar3;
-  undefined2 uVar4;
-  ulong uVar5;
-  long lVar6;
-  undefined8 unaff_RBX;
-  ulong uVar7;
-  ulong uVar8;
-  long lVar9;
-  ulong uVar10;
-  ulong uVar11;
-  ulong uVar12;
-  double dVar13;
-  uint128 auVar14;
-  uint128 auVar15;
-  uint128 auVar16;
-  uint128 auVar17;
-  double dVar18;
-  undefined4 uVar19;
-  undefined4 uVar20;
-  double dVar21;
-  double dVar22;
-  double value;
-
-  if ((((param_3 < 0 || (param_2 == (long *)0x0 || param_1 == (long *)0x0)) ||
-       (*(short *)((long)param_1 + 0x1c) != 2)) || (*(short *)((long)param_2 + 0x1c) != 2)) ||
-     ((*(uint *)(param_1 + 3) == 0 || ((int)param_2[3] == 0)))) {
-    uVar7 = 0;
+/* Recovered stereo mixing, interpolation and saturation; Pooka's Free Software License. */
+uint recovered_100092e0(void *destination,void *source,long offset) {
+ struct track {short *samples;unsigned long count,capacity;uint rate;ushort channels;unsigned long mixer;};
+ struct track *out=(struct track *)destination,*in=(struct track *)source;
+ 
+ if(!out||!in||offset<0||out->channels!=2||in->channels!=2||!out->rate||!in->rate)return 0;
+ unsigned long frames=out->count/2,input_frames=in->count/2;
+ if(!frames||!input_frames)return 1;
+ long double position=(long double)out->rate*(long double)offset/1000.0L;
+ if(position>=9223372036854775807.0L)return 1;
+ unsigned long first=(unsigned long)(position+0.5L);
+ if(first>=frames)return 1;
+ double ratio=(double)in->rate/(double)out->rate;
+ double extent=(double)input_frames/ratio;
+ unsigned long count=(unsigned long)extent;
+ if((double)count<extent)++count;
+ if(count>frames-first)count=frames-first;
+ for(unsigned long i=0;i<count;++i){
+  double pos=(double)i*ratio;
+  for(unsigned channel=0;channel<2;++channel){
+   double added=0.0;
+   if(pos>=0.0&&pos<(double)input_frames){
+    unsigned long a=(unsigned long)pos,b=a+1<input_frames?a+1:input_frames-1;
+    double left=in->samples[a*2+channel];
+    added=((double)in->samples[b*2+channel]-left)*(pos-(double)a)+left;
+   }
+   double value=(double)out->samples[(first+i)*2+channel]+added;
+   out->samples[(first+i)*2+channel]=value<=-32768.0?-32768:value>=32767.0?32767:(short)(long)(value+(value>=0.0?0.5:-0.5));
   }
-  else {
-    uVar10 = param_1[1];
-    uVar8 = param_2[1];
-    uVar7 = CONCAT71((int7)((ulong)unaff_RBX >> 8),1);
-    if (1 < uVar8 && 1 < uVar10) {
-      if (param_3 == 0) {
-        uVar5 = 0;
-      }
-      else {
-        if (_DAT_1000ceb0 <=
-            ((longdouble)*(uint *)(param_1 + 3) * (longdouble)param_3) / (longdouble)_DAT_1000cf04)
-        goto LAB_10009394;
-        uVar5 = recovered_1000ccaf(in_XMM0_Qa);
-      }
-      uVar10 = uVar10 >> 1;
-      uVar11 = uVar10 - uVar5;
-      if (uVar5 <= uVar10 && uVar11 != 0) {
-        uVar2 = *(uint *)(param_2 + 3);
-        uVar3 = *(uint *)(param_1 + 3);
-        dVar13 = recovered_100035e0((double)(uVar8 >> 1) / ((double)uVar2 / (double)uVar3));
-        uVar10 = (long)(dVar13 - DAT_1000cd50) & (long)dVar13 >> 0x3f | (long)dVar13;
-        if (uVar11 <= uVar10) {
-          uVar10 = uVar11;
-        }
-        if (uVar10 != 0) {
-          lVar6 = *param_1;
-          lVar9 = uVar5 * 4;
-          uVar8 = 0;
-          dVar13 = DAT_1000cf20;
-          dVar21 = _DAT_1000ced0;
-          dVar22 = dRam000000001000ced8;
-          uVar19 = (undefined4)DAT_1000cec0;
-          uVar20 = PF_PART4(DAT_1000cec0, 4);
-          do {
-            PF_PART4(auVar14, 8) = (int)(uVar8 >> 0x20);
-            PF_PART8(auVar14, 0) = uVar8;
-            PF_PART4(auVar14, 12) = uVar20;
-            value = (((*(double *)((uint8_t *)&(auVar14)+8)) - dVar22) + (pf_bits_double(CONCAT44(uVar19,(int)uVar8)) - dVar21)) *
-                    ((double)uVar2 / (double)uVar3);
-            sVar1 = *(short *)(lVar6 + lVar9 + uVar8 * 4);
-            uVar5 = (ulong)*(ushort *)((long)param_2 + 0x1c);
-            dVar18 = 0.0;
-            if ((uVar5 != 0) && (uVar11 = param_2[1], uVar11 != 0 && 0.0 <= value)) {
-              uVar12 = uVar11;
-              if (uVar11 >> 0x20 == 0) {
-                uVar12 = uVar11 & 0xffffffff;
-              }
-              uVar12 = uVar12 / uVar5;
-              PF_PART4(auVar15, 8) = (int)(uVar12 >> 0x20);
-              PF_PART8(auVar15, 0) = uVar12;
-              PF_PART4(auVar15, 12) = uVar20;
-              if ((uVar5 <= uVar11) &&
-                 (value < ((*(double *)((uint8_t *)&(auVar15)+8)) - dVar22) + (pf_bits_double(CONCAT44(uVar19,(int)uVar12)) - dVar21)
-                 )) {
-                dVar13 = recovered_100035b0(value);
-                uVar11 = (long)(dVar13 - DAT_1000cd50) & (long)dVar13 >> 0x3f | (long)dVar13;
-                uVar5 = uVar12 - 1;
-                if (uVar11 + 1 <= uVar12 - 1) {
-                  uVar5 = uVar11 + 1;
-                }
-                PF_PART4(auVar16, 8) = (int)(uVar11 >> 0x20);
-                PF_PART8(auVar16, 0) = uVar11;
-                PF_PART4(auVar16, 12) = PF_PART4(DAT_1000cec0, 4);
-                dVar18 = (double)(int)*(short *)(*param_2 +
-                                                uVar11 * *(ushort *)((long)param_2 + 0x1c) * 2);
-                dVar18 = ((double)(int)*(short *)(*param_2 +
-                                                 uVar5 * *(ushort *)((long)param_2 + 0x1c) * 2) -
-                         dVar18) * (value - (((*(double *)((uint8_t *)&(auVar16)+8)) - dRam000000001000ced8) +
-                                            (pf_bits_double(CONCAT44((undefined4)DAT_1000cec0,(int)uVar11))
-                                            - _DAT_1000ced0))) + dVar18;
-                dVar13 = DAT_1000cf20;
-                dVar21 = _DAT_1000ced0;
-                dVar22 = dRam000000001000ced8;
-                uVar19 = (undefined4)DAT_1000cec0;
-                uVar20 = PF_PART4(DAT_1000cec0, 4);
-              }
-            }
-            dVar18 = (double)(int)sVar1 + dVar18;
-            uVar4 = 0x8000;
-            if ((dVar13 < dVar18) && (uVar4 = 0x7fff, dVar18 < _DAT_1000cf18)) {
-              lVar6 = recovered_100042b0(dVar18);
-              uVar4 = (undefined2)lVar6;
-              dVar13 = DAT_1000cf20;
-              dVar21 = _DAT_1000ced0;
-              dVar22 = dRam000000001000ced8;
-              uVar19 = (undefined4)DAT_1000cec0;
-              uVar20 = PF_PART4(DAT_1000cec0, 4);
-            }
-            lVar6 = *param_1;
-            *(undefined2 *)(lVar6 + lVar9 + uVar8 * 4) = uVar4;
-            sVar1 = *(short *)(lVar6 + lVar9 + 2 + uVar8 * 4);
-            uVar5 = (ulong)*(ushort *)((long)param_2 + 0x1c);
-            dVar18 = 0.0;
-            if ((((uVar5 != 0) && (uVar11 = param_2[1], uVar11 != 0)) &&
-                (*(ushort *)((long)param_2 + 0x1c) != 1)) && (0.0 <= value)) {
-              uVar12 = uVar11;
-              if (uVar11 >> 0x20 == 0) {
-                uVar12 = uVar11 & 0xffffffff;
-              }
-              if ((uVar5 <= uVar11) && (value < (double)(long)(uVar12 / uVar5))) {
-                dVar13 = recovered_100035b0(value);
-                uVar11 = (long)(dVar13 - DAT_1000cd50) & (long)dVar13 >> 0x3f | (long)dVar13;
-                uVar5 = uVar12 / uVar5 - 1;
-                if (uVar11 + 1 <= uVar5) {
-                  uVar5 = uVar11 + 1;
-                }
-                PF_PART4(auVar17, 8) = (int)(uVar11 >> 0x20);
-                PF_PART8(auVar17, 0) = uVar11;
-                PF_PART4(auVar17, 12) = PF_PART4(DAT_1000cec0, 4);
-                dVar18 = (double)(int)*(short *)(*param_2 + 2 +
-                                                uVar11 * *(ushort *)((long)param_2 + 0x1c) * 2);
-                dVar18 = ((double)(int)*(short *)(*param_2 + 2 +
-                                                 uVar5 * *(ushort *)((long)param_2 + 0x1c) * 2) -
-                         dVar18) * (value - (((*(double *)((uint8_t *)&(auVar17)+8)) - dRam000000001000ced8) +
-                                            (pf_bits_double(CONCAT44((undefined4)DAT_1000cec0,(int)uVar11))
-                                            - _DAT_1000ced0))) + dVar18;
-                dVar13 = DAT_1000cf20;
-                dVar21 = _DAT_1000ced0;
-                dVar22 = dRam000000001000ced8;
-                uVar19 = (undefined4)DAT_1000cec0;
-                uVar20 = PF_PART4(DAT_1000cec0, 4);
-              }
-            }
-            dVar18 = (double)(int)sVar1 + dVar18;
-            uVar4 = 0x8000;
-            if ((dVar13 < dVar18) && (uVar4 = 0x7fff, dVar18 < _DAT_1000cf18)) {
-              lVar6 = recovered_100042b0(dVar18);
-              uVar4 = (undefined2)lVar6;
-              dVar13 = DAT_1000cf20;
-              dVar21 = _DAT_1000ced0;
-              dVar22 = dRam000000001000ced8;
-              uVar19 = (undefined4)DAT_1000cec0;
-              uVar20 = PF_PART4(DAT_1000cec0, 4);
-            }
-            lVar6 = *param_1;
-            *(undefined2 *)(lVar6 + lVar9 + 2 + uVar8 * 4) = uVar4;
-            uVar8 = uVar8 + 1;
-          } while (uVar8 < uVar10);
-        }
-        param_1[4] = 0;
-      }
-    }
-  }
-LAB_10009394:
-  return uVar7 & 0xffffffff;
+ }
+ out->mixer=0;
+ return 1;
 }
 
-#undef DAT_1000cd50
-#undef DAT_1000ceb0
-#undef DAT_1000cec0
-#undef DAT_1000ced0
-#undef DAT_1000cf04
-#undef DAT_1000cf18
-#undef DAT_1000cf20
-#undef UNK_1000ced8
-#undef _DAT_1000ceb0
-#undef _DAT_1000ced0
-#undef _DAT_1000cf04
-#undef _DAT_1000cf18
-#undef dRam000000001000ced8
 
 /* Native millisecond slice semantics; Pooka's Free Software License. */
 ulong recovered_100097a0(long *opaque,ulong start,ulong end) {

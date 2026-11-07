@@ -532,7 +532,7 @@ int recovered_10004780(void *track,void *view);
 bool recovered_100047e8(long param_1);
 byte recovered_10004810(undefined8 *param_1,long param_2);
 byte recovered_1000482c(long param_1,undefined8 *param_2);
-undefined8 recovered_100048f4(long *param_1,long *param_2,long param_3);
+uint recovered_100048f4(void *destination,void *source,long offset);
 uint128 recovered_10004a4c(double param_1,long *param_2,uint param_3);
 undefined8 recovered_10004b10(long *param_1,ulong param_2,ulong param_3);
 long recovered_10004bf8(long *param_1,undefined2 *param_2,undefined2 *param_3);

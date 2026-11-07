@@ -21,11 +21,11 @@ ARM64 shared-service addresses have been moved to the current kernel base. ARM32
 records functions reviewed through the incoming-register recovery pass before
 export; obsolete manual units for those functions have been removed.
 
-The audio candidates pass 44 native/source generation, trim, pitch, speed and
+The audio candidates pass 52 native/source generation, mixing, trim, pitch, speed and
 invalid-input comparisons on each architecture. WAV conversion, malformed input,
 saving and cross-decoding also match, as do saved context buffers and register
 restoration. The ARM32 tests use Darwin's four-byte argument alignment for
-64-bit values. Track mixing and release-wide VM behavior still need validation.
+64-bit values. Release-wide VM behavior still needs validation.
 
 Diagnostic snapshots and VM disks remain outside tracked source. The normal
 build continues to use the last completed source tree until the next milestone

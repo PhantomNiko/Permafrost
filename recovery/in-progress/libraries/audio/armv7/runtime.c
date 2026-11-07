@@ -8919,233 +8919,40 @@ LAB_10008d68:
 #undef uStack_94
 #undef auStack_68
 
-#undef DAT_10009260
-#define DAT_10009260 (*(double *)(0x10009260U))
-#undef DAT_10009268
-#define DAT_10009268 (*(double *)(0x10009268U))
-#undef DAT_10009270
-#define DAT_10009270 (*(double *)(0x10009270U))
-#undef DAT_10009278
-#define DAT_10009278 (*(double *)(0x10009278U))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x10008e20
- */
-
-undefined4 recovered_10008e20(int *param_1,int *param_2,int param_3,int param_4,undefined8 in_d0)
-
-{
-  unsigned char frame[64] __attribute__((aligned(16))) = {0};
-
-  short sVar1;
-  undefined4 uVar2;
-  uint uVar3;
-  long lVar4;
-  uint uVar5;
-  undefined2 uVar6;
-  int iVar7;
-  int iVar8;
-  uint uVar9;
-  int iVar10;
-  uint uVar11;
-  uint unaff_r8;
-  uint uVar12;
-  bool bVar13;
-  uint in_fpscr;
-  uint uVar14;
-  undefined4 extraout_s1 = 0;
-  double dVar15;
-  double dVar16;
-  double dVar17;
-  double dVar18;
-  double dVar19;
-  double dVar20;
-  double dVar21;
-  double dVar22;
-  double dVar23;
-  longlong lVar24;
-
-  uVar2 = 0;
-  if (param_1 == (int *)0x0 || param_2 == (int *)0x0) {
-    return 0;
+/* Recovered stereo mixing, interpolation and saturation; Pooka's Free Software License. */
+uint recovered_10008e20(void *destination,void *source,uint low,uint high) {
+ struct track {short *samples;unsigned long count,capacity;uint rate;ushort channels;unsigned long mixer;};
+ struct track *out=(struct track *)destination,*in=(struct track *)source;
+ long long offset=(long long)(((unsigned long long)high<<32)|low);
+ if(!out||!in||offset<0||out->channels!=2||in->channels!=2||!out->rate||!in->rate)return 0;
+ unsigned long frames=out->count/2,input_frames=in->count/2;
+ if(!frames||!input_frames)return 1;
+ long double position=(long double)out->rate*(long double)offset/1000.0L;
+ if(position>=2147483647.0L)return 1;
+ unsigned long first=(unsigned long)(position+0.5L);
+ if(first>=frames)return 1;
+ double ratio=(double)in->rate/(double)out->rate;
+ double extent=(double)input_frames/ratio;
+ unsigned long count=(unsigned long)extent;
+ if((double)count<extent)++count;
+ if(count>frames-first)count=frames-first;
+ for(unsigned long i=0;i<count;++i){
+  double pos=(double)i*ratio;
+  for(unsigned channel=0;channel<2;++channel){
+   double added=0.0;
+   if(pos>=0.0&&pos<(double)input_frames){
+    unsigned long a=(unsigned long)pos,b=a+1<input_frames?a+1:input_frames-1;
+    double left=in->samples[a*2+channel];
+    added=((double)in->samples[b*2+channel]-left)*(pos-(double)a)+left;
+   }
+   double value=(double)out->samples[(first+i)*2+channel]+added;
+   out->samples[(first+i)*2+channel]=value<=-32768.0?-32768:value>=32767.0?32767:(short)(long)(value+(value>=0.0?0.5:-0.5));
   }
-  if (param_4 < 0) {
-    return 0;
-  }
-  uVar9 = (uint)*(ushort *)(param_1 + 4);
-  bVar13 = uVar9 == 2;
-  if (bVar13) {
-    uVar9 = (uint)*(ushort *)(param_2 + 4);
-  }
-  if (bVar13 && uVar9 == 2) {
-    iVar7 = param_1[3];
-    if (iVar7 != 0) {
-      uVar9 = param_2[3];
-    }
-    if (iVar7 != 0 && uVar9 != 0) {
-      uVar9 = param_1[1];
-      uVar2 = 1;
-      if (1 < uVar9) {
-        unaff_r8 = param_2[1];
-      }
-      if (1 < uVar9 && 1 < unaff_r8) {
-        if (param_3 == 0 && param_4 == 0) {
-          uVar12 = 0;
-        }
-        else {
-          dVar23 = recovered_10003af8(param_3,param_4);
-          dVar19 = (double)VectorUnsignedToFloat(iVar7,(byte)(in_fpscr >> 0x16) & 3);
-          dVar19 = (pf_bits_double(((pf_double_bits(dVar23) & 0xffffffff00000000) +
-                            (pf_double_bits(dVar23) & 0xffffffff))) * dVar19) / pf_bits_double(0x408f400000000000ULL);
-          uVar12 = in_fpscr & 0xfffffff | (uint)(dVar19 < pf_bits_double(0x41dfffffffc00000ULL)) << 0x1f;
-          in_fpscr = uVar12 | (uint)(NAN(dVar19) || NAN(pf_bits_double(0x41dfffffffc00000ULL))) << 0x1c;
-          if ((byte)(uVar12 >> 0x1f) == ((byte)(in_fpscr >> 0x1c) & 1)) {
-            return 1;
-          }
-          lVar24 = recovered_1000bffc(pf_bits_double(CONCAT44(extraout_s1,iVar7)));
-          uVar12 = (uint)lVar24;
-        }
-        uVar2 = 1;
-        if (uVar12 < uVar9 >> 1) {
-          dVar23 = (double)VectorUnsignedToFloat(param_1[3],(byte)(in_fpscr >> 0x16) & 3);
-          dVar19 = (double)VectorUnsignedToFloat(param_2[3],(byte)(in_fpscr >> 0x16) & 3);
-          dVar19 = dVar19 / dVar23;
-          dVar23 = (double)VectorUnsignedToFloat(unaff_r8 >> 1,(byte)(in_fpscr >> 0x16) & 3);
-          dVar23 = recovered_10003620(dVar23 / dVar19);
-          uVar9 = (uVar9 >> 1) - uVar12;
-          uVar14 = VectorFloatToUnsigned
-                             ((pf_double_bits(dVar23) & 0xffffffff00000000) +
-                              (pf_double_bits(dVar23) & 0xffffffff),3);
-          if (uVar14 < uVar9) {
-            uVar9 = uVar14;
-          }
-          if (uVar9 != 0) {
-            dVar17 = 1.0;
-            iVar10 = *param_1;
-            iVar7 = uVar12 << 2;
-            uVar12 = 0;
-            dVar15 = 0.0;
-            dVar23 = pf_bits_double(0xc0e0000000000000ULL);
-            dVar16 = pf_bits_double(0x40dfffc000000000ULL);
-            do {
-              dVar18 = dVar19 * dVar15;
-              uVar14 = (uint)*(ushort *)(param_2 + 4);
-              sVar1 = *(short *)(iVar10 + iVar7);
-              dVar20 = 0.0;
-              if (((uVar14 != 0) && (in_fpscr = in_fpscr & 0xfffffff, 0.0 <= dVar18)) &&
-                 (uVar11 = param_2[1], uVar11 != 0)) {
-                uVar3 = recovered_1000bff4(uVar11,uVar14);
-                dVar20 = 0.0;
-                if (uVar14 <= uVar11) {
-                  dVar20 = (double)VectorUnsignedToFloat(uVar3,(byte)(in_fpscr >> 0x16) & 3);
-                  uVar14 = in_fpscr & 0xfffffff | (uint)(dVar18 < dVar20) << 0x1f;
-                  in_fpscr = uVar14 | (uint)(NAN(dVar18) || NAN(dVar20)) << 0x1c;
-                  dVar20 = 0.0;
-                  if ((byte)(uVar14 >> 0x1f) != ((byte)(in_fpscr >> 0x1c) & 1)) {
-                    dVar20 = recovered_100035f0(dVar18);
-                    iVar10 = VectorFloatToUnsigned
-                                       ((pf_double_bits(dVar20) & 0xffffffff00000000) +
-                                        (pf_double_bits(dVar20) & 0xffffffff),3);
-                    dVar21 = (double)VectorUnsignedToFloat(iVar10,(byte)(in_fpscr >> 0x16) & 3);
-                    uVar14 = iVar10 + 1U;
-                    if (uVar3 - 1 < iVar10 + 1U) {
-                      uVar14 = uVar3 - 1;
-                    }
-                    dVar20 = (double)VectorSignedToFloat((int)*(short *)(*param_2 +
-                                                                        (uint)*(ushort *)
-                                                                               (param_2 + 4) *
-                                                                        iVar10 * 2),
-                                                         (byte)(in_fpscr >> 0x16) & 3);
-                    dVar22 = (double)VectorSignedToFloat((int)*(short *)(*param_2 +
-                                                                        uVar14 * *(ushort *)
-                                                                                  (param_2 + 4) * 2)
-                                                         ,(byte)(in_fpscr >> 0x16) & 3);
-                    dVar20 = dVar20 + (dVar22 - dVar20) * (dVar18 - dVar21);
-                  }
-                }
-              }
-              uVar6 = 0x8000;
-              dVar21 = (double)VectorSignedToFloat((int)sVar1,(byte)(in_fpscr >> 0x16) & 3);
-              dVar20 = dVar20 + dVar21;
-              uVar11 = in_fpscr & 0xfffffff | (uint)(dVar20 == dVar23) << 0x1e;
-              uVar14 = uVar11 | (uint)(dVar23 <= dVar20) << 0x1d;
-              if ((bool)((byte)(uVar14 >> 0x1d) & 1) && !SUB41(uVar11 >> 0x1e,0)) {
-                uVar11 = in_fpscr & 0xfffffff | (uint)(dVar20 < dVar16) << 0x1f;
-                uVar14 = uVar11 | (uint)(NAN(dVar20) || NAN(dVar16)) << 0x1c;
-                uVar6 = 0x7fff;
-                if ((byte)(uVar11 >> 0x1f) != ((byte)(uVar14 >> 0x1c) & 1)) {
-                  lVar4 = recovered_10004074(dVar20);
-                  uVar6 = (undefined2)lVar4;
-                }
-              }
-              iVar10 = *param_1;
-              dVar20 = 0.0;
-              *(undefined2 *)(iVar10 + iVar7) = uVar6;
-              uVar11 = (uint)*(ushort *)(param_2 + 4);
-              sVar1 = ((undefined2 *)(iVar10 + iVar7))[1];
-              if (((uVar11 != 0) && (uVar3 = param_2[1], uVar3 != 0 && uVar11 != 1)) &&
-                 ((uVar14 = uVar14 & 0xfffffff, 0.0 <= dVar18 &&
-                  (uVar5 = recovered_1000bff4(uVar3,uVar11), uVar11 <= uVar3)))) {
-                dVar21 = (double)VectorUnsignedToFloat(uVar5,(byte)(uVar14 >> 0x16) & 3);
-                uVar11 = uVar14 & 0xfffffff | (uint)(dVar18 < dVar21) << 0x1f;
-                uVar14 = uVar11 | (uint)(NAN(dVar18) || NAN(dVar21)) << 0x1c;
-                if ((byte)(uVar11 >> 0x1f) != ((byte)(uVar14 >> 0x1c) & 1)) {
-                  dVar20 = recovered_100035f0(dVar18);
-                  iVar10 = VectorFloatToUnsigned
-                                     ((pf_double_bits(dVar20) & 0xffffffff00000000) +
-                                      (pf_double_bits(dVar20) & 0xffffffff),3);
-                  dVar21 = (double)VectorUnsignedToFloat(iVar10,(byte)(uVar14 >> 0x16) & 3);
-                  uVar11 = iVar10 + 1U;
-                  if (uVar5 - 1 < iVar10 + 1U) {
-                    uVar11 = uVar5 - 1;
-                  }
-                  dVar20 = (double)VectorSignedToFloat((int)*(short *)(*param_2 +
-                                                                       (uint)*(ushort *)
-                                                                              (param_2 + 4) * iVar10
-                                                                       * 2 + 2),
-                                                       (byte)(uVar14 >> 0x16) & 3);
-                  dVar22 = (double)VectorSignedToFloat((int)*(short *)(*param_2 +
-                                                                       uVar11 * *(ushort *)
-                                                                                 (param_2 + 4) * 2 +
-                                                                      2),(byte)(uVar14 >> 0x16) & 3)
-                  ;
-                  dVar20 = dVar20 + (dVar22 - dVar20) * (dVar18 - dVar21);
-                }
-              }
-              uVar6 = 0x8000;
-              dVar18 = (double)VectorSignedToFloat((int)sVar1,(byte)(uVar14 >> 0x16) & 3);
-              dVar20 = dVar20 + dVar18;
-              uVar11 = uVar14 & 0xfffffff | (uint)(dVar20 == dVar23) << 0x1e;
-              in_fpscr = uVar11 | (uint)(dVar23 <= dVar20) << 0x1d;
-              if ((bool)((byte)(in_fpscr >> 0x1d) & 1) && !SUB41(uVar11 >> 0x1e,0)) {
-                uVar14 = uVar14 & 0xfffffff | (uint)(dVar20 < dVar16) << 0x1f;
-                in_fpscr = uVar14 | (uint)(NAN(dVar20) || NAN(dVar16)) << 0x1c;
-                uVar6 = 0x7fff;
-                if ((byte)(uVar14 >> 0x1f) != ((byte)(in_fpscr >> 0x1c) & 1)) {
-                  lVar4 = recovered_10004074(dVar20);
-                  uVar6 = (undefined2)lVar4;
-                }
-              }
-              dVar15 = dVar15 + dVar17;
-              iVar10 = *param_1;
-              uVar12 = uVar12 + 1;
-              iVar8 = iVar10 + iVar7;
-              iVar7 = iVar7 + 4;
-              *(undefined2 *)(iVar8 + 2) = uVar6;
-            } while (uVar12 < uVar9);
-          }
-          uVar2 = 1;
-          param_1[5] = 0;
-        }
-      }
-    }
-  }
-  return uVar2;
+ }
+ out->mixer=0;
+ return 1;
 }
 
-#undef DAT_10009260
-#undef DAT_10009268
-#undef DAT_10009270
-#undef DAT_10009278
 
 /* Native millisecond slice semantics; Pooka's Free Software License. */
 uint recovered_10009280(void **opaque,uint slo,uint shi,uint elo,uint ehi) {
