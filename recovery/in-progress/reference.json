@@ -1,0 +1,16 @@
+{
+  "target": "1.0",
+  "status": "in-progress",
+  "reference": "WinterBoot-1.0r232-Beta.img",
+  "sha256": "858f67689de241b2aa5d048d4abebbc0e69009a4858613193844fc1155623661",
+  "architectures": [
+    "i386",
+    "x86_64",
+    "armv7",
+    "arm64"
+  ],
+  "next_targets": [
+    "1.1",
+    "1.2"
+  ]
+}

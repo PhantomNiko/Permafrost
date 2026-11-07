@@ -1,0 +1,794 @@
+404199c0	void recovered_404199c0(int param_1,unsigned int param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+40460050	void recovered_40460050(int param_1,int param_2,int param_3,int param_4,unsigned int param_5, unsigned int param_6,unsigned int param_7);	r0,r1,r2,r3,stack0,stack4,stack8		__stdcall_softfp
+404034b4	float recovered_404034b4(float value);	r0	r0	__stdcall_softfp
+40487630	unsigned int recovered_40487630(unsigned int param_1,unsigned int *param_2);	r0,r1		__stdcall_softfp
+40439cb8	unsigned int recovered_40439cb8(int device,char *path,void *bytes,unsigned int count);	r0,r1,r2,r3		__stdcall_softfp
+40418684	unsigned int * recovered_40418684(int param_1,int param_2,unsigned int *param_3);	r0,r1,r2		__stdcall_softfp
+40418f14	unsigned int recovered_40418f14(int param_1);	r0		__stdcall_softfp
+404570c8	unsigned int recovered_404570c8(unsigned int *param_1);	r0		__stdcall_softfp
+40431628	unsigned int * recovered_40431628(unsigned int *param_1);	r0		__stdcall_softfp
+4041950c	unsigned int recovered_4041950c(void);			__stdcall_softfp
+40419450	 int recovered_40419450(void *context);	r0		__stdcall_softfp
+4044a91c	unsigned int recovered_4044a91c(void *param_1,void *param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+40402d40	double recovered_40402d40(double value);		r1,r0	__stdcall_softfp
+4040a878	unsigned int recovered_4040a878(void);			__stdcall_softfp
+40426840	unsigned int recovered_40426840(int *param_1,int param_2,int param_3,int *param_4);	r0,r1,r2,r3		__stdcall_softfp
+4040614c	unsigned int recovered_4040614c(int param_1,int param_2,int param_3,int *param_4);	r0,r1,r2,r3		__stdcall_softfp
+4041299c	unsigned int recovered_4041299c(int param_1,int param_2,unsigned int param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+404198c4	unsigned char * recovered_404198c4(unsigned int param_1);			__stdcall_softfp
+40472898	void recovered_40472898(unsigned int param_1,int param_2);	r0,r1		__stdcall_softfp
+4046e9d0	unsigned int recovered_4046e9d0(char *param_1);	r0		__stdcall_softfp
+40495074	unsigned char recovered_40495074(char *param_1,char *param_2);	r0,r1		__stdcall_softfp
+40404c60	unsigned int recovered_40404c60(void);			__stdcall_softfp
+404d64b4	unsigned int recovered_404d64b4(void);			__stdcall_softfp
+40433308	void recovered_40433308(void);			__stdcall_softfp
+404072b4	void recovered_404072b4(unsigned int param_1,unsigned int param_2,unsigned char *param_3,unsigned int param_4,unsigned int param_5);	r0,r1,r2,r3,stack0		__stdcall_softfp
+40419718	void recovered_40419718(int param_1);	r0		__stdcall_softfp
+404df968	unsigned int recovered_404df968(unsigned int param_1,unsigned int param_2,unsigned long long *param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+40465120	unsigned int recovered_40465120(int *param_1,unsigned int param_2);			__stdcall_softfp
+40456944	void recovered_40456944(unsigned int param_1,unsigned int param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+40403608	float recovered_40403608(float value);	r0	r0	__stdcall_softfp
+4041ef40	int recovered_4041ef40(int param_1);	r0		__stdcall_softfp
+40436058	unsigned long long recovered_40436058(long param_1,unsigned int *param_2);	r0,r1		__stdcall_softfp
+4040020c	long long recovered_4040020c(float param_1);	r0		__stdcall_softfp
+404d58e8	unsigned char recovered_404d58e8(int param_1,unsigned char *param_2);	r0,r1		__stdcall_softfp
+404bf8f4	unsigned int recovered_404bf8f4(int param_1,unsigned long long *param_2,unsigned int *param_3);	r0,r1,r2		__stdcall_softfp
+404338e4	unsigned int * recovered_404338e4(int param_1,int param_2,float param_3);	r0,r1,r2		__stdcall_softfp
+40466f64	unsigned int recovered_40466f64(int param_1,unsigned int param_2,int *param_3,int param_4,int param_5,int param_6, unsigned char param_7,unsigned int param_8,unsigned int param_9);	r0,r1,r2,r3,stack0,stack4,stack8,stack12,stack16		__stdcall_softfp
+40400c70	void *recovered_40400c70(unsigned long size);			__stdcall_softfp
+40436224	int recovered_40436224(char *text);	r0		__stdcall_softfp
+404203e4	unsigned char recovered_404203e4(int param_1,unsigned int param_2,unsigned int param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+40456e98	unsigned char recovered_40456e98(void *param_1);	r0		__stdcall_softfp
+404392f4	unsigned int recovered_404392f4(int device);	r0		__stdcall_softfp
+40402ae8	unsigned int recovered_40402ae8(void);			__stdcall_softfp
+40495014	unsigned int recovered_40495014(unsigned int *param_1);			__stdcall_softfp
+404daad8	unsigned int recovered_404daad8(int param_1,int param_2);	r0,r1		__stdcall_softfp
+404d505c	int recovered_404d505c(char *param_1);	r0		__stdcall_softfp
+404562c8	unsigned int recovered_404562c8(void);			__stdcall_softfp
+404608e8	unsigned long long recovered_404608e8(void);			__stdcall_softfp
+40431648	void recovered_40431648(int *param_1,int param_2,unsigned int param_3,int param_4);	r0,r1,r2,r3		__stdcall_softfp
+404025e8	void * recovered_404025e8(int param_1);	r0		__stdcall_softfp
+404006d8	void * recovered_404006d8(unsigned long size);			__stdcall_softfp
+404ddd50	unsigned int recovered_404ddd50(unsigned int param_1,unsigned int param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+404377d4	unsigned int recovered_404377d4(unsigned char *param_1,int param_2,char *param_3,int param_4,int param_5);	r0,r1,r2,r3,stack0		__stdcall_softfp
+404203e8	unsigned int recovered_404203e8(int param_1,unsigned int param_2,unsigned int param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+40411e18	int recovered_40411e18(void);			__stdcall_softfp
+40434838	void recovered_40434838(int *param_1,unsigned int param_2);	r0,r1		__stdcall_softfp
+404cbf3c	unsigned char recovered_404cbf3c(unsigned int param_1,unsigned int param_2,unsigned int param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+4042bc9c	unsigned long long recovered_4042bc9c(int param_1);	r0		__stdcall_softfp
+40419218	unsigned char recovered_40419218(int param_1,int param_2,int param_3);	r0,r1,r2		__stdcall_softfp
+40456c70	unsigned char recovered_40456c70(void *param_1);	r0		__stdcall_softfp
+4048aa5c	unsigned int recovered_4048aa5c(int param_1);	r0		__stdcall_softfp
+404bd7c8	void recovered_404bd7c8(void);			__stdcall_softfp
+4040298c	char * recovered_4040298c(char *param_1,char param_2);	r0,r1		__stdcall_softfp
+404aa5e4	unsigned int recovered_404aa5e4(int param_1,int param_2,unsigned char *param_3);	r0,r1,r2		__stdcall_softfp
+404e26e0	void recovered_404e26e0(int value);	r0		__stdcall_softfp
+40497844	int recovered_40497844(int *param_1,int *param_2,int param_3);			__stdcall_softfp
+40412464	unsigned long long recovered_40412464(void);			__stdcall_softfp
+4041814c	void recovered_4041814c(void);			__stdcall_softfp
+40400238	float recovered_40400238(int param_1,int param_2);	r0,r1	r0	__stdcall_softfp
+404cc710	void recovered_404cc710(int param_1);	r0		__stdcall_softfp
+40400694	long recovered_40400694(void);			__stdcall_softfp
+404caa28	unsigned int recovered_404caa28(int param_1);	r0		__stdcall_softfp
+40400190	int recovered_40400190(int param_1,int param_2);	r0,r1		__stdcall_softfp
+404d237c	void recovered_404d237c(int param_1,int param_2);			__stdcall_softfp
+404c65a4	void recovered_404c65a4(int param_1,int param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+40432e10	unsigned int recovered_40432e10(int param_1,int param_2,int *param_3);	r0,r1,r2		__stdcall_softfp
+4049a394	unsigned int recovered_4049a394(int param_1,unsigned int param_2);	r0,r1		__stdcall_softfp
+40407e00	unsigned int recovered_40407e00(void);			__stdcall_softfp
+40401c1c	void *recovered_40401c1c(void *out,int value,unsigned long count);			__stdcall_softfp
+4049bb60	unsigned char recovered_4049bb60(unsigned long long *param_1,unsigned long *param_2);	r0,r1		__stdcall_softfp
+404d6fdc	unsigned int recovered_404d6fdc(int param_1,int param_2,unsigned int param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+4042e7c4	unsigned int recovered_4042e7c4(int *param_1,double *param_2);	r0,r1		__stdcall_softfp
+4045c58c	unsigned int recovered_4045c58c(int param_1,unsigned char *param_2);	r0,r1		__stdcall_softfp
+404df9b0	unsigned int recovered_404df9b0(void);			__stdcall_softfp
+404197d8	void recovered_404197d8(int param_1);	r0		__stdcall_softfp
+40425230	unsigned char recovered_40425230(int *param_1,int *param_2);	r0,r1		__stdcall_softfp
+40430d9c	int * recovered_40430d9c(int *param_1,unsigned char *param_2,unsigned int param_3,unsigned char *param_4,unsigned int param_5);	r0,r1,r2,r3,stack0		__stdcall_softfp
+40400120	int recovered_40400120(unsigned int param_1,unsigned int param_2);	r0,r1		__stdcall_softfp
+404198c0	void recovered_404198c0(void);			__stdcall_softfp
+404112f0	int recovered_404112f0(void);			__stdcall_softfp
+4047451c	unsigned int recovered_4047451c(int param_1,int param_2,unsigned int *param_3,int param_4);	r0,r1,r2,r3		__stdcall_softfp
+40419d88	unsigned char recovered_40419d88(unsigned int param_1,unsigned int param_2);	r0,r1		__stdcall_softfp
+40419d1c	unsigned char recovered_40419d1c(int param_1);	r0		__stdcall_softfp
+404a2684	unsigned int recovered_404a2684(int param_1,int param_2,int param_3);			__stdcall_softfp
+4049510c	unsigned char recovered_4049510c(unsigned char *param_1,unsigned int param_2,unsigned char param_3);	r0,r1,r2		__stdcall_softfp
+4040a70c	unsigned int recovered_4040a70c(unsigned int param_1);	r0		__stdcall_softfp
+40469be8	unsigned int recovered_40469be8(int param_1,unsigned char *param_2,int param_3);	r0,r1,r2		__stdcall_softfp
+404d7490	void recovered_404d7490(unsigned int *param_1);			__stdcall_softfp
+404b8c40	unsigned int recovered_404b8c40(int *param_1,unsigned int *param_2,unsigned int *param_3);	r0,r1,r2		__stdcall_softfp
+40409708	int recovered_40409708(void);			__stdcall_softfp
+40419898	unsigned int recovered_40419898(void);			__stdcall_softfp
+4042bc74	unsigned long long recovered_4042bc74(int param_1);	r0		__stdcall_softfp
+404024c8	unsigned char recovered_404024c8(int param_1);	r0		__stdcall_softfp
+4048af34	unsigned long long recovered_4048af34(void);			__stdcall_softfp
+4040a2c8	unsigned char recovered_4040a2c8(int param_1,unsigned int param_2,unsigned int param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+40410e2c	void recovered_40410e2c(unsigned int *param_1,unsigned int *param_2,unsigned int *param_3, unsigned int *param_4,unsigned int *param_5);	r0,r1,r2,r3,stack0		__stdcall_softfp
+4041933c	unsigned int recovered_4041933c(int param_1);	r0		__stdcall_softfp
+4046d9e8	unsigned int recovered_4046d9e8(int *param_1,int param_2);			__stdcall_softfp
+40419ddc	unsigned char recovered_40419ddc(unsigned int param_1,unsigned int param_2);	r0,r1		__stdcall_softfp
+40495c34	char recovered_40495c34(unsigned int *param_1);	r0		__stdcall_softfp
+4044a8d4	unsigned char recovered_4044a8d4(char *param_1);	r0		__stdcall_softfp
+40433de0	void recovered_40433de0(int *param_1);	r0		__stdcall_softfp
+40404cb0	void recovered_40404cb0(void);			__stdcall_softfp
+404e001c	unsigned int recovered_404e001c(int *param_1,int param_2,int param_3);	r0,r1,r2		__stdcall_softfp
+404c3680	unsigned int recovered_404c3680(int param_1,unsigned int param_2);	r0,r1		__stdcall_softfp
+40402b5c	double recovered_40402b5c(unsigned int param_1,unsigned int param_2,int *param_3);	r0,r1,r2	r1,r0	__stdcall_softfp
+404d8624	unsigned int recovered_404d8624(int *param_1);	r0		__stdcall_softfp
+404565d0	unsigned int recovered_404565d0(void);			__stdcall_softfp
+40437554	unsigned char recovered_40437554(char *param_1,unsigned int param_2,void *param_3);	r0,r1,r2		__stdcall_softfp
+40418eb4	unsigned char recovered_40418eb4(int param_1);	r0		__stdcall_softfp
+4041887c	int recovered_4041887c(unsigned char *param_1,int param_2,int param_3,int *param_4);	r0,r1,r2,r3		__stdcall_softfp
+404be0b4	void recovered_404be0b4(unsigned int param_1,unsigned int param_2,unsigned int param_3,unsigned int param_4,unsigned int param_5);	r0,r1,r2,r3,stack0		__stdcall_softfp
+404719e0	unsigned int recovered_404719e0(int param_1,int param_2,unsigned int param_3,int param_4);	r0,r1,r2,r3		__stdcall_softfp
+40419b38	unsigned long long recovered_40419b38(unsigned int *param_1);	r0		__stdcall_softfp
+404137a0	unsigned int recovered_404137a0(int param_1);	r0		__stdcall_softfp
+404bf460	unsigned int recovered_404bf460(int param_1,unsigned int param_2,unsigned int *param_3,unsigned int *param_4);	r0,r1,r2,r3		__stdcall_softfp
+404caca8	unsigned int recovered_404caca8(int param_1);	r0		__stdcall_softfp
+404198b0	void recovered_404198b0(unsigned int *param_1);	r0		__stdcall_softfp
+40497c9c	unsigned char recovered_40497c9c(int param_1,unsigned int param_2,unsigned int param_3,unsigned int *param_4,unsigned char *param_5);	r0,r1,r2,r3,stack0		__stdcall_softfp
+404a2594	unsigned int * recovered_404a2594(unsigned int param_1,int param_2);			__stdcall_softfp
+404de0f4	unsigned char recovered_404de0f4(unsigned int param_1,int param_2,int param_3,unsigned int param_4,unsigned int param_5,int param_6, int param_7);	r0,r1,r2,r3,stack0,stack4,stack8		__stdcall_softfp
+40431620	unsigned int recovered_40431620(void);			__stdcall_softfp
+4045014c	unsigned int recovered_4045014c(unsigned int window,char *first,char *second,char *third);	r0,r1,r2,r3		__stdcall_softfp
+40410ffc	void recovered_40410ffc(unsigned int *param_1,unsigned int *param_2,unsigned int *param_3, unsigned int *param_4,unsigned int *param_5,unsigned int *param_6);	r0,r1,r2,r3,stack0,stack4		__stdcall_softfp
+40498374	unsigned char recovered_40498374(int param_1,unsigned int param_2,unsigned int param_3,unsigned int *param_4);	r0,r1,r2,r3		__stdcall_softfp
+404c63f8	unsigned int recovered_404c63f8(unsigned int param_1,int param_2,unsigned int param_3,unsigned int param_4,int param_5, unsigned char param_6,unsigned int param_7);	r0,r1,r2,r3,stack0,stack4,stack8		__stdcall_softfp
+4040a540	unsigned int recovered_4040a540(void);			__stdcall_softfp
+40410cb4	void recovered_40410cb4(unsigned int *param_1,unsigned int *param_2);	r0,r1		__stdcall_softfp
+40406d14	unsigned int recovered_40406d14(void);			__stdcall_softfp
+404b9720	unsigned int recovered_404b9720(int param_1,int *param_2,unsigned int *param_3,unsigned int *param_4,char *param_5, unsigned long param_6);	r0,r1,r2,r3,stack0,stack4		__stdcall_softfp
+404056e0	unsigned int recovered_404056e0(unsigned int param_1,unsigned int param_2,unsigned int param_3,unsigned int param_4,unsigned int param_5);	r0,r1,r2,r3,stack0		__stdcall_softfp
+40401710	void *recovered_40401710(void *out,void *data,unsigned long count);			__stdcall_softfp
+4046fe40	unsigned int recovered_4046fe40(unsigned int *param_1,unsigned int param_2,unsigned int param_3,unsigned int param_4,unsigned int param_5,int param_6, unsigned int param_7,int *param_8,unsigned int *param_9,int param_10);	r0,r1,r2,r3,stack0,stack4,stack8,stack12,stack16,stack20		__stdcall_softfp
+404d81dc	unsigned int recovered_404d81dc(int *param_1,int param_2,int param_3);	r0,r1,r2		__stdcall_softfp
+40457ebc	unsigned int recovered_40457ebc(char *param_1,char *param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+4042bccc	unsigned int recovered_4042bccc(void);			__stdcall_softfp
+404033a8	float recovered_404033a8(float param_1,int param_2);	r0,r1	r0	__stdcall_softfp
+4049523c	unsigned int recovered_4049523c(int param_1,int param_2);	r0,r1		__stdcall_softfp
+40428dc8	unsigned long long * recovered_40428dc8(int *param_1,unsigned char *param_2,unsigned int param_3,unsigned long long *param_4,int *param_5, unsigned long long param_6);	r0,r1,r2,r3,stack0,stack4		__stdcall_softfp
+40497af8	unsigned int recovered_40497af8(int *param_1,int *param_2,int *param_3,int param_4);	r0,r1,r2,r3		__stdcall_softfp
+404dfb10	unsigned int recovered_404dfb10(int param_1);			__stdcall_softfp
+40419afc	void recovered_40419afc(void);			__stdcall_softfp
+404192b4	unsigned int recovered_404192b4(void);			__stdcall_softfp
+40419440	 void recovered_40419440(void *context);	r0		__stdcall_softfp
+40402b18	double recovered_40402b18(double value,int exponent);		r1,r0	__stdcall_softfp
+404339d4	void recovered_404339d4(int *param_1,float param_2);	r0,r1		__stdcall_softfp
+404035b0	float recovered_404035b0(float value);	r0	r0	__stdcall_softfp
+40410cf4	void recovered_40410cf4(unsigned int *param_1,unsigned int *param_2,unsigned int *param_3);	r0,r1,r2		__stdcall_softfp
+40402b00	unsigned long long recovered_40402b00(unsigned int *param_1);	r0		__stdcall_softfp
+404dca00	void recovered_404dca00(unsigned int param_1,unsigned int param_2,int param_3);	r0,r1,r2		__stdcall_softfp
+40406de4	void recovered_40406de4(unsigned int param_1);	r0		__stdcall_softfp
+40439b88	unsigned int recovered_40439b88(int device,char *path,char *buffer,unsigned int capacity,unsigned int *count);	r0,r1,r2,r3,stack0		__stdcall_softfp
+4040347c	float recovered_4040347c(float value);	r0	r0	__stdcall_softfp
+40404c70	unsigned int recovered_40404c70(void);			__stdcall_softfp
+4045f26c	void recovered_4045f26c(void);			__stdcall_softfp
+4040633c	void recovered_4040633c(void);			__stdcall_softfp
+404dda0c	unsigned int recovered_404dda0c(int param_1,int param_2,int *param_3);	r0,r1,r2		__stdcall_softfp
+4041831c	unsigned int * recovered_4041831c(int param_1,int param_2);	r0,r1		__stdcall_softfp
+404863b4	unsigned char recovered_404863b4(void);			__stdcall_softfp
+40473e88	unsigned int recovered_40473e88(unsigned char *data,unsigned int size,unsigned int *cursor,unsigned long long *value);	r0,r1,r2,r3		__stdcall_softfp
+40438994	int recovered_40438994(void);			__stdcall_softfp
+4041efc8	unsigned long long * recovered_4041efc8(int param_1,unsigned int *param_2);	r0,r1		__stdcall_softfp
+4040021c	float recovered_4040021c(unsigned int param_1,unsigned int param_2);	r0,r1	r0	__stdcall_softfp
+404bdf48	unsigned int recovered_404bdf48(unsigned int param_1,unsigned int param_2);	r0,r1		__stdcall_softfp
+40434de4	void recovered_40434de4(void);			__stdcall_softfp
+40404de0	unsigned int recovered_40404de0(void);			__stdcall_softfp
+404ac940	int recovered_404ac940(int *param_1,unsigned char *param_2);	r0,r1		__stdcall_softfp
+40402c14	double recovered_40402c14(double left,double right);		r1,r0	__stdcall_softfp
+404033f4	float recovered_404033f4(float base,float exponent);	r0,r1	r0	__stdcall_softfp
+40419540	void * recovered_40419540(unsigned long size);			__stdcall_softfp
+404189a8	unsigned int recovered_404189a8(int *param_1);	r0		__stdcall_softfp
+40423470	void recovered_40423470(int *param_1,unsigned int param_2,unsigned char *param_3);	r0,r1,r2		__stdcall_softfp
+40412004	void recovered_40412004(char *param_1,int param_2);	r0,r1		__stdcall_softfp
+40423a64	unsigned int recovered_40423a64(int param_1,unsigned int param_2,unsigned int *param_3,unsigned int param_4,unsigned int *param_5);	r0,r1,r2,r3,stack0		__stdcall_softfp
+40403780	float recovered_40403780(float value);	r0	r0	__stdcall_softfp
+404a276c	int recovered_404a276c(int param_1,int param_2);	r0,r1		__stdcall_softfp
+40412334	unsigned long long recovered_40412334(void);			__stdcall_softfp
+40419ab4	void recovered_40419ab4(unsigned int *param_1);	r0		__stdcall_softfp
+4044bcfc	unsigned int recovered_4044bcfc(char *param_1);	r0		__stdcall_softfp
+40418b8c	int recovered_40418b8c(int param_1,int param_2,int param_3,unsigned int *param_4);	r0,r1,r2,r3		__stdcall_softfp
+404dfb48	unsigned int recovered_404dfb48(int param_1,unsigned int param_2,unsigned int param_3,int param_4);	r0,r1,r2,r3		__stdcall_softfp
+4043624c	unsigned char recovered_4043624c(char *param_1,void *param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+4046df80	unsigned int recovered_4046df80(unsigned int *param_1,int param_2,int param_3,unsigned int *param_4,int param_5,int param_6, int param_7,int param_8,unsigned int param_9,unsigned char *param_10);	r0,r1,r2,r3,stack0,stack4,stack8,stack12,stack16,stack20		__stdcall_softfp
+4041293c	unsigned char recovered_4041293c(char *param_1,char *param_2);	r0,r1		__stdcall_softfp
+40436040	void recovered_40436040(void);			__stdcall_softfp
+404c3fe0	unsigned int recovered_404c3fe0(int param_1,unsigned int param_2,unsigned int param_3,char *param_4,unsigned char *param_5);	r0,r1,r2,r3,stack0		__stdcall_softfp
+40403088	long long recovered_40403088(double param_1);			__stdcall_softfp
+40466f0c	void recovered_40466f0c(int param_1,int param_2);	r0,r1		__stdcall_softfp
+40418d04	unsigned int recovered_40418d04(int *param_1,unsigned int param_2,int param_3);	r0,r1,r2		__stdcall_softfp
+404957fc	unsigned int recovered_404957fc(int param_1,unsigned int *param_2,int *param_3,unsigned int *param_4, unsigned int *param_5);	r0,r1,r2,r3,stack0		__stdcall_softfp
+4049e61c	unsigned int recovered_4049e61c(int param_1,int param_2);	r0,r1		__stdcall_softfp
+40403848	float recovered_40403848(float value);	r0	r0	__stdcall_softfp
+404b2c88	unsigned int recovered_404b2c88(int *param_1,unsigned char *param_2,int param_3,unsigned int param_4,unsigned int *param_5);	r0,r1,r2,r3,stack0		__stdcall_softfp
+4043a674	unsigned char recovered_4043a674(char *param_1,unsigned int param_2,unsigned int param_3,int *param_4);	r0,r1,r2,r3		__stdcall_softfp
+404b7630	unsigned int recovered_404b7630(int *param_1,unsigned char *param_2,int param_3,unsigned int param_4,unsigned int param_5,int *param_6);	r0,r1,r2,r3,stack0,stack4		__stdcall_softfp
+4046c480	void recovered_4046c480(void);			__stdcall_softfp
+404863a4	unsigned char recovered_404863a4(void);			__stdcall_softfp
+404a1bf0	unsigned int recovered_404a1bf0(int *param_1,int param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+4045cc84	unsigned int recovered_4045cc84(int param_1);	r0		__stdcall_softfp
+4043abf4	unsigned int recovered_4043abf4(int device,char *path,unsigned int flags);	r0,r1,r2		__stdcall_softfp
+4048e300	unsigned int recovered_4048e300(int param_1,unsigned int *param_2,int *param_3,unsigned int *param_4,unsigned int *param_5);	r0,r1,r2,r3,stack0		__stdcall_softfp
+4042ad3c	unsigned char recovered_4042ad3c(int param_1,unsigned int *param_2,unsigned int param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+4049aedc	unsigned char recovered_4049aedc(void *context,char *op,void *left,void *right,void *out);	r0,r1,r2,r3,stack0		__stdcall_softfp
+40473f48	unsigned int recovered_40473f48(int param_1,unsigned char *param_2,int param_3,int param_4);	r0,r1,r2,r3		__stdcall_softfp
+404be4c0	unsigned int recovered_404be4c0(int *param_1,int *param_2);	r0,r1		__stdcall_softfp
+4040a5bc	unsigned char recovered_4040a5bc(int param_1);	r0		__stdcall_softfp
+4042edd0	void recovered_4042edd0(int *param_1,double *param_2,double *param_3,double *param_4,int param_5);	r0,r1,r2,r3,stack0		__stdcall_softfp
+40400ea0	void recovered_40400ea0(unsigned int *param_1,int *param_2);	r0,r1		__stdcall_softfp
+40419cfc	void recovered_40419cfc(void);			__stdcall_softfp
+40461f60	unsigned char recovered_40461f60(void);			__stdcall_softfp
+40471e18	unsigned int recovered_40471e18(void *image,char *error);			__stdcall_softfp
+404198a0	unsigned int recovered_404198a0(unsigned int *param_1);	r0		__stdcall_softfp
+404609d8	unsigned long recovered_404609d8(unsigned int param_1);			__stdcall_softfp
+404025cc	void recovered_404025cc(int param_1,int param_2);	r0,r1		__stdcall_softfp
+4046ccac	unsigned int recovered_4046ccac(int param_1,int param_2,unsigned int param_3,int param_4,unsigned int param_5,int param_6, int param_7,unsigned int param_8,char *param_9,unsigned int param_10);	r0,r1,r2,r3,stack0,stack4,stack8,stack12,stack16,stack20		__stdcall_softfp
+4049a338	unsigned int recovered_4049a338(int param_1,int param_2);	r0,r1		__stdcall_softfp
+40439310	unsigned int recovered_40439310(int *param_1);	r0		__stdcall_softfp
+40433eb4	unsigned int recovered_40433eb4(int param_1,unsigned int param_2,unsigned int param_3,int param_4,int *param_5);	r0,r1,r2,r3,stack0		__stdcall_softfp
+404000e8	unsigned int recovered_404000e8(unsigned int param_1,unsigned int param_2);	r0,r1		__stdcall_softfp
+40434ae0	unsigned long long recovered_40434ae0(unsigned int param_1,unsigned int param_2,unsigned char param_3);	r0,r1,r2		__stdcall_softfp
+404db82c	void recovered_404db82c(void);			__stdcall_softfp
+40404c78	unsigned int recovered_40404c78(void);			__stdcall_softfp
+40495bec	unsigned int recovered_40495bec(int param_1,int param_2,unsigned int *param_3);	r0,r1,r2		__stdcall_softfp
+40423554	unsigned int recovered_40423554(unsigned int param_1,unsigned int param_2);	r0,r1		__stdcall_softfp
+40495a58	unsigned int * recovered_40495a58(int param_1,int param_2,int param_3,int *param_4,int param_5,unsigned int param_6, unsigned char param_7);	r0,r1,r2,r3,stack0,stack4,stack8		__stdcall_softfp
+40497780	unsigned int recovered_40497780(unsigned int *param_1);			__stdcall_softfp
+404b9f2c	void recovered_404b9f2c(void);			__stdcall_softfp
+4044b9c8	unsigned int recovered_4044b9c8(void *hardware);	r0		__stdcall_softfp
+40417fac	void recovered_40417fac(void);			__stdcall_softfp
+4042efd4	void recovered_4042efd4(void);			__stdcall_softfp
+40400258	void recovered_40400258(void);			__stdcall_softfp
+40466850	unsigned int recovered_40466850(int param_1,unsigned int *param_2,int param_3,int param_4,int param_5,int param_6, unsigned int param_7,unsigned int param_8,unsigned int *param_9);	r0,r1,r2,r3,stack0,stack4,stack8,stack12,stack16		__stdcall_softfp
+4042bcd4	unsigned char recovered_4042bcd4(int param_1,int param_2,unsigned int *param_3);	r0,r1,r2		__stdcall_softfp
+4041a664	unsigned int * recovered_4041a664(unsigned int param_1,int *param_2);	r0,r1		__stdcall_softfp
+40494804	unsigned char recovered_40494804(int param_1,char *param_2,unsigned int param_3,unsigned int *param_4);	r0,r1,r2,r3		__stdcall_softfp
+404110fc	unsigned int recovered_404110fc(unsigned int *param_1,unsigned int *param_2,unsigned int *param_3, unsigned int *param_4,unsigned int *param_5,unsigned int *param_6, unsigned int *param_7,unsigned int *param_8,unsigned int *param_9, unsigned int *param_10);	r0,r1,r2,r3,stack0,stack4,stack8,stack12,stack16,stack20		__stdcall_softfp
+404bdba8	unsigned int recovered_404bdba8(int *param_1,int param_2,int param_3);	r0,r1,r2		__stdcall_softfp
+404249b8	void recovered_404249b8(int param_1,int param_2);	r0,r1		__stdcall_softfp
+4048a018	unsigned int recovered_4048a018(void);			__stdcall_softfp
+404db8ac	char * recovered_404db8ac(int param_1,int param_2,unsigned int *param_3);	r0,r1,r2		__stdcall_softfp
+404654cc	void recovered_404654cc(int param_1,int param_2,unsigned int param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+40498c6c	unsigned int recovered_40498c6c(int param_1,unsigned int *param_2);	r0,r1		__stdcall_softfp
+40403148	unsigned long long recovered_40403148(double param_1);			__stdcall_softfp
+40403218	double recovered_40403218(long long param_1);		r1,r0	__stdcall_softfp
+404da928	unsigned int recovered_404da928(int param_1,unsigned int *param_2,int param_3,unsigned char *param_4);	r0,r1,r2,r3		__stdcall_softfp
+404ac9c0	void recovered_404ac9c0(unsigned int param_1);	r0		__stdcall_softfp
+404dd518	unsigned char recovered_404dd518(unsigned int param_1,int *param_2,int param_3,int param_4,unsigned int param_5,int *param_6, unsigned int param_7,unsigned int param_8,unsigned int param_9,int *param_10,int *param_11);	r0,r1,r2,r3,stack0,stack4,stack8,stack12,stack16,stack20,stack24		__stdcall_softfp
+404d1b04	unsigned char recovered_404d1b04(unsigned int param_1,char *param_2,unsigned char *param_3);	r0,r1,r2		__stdcall_softfp
+404544a4	unsigned int recovered_404544a4(unsigned int param_1,int *param_2,unsigned int param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+40400ba0	unsigned long long recovered_40400ba0(unsigned int param_1,unsigned int param_2,unsigned int param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+404b4e0c	unsigned int recovered_404b4e0c(int *param_1,unsigned char *param_2,int param_3,unsigned int param_4,int param_5);	r0,r1,r2,r3,stack0		__stdcall_softfp
+4048e5d8	unsigned int recovered_4048e5d8(int *param_1,unsigned int *param_2,unsigned int param_3);			__stdcall_softfp
+404c2c5c	unsigned int recovered_404c2c5c(int param_1,unsigned int param_2);	r0,r1		__stdcall_softfp
+40408b48	unsigned char recovered_40408b48(unsigned int param_1,unsigned int param_2,int param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+404024fc	int recovered_404024fc(int param_1);	r0		__stdcall_softfp
+40466cc0	unsigned int recovered_40466cc0(unsigned int param_1);	r0		__stdcall_softfp
+404607c4	unsigned char recovered_404607c4(unsigned int param_1,unsigned int param_2);	r0,r1		__stdcall_softfp
+404a2898	unsigned char recovered_404a2898(unsigned int *param_1,unsigned int *param_2);	r0,r1		__stdcall_softfp
+404dace0	unsigned int recovered_404dace0(int *param_1,int param_2,int param_3,unsigned int *param_4,unsigned char *param_5, int param_6);	r0,r1,r2,r3,stack0,stack4		__stdcall_softfp
+4049b808	unsigned char recovered_4049b808(unsigned long long *param_1,unsigned long *param_2);	r0,r1		__stdcall_softfp
+4049dc8c	int recovered_4049dc8c(int param_1);	r0		__stdcall_softfp
+40472920	unsigned int recovered_40472920(char *name,unsigned int cpu,unsigned int wide,char *error);	r0,r1,r2,r3		__stdcall_softfp
+4047429c	unsigned int recovered_4047429c(int param_1,int param_2,int param_3,unsigned int param_4,unsigned int param_5,int param_6, int param_7);	r0,r1,r2,r3,stack0,stack4,stack8		__stdcall_softfp
+4047320c	unsigned int recovered_4047320c(void *image,unsigned int offset,unsigned int size,unsigned int weak,char *error);	r0,r1,r2,r3,stack0		__stdcall_softfp
+40470238	unsigned int recovered_40470238(int *param_1,unsigned int param_2,unsigned int param_3,unsigned int param_4,unsigned int *param_5,int *param_6, int param_7);	r0,r1,r2,r3,stack0,stack4,stack8		__stdcall_softfp
+40406284	unsigned int recovered_40406284(unsigned int *param_1,int param_2,unsigned int *param_3);	r0,r1,r2		__stdcall_softfp
+40426f08	int recovered_40426f08(int param_1);	r0		__stdcall_softfp
+404e062c	unsigned int recovered_404e062c(int param_1,unsigned char *param_2);	r0,r1		__stdcall_softfp
+4040a6b4	unsigned int recovered_4040a6b4(void);			__stdcall_softfp
+404db5ac	unsigned int recovered_404db5ac(unsigned int *param_1);	r0		__stdcall_softfp
+40400098	unsigned int recovered_40400098(unsigned int numerator,unsigned int denominator);	r0,r1		__stdcall_softfp
+404381c4	unsigned char recovered_404381c4(char *param_1,char *param_2,unsigned int param_3,unsigned int *param_4);	r0,r1,r2,r3		__stdcall_softfp
+40411e38	void recovered_40411e38(unsigned int param_1);	r0		__stdcall_softfp
+404276b8	int recovered_404276b8(int *param_1,int param_2,unsigned int *param_3,unsigned int *param_4);	r0,r1,r2,r3		__stdcall_softfp
+404315fc	unsigned long long recovered_404315fc(int param_1);	r0		__stdcall_softfp
+40486738	unsigned char recovered_40486738(void);			__stdcall_softfp
+404c79e0	void recovered_404c79e0(int param_1);	r0		__stdcall_softfp
+4040a77c	unsigned char recovered_4040a77c(void);			__stdcall_softfp
+404be85c	unsigned int recovered_404be85c(int param_1,unsigned int param_2,int *param_3);			__stdcall_softfp
+40418310	void recovered_40418310(void);			__stdcall_softfp
+40406d08	unsigned int recovered_40406d08(void);			__stdcall_softfp
+4040674c	unsigned char recovered_4040674c(void);			__stdcall_softfp
+404192c4	char * recovered_404192c4(int param_1,char param_2,int param_3);	r0,r1,r2		__stdcall_softfp
+40412244	int recovered_40412244(void);			__stdcall_softfp
+40419da4	unsigned char recovered_40419da4(unsigned int param_1);	r0		__stdcall_softfp
+404181d4	unsigned char recovered_404181d4(int param_1,int param_2,unsigned int param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+404674bc	unsigned char recovered_404674bc(unsigned int *param_1,unsigned int param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+4046cab0	unsigned int recovered_4046cab0(int param_1,int param_2,unsigned int param_3,int param_4,unsigned int param_5,unsigned int param_6, unsigned int param_7,int param_8,unsigned int param_9,int param_10,int *param_11,int *param_12);	r0,r1,r2,r3,stack0,stack4,stack8,stack12,stack16,stack20,stack24,stack28		__stdcall_softfp
+4045d9cc	unsigned int recovered_4045d9cc(char *text);			__stdcall_softfp
+40431614	unsigned long long recovered_40431614(void);			__stdcall_softfp
+40471cec	unsigned char recovered_40471cec(int param_1,int param_2,unsigned int param_3,int param_4);	r0,r1,r2,r3		__stdcall_softfp
+40400a08	unsigned long long recovered_40400a08(void);			__stdcall_softfp
+4042b740	int * recovered_4042b740(int *param_1,int param_2,unsigned int param_3,unsigned int param_4,unsigned int param_5 );	r0,r1,r2,r3,stack0		__stdcall_softfp
+40494708	void recovered_40494708(void *context,char *token,char *format,...);	r0,r1,r2		__stdcall_softfp
+40439f68	unsigned int recovered_40439f68(int param_1,unsigned int param_2,int *param_3);	r0,r1,r2		__stdcall_softfp
+40467b78	unsigned int recovered_40467b78(unsigned int param_1,int param_2);	r0,r1		__stdcall_softfp
+40457d54	void recovered_40457d54(unsigned int *param_1);			__stdcall_softfp
+40404d5c	void recovered_40404d5c(unsigned long long *param_1);	r0		__stdcall_softfp
+404aa2b8	void recovered_404aa2b8(void);			__stdcall_softfp
+40450b50	void recovered_40450b50(char *param_1);	r0		__stdcall_softfp
+4049a5dc	unsigned char recovered_4049a5dc(unsigned long long *param_1,unsigned long *param_2);	r0,r1		__stdcall_softfp
+40406d6c	unsigned int recovered_40406d6c(void);			__stdcall_softfp
+40400608	unsigned long long recovered_40400608(void);			__stdcall_softfp
+40470e68	unsigned int recovered_40470e68(int param_1,unsigned int *param_2,unsigned int *param_3,int *param_4,int param_5);	r0,r1,r2,r3,stack0		__stdcall_softfp
+4042ac10	int * recovered_4042ac10(int *param_1);	r0		__stdcall_softfp
+40400f20	void *recovered_40400f20(void *data,unsigned long size);			__stdcall_softfp
+40431cd0	int recovered_40431cd0(int *param_1,int *param_2);	r0,r1		__stdcall_softfp
+404df938	unsigned char recovered_404df938(void);			__stdcall_softfp
+4042aca4	void recovered_4042aca4(void);			__stdcall_softfp
+404d4e5c	void recovered_404d4e5c(char *param_1,int param_2);	r0,r1		__stdcall_softfp
+4042da18	int * recovered_4042da18(int *param_1,int *param_2);			__stdcall_softfp
+4048641c	void recovered_4048641c(void);			__stdcall_softfp
+404dfa20	unsigned int recovered_404dfa20(int param_1,unsigned int param_2,char *param_3);	r0,r1,r2		__stdcall_softfp
+40438874	unsigned char recovered_40438874(char *param_1,char *param_2,unsigned int *param_3);	r0,r1,r2		__stdcall_softfp
+40498f5c	unsigned int recovered_40498f5c(unsigned int *param_1,int param_2);	r0,r1		__stdcall_softfp
+4041994c	void recovered_4041994c(int param_1);			__stdcall_softfp
+404e0448	unsigned int recovered_404e0448(int param_1,unsigned int param_2,unsigned int param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+404c6bec	int recovered_404c6bec(unsigned int param_1,int param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+404a2188	unsigned int recovered_404a2188(int *param_1,int param_2,int param_3);			__stdcall_softfp
+404e23dc	unsigned char recovered_404e23dc(int *param_1);			__stdcall_softfp
+404a2268	unsigned int recovered_404a2268(int param_1,int param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+404acf98	unsigned int recovered_404acf98(int *param_1,unsigned char *param_2,int param_3,unsigned int param_4,unsigned int *param_5);	r0,r1,r2,r3,stack0		__stdcall_softfp
+40434968	double recovered_40434968(unsigned int *param_1,int param_2,int param_3,unsigned int param_4);	r0,r1,r2,r3	r1,r0	__stdcall_softfp
+404be5d0	void recovered_404be5d0(char *param_1,unsigned char *param_2);	r0,r1		__stdcall_softfp
+4042ea78	void recovered_4042ea78(int *param_1,double *param_2);	r0,r1		__stdcall_softfp
+404079b4	unsigned int recovered_404079b4(void);			__stdcall_softfp
+404e24ac	unsigned int recovered_404e24ac(int *param_1);	r0		__stdcall_softfp
+4048accc	unsigned int recovered_4048accc(int param_1,unsigned int param_2,int param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+4049ab6c	unsigned char recovered_4049ab6c(unsigned long long *param_1,unsigned long *param_2);	r0,r1		__stdcall_softfp
+40409768	unsigned char recovered_40409768(unsigned int param_1,int param_2,int param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+4048aaf8	void recovered_4048aaf8(void *buffer);			__stdcall_softfp
+4040148c	void *recovered_4040148c(void *out,void *data,unsigned long count);			__stdcall_softfp
+404bdb1c	unsigned int recovered_404bdb1c(int *param_1,int param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+40427fe4	unsigned int recovered_40427fe4(unsigned int param_1,char *param_2,char *param_3,char *param_4,unsigned int param_5, unsigned int param_6);	r0,r1,r2,r3,stack0,stack4		__stdcall_softfp
+404005c4	int recovered_404005c4(void);			__stdcall_softfp
+40498740	unsigned int recovered_40498740(unsigned int *param_1,unsigned int param_2,int param_3,unsigned int *param_4);	r0,r1,r2,r3		__stdcall_softfp
+404df9f8	unsigned int recovered_404df9f8(void);			__stdcall_softfp
+404b8d78	unsigned int recovered_404b8d78(unsigned int *param_1,int param_2,int param_3,unsigned int *param_4);	r0,r1,r2,r3		__stdcall_softfp
+404c1ed0	unsigned int recovered_404c1ed0(int param_1,unsigned int *param_2);	r0,r1		__stdcall_softfp
+40435314	unsigned long long recovered_40435314(unsigned char param_1);	r0		__stdcall_softfp
+4044e96c	long long recovered_4044e96c(void);			__stdcall_softfp
+4041d2d0	unsigned char recovered_4041d2d0(unsigned int *param_1,int *param_2,int *param_3,int *param_4);	r0,r1,r2,r3		__stdcall_softfp
+40450dd0	unsigned int recovered_40450dd0(void);			__stdcall_softfp
+404b8f74	unsigned int recovered_404b8f74(int param_1,unsigned int param_2,int param_3,char *param_4,unsigned long param_5);	r0,r1,r2,r3,stack0		__stdcall_softfp
+4044fee8	unsigned char recovered_4044fee8(unsigned int param_1,int param_2,int param_3,unsigned int param_4,unsigned int param_5);	r0,r1,r2,r3,stack0		__stdcall_softfp
+4049bcbc	unsigned char recovered_4049bcbc(unsigned long *context,void *out);	r0,r1		__stdcall_softfp
+404c6eb0	unsigned int recovered_404c6eb0(unsigned int param_1,unsigned int param_2,unsigned int *param_3,unsigned int *param_4);	r0,r1,r2,r3		__stdcall_softfp
+40402a84	char * recovered_40402a84(char *param_1,char *param_2);	r0,r1		__stdcall_softfp
+40437e18	void * recovered_40437e18(unsigned int param_1);	r0		__stdcall_softfp
+404df9b8	unsigned int recovered_404df9b8(void);			__stdcall_softfp
+4045d05c	unsigned char recovered_4045d05c(char *text);	r0		__stdcall_softfp
+404024e8	unsigned char recovered_404024e8(int param_1);	r0		__stdcall_softfp
+40409a98	unsigned char recovered_40409a98(unsigned int param_1,unsigned int param_2,int param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+404bfcf4	unsigned int recovered_404bfcf4(long long *param_1,long long *param_2,int param_3);	r0,r1,r2		__stdcall_softfp
+404008d8	unsigned long long recovered_404008d8(unsigned int param_1,int param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+404d71e4	unsigned int recovered_404d71e4(int *param_1,unsigned char *param_2,int param_3,int param_4,int param_5,int *param_6);	r0,r1,r2,r3,stack0,stack4		__stdcall_softfp
+4048ae24	unsigned char recovered_4048ae24(void);			__stdcall_softfp
+40411e24	void recovered_40411e24(void);			__stdcall_softfp
+40418190	void recovered_40418190(void);			__stdcall_softfp
+40419dc0	unsigned char recovered_40419dc0(unsigned int param_1,unsigned int param_2);	r0,r1		__stdcall_softfp
+40494904	void recovered_40494904(int param_1,unsigned int *param_2);			__stdcall_softfp
+4041a7f0	unsigned char recovered_4041a7f0(unsigned char *param_1,unsigned int param_2);	r0,r1		__stdcall_softfp
+40437434	unsigned char recovered_40437434(char *param_1,void *param_2);	r0,r1		__stdcall_softfp
+4046d7a0	unsigned int recovered_4046d7a0(int *param_1,int param_2,int *param_3,unsigned int *param_4);	r0,r1,r2,r3		__stdcall_softfp
+4048ae48	unsigned int recovered_4048ae48(int param_1,unsigned int param_2,char *param_3);	r0,r1,r2		__stdcall_softfp
+40467d90	unsigned int recovered_40467d90(void);			__stdcall_softfp
+40438654	unsigned int recovered_40438654(int param_1,unsigned char *param_2);	r0,r1		__stdcall_softfp
+404be7c4	unsigned int recovered_404be7c4(unsigned int *param_1,int param_2,int param_3);			__stdcall_softfp
+40418784	unsigned int recovered_40418784(unsigned int *param_1);	r0		__stdcall_softfp
+404567b0	unsigned char recovered_404567b0(unsigned int param_1,unsigned int param_2);	r0,r1		__stdcall_softfp
+40457878	unsigned int recovered_40457878(void);			__stdcall_softfp
+40418ef0	unsigned int recovered_40418ef0(unsigned int param_1,int param_2);	r0,r1		__stdcall_softfp
+4049eaec	unsigned int recovered_4049eaec(int param_1);	r0		__stdcall_softfp
+404007d0	void recovered_404007d0(unsigned int *param_1,int param_2);	r0,r1		__stdcall_softfp
+404320f0	void recovered_404320f0(int param_1,unsigned int param_2);	r0,r1		__stdcall_softfp
+40419414	unsigned int recovered_40419414(void);			__stdcall_softfp
+404dbd90	void recovered_404dbd90(char *param_1,unsigned int *param_2);	r0,r1		__stdcall_softfp
+40403554	float recovered_40403554(float value);	r0	r0	__stdcall_softfp
+4042efe8	unsigned char recovered_4042efe8(int param_1,unsigned char *param_2);	r0,r1		__stdcall_softfp
+404cc0b4	unsigned int recovered_404cc0b4(int param_1,unsigned int param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+4046da2c	unsigned char recovered_4046da2c(int param_1,short *param_2,int param_3,unsigned int param_4,unsigned int param_5,int param_6 );	r0,r1,r2,r3,stack0,stack4		__stdcall_softfp
+40404c88	unsigned int recovered_40404c88(void);			__stdcall_softfp
+40427940	unsigned int recovered_40427940(unsigned int param_1,unsigned char *param_2,int param_3);	r0,r1,r2		__stdcall_softfp
+4049ad18	unsigned char recovered_4049ad18(unsigned long long *param_1,unsigned long *param_2);	r0,r1		__stdcall_softfp
+404c64f0	unsigned int recovered_404c64f0(unsigned int *param_1,unsigned int param_2,unsigned int *param_3);	r0,r1,r2		__stdcall_softfp
+4048e730	int recovered_4048e730(int param_1,int param_2);			__stdcall_softfp
+4040249c	unsigned char recovered_4040249c(unsigned int param_1);	r0		__stdcall_softfp
+404beb7c	unsigned int recovered_404beb7c(int *param_1);			__stdcall_softfp
+4048b3e0	unsigned int recovered_4048b3e0(unsigned int param_1);	r0		__stdcall_softfp
+404c8d00	unsigned int recovered_404c8d00(int param_1,int param_2);	r0,r1		__stdcall_softfp
+404061bc	unsigned int recovered_404061bc(void);			__stdcall_softfp
+404a0838	unsigned int recovered_404a0838(int param_1,int param_2);	r0,r1		__stdcall_softfp
+40413370	unsigned char recovered_40413370(unsigned int param_1,unsigned int param_2,unsigned int param_3,unsigned int param_4,unsigned int param_5,unsigned int *param_6);	r0,r1,r2,r3,stack0,stack4		__stdcall_softfp
+4049e524	unsigned int recovered_4049e524(int param_1,int param_2,int param_3);			__stdcall_softfp
+4046dc74	unsigned int recovered_4046dc74(int param_1,int param_2,int param_3,unsigned int param_4,unsigned int param_5,unsigned int param_6, unsigned int param_7);	r0,r1,r2,r3,stack0,stack4,stack8		__stdcall_softfp
+40439650	unsigned int recovered_40439650(char *name);	r0		__stdcall_softfp
+40474750	unsigned int recovered_40474750(char *param_1,unsigned int param_2,int param_3);	r0,r1,r2		__stdcall_softfp
+404d57b4	void recovered_404d57b4(int param_1,int param_2);	r0,r1		__stdcall_softfp
+404399cc	unsigned int recovered_404399cc(char *param_1,unsigned char *param_2,unsigned char *param_3,int *param_4);	r0,r1,r2,r3		__stdcall_softfp
+4042bc88	unsigned long long recovered_4042bc88(int param_1);	r0		__stdcall_softfp
+4040a81c	void recovered_4040a81c(unsigned int param_1,unsigned int param_2,unsigned int param_3,unsigned char param_4);	r0,r1,r2,r3		__stdcall_softfp
+404cb45c	char * recovered_404cb45c(char *param_1,unsigned int param_2,char *param_3);	r0,r1,r2		__stdcall_softfp
+404032a8	float recovered_404032a8(float left,float right);	r0,r1	r0	__stdcall_softfp
+40419acc	void recovered_40419acc(unsigned int *param_1);	r0		__stdcall_softfp
+404df948	unsigned char recovered_404df948(void);			__stdcall_softfp
+40407b10	unsigned int recovered_40407b10(unsigned int param_1,int param_2,int param_3,unsigned int *param_4, unsigned int *param_5);	r0,r1,r2,r3,stack0		__stdcall_softfp
+40412218	unsigned int recovered_40412218(unsigned int param_1,unsigned int *param_2,unsigned int *param_3);	r0,r1,r2		__stdcall_softfp
+4041995c	int recovered_4041995c(int param_1);	r0		__stdcall_softfp
+404988f4	unsigned char recovered_404988f4(long param_1,unsigned long *param_2,unsigned long param_3,unsigned long param_4,unsigned long *param_5);	r0,r1,r2,r3,stack0		__stdcall_softfp
+4048b92c	unsigned int recovered_4048b92c(unsigned int param_1,unsigned int param_2,int param_3,unsigned char param_4);	r0,r1,r2,r3		__stdcall_softfp
+40472dfc	int recovered_40472dfc(int param_1);	r0		__stdcall_softfp
+404097f4	unsigned char recovered_404097f4(int drive,unsigned int sector,void *buffer,unsigned int bytes);	r0,r1,r2,r3		__stdcall_softfp
+404ce220	int recovered_404ce220(unsigned int param_1,int param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+404c662c	void recovered_404c662c(unsigned int param_1);	r0		__stdcall_softfp
+404a0e1c	unsigned int recovered_404a0e1c(int *param_1,int *param_2,int param_3);			__stdcall_softfp
+40419514	long recovered_40419514(int param_1);	r0		__stdcall_softfp
+40419424	void recovered_40419424(void);			__stdcall_softfp
+404572ec	unsigned int recovered_404572ec(void);			__stdcall_softfp
+404d7990	void recovered_404d7990(int param_1);			__stdcall_softfp
+40465d30	unsigned int recovered_40465d30(unsigned int *param_1,unsigned int *param_2);	r0,r1		__stdcall_softfp
+4040251c	unsigned long recovered_4040251c(char *text);			__stdcall_softfp
+404a094c	unsigned int recovered_404a094c(int *param_1,int *param_2,unsigned int *param_3);			__stdcall_softfp
+4046be5c	unsigned char recovered_4046be5c(int param_1,int param_2);	r0,r1		__stdcall_softfp
+404376f0	unsigned int recovered_404376f0(char *param_1);	r0		__stdcall_softfp
+40432b90	void recovered_40432b90(int param_1,unsigned int param_2);	r0,r1		__stdcall_softfp
+40407888	void recovered_40407888(unsigned int param_1);	r0		__stdcall_softfp
+40400658	int recovered_40400658(void);			__stdcall_softfp
+404df9b4	unsigned int recovered_404df9b4(void);			__stdcall_softfp
+40419468	 void recovered_40419468(void *context,int value);	r0,r1		__stdcall_softfp
+4041a13c	unsigned long long recovered_4041a13c(unsigned char *param_1,unsigned int *param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+40460498	unsigned int recovered_40460498(int param_1,int param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+40427e9c	unsigned int recovered_40427e9c(int *param_1,int *param_2);	r0,r1		__stdcall_softfp
+40405664	unsigned int recovered_40405664(unsigned int param_1,unsigned int param_2,unsigned int param_3,unsigned int param_4,unsigned int param_5, unsigned int param_6);	r0,r1,r2,r3,stack0,stack4		__stdcall_softfp
+404060c4	void recovered_404060c4(void);			__stdcall_softfp
+4043a5b0	unsigned int recovered_4043a5b0(int device,char *path);	r0,r1		__stdcall_softfp
+404111bc	void recovered_404111bc(unsigned int *param_1,unsigned int *param_2,unsigned int *param_3);	r0,r1,r2		__stdcall_softfp
+404362d0	unsigned int recovered_404362d0(int param_1,unsigned int param_2,int param_3);	r0,r1,r2		__stdcall_softfp
+404235dc	unsigned int recovered_404235dc(unsigned int *param_1,unsigned char *param_2);	r0,r1		__stdcall_softfp
+40403068	double recovered_40403068(double value);		r1,r0	__stdcall_softfp
+404c0754	unsigned int recovered_404c0754(int *param_1,int *param_2);	r0,r1		__stdcall_softfp
+4044f930	unsigned char recovered_4044f930(unsigned int param_1,char *param_2,void *param_3,unsigned int param_4,unsigned int param_5, unsigned int param_6,unsigned int param_7);	r0,r1,r2,r3,stack0,stack4,stack8		__stdcall_softfp
+40495430	unsigned char recovered_40495430(int param_1,unsigned int param_2,unsigned int param_3,unsigned int *param_4);	r0,r1,r2,r3		__stdcall_softfp
+4048b6d8	void recovered_4048b6d8(unsigned int param_1,unsigned int param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+40485814	unsigned long long recovered_40485814(char *param_1,int param_2,int param_3);	r0,r1,r2		__stdcall_softfp
+40428d38	void recovered_40428d38(int *param_1,float param_2);	r0,r1		__stdcall_softfp
+404032ec	float recovered_404032ec(float param_1,int *param_2);	r0,r1	r0	__stdcall_softfp
+4040245c	unsigned char recovered_4040245c(int param_1);	r0		__stdcall_softfp
+40402af4	unsigned int recovered_40402af4(void);			__stdcall_softfp
+40407dfc	void recovered_40407dfc(void);			__stdcall_softfp
+404315f0	unsigned long long recovered_404315f0(int param_1);	r0		__stdcall_softfp
+40489f34	unsigned int recovered_40489f34(unsigned int *param_1);	r0		__stdcall_softfp
+4044fce8	unsigned char recovered_4044fce8(unsigned int param_1);	r0		__stdcall_softfp
+404b963c	unsigned int recovered_404b963c(unsigned short *param_1);			__stdcall_softfp
+40402fb8	double recovered_40402fb8(double value);		r1,r0	__stdcall_softfp
+40400830	long long recovered_40400830(unsigned int param_1,int param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+404be6c4	unsigned int recovered_404be6c4(int *param_1,int param_2,int param_3);	r0,r1,r2		__stdcall_softfp
+404c9020	void recovered_404c9020(int param_1);			__stdcall_softfp
+4048e6e0	void recovered_4048e6e0(int *param_1,int param_2);			__stdcall_softfp
+404192a0	unsigned int recovered_404192a0(void);			__stdcall_softfp
+40419b08	void recovered_40419b08(void);			__stdcall_softfp
+4044fd38	unsigned char recovered_4044fd38(void *param_1,unsigned int param_2,unsigned int *param_3);	r0,r1,r2		__stdcall_softfp
+40439e18	unsigned int recovered_40439e18(int device,char *path);	r0,r1		__stdcall_softfp
+4048ae34	unsigned char recovered_4048ae34(void);			__stdcall_softfp
+40417e00	void recovered_40417e00(char *param_1,int param_2);	r0,r1		__stdcall_softfp
+4045e81c	void recovered_4045e81c(char *text);	r0		__stdcall_softfp
+4043808c	void * recovered_4043808c(void *param_1,unsigned int param_2);	r0,r1		__stdcall_softfp
+40419c0c	int recovered_40419c0c(int *param_1,unsigned int param_2,int *param_3);	r0,r1,r2		__stdcall_softfp
+404953f0	void recovered_404953f0(int param_1,int param_2);			__stdcall_softfp
+404d1cec	unsigned int recovered_404d1cec(unsigned int param_1,unsigned int param_2,unsigned int param_3,int param_4,int param_5);	r0,r1,r2,r3,stack0		__stdcall_softfp
+4048a058	unsigned int recovered_4048a058(int param_1,unsigned int *param_2);	r0,r1		__stdcall_softfp
+40457918	int recovered_40457918(char *param_1,int param_2);	r0,r1		__stdcall_softfp
+4040a890	unsigned int recovered_4040a890(void);			__stdcall_softfp
+40410d4c	void recovered_40410d4c(unsigned int *param_1,unsigned int *param_2,unsigned int *param_3, unsigned int *param_4);	r0,r1,r2,r3		__stdcall_softfp
+404d9684	int recovered_404d9684(unsigned int *param_1,int *param_2);			__stdcall_softfp
+4043bb94	void recovered_4043bb94(const char *format,...);	r0		__stdcall_softfp
+404b8a34	int recovered_404b8a34(int param_1,int param_2,int param_3);	r0,r1,r2		__stdcall_softfp
+404dc074	unsigned long long recovered_404dc074(char *param_1,int param_2);	r0,r1		__stdcall_softfp
+4041a8d4	unsigned char recovered_4041a8d4(unsigned char *param_1,unsigned int param_2);	r0,r1		__stdcall_softfp
+40400924	unsigned long long recovered_40400924(unsigned int param_1,unsigned int param_2,unsigned int param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+40461c8c	unsigned char recovered_40461c8c(unsigned int param_1);	r0		__stdcall_softfp
+40406f48	void recovered_40406f48(unsigned int param_1,unsigned int param_2,unsigned int param_3,unsigned int param_4,unsigned int param_5);	r0,r1,r2,r3,stack0		__stdcall_softfp
+40437f90	void recovered_40437f90(void *param_1);	r0		__stdcall_softfp
+404d7428	void recovered_404d7428(int param_1);			__stdcall_softfp
+404a2098	unsigned int recovered_404a2098(int *param_1,int param_2);	r0,r1		__stdcall_softfp
+40413834	unsigned int recovered_40413834(int param_1,unsigned int *param_2);	r0,r1		__stdcall_softfp
+40404c98	unsigned int recovered_40404c98(unsigned int param_1,unsigned char *param_2,int param_3);	r0,r1,r2		__stdcall_softfp
+40437630	void * recovered_40437630(char *param_1,float param_2);	r0,r1		__stdcall_softfp
+40470ff8	unsigned long long recovered_40470ff8(unsigned int *param_1,int param_2);	r0,r1		__stdcall_softfp
+404a2a2c	unsigned char recovered_404a2a2c(void *context,char *name,pf_kernel_value *values,unsigned long count,pf_kernel_value *out);			__stdcall_softfp
+40435418	unsigned long long recovered_40435418(char *param_1);	r0		__stdcall_softfp
+4045fe18	void recovered_4045fe18(unsigned int param_1,unsigned int param_2);	r0,r1		__stdcall_softfp
+4043ab30	void * recovered_4043ab30(int device,char *path,float pixels);	r0,r1,r2		__stdcall_softfp
+4041a2b4	unsigned long long recovered_4041a2b4(unsigned char *param_1,unsigned int *param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+404740b4	unsigned int recovered_404740b4(int param_1,unsigned int param_2,int param_3,int param_4,unsigned int *param_5,int param_6);	r0,r1,r2,r3,stack0,stack4		__stdcall_softfp
+404c7064	void recovered_404c7064(int param_1,int param_2);	r0,r1		__stdcall_softfp
+40437764	unsigned long recovered_40437764(unsigned char *param_1,int param_2,char *param_3,int param_4);	r0,r1,r2,r3		__stdcall_softfp
+404d23cc	unsigned int recovered_404d23cc(int param_1,int param_2,unsigned char *param_3,int param_4,unsigned char *param_5);	r0,r1,r2,r3,stack0		__stdcall_softfp
+40431608	unsigned long long recovered_40431608(int param_1);	r0		__stdcall_softfp
+404180fc	void recovered_404180fc(int param_1,int param_2);	r0,r1		__stdcall_softfp
+404cc824	void recovered_404cc824(int param_1,int param_2);	r0,r1		__stdcall_softfp
+4046563c	unsigned int recovered_4046563c(unsigned int param_1,unsigned int param_2,int param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+40468004	unsigned int recovered_40468004(void);			__stdcall_softfp
+4045fd1c	unsigned int recovered_4045fd1c(unsigned int param_1,unsigned int param_2);	r0,r1		__stdcall_softfp
+40418314	unsigned int recovered_40418314(void);			__stdcall_softfp
+4044f630	unsigned int recovered_4044f630(char *param_1,unsigned int param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+4048a35c	unsigned int recovered_4048a35c(unsigned long long *param_1);	r0		__stdcall_softfp
+40402018	void recovered_40402018(unsigned char *param_1,int param_2);	r0,r1		__stdcall_softfp
+4049e91c	unsigned int recovered_4049e91c(char *param_1);	r0		__stdcall_softfp
+404c5c44	int recovered_404c5c44(unsigned int param_1,unsigned int param_2,unsigned int *param_3,int param_4);	r0,r1,r2,r3		__stdcall_softfp
+40420d90	unsigned int recovered_40420d90(int param_1,unsigned char *param_2,unsigned char *param_3,unsigned char *param_4);	r0,r1,r2,r3		__stdcall_softfp
+4041f2f0	unsigned char recovered_4041f2f0(int param_1,unsigned int param_2,unsigned int param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+404aaa08	unsigned int recovered_404aaa08(int *param_1);			__stdcall_softfp
+40412248	unsigned long long recovered_40412248(void);			__stdcall_softfp
+40419a7c	void recovered_40419a7c(void);			__stdcall_softfp
+404863fc	unsigned char recovered_404863fc(void);			__stdcall_softfp
+404055c8	unsigned int recovered_404055c8(unsigned int param_1,unsigned int param_2,unsigned int param_3,unsigned int param_4,unsigned int param_5,unsigned int *param_6);	r0,r1,r2,r3,stack0,stack4		__stdcall_softfp
+404bcdd8	unsigned int recovered_404bcdd8(int *param_1,unsigned char *param_2,int *param_3,int param_4,unsigned int *param_5, int param_6);	r0,r1,r2,r3,stack0,stack4		__stdcall_softfp
+40468664	unsigned int recovered_40468664(unsigned int *param_1,int param_2,int param_3,unsigned int *param_4,int param_5,int param_6, unsigned int param_7,unsigned int param_8,int *param_9,unsigned int *param_10);	r0,r1,r2,r3,stack0,stack4,stack8,stack12,stack16,stack20		__stdcall_softfp
+40436cbc	unsigned int recovered_40436cbc(int param_1,unsigned char param_2);	r0,r1		__stdcall_softfp
+40494978	unsigned int recovered_40494978(int param_1,unsigned int *param_2);	r0,r1		__stdcall_softfp
+404d80a4	unsigned char recovered_404d80a4(int param_1,unsigned int param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+404df87c	unsigned int recovered_404df87c(void);			__stdcall_softfp
+404951d4	unsigned int recovered_404951d4(unsigned int *param_1);			__stdcall_softfp
+40403500	double recovered_40403500(double value);		r1,r0	__stdcall_softfp
+40402544	int recovered_40402544(char *left,char *right);	r0,r1		__stdcall_softfp
+404389b0	unsigned int recovered_404389b0(void *devices,unsigned int capacity,unsigned int *count);	r0,r1,r2		__stdcall_softfp
+4044fb20	int recovered_4044fb20(int param_1);	r0		__stdcall_softfp
+404061a0	void recovered_404061a0(void);			__stdcall_softfp
+404a0ed8	unsigned int recovered_404a0ed8(unsigned int *param_1,int *param_2,unsigned int *param_3,unsigned int param_4,unsigned int *param_5);	r0,r1,r2,r3,stack0		__stdcall_softfp
+40450bec	unsigned int recovered_40450bec(void);			__stdcall_softfp
+4046d2b8	unsigned int recovered_4046d2b8(int *param_1,int param_2,unsigned char *param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+4042bcb4	unsigned long long recovered_4042bcb4(int param_1);	r0		__stdcall_softfp
+40461b88	unsigned char recovered_40461b88(unsigned int param_1);			__stdcall_softfp
+40426720	unsigned int recovered_40426720(int *param_1,unsigned int param_2,unsigned int *param_3);	r0,r1,r2		__stdcall_softfp
+40498d84	unsigned int recovered_40498d84(int param_1,unsigned int *param_2);	r0,r1		__stdcall_softfp
+4040a850	unsigned int recovered_4040a850(int param_1);	r0		__stdcall_softfp
+40400c5c	void recovered_40400c5c(void);			__stdcall_softfp
+404a1b60	unsigned char recovered_404a1b60(int *param_1,int *param_2);	r0,r1		__stdcall_softfp
+40404d80	void recovered_40404d80(int param_1);	r0		__stdcall_softfp
+40468cc0	void recovered_40468cc0(int *param_1);			__stdcall_softfp
+404d8548	unsigned int recovered_404d8548(int param_1,int param_2);			__stdcall_softfp
+40407918	void recovered_40407918(unsigned int param_1,unsigned int param_2);	r0,r1		__stdcall_softfp
+40471020	unsigned int recovered_40471020(int param_1,unsigned int param_2,int param_3,int param_4);	r0,r1,r2,r3		__stdcall_softfp
+404bea80	unsigned int recovered_404bea80(int *param_1,unsigned char *param_2,int param_3,int param_4);	r0,r1,r2,r3		__stdcall_softfp
+404061ac	unsigned int recovered_404061ac(void);			__stdcall_softfp
+4040391c	int recovered_4040391c(unsigned char *param_1,unsigned int *param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+40497bec	unsigned int recovered_40497bec(unsigned int *param_1);	r0		__stdcall_softfp
+4049a100	unsigned char recovered_4049a100(int *param_1,long *param_2,unsigned long *param_3);	r0,r1,r2		__stdcall_softfp
+40419d00	unsigned int recovered_40419d00(void);			__stdcall_softfp
+404c4958	unsigned int recovered_404c4958(int param_1,unsigned int param_2);	r0,r1		__stdcall_softfp
+4044a8b0	unsigned char recovered_4044a8b0(char *param_1,char *param_2);	r0,r1		__stdcall_softfp
+404250cc	int recovered_404250cc(int *param_1,int param_2,unsigned char *param_3,unsigned char *param_4);	r0,r1,r2,r3		__stdcall_softfp
+404df958	unsigned char recovered_404df958(void);			__stdcall_softfp
+40419c00	void recovered_40419c00(void);			__stdcall_softfp
+40427cb4	void recovered_40427cb4(int *param_1,unsigned int *param_2);	r0,r1		__stdcall_softfp
+4045004c	unsigned char recovered_4045004c(unsigned int param_1,void *param_2);	r0,r1		__stdcall_softfp
+40412184	unsigned int recovered_40412184(void);			__stdcall_softfp
+4049e6f4	unsigned char recovered_4049e6f4(long text,int *out);	r0,r1		__stdcall_softfp
+40403bd0	double recovered_40403bd0(char *text,char **end);	r0,r1	r1,r0	__stdcall_softfp
+404029c0	int recovered_404029c0(int param_1,char *param_2);	r0,r1		__stdcall_softfp
+40431988	long * recovered_40431988(int *param_1,unsigned int *param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+404d1ac8	void recovered_404d1ac8(int param_1,unsigned int param_2,unsigned char *param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+4043942c	unsigned int recovered_4043942c(int device,char *path,void *blob);	r0,r1,r2		__stdcall_softfp
+40406230	unsigned int recovered_40406230(unsigned int *param_1,int param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+404638bc	unsigned int recovered_404638bc(unsigned int param_1,unsigned int param_2,int param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+404192ac	unsigned int recovered_404192ac(void);			__stdcall_softfp
+404b8720	unsigned int recovered_404b8720(int param_1,int param_2,int *param_3,int *param_4,int *param_5,int *param_6);	r0,r1,r2,r3,stack0,stack4		__stdcall_softfp
+404e055c	unsigned int recovered_404e055c(int param_1,int param_2,char *param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+40418ddc	unsigned int recovered_40418ddc(unsigned int *param_1);	r0		__stdcall_softfp
+404d1c58	unsigned int recovered_404d1c58(unsigned int param_1,unsigned int param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+4040250c	int recovered_4040250c(int param_1);	r0		__stdcall_softfp
+40402a24	char * recovered_40402a24(char *param_1,char *param_2);	r0,r1		__stdcall_softfp
+404b5b10	unsigned int recovered_404b5b10(int *param_1,unsigned char *param_2,int param_3,unsigned int param_4,unsigned int *param_5);	r0,r1,r2,r3,stack0		__stdcall_softfp
+404391c8	void recovered_404391c8(char *param_1,int param_2,char *param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+404c69f4	unsigned int recovered_404c69f4(int param_1,unsigned int param_2,unsigned int *param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+40467a30	unsigned char recovered_40467a30(unsigned int param_1,int param_2,unsigned int param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+4040611c	unsigned char recovered_4040611c(int param_1,int param_2,int param_3,int *param_4);	r0,r1,r2,r3		__stdcall_softfp
+4044c290	unsigned char recovered_4044c290(unsigned int *param_1);	r0		__stdcall_softfp
+4049dddc	unsigned char recovered_4049dddc(int *param_1,int *param_2,int *param_3,unsigned char *param_4);	r0,r1,r2,r3		__stdcall_softfp
+404aa1a8	unsigned char recovered_404aa1a8(int param_1,int param_2);			__stdcall_softfp
+404574a0	void recovered_404574a0(unsigned int param_1,unsigned int param_2,int param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+40419d08	unsigned char recovered_40419d08(int param_1);	r0		__stdcall_softfp
+4049a4ec	unsigned int recovered_4049a4ec(int param_1,unsigned int param_2);			__stdcall_softfp
+404c8c68	void recovered_404c8c68(int param_1,unsigned char param_2,unsigned int param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+4042ab74	void recovered_4042ab74(int *param_1);	r0		__stdcall_softfp
+40407584	void recovered_40407584(int param_1,int param_2,int param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+404dc4b8	void recovered_404dc4b8(void);			__stdcall_softfp
+40404c68	unsigned int recovered_40404c68(void);			__stdcall_softfp
+40419bf8	unsigned int recovered_40419bf8(void);			__stdcall_softfp
+404120fc	unsigned char recovered_404120fc(unsigned char *param_1);	r0		__stdcall_softfp
+404cbe44	unsigned char recovered_404cbe44(int param_1,unsigned int param_2,int param_3,unsigned int param_4,unsigned int param_5);	r0,r1,r2,r3,stack0		__stdcall_softfp
+4040a7cc	unsigned int recovered_4040a7cc(void);			__stdcall_softfp
+4048aae8	unsigned long * recovered_4048aae8(int param_1);			__stdcall_softfp
+4045b508	void recovered_4045b508(int param_1);	r0		__stdcall_softfp
+404a2810	unsigned int recovered_404a2810(unsigned int *param_1,int param_2,int param_3);			__stdcall_softfp
+404a19b8	unsigned char recovered_404a19b8(int *param_1,int *param_2);	r0,r1		__stdcall_softfp
+404dc7f0	unsigned int recovered_404dc7f0(unsigned int param_1,unsigned int *param_2);	r0,r1		__stdcall_softfp
+40412234	unsigned int recovered_40412234(void);			__stdcall_softfp
+40439ebc	unsigned int recovered_40439ebc(int device,char *old_path,char *new_path);	r0,r1,r2		__stdcall_softfp
+40434068	unsigned int * recovered_40434068(int param_1,unsigned short *param_2,unsigned int *param_3,unsigned short *param_4);	r0,r1,r2,r3		__stdcall_softfp
+4048e77c	unsigned int recovered_4048e77c(int param_1,int ****param_2);	r0,r1		__stdcall_softfp
+40438c5c	unsigned char recovered_40438c5c(void);			__stdcall_softfp
+40402470	unsigned char recovered_40402470(int param_1);	r0		__stdcall_softfp
+40413734	unsigned long long recovered_40413734(void);			__stdcall_softfp
+404ac810	unsigned int recovered_404ac810(int *param_1,unsigned char *param_2,int param_3,unsigned int param_4,unsigned int param_5,int *param_6);	r0,r1,r2,r3,stack0,stack4		__stdcall_softfp
+4041956c	void * recovered_4041956c(unsigned long size);			__stdcall_softfp
+404dfb0c	short recovered_404dfb0c(void);			__stdcall_softfp
+40400884	unsigned long long recovered_40400884(unsigned int param_1,unsigned int param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+40400c64	int recovered_40400c64(int param_1);	r0		__stdcall_softfp
+4043a998	unsigned int recovered_4043a998(int device,char *path,void *image);	r0,r1,r2		__stdcall_softfp
+4042aaac	int * recovered_4042aaac(int *param_1);	r0		__stdcall_softfp
+4043180c	void recovered_4043180c(int *param_1,unsigned int param_2);	r0,r1		__stdcall_softfp
+40404c80	unsigned int recovered_40404c80(void);			__stdcall_softfp
+404bcc40	float recovered_404bcc40(float param_1);	s0	s0	__stdcall_softfp
+4049a884	unsigned char recovered_4049a884(unsigned long long *param_1,unsigned long *param_2);	r0,r1		__stdcall_softfp
+404df7f8	unsigned int recovered_404df7f8(unsigned int param_1,unsigned int param_2);	r0,r1		__stdcall_softfp
+40417b7c	unsigned int recovered_40417b7c(int param_1,unsigned int param_2,unsigned int param_3,int param_4);	r0,r1,r2,r3		__stdcall_softfp
+4045f00c	void recovered_4045f00c(unsigned int *param_1,unsigned int param_2,unsigned int param_3,int param_4,int param_5, unsigned char param_6,unsigned char param_7,unsigned char param_8);	r0,r1,r2,r3,stack0,stack4,stack8,stack12		__stdcall_softfp
+404dd71c	void recovered_404dd71c(int param_1,unsigned int param_2,unsigned int param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+404ca6dc	unsigned int recovered_404ca6dc(char *param_1);	r0		__stdcall_softfp
+40402ec8	long long recovered_40402ec8(unsigned int param_1,unsigned int param_2);	r0,r1		__stdcall_softfp
+40419d5c	unsigned char recovered_40419d5c(unsigned int param_1);	r0		__stdcall_softfp
+40495b20	unsigned long long recovered_40495b20(unsigned int *param_1);			__stdcall_softfp
+40406198	unsigned int recovered_40406198(void);			__stdcall_softfp
+40411f14	void recovered_40411f14(char *param_1);	r0		__stdcall_softfp
+4044fdc0	void recovered_4044fdc0(int param_1,unsigned int *param_2);	r0,r1		__stdcall_softfp
+404d00a8	unsigned int recovered_404d00a8(unsigned int param_1,unsigned char *param_2,unsigned char *param_3,int param_4);	r0,r1,r2,r3		__stdcall_softfp
+404bde98	unsigned int recovered_404bde98(unsigned int param_1,unsigned int param_2,int param_3,int param_4,unsigned int param_5);	r0,r1,r2,r3,stack0		__stdcall_softfp
+4045bef0	unsigned char recovered_4045bef0(int param_1,char *param_2);	r0,r1		__stdcall_softfp
+40402484	unsigned char recovered_40402484(unsigned int param_1);	r0		__stdcall_softfp
+4046f560	long long recovered_4046f560(unsigned char *UNRECOVERED_JUMPTABLE);			__stdcall_softfp
+40450200	unsigned int recovered_40450200(unsigned int window,unsigned int group,unsigned int item);	r0,r1,r2		__stdcall_softfp
+4046b9e4	unsigned int recovered_4046b9e4(int param_1,int *param_2,int *param_3,int param_4,unsigned char *param_5,int param_6 );	r0,r1,r2,r3,stack0,stack4		__stdcall_softfp
+40418ec4	unsigned char recovered_40418ec4(int param_1);	r0		__stdcall_softfp
+404202f0	unsigned int recovered_404202f0(unsigned int *param_1,unsigned char *param_2,unsigned char *param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+4047f508	unsigned int recovered_4047f508(void);			__stdcall_softfp
+404031d0	double recovered_404031d0(unsigned long long param_1);		r1,r0	__stdcall_softfp
+404c70cc	unsigned int recovered_404c70cc(unsigned int param_1);	r0		__stdcall_softfp
+4042eee0	int * recovered_4042eee0(int *param_1);	r0		__stdcall_softfp
+40403dc0	int recovered_40403dc0(char *out,unsigned long capacity,char *format,void *args);			__stdcall_softfp
+4046d590	unsigned int recovered_4046d590(int *param_1,int param_2,int param_3);	r0,r1,r2		__stdcall_softfp
+404aa788	unsigned int recovered_404aa788(int *param_1,unsigned char *param_2,int param_3,unsigned int param_4,unsigned int param_5,int *param_6);	r0,r1,r2,r3,stack0,stack4		__stdcall_softfp
+4048ae14	unsigned char recovered_4048ae14(void);			__stdcall_softfp
+404d4f20	unsigned char recovered_404d4f20(char *param_1,int param_2);	r0,r1		__stdcall_softfp
+4043976c	unsigned char recovered_4043976c(unsigned int param_1,unsigned int param_2,unsigned int param_3,int param_4);	r0,r1,r2,r3		__stdcall_softfp
+4040a8f4	unsigned int recovered_4040a8f4(unsigned int *param_1);	r0		__stdcall_softfp
+40435874	unsigned int recovered_40435874(void);			__stdcall_softfp
+404bda78	unsigned int recovered_404bda78(int *param_1,int param_2,int param_3);	r0,r1,r2		__stdcall_softfp
+40434d38	void recovered_40434d38(void);			__stdcall_softfp
+4049df38	unsigned int recovered_4049df38(int *param_1,int *param_2,int *param_3,int param_4,unsigned char *param_5);	r0,r1,r2,r3,stack0		__stdcall_softfp
+404aa104	void recovered_404aa104(void);			__stdcall_softfp
+40418054	void recovered_40418054(void);			__stdcall_softfp
+404e261c	unsigned long long recovered_404e261c(char *format,...);	r0		__stdcall_softfp
+4048e22c	int recovered_4048e22c(int param_1,unsigned int *param_2);	r0,r1		__stdcall_softfp
+4046c8c0	unsigned int recovered_4046c8c0(int param_1,unsigned int param_2,unsigned int *param_3,int *param_4,unsigned int *param_5,unsigned int *param_6, unsigned int *param_7,int *param_8,unsigned int *param_9);	r0,r1,r2,r3,stack0,stack4,stack8,stack12,stack16		__stdcall_softfp
+40419bec	void recovered_40419bec(void);			__stdcall_softfp
+4042eca8	void recovered_4042eca8(int *param_1);	r0		__stdcall_softfp
+404392d0	unsigned int recovered_404392d0(int param_1);	r0		__stdcall_softfp
+404062e8	unsigned int recovered_404062e8(unsigned int *param_1,int param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+4048a1b0	unsigned int recovered_4048a1b0(int param_1,unsigned int param_2,int param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+40498c28	float recovered_40498c28(unsigned int *value);	r0	s0	__stdcall_softfp
+404e43ec	unsigned int recovered_404e43ec(int param_1,int param_2);	r0,r1		__stdcall_softfp
+4044b96c	unsigned int recovered_4044b96c(void);			__stdcall_softfp
+40404cc0	void recovered_40404cc0(int *param_1);	r0		__stdcall_softfp
+4041223c	unsigned int recovered_4041223c(void);			__stdcall_softfp
+404d1e08	unsigned int recovered_404d1e08(char *param_1,unsigned int param_2,unsigned int param_3,int param_4,int param_5);	r0,r1,r2,r3,stack0		__stdcall_softfp
+40400a88	unsigned long long recovered_40400a88(unsigned int param_1,unsigned int param_2,unsigned int param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+40466a80	unsigned int recovered_40466a80(int param_1,int param_2);	r0,r1		__stdcall_softfp
+4048e9a0	unsigned char recovered_4048e9a0(char **lines,unsigned long count,void *first,void *second,void *third);			__stdcall_softfp
+40418308	unsigned int recovered_40418308(void);			__stdcall_softfp
+404977e4	unsigned int recovered_404977e4(unsigned int *param_1);			__stdcall_softfp
+40403a70	int recovered_40403a70(unsigned char *param_1,unsigned int *param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+404192bc	unsigned int recovered_404192bc(void);			__stdcall_softfp
+40402ccc	double recovered_40402ccc(double value);		r1,r0	__stdcall_softfp
+40456218	unsigned int recovered_40456218(unsigned int param_1,unsigned int param_2,unsigned char param_3);	r0,r1,r2		__stdcall_softfp
+404d7d88	unsigned int recovered_404d7d88(int *param_1,unsigned int *param_2);			__stdcall_softfp
+4048a2bc	unsigned int recovered_4048a2bc(unsigned long long *param_1);	r0		__stdcall_softfp
+40466e80	unsigned char recovered_40466e80(char *param_1,char *param_2);	r0,r1		__stdcall_softfp
+404a9f74	unsigned int recovered_404a9f74(void);			__stdcall_softfp
+4045b8fc	unsigned int recovered_4045b8fc(void);			__stdcall_softfp
+40433ab0	unsigned int recovered_40433ab0(int *param_1,unsigned char *param_2,unsigned int param_3,unsigned long long *param_4,int *param_5, unsigned int param_6,int *param_7);	r0,r1,r2,r3,stack0,stack4,stack8		__stdcall_softfp
+404d64b8	unsigned int recovered_404d64b8(int param_1,int *param_2,unsigned int param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+404508dc	unsigned int recovered_404508dc(void);			__stdcall_softfp
+40419488	void recovered_40419488(void);			__stdcall_softfp
+40432470	unsigned int recovered_40432470(int *param_1,int *param_2,int param_3,unsigned int param_4);			__stdcall_softfp
+404199e8	unsigned long long recovered_404199e8(unsigned int *param_1);	r0		__stdcall_softfp
+4040374c	unsigned long long recovered_4040374c(void);			__stdcall_softfp
+4048aafc	unsigned int recovered_4048aafc(unsigned char *param_1,int param_2,int param_3);	r0,r1,r2		__stdcall_softfp
+40419598	void recovered_40419598(void *data);	r0		__stdcall_softfp
+40404cb8	unsigned int recovered_40404cb8(void);			__stdcall_softfp
+4049b99c	unsigned char recovered_4049b99c(unsigned long long *param_1,unsigned long *param_2);	r0,r1		__stdcall_softfp
+40402214	int recovered_40402214(void *left,void *right,unsigned long size);	r0,r1,r2		__stdcall_softfp
+40402588	int recovered_40402588(char *left,char *right);	r0,r1		__stdcall_softfp
+40419964	void recovered_40419964(void);			__stdcall_softfp
+404061b4	unsigned int recovered_404061b4(void);			__stdcall_softfp
+40419658	void recovered_40419658(void *data);	r0		__stdcall_softfp
+404136ac	unsigned char recovered_404136ac(int param_1,unsigned int *param_2);	r0,r1		__stdcall_softfp
+40458430	void recovered_40458430(void);			__stdcall_softfp
+40408a4c	unsigned int recovered_40408a4c(int param_1,int *param_2);	r0,r1		__stdcall_softfp
+4041a2b8	unsigned int recovered_4041a2b8(int param_1,int *param_2,unsigned short *param_3);	r0,r1,r2		__stdcall_softfp
+40403da4	float recovered_40403da4(char *text,char **end);	r0,r1	r0	__stdcall_softfp
+4042ded4	int recovered_4042ded4(int *param_1,unsigned int *param_2,unsigned int param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+40498fec	unsigned int recovered_40498fec(int param_1,unsigned int *param_2,unsigned char *param_3);	r0,r1,r2		__stdcall_softfp
+404b8e7c	unsigned int recovered_404b8e7c(int param_1,int param_2);	r0,r1		__stdcall_softfp
+40418fa4	unsigned int recovered_40418fa4(int param_1,int param_2,unsigned int param_3,unsigned int param_4);	r0,r1,r2,r3		__stdcall_softfp
+40433628	unsigned int recovered_40433628(int param_1,unsigned short *param_2,unsigned int param_3,int *param_4);	r0,r1,r2,r3		__stdcall_softfp
+404bfee4	unsigned int recovered_404bfee4(long long *param_1,long long *param_2);			__stdcall_softfp
+40419b14	unsigned long long recovered_40419b14(unsigned int *param_1);	r0		__stdcall_softfp
+4041941c	unsigned int recovered_4041941c(void);			__stdcall_softfp
+404df9bc	unsigned char recovered_404df9bc(int param_1,int *param_2);	r0,r1		__stdcall_softfp
+404be574	void recovered_404be574(int param_1);	r0		__stdcall_softfp
+40402ef8	double recovered_40402ef8(double value);		r1,r0	__stdcall_softfp
+404ca844	unsigned int recovered_404ca844(int param_1);	r0		__stdcall_softfp
+40435570	unsigned int recovered_40435570(void);			__stdcall_softfp
+404d83d4	unsigned int recovered_404d83d4(int *param_1,int param_2,int param_3);			__stdcall_softfp
+4040a454	unsigned char recovered_4040a454(int param_1);	r0		__stdcall_softfp
+4046d0a4	unsigned int recovered_4046d0a4(int param_1,int param_2,int param_3,unsigned int param_4,unsigned int param_5, unsigned int param_6);	r0,r1,r2,r3,stack0,stack4		__stdcall_softfp
+40402c4c	double recovered_40402c4c(double base,double exponent);		r1,r0	__stdcall_softfp
+404c2640	unsigned char recovered_404c2640(int param_1,int param_2);	r0,r1		__stdcall_softfp
+40465318	unsigned int recovered_40465318(int param_1,int param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+40419118	unsigned int recovered_40419118(int param_1,int *param_2,unsigned int *param_3);	r0,r1,r2		__stdcall_softfp
+404952a0	unsigned char recovered_404952a0(int *param_1,unsigned int *param_2);			__stdcall_softfp
+40432384	void recovered_40432384(int *param_1,unsigned int param_2);	r0,r1		__stdcall_softfp
+40436ca0	unsigned char recovered_40436ca0(char *param_1);	r0		__stdcall_softfp
+4041218c	unsigned int recovered_4041218c(void);			__stdcall_softfp
+4043615c	unsigned int recovered_4043615c(int param_1,unsigned int *param_2,unsigned int *param_3);	r0,r1,r2		__stdcall_softfp
+4043aca8	unsigned int recovered_4043aca8(char *param_1,unsigned int param_2);	r0,r1		__stdcall_softfp
+40407a28	unsigned long recovered_40407a28(unsigned char *param_1,unsigned int param_2);	r0,r1		__stdcall_softfp
+404061cc	unsigned int recovered_404061cc(unsigned int *param_1,int param_2,unsigned int *param_3);	r0,r1,r2		__stdcall_softfp
+4041a0e4	double recovered_4041a0e4(double value);		r1,r0	__stdcall_softfp
+4044c7f0	unsigned int recovered_4044c7f0(void);			__stdcall_softfp
+404bf284	unsigned int recovered_404bf284(int param_1,unsigned int param_2,int param_3,int param_4);	r0,r1,r2,r3		__stdcall_softfp
+4044a9f4	int recovered_4044a9f4(int param_1,int param_2,char *param_3,int param_4,unsigned char param_5, int param_6,unsigned int param_7);	r0,r1,r2,r3,stack0,stack4,stack8		__stdcall_softfp
+404618fc	unsigned int recovered_404618fc(unsigned int param_1,unsigned int param_2,int param_3);	r0,r1,r2		__stdcall_softfp
+4048ae44	void recovered_4048ae44(void);			__stdcall_softfp
+4048b02c	void recovered_4048b02c(void);			__stdcall_softfp
+4042c4d8	unsigned short * recovered_4042c4d8(int param_1,unsigned int param_2,double *param_3,int *param_4,int param_5);	r0,r1,r2,r3,stack0		__stdcall_softfp
+4040b8c0	unsigned int recovered_4040b8c0(int param_1);	r0		__stdcall_softfp
+404d8a60	unsigned int recovered_404d8a60(int *param_1);	r0		__stdcall_softfp
+4049e9b4	unsigned char recovered_4049e9b4(char *text,float *out);	r0,r1		__stdcall_softfp
+40428520	unsigned int * recovered_40428520(int param_1,int param_2,float param_3);	r0,r1,r2		__stdcall_softfp
+40404dcc	unsigned int recovered_40404dcc(unsigned int param_1,unsigned int param_2,unsigned int *param_3);	r0,r1,r2		__stdcall_softfp
+40412550	unsigned int recovered_40412550(void);			__stdcall_softfp
+40400d68	void recovered_40400d68(void *data);			__stdcall_softfp
+40467f50	void recovered_40467f50(unsigned int param_1,unsigned int param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+404975f0	unsigned int recovered_404975f0(int param_1,int param_2);	r0,r1		__stdcall_softfp
+40404c90	unsigned int recovered_40404c90(void);			__stdcall_softfp
+404863d8	unsigned char recovered_404863d8(void);			__stdcall_softfp
+40404a88	int recovered_40404a88(char *out,unsigned long capacity,char *format,...);			__stdcall_softfp
+404192f8	int recovered_404192f8(char *left,char *right,unsigned long size);	r0,r1,r2		__stdcall_softfp
+4049dd48	unsigned int recovered_4049dd48(int param_1,int param_2);	r0,r1		__stdcall_softfp
+40402cfc	double recovered_40402cfc(double value);		r1,r0	__stdcall_softfp
+4046ee90	unsigned int recovered_4046ee90(int param_1);	r0		__stdcall_softfp
+40435814	unsigned long long recovered_40435814(void);			__stdcall_softfp
+404b7810	unsigned int recovered_404b7810(int param_1,int param_2);	r0,r1		__stdcall_softfp
+40420918	unsigned int recovered_40420918(int param_1,unsigned int param_2,int param_3,int param_4);	r0,r1,r2,r3		__stdcall_softfp
+40406bc4	void recovered_40406bc4(void);			__stdcall_softfp
+40403900	float recovered_40403900(float value);	r0	r0	__stdcall_softfp
+4040026c	unsigned int recovered_4040026c(void);			__stdcall_softfp
+40402d88	double recovered_40402d88(double value);		r1,r0	__stdcall_softfp
+4048b21c	unsigned char recovered_4048b21c(unsigned int param_1,unsigned int param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+4042e1ec	void recovered_4042e1ec(int param_1,unsigned int param_2);	r0,r1		__stdcall_softfp
+4041aa7c	unsigned long long * recovered_4041aa7c(unsigned char *param_1,unsigned long long *param_2,unsigned int *param_3);	r0,r1,r2		__stdcall_softfp
+40406da8	unsigned int recovered_40406da8(void);			__stdcall_softfp
+40418ed4	void recovered_40418ed4(int param_1);	r0		__stdcall_softfp
+404001fc	unsigned long long recovered_404001fc(float param_1);	r0		__stdcall_softfp
+4049a1e8	unsigned int recovered_4049a1e8(int *param_1,int param_2,int param_3);			__stdcall_softfp
+404192a8	void recovered_404192a8(void);			__stdcall_softfp
+4044b248	void recovered_4044b248(void);			__stdcall_softfp
+4048aa4c	unsigned char recovered_4048aa4c(void);			__stdcall_softfp
+40401e1c	void recovered_40401e1c(unsigned char *param_1,int param_2);	r0,r1		__stdcall_softfp
+4042713c	unsigned int recovered_4042713c(int *param_1,int *param_2,unsigned int param_3);	r0,r1,r2		__stdcall_softfp
+40428a3c	unsigned int * recovered_40428a3c(int param_1,float param_2);	r0,r1		__stdcall_softfp
+4041224c	unsigned int recovered_4041224c(void);			__stdcall_softfp
+4046dd74	unsigned int recovered_4046dd74(int param_1,unsigned int param_2,unsigned int *param_3,unsigned int *param_4,unsigned int *param_5, unsigned int *param_6,unsigned int *param_7,unsigned int *param_8,unsigned int *param_9,unsigned int *param_10, unsigned int *param_11);	r0,r1,r2,r3,stack0,stack4,stack8,stack12,stack16,stack20,stack24		__stdcall_softfp
+404c52d0	unsigned int recovered_404c52d0(unsigned int param_1,unsigned int param_2,unsigned int *param_3,int param_4);	r0,r1,r2,r3		__stdcall_softfp
+40418db4	unsigned int recovered_40418db4(int param_1);	r0		__stdcall_softfp
+404dc574	unsigned int recovered_404dc574(unsigned int param_1,unsigned int *param_2);	r0,r1		__stdcall_softfp
+4046e9bc	unsigned long long recovered_4046e9bc(unsigned int *param_1);	r0		__stdcall_softfp
+404000e8	unsigned int recovered_404000e8(unsigned int dividend,unsigned int divisor);			__stdcall_softfp
+40400098	unsigned int recovered_40400098(unsigned int dividend,unsigned int divisor);			__stdcall_softfp
+404bcb14	float recovered_404bcb14(float value);	s0	s0	__stdcall_softfp
+404bcbb0	float recovered_404bcbb0(float value);	s0	s0	__stdcall_softfp
+404bcd1c	float recovered_404bcd1c(float value);	s0	s0	__stdcall_softfp

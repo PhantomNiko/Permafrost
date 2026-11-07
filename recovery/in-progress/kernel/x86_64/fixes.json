@@ -1,0 +1,258 @@
+{
+  "207f520": {
+    "code ": "byte ",
+    "(code)": "(byte)"
+  },
+  "2024910": {
+    " auStack_98 =": " PF_PART12(auStack_98,0) =",
+    " auStack_88 =": " PF_PART12(auStack_88,0) ="
+  },
+  "2029b30": {
+    "(undefined1  [2])": "(uint16_t)",
+    " local_34 =": " PF_PART2(local_34,0) ="
+  },
+  "2024e00": {
+    " auStack_65 =": " PF_PART13(auStack_65,0) ="
+  },
+  "2033c00": {
+    "double *pdVar24;": "uintptr_t *pdVar24;",
+    "double *local_40;": "uintptr_t *local_40;"
+  },
+  "207c660": {
+    "_auStack_277": "PF_PART8(auStack_277,0)"
+  },
+  "207bcd0": {
+    "undefined1 auVar50 [12];": "pf_u96 auVar50;",
+    "auVar50[": "((uint8_t *)&auVar50)[",
+    "undefined1 auVar51 [14];": "pf_u112 auVar51;",
+    "auVar51[": "((uint8_t *)&auVar51)["
+  },
+  "20b9110": {
+    "_uStack_9b6": "PF_PART8(uStack_9b6,0)",
+    "_uStack_9c6": "PF_PART8(uStack_9c6,0)"
+  },
+  "2023160": {
+    "undefined1 auVar71 [12];": "pf_u96 auVar71;",
+    "undefined1 auVar70 [14];": "pf_u112 auVar70;",
+    "auVar70[": "((uint8_t *)&auVar70)[",
+    "auVar71[": "((uint8_t *)&auVar71)["
+  },
+  "20771b0": {
+    "undefined1 auVar46 [12];": "pf_u96 auVar46;",
+    "auVar46[": "((uint8_t *)&auVar46)[",
+    "undefined1 auVar47 [14];": "pf_u112 auVar47;",
+    "auVar47[": "((uint8_t *)&auVar47)["
+  },
+  "201e160": {
+    "undefined1 auVar14 [12];": "pf_u96 auVar14;",
+    "auVar14[": "((uint8_t *)&auVar14)[",
+    "puVar30 * 4": "(uintptr_t)puVar30 * 4"
+  },
+  "205e230": {
+    "undefined1 auVar53 [12];": "pf_u96 auVar53;",
+    "auVar53[": "((uint8_t *)&auVar53)[",
+    "undefined1 auVar54 [14];": "pf_u112 auVar54;",
+    "auVar54[": "((uint8_t *)&auVar54)["
+  },
+  "206bae0": {
+    "undefined1 auVar122 [13];": "pf_u104 auVar122;",
+    "undefined1 auVar147 [12];": "pf_u96 auVar147;",
+    "undefined1 auVar187 [12];": "pf_u96 auVar187;",
+    "undefined1 auVar200 [12];": "pf_u96 auVar200;",
+    "undefined1 auVar206 [12];": "pf_u96 auVar206;",
+    "auVar122[": "((uint8_t *)&auVar122)[",
+    "undefined1 auVar123 [14];": "pf_u112 auVar123;",
+    "auVar123[": "((uint8_t *)&auVar123)[",
+    "auVar147[": "((uint8_t *)&auVar147)[",
+    "undefined1 auVar157 [14];": "pf_u112 auVar157;",
+    "auVar157[": "((uint8_t *)&auVar157)[",
+    "auVar187[": "((uint8_t *)&auVar187)[",
+    "auVar200[": "((uint8_t *)&auVar200)[",
+    "auVar206[": "((uint8_t *)&auVar206)[",
+    "local_78 ^ auVar120": "PF_PART16(local_78,0) ^ auVar120"
+  },
+  "208ac60": {
+    "undefined1 auVar6 [13];": "pf_u104 auVar6;",
+    "undefined1 auVar7 [13];": "pf_u104 auVar7;",
+    "undefined1 auVar8 [13];": "pf_u104 auVar8;",
+    "undefined1 auVar9 [13];": "pf_u104 auVar9;",
+    "undefined1 auVar11 [13];": "pf_u104 auVar11;",
+    "undefined1 auVar12 [13];": "pf_u104 auVar12;",
+    "auVar6[": "((uint8_t *)&auVar6)[",
+    "auVar7[": "((uint8_t *)&auVar7)[",
+    "auVar8[": "((uint8_t *)&auVar8)[",
+    "auVar9[": "((uint8_t *)&auVar9)[",
+    "auVar11[": "((uint8_t *)&auVar11)[",
+    "auVar12[": "((uint8_t *)&auVar12)["
+  },
+  "20de830": {
+    "undefined1 auVar8 [13];": "pf_u104 auVar8;",
+    "undefined1 auVar9 [13];": "pf_u104 auVar9;",
+    "undefined1 auVar10 [13];": "pf_u104 auVar10;",
+    "undefined1 auVar13 [13];": "pf_u104 auVar13;",
+    "undefined1 auVar17 [13];": "pf_u104 auVar17;",
+    "undefined1 auVar18 [13];": "pf_u104 auVar18;",
+    "undefined1 auVar19 [13];": "pf_u104 auVar19;",
+    "undefined1 auVar23 [13];": "pf_u104 auVar23;",
+    "undefined1 auVar30 [13];": "pf_u104 auVar30;",
+    "undefined1 auVar5 [14];": "pf_u112 auVar5;",
+    "auVar5[": "((uint8_t *)&auVar5)[",
+    "auVar8[": "((uint8_t *)&auVar8)[",
+    "auVar9[": "((uint8_t *)&auVar9)[",
+    "auVar10[": "((uint8_t *)&auVar10)[",
+    "undefined1 auVar12 [14];": "pf_u112 auVar12;",
+    "auVar12[": "((uint8_t *)&auVar12)[",
+    "auVar13[": "((uint8_t *)&auVar13)[",
+    "undefined1 auVar15 [14];": "pf_u112 auVar15;",
+    "auVar15[": "((uint8_t *)&auVar15)[",
+    "auVar17[": "((uint8_t *)&auVar17)[",
+    "auVar18[": "((uint8_t *)&auVar18)[",
+    "auVar19[": "((uint8_t *)&auVar19)[",
+    "auVar23[": "((uint8_t *)&auVar23)[",
+    "undefined1 auVar29 [14];": "pf_u112 auVar29;",
+    "auVar29[": "((uint8_t *)&auVar29)[",
+    "auVar30[": "((uint8_t *)&auVar30)["
+  },
+  "2071f60": {
+    "undefined1 auVar60 [12];": "pf_u96 auVar60;",
+    "undefined1 auVar61 [12];": "pf_u96 auVar61;",
+    "auVar60[": "((uint8_t *)&auVar60)[",
+    "auVar61[": "((uint8_t *)&auVar61)[",
+    "undefined1 auVar62 [14];": "pf_u112 auVar62;",
+    "auVar62[": "((uint8_t *)&auVar62)[",
+    "undefined1 auVar63 [14];": "pf_u112 auVar63;",
+    "auVar63[": "((uint8_t *)&auVar63)["
+  },
+  "20765a0": {
+    "undefined1 auVar53 [12];": "pf_u96 auVar53;",
+    "undefined1 auVar54 [12];": "pf_u96 auVar54;",
+    "auVar53[": "((uint8_t *)&auVar53)[",
+    "auVar54[": "((uint8_t *)&auVar54)[",
+    "undefined1 auVar55 [14];": "pf_u112 auVar55;",
+    "auVar55[": "((uint8_t *)&auVar55)[",
+    "undefined1 auVar56 [14];": "pf_u112 auVar56;",
+    "auVar56[": "((uint8_t *)&auVar56)["
+  },
+  "20b64b0": {
+    "undefined1 auVar61 [12];": "pf_u96 auVar61;",
+    "undefined1 auVar70 [12];": "pf_u96 auVar70;",
+    "auVar61[": "((uint8_t *)&auVar61)[",
+    "undefined1 auVar62 [14];": "pf_u112 auVar62;",
+    "auVar62[": "((uint8_t *)&auVar62)[",
+    "auVar70[": "((uint8_t *)&auVar70)[",
+    "undefined1 auVar71 [14];": "pf_u112 auVar71;",
+    "auVar71[": "((uint8_t *)&auVar71)["
+  },
+  "2007490": {
+    "undefined1 auVar15 [12];": "pf_u96 auVar15;",
+    "undefined1 auVar18 [12];": "pf_u96 auVar18;",
+    "undefined1 auVar20 [12];": "pf_u96 auVar20;",
+    "undefined1 auVar22 [12];": "pf_u96 auVar22;",
+    "undefined1 auVar24 [12];": "pf_u96 auVar24;",
+    "undefined1 auVar26 [12];": "pf_u96 auVar26;",
+    "undefined1 auVar28 [12];": "pf_u96 auVar28;",
+    "undefined1 auVar30 [12];": "pf_u96 auVar30;",
+    "undefined1 auVar32 [12];": "pf_u96 auVar32;",
+    "undefined1 auVar34 [12];": "pf_u96 auVar34;",
+    "undefined1 auVar36 [12];": "pf_u96 auVar36;",
+    "undefined1 auVar38 [12];": "pf_u96 auVar38;",
+    "undefined1 auVar14 [14];": "pf_u112 auVar14;",
+    "auVar14[": "((uint8_t *)&auVar14)[",
+    "auVar15[": "((uint8_t *)&auVar15)[",
+    "undefined1 auVar17 [14];": "pf_u112 auVar17;",
+    "auVar17[": "((uint8_t *)&auVar17)[",
+    "auVar18[": "((uint8_t *)&auVar18)[",
+    "undefined1 auVar19 [14];": "pf_u112 auVar19;",
+    "auVar19[": "((uint8_t *)&auVar19)[",
+    "auVar20[": "((uint8_t *)&auVar20)[",
+    "undefined1 auVar21 [14];": "pf_u112 auVar21;",
+    "auVar21[": "((uint8_t *)&auVar21)[",
+    "auVar22[": "((uint8_t *)&auVar22)[",
+    "undefined1 auVar23 [14];": "pf_u112 auVar23;",
+    "auVar23[": "((uint8_t *)&auVar23)[",
+    "auVar24[": "((uint8_t *)&auVar24)[",
+    "undefined1 auVar25 [14];": "pf_u112 auVar25;",
+    "auVar25[": "((uint8_t *)&auVar25)[",
+    "auVar26[": "((uint8_t *)&auVar26)[",
+    "undefined1 auVar27 [14];": "pf_u112 auVar27;",
+    "auVar27[": "((uint8_t *)&auVar27)[",
+    "auVar28[": "((uint8_t *)&auVar28)[",
+    "undefined1 auVar29 [14];": "pf_u112 auVar29;",
+    "auVar29[": "((uint8_t *)&auVar29)[",
+    "auVar30[": "((uint8_t *)&auVar30)[",
+    "undefined1 auVar31 [14];": "pf_u112 auVar31;",
+    "auVar31[": "((uint8_t *)&auVar31)[",
+    "auVar32[": "((uint8_t *)&auVar32)[",
+    "undefined1 auVar33 [14];": "pf_u112 auVar33;",
+    "auVar33[": "((uint8_t *)&auVar33)[",
+    "auVar34[": "((uint8_t *)&auVar34)[",
+    "undefined1 auVar35 [14];": "pf_u112 auVar35;",
+    "auVar35[": "((uint8_t *)&auVar35)[",
+    "auVar36[": "((uint8_t *)&auVar36)[",
+    "undefined1 auVar37 [14];": "pf_u112 auVar37;",
+    "auVar37[": "((uint8_t *)&auVar37)[",
+    "auVar38[": "((uint8_t *)&auVar38)["
+  },
+  "2076e60": {
+    "undefined1 auVar50 [12];": "pf_u96 auVar50;",
+    "undefined1 auVar51 [12];": "pf_u96 auVar51;",
+    "auVar50[": "((uint8_t *)&auVar50)[",
+    "auVar51[": "((uint8_t *)&auVar51)[",
+    "undefined1 auVar52 [14];": "pf_u112 auVar52;",
+    "auVar52[": "((uint8_t *)&auVar52)[",
+    "undefined1 auVar53 [14];": "pf_u112 auVar53;",
+    "auVar53[": "((uint8_t *)&auVar53)["
+  },
+  "202faf0": {
+    "(uint *)((double)CONCAT44(uVar44,uVar43) + *(double *)(puVar14 + 6))": "(uint *)(uintptr_t)pf_double_bits(pf_bits_double(CONCAT44(uVar44,uVar43)) + *(double *)(puVar14 + 6))"
+  },
+  "201eb00": {},
+  "20bc780": {
+    "uStack_78[": "((uintptr_t *)(uintptr_t)uStack_78)["
+  },
+  "20d8f60": {
+    "DAT_0215a7b0[": "((uchar *)(uintptr_t)DAT_0215a7b0)["
+  },
+  "20a9cb0": {
+    "_pf_index_argument": "(*(uintptr_t *)(void *)&pf_index_argument)",
+    "(float)-values->integer": "-values->integer",
+    "(float)values->integer": "values->integer",
+    "(float)(_DAT_020eaf40 ^ (uint)fVar64)": "pf_bits_float(_DAT_020eaf40 ^ pf_float_bits(fVar64))",
+    "DAT_020eaf50.integer": "((int)DAT_020eaf50)",
+    "DAT_020eaf50.number": "pf_bits_float(DAT_020eaf50)",
+    "(float)(_DAT_020eaf40 ^ (uint)fVar65)": "pf_bits_float(_DAT_020eaf40 ^ pf_float_bits(fVar65))",
+    "(float)(_DAT_020eaf40 ^ (uint)fVar66)": "pf_bits_float(_DAT_020eaf40 ^ pf_float_bits(fVar66))",
+    "(float)(_DAT_020eaf40 ^ (uint)fVar53)": "pf_bits_float(_DAT_020eaf40 ^ pf_float_bits(fVar53))",
+    "BADTYPE": "int32_t"
+  },
+  "2096580": {
+    "_pf_loop_first": "(*(uintptr_t **)(void *)&pf_loop_first)",
+    "_pf_loop_last": "(*(uintptr_t **)(void *)&pf_loop_last)",
+    "&local_1c8->kind": "(void *)(uintptr_t)local_1c8",
+    "(undefined1 (*) [8])": "(uint64_t *)",
+    "(undefined1  [4])": "(uint32_t)",
+    "local_1dc =": "PF_PART4(local_1dc, 0) =",
+    "local_1dc ==": "PF_PART4(local_1dc, 0) ==",
+    "uStack_c8[": "((uintptr_t *)(uintptr_t)uStack_c8)[",
+    "uStack_168[": "((uintptr_t *)(uintptr_t)uStack_168)[",
+    "*uStack_128": "*(uchar *)(uintptr_t)uStack_128",
+    "(byte  [8])": "(uint64_t)",
+    "DAT_020eaf50.integer": "((uint32_t)DAT_020eaf50)",
+    "DAT_020eaf50.bits": "((uint32_t)DAT_020eaf50)",
+    "DAT_020eaf50.number": "pf_bits_float(DAT_020eaf50)",
+    "_DAT_00000008": "(*(pf_kernel_value **)(uintptr_t)8)",
+    "BADTYPE": "uint32_t",
+    "!= auStack_178": "!= PF_PART8(auStack_178,0)",
+    "auVar12 = auStack_d8;": "auVar12 = PF_PART8(auStack_d8,0);",
+    "== auStack_d8": "== PF_PART8(auStack_d8,0)",
+    "auStack_d8 ==": "PF_PART8(auStack_d8,0) ==",
+    "auVar12 ==": "PF_PART8(auVar12,0) ==",
+    "auVar12 = auStack_168;": "auVar12 = PF_PART8(auStack_168,0);"
+  },
+  "20635c0": {
+    "(recovered_203ef70((long)local_138), extraout_RAX != -1)": "(recovered_203ef70((long)local_138) != (ulonglong)-1)"
+  },
+  "20e2bf0": {
+    "context = acStack_108 + 0x80;\n  recovered_201c9c0(context);": "context = acStack_108 + 0x80;\n  { uint64_t start_context[11] = {0}; uintptr_t stack = *(uintptr_t *)(param_1 + 0xa8); uintptr_t size = *(uintptr_t *)(param_1 + 0xb0); start_context[8] = 0; start_context[9] = (uintptr_t)recovered_20e31e0; start_context[10] = stack ? ((stack + size) & ~(uintptr_t)15) - 8 : (uintptr_t)-8; recovered_201c9c0(start_context); }"
+  }
+}

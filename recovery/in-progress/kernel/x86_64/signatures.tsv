@@ -1,0 +1,882 @@
+2075640	unsigned char recovered_2075640(long *param_1,unsigned short *param_2,long *param_3,unsigned long *param_4);	RDI,RSI,RDX,RCX
+205d360	unsigned char recovered_205d360(void);
+2075130	unsigned char recovered_2075130(long *param_1,unsigned long long param_2,char *param_3,unsigned int param_4);	RDI,RSI,RDX,ECX
+2053270	unsigned int recovered_2053270(void);
+20005f0	long recovered_20005f0(void);
+20cdc00	unsigned char recovered_20cdc00(unsigned long param_1);	RDI
+2042530	unsigned int recovered_2042530(char *param_1,unsigned char *param_2,unsigned char *param_3);	RDI,RSI,RDX
+2044530	void recovered_2044530(char *format,...);	RDI
+20bf4a0	unsigned char recovered_20bf4a0(long *param_1,char *param_2);	RDI,RSI
+2012bf0	void recovered_2012bf0(unsigned int *param_1,unsigned int *param_2,unsigned int *param_3, unsigned int *param_4,unsigned int *param_5);	RDI,RSI,RDX,RCX,R8
+20b1460	unsigned long long recovered_20b1460(int *param_1,char *param_2,unsigned int *param_3,long param_4,unsigned long long *param_5, unsigned int *in_R9);	RDI,RSI,RDX,RCX,R8,R9
+2028de0	void recovered_2028de0(long *param_1,unsigned long param_2);	RDI,RSI
+2005dc0	void recovered_2005dc0(unsigned long long *param_1);	RDI
+2004ba0	float recovered_2004ba0(char *text,char **end);	RDI,RSI
+20bf8d0	unsigned int recovered_20bf8d0(int *param_1,unsigned int *param_2,unsigned int *param_3);	RDI,RSI,RDX
+206ebf0	void recovered_206ebf0(long param_1,char *param_2);	RDI,RSI
+2063c00	unsigned char recovered_2063c00(long param_1);	RDI
+20b3950	unsigned long recovered_20b3950(int *param_1,char *param_2,long param_3,unsigned long param_4,unsigned int *param_5, unsigned int *in_R9);	RDI,RSI,RDX,RCX,R8,R9
+20e16d0	unsigned char recovered_20e16d0(long param_1,unsigned long param_2,unsigned long param_3,unsigned long *param_4,int *param_5, unsigned long *******param_6);	RDI,RSI,RDX,RCX,R8,R9
+2092ea0	void recovered_2092ea0(void);
+2052370	unsigned char recovered_2052370(char *param_1);	RDI
+2092b80	unsigned long long recovered_2092b80(char *param_1,long param_2,long param_3);	RDI,RSI,RDX
+2041e40	unsigned long long recovered_2041e40(int param_1);	EDI
+2057340	unsigned long recovered_2057340(int param_1,unsigned char *param_2,unsigned char *param_3,unsigned char *param_4);	EDI,RSI,RDX,RCX
+20b3270	unsigned long long recovered_20b3270(int *param_1,char *param_2,long param_3,long param_4,unsigned long long *param_5);	RDI,RSI,RDX,RCX,R8
+20e31e0	void recovered_20e31e0(unsigned long long in_R8,unsigned long long in_R9);	R8,R9
+20cbe50	unsigned char recovered_20cbe50(unsigned char param_1,unsigned int param_2,unsigned long long *param_3,unsigned char param_4);	DIL,ESI,RDX,CL
+209f2c0	unsigned char recovered_209f2c0(unsigned int *param_1);	RDI
+2063fc0	unsigned char recovered_2063fc0(unsigned char *param_1);	RDI
+2028c50	void recovered_2028c50(long *param_1,unsigned long param_2,unsigned char *param_3);	RDI,RSI,RDX
+206e440	unsigned int recovered_206e440(unsigned char *param_1,unsigned char *param_2);	RDI,RSI
+205d520	unsigned int recovered_205d520(unsigned int param_1,unsigned int param_2);	EDI,ESI
+203a050	unsigned long long recovered_203a050(long param_1);	RDI
+203f900	unsigned int recovered_203f900(long param_1);	RDI
+2092ff0	void recovered_2092ff0(void);
+20e18e0	unsigned char recovered_20e18e0(long param_1,unsigned long *param_2,char *param_3,long param_4,unsigned long long in_R9);	RDI,RSI,RDX,RCX,R8
+2000a10	long recovered_2000a10(unsigned long param_1,unsigned long param_2);	RDI,RSI
+2057400	unsigned char recovered_2057400(int param_1,unsigned int param_2,unsigned int param_3);	EDI,ESI,EDX
+2056ef0	unsigned char recovered_2056ef0(void *param_1,unsigned int param_2,unsigned int *param_3);	RDI,ESI,RDX
+20a81b0	unsigned int recovered_20a81b0(unsigned long *param_1,int *param_2,unsigned long *param_3,unsigned long *param_4,unsigned long *param_5, unsigned long *******in_R9,unsigned long long param_7,unsigned long ****param_8,unsigned long ***param_9, unsigned long ***param_10,unsigned long long param_11,unsigned long long param_12,unsigned long long param_13, unsigned long long param_14);	RDI,RSI,RDX,RCX,R8,R9,stack8,stack16,stack24,stack32,stack40,stack48,stack56,stack64
+2024900	void recovered_2024900(long in_RDI,unsigned short *in_RSI,int in_EDX,unsigned long in_RCX);	RDI,RSI,EDX,RCX
+20536f0	unsigned int recovered_20536f0(unsigned int *param_1);	RDI
+20036c0	unsigned long recovered_20036c0(double param_1,int *param_2);	XMM0_Qa,RDI
+201cb60	void recovered_201cb60(void *data);	RDI
+20932d0	unsigned int recovered_20932d0(unsigned int param_1);	EDI
+20a0500	float recovered_20a0500(int *param_1);	RDI
+20043d0	float recovered_20043d0(float value);	XMM0_Da
+2092aa0	unsigned char recovered_2092aa0(int in_ESI,unsigned int *in_RDX);	ESI,RDX
+20007a0	unsigned long recovered_20007a0(unsigned long param_1,unsigned int param_2);	RDI,ESI
+205e7b0	unsigned long recovered_205e7b0(char *param_1,long param_2);	RDI,RSI
+209c670	unsigned char recovered_209c670(long param_1,unsigned long *param_2);	RDI,RSI
+2041530	unsigned long long recovered_2041530(long param_1,unsigned int param_2,unsigned int *param_3);	RDI,ESI,RDX
+208e590	unsigned char recovered_208e590(int in_EDI);	EDI
+2036140	void recovered_2036140(long *param_1,unsigned long param_2);	RDI,RSI
+20b3830	unsigned long long recovered_20b3830(int *param_1,char *param_2,long param_3,long param_4,unsigned int *param_5, int *in_R9);	RDI,RSI,RDX,RCX,R8,R9
+20a0000	unsigned char recovered_20a0000(unsigned long *param_1,unsigned long param_2,long param_3,unsigned long *param_4);	RDI,RSI,RDX,RCX
+20041d0	float recovered_20041d0(float left,float right);	XMM0_Da,XMM1_Da
+20035d0	unsigned long long recovered_20035d0(unsigned long long *param_1);	RDI
+20be690	unsigned long recovered_20be690(int *param_1,char *param_2,int *param_3,long param_4,unsigned int *param_5, unsigned long **in_R9);	RDI,RSI,RDX,RCX,R8,R9
+20005b0	unsigned long recovered_20005b0(void);
+20e65e0	void recovered_20e65e0(void);
+201c460	void recovered_201c460(long param_1);	RDI
+205e0b0	unsigned int recovered_205e0b0(void);
+20435d0	long recovered_20435d0(float param_1,int param_2,long param_3);	EDI,RSI,XMM0_Da
+20135a0	unsigned long long recovered_20135a0(void);
+202e380	unsigned char recovered_202e380(long *param_1,long *param_2);	RDI,RSI
+2005cb0	unsigned int recovered_2005cb0(void);
+20c9890	unsigned char recovered_20c9890(int param_1,long param_2);	EDI,RSI
+2092e80	unsigned char recovered_2092e80(unsigned int *in_RDI,int in_ESI,unsigned int *in_RDX);	RDI,ESI,RDX
+20e0a10	unsigned char recovered_20e0a10(long param_1,unsigned long param_2,unsigned long param_3,long *param_4,unsigned long *param_5, long *param_6,unsigned char *param_7);	RDI,RSI,RDX,RCX,R8,R9,stack8
+20e4440	void recovered_20e4440(int param_1,unsigned int param_2);	EDI,ESI
+20d23d0	void recovered_20d23d0(long param_1,long param_2);	RDI,RSI
+20df2a0	unsigned char recovered_20df2a0(long param_1,long param_2,long param_3);	RDI,RSI,RDX
+20b3650	unsigned char recovered_20b3650(int *param_1,char *param_2,long param_3,unsigned long param_4,unsigned long param_5, int *param_6);	RDI,RSI,RDX,RCX,R8,R9
+2000ad0	void *recovered_2000ad0(unsigned long size);
+2041800	unsigned int recovered_2041800(void);
+20cd140	void recovered_20cd140(long param_1,long param_2,unsigned long param_3);	RDI,RSI,RDX
+20b13e0	void recovered_20b13e0(void);
+20e4b00	unsigned char recovered_20e4b00(unsigned char param_1,unsigned char param_2,unsigned char param_3);	DIL,SIL,DL
+203d7b0	double recovered_203d7b0(long *param_1,unsigned long param_2);	RDI,RSI
+20e2bf0	void recovered_20e2bf0(char *param_1,unsigned long long *param_2);	RDI,RSI
+20b3750	unsigned char recovered_20b3750(int *param_1,char *param_2,unsigned long long in_RCX,unsigned long long in_R8, unsigned long long in_R9);	RDI,RSI,RDX,RCX,R8
+2022e40	unsigned int recovered_2022e40(long param_1,unsigned long long *param_2);	RDI,RSI
+206e1c0	unsigned char recovered_206e1c0(long param_1,unsigned long *param_2,int param_3,long param_4,long param_5, long param_6,char param_7,unsigned int param_8,unsigned int *param_9);	RDI,RSI,EDX,RCX,R8,R9,stack8,stack16,stack24
+20db050	double recovered_20db050(char *param_1,long param_2);	RDI,RSI
+2005c70	unsigned long long recovered_2005c70(void);
+202dad0	unsigned long long recovered_202dad0(long *param_1,long param_2,unsigned int *param_3,unsigned int *param_4);	RDI,RSI,RDX,RCX
+2004540	unsigned long long recovered_2004540(double param_1);	XMM0_Qa
+2003840	double recovered_2003840(double value);	XMM0_Qa
+20d35d0	unsigned char recovered_20d35d0(unsigned char *param_1);	RDI
+20a1970	unsigned char recovered_20a1970(long *param_1,unsigned char *param_2,long param_3);	RDI,RSI,RDX
+2002e20	unsigned char recovered_2002e20(int param_1);	EDI
+206da70	unsigned char recovered_206da70(long param_1,unsigned long param_2);	RDI,RSI
+20a0540	unsigned int recovered_20a0540(long param_1,unsigned long long *param_2);	RDI,RSI
+20000b0	unsigned int recovered_20000b0(void);
+20de6a0	void recovered_20de6a0(unsigned int *param_1);	RDI
+201b8a0	unsigned char recovered_201b8a0(void);
+2091f60	unsigned long long recovered_2091f60(unsigned int *param_1);	RDI
+20d2f90	unsigned char recovered_20d2f90(char *param_1);	RDI
+20db970	void recovered_20db970(long param_1,unsigned char *param_2,unsigned long long in_R9);	RDI,RSI,R9
+2000760	unsigned long recovered_2000760(unsigned long param_1,unsigned int param_2);	RDI,ESI
+20e6550	unsigned char recovered_20e6550(unsigned int in_EDI,int in_ESI,unsigned int in_EDX,unsigned int *in_RCX);	EDI,ESI,EDX,RCX
+2014090	unsigned long long recovered_2014090(char *param_1,char *param_2);	RDI,RSI
+20037c0	double recovered_20037c0(double left,double right);	XMM0_Qa,XMM1_Qa
+2043730	unsigned int recovered_2043730(char *param_1,unsigned int param_2);	RDI,ESI
+20e7640	unsigned char recovered_20e7640(long param_1,long param_2,unsigned long long *param_3);	RDI,RSI,RDX
+201e000	unsigned char recovered_201e000(unsigned char *param_1,unsigned long param_2);	RDI,RSI
+2095e60	unsigned char recovered_2095e60(long param_1,unsigned long param_2);	RDI,RSI
+2096580	unsigned char recovered_2096580(char **lines,unsigned long count,void *first,void *second,void *third);
+20c0b60	double recovered_20c0b60(void);
+2052cf0	void recovered_2052cf0(void);
+20532b0	unsigned int recovered_20532b0(unsigned char *param_1);	RDI
+20b5bd0	unsigned long recovered_20b5bd0(int *param_1,char *param_2,int *param_3,long param_4,unsigned long long *param_5, unsigned long long in_R9);	RDI,RSI,RDX,RCX,R8,R9
+205ed50	unsigned int recovered_205ed50(char *param_1,char *param_2,unsigned int param_3);	RDI,RSI,EDX
+2070920	void recovered_2070920(long *param_1);	RDI
+2040060	unsigned char recovered_2040060(char *param_1,void *param_2);	RDI,RSI
+20635c0	unsigned int recovered_20635c0(long param_1,unsigned char *param_2,unsigned long *in_R8,unsigned long *in_R9);	RDI,RSI,RDX,RCX
+2058020	unsigned char recovered_2058020(unsigned long long param_1,char *param_2,unsigned char in_XMM1 [16], unsigned char in_XMM2 [16],unsigned char in_XMM3 [16],unsigned char in_XMM4 [16], unsigned char in_XMM6 [16],unsigned char in_XMM7 [16]);
+207b890	unsigned char recovered_207b890(long param_1,unsigned int param_2,int param_3,unsigned int param_4,long param_5,long param_6 );	RDI,ESI,EDX,ECX,R8,R9
+2075a60	unsigned char recovered_2075a60(long *param_1,int param_2,long param_3,unsigned long param_4,unsigned long param_5);	RDI,ESI,RDX,RCX,R8
+209f320	unsigned long long recovered_209f320(int *param_1,int *param_2,unsigned char param_3);	RDI,RSI,DL
+2041400	unsigned char recovered_2041400(char *param_1,char *param_2,unsigned long long *param_3);	RDI,RSI,RDX
+20e65f0	unsigned char recovered_20e65f0(long param_1,int *param_2);	RDI,RSI
+201d050	void recovered_201d050(unsigned long long *param_1);	RDI
+202d4a0	unsigned int recovered_202d4a0(long *param_1,unsigned int *param_2,unsigned long param_3);	RDI,RSI,RDX
+2053500	unsigned int recovered_2053500(char *param_1);	RDI
+20d26b0	unsigned char recovered_20d26b0(long param_1,unsigned int param_2,unsigned int param_3);	RDI,ESI,EDX
+20d1340	unsigned int recovered_20d1340(char *param_1);	RDI
+20e1850	unsigned int recovered_20e1850(long param_1,int *param_2,long in_RCX,long in_R8,unsigned long long in_R9);	RDI,RSI,RDX,RCX,R8
+20b0e60	unsigned int recovered_20b0e60(int *param_1,int *param_2,unsigned long long *param_3,unsigned long param_4, unsigned long long *param_5,unsigned long long in_R9);	RDI,RSI,RDX,RCX,R8,R9
+20042a0	float recovered_20042a0(float value);	XMM0_Da
+20b5fe0	unsigned long long recovered_20b5fe0(int *param_1,char *param_2,long param_3,long param_4,unsigned int *param_5);	RDI,RSI,RDX,RCX,R8
+20b2b90	unsigned long long recovered_20b2b90(int *param_1,char *param_2,long param_3,unsigned long param_4,int *param_5, unsigned long long in_R9);	RDI,RSI,RDX,RCX,R8,R9
+2004360	float recovered_2004360(float value);	XMM0_Da
+20e6430	unsigned long long recovered_20e6430(unsigned int param_1,unsigned int param_2);	EDI,ESI
+20e2e80	unsigned long long recovered_20e2e80(char *param_1,char param_2);	RDI,SIL
+203dd30	void recovered_203dd30(void);
+209fcc0	unsigned char recovered_209fcc0(long param_1,unsigned long param_2,unsigned long param_3,unsigned long *param_4);	RDI,RSI,RDX,RCX
+2004020	unsigned long long recovered_2004020(float param_1,int *param_2);	XMM0_Da,RDI
+2057b20	unsigned long long recovered_2057b20(unsigned long long param_1,char *param_2,unsigned long long in_R8,unsigned long long in_R9);	RDI,RSI,R8,R9
+203f020	unsigned int recovered_203f020(long param_1,long param_2,long param_3);	RDI,RSI,RDX
+2042b00	unsigned int recovered_2042b00(long param_1,long param_2);	RDI,RSI
+20429b0	unsigned char recovered_20429b0(int param_1,long param_2);	EDI,RSI
+2002ef0	int recovered_2002ef0(unsigned char *param_1,unsigned char *param_2);	RDI,RSI
+20251e0	unsigned char recovered_20251e0(long param_1,unsigned long long *param_2,unsigned int param_3,unsigned int param_4);	RDI,RSI,EDX,ECX
+20e4ee0	unsigned char recovered_20e4ee0(unsigned int param_1,int param_2,long param_3,unsigned int param_4,unsigned int param_5,int param_6, int param_7);	EDI,ESI,RDX,ECX,R8D,R9D,stack8
+20b4bd0	unsigned long recovered_20b4bd0(int *param_1,char *param_2,int *param_3,unsigned long param_4,unsigned int *param_5, unsigned int *in_R9);	RDI,RSI,RDX,RCX,R8,R9
+2057250	unsigned char recovered_2057250(unsigned int param_1,void *param_2);	EDI,RSI
+20e0fe0	unsigned long recovered_20e0fe0(long param_1,unsigned long *param_2,long param_3,unsigned long in_R8,unsigned long in_R9);	RDI,RSI,RDX,R8,R9
+2004260	float recovered_2004260(float value);	XMM0_Da
+20d2430	unsigned char recovered_20d2430(char param_1,unsigned int param_2,char param_3,unsigned int param_4,unsigned int param_5);	DIL,ESI,DL,ECX,R8D
+2005c80	unsigned int recovered_2005c80(void);
+20962c0	void recovered_20962c0(long param_1,long param_2);	RDI,RSI
+2043160	unsigned int recovered_2043160(char *param_1);	RDI
+20a9b70	unsigned int recovered_20a9b70(unsigned int *param_1,unsigned int *param_2);	RDI,RSI
+20c0380	unsigned int recovered_20c0380(long param_1,long *param_2,unsigned long *param_3,unsigned long *param_4,char *param_5, unsigned long param_6);	RDI,RSI,RDX,RCX,R8,R9
+2040310	unsigned long long recovered_2040310(char *param_1);	RDI
+20db250	unsigned long long recovered_20db250(char *param_1);	RDI
+200c250	unsigned int recovered_200c250(void);
+207b680	unsigned char recovered_207b680(unsigned long param_1,unsigned int param_2,long param_3,char param_4,unsigned int *param_5, long param_6);	RDI,ESI,RDX,CL,R8,R9
+201da20	unsigned char recovered_201da20(long param_1,unsigned char *param_2,unsigned short *param_3);	RDI,RSI,RDX
+20bf690	unsigned long long recovered_20bf690(long param_1,long param_2,char param_3);	RDI,RSI,DL
+2002d90	unsigned char recovered_2002d90(int param_1);	EDI
+205d0e0	unsigned int recovered_205d0e0(void);
+201b8b0	unsigned long long recovered_201b8b0(long param_1,long param_2);	RDI,RSI
+20e6560	unsigned char recovered_20e6560(unsigned int in_EDI,int in_ESI,unsigned int *in_RDX);	EDI,ESI,RDX
+202cea0	void recovered_202cea0(long param_1);	RDI
+20d1100	unsigned char recovered_20d1100(char *param_1);	RDI
+20b10a0	unsigned char recovered_20b10a0(void);
+20040e0	unsigned long long recovered_20040e0(float param_1,unsigned int param_2);	XMM0_Da,EDI
+2056ce0	unsigned long long recovered_2056ce0(int param_1);	EDI
+2033140	double recovered_2033140(long param_1);	RDI
+205d6b0	double recovered_205d6b0(unsigned int param_1,unsigned int param_2,unsigned int param_3);	EDI,ESI,EDX
+20df890	unsigned char recovered_20df890(long *param_1);	RDI
+207a120	unsigned char recovered_207a120(char *param_1,int param_2,unsigned char param_3,long param_4);	RDI,ESI,DL,RCX
+20eae00	unsigned long long recovered_20eae00(unsigned long long *param_1,unsigned long *param_2,long *param_3);	RDI,RSI,RDX
+2092d60	unsigned long long recovered_2092d60(int param_1,unsigned int param_2,long param_3,unsigned int param_4);	EDI,ESI,RDX,ECX
+208d6d0	unsigned long long recovered_208d6d0(char *param_1,long param_2,long param_3);	RDI,RSI,RDX
+20dc660	void recovered_20dc660(void);
+20b1ab0	unsigned char recovered_20b1ab0(int *param_1);	RDI
+2005ce0	unsigned long long recovered_2005ce0(unsigned long long param_1,unsigned char *param_2,int param_3);	RDI,RSI,EDX
+2003fd0	float recovered_2003fd0(float left,float right);	XMM0_Da,XMM1_Da
+20be3a0	unsigned int recovered_20be3a0(int *param_1,char *param_2,long param_3,unsigned long param_4,unsigned long param_5, int *param_6);	RDI,RSI,RDX,RCX,R8,R9
+206e9c0	unsigned char recovered_206e9c0(int param_1);	EDI
+205dd20	unsigned char recovered_205dd20(void *param_1);	RDI
+201cf50	void recovered_201cf50(long param_1,unsigned long long param_2,unsigned long long param_3);	RDI,RSI,RDX
+20cd6d0	unsigned int recovered_20cd6d0(unsigned long param_1,unsigned long param_2,unsigned int param_3);	RDI,RSI,EDX
+200c130	unsigned int recovered_200c130(unsigned int command);	EDI
+209f5a0	unsigned char recovered_209f5a0(int *param_1,int *param_2,int *param_3,unsigned char param_4);	RDI,RSI,RDX,CL
+20a2f60	unsigned char recovered_20a2f60(pf_parser_context *parser,pf_kernel_value *out);	RDI,RSI
+202cec0	void recovered_202cec0(void);
+20067d0	unsigned int recovered_20067d0(unsigned char param_1,unsigned char param_2,unsigned long param_3,unsigned short param_4,unsigned int param_5, unsigned int *param_6);	DIL,SIL,RDX,CX,R8D,R9
+2003d70	unsigned long recovered_2003d70(double param_1);	XMM0_Qa
+20403c0	unsigned int recovered_20403c0(char *param_1,unsigned long param_2,char *param_3,unsigned long long param_4, unsigned long long param_5,unsigned long long param_6,unsigned long long param_7,unsigned long long param_8, unsigned char *param_9,long param_10,char *param_11,unsigned int param_12, unsigned long long param_13,unsigned long long param_14);	RDI,RSI,RDX,RCX,R8,R9,stack8,stack16,stack24,stack32,stack40,stack48,stack56,stack64
+2056b10	unsigned char recovered_2056b10(unsigned int param_1,char *param_2,void *param_3,unsigned int param_4,unsigned int param_5, unsigned int param_6,unsigned int param_7);	EDI,RSI,RDX,ECX,R8D,R9D,stack8
+2001410	void *recovered_2001410(void *out,void *data,unsigned long count);
+208e260	void recovered_208e260(void);
+2004620	float recovered_2004620(float value);	XMM0_Da
+20b5000	unsigned long recovered_20b5000(int *param_1,char *param_2,int *param_3,unsigned long param_4,unsigned long long *param_5, unsigned int *in_R9);	RDI,RSI,RDX,RCX,R8,R9
+20b2a50	unsigned long long recovered_20b2a50(int *param_1,char *param_2,long param_3,long param_4,int *param_5);	RDI,RSI,RDX,RCX,R8
+20b12f0	unsigned char recovered_20b12f0(long param_1,unsigned long param_2);	RDI,RSI
+20d8390	unsigned char recovered_20d8390(char *param_1,char param_2,unsigned int param_3,char *param_4,unsigned long param_5, unsigned long long in_R9);	RDI,SIL,EDX,RCX,R8,R9
+202e010	void recovered_202e010(long *param_1,unsigned long long *param_2);	RDI,RSI
+2041d20	void recovered_2041d20(char *param_1,long param_2,char *param_3);	RDI,RSI,RDX
+2092050	unsigned int recovered_2092050(void);
+2041510	unsigned int recovered_2041510(void);
+203a060	unsigned long long recovered_203a060(void);
+20b6d20	unsigned long recovered_20b6d20(int *param_1,char *param_2,int *param_3,long param_4,int *param_5, unsigned int *in_R9);	RDI,RSI,RDX,RCX,R8,R9
+201e160	unsigned int recovered_201e160(unsigned int *param_1,unsigned int *param_2,unsigned int *param_3);	RDI,RSI,RDX
+2002460	void recovered_2002460(long param_1,unsigned long param_2);	RDI,RSI
+20b3a90	unsigned long recovered_20b3a90(int *param_1,char *param_2,long param_3,long param_4,unsigned long long *param_5);	RDI,RSI,RDX,RCX,R8
+2002f30	void recovered_2002f30(long param_1,long param_2);	RDI,RSI
+203eea0	unsigned int recovered_203eea0(long param_1,unsigned long long *param_2,unsigned long *param_3);	RDI,RSI,RDX
+2042a50	unsigned char recovered_2042a50(int param_1,long param_2,long param_3);	EDI,RSI,RDX
+2024910	unsigned char recovered_2024910(long param_1,long param_2,unsigned int param_3,unsigned int param_4);	RDI,RSI,EDX,ECX
+207baa0	unsigned int recovered_207baa0(long param_1,long param_2,unsigned int *param_3);	RDI,RSI,RDX
+2092ab0	unsigned long long recovered_2092ab0(char *param_1);	RDI
+205db40	unsigned char recovered_205db40(void *param_1);	RDI
+20bf390	unsigned char recovered_20bf390(long param_1,long param_2,long *param_3,long *param_4,long *param_5, long *param_6);	RDI,RSI,RDX,RCX,R8,R9
+20c0290	unsigned int recovered_20c0290(unsigned short *param_1);	RDI
+201d360	unsigned char recovered_201d360(unsigned long long in_stack_00000008,unsigned short in_stack_00000010);	stack8,stack16
+20567e0	unsigned int recovered_20567e0(char *param_1,unsigned int param_2,unsigned int param_3);	RDI,ESI,EDX
+20046e0	long recovered_20046e0(unsigned char *param_1,unsigned long long *param_2,unsigned int param_3);	RDI,RSI,EDX
+201df50	unsigned int recovered_201df50(unsigned char *param_1,unsigned long param_2);	RDI,RSI
+2092e70	unsigned char recovered_2092e70(unsigned int in_EDI,int in_ESI,unsigned long in_RDX);	EDI,ESI,RDX
+20be560	unsigned int recovered_20be560(long param_1,long param_2);	RDI,RSI
+203a4d0	long * recovered_203a4d0(long *param_1,unsigned char *param_2,unsigned int param_3);	RDI,RSI,EDX
+2092b50	unsigned long * recovered_2092b50(int param_1);	EDI
+2002dd0	unsigned char recovered_2002dd0(unsigned int param_1);	EDI
+200aba0	unsigned long long recovered_200aba0(unsigned char param_1,int *param_2);	DIL,RSI
+20e25f0	unsigned int recovered_20e25f0(unsigned long long *param_1);	RDI
+201c8b0	char * recovered_201c8b0(unsigned int param_1);	EDI
+201da10	void recovered_201da10(unsigned char *in_RDI,unsigned long long *in_RSI,unsigned int in_EDX);	RDI,RSI,EDX
+20ce4c0	void recovered_20ce4c0(long param_1);	RDI
+2078b30	unsigned long long recovered_2078b30(unsigned long *param_1,int param_2);	RDI,ESI
+20c5840	unsigned int recovered_20c5840(long param_1,unsigned long param_2,long *param_3);	RDI,RSI,RDX
+2036690	void recovered_2036690(long *param_1,long param_2,unsigned long long *param_3);	RDI,RSI,RDX
+20d63e0	unsigned char recovered_20d63e0(unsigned long long param_1,unsigned long param_2,unsigned long long param_3,unsigned long param_4, unsigned int *param_5,unsigned long param_6,unsigned long long param_7,unsigned long long param_8, unsigned char param_9,unsigned long param_10,unsigned long long param_11,unsigned long param_12,unsigned int *param_13 ,unsigned long param_14);	RDI,RSI,RDX,RCX,R8,R9,stack8,stack16,stack24,stack32,stack40,stack48,stack56,stack64
+20a2440	unsigned char recovered_20a2440(pf_parser_context *parser,pf_kernel_value *out);	RDI,RSI
+20c49c0	void recovered_20c49c0(void);
+20a5f80	unsigned char recovered_20a5f80(char *text,float *out);	RDI,RSI
+201c440	unsigned char recovered_201c440(long param_1);	RDI
+206f5c0	unsigned int recovered_206f5c0(unsigned int param_1,long param_2,unsigned int param_3,unsigned int param_4);	EDI,RSI,EDX,ECX
+201c130	unsigned long long recovered_201c130(long param_1,long param_2,long param_3,unsigned int *param_4);	RDI,RSI,RDX,RCX
+201bd30	unsigned int recovered_201bd30(int *param_1);	RDI
+200c0e0	unsigned long long recovered_200c0e0(void);
+20d3a50	unsigned char recovered_20d3a50(unsigned long long param_1,char *param_2,unsigned char *param_3,char *param_4,char *param_5, char *param_6,unsigned long long param_7,unsigned long long param_8,unsigned int param_9, char *param_10,unsigned char *param_11,char *param_12,char *param_13,char *param_14);	RDI,RSI,RDX,RCX,R8,R9,stack8,stack16,stack24,stack32,stack40,stack48,stack56,stack64
+201cc00	void recovered_201cc00(void *data);	RDI
+201cf00	void recovered_201cf00(void);
+20a98c0	unsigned long long recovered_20a98c0(unsigned int param_1,long param_2);	EDI,RSI
+20c4860	unsigned char recovered_20c4860(int *param_1,long param_2,int param_3);	RDI,RSI,EDX
+2007120	unsigned long long recovered_2007120(unsigned int param_1,long param_2,unsigned int *param_3);	EDI,RSI,RDX
+201c7f0	unsigned long long recovered_201c7f0(void);
+201cb00	void * recovered_201cb00(unsigned long size);	RDI
+201d2f0	unsigned char recovered_201d2f0(unsigned int param_1);	EDI
+203ca10	void recovered_203ca10(float param_1,long *param_2);	XMM0_Da,RDI
+20765a0	unsigned char recovered_20765a0(char *param_1);	RDI
+20a54d0	unsigned char recovered_20a54d0(int *param_1,int *param_2,int *param_3,char *param_4,unsigned long long in_R8, unsigned long long in_R9);	RDI,RSI,RDX,RCX,R8,R9
+20c6ef0	unsigned int recovered_20c6ef0(long *param_1,long *param_2);	RDI,RSI
+20e6570	unsigned char recovered_20e6570(unsigned int in_EDI,int in_ESI,unsigned int in_EDX);	EDI,ESI,EDX
+2008660	unsigned char recovered_2008660(unsigned int param_1,int param_2,unsigned int *param_3);	EDI,ESI,RDX
+20356f0	int * recovered_20356f0(unsigned long long param_1,int *param_2,long *param_3);	XMM0_Qa,RDI,RSI
+201c530	unsigned long long recovered_201c530(long param_1,long param_2);	RDI,RSI
+201b880	unsigned long long recovered_201b880(void);
+20a5390	unsigned int recovered_20a5390(long table);	RDI
+209f260	unsigned int recovered_209f260(unsigned int *param_1);	RDI
+2029000	unsigned char recovered_2029000(unsigned long long *param_1,unsigned short *param_2);	RDI,RSI
+20df630	unsigned char recovered_20df630(long *param_1,long param_2,unsigned long param_3);	RDI,RSI,RDX
+20935d0	void recovered_20935d0(char param_1,unsigned long param_2,unsigned int param_3);	DIL,RSI,EDX
+2005c90	unsigned int recovered_2005c90(void);
+200a8f0	unsigned int recovered_200a8f0(void);
+201cca0	void recovered_201cca0(long param_1);	RDI
+2036a60	unsigned int recovered_2036a60(long *param_1,double *param_2);	RDI,RSI
+20085d0	unsigned char recovered_20085d0(unsigned int *param_1,int param_2,unsigned int *param_3);	RDI,ESI,RDX
+2014500	unsigned long long recovered_2014500(char *param_1,unsigned int param_2);	RDI,ESI
+200c190	unsigned char recovered_200c190(void);
+209cca0	unsigned int recovered_209cca0(unsigned long *param_1);	RDI
+206b1b0	unsigned int recovered_206b1b0(unsigned char param_1,unsigned long param_2,long param_3,long param_4);	DIL,RSI,RDX,RCX
+20a5b10	unsigned int recovered_20a5b10(unsigned int *param_1,unsigned int *param_2,long param_3);	RDI,RSI,RDX
+201d1a0	long recovered_201d1a0(long *param_1,unsigned long long param_2,unsigned long long *param_3);	RDI,RSI,RDX
+20e4030	unsigned char recovered_20e4030(long param_1,unsigned long long param_2,unsigned long long param_3,unsigned int param_4);	RDI,RSI,RDX,ECX
+20a8f50	unsigned char recovered_20a8f50(int *param_1,long *param_2,unsigned int param_3);	RDI,RSI,EDX
+2077ab0	unsigned char recovered_2077ab0(unsigned int *param_1,unsigned long param_2,unsigned int param_3,unsigned int param_4,unsigned long param_5, char param_6,unsigned long long param_7,unsigned long long *param_8,unsigned long *param_9, long param_10);	RDI,RSI,EDX,ECX,R8,R9B,stack8,stack16,stack24,stack32
+202a4b0	void recovered_202a4b0(long *param_1,unsigned long param_2);	RDI,RSI
+207b540	unsigned char recovered_207b540(long param_1,unsigned long param_2,int param_3,long param_4);	RDI,RSI,EDX,RCX
+2003490	long recovered_2003490(char *param_1,char *param_2);	RDI,RSI
+2012ff0	void recovered_2012ff0(int *param_1,int *param_2,int *param_3);	RDI,RSI,RDX
+2033190	unsigned char recovered_2033190(long param_1,unsigned int param_2,unsigned long long *param_3);	RDI,ESI,RDX
+20d58c0	unsigned char recovered_20d58c0(unsigned char param_1,unsigned int param_2);	DIL,ESI
+2037190	void recovered_2037190(unsigned long long *param_1);	RDI
+201c870	int recovered_201c870(char *left,char *right,unsigned long size);	RDI,RSI,RDX
+20a0670	unsigned int recovered_20a0670(unsigned long long *param_1,unsigned long long *param_2);	RDI,RSI
+2031cc0	void recovered_2031cc0(long *param_1);	RDI
+200a600	unsigned char recovered_200a600(unsigned long long param_1,unsigned long param_2,unsigned int param_3,unsigned int *param_4, unsigned int *param_5);	RDI,RSI,EDX,RCX,R8
+201c340	unsigned long long recovered_201c340(long param_1);	RDI
+20cbd10	unsigned char recovered_20cbd10(int param_1,unsigned int param_2);	EDI,ESI
+209d820	unsigned char recovered_209d820(unsigned int *param_1,unsigned long ************in_R8,unsigned long ***********in_R9);	RDI,RSI,RDX
+2040ce0	unsigned char recovered_2040ce0(char *param_1,char *param_2,unsigned int param_3,unsigned int *param_4);	RDI,RSI,EDX,RCX
+20c68c0	unsigned char recovered_20c68c0(int param_1,unsigned long long *param_2,long *param_3);	EDI,RSI,RDX
+20c57c0	unsigned int recovered_20c57c0(unsigned int *param_1,long param_2,long param_3);	RDI,RSI,RDX
+2065fb0	void recovered_2065fb0(void);
+203ce00	void recovered_203ce00(long *param_1);	RDI
+201d000	void recovered_201d000(void);
+203d9c0	double recovered_203d9c0(uint3 *param_1,int param_2,unsigned short param_3);	RDI,ESI,DX
+20a1dc0	unsigned char recovered_20a1dc0(pf_parser_context *parser,pf_kernel_value *out);	RDI,RSI
+2008620	unsigned char recovered_2008620(unsigned int *param_1,int param_2,unsigned int param_3);	RDI,ESI,EDX
+201ca00	 void recovered_201ca00(void *context,int value);	RDI,ESI
+206cab0	unsigned char recovered_206cab0(long *param_1,unsigned long param_2);	RDI,RSI
+20bbb80	unsigned long recovered_20bbb80(int *param_1,unsigned int *****param_2,int *param_3,long param_4,unsigned long long *param_5 ,unsigned int *********in_R9,unsigned long long param_7,unsigned long long param_8,unsigned long long param_9 ,unsigned long long param_10,unsigned long long param_11,unsigned long long param_12, unsigned long long param_13,unsigned long long param_14);	RDI,RSI,RDX,RCX,R8,R9,XMM0_Qa,XMM1_Qa,XMM2_Qa,XMM3_Qa,XMM4_Qa,XMM5_Qa,XMM6_Qa,XMM7_Qa
+20bc780	unsigned long recovered_20bc780(int *param_1,char *param_2,int *param_3,unsigned long param_4,int *param_5, unsigned char **in_R9,unsigned long long param_7,unsigned long long param_8,unsigned long long param_9, unsigned long long param_10,unsigned long long param_11,unsigned long long param_12, unsigned long long param_13,unsigned long long param_14);	RDI,RSI,RDX,RCX,R8,R9,XMM0_Qa,XMM1_Qa,XMM2_Qa,XMM3_Qa,XMM4_Qa,XMM5_Qa,XMM6_Qa,XMM7_Qa
+20e6b70	unsigned char recovered_20e6b70(int *param_1,long param_2,long param_3);	RDI,RSI,RDX
+20e6f60	unsigned int recovered_20e6f60(long param_1,unsigned long *in_RCX,unsigned char *in_R8,unsigned long *******in_R9);	RDI,RSI,RDX,RCX
+201c830	unsigned long long recovered_201c830(void);
+20c0fd0	unsigned long recovered_20c0fd0(unsigned int *param_1);	RDI
+203ae00	void recovered_203ae00(long *param_1,unsigned long param_2);	RDI,RSI
+201ce10	void recovered_201ce10(void);
+20b0c60	unsigned int recovered_20b0c60(int *param_1,char *param_2,unsigned int *param_3,unsigned long long *param_4, unsigned long long in_R8,unsigned long long in_R9);	RDI,RSI,RDX,RCX,R8,R9
+2036490	void recovered_2036490(long *param_1,unsigned long param_2);	RDI,RSI
+20a9540	unsigned char recovered_20a9540(long param_1,long param_2,unsigned char *param_3);	RDI,RSI,RDX
+20c5a50	unsigned char recovered_20c5a50(int *param_1,char *param_2,unsigned long long param_3,unsigned char *param_4, unsigned long long in_R8,unsigned long long in_R9);	RDI,RSI,RDX,RCX,R8,R9
+2013c40	void recovered_2013c40(void);
+2013740	void recovered_2013740(long param_1,long param_2);	RDI,RSI
+20c4080	unsigned long recovered_20c4080(int *param_1,char *param_2,int *param_3,unsigned long param_4,unsigned long long *param_5, long in_R9);	RDI,RSI,RDX,RCX,R8,R9
+2096360	unsigned int recovered_2096360(unsigned long *******param_1,unsigned long *******param_2,unsigned long *******in_R9, unsigned long long param_4,unsigned long ************param_5,unsigned long ******param_6, unsigned long ******param_7,unsigned long long param_8,unsigned long long param_9,unsigned long long param_10, unsigned long long param_11);	RDI,RSI,RDX,RCX,R8,R9,stack8,stack16,stack24,stack32,stack40
+201c9a0	void recovered_201c9a0(void);
+201d0a0	void recovered_201d0a0(void);
+20a5c10	unsigned char recovered_20a5c10(char *param_1,unsigned int *param_2);	RDI,RSI
+20cae30	unsigned char recovered_20cae30(unsigned long long param_1,unsigned long long param_2,unsigned long long param_3,unsigned int *param_4, unsigned int *param_5,unsigned long param_6,unsigned long long param_7,unsigned long long param_8, unsigned int param_9,int param_10,unsigned long param_11,unsigned int *param_12,unsigned int *param_13, unsigned long param_14);	RDI,RSI,RDX,RCX,R8,R9,stack8,stack16,stack24,stack32,stack40,stack48,stack56,stack64
+20a56e0	unsigned char recovered_20a56e0(int *param_1,unsigned char *param_2,unsigned long long *param_3,unsigned long long in_R8, unsigned long long in_R9);	RDI,RSI,RDX,RCX,R8
+20a5f00	unsigned char recovered_20a5f00(char *param_1);	RDI
+2033260	unsigned char recovered_2033260(long param_1);	RDI
+206f720	unsigned int recovered_206f720(unsigned long param_1,unsigned char param_2);	RDI,SIL
+2095f20	unsigned char recovered_2095f20(long param_1,unsigned long param_2,long *param_3,unsigned long *param_4,unsigned long *param_5);	RDI,RSI,RDX,RCX,R8
+20072d0	unsigned char recovered_20072d0(unsigned int param_1,int param_2,int param_3,unsigned long *param_4);	EDI,ESI,EDX,RCX
+206cfd0	unsigned int recovered_206cfd0(unsigned char param_1,unsigned long param_2,long param_3,unsigned long param_4);	DIL,RSI,RDX,RCX
+20c4970	unsigned char recovered_20c4970(int *param_1,long param_2,long param_3);	RDI,RSI,RDX
+201cab0	unsigned long long recovered_201cab0(void);
+202fa60	void recovered_202fa60(float param_1,long *param_2);	XMM0_Da,RDI
+20c4ef0	void recovered_20c4ef0(unsigned int param_1,unsigned int param_2);	EDI,ESI
+20b1850	unsigned char recovered_20b1850(int *param_1,char *param_2,long param_3,unsigned long param_4,unsigned long param_5, long *param_6);	RDI,RSI,RDX,RCX,R8,R9
+202add0	long recovered_202add0(long *param_1,long param_2,unsigned char *param_3,unsigned char *param_4);	RDI,RSI,RDX,RCX
+200b670	unsigned char recovered_200b670(unsigned char param_1,unsigned int param_2,unsigned long param_3,unsigned int param_4);	DIL,ESI,RDX,ECX
+2035d90	unsigned long long recovered_2035d90(long *param_1,unsigned char *param_2);	RDI,RSI
+2029240	unsigned char recovered_2029240(long param_1,unsigned long param_2,unsigned long *param_3,long param_4);	RDI,RSI,RDX,RCX
+2067030	void recovered_2067030(char param_1);	DIL
+20136a0	double recovered_20136a0(char *param_1);	RDI
+202faf0	unsigned long long recovered_202faf0(double param_1,long *param_2,unsigned int *param_3,unsigned int param_4,unsigned int param_5, unsigned int param_6);	XMM0_Qa,RDI,RSI,EDX,ECX,R8D
+20702a0	unsigned char recovered_20702a0(long param_1,int param_2,long param_3,unsigned int param_4,int param_5,int param_6, unsigned int param_7,unsigned int param_8,long *param_9,unsigned long *param_10);	RDI,ESI,RDX,ECX,R8D,R9D,stack8,stack16,stack24,stack32
+203e220	unsigned long long recovered_203e220(unsigned char param_1);	DIL
+20e9970	void recovered_20e9970(char *param_1,int *param_2,unsigned long param_3,int *param_4,unsigned int *in_R8, unsigned long long in_R9);	RDI,RSI,RDX,RCX,R8,R9
+203b2d0	unsigned char recovered_203b2d0(long *param_1,long *param_2,int param_3);	RDI,RSI,EDX
+20d8280	unsigned char recovered_20d8280(char param_1,unsigned long param_2,unsigned long param_3,char *param_4,long param_5, unsigned int *in_R9);	DIL,RSI,RDX,RCX,R8,R9
+20e8f50	unsigned long long recovered_20e8f50(char *format,...);	RDI
+2029550	void recovered_2029550(long *param_1,unsigned long long *param_2);	RDI,RSI
+2078bb0	unsigned char recovered_2078bb0(long param_1,unsigned long param_2,unsigned long param_3,int *param_4);	RDI,RSI,RDX,RCX
+20e8e50	unsigned int recovered_20e8e50(int *param_1);	RDI
+20c8d70	unsigned char recovered_20c8d70(char *param_1,unsigned int *param_2);	RDI,RSI
+203ed80	unsigned long long recovered_203ed80(long param_1,unsigned int *param_2);	RDI,RSI
+2009e80	void recovered_2009e80(int param_1,int param_2,unsigned char param_3,unsigned char param_4);	EDI,ESI,DL,CL
+2029820	unsigned char recovered_2029820(long param_1,unsigned long param_2,long param_3,unsigned long param_4,unsigned int *param_5);	RDI,RSI,RDX,RCX,R8
+201bf40	unsigned int recovered_201bf40(int *param_1);	RDI
+201d340	unsigned char recovered_201d340(unsigned int param_1);	XMM0_Da
+201cb30	void * recovered_201cb30(unsigned long size);	RDI
+20a9990	unsigned char recovered_20a9990(unsigned long long *param_1,long param_2,long param_3);	RDI,RSI,RDX
+201c840	char * recovered_201c840(char *param_1,char param_2,long param_3);	RDI,SIL,RDX
+20130c0	unsigned int recovered_20130c0(void);
+201ce20	long recovered_201ce20(long param_1);	RDI
+201c370	unsigned long long recovered_201c370(int *param_1);	RDI
+20091a0	void recovered_20091a0(void);
+2013c50	unsigned long long recovered_2013c50(void);
+209d7d0	unsigned int recovered_209d7d0(int param_1,long param_2,unsigned long long *param_3);	EDI,RSI,RDX
+201c4b0	unsigned long long recovered_201c4b0(long param_1);	RDI
+201c6a0	unsigned long recovered_201c6a0(long param_1,long *param_2,unsigned long *param_3);	RDI,RSI,RDX
+201d0b0	unsigned long long recovered_201d0b0(unsigned long long *param_1,unsigned char *in_RSI);	RDI,RSI
+20cf4f0	void recovered_20cf4f0(long param_1,unsigned char param_2,unsigned int param_3,unsigned long param_4);	RDI,SIL,EDX,RCX
+200c620	unsigned char recovered_200c620(long param_1);	RDI
+20682c0	unsigned long recovered_20682c0(long param_1);	RDI
+20cd1b0	void recovered_20cd1b0(long param_1);	RDI
+2033160	double recovered_2033160(long param_1);	RDI
+202d940	void recovered_202d940(void);
+209d0a0	unsigned char recovered_209d0a0(long param_1,unsigned long param_2,unsigned long param_3,unsigned long *param_4);	RDI,RSI,RDX,RCX
+20a1b00	unsigned char recovered_20a1b00(long param_1,unsigned long param_2);	RDI,RSI
+206ec40	unsigned char recovered_206ec40(long param_1,unsigned long param_2,long *param_3,long param_4,unsigned char *param_5, char param_6,unsigned char param_7,unsigned int param_8,unsigned int param_9);	RDI,RSI,RDX,RCX,R8,R9B,stack8,stack16,stack24
+201d3a0	unsigned char recovered_201d3a0(unsigned long param_1);	XMM0_Qa
+20b1250	void recovered_20b1250(void);
+200ac70	unsigned int recovered_200ac70(unsigned char param_1,unsigned int param_2,long param_3,unsigned long param_4);	DIL,ESI,RDX,RCX
+20a5630	unsigned char recovered_20a5630(int *param_1,int *param_2,int *param_3,long param_4,char *param_5, unsigned long long in_R9);	RDI,RSI,RDX,RCX,R8,R9
+201d170	void recovered_201d170(unsigned long long *in_RDI,unsigned char *in_RSI);	RDI,RSI
+20a9a50	unsigned long long recovered_20a9a50(long param_1,long param_2);	RDI,RSI
+203e620	unsigned long long recovered_203e620(void);
+20ca460	unsigned char recovered_20ca460(int param_1,unsigned int param_2,unsigned char in_XMM1 [16],unsigned char in_XMM2 [16], unsigned char in_XMM3 [16]);
+206fbc0	void recovered_206fbc0(unsigned int param_1,int param_2);	EDI,ESI
+201d030	void recovered_201d030(unsigned long long *param_1);	RDI
+20bfac0	unsigned int recovered_20bfac0(unsigned int *param_1,char *param_2);	RDI,RSI
+2013620	void recovered_2013620(char param_1);	DIL
+2069100	unsigned int recovered_2069100(unsigned long param_1,long param_2);	RDI,RSI
+203bdc0	unsigned int recovered_203bdc0(long param_1,int param_2,unsigned int *param_3);	RDI,ESI,RDX
+2008500	unsigned int recovered_2008500(void);
+20cf8c0	unsigned char recovered_20cf8c0(long param_1,unsigned int param_2,unsigned int param_3,char *param_4);	RDI,ESI,EDX,RCX
+201cef0	long recovered_201cef0(long param_1);	RDI
+2031f20	void recovered_2031f20(unsigned long long *param_1);	RDI
+201c800	void recovered_201c800(void);
+2033120	double recovered_2033120(long param_1);	RDI
+201cde0	unsigned long long recovered_201cde0(void);
+209d630	unsigned long long recovered_209d630(long param_1,long param_2,long param_3,long param_4,long param_5, unsigned long long param_6,unsigned char param_7);	RDI,RSI,RDX,RCX,R8,R9,stack8
+201ca30	double recovered_201ca30(void);
+208e220	unsigned char recovered_208e220(unsigned int in_EDI,int in_ESI,int in_EDX,unsigned long *in_RCX);	EDI,ESI,EDX,RCX
+20bf9c0	unsigned char recovered_20bf9c0(unsigned int *param_1,long param_2,long param_3,unsigned long param_4);	RDI,RSI,RDX,RCX
+2013ec0	unsigned char * recovered_2013ec0(void);
+209c600	void recovered_209c600(unsigned long long *param_1,unsigned long long *param_2);	RDI,RSI
+201b890	void recovered_201b890(void);
+200c230	unsigned long long recovered_200c230(unsigned int param_1);	EDI
+209d3e0	unsigned char recovered_209d3e0(long param_1,unsigned long param_2,long *param_3,unsigned long *param_4,unsigned long *param_5);	RDI,RSI,RDX,RCX,R8
+206fb00	void recovered_206fb00(unsigned int param_1);	EDI
+20c3c60	unsigned long recovered_20c3c60(int *param_1,char *param_2,int *param_3,long param_4,int *param_5, char param_6);	RDI,RSI,RDX,RCX,R8,R9B
+20294f0	unsigned char recovered_20294f0(long param_1,unsigned long param_2,unsigned long *param_3,unsigned int param_4,unsigned long *param_5);	RDI,RSI,RDX,ECX,R8
+20c3950	float recovered_20c3950(float value);	XMM0_Da
+2013d50	unsigned long long recovered_2013d50(void);
+2005ca0	unsigned int recovered_2005ca0(void);
+2007080	void recovered_2007080(void);
+20135b0	void recovered_20135b0(void);
+201d2a0	unsigned char recovered_201d2a0(int param_1);	EDI
+206f950	unsigned char recovered_206f950(void);
+2036d60	void recovered_2036d60(long *param_1,double *param_2);	RDI,RSI
+20c5500	unsigned char recovered_20c5500(int *param_1,unsigned int *param_2);	RDI,RSI
+2096310	unsigned long long recovered_2096310(long param_1,long param_2);	RDI,RSI
+201cac0	void recovered_201cac0(long param_1);	RDI
+207a600	unsigned long long recovered_207a600(long param_1);	RDI
+20a2df0	unsigned char recovered_20a2df0(pf_parser_context *parser,pf_kernel_value *out);	RDI,RSI
+201b680	void recovered_201b680(unsigned char *param_1,unsigned char *param_2);	RDI,RSI
+2009490	unsigned long long recovered_2009490(void);
+203cad0	unsigned long long recovered_203cad0(long *param_1,unsigned int *param_2,unsigned int param_3,unsigned int param_4,unsigned int param_5, unsigned int param_6,unsigned int *param_7);	RDI,RSI,EDX,ECX,R8D,R9D,stack8
+200bde0	unsigned char recovered_200bde0(unsigned char param_1);	DIL
+20a2020	unsigned char recovered_20a2020(pf_parser_context *parser,pf_kernel_value *out);	RDI,RSI
+20df320	unsigned char recovered_20df320(long param_1,unsigned long param_2,unsigned long param_3);	RDI,RSI,RDX
+20c3b80	float recovered_20c3b80(float value);	XMM0_Da
+20a3240	unsigned char recovered_20a3240(pf_parser_context *parser,pf_kernel_value *out);	RDI,RSI
+20c5b30	unsigned char recovered_20c5b30(int *param_1);	RDI
+20138b0	unsigned char recovered_20138b0(unsigned int param_1,unsigned int *param_2,unsigned int *param_3);	EDI,RSI,RDX
+20a5450	unsigned int recovered_20a5450(long param_1,long param_2);	RDI,RSI
+20c6270	unsigned int recovered_20c6270(unsigned char *param_1,unsigned long param_2,unsigned char param_3,char param_4);	RDI,RSI,DL,CL
+20a1c90	unsigned char recovered_20a1c90(long param_1,unsigned long param_2);	RDI,RSI
+20c42b0	unsigned long recovered_20c42b0(int *param_1,char *param_2,int *param_3,unsigned long param_4,unsigned long long *param_5, unsigned long long in_R9);	RDI,RSI,RDX,RCX,R8,R9
+20e7fb0	unsigned int recovered_20e7fb0(unsigned short *param_1,long param_2);	RDI,RSI
+203c640	unsigned int recovered_203c640(long param_1,unsigned long param_2,unsigned int param_3,unsigned int *param_4);	RDI,RSI,EDX,RCX
+2012a50	void recovered_2012a50(unsigned int *param_1,unsigned int *param_2,unsigned int *param_3, unsigned int *param_4);	RDI,RSI,RDX,RCX
+20c5590	void recovered_20c5590(long param_1);	RDI
+209d700	unsigned long long recovered_209d700(unsigned int *param_1);	RDI
+20d57e0	unsigned char recovered_20d57e0(unsigned char param_1,unsigned char param_2,unsigned int param_3,unsigned long long in_R8,unsigned long long in_R9);	DIL,SIL,EDX,RCX,R8
+20e9280	unsigned char recovered_20e9280(unsigned long *param_1,unsigned long *param_2,unsigned char *param_3,unsigned long *param_4,long param_5, unsigned char *param_6);	RDI,RSI,RDX,RCX,R8,R9
+206f090	unsigned char recovered_206f090(unsigned int *param_1,unsigned int param_2,unsigned int param_3);	RDI,ESI,EDX
+2042180	unsigned long long recovered_2042180(unsigned char *param_1);	RDI
+200c2c0	unsigned int recovered_200c2c0(unsigned long param_1);	RDI
+2067220	void recovered_2067220(int param_1,int param_2,long param_3,long param_4,unsigned char param_5, unsigned char param_6,unsigned char param_7);	EDI,ESI,RDX,RCX,R8B,R9B,stack8
+2014240	unsigned char recovered_2014240(char *param_1,char *param_2);	RDI,RSI
+20d4720	unsigned int recovered_20d4720(unsigned char param_1,int param_2,unsigned int param_3);	DIL,ESI,EDX
+20c5080	double recovered_20c5080(unsigned int param_1,unsigned int param_2,unsigned long param_3,unsigned long param_4,unsigned long param_5);	EDI,ESI,RDX,RCX,R8
+2020980	unsigned long recovered_2020980(unsigned int *param_1,unsigned char *param_2,long *param_3);	RDI,RSI,RDX
+2033c00	unsigned char recovered_2033c00(double *param_1,unsigned long param_2,double *param_3,long *param_4, unsigned int param_5);	RDI,RSI,RDX,RCX,R8D
+201d880	double recovered_201d880(double value);	XMM0_Qa
+203e680	unsigned int recovered_203e680(void);
+203a8f0	unsigned long long recovered_203a8f0(long *param_1,unsigned long long *param_2);	RDI,RSI
+20c4f40	double recovered_20c4f40(unsigned int param_1,unsigned int param_2,unsigned int param_3,unsigned int param_4,unsigned char param_5, unsigned char param_6,unsigned char param_7);	EDI,ESI,EDX,ECX,R8B,R9B,stack8
+2009a80	void recovered_2009a80(unsigned int param_1,unsigned int param_2,unsigned long *param_3,unsigned long param_4,unsigned int param_5);	EDI,ESI,RDX,RCX,R8D
+2013810	unsigned int recovered_2013810(void);
+20cb830	unsigned char recovered_20cb830(int param_1,unsigned char in_XMM1 [16],unsigned char in_XMM2 [16], unsigned char in_XMM3 [16],unsigned char in_XMM4 [16],unsigned char in_XMM6 [16], unsigned char in_XMM7 [16]);
+209c3e0	void recovered_209c3e0(void *context,const char *token,const char *format,...);	RDI,RSI,RDX
+20a8ed0	unsigned char recovered_20a8ed0(int *param_1,unsigned long long *param_2);	RDI,RSI
+201c810	unsigned long long recovered_201c810(void);
+201b6e0	void recovered_201b6e0(void);
+200b620	unsigned int recovered_200b620(void);
+201d310	unsigned char recovered_201d310(unsigned long param_1);	XMM0_Qa
+20a9cb0	unsigned char recovered_20a9cb0(void *context,char *name,pf_kernel_value *values,unsigned long count,pf_kernel_value *out);
+2031da0	void recovered_2031da0(long *param_1);	RDI
+2012df0	void recovered_2012df0(unsigned int *param_1,unsigned int *param_2,unsigned int *param_3, unsigned int *param_4,unsigned int *param_5,unsigned int *param_6);	RDI,RSI,RDX,RCX,R8,R9
+20a7b90	unsigned char recovered_20a7b90(unsigned int *param_1,long param_2);	RDI,RSI
+20370a0	void recovered_20370a0(long *param_1,double *param_2,double *param_3,double *param_4,int param_5);	RDI,RSI,RDX,RCX,R8D
+200a360	unsigned int recovered_200a360(void);
+201d290	unsigned long long recovered_201d290(void);
+2000940	unsigned long recovered_2000940(unsigned long param_1,unsigned long param_2);	RDI,RSI
+201cf80	unsigned long long recovered_201cf80(unsigned long long *param_1);	RDI
+2000d40	void *recovered_2000d40(void *data,unsigned long size);
+20cf830	void recovered_20cf830(unsigned long long param_1,unsigned long long param_2,unsigned long long param_3,unsigned long long param_4, unsigned long long param_5,unsigned long long param_6,unsigned long long param_7,unsigned long long param_8, long param_9,unsigned long param_10,char *param_11,unsigned long long param_12, unsigned long long param_13,unsigned long long param_14,unsigned char param_15);	XMM0_Qa,XMM1_Qa,XMM2_Qa,XMM3_Qa,XMM4_Qa,XMM5_Qa,XMM6_Qa,XMM7_Qa,RDI,RSI,RDX,RCX,R8,R9,stack8
+201b370	void recovered_201b370(long param_1,long param_2);	RDI,RSI
+20cb530	unsigned char recovered_20cb530(int param_1,int param_2,unsigned int param_3);	EDI,ESI,EDX
+203ba70	double recovered_203ba70(long *param_1,unsigned long param_2);	RDI,RSI
+2067fc0	unsigned char recovered_2067fc0(unsigned int param_1,unsigned long param_2);	EDI,RSI
+202c830	unsigned int recovered_202c830(long *param_1,long param_2,long param_3,long *param_4);	RDI,RSI,RDX,RCX
+2077370	unsigned long long recovered_2077370(unsigned char *UNRECOVERED_JUMPTABLE);	RDI
+203a090	double recovered_203a090(long *param_1,long param_2,unsigned long param_3);	RDI,RSI,RDX
+206b070	unsigned long recovered_206b070(long param_1,unsigned long param_2,char param_3);	RDI,RSI,DL
+201c9c0	 void recovered_201c9c0(void *context);
+202f770	unsigned long long * recovered_202f770(float param_1,long param_2);	XMM0_Da,RDI
+206d710	unsigned char recovered_206d710(unsigned int *param_1,unsigned long *param_2);	RDI,RSI
+201c2c0	unsigned int recovered_201c2c0(int *param_1,unsigned long param_2,int param_3);	RDI,RSI,EDX
+207a9a0	unsigned char recovered_207a9a0(unsigned long param_1,unsigned long param_2,unsigned int param_3,unsigned int param_4,long param_5);	RDI,RSI,EDX,ECX,R8
+20a5ce0	unsigned char recovered_20a5ce0(long text,int *out);	RDI,RSI
+2093810	unsigned int recovered_2093810(unsigned int param_1,unsigned int param_2,unsigned int param_3,unsigned char param_4);	EDI,ESI,EDX,CL
+201d180	unsigned long long recovered_201d180(void);
+20dfc30	unsigned char recovered_20dfc30(long *param_1);	RDI
+20372b0	void recovered_20372b0(unsigned long long *param_1);	RDI
+20d84a0	unsigned char recovered_20d84a0(unsigned long param_1,unsigned long param_2);	RDI,RSI
+20ca020	unsigned char recovered_20ca020(char *param_1,unsigned int *param_2);	RDI,RSI
+20139b0	unsigned int recovered_20139b0(unsigned long param_1);	RDI
+20372d0	unsigned char recovered_20372d0(long param_1,unsigned char *param_2);	RDI,RSI
+20a93d0	unsigned int recovered_20a93d0(long *param_1,unsigned char *param_2);	RDI,RSI
+202a630	unsigned char recovered_202a630(long param_1,unsigned long param_2,unsigned int param_3,unsigned int param_4,long *param_5);	RDI,RSI,EDX,ECX,R8
+2079520	unsigned char recovered_2079520(long param_1,unsigned int param_2,unsigned int param_3,long param_4);	RDI,ESI,EDX,RCX
+201c420	unsigned char recovered_201c420(long param_1);	RDI
+2065610	void recovered_2065610(unsigned char *param_1,unsigned long long in_R8,unsigned long *******in_R9,unsigned long long param_4, unsigned long ************param_5,unsigned long ******param_6,unsigned long ******param_7, unsigned long long param_8,unsigned long long param_9,unsigned long long param_10,unsigned long long param_11);	RDI,R8,R9,XMM0_Qa,XMM1_Qa,XMM2_Qa,XMM3_Qa,XMM4_Qa,XMM5_Qa,XMM6_Qa,XMM7_Qa
+209ce10	unsigned int recovered_209ce10(unsigned long *param_1);	RDI
+2032bd0	int * recovered_2032bd0(double param_1,int *param_2,double *param_3,unsigned long param_4);	XMM0_Qa,RDI,RSI,RDX
+20e9090	void recovered_20e9090(long param_1);	RDI
+20084b0	void recovered_20084b0(unsigned long long param_1);	RDI
+2069480	unsigned char recovered_2069480(unsigned long param_1);	RDI
+209c520	unsigned char recovered_209c520(long param_1,char *param_2);	RDI,RSI
+20a9490	unsigned char recovered_20a9490(long *param_1,long param_2,long param_3);	RDI,RSI,RDX
+20c95e0	unsigned char recovered_20c95e0(int param_1);	EDI
+20a22b0	unsigned char recovered_20a22b0(pf_parser_context *parser,pf_kernel_value *out);	RDI,RSI
+20c6420	unsigned int recovered_20c6420(unsigned char *param_1,unsigned long param_2,unsigned long long *param_3,unsigned long *param_4);	RDI,RSI,RDX,RCX
+209d050	void recovered_209d050(long param_1,long param_2);	RDI,RSI
+20c56d0	unsigned char recovered_20c56d0(int *param_1,long param_2,unsigned char *param_3);	RDI,RSI,RDX
+2079790	unsigned char recovered_2079790(long param_1,int param_2,unsigned char param_3,long param_4);	RDI,ESI,DL,RCX
+201cdf0	unsigned int recovered_201cdf0(unsigned int *param_1);	RDI
+20e7090	unsigned char recovered_20e7090(long param_1,unsigned long long *param_2,char *param_3);	RDI,RSI,RDX
+20cb400	unsigned char recovered_20cb400(int param_1,char *param_2);	EDI,RSI
+207a800	unsigned char recovered_207a800(long param_1);	RDI
+2069380	unsigned char recovered_2069380(unsigned long param_1);	RDI
+20a60a0	unsigned char recovered_20a60a0(char *param_1);	RDI
+20d1a90	unsigned long long recovered_20d1a90(char *param_1,unsigned int param_2,char *param_3);	RDI,ESI,RDX
+2014280	unsigned long long recovered_2014280(long param_1,char param_2,char *param_3);	RDI,SIL,RDX
+20d80b0	unsigned char recovered_20d80b0(char param_1,char *param_2,unsigned char *param_3);	DIL,RSI,RDX
+201b5e0	void recovered_201b5e0(void);
+2007490	unsigned char recovered_2007490(void);
+200a8e0	void recovered_200a8e0(void);
+20c9680	unsigned char recovered_20c9680(long param_1,long param_2,unsigned long *param_3);	RDI,RSI,RDX
+20db120	unsigned char recovered_20db120(char *param_1,long param_2);	RDI,RSI
+202f0a0	unsigned long long recovered_202f0a0(float param_1,unsigned char *param_2,unsigned long param_3);	XMM0_Da,RDI,RSI
+201b540	void recovered_201b540(void);
+201c980	unsigned long long recovered_201c980(void);
+20df030	unsigned char recovered_20df030(int *param_1,int *param_2);	RDI,RSI
+201c480	unsigned int recovered_201c480(unsigned int param_1,long param_2);	EDI,RSI
+20d81f0	unsigned char recovered_20d81f0(unsigned char param_1,unsigned int param_2,unsigned int param_3);	DIL,ESI,EDX
+2002e60	int recovered_2002e60(int param_1);	EDI
+20dec20	void recovered_20dec20(long param_1);	RDI
+20a3100	unsigned char recovered_20a3100(pf_parser_context *parser,pf_kernel_value *out);	RDI,RSI
+2013c60	unsigned long recovered_2013c60(void);
+20a8d30	unsigned int recovered_20a8d30(int *param_1,unsigned long long *param_2);	RDI,RSI
+2029690	void recovered_2029690(long *param_1,unsigned long param_2,unsigned char *param_3);	RDI,RSI,RDX
+20cc900	unsigned char recovered_20cc900(unsigned char param_1,unsigned int param_2,unsigned int *param_3,unsigned char param_4);	DIL,ESI,RDX,CL
+20d8020	void recovered_20d8020(unsigned long long param_1,unsigned long long param_2,unsigned long long param_3,unsigned long long param_4, unsigned long long param_5,unsigned long long param_6,unsigned long long param_7,unsigned long long param_8, long param_9,unsigned long long param_10,char *param_11,unsigned long long param_12, unsigned long long param_13,unsigned long long param_14,unsigned char param_15);	XMM0_Qa,XMM1_Qa,XMM2_Qa,XMM3_Qa,XMM4_Qa,XMM5_Qa,XMM6_Qa,XMM7_Qa,RDI,RSI,RDX,RCX,R8,R9,stack8
+20a25e0	unsigned int recovered_20a25e0(int *param_1,unsigned char *param_2,unsigned int *param_3,unsigned int *param_4,unsigned long long *param_5, unsigned long long in_R9);	RDI,RSI,RDX,RCX,R8,R9
+206ce50	void recovered_206ce50(long param_1,int param_2,unsigned int param_3,unsigned int param_4);	RDI,ESI,EDX,ECX
+20c55e0	void recovered_20c55e0(char *param_1,unsigned char *param_2);	RDI,RSI
+2033180	unsigned long long recovered_2033180(void);
+201d190	void recovered_201d190(void);
+20b3cd0	unsigned long recovered_20b3cd0(int *param_1,char *param_2,int *param_3,unsigned long param_4,unsigned long long *param_5, char **in_R9);	RDI,RSI,RDX,RCX,R8,R9
+2002d70	unsigned char recovered_2002d70(int param_1);	EDI
+203ddc0	void recovered_203ddc0(unsigned long long in_RSI,unsigned long in_RDX);	RSI,RDX
+20086b0	unsigned char recovered_20086b0(unsigned int param_1,int param_2,unsigned int param_3);	EDI,ESI,EDX
+2003790	double recovered_2003790(double left,double right);	XMM0_Qa,XMM1_Qa
+203e2e0	unsigned long long recovered_203e2e0(char *param_1);	RDI
+20e74d0	unsigned char recovered_20e74d0(long *param_1,long *param_2);	RDI,RSI
+202abe0	unsigned char recovered_202abe0(unsigned char *param_1,unsigned long param_2,long *param_3);	RDI,RSI,RDX
+200c270	unsigned long recovered_200c270(void);
+20697a0	unsigned char recovered_20697a0(void);
+209f670	unsigned int recovered_209f670(int *param_1);	RDI
+200b810	unsigned long recovered_200b810(unsigned long param_1,unsigned int param_2,long param_3,unsigned long param_4);	RDI,ESI,RDX,RCX
+20d4a00	unsigned char recovered_20d4a00(unsigned int *param_1,unsigned int *param_2,unsigned long long param_3,char *param_4,unsigned int *param_5, unsigned int *param_6,unsigned long long param_7,unsigned long long param_8,unsigned int *param_9, unsigned int *param_10,unsigned long long param_11,char *param_12,unsigned int *param_13, unsigned long param_14);	RDI,RSI,RDX,RCX,R8,R9,stack8,stack16,stack24,stack32,stack40,stack48,stack56,stack64
+2014e20	void recovered_2014e20(unsigned char param_1,unsigned int *param_2);	DIL,RSI
+20bfbb0	unsigned int recovered_20bfbb0(long param_1,unsigned long param_2,unsigned long long *param_3,char *param_4,unsigned long param_5);	RDI,RSI,RDX,RCX,R8
+2067c70	unsigned int recovered_2067c70(unsigned int param_1,unsigned int param_2,unsigned int param_3);	EDI,ESI,EDX
+201ced0	void recovered_201ced0(long param_1);	RDI
+2032000	unsigned char recovered_2032000(long param_1,long *param_2);	RDI,RSI
+20084e0	unsigned int recovered_20084e0(void);
+200a3c0	unsigned long recovered_200a3c0(long param_1,unsigned long param_2);	RDI,RSI
+201b720	void recovered_201b720(void);
+2077e10	unsigned char recovered_2077e10(unsigned int *param_1,unsigned long param_2,unsigned int param_3,unsigned int param_4,unsigned int *param_5, int *param_6,long param_7);	RDI,RSI,EDX,ECX,R8,R9,stack8
+2031d30	void recovered_2031d30(long *param_1);	RDI
+20095e0	void recovered_20095e0(unsigned char param_1);	DIL
+2012a00	void recovered_2012a00(unsigned int *param_1,unsigned int *param_2,unsigned int *param_3);	RDI,RSI,RDX
+2076b50	unsigned int recovered_2076b50(long param_1);	RDI
+20137e0	unsigned char recovered_20137e0(unsigned char *param_1);	RDI
+201bc40	unsigned int * recovered_201bc40(long param_1,long param_2,int *param_3);	RDI,RSI,RDX
+20c94f0	unsigned char recovered_20c94f0(int param_1,int param_2);	EDI,ESI
+2012f10	unsigned int recovered_2012f10(unsigned int *param_1,unsigned int *param_2,unsigned int *param_3, unsigned int *param_4,unsigned int *param_5,unsigned int *param_6, unsigned int *param_7,unsigned int *param_8,unsigned int *param_9, unsigned int *param_10);	RDI,RSI,RDX,RCX,R8,R9,stack8,stack16,stack24,stack32
+2033100	double recovered_2033100(long param_1);	RDI
+201ce00	void recovered_201ce00(unsigned char *param_1);	RDI
+201cad0	long recovered_201cad0(long param_1);	RDI
+20426d0	unsigned char recovered_20426d0(int param_1,long param_2,long param_3,unsigned int param_4,unsigned int *param_5);	EDI,RSI,RDX,ECX,R8
+20cc660	void recovered_20cc660(long param_1,unsigned int *param_2);	RDI,RSI
+20070f0	unsigned char recovered_20070f0(unsigned int param_1,int param_2,unsigned int param_3,unsigned int *param_4);	EDI,ESI,EDX,RCX
+206fc40	unsigned int recovered_206fc40(void);
+203b1f0	double recovered_203b1f0(long *param_1,unsigned long param_2);	RDI,RSI
+200c210	void recovered_200c210(unsigned int param_1,unsigned int param_2,unsigned int param_3,unsigned char param_4);	EDI,ESI,EDX,CL
+2093170	unsigned char recovered_2093170(unsigned int param_1,unsigned int param_2,unsigned long param_3);	EDI,ESI,RDX
+205b410	unsigned char recovered_205b410(unsigned char param_1,unsigned long param_2,unsigned int param_3,unsigned int param_4);	DIL,RSI,EDX,ECX
+209cd00	unsigned int recovered_209cd00(char *param_1,char *param_2);	RDI,RSI		pf_preserve_xmm0
+2078b50	unsigned char recovered_2078b50(long param_1,unsigned int param_2,char param_3,long param_4);	RDI,ESI,DL,RCX
+201d8d0	long recovered_201d8d0(unsigned char *param_1,unsigned long long *param_2,unsigned int param_3);	RDI,RSI,EDX
+2029b30	unsigned char recovered_2029b30(long param_1,unsigned long param_2,long param_3,unsigned int *param_4,long *param_5);	RDI,RSI,RDX,RCX,R8
+20a1aa0	unsigned char recovered_20a1aa0(long param_1,long param_2);	RDI,RSI
+20d0780	unsigned char recovered_20d0780(long param_1,int *param_2,unsigned int param_3,unsigned int param_4,char *param_5);	RDI,RSI,EDX,ECX,R8
+207b4b0	unsigned char recovered_207b4b0(long param_1,unsigned long param_2,unsigned long *param_3,unsigned long *param_4);	RDI,RSI,RDX,RCX
+20c4d90	unsigned int recovered_20c4d90(unsigned int param_1,unsigned int param_2,unsigned char param_3,unsigned char param_4,unsigned char param_5);	EDI,ESI,DL,CL,R8B
+209cec0	unsigned int recovered_209cec0(long *param_1,unsigned long long *param_2);	RDI,RSI
+20095a0	unsigned int recovered_20095a0(void);
+2020ef0	unsigned long long recovered_2020ef0(unsigned int *param_1,long *param_2,unsigned char *param_3,long *param_4);	RDI,RSI,RDX,RCX
+201c990	unsigned long long recovered_201c990(void);
+201d090	void recovered_201d090(unsigned long long *in_RDI);	RDI
+20c7640	unsigned char recovered_20c7640(int *param_1,int *param_2);	RDI,RSI
+20cb680	unsigned char recovered_20cb680(int param_1,unsigned int param_2);	EDI,ESI
+20798c0	unsigned int recovered_20798c0(unsigned long param_1,long param_2);	RDI,RSI
+201be00	unsigned long long recovered_201be00(long param_1,long param_2,long param_3,int *param_4);	RDI,RSI,RDX,RCX
+20e3b80	unsigned char recovered_20e3b80(long param_1,unsigned int param_2);	RDI,ESI
+20c6cf0	unsigned char recovered_20c6cf0(long *param_1,long *param_2);	RDI,RSI
+201d2c0	unsigned char recovered_201d2c0(unsigned int param_1);	EDI
+20a8120	unsigned char recovered_20a8120(long *param_1,int *param_2,char param_3);	RDI,RSI,DL
+203cf70	unsigned char recovered_203cf70(long param_1,unsigned long param_2,long *param_3,uint3 *param_4);	RDI,RSI,RDX,RCX
+2055b90	unsigned long long recovered_2055b90(void);
+20680c0	unsigned long long recovered_20680c0(void);
+20094a0	unsigned int recovered_20094a0(void);
+209cd80	unsigned char recovered_209cd80(unsigned char *param_1);	RDI
+200bef0	unsigned char recovered_200bef0(int param_1);	EDI
+202b0b0	unsigned int recovered_202b0b0(long *param_1,long *param_2);	RDI,RSI
+2013e70	unsigned long long recovered_2013e70(void);
+2009790	void recovered_2009790(unsigned int param_1,unsigned int param_2,unsigned int param_3,unsigned int param_4,unsigned int param_5);	EDI,ESI,EDX,ECX,R8D
+203db30	unsigned long long recovered_203db30(unsigned int param_1,unsigned int param_2,unsigned char param_3);	EDI,ESI,DL
+2002110	void *recovered_2002110(void *out,int value,unsigned long count);
+202a3c0	void recovered_202a3c0(unsigned char *param_1,unsigned char *param_2);	RDI,RSI
+2000830	unsigned long recovered_2000830(unsigned long param_1,unsigned long param_2);	RDI,RSI
+20e4260	unsigned int recovered_20e4260(unsigned char param_1,int param_2,int param_3,int param_4,unsigned int param_5,long param_6, unsigned int param_7,unsigned int param_8,unsigned int param_9,long *param_10,int *param_11);	DIL,ESI,EDX,ECX,R8D,R9,stack8,stack16,stack24,stack32,stack40
+200beb0	unsigned long long recovered_200beb0(void);
+205f250	void recovered_205f250(void);
+20626d0	void recovered_20626d0(unsigned int param_1);	EDI
+201b760	unsigned char recovered_201b760(long param_1,long param_2,unsigned long long param_3,unsigned char param_4);	RDI,RSI,RDX,CL
+2008520	unsigned int recovered_2008520(void);
+20e8a90	unsigned long long recovered_20e8a90(unsigned long long param_1,unsigned long long param_2,unsigned long long param_3,unsigned long long param_4, unsigned long long param_5,unsigned long long param_6,unsigned long long param_7,unsigned long long param_8);	XMM0_Qa,XMM1_Qa,XMM2_Qa,XMM3_Qa,XMM4_Qa,XMM5_Qa,XMM6_Qa,XMM7_Qa
+20d76a0	unsigned char recovered_20d76a0(char param_1,char *param_2,unsigned int param_3,char *param_4,unsigned long param_5, unsigned long param_6);	DIL,RSI,EDX,RCX,R8,R9
+203c940	unsigned long long * recovered_203c940(float param_1,unsigned char *param_2,unsigned int param_3);	XMM0_Da,RDI,ESI
+201cd40	void recovered_201cd40(long param_1);	RDI
+20c39f0	float recovered_20c39f0(float value);	XMM0_Da
+2006d70	unsigned char recovered_2006d70(unsigned int param_1,unsigned long param_2,unsigned long param_3);	EDI,RSI,RDX
+20d6f90	unsigned char recovered_20d6f90(char param_1);	DIL
+20086f0	void recovered_20086f0(void);
+2009560	unsigned int recovered_2009560(void);
+200c1d0	unsigned char recovered_200c1d0(void);
+2062a10	unsigned char recovered_2062a10(void);
+2033700	unsigned char recovered_2033700(long param_1);	RDI
+2013940	unsigned int recovered_2013940(unsigned int param_1,unsigned int param_2,unsigned long param_3);	EDI,ESI,RDX
+201c9d0	 int recovered_201c9d0(void *context);	RDI
+2036810	long recovered_2036810(long *param_1,long param_2,unsigned char *param_3);	RDI,RSI,RDX
+2065d40	void recovered_2065d40(unsigned int *param_1,unsigned int param_2,unsigned int param_3,int param_4,int param_5, unsigned char param_6,unsigned char param_7,unsigned char param_8);	RDI,ESI,EDX,ECX,R8D,R9B,stack8,stack16
+201d0d0	unsigned long long recovered_201d0d0(unsigned long long *param_1,unsigned char *in_RSI);	RDI,RSI
+208f550	unsigned int recovered_208f550(unsigned long long param_1,unsigned int *param_2);	RDI,RSI
+20e64b0	unsigned long long recovered_20e64b0(unsigned int param_1,unsigned int param_2,unsigned int param_3,int param_4,unsigned int param_5);	EDI,ESI,EDX,ECX,R8D
+2013820	unsigned char recovered_2013820(int param_1,unsigned long long param_2,unsigned int *param_3);	EDI,RSI,RDX
+20422c0	unsigned char recovered_20422c0(unsigned long param_1,unsigned long long param_2,unsigned long long param_3);	RDI,RSI,RDX
+201c820	unsigned long long recovered_201c820(void);
+2066f40	unsigned char recovered_2066f40(unsigned int param_1,unsigned long param_2);	EDI,RSI
+201d280	void recovered_201d280(void);
+201c780	unsigned char recovered_201c780(long param_1,long param_2,long param_3);	RDI,RSI,RDX
+2003a80	double recovered_2003a80(double value);	XMM0_Qa
+20129c0	void recovered_20129c0(unsigned int *param_1,unsigned int *param_2);	RDI,RSI
+20a9af0	unsigned int recovered_20a9af0(unsigned int *param_1,unsigned char *param_2,long param_3);	RDI,RSI,RDX
+20e8930	unsigned char recovered_20e8930(long param_1,unsigned long *in_RCX,unsigned char *in_R8,unsigned long *in_R9);	RDI,RSI,RDX,RCX
+20d8660	unsigned char recovered_20d8660(long param_1,long param_2,unsigned char in_XMM1 [16],unsigned char in_XMM2 [16], unsigned char in_XMM3 [16],unsigned char in_XMM4 [16],unsigned char in_XMM6 [16], unsigned char in_XMM7 [16]);
+20c0a60	unsigned int recovered_20c0a60(unsigned int *param_1,long param_2,long param_3,unsigned long param_4);	RDI,RSI,RDX,RCX
+20035f0	double recovered_20035f0(double param_1,unsigned int param_2);	XMM0_Qa,EDI
+20c1080	void recovered_20c1080(void);
+20409d0	void * recovered_20409d0(unsigned int param_1);	EDI
+2002730	double recovered_2002730(long param_1,unsigned long param_2);	RDI,RSI
+2005cd0	unsigned int recovered_2005cd0(void);
+2073670	unsigned char recovered_2073670(long param_1,long *param_2,unsigned long *param_3,unsigned int param_4, unsigned char *param_5,long param_6);	RDI,RSI,RDX,ECX,R8,R9
+2002e80	unsigned long recovered_2002e80(char *text);
+2042880	unsigned char recovered_2042880(int param_1,long param_2,long param_3,unsigned int param_4);	EDI,RSI,RDX,ECX
+20430a0	unsigned char recovered_20430a0(int param_1,long param_2);	EDI,RSI
+205d060	unsigned long long recovered_205d060(unsigned long long param_1,unsigned long param_2,unsigned char param_3);	RDI,RSI,DL
+20563e0	unsigned long long recovered_20563e0(int param_1);	EDI
+20e65c0	void recovered_20e65c0(void);
+203f8e0	unsigned char recovered_203f8e0(char *param_1);	RDI
+20961c0	unsigned char recovered_20961c0(long *param_1,unsigned long *param_2,unsigned long param_3);	RDI,RSI,RDX
+2003e40	unsigned long recovered_2003e40(double param_1);	XMM0_Qa
+20d1790	void recovered_20d1790(char *param_1,long param_2);	RDI,RSI
+2074ee0	unsigned char recovered_2074ee0(long param_1,long param_2,int param_3,unsigned int param_4,unsigned int param_5, unsigned int param_6);	RDI,RSI,EDX,ECX,R8D,R9D
+2004940	double recovered_2004940(char *text,char **end);	RDI,RSI
+208e250	unsigned char recovered_208e250(unsigned long long in_RDI,unsigned long in_RSI,unsigned int in_EDX,unsigned int *in_RCX, unsigned int *in_R8);	RDI,RSI,EDX,RCX,R8
+20c4490	unsigned long recovered_20c4490(int *param_1,char *param_2,int *param_3,long param_4,unsigned long long *param_5, unsigned long long in_R9);	RDI,RSI,RDX,RCX,R8,R9
+20de640	void recovered_20de640(long param_1);	RDI
+2002a00	int recovered_2002a00(void *left,void *right,unsigned long size);	RDI,RSI,RDX
+2040be0	void * recovered_2040be0(void *param_1,unsigned int param_2);	RDI,ESI
+2040180	unsigned char recovered_2040180(char *param_1,unsigned int param_2,void *param_3);	RDI,ESI,RDX
+2053b60	unsigned int recovered_2053b60(void);
+2005e20	unsigned char recovered_2005e20(unsigned short param_1,int param_2,unsigned int *param_3);	DI,ESI,RDX
+20db3e0	unsigned char recovered_20db3e0(char *param_1,long param_2);	RDI,RSI
+202de00	unsigned int recovered_202de00(unsigned int param_1,long param_2,unsigned long param_3);	EDI,RSI,RDX
+20de410	unsigned char recovered_20de410(int *param_1,char *param_2,long param_3,unsigned char *param_4,long param_5, long *param_6);	RDI,RSI,RDX,RCX,R8,R9
+20007e0	long recovered_20007e0(long param_1,unsigned int param_2);	RDI,ESI
+20b6220	unsigned long long recovered_20b6220(int *param_1,char *param_2,long param_3,long param_4,unsigned long long *param_5);	RDI,RSI,RDX,RCX,R8
+2004810	unsigned long long recovered_2004810(unsigned char *param_1,unsigned long long *param_2,unsigned int param_3);	RDI,RSI,EDX
+2003c00	double recovered_2003c00(double value);	XMM0_Qa
+2005d20	unsigned char recovered_2005d20(void);
+20d8940	unsigned char recovered_20d8940(long param_1,unsigned char *param_2,char *param_3,long param_4, unsigned char *param_5);	RDI,RSI,RDX,RCX,R8
+2002e40	int recovered_2002e40(int param_1);	EDI
+203a340	double recovered_203a340(long *param_1,unsigned long param_2);	RDI,RSI
+20d0060	unsigned char recovered_20d0060(long param_1,int *param_2,unsigned int param_3,unsigned int param_4,char *param_5);	RDI,RSI,EDX,ECX,R8
+20d2530	unsigned char recovered_20d2530(unsigned char param_1,unsigned int param_2,unsigned int param_3,unsigned int param_4);	DIL,ESI,EDX,ECX
+203a030	unsigned long long recovered_203a030(long param_1);	RDI
+2000570	long recovered_2000570(void);
+201ddc0	unsigned long long recovered_201ddc0(unsigned int param_1,long *param_2);	EDI,RSI
+2064910	unsigned int recovered_2064910(unsigned char *param_1,unsigned long in_R8,unsigned long in_R9,unsigned long long param_4, unsigned long ************param_5,unsigned long ******param_6,unsigned long ******param_7, unsigned long long param_8,unsigned long long param_9,unsigned long long param_10,unsigned long long param_11);	RDI,RSI,RDX,RCX,R8,R9,stack8,stack16,stack24,stack32,stack40
+2003f40	double recovered_2003f40(unsigned long param_1);	RDI
+20068b0	unsigned char recovered_20068b0(unsigned char param_1,int param_2,unsigned long param_3,unsigned int param_4,unsigned int param_5, unsigned int param_6);	DIL,ESI,RDX,ECX,R8D,R9D
+208e230	unsigned char recovered_208e230(unsigned long in_RDX,unsigned int in_R8D,unsigned int *in_R9);	RDX,R8D,R9
+2052340	unsigned char recovered_2052340(char *param_1,char *param_2);	RDI,RSI
+20df440	unsigned int recovered_20df440(long *param_1,long param_2,long param_3);	RDI,RSI,RDX
+20eaca0	unsigned char recovered_20eaca0(long param_1,long param_2);	RDI,RSI
+2000090	void recovered_2000090(void);
+203ed60	unsigned long long recovered_203ed60(void);
+2073ab0	unsigned int recovered_2073ab0(long param_1,int param_2);	RDI,ESI
+2075860	unsigned int recovered_2075860(long *param_1,short *param_2,long param_3,unsigned long param_4,int param_5);	RDI,RSI,RDX,RCX,R8D
+205df10	unsigned int recovered_205df10(unsigned char *param_1);	RDI
+20e6750	short recovered_20e6750(void);
+2092fa0	unsigned long long recovered_2092fa0(unsigned int param_1,unsigned int param_2,unsigned int param_3);	EDI,ESI,EDX
+2036f40	void recovered_2036f40(long *param_1);	RDI
+20034f0	char * recovered_20034f0(char *param_1,char *param_2);	RDI,RSI
+20e1a80	unsigned int recovered_20e1a80(long param_1,long param_2);	RDI,RSI
+209f0e0	unsigned char recovered_209f0e0(long param_1,unsigned long long *param_2);	RDI,RSI
+209ce70	unsigned char recovered_209ce70(long param_1,long param_2);	RDI,RSI
+2022da0	void recovered_2022da0(long param_1);	RDI
+20d88e0	void recovered_20d88e0(long param_1,long param_2);	RDI,RSI
+2074ab0	unsigned int recovered_2074ab0(long param_1,long param_2,unsigned int param_3,int param_4,int param_5,unsigned int param_6, long param_7,unsigned long param_8,char *param_9,unsigned int param_10);	RDI,RSI,EDX,ECX,R8D,R9D,stack8,stack16,stack24,stack32
+20d2d80	void recovered_20d2d80(long param_1);	RDI
+2003bd0	long recovered_2003bd0(double param_1);	XMM0_Qa
+20dec80	unsigned char recovered_20dec80(unsigned char *param_1,unsigned long long *param_2,unsigned long long *param_3);	RDI,RSI,RDX
+2005de0	void recovered_2005de0(unsigned int param_1);	EDI
+2056f90	void recovered_2056f90(long param_1,unsigned long long *param_2,unsigned long long param_3,unsigned long long param_4, unsigned long long param_5,unsigned long long param_6);	RDI,RSI,RDX,RCX,R8,R9
+20035b0	unsigned char * recovered_20035b0(void);
+2056ea0	unsigned char recovered_2056ea0(unsigned int param_1);	EDI
+2075410	unsigned char recovered_2075410(long *param_1,int param_2,long param_3);	RDI,ESI,RDX
+20b9af0	unsigned long recovered_20b9af0(int *param_1,unsigned char **param_2,int *param_3,unsigned char *param_4, unsigned long *param_5,char **in_R9,unsigned long long param_7,unsigned long long param_8, unsigned long long param_9,unsigned long long param_10,unsigned long long param_11, unsigned long long param_12,unsigned long long param_13,unsigned long long param_14);	RDI,RSI,RDX,RCX,R8,R9,XMM0_Qa,XMM1_Qa,XMM2_Qa,XMM3_Qa,XMM4_Qa,XMM5_Qa,XMM6_Qa,XMM7_Qa
+2003450	unsigned long long recovered_2003450(char *param_1,char param_2);	RDI,SIL
+20d8580	unsigned char recovered_20d8580(int param_1,int param_2,int *param_3,unsigned char in_XMM1 [16], unsigned char in_XMM2 [16],unsigned char in_XMM3 [16],unsigned char in_XMM4 [16], unsigned char in_XMM6 [16],unsigned char in_XMM7 [16]);
+203efa0	unsigned char recovered_203efa0(char *param_1,void *param_2,unsigned int param_3);	RDI,RSI,EDX
+2005e60	unsigned char recovered_2005e60(unsigned int param_1,int param_2,unsigned long param_3);	EDI,ESI,RDX
+20be4f0	double recovered_20be4f0(long param_1);	RDI
+20e4750	unsigned int recovered_20e4750(int param_1,unsigned int param_2,int *param_3);	EDI,ESI,RDX
+20dc670	unsigned int recovered_20dc670(int param_1,int *param_2);	EDI,RSI
+20b3540	unsigned long recovered_20b3540(int *param_1,char *param_2,long param_3,long param_4,unsigned int *param_5);	RDI,RSI,RDX,RCX,R8
+20b18c0	void recovered_20b18c0(unsigned char *param_1);	RDI
+206eb80	unsigned int recovered_206eb80(char *param_1,char *param_2);	RDI,RSI
+20e5020	unsigned char recovered_20e5020(long param_1,unsigned long param_2,long param_3,unsigned long param_4,unsigned long param_5, unsigned int param_6,unsigned int param_7,unsigned int param_8,unsigned int param_9, unsigned int param_10);	RDI,RSI,RDX,RCX,R8,R9D,stack8,stack16,stack24,stack32
+203a070	unsigned long long recovered_203a070(void);
+20cdba0	void recovered_20cdba0(long param_1,long param_2);	RDI,RSI
+2002e00	unsigned char recovered_2002e00(int param_1);	EDI
+20b2830	unsigned long recovered_20b2830(int *param_1,char *param_2,long param_3,unsigned long param_4,unsigned int *param_5, unsigned int *in_R9);	RDI,RSI,RDX,RCX,R8,R9
+20e07f0	unsigned char recovered_20e07f0(long *param_1,long *param_2);	RDI,RSI
+2003550	unsigned long long recovered_2003550(char *param_1,char *param_2);	RDI,RSI
+20be470	void recovered_20be470(long param_1);	RDI
+20e6790	unsigned char recovered_20e6790(int param_1,unsigned int in_ESI,unsigned long in_RDX);	EDI,ESI,RDX
+2024810	unsigned int recovered_2024810(unsigned int *param_1,long param_2,long param_3,unsigned long param_4);	RDI,RSI,RDX,RCX
+2024e00	unsigned char recovered_2024e00(long param_1,long param_2,unsigned int param_3,int param_4);	RDI,RSI,EDX,ECX
+2040370	unsigned long recovered_2040370(unsigned long long param_1,unsigned long long param_2,unsigned long long param_3,unsigned long long param_4, unsigned long long param_5,unsigned long long param_6,unsigned long long param_7,unsigned long long param_8, unsigned char *param_9,unsigned long param_10,char *param_11,int param_12, unsigned long long param_13,unsigned long long param_14);	XMM0_Qa,XMM1_Qa,XMM2_Qa,XMM3_Qa,XMM4_Qa,XMM5_Qa,XMM6_Qa,XMM7_Qa,RDI,RSI,RDX,ECX,R8,R9
+2040b30	void recovered_2040b30(void *param_1);	RDI
+205ec00	double recovered_205ec00(unsigned long long *param_1);	RDI
+20e1c70	unsigned int recovered_20e1c70(int *param_1,int param_2,long param_3,unsigned long *param_4,unsigned char *param_5, long param_6);	RDI,ESI,RDX,RCX,R8,R9
+20043f0	float recovered_20043f0(float value);	XMM0_Da
+20e2fd0	void recovered_20e2fd0(long param_1);	RDI
+2005d00	void recovered_2005d00(void);
+20789c0	unsigned char recovered_20789c0(long param_1,unsigned int *param_2,unsigned int *param_3,unsigned long *param_4,long param_5);	RDI,RSI,RDX,RCX,R8
+20038d0	double recovered_20038d0(double value);	XMM0_Qa
+2002eb0	int recovered_2002eb0(char *left,char *right);	RDI,RSI
+20e7440	unsigned char recovered_20e7440(unsigned long param_1,unsigned char *param_2);	RDI,RSI
+20e2780	void recovered_20e2780(void);
+2004bb0	int recovered_2004bb0(char *out,unsigned long capacity,char *format,void *args);
+20d1c70	void recovered_20d1c70(long param_1,unsigned long param_2,unsigned char *param_3);	RDI,RSI,RDX
+20717b0	unsigned char recovered_20717b0(long param_1,unsigned char *param_2,long param_3);	RDI,RSI,RDX
+20b3100	unsigned long long recovered_20b3100(int *param_1,char *param_2,long param_3,long param_4,unsigned long long *param_5);	RDI,RSI,RDX,RCX,R8
+2003cb0	double recovered_2003cb0(double value);	XMM0_Qa
+20035c0	unsigned char ** recovered_20035c0(void);
+20cd530	unsigned char recovered_20cd530(long param_1,unsigned int param_2,unsigned int *param_3);	RDI,ESI,RDX
+20b64b0	unsigned long recovered_20b64b0(int *param_1,char *param_2,long param_3,long param_4,unsigned int *param_5, unsigned int *in_R9);	RDI,RSI,RDX,RCX,R8,R9
+20e8da0	unsigned char recovered_20e8da0(long *param_1,unsigned int param_2);	RDI,ESI
+20921c0	unsigned char recovered_20921c0(int param_1,unsigned int param_2,long param_3,unsigned int param_4);	EDI,ESI,RDX,ECX
+20a7ca0	unsigned int recovered_20a7ca0(int *param_1,int *param_2,unsigned long long *param_3);	RDI,RSI,RDX
+2003d50	double recovered_2003d50(double value);	XMM0_Qa
+207bcd0	unsigned char recovered_207bcd0(char *param_1);	RDI
+20c48f0	unsigned int recovered_20c48f0(int *param_1,long param_2,unsigned int param_3);	RDI,RSI,EDX
+20e3500	unsigned char recovered_20e3500(unsigned char param_1,unsigned int *param_2);	DIL,RSI
+20e13d0	unsigned int recovered_20e13d0(long param_1,unsigned long *param_2,long param_3,unsigned long *in_R8,unsigned long *in_R9);	RDI,RSI,RDX,RCX,R8
+203e3d0	unsigned short recovered_203e3d0(void);
+2057e60	unsigned int recovered_2057e60(void);
+2004300	double recovered_2004300(double value);	XMM0_Qa
+2006960	unsigned char recovered_2006960(unsigned long param_1,unsigned long long param_2,unsigned int param_3,unsigned int param_4);	RDI,RSI,EDX,ECX
+20e6580	unsigned long long recovered_20e6580(unsigned long long param_1,unsigned long long param_2,unsigned long long *param_3);	RDI,RSI,RDX
+2000620	unsigned long * recovered_2000620(long param_1);	RDI
+2001850	void *recovered_2001850(void *out,void *data,unsigned long count);
+203a080	void recovered_203a080(unsigned long long *param_1);	RDI
+20b5500	unsigned long recovered_20b5500(int *param_1,char *param_2,int *param_3,long param_4,unsigned long long *param_5, unsigned int *in_R9);	RDI,RSI,RDX,RCX,R8,R9
+2000520	unsigned long recovered_2000520(void);
+20cda70	unsigned int recovered_20cda70(long param_1,unsigned int param_2,unsigned int *param_3,unsigned int *param_4);	RDI,ESI,RDX,RCX
+20df7d0	unsigned char recovered_20df7d0(long param_1,long param_2);	RDI,RSI
+20e2f60	void recovered_20e2f60(unsigned long long param_1);	RDI
+20e3760	void recovered_20e3760(unsigned int param_1,unsigned int param_2,unsigned int param_3);	EDI,ESI,EDX
+2074890	unsigned int recovered_2074890(long param_1,long param_2,unsigned int param_3,int param_4,int param_5,unsigned int param_6, unsigned int param_7,char param_8,long param_9,long *param_10,long *param_11);	RDI,RSI,EDX,ECX,R8D,R9D,stack8,stack16,stack24,stack32,stack40
+2002f50	unsigned long * recovered_2002f50(long param_1);
+20cd0a0	unsigned char recovered_20cd0a0(int *param_1,unsigned int param_2,unsigned long long *param_3);	RDI,ESI,RDX
+20b37a0	double recovered_20b37a0(unsigned int param_1);	EDI
+2041e60	unsigned char recovered_2041e60(int param_1);	EDI
+20c3a90	float recovered_20c3a90(float param_1);	XMM0_Da
+20570d0	unsigned char recovered_20570d0(unsigned int param_1,int param_2,int param_3,unsigned int param_4,unsigned int param_5);	EDI,ESI,EDX,ECX,R8D
+2023160	unsigned long recovered_2023160(long param_1,unsigned short *param_2,int param_3,unsigned long param_4);	RDI,RSI,EDX,RCX
+20523c0	unsigned int recovered_20523c0(void *param_1,void *param_2,unsigned int param_3);	RDI,RSI,EDX
+2075810	unsigned char recovered_2075810(long *param_1,int param_2,long in_RDX);	RDI,ESI,RDX
+2000bb0	void recovered_2000bb0(void *data);
+2005a30	int recovered_2005a30(char *out,unsigned long capacity,char *format,...);
+2002db0	unsigned char recovered_2002db0(unsigned int param_1);	EDI
+209f710	unsigned char recovered_209f710(long param_1,unsigned long param_2,unsigned long param_3,unsigned long *param_4,unsigned char *param_5);	RDI,RSI,RDX,RCX,R8
+2086920	void recovered_2086920(void);
+20d3640	unsigned char recovered_20d3640(char *param_1);	RDI
+2039670	int * recovered_2039670(char *param_1,int *param_2,unsigned char *param_3,unsigned int param_4);	XMM0_Qa,RDI,RSI,EDX
+20de1d0	unsigned char recovered_20de1d0(long *param_1,char *param_2,unsigned long long param_3,unsigned long long param_4, unsigned long long param_5,unsigned long long param_6,unsigned long long param_7,unsigned long long param_8, long *param_9,long param_10,unsigned long long param_11,unsigned long long param_12, unsigned long long param_13,unsigned long long param_14,unsigned char param_15);	RDI,RSI,RDX,RCX,R8,R9,stack8,stack16,stack24,stack32,stack40,stack48,stack56,stack64,stack72
+2003ef0	double recovered_2003ef0(unsigned long param_1);	RDI
+2057db0	void recovered_2057db0(char *param_1);	RDI
+2000aa0	void recovered_2000aa0(void);
+2092eb0	unsigned long long recovered_2092eb0(long param_1,unsigned int param_2,char *param_3);	RDI,ESI,RDX
+20e6660	unsigned long long recovered_20e6660(long param_1,unsigned int param_2,char *param_3);	RDI,ESI,RDX
+2040260	void * recovered_2040260(char *param_1,float param_2);	RDI,XMM0_Da
+2005cc0	unsigned int recovered_2005cc0(void);
+20922a0	unsigned long long recovered_20922a0(unsigned long long *param_1);	RDI
+20d2e80	void recovered_20d2e80(long param_1,int param_2);	RDI,ESI
+2074240	void recovered_2074240(void);
+20b5cd0	unsigned long recovered_20b5cd0(int *param_1,char *param_2,int *param_3,long param_4,unsigned int *param_5, unsigned long long in_R9);	RDI,RSI,RDX,RCX,R8,R9
+205e230	void recovered_205e230(void);
+20e65d0	void recovered_20e65d0(void);
+20c9a90	unsigned char recovered_20c9a90(unsigned int param_1,unsigned int param_2,unsigned char in_XMM1 [16],unsigned char in_XMM2 [16], unsigned char in_XMM3 [16],unsigned char in_XMM4 [16],unsigned char in_XMM6 [16], unsigned char in_XMM7 [16]);
+20b5e80	unsigned long recovered_20b5e80(int *param_1,char *param_2,int *param_3,long param_4,unsigned long long *param_5, unsigned long long in_R9);	RDI,RSI,RDX,RCX,R8,R9
+20a08a0	unsigned char recovered_20a08a0(int *param_1,unsigned long ****param_2,unsigned long ***param_3,unsigned long ***param_4, unsigned long long param_5,unsigned long long param_6,unsigned long long param_7,unsigned long long param_8, long param_9,long *param_10,unsigned char *param_11);	RDI,RSI,RDX,RCX,R8,R9,stack8,stack16,stack24,stack32,stack40
+2092e90	unsigned char recovered_2092e90(unsigned int *in_RDI,int in_ESI,unsigned int in_EDX);	RDI,ESI,EDX
+202e1e0	void recovered_202e1e0(long *param_1,unsigned long long *param_2);	RDI,RSI
+20e72a0	unsigned char recovered_20e72a0(unsigned long param_1,unsigned char *param_2);	RDI,RSI
+20b6070	unsigned long recovered_20b6070(int *param_1,char *param_2,int *param_3,long param_4,unsigned int *param_5, unsigned long long in_R9);	RDI,RSI,RDX,RCX,R8,R9
+20d0460	unsigned char recovered_20d0460(long param_1,int *param_2,unsigned int param_3,unsigned int param_4,char *param_5);	RDI,RSI,EDX,ECX,R8
+2000ac0	int recovered_2000ac0(int param_1);	EDI
+2028f70	unsigned char recovered_2028f70(unsigned int param_1,unsigned int param_2,unsigned long param_3);	EDI,ESI,RDX
+20b15e0	unsigned long recovered_20b15e0(int *param_1,char *param_2,int *param_3,long param_4,unsigned int *param_5);	RDI,RSI,RDX,RCX,R8
+20b6800	unsigned long recovered_20b6800(int *param_1,char *param_2,int *param_3,long param_4,unsigned int *param_5, unsigned long in_R9);	RDI,RSI,RDX,RCX,R8,R9
+20dbad0	unsigned char recovered_20dbad0(long param_1,unsigned char *param_2);	RDI,RSI
+20008d0	long recovered_20008d0(unsigned long param_1,unsigned long param_2);	RDI,RSI
+2043450	unsigned char recovered_2043450(int param_1,long param_2,long param_3);	EDI,RSI,RDX
+20a01c0	unsigned char recovered_20a01c0(long environment,unsigned long *tokens,unsigned long first,unsigned long end,unsigned long *result);	RDI,RSI,RDX,RCX,R8
+205e750	unsigned long long recovered_205e750(void);
+2043680	unsigned char recovered_2043680(unsigned long long param_1,unsigned long ************param_2,unsigned long ******param_3, unsigned long ******param_4,unsigned long long param_5,unsigned long long param_6,unsigned long long param_7, unsigned long long param_8,int param_9,long param_10,unsigned int param_11,unsigned long long param_12 ,unsigned long ********param_13,unsigned long ********param_14);
+20d1cf0	unsigned char recovered_20d1cf0(char *param_1);	RDI
+2005d30	void recovered_2005d30(int *param_1);	RDI
+20411d0	unsigned int recovered_20411d0(long param_1,unsigned char *param_2);	RDI,RSI
+20cf570	unsigned int recovered_20cf570(long param_1,long param_2);	RDI,RSI
+203a040	unsigned long long recovered_203a040(long param_1);	RDI
+2003870	double recovered_2003870(double value);	XMM0_Qa
+2004570	float recovered_2004570(float value);	XMM0_Da
+20e6630	unsigned int recovered_20e6630(unsigned int *in_R8);	R8
+202e2b0	void recovered_202e2b0(long *param_1,unsigned long long *param_2);	RDI,RSI
+20a1890	unsigned char recovered_20a1890(int *environment,long *tokens,unsigned long *result);	RDI,RSI,RDX
+20b6b70	unsigned long recovered_20b6b70(int *param_1,char *param_2,long param_3,unsigned long param_4,unsigned int *param_5, unsigned long long in_R9);	RDI,RSI,RDX,RCX,R8,R9
+208e240	unsigned char recovered_208e240(int in_ESI,unsigned long in_RDX,unsigned int in_ECX,unsigned int in_R8D,unsigned int in_R9D);	ESI,RDX,ECX,R8D,R9D
+2052490	unsigned int recovered_2052490(long param_1,unsigned long long param_2,char *param_3,long param_4,unsigned char param_5 ,long param_6,unsigned long param_7);	RDI,RSI,RDX,RCX,R8B,R9,stack8
+2092b70	void recovered_2092b70(long in_RDI);	RDI
+20e32b0	unsigned int recovered_20e32b0(unsigned long param_1,unsigned int *param_2);	RDI,RSI
+20046c0	float recovered_20046c0(float value);	XMM0_Da
+20d0f50	unsigned char recovered_20d0f50(char *param_1);	RDI
+20a0820	unsigned int recovered_20a0820(unsigned int *param_1,unsigned char *param_2);	RDI,RSI
+2014d40	void recovered_2014d40(void);
+2092320	unsigned long long recovered_2092320(unsigned long long *param_1);	RDI
+20b16a0	unsigned int recovered_20b16a0(long param_1,long param_2,unsigned char *param_3);	RDI,RSI,RDX
+2041f50	unsigned char recovered_2041f50(int param_1,long param_2,unsigned int *param_3);	EDI,RSI,RDX
+2075b50	unsigned int recovered_2075b50(long param_1,int param_2,long param_3,unsigned int param_4,int param_5,int param_6, unsigned int param_7,long param_8,unsigned long param_9,char *param_10);	RDI,ESI,RDX,ECX,R8D,R9D,stack8,stack16,stack24,stack32
+2092080	unsigned long long recovered_2092080(int param_1,unsigned int *param_2);	EDI,RSI
+20e6760	unsigned char recovered_20e6760(int param_1,unsigned int *in_RSI,unsigned int *in_RDX);	EDI,RSI,RDX
+20d0e10	unsigned int recovered_20d0e10(char *param_1);	RDI
+202e570	unsigned char recovered_202e570(unsigned int param_1,long param_2,long param_3,long param_4,unsigned long param_5, unsigned long param_6);	EDI,RSI,RDX,RCX,R8,R9
+20db490	unsigned char recovered_20db490(unsigned char *param_1,char *param_2,int *param_3,unsigned int *param_4,char *param_5, unsigned long long param_6,unsigned long long param_7,unsigned long long param_8,unsigned char *param_9, char *param_10,int *param_11,unsigned int *param_12,unsigned long long param_13);	RDI,RSI,RDX,RCX,R8,R9,stack8,stack16,stack24,stack32,stack40,stack48,stack56
+2031e50	void recovered_2031e50(unsigned long long *param_1);	RDI

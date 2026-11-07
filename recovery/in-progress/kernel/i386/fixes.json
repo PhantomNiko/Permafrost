@@ -1,0 +1,49 @@
+{
+  "2004520": {
+    "code *pcVar5;": "uint8_t *pcVar5;",
+    "(code *)": "(uint8_t *)",
+    "(code)0x1": "(uint8_t)0x1",
+    "recovered_2000000": "((uint8_t *)(uintptr_t)0x2000000U)",
+    "pcVar5 = (code *)": "pcVar5 = (uint8_t *)",
+    "(code)": "(uint8_t)"
+  },
+  "200b230": {
+    "code cVar1;": "uint8_t cVar1;",
+    "(**(code **)(iVar9 + 0xc))": "((uint (*)())*(uintptr_t *)(iVar9 + 0xc))",
+    "(*pcVar8)(": "((uint (*)())(uintptr_t)pcVar8)(",
+    "(*pcVar4)(": "((uint (*)())(uintptr_t)pcVar4)(",
+    "(*local_18)(": "((uint (*)())(uintptr_t)local_18)(",
+    "(*pcVar14)(": "((uint (*)())(uintptr_t)pcVar14)(",
+    "code *": "uint8_t *",
+    "(code *)": "(uint8_t *)",
+    "(code)": "(uint8_t)"
+  },
+  "2051b70": {
+    "_param_7": "param_7"
+  },
+  "2000cd0": {
+    "recovered_2000000": "((uint8_t *)(uintptr_t)0x2000000U)"
+  },
+  "2021c60": {
+    "_local_24": "PF_PART4(local_24,0)",
+    "local_24 = (undefined1  [2])": "PF_PART2(local_24,0) = (uint16_t)"
+  },
+  "20ae600": {
+    "local_265 = (undefined1  [4])": "PF_PART4(local_265,0) = (uint32_t)"
+  },
+  "2080c90": {
+    "uint incoming_edx;": "uint incoming_edx = (uintptr_t)out;"
+  },
+  "2086bc0": {
+    "(longdouble)(uintptr_t)local_14->number": "(longdouble)local_14->number",
+    "local_2b4.kind = (int)(float)(int)local_60;": "local_2b4.kind = (int)pf_float_bits((float)((float)(int)local_60));",
+    "local_2b4.kind = (int)((float)uVar6 * _DAT_020c5058);": "local_2b4.kind = (int)pf_float_bits((float)(((float)uVar6 * _DAT_020c5058)));",
+    "local_2b4.kind = (int)((fVar39 * _DAT_020c504c) / _DAT_020c5050);": "local_2b4.kind = (int)pf_float_bits((float)(((fVar39 * _DAT_020c504c) / _DAT_020c5050)));",
+    "local_2b4.kind = (int)(float)dVar41;": "local_2b4.kind = (int)pf_float_bits((float)((float)dVar41));",
+    "local_2b4.kind = (int)((float)(uVar6 - iVar24) / _DAT_020c5048);": "local_2b4.kind = (int)pf_float_bits((float)(((float)(uVar6 - iVar24) / _DAT_020c5048)));",
+    "local_2b4.kind = (int)((float)local_14 / (float)dVar41);": "local_2b4.kind = (int)pf_float_bits((float)(((float)local_14 / (float)dVar41)));",
+    "local_2b4.kind = (int)-(float)puVar31;": "local_2b4.kind = (int)pf_float_bits((float)(-(float)puVar31));",
+    "(float)local_2b4.kind": "pf_bits_float((uint)local_2b4.kind)"
+  },
+  "2040a60": {}
+}

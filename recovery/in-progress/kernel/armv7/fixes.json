@@ -1,0 +1,66 @@
+{
+  "40471e18": {
+    "coprocessor_moveto(0xf,0,1,uVar11,in_cr7,in_cr11)": "pf_clean_data_line(uVar11)",
+    "coprocessor_moveto(0xf,0,1,uVar7,in_cr7,in_cr11)": "pf_clean_data_line(uVar7)"
+  },
+  "40474750": {
+    "coprocessor_moveto(0xf,0,1,uVar9,in_cr7,in_cr11)": "pf_clean_data_line(uVar9)",
+    "coprocessor_moveto(0xf,0,1,uVar7,in_cr7,in_cr11)": "pf_clean_data_line(uVar7)"
+  },
+  "40472898": {
+    "coprocessor_moveto(0xf,0,1,uVar4,in_cr7,in_cr11)": "pf_clean_data_line(uVar4)",
+    "coprocessor_moveto(0xf,0,1,uVar7,in_cr7,in_cr11)": "pf_clean_data_line(uVar7)"
+  },
+  "404719e0": {
+    "coprocessor_moveto(0xf,0,1,uVar8,in_cr7,in_cr11)": "pf_clean_data_line(uVar8)",
+    "coprocessor_moveto(0xf,0,1,uVar7,in_cr7,in_cr11)": "pf_clean_data_line(uVar7)"
+  },
+  "4040b8c0": {
+    "&H_SupervisorCall": "(uint8_t *)(uintptr_t)0xffff0008u"
+  },
+  "404199e8": {
+    "_local_28": "PF_PART4(local_28,0)"
+  },
+  "40424098": {
+    "local_c8 = (undefined1  [3])0x0;": "PF_PART3(local_c8,0)=0;",
+    "local_c8 = *(undefined1 (*) [3])((int)local_c4 + iVar10);": "PF_PART3(local_c8,0)=((struct pf_uint24 *)((uintptr_t)local_c4+iVar10))->pf_payload_bits;",
+    "_local_c8": "PF_PART4(local_c8,0)"
+  },
+  "4045f00c": {
+    "_param_6": "(uint)param_6",
+    "_param_7": "(uint)param_7",
+    "_param_8": "(uint)param_8"
+  },
+  "4048e9a0": {
+    "_UndefinedInstruction": "(*(char **)(uintptr_t)4)"
+  },
+  "4049bcbc": {
+    "*PF_PART4(local_40, 4)": "*(uint8_t *)(uintptr_t)PF_PART4(local_40, 4)",
+    "*local_40._4_4_": "*(uint8_t *)(uintptr_t)local_40._4_4_"
+  },
+  "4042c4d8": {
+    "in_q8 |": "(*(uint128 *)(void *)in_q8) |"
+  },
+  "40464190": {
+    "^ local_180": "^ (*(uint128 *)(void *)local_180)"
+  },
+  "404c0ff8": {
+    "local_c0 ^ local_1b8 | local_d0 ^ local_1c8": "(*(uint128 *)(void *)local_c0) ^ (*(uint128 *)(void *)local_1b8) | (*(uint128 *)(void *)local_d0) ^ (*(uint128 *)(void *)local_1c8)"
+  },
+  "404c8150": {
+    "^ local_1034": "^ (*(uint128 *)(void *)local_1034)",
+    "^ local_1044": "^ (*(uint128 *)(void *)local_1044)"
+  },
+  "404558d8": {
+    "VectorBitwiseInsertIfTrue(local_4c,": "VectorBitwiseInsertIfTrue((*(uint128 *)(void *)local_4c),"
+  },
+  "4049aedc": {
+    "undefined4 *unaff_r6;": "undefined4 *unaff_r6 = (undefined4 *)out;"
+  },
+  "404a094c": {
+    "recovered_40404a88(acStack_64,0x40,str_404ed04f);": "recovered_40404a88(acStack_64,0x40,str_404ed04f,(char *)(uintptr_t)param_2[3]);"
+  },
+  "404544a4": {
+    "  recovered_40401c1c(auStack_268,0,0x44);\n  recovered_4040148c(auStack_268,auStack_224,8);\n  uStack_25c = uStack_218;\n  local_258 = uStack_214;\n  local_254 = iStack_210;\n  uStack_250 = local_20c;\n  uStack_24c = uStack_208;\n  local_248 = uStack_204;\n  local_244 = uStack_200;\n  local_22c = local_1e8;\n  local_240 = (uint)local_1fc;\n  uStack_23c = (uint)((ulonglong)local_1fc >> 0x20);\n  local_230 = local_1ec;\n  local_228 = local_1e4;": "  recovered_4040148c(auStack_268,auStack_224,0x44);"
+  }
+}

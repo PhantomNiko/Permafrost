@@ -1,0 +1,8 @@
+{
+  "8240ec30": "wm_lua_write_errorf forwards one pointer-sized string argument from x1 to the first Darwin variadic stack slot.",
+  "8268701c": "WinterScript string.format emits one converted integer, string pointer, or IEEE double in the first eight-byte stack slot; query and output calls use the same slot.",
+  "8268704c": "WinterScript string.format emits one converted integer, string pointer, or IEEE double in the first eight-byte stack slot; query and output calls use the same slot.",
+  "82687070": "WinterScript string.format emits one converted integer, string pointer, or IEEE double in the first eight-byte stack slot; query and output calls use the same slot.",
+  "8268709c": "WinterScript string.format emits one converted integer, string pointer, or IEEE double in the first eight-byte stack slot; query and output calls use the same slot.",
+  "826870cc": "WinterScript string.format emits one converted integer, string pointer, or IEEE double in the first eight-byte stack slot; query and output calls use the same slot."
+}

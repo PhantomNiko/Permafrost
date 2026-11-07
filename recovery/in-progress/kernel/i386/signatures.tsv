@@ -1,0 +1,854 @@
+2085370	int * recovered_2085370(float *incoming_ecx,int *incoming_edx,float *param_3,float *param_4, float *param_5);	ECX,EDX,stack4,stack8,stack12
+20046b0	unsigned int recovered_20046b0(void);
+2043620	unsigned int recovered_2043620(void);
+2027510	unsigned short recovered_2027510(void);
+2018f80	unsigned int recovered_2018f80(int param_1);	stack4
+2001860	void *recovered_2001860(void *data,unsigned long size);
+2018300	void recovered_2018300(void);
+2019c90	unsigned char recovered_2019c90(unsigned int param_1);	stack4
+208e640	unsigned int recovered_208e640(int *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20a6290	unsigned int recovered_20a6290(int incoming_ecx,int *incoming_edx);	ECX,EDX
+20a1380	unsigned int recovered_20a1380(unsigned char *incoming_ecx,unsigned char *incoming_edx,unsigned int *param_3, unsigned int *param_4);	ECX,EDX,stack4,stack8
+2021300	unsigned int recovered_2021300(unsigned int *incoming_ecx,unsigned short *incoming_edx);	ECX,EDX
+20bb7e0	void recovered_20bb7e0(int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20829e0	int recovered_20829e0(int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20aa4a0	unsigned int recovered_20aa4a0(int incoming_ecx,int *incoming_edx,unsigned int param_3,unsigned int param_4, char *in_stack_0000000c);	ECX,EDX,stack4,stack8,stack12
+2025030	unsigned int recovered_2025030(unsigned int in_ECX,unsigned char *in_EDX,int param_3);	ECX,EDX,stack4
+2085e30	unsigned char recovered_2085e30(unsigned int *incoming_ecx,unsigned int *incoming_edx);	ECX,EDX
+2019a10	unsigned long long recovered_2019a10(unsigned int in_EDX,int in_stack_00000004);	EDX,stack4
+201a790	unsigned int recovered_201a790(unsigned char *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2042dc0	unsigned char recovered_2042dc0(void *param_1);	stack4
+2019620	void recovered_2019620(void *data);	stack4
+2005080	unsigned int recovered_2005080(unsigned char param_1,unsigned char param_2,unsigned char param_3,unsigned short param_4,unsigned int param_5,unsigned int *param_6);	stack4,stack8,stack12,stack16,stack20,stack24
+20830f0	unsigned int recovered_20830f0(unsigned int *incoming_ecx,int incoming_edx,int param_3);	ECX,EDX,stack4
+2082ae0	unsigned int recovered_2082ae0(int *incoming_ecx,int *incoming_edx,int *param_3,char *param_4);	ECX,EDX,stack4,stack8
+2002250	int recovered_2002250(int param_1);	stack4
+2021510	unsigned long long recovered_2021510(int incoming_ecx,unsigned int incoming_edx,unsigned int *param_3,int param_4);	ECX,EDX,stack4,stack8
+2071bb0	unsigned int recovered_2071bb0(unsigned int param_1,unsigned int param_2,unsigned int param_3);	stack4,stack8,stack12
+2024600	void recovered_2024600(void);
+2043440	void recovered_2043440(void);
+205a560	unsigned int recovered_205a560(int incoming_ecx,unsigned int *incoming_edx,unsigned int *param_3,int *param_4,int param_5);	ECX,EDX,stack4,stack8,stack12
+2004730	void recovered_2004730(void);
+20717b0	unsigned int recovered_20717b0(char *param_1,int param_2,int param_3);	stack4,stack8,stack12
+2001410	unsigned long long recovered_2001410(unsigned int param_1,unsigned int param_2,unsigned int param_3,unsigned int param_4);	stack4,stack8,stack12,stack16
+209a130	void recovered_209a130(int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+202bfa0	unsigned int recovered_202bfa0(int device,char *path,void *image);	stack4,stack8,stack12
+209ff00	unsigned int recovered_209ff00(unsigned int incoming_ecx,unsigned int incoming_edx,unsigned int param_3,unsigned int param_4,unsigned char param_5);	ECX,EDX,stack4,stack8,stack12
+201f370	unsigned char recovered_201f370(unsigned int *param_1,int param_2,unsigned int param_3,unsigned int param_4);	stack4,stack8,stack12,stack16
+2011210	void recovered_2011210(unsigned int *param_1,unsigned int *param_2,unsigned int *param_3, unsigned int *param_4);	stack4,stack8,stack12,stack16
+20864b0	unsigned int recovered_20864b0(int *incoming_ecx,void *incoming_edx,int param_3);	ECX,EDX,stack4
+20024f0	char * recovered_20024f0(char *param_1,char param_2);	stack4,stack8
+20187f0	unsigned int * recovered_20187f0(int param_1,int param_2,int *param_3);	stack4,stack8,stack12
+201a260	void recovered_201a260(unsigned char *in_stack_00000004,unsigned int *in_stack_00000008,unsigned int in_stack_0000000c);	stack4,stack8,stack12
+2019370	char * recovered_2019370(unsigned int param_1);	stack4
+2005220	unsigned int recovered_2005220(unsigned int param_1,unsigned int param_2,unsigned int param_3,unsigned int param_4,unsigned int param_5);	stack4,stack8,stack12,stack16,stack20
+20b45e0	unsigned char recovered_20b45e0(char *incoming_ecx,char *incoming_edx);	ECX,EDX
+20562d0	unsigned char recovered_20562d0(void *incoming_ecx,int incoming_edx);	ECX,EDX
+2002a20	double recovered_2002a20(double value);	stack4
+20a09d0	unsigned int recovered_20a09d0(int *incoming_ecx,char *incoming_edx,int param_3,unsigned char *in_stack_00000008);	ECX,EDX,stack4,stack8
+2003520	float recovered_2003520(float value);	stack4
+2083620	unsigned int recovered_2083620(unsigned char *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+209a070	unsigned int recovered_209a070(int *incoming_ecx,char *incoming_edx,int param_3,unsigned int param_4,unsigned int param_5, int *param_6);	ECX,EDX,stack4,stack8,stack12,stack16
+207de10	unsigned char recovered_207de10(long param_1,unsigned long *param_2,unsigned long param_3,unsigned long param_4,unsigned long *param_5);	ECX,EDX,stack4,stack8,stack12
+2002630	unsigned char ** recovered_2002630(void);
+20b10d0	unsigned int recovered_20b10d0(unsigned int incoming_ecx,char *incoming_edx,unsigned int param_3,char *param_4,unsigned int param_5, unsigned int param_6);	ECX,EDX,stack4,stack8,stack12,stack16
+207e100	unsigned int recovered_207e100(char *incoming_ecx,int incoming_edx);	ECX,EDX
+202ac50	unsigned int recovered_202ac50(int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2001b70	void *recovered_2001b70(void *out,void *data,unsigned long count);
+209fbc0	void recovered_209fbc0(void);
+20197c0	void recovered_20197c0(unsigned char *param_1);	stack4
+2012b20	unsigned long long recovered_2012b20(void);
+20a5a30	unsigned int recovered_20a5a30(int incoming_ecx,char *incoming_edx);	ECX,EDX
+20010e0	unsigned int * recovered_20010e0(int param_1);	stack4
+20044f0	int recovered_20044f0(char *out,unsigned long capacity,char *format,...);
+20ace70	void recovered_20ace70(int incoming_ecx,int incoming_edx);	ECX,EDX
+20acd80	void recovered_20acd80(int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20ab9f0	void recovered_20ab9f0(char *incoming_ecx,void *incoming_edx);	ECX,EDX
+20b4680	unsigned int recovered_20b4680(char *incoming_ecx,char *incoming_edx,int *param_3,int *param_4,char *param_5);	ECX,EDX,stack4,stack8,stack12
+207e3b0	unsigned int * recovered_207e3b0(int *incoming_ecx,unsigned int *incoming_edx,unsigned char *param_3);	ECX,EDX,stack4
+2001c30	void *recovered_2001c30(void *out,void *data,unsigned long count);
+2021710	unsigned int recovered_2021710(int incoming_ecx,unsigned int incoming_edx,unsigned int *param_3,unsigned int param_4,unsigned int *param_5);	ECX,EDX,stack4,stack8,stack12
+204a600	void recovered_204a600(unsigned int *incoming_ecx,unsigned int incoming_edx,unsigned int param_3,int param_4,int param_5, unsigned char param_6,unsigned char param_7,unsigned char param_8);	ECX,EDX,stack4,stack8,stack12,stack16,stack20,stack24
+2086800	unsigned int * recovered_2086800(unsigned int incoming_ecx,char *incoming_edx);	ECX,EDX
+2019820	void recovered_2019820(int param_1);	stack4
+20046f0	unsigned int recovered_20046f0(void);
+2003660	float recovered_2003660(float value);	stack4
+2019c10	unsigned char recovered_2019c10(int param_1);	stack4
+202bce0	unsigned int recovered_202bce0(char *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2086030	unsigned int recovered_2086030(int *incoming_ecx,int incoming_edx,unsigned int param_3);	ECX,EDX,stack4
+2019720	void recovered_2019720(void *in_stack_00000004);	stack4
+20869c0	int recovered_20869c0(int incoming_ecx,char *incoming_edx);	ECX,EDX
+2043be0	unsigned int recovered_2043be0(char *param_1,char *param_2,unsigned int param_3);	stack4,stack8,stack12
+2074430	unsigned int recovered_2074430(int in_ECX,unsigned int in_EDX);	ECX,EDX
+209fa40	unsigned int recovered_209fa40(int *incoming_ecx,int incoming_edx,unsigned char in_stack_00000004);	ECX,EDX,stack4
+2024000	unsigned int recovered_2024000(int *incoming_ecx,int incoming_edx,int param_3,int *param_4);	ECX,EDX,stack4,stack8
+20a5c40	unsigned int recovered_20a5c40(int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+207f3a0	unsigned int recovered_207f3a0(int *incoming_ecx,unsigned char *incoming_edx,int param_3);	ECX,EDX,stack4
+20b4cb0	unsigned int recovered_20b4cb0(int incoming_ecx,unsigned char *incoming_edx);	ECX,EDX
+2002690	unsigned long recovered_2002690(double param_1,int *param_2);	stack4,stack12
+20248d0	unsigned char recovered_20248d0(int *incoming_ecx,int *incoming_edx,unsigned char param_3);	ECX,EDX,stack4
+203a180	unsigned int recovered_203a180(char *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2000ff0	int recovered_2000ff0(void);
+2018a80	unsigned int recovered_2018a80(int *param_1);	stack4
+201f990	unsigned char recovered_201f990(char *param_1,char *param_2,char *param_3,unsigned int param_4);	stack4,stack8,stack12,stack16
+2002210	unsigned char recovered_2002210(int param_1);	stack4
+2001270	unsigned long long recovered_2001270(unsigned int param_1,unsigned int param_2,unsigned int param_3);	stack4,stack8,stack12
+2002920	double recovered_2002920(double value);	stack4
+2019bd0	void recovered_2019bd0(void);
+2080840	unsigned char recovered_2080840(unsigned long long *param_1,unsigned long *param_2);	ECX,EDX
+2054720	unsigned int recovered_2054720(int incoming_ecx,char *incoming_edx,int param_3);	ECX,EDX,stack4
+2002530	int recovered_2002530(char *param_1,char *param_2);	stack4,stack8
+2003920	double recovered_2003920(char *text,char **end);	stack4,stack8
+2021150	void recovered_2021150(int *param_1,unsigned int param_2,unsigned char *param_3);	stack4,stack8,stack12
+20197d0	void recovered_20197d0(void);
+2005b60	unsigned int recovered_2005b60(unsigned int incoming_ecx,unsigned int incoming_edx,int param_3,unsigned int *param_4);	ECX,EDX,stack4,stack8
+2043690	unsigned int recovered_2043690(char *param_1,int param_2);	stack4,stack8
+2059b40	unsigned int recovered_2059b40(unsigned int *incoming_ecx,unsigned int incoming_edx,unsigned int param_3,unsigned char param_4,unsigned int *param_5, unsigned int *param_6,int param_7);	ECX,EDX,stack4,stack8,stack12,stack16,stack20
+2059240	unsigned int recovered_2059240(unsigned char *UNRECOVERED_JUMPTABLE);	stack4
+202c170	unsigned int recovered_202c170(int device,char *path,unsigned int flags);	stack4,stack8,stack12
+2084ed0	unsigned int recovered_2084ed0(int *incoming_ecx,int *incoming_edx,unsigned int *param_3);	ECX,EDX,stack4
+20021a0	unsigned char recovered_20021a0(unsigned int param_1);	stack4
+2058b30	unsigned int recovered_2058b30(char *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20012c0	unsigned long long recovered_20012c0(unsigned int param_1,unsigned int param_2,unsigned int param_3,unsigned int param_4);	stack4,stack8,stack12,stack16
+20ab490	unsigned int recovered_20ab490(unsigned char *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20bc1f0	unsigned int recovered_20bc1f0(int incoming_ecx,unsigned int incoming_edx,int param_3,unsigned int param_4,unsigned int param_5, int param_6,int param_7,unsigned int param_8,unsigned int param_9,unsigned int param_10);	ECX,EDX,stack4,stack8,stack12,stack16,stack20,stack24,stack28,stack32
+2002870	double recovered_2002870(double value);	stack4
+2098720	unsigned int recovered_2098720(int *incoming_ecx,char *incoming_edx,int *param_3,unsigned int param_4,unsigned int *param_5);	ECX,EDX,stack4,stack8,stack12
+20b4490	int recovered_20b4490(char *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2004700	unsigned int recovered_2004700(void);
+20b4390	unsigned char recovered_20b4390(char *incoming_ecx,char *incoming_edx);	ECX,EDX
+2051f60	void recovered_2051f60(void *incoming_ecx,char *incoming_edx);	ECX,EDX
+2002770	double recovered_2002770(double left,double right);	stack4,stack12
+2001710	void recovered_2001710(void *data);
+20b2080	void recovered_20b2080(void *incoming_ecx,int incoming_edx);	ECX,EDX
+2021820	void recovered_2021820(int *param_1,unsigned int param_2,unsigned char *param_3);	stack4,stack8,stack12
+2050650	unsigned int recovered_2050650(int *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20b1d90	unsigned int recovered_20b1d90(int incoming_ecx,int incoming_edx,int *param_3);	ECX,EDX,stack4
+2019cf0	unsigned char recovered_2019cf0(unsigned int param_1,unsigned int param_2);	stack4,stack8
+20a0570	void recovered_20a0570(char *incoming_ecx,unsigned char *incoming_edx);	ECX,EDX
+2019960	void recovered_2019960(unsigned int in_EDX);	EDX
+20bd5b0	unsigned char recovered_20bd5b0(int param_1,int *param_2);	stack4,stack8
+20022a0	int recovered_20022a0(char *left,char *right);	stack4,stack8
+2001070	int recovered_2001070(void);
+2001610	void recovered_2001610(void);
+2086aa0	unsigned char recovered_2086aa0(unsigned int *incoming_ecx,unsigned int *incoming_edx);	ECX,EDX
+20a9dd0	void recovered_20a9dd0(int param_1,unsigned int param_2,char *param_3,unsigned char param_4);	stack4,stack8,stack12,stack16
+20a11d0	unsigned int recovered_20a11d0(unsigned char *incoming_ecx,unsigned int incoming_edx,unsigned char param_3,char param_4);	ECX,EDX,stack4,stack8
+20b55d0	unsigned int recovered_20b55d0(int param_1,int *param_2);	stack4,stack8
+20218b0	unsigned char recovered_20218b0(int incoming_ecx,unsigned int incoming_edx,int param_3,unsigned int param_4,int param_5, unsigned int *param_6);	ECX,EDX,stack4,stack8,stack12,stack16
+20b19f0	unsigned int recovered_20b19f0(unsigned int incoming_ecx,unsigned int incoming_edx,unsigned int param_3);	ECX,EDX,stack4
+2019480	void recovered_2019480(void);
+202ac30	unsigned int recovered_202ac30(int device);	stack4
+20b20d0	unsigned int recovered_20b20d0(int incoming_ecx,unsigned char *incoming_edx,char *param_3,int param_4, unsigned char *param_5);	ECX,EDX,stack4,stack8,stack12
+20b18b0	void recovered_20b18b0(int param_1,unsigned int param_2,char *param_3,unsigned char param_4);	stack4,stack8,stack12,stack16
+2003130	float recovered_2003130(float left,float right);	stack4,stack8
+2002340	unsigned int * recovered_2002340(int param_1);	stack4
+20b62b0	void recovered_20b62b0(unsigned int *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20199c0	void recovered_20199c0(unsigned int *param_1);	stack4
+20046a0	unsigned int recovered_20046a0(void);
+2022980	unsigned int recovered_2022980(int incoming_ecx,unsigned int incoming_edx,int param_3);	ECX,EDX,stack4
+20424e0	unsigned int recovered_20424e0(unsigned int param_1,unsigned int param_2,unsigned char param_3);	stack4,stack8,stack12
+209a220	unsigned int recovered_209a220(int incoming_ecx,char *incoming_edx);	ECX,EDX
+2039e80	unsigned int recovered_2039e80(void);
+208ff10	unsigned int recovered_208ff10(int *incoming_ecx,char *incoming_edx,int param_3,int param_4,unsigned int *param_5);	ECX,EDX,stack4,stack8,stack12
+204c1a0	unsigned int recovered_204c1a0(int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20b9380	unsigned int recovered_20b9380(int *incoming_ecx,int incoming_edx,int param_3,unsigned int *param_4,unsigned char *param_5, int param_6);	ECX,EDX,stack4,stack8,stack12,stack16
+2019850	void recovered_2019850(void);
+20ba3c0	unsigned long long recovered_20ba3c0(char *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2002160	unsigned char recovered_2002160(int param_1);	stack4
+20a9af0	void recovered_20a9af0(void *incoming_ecx,unsigned int incoming_edx,unsigned int param_3,unsigned int param_4);	ECX,EDX,stack4,stack8
+202bc40	unsigned int recovered_202bc40(int device,char *path);	stack4,stack8
+2086910	unsigned int recovered_2086910(int *incoming_ecx,unsigned int incoming_edx,int param_3);	ECX,EDX,stack4
+2019510	int recovered_2019510(unsigned int in_EDX,int param_2);	EDX,stack4
+209fff0	void recovered_209fff0(unsigned int incoming_ecx,unsigned int incoming_edx,unsigned int param_3,unsigned int param_4,unsigned char param_5, unsigned char param_6,unsigned char param_7);	ECX,EDX,stack4,stack8,stack12,stack16,stack20
+2043300	unsigned int recovered_2043300(void);
+20abde0	void recovered_20abde0(void *incoming_ecx,unsigned int incoming_edx,unsigned char *param_3);	ECX,EDX,stack4
+205cc90	unsigned int recovered_205cc90(int incoming_ecx,unsigned int *incoming_edx,int param_3,int param_4);	ECX,EDX,stack4,stack8
+2002640	unsigned int recovered_2002640(unsigned int *param_1);	stack4
+2001030	long recovered_2001030(void);
+206cc70	unsigned long long recovered_206cc70(char *incoming_ecx,int incoming_edx,int param_3);	ECX,EDX,stack4
+2074810	unsigned long long recovered_2074810(void *incoming_ecx,unsigned long incoming_edx);	ECX,EDX
+20033a0	float recovered_20033a0(float value);	stack4
+2042fb0	unsigned char recovered_2042fb0(void *param_1);	stack4
+2004750	unsigned char recovered_2004750(void);
+2002580	char * recovered_2002580(char *param_1,char *param_2);	stack4,stack8
+209a1c0	void recovered_209a1c0(int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2039190	unsigned char recovered_2039190(char *param_1,char *param_2);	stack4,stack8
+2039ed0	unsigned int recovered_2039ed0(void *hardware);	stack4
+201a270	unsigned int recovered_201a270(int incoming_ecx,unsigned char *incoming_edx,unsigned short *param_3);	ECX,EDX,stack4
+2001f50	void recovered_2001f50(unsigned char *param_1,int param_2);	stack4,stack8
+2024cb0	void recovered_2024cb0(void);
+2003220	float recovered_2003220(float value);	stack4
+205a700	unsigned int recovered_205a700(unsigned int *incoming_ecx,unsigned int incoming_edx,unsigned int param_3,unsigned int param_4,int *param_5);	ECX,EDX,stack4,stack8,stack12
+2042550	unsigned int recovered_2042550(void);
+2026fa0	void recovered_2026fa0(unsigned char in_CL);	CL
+2019ac0	void recovered_2019ac0(unsigned int in_EDX,unsigned int param_2);	EDX,stack4
+207ad00	unsigned int recovered_207ad00(unsigned int incoming_ecx,unsigned int incoming_edx,unsigned int param_3,unsigned int *param_4);	ECX,EDX,stack4,stack8
+20093f0	void recovered_20093f0(void);
+209b060	unsigned int recovered_209b060(int *incoming_ecx,unsigned char *incoming_edx);	ECX,EDX
+2083500	unsigned char recovered_2083500(char *text,float *out);	ECX,EDX
+20182b0	void recovered_20182b0(void);
+2009b20	unsigned int recovered_2009b20(unsigned char param_1,int *param_2);	stack4,stack8
+20193d0	unsigned int recovered_20193d0(void);
+20a0480	unsigned int recovered_20a0480(int *incoming_ecx,int *incoming_edx);	ECX,EDX
+20031d0	float recovered_20031d0(float value);	stack4
+209bc20	unsigned int recovered_209bc20(unsigned short *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+206d5b0	unsigned char recovered_206d5b0(unsigned char param_1,unsigned char param_2,unsigned char param_3,unsigned short param_4,unsigned int param_5, unsigned int param_6);	stack4,stack8,stack12,stack16,stack20,stack24
+208f5f0	unsigned int recovered_208f5f0(int *incoming_ecx,unsigned int *incoming_edx,int param_3,unsigned int param_4, int *in_stack_0000000c);	ECX,EDX,stack4,stack8,stack12
+2092980	unsigned int recovered_2092980(int *incoming_ecx,char *incoming_edx,int param_3,int param_4,unsigned int *param_5);	ECX,EDX,stack4,stack8,stack12
+20b7250	unsigned char recovered_20b7250(int *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20a9b60	unsigned int recovered_20a9b60(unsigned char *incoming_ecx,int incoming_edx);	ECX,EDX
+2024ef0	int recovered_2024ef0(int *param_1,int param_2,unsigned int *param_3,unsigned int *param_4);	stack4,stack8,stack12,stack16
+2029350	unsigned int recovered_2029350(char *incoming_ecx,unsigned long incoming_edx,char *param_3,unsigned char param_4,char param_5);	ECX,EDX,stack4,stack8,stack12
+2029050	unsigned char recovered_2029050(char *param_1,void *param_2);	stack4,stack8
+203e220	unsigned int recovered_203e220(void);
+201f2a0	unsigned char recovered_201f2a0(unsigned int *incoming_ecx,int incoming_edx,int param_3,unsigned int param_4);	ECX,EDX,stack4,stack8
+207d2b0	unsigned int recovered_207d2b0(int *incoming_ecx,int *incoming_edx,int *param_3,unsigned char param_4);	ECX,EDX,stack4,stack8
+20bdb50	unsigned int recovered_20bdb50(int *incoming_ecx,int incoming_edx,char *in_stack_00000004);	ECX,EDX,stack4
+20ae600	unsigned int recovered_20ae600(char *incoming_ecx,char *incoming_edx);	ECX,EDX
+2029b10	void * recovered_2029b10(void *param_1,unsigned int param_2);	stack4,stack8
+2008d90	unsigned int recovered_2008d90(char param_1);	stack4
+2008250	unsigned int recovered_2008250(void);
+204ed30	unsigned int recovered_204ed30(unsigned int incoming_ecx,unsigned int incoming_edx,int param_3,unsigned int param_4);	ECX,EDX,stack4,stack8
+20bd3e0	unsigned int recovered_20bd3e0(unsigned int param_1,unsigned int param_2,unsigned int param_3,int param_4,unsigned int param_5);	stack4,stack8,stack12,stack16,stack20
+2042ad0	void recovered_2042ad0(unsigned int in_ECX,unsigned int in_EDX,unsigned char param_3);	ECX,EDX,stack4
+207b3c0	char recovered_207b3c0(unsigned int *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+204b270	unsigned int recovered_204b270(unsigned int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20257f0	unsigned int * recovered_20257f0(int *param_1,unsigned char *param_2,unsigned int param_3,unsigned int param_4,unsigned int param_5, unsigned long long param_6);	stack4,stack8,stack12,stack16,stack20,stack24
+2006e50	void recovered_2006e50(unsigned int param_1);	stack4
+208e090	unsigned int recovered_208e090(int *incoming_ecx,char *incoming_edx,unsigned int *param_3,int param_4, unsigned int *in_stack_0000000c);	ECX,EDX,stack4,stack8,stack12
+20af4d0	unsigned int recovered_20af4d0(unsigned int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2012e30	unsigned char recovered_2012e30(char *incoming_ecx,char *incoming_edx);	ECX,EDX
+200ad60	unsigned char recovered_200ad60(unsigned char in_CL);	CL
+2043a90	void recovered_2043a90(unsigned int *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2051d70	unsigned int recovered_2051d70(char *incoming_ecx,unsigned char *incoming_edx);	ECX,EDX
+2057eb0	unsigned char recovered_2057eb0(int *incoming_ecx,short *incoming_edx,int param_3,unsigned int param_4,unsigned int param_5, int param_6);	ECX,EDX,stack4,stack8,stack12,stack16
+2029300	unsigned int recovered_2029300(char *param_1,unsigned long param_2,char *param_3,int param_4);	stack4,stack8,stack12,stack16
+2027720	unsigned int recovered_2027720(unsigned char in_CL);	CL
+2019450	 void recovered_2019450(void *context,int value);	stack4,stack8
+2006fe0	unsigned int recovered_2006fe0(unsigned int *param_1,int param_2,unsigned int param_3);	stack4,stack8,stack12
+2012220	unsigned int * recovered_2012220(void);
+2019160	unsigned int recovered_2019160(int param_1,int *param_2,int *param_3);	stack4,stack8,stack12
+20afff0	unsigned int recovered_20afff0(unsigned int incoming_ecx,int incoming_edx,unsigned int param_3,int param_4);	ECX,EDX,stack4,stack8
+2051190	unsigned int recovered_2051190(unsigned int *incoming_ecx,unsigned int *incoming_edx);	ECX,EDX
+2027430	unsigned long long recovered_2027430(unsigned int in_EDX,char *param_2);	EDX,stack4
+2026180	void recovered_2026180(unsigned char *param_1,float param_2);	stack4,stack8
+200b180	void recovered_200b180(unsigned int param_1,unsigned int param_2,unsigned int param_3,unsigned char param_4);	stack4,stack8,stack12,stack16
+203d650	unsigned char recovered_203d650(unsigned int param_1,int param_2,int param_3,unsigned int param_4,unsigned int param_5);	stack4,stack8,stack12,stack16,stack20
+202a350	unsigned int recovered_202a350(void *devices,unsigned int capacity,unsigned int *count);	stack4,stack8,stack12
+20a9e00	unsigned int recovered_20a9e00(int incoming_ecx,unsigned int incoming_edx,unsigned int param_3,char *param_4);	ECX,EDX,stack4,stack8
+2071a70	unsigned char recovered_2071a70(unsigned int *param_1,int param_2,unsigned int *param_3);	stack4,stack8,stack12
+202b020	unsigned int recovered_202b020(unsigned int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2002dd0	unsigned long long recovered_2002dd0(double param_1);	stack4
+20035c0	float recovered_20035c0(float value);	stack4
+20917c0	unsigned int recovered_20917c0(int *incoming_ecx,char *incoming_edx,int *param_3,unsigned int param_4,unsigned int *param_5 );	ECX,EDX,stack4,stack8,stack12
+2050b00	unsigned int recovered_2050b00(unsigned int incoming_ecx,unsigned int incoming_edx,int param_3,unsigned int param_4);	ECX,EDX,stack4,stack8
+20bd5a0	void recovered_20bd5a0(void);
+209bd20	unsigned int recovered_209bd20(int incoming_ecx,unsigned int *incoming_edx,unsigned int *param_3,unsigned int *param_4, char *param_5,unsigned int param_6);	ECX,EDX,stack4,stack8,stack12,stack16
+20116b0	unsigned int recovered_20116b0(void);
+20924a0	unsigned int recovered_20924a0(int *incoming_ecx,char *incoming_edx,int *param_3,int param_4,unsigned int *param_5);	ECX,EDX,stack4,stack8,stack12
+2005ca0	unsigned int recovered_2005ca0(unsigned int param_1,int param_2,unsigned int param_3,unsigned int *param_4);	stack4,stack8,stack12,stack16
+20abe50	unsigned int recovered_20abe50(char *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20192d0	unsigned int recovered_20192d0(void);
+2070df0	unsigned char recovered_2070df0(int param_1,unsigned int param_2,int param_3,unsigned int param_4);	stack4,stack8,stack12,stack16
+20be1b0	unsigned int recovered_20be1b0(unsigned int incoming_ecx,char *incoming_edx);	ECX,EDX
+20a77a0	void recovered_20a77a0(int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20a7b30	unsigned int recovered_20a7b30(void *incoming_ecx,unsigned int incoming_edx,unsigned int *param_3);	ECX,EDX,stack4
+200b1e0	unsigned int recovered_200b1e0(void);
+20bd630	unsigned int recovered_20bd630(int param_1,unsigned int param_2,char *param_3);	stack4,stack8,stack12
+20bdeb0	unsigned int recovered_20bdeb0(int in_ECX);	ECX
+206e6c0	unsigned int recovered_206e6c0(unsigned int incoming_ecx,unsigned int *incoming_edx);	ECX,EDX
+2048290	unsigned int recovered_2048290(unsigned int incoming_ecx,unsigned char *incoming_edx);	ECX,EDX
+209c920	unsigned int recovered_209c920(unsigned int *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20af3f0	unsigned int recovered_20af3f0(unsigned int in_ECX,unsigned int in_EDX,unsigned int param_3);	ECX,EDX,stack4
+206d570	unsigned char recovered_206d570(unsigned char param_1,unsigned char param_2,unsigned char param_3,unsigned short param_4,unsigned int param_5,unsigned int *param_6);	stack4,stack8,stack12,stack16,stack20,stack24
+209ef80	unsigned char recovered_209ef80(int *incoming_ecx,char *incoming_edx,int *param_3,int param_4, unsigned int *param_5,char param_6);	ECX,EDX,stack4,stack8,stack12,stack16
+201cc30	unsigned int recovered_201cc30(unsigned int *incoming_ecx,int incoming_edx,int *param_3);	ECX,EDX,stack4
+20b9000	unsigned int recovered_20b9000(int incoming_ecx,int *incoming_edx);	ECX,EDX
+20028c0	double recovered_20028c0(double value);	stack4
+20ba510	void recovered_20ba510(int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2017a70	unsigned int recovered_2017a70(int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20037d0	int recovered_20037d0(unsigned char *param_1,unsigned int *param_2,unsigned int param_3);	stack4,stack8,stack12
+2004860	void recovered_2004860(int *param_1);	stack4
+209b3b0	unsigned int recovered_209b3b0(int *incoming_ecx,unsigned int *incoming_edx,unsigned int *param_3);	ECX,EDX,stack4
+20129d0	void recovered_20129d0(void);
+207b380	unsigned int recovered_207b380(int incoming_ecx,unsigned int incoming_edx,int param_3);	ECX,EDX,stack4
+20245e0	void recovered_20245e0(int param_1);	stack4
+2008290	unsigned int recovered_2008290(void);
+2051fb0	unsigned int recovered_2051fb0(int incoming_ecx,unsigned int incoming_edx,int *param_3,int param_4,unsigned char *param_5, char param_6,unsigned char param_7,unsigned int param_8,unsigned int param_9);	ECX,EDX,stack4,stack8,stack12,stack16,stack20,stack24,stack28
+20b7ec0	unsigned int recovered_20b7ec0(int *incoming_ecx,int *incoming_edx);	ECX,EDX
+205cbe0	unsigned int recovered_205cbe0(int incoming_ecx,unsigned int incoming_edx,unsigned int *param_3,unsigned int *param_4);	ECX,EDX,stack4,stack8
+208df50	unsigned int recovered_208df50(unsigned int incoming_ecx,int incoming_edx);	ECX,EDX
+205be90	int recovered_205be90(char *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2071950	unsigned int recovered_2071950(int param_1,unsigned int param_2,int param_3,unsigned int param_4);	stack4,stack8,stack12,stack16
+205d170	unsigned int recovered_205d170(int incoming_ecx,char *incoming_edx,unsigned int *param_3);	ECX,EDX,stack4
+207aac0	unsigned int recovered_207aac0(unsigned int *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2005ab0	void recovered_2005ab0(void);
+204bff0	unsigned long long recovered_204bff0(unsigned int in_EDX);	EDX
+203d790	unsigned char recovered_203d790(unsigned int param_1,void *param_2);	stack4,stack8
+20c0390	void recovered_20c0390(char *incoming_ecx,int *incoming_edx,unsigned int param_3,int *param_4);	ECX,EDX,stack4,stack8
+2070ce0	unsigned int recovered_2070ce0(int param_1,unsigned int *param_2);	stack4,stack8
+208dd90	unsigned int recovered_208dd90(void);
+20ad840	unsigned int recovered_20ad840(unsigned int *incoming_ecx,int incoming_edx,unsigned char *param_3,unsigned int param_4,char *param_5 ,int param_6);	ECX,EDX,stack4,stack8,stack12,stack16
+209eee0	long double recovered_209eee0(float value);	stack4	ST0
+2019410	 void recovered_2019410(void *context);	stack4
+2005670	unsigned int recovered_2005670(unsigned int incoming_ecx,unsigned char *incoming_edx);	ECX,EDX
+208e490	void recovered_208e490(unsigned char *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+200b140	unsigned char recovered_200b140(void);
+2090470	unsigned int recovered_2090470(int *incoming_ecx,char *incoming_edx,int param_3,int param_4,unsigned int *param_5);	ECX,EDX,stack4,stack8,stack12
+2042790	unsigned int recovered_2042790(void);
+20716e0	unsigned int recovered_20716e0(char *param_1);	stack4
+207a9c0	unsigned char recovered_207a9c0(char *incoming_ecx,char *incoming_edx);	ECX,EDX
+2012e70	char * recovered_2012e70(char *incoming_ecx,unsigned int incoming_edx,char *param_3);	ECX,EDX,stack4
+2018250	void recovered_2018250(unsigned char *param_1,unsigned char *param_2);	stack4,stack8
+2071780	unsigned int * recovered_2071780(int param_1);	stack4
+20b71b0	unsigned int recovered_20b71b0(int incoming_ecx,unsigned int *incoming_edx);	ECX,EDX
+20b87a0	unsigned int recovered_20b87a0(int *incoming_ecx,unsigned int *incoming_edx,int param_3);	ECX,EDX,stack4
+201e4a0	unsigned int recovered_201e4a0(unsigned int *param_1,unsigned int *param_2);	stack4,stack8
+2071ae0	unsigned int recovered_2071ae0(int param_1,unsigned int param_2,char *param_3);	stack4,stack8,stack12
+20721d0	int * recovered_20721d0(unsigned int incoming_ecx,unsigned int incoming_edx,int *param_3);	ECX,EDX,stack4
+2004760	void recovered_2004760(int *param_1);	stack4
+2002cd0	double recovered_2002cd0(double value);	stack4
+20bab40	void recovered_20bab40(unsigned int incoming_ecx,unsigned int incoming_edx,char param_3);	ECX,EDX,stack4
+2019c70	unsigned char recovered_2019c70(unsigned int param_1,unsigned int param_2);	stack4,stack8
+2012b60	unsigned char * recovered_2012b60(void);
+20181c0	void recovered_20181c0(void);
+2018440	unsigned int recovered_2018440(void);
+2070eb0	unsigned int recovered_2070eb0(unsigned int *param_1);	stack4
+20bd700	unsigned short recovered_20bd700(void);
+20a75b0	unsigned int * recovered_20a75b0(unsigned int incoming_ecx,unsigned int incoming_edx,unsigned int param_3,unsigned int param_4,int param_5, unsigned char param_6,unsigned int param_7);	ECX,EDX,stack4,stack8,stack12,stack16,stack20
+20b9da0	void recovered_20b9da0(void);
+207aa30	unsigned short recovered_207aa30(unsigned char *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20257d0	unsigned int * recovered_20257d0(int param_1,unsigned int param_2,float param_3);	stack4,stack8,stack12
+205ce00	unsigned int recovered_205ce00(int incoming_ecx,unsigned int incoming_edx,int param_3,char param_4,unsigned int *param_5, int param_6);	ECX,EDX,stack4,stack8,stack12,stack16
+2091cb0	unsigned int recovered_2091cb0(int *incoming_ecx,char *incoming_edx,int *param_3,int param_4,unsigned int *param_5);	ECX,EDX,stack4,stack8,stack12
+204d180	unsigned char recovered_204d180(unsigned int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20bf6a0	unsigned int recovered_20bf6a0(void);
+20a0a80	unsigned int recovered_20a0a80(int *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20288f0	unsigned char recovered_20288f0(char *param_1);	stack4
+20129e0	unsigned long long recovered_20129e0(void);
+207a480	void recovered_207a480(unsigned int *incoming_ecx,unsigned int *incoming_edx);	ECX,EDX
+20bfa70	unsigned long long recovered_20bfa70(char *format,...);	stack4
+2018f50	unsigned int recovered_2018f50(unsigned int param_1,int param_2);	stack4,stack8
+2006ec0	unsigned char recovered_2006ec0(void);
+20581b0	unsigned int recovered_20581b0(int in_ECX,int in_EDX,int param_3,unsigned int param_4,unsigned int param_5,unsigned int param_6, unsigned int param_7,int param_8,unsigned int param_9,char *param_10);	ECX,EDX,stack4,stack8,stack12,stack16,stack20,stack24,stack28,stack32
+2025810	unsigned int recovered_2025810(unsigned int *param_1,unsigned int *param_2,unsigned int *param_3);	stack4,stack8,stack12
+20be360	int recovered_20be360(unsigned int *incoming_ecx,unsigned long *incoming_edx);	ECX,EDX
+2092800	unsigned int recovered_2092800(int *incoming_ecx,char *incoming_edx,int *param_3,int param_4,unsigned int *param_5);	ECX,EDX,stack4,stack8,stack12
+2009400	unsigned int recovered_2009400(void);
+20bd530	unsigned int recovered_20bd530(int param_1,unsigned int param_2,unsigned int *param_3);	stack4,stack8,stack12
+20291f0	void * recovered_20291f0(char *param_1,float param_2);	stack4,stack8
+2019420	 int recovered_2019420(void *context);	stack4
+2006f90	unsigned int recovered_2006f90(unsigned int *param_1,int param_2,unsigned int *param_3);	stack4,stack8,stack12
+20ae360	int recovered_20ae360(unsigned int in_ECX,int in_EDX,unsigned int param_3);	ECX,EDX,stack4
+202b590	unsigned int recovered_202b590(int device,char *path);	stack4,stack8
+20a6e40	unsigned int recovered_20a6e40(unsigned int incoming_ecx,unsigned int incoming_edx,unsigned int *param_3,unsigned char param_4);	ECX,EDX,stack4,stack8
+20744f0	unsigned int recovered_20744f0(int incoming_ecx,unsigned int incoming_edx,int *param_3,unsigned int *param_4,unsigned int *param_5);	ECX,EDX,stack4,stack8,stack12
+20ba160	void recovered_20ba160(char *incoming_ecx,unsigned int *incoming_edx);	ECX,EDX
+20079a0	unsigned char recovered_20079a0(void);
+20580b0	unsigned int recovered_20580b0(int *incoming_ecx,int incoming_edx,int param_3,unsigned int param_4,unsigned int param_5, unsigned int param_6,unsigned int param_7);	ECX,EDX,stack4,stack8,stack12,stack16,stack20
+2027f10	unsigned int recovered_2027f10(int incoming_ecx,unsigned int *incoming_edx,unsigned int *param_3);	ECX,EDX,stack4
+2012440	unsigned int recovered_2012440(void);
+2005cf0	unsigned char recovered_2005cf0(void);
+2053450	unsigned int recovered_2053450(int incoming_ecx,int incoming_edx,int param_3,unsigned int param_4,int param_5,int param_6 ,unsigned int param_7,unsigned int param_8,int *param_9,unsigned int *param_10);	ECX,EDX,stack4,stack8,stack12,stack16,stack20,stack24,stack28,stack32
+202b610	unsigned int recovered_202b610(int device,char *old_path,char *new_path);	stack4,stack8,stack12
+2050990	void recovered_2050990(int incoming_ecx,int incoming_edx,unsigned int param_3,unsigned int param_4);	ECX,EDX,stack4,stack8
+204d260	unsigned char recovered_204d260(unsigned int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2018e40	unsigned int recovered_2018e40(int *param_1);	stack4
+203d450	unsigned char recovered_203d450(unsigned int param_1);	stack4
+2056fb0	int recovered_2056fb0(int incoming_ecx,int incoming_edx,unsigned int param_3,int param_4,int param_5, unsigned int param_6,unsigned int param_7,char param_8,unsigned int param_9,int param_10,int *param_11, int *param_12);	ECX,EDX,stack4,stack8,stack12,stack16,stack20,stack24,stack28,stack32,stack36,stack40
+20901c0	unsigned int recovered_20901c0(int *incoming_ecx,char *incoming_edx,int param_3,int param_4,unsigned int *param_5);	ECX,EDX,stack4,stack8,stack12
+207dc70	unsigned int recovered_207dc70(unsigned int *incoming_ecx,unsigned int incoming_edx,int param_3,unsigned int *param_4);	ECX,EDX,stack4,stack8
+2026b60	void recovered_2026b60(int *param_1,unsigned int param_2);	stack4,stack8
+20276c0	unsigned long long recovered_20276c0(void);
+209fb70	unsigned int recovered_209fb70(int *incoming_ecx,int incoming_edx,int param_3);	ECX,EDX,stack4
+20027d0	double recovered_20027d0(double left,double right);	stack4,stack12
+208e1f0	unsigned int recovered_208e1f0(int *incoming_ecx,char *incoming_edx,int *param_3,int param_4,unsigned int *param_5);	ECX,EDX,stack4,stack8,stack12
+2012410	unsigned int recovered_2012410(unsigned char *param_1);	stack4
+2012ce0	char * recovered_2012ce0(char *incoming_ecx,char *incoming_edx);	ECX,EDX
+20b8210	unsigned int recovered_20b8210(int incoming_ecx,unsigned int incoming_edx,unsigned int param_3,int *param_4,unsigned int *param_5, int *param_6,unsigned char *param_7);	ECX,EDX,stack4,stack8,stack12,stack16,stack20
+206d540	unsigned char recovered_206d540(unsigned int param_1,int param_2,unsigned int param_3,unsigned int *param_4);	stack4,stack8,stack12,stack16
+2018450	void recovered_2018450(void);
+20b6710	void recovered_20b6710(int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2086a30	unsigned int recovered_2086a30(unsigned int *incoming_ecx,unsigned char *incoming_edx,int param_3);	ECX,EDX,stack4
+2092760	unsigned int recovered_2092760(int *incoming_ecx,char *incoming_edx,int param_3,int param_4,unsigned int *param_5);	ECX,EDX,stack4,stack8,stack12
+202a5c0	unsigned char recovered_202a5c0(void);
+20a4010	unsigned int recovered_20a4010(int incoming_ecx,char *incoming_edx);	ECX,EDX
+2007ea0	void recovered_2007ea0(void);
+2070f60	unsigned int recovered_2070f60(unsigned int *param_1);	stack4
+2019570	void * recovered_2019570(unsigned long size);	stack4
+200b1b0	unsigned int recovered_200b1b0(int param_1);	stack4
+2003ac0	float recovered_2003ac0(char *text,char **end);	stack4,stack8
+20034d0	unsigned int recovered_20034d0(double param_1);	stack4
+203a3a0	unsigned char recovered_203a3a0(int *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20723c0	unsigned int recovered_20723c0(unsigned int incoming_ecx,unsigned int incoming_edx,unsigned int param_3, unsigned char param_4);	ECX,EDX,stack4,stack8
+208fff0	unsigned int recovered_208fff0(int *incoming_ecx,char *incoming_edx,int param_3,unsigned int param_4,unsigned int param_5, int *param_6);	ECX,EDX,stack4,stack8,stack12,stack16
+207d960	unsigned int recovered_207d960(unsigned int incoming_ecx,unsigned int incoming_edx,unsigned int param_3,unsigned int *param_4);	ECX,EDX,stack4,stack8
+2052370	unsigned char recovered_2052370(unsigned int *incoming_ecx,unsigned int incoming_edx,unsigned int param_3);	ECX,EDX,stack4
+208e420	unsigned int recovered_208e420(int *incoming_ecx,char *incoming_edx,int param_3,unsigned int param_4,unsigned int param_5, int *param_6);	ECX,EDX,stack4,stack8,stack12,stack16
+20a5b20	unsigned int recovered_20a5b20(int incoming_ecx,unsigned int incoming_edx,unsigned int param_3);	ECX,EDX,stack4
+20bb430	unsigned int recovered_20bb430(int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20b8ea0	unsigned int recovered_20b8ea0(int incoming_ecx,unsigned int incoming_edx,unsigned int param_3,unsigned int *param_4,int *param_5, unsigned int *param_6);	ECX,EDX,stack4,stack8,stack12,stack16
+200a3a0	unsigned char recovered_200a3a0(unsigned int incoming_ecx,unsigned int incoming_edx,int param_3,unsigned int param_4);	ECX,EDX,stack4,stack8
+2013a40	int recovered_2013a40(void);
+209b4c0	unsigned int recovered_209b4c0(unsigned int *incoming_ecx,unsigned int incoming_edx,int in_stack_00000004, unsigned int in_stack_00000008);	ECX,EDX,stack4,stack8
+20a76a0	unsigned int recovered_20a76a0(int *incoming_ecx,unsigned int incoming_edx,unsigned int *param_3);	ECX,EDX,stack4
+209b1b0	int recovered_209b1b0(int incoming_ecx,char *incoming_edx,char param_3);	ECX,EDX,stack4
+2026380	unsigned int recovered_2026380(int param_1,unsigned int param_2,int *param_3,unsigned short *param_4);	stack4,stack8,stack12,stack16
+20a7d20	int recovered_20a7d20(unsigned int in_ECX,unsigned int in_EDX,unsigned int param_3);	ECX,EDX,stack4
+2070cb0	unsigned int recovered_2070cb0(void);
+2009190	unsigned int recovered_2009190(unsigned int param_1,unsigned int param_2,unsigned int param_3,unsigned int *param_4,int *param_5);	stack4,stack8,stack12,stack16,stack20
+2012690	unsigned int recovered_2012690(unsigned char param_1);	stack4
+2027df0	void recovered_2027df0(void);
+204bbf0	unsigned int recovered_204bbf0(unsigned int incoming_ecx,unsigned int incoming_edx,unsigned char param_3);	ECX,EDX,stack4
+2006e80	int recovered_2006e80(void);
+208fb60	unsigned int recovered_208fb60(int *incoming_ecx,char *incoming_edx,int param_3,int param_4,unsigned int *param_5);	ECX,EDX,stack4,stack8,stack12
+2018f10	unsigned char recovered_2018f10(int param_1);	stack4
+2029930	void * recovered_2029930(unsigned int param_1);	stack4
+2008800	void recovered_2008800(unsigned int param_1,unsigned int param_2,int param_3,unsigned int param_4,unsigned char param_5);	stack4,stack8,stack12,stack16,stack20
+20b0a60	unsigned int recovered_20b0a60(char in_CL);	CL
+2019320	int recovered_2019320(char *left,char *right,unsigned long size);	stack4,stack8,stack12
+20111a0	void recovered_20111a0(unsigned int *param_1,unsigned int *param_2);	stack4,stack8
+200b230	unsigned int recovered_200b230(unsigned int *param_1);	stack4
+20ba6b0	void recovered_20ba6b0(void);
+207b2c0	unsigned long long recovered_207b2c0(unsigned int *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2090670	unsigned int recovered_2090670(int *incoming_ecx,unsigned char **incoming_edx,int *param_3,unsigned int param_4, unsigned int *param_5);	ECX,EDX,stack4,stack8,stack12
+20bd4d0	unsigned char recovered_20bd4d0(unsigned int *param_1,int param_2,unsigned int *param_3);	stack4,stack8,stack12
+20598a0	unsigned int recovered_20598a0(unsigned int *incoming_ecx,unsigned int incoming_edx,unsigned int param_3,unsigned int param_4,unsigned int param_5, char param_6,unsigned int param_7,unsigned int *param_8,unsigned int *param_9,int param_10);	ECX,EDX,stack4,stack8,stack12,stack16,stack20,stack24,stack28,stack32
+2008fd0	void * recovered_2008fd0(unsigned int incoming_ecx,unsigned int incoming_edx,int param_3,unsigned int param_4);	ECX,EDX,stack4,stack8
+2012480	unsigned int recovered_2012480(int param_1,unsigned int param_2,unsigned int *param_3);	stack4,stack8,stack12
+2011520	unsigned int recovered_2011520(unsigned int *param_1,unsigned int *param_2,unsigned int *param_3, unsigned int *param_4,unsigned int *param_5,unsigned int *param_6, unsigned int *param_7,unsigned int *param_8,unsigned int *param_9, unsigned int *param_10);	stack4,stack8,stack12,stack16,stack20,stack24,stack28,stack32,stack36,stack40
+200aeb0	unsigned char recovered_200aeb0(unsigned char param_1);	stack4
+2092bd0	unsigned int recovered_2092bd0(int *incoming_ecx,char *incoming_edx,int param_3,int param_4,unsigned int *param_5);	ECX,EDX,stack4,stack8,stack12
+207d360	unsigned int recovered_207d360(int *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+208f4e0	unsigned int recovered_208f4e0(int *incoming_ecx,char *incoming_edx,int param_3,int param_4, int *in_stack_0000000c);	ECX,EDX,stack4,stack8,stack12
+20930a0	unsigned int recovered_20930a0(int *incoming_ecx,char *incoming_edx,unsigned int param_3,int param_4,unsigned int *param_5);	ECX,EDX,stack4,stack8,stack12
+20139f0	unsigned int recovered_20139f0(unsigned int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20bd590	void recovered_20bd590(void);
+207ab70	unsigned int recovered_207ab70(int *incoming_ecx,int incoming_edx);	ECX,EDX
+2008190	unsigned int recovered_2008190(void);
+20192c0	unsigned int recovered_20192c0(void);
+20baf90	unsigned int recovered_20baf90(int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2018350	unsigned char recovered_2018350(int param_1,int param_2,unsigned int param_3,unsigned char param_4);	stack4,stack8,stack12,stack16
+2093250	unsigned int recovered_2093250(int *incoming_ecx,int *incoming_edx,int *param_3,int param_4,unsigned int *param_5);	ECX,EDX,stack4,stack8,stack12
+20391b0	unsigned char recovered_20391b0(char *param_1);	stack4
+202a060	unsigned int recovered_202a060(int incoming_ecx,unsigned char *incoming_edx);	ECX,EDX
+203e190	void recovered_203e190(char *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+205ba40	unsigned int recovered_205ba40(char *incoming_ecx,unsigned int incoming_edx,unsigned char param_3,int param_4);	ECX,EDX,stack4,stack8
+2051b70	unsigned int recovered_2051b70(int *incoming_ecx,unsigned int *incoming_edx,int param_3,int param_4,int param_5, int param_6,char param_7,int param_8,unsigned int *param_9);	ECX,EDX,stack4,stack8,stack12,stack16,stack20,stack24,stack28
+207f710	unsigned char recovered_207f710(unsigned long long *param_1,unsigned long *param_2);	ECX,EDX
+205c080	unsigned short recovered_205c080(char *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+207e340	unsigned int recovered_207e340(unsigned int *incoming_ecx,char *incoming_edx);	ECX,EDX
+202ab40	void recovered_202ab40(char *incoming_ecx,int incoming_edx,char *param_3);	ECX,EDX,stack4
+20be4c0	unsigned int recovered_20be4c0(int incoming_ecx,int incoming_edx,unsigned int *param_3);	ECX,EDX,stack4
+20257c0	unsigned int * recovered_20257c0(unsigned char *param_1,unsigned char *param_2);	stack4,stack8
+2026190	unsigned int recovered_2026190(unsigned int *param_1,unsigned int *param_2,unsigned int *param_3,unsigned int param_4,unsigned int param_5,unsigned int param_6, unsigned int *param_7);	stack4,stack8,stack12,stack16,stack20,stack24,stack28
+200a5f0	unsigned char recovered_200a5f0(unsigned char param_1,unsigned int param_2,int param_3,unsigned int param_4);	stack4,stack8,stack12,stack16
+20112b0	void recovered_20112b0(unsigned int *param_1,unsigned int *param_2,unsigned int *param_3, unsigned int *param_4,unsigned int *param_5);	stack4,stack8,stack12,stack16,stack20
+200a300	int recovered_200a300(void);
+207a960	unsigned int recovered_207a960(unsigned int *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2019230	unsigned char recovered_2019230(int param_1,int param_2,int param_3);	stack4,stack8,stack12
+20b6aa0	unsigned int recovered_20b6aa0(int *incoming_ecx,int *incoming_edx);	ECX,EDX
+20bec40	unsigned int recovered_20bec40(unsigned short *incoming_ecx,int incoming_edx);	ECX,EDX
+20a8160	unsigned int recovered_20a8160(void *incoming_ecx,unsigned int incoming_edx,unsigned int *param_3,unsigned int *param_4);	ECX,EDX,stack4,stack8
+20129f0	unsigned int recovered_20129f0(void);
+2027fe0	unsigned char recovered_2027fe0(char *param_1,void *param_2,unsigned int param_3);	stack4,stack8,stack12
+20bb650	unsigned char recovered_20bb650(unsigned int in_ECX,int in_EDX,int param_3,int param_4,unsigned int param_5,int param_6, unsigned int param_7,unsigned int param_8,unsigned int param_9,int *param_10,int *param_11);	ECX,EDX,stack4,stack8,stack12,stack16,stack20,stack24,stack28,stack32,stack36
+2025550	unsigned int recovered_2025550(unsigned int incoming_ecx,void *incoming_edx,int param_3,int param_4,unsigned int param_5, unsigned int param_6);	ECX,EDX,stack4,stack8,stack12,stack16
+20492b0	unsigned int recovered_20492b0(char *text);	ECX
+2029130	unsigned char recovered_2029130(char *param_1,unsigned int param_2,void *param_3);	stack4,stack8,stack12
+2056e00	unsigned int recovered_2056e00(int incoming_ecx,unsigned int incoming_edx,unsigned int *param_3,int *param_4,unsigned int *param_5, unsigned int *param_6,unsigned int *param_7,int *param_8,unsigned int *param_9);	ECX,EDX,stack4,stack8,stack12,stack16,stack20,stack24,stack28
+2071ad0	void recovered_2071ad0(void);
+200a350	unsigned int recovered_200a350(unsigned int incoming_ecx,unsigned int incoming_edx,int param_3,unsigned char param_4);	ECX,EDX,stack4,stack8
+20115d0	void recovered_20115d0(int *param_1,int *param_2,int *param_3);	stack4,stack8,stack12
+200af50	unsigned int recovered_200af50(void);
+20bc0d0	unsigned int recovered_20bc0d0(unsigned int incoming_ecx,int incoming_edx,int param_3,unsigned int param_4,unsigned int param_5, int param_6,int param_7);	ECX,EDX,stack4,stack8,stack12,stack16,stack20
+2018980	int recovered_2018980(unsigned char *param_1,int param_2,int param_3,int *param_4);	stack4,stack8,stack12,stack16
+20193f0	void recovered_20193f0(void);
+20bd500	unsigned char recovered_20bd500(unsigned int *param_1,int param_2,unsigned int param_3);	stack4,stack8,stack12
+2018470	unsigned int * recovered_2018470(int param_1,int param_2);	stack4,stack8
+2025450	unsigned int recovered_2025450(int *incoming_ecx,int *incoming_edx);	ECX,EDX
+207a3b0	unsigned char recovered_207a3b0(unsigned int incoming_ecx,char *incoming_edx);	ECX,EDX
+20be090	int recovered_20be090(char *incoming_ecx,char *incoming_edx);	ECX,EDX
+20716b0	unsigned char recovered_20716b0(unsigned short param_1,int param_2,unsigned int *param_3);	stack4,stack8,stack12
+20a63a0	unsigned int recovered_20a63a0(unsigned int incoming_ecx,unsigned int incoming_edx,unsigned int *param_3,unsigned char param_4);	ECX,EDX,stack4,stack8
+2018d90	unsigned int recovered_2018d90(int *param_1,unsigned int param_2,int param_3);	stack4,stack8,stack12
+2092d80	unsigned int recovered_2092d80(int *incoming_ecx,char *incoming_edx,int *param_3,int param_4,unsigned int *param_5);	ECX,EDX,stack4,stack8,stack12
+20192b0	void recovered_20192b0(void);
+20257e0	void recovered_20257e0(int *param_1,float param_2);	stack4,stack8
+20025d0	char * recovered_20025d0(char *param_1,char *param_2);	stack4,stack8
+200b100	unsigned char recovered_200b100(void);
+207ab20	unsigned int recovered_207ab20(int incoming_ecx,char *incoming_edx);	ECX,EDX
+2008f70	unsigned int recovered_2008f70(void);
+20081a0	unsigned int recovered_20081a0(void);
+20bdfe0	unsigned int recovered_20bdfe0(int incoming_ecx,unsigned int *incoming_edx,char *param_3);	ECX,EDX,stack4
+20a8310	void recovered_20a8310(void *incoming_ecx,char *incoming_edx);	ECX,EDX
+2018460	unsigned char recovered_2018460(void);
+20bd710	unsigned char recovered_20bd710(int param_1,unsigned int *param_2,unsigned int *param_3);	stack4,stack8,stack12
+207ce40	unsigned int recovered_207ce40(char *incoming_ecx,int incoming_edx);	ECX,EDX
+203d850	unsigned int recovered_203d850(unsigned int window,char *first,char *second,char *third);	stack4,stack8,stack12,stack16
+203e3a0	unsigned int recovered_203e3a0(unsigned int in_EDX);	EDX
+207b020	unsigned int recovered_207b020(int incoming_ecx,unsigned int incoming_edx,int *param_3,unsigned int *param_4,unsigned int *param_5);	ECX,EDX,stack4,stack8,stack12
+2008aa0	void recovered_2008aa0(int incoming_ecx,int incoming_edx,unsigned char param_3,unsigned char param_4);	ECX,EDX,stack4,stack8
+205b200	unsigned int recovered_205b200(int incoming_ecx,char *incoming_edx);	ECX,EDX
+204cef0	unsigned int recovered_204cef0(unsigned int incoming_ecx,unsigned int incoming_edx,int param_3);	ECX,EDX,stack4
+20ab310	unsigned int recovered_20ab310(unsigned char *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20253b0	void recovered_20253b0(int *incoming_ecx,unsigned int *incoming_edx);	ECX,EDX
+2007020	unsigned int recovered_2007020(unsigned int *param_1,int param_2,unsigned int *param_3);	stack4,stack8,stack12
+206d5f0	unsigned char recovered_206d5f0(unsigned int param_1,unsigned int param_2,unsigned int param_3,unsigned int *param_4,int *param_5);	stack4,stack8,stack12,stack16,stack20
+202b6a0	unsigned int recovered_202b6a0(int incoming_ecx,int incoming_edx);	ECX,EDX
+204d520	unsigned int recovered_204d520(void);
+2071f10	unsigned int recovered_2071f10(unsigned int param_1);	stack4
+2027e10	unsigned long long recovered_2027e10(long param_1,unsigned int *param_2);	stack4,stack8
+2027370	unsigned long long recovered_2027370(unsigned char param_1,unsigned int in_stack_00000005);	stack4,stack5
+20bc5c0	unsigned char recovered_20bc5c0(int incoming_ecx,unsigned int incoming_edx,unsigned int param_3,unsigned int param_4,unsigned int param_5, unsigned int *param_6);	ECX,EDX,stack4,stack8,stack12,stack16
+20a1c50	unsigned int recovered_20a1c50(long long *incoming_ecx,long long *incoming_edx);	ECX,EDX
+207e0c0	float recovered_207e0c0(int *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+205d360	unsigned int recovered_205d360(char *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20b8bf0	unsigned int recovered_20b8bf0(int *incoming_ecx,unsigned int *incoming_edx,int param_3);	ECX,EDX,stack4
+20262c0	void recovered_20262c0(unsigned char *param_1);	stack4
+200bf60	unsigned int recovered_200bf60(int param_1);	stack4
+2018e10	unsigned int recovered_2018e10(int param_1);	stack4
+2090150	void recovered_2090150(unsigned int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2026170	unsigned int * recovered_2026170(unsigned char *param_1,unsigned int param_2,float param_3);	stack4,stack8,stack12
+20192f0	char * recovered_20192f0(char *param_1,char param_2,int param_3);	stack4,stack8,stack12
+2051f00	unsigned char recovered_2051f00(char *incoming_ecx,char *incoming_edx);	ECX,EDX
+20717a0	void recovered_20717a0(void *in_stack_00000004);	stack4
+20c14b0	unsigned int recovered_20c14b0(int incoming_ecx,char *incoming_edx);	ECX,EDX
+20a1a60	unsigned int recovered_20a1a60(long long *incoming_ecx,long long *incoming_edx);	ECX,EDX
+2074860	unsigned int recovered_2074860(int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20923c0	unsigned int recovered_20923c0(int *incoming_ecx,char *incoming_edx,int *param_3,int param_4,unsigned int *param_5);	ECX,EDX,stack4,stack8,stack12
+2029c10	unsigned char recovered_2029c10(char *param_1,char *param_2,unsigned int param_3,unsigned int *param_4);	stack4,stack8,stack12,stack16
+203d0f0	unsigned char recovered_203d0f0(unsigned int param_1,char *param_2,void *param_3,unsigned int param_4,unsigned int param_5, unsigned int param_6,unsigned int param_7);	stack4,stack8,stack12,stack16,stack20,stack24,stack28
+20b9c20	unsigned int recovered_20b9c20(int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20bd580	void recovered_20bd580(void);
+208d900	unsigned int recovered_208d900(int *incoming_ecx,char *incoming_edx,unsigned int *param_3,unsigned int *param_4);	ECX,EDX,stack4,stack8
+20ab210	unsigned char recovered_20ab210(char *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20bd750	unsigned char recovered_20bd750(int param_1,unsigned int param_2,unsigned int param_3);	stack4,stack8,stack12
+2028910	unsigned int recovered_2028910(int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2028050	unsigned int recovered_2028050(int incoming_ecx,void *incoming_edx,int param_3);	ECX,EDX,stack4
+2012a70	unsigned int recovered_2012a70(void);
+2008e70	int recovered_2008e70(unsigned int param_1,unsigned int param_2);	stack4,stack8
+20193e0	unsigned int recovered_20193e0(void);
+203ce80	unsigned int recovered_203ce80(char *param_1,unsigned int param_2,unsigned int param_3);	stack4,stack8,stack12
+2097c70	unsigned int recovered_2097c70(unsigned char *incoming_ecx,char *incoming_edx,int *param_3,int param_4,unsigned int *param_5 );	ECX,EDX,stack4,stack8,stack12
+208fcc0	unsigned int recovered_208fcc0(int *incoming_ecx,char *incoming_edx,int param_3,int param_4,unsigned int *param_5);	ECX,EDX,stack4,stack8,stack12
+2001550	unsigned long long recovered_2001550(unsigned int param_1,unsigned int param_2,unsigned int param_3,unsigned int param_4);	stack4,stack8,stack12,stack16
+207cf70	unsigned char recovered_207cf70(unsigned int *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+202af10	unsigned int recovered_202af10(unsigned char *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20b9070	unsigned int recovered_20b9070(int *incoming_ecx,unsigned int *incoming_edx,char *param_3,unsigned char *param_4);	ECX,EDX,stack4,stack8
+2012270	void recovered_2012270(char param_1);	stack4
+200b1d0	unsigned int recovered_200b1d0(void);
+2012530	unsigned int recovered_2012530(unsigned int param_1,unsigned int *param_2,unsigned int *param_3);	stack4,stack8,stack12
+2018130	void recovered_2018130(void);
+2012370	void recovered_2012370(int param_1,int param_2);	stack4,stack8
+20188b0	unsigned int recovered_20188b0(int *param_1);	stack4
+20070b0	void recovered_20070b0(void);
+2005b20	unsigned int recovered_2005b20(unsigned int param_1,int param_2,unsigned int param_3,unsigned int *param_4);	stack4,stack8,stack12,stack16
+2013840	void recovered_2013840(unsigned int incoming_ecx,unsigned int *incoming_edx);	ECX,EDX
+20b6040	unsigned int recovered_20b6040(int *incoming_ecx,char *incoming_edx,int param_3,unsigned char *param_4,int param_5, int *param_6);	ECX,EDX,stack4,stack8,stack12,stack16
+20b91c0	unsigned int recovered_20b91c0(char *incoming_ecx,int incoming_edx);	ECX,EDX
+20bd5f0	unsigned int recovered_20bd5f0(unsigned int param_1,unsigned int param_2,unsigned int param_3,unsigned int param_4, unsigned int *param_5);	stack4,stack8,stack12,stack16,stack20
+2018ef0	unsigned char recovered_2018ef0(int param_1);	stack4
+2013ae0	unsigned int recovered_2013ae0(int incoming_ecx,unsigned char *incoming_edx);	ECX,EDX
+208e290	unsigned int recovered_208e290(unsigned int incoming_ecx,int incoming_edx,unsigned char *param_3);	ECX,EDX,stack4
+209af90	unsigned int recovered_209af90(int incoming_ecx,int incoming_edx,int *param_3,int *param_4,int *param_5, int *param_6);	ECX,EDX,stack4,stack8,stack12,stack16
+2092620	unsigned int recovered_2092620(int *incoming_ecx,char *incoming_edx,int *param_3,int param_4,unsigned int *param_5);	ECX,EDX,stack4,stack8,stack12
+207e1d0	unsigned int recovered_207e1d0(unsigned int *incoming_ecx,unsigned int *incoming_edx);	ECX,EDX
+2071a40	unsigned char recovered_2071a40(unsigned short param_1,int param_2,unsigned int param_3);	stack4,stack8,stack12
+202b3a0	unsigned int recovered_202b3a0(int device,char *path,char *buffer,unsigned int capacity,unsigned int *count);	stack4,stack8,stack12,stack16,stack20
+2029a60	void recovered_2029a60(void *param_1);	stack4
+2070b80	unsigned int recovered_2070b80(unsigned int *param_1);	stack4
+2026f10	void recovered_2026f10(void);
+20bf540	unsigned int recovered_20bf540(int in_ECX);	ECX
+2013740	void recovered_2013740(void);
+209b6b0	unsigned int recovered_209b6b0(void *incoming_ecx,void *incoming_edx,unsigned int *param_3,char *param_4, unsigned int param_5);	ECX,EDX,stack4,stack8,stack12
+203df50	unsigned int recovered_203df50(unsigned int in_EDX);	EDX
+20539f0	void recovered_20539f0(int *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20be2e0	unsigned int recovered_20be2e0(unsigned int incoming_ecx,char *incoming_edx);	ECX,EDX
+20ba950	unsigned int recovered_20ba950(unsigned int incoming_ecx,int *incoming_edx);	ECX,EDX
+20b55c0	void recovered_20b55c0(void);
+20022e0	int recovered_20022e0(unsigned char *param_1,unsigned char *param_2);	stack4,stack8
+2071aa0	unsigned char recovered_2071aa0(unsigned int *param_1,int param_2,unsigned int param_3);	stack4,stack8,stack12
+2001650	void *recovered_2001650(unsigned long size);
+2013a80	int recovered_2013a80(unsigned char in_CL);	CL
+20a3e20	unsigned int recovered_20a3e20(int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20b6770	unsigned int recovered_20b6770(unsigned char *incoming_ecx,unsigned int *incoming_edx,unsigned int *param_3);	ECX,EDX,stack4
+2052e40	unsigned int recovered_2052e40(void);
+20bd350	unsigned int recovered_20bd350(unsigned int param_1,unsigned int param_2);	stack4,stack8
+202a250	unsigned char recovered_202a250(char *incoming_ecx,char *incoming_edx,unsigned int *param_3);	ECX,EDX,stack4
+208f2e0	unsigned int recovered_208f2e0(int *incoming_ecx,char *incoming_edx,int param_3,unsigned int param_4,unsigned int *param_5);	ECX,EDX,stack4,stack8,stack12
+208dec0	void recovered_208dec0(void);
+20192e0	unsigned int recovered_20192e0(void);
+201d010	unsigned int recovered_201d010(unsigned int *incoming_ecx,unsigned int *incoming_edx,int param_3,int *param_4);	ECX,EDX,stack4,stack8
+20194e0	unsigned int recovered_20194e0(void);
+20122e0	void recovered_20122e0(char *param_1);	stack4
+2052d80	void recovered_2052d80(unsigned int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+205c1d0	unsigned int recovered_205c1d0(int incoming_ecx,unsigned int incoming_edx,unsigned int param_3,char param_4,int param_5);	ECX,EDX,stack4,stack8,stack12
+20913a0	unsigned int recovered_20913a0(int *incoming_ecx,char *incoming_edx,int *param_3,unsigned int param_4,unsigned int *param_5 );	ECX,EDX,stack4,stack8,stack12
+2071c10	void recovered_2071c10(void);
+208e000	void recovered_208e000(unsigned int in_EDX);	EDX
+2026d50	unsigned long long recovered_2026d50(unsigned int param_1,unsigned int param_2,unsigned char param_3);	stack4,stack8,stack12
+2017f90	void recovered_2017f90(char *param_1,int param_2);	stack4,stack8
+20a47b0	unsigned int recovered_20a47b0(char *incoming_ecx,unsigned int *incoming_edx);	ECX,EDX
+2001eb0	void recovered_2001eb0(unsigned char *param_1,int param_2);	stack4,stack8
+208daf0	unsigned int recovered_208daf0(int *incoming_ecx,int *incoming_edx,unsigned int *param_3,unsigned int param_4, unsigned int *param_5);	ECX,EDX,stack4,stack8,stack12
+2018c30	int recovered_2018c30(int param_1,int param_2,int param_3,unsigned int *param_4);	stack4,stack8,stack12,stack16
+2006ea0	int recovered_2006ea0(void);
+2018f30	void recovered_2018f30(int param_1);	stack4
+203d4a0	unsigned char recovered_203d4a0(void *param_1,unsigned int param_2,unsigned int *param_3);	stack4,stack8,stack12
+20224d0	void recovered_20224d0(unsigned char *incoming_ecx,unsigned char *incoming_edx);	ECX,EDX
+2074a50	unsigned char recovered_2074a50(char **lines,unsigned long count,void *first,void *second,void *third);	ECX,EDX,stack4,stack8,stack12
+2074710	unsigned int recovered_2074710(unsigned int *incoming_ecx,unsigned int *incoming_edx,unsigned int param_3);	ECX,EDX,stack4
+2018ff0	unsigned int recovered_2018ff0(int param_1,int param_2);	stack4,stack8
+202a330	int recovered_202a330(void);
+2007070	unsigned int recovered_2007070(unsigned int *param_1,int param_2,unsigned int param_3);	stack4,stack8,stack12
+206d620	void recovered_206d620(void);
+20b6ce0	unsigned char recovered_20b6ce0(int incoming_ecx,void *incoming_edx,int param_3);	ECX,EDX,stack4
+207cfd0	unsigned char recovered_207cfd0(unsigned int *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2040a60	unsigned int recovered_2040a60(unsigned int incoming_ecx,unsigned int incoming_edx,unsigned int param_3,unsigned int param_4);	ECX,EDX,stack4,stack8
+20514b0	unsigned int recovered_20514b0(int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20bf980	unsigned int recovered_20bf980(int *param_1);	stack4
+2011440	void recovered_2011440(unsigned int *param_1,unsigned int *param_2,unsigned int *param_3, unsigned int *param_4,unsigned int *param_5,unsigned int *param_6);	stack4,stack8,stack12,stack16,stack20,stack24
+209b5a0	unsigned int recovered_209b5a0(unsigned int incoming_ecx,char *incoming_edx);	ECX,EDX
+203c430	long long recovered_203c430(void);
+207d3d0	unsigned int recovered_207d3d0(unsigned int incoming_ecx,unsigned int incoming_edx,unsigned int param_3,unsigned int *param_4, unsigned char *param_5);	ECX,EDX,stack4,stack8,stack12
+207acc0	void recovered_207acc0(unsigned int *incoming_ecx,int incoming_edx);	ECX,EDX
+203d510	void recovered_203d510(int incoming_ecx,unsigned int *incoming_edx);	ECX,EDX
+20111d0	void recovered_20111d0(unsigned int *param_1,unsigned int *param_2,unsigned int *param_3);	stack4,stack8,stack12
+20125f0	unsigned int recovered_20125f0(unsigned int param_1,unsigned int param_2,unsigned int param_3);	stack4,stack8,stack12
+20225d0	void recovered_20225d0(int *param_1,unsigned int param_2);	stack4,stack8
+2025f10	unsigned int recovered_2025f10(int param_1,unsigned int param_2,unsigned int param_3,int *param_4);	stack4,stack8,stack12,stack16
+20b6ea0	unsigned int recovered_20b6ea0(int *incoming_ecx,char *incoming_edx,int param_3);	ECX,EDX,stack4
+2052870	unsigned int recovered_2052870(unsigned int incoming_ecx,int incoming_edx,unsigned int param_3,unsigned int param_4);	ECX,EDX,stack4,stack8
+20ba760	unsigned int recovered_20ba760(int incoming_ecx,unsigned int *incoming_edx);	ECX,EDX
+209c310	unsigned int recovered_209c310(unsigned int *incoming_ecx,unsigned int incoming_edx,int in_stack_00000004, unsigned int in_stack_00000008);	ECX,EDX,stack4,stack8
+20b7050	unsigned int recovered_20b7050(int *incoming_ecx,int incoming_edx,int param_3);	ECX,EDX,stack4
+20b6d60	unsigned int recovered_20b6d60(int incoming_ecx,unsigned int incoming_edx,unsigned int param_3);	ECX,EDX,stack4
+20192a0	unsigned int recovered_20192a0(void);
+202ad00	unsigned int recovered_202ad00(int device,char *path,void *blob);	stack4,stack8,stack12
+2012fc0	char * recovered_2012fc0(char *incoming_ecx,int incoming_edx);	ECX,EDX
+20c15e0	unsigned long long recovered_20c15e0(unsigned int in_EDX,unsigned int *param_2,unsigned int *param_3,int *param_4);	EDX,stack4,stack8,stack12
+204ebf0	unsigned int recovered_204ebf0(int incoming_ecx,unsigned int incoming_edx,char in_stack_00000004);	ECX,EDX,stack4
+20392a0	unsigned int recovered_20392a0(int incoming_ecx,unsigned int incoming_edx,char *param_3,int param_4, unsigned char param_5,int param_6,unsigned int param_7);	ECX,EDX,stack4,stack8,stack12,stack16,stack20
+207d030	int recovered_207d030(int *incoming_ecx,int *incoming_edx,unsigned char param_3);	ECX,EDX,stack4
+202c200	unsigned int recovered_202c200(char *param_1,unsigned int param_2);	stack4,stack8
+20197e0	unsigned char * recovered_20197e0(int param_1);	stack4
+207fd20	unsigned char recovered_207fd20(unsigned long long *param_1,unsigned long *param_2);	ECX,EDX
+2057520	unsigned int recovered_2057520(int incoming_ecx,void *incoming_edx,int param_3,unsigned int param_4,unsigned int param_5, unsigned int param_6);	ECX,EDX,stack4,stack8,stack12,stack16
+20b1a80	unsigned int recovered_20b1a80(char in_CL,unsigned char *in_EDX,unsigned int param_3,char *param_4,int param_5);	CL,EDX,stack4,stack8,stack12
+20196a0	void recovered_20196a0(void *in_stack_00000004);	stack4
+209c9c0	void recovered_209c9c0(void);
+202ce90	void recovered_202ce90(const char *format,...);	stack4
+20b18e0	unsigned int recovered_20b18e0(unsigned int incoming_ecx,char *incoming_edx,unsigned char *param_3);	ECX,EDX,stack4
+2057a40	unsigned int recovered_2057a40(int *incoming_ecx,int incoming_edx,int param_3);	ECX,EDX,stack4
+2082cb0	unsigned int recovered_2082cb0(int *incoming_ecx,unsigned char *incoming_edx,unsigned int *param_3);	ECX,EDX,stack4
+2019540	void * recovered_2019540(unsigned long size);	stack4
+2019a30	unsigned long long recovered_2019a30(int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+207f480	unsigned int recovered_207f480(int incoming_ecx,int incoming_edx);	ECX,EDX
+2096040	unsigned int recovered_2096040(int *incoming_ecx,char *incoming_edx,int *param_3,unsigned int param_4,unsigned int *param_5 );	ECX,EDX,stack4,stack8,stack12
+20bd4a0	unsigned char recovered_20bd4a0(unsigned int param_1,int param_2,unsigned int param_3,unsigned int *param_4);	stack4,stack8,stack12,stack16
+2001230	unsigned long long recovered_2001230(unsigned int param_1,unsigned int param_2,unsigned int param_3);	stack4,stack8,stack12
+2002fa0	float recovered_2002fa0(float left,float right);	stack4,stack8
+20bbdd0	unsigned int recovered_20bbdd0(unsigned char in_CL,unsigned char in_DL,unsigned char param_3);	CL,DL,stack4
+2071d90	unsigned int recovered_2071d90(unsigned int param_1,unsigned int param_2,unsigned int param_3);	stack4,stack8,stack12
+2019af0	void recovered_2019af0(void);
+203d2b0	unsigned char * recovered_203d2b0(int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20b5e90	unsigned int recovered_20b5e90(int *param_1,int param_2,unsigned char param_3);	stack4,stack8,stack12
+20a5df0	unsigned int recovered_20a5df0(int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+203d900	unsigned int recovered_203d900(unsigned int window,unsigned int group,unsigned int item);	stack4,stack8,stack12
+209fae0	unsigned int recovered_209fae0(int *incoming_ecx,int incoming_edx);	ECX,EDX
+20046d0	unsigned int recovered_20046d0(void);
+2019bf0	unsigned char recovered_2019bf0(int param_1);	stack4
+20852f0	char recovered_20852f0(unsigned int incoming_ecx,int *incoming_edx,char param_3);	ECX,EDX,stack4
+20010a0	long recovered_20010a0(void);
+2080c90	unsigned char recovered_2080c90(pf_parser_context *context,pf_kernel_value *out);	ECX,EDX
+20ad470	unsigned char recovered_20ad470(char *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+205a690	unsigned long long recovered_205a690(unsigned int *incoming_ecx,int incoming_edx);	ECX,EDX
+2022bb0	unsigned int recovered_2022bb0(int *incoming_ecx,unsigned int *incoming_edx);	ECX,EDX
+20021f0	unsigned char recovered_20021f0(int param_1);	stack4
+2025800	void recovered_2025800(int *param_1);	stack4
+20b1b70	unsigned int recovered_20b1b70(char *incoming_ecx,unsigned int incoming_edx,unsigned int param_3,char *param_4,int param_5);	ECX,EDX,stack4,stack8,stack12
+20195a0	void recovered_20195a0(void *data);	stack4
+205a6b0	unsigned int recovered_205a6b0(int incoming_ecx,unsigned int incoming_edx,char param_3,int param_4);	ECX,EDX,stack4,stack8
+2003af0	int recovered_2003af0(char *out,unsigned long capacity,char *format,void *args);
+20a2310	unsigned int recovered_20a2310(int *incoming_ecx,int *incoming_edx);	ECX,EDX
+2002ef0	double recovered_2002ef0(long long param_1);	stack4
+205b0f0	unsigned int recovered_205b0f0(int incoming_ecx,unsigned int incoming_edx,unsigned char param_3,int param_4);	ECX,EDX,stack4,stack8
+207f640	unsigned int recovered_207f640(int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2002c30	double recovered_2002c30(double value);	stack4
+20198e0	unsigned long long recovered_20198e0(int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20292a0	unsigned int recovered_20292a0(char *param_1);	stack4
+207a2e0	void recovered_207a2e0(void *context,char *token,char *format,...);	stack4,stack8,stack12
+20b4b70	void recovered_20b4b70(int incoming_ecx,unsigned char *incoming_edx);	ECX,EDX
+200afa0	unsigned char recovered_200afa0(int param_1);	stack4
+2002cf0	long long recovered_2002cf0(double param_1);	stack4
+2019cb0	unsigned char recovered_2019cb0(unsigned int param_1,unsigned int param_2,unsigned short param_3);	stack4,stack8,stack12
+2043160	unsigned int recovered_2043160(unsigned int *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20082d0	unsigned int recovered_20082d0(unsigned char param_1);	stack4
+20197a0	unsigned int recovered_20197a0(void);
+20571a0	unsigned int recovered_20571a0(int incoming_ecx,unsigned int incoming_edx,unsigned int param_3,unsigned int param_4,int param_5, int param_6,int param_7,unsigned int param_8,char *param_9,unsigned int param_10);	ECX,EDX,stack4,stack8,stack12,stack16,stack20,stack24,stack28,stack32
+20a4230	unsigned int recovered_20a4230(unsigned int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2003290	double recovered_2003290(double value);	stack4
+2019840	int recovered_2019840(int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20a0740	unsigned int recovered_20a0740(unsigned int *incoming_ecx,void *incoming_edx,int param_3);	ECX,EDX,stack4
+2002b90	double recovered_2002b90(double value);	stack4
+209f600	unsigned int recovered_209f600(int *incoming_ecx,char *incoming_edx,int *param_3,unsigned int param_4,unsigned int *param_5 );	ECX,EDX,stack4,stack8,stack12
+201a700	int recovered_201a700(char *param_1,unsigned int param_2);	stack4,stack8
+2004820	void recovered_2004820(unsigned int *param_1);	stack4
+20b1c60	unsigned int recovered_20b1c60(unsigned int in_ECX,unsigned int in_EDX);	ECX,EDX
+2001e00	void *recovered_2001e00(void *out,int value,unsigned long count);
+207fba0	unsigned char recovered_207fba0(unsigned long long *param_1,unsigned long *param_2);	ECX,EDX
+2055f10	unsigned int recovered_2055f10(int incoming_ecx,unsigned int *incoming_edx,unsigned int *param_3,char param_4, unsigned char *param_5,int param_6);	ECX,EDX,stack4,stack8,stack12,stack16
+2083480	unsigned int recovered_2083480(char *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2083290	unsigned char recovered_2083290(long text,int *out);	ECX,EDX
+206d920	unsigned char recovered_206d920(int param_1);	stack4
+207f2d0	unsigned char recovered_207f2d0(int *param_1,long *param_2,unsigned long *param_3);	ECX,EDX,stack4
+204bf20	unsigned int recovered_204bf20(unsigned int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20199f0	void recovered_20199f0(unsigned int in_EDX,int in_stack_00000004);	EDX,stack4
+2005160	unsigned int recovered_2005160(unsigned char param_1,unsigned char param_2,unsigned char param_3,unsigned short param_4,unsigned int param_5, unsigned int param_6);	stack4,stack8,stack12,stack16,stack20,stack24
+202b260	unsigned int recovered_202b260(char *incoming_ecx,unsigned char *incoming_edx,unsigned char *param_3);	ECX,EDX,stack4
+20ac420	unsigned char recovered_20ac420(unsigned char in_CL,unsigned int in_EDX,char param_3,unsigned int param_4,unsigned int param_5);	CL,EDX,stack4,stack8,stack12
+209f7b0	unsigned int recovered_209f7b0(int *incoming_ecx,char *incoming_edx,int *param_3,int param_4,unsigned int *param_5);	ECX,EDX,stack4,stack8,stack12
+20831d0	unsigned int recovered_20831d0(char *incoming_ecx,unsigned int *incoming_edx);	ECX,EDX
+20011f0	long long recovered_20011f0(unsigned int param_1,int param_2,unsigned int param_3);	stack4,stack8,stack12
+2002270	unsigned long recovered_2002270(char *text);
+20ac3d0	void recovered_20ac3d0(void *incoming_ecx,char *incoming_edx);	ECX,EDX
+201e700	unsigned char recovered_201e700(int param_1,int param_2,unsigned int param_3,char *param_4);	stack4,stack8,stack12,stack16
+20a3ea0	unsigned int recovered_20a3ea0(int incoming_ecx,void *incoming_edx,unsigned int *param_3);	ECX,EDX,stack4
+20a7730	void recovered_20a7730(void *incoming_ecx,void *incoming_edx,unsigned int param_3);	ECX,EDX,stack4
+2051ec0	unsigned int recovered_2051ec0(unsigned int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20aa8f0	unsigned int recovered_20aa8f0(int incoming_ecx,int *incoming_edx,unsigned int param_3,unsigned int param_4, char *in_stack_0000000c);	ECX,EDX,stack4,stack8,stack12
+2000cc0	void recovered_2000cc0(void);
+20a6af0	void recovered_20a6af0(int incoming_ecx,unsigned int *incoming_edx);	ECX,EDX
+20b7580	unsigned char recovered_20b7580(int *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20a3780	unsigned int recovered_20a3780(unsigned char *incoming_ecx,unsigned int *incoming_edx);	ECX,EDX
+201a120	unsigned long long recovered_201a120(unsigned char *param_1,unsigned int *param_2,unsigned int param_3);	stack4,stack8,stack12
+2025120	void recovered_2025120(int *incoming_ecx,unsigned int *incoming_edx);	ECX,EDX
+2004710	unsigned int recovered_2004710(unsigned int param_1,unsigned char *param_2,int param_3);	stack4,stack8,stack12
+2003680	int recovered_2003680(unsigned char *param_1,unsigned int *param_2,unsigned int param_3);	stack4,stack8,stack12
+20211e0	void recovered_20211e0(int *param_1,unsigned int param_2);	stack4,stack8
+20a0640	unsigned int recovered_20a0640(int *incoming_ecx,int incoming_edx,unsigned char *param_3);	ECX,EDX,stack4
+20ac670	unsigned int recovered_20ac670(int incoming_ecx,unsigned int incoming_edx,unsigned int param_3);	ECX,EDX,stack4
+20a54e0	unsigned int recovered_20a54e0(unsigned char *incoming_ecx,unsigned char *incoming_edx,unsigned int param_3,char *param_4, unsigned char *param_5,unsigned int param_6);	ECX,EDX,stack4,stack8,stack12,stack16
+20a8b80	void recovered_20a8b80(int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20abc50	unsigned long long recovered_20abc50(char *incoming_ecx,unsigned int incoming_edx,int param_3);	ECX,EDX,stack4
+20198a0	void recovered_20198a0(int param_1,unsigned int param_2,unsigned int param_3);	stack4,stack8,stack12
+2042950	unsigned char recovered_2042950(unsigned int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2085fb0	unsigned char recovered_2085fb0(unsigned int incoming_ecx,unsigned int *incoming_edx);	ECX,EDX
+2086560	unsigned int recovered_2086560(int incoming_ecx,char *incoming_edx,unsigned int param_3);	ECX,EDX,stack4
+20048a0	unsigned int recovered_20048a0(unsigned short param_1,int param_2,unsigned int *param_3);	stack4,stack8,stack12
+20a3d60	unsigned int recovered_20a3d60(int incoming_ecx,int incoming_edx);	ECX,EDX
+2039940	void recovered_2039940(void);
+20a4b00	unsigned int recovered_20a4b00(int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2002230	int recovered_2002230(int param_1);	stack4
+207b210	unsigned int * recovered_207b210(unsigned int incoming_ecx,unsigned int *incoming_edx,int param_3,unsigned int *param_4, int param_5,unsigned int param_6,unsigned char param_7);	ECX,EDX,stack4,stack8,stack12,stack16,stack20
+207f940	unsigned char recovered_207f940(unsigned long long *param_1,unsigned long *param_2);	ECX,EDX
+2082c20	unsigned int recovered_2082c20(int *incoming_ecx,int *incoming_edx,int param_3,int param_4,char *param_5);	ECX,EDX,stack4,stack8,stack12
+20046c0	unsigned int recovered_20046c0(void);
+2002320	void recovered_2002320(int param_1,int param_2);	stack4,stack8
+2048b80	unsigned char recovered_2048b80(char *text);	ECX
+20b1e60	unsigned int recovered_20b1e60(int incoming_ecx,int incoming_edx);	ECX,EDX
+205aef0	unsigned int recovered_205aef0(int incoming_ecx,void *incoming_edx,unsigned int param_3,int param_4);	ECX,EDX,stack4,stack8
+20197b0	unsigned int recovered_20197b0(unsigned int *param_1);	stack4
+2009be0	unsigned char recovered_2009be0(unsigned char param_1,unsigned int param_2,int param_3,unsigned int param_4);	stack4,stack8,stack12,stack16
+204b330	void recovered_204b330(unsigned char in_CL);	CL
+2021780	void recovered_2021780(int *param_1,unsigned int *param_2);	stack4,stack8
+20a0100	void recovered_20a0100(unsigned int incoming_ecx,unsigned int incoming_edx,unsigned int param_3,unsigned int param_4,unsigned char param_5);	ECX,EDX,stack4,stack8,stack12
+20bfb40	void recovered_20bfb40(int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2090100	unsigned int recovered_2090100(int *incoming_ecx,char *incoming_edx);	ECX,EDX
+204b4f0	void recovered_204b4f0(int incoming_ecx,int incoming_edx,int param_3,int param_4,unsigned char param_5, unsigned char param_6,unsigned char param_7);	ECX,EDX,stack4,stack8,stack12,stack16,stack20
+2049ef0	void recovered_2049ef0(char *text);	ECX
+2066890	void recovered_2066890(void);
+201f700	unsigned char recovered_201f700(unsigned int *param_1,int param_2,int param_3,int param_4);	stack4,stack8,stack12,stack16
+2019a00	void recovered_2019a00(void);
+207f4d0	unsigned int recovered_207f4d0(int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+207fec0	unsigned char recovered_207fec0(void *context,char *op,void *left,void *right,void *out);	ECX,EDX,stack4,stack8,stack12
+204a780	void recovered_204a780(void);
+20a1780	unsigned int recovered_20a1780(int incoming_ecx,unsigned int *incoming_edx,unsigned int *param_3);	ECX,EDX,stack4
+20747c0	void recovered_20747c0(unsigned int *incoming_ecx,int incoming_edx);	ECX,EDX
+20194f0	void recovered_20194f0(unsigned int in_EDX,int param_2);	EDX,stack4
+205cf80	unsigned int recovered_205cf80(int incoming_ecx,unsigned char *incoming_edx,int param_3,unsigned int param_4,unsigned int param_5, int param_6,int param_7);	ECX,EDX,stack4,stack8,stack12,stack16,stack20
+20ba4a0	void recovered_20ba4a0(unsigned int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2002180	unsigned char recovered_2002180(int param_1);	stack4
+209a350	unsigned int recovered_209a350(int *incoming_ecx,char *incoming_edx,int *param_3,int param_4,unsigned int *param_5);	ECX,EDX,stack4,stack8,stack12
+2052bd0	unsigned int recovered_2052bd0(void);
+20048e0	unsigned long long recovered_20048e0(unsigned short param_1,int param_2,unsigned int param_3);	stack4,stack8,stack12
+20a0510	void recovered_20a0510(char *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2044080	void recovered_2044080(void);
+2047550	void recovered_2047550(unsigned int in_EDX,int param_2);	EDX,stack4
+2000cd0	unsigned int recovered_2000cd0(void);
+2019c40	unsigned char recovered_2019c40(unsigned int param_1);	stack4
+201a5f0	unsigned char * recovered_201a5f0(unsigned int incoming_ecx,int *incoming_edx);	ECX,EDX
+20b6250	void recovered_20b6250(int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2003380	float recovered_2003380(float value);	stack4
+20b42f0	void recovered_20b42f0(char *incoming_ecx,char *incoming_edx);	ECX,EDX
+2057740	unsigned int recovered_2057740(int incoming_ecx,int incoming_edx,char *param_3,unsigned int param_4);	ECX,EDX,stack4,stack8
+209c3f0	void recovered_209c3f0(unsigned int in_EDX);	EDX
+2003300	float recovered_2003300(float value);	stack4
+20a07b0	unsigned int recovered_20a07b0(unsigned int incoming_ecx,unsigned int incoming_edx,int *param_3);	ECX,EDX,stack4
+201f360	void recovered_201f360(int in_stack_00000004,int in_stack_00000008,unsigned int in_stack_0000000c, char *in_stack_00000010);	stack4,stack8,stack12,stack16
+202c0d0	void * recovered_202c0d0(int device,char *path,float pixels);	stack4,stack8,stack12
+2022670	unsigned int recovered_2022670(int incoming_ecx,unsigned int incoming_edx,unsigned int param_3,unsigned int param_4,int *param_5);	ECX,EDX,stack4,stack8,stack12
+20ab670	unsigned int recovered_20ab670(unsigned char *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20aac50	unsigned int recovered_20aac50(int incoming_ecx,int *incoming_edx,unsigned int param_3,unsigned int param_4,char *param_5);	ECX,EDX,stack4,stack8,stack12
+2019ae0	unsigned int recovered_2019ae0(void);
+209ffb0	void recovered_209ffb0(unsigned int in_ECX,unsigned int in_EDX);	ECX,EDX
+20ac510	unsigned char recovered_20ac510(unsigned int incoming_ecx,unsigned int incoming_edx,unsigned int param_3,unsigned int param_4);	ECX,EDX,stack4,stack8
+2084d80	unsigned int recovered_2084d80(unsigned int *incoming_ecx,char *incoming_edx);	ECX,EDX
+202b490	unsigned int recovered_202b490(int device,char *path,void *bytes,unsigned int count);	stack4,stack8,stack12,stack16
+207a500	unsigned int recovered_207a500(char *incoming_ecx,unsigned int *incoming_edx);	ECX,EDX
+20391f0	unsigned int recovered_20391f0(void *param_1,void *param_2,unsigned int param_3);	stack4,stack8,stack12
+2002620	unsigned char * recovered_2002620(void);
+20199a0	void recovered_20199a0(unsigned int *param_1);	stack4
+201a910	unsigned int recovered_201a910(unsigned int *******param_1,unsigned int *******param_2,int *param_3);	stack4,stack8,stack12
+2058e30	unsigned int recovered_2058e30(void *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2057c20	unsigned int recovered_2057c20(int incoming_ecx,unsigned short *incoming_edx,int *param_3,unsigned int *param_4);	ECX,EDX,stack4,stack8
+20ad4e0	unsigned int recovered_20ad4e0(unsigned char *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2048850	unsigned int recovered_2048850(int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2056940	void recovered_2056940(void);
+2047890	unsigned int recovered_2047890(void);
+2022aa0	int recovered_2022aa0(int *param_1,int param_2,unsigned char *param_3,unsigned char *param_4);	stack4,stack8,stack12,stack16
+20bf8f0	unsigned int recovered_20bf8f0(int *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2025310	void recovered_2025310(int *incoming_ecx,unsigned int *incoming_edx);	ECX,EDX
+2002e80	double recovered_2002e80(unsigned long long param_1);	stack4
+2023f10	unsigned int recovered_2023f10(int *incoming_ecx,unsigned int incoming_edx,unsigned int *param_3);	ECX,EDX,stack4
+20021c0	unsigned char recovered_20021c0(unsigned int param_1);	stack4
+2086bc0	unsigned char recovered_2086bc0(void *context,char *name,pf_kernel_value *values,unsigned long count,pf_kernel_value *out);	ECX,EDX,stack4,stack8,stack12
+2086400	unsigned int recovered_2086400(int *incoming_ecx,char *incoming_edx);	ECX,EDX
+2002b40	long long recovered_2002b40(double param_1);	stack4
+2019b00	int recovered_2019b00(int *param_1,unsigned int param_2,unsigned int *param_3);	stack4,stack8,stack12
+20529d0	unsigned int recovered_20529d0(unsigned int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+203a840	unsigned int recovered_203a840(unsigned char in_CL,unsigned char in_DL);	CL,DL
+201a0d0	double recovered_201a0d0(double value);	stack4
+20046e0	unsigned int recovered_20046e0(void);
+2001630	int recovered_2001630(unsigned int param_1);	stack4
+20809b0	unsigned char recovered_20809b0(unsigned long long *param_1,unsigned long *param_2);	ECX,EDX
+20acf80	unsigned int recovered_20acf80(unsigned char *incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+209f3f0	unsigned int recovered_209f3f0(int *incoming_ecx,char *incoming_edx,int *param_3,unsigned int param_4,unsigned int *param_5 );	ECX,EDX,stack4,stack8,stack12
+2090300	unsigned int recovered_2090300(int *incoming_ecx,char *incoming_edx,int param_3,unsigned int param_4,unsigned int *param_5);	ECX,EDX,stack4,stack8,stack12
+20a8370	unsigned int recovered_20a8370(unsigned int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+20bfd40	unsigned int recovered_20bfd40(int *incoming_ecx,unsigned int *incoming_edx,int param_3,unsigned int *param_4,int param_5, unsigned char *param_6);	ECX,EDX,stack4,stack8,stack12,stack16
+2080b50	unsigned char recovered_2080b50(unsigned long long *param_1,unsigned long *param_2);	ECX,EDX
+2082a70	unsigned int recovered_2082a70(int incoming_ecx,char *incoming_edx);	ECX,EDX
+20138a0	unsigned long long recovered_20138a0(void);
+20bba60	unsigned int recovered_20bba60(int param_1,int param_2,int *param_3);	stack4,stack8,stack12
+20013a0	unsigned long long recovered_20013a0(unsigned int param_1,unsigned int param_2,unsigned int param_3,unsigned int param_4);	stack4,stack8,stack12,stack16
+2001ff0	int recovered_2001ff0(void *left,void *right,unsigned long size);	stack4,stack8,stack12
+2021270	unsigned int recovered_2021270(unsigned int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2019be0	unsigned int recovered_2019be0(void);
+2057e60	unsigned int recovered_2057e60(int *incoming_ecx,unsigned int incoming_edx,int param_3);	ECX,EDX,stack4
+201e410	void recovered_201e410(int incoming_ecx,unsigned int incoming_edx);	ECX,EDX
+2021c60	unsigned int recovered_2021c60(int incoming_ecx,unsigned int incoming_edx,int param_3,unsigned int *param_4, int *in_stack_0000000c);	ECX,EDX,stack4,stack8,stack12
+2004520	void recovered_2004520(unsigned int start,unsigned int size,unsigned int *list);	ECX,EDX,stack4
+204b7e0	void recovered_204b7e0(unsigned int *surface,unsigned int *framebuffer,int pitch);	ECX,EDX,stack4
+209ed60	long double recovered_209ed60(float value);	stack4	ST0
+209ecc0	long double recovered_209ecc0(float value);	stack4	ST0
+209ee00	long double recovered_209ee00(float value);	stack4	ST0
+2000062	unsigned int recovered_2000062(void);		EAX
+2000153	unsigned int recovered_2000153(void);		EAX
+20002b8	unsigned int recovered_20002b8(void);		EAX
+20003f5	unsigned int recovered_20003f5(void);		EAX
+200052d	unsigned int recovered_200052d(void);		EAX
+2000700	unsigned int recovered_2000700(void);		EAX
+20007cb	unsigned int recovered_20007cb(void);		EAX

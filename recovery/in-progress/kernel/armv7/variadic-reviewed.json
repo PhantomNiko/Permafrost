@@ -1,0 +1,8 @@
+{
+  "40418130": "One runtime formatting payload, represented by raw register and stack words. Darwin ARM32 permits the eight-byte carrier to begin at r3; 32-bit integer and string formats consume its low word.",
+  "404a60b8": "One runtime formatting payload, represented by raw register and stack words. Darwin ARM32 permits the eight-byte carrier to begin at r3; 32-bit integer and string formats consume its low word.",
+  "404a61b4": "One runtime formatting payload, represented by raw register and stack words. Darwin ARM32 permits the eight-byte carrier to begin at r3; 32-bit integer and string formats consume its low word.",
+  "404a61f0": "One runtime formatting payload, represented by raw register and stack words. Darwin ARM32 permits the eight-byte carrier to begin at r3; 32-bit integer and string formats consume its low word.",
+  "404a6250": "One runtime formatting payload, represented by raw register and stack words. Darwin ARM32 permits the eight-byte carrier to begin at r3; 32-bit integer and string formats consume its low word.",
+  "404a6280": "One runtime formatting payload, represented by raw register and stack words. Darwin ARM32 permits the eight-byte carrier to begin at r3; 32-bit integer and string formats consume its low word."
+}

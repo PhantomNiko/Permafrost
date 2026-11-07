@@ -1,0 +1,6 @@
+20a9cb0	-1768	workspace	pf_string_argument
+20a9cb0	-728	workspace	pf_index_argument
+2096580	-392	scalar32	pf_loop_first
+2096580	-152	scalar32	pf_loop_last
+2096580	-472	workspace	pf_condition_workspace
+2096580	-544	workspace	pf_loop_value
