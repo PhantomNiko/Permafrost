@@ -155,6 +155,8 @@ def build_library(source, output):
             value = symbols[label]
         elif target['kind'] == 'data':
             value = anchor + target['offset']
+        elif target['kind'] == 'image':
+            value = native['base'] + target.get('offset',0)
         elif target['kind'] == 'header':
             value = target['offset']
         else:

@@ -25,7 +25,7 @@ def library(path):
         filename=bytes(cpu.mem_read(name,256)).split(b'\0',1)[0].decode()
         lib.files[filename]=bytes(cpu.mem_read(data,count));cpu.reg_write(lib.result,1)
     table=0x40010800 if arm else 0x6800;hook=0x10030
-    lib.cpu.mem_write(table+0x38,struct.pack('<I',hook))
+    for entry in lib.api_tables:lib.cpu.mem_write(entry+0x38,struct.pack('<I',hook))
     lib.cpu.mem_write(hook,struct.pack('<I',0xe12fff1e if lib.cpu_type==12 else 0xd65f03c0)if arm else b'\xc3')
     lib.cpu.hook_add(UC_HOOK_CODE,write,begin=hook,end=hook)
     return lib

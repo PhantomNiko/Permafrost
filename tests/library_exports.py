@@ -28,7 +28,9 @@ uint64_t call_conversion(void) { return provided_conversion(3.0); }
 ''')
     (root / 'state.c').write_text('unsigned char pf_module_state[16]={[3]=0x7b};\n')
     profile = dict(architecture='x86_64', module='ExportProbe', version='1.0',
-                   install_name='ExportProbe', relocations=[],
+                   install_name='ExportProbe',
+                   relocations=[dict(offset=8, width=8, tag=0,
+                                     target=dict(kind='image', offset=0))],
                    functions={'0': 'provided_conversion', '1': 'call_conversion'},
                    exports=[dict(name='___fixdfdi', address=0, weak=False, section=1),
                             dict(name='_call_conversion', address=1, weak=False, section=1),
@@ -40,7 +42,11 @@ uint64_t call_conversion(void) { return provided_conversion(3.0); }
     metadata, memory = inspect(binary)
     exports = {item['name']: item['address'] for item in dynamic(binary)['exports']}
     assert memory[exports['_pf_exported_byte'] - metadata['base']] == 0x7b
-    assert DLL(path).call('_call_conversion') == 10
+    library = DLL(path)
+    assert library.call('_call_conversion') == 10
+    import struct
+    pointer = exports['_pf_exported_byte'] + library.base + 5
+    assert struct.unpack('<Q', library.cpu.mem_read(pointer, 8))[0] == library.base
     print('Library exports: module numeric routine and initialized data alias passed.')
 
 

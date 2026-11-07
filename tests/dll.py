@@ -35,6 +35,7 @@ class DLL:
         # conceal invalid AST pointers and other bad native/source accesses.
         self.cpu.mem_unmap(0,0x1000)
         if arm:self.cpu.mem_map(0x40010000,0x10000)
+        if self.cpu_type==0x100000c:self.cpu.mem_map(0x82010000,0x10000)
         memory=bytearray(memory);locations=rebase_locations(binary,dynamic);handled=set()
         if self.cpu_type==12:
             text,size=next((a,n)for k,a,n in metadata['sections']if k=='__text');pending={}
@@ -53,7 +54,9 @@ class DLL:
             memory[address:address+width]=(((value&~tag)+self.base)|tag).to_bytes(width,'little')
         self.cpu.mem_write(self.base,bytes(memory));self.exports={e['name']:self.base+e['address']for e in dynamic['exports']}
         table=0x40010800 if arm else 0x6800
-        self.cpu.mem_write(table,struct.pack('<III',0x50414d57,13,252))
+        tables=[table]+([0x82010800]if self.cpu_type==0x100000c else[])
+        self.api_tables=tables
+        for entry in tables:self.cpu.mem_write(entry,struct.pack('<III',0x50414d57,1000000,412))
         self.result=UC_ARM_REG_R0 if self.cpu_type==12 else UC_ARM64_REG_X0 if arm else UC_X86_REG_RAX if self.wide else UC_X86_REG_EAX
         self.pc=UC_ARM_REG_PC if self.cpu_type==12 else UC_ARM64_REG_PC if arm else UC_X86_REG_RIP if self.wide else UC_X86_REG_EIP
         def args(count):
@@ -81,7 +84,7 @@ class DLL:
                 del self.allocs[old]
             cpu.reg_write(self.result,result)
         for slot,address,hook in ((0x4c,0x10000,malloc),(0x50,0x10010,free),(0x54,0x10020,realloc)):
-            self.cpu.mem_write(table+slot,struct.pack('<I',address))
+            for entry in tables:self.cpu.mem_write(entry+slot,struct.pack('<I',address))
             self.cpu.mem_write(address,b'\xc3'if not arm else struct.pack('<I',0xe12fff1e if self.cpu_type==12 else 0xd65f03c0))
             self.cpu.hook_add(UC_HOOK_CODE,hook,begin=address,end=address)
 
