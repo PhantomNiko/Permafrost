@@ -386,7 +386,8 @@
         "local_c8[2]": "((uint8_t *)&local_c8)[2]",
         "DAT_10013d48 + 0x10013480": "((uintptr_t)pf_module_state + 0x2f0U)",
         "DAT_10013d48": "(18448)",
-        "DAT_10013d4c": "(2108)"
+        "DAT_10013d4c": "(2108)",
+        "local_c8,4)": "&local_c8,4)"
       },
       "100057f8": {
         "DAT_10005938": "pf_bits_float(0xff800000ULL)",

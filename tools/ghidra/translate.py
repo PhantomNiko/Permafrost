@@ -365,6 +365,8 @@ def rewrite_integer_vectors(source):
     source=re.sub(r'undefined1\s*\((\*+)\s*(\w+)?\)\s*\[16\]',
                   lambda match:'uint128 '+match[1]+(match[2] or ''),source)
     for name in pointers:
+        source=re.sub(r'\b'+re.escape(name)+r'\s*\[([^]\n]+)\]\s*\+',
+                      lambda match:'((uint8_t *)(void *)&'+name+'['+match[1]+']) +',source)
         for target in byte_pointers:
             source=re.sub(r'\b'+re.escape(target)+r'\s*=\s*\*\s*'+re.escape(name)+r'\s*;',
                           target+' = (uint8_t *)(void *)'+name+';',source)

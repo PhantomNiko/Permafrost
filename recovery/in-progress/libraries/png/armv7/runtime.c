@@ -11964,7 +11964,7 @@ LAB_1000e784:
         local_114 = (uint128 *)((uint)pauVar23 & 0xfffffff0);
         pauVar34 = (uint128 *)0x0;
         puVar9 = (undefined8 *)(((uint8_t *)(void *)local_a4) + 1);
-        local_108 = pauVar23[-1] + 0xc;
+        local_108 = ((uint8_t *)(void *)&pauVar23[-1]) + 0xc;
         pbVar36 = ((uint8_t *)(void *)local_d4) + 4;
         local_10c = (undefined1 *)((uint)local_108 & 0xfffffff0);
         pauVar17 = (uint128 *)(((uint8_t *)(void *)local_a4) + 5);
@@ -12996,7 +12996,7 @@ LAB_1000e784:
         pauStack_114 = (uint128 *)((uint)pauVar23 & 0xfffffff0);
         pauVar34 = (uint128 *)0x0;
         puVar9 = (undefined8 *)(((uint8_t *)(void *)pauStack_a4) + 1);
-        puStack_108 = pauVar23[-1] + 0xc;
+        puStack_108 = ((uint8_t *)(void *)&pauVar23[-1]) + 0xc;
         pbVar36 = ((uint8_t *)(void *)pauStack_d4) + 4;
         puStack_10c = (undefined1 *)((uint)puStack_108 & 0xfffffff0);
         pauVar17 = (uint128 *)(((uint8_t *)(void *)pauStack_a4) + 5);
@@ -14029,12 +14029,12 @@ LAB_1000fa60:
           uVar11 = uVar11 - 0x10;
           uVar23 = PFVectorTableLookup(uVar3,SUB168(*pauVar7,8),0,0,0,1,0);
           uVar22 = PFVectorTableLookup(uVar3,SUB168(*pauVar7,0),0,0,0,1,0);
-          uVar17 = PFVectorTableLookup(uVar3,*(undefined8 *)(pauVar7[1] + 8),0,0,0,1,0);
+          uVar17 = PFVectorTableLookup(uVar3,*(undefined8 *)(((uint8_t *)(void *)&pauVar7[1]) + 8),0,0,0,1,0);
           uVar16 = PFVectorTableLookup(uVar3,*(undefined8 *)(uintptr_t)(pauVar7+(1)),0,0,0,1,0);
-          uVar19 = PFVectorTableLookup(uVar3,*(undefined8 *)(pauVar7[2] + 8),0,0,0,1,0);
+          uVar19 = PFVectorTableLookup(uVar3,*(undefined8 *)(((uint8_t *)(void *)&pauVar7[2]) + 8),0,0,0,1,0);
           uVar21 = *(undefined8 *)(uintptr_t)(pauVar7+(3));
           uVar18 = PFVectorTableLookup(uVar3,*(undefined8 *)(uintptr_t)(pauVar7+(2)),0,0,0,1,0);
-          uVar20 = PFVectorTableLookup(uVar3,*(undefined8 *)(pauVar7[3] + 8),0,0,0,1,0);
+          uVar20 = PFVectorTableLookup(uVar3,*(undefined8 *)(((uint8_t *)(void *)&pauVar7[3]) + 8),0,0,0,1,0);
           *puVar6 = uVar22;
           puVar6[1] = uVar23;
           puVar6[2] = uVar16;
@@ -14297,12 +14297,12 @@ LAB_1000feac:
                 uVar4 = uVar4 - 0x10;
                 uVar21 = PFVectorTableLookup(uVar2,SUB168(*pauVar5,8),0,0,0,1,0);
                 uVar20 = PFVectorTableLookup(uVar2,SUB168(*pauVar5,0),0,0,0,1,0);
-                uVar15 = PFVectorTableLookup(uVar2,*(undefined8 *)(pauVar5[1] + 8),0,0,0,1,0);
+                uVar15 = PFVectorTableLookup(uVar2,*(undefined8 *)(((uint8_t *)(void *)&pauVar5[1]) + 8),0,0,0,1,0);
                 uVar14 = PFVectorTableLookup(uVar2,*(undefined8 *)(uintptr_t)(pauVar5+(1)),0,0,0,1,0);
-                uVar17 = PFVectorTableLookup(uVar2,*(undefined8 *)(pauVar5[2] + 8),0,0,0,1,0);
+                uVar17 = PFVectorTableLookup(uVar2,*(undefined8 *)(((uint8_t *)(void *)&pauVar5[2]) + 8),0,0,0,1,0);
                 uVar19 = *(undefined8 *)(uintptr_t)(pauVar5+(3));
                 uVar16 = PFVectorTableLookup(uVar2,*(undefined8 *)(uintptr_t)(pauVar5+(2)),0,0,0,1,0);
-                uVar18 = PFVectorTableLookup(uVar2,*(undefined8 *)(pauVar5[3] + 8),0,0,0,1,0);
+                uVar18 = PFVectorTableLookup(uVar2,*(undefined8 *)(((uint8_t *)(void *)&pauVar5[3]) + 8),0,0,0,1,0);
                 *puVar10 = uVar20;
                 puVar10[1] = uVar21;
                 puVar10[2] = uVar14;
@@ -18088,7 +18088,7 @@ LAB_10013bdc:
                                                        local_c8);
                                   recovered_10003668((void *)(*param_5 +
                                                              (local_e8 * *param_4 + iVar14) * 4),
-                                                     local_c8,4);
+                                                     &local_c8,4);
                                   iVar11 = iVar11 + iVar9;
                                   iVar14 = iVar14 + 1;
                                   uVar16 = uVar16 - 1;
