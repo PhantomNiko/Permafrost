@@ -76,7 +76,12 @@ raster fixtures on each architecture. Its new exponential and time exports
 pass 63 ABI comparisons per architecture, and its numeric exports pass 46.
 The ARM candidates also pass the font corpus with only their current shared
 service base mapped; the ARM64 port moves those accesses to the new base.
-Broader font and application behavior still requires VM validation.
+Broader font and application behavior still requires VM validation. The current
+x86-64 audio DLL compiles from C and matches 20 native track-generation cases,
+including waveform/channel combinations, frame rounding, zero-length tracks
+and invalid arguments. Its duration-rounding import is replaced by C; native
+import-stub instructions are cleared from the candidate initialized data.
+Audio editing, file I/O and the remaining architectures still need validation.
 
 Corrections identified during this recovery include ARM32 soft-float and
 Darwin variadic argument packing, literal pools embedded in ARM32 text, scalar
