@@ -43,9 +43,12 @@ def inspect_image(lib,data):
     return kind,(width,height,bytes(lib.cpu.mem_read(pixels,count)))
 
 
-def exercise(path):
+FORMATS=('bmp','png','rei','tga','xcf','jpeg')
+
+
+def exercise(path,formats=FORMATS):
     results={};pixels=bytes([255,0,0,255,0,255,0,128,0,0,255,0,13,57,99,255,250,240,230,255,1,2,3,255])
-    for format in('bmp','png','rei','tga','xcf','jpeg'):
+    for format in formats:
         lib=library(path);name=('fixture.'+format).encode()+b'\0';lib.cpu.mem_write(0x3000000,name);lib.cpu.mem_write(0x3001000,pixels)
         symbol='__ZN2wm3png%d%s_rgba8_fileEPKcPKhii'%(20 if format=='jpeg'else 19,'save_'+format)
         assert lib.call(symbol,0x3000000,0x3001000,3,2)==1,(format,'encode failed')

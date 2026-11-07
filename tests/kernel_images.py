@@ -7,7 +7,7 @@ import argparse
 import json
 from pathlib import Path
 import struct
-from image_formats import exercise
+from image_formats import FORMATS,exercise
 from kernel_scalars import Kernel
 from native import inspect
 from unicorn import UC_HOOK_CODE
@@ -61,6 +61,7 @@ def main():
     for name in ('reference','kernel','reference-library','profile','map'):
         parser.add_argument('--'+name,type=Path,required=True)
     parser.add_argument('--abi',type=Path)
+    parser.add_argument('--formats',nargs='+',choices=FORMATS,default=FORMATS)
     args=parser.parse_args()
     raw=args.reference.read_bytes();metadata,_=inspect(raw)
     native={name:address for address,name in metadata['symbols']}
@@ -77,7 +78,7 @@ def main():
     reference.native=False
     source=Kernel(args.kernel.read_bytes(),addresses)
     isolated_codec_heap(source,symbols)
-    for format,(encoded,_)in exercise(args.reference_library).items():
+    for format,(encoded,_)in exercise(args.reference_library,args.formats).items():
         results=[]
         for kernel in (reference,source):
             kernel.cpu.mem_write(0x3100000,encoded);kernel.cpu.mem_write(0x3120000,bytes(32))
@@ -89,7 +90,7 @@ def main():
             assert width*height*4==count and count<4000000,(format,'invalid image record')
             results.append((width,height,bytes(kernel.cpu.mem_read(pointer,count))))
         assert results[0]==results[1],(format,'kernel decoded pixels differ')
-    print('Kernel images: six reference formats decode with identical pixels.')
+    print('Kernel images: %d reference formats decode with identical pixels.'%len(args.formats))
 
 
 if __name__=='__main__':main()
