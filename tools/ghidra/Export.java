@@ -303,6 +303,19 @@ public class Export extends GhidraScript {
                     String key = variable.getText() + "." + field;
                     int occurrence = occurrences.getOrDefault(key, 0) + 1;
                     occurrences.put(key, occurrence);
+                    var value=((ClangVariableToken)variable).getVarnode();
+                    var floating=value==null || value.getHigh()==null?null:value.getHigh().getDataType();
+                    var producer=variable.getPcodeOp();
+                    // A register copy can retain an undefined integer type
+                    // while carrying the bits of its floating input.
+                    if(!(floating instanceof AbstractFloatDataType) && producer!=null &&
+                       producer.getOpcode()==PcodeOp.COPY && producer.getInput(0).getHigh()!=null)
+                        floating=producer.getInput(0).getHigh().getDataType();
+                    int fieldWidth=Integer.parseInt(field.split("_")[2]);
+                    if(floating instanceof AbstractFloatDataType && floating.getLength()==fieldWidth &&
+                       (fieldWidth==4 || fieldWidth==8))
+                        metadata.append("F\t").append(key).append('\t').append(occurrence)
+                            .append('\t').append(fieldWidth==4?"float":"double").append('\n');
                     var operation = dot.getPcodeOp();
                     if (operation == null || operation.getOpcode() != PcodeOp.PTRADD ||
                         !operation.getInput(2).isConstant()) continue;

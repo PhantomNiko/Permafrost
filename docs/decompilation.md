@@ -45,3 +45,10 @@ Dynamic formats remain explicit review items.
 and maximum-payload-MiB arguments after its normal five arguments. Large
 WinterScript functions require a larger response limit than Ghidra's default.
 These limits affect analysis only; release builds consume checked-in C/C++.
+
+Decompiler field metadata preserves floating register lanes separately from
+integer lanes. A synthetic byte-array field may carry a double value even
+though its containing array has no floating declaration. The exporter records
+that view per occurrence, and C translation keeps reads and writes in their
+IEEE representation. `tests/translation_float_fields.py` executes mixed
+floating and integer lanes to guard against numeric truncation.

@@ -55,25 +55,49 @@ def library(path):
     return lib
 
 
-def generated(path, frequency, duration, waveform, side):
-    lib = library(path)
+def create(lib, frequency, duration, waveform, side):
     if waveform is not None:
         lib.cpu.mem_write(0x3000000, waveform.encode() + b'\0')
     if side is not None:
         lib.cpu.mem_write(0x3000100, side.encode() + b'\0')
-    track = lib.call(PREFIX + '4formEiiPKcS2_', frequency & 0xffffffff, duration & 0xffffffff, 0x3000000 if waveform is not None else 0, 0x3000100 if side is not None else 0, result_bits=64 if lib.wide else 32)
-    if not track:
-        return None
+    return lib.call(PREFIX + '4formEiiPKcS2_', frequency & 0xffffffff, duration & 0xffffffff, 0x3000000 if waveform is not None else 0, 0x3000100 if side is not None else 0, result_bits=64 if lib.wide else 32)
+
+
+def snapshot(lib, track):
     output = 0x3001000
+    view_size = 22 if lib.wide else 18
     if not lib.call(PREFIX + '7inspectEPKNS0_5TrackEPNS0_14TrackAudioViewE', track, output):
-        assert bytes(lib.cpu.mem_read(output, 22 if lib.wide else 14)) == bytes(22 if lib.wide else 14)
-        lib.call(PREFIX + '5closeEPNS0_5TrackE', track)
+        assert bytes(lib.cpu.mem_read(output, view_size)) == bytes(view_size)
         return 0, 0, 0, b''
-    pointer, count, rate, channels = struct.unpack('<QQIH' if lib.wide else '<IIIH', lib.cpu.mem_read(output, 22 if lib.wide else 14))
+    pointer, count, rate, channels = struct.unpack('<QQIH' if lib.wide else '<IQIH', lib.cpu.mem_read(output, view_size))
     assert count < 1000000 and rate == 44100 and channels == 2, (count, rate, channels)
     samples = bytes(lib.cpu.mem_read(pointer, count * 2)) if count else b''
-    lib.call(PREFIX + '5closeEPNS0_5TrackE', track)
     return count, rate, channels, samples
+
+
+def generated(path, *arguments):
+    lib = library(path)
+    track = create(lib, *arguments)
+    if not track:
+        return None
+    result = snapshot(lib, track)
+    lib.call(PREFIX + '5closeEPNS0_5TrackE', track)
+    return result
+
+
+def trimmed(path, start, end):
+    lib = library(path)
+    track = create(lib, 440, 11, 'sine', 'both')
+    assert track
+    mask = (1 << 64) - 1
+    if lib.wide:
+        arguments = track, start & mask, end & mask
+    else:
+        arguments = (track,) + ((0,) if lib.cpu_type == 12 else ()) + (start & 0xffffffff, (start >> 32) & 0xffffffff, end & 0xffffffff, (end >> 32) & 0xffffffff)
+    status = lib.call(PREFIX + '4trimEPNS0_5TrackExx', *arguments)
+    result = snapshot(lib, track)
+    lib.call(PREFIX + '5closeEPNS0_5TrackE', track)
+    return status, result
 
 
 def main():
@@ -97,7 +121,11 @@ def main():
         assert generated(args.reference, *case) is None
         assert generated(args.source, *case) is None
         count += 1
-    print('Audio library: %d native/source generation and invalid-input cases passed.' % count)
+    for case in ((0, 2), (2, 5), (5, 11), (50, 60), (3, 2), (-1, 2), (0, 0), (0, (1 << 63) - 1)):
+        expected, actual = (trimmed(path, *case) for path in (args.reference, args.source))
+        assert actual == expected, ('trim differs', case)
+        count += 1
+    print('Audio library: %d native/source generation, trim and invalid-input cases passed.' % count)
 
 
 if __name__ == '__main__':

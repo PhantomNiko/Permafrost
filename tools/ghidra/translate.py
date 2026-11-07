@@ -571,7 +571,7 @@ def main():
             tokens=r'"(?:[^"\\]|\\.)*"|\x27(?:[^\x27\\]|\\.)*\x27|(?<![.>])\b'+re.escape(old)+r'\b'
             source=re.sub(tokens,lambda m:new if m[0]==old else m[0],source)
             for other in metadata:
-                if other[0] in ('L','P'):other[1]=re.sub(r'\b'+re.escape(old)+r'\b',new,other[1])
+                if other[0] in ('L','P','F'):other[1]=re.sub(r'\b'+re.escape(old)+r'\b',new,other[1])
         globals_by_address = {int(row[2], 16): row[3] for row in metadata if row[0] == 'G'}
         global_addresses = {row[1]: int(row[2], 16) for row in metadata if row[0] == 'G'}
         memory_types = {}
@@ -661,12 +661,18 @@ def main():
         source = source.replace(current.get('stack_register', 'register0x00000020' if WIDE else 'register0x00000010'), '(uintptr_t)(frame + %d)' % frame_size)
         source = re.sub(r'__(?:fastcall|cdecl|thiscall|stdcall_softfp|regparm[0-9])\s+', '', source)
         pointer_fields = {(row[1], int(row[2])): int(row[3]) for row in metadata if row[0] == 'P'}
+        floating_fields = {(row[1], int(row[2])): row[3] for row in metadata if row[0] == 'F'}
         field_occurrences = {}
         def partial_field(match):
             key = '%s._%s_%s_' % (match[1], match[2], match[3])
             occurrence = field_occurrences.get(key, 0) + 1
             field_occurrences[key] = occurrence
             value = 'PF_PART%s(%s, %s)' % (match[3], match[1], match[2])
+            floating = floating_fields.get((key, occurrence))
+            if floating:
+                if (floating, int(match[3])) not in (('float', 4), ('double', 8)):
+                    raise ValueError('invalid floating field metadata')
+                value = '(*(%s *)((uint8_t *)&(%s)+%s))' % (floating, match[1], match[2])
             scale = pointer_fields.get((key, occurrence))
             if re.match(r'\s*=(?!=)',match.string[match.end():]):scale=None
             if scale:

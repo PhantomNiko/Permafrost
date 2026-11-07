@@ -1,0 +1,12 @@
+100020d0	unsigned char recovered_100020d0(uint param_1);
+100013d0	void recovered_100013d0(void);
+10006970	void * recovered_10006970(int frequency,int duration,char *wave,char *side);
+100070c0	int recovered_100070c0(void *track,void *view);
+10007f90	void recovered_10007f90(void *track);
+10001410	void * recovered_10001410(unsigned long size);
+10001450	void recovered_10001450(void *pointer);
+10001490	void * recovered_10001490(void *pointer,unsigned long size);
+100055b0	void * recovered_100055b0(unsigned long size);
+100055e0	void * recovered_100055e0(unsigned long size);
+10005610	void recovered_10005610(void *pointer);
+10005690	void recovered_10005690(void *pointer);

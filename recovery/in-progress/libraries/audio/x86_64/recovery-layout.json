@@ -278,7 +278,8 @@
       "",
       "",
       "/* Original analysis identifiers for manual recovery units. */",
-      "#define pf_audio_round recovered_1000ccaf"
+      "#define pf_audio_round recovered_1000ccaf",
+      "#define thunk_FUN_1000ccc8 recovered_1000ccaf"
     ],
     "source_replacements": {
       "10008810": {
