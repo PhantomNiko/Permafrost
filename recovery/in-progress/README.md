@@ -63,6 +63,17 @@ wrapper and a certificate-data offset that generic decompilation lost on one
 length branch. Known ABI declarations can now be excluded from speculative
 incoming-register recovery.
 
+The initial x86-64 TerrorUI candidate includes explicit C aggregate adapters.
+Its view and window-spec modifiers pass 310 native/source cases, covering
+stack-passed structures, independent register arguments, clamping and output
+boundaries. Other TerrorUI entry points and architectures remain unverified.
+These aggregate tests do not establish graphical or release-wide equivalence.
+
+The untouched x86-64 reference reaches its desktop under QEMU. The BIOS
+reference reaches the Batagaika first-boot setup. With the current virtio-ramfb
+configuration, the ARM32 reference stops after kernel handoff and ARM64 displays
+a fault screen; those configurations still need investigation before comparison.
+
 Diagnostic snapshots and VM disks remain outside tracked source. The normal
 build continues to use the last completed source tree until the next milestone
 passes its complete source build and VM comparisons. That transition must move
