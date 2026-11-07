@@ -63,11 +63,19 @@ wrapper and a certificate-data offset that generic decompilation lost on one
 length branch. Known ABI declarations can now be excluded from speculative
 incoming-register recovery.
 
-The initial x86-64 TerrorUI candidate includes explicit C aggregate adapters.
-Its view and window-spec modifiers pass 310 native/source cases, covering
-stack-passed structures, independent register arguments, clamping and output
-boundaries. Other TerrorUI entry points and architectures remain unverified.
-These aggregate tests do not establish graphical or release-wide equivalence.
+The TerrorUI candidates compile from C on all four architectures. Each passes
+332 value-constructor/modifier cases, 273 recursive layout cases with 127 text
+service calls, and 182 window/input operations with 294 service calls. The latter
+checks compare rendered pixels, text alpha blending, stack layout, button
+callbacks, appearance settings, cached queries, application-loop termination,
+and unavailable services. The numeric, math and saved-context corpora also pass.
+
+Explicit C value types preserve each native aggregate ABI. Typed service wrappers
+preserve arguments lost by indirect tail-call decompilation. The i386 query path
+retains the original cached record across temporary reuse. ARM32 reconstructs
+repeated RGBA vectors instead of reading Ghidra register-space addresses as RAM.
+ARM64 restores hash return values and text-image field loads omitted by analysis.
+These library-level checks still need integration into the source-built VM image.
 
 The untouched x86-64 reference reaches its desktop under QEMU. The BIOS
 reference reaches the Batagaika first-boot setup. With the current virtio-ramfb

@@ -17,3 +17,11 @@
 10007a20	float recovered_10007a20(float value);
 10007bb0	long double recovered_10007bb0(long double value);
 10007d40	double recovered_10007d40(long end,long start);
+10003950	long long recovered_10003950(double value);
+10003a20	unsigned long long recovered_10003a20(double value);
+10003b20	double recovered_10003b20(long long value);
+10003ad0	double recovered_10003ad0(unsigned long long value);
+100078b0	double recovered_100078b0(double value);
+10007a20	float recovered_10007a20(float value);
+10007bb0	long double recovered_10007bb0(long double value);
+10007d40	double recovered_10007d40(long end,long start);

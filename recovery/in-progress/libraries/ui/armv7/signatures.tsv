@@ -1,0 +1,27 @@
+10001714	void recovered_10001714(void *pointer);
+10001764	void * recovered_10001764(void *pointer,unsigned long size);
+10004d64	int recovered_10004d64(char *buffer,unsigned long capacity,char *format,...);
+100016c0	void * recovered_100016c0(unsigned long size);
+10002540	int recovered_10002540(void *left,void *right,unsigned long count);
+100017b8	void * recovered_100017b8(void *destination,void *source,unsigned long count);
+10001a3c	void * recovered_10001a3c(void *destination,void *source,unsigned long count);
+10001f48	void * recovered_10001f48(void *destination,int value,unsigned long count);
+10002870	int recovered_10002870(char *left,char *right);
+10002848	unsigned long recovered_10002848(char *text);
+1000654c	int recovered_1000654c(char *left,char *right,unsigned long count);
+100033c8	long long recovered_100033c8(double value);
+10003488	unsigned long long recovered_10003488(double value);
+10003558	double recovered_10003558(long long value);
+10003510	double recovered_10003510(unsigned long long value);
+10007118	double recovered_10007118(double value);
+10007200	float recovered_10007200(float value);
+10007300	double recovered_10007300(double value);
+100073e8	double recovered_100073e8(long end,long start);
+100033c8	long long recovered_100033c8(double value);	r1:r0	r1,r0	__stdcall_softfp
+10003488	unsigned long long recovered_10003488(double value);	r1:r0	r1,r0	__stdcall_softfp
+10003558	double recovered_10003558(long long value);	r1:r0	r1,r0	__stdcall_softfp
+10003510	double recovered_10003510(unsigned long long value);	r1:r0	r1,r0	__stdcall_softfp
+10007118	double recovered_10007118(double value);	r1:r0	r1,r0	__stdcall_softfp
+10007200	float recovered_10007200(float value);	r0	r0	__stdcall_softfp
+10007300	double recovered_10007300(double value);	r1:r0	r1,r0	__stdcall_softfp
+100073e8	double recovered_100073e8(long end,long start);	r0,r1	r1,r0	__stdcall_softfp

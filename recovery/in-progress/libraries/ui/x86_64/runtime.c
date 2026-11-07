@@ -1,3 +1,4 @@
+#include "scope_jump.h"
 /* Permafrost recovered implementation; Pooka's Free Software License.
  * Fixed entry addresses and original function boundaries are recorded
  * separately in recovery metadata. */
@@ -3730,55 +3731,6 @@ double recovered_10003930(double param_1)
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-longlong recovered_10003950(double value)
-
-{
-  unsigned char frame[64] __attribute__((aligned(16))) = {0};
-
-  long lVar1;
-  long lVar2;
-  ulong uVar3;
-  ulong uVar4;
-  ulong uVar5;
-  double dVar6;
-  double dVar7;
-
-  if ((value == 0.0) && (!NAN(value))) {
-    return 0;
-  }
-  dVar7 = (double)(_DAT_1000c7c0 ^ (ulong)value);
-  if ((double)(_DAT_1000c7c0 ^ (ulong)value) <= value) {
-    dVar7 = value;
-  }
-  lVar1 = 0x3f;
-  uVar4 = 0;
-  dVar6 = DAT_1000c7b0;
-  do {
-    uVar5 = 1L << ((byte)lVar1 & 0x3f);
-    if (dVar7 < dVar6) {
-      uVar5 = 0;
-    }
-    dVar7 = (double)(-(ulong)(dVar7 < dVar6) & (ulong)dVar7 |
-                    ~-(ulong)(dVar7 < dVar6) & (ulong)(dVar7 - dVar6));
-    lVar2 = lVar1 + -1;
-    uVar3 = 1L << ((byte)lVar2 & 0x3f);
-    dVar6 = dVar6 * DAT_1000c740;
-    if (dVar7 < dVar6) {
-      uVar3 = 0;
-    }
-    dVar7 = (double)(~-(ulong)(dVar7 < dVar6) & (ulong)(dVar7 - dVar6) |
-                    -(ulong)(dVar7 < dVar6) & (ulong)dVar7);
-    uVar4 = uVar3 | uVar5 | uVar4;
-    dVar6 = dVar6 * DAT_1000c740;
-    lVar1 = lVar1 + -2;
-  } while (lVar2 != 0);
-  uVar5 = -uVar4;
-  if (0.0 <= value) {
-    uVar5 = uVar4;
-  }
-  return uVar5;
-}
-
 #undef DAT_1000c740
 #undef DAT_1000c7b0
 #undef DAT_1000c7c0
@@ -3792,47 +3744,6 @@ longlong recovered_10003950(double value)
  * Address: 0x10003a20
  */
 
-ulonglong recovered_10003a20(double value)
-
-{
-  unsigned char frame[64] __attribute__((aligned(16))) = {0};
-
-  ulong uVar1;
-  ulong uVar2;
-  long lVar3;
-  long lVar4;
-  ulong uVar5;
-  double dVar6;
-  double dVar7;
-
-  if (value <= 0.0) {
-    return 0;
-  }
-  lVar3 = 0x3f;
-  uVar2 = 0;
-  dVar6 = DAT_1000c7b0;
-  do {
-    uVar5 = 1L << ((byte)lVar3 & 0x3f);
-    if (value < dVar6) {
-      uVar5 = 0;
-    }
-    dVar7 = (double)(-(ulong)(value < dVar6) & (ulong)value |
-                    ~-(ulong)(value < dVar6) & (ulong)(value - dVar6));
-    lVar4 = lVar3 + -1;
-    uVar1 = 1L << ((byte)lVar4 & 0x3f);
-    dVar6 = dVar6 * DAT_1000c740;
-    if (dVar7 < dVar6) {
-      uVar1 = 0;
-    }
-    value = (double)(~-(ulong)(dVar7 < dVar6) & (ulong)(dVar7 - dVar6) |
-                    -(ulong)(dVar7 < dVar6) & (ulong)dVar7);
-    uVar2 = uVar1 | uVar5 | uVar2;
-    dVar6 = dVar6 * DAT_1000c740;
-    lVar3 = lVar3 + -2;
-  } while (lVar4 != 0);
-  return uVar2;
-}
-
 #undef DAT_1000c740
 #undef DAT_1000c7b0
 
@@ -3841,31 +3752,6 @@ ulonglong recovered_10003a20(double value)
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10003ad0
  */
-
-double recovered_10003ad0(ulonglong value)
-
-{
-  unsigned char frame[64] __attribute__((aligned(16))) = {0};
-
-  bool bVar1;
-  double dVar2;
-  double dVar3;
-
-  if (value == 0) {
-    return 0.0;
-  }
-  dVar2 = 0.0;
-  dVar3 = DAT_1000c748;
-  do {
-    if ((value & 1) != 0) {
-      dVar2 = dVar2 + dVar3;
-    }
-    dVar3 = dVar3 + dVar3;
-    bVar1 = 1 < value;
-    value = value >> 1;
-  } while (bVar1);
-  return dVar2;
-}
 
 #undef DAT_1000c748
 
@@ -3880,45 +3766,6 @@ double recovered_10003ad0(ulonglong value)
  */
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
-double recovered_10003b20(longlong value)
-
-{
-  unsigned char frame[64] __attribute__((aligned(16))) = {0};
-
-  bool bVar1;
-  ulong uVar2;
-  double dVar3;
-  double dVar4;
-
-  if (value < 0) {
-    dVar4 = 0.0;
-    uVar2 = -value;
-    dVar3 = DAT_1000c748;
-    do {
-      if ((uVar2 & 1) != 0) {
-        dVar4 = dVar4 + dVar3;
-      }
-      dVar3 = dVar3 + dVar3;
-      bVar1 = 1 < uVar2;
-      uVar2 = uVar2 >> 1;
-    } while (bVar1);
-    return (double)((ulong)dVar4 ^ _DAT_1000c7c0);
-  }
-  dVar3 = 0.0;
-  if (value != 0) {
-    dVar4 = DAT_1000c748;
-    do {
-      if ((value & 1U) != 0) {
-        dVar3 = dVar3 + dVar4;
-      }
-      dVar4 = dVar4 + dVar4;
-      bVar1 = 1 < (ulong)value;
-      value = (ulong)value >> 1;
-    } while (bVar1);
-  }
-  return dVar3;
-}
 
 #undef DAT_1000c748
 #undef DAT_1000c7c0
@@ -7591,17 +7438,7 @@ void recovered_10006e80(void)
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10006ea0
  */
-
-void recovered_10006ea0(long param_1,undefined8 param_2)
-
-{
-  unsigned char frame[64] __attribute__((aligned(16))) = {0};
-
-                    /* WARNING: Could not recover jumptable at 0x10006eac. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  (**(code **)(param_1 + 0x48))(param_1,param_2,*(code **)(param_1 + 0x48));
-  return;
-}
+__attribute__((naked,noreturn)) void recovered_10006ea0(long param_1,undefined8 param_2){__asm__ volatile(PF_SCOPE_JUMP_ASM);}
 
 
 #define uStack0000000000000008 (*(undefined1 *)(frame + 40))
@@ -7609,29 +7446,7 @@ void recovered_10006ea0(long param_1,undefined8 param_2)
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10006eb0
  */
-
-undefined8 recovered_10006eb0(undefined8 *param_1)
-
-{
-  unsigned char frame[64] __attribute__((aligned(16))) = {0};
-
-  undefined8 unaff_RBX;
-  undefined8 unaff_RBP;
-  undefined8 unaff_R12;
-  undefined8 unaff_R13;
-  undefined8 unaff_R14;
-  undefined8 unaff_R15;
-
-  *param_1 = unaff_RBX;
-  param_1[1] = unaff_RBP;
-  param_1[2] = unaff_R12;
-  param_1[3] = unaff_R13;
-  param_1[4] = unaff_R14;
-  param_1[5] = unaff_R15;
-  param_1[6] = &uStack0000000000000008;
-  param_1[7] = unaff_retaddr;
-  return 0;
-}
+__attribute__((naked,returns_twice)) undefined8 recovered_10006eb0(undefined8 *param_1){__asm__ volatile("movq %rbx,0(%rdi)\nmovq %rbp,8(%rdi)\nmovq %r12,16(%rdi)\nmovq %r13,24(%rdi)\nmovq %r14,32(%rdi)\nmovq %r15,40(%rdi)\nleaq 8(%rsp),%rax\nmovq %rax,48(%rdi)\nmovq (%rsp),%rax\nmovq %rax,56(%rdi)\nxorl %eax,%eax\nretq");}
 
 #undef uStack0000000000000008
 #undef unaff_retaddr
@@ -7639,17 +7454,7 @@ undefined8 recovered_10006eb0(undefined8 *param_1)
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10006ee0
  */
-
-void recovered_10006ee0(long param_1,undefined4 param_2)
-
-{
-  unsigned char frame[64] __attribute__((aligned(16))) = {0};
-
-                    /* WARNING: Could not recover jumptable at 0x10006f0a. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  (**(code **)(param_1 + 0x38))(param_1,param_2,*(code **)(param_1 + 0x38));
-  return;
-}
+__attribute__((naked,noreturn)) void recovered_10006ee0(long param_1,undefined4 param_2){__asm__ volatile("movl %esi,%eax\ntestl %eax,%eax\njnz 1f\nincl %eax\n1:\nmovq 0(%rdi),%rbx\nmovq 8(%rdi),%rbp\nmovq 16(%rdi),%r12\nmovq 24(%rdi),%r13\nmovq 32(%rdi),%r14\nmovq 40(%rdi),%r15\nmovq 48(%rdi),%rsp\nmovq 56(%rdi),%rdx\njmpq *%rdx");}
 
 
 #undef DAT_10006f61
@@ -8691,76 +8496,6 @@ bool recovered_10007880(ulong param_1)
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-double recovered_100078b0(double value)
-
-{
-  unsigned char frame[64] __attribute__((aligned(16))) = {0};
-
-  uint uVar1;
-  int iVar2;
-  uint uVar3;
-  double dVar4;
-  double dVar5;
-  double dVar6;
-  double dVar7;
-  double dVar8;
-  double dVar9;
-
-  if (NAN(value)) {
-    return value;
-  }
-  if (_DAT_1000c868 < value) {
-    return DAT_1000c860;
-  }
-  dVar4 = 0.0;
-  if (DAT_1000c870 <= value) {
-    uVar1 = 0;
-    if (DAT_1000c740 < value) {
-      uVar1 = 0;
-      do {
-        value = value * DAT_1000c740;
-        uVar1 = uVar1 + 1;
-      } while (DAT_1000c740 < value);
-    }
-    for (; value < DAT_1000c7a8; value = value * DAT_1000c740) {
-      uVar1 = uVar1 + 1;
-    }
-    iVar2 = 4;
-    dVar4 = DAT_1000c748;
-    dVar5 = DAT_1000c748;
-    dVar6 = DAT_1000c748;
-    do {
-      dVar7 = (value / dVar5) * dVar6;
-      dVar9 = (value / (double)(iVar2 + -2)) * dVar7;
-      dVar8 = (value / (double)(iVar2 + -1)) * dVar9;
-      dVar6 = (value / (double)iVar2) * dVar8;
-      dVar4 = dVar4 + dVar7 + dVar9 + dVar8 + dVar6;
-      dVar5 = dVar5 + DAT_1000c878;
-      iVar2 = iVar2 + 4;
-    } while (iVar2 != 0x24);
-    if (uVar1 != 0) {
-      uVar3 = uVar1 & 7;
-      if (7 < uVar1) {
-        uVar1 = uVar1 & 0xfffffff8;
-        do {
-          dVar4 = dVar4 * dVar4 * dVar4 * dVar4;
-          dVar4 = dVar4 * dVar4;
-          dVar4 = dVar4 * dVar4;
-          dVar4 = dVar4 * dVar4;
-          dVar4 = dVar4 * dVar4;
-          dVar4 = dVar4 * dVar4;
-          dVar4 = dVar4 * dVar4;
-          uVar1 = uVar1 - 8;
-        } while (uVar1 != 0);
-      }
-      for (; uVar3 != 0; uVar3 = uVar3 - 1) {
-        dVar4 = dVar4 * dVar4;
-      }
-    }
-  }
-  return dVar4;
-}
-
 #undef DAT_1000c740
 #undef DAT_1000c748
 #undef DAT_1000c7a8
@@ -8796,78 +8531,6 @@ double recovered_100078b0(double value)
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-float recovered_10007a20(float value)
-
-{
-  unsigned char frame[64] __attribute__((aligned(16))) = {0};
-
-  uint uVar1;
-  int iVar2;
-  uint uVar3;
-  double dVar4;
-  double dVar5;
-  double dVar6;
-  double dVar7;
-  double dVar8;
-  double dVar9;
-  double dVar10;
-
-  dVar6 = (double)value;
-  if (NAN(value)) {
-    return value;
-  }
-  if (_DAT_1000c868 < dVar6) {
-    return (float)DAT_1000c860;
-  }
-  dVar5 = 0.0;
-  if (DAT_1000c870 <= dVar6) {
-    uVar1 = 0;
-    if (_DAT_1000c880 < value) {
-      uVar1 = 0;
-      do {
-        dVar6 = dVar6 * DAT_1000c740;
-        uVar1 = uVar1 + 1;
-      } while (DAT_1000c740 < dVar6);
-    }
-    for (; dVar6 < DAT_1000c7a8; dVar6 = dVar6 * DAT_1000c740) {
-      uVar1 = uVar1 + 1;
-    }
-    iVar2 = 4;
-    dVar4 = DAT_1000c748;
-    dVar5 = DAT_1000c748;
-    dVar7 = DAT_1000c748;
-    do {
-      dVar8 = (dVar6 / dVar4) * dVar7;
-      dVar10 = (dVar6 / (double)(iVar2 + -2)) * dVar8;
-      dVar9 = (dVar6 / (double)(iVar2 + -1)) * dVar10;
-      dVar7 = (dVar6 / (double)iVar2) * dVar9;
-      dVar5 = dVar5 + dVar8 + dVar10 + dVar9 + dVar7;
-      dVar4 = dVar4 + DAT_1000c878;
-      iVar2 = iVar2 + 4;
-    } while (iVar2 != 0x24);
-    if (uVar1 != 0) {
-      uVar3 = uVar1 & 7;
-      if (7 < uVar1) {
-        uVar1 = uVar1 & 0xfffffff8;
-        do {
-          dVar5 = dVar5 * dVar5 * dVar5 * dVar5;
-          dVar5 = dVar5 * dVar5;
-          dVar5 = dVar5 * dVar5;
-          dVar5 = dVar5 * dVar5;
-          dVar5 = dVar5 * dVar5;
-          dVar5 = dVar5 * dVar5;
-          dVar5 = dVar5 * dVar5;
-          uVar1 = uVar1 - 8;
-        } while (uVar1 != 0);
-      }
-      for (; uVar3 != 0; uVar3 = uVar3 - 1) {
-        dVar5 = dVar5 * dVar5;
-      }
-    }
-  }
-  return (float)dVar5;
-}
-
 #undef DAT_1000c740
 #undef DAT_1000c748
 #undef DAT_1000c7a8
@@ -8902,80 +8565,6 @@ float recovered_10007a20(float value)
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-double recovered_10007bb0(double value)
-
-{
-  unsigned char frame[64] __attribute__((aligned(16))) = {0};
-
-  uint uVar1;
-  int iVar2;
-  uint uVar3;
-  double dVar4;
-  double dVar5;
-  double dVar6;
-  double dVar7;
-  double dVar8;
-  double dVar9;
-  double dVar10;
-
-  dVar5 = (double)in_stack_00000008;
-  if (NAN(dVar5)) {
-    dVar4 = dVar5;
-  }
-  else if (dVar5 <= _DAT_1000c868) {
-    dVar4 = 0.0;
-    if (DAT_1000c870 <= dVar5) {
-      uVar1 = 0;
-      if (DAT_1000c740 < dVar5) {
-        uVar1 = 0;
-        do {
-          dVar5 = dVar5 * DAT_1000c740;
-          uVar1 = uVar1 + 1;
-        } while (DAT_1000c740 < dVar5);
-      }
-      for (; dVar5 < DAT_1000c7a8; dVar5 = dVar5 * DAT_1000c740) {
-        uVar1 = uVar1 + 1;
-      }
-      iVar2 = 4;
-      dVar4 = DAT_1000c748;
-      dVar6 = DAT_1000c748;
-      dVar7 = DAT_1000c748;
-      do {
-        dVar8 = (dVar5 / dVar6) * dVar7;
-        dVar10 = (dVar5 / (double)(iVar2 + -2)) * dVar8;
-        dVar9 = (dVar5 / (double)(iVar2 + -1)) * dVar10;
-        dVar7 = (dVar5 / (double)iVar2) * dVar9;
-        dVar4 = dVar4 + dVar8 + dVar10 + dVar9 + dVar7;
-        dVar6 = dVar6 + DAT_1000c878;
-        iVar2 = iVar2 + 4;
-      } while (iVar2 != 0x24);
-      if (uVar1 != 0) {
-        uVar3 = uVar1 & 7;
-        if (7 < uVar1) {
-          uVar1 = uVar1 & 0xfffffff8;
-          do {
-            dVar4 = dVar4 * dVar4 * dVar4 * dVar4;
-            dVar4 = dVar4 * dVar4;
-            dVar4 = dVar4 * dVar4;
-            dVar4 = dVar4 * dVar4;
-            dVar4 = dVar4 * dVar4;
-            dVar4 = dVar4 * dVar4;
-            dVar4 = dVar4 * dVar4;
-            uVar1 = uVar1 - 8;
-          } while (uVar1 != 0);
-        }
-        for (; uVar3 != 0; uVar3 = uVar3 - 1) {
-          dVar4 = dVar4 * dVar4;
-        }
-      }
-    }
-  }
-  else {
-    dVar4 = DAT_1000c860;
-  }
-  return dVar4;
-}
-
 #undef DAT_1000c740
 #undef DAT_1000c748
 #undef DAT_1000c7a8
@@ -8989,14 +8578,6 @@ double recovered_10007bb0(double value)
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10007d40
  */
-
-double recovered_10007d40(long end,long start)
-
-{
-  unsigned char frame[64] __attribute__((aligned(16))) = {0};
-
-  return (double)end - (double)start;
-}
 
 
 #undef DAT_1000c740
@@ -14150,17 +13731,90 @@ void recovered_1000c450(long *param_1,long param_2,undefined8 param_3,undefined8
 #undef local_48
 #undef local_3c
 #undef local_38
-/* Native aggregate export adapters. */
-PFUIViewABI pf_ui_abi_1000a4a0(PFUIViewABI value,unsigned long long a0,unsigned long long a1) { PFUIViewABI result; undefined8 in_stack_00000008; __builtin_memcpy(&in_stack_00000008,(unsigned char *)&value+0,sizeof(in_stack_00000008));undefined8 in_stack_00000010; __builtin_memcpy(&in_stack_00000010,(unsigned char *)&value+8,sizeof(in_stack_00000010));undefined8 in_stack_00000018; __builtin_memcpy(&in_stack_00000018,(unsigned char *)&value+16,sizeof(in_stack_00000018));undefined8 in_stack_00000020; __builtin_memcpy(&in_stack_00000020,(unsigned char *)&value+24,sizeof(in_stack_00000020));undefined8 in_stack_00000028; __builtin_memcpy(&in_stack_00000028,(unsigned char *)&value+32,sizeof(in_stack_00000028));undefined8 in_stack_00000030; __builtin_memcpy(&in_stack_00000030,(unsigned char *)&value+40,sizeof(in_stack_00000030));undefined8 in_stack_00000038; __builtin_memcpy(&in_stack_00000038,(unsigned char *)&value+48,sizeof(in_stack_00000038));undefined8 in_stack_00000050; __builtin_memcpy(&in_stack_00000050,(unsigned char *)&value+72,sizeof(in_stack_00000050));undefined8 in_stack_00000058; __builtin_memcpy(&in_stack_00000058,(unsigned char *)&value+80,sizeof(in_stack_00000058));recovered_1000a4a0((void *)&result,(undefined8)a0,(undefined8)a1,in_stack_00000008,in_stack_00000010,in_stack_00000018,in_stack_00000020,in_stack_00000028,in_stack_00000030,in_stack_00000038,in_stack_00000050,in_stack_00000058); return result; }
-PFUIViewABI pf_ui_abi_1000a4f0(PFUIViewABI value,unsigned long long a0) { PFUIViewABI result; undefined4 in_stack_00000008; __builtin_memcpy(&in_stack_00000008,(unsigned char *)&value+0,sizeof(in_stack_00000008));undefined4 in_stack_0000000c; __builtin_memcpy(&in_stack_0000000c,(unsigned char *)&value+4,sizeof(in_stack_0000000c));ulong in_stack_00000010; __builtin_memcpy(&in_stack_00000010,(unsigned char *)&value+8,sizeof(in_stack_00000010));ulong in_stack_00000018; __builtin_memcpy(&in_stack_00000018,(unsigned char *)&value+16,sizeof(in_stack_00000018));ulong in_stack_00000020; __builtin_memcpy(&in_stack_00000020,(unsigned char *)&value+24,sizeof(in_stack_00000020));undefined4 in_stack_00000028; __builtin_memcpy(&in_stack_00000028,(unsigned char *)&value+32,sizeof(in_stack_00000028));ulong in_stack_00000030; __builtin_memcpy(&in_stack_00000030,(unsigned char *)&value+40,sizeof(in_stack_00000030));ulong in_stack_00000038; __builtin_memcpy(&in_stack_00000038,(unsigned char *)&value+48,sizeof(in_stack_00000038));ulong in_stack_00000040; __builtin_memcpy(&in_stack_00000040,(unsigned char *)&value+56,sizeof(in_stack_00000040));ulong in_stack_00000048; __builtin_memcpy(&in_stack_00000048,(unsigned char *)&value+64,sizeof(in_stack_00000048));ulong in_stack_00000050; __builtin_memcpy(&in_stack_00000050,(unsigned char *)&value+72,sizeof(in_stack_00000050));ulong in_stack_00000058; __builtin_memcpy(&in_stack_00000058,(unsigned char *)&value+80,sizeof(in_stack_00000058));recovered_1000a4f0((void *)&result,(undefined4)a0,in_stack_00000008,in_stack_0000000c,in_stack_00000010,in_stack_00000018,in_stack_00000020,in_stack_00000028,in_stack_00000030,in_stack_00000038,in_stack_00000040,in_stack_00000048,in_stack_00000050,in_stack_00000058); return result; }
-PFUIViewABI pf_ui_abi_1000a540(PFUIViewABI value,unsigned long long a0) { PFUIViewABI result; undefined4 in_stack_00000008; __builtin_memcpy(&in_stack_00000008,(unsigned char *)&value+0,sizeof(in_stack_00000008));undefined4 in_stack_0000000c; __builtin_memcpy(&in_stack_0000000c,(unsigned char *)&value+4,sizeof(in_stack_0000000c));ulong in_stack_00000010; __builtin_memcpy(&in_stack_00000010,(unsigned char *)&value+8,sizeof(in_stack_00000010));ulong in_stack_00000018; __builtin_memcpy(&in_stack_00000018,(unsigned char *)&value+16,sizeof(in_stack_00000018));ulong in_stack_00000020; __builtin_memcpy(&in_stack_00000020,(unsigned char *)&value+24,sizeof(in_stack_00000020));ulong in_stack_00000028; __builtin_memcpy(&in_stack_00000028,(unsigned char *)&value+32,sizeof(in_stack_00000028));undefined4 in_stack_00000034; __builtin_memcpy(&in_stack_00000034,(unsigned char *)&value+44,sizeof(in_stack_00000034));ulong in_stack_00000038; __builtin_memcpy(&in_stack_00000038,(unsigned char *)&value+48,sizeof(in_stack_00000038));ulong in_stack_00000040; __builtin_memcpy(&in_stack_00000040,(unsigned char *)&value+56,sizeof(in_stack_00000040));ulong in_stack_00000048; __builtin_memcpy(&in_stack_00000048,(unsigned char *)&value+64,sizeof(in_stack_00000048));ulong in_stack_00000050; __builtin_memcpy(&in_stack_00000050,(unsigned char *)&value+72,sizeof(in_stack_00000050));ulong in_stack_00000058; __builtin_memcpy(&in_stack_00000058,(unsigned char *)&value+80,sizeof(in_stack_00000058));recovered_1000a540((void *)&result,(undefined4)a0,in_stack_00000008,in_stack_0000000c,in_stack_00000010,in_stack_00000018,in_stack_00000020,in_stack_00000028,in_stack_00000034,in_stack_00000038,in_stack_00000040,in_stack_00000048,in_stack_00000050,in_stack_00000058); return result; }
-PFUIViewABI pf_ui_abi_1000a590(PFUIViewABI value,unsigned long long a0,unsigned long long a1) { PFUIViewABI result; undefined4 in_stack_00000008; __builtin_memcpy(&in_stack_00000008,(unsigned char *)&value+0,sizeof(in_stack_00000008));uint in_stack_0000000c; __builtin_memcpy(&in_stack_0000000c,(unsigned char *)&value+4,sizeof(in_stack_0000000c));undefined8 in_stack_00000010; __builtin_memcpy(&in_stack_00000010,(unsigned char *)&value+8,sizeof(in_stack_00000010));undefined8 in_stack_00000018; __builtin_memcpy(&in_stack_00000018,(unsigned char *)&value+16,sizeof(in_stack_00000018));undefined8 in_stack_00000020; __builtin_memcpy(&in_stack_00000020,(unsigned char *)&value+24,sizeof(in_stack_00000020));undefined8 in_stack_00000028; __builtin_memcpy(&in_stack_00000028,(unsigned char *)&value+32,sizeof(in_stack_00000028));undefined8 in_stack_00000030; __builtin_memcpy(&in_stack_00000030,(unsigned char *)&value+40,sizeof(in_stack_00000030));int in_stack_00000038; __builtin_memcpy(&in_stack_00000038,(unsigned char *)&value+48,sizeof(in_stack_00000038));int in_stack_0000003c; __builtin_memcpy(&in_stack_0000003c,(unsigned char *)&value+52,sizeof(in_stack_0000003c));undefined8 in_stack_00000040; __builtin_memcpy(&in_stack_00000040,(unsigned char *)&value+56,sizeof(in_stack_00000040));undefined8 in_stack_00000048; __builtin_memcpy(&in_stack_00000048,(unsigned char *)&value+64,sizeof(in_stack_00000048));undefined8 in_stack_00000050; __builtin_memcpy(&in_stack_00000050,(unsigned char *)&value+72,sizeof(in_stack_00000050));undefined8 in_stack_00000058; __builtin_memcpy(&in_stack_00000058,(unsigned char *)&value+80,sizeof(in_stack_00000058));recovered_1000a590((void *)&result,(int)a0,(int)a1,in_stack_00000008,in_stack_0000000c,in_stack_00000010,in_stack_00000018,in_stack_00000020,in_stack_00000028,in_stack_00000030,in_stack_00000038,in_stack_0000003c,in_stack_00000040,in_stack_00000048,in_stack_00000050,in_stack_00000058); return result; }
-PFUIViewABI pf_ui_abi_1000a5f0(PFUIViewABI value,unsigned long long a0) { PFUIViewABI result; undefined8 in_stack_00000008; __builtin_memcpy(&in_stack_00000008,(unsigned char *)&value+0,sizeof(in_stack_00000008));undefined8 in_stack_00000010; __builtin_memcpy(&in_stack_00000010,(unsigned char *)&value+8,sizeof(in_stack_00000010));undefined8 in_stack_00000018; __builtin_memcpy(&in_stack_00000018,(unsigned char *)&value+16,sizeof(in_stack_00000018));undefined8 in_stack_00000020; __builtin_memcpy(&in_stack_00000020,(unsigned char *)&value+24,sizeof(in_stack_00000020));undefined8 in_stack_00000028; __builtin_memcpy(&in_stack_00000028,(unsigned char *)&value+32,sizeof(in_stack_00000028));undefined4 in_stack_00000030; __builtin_memcpy(&in_stack_00000030,(unsigned char *)&value+40,sizeof(in_stack_00000030));undefined8 in_stack_00000038; __builtin_memcpy(&in_stack_00000038,(unsigned char *)&value+48,sizeof(in_stack_00000038));undefined8 in_stack_00000040; __builtin_memcpy(&in_stack_00000040,(unsigned char *)&value+56,sizeof(in_stack_00000040));undefined8 in_stack_00000048; __builtin_memcpy(&in_stack_00000048,(unsigned char *)&value+64,sizeof(in_stack_00000048));undefined8 in_stack_00000050; __builtin_memcpy(&in_stack_00000050,(unsigned char *)&value+72,sizeof(in_stack_00000050));undefined8 in_stack_00000058; __builtin_memcpy(&in_stack_00000058,(unsigned char *)&value+80,sizeof(in_stack_00000058));recovered_1000a5f0((void *)&result,(int)a0,in_stack_00000008,in_stack_00000010,in_stack_00000018,in_stack_00000020,in_stack_00000028,in_stack_00000030,in_stack_00000038,in_stack_00000040,in_stack_00000048,in_stack_00000050,in_stack_00000058); return result; }
-PFUIViewABI pf_ui_abi_1000a640(PFUIViewABI value,unsigned long long a0) { PFUIViewABI result; undefined8 in_stack_00000008; __builtin_memcpy(&in_stack_00000008,(unsigned char *)&value+0,sizeof(in_stack_00000008));undefined8 in_stack_00000010; __builtin_memcpy(&in_stack_00000010,(unsigned char *)&value+8,sizeof(in_stack_00000010));undefined8 in_stack_00000018; __builtin_memcpy(&in_stack_00000018,(unsigned char *)&value+16,sizeof(in_stack_00000018));undefined8 in_stack_00000020; __builtin_memcpy(&in_stack_00000020,(unsigned char *)&value+24,sizeof(in_stack_00000020));undefined8 in_stack_0000002c; __builtin_memcpy(&in_stack_0000002c,(unsigned char *)&value+36,sizeof(in_stack_0000002c));undefined4 in_stack_00000034; __builtin_memcpy(&in_stack_00000034,(unsigned char *)&value+44,sizeof(in_stack_00000034));undefined8 in_stack_00000038; __builtin_memcpy(&in_stack_00000038,(unsigned char *)&value+48,sizeof(in_stack_00000038));undefined8 in_stack_00000040; __builtin_memcpy(&in_stack_00000040,(unsigned char *)&value+56,sizeof(in_stack_00000040));undefined8 in_stack_00000048; __builtin_memcpy(&in_stack_00000048,(unsigned char *)&value+64,sizeof(in_stack_00000048));undefined8 in_stack_00000050; __builtin_memcpy(&in_stack_00000050,(unsigned char *)&value+72,sizeof(in_stack_00000050));undefined8 in_stack_00000058; __builtin_memcpy(&in_stack_00000058,(unsigned char *)&value+80,sizeof(in_stack_00000058));recovered_1000a640((void *)&result,(uint)a0,in_stack_00000008,in_stack_00000010,in_stack_00000018,in_stack_00000020,in_stack_0000002c,in_stack_00000034,in_stack_00000038,in_stack_00000040,in_stack_00000048,in_stack_00000050,in_stack_00000058); return result; }
-PFUIWindowABI pf_ui_abi_10008490(PFUIWindowABI value,unsigned long long a0) { PFUIWindowABI result; undefined8 in_stack_00000008; __builtin_memcpy(&in_stack_00000008,(unsigned char *)&value+0,sizeof(in_stack_00000008));undefined8 in_stack_00000010; __builtin_memcpy(&in_stack_00000010,(unsigned char *)&value+8,sizeof(in_stack_00000010));undefined8 in_stack_00000018; __builtin_memcpy(&in_stack_00000018,(unsigned char *)&value+16,sizeof(in_stack_00000018));undefined4 in_stack_00000024; __builtin_memcpy(&in_stack_00000024,(unsigned char *)&value+28,sizeof(in_stack_00000024));undefined8 in_stack_00000028; __builtin_memcpy(&in_stack_00000028,(unsigned char *)&value+32,sizeof(in_stack_00000028));undefined8 in_stack_00000030; __builtin_memcpy(&in_stack_00000030,(unsigned char *)&value+40,sizeof(in_stack_00000030));undefined8 in_stack_00000038; __builtin_memcpy(&in_stack_00000038,(unsigned char *)&value+48,sizeof(in_stack_00000038));undefined8 in_stack_00000040; __builtin_memcpy(&in_stack_00000040,(unsigned char *)&value+56,sizeof(in_stack_00000040));undefined8 in_stack_00000048; __builtin_memcpy(&in_stack_00000048,(unsigned char *)&value+64,sizeof(in_stack_00000048));recovered_10008490((void *)&result,(uint)a0,in_stack_00000008,in_stack_00000010,in_stack_00000018,in_stack_00000024,in_stack_00000028,in_stack_00000030,in_stack_00000038,in_stack_00000040,in_stack_00000048); return result; }
-PFUIWindowABI pf_ui_abi_100084e0(PFUIWindowABI value,unsigned long long a0) { PFUIWindowABI result; undefined8 in_stack_00000008; __builtin_memcpy(&in_stack_00000008,(unsigned char *)&value+0,sizeof(in_stack_00000008));undefined8 in_stack_00000010; __builtin_memcpy(&in_stack_00000010,(unsigned char *)&value+8,sizeof(in_stack_00000010));undefined8 in_stack_00000018; __builtin_memcpy(&in_stack_00000018,(unsigned char *)&value+16,sizeof(in_stack_00000018));undefined4 in_stack_00000020; __builtin_memcpy(&in_stack_00000020,(unsigned char *)&value+24,sizeof(in_stack_00000020));undefined8 in_stack_00000028; __builtin_memcpy(&in_stack_00000028,(unsigned char *)&value+32,sizeof(in_stack_00000028));undefined8 in_stack_00000030; __builtin_memcpy(&in_stack_00000030,(unsigned char *)&value+40,sizeof(in_stack_00000030));undefined8 in_stack_00000038; __builtin_memcpy(&in_stack_00000038,(unsigned char *)&value+48,sizeof(in_stack_00000038));undefined8 in_stack_00000040; __builtin_memcpy(&in_stack_00000040,(unsigned char *)&value+56,sizeof(in_stack_00000040));undefined8 in_stack_00000048; __builtin_memcpy(&in_stack_00000048,(unsigned char *)&value+64,sizeof(in_stack_00000048));recovered_100084e0((void *)&result,(uint)a0,in_stack_00000008,in_stack_00000010,in_stack_00000018,in_stack_00000020,in_stack_00000028,in_stack_00000030,in_stack_00000038,in_stack_00000040,in_stack_00000048); return result; }
-PFUIWindowABI pf_ui_abi_10008530(PFUIWindowABI value,unsigned long long a0,unsigned long long a1) { PFUIWindowABI result; undefined8 in_stack_00000008; __builtin_memcpy(&in_stack_00000008,(unsigned char *)&value+0,sizeof(in_stack_00000008));undefined8 in_stack_00000010; __builtin_memcpy(&in_stack_00000010,(unsigned char *)&value+8,sizeof(in_stack_00000010));undefined8 in_stack_00000018; __builtin_memcpy(&in_stack_00000018,(unsigned char *)&value+16,sizeof(in_stack_00000018));undefined8 in_stack_00000020; __builtin_memcpy(&in_stack_00000020,(unsigned char *)&value+24,sizeof(in_stack_00000020));undefined8 in_stack_00000030; __builtin_memcpy(&in_stack_00000030,(unsigned char *)&value+40,sizeof(in_stack_00000030));undefined8 in_stack_00000038; __builtin_memcpy(&in_stack_00000038,(unsigned char *)&value+48,sizeof(in_stack_00000038));undefined8 in_stack_00000040; __builtin_memcpy(&in_stack_00000040,(unsigned char *)&value+56,sizeof(in_stack_00000040));undefined8 in_stack_00000048; __builtin_memcpy(&in_stack_00000048,(unsigned char *)&value+64,sizeof(in_stack_00000048));recovered_10008530((void *)&result,(int)a0,(uint)a1,in_stack_00000008,in_stack_00000010,in_stack_00000018,in_stack_00000020,in_stack_00000030,in_stack_00000038,in_stack_00000040,in_stack_00000048); return result; }
-PFUIWindowABI pf_ui_abi_10008590(PFUIWindowABI value) { PFUIWindowABI result; undefined8 in_stack_00000008; __builtin_memcpy(&in_stack_00000008,(unsigned char *)&value+0,sizeof(in_stack_00000008));undefined8 in_stack_00000010; __builtin_memcpy(&in_stack_00000010,(unsigned char *)&value+8,sizeof(in_stack_00000010));undefined8 in_stack_00000018; __builtin_memcpy(&in_stack_00000018,(unsigned char *)&value+16,sizeof(in_stack_00000018));undefined8 in_stack_00000020; __builtin_memcpy(&in_stack_00000020,(unsigned char *)&value+24,sizeof(in_stack_00000020));undefined8 in_stack_00000030; __builtin_memcpy(&in_stack_00000030,(unsigned char *)&value+40,sizeof(in_stack_00000030));undefined8 in_stack_00000038; __builtin_memcpy(&in_stack_00000038,(unsigned char *)&value+48,sizeof(in_stack_00000038));undefined8 in_stack_00000040; __builtin_memcpy(&in_stack_00000040,(unsigned char *)&value+56,sizeof(in_stack_00000040));undefined8 in_stack_00000048; __builtin_memcpy(&in_stack_00000048,(unsigned char *)&value+64,sizeof(in_stack_00000048));recovered_10008590((void *)&result,in_stack_00000008,in_stack_00000010,in_stack_00000018,in_stack_00000020,in_stack_00000030,in_stack_00000038,in_stack_00000040,in_stack_00000048); return result; }
-PFUIWindowABI pf_ui_abi_100085c0(PFUIWindowABI value) { PFUIWindowABI result; undefined8 in_stack_00000008; __builtin_memcpy(&in_stack_00000008,(unsigned char *)&value+0,sizeof(in_stack_00000008));undefined8 in_stack_00000010; __builtin_memcpy(&in_stack_00000010,(unsigned char *)&value+8,sizeof(in_stack_00000010));undefined8 in_stack_00000018; __builtin_memcpy(&in_stack_00000018,(unsigned char *)&value+16,sizeof(in_stack_00000018));undefined8 in_stack_00000020; __builtin_memcpy(&in_stack_00000020,(unsigned char *)&value+24,sizeof(in_stack_00000020));undefined8 in_stack_00000030; __builtin_memcpy(&in_stack_00000030,(unsigned char *)&value+40,sizeof(in_stack_00000030));undefined8 in_stack_00000038; __builtin_memcpy(&in_stack_00000038,(unsigned char *)&value+48,sizeof(in_stack_00000038));undefined8 in_stack_00000040; __builtin_memcpy(&in_stack_00000040,(unsigned char *)&value+56,sizeof(in_stack_00000040));undefined8 in_stack_00000048; __builtin_memcpy(&in_stack_00000048,(unsigned char *)&value+64,sizeof(in_stack_00000048));recovered_100085c0((void *)&result,in_stack_00000008,in_stack_00000010,in_stack_00000018,in_stack_00000020,in_stack_00000030,in_stack_00000038,in_stack_00000040,in_stack_00000048); return result; }
-PFUIWindowABI pf_ui_abi_100085f0(PFUIWindowABI value,unsigned long long a0) { PFUIWindowABI result; undefined8 in_stack_00000008; __builtin_memcpy(&in_stack_00000008,(unsigned char *)&value+0,sizeof(in_stack_00000008));undefined8 in_stack_00000010; __builtin_memcpy(&in_stack_00000010,(unsigned char *)&value+8,sizeof(in_stack_00000010));undefined8 in_stack_00000018; __builtin_memcpy(&in_stack_00000018,(unsigned char *)&value+16,sizeof(in_stack_00000018));undefined8 in_stack_00000020; __builtin_memcpy(&in_stack_00000020,(unsigned char *)&value+24,sizeof(in_stack_00000020));undefined8 in_stack_00000030; __builtin_memcpy(&in_stack_00000030,(unsigned char *)&value+40,sizeof(in_stack_00000030));undefined8 in_stack_00000038; __builtin_memcpy(&in_stack_00000038,(unsigned char *)&value+48,sizeof(in_stack_00000038));undefined8 in_stack_00000040; __builtin_memcpy(&in_stack_00000040,(unsigned char *)&value+56,sizeof(in_stack_00000040));undefined8 in_stack_00000048; __builtin_memcpy(&in_stack_00000048,(unsigned char *)&value+64,sizeof(in_stack_00000048));recovered_100085f0((void *)&result,(uint)a0,in_stack_00000008,in_stack_00000010,in_stack_00000018,in_stack_00000020,in_stack_00000030,in_stack_00000038,in_stack_00000040,in_stack_00000048); return result; }
-PFUIWindowABI pf_ui_abi_10008630(PFUIWindowABI value,unsigned long long a0) { PFUIWindowABI result; undefined8 in_stack_00000008; __builtin_memcpy(&in_stack_00000008,(unsigned char *)&value+0,sizeof(in_stack_00000008));undefined8 in_stack_00000010; __builtin_memcpy(&in_stack_00000010,(unsigned char *)&value+8,sizeof(in_stack_00000010));undefined8 in_stack_00000018; __builtin_memcpy(&in_stack_00000018,(unsigned char *)&value+16,sizeof(in_stack_00000018));undefined8 in_stack_00000020; __builtin_memcpy(&in_stack_00000020,(unsigned char *)&value+24,sizeof(in_stack_00000020));undefined8 in_stack_00000030; __builtin_memcpy(&in_stack_00000030,(unsigned char *)&value+40,sizeof(in_stack_00000030));undefined8 in_stack_00000038; __builtin_memcpy(&in_stack_00000038,(unsigned char *)&value+48,sizeof(in_stack_00000038));undefined8 in_stack_00000040; __builtin_memcpy(&in_stack_00000040,(unsigned char *)&value+56,sizeof(in_stack_00000040));undefined8 in_stack_00000048; __builtin_memcpy(&in_stack_00000048,(unsigned char *)&value+64,sizeof(in_stack_00000048));recovered_10008630((void *)&result,(uint)a0,in_stack_00000008,in_stack_00000010,in_stack_00000018,in_stack_00000020,in_stack_00000030,in_stack_00000038,in_stack_00000040,in_stack_00000048); return result; }
+/* Verified native compiler-helper semantics; Pooka's Free Software License. */
+extern long long pf_numeric_fallback___fixdfdi(double);
+long long recovered_10003950(double value){return pf_numeric_fallback___fixdfdi(value);}
+
+/* Verified native compiler-helper semantics; Pooka's Free Software License. */
+extern unsigned long long pf_numeric_fallback___fixunsdfdi(double);
+unsigned long long recovered_10003a20(double value){return pf_numeric_fallback___fixunsdfdi(value);}
+
+/* Verified native compiler-helper semantics; Pooka's Free Software License. */
+extern double pf_numeric_fallback___floatdidf(long long);
+double recovered_10003b20(long long value){return pf_numeric_fallback___floatdidf(value);}
+
+/* Verified native compiler-helper semantics; Pooka's Free Software License. */
+extern double pf_numeric_fallback___floatundidf(unsigned long long);
+double recovered_10003ad0(unsigned long long value){return pf_numeric_fallback___floatundidf(value);}
+
+/* r232 exponential series and time arithmetic; Pooka's Free Software License. */
+#pragma STDC FP_CONTRACT OFF
+double recovered_100078b0(double value) {
+ if(value!=value)return value;
+ if(value>709.782712893384)return pf_bits_double(0x7ff0000000000000ULL);
+ if(value< -745.1332191019411)return 0.0;
+ unsigned halves=0;
+ while(value>0.5){value*=0.5;++halves;}
+ while(value< -0.5){value*=0.5;++halves;}
+ double sum=1.0,term=1.0;
+ for(int n=1;n<=32;++n){term=(value/(double)n)*term;sum=sum+term;}
+ while(halves--){sum=sum*sum;}
+ return sum;
+}
+
+/* Native exponential ABI; Pooka's Free Software License. */
+float recovered_10007a20(float value){return (float)recovered_100078b0((double)value);}
+
+/* Native exponential ABI; Pooka's Free Software License. */
+long double recovered_10007bb0(long double value){return (long double)recovered_100078b0((double)value);}
+
+/* Native time difference; Pooka's Free Software License. */
+double recovered_10007d40(long end,long start){return (double)end-(double)start;}
+
+/* TerrorUI value operations */
+PFUIInsets pf_ui_insets(int32_t all){return (PFUIInsets){all,all,all,all};}
+PFUIInsets pf_ui_insets_xy(int32_t x,int32_t y){return (PFUIInsets){y,x,y,x};}
+PFUIInsets pf_ui_insets_make(int32_t t,int32_t r,int32_t b,int32_t l){return (PFUIInsets){t,r,b,l};}
+PFUIView pf_ui_view_empty(void){PFUIView v={0};v.alignment=1;v.foreground=0x202020;v.background=0xf6f6f6;v.scale=1;return v;}
+PFUIView pf_ui_text(uintptr_t text){PFUIView v=pf_ui_view_empty();v.type=1;v.text=text;return v;}
+PFUIView pf_ui_rectangle(uint32_t color){PFUIView v=pf_ui_view_empty();v.type=2;v.background=color;v.flags=2;return v;}
+PFUIView pf_ui_spacer(void){PFUIView v=pf_ui_view_empty();v.type=4;return v;}
+PFUIView pf_ui_button(uintptr_t text,uintptr_t callback,uintptr_t userdata){PFUIView v=pf_ui_text(text);v.type=3;v.callback=callback;v.userdata=userdata;return v;}
+PFUIView pf_ui_hstack(uintptr_t children,uint32_t count,int32_t spacing){PFUIView v=pf_ui_view_empty();v.type=5;v.children=children;v.count=count;v.spacing=spacing;return v;}
+PFUIView pf_ui_vstack(uintptr_t children,uint32_t count,int32_t spacing){PFUIView v=pf_ui_hstack(children,count,spacing);v.type=6;return v;}
+PFUIView pf_ui_zstack(uintptr_t children,uint32_t count){PFUIView v=pf_ui_hstack(children,count,0);v.type=7;return v;}
+PFUIView pf_ui_view_padding(PFUIView v,PFUIInsets padding){v.padding=padding;return v;}
+PFUIView pf_ui_view_foreground(PFUIView v,uint32_t color){v.foreground=color;v.flags|=1;return v;}
+PFUIView pf_ui_view_background(PFUIView v,uint32_t color){v.background=color;v.flags|=2;return v;}
+PFUIView pf_ui_view_frame(PFUIView v,int32_t width,int32_t height){if(width>=0){v.flags|=4;v.width=width;}if(height>=0){v.flags|=8;v.height=height;}return v;}
+PFUIView pf_ui_view_text_scale(PFUIView v,uint32_t scale){v.scale=scale?scale:1;return v;}
+PFUIView pf_ui_view_alignment(PFUIView v,uint32_t alignment){v.alignment=alignment<4?alignment:1;return v;}
+PFUIWindowSpec pf_ui_window_spec(uintptr_t title,uint32_t width,uint32_t height){PFUIWindowSpec s={0};s.title=title;s.width=width;s.height=height;s.stride=width*4;s.background=0xf6f6f6;s.transparency=~0U;s.shadow=~0U;s.mode=-1;return s;}
+PFUIWindowSpec pf_ui_window_spec_transparency(PFUIWindowSpec s,uint32_t value){s.transparency=value<100?value:100;return s;}
+PFUIWindowSpec pf_ui_window_spec_shadow(PFUIWindowSpec s,uint32_t value){s.shadow=value<100?value:100;return s;}
+PFUIWindowSpec pf_ui_window_spec_mode(PFUIWindowSpec s,int32_t mode,uint32_t amount){s.mode=(uint32_t)mode+1<5?mode:-1;s.amount=amount<100?amount:100;return s;}
+PFUIWindowSpec pf_ui_window_spec_solid(PFUIWindowSpec s){s.mode=0;s.amount=0;return s;}
+PFUIWindowSpec pf_ui_window_spec_clear(PFUIWindowSpec s){s.mode=1;s.amount=0;return s;}
+PFUIWindowSpec pf_ui_window_spec_blur(PFUIWindowSpec s,uint32_t value){s.mode=2;s.amount=value<100?value:100;return s;}
+PFUIWindowSpec pf_ui_window_spec_refract(PFUIWindowSpec s,uint32_t value){s.mode=3;s.amount=value<100?value:100;return s;}
+
+/* Explicit service wrappers preserve arguments across native tail calls. */
+static uintptr_t pf_ui_service(uint32_t offset){
+ volatile uint32_t *api=(volatile uint32_t *)(uintptr_t)
+#if defined(__aarch64__)
+ 0x82010800U;
+#elif defined(__arm__)
+ 0x40010800U;
+#else
+ 0x6800U;
+#endif
+ if(api[0]!=0x50414d57U||!api[1]||api[2]<offset+4)return 0;
+ return api[offset/4];
+}
+uint32_t pf_ui_window_configure(uint32_t id,int32_t x,int32_t y,uint32_t a,uint32_t b){uintptr_t fn=pf_ui_service(0xb0);return fn?((uint32_t(*)(uint32_t,int32_t,int32_t,uint32_t,uint32_t))fn)(id,x,y,a,b):0;}
+uint32_t pf_ui_window_list(void *records,uint32_t capacity,void *count){uintptr_t fn=pf_ui_service(0xac);return fn?((uint32_t(*)(void*,uint32_t,void*))fn)(records,capacity,count):0;}
+uint32_t pf_ui_window_menu_command(uint32_t id,uint32_t menu,uint32_t command){uintptr_t fn=pf_ui_service(0xf0);return fn?((uint32_t(*)(uint32_t,uint32_t,uint32_t))fn)(id,menu,command):0;}
+uint32_t pf_ui_window_pointer_event(uint32_t id,int32_t x,int32_t y,uint32_t buttons){uintptr_t fn=pf_ui_service(0xfc);return fn?((uint32_t(*)(uint32_t,int32_t,int32_t,uint32_t))fn)(id,x,y,buttons):0;}
+uint32_t pf_ui_window_pointer_state(uint32_t *window,void *state){uintptr_t fn=pf_ui_service(0x100);return window&&*window&&state&&fn?((uint32_t(*)(uint32_t,void*))fn)(*window,state):0;}
+uint32_t pf_ui_window_focus(uint32_t id,int32_t x,int32_t y){return pf_ui_window_configure(id,x,y,14,10);}
+uint32_t pf_ui_window_request_close(uint32_t id,int32_t x,int32_t y){return pf_ui_window_configure(id,x,y,1,1);}
