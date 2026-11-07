@@ -249,6 +249,18 @@ def rewrite_byte_ranges(source):
 def rewrite_scalar_storage(source):
     """Restore raw float views lost when an SSA slot is printed as a pointer."""
     source=rewrite_byte_ranges(source)
+    floating_variables=re.findall(r'\b(float|double)\s+(\w+)\b(?!\s*\()',source)
+    for typename,name in floating_variables:
+        bits='pf_float_bits' if typename=='float' else 'pf_double_bits'
+        source=re.sub(r'\(([^()\n]+\*)\)\s*'+re.escape(name)+r'\b',
+                      lambda match:'('+match[1]+')(uintptr_t)'+bits+'('+name+')',source)
+    source=re.sub(r'\(([^()\n]+\*)\)\s*(\w+(?:(?:\.|->)\w+)*(?:\.|->)number)\b',
+                  lambda match:'('+match[1]+')(uintptr_t)pf_float_bits('+match[2]+')',source)
+    for match in reversed(list(re.finditer(r'\(([^()\n]+\*)\)\s*(Vector(?:Signed|Unsigned)ToFloat)\(',source))):
+        start=match.start(2);end=match.end();depth=1
+        while depth:
+            depth+=(source[end]=='(')-(source[end]==')');end+=1
+        source=source[:match.start()]+'('+match[1]+')(uintptr_t)pf_float_bits((float)'+source[start:end]+')'+source[end:]
     # A float output can share an integer-typed stack slot. Its later float
     # view reads the stored IEEE representation; casts of other integer
     # fields in the same aggregate still perform numeric conversion.
@@ -290,6 +302,41 @@ def rewrite_scalar_storage(source):
     for name in re.findall(r'^  (?:undefined8|ulonglong) (\w+);',source,re.M):
         source=re.sub(r'NAN\('+name+r'\)',r'NAN(pf_bits_double('+name+'))',source)
     return source
+
+
+def rewrite_integer_vectors(source):
+    """Retain byte access when vector SSA values become C integers."""
+    pointers=re.findall(r'undefined1\s*\(\*\s*(\w+)\)\s*\[16\]',source)
+    source=re.sub(r'undefined1\s*\((\*+)\s*(\w+)?\)\s*\[16\]',
+                  lambda match:'uint128 '+match[1]+(match[2] or ''),source)
+    for name in pointers:
+        source=re.sub(r'\(\s*\*'+re.escape(name)+r'\s*\)\s*\[',
+                      '((uint8_t *)(void *)'+name+')[',source)
+        source=re.sub(r'\b'+re.escape(name)+r'\s*\[([^]\n]+)\]\s*\[',
+                      lambda match:'((uint8_t *)(void *)&'+name+'['+match[1]+'])[',source)
+        # Dereferencing a pointer to an array produces an array lvalue. In
+        # an address cast that array decays back to its address, whereas a
+        # vector assignment reads its sixteen bytes. Keep both operations.
+        cast=r'\(([^()\n]+)\)\s*'+re.escape(name)+r'\s*\[([^]\n]+)\]'
+        def indexed(match):
+            if match[1].strip() in ('uint128','undefined16'):return match[0]
+            return '('+match[1]+')(uintptr_t)('+name+'+('+match[2]+'))'
+        source=re.sub(cast,indexed,source)
+        cast=r'\(([^()\n]+)\)\s*\*'+re.escape(name)+r'\b'
+        def decayed(match):
+            if match[1].strip() in ('uint128','undefined16'):return match[0]
+            return '('+match[1]+')(uintptr_t)'+name
+        source=re.sub(cast,decayed,source)
+        source=re.sub(r'(?<![\w])\*'+re.escape(name)+r'\b(?=\s*[+-])',
+                      '((uint8_t *)(void *)'+name+')',source)
+        source=re.sub(r'\b'+re.escape(name)+r'(?=\s*\*\s*(?:0x[0-9a-f]+|\d))',
+                      '(uintptr_t)'+name,source)
+    names=re.findall(r'undefined1 (auVar\d+) \[16\];',source)
+    source=re.sub(r'undefined1 (auVar\d+) \[16\];',r'uint128 \1;',source)
+    for name in names:
+        source=re.sub(r'\b'+name+r'\s*\[',r'((uint8_t *)(void *)&'+name+')[',source)
+    source=re.sub(r'undefined1\s+\[16\]\s+((?:recovered_|FUN_)[0-9a-f]+)',r'uint128 \1',source)
+    return re.sub(r'\(undefined1\s+\[16\]\)', '(uint128)',source)
 
 
 
@@ -338,7 +385,7 @@ def main():
         sources={a:windows_types(s) for a,s in sources.items()}
     sources={a:system_register_views(vector_constant_loads(s),current.get('system_registers',{}))for a,s in sources.items()}
     if WIDE or current.get("integer_vector_128"):
-        sources={a:re.sub(r'\(undefined1\s+\[16\]\)', '(uint128)', re.sub(r'undefined1\s+\[16\]\s+((?:recovered_|FUN_)[0-9a-f]+)',r'uint128 \1',re.sub(r'undefined1 (auVar\d+) \[16\];',r'uint128 \1;',s))) for a,s in sources.items()}
+        sources={a:rewrite_integer_vectors(s) for a,s in sources.items()}
         for a,s in sources.items():
             for name,size in re.findall(r'^  undefined1 (\w+) \[(8|16)\];',s,re.M):
                 if not re.search(r'\b'+name+r'\s*=',s):continue

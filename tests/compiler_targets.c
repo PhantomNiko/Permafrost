@@ -25,6 +25,8 @@ volatile double fraction64=4294967295.75,large64=18446744073709549568.0;
 volatile float large32=4294967296.0f,fraction32=1.5f;
 volatile uint64_t maximum=0xffffffffffffffffULL;
 volatile uint32_t high_a=0xffffffffU,high_b=0x80000000U;
+volatile double negative_fraction64=-4294967295.75;
+volatile float negative_large32=-4294967296.0f;
 #if defined(__SIZEOF_INT128__)
 extern __uint128_t __ashlti3(__uint128_t,int);
 extern __uint128_t __lshrti3(__uint128_t,int);
@@ -65,6 +67,7 @@ static int vector_register_bits(void) {
 }
 
 int main(void) {
+ if((int64_t)negative_fraction64!=-4294967295LL || (int64_t)negative_large32!=-4294967296LL)return 72;
  if(!vector_register_bits())return 71;
 #if defined(__SIZEOF_INT128__)
  __uint128_t wide=((__uint128_t)0xfedcba9876543210ULL<<64)|0x0123456789abcdefULL;

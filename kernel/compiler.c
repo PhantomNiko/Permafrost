@@ -188,6 +188,24 @@ uint64_t __fixunssfdi(float value) {
     uint64_t significand=(source.bits&0x7fffffU)|0x800000U;
     return exponent>=23?significand<<(exponent-23):significand>>(23-exponent);
 }
+int64_t __fixdfdi(double value) {
+    union {double number;uint64_t bits;} source={.number=value};
+    unsigned negative=(unsigned)(source.bits>>63);
+    source.bits&=0x7fffffffffffffffULL;
+    uint64_t magnitude=__fixunsdfdi(source.number);
+    if(magnitude>0x7fffffffffffffffULL)
+        return negative?(int64_t)0x8000000000000000ULL:(int64_t)0x7fffffffffffffffULL;
+    return negative?-(int64_t)magnitude:(int64_t)magnitude;
+}
+int64_t __fixsfdi(float value) {
+    union {float number;uint32_t bits;} source={.number=value};
+    unsigned negative=source.bits>>31;
+    source.bits&=0x7fffffffU;
+    uint64_t magnitude=__fixunssfdi(source.number);
+    if(magnitude>0x7fffffffffffffffULL)
+        return negative?(int64_t)0x8000000000000000ULL:(int64_t)0x7fffffffffffffffULL;
+    return negative?-(int64_t)magnitude:(int64_t)magnitude;
+}
 double __floatundidf(uint64_t value) {
     return (double)(uint32_t)(value>>32)*4294967296.0+(double)(uint32_t)value;
 }
