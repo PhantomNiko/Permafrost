@@ -277,7 +277,8 @@
       "",
       "",
       "/* Original analysis identifiers for manual recovery units. */",
-      "#define longdouble long double"
+      "#define longdouble long double",
+      "#define pf_varargs_10003e50__4_ recovered_10003e50"
     ],
     "source_replacements": {
       "10001410": {},
@@ -353,7 +354,8 @@
         "0x10009e82": "((uintptr_t)pf_module_state + 0x51dU)",
         "0x10009e91": "((uintptr_t)pf_module_state + 0x52cU)",
         "0x10009e8b": "((uintptr_t)pf_module_state + 0x526U)",
-        "recovered_10009966(SUB108(lVar16,0))": "recovered_10009966(lVar16)"
+        "recovered_10009966(SUB108(lVar16,0))": "recovered_10009966(lVar16)",
+        "recovered_10009966(SUB108(lVar15,0))": "recovered_10009966(lVar15)"
       },
       "10005060": {},
       "10004230": {},
@@ -458,7 +460,11 @@
       "100054c0": {},
       "10001a80": {},
       "100044b0": {},
-      "100082c0": {},
+      "100082c0": {
+        "local_40 < local_2c": "local_40 < pf_bits_double(local_2c)",
+        "local_2c * *(double *)": "pf_bits_double(local_2c) * *(double *)",
+        "(longdouble)local_2c": "(longdouble)pf_bits_double(local_2c)"
+      },
       "10004af0": {},
       "100059d0": {},
       "10004e00": {},
@@ -468,7 +474,8 @@
       "10005440": {},
       "10006770": {},
       "10007370": {
-        "recovered_10009966(SUB108(lVar14,0))": "recovered_10009966(lVar14)"
+        "recovered_10009966(SUB108(lVar14,0))": "recovered_10009966(lVar14)",
+        "recovered_10009966(SUB108(lVar12,0))": "recovered_10009966(lVar12)"
       },
       "10001b70": {},
       "10001160": {},

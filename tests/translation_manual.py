@@ -22,10 +22,10 @@ def main():
         (notes / '1000.c').write_text('''
 unsigned int recovered_1000(unsigned int value)
 {
-  return thunk_FUN_2010(value);
+  return pf_varargs_6000(thunk_FUN_2010(value));
 }
 ''')
-        (notes / '1000.tsv').write_text('G\tthunk_FUN_2010\t2000\tundefined:1\n')
+        (notes / '1000.tsv').write_text('G\tthunk_FUN_2010\t2000\tundefined:1\nG\tpf_varargs_6000\t60000000\tundefined:1\n')
         (manual / '2000.c').write_text('''
 #include "functions.h"
 unsigned int recovered_2000(unsigned int value) { return value + 1; }
@@ -33,14 +33,15 @@ unsigned int recovered_2000(unsigned int value) { return value + 1; }
         layout = root / 'layout.json'
         layout.write_text(json.dumps({'translation': {
             'pointer_bytes': 8,
-            'declarations': ['#define thunk_FUN_2010 recovered_2000'],
+            'declarations': ['#define thunk_FUN_2010 recovered_2000',
+                             '#define pf_varargs_6000 recovered_2000'],
         }}))
         subprocess.run([sys.executable, str(repository / 'tools/ghidra/translate.py'),
                         '--layout', str(layout), '--notes', str(notes),
                         '--manual', str(manual), '--out', str(units)], check=True)
         merge(units, root / 'runtime.c', root / 'functions.h')
         with (root / 'runtime.c').open('a') as stream:
-            stream.write('\nint main(void) { return recovered_1000(5) != 6; }\n')
+            stream.write('\nint main(void) { return recovered_1000(5) != 7; }\n')
         executable = root / 'check'
         subprocess.run(['clang', '-std=c11', '-I', str(repository / 'kernel'),
                         str(root / 'runtime.c'), '-o', str(executable)], check=True)

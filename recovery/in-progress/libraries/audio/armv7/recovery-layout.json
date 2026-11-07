@@ -330,12 +330,16 @@
       "",
       "/* Original analysis identifiers for manual recovery units. */",
       "#include \"word_divide.h\"",
-      "#define NotUsed (*(volatile uint32_t *)(uintptr_t)0x14)"
+      "#define NotUsed (*(volatile uint32_t *)(uintptr_t)0x14)",
+      "#define pf_varargs_1000534c__4_ recovered_1000534c"
     ],
     "source_replacements": {
       "10003570": {},
       "10001100": {},
-      "1000537c": {},
+      "1000537c": {
+        "code *pcVar4": "byte *pcVar4",
+        "(code)0x1": "(byte)0x1"
+      },
       "1000b494": {},
       "10009aec": {},
       "100079dc": {},
@@ -391,7 +395,9 @@
         "DAT_10003a68": "pf_bits_double(0x43e0000000000000ULL)"
       },
       "100074fc": {},
-      "10009548": {},
+      "10009548": {
+        "(double)(((ulonglong)factor & 0xffffffff00000000) + ((ulonglong)factor & 0xffffffff))": "factor"
+      },
       "10006c78": {},
       "10002530": {},
       "1000580c": {},
@@ -415,7 +421,9 @@
       "10009f18": {
         "DAT_1000a6f8 + 0x10009f68": "((uintptr_t)pf_module_state + 0x228U)",
         "DAT_1000a6f8": "(0x1fe8U)",
-        "DAT_1000a6fc": "(0x6ecU)"
+        "DAT_1000a6fc": "(0x6ecU)",
+        "&DAT_1000a6e8": "((const double[]){32767.0})",
+        "&DAT_1000a6f0": "((const double[]){32768.0})"
       },
       "10002e9c": {},
       "10002e20": {},
@@ -533,7 +541,10 @@
       "10001238": {},
       "10006dc4": {},
       "100066f0": {},
-      "100099f0": {},
+      "100099f0": {
+        "(double)(((ulonglong)factor & 0xffffffff00000000) + ((ulonglong)factor & 0xffffffff))": "factor",
+        "0.0 <= dVar5": "0.0 < dVar5"
+      },
       "10008e20": {
         "DAT_10009260": "pf_bits_double(0x408f400000000000ULL)",
         "DAT_10009268": "pf_bits_double(0x41dfffffffc00000ULL)",
@@ -699,7 +710,9 @@
       "1000767c": {},
       "100061c8": {},
       "10006af8": {}
-    }
+    },
+    "integer_vector_128": true,
+    "atomic_views": true
   },
   "version": "1.0",
   "base": 268435456,

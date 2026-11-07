@@ -450,7 +450,7 @@ bool recovered_10007960(uint param_1);
 bool recovered_10007980(ulong param_1);
 bool recovered_100079b0(uint param_1);
 byte recovered_100079d0(undefined8 in_stack_00000008,ushort in_stack_00000010);
-bool recovered_10007a10(ulong param_1);
+int recovered_10007a10(double value);
 double recovered_10007a40(double param_1);
 float recovered_10007bb0(float param_1);
 void recovered_10007d40(longdouble in_stack_00000008);
@@ -479,7 +479,7 @@ recovered_10009080(long param_1,undefined8 *param_2,undefined8 *in_R8,undefined8
 ulong recovered_100092e0(long *param_1,long *param_2,long param_3,double in_XMM0_Qa);
 ulong recovered_100097a0(long *opaque,ulong start,ulong end);
 undefined8 recovered_10009a30(double param_1,long *param_2);
-undefined8 * recovered_10009b00(double param_1,undefined8 *param_2,long *param_3,long param_4);
+undefined8 * recovered_10009b00(double ratio,undefined8 *opaque,long *source,long requested);
 undefined8 recovered_10009f80(double param_1,undefined8 *param_2);
 undefined8 recovered_1000a090(void);
 undefined8 recovered_1000a0a0(void);

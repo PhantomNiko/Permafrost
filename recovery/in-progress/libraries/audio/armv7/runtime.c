@@ -3137,7 +3137,7 @@ double recovered_10003570(undefined4 param_1,undefined4 param_2,undefined4 param
  * Address: 0x100035f0
  */
 
-double recovered_100035f0(undefined4 param_1,undefined4 param_2)
+double recovered_100035f0(double value)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -3150,7 +3150,7 @@ double recovered_100035f0(undefined4 param_1,undefined4 param_2)
   double dVar5;
   double dVar6;
 
-  dVar4 = pf_bits_double(CONCAT44(param_2,param_1));
+  dVar4 = (double)(((ulonglong)value & 0xffffffff00000000) + ((ulonglong)value & 0xffffffff));
   iVar3 = VectorFloatToSigned(dVar4,3);
   dVar5 = (double)VectorSignedToFloat(iVar3,(byte)(in_fpscr >> 0x16) & 3);
   uVar1 = in_fpscr & 0xfffffff | (uint)(dVar5 < dVar4) << 0x1f | (uint)(dVar5 == dVar4) << 0x1e;
@@ -3167,7 +3167,7 @@ double recovered_100035f0(undefined4 param_1,undefined4 param_2)
  * Address: 0x10003620
  */
 
-double recovered_10003620(undefined4 param_1,undefined4 param_2)
+double recovered_10003620(double value)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -3180,7 +3180,7 @@ double recovered_10003620(undefined4 param_1,undefined4 param_2)
   double dVar5;
   double dVar6;
 
-  dVar4 = pf_bits_double(CONCAT44(param_2,param_1));
+  dVar4 = (double)(((ulonglong)value & 0xffffffff00000000) + ((ulonglong)value & 0xffffffff));
   iVar3 = VectorFloatToSigned(dVar4,3);
   dVar5 = (double)VectorSignedToFloat(iVar3,(byte)(in_fpscr >> 0x16) & 3);
   uVar1 = in_fpscr & 0xfffffff | (uint)(dVar5 < dVar4) << 0x1f | (uint)(dVar5 == dVar4) << 0x1e;
@@ -3289,26 +3289,8 @@ double recovered_100036b0(undefined4 param_1,undefined4 param_2)
 #undef DAT_100037e0
 #undef DAT_100037e8
 
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x100037f0
- */
-
-undefined8 recovered_100037f0(undefined4 param_1,undefined4 param_2)
-
-{
-  unsigned char frame[64] __attribute__((aligned(16))) = {0};
-
-  double dVar1;
-  undefined8 uVar2;
-
-  dVar1 = -0.5;
-  if (0.0 <= pf_bits_double(CONCAT44(param_2,param_1))) {
-    dVar1 = 0.5;
-  }
-  dVar1 = dVar1 + pf_bits_double(CONCAT44(param_2,param_1));
-  uVar2 = recovered_100039b0(SUB84(dVar1,0),(int)(pf_double_bits(dVar1) >> 0x20));
-  return uVar2;
-}
+/* Native nearest integer, with ties away from zero; Pooka's Free Software License. */
+longlong recovered_100037f0(double value){return (longlong)(value+(value>=0.0?0.5:-0.5));}
 
 
 #undef DAT_100038b0
@@ -3990,26 +3972,8 @@ float recovered_10003f30(float param_1)
 #undef DAT_10004068
 #undef DAT_10004070
 
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x10004074
- */
-
-float recovered_10004074(undefined4 in_r0,undefined4 in_r1,float value)
-
-{
-  unsigned char frame[64] __attribute__((aligned(16))) = {0};
-
-  float extraout_s0 = 0;
-  double dVar1;
-
-  dVar1 = -0.5;
-  if (0.0 <= pf_bits_double(CONCAT44(in_r1,in_r0))) {
-    dVar1 = 0.5;
-  }
-  dVar1 = dVar1 + pf_bits_double(CONCAT44(in_r1,in_r0));
-  recovered_100039b0(SUB84(dVar1,0),(int)(pf_double_bits(dVar1) >> 0x20));
-  return extraout_s0;
-}
+/* Native signed rounding; Pooka's Free Software License. */
+long recovered_10004074(double value){return (long)(long long)(value+(value>=0.0?0.5:-0.5));}
 
 
 #undef DAT_10004140
@@ -5014,27 +4978,14 @@ LAB_1000518c:
 #undef local_64
 #undef local_60
 
-#define local_4 (*(undefined1 (*)[4])(frame + 28))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x1000534c
- */
+/* Native variadic interface; Pooka's Free Software License. */
+int recovered_1000534c(char *buffer,unsigned long capacity,char *format,...){__builtin_va_list args;__builtin_va_start(args,format);int result=recovered_100046e8(buffer,capacity,format,(void *)args);__builtin_va_end(args);return result;}
 
-void recovered_1000534c(byte *in_r0,uint in_r1,byte *in_r2)
-
-{
-  unsigned char frame[64] __attribute__((aligned(16))) = {0};
-
-
-  recovered_100046e8(in_r0,in_r1,in_r2,(double *)local_4);
-  return;
-}
-
-#undef local_4
 
 #undef DAT_1000c084
 #define DAT_1000c084 (*(uint32_t *)(((uintptr_t)pf_module_state + 0x35cU)))
 #undef DAT_1000c088
-#define DAT_1000c088 (*(int * *)(((uintptr_t)pf_module_state + 0x360U)))
+#define DAT_1000c088 (*(uint8_t * *)(((uintptr_t)pf_module_state + 0x360U)))
 #undef DAT_68000000
 #define DAT_68000000 (*(uint8_t *)(0x68000000U))
 #undef DAT_68000004
@@ -5063,25 +5014,25 @@ void recovered_1000537c(int *param_1,int *param_2,int *param_3)
   uint uVar1;
   undefined4 *puVar2;
   int *piVar3;
-  int *piVar4;
+  byte *pcVar4;
   int *unaff_r9;
   int iVar5;
   bool bVar6;
   bool bVar7;
 
-  piVar4 = (int *)((int)param_1 + (int)param_2);
+  pcVar4 = (code *)((int)param_1 + (int)param_2);
   if (CARRY4((uint)param_1,(uint)param_2)) {
-    piVar4 = (int *)0xffffffff;
+    pcVar4 = (code *)0xffffffff;
   }
   if (param_1 < &DAT_68000000) {
-    bVar7 = param_1 <= piVar4;
-    bVar6 = piVar4 == param_1;
+    bVar7 = param_1 <= pcVar4;
+    bVar6 = pcVar4 == (code *)param_1;
     if (bVar7 && !bVar6) {
-      bVar7 = (int *)0x5fffffff < piVar4;
-      bVar6 = piVar4 == (int *)0x60000000;
+      bVar7 = (code *)0x5fffffff < pcVar4;
+      bVar6 = pcVar4 == pf_varargs_1000534c__4_;
     }
     if (bVar7 && !bVar6) {
-      if (param_1 < (int *)0x60000000) {
+      if (param_1 < pf_varargs_1000534c__4_) {
         bVar6 = param_3 == (int *)0x0;
         if (!bVar6) {
           unaff_r9 = (int *)((int)param_1 + 0xfU & 0x7ffffff0);
@@ -5101,61 +5052,61 @@ void recovered_1000537c(int *param_1,int *param_2,int *param_3)
           *piVar3 = (int)unaff_r9;
           *param_3 = (int)unaff_r9;
           *unaff_r9 = uVar1 - 0x10;
-          piVar3 = DAT_1000c088;
+          piVar3 = (int *)DAT_1000c088;
           *(undefined1 *)(unaff_r9 + 3) = 1;
           if (piVar3 == (int *)0x0) {
-            DAT_1000c088 = unaff_r9;
+            DAT_1000c088 = (code *)unaff_r9;
           }
         }
       }
-      if (piVar4 < (int *)0x68000001) {
+      if (pcVar4 < (code *)0x68000001) {
         return;
       }
       if (param_3 == (int *)0x0) {
         return;
       }
-      if (((uint)piVar4 & 0xfffffff0) + 0x98000000 < 0x21) {
+      if (((uint)pcVar4 & 0xfffffff0) + 0x98000000 < 0x21) {
         return;
       }
       _DAT_68000004 = 0;
-      _DAT_68000000 = ((uint)piVar4 & 0xfffffff0) + 0x97fffff0;
+      _DAT_68000000 = ((uint)pcVar4 & 0xfffffff0) + 0x97fffff0;
       _DAT_68000008 = *param_3;
       puVar2 = &DAT_1000c084;
       if (DAT_1000c084 != 0) {
         puVar2 = (undefined4 *)(_DAT_68000008 + 4);
       }
-      piVar4 = (int *)&DAT_68000000;
+      pcVar4 = (code *)&DAT_68000000;
       *puVar2 = &DAT_68000000;
       *param_3 = (int)&DAT_68000000;
       DAT_6800000c = 1;
-      piVar3 = DAT_1000c088;
+      piVar3 = (int *)DAT_1000c088;
       goto LAB_100054cc;
     }
   }
   if (param_3 != (int *)0x0) {
-    piVar4 = (int *)((int)param_1 + 0xfU & 0xfffffff0);
-    param_1 = (int *)((int)piVar4 - (int)param_1);
+    pcVar4 = (code *)((int)param_1 + 0xfU & 0xfffffff0);
+    param_1 = (int *)(pcVar4 + -(int)param_1);
   }
   if ((param_3 == (int *)0x0 || param_2 <= param_1) ||
      (uVar1 = (int)param_2 - (int)param_1 & 0xfffffff0, uVar1 < 0x21)) {
     return;
   }
-  piVar4[1] = 0;
+  *(undefined4 *)(pcVar4 + 4) = 0;
   iVar5 = *param_3;
   bVar6 = DAT_1000c084 != 0;
   puVar2 = &DAT_1000c084;
-  piVar4[2] = iVar5;
+  *(int *)(pcVar4 + 8) = iVar5;
   if (bVar6) {
     puVar2 = (undefined4 *)(iVar5 + 4);
   }
-  *puVar2 = piVar4;
-  *param_3 = (int)piVar4;
-  *piVar4 = uVar1 - 0x10;
-  piVar3 = DAT_1000c088;
-  *(undefined1 *)(piVar4 + 3) = 1;
+  *puVar2 = pcVar4;
+  *param_3 = (int)pcVar4;
+  *(uint *)pcVar4 = uVar1 - 0x10;
+  piVar3 = (int *)DAT_1000c088;
+  pcVar4[0xc] = (byte)0x1;
 LAB_100054cc:
   if (piVar3 == (int *)0x0) {
-    DAT_1000c088 = piVar4;
+    DAT_1000c088 = pcVar4;
     return;
   }
   return;
@@ -5384,9 +5335,11 @@ void recovered_1000580c(void)
 #undef _DAT_40010840
 #undef auStack_214
 
+#undef DAT_1000bd5c
+#define DAT_1000bd5c (*(uint8_t *)(((uintptr_t)pf_module_state + 0x34U)))
 #undef DAT_1000bd86
 #define DAT_1000bd86 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x5eU)))
-#define abStack_14c (*(byte (*)[320])(frame + 20))
+#define acStack_14c (*(char (*)[320])(frame + 20))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x100058c8
  */
@@ -5396,22 +5349,28 @@ void recovered_100058c8(undefined *param_1,undefined1 *param_2)
 {
   unsigned char frame[384] __attribute__((aligned(16))) = {0};
 
-  int extraout_r0 = 0;
-  byte *in_r2;
+  int iVar1;
+  char *format;
+  undefined1 *puVar2;
 
-  in_r2 = &DAT_1000bd86;
+  format = &DAT_1000bd86;
   if (param_1 != (undefined *)0x0) {
-    in_r2 = param_1;
+    format = param_1;
   }
-  recovered_1000534c(abStack_14c,0x140,in_r2);
-  if (0 < extraout_r0) {
-    recovered_10005568((char *)abStack_14c,extraout_r0);
+  puVar2 = &DAT_1000bd5c;
+  if (param_2 != (undefined1 *)0x0) {
+    puVar2 = param_2;
+  }
+  iVar1 = recovered_1000534c(acStack_14c,0x140,format,puVar2);
+  if (0 < iVar1) {
+    recovered_10005568(acStack_14c,iVar1);
   }
   return;
 }
 
+#undef DAT_1000bd5c
 #undef DAT_1000bd86
-#undef abStack_14c
+#undef acStack_14c
 
 #undef DAT_1000bda4
 #define DAT_1000bda4 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x7cU)))
@@ -5647,7 +5606,7 @@ LAB_10005d20:
       pbVar4[0x110] = iVar2 == 0;
       *(undefined4 *)pbVar4 = uVar7;
       pbVar4[0x111] = iVar2 != 0;
-      recovered_1000534c(pbVar4 + 4,0xf1,&DAT_1000bd86);
+      pf_varargs_1000534c__4_((char *)(pbVar4 + 4),0xf1,&DAT_1000bd86,param_1);
       return (undefined4 *)pbVar4;
     }
   }
@@ -5700,7 +5659,7 @@ LAB_10005d20:
       pbVar4[0x10d] = 0xff;
       pbVar4[0x10e] = 0xff;
       pbVar4[0x10f] = 0xff;
-      recovered_1000534c(pbVar4 + 4,0xf1,&DAT_1000bd86);
+      pf_varargs_1000534c__4_((char *)(pbVar4 + 4),0xf1,&DAT_1000bd86,param_1);
       recovered_10002530((byte *)&local_24,0,0xc);
       if ((((_DAT_40010800 == 0x50414d57) && (_DAT_40010804 != 0)) && (0x37 < _DAT_40010808)) &&
          ((_DAT_40010834 != (code *)0x0 && (iVar2 = (*_DAT_40010834)(param_1,&local_24), iVar2 != 0)
@@ -7835,17 +7794,8 @@ bool recovered_10007650(uint param_1)
 }
 
 
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x1000767c
- */
-
-bool recovered_1000767c(undefined4 param_1,uint param_2)
-
-{
-  unsigned char frame[64] __attribute__((aligned(16))) = {0};
-
-  return (param_2 & 0x7fffffff) < 0x7ff00000;
-}
+/* Native finite-value predicate; Pooka's Free Software License. */
+int recovered_1000767c(double value){return __builtin_isfinite(value);}
 
 
 /* Recovered working notes; Pooka's Free Software License.
@@ -7874,17 +7824,8 @@ bool recovered_100076b4(undefined4 param_1,uint param_2)
 }
 
 
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x100076d0
- */
-
-bool recovered_100076d0(undefined4 param_1,uint param_2)
-
-{
-  unsigned char frame[64] __attribute__((aligned(16))) = {0};
-
-  return (param_2 & 0x7fffffff) < 0x7ff00000;
-}
+/* Native finite-value predicate; Pooka's Free Software License. */
+int recovered_100076d0(double value){return __builtin_isfinite(value);}
 
 
 #undef DAT_100077c0
@@ -8092,7 +8033,7 @@ double recovered_100079c0(undefined4 param_1,undefined4 param_2)
  * Address: 0x100079dc
  */
 
-double recovered_100079dc(undefined4 param_1,undefined4 param_2)
+double recovered_100079dc(undefined4 param_1,undefined4 param_2,double in_d0)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -8100,14 +8041,14 @@ double recovered_100079dc(undefined4 param_1,undefined4 param_2)
   double dVar1;
   double dVar2;
 
-  dVar2 = recovered_100035f0(param_1,param_2);
+  dVar1 = pf_bits_double(CONCAT44(param_2,param_1));
+  dVar2 = recovered_100035f0(pf_bits_double(CONCAT44(param_2,param_1)));
   dVar2 = pf_bits_double(((pf_double_bits(dVar2) & 0xffffffff00000000) + (pf_double_bits(dVar2) & 0xffffffff)));
-  dVar1 = pf_bits_double(CONCAT44(param_2,param_1)) - dVar2;
-  if (0.5 <= dVar1) {
+  if (0.5 <= dVar1 - dVar2) {
     dVar1 = 1.0;
   }
   else {
-    if (-0.5 < dVar1) {
+    if (-0.5 < dVar1 - dVar2) {
       return dVar2;
     }
     dVar1 = -1.0;
@@ -8990,31 +8931,28 @@ LAB_10008d68:
  * Address: 0x10008e20
  */
 
-undefined4 recovered_10008e20(int *param_1,int *param_2,int param_3,int param_4)
+undefined4 recovered_10008e20(int *param_1,int *param_2,int param_3,int param_4,undefined8 in_d0)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   short sVar1;
-  undefined2 extraout_r0 = 0;
-  undefined2 extraout_r0_00 = 0;
   undefined4 uVar2;
   uint uVar3;
-  uint uVar4;
-  undefined2 uVar5;
-  int iVar6;
+  long lVar4;
+  uint uVar5;
+  undefined2 uVar6;
   int iVar7;
-  uint uVar8;
-  int iVar9;
-  uint uVar10;
-  uint unaff_r8;
+  int iVar8;
+  uint uVar9;
+  int iVar10;
   uint uVar11;
-  float value;
-  bool bVar12;
+  uint unaff_r8;
+  uint uVar12;
+  bool bVar13;
   uint in_fpscr;
-  uint uVar13;
+  uint uVar14;
   undefined4 extraout_s1 = 0;
-  double dVar14;
   double dVar15;
   double dVar16;
   double dVar17;
@@ -9022,8 +8960,9 @@ undefined4 recovered_10008e20(int *param_1,int *param_2,int param_3,int param_4)
   double dVar19;
   double dVar20;
   double dVar21;
-  longlong lVar22;
+  double dVar22;
   double dVar23;
+  longlong lVar24;
 
   uVar2 = 0;
   if (param_1 == (int *)0x0 || param_2 == (int *)0x0) {
@@ -9032,168 +8971,167 @@ undefined4 recovered_10008e20(int *param_1,int *param_2,int param_3,int param_4)
   if (param_4 < 0) {
     return 0;
   }
-  uVar8 = (uint)*(ushort *)(param_1 + 4);
-  bVar12 = uVar8 == 2;
-  if (bVar12) {
-    uVar8 = (uint)*(ushort *)(param_2 + 4);
+  uVar9 = (uint)*(ushort *)(param_1 + 4);
+  bVar13 = uVar9 == 2;
+  if (bVar13) {
+    uVar9 = (uint)*(ushort *)(param_2 + 4);
   }
-  if (bVar12 && uVar8 == 2) {
-    iVar6 = param_1[3];
-    if (iVar6 != 0) {
-      uVar8 = param_2[3];
+  if (bVar13 && uVar9 == 2) {
+    iVar7 = param_1[3];
+    if (iVar7 != 0) {
+      uVar9 = param_2[3];
     }
-    if (iVar6 != 0 && uVar8 != 0) {
-      uVar8 = param_1[1];
+    if (iVar7 != 0 && uVar9 != 0) {
+      uVar9 = param_1[1];
       uVar2 = 1;
-      if (1 < uVar8) {
+      if (1 < uVar9) {
         unaff_r8 = param_2[1];
       }
-      if (1 < uVar8 && 1 < unaff_r8) {
+      if (1 < uVar9 && 1 < unaff_r8) {
         if (param_3 == 0 && param_4 == 0) {
-          uVar11 = 0;
+          uVar12 = 0;
         }
         else {
-          dVar21 = recovered_10003af8(param_3,param_4);
-          dVar15 = (double)VectorUnsignedToFloat(iVar6,(byte)(in_fpscr >> 0x16) & 3);
-          dVar15 = (pf_bits_double(((pf_double_bits(dVar21) & 0xffffffff00000000) +
-                            (pf_double_bits(dVar21) & 0xffffffff))) * dVar15) / pf_bits_double(0x408f400000000000ULL);
-          uVar11 = in_fpscr & 0xfffffff | (uint)(dVar15 < pf_bits_double(0x41dfffffffc00000ULL)) << 0x1f;
-          in_fpscr = uVar11 | (uint)(NAN(dVar15) || NAN(pf_bits_double(0x41dfffffffc00000ULL))) << 0x1c;
-          if ((byte)(uVar11 >> 0x1f) == ((byte)(in_fpscr >> 0x1c) & 1)) {
+          dVar23 = recovered_10003af8(param_3,param_4);
+          dVar19 = (double)VectorUnsignedToFloat(iVar7,(byte)(in_fpscr >> 0x16) & 3);
+          dVar19 = (pf_bits_double(((pf_double_bits(dVar23) & 0xffffffff00000000) +
+                            (pf_double_bits(dVar23) & 0xffffffff))) * dVar19) / pf_bits_double(0x408f400000000000ULL);
+          uVar12 = in_fpscr & 0xfffffff | (uint)(dVar19 < pf_bits_double(0x41dfffffffc00000ULL)) << 0x1f;
+          in_fpscr = uVar12 | (uint)(NAN(dVar19) || NAN(pf_bits_double(0x41dfffffffc00000ULL))) << 0x1c;
+          if ((byte)(uVar12 >> 0x1f) == ((byte)(in_fpscr >> 0x1c) & 1)) {
             return 1;
           }
-          lVar22 = recovered_1000bffc(pf_bits_double(CONCAT44(extraout_s1,iVar6)));
-          uVar11 = (uint)lVar22;
+          lVar24 = recovered_1000bffc(pf_bits_double(CONCAT44(extraout_s1,iVar7)));
+          uVar12 = (uint)lVar24;
         }
         uVar2 = 1;
-        if (uVar11 < uVar8 >> 1) {
-          dVar16 = (double)VectorUnsignedToFloat(param_1[3],(byte)(in_fpscr >> 0x16) & 3);
-          dVar18 = (double)VectorUnsignedToFloat(param_2[3],(byte)(in_fpscr >> 0x16) & 3);
-          dVar15 = (double)VectorUnsignedToFloat(unaff_r8 >> 1,(byte)(in_fpscr >> 0x16) & 3);
-          dVar15 = dVar15 / (dVar18 / dVar16);
-          dVar23 = recovered_10003620(SUB84(dVar15,0),(int)(pf_double_bits(dVar15) >> 0x20));
-          dVar21 = pf_bits_double(0x40dfffc000000000ULL);
-          dVar15 = pf_bits_double(0xc0e0000000000000ULL);
-          uVar8 = (uVar8 >> 1) - uVar11;
-          uVar13 = VectorFloatToUnsigned
+        if (uVar12 < uVar9 >> 1) {
+          dVar23 = (double)VectorUnsignedToFloat(param_1[3],(byte)(in_fpscr >> 0x16) & 3);
+          dVar19 = (double)VectorUnsignedToFloat(param_2[3],(byte)(in_fpscr >> 0x16) & 3);
+          dVar19 = dVar19 / dVar23;
+          dVar23 = (double)VectorUnsignedToFloat(unaff_r8 >> 1,(byte)(in_fpscr >> 0x16) & 3);
+          dVar23 = recovered_10003620(dVar23 / dVar19);
+          uVar9 = (uVar9 >> 1) - uVar12;
+          uVar14 = VectorFloatToUnsigned
                              ((pf_double_bits(dVar23) & 0xffffffff00000000) +
                               (pf_double_bits(dVar23) & 0xffffffff),3);
-          if (uVar13 < uVar8) {
-            uVar8 = uVar13;
+          if (uVar14 < uVar9) {
+            uVar9 = uVar14;
           }
-          if (uVar8 != 0) {
-            iVar9 = *param_1;
-            iVar6 = uVar11 << 2;
-            uVar11 = 0;
-            dVar23 = 0.0;
+          if (uVar9 != 0) {
+            dVar17 = 1.0;
+            iVar10 = *param_1;
+            iVar7 = uVar12 << 2;
+            uVar12 = 0;
+            dVar15 = 0.0;
+            dVar23 = pf_bits_double(0xc0e0000000000000ULL);
+            dVar16 = pf_bits_double(0x40dfffc000000000ULL);
             do {
-              dVar14 = (dVar18 / dVar16) * dVar23;
-              uVar13 = (uint)*(ushort *)(param_2 + 4);
-              sVar1 = *(short *)(iVar9 + iVar6);
-              dVar17 = 0.0;
-              uVar2 = (undefined4)(pf_double_bits(dVar14) >> 0x20);
-              if (((uVar13 != 0) && (in_fpscr = in_fpscr & 0xfffffff, 0.0 <= dVar14)) &&
-                 (uVar10 = param_2[1], uVar10 != 0)) {
-                uVar3 = recovered_1000bff4(uVar10,uVar13);
-                dVar17 = 0.0;
-                if (uVar13 <= uVar10) {
-                  dVar17 = (double)VectorUnsignedToFloat(uVar3,(byte)(in_fpscr >> 0x16) & 3);
-                  uVar13 = in_fpscr & 0xfffffff | (uint)(dVar14 < dVar17) << 0x1f;
-                  in_fpscr = uVar13 | (uint)(NAN(dVar14) || NAN(dVar17)) << 0x1c;
-                  dVar17 = 0.0;
-                  if ((byte)(uVar13 >> 0x1f) != ((byte)(in_fpscr >> 0x1c) & 1)) {
-                    dVar17 = recovered_100035f0(SUB84(dVar14,0),uVar2);
-                    iVar9 = VectorFloatToUnsigned
-                                      ((pf_double_bits(dVar17) & 0xffffffff00000000) +
-                                       (pf_double_bits(dVar17) & 0xffffffff),3);
-                    dVar19 = (double)VectorUnsignedToFloat(iVar9,(byte)(in_fpscr >> 0x16) & 3);
-                    uVar13 = iVar9 + 1U;
-                    if (uVar3 - 1 < iVar9 + 1U) {
-                      uVar13 = uVar3 - 1;
+              dVar18 = dVar19 * dVar15;
+              uVar14 = (uint)*(ushort *)(param_2 + 4);
+              sVar1 = *(short *)(iVar10 + iVar7);
+              dVar20 = 0.0;
+              if (((uVar14 != 0) && (in_fpscr = in_fpscr & 0xfffffff, 0.0 <= dVar18)) &&
+                 (uVar11 = param_2[1], uVar11 != 0)) {
+                uVar3 = recovered_1000bff4(uVar11,uVar14);
+                dVar20 = 0.0;
+                if (uVar14 <= uVar11) {
+                  dVar20 = (double)VectorUnsignedToFloat(uVar3,(byte)(in_fpscr >> 0x16) & 3);
+                  uVar14 = in_fpscr & 0xfffffff | (uint)(dVar18 < dVar20) << 0x1f;
+                  in_fpscr = uVar14 | (uint)(NAN(dVar18) || NAN(dVar20)) << 0x1c;
+                  dVar20 = 0.0;
+                  if ((byte)(uVar14 >> 0x1f) != ((byte)(in_fpscr >> 0x1c) & 1)) {
+                    dVar20 = recovered_100035f0(dVar18);
+                    iVar10 = VectorFloatToUnsigned
+                                       ((pf_double_bits(dVar20) & 0xffffffff00000000) +
+                                        (pf_double_bits(dVar20) & 0xffffffff),3);
+                    dVar21 = (double)VectorUnsignedToFloat(iVar10,(byte)(in_fpscr >> 0x16) & 3);
+                    uVar14 = iVar10 + 1U;
+                    if (uVar3 - 1 < iVar10 + 1U) {
+                      uVar14 = uVar3 - 1;
                     }
-                    dVar17 = (double)VectorSignedToFloat((int)*(short *)(*param_2 +
-                                                                        (uint)*(ushort *)
-                                                                               (param_2 + 4) * iVar9
-                                                                        * 2),
-                                                         (byte)(in_fpscr >> 0x16) & 3);
                     dVar20 = (double)VectorSignedToFloat((int)*(short *)(*param_2 +
-                                                                        uVar13 * *(ushort *)
+                                                                        (uint)*(ushort *)
+                                                                               (param_2 + 4) *
+                                                                        iVar10 * 2),
+                                                         (byte)(in_fpscr >> 0x16) & 3);
+                    dVar22 = (double)VectorSignedToFloat((int)*(short *)(*param_2 +
+                                                                        uVar14 * *(ushort *)
                                                                                   (param_2 + 4) * 2)
                                                          ,(byte)(in_fpscr >> 0x16) & 3);
-                    dVar17 = dVar17 + (dVar20 - dVar17) * (dVar14 - dVar19);
+                    dVar20 = dVar20 + (dVar22 - dVar20) * (dVar18 - dVar21);
                   }
                 }
               }
-              uVar5 = 0x8000;
-              dVar19 = (double)VectorSignedToFloat((int)sVar1,(byte)(in_fpscr >> 0x16) & 3);
-              dVar17 = dVar17 + dVar19;
-              uVar10 = in_fpscr & 0xfffffff | (uint)(dVar17 == dVar15) << 0x1e;
-              uVar13 = uVar10 | (uint)(dVar15 <= dVar17) << 0x1d;
-              if ((bool)((byte)(uVar13 >> 0x1d) & 1) && !SUB41(uVar10 >> 0x1e,0)) {
-                uVar10 = in_fpscr & 0xfffffff | (uint)(dVar17 < dVar21) << 0x1f;
-                uVar13 = uVar10 | (uint)(NAN(dVar17) || NAN(dVar21)) << 0x1c;
-                uVar5 = 0x7fff;
-                if ((byte)(uVar10 >> 0x1f) != ((byte)(uVar13 >> 0x1c) & 1)) {
-                  recovered_10004074(SUB84(dVar17,0),(int)(pf_double_bits(dVar17) >> 0x20),
-                                     (float)(int)sVar1);
-                  uVar5 = extraout_r0;
+              uVar6 = 0x8000;
+              dVar21 = (double)VectorSignedToFloat((int)sVar1,(byte)(in_fpscr >> 0x16) & 3);
+              dVar20 = dVar20 + dVar21;
+              uVar11 = in_fpscr & 0xfffffff | (uint)(dVar20 == dVar23) << 0x1e;
+              uVar14 = uVar11 | (uint)(dVar23 <= dVar20) << 0x1d;
+              if ((bool)((byte)(uVar14 >> 0x1d) & 1) && !SUB41(uVar11 >> 0x1e,0)) {
+                uVar11 = in_fpscr & 0xfffffff | (uint)(dVar20 < dVar16) << 0x1f;
+                uVar14 = uVar11 | (uint)(NAN(dVar20) || NAN(dVar16)) << 0x1c;
+                uVar6 = 0x7fff;
+                if ((byte)(uVar11 >> 0x1f) != ((byte)(uVar14 >> 0x1c) & 1)) {
+                  lVar4 = recovered_10004074(dVar20);
+                  uVar6 = (undefined2)lVar4;
                 }
               }
-              iVar9 = *param_1;
-              dVar17 = 0.0;
-              *(undefined2 *)(iVar9 + iVar6) = uVar5;
-              uVar10 = (uint)*(ushort *)(param_2 + 4);
-              value = (float)(int)(short)((undefined2 *)(iVar9 + iVar6))[1];
-              if (((uVar10 != 0) && (uVar3 = param_2[1], uVar3 != 0 && uVar10 != 1)) &&
-                 ((uVar13 = uVar13 & 0xfffffff, 0.0 <= dVar14 &&
-                  (uVar4 = recovered_1000bff4(uVar3,uVar10), uVar10 <= uVar3)))) {
-                dVar19 = (double)VectorUnsignedToFloat(uVar4,(byte)(uVar13 >> 0x16) & 3);
-                uVar10 = uVar13 & 0xfffffff | (uint)(dVar14 < dVar19) << 0x1f;
-                uVar13 = uVar10 | (uint)(NAN(dVar14) || NAN(dVar19)) << 0x1c;
-                if ((byte)(uVar10 >> 0x1f) != ((byte)(uVar13 >> 0x1c) & 1)) {
-                  dVar17 = recovered_100035f0(SUB84(dVar14,0),uVar2);
-                  iVar9 = VectorFloatToUnsigned
-                                    ((pf_double_bits(dVar17) & 0xffffffff00000000) +
-                                     (pf_double_bits(dVar17) & 0xffffffff),3);
-                  dVar19 = (double)VectorUnsignedToFloat(iVar9,(byte)(uVar13 >> 0x16) & 3);
-                  uVar10 = iVar9 + 1U;
-                  if (uVar4 - 1 < iVar9 + 1U) {
-                    uVar10 = uVar4 - 1;
+              iVar10 = *param_1;
+              dVar20 = 0.0;
+              *(undefined2 *)(iVar10 + iVar7) = uVar6;
+              uVar11 = (uint)*(ushort *)(param_2 + 4);
+              sVar1 = ((undefined2 *)(iVar10 + iVar7))[1];
+              if (((uVar11 != 0) && (uVar3 = param_2[1], uVar3 != 0 && uVar11 != 1)) &&
+                 ((uVar14 = uVar14 & 0xfffffff, 0.0 <= dVar18 &&
+                  (uVar5 = recovered_1000bff4(uVar3,uVar11), uVar11 <= uVar3)))) {
+                dVar21 = (double)VectorUnsignedToFloat(uVar5,(byte)(uVar14 >> 0x16) & 3);
+                uVar11 = uVar14 & 0xfffffff | (uint)(dVar18 < dVar21) << 0x1f;
+                uVar14 = uVar11 | (uint)(NAN(dVar18) || NAN(dVar21)) << 0x1c;
+                if ((byte)(uVar11 >> 0x1f) != ((byte)(uVar14 >> 0x1c) & 1)) {
+                  dVar20 = recovered_100035f0(dVar18);
+                  iVar10 = VectorFloatToUnsigned
+                                     ((pf_double_bits(dVar20) & 0xffffffff00000000) +
+                                      (pf_double_bits(dVar20) & 0xffffffff),3);
+                  dVar21 = (double)VectorUnsignedToFloat(iVar10,(byte)(uVar14 >> 0x16) & 3);
+                  uVar11 = iVar10 + 1U;
+                  if (uVar5 - 1 < iVar10 + 1U) {
+                    uVar11 = uVar5 - 1;
                   }
-                  dVar17 = (double)VectorSignedToFloat((int)*(short *)(*param_2 +
-                                                                       (uint)*(ushort *)
-                                                                              (param_2 + 4) * iVar9
-                                                                       * 2 + 2),
-                                                       (byte)(uVar13 >> 0x16) & 3);
                   dVar20 = (double)VectorSignedToFloat((int)*(short *)(*param_2 +
-                                                                       uVar10 * *(ushort *)
+                                                                       (uint)*(ushort *)
+                                                                              (param_2 + 4) * iVar10
+                                                                       * 2 + 2),
+                                                       (byte)(uVar14 >> 0x16) & 3);
+                  dVar22 = (double)VectorSignedToFloat((int)*(short *)(*param_2 +
+                                                                       uVar11 * *(ushort *)
                                                                                  (param_2 + 4) * 2 +
-                                                                      2),(byte)(uVar13 >> 0x16) & 3)
+                                                                      2),(byte)(uVar14 >> 0x16) & 3)
                   ;
-                  dVar17 = dVar17 + (dVar20 - dVar17) * (dVar14 - dVar19);
+                  dVar20 = dVar20 + (dVar22 - dVar20) * (dVar18 - dVar21);
                 }
               }
-              uVar5 = 0x8000;
-              dVar14 = (double)VectorSignedToFloat(value,(byte)(uVar13 >> 0x16) & 3);
-              dVar17 = dVar17 + dVar14;
-              uVar10 = uVar13 & 0xfffffff | (uint)(dVar17 == dVar15) << 0x1e;
-              in_fpscr = uVar10 | (uint)(dVar15 <= dVar17) << 0x1d;
-              if ((bool)((byte)(in_fpscr >> 0x1d) & 1) && !SUB41(uVar10 >> 0x1e,0)) {
-                uVar13 = uVar13 & 0xfffffff | (uint)(dVar17 < dVar21) << 0x1f;
-                in_fpscr = uVar13 | (uint)(NAN(dVar17) || NAN(dVar21)) << 0x1c;
-                uVar5 = 0x7fff;
-                if ((byte)(uVar13 >> 0x1f) != ((byte)(in_fpscr >> 0x1c) & 1)) {
-                  recovered_10004074(SUB84(dVar17,0),(int)(pf_double_bits(dVar17) >> 0x20),value);
-                  uVar5 = extraout_r0_00;
+              uVar6 = 0x8000;
+              dVar18 = (double)VectorSignedToFloat((int)sVar1,(byte)(uVar14 >> 0x16) & 3);
+              dVar20 = dVar20 + dVar18;
+              uVar11 = uVar14 & 0xfffffff | (uint)(dVar20 == dVar23) << 0x1e;
+              in_fpscr = uVar11 | (uint)(dVar23 <= dVar20) << 0x1d;
+              if ((bool)((byte)(in_fpscr >> 0x1d) & 1) && !SUB41(uVar11 >> 0x1e,0)) {
+                uVar14 = uVar14 & 0xfffffff | (uint)(dVar20 < dVar16) << 0x1f;
+                in_fpscr = uVar14 | (uint)(NAN(dVar20) || NAN(dVar16)) << 0x1c;
+                uVar6 = 0x7fff;
+                if ((byte)(uVar14 >> 0x1f) != ((byte)(in_fpscr >> 0x1c) & 1)) {
+                  lVar4 = recovered_10004074(dVar20);
+                  uVar6 = (undefined2)lVar4;
                 }
               }
-              dVar23 = dVar23 + 1.0;
-              iVar9 = *param_1;
-              uVar11 = uVar11 + 1;
-              iVar7 = iVar9 + iVar6;
-              iVar6 = iVar6 + 4;
-              *(undefined2 *)(iVar7 + 2) = uVar5;
-            } while (uVar11 < uVar8);
+              dVar15 = dVar15 + dVar17;
+              iVar10 = *param_1;
+              uVar12 = uVar12 + 1;
+              iVar8 = iVar10 + iVar7;
+              iVar7 = iVar7 + 4;
+              *(undefined2 *)(iVar8 + 2) = uVar6;
+            } while (uVar12 < uVar9);
           }
           uVar2 = 1;
           param_1[5] = 0;
@@ -9209,446 +9147,110 @@ undefined4 recovered_10008e20(int *param_1,int *param_2,int param_3,int param_4)
 #undef DAT_10009270
 #undef DAT_10009278
 
-#undef DAT_10009530
-#define DAT_10009530 (*(double *)(0x10009530U))
-#undef DAT_10009538
-#define DAT_10009538 (*(double *)(0x10009538U))
-#undef DAT_10009540
-#define DAT_10009540 (*(int *)(0x10009540U))
-#undef DAT_10009544
-#define DAT_10009544 (*(int *)(0x10009544U))
-#undef DAT_10010008
-#define DAT_10010008 (*(uint32_t *)(((uintptr_t)pf_module_state + 0x42e0U)))
-#define auStack_b0 (*(undefined1 (*)[8])(frame + 16))
-#define uStack_94 (*(undefined4 *)(frame + 44))
-#define auStack_68 (*(undefined1 (*)[8])(frame + 88))
-#define local_a8 (*(void * *)(frame + 24))
-#define local_a4 (*(void ** *)(frame + 28))
-#define local_a0 (*(void * *)(frame + 32))
-#define local_9c (*(void * *)(frame + 36))
-#define local_98 (*(void * *)(frame + 40))
-#define local_90 (*(undefined4 *)(frame + 48))
-#define local_7c (*(undefined4 *)(frame + 68))
-#define local_78 (*(int *)(frame + 72))
-#define local_74 (*(undefined1 * *)(frame + 76))
-#define local_70 (*(int *)(frame + 80))
-#define local_6c (*(undefined1 * *)(frame + 84))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x10009280
- */
-
-undefined4 recovered_10009280(void **param_1,uint param_2,uint param_3,uint param_4,uint param_5)
-
-{
-  unsigned char frame[224] __attribute__((aligned(16))) = {0};
-
-  uint uVar1;
-  void **ppvVar2;
-  void *pvVar3;
-  uint uVar4;
-  uint uVar5;
-  undefined4 uVar6;
-  uint uVar7;
-  uint in_fpscr;
-  undefined4 extraout_s1 = 0;
-  undefined4 extraout_s1_00 = 0;
-  double dVar8;
-  double dVar9;
-  longlong lVar10;
-
-  local_74 = auStack_68 + 0x60;
-  local_6c = auStack_b0;
-  local_7c = DAT_10010008;
-  local_78 = ((uintptr_t)pf_module_state + 0x1f8U);
-  local_70 = (0x204U) + 0x100092e0;
-  recovered_10007364(&uStack_94);
-  uVar6 = 0;
-  if ((((int)(param_5 - (param_3 + (param_4 < param_2))) < 0 ==
-        (SBORROW4(param_5,param_3) != SBORROW4(param_5 - param_3,(uint)(param_4 < param_2)))) &&
-      (param_1 != (void **)0x0)) && (pvVar3 = (void *)(param_5 | param_3), -1 < (int)pvVar3)) {
-    uVar5 = (uint)*(ushort *)(param_1 + 4);
-    if (uVar5 != 0) {
-      pvVar3 = param_1[3];
-      local_a8 = pvVar3;
-    }
-    if (uVar5 != 0 && pvVar3 != (void *)0x0) {
-      local_a4 = param_1;
-      uVar4 = recovered_1000bff4((uint)param_1[1],uVar5);
-      uVar5 = 0;
-      if ((int)param_3 < (int)(uint)(param_2 == 0)) {
-        uVar7 = 0;
-        pvVar3 = local_a8;
-      }
-      else {
-        dVar9 = recovered_10003af8(param_2,param_3);
-        uVar7 = 0x7fffffff;
-        dVar8 = (double)VectorUnsignedToFloat(local_a8,(byte)(in_fpscr >> 0x16) & 3);
-        dVar8 = (pf_bits_double(((pf_double_bits(dVar9) & 0xffffffff00000000) + (pf_double_bits(dVar9) & 0xffffffff)))
-                * dVar8) / pf_bits_double(0x408f400000000000ULL);
-        uVar1 = in_fpscr & 0xfffffff | (uint)(dVar8 < pf_bits_double(0x41dfffffffc00000ULL)) << 0x1f;
-        in_fpscr = uVar1 | (uint)(NAN(dVar8) || NAN(pf_bits_double(0x41dfffffffc00000ULL))) << 0x1c;
-        pvVar3 = local_a8;
-        if ((byte)(uVar1 >> 0x1f) != ((byte)(in_fpscr >> 0x1c) & 1)) {
-          local_90 = 0xffffffff;
-          lVar10 = recovered_1000bffc(pf_bits_double(CONCAT44(extraout_s1,local_a8)));
-          uVar7 = (uint)lVar10;
-          pvVar3 = local_a4[3];
-        }
-      }
-      if (((int)(uint)(param_4 == 0) <= (int)param_5) && (pvVar3 != (void *)0x0)) {
-        dVar9 = recovered_10003af8(param_4,param_5);
-        uVar5 = 0x7fffffff;
-        dVar8 = (double)VectorUnsignedToFloat(pvVar3,(byte)(in_fpscr >> 0x16) & 3);
-        if ((pf_bits_double(((pf_double_bits(dVar9) & 0xffffffff00000000) + (pf_double_bits(dVar9) & 0xffffffff))) *
-            dVar8) / pf_bits_double(0x408f400000000000ULL) < pf_bits_double(0x41dfffffffc00000ULL)) {
-          local_90 = 0xffffffff;
-          lVar10 = recovered_1000bffc(pf_bits_double(CONCAT44(extraout_s1_00,pvVar3)));
-          uVar5 = (uint)lVar10;
-        }
-      }
-      if (uVar4 < uVar7) {
-        uVar7 = uVar4;
-      }
-      if (uVar4 < uVar5) {
-        uVar5 = uVar4;
-      }
-      if (uVar5 <= uVar7) {
-        uVar5 = uVar7;
-      }
-      local_90 = 1;
-      local_98 = (void *)0x0;
-      local_a0 = (void *)0x0;
-      local_9c = (void *)0x0;
-      recovered_1000ba98(&local_a0,0,
-                         (undefined8 *)((int)*local_a4 + uVar7 * *(ushort *)(local_a4 + 4) * 2),
-                         (undefined8 *)((int)*local_a4 + uVar5 * *(ushort *)(local_a4 + 4) * 2));
-      ppvVar2 = local_a4;
-      if (&local_a0 != local_a4) {
-        local_a4[1] = (void *)0x0;
-        recovered_10006e1c(*local_a4);
-        *ppvVar2 = local_a0;
-        ppvVar2[1] = local_9c;
-        ppvVar2[2] = local_98;
-        local_98 = (void *)0x0;
-        local_a0 = (void *)0x0;
-      }
-      ppvVar2[5] = (void *)0x0;
-      local_9c = (void *)0x0;
-      recovered_10006e1c(local_a0);
-      uVar6 = 1;
-    }
-  }
-  recovered_10007388(&uStack_94);
-  return uVar6;
+/* Native millisecond slice semantics; Pooka's Free Software License. */
+uint recovered_10009280(void **opaque,uint slo,uint shi,uint elo,uint ehi) {
+ struct track { short *samples; unsigned long count,capacity; uint rate; ushort channels; unsigned long mixer; };
+ unsigned long long start=((unsigned long long)shi<<32)|slo,end=((unsigned long long)ehi<<32)|elo;
+ struct track *track=(struct track *)opaque;
+ if(!track||(long long)start<0||(long long)end<0||start>end||!track->rate||!track->channels)return 0;
+ unsigned long frames=track->count/track->channels;
+ double first=(double)track->rate*(double)start/1000.0;
+ double last=(double)track->rate*(double)end/1000.0;
+ unsigned long a=first>=2147483647.0?0x7fffffffU:(unsigned long)(first+0.5);
+ unsigned long b=last>=2147483647.0?0x7fffffffU:(unsigned long)(last+0.5);
+ if(a>frames)a=frames;
+ if(b>frames)b=frames;
+ if(b<a)b=a;
+ unsigned long count=(b-a)*track->channels;
+ short *samples=count?(short *)recovered_10006dc4(count*2):0;
+ if(count&&!samples)return 0;
+ for(unsigned long i=0;i<count;++i)samples[i]=track->samples[a*track->channels+i];
+ recovered_10006e1c(track->samples);
+ track->samples=samples;track->count=track->capacity=count;track->mixer=0;
+ return 1;
 }
 
-#undef DAT_10009530
-#undef DAT_10009538
-#undef DAT_10009540
-#undef DAT_10009544
-#undef DAT_10010008
-#undef auStack_b0
-#undef uStack_94
-#undef auStack_68
-#undef local_a8
-#undef local_a4
-#undef local_a0
-#undef local_9c
-#undef local_98
-#undef local_90
-#undef local_7c
-#undef local_78
-#undef local_74
-#undef local_70
-#undef local_6c
 
-#define iStack_30 (*(int *)(frame + 32))
-#define iStack_2c (*(int *)(frame + 36))
-#define iStack_28 (*(int *)(frame + 40))
-#define local_34 (*(int *)(frame + 28))
+#define uStack_30 (*(undefined4 *)(frame + 32))
+#define uStack_2c (*(undefined4 *)(frame + 36))
+#define uStack_28 (*(undefined4 *)(frame + 40))
+#define local_34 (*(undefined4 *)(frame + 28))
 #define local_24 (*(undefined2 *)(frame + 44))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10009548
  */
 
-undefined4 recovered_10009548(int *param_1,undefined4 param_2,uint param_3)
+int recovered_10009548(void *track,double factor)
 
 {
   unsigned char frame[112] __attribute__((aligned(16))) = {0};
 
-  bool bVar1;
+  int iVar1;
   float fVar2;
   uint extraout_r1 = 0;
   uint denominator;
-  undefined4 uVar3;
+  int iVar3;
   double dVar4;
 
-  uVar3 = 0;
-  if (param_1 != (int *)0x0) {
-    dVar4 = pf_bits_double(CONCAT44(param_3,param_2));
-    bVar1 = recovered_100076d0(param_2,param_3);
-    if ((0.0 < dVar4) && (bVar1)) {
-      uVar3 = 1;
+  iVar3 = 0;
+  if (track != (void *)0x0) {
+    dVar4 = factor;
+    iVar1 = recovered_100076d0(factor);
+    if ((0.0 < dVar4) && (iVar1 != 0)) {
+      iVar3 = 1;
       denominator = extraout_r1;
       if (dVar4 != 1.0) {
-        denominator = (uint)*(ushort *)(param_1 + 4);
+        denominator = (uint)*(ushort *)((int)track + 0x10);
       }
-      if ((dVar4 != 1.0 && denominator != 0) && (denominator <= (uint)param_1[1])) {
-        fVar2 = (float)recovered_1000bff4(param_1[1],denominator);
-        recovered_10009620(param_2,param_3,&local_34,param_1,fVar2);
-        param_1[1] = 0;
-        recovered_10006e1c((void *)*param_1);
-        *param_1 = local_34;
-        param_1[1] = iStack_30;
-        param_1[2] = iStack_2c;
-        param_1[3] = iStack_28;
-        *(undefined2 *)(param_1 + 4) = local_24;
+      if ((dVar4 != 1.0 && denominator != 0) && (denominator <= *(uint *)((int)track + 4))) {
+        fVar2 = (float)recovered_1000bff4(*(uint *)((int)track + 4),denominator);
+        recovered_10009620(SUB84(dVar4,0),(int)(pf_double_bits(dVar4) >> 0x20),&local_34,track,fVar2);
+        *(undefined4 *)((int)track + 4) = 0;
+        recovered_10006e1c(*(void **)track);
+        *(undefined4 *)track = local_34;
+        *(undefined4 *)((int)track + 4) = uStack_30;
+        *(undefined4 *)((int)track + 8) = uStack_2c;
+        *(undefined4 *)((int)track + 0xc) = uStack_28;
+        *(undefined2 *)((int)track + 0x10) = local_24;
         recovered_10006e1c((void *)0x0);
-        param_1[5] = 0;
+        *(undefined4 *)((int)track + 0x14) = 0;
       }
     }
   }
-  return uVar3;
+  return iVar3;
 }
 
-#undef iStack_30
-#undef iStack_2c
-#undef iStack_28
+#undef uStack_30
+#undef uStack_2c
+#undef uStack_28
 #undef local_34
 #undef local_24
 
-#undef DAT_100099d8
-#define DAT_100099d8 (*(double *)(0x100099d8U))
-#undef DAT_100099e0
-#define DAT_100099e0 (*(double *)(0x100099e0U))
-#undef DAT_100099e8
-#define DAT_100099e8 (*(int *)(0x100099e8U))
-#undef DAT_100099ec
-#define DAT_100099ec (*(int *)(0x100099ecU))
-#undef DAT_10010008
-#define DAT_10010008 (*(uint32_t *)(((uintptr_t)pf_module_state + 0x42e0U)))
-#define local_b4 (*(undefined4 *)(frame + 28))
-#define local_b0 (*(float *)(frame + 32))
-#define local_ac (*(int *)(frame + 36))
-#define local_a8 (*(uint *)(frame + 40))
-#define local_a4 (*(int * *)(frame + 44))
-#define local_a0 (*(uint *)(frame + 48))
-#define local_9c (*(undefined4 * *)(frame + 52))
-#define local_98 (*(undefined8 * *)(frame + 56))
-#define local_90 (*(undefined4 *)(frame + 64))
-#define local_7c (*(undefined4 *)(frame + 84))
-#define local_78 (*(int *)(frame + 88))
-#define local_74 (*(undefined1 * *)(frame + 92))
-#define local_70 (*(int *)(frame + 96))
-#define local_6c (*(undefined1 * *)(frame + 100))
-#define uStack_94 (*(undefined4 *)(frame + 60))
-#define auStack_68 (*(undefined1 (*)[8])(frame + 104))
-#define local_c0 (*(float *)(frame + 16))
-#define local_bc (*(float *)(frame + 20))
-#define local_b8 (*(undefined4 *)(frame + 24))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x10009620
- */
-
-void recovered_10009620(undefined4 param_1,undefined4 param_2,undefined4 *param_3,int *param_4,
-                       float param_5)
-
-{
-  unsigned char frame[240] __attribute__((aligned(16))) = {0};
-
-  ushort uVar1;
-  double dVar2;
-  double dVar3;
-  double dVar4;
-  undefined2 uVar5;
-  undefined2 extraout_r0 = 0;
-  float fVar6;
-  float fVar7;
-  uint uVar8;
-  undefined2 *puVar9;
-  undefined8 *puVar10;
-  undefined8 *puVar11;
-  uint uVar12;
-  uint uVar13;
-  int iVar14;
-  uint in_fpscr;
-  float extraout_s0 = 0;
-  double dVar15;
-  double dVar16;
-  double dVar17;
-  double dVar18;
-  double dVar19;
-
-  local_74 = auStack_68 + 0x60;
-  local_6c = (undefined1 *)&local_c0;
-  puVar11 = (undefined8 *)0x0;
-  dVar2 = pf_bits_double(CONCAT44(param_2,param_1));
-  *param_3 = 0;
-  param_3[1] = 0;
-  local_7c = DAT_10010008;
-  iVar14 = param_4[3];
-  uVar1 = *(ushort *)(param_4 + 4);
-  uVar13 = (uint)uVar1;
-  local_78 = ((uintptr_t)pf_module_state + 0x200U);
-  param_3[2] = 0;
-  param_3[3] = iVar14;
-  *(ushort *)(param_3 + 4) = uVar1;
-  local_70 = (0x2b8U) + 0x100096b4;
-  local_a4 = param_4;
-  local_9c = param_3;
-  recovered_10007364(&uStack_94);
-  uVar8 = uVar13 * (int)param_5;
-  local_c0 = param_5;
-  local_a8 = uVar13;
-  if (uVar8 == 0) goto LAB_10009768;
-  local_90 = 1;
-  local_a0 = uVar8;
-  puVar11 = recovered_10006dc4(uVar8 * 2);
-  recovered_10006e1c((void *)0x0);
-  *local_9c = puVar11;
-  local_9c[2] = local_a0;
-  uVar13 = 0;
-  if (local_a0 < 8) {
-LAB_10009740:
-    iVar14 = local_a0 - uVar13;
-    puVar9 = (undefined2 *)((int)puVar11 + uVar13 * 2);
-    do {
-      *puVar9 = 0;
-      iVar14 = iVar14 + -1;
-      puVar9 = puVar9 + 1;
-    } while (iVar14 != 0);
+/* Native linear resampling semantics; Pooka's Free Software License. */
+void recovered_10009620(uint lo,uint hi,undefined4 *opaque,int *source,float requested) {
+ struct decoded {short *samples;unsigned long count,capacity;uint rate;ushort channels;};
+ double ratio=pf_bits_double(((unsigned long long)hi<<32)|lo);
+ struct decoded *out=(struct decoded *)opaque,*in=(struct decoded *)source;
+ unsigned long frames=(unsigned long)requested,count=frames*in->channels;
+ out->samples=0;out->count=out->capacity=0;out->rate=in->rate;out->channels=in->channels;
+ if(count){out->samples=(short *)recovered_10006dc4(count*2);if(!out->samples)return;}
+ out->count=out->capacity=count;
+ unsigned long old_frames=in->channels?in->count/in->channels:0;
+ for(unsigned long frame=0;frame<frames;++frame){
+  double position=(double)frame*ratio;
+  for(unsigned channel=0;channel<in->channels;++channel){
+   double value=0.0;
+   if(ratio>0.0&&in->rate&&position>=0.0&&position<(double)old_frames){
+    unsigned long a=(unsigned long)position,b=a+1<old_frames?a+1:old_frames-1;
+    double first=in->samples[a*in->channels+channel];
+    value=((double)in->samples[b*in->channels+channel]-first)*(position-(double)a)+first;
+   }
+   out->samples[frame*in->channels+channel]=value<= -32768.0?-32768:value>=32767.0?32767:(short)(long)(value+(value>=0.0?0.5:-0.5));
   }
-  else {
-    uVar13 = local_a0 & 0xfffffff8;
-    uVar8 = uVar13;
-    puVar10 = puVar11;
-    do {
-      *puVar10 = 0;
-      puVar10[1] = 0;
-      puVar10 = puVar10 + 2;
-      uVar8 = uVar8 - 8;
-    } while (uVar8 != 0);
-    if (local_a0 != uVar13) goto LAB_10009740;
-  }
-  local_9c[1] = local_a0;
-  iVar14 = local_a4[3];
-  uVar13 = (uint)*(ushort *)(local_a4 + 4);
-LAB_10009768:
-  dVar4 = pf_bits_double(0x40dfffc000000000ULL);
-  dVar3 = pf_bits_double(0xc0e0000000000000ULL);
-  uVar12 = in_fpscr & 0xfffffff | (uint)(dVar2 == 0.0) << 0x1e;
-  uVar8 = uVar12 | (uint)(0.0 <= dVar2) << 0x1d;
-  local_98 = puVar11;
-  if (((bool)((byte)(uVar8 >> 0x1d) & 1) && !SUB41(uVar12 >> 0x1e,0)) &&
-     (uVar13 != 0 && iVar14 != 0)) {
-    fVar7 = 0.0;
-    if (local_a4[1] != 0) {
-      fVar7 = local_c0;
-    }
-    if (local_a4[1] != 0 && fVar7 != 0.0) {
-      local_bc = 0.0;
-      do {
-        if (local_a8 != 0) {
-          uVar13 = 0;
-          dVar16 = (double)VectorUnsignedToFloat(local_bc,(byte)(uVar8 >> 0x16) & 3);
-          local_ac = (int)local_98 + (int)local_bc * local_a8 * 2;
-          dVar16 = dVar16 * dVar2;
-          fVar7 = local_bc;
-          dVar17 = dVar16;
-          do {
-            local_b8 = (undefined4)(pf_double_bits(dVar17) >> 0x20);
-            local_b4 = SUB84(dVar17,0);
-            dVar15 = 0.0;
-            uVar12 = (uint)*(ushort *)(local_a4 + 4);
-            local_a0 = uVar13;
-            if ((((uVar12 == 0) || (uVar12 <= uVar13)) || (uVar8 = uVar8 & 0xfffffff, dVar16 < 0.0))
-               || (uVar13 = local_a4[1], uVar13 == 0)) {
-LAB_10009954:
-              local_b8 = (undefined4)(pf_double_bits(dVar17) >> 0x20);
-              local_b4 = SUB84(dVar17,0);
-              local_90 = 3;
-              fVar7 = recovered_10004074(SUB84(dVar15,0),(int)(pf_double_bits(dVar15) >> 0x20),fVar7);
-              uVar5 = extraout_r0;
-            }
-            else {
-              fVar6 = (float)recovered_1000bff4(uVar13,uVar12);
-              fVar7 = extraout_s0;
-              dVar17 = pf_bits_double(CONCAT44(local_b8,local_b4));
-              if (uVar13 < uVar12) goto LAB_10009954;
-              dVar17 = (double)VectorUnsignedToFloat(fVar6,(byte)(uVar8 >> 0x16) & 3);
-              uVar13 = uVar8 & 0xfffffff | (uint)(dVar16 < dVar17) << 0x1f;
-              uVar8 = uVar13 | (uint)(NAN(dVar16) || NAN(dVar17)) << 0x1c;
-              fVar7 = fVar6;
-              dVar17 = pf_bits_double(CONCAT44(local_b8,local_b4));
-              if ((byte)(uVar13 >> 0x1f) == ((byte)(uVar8 >> 0x1c) & 1)) goto LAB_10009954;
-              local_90 = 2;
-              local_b0 = fVar6;
-              dVar15 = recovered_100035f0(local_b4,local_b8);
-              dVar17 = pf_bits_double(CONCAT44(local_b8,local_b4));
-              iVar14 = VectorFloatToUnsigned
-                                 ((pf_double_bits(dVar15) & 0xffffffff00000000) +
-                                  (pf_double_bits(dVar15) & 0xffffffff),3);
-              dVar18 = (double)VectorUnsignedToFloat(iVar14,(byte)(uVar8 >> 0x16) & 3);
-              uVar13 = iVar14 + 1U;
-              if ((int)local_b0 - 1U < iVar14 + 1U) {
-                uVar13 = (int)local_b0 - 1U;
-              }
-              fVar7 = (float)(int)*(short *)(*local_a4 + uVar13 * *(ushort *)(local_a4 + 4) * 2 +
-                                            local_a0 * 2);
-              dVar15 = (double)VectorSignedToFloat((int)*(short *)(*local_a4 +
-                                                                   (uint)*(ushort *)(local_a4 + 4) *
-                                                                   iVar14 * 2 + local_a0 * 2),
-                                                   (byte)(uVar8 >> 0x16) & 3);
-              uVar5 = 0x8000;
-              dVar19 = (double)VectorSignedToFloat(fVar7,(byte)(uVar8 >> 0x16) & 3);
-              dVar15 = dVar15 + (dVar19 - dVar15) * (dVar16 - dVar18);
-              uVar13 = uVar8 & 0xfffffff;
-              uVar12 = uVar13 | (uint)(dVar15 == dVar3) << 0x1e;
-              uVar8 = uVar12 | (uint)(dVar3 <= dVar15) << 0x1d;
-              if ((bool)((byte)(uVar8 >> 0x1d) & 1) && !SUB41(uVar12 >> 0x1e,0)) {
-                uVar13 = uVar13 | (uint)(dVar15 < dVar4) << 0x1f;
-                uVar8 = uVar13 | (uint)(NAN(dVar15) || NAN(dVar4)) << 0x1c;
-                uVar5 = 0x7fff;
-                if ((byte)(uVar13 >> 0x1f) != ((byte)(uVar8 >> 0x1c) & 1)) goto LAB_10009954;
-              }
-            }
-            dVar17 = pf_bits_double(CONCAT44(local_b8,local_b4));
-            uVar13 = local_a0 + 1;
-            *(undefined2 *)(local_ac + local_a0 * 2) = uVar5;
-          } while (uVar13 != local_a8);
-        }
-        local_bc = (float)((int)local_bc + 1);
-      } while (local_bc != local_c0);
-    }
-  }
-  recovered_10007388(&uStack_94);
-  return;
+ }
+ return;
 }
 
-#undef DAT_100099d8
-#undef DAT_100099e0
-#undef DAT_100099e8
-#undef DAT_100099ec
-#undef DAT_10010008
-#undef local_b4
-#undef local_b0
-#undef local_ac
-#undef local_a8
-#undef local_a4
-#undef local_a0
-#undef local_9c
-#undef local_98
-#undef local_90
-#undef local_7c
-#undef local_78
-#undef local_74
-#undef local_70
-#undef local_6c
-#undef uStack_94
-#undef auStack_68
-#undef local_c0
-#undef local_bc
-#undef local_b8
 
 #define uStack_30 (*(undefined4 *)(frame + 32))
 #define uStack_2c (*(undefined4 *)(frame + 36))
@@ -9659,55 +9261,54 @@ LAB_10009954:
  * Address: 0x100099f0
  */
 
-undefined4 recovered_100099f0(undefined4 *param_1,undefined4 param_2,uint param_3)
+int recovered_100099f0(void *track,double factor)
 
 {
   unsigned char frame[112] __attribute__((aligned(16))) = {0};
 
-  bool bVar1;
+  int iVar1;
   uint extraout_r1 = 0;
   uint uVar2;
   float fVar3;
-  undefined4 uVar4;
+  int iVar4;
   uint in_fpscr;
   double dVar5;
   double dVar6;
-  undefined8 uVar7;
+  longlong lVar7;
 
-  uVar4 = 0;
-  if (param_1 != (undefined4 *)0x0) {
-    dVar5 = pf_bits_double(CONCAT44(param_3,param_2));
-    bVar1 = recovered_100076d0(param_2,param_3);
+  iVar4 = 0;
+  if (track != (void *)0x0) {
+    dVar5 = factor;
+    iVar1 = recovered_100076d0(factor);
     in_fpscr = in_fpscr & 0xfffffff;
-    if ((0.0 <= dVar5) && (bVar1)) {
-      uVar4 = 1;
+    if ((0.0 < dVar5) && (iVar1 != 0)) {
+      iVar4 = 1;
       uVar2 = extraout_r1;
       if (dVar5 != 1.0) {
-        uVar2 = (uint)*(ushort *)(param_1 + 4);
+        uVar2 = (uint)*(ushort *)((int)track + 0x10);
       }
-      if ((dVar5 != 1.0 && uVar2 != 0) && (uVar2 <= (uint)param_1[1])) {
-        uVar2 = recovered_1000bff4(param_1[1],uVar2);
+      if ((dVar5 != 1.0 && uVar2 != 0) && (uVar2 <= *(uint *)((int)track + 4))) {
+        uVar2 = recovered_1000bff4(*(uint *)((int)track + 4),uVar2);
         fVar3 = 0.0;
         dVar6 = (double)VectorUnsignedToFloat(uVar2,(byte)(in_fpscr >> 0x16) & 3);
-        dVar6 = dVar6 / dVar5;
-        if (0.0 < dVar6) {
-          uVar7 = recovered_100037f0(SUB84(dVar6,0),(int)(pf_double_bits(dVar6) >> 0x20));
-          fVar3 = (float)uVar7;
+        if (0.0 < dVar6 / dVar5) {
+          lVar7 = recovered_100037f0(dVar6 / dVar5);
+          fVar3 = (float)lVar7;
         }
-        recovered_10009620(param_2,param_3,&local_34,param_1,fVar3);
-        param_1[1] = 0;
-        recovered_10006e1c((void *)*param_1);
-        *param_1 = local_34;
-        param_1[1] = uStack_30;
-        param_1[2] = uStack_2c;
-        param_1[3] = uStack_28;
-        *(undefined2 *)(param_1 + 4) = local_24;
+        recovered_10009620(SUB84(dVar5,0),(int)(pf_double_bits(dVar5) >> 0x20),&local_34,track,fVar3);
+        *(undefined4 *)((int)track + 4) = 0;
+        recovered_10006e1c(*(void **)track);
+        *(undefined4 *)track = local_34;
+        *(undefined4 *)((int)track + 4) = uStack_30;
+        *(undefined4 *)((int)track + 8) = uStack_2c;
+        *(undefined4 *)((int)track + 0xc) = uStack_28;
+        *(undefined2 *)((int)track + 0x10) = local_24;
         recovered_10006e1c((void *)0x0);
-        param_1[5] = 0;
+        *(undefined4 *)((int)track + 0x14) = 0;
       }
     }
   }
-  return uVar4;
+  return iVar4;
 }
 
 #undef uStack_30
@@ -10076,31 +9677,26 @@ undefined4 recovered_10009f18(int param_1,undefined1 *param_2,void **param_3,uin
   void **ppvVar1;
   ushort uVar2;
   undefined2 uVar3;
-  undefined2 extraout_r0 = 0;
-  undefined2 extraout_r0_00 = 0;
-  undefined2 extraout_r0_01 = 0;
-  undefined2 extraout_r0_02 = 0;
   int iVar4;
   uint uVar5;
   undefined1 *puVar6;
   double *pdVar7;
-  ushort *puVar8;
-  uint uVar9;
-  uint *puVar10;
+  long lVar8;
+  ushort *puVar9;
+  uint uVar10;
   uint *puVar11;
   uint *puVar12;
-  undefined1 *puVar13;
-  uint uVar14;
-  undefined2 uVar15;
-  undefined4 uVar16;
+  uint *puVar13;
+  undefined1 *puVar14;
+  uint uVar15;
+  undefined2 uVar16;
+  undefined4 uVar17;
   uint in_fpscr;
-  float value;
-  float value_00;
-  float value_01;
-  float value_02;
-  double dVar17;
   double dVar18;
   double dVar19;
+  double dVar20;
+  double dVar21;
+  double dVar22;
 
   local_74 = auStack_68 + 0x60;
   local_6c = auStack_100;
@@ -10108,7 +9704,7 @@ undefined4 recovered_10009f18(int param_1,undefined1 *param_2,void **param_3,uin
   local_78 = ((uintptr_t)pf_module_state + 0x228U);
   local_70 = (0x6ecU) + 0x10009f78;
   recovered_10007364(&uStack_94);
-  uVar16 = 0;
+  uVar17 = 0;
   if (((undefined1 *)0xb < param_2) && (param_1 != 0 && param_3 != (void **)0x0)) {
     local_90 = 0xffffffff;
     iVar4 = recovered_10002b28((uint *)param_1,(uint *)&DAT_1000be6a,4);
@@ -10121,13 +9717,13 @@ undefined4 recovered_10009f18(int param_1,undefined1 *param_2,void **param_3,uin
           local_e0 = 0;
           local_d0 = (uint *)0x0;
           local_c4 = 0;
-          uVar9 = 0;
-          puVar12 = (uint *)0x0;
-          uVar14 = 0;
+          uVar10 = 0;
+          puVar13 = (uint *)0x0;
+          uVar15 = 0;
         }
         else {
           puVar6 = &PrefetchAbort;
-          puVar13 = &NotUsed;
+          puVar14 = &NotUsed;
           local_c4 = 0;
           local_b0 = 0;
           local_b4 = 0;
@@ -10138,198 +9734,194 @@ undefined4 recovered_10009f18(int param_1,undefined1 *param_2,void **param_3,uin
           local_f4 = param_3;
           local_bc = param_4;
           do {
-            puVar11 = (uint *)(puVar6 + param_1);
-            puVar12 = (uint *)puVar11[1];
-            if (param_2 < (undefined1 *)((int)puVar12 + (int)puVar13)) goto LAB_1000a1b4;
+            puVar12 = (uint *)(puVar6 + param_1);
+            puVar13 = (uint *)puVar12[1];
+            if (param_2 < (undefined1 *)((int)puVar13 + (int)puVar14)) goto LAB_1000a1b4;
             local_90 = 0xffffffff;
-            iVar4 = recovered_10002b28(puVar11,(uint *)&DAT_1000be74,4);
+            iVar4 = recovered_10002b28(puVar12,(uint *)&DAT_1000be74,4);
             if (iVar4 != 0) {
               local_90 = 0xffffffff;
-              iVar4 = recovered_10002b28(puVar11,(uint *)&DAT_1000be79,4);
+              iVar4 = recovered_10002b28(puVar12,(uint *)&DAT_1000be79,4);
               if (iVar4 == 0 && local_d0 == (uint *)0x0) {
-                local_d0 = (uint *)(puVar13 + param_1);
-                local_ac = puVar12;
+                local_d0 = (uint *)(puVar14 + param_1);
+                local_ac = puVar13;
               }
               goto LAB_1000a094;
             }
-            if (puVar12 < &DataAbort) {
+            if (puVar13 < &DataAbort) {
 LAB_1000a1b4:
-              uVar16 = 0;
+              uVar17 = 0;
               goto LAB_10009f9c;
             }
-            puVar8 = (ushort *)(puVar13 + param_1);
-            uVar2 = *puVar8;
-            uVar14 = (uint)puVar8[7];
-            uVar9 = *(uint *)(puVar8 + 2);
-            local_c4 = (uint)puVar8[1];
+            puVar9 = (ushort *)(puVar14 + param_1);
+            uVar2 = *puVar9;
+            uVar15 = (uint)puVar9[7];
+            uVar10 = *(uint *)(puVar9 + 2);
+            local_c4 = (uint)puVar9[1];
             if ((uVar2 == 0xfffe) &&
-               (((puVar12 < (uint *)0x28 || (puVar8[8] < 0x16)) ||
-                (uVar2 = puVar8[0xc], (uVar2 & 0xfffd) != 1)))) goto LAB_1000a1b4;
-            local_b4 = uVar14;
-            local_b0 = uVar9;
+               (((puVar13 < (uint *)0x28 || (puVar9[8] < 0x16)) ||
+                (uVar2 = puVar9[0xc], (uVar2 & 0xfffd) != 1)))) goto LAB_1000a1b4;
+            local_b4 = uVar15;
+            local_b0 = uVar10;
             if (uVar2 != 1) {
               if (uVar2 == 3) {
                 local_b8 = 1;
                 local_e0 = 3;
-                if ((uVar14 == 0x20) || (uVar14 == 0x40)) goto LAB_1000a094;
+                if ((uVar15 == 0x20) || (uVar15 == 0x40)) goto LAB_1000a094;
               }
               goto LAB_1000a1b4;
             }
             local_e0 = 1;
             local_b8 = 1;
-            if ((uVar14 - 8 & 0xffe7) != 0) goto LAB_1000a1b4;
+            if ((uVar15 - 8 & 0xffe7) != 0) goto LAB_1000a1b4;
 LAB_1000a094:
-            puVar6 = (undefined1 *)((int)puVar12 + (int)puVar13) + ((uint)puVar12 & 1);
-            puVar13 = puVar6 + 8;
-          } while (puVar13 <= param_2);
+            puVar6 = (undefined1 *)((int)puVar13 + (int)puVar14) + ((uint)puVar13 & 1);
+            puVar14 = puVar6 + 8;
+          } while (puVar14 <= param_2);
           uVar5 = local_b8 ^ 1;
-          uVar9 = local_b4;
-          puVar12 = local_ac;
-          uVar14 = local_b0;
+          uVar10 = local_b4;
+          puVar13 = local_ac;
+          uVar15 = local_b0;
           param_3 = local_f4;
           param_4 = local_bc;
         }
-        uVar16 = 0;
-        if ((((uVar5 & 1) == 0) && (local_d0 != (uint *)0x0 && puVar12 != (uint *)0x0)) &&
-           (((local_c4 & 0xffff) != 0 && uVar14 != 0 && (uVar9 = uVar9 & 0xffff, 7 < uVar9)))) {
-          local_b8 = uVar9 >> 3;
+        uVar17 = 0;
+        if ((((uVar5 & 1) == 0) && (local_d0 != (uint *)0x0 && puVar13 != (uint *)0x0)) &&
+           (((local_c4 & 0xffff) != 0 && uVar15 != 0 && (uVar10 = uVar10 & 0xffff, 7 < uVar10)))) {
+          local_b8 = uVar10 >> 3;
           local_cc = (uint *)(local_c4 & 0xffff);
-          puVar11 = (uint *)((int)local_cc * local_b8);
-          if ((puVar11 != (uint *)0x0) && (puVar11 <= puVar12)) {
+          puVar12 = (uint *)((int)local_cc * local_b8);
+          if ((puVar12 != (uint *)0x0) && (puVar12 <= puVar13)) {
             uVar5 = (uint)(ushort)*param_4;
             if ((ushort)*param_4 == 0) {
               uVar5 = local_c4;
             }
-            puVar10 = (uint *)(uVar5 & 0xffff);
-            local_b4 = uVar9;
-            if (puVar10 != (uint *)0x0) {
+            puVar11 = (uint *)(uVar5 & 0xffff);
+            local_b4 = uVar10;
+            if (puVar11 != (uint *)0x0) {
               local_98 = (undefined2)uVar5;
               local_a0 = (void *)0x0;
               local_a4 = (void *)0x0;
               local_a8 = (void *)0x0;
               local_90 = 1;
               local_f4 = param_3;
-              local_e4 = puVar11;
-              local_9c = uVar14;
-              local_e8 = recovered_1000bff4((uint)puVar12,(uint)puVar11);
-              local_c8 = puVar10;
-              recovered_1000a9a8((int *)&local_a8,local_e8 * (int)puVar10);
+              local_e4 = puVar12;
+              local_9c = uVar15;
+              local_e8 = recovered_1000bff4((uint)puVar13,(uint)puVar12);
+              local_c8 = puVar11;
+              recovered_1000a9a8((int *)&local_a8,local_e8 * (int)puVar11);
               local_f8 = &local_9c;
-              uVar9 = 0;
-              puVar12 = (uint *)0x0;
+              dVar19 = -1.0;
+              uVar10 = 0;
+              puVar13 = (uint *)0x0;
+              dVar20 = 1.0;
               local_f0 = 0;
               if ((uint *)0x1 < local_cc) {
                 local_f0 = local_b8;
               }
-              dVar17 = (double)VectorUnsignedToFloat(local_cc,(byte)(in_fpscr >> 0x16) & 3);
+              dVar18 = (double)VectorUnsignedToFloat(local_cc,(byte)(in_fpscr >> 0x16) & 3);
               local_ec = (int)local_c8 << 1;
-              puVar11 = local_d0;
+              puVar12 = local_d0;
               do {
-                local_c0 = (uint *)(uVar9 * (int)local_e4 + (int)local_d0);
+                local_c0 = (uint *)(uVar10 * (int)local_e4 + (int)local_d0);
                 local_b0 = local_e0 & 0xffff;
-                local_dc = puVar11;
-                local_d8 = puVar12;
-                local_d4 = uVar9;
+                local_dc = puVar12;
+                local_d8 = puVar13;
+                local_d4 = uVar10;
                 if (local_c8 == (uint *)0x2) {
                   local_90 = 4;
-                  dVar18 = recovered_1000aad8(local_c0,local_b0,local_b4);
-                  local_bc = (uint *)(pf_double_bits(dVar18) >> 0x20);
-                  local_ac = SUB84(dVar18,0);
+                  dVar21 = recovered_1000aad8(local_c0,local_b0,local_b4);
+                  local_bc = (uint *)(pf_double_bits(dVar21) >> 0x20);
+                  local_ac = SUB84(dVar21,0);
                   local_90 = 5;
-                  dVar18 = recovered_1000aad8((uint *)((int)local_c0 + local_f0),local_b0,local_b4);
-                  dVar19 = pf_bits_double(CONCAT44(local_bc,local_ac));
+                  dVar21 = recovered_1000aad8((uint *)((int)local_c0 + local_f0),local_b0,local_b4);
+                  dVar22 = pf_bits_double(CONCAT44(local_bc,local_ac));
                   uVar3 = 0x8000;
-                  value_01 = value_00;
-                  if ((-1.0 < dVar19) && (uVar3 = 0x7fff, dVar19 < 1.0)) {
-                    pdVar7 = (double *)&DAT_1000a6e8;
+                  if ((dVar19 < dVar22) && (uVar3 = 0x7fff, dVar22 < dVar20)) {
+                    pdVar7 = (double *)((const double[]){32767.0});
                     local_90 = 6;
-                    if (dVar19 < 0.0) {
-                      pdVar7 = (double *)&DAT_1000a6f0;
+                    if (dVar22 < 0.0) {
+                      pdVar7 = (double *)((const double[]){32768.0});
                     }
-                    local_b0 = (uint)(pf_double_bits(dVar18) >> 0x20);
-                    local_ac = SUB84(dVar18,0);
-                    value_01 = recovered_10004074(SUB84(dVar19 * *pdVar7,0),
-                                                  (int)((ulonglong)(dVar19 * *pdVar7) >> 0x20),
-                                                  value_00);
-                    dVar18 = pf_bits_double(CONCAT44(local_b0,local_ac));
-                    uVar3 = extraout_r0_00;
+                    local_b0 = (uint)(pf_double_bits(dVar21) >> 0x20);
+                    local_ac = SUB84(dVar21,0);
+                    lVar8 = recovered_10004074(dVar22 * *pdVar7);
+                    uVar3 = (undefined2)lVar8;
+                    dVar21 = pf_bits_double(CONCAT44(local_b0,local_ac));
                   }
-                  uVar15 = 0x8000;
+                  uVar16 = 0x8000;
                   *(undefined2 *)((int)local_a8 + local_d4 * 4) = uVar3;
-                  if ((-1.0 < dVar18) && (uVar15 = 0x7fff, dVar18 < 1.0)) {
-                    pdVar7 = (double *)&DAT_1000a6e8;
+                  if ((dVar19 < dVar21) && (uVar16 = 0x7fff, dVar21 < dVar20)) {
+                    pdVar7 = (double *)((const double[]){32767.0});
                     local_90 = 7;
-                    if (dVar18 < 0.0) {
-                      pdVar7 = (double *)&DAT_1000a6f0;
+                    if (dVar21 < 0.0) {
+                      pdVar7 = (double *)((const double[]){32768.0});
                     }
-                    recovered_10004074(SUB84(dVar18 * *pdVar7,0),
-                                       (int)((ulonglong)(dVar18 * *pdVar7) >> 0x20),value_01);
-                    uVar15 = extraout_r0_01;
+                    lVar8 = recovered_10004074(dVar21 * *pdVar7);
+                    uVar16 = (undefined2)lVar8;
                   }
-                  *(undefined2 *)((int)local_a8 + local_d4 * 4 + 2) = uVar15;
+                  *(undefined2 *)((int)local_a8 + local_d4 * 4 + 2) = uVar16;
                 }
                 else if (local_c8 == (uint *)0x1) {
-                  dVar18 = 0.0;
-                  puVar12 = local_cc;
+                  dVar21 = 0.0;
+                  puVar13 = local_cc;
                   do {
                     local_90 = 3;
-                    local_bc = puVar11;
-                    local_ac = puVar12;
-                    dVar19 = recovered_1000aad8(puVar11,local_b0,local_b4);
-                    dVar18 = dVar18 + pf_bits_double(((pf_double_bits(dVar19) & 0xffffffff00000000) +
-                                              (pf_double_bits(dVar19) & 0xffffffff)));
-                    puVar11 = (uint *)((int)local_bc + local_b8);
-                    puVar12 = (uint *)((int)local_ac + -1);
-                  } while (puVar12 != (uint *)0x0);
-                  dVar18 = dVar18 / dVar17;
+                    local_bc = puVar12;
+                    local_ac = puVar13;
+                    dVar22 = recovered_1000aad8(puVar12,local_b0,local_b4);
+                    dVar21 = dVar21 + pf_bits_double(((pf_double_bits(dVar22) & 0xffffffff00000000) +
+                                              (pf_double_bits(dVar22) & 0xffffffff)));
+                    puVar12 = (uint *)((int)local_bc + local_b8);
+                    puVar13 = (uint *)((int)local_ac + -1);
+                  } while (puVar13 != (uint *)0x0);
+                  dVar21 = dVar21 / dVar18;
                   uVar3 = 0x8000;
-                  if ((-1.0 < dVar18) && (uVar3 = 0x7fff, dVar18 < 1.0)) {
-                    pdVar7 = (double *)&DAT_1000a6e8;
+                  if ((dVar19 < dVar21) && (uVar3 = 0x7fff, dVar21 < dVar20)) {
+                    pdVar7 = (double *)((const double[]){32767.0});
                     local_90 = 2;
-                    if (dVar18 < 0.0) {
-                      pdVar7 = (double *)&DAT_1000a6f0;
+                    if (dVar21 < 0.0) {
+                      pdVar7 = (double *)((const double[]){32768.0});
                     }
-                    recovered_10004074(SUB84(dVar18 * *pdVar7,0),
-                                       (int)((ulonglong)(dVar18 * *pdVar7) >> 0x20),value);
-                    uVar3 = extraout_r0;
+                    lVar8 = recovered_10004074(dVar21 * *pdVar7);
+                    uVar3 = (undefined2)lVar8;
                   }
                   *(undefined2 *)((int)local_a8 + local_d4 * 2) = uVar3;
                 }
                 else {
-                  puVar11 = (uint *)0x0;
+                  puVar12 = (uint *)0x0;
                   do {
                     local_90 = 8;
-                    puVar10 = puVar11;
-                    if (local_cc <= puVar11) {
-                      puVar10 = (uint *)(local_c4 - 1);
+                    puVar11 = puVar12;
+                    if (local_cc <= puVar12) {
+                      puVar11 = (uint *)(local_c4 - 1);
                     }
-                    local_bc = puVar11;
-                    local_ac = puVar12;
-                    dVar18 = recovered_1000aad8((uint *)(((uint)puVar10 & 0xffff) * local_b8 +
+                    local_bc = puVar12;
+                    local_ac = puVar13;
+                    dVar21 = recovered_1000aad8((uint *)(((uint)puVar11 & 0xffff) * local_b8 +
                                                         (int)local_c0),local_b0,local_b4);
-                    dVar18 = pf_bits_double(((pf_double_bits(dVar18) & 0xffffffff00000000) +
-                                     (pf_double_bits(dVar18) & 0xffffffff)));
+                    dVar21 = pf_bits_double(((pf_double_bits(dVar21) & 0xffffffff00000000) +
+                                     (pf_double_bits(dVar21) & 0xffffffff)));
                     uVar3 = 0x8000;
-                    if ((-1.0 < dVar18) && (uVar3 = 0x7fff, dVar18 < 1.0)) {
-                      pdVar7 = (double *)&DAT_1000a6e8;
+                    if ((dVar19 < dVar21) && (uVar3 = 0x7fff, dVar21 < dVar20)) {
+                      pdVar7 = (double *)((const double[]){32767.0});
                       local_90 = 9;
-                      if (dVar18 < 0.0) {
-                        pdVar7 = (double *)&DAT_1000a6f0;
+                      if (dVar21 < 0.0) {
+                        pdVar7 = (double *)((const double[]){32768.0});
                       }
-                      recovered_10004074(SUB84(dVar18 * *pdVar7,0),
-                                         (int)((ulonglong)(dVar18 * *pdVar7) >> 0x20),value_02);
-                      uVar3 = extraout_r0_02;
+                      lVar8 = recovered_10004074(dVar21 * *pdVar7);
+                      uVar3 = (undefined2)lVar8;
                     }
-                    puVar12 = (uint *)((int)local_ac + 2);
+                    puVar13 = (uint *)((int)local_ac + 2);
                     *(undefined2 *)((int)local_a8 + (int)local_ac) = uVar3;
-                    puVar11 = (uint *)((int)local_bc + 1);
-                  } while (local_c8 != puVar11);
+                    puVar12 = (uint *)((int)local_bc + 1);
+                  } while (local_c8 != puVar12);
                 }
                 ppvVar1 = local_f4;
-                puVar12 = (uint *)((int)local_d8 + local_ec);
-                uVar9 = local_d4 + 1;
-                puVar11 = (uint *)((int)local_dc + (int)local_e4);
-              } while (uVar9 < local_e8);
+                puVar13 = (uint *)((int)local_d8 + local_ec);
+                uVar10 = local_d4 + 1;
+                puVar12 = (uint *)((int)local_dc + (int)local_e4);
+              } while (uVar10 < local_e8);
               if (&local_a8 != local_f4) {
                 local_f4[1] = (void *)0x0;
                 recovered_10006e1c(*local_f4);
@@ -10339,12 +9931,12 @@ LAB_1000a094:
                 local_a0 = (void *)0x0;
                 local_a8 = (void *)0x0;
               }
-              uVar9 = local_f8[1];
+              uVar10 = local_f8[1];
               ppvVar1[3] = (void *)*local_f8;
-              *(short *)(ppvVar1 + 4) = (short)uVar9;
+              *(short *)(ppvVar1 + 4) = (short)uVar10;
               local_a4 = (void *)0x0;
               recovered_10006e1c(local_a8);
-              uVar16 = 1;
+              uVar17 = 1;
             }
           }
         }
@@ -10353,7 +9945,7 @@ LAB_1000a094:
   }
 LAB_10009f9c:
   recovered_10007388(&uStack_94);
-  return uVar16;
+  return uVar17;
 }
 
 #undef DAT_1000a6e8

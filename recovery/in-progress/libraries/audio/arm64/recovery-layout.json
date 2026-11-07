@@ -329,7 +329,8 @@
       "",
       "",
       "",
-      "/* Original analysis identifiers for manual recovery units. */"
+      "/* Original analysis identifiers for manual recovery units. */",
+      "#define pf_varargs_100024fc_1 recovered_100024fc"
     ],
     "source_replacements": {
       "10002524": {},

@@ -54,7 +54,7 @@ double recovered_3000(double value)
 ''')
         (notes / '3000.tsv').write_text('L\tslot\t-8\tundefined8:8\n'
                                       'V\tdRam0000000000001000\t1000\t8\n'
-                                      'M\t_\t1000\t8:double:8\n'
+                                      'M\t_\t1000\t8:undefined8:8\n'
                                       'V\tdRam0000000000001008\t1008\t8\tdouble:8\n')
         layout = root / 'layout.json'
         layout.write_text(json.dumps({'translation': {

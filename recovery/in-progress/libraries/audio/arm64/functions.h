@@ -324,6 +324,7 @@ extern uint8_t pf_module_state[];
 
 
 /* Original analysis identifiers for manual recovery units. */
+#define pf_varargs_100024fc_1 recovered_100024fc
 extern uint8_t pf_module_state[];
 void recovered_100006a8(void);
 void recovered_100006b4(void);
@@ -413,7 +414,7 @@ void recovered_100023cc(long *param_1,ulong *param_2,int *param_3,undefined1 par
 void recovered_10002408(long *param_1,ulong *param_2,int *param_3,char *param_4);
 void recovered_10002458(long *param_1,ulong *param_2,int *param_3,ulong param_4,uint param_5,
                        int param_6);
-void recovered_100024fc(byte *in_x0,ulong in_x1,byte *in_x2);
+int recovered_100024fc(char *buffer,unsigned long capacity,char *format,...);
 void recovered_10002524(ulong param_1,ulong param_2,ulong *param_3);
 void recovered_100025ac(long param_1,ulong param_2,ulong *param_3);
 bool recovered_1000261c(int param_1);

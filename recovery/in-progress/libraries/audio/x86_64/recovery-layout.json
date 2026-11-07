@@ -304,7 +304,10 @@
       "10003940": {},
       "10003530": {},
       "100031e0": {},
-      "10009f80": {},
+      "10009f80": {
+        "recovered_10007a10((ulong)param_1)": "recovered_10007a10(param_1)",
+        "value = ((auVar6._8_8_ - dRam000000001000ced8) +\n                ((double)CONCAT44((undefined4)DAT_1000cec0,(int)uVar2) - _DAT_1000ced0)) / local_20": "value = (double)uVar2 / local_20"
+      },
       "10009080": {
         "0x1000d05c": "((uintptr_t)pf_module_state + 0x3adU)"
       },
@@ -346,7 +349,9 @@
       "1000aeb0": {},
       "10007bb0": {},
       "100077f0": {},
-      "10009a30": {},
+      "10009a30": {
+        "recovered_10007a10((ulong)param_1)": "recovered_10007a10(param_1)"
+      },
       "10006d10": {},
       "1000a110": {
         "0x1000d05f": "((uintptr_t)pf_module_state + 0x3b0U)"

@@ -2932,22 +2932,9 @@ void recovered_10002458(long *param_1,ulong *param_2,int *param_3,ulong param_4,
 #undef str_100065ea
 #undef local_80
 
-#define uStack0000000000000000 (*(undefined1 *)(frame + 32))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x100024fc
- */
+/* Native variadic interface; Pooka's Free Software License. */
+int recovered_100024fc(char *buffer,unsigned long capacity,char *format,...){__builtin_va_list args;__builtin_va_start(args,format);int result=recovered_10001ea4(buffer,capacity,format,(void *)args);__builtin_va_end(args);return result;}
 
-void recovered_100024fc(byte *in_x0,ulong in_x1,byte *in_x2)
-
-{
-  unsigned char frame[64] __attribute__((aligned(16))) = {0};
-
-
-  recovered_10001ea4(in_x0,in_x1,in_x2,(double *)&uStack0000000000000000);
-  return;
-}
-
-#undef uStack0000000000000000
 
 #undef DAT_1000c0f0
 #define DAT_1000c0f0 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x5c70U)))
@@ -3287,7 +3274,7 @@ void recovered_100028b0(void)
 
 #undef DAT_100065fe
 #define DAT_100065fe (*(uint8_t *)(((uintptr_t)pf_module_state + 0x17eU)))
-#define abStack_160 (*(byte (*)[320])(frame + 16))
+#define acStack_160 (*(char (*)[320])(frame + 16))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x100028b8
  */
@@ -3297,22 +3284,22 @@ void recovered_100028b8(undefined *param_1)
 {
   unsigned char frame[400] __attribute__((aligned(16))) = {0};
 
-  byte *in_x2;
-  uint extraout_w0 = 0;
+  char *format;
+  uint uVar1;
 
-  in_x2 = &DAT_100065fe;
+  format = &DAT_100065fe;
   if (param_1 != (undefined *)0x0) {
-    in_x2 = param_1;
+    format = param_1;
   }
-  recovered_100024fc(abStack_160,0x140,in_x2);
-  if (0 < (int)extraout_w0) {
-    recovered_10002764((char *)abStack_160,(ulong)extraout_w0);
+  uVar1 = recovered_100024fc(acStack_160,0x140,format);
+  if (0 < (int)uVar1) {
+    recovered_10002764(acStack_160,(ulong)uVar1);
   }
   return;
 }
 
 #undef DAT_100065fe
-#undef abStack_160
+#undef acStack_160
 
 #undef DAT_1000661c
 #define DAT_1000661c (*(uint8_t *)(((uintptr_t)pf_module_state + 0x19cU)))
@@ -3632,7 +3619,7 @@ undefined4 * recovered_10002a18(char *param_1,char *param_2)
         pcVar5 = recovered_10001348(param_2,'a');
         *(bool *)((long)puVar4 + 0x126) = pcVar5 != (char *)0x0;
         puVar4[0x48] = 0xffffffff;
-        recovered_100024fc((byte *)(puVar4 + 1),0xf1,&DAT_100065fe);
+        pf_varargs_100024fc_1((char *)(puVar4 + 1),0xf1,&DAT_100065fe,(ulonglong)param_1);
         recovered_10000fd0(&uStack_4c,0,0xc);
         uVar6 = recovered_10002c54(param_1,&uStack_4c);
         if ((int)uVar6 == 0) {
@@ -3678,7 +3665,7 @@ LAB_10002bfc:
   *(bool *)(puVar4 + 0x49) = iVar2 == 0;
   *(bool *)((long)puVar4 + 0x125) = iVar2 != 0;
   puVar4[0x48] = 0xffffffff;
-  recovered_100024fc((byte *)(puVar4 + 1),0xf1,&DAT_100065fe);
+  pf_varargs_100024fc_1((char *)(puVar4 + 1),0xf1,&DAT_100065fe,(ulonglong)param_1);
   return puVar4;
 }
 
@@ -3850,7 +3837,7 @@ undefined4 * recovered_10002d2c(char *param_1,char *param_2,void *param_3)
         pcVar5 = recovered_10001348(param_2,'a');
         *(bool *)((long)puVar4 + 0x126) = pcVar5 != (char *)0x0;
         puVar4[0x48] = 0xffffffff;
-        recovered_100024fc((byte *)(puVar4 + 1),0xf1,&DAT_100065fe);
+        pf_varargs_100024fc_1((char *)(puVar4 + 1),0xf1,&DAT_100065fe,(ulonglong)param_1);
         recovered_10000fd0(&uStack_4c,0,0xc);
         uVar6 = recovered_10002c54(param_1,&uStack_4c);
         if ((int)uVar6 == 0) {
@@ -3896,7 +3883,7 @@ LAB_10002bfc:
   *(bool *)(puVar4 + 0x49) = iVar2 == 0;
   *(bool *)((long)puVar4 + 0x125) = iVar2 != 0;
   puVar4[0x48] = 0xffffffff;
-  recovered_100024fc((byte *)(puVar4 + 1),0xf1,&DAT_100065fe);
+  pf_varargs_100024fc_1((char *)(puVar4 + 1),0xf1,&DAT_100065fe,(ulonglong)param_1);
   return puVar4;
 }
 
@@ -5165,9 +5152,9 @@ void recovered_100038d4(long param_1,ulong param_2,undefined8 param_3)
 
 #undef DAT_1000c320
 #define DAT_1000c320 (*(uint64_t *)(((uintptr_t)pf_module_state + 0x5ea0U)))
+#define cStack_2e (*(char *)(frame + 18))
 #define local_30 (*(undefined2 *)(frame + 16))
 #define local_28 (*(undefined4 *)(frame + 24))
-#define cStack_2e (*(char *)(frame + 18))
 #define uStack_2d (*(undefined1 *)(frame + 19))
 #define uStack_2c (*(undefined4 *)(frame + 20))
 /* Recovered working notes; Pooka's Free Software License.
@@ -5203,9 +5190,9 @@ LAB_10003954:
 }
 
 #undef DAT_1000c320
+#undef cStack_2e
 #undef local_30
 #undef local_28
-#undef cStack_2e
 #undef uStack_2d
 #undef uStack_2c
 
@@ -6332,12 +6319,12 @@ void recovered_10004290(long param_1)
 }
 
 
-#define local_28 (*(int *)(frame + 56))
-#define local_24 (*(short *)(frame + 60))
 #define uStack_30 (*(undefined8 *)(frame + 48))
 #define local_42 (*(ushort *)(frame + 30))
 #define local_40 (*(void * *)(frame + 32))
 #define local_38 (*(undefined8 *)(frame + 40))
+#define local_28 (*(int *)(frame + 56))
+#define local_24 (*(short *)(frame + 60))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x1000429c
  */
@@ -6382,16 +6369,16 @@ LAB_10004320:
   return puVar3;
 }
 
-#undef local_28
-#undef local_24
 #undef uStack_30
 #undef local_42
 #undef local_40
 #undef local_38
+#undef local_28
+#undef local_24
 
-#define local_38 (*(void * *)(frame + 24))
 #define local_30 (*(ulong *)(frame + 32))
 #define uStack_28 (*(undefined8 *)(frame + 40))
+#define local_38 (*(void * *)(frame + 24))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10004348
  */
@@ -6419,9 +6406,9 @@ undefined8 recovered_10004348(long param_1,long param_2,ushort *param_3)
   return uVar2;
 }
 
-#undef local_38
 #undef local_30
 #undef uStack_28
+#undef local_38
 
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x100043c8
@@ -6675,11 +6662,11 @@ byte recovered_10004810(undefined8 *param_1,long param_2)
 #undef lStack_30
 #undef uStack_28
 
+#define uStack_28 (*(undefined8 *)(frame + 104))
 #define local_78 (*(long *)(frame + 24))
 #define local_70 (*(byte *)(frame + 32))
 #define local_38 (*(void * *)(frame + 88))
 #define local_30 (*(long *)(frame + 96))
-#define uStack_28 (*(undefined8 *)(frame + 104))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x1000482c
  */
@@ -6718,11 +6705,11 @@ byte recovered_1000482c(long param_1,undefined8 *param_2)
   return bVar2 & 1;
 }
 
+#undef uStack_28
 #undef local_78
 #undef local_70
 #undef local_38
 #undef local_30
-#undef uStack_28
 
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x100048f4
@@ -6859,9 +6846,9 @@ LAB_10004aa0:
 }
 
 
+#define uStack_38 (*(undefined8 *)(frame + 40))
 #define local_48 (*(void * *)(frame + 24))
 #define local_40 (*(undefined8 *)(frame + 32))
-#define uStack_38 (*(undefined8 *)(frame + 40))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10004b10
  */
@@ -6917,9 +6904,9 @@ undefined8 recovered_10004b10(long *param_1,ulong param_2,ulong param_3)
   return uVar2;
 }
 
+#undef uStack_38
 #undef local_48
 #undef local_40
-#undef uStack_38
 
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10004bf8

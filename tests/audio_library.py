@@ -10,6 +10,7 @@ from pathlib import Path
 import struct
 from dll import DLL
 from dylib import inspect
+from ttf_library import floating
 from unicorn import UC_HOOK_CODE
 from unicorn.x86_const import UC_X86_REG_RSP, UC_X86_REG_ESP
 from unicorn.arm_const import UC_ARM_REG_R0, UC_ARM_REG_R1, UC_ARM_REG_LR
@@ -92,8 +93,23 @@ def trimmed(path, start, end, api_base=None):
     if lib.wide:
         arguments = track, start & mask, end & mask
     else:
-        arguments = (track,) + ((0,) if lib.cpu_type == 12 else ()) + (start & 0xffffffff, (start >> 32) & 0xffffffff, end & 0xffffffff, (end >> 32) & 0xffffffff)
+        arguments = (track, start & 0xffffffff, (start >> 32) & 0xffffffff, end & 0xffffffff, (end >> 32) & 0xffffffff)
     status = lib.call(PREFIX + '4trimEPNS0_5TrackExx', *arguments)
+    result = snapshot(lib, track)
+    lib.call(PREFIX + '5closeEPNS0_5TrackE', track)
+    return status, result
+
+
+def transformed(path, method, factor, api_base=None):
+    lib = library(path, api_base)
+    track = create(lib, 440, 11, 'sine', 'both')
+    assert track
+    bits = floating(lib, factor, True)
+    if lib.wide:
+        arguments = (track,)
+    else:
+        arguments = (track, bits & 0xffffffff, bits >> 32)
+    status = lib.call(PREFIX + '5' + method + 'EPNS0_5TrackEd', *arguments)
     result = snapshot(lib, track)
     lib.call(PREFIX + '5closeEPNS0_5TrackE', track)
     return status, result
@@ -125,6 +141,11 @@ def main():
         expected, actual = (trimmed(path, *case, api_base=args.api_base) for path in (args.reference, args.source))
         assert actual == expected, ('trim differs', case)
         count += 1
+    for method in ('pitch', 'speed'):
+        for factor in (1., .5, 2., 1.25, 0., -1., float('inf'), float('nan')):
+            expected, actual = (transformed(path, method, factor, args.api_base) for path in (args.reference, args.source))
+            assert actual == expected, ('audio transform differs', method, factor)
+            count += 1
     print('Audio library: %d native/source generation, trim and invalid-input cases passed.' % count)
 
 

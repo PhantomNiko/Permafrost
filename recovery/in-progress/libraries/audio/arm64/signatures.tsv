@@ -82,3 +82,4 @@
 1000378c	void * recovered_1000378c(unsigned long size);
 10003790	void recovered_10003790(void *pointer);
 100037a8	void recovered_100037a8(void *pointer);
+100024fc	int recovered_100024fc(char *buffer,unsigned long capacity,char *format,...);

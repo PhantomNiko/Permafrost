@@ -494,6 +494,8 @@ def main():
     service_types=sorted(set(re.findall(r'\bservice(?:_conflict\d+)?\b', '\n'.join(sources.values()))))
     header += ['typedef code '+name+';' for name in service_types]
     header+=current.get('declarations',[])
+    function_aliases=set(re.findall(r'(?m)^#define\s+(\w+)\s+(?:recovered_|FUN_)[0-9a-f]+\s*$',
+                                   '\n'.join(current.get('declarations',[]))))
     if current.get('state_anchor'):
         header.append('extern uint8_t '+current['state_anchor']+'[];')
     # A reused C unit need not have a fresh decompiler export. Its declaration
@@ -587,6 +589,7 @@ def main():
         preamble = ['#include "functions.h"']
         for name in globals_used:
             if not re.fullmatch(r'[A-Za-z_]\w*',name):continue
+            if name in function_aliases:continue
             packed_width=0
             if name.startswith('recovered_') and name.removeprefix('recovered_') in sources:
                 continue
@@ -603,6 +606,10 @@ def main():
                 else:packed_width=width
                 if name in volatile_types:
                     typename=ctype(volatile_types[name])
+                elif name.startswith('dRam') and width==8:
+                    typename='double'
+                elif name.startswith('fRam') and width==4:
+                    typename='float'
                 elif name.startswith(('dRam','fRam')) and number in memory_types:
                     size,kind=memory_types[number]
                     if size==width and kind.startswith(('float:','double:')):typename=ctype(kind)

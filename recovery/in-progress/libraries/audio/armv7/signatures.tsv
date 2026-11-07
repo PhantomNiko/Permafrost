@@ -26,3 +26,18 @@
 10006df0	void * recovered_10006df0(unsigned long size);
 10006e1c	void recovered_10006e1c(void *pointer);
 10006ee4	void recovered_10006ee4(void *pointer);
+1000534c	int recovered_1000534c(char *buffer,unsigned long capacity,char *format,...);
+10004074	long recovered_10004074(double value);
+100037f0	long long recovered_100037f0(double value);
+100035f0	double recovered_100035f0(double value);
+10003620	double recovered_10003620(double value);
+10004074	long recovered_10004074(double value);	r1:r0	r0	__stdcall_softfp
+100037f0	long long recovered_100037f0(double value);	r1:r0	r1,r0	__stdcall_softfp
+100035f0	double recovered_100035f0(double value);	r1:r0	r1,r0	__stdcall_softfp
+10003620	double recovered_10003620(double value);	r1:r0	r1,r0	__stdcall_softfp
+1000767c	int recovered_1000767c(double value);	r1:r0	r0	__stdcall_softfp
+100076d0	int recovered_100076d0(double value);	r1:r0	r0	__stdcall_softfp
+10009548	int recovered_10009548(void *track,double factor);	r0,r3:r2	r0	__stdcall_softfp
+100099f0	int recovered_100099f0(void *track,double factor);	r0,r3:r2	r0	__stdcall_softfp
+10009548	int recovered_10009548(void *track,double factor);	r0,r2:r1	r0	__stdcall_softfp
+100099f0	int recovered_100099f0(void *track,double factor);	r0,r2:r1	r0	__stdcall_softfp

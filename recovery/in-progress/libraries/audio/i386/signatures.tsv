@@ -10,3 +10,10 @@
 100055e0	void * recovered_100055e0(unsigned long size);
 10005610	void recovered_10005610(void *pointer);
 10005690	void recovered_10005690(void *pointer);
+10003e50	int recovered_10003e50(char *buffer,unsigned long capacity,char *format,...);
+10002e30	long recovered_10002e30(double value);
+100024a0	long long recovered_100024a0(double value);
+100021d0	double recovered_100021d0(double value);
+10002220	double recovered_10002220(double value);
+10005ce0	int recovered_10005ce0(double value);
+10005d60	int recovered_10005d60(double value);

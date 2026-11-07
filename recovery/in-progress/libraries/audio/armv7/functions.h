@@ -325,6 +325,7 @@ extern uint8_t pf_module_state[];
 /* Original analysis identifiers for manual recovery units. */
 #include "word_divide.h"
 #define NotUsed (*(volatile uint32_t *)(uintptr_t)0x14)
+#define pf_varargs_1000534c__4_ recovered_1000534c
 extern uint8_t pf_module_state[];
 uint recovered_10001078(uint param_1,uint param_2);
 uint recovered_100010c8(uint param_1,uint param_2);
@@ -385,11 +386,11 @@ double recovered_10003480(undefined4 param_1,undefined4 param_2,int *param_3);
 char * recovered_10003538(char *param_1,char *param_2,undefined4 in_r2,undefined4 in_r3);
 double recovered_10003570(undefined4 param_1,undefined4 param_2,undefined4 param_3,
                          undefined4 param_4);
-double recovered_100035f0(undefined4 param_1,undefined4 param_2);
-double recovered_10003620(undefined4 param_1,undefined4 param_2);
+double recovered_100035f0(double value);
+double recovered_10003620(double value);
 double recovered_10003664(undefined4 param_1,undefined4 param_2);
 double recovered_100036b0(undefined4 param_1,undefined4 param_2);
-undefined8 recovered_100037f0(undefined4 param_1,undefined4 param_2);
+longlong recovered_100037f0(double value);
 double recovered_10003820(undefined4 param_1,undefined4 param_2);
 double recovered_100038e0(undefined4 param_1,undefined4 param_2);
 double recovered_10003990(undefined4 param_1,undefined4 param_2);
@@ -407,7 +408,7 @@ double recovered_10003e28(undefined4 param_1,undefined4 param_2);
 float recovered_10003e7c(float param_1);
 float recovered_10003ed8(float param_1);
 float recovered_10003f30(float param_1);
-float recovered_10004074(undefined4 in_r0,undefined4 in_r1,float value);
+long recovered_10004074(double value);
 float recovered_100040a8(float param_1);
 float recovered_10004170(float param_1);
 float recovered_10004228(float param_1);
@@ -416,7 +417,7 @@ int recovered_10004398(byte *param_1,undefined4 *param_2,uint param_3);
 double recovered_100044f8(byte *param_1,undefined4 *param_2);
 float recovered_100046cc(byte *in_r0,undefined4 *in_r1);
 int recovered_100046e8(byte *param_1,uint param_2,byte *param_3,double *param_4);
-void recovered_1000534c(byte *in_r0,uint in_r1,byte *in_r2);
+int recovered_1000534c(char *buffer,unsigned long capacity,char *format,...);
 void recovered_1000537c(int *param_1,int *param_2,int *param_3);
 void recovered_10005568(char *param_1,int param_2);
 void recovered_1000574c(char *param_1,int param_2);
@@ -494,15 +495,15 @@ undefined4 recovered_100075f4(void);
 bool recovered_100075fc(int param_1);
 bool recovered_10007610(int param_1);
 bool recovered_10007650(uint param_1);
-bool recovered_1000767c(undefined4 param_1,uint param_2);
+int recovered_1000767c(double value);
 bool recovered_10007698(uint param_1);
 bool recovered_100076b4(undefined4 param_1,uint param_2);
-bool recovered_100076d0(undefined4 param_1,uint param_2);
+int recovered_100076d0(double value);
 double recovered_100076f0(undefined4 param_1,undefined4 param_2);
 float recovered_100077d8(float param_1);
 double recovered_100078d8(undefined4 param_1,undefined4 param_2);
 double recovered_100079c0(undefined4 param_1,undefined4 param_2);
-double recovered_100079dc(undefined4 param_1,undefined4 param_2);
+double recovered_100079dc(undefined4 param_1,undefined4 param_2,double in_d0);
 ulonglong recovered_10007a34(byte *param_1,undefined4 *param_2,uint param_3);
 ulonglong recovered_10007bac(byte *param_1,undefined4 *param_2,uint param_3);
 undefined4 recovered_10007bb0(int param_1,undefined4 *param_2,undefined2 *param_3);
@@ -514,12 +515,11 @@ long * recovered_10008330(uint frequency,uint duration,long waveform,uintptr_t s
 int recovered_10008af8(void *track,void *view);
 void recovered_10008b80(ushort *param_1,int param_2);
 uint recovered_10008ba0(int param_1,ushort *param_2);
-undefined4 recovered_10008e20(int *param_1,int *param_2,int param_3,int param_4);
-undefined4 recovered_10009280(void **param_1,uint param_2,uint param_3,uint param_4,uint param_5);
-undefined4 recovered_10009548(int *param_1,undefined4 param_2,uint param_3);
-void recovered_10009620(undefined4 param_1,undefined4 param_2,undefined4 *param_3,int *param_4,
-                       float param_5);
-undefined4 recovered_100099f0(undefined4 *param_1,undefined4 param_2,uint param_3);
+undefined4 recovered_10008e20(int *param_1,int *param_2,int param_3,int param_4,undefined8 in_d0);
+uint recovered_10009280(void **opaque,uint slo,uint shi,uint elo,uint ehi);
+int recovered_10009548(void *track,double factor);
+void recovered_10009620(uint lo,uint hi,undefined4 *opaque,int *source,float requested);
+int recovered_100099f0(void *track,double factor);
 undefined4 recovered_10009aec(void);
 undefined8 recovered_10009af4(void);
 undefined8 recovered_10009b00(void);
