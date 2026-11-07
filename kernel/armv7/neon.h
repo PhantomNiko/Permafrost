@@ -59,6 +59,65 @@ static inline uint128 pf_neon_shift(uint128 value,unsigned shift,unsigned bits,
 #define VectorShiftLeft(v,s,b,u) pf_neon_shift(v,s,b,u,0)
 #define VectorShiftRight(v,s,b,u) pf_neon_shift(v,s,b,u,1)
 
+static inline void pf_neon_saturated(void) {
+#if defined(__arm__)
+    unsigned status;
+    __asm__ volatile("vmrs %0,fpscr":"=r"(status));
+    status|=1u<<27;
+    __asm__ volatile("vmsr fpscr,%0"::"r"(status):"memory");
+#endif
+}
+static inline uint128 pf_neon_shift_counts(uint128 value,uint128 counts,
+        unsigned element,unsigned input_unsigned,unsigned output_unsigned,
+        unsigned saturating) {
+    unsigned bits=element*8,saturated=0;
+    uint64_t mask=pf_neon_lane_mask(bits);
+    uint128 result=0;
+    for(unsigned offset=0;offset<128;offset+=bits) {
+        uint64_t lane=(uint64_t)(value>>offset)&mask,out;
+        int shift=(int8_t)(counts>>offset);
+        if(shift<0) {
+            unsigned amount=(unsigned)-shift;
+            if(input_unsigned)out=amount>=bits?0:lane>>amount;
+            else {
+                int64_t signed_value=pf_neon_signed_lane(lane,bits);
+                out=amount>=bits?(signed_value<0?mask:0):(uint64_t)(signed_value>>amount);
+            }
+        } else if(!saturating)out=(unsigned)shift>=bits?0:lane<<shift;
+        else {
+            pf_int128 number=input_unsigned?(pf_int128)lane:
+                (pf_int128)pf_neon_signed_lane(lane,bits);
+            pf_int128 maximum=output_unsigned?(pf_int128)mask:(pf_int128)(mask>>1);
+            pf_int128 minimum=output_unsigned?0:-maximum-1;
+            if((unsigned)shift>=bits) {
+                if(number) {saturated=1;number=number<0?minimum:maximum;}
+            } else {
+                number*=((pf_int128)1<<shift);
+                if(number>maximum){number=maximum;saturated=1;}
+                if(number<minimum){number=minimum;saturated=1;}
+            }
+            out=(uint64_t)number;
+        }
+        result|=(uint128)(out&mask)<<offset;
+    }
+    if(saturated)pf_neon_saturated();
+    return result;
+}
+#define PFVectorShiftByLane(v,s,e,u) pf_neon_shift_counts(v,s,e,u,u,0)
+#define PFVectorSaturatingShiftByLane(v,s,e,u) pf_neon_shift_counts(v,s,e,u,u,1)
+static inline uint128 pf_neon_shift_immediate_saturated(uint128 value,unsigned shift,
+        unsigned bits,unsigned input_unsigned,unsigned output_unsigned) {
+    uint128 counts=0;
+    for(unsigned offset=0;offset<128;offset+=bits)counts|=(uint128)shift<<offset;
+    return pf_neon_shift_counts(value,counts,bits/8,input_unsigned,output_unsigned,1);
+}
+#define PFVectorSaturatingShiftLeft(v,s,b,u) pf_neon_shift_immediate_saturated(v,s,b,u,u)
+#define PFVectorSaturatingUnsignedShiftLeft(v,s,b,u) pf_neon_shift_immediate_saturated(v,s,b,0,1)
+static inline uint128 VectorShiftRightAccumulate(uint128 left,uint128 right,
+        unsigned shift,unsigned bits,unsigned is_unsigned) {
+    return pf_neon_binary(left,pf_neon_shift(right,shift,bits,is_unsigned,1),bits/8,0,1);
+}
+
 static inline uint128 VectorCopyLong(uint64_t value,unsigned element,unsigned is_unsigned) {
     uint128 result=0;
     unsigned bits=element*8;
@@ -78,6 +137,28 @@ static inline uint128 PFVectorAddLong(uint64_t left,uint64_t right,
 static inline uint128 PFVectorAddWide(uint128 left,uint64_t right,
         unsigned element,unsigned is_unsigned) {
     return pf_neon_binary(left,VectorCopyLong(right,element,is_unsigned),element*2,0,1);
+}
+static inline uint128 VectorShiftLongLeft(uint64_t value,unsigned shift,
+        unsigned bits,unsigned is_unsigned) {
+    return pf_neon_shift(VectorCopyLong(value,bits/8,is_unsigned),shift,bits*2,1,0);
+}
+static inline uint128 FloatVectorNeg(uint128 value,unsigned kind,unsigned element) {
+    if(kind==1)return pf_neon_binary(0,value,element,1,1);
+    uint128 result=value;
+    for(unsigned bit=element*8-1;bit<128;bit+=element*8)result^=(uint128)1<<bit;
+    return result;
+}
+static inline uint64_t PFVectorTableLookup(uint64_t indices,uint64_t first,
+        uint64_t second,uint64_t third,uint64_t fourth,unsigned count,uint64_t fallback) {
+    uint64_t words[4]={first,second,third,fourth},result=0;
+    for(unsigned i=0;i<8;i++) {
+        unsigned index=(unsigned char)(indices>>(i*8));
+        unsigned char value=index<count*8?
+            (unsigned char)(words[index/8]>>((index%8)*8)):
+            (unsigned char)(fallback>>(i*8));
+        result|=(uint64_t)value<<(i*8);
+    }
+    return result;
 }
 static inline uint64_t VectorCopyNarrow(uint128 value,unsigned element) {
     uint64_t result=0;

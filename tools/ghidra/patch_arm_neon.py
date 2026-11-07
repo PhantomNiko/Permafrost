@@ -16,6 +16,22 @@ def patch(source):
     def constructor(match):
         nonlocal conversion_count
         header,body=match.groups()
+        if header.startswith((':vtbl.8',':vtbx.8')):
+            # The upstream model uses GPR selectors here, although these
+            # instructions address D registers. Materialize every register
+            # in the decoded table rather than retaining only its first D.
+            header=re.sub(r'\bVR([dmn])\b',lambda operand:'D'+operand[1],header)
+            constructors=[]
+            for first in range(32):
+                for count in range(1,min(4,32-first)+1):
+                    constraint=(' & ((TMode=0 & N7=%d & c1619=%d & c0809=%d) | '
+                                '(TMode=1 & thv_N7=%d & thv_c1619=%d & thv_c0809=%d))\n')%(
+                                 first//16,first%16,count-1,first//16,first%16,count-1)
+                    words=[('d%d'%(first+i)) if i<count else '0:8' for i in range(4)]
+                    fallback='Dd' if header.startswith(':vtbx.') else '0:8'
+                    effect='\tDd = PFVectorTableLookup(Dm,'+','.join(words)+',%d:4,'%count+fallback+');\n'
+                    constructors.append(header.rstrip()+constraint+'{\n'+effect+'}')
+            return '\n\n'.join(constructors)
         if header.startswith((':vcvt.f16.s16 Qd,Qm,fbits',':vcvt.f16.u16 Qd,Qm,fbits')):
             if 'c0911=0' not in header:
                 raise ValueError('Unexpected half-precision conversion pattern')
@@ -24,7 +40,8 @@ def patch(source):
         for operation in ('VectorCompareGreaterThan','VectorCompareGreaterThanOrEqual'):
             unsigned='udt' if re.search(r'\budt\b',header) else '0:1'
             body=re.sub(r'\b'+operation+r'\(([^;]+)\);',
-                        lambda call:operation+'('+call[1]+','+unsigned+');',body)
+                        lambda call:operation+'('+call[1]+(
+                            ','+unsigned if call[1].count(',')==2 else '')+');',body)
         if header.startswith(':vshr.'):
             body=re.sub(r'VectorShiftRight\(([^;]+)\);',
                         r'VectorShiftRight(\1,ShiftSize,udt);',body)
@@ -32,13 +49,33 @@ def patch(source):
             body=body.replace('VectorAdd(', 'PFVectorAddLong(')
         if header.startswith(':vaddw.'):
             body=body.replace('VectorAdd(', 'PFVectorAddWide(')
+        if header.startswith(':vshl.^udt^esize'):
+            body=body.replace('VectorShiftLeft(', 'PFVectorShiftByLane(')
+        if header.startswith(':vqshl.^udt^esize'):
+            body=body.replace('VectorShiftLeft(', 'PFVectorSaturatingShiftByLane(')
+        elif header.startswith(':vqshl.'):
+            body=body.replace('VectorShiftLeft(', 'PFVectorSaturatingShiftLeft(')
+        if header.startswith(':vqshlu.'):
+            body=body.replace('VectorShiftLeft(', 'PFVectorSaturatingUnsignedShiftLeft(')
+        if header.startswith(':vsra.'):
+            body=re.sub(r'VectorShiftRightAccumulate\(([^;]+)\);',
+                        r'VectorShiftRightAccumulate(\1,ShiftSize,udt);',body)
+        if header.startswith(':vshll.'):
+            size='ShiftSize' if '^ShiftSize' in header else 'esize1819x3'
+            body=re.sub(r'VectorShiftLongLeft\(([^;]+)\);',
+                        r'VectorShiftLongLeft(\1,'+size+r',udt);',body)
         return header+'{'+body+'\n}'
     source=re.sub(r'(?ms)^(:[^{]+)\{(.*?)\n\}',constructor,source)
     if conversion_count!=2:
         raise ValueError('Expected both half-precision Q-register conversions')
     declarations = []
     declarations.extend(['define pcodeop PFVectorAddLong;',
-                         'define pcodeop PFVectorAddWide;'])
+                         'define pcodeop PFVectorAddWide;',
+                         'define pcodeop PFVectorShiftByLane;',
+                         'define pcodeop PFVectorSaturatingShiftByLane;',
+                         'define pcodeop PFVectorSaturatingShiftLeft;',
+                         'define pcodeop PFVectorSaturatingUnsignedShiftLeft;',
+                         'define pcodeop PFVectorTableLookup;'])
     for operation in ('Unzip', 'Zip', 'Transpose'):
         for half in ('Low', 'High'):
             declarations.append('define pcodeop PFVector' + operation + half + ';')

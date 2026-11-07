@@ -20,6 +20,8 @@ static void native_binary(unsigned operation,unsigned element,unsigned width,
  NATIVE_CASE(3,1,"vceq.i8") NATIVE_CASE(3,2,"vceq.i16") NATIVE_CASE(3,4,"vceq.i32")
  NATIVE_CASE(4,1,"vcgt.s8") NATIVE_CASE(4,2,"vcgt.s16") NATIVE_CASE(4,4,"vcgt.s32")
  NATIVE_CASE(5,1,"vcgt.u8") NATIVE_CASE(5,2,"vcgt.u16") NATIVE_CASE(5,4,"vcgt.u32")
+ NATIVE_CASE(6,1,"vcge.s8") NATIVE_CASE(6,2,"vcge.s16") NATIVE_CASE(6,4,"vcge.s32")
+ NATIVE_CASE(7,1,"vcge.u8") NATIVE_CASE(7,2,"vcge.u16") NATIVE_CASE(7,4,"vcge.u32")
 }
 static unsigned state=0xd360a9fb;
 static unsigned random_byte(void){state=state*1664525+1013904223;return state>>24;}
@@ -41,14 +43,15 @@ int main(void) {
  for(unsigned test=0;test<8;test++)
  for(unsigned width=8;width<=16;width+=8)
  for(unsigned element=1;element<=4;element*=2)
- for(unsigned operation=0;operation<6;operation++) {
+ for(unsigned operation=0;operation<8;operation++) {
   Vector left={.bits=0},right={.bits=0},out={.bits=0};
   for(unsigned i=0;i<width;i++) {
    left.bytes[i]=test==0?0xff:random_byte();
    right.bytes[i]=test==0?0x7f:random_byte();
   }
   native_binary(operation,element,width,left.bytes,right.bytes,out.bytes);
-  uint128 expected=pf_neon_binary(left.bits,right.bits,element,operation<4?operation:4,operation==5);
+  uint128 expected=pf_neon_binary(left.bits,right.bits,element,
+      operation<4?operation:operation<6?4:5,operation==5||operation==7);
   if(width==8)expected&=UINT64_MAX;
   if(out.bits!=expected)return 1+operation;
  }

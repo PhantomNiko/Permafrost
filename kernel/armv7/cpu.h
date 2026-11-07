@@ -1,8 +1,11 @@
 /* ARM architectural operations; Pooka's Free Software License. */
 #pragma once
-#define DataMemoryBarrier(...) __asm__ volatile("dmb sy":::"memory")
-#define DataSynchronizationBarrier(...) __asm__ volatile("dsb sy":::"memory")
-#define InstructionSynchronizationBarrier(...) __asm__ volatile("isb":::"memory")
+static inline void pf_arm_dmb(void){__asm__ volatile("dmb sy":::"memory");}
+static inline void pf_arm_dsb(void){__asm__ volatile("dsb sy":::"memory");}
+static inline void pf_arm_isb(void){__asm__ volatile("isb":::"memory");}
+#define DataMemoryBarrier(...) pf_arm_dmb()
+#define DataSynchronizationBarrier(...) pf_arm_dsb()
+#define InstructionSynchronizationBarrier(...) pf_arm_isb()
 #define NotUsed (*(volatile uint8_t *)(uintptr_t)0x14)
 static inline uint32_t coproc_movefrom_Main_ID(void){uint32_t value;__asm__ volatile("mrc p15,0,%0,c0,c0,0":"=r"(value));return value;}
 static inline uint32_t coproc_movefrom_Cache_Type(void){uint32_t value;__asm__ volatile("mrc p15,0,%0,c0,c0,1":"=r"(value));return value;}
