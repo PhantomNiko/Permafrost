@@ -87,10 +87,25 @@ ARM64 explicitly preserves the string allocator's pointer return and all four
 signed min/max lanes when resizing. Direct framebuffer comparison includes the
 software cursor rather than relying only on offscreen captures.
 
+The current Piet candidates compile from C on all four architectures and pass
+115 value, variable, cursor, bounded-execution and installed-builtin comparisons
+per architecture. All 22 installed builtins are invoked through their virtual
+function tables. Numeric, math and context checks pass too. ARM64 aggregate
+exports use X8 adapters; i386 aggregate exports pop the hidden result pointer,
+which the comparison test checks explicitly. Virtual clone/destructor calls
+retain their object arguments, and ARM64 vector moves preserve the returned
+destination pointer. The x86-64 jump-coordinate clamp uses an explicitly signed
+minimum value. These cases do not yet establish complete image-program or VM
+compatibility.
+
 The untouched x86-64 reference reaches its desktop under QEMU. The BIOS
 reference reaches the Batagaika first-boot setup. With the current virtio-ramfb
-configuration, the ARM32 reference stops after kernel handoff and ARM64 displays
-a fault screen; those configurations still need investigation before comparison.
+configuration, the ARM32 reference stops after kernel handoff. ARM64 faults
+when the VM provides GICv2: its IRQ entry reads the GICv3 ICC_IAR1_EL1 register.
+A GICv3 reference run avoids that exception but still stalls on a blue screen
+amid timer interrupts; timer initialization still needs investigation.
+The architectural debugger registers and framebuffer observations remain local
+diagnostics; ARM VM compatibility is still unfinished.
 
 Diagnostic snapshots and VM disks remain outside tracked source. The normal
 build continues to use the last completed source tree until the next milestone

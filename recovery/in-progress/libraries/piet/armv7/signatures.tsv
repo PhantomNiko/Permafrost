@@ -1,0 +1,29 @@
+10001ef4	void recovered_10001ef4(void *pointer);
+10001f44	void * recovered_10001f44(void *pointer,unsigned long size);
+10005544	int recovered_10005544(char *buffer,unsigned long capacity,char *format,...);
+10001ea0	void * recovered_10001ea0(unsigned long size);
+10002d20	int recovered_10002d20(void *left,void *right,unsigned long count);
+10001f98	void * recovered_10001f98(void *destination,void *source,unsigned long count);
+1000221c	void * recovered_1000221c(void *destination,void *source,unsigned long count);
+10002728	void * recovered_10002728(void *destination,int value,unsigned long count);
+10003050	int recovered_10003050(char *left,char *right);
+10003028	unsigned long recovered_10003028(char *text);
+10006d2c	int recovered_10006d2c(char *left,char *right,unsigned long count);
+10003ba8	long long recovered_10003ba8(double value);
+10003c68	unsigned long long recovered_10003c68(double value);
+10003d38	double recovered_10003d38(long long value);
+10003cf0	double recovered_10003cf0(unsigned long long value);
+100078f8	double recovered_100078f8(double value);
+100079e0	float recovered_100079e0(float value);
+10007ae0	double recovered_10007ae0(double value);
+10007bc8	double recovered_10007bc8(long end,long start);
+10003ba8	long long recovered_10003ba8(double value);	r1:r0	r1,r0	__stdcall_softfp
+10003c68	unsigned long long recovered_10003c68(double value);	r1:r0	r1,r0	__stdcall_softfp
+10003d38	double recovered_10003d38(long long value);	r1:r0	r1,r0	__stdcall_softfp
+10003cf0	double recovered_10003cf0(unsigned long long value);	r1:r0	r1,r0	__stdcall_softfp
+100078f8	double recovered_100078f8(double value);	r1:r0	r1,r0	__stdcall_softfp
+100079e0	float recovered_100079e0(float value);	r0	r0	__stdcall_softfp
+10007ae0	double recovered_10007ae0(double value);	r1:r0	r1,r0	__stdcall_softfp
+10007bc8	double recovered_10007bc8(long end,long start);	r0,r1	r1,r0	__stdcall_softfp
+10007db4	long long recovered_10007db4(char *text,char **end,int base);
+1000880c	long long recovered_1000880c(void *variable);
