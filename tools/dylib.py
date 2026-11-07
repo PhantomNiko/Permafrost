@@ -41,8 +41,9 @@ def inspect(binary):
     if length > len(binary) - header or count > 4096:
         raise ValueError('invalid Mach-O command table')
     result = dict(cpu=cpu, subtype=subtype, width=8 if wide else 4, flags=flags,
-                  commands=[], segments=[], sections=[], exports=[], imports=[], dependencies=[])
-    position, table = header, None
+                  commands=[], segments=[], sections=[], exports=[], imports=[], dependencies=[], stubs=[])
+    position, table, indirect = header, None, None
+    stub_sections = []
     for _ in range(count):
         if position + 8 > header + length:
             raise ValueError('truncated Mach-O command')
@@ -67,6 +68,11 @@ def inspect(binary):
                 section_name = binary[p:p+16].split(b'\0')[0].decode('ascii')
                 a, n = struct.unpack_from('<QQ' if segment_wide else '<II', binary, p+32)
                 result['sections'].append((section_name, a, n))
+                section_flags, first, stub_stride = struct.unpack_from('<III', binary, p+(64 if segment_wide else 56))
+                if section_flags & 0xff == 8:
+                    if not stub_stride or n % stub_stride:
+                        raise ValueError('invalid symbol stub section')
+                    stub_sections.append((a, n, first, stub_stride))
         elif command in (0x22, 0x80000022):
             if size != 48:
                 raise ValueError('invalid dyld info command')
@@ -81,6 +87,10 @@ def inspect(binary):
             if size != 24:
                 raise ValueError('invalid symbol table command')
             table = struct.unpack_from('<4I', binary, position+8)
+        elif command == 0xb:
+            if size != 80:
+                raise ValueError('invalid dynamic symbol table command')
+            indirect = struct.unpack_from('<II', binary, position+56)
         elif command in (0xc, 0x80000018, 0x8000001f):
             offset = struct.unpack_from('<I', binary, position+8)[0]
             if not 24 <= offset < size:
@@ -94,18 +104,34 @@ def inspect(binary):
         stride = 16 if wide else 12
         if offset + number * stride > len(binary) or strings + string_size > len(binary):
             raise ValueError('invalid library symbol table')
+        symbol_names = []
         for index in range(number):
             values = struct.unpack_from('<IBBHQ' if wide else '<IBBHI', binary, offset+index*stride)
             name_offset, tag, section, description, address = values
             if name_offset >= string_size:
                 raise ValueError('invalid library symbol name')
             name = binary[strings+name_offset:strings+string_size].split(b'\0')[0].decode('utf-8')
+            symbol_names.append(name)
             if tag & 0xe0 or not tag & 1:
                 continue
             if tag & 0xe == 0xe:
                 result['exports'].append(dict(name=name, address=address, section=section, weak=bool(description & 0x80)))
             elif tag & 0xe == 0:
                 result['imports'].append(dict(name=name, ordinal=description >> 8, weak=bool(description & 0x40)))
+        if indirect:
+            position, count = indirect
+            if position + count * 4 > len(binary):
+                raise ValueError('invalid indirect symbol table')
+            for address, length, first, stride in stub_sections:
+                if first + length // stride > count:
+                    raise ValueError('symbol stub exceeds indirect table')
+                for index in range(length // stride):
+                    symbol = struct.unpack_from('<I', binary, position + (first + index) * 4)[0]
+                    if symbol & 0xc0000000:
+                        continue
+                    if symbol >= len(symbol_names):
+                        raise ValueError('invalid indirect symbol index')
+                    result['stubs'].append(dict(name=symbol_names[symbol], address=address + index * stride))
     return result
 
 

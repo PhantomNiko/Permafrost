@@ -1,0 +1,3 @@
+1000bff4	unsigned int recovered_1000bff4(unsigned int numerator,unsigned int denominator);
+1000bff8	unsigned int recovered_1000bff8(unsigned int numerator,unsigned int denominator);
+1000bffc	long long recovered_1000bffc(double value);

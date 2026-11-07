@@ -18,17 +18,16 @@ from unicorn.arm64_const import UC_ARM64_REG_D0, UC_ARM64_REG_LR
 PREFIX = '__ZN6winter5audio'
 
 
-def library(path):
-    lib = DLL(path, instruction_limit=200000000)
+def library(path, api_base=None):
+    lib = DLL(path, instruction_limit=200000000, api_base=api_base)
     metadata = inspect(Path(path).read_bytes())
     imports = {item['name'] for item in metadata['imports']} - {'dyld_stub_binder'}
     if not imports:
         return lib
     assert imports == {'_llroundl'}, imports
-    address, size = next((a, n) for k, a, n in metadata['sections'] if k == '__la_symbol_ptr')
+    address = next(item['address'] for item in metadata['stubs'] if item['name'] == '_llroundl')
     width = 8 if lib.wide else 4
-    assert size == width
-    target = int.from_bytes(lib.cpu.mem_read(lib.base + address, width), 'little')
+    target = lib.base + address
 
     def rounding(cpu, address, size, user):
         if lib.cpu_type in (7, 0x1000007):
@@ -75,8 +74,8 @@ def snapshot(lib, track):
     return count, rate, channels, samples
 
 
-def generated(path, *arguments):
-    lib = library(path)
+def generated(path, *arguments, api_base=None):
+    lib = library(path, api_base)
     track = create(lib, *arguments)
     if not track:
         return None
@@ -85,8 +84,8 @@ def generated(path, *arguments):
     return result
 
 
-def trimmed(path, start, end):
-    lib = library(path)
+def trimmed(path, start, end, api_base=None):
+    lib = library(path, api_base)
     track = create(lib, 440, 11, 'sine', 'both')
     assert track
     mask = (1 << 64) - 1
@@ -104,25 +103,26 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('reference', type=Path)
     parser.add_argument('source', type=Path)
+    parser.add_argument('--api-base', type=lambda value: int(value, 0))
     args = parser.parse_args()
     count = 0
     for waveform in ('square', 'sine', 'saw'):
         for side in ('left', 'right', 'both'):
             case = (440, 2, waveform, side)
-            expected, actual = (generated(path, *case) for path in (args.reference, args.source))
+            expected, actual = (generated(path, *case, api_base=args.api_base) for path in (args.reference, args.source))
             assert expected is not None, case
             assert actual == expected, ('audio samples differ', case, None if actual is None else actual[:3], expected[:3])
             count += 1
     for case in ((0, 2, 'square', 'both'), (440, 0, 'sine', 'both'), (440, 1, 'sine', 'both'), (440, 5, 'sine', 'both'), (22050, 11, 'saw', 'both')):
-        expected, actual = (generated(path, *case) for path in (args.reference, args.source))
+        expected, actual = (generated(path, *case, api_base=args.api_base) for path in (args.reference, args.source))
         assert actual == expected, ('audio boundary differs', case)
         count += 1
     for case in ((-1, 1, 'sine', 'both'), (440, -1, 'sine', 'both'), (440, 1, 'unknown', 'both'), (440, 1, 'sine', 'unknown'), (440, 1, None, 'both'), (440, 1, 'sine', None)):
-        assert generated(args.reference, *case) is None
-        assert generated(args.source, *case) is None
+        assert generated(args.reference, *case, api_base=args.api_base) is None
+        assert generated(args.source, *case, api_base=args.api_base) is None
         count += 1
     for case in ((0, 2), (2, 5), (5, 11), (50, 60), (3, 2), (-1, 2), (0, 0), (0, (1 << 63) - 1)):
-        expected, actual = (trimmed(path, *case) for path in (args.reference, args.source))
+        expected, actual = (trimmed(path, *case, api_base=args.api_base) for path in (args.reference, args.source))
         assert actual == expected, ('trim differs', case)
         count += 1
     print('Audio library: %d native/source generation, trim and invalid-input cases passed.' % count)
