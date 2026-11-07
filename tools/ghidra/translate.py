@@ -398,6 +398,12 @@ def rewrite_integer_vectors(source):
             'uint32_t':4,'int32_t':4,'uint64_t':8,'int64_t':8}
     vectors=re.findall(r'\buint128\s+(auVar\d+)\b',source)
     for name in vectors:
+        # Ghidra represents a duplicated 64-bit NEON operand by casting the
+        # concatenated register value to an array. It does not read memory
+        # at that value (for example, a multiplier consisting of four 33s).
+        source=re.sub(r'\*\(\s*uint128\s*\*\s*\)\s*\(\s*'+name+
+                      r'\s*<<\s*0x40\s*\|\s*'+name+r'\s*\)',
+                      '('+name+' << 64 | '+name+')',source)
         pattern=(r'\*\(\s*('+ '|'.join(widths)+r')\s*\*\s*\)\s*'
                  r'(?:\(\s*'+name+r'\s*\+\s*\(uint128\)\s*'
                  r'(0x[0-9a-fA-F]+|\d+)\s*\)|'+name+r'\b)')
@@ -436,7 +442,7 @@ def main():
     manual = {path.stem: path.read_text() for path in manual_root.glob('*.c')}
     args.out.mkdir(parents=True, exist_ok=True)
     sources = {p.stem: p.read_text() for p in sorted(args.notes.glob('*.c')) if p.stem != 'recovered'}
-    function_addresses={int(a,16) for a in sources}
+    function_addresses={int(a,16) for a in sources.keys() | manual.keys()}
     def data_labels(text):
         text=re.sub(r'switchD_[0-9a-f]+::switchdataD_([0-9a-f]+)',r'DAT_\1',text)
         return re.sub(r'\b(_?)recovered_([0-9a-f]+)\b',
@@ -479,11 +485,17 @@ def main():
     header+=current.get('declarations',[])
     if current.get('state_anchor'):
         header.append('extern uint8_t '+current['state_anchor']+'[];')
-    for address,source in sources.items():
-        declaration=signature(source)
+    # A reused C unit need not have a fresh decompiler export. Its declaration
+    # is still required by callers and by the library's exported entry aliases.
+    declarations=dict(sources)
+    declarations.update({a:s for a,s in manual.items() if a not in sources})
+    for address,source in declarations.items():
+        declaration=None
         if address in manual:
             match=re.search(r'(?m)^((?:__attribute__\(\([^\n]*?\)\)\s*)?[A-Za-z_][A-Za-z_0-9 \t*]*\brecovered_'+address+r'\s*\([^;{}]*\))\s*\{',manual[address])
             if match:declaration=match[1].strip()
+        if declaration is None:
+            declaration=signature(source)
         if current.get('ms_abi'):
             declaration='__attribute__((ms_abi)) '+declaration
         header.append(declaration + ';')

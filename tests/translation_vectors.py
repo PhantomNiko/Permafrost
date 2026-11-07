@@ -54,6 +54,11 @@ uint32_t lane(unsigned index) {
  words[3]=*(undefined4 *)(auVar3+(undefined1 [16])0xc);
  return words[index];
 }
+uint128 duplicate_pair(uint64_t value) {
+ undefined1 auVar4 [16];
+ auVar4=value;
+ return *(undefined1 (*) [16])(auVar4 << 0x40 | auVar4);
+}
 unsigned bytes(void *memory) {
  undefined1 (*pointer) [16];
  pointer=memory;
@@ -63,6 +68,8 @@ int main(void) {
  uint128 value=((uint128)0x12345678<<64)|0xabcdef;
  if(copy_word(0x123456789abcdef0ULL)!=0x123456789abcdef0ULL)return 4;
  if(register_pointer(0x12345678)!=0x12345678)return 5;
+ if(duplicate_pair(0x2100000021ULL)!=
+    (((uint128)0x2100000021ULL<<64)|0x2100000021ULL))return 7;
  if(lane(0)!=0x76543210 || lane(1)!=0xfedcba98 ||
     lane(2)!=0x89abcdef || lane(3)!=0x01234567)return 6;
  if(address(3)!=0x2030 || load(&value)!=value)return 2;
