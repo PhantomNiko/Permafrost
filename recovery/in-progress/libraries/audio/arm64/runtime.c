@@ -1,3 +1,4 @@
+#include "scope_jump.h"
 /* Permafrost recovered implementation; Pooka's Free Software License.
  * Fixed entry addresses and original function boundaries are recorded
  * separately in recovery metadata. */
@@ -4762,17 +4763,7 @@ bool recovered_100035b0(int param_1)
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x1000367c
  */
-
-void recovered_1000367c(long param_1)
-
-{
-  unsigned char frame[64] __attribute__((aligned(16))) = {0};
-
-                    /* WARNING: Could not recover jumptable at 0x1000368c. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  (**(code **)(param_1 + 0x48))();
-  return;
-}
+__attribute__((naked,noreturn)) void recovered_1000367c(long param_1){__asm__ volatile(PF_SCOPE_JUMP_ASM);}
 
 
 /* Native context ABI; Pooka's Free Software License. */

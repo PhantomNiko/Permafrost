@@ -1,3 +1,4 @@
+#include "scope_jump.h"
 /* Permafrost recovered implementation; Pooka's Free Software License.
  * Fixed entry addresses and original function boundaries are recorded
  * separately in recovery metadata. */
@@ -4239,27 +4240,12 @@ bool recovered_10002d00(int param_1)
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10002dcc
  */
-
-ulonglong recovered_10002dcc(long param_1)
-
-{
-  unsigned char frame[64] = {0};
-
-  ulonglong uVar1;
-
-                    /* WARNING: Could not recover jumptable at 0x10002ddc. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  uVar1 = (**(code **)(param_1 + 0x48))();
-  return uVar1;
-}
+__attribute__((naked,noreturn)) ulonglong recovered_10002dcc(long param_1){__asm__ volatile(PF_SCOPE_JUMP_ASM);}
 
 
 #if defined(__aarch64__)
 /* Permafrost architecture recovery; Pooka's Free Software License. */
-__attribute__((naked, returns_twice)) unsigned long recovered_10002de0(unsigned long *context)
-{
- __asm__ volatile("stp x19,x20,[x0]\nstp x21,x22,[x0,#16]\nstp x23,x24,[x0,#32]\nstp x25,x26,[x0,#48]\nstp x27,x28,[x0,#64]\nstp x29,x30,[x0,#80]\nmov x8,sp\nstr x8,[x0,#96]\nmov w0,#0\nret");
-}
+__attribute__((naked,returns_twice)) unsigned long recovered_10002de0(unsigned long *context){__asm__ volatile("movq %rbx,0(%rdi)\nmovq %rbp,8(%rdi)\nmovq %r12,16(%rdi)\nmovq %r13,24(%rdi)\nmovq %r14,32(%rdi)\nmovq %r15,40(%rdi)\nleaq 8(%rsp),%rax\nmovq %rax,48(%rdi)\nmovq (%rsp),%rax\nmovq %rax,56(%rdi)\nxorl %eax,%eax\nretq");}
 #else
 /* System V nonlocal-jump register context; Pooka's Free Software License. */
 __attribute__((naked,returns_twice)) unsigned long recovered_10002de0(unsigned long *context){__asm__ volatile("movq %rbx,0(%rdi)\nmovq %rbp,8(%rdi)\nmovq %r12,16(%rdi)\nmovq %r13,24(%rdi)\nmovq %r14,32(%rdi)\nmovq %r15,40(%rdi)\nleaq 8(%rsp),%rax\nmovq %rax,48(%rdi)\nmovq (%rsp),%rax\nmovq %rax,56(%rdi)\nxorl %eax,%eax\nretq");}
@@ -4269,10 +4255,7 @@ __attribute__((naked,returns_twice)) unsigned long recovered_10002de0(unsigned l
 
 #if defined(__aarch64__)
 /* Permafrost architecture recovery; Pooka's Free Software License. */
-__attribute__((naked,noreturn)) void recovered_10002e0c(unsigned long *context,int value)
-{
- __asm__ volatile("cmp w1,#0\ncsinc w1,w1,wzr,ne\nldp x19,x20,[x0]\nldp x21,x22,[x0,#16]\nldp x23,x24,[x0,#32]\nldp x25,x26,[x0,#48]\nldp x27,x28,[x0,#64]\nldp x29,x30,[x0,#80]\nldr x8,[x0,#96]\nmov sp,x8\nmov w0,w1\nret");
-}
+__attribute__((naked,noreturn)) void recovered_10002e0c(unsigned long *context,int value){__asm__ volatile("movl %esi,%eax\ntestl %eax,%eax\njnz 1f\nincl %eax\n1:\nmovq 0(%rdi),%rbx\nmovq 8(%rdi),%rbp\nmovq 16(%rdi),%r12\nmovq 24(%rdi),%r13\nmovq 32(%rdi),%r14\nmovq 40(%rdi),%r15\nmovq 48(%rdi),%rsp\nmovq 56(%rdi),%rdx\njmpq *%rdx");}
 #else
 /* System V nonlocal-jump register context; Pooka's Free Software License. */
 __attribute__((naked,noreturn)) void recovered_10002e0c(unsigned long *context,int value){__asm__ volatile("movl %esi,%eax\ntestl %eax,%eax\njnz 1f\nincl %eax\n1:\nmovq 0(%rdi),%rbx\nmovq 8(%rdi),%rbp\nmovq 16(%rdi),%r12\nmovq 24(%rdi),%r13\nmovq 32(%rdi),%r14\nmovq 40(%rdi),%r15\nmovq 48(%rdi),%rsp\njmpq *56(%rdi)");}

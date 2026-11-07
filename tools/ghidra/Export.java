@@ -148,6 +148,7 @@ public class Export extends GhidraScript {
         var explicit = new HashSet<Long>();
         var returnHints = new HashMap<Long,DataType>();
         for (String line : Files.readAllLines(Path.of(getScriptArgs()[2]))) {
+            if (line.isBlank()) continue;
             String[] fields = line.split("\\t", 5);
             long address = Long.parseLong(fields[0], 16);
             if (getFunctionAt(toAddr(address)) == null) {
@@ -166,6 +167,7 @@ public class Export extends GhidraScript {
         }
         if (getScriptArgs().length > 1) {
             for (String line : Files.readAllLines(Path.of(getScriptArgs()[1]))) {
+                if (line.isBlank()) continue;
                 String[] fields = line.split("\\t");
                 var function = getFunctionAt(toAddr(Long.parseLong(fields[0], 16)));
                 if (function != null && !explicit.contains(function.getEntryPoint().getOffset()) &&

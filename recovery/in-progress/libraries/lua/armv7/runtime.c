@@ -1,3 +1,4 @@
+#include "scope_jump.h"
 #include "word_divide.h"
 /* Permafrost recovered implementation; Pooka's Free Software License.
  * Fixed entry addresses and original function boundaries are recorded
@@ -4072,68 +4073,19 @@ undefined4 recovered_100037c0(int param_1)
 /* Recovered working notes; Pooka's Free Software License.
  * Address: ((uintptr_t)pf_module_state+0x2f94U)
  */
-
-uint recovered_10003810(int param_1)
-
-{
-  unsigned char frame[64] = {0};
-
-  uint uVar1;
-
-                    /* WARNING: Could not recover jumptable at ((uintptr_t)pf_module_state+0x2fa0U). Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  uVar1 = (**(code **)(param_1 + 0x24))();
-  return uVar1;
-}
+__attribute__((naked,noreturn)) uint recovered_10003810(int param_1){__asm__ volatile(PF_SCOPE_JUMP_ASM);}
 
 
 /* Recovered working notes; Pooka's Free Software License.
  * Address: ((uintptr_t)pf_module_state+0x2fa4U)
  */
-
-undefined4 recovered_10003820(undefined4 *param_1)
-
-{
-  unsigned char frame[64] = {0};
-
-  undefined4 unaff_r4;
-  undefined4 unaff_r5;
-  undefined4 unaff_r6;
-  undefined4 unaff_r7;
-  undefined4 unaff_r8;
-  undefined4 unaff_r9;
-  undefined4 unaff_r10;
-  undefined4 unaff_r11;
-  undefined4 unaff_lr;
-
-  *param_1 = unaff_r4;
-  param_1[1] = unaff_r5;
-  param_1[2] = unaff_r6;
-  param_1[3] = unaff_r7;
-  param_1[4] = unaff_r8;
-  param_1[5] = unaff_r9;
-  param_1[6] = unaff_r10;
-  param_1[7] = unaff_r11;
-  param_1[8] = (uintptr_t)(frame + 32);
-  param_1[9] = unaff_lr;
-  return 0;
-}
+__attribute__((naked,returns_twice)) undefined4 recovered_10003820(undefined4 *param_1){__asm__ volatile("stmia r0,{r4-r11}; str sp,[r0,#32]; str lr,[r0,#36]; mov r0,#0; bx lr");}
 
 
 /* Recovered working notes; Pooka's Free Software License.
  * Address: ((uintptr_t)pf_module_state+0x2fbcU)
  */
-
-int recovered_10003838(undefined4 param_1,int param_2)
-
-{
-  unsigned char frame[64] = {0};
-
-  if (param_2 == 0) {
-    param_2 = 1;
-  }
-  return param_2;
-}
+__attribute__((naked,noreturn)) int recovered_10003838(undefined4 param_1,int param_2){__asm__ volatile("cmp r1,#0; moveq r1,#1; ldmia r0,{r4-r11}; ldr sp,[r0,#32]; ldr lr,[r0,#36]; mov r0,r1; bx lr");}
 
 
 #undef DAT_100038d0

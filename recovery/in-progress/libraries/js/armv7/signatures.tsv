@@ -1,0 +1,50 @@
+10008174	int recovered_10008174(char *buffer,unsigned long capacity,char *format,...);
+10004b24	void recovered_10004b24(void *pointer);
+10004ad0	void * recovered_10004ad0(unsigned long size);
+10004b74	void * recovered_10004b74(void *pointer,unsigned long size);
+1000bc14	void recovered_1000bc14(char *buffer,uint capacity,char *text);
+1000cc54	uint recovered_1000cc54(char *script,char *output,uint capacity,char *status,uint status_capacity,uint flags);
+1000bc14	void recovered_1000bc14(char *buffer,uint capacity,char *text);
+1000bc90	uint recovered_1000bc90(char *script,char *output,uint capacity);
+1000bf34	uint recovered_1000bf34(char *script,char *output,uint capacity);
+1000c724	uint recovered_1000c724(char *script,char *output,uint capacity);
+1000c8c4	uint recovered_1000c8c4(char *script,char *output,uint capacity);
+1000d1ec	char * recovered_1000d1ec(char *text,char *pattern);
+1000d29c	uint recovered_1000d29c(char *output,uint capacity,char *first,char *last,char *url,char *html);
+1000df0c	uint recovered_1000df0c(char *output,uint capacity,char *first,char *last);
+1000e488	char * recovered_1000e488(char *first);
+1000e5bc	uint recovered_1000e5bc(char *output,uint capacity,char *first,char *last,char *url,char *html,uint depth);
+1000ec70	uint recovered_1000ec70(char *output,uint capacity,char *text);
+1000ed00	uint recovered_1000ed00(char *output,uint capacity,char *first,char *last,char *url,char *html,uint depth);
+1000efd8	uint recovered_1000efd8(char *output,uint capacity,char *text);
+1000f168	uint recovered_1000f168(char *output,uint capacity,char *text);
+1000f1e0	uint recovered_1000f1e0(char *output,uint capacity,char *text);
+1000f26c	uint recovered_1000f26c(char *output,uint capacity,char *first,char *last);
+1000f7cc	char * recovered_1000f7cc(char *first);
+1000f918	uint recovered_1000f918(char *output,uint capacity,char *first,char *last);
+1000bc14	void recovered_1000bc14(char *buffer,uint capacity,char *text);
+1000bc90	uint recovered_1000bc90(char *script,char *output,uint capacity);
+1000bf34	uint recovered_1000bf34(char *script,char *output,uint capacity);
+1000c724	uint recovered_1000c724(char *script,char *output,uint capacity);
+1000c8c4	uint recovered_1000c8c4(char *script,char *output,uint capacity);
+1000d1ec	char * recovered_1000d1ec(char *text,char *pattern);
+1000d29c	uint recovered_1000d29c(char *output,uint capacity,char *first,char *last,char *url,char *html);
+1000df0c	uint recovered_1000df0c(char *output,uint capacity,char *first,char *last);
+1000e488	char * recovered_1000e488(char *first);
+1000e5bc	uint recovered_1000e5bc(char *output,uint capacity,char *first,char *last,char *url,char *html,uint depth);
+1000ec70	uint recovered_1000ec70(char *output,uint capacity,char *text);
+1000ed00	uint recovered_1000ed00(char *output,uint capacity,char *first,char *last,char *url,char *html,uint depth);
+1000efd8	uint recovered_1000efd8(char *output,uint capacity,char *text);
+1000f168	uint recovered_1000f168(char *output,uint capacity,char *text);
+1000f1e0	uint recovered_1000f1e0(char *output,uint capacity,char *text);
+1000f26c	uint recovered_1000f26c(char *output,uint capacity,char *first,char *last);
+1000f7cc	char * recovered_1000f7cc(char *first);
+1000f918	uint recovered_1000f918(char *output,uint capacity,char *first,char *last);
+100067d8	long long recovered_100067d8(double value);	r1:r0	r1,r0	__stdcall_softfp
+10006898	unsigned long long recovered_10006898(double value);	r1:r0	r1,r0	__stdcall_softfp
+10006968	double recovered_10006968(long long value);	r1:r0	r1,r0	__stdcall_softfp
+10006920	double recovered_10006920(unsigned long long value);	r1:r0	r1,r0	__stdcall_softfp
+1000a528	double recovered_1000a528(double value);	r1:r0	r1,r0	__stdcall_softfp
+1000a610	float recovered_1000a610(float value);	r0	r0	__stdcall_softfp
+1000a710	double recovered_1000a710(double value);	r1:r0	r1,r0	__stdcall_softfp
+1000a7f8	double recovered_1000a7f8(long end,long start);	r0,r1	r1,r0	__stdcall_softfp

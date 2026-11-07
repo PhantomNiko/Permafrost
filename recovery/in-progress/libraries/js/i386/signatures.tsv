@@ -1,0 +1,50 @@
+10001540	void recovered_10001540(void *pointer);
+10001500	void * recovered_10001500(unsigned long size);
+10001580	void * recovered_10001580(void *pointer,unsigned long size);
+10003f40	int recovered_10003f40(char *buffer,unsigned long capacity,char *format,...);
+10007380	void recovered_10007380(char *buffer,uint capacity,char *text);
+10008150	uint recovered_10008150(char *script,char *output,uint capacity,char *status,uint status_capacity,uint flags);
+10007380	void recovered_10007380(char *buffer,uint capacity,char *text);	ECX,EDX,stack4
+100073f0	uint recovered_100073f0(char *script,char *output,uint capacity);	ECX,EDX,stack4	EAX
+10007610	uint recovered_10007610(char *script,char *output,uint capacity);	ECX,EDX,stack4	EAX
+10007ce0	uint recovered_10007ce0(char *script,char *output,uint capacity);	ECX,EDX,stack4	EAX
+10007e60	uint recovered_10007e60(char *script,char *output,uint capacity);	ECX,EDX,stack4	EAX
+100085e0	char * recovered_100085e0(char *text,char *pattern);	ECX,EDX	EAX
+10008660	uint recovered_10008660(char *output,uint capacity,char *first,char *last,char *url,char *html);	ECX,EDX,stack4,stack8,stack12,stack16	EAX
+10008fb0	uint recovered_10008fb0(char *output,uint capacity,char *first,char *last);	ECX,EDX,stack4,stack8	EAX
+10009370	char * recovered_10009370(char *first);	ECX	EAX
+100093f0	uint recovered_100093f0(char *output,uint capacity,char *first,char *last,char *url,char *html,uint depth);	ECX,EDX,stack4,stack8,stack12,stack16,stack20	EAX
+10009910	uint recovered_10009910(char *output,uint capacity,char *text);	ECX,EDX,stack4	EAX
+10009980	uint recovered_10009980(char *output,uint capacity,char *first,char *last,char *url,char *html,uint depth);	ECX,EDX,stack4,stack8,stack12,stack16,stack20	EAX
+10009bf0	uint recovered_10009bf0(char *output,uint capacity,char *text);	ECX,EDX,stack4	EAX
+10009d30	uint recovered_10009d30(char *output,uint capacity,char *text);	ECX,EDX,stack4	EAX
+10009d90	uint recovered_10009d90(char *output,uint capacity,char *text);	ECX,EDX,stack4	EAX
+10009e00	uint recovered_10009e00(char *output,uint capacity,char *first,char *last);	ECX,EDX,stack4,stack8	EAX
+1000a1c0	char * recovered_1000a1c0(char *first);	ECX	EAX
+1000a2c0	uint recovered_1000a2c0(char *output,uint capacity,char *first,char *last);	ECX,EDX,stack4,stack8	EAX
+10007380	void recovered_10007380(char *buffer,uint capacity,char *text);	ECX,EDX,stack4
+100073f0	uint recovered_100073f0(char *script,char *output,uint capacity);	ECX,EDX,stack4	EAX
+10007610	uint recovered_10007610(char *script,char *output,uint capacity);	ECX,EDX,stack4	EAX
+10007ce0	uint recovered_10007ce0(char *script,char *output,uint capacity);	ECX,EDX,stack4	EAX
+10007e60	uint recovered_10007e60(char *script,char *output,uint capacity);	ECX,EDX,stack4	EAX
+100085e0	char * recovered_100085e0(char *text,char *pattern);	ECX,EDX	EAX
+10008660	uint recovered_10008660(char *output,uint capacity,char *first,char *last,char *url,char *html);	ECX,EDX,stack4,stack8,stack12,stack16	EAX
+10008fb0	uint recovered_10008fb0(char *output,uint capacity,char *first,char *last);	ECX,EDX,stack4,stack8	EAX
+10009370	char * recovered_10009370(char *first);	ECX	EAX
+100093f0	uint recovered_100093f0(char *output,uint capacity,char *first,char *last,char *url,char *html,uint depth);	ECX,EDX,stack4,stack8,stack12,stack16,stack20	EAX
+10009910	uint recovered_10009910(char *output,uint capacity,char *text);	ECX,EDX,stack4	EAX
+10009980	uint recovered_10009980(char *output,uint capacity,char *first,char *last,char *url,char *html,uint depth);	ECX,EDX,stack4,stack8,stack12,stack16,stack20	EAX
+10009bf0	uint recovered_10009bf0(char *output,uint capacity,char *text);	ECX,EDX,stack4	EAX
+10009d30	uint recovered_10009d30(char *output,uint capacity,char *text);	ECX,EDX,stack4	EAX
+10009d90	uint recovered_10009d90(char *output,uint capacity,char *text);	ECX,EDX,stack4	EAX
+10009e00	uint recovered_10009e00(char *output,uint capacity,char *first,char *last);	ECX,EDX,stack4,stack8	EAX
+1000a1c0	char * recovered_1000a1c0(char *first);	ECX	EAX
+1000a2c0	uint recovered_1000a2c0(char *output,uint capacity,char *first,char *last);	ECX,EDX,stack4,stack8	EAX
+10002740	long long recovered_10002740(double value);
+10002820	unsigned long long recovered_10002820(double value);
+10002940	double recovered_10002940(long long value);
+100028d0	double recovered_100028d0(unsigned long long value);
+10005e70	double recovered_10005e70(double value);
+10005fa0	float recovered_10005fa0(float value);
+100060e0	long double recovered_100060e0(long double value);
+10006210	double recovered_10006210(long end,long start);

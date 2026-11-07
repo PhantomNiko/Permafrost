@@ -1,3 +1,4 @@
+#include "scope_jump.h"
 /* Permafrost recovered implementation; Pooka's Free Software License.
  * Fixed entry addresses and original function boundaries are recorded
  * separately in recovery metadata. */
@@ -5873,17 +5874,7 @@ void recovered_10004fa0(void)
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10004fc0
  */
-
-void recovered_10004fc0(long param_1,undefined8 param_2)
-
-{
-  unsigned char frame[64] = {0};
-
-                    /* WARNING: Could not recover jumptable at 0x10004fcc. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  (**(code **)(param_1 + 0x48))(param_1,param_2,*(code **)(param_1 + 0x48));
-  return;
-}
+__attribute__((naked,noreturn)) void recovered_10004fc0(long param_1,undefined8 param_2){__asm__ volatile(PF_SCOPE_JUMP_ASM);}
 
 
 #define uStack0000000000000008 (*(undefined1 *)(frame + 40))
@@ -5891,29 +5882,7 @@ void recovered_10004fc0(long param_1,undefined8 param_2)
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10004fd0
  */
-
-undefined8 recovered_10004fd0(undefined8 *param_1)
-
-{
-  unsigned char frame[64] = {0};
-
-  undefined8 unaff_RBX;
-  undefined8 unaff_RBP;
-  undefined8 unaff_R12;
-  undefined8 unaff_R13;
-  undefined8 unaff_R14;
-  undefined8 unaff_R15;
-
-  *param_1 = unaff_RBX;
-  param_1[1] = unaff_RBP;
-  param_1[2] = unaff_R12;
-  param_1[3] = unaff_R13;
-  param_1[4] = unaff_R14;
-  param_1[5] = unaff_R15;
-  param_1[6] = &uStack0000000000000008;
-  param_1[7] = unaff_retaddr;
-  return 0;
-}
+__attribute__((naked,returns_twice)) undefined8 recovered_10004fd0(undefined8 *param_1){__asm__ volatile("movq %rbx,0(%rdi)\nmovq %rbp,8(%rdi)\nmovq %r12,16(%rdi)\nmovq %r13,24(%rdi)\nmovq %r14,32(%rdi)\nmovq %r15,40(%rdi)\nleaq 8(%rsp),%rax\nmovq %rax,48(%rdi)\nmovq (%rsp),%rax\nmovq %rax,56(%rdi)\nxorl %eax,%eax\nretq");}
 
 #undef uStack0000000000000008
 #undef unaff_retaddr
@@ -5921,17 +5890,7 @@ undefined8 recovered_10004fd0(undefined8 *param_1)
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10005000
  */
-
-void recovered_10005000(long param_1,undefined4 param_2)
-
-{
-  unsigned char frame[64] = {0};
-
-                    /* WARNING: Could not recover jumptable at 0x1000502a. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  (**(code **)(param_1 + 0x38))(param_1,param_2,*(code **)(param_1 + 0x38));
-  return;
-}
+__attribute__((naked,noreturn)) void recovered_10005000(long param_1,undefined4 param_2){__asm__ volatile("movl %esi,%eax\ntestl %eax,%eax\njnz 1f\nincl %eax\n1:\nmovq 0(%rdi),%rbx\nmovq 8(%rdi),%rbp\nmovq 16(%rdi),%r12\nmovq 24(%rdi),%r13\nmovq 32(%rdi),%r14\nmovq 40(%rdi),%r15\nmovq 48(%rdi),%rsp\nmovq 56(%rdi),%rdx\njmpq *%rdx");}
 
 
 #undef DAT_10005081

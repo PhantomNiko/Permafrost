@@ -1,3 +1,4 @@
+#include "scope_jump.h"
 /* Permafrost recovered implementation; Pooka's Free Software License.
  * Fixed entry addresses and original function boundaries are recorded
  * separately in recovery metadata. */
@@ -6821,34 +6822,7 @@ void recovered_10006c88(void)
 #undef DAT_1000c290
 
 /* Reviewed instruction-equivalent C. Pooka's Free Software License. */
-
-undefined4 recovered_10006cb0(undefined4 *param_1)
-
-{
-  unsigned char frame[64] = {0};
-
-  undefined4 unaff_r4;
-  undefined4 unaff_r5;
-  undefined4 unaff_r6;
-  undefined4 unaff_r7;
-  undefined4 unaff_r8;
-  undefined4 unaff_r9;
-  undefined4 unaff_r10;
-  undefined4 unaff_r11;
-  undefined4 unaff_lr;
-
-  *param_1 = unaff_r4;
-  param_1[1] = unaff_r5;
-  param_1[2] = unaff_r6;
-  param_1[3] = unaff_r7;
-  param_1[4] = unaff_r8;
-  param_1[5] = unaff_r9;
-  param_1[6] = unaff_r10;
-  param_1[7] = unaff_r11;
-  param_1[8] = (uintptr_t)(frame + 32);
-  param_1[9] = unaff_lr;
-  return 0;
-}
+__attribute__((naked,noreturn)) undefined4 recovered_10006cb0(undefined4 *param_1){__asm__ volatile(PF_SCOPE_JUMP_ASM);}
 
 
 /* Native context ABI; Pooka's Free Software License. */

@@ -1,3 +1,4 @@
+#include "scope_jump.h"
 /* Permafrost recovered implementation; Pooka's Free Software License.
  * Fixed entry addresses and original function boundaries are recorded
  * separately in recovery metadata. */
@@ -4398,25 +4399,15 @@ bool recovered_10002dac(int param_1)
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10002e78
  */
-
-void recovered_10002e78(long param_1)
-
-{
-  unsigned char frame[64] = {0};
-
-                    /* WARNING: Could not recover jumptable at 0x10002e88. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  (**(code **)(param_1 + 0x48))();
-  return;
-}
+__attribute__((naked,noreturn)) void recovered_10002e78(long param_1){__asm__ volatile(PF_SCOPE_JUMP_ASM);}
 
 
 /* Native context ABI in a C translation unit. Pooka's Free Software License. */
-__attribute__((naked,returns_twice)) int recovered_10002e8c(void *context){__asm__ volatile("stp x19,x20,[x0]; stp x21,x22,[x0,#16]; stp x23,x24,[x0,#32]; stp x25,x26,[x0,#48]; stp x27,x28,[x0,#64]; stp x29,x30,[x0,#80]; mov x8,sp; str x8,[x0,#96]; mov w0,#0; ret");}
+__attribute__((naked,returns_twice)) int recovered_10002e8c(void *context){__asm__ volatile("stp x19,x20,[x0,#0]\nstp x21,x22,[x0,#16]\nstp x23,x24,[x0,#32]\nstp x25,x26,[x0,#48]\nstp x27,x28,[x0,#64]\nstp x29,x30,[x0,#80]\nmov x8,sp\nstr x8,[x0,#96]\nstp d8,d9,[x0,#104]\nstp d10,d11,[x0,#120]\nstp d12,d13,[x0,#136]\nstp d14,d15,[x0,#152]\nmov w0,#0\nret");}
 
 
 /* Native context ABI in a C translation unit. Pooka's Free Software License. */
-__attribute__((naked,noreturn)) void recovered_10002eb8(void *context,int value){__asm__ volatile("cmp w1,#0; csinc w1,w1,wzr,ne; ldp x19,x20,[x0]; ldp x21,x22,[x0,#16]; ldp x23,x24,[x0,#32]; ldp x25,x26,[x0,#48]; ldp x27,x28,[x0,#64]; ldp x29,x30,[x0,#80]; ldr x8,[x0,#96]; mov sp,x8; mov w0,w1; ret");}
+__attribute__((naked,noreturn)) void recovered_10002eb8(void *context,int value){__asm__ volatile("cbnz w1,1f\nmov w1,#1\n1:\nldp x19,x20,[x0,#0]\nldp x21,x22,[x0,#16]\nldp x23,x24,[x0,#32]\nldp x25,x26,[x0,#48]\nldp x27,x28,[x0,#64]\nldp x29,x30,[x0,#80]\nldr x8,[x0,#96]\nmov sp,x8\nldp d8,d9,[x0,#104]\nldp d10,d11,[x0,#120]\nldp d12,d13,[x0,#136]\nldp d14,d15,[x0,#152]\nmov w0,w1\nret");}
 
 
 /* Recovered working notes; Pooka's Free Software License.

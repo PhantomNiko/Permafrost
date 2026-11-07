@@ -1,3 +1,4 @@
+#include "scope_jump.h"
 /* Permafrost recovered implementation; Pooka's Free Software License.
  * Fixed entry addresses and original function boundaries are recorded
  * separately in recovery metadata. */
@@ -4242,33 +4243,15 @@ bool recovered_10002cb0(int param_1)
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10002d7c
  */
-
-ulonglong recovered_10002d7c(long param_1)
-
-{
-  unsigned char frame[64] = {0};
-
-  ulonglong uVar1;
-
-                    /* WARNING: Could not recover jumptable at 0x10002d8c. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  uVar1 = (**(code **)(param_1 + 0x48))();
-  return uVar1;
-}
+__attribute__((naked,noreturn)) ulonglong recovered_10002d7c(long param_1){__asm__ volatile(PF_SCOPE_JUMP_ASM);}
 
 
 /* Permafrost architecture recovery; Pooka's Free Software License. */
-__attribute__((naked, returns_twice)) unsigned long recovered_10002d90(unsigned long *context)
-{
- __asm__ volatile("stp x19,x20,[x0]\nstp x21,x22,[x0,#16]\nstp x23,x24,[x0,#32]\nstp x25,x26,[x0,#48]\nstp x27,x28,[x0,#64]\nstp x29,x30,[x0,#80]\nmov x8,sp\nstr x8,[x0,#96]\nmov w0,#0\nret");
-}
+__attribute__((naked,returns_twice)) unsigned long recovered_10002d90(unsigned long *context){__asm__ volatile("stp x19,x20,[x0,#0]\nstp x21,x22,[x0,#16]\nstp x23,x24,[x0,#32]\nstp x25,x26,[x0,#48]\nstp x27,x28,[x0,#64]\nstp x29,x30,[x0,#80]\nmov x8,sp\nstr x8,[x0,#96]\nstp d8,d9,[x0,#104]\nstp d10,d11,[x0,#120]\nstp d12,d13,[x0,#136]\nstp d14,d15,[x0,#152]\nmov w0,#0\nret");}
 
 
 /* Permafrost architecture recovery; Pooka's Free Software License. */
-__attribute__((naked,noreturn)) void recovered_10002dbc(unsigned long *context,int value)
-{
- __asm__ volatile("cmp w1,#0\ncsinc w1,w1,wzr,ne\nldp x19,x20,[x0]\nldp x21,x22,[x0,#16]\nldp x23,x24,[x0,#32]\nldp x25,x26,[x0,#48]\nldp x27,x28,[x0,#64]\nldp x29,x30,[x0,#80]\nldr x8,[x0,#96]\nmov sp,x8\nmov w0,w1\nret");
-}
+__attribute__((naked,noreturn)) void recovered_10002dbc(unsigned long *context,int value){__asm__ volatile("cbnz w1,1f\nmov w1,#1\n1:\nldp x19,x20,[x0,#0]\nldp x21,x22,[x0,#16]\nldp x23,x24,[x0,#32]\nldp x25,x26,[x0,#48]\nldp x27,x28,[x0,#64]\nldp x29,x30,[x0,#80]\nldr x8,[x0,#96]\nmov sp,x8\nldp d8,d9,[x0,#104]\nldp d10,d11,[x0,#120]\nldp d12,d13,[x0,#136]\nldp d14,d15,[x0,#152]\nmov w0,w1\nret");}
 
 
 /* Recovered working notes; Pooka's Free Software License.

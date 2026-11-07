@@ -89,7 +89,7 @@ class DLL:
             self.cpu.mem_write(address,b'\xc3'if not arm else struct.pack('<I',0xe12fff1e if self.cpu_type==12 else 0xd65f03c0))
             self.cpu.hook_add(UC_HOOK_CODE,hook,begin=address,end=address)
 
-    def call(self,name,*arguments,result_bits=8):
+    def call(self,name,*arguments,result_bits=8,stack_format=None):
         cpu=self.cpu;stack=0x4fe0000
         if getattr(self,"poison_stack",False):cpu.mem_write(stack-0x10000,b"\x5a"*0x10000)
         if self.cpu_type==7:
@@ -97,6 +97,7 @@ class DLL:
         elif self.cpu_type==0x1000007:
             for reg,value in zip((UC_X86_REG_RDI,UC_X86_REG_RSI,UC_X86_REG_RDX,UC_X86_REG_RCX,UC_X86_REG_R8,UC_X86_REG_R9),arguments):cpu.reg_write(reg,value)
             cpu.reg_write(UC_X86_REG_RSP,stack-8);cpu.mem_write(stack-8,struct.pack('<Q',self.stop))
+            if len(arguments)>6:cpu.mem_write(stack,struct.pack('<'+'Q'*(len(arguments)-6),*arguments[6:]))
         elif self.cpu_type==12:
             for reg,value in zip((UC_ARM_REG_R0,UC_ARM_REG_R1,UC_ARM_REG_R2,UC_ARM_REG_R3),arguments):cpu.reg_write(reg,value)
             cpu.reg_write(UC_ARM_REG_SP,stack);cpu.reg_write(UC_ARM_REG_LR,self.stop)
@@ -104,6 +105,9 @@ class DLL:
         else:
             for reg,value in zip((UC_ARM64_REG_X0,UC_ARM64_REG_X1,UC_ARM64_REG_X2,UC_ARM64_REG_X3,UC_ARM64_REG_X4,UC_ARM64_REG_X5,UC_ARM64_REG_X6,UC_ARM64_REG_X7),arguments):cpu.reg_write(reg,value)
             cpu.reg_write(UC_ARM64_REG_SP,stack);cpu.reg_write(UC_ARM64_REG_LR,self.stop)
+            if len(arguments)>8:
+                if stack_format is None:raise ValueError('Darwin ARM64 spilled arguments need an explicit stack format')
+                cpu.mem_write(stack,struct.pack(stack_format,*arguments[8:]))
         try:cpu.emu_start(self.exports[name],self.stop,count=self.instruction_limit)
         except UcError as error:
             raise AssertionError('%s failed at %#x'%(name,cpu.reg_read(self.pc)))from error

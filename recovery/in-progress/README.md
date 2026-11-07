@@ -34,6 +34,18 @@ from the private `clock()` counter. This corpus does not cover all language
 behavior: function declarations still fail to complete in the reference probe,
 and broader application and VM comparisons remain outstanding.
 
+The JavaScript candidates compile entirely from C on all four architectures.
+Each passes 100 comparisons of basic execution, DOM output, browser events,
+navigation, value lookup, URL encoding, templates and buffer boundaries, plus
+the numeric, math and context ABI corpora. The event harness includes arguments
+spilled to the stack, including Darwin ARM64's mixed pointer/integer layout.
+
+All six candidate libraries also pass native/source saved-context and scope
+unwind checks on every architecture. The retained Lua, font and window context
+primitives now restore the full native register sets; the shared scope-unwind
+entry restores the saved stack and frame before transferring control. These
+entry points use the required architecture instructions in C translation units.
+
 Diagnostic snapshots and VM disks remain outside tracked source. The normal
 build continues to use the last completed source tree until the next milestone
 passes its complete source build and VM comparisons. That transition must move
