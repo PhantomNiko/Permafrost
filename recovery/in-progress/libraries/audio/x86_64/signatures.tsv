@@ -9,3 +9,8 @@
 100071a0	void * recovered_100071a0(unsigned long size);
 100071d0	void recovered_100071d0(void *pointer);
 10007270	void recovered_10007270(void *pointer);
+100042b0	long recovered_100042b0(double value);
+10003940	long long recovered_10003940(double value);
+100035b0	double recovered_100035b0(double value);
+100035e0	double recovered_100035e0(double value);
+100057a0	int recovered_100057a0(char *buffer,unsigned long capacity,char *format,...);

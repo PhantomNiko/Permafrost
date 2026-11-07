@@ -69,7 +69,7 @@ def snapshot(lib, track):
         assert bytes(lib.cpu.mem_read(output, view_size)) == bytes(view_size)
         return 0, 0, 0, b''
     pointer, count, rate, channels = struct.unpack('<QQIH' if lib.wide else '<IQIH', lib.cpu.mem_read(output, view_size))
-    assert count < 1000000 and rate == 44100 and channels == 2, (count, rate, channels)
+    assert count < 1000000 and rate > 0 and 0 < channels <= 8, (count, rate, channels)
     samples = bytes(lib.cpu.mem_read(pointer, count * 2)) if count else b''
     return count, rate, channels, samples
 

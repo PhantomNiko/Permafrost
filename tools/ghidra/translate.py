@@ -582,6 +582,7 @@ def main():
                 if number not in memory_types or int(size) > memory_types[number][0]:
                     memory_types[number] = (int(size), kind)
         volatile_views={row[1]:(int(row[2],16),int(row[3]))for row in metadata if row[0]=='V'}
+        volatile_types={row[1]:row[4]for row in metadata if row[0]=='V' and len(row)>4}
         globals_used = sorted({row[1] for row in metadata if row[0] == 'G'} | set(volatile_views) | set(re.findall(r'\b(?:_?DAT|str|_LAB)_[0-9a-f]{8,16}\b|\b[a-zA-Z]*Ram[0-9a-f]{8,16}\b|\bram0x[0-9a-f]{8,16}\b|\bPTR_\w+_[0-9a-f]{8,16}\b', source)))
         preamble = ['#include "functions.h"']
         for name in globals_used:
@@ -600,6 +601,11 @@ def main():
                 number,width=volatile_views[name]
                 if width in(1,2,4,8,16):typename={1:'uint8_t',2:'uint16_t',4:'uint32_t',8:'uint64_t',16:'uint128'}[width]
                 else:packed_width=width
+                if name in volatile_types:
+                    typename=ctype(volatile_types[name])
+                elif name.startswith(('dRam','fRam')) and number in memory_types:
+                    size,kind=memory_types[number]
+                    if size==width and kind.startswith(('float:','double:')):typename=ctype(kind)
             if name.startswith('PTR_str_'):typename='char *'
             if WIDE and name.startswith('_DAT') and typename in ('uint8_t[16]', 'byte[16]'):
                 typename='uint128'
@@ -617,6 +623,13 @@ def main():
             preamble += ['#undef ' + name, '#define %s %s' % (name,expression)]
         pointer_names = {row[1] for row in metadata if row[0] in ('G', 'L') and row[3].startswith(('P:', 'A:'))}
         pointer_names.update(re.findall(r'^  [\w ]+\*+\s*(\w+)(?:\s*\[.*?\])?;', source, re.M))
+        if WIDE and current.get('scalar_storage_views'):
+            carriers=set(re.findall(r'^  (?:undefined8|ulong|uint64_t) (\w+);',source,re.M))
+            for _ in range(len(carriers)):
+                added={name for name in carriers if any(value in pointer_names for value in
+                       re.findall(r'\b'+re.escape(name)+r'\s*=\s*(?:\((?:undefined8|ulong|uint64_t|uintptr_t)\)\s*)?(\w+)\s*;',source))}
+                if added<=pointer_names:break
+                pointer_names.update(added)
         locals_used = [row for row in metadata if row[0] == 'L']
         frame_size = max([32] + [-int(row[2]) + 16 for row in locals_used])
         # Native code can select adjacent fields with address OR operations.

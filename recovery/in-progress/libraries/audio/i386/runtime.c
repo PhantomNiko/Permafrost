@@ -5972,46 +5972,12 @@ void recovered_10005480(int param_1)
 }
 
 
-#define unaff_retaddr (*(undefined4 *)(frame + 32))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x10005490
- */
+/* Native context ABI; Pooka's Free Software License. */
+__attribute__((naked,returns_twice)) int recovered_10005490(void *context) { __asm__ volatile("movl 4(%esp),%eax\nmovl %ebx,0(%eax)\nmovl %esi,4(%eax)\nmovl %edi,8(%eax)\nmovl %ebp,12(%eax)\nleal 4(%esp),%edx\nmovl %edx,16(%eax)\nmovl (%esp),%edx\nmovl %edx,20(%eax)\nxorl %eax,%eax\nretl"); }
 
-undefined4 recovered_10005490(undefined4 *param_1)
 
-{
-  unsigned char frame[64] __attribute__((aligned(16))) = {0};
-
-  undefined4 unaff_EBX = 0;
-  undefined4 unaff_EBP;
-  undefined4 unaff_ESI;
-  undefined4 unaff_EDI;
-
-  *param_1 = unaff_EBX;
-  param_1[1] = unaff_ESI;
-  param_1[2] = unaff_EDI;
-  param_1[3] = unaff_EBP;
-  param_1[4] = &param_1;
-  param_1[5] = unaff_retaddr;
-  return 0;
-}
-
-#undef unaff_retaddr
-
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x100054c0
- */
-
-void recovered_100054c0(int param_1)
-
-{
-  unsigned char frame[64] __attribute__((aligned(16))) = {0};
-
-                    /* WARNING: Could not recover jumptable at 0x100054e2. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  (**(code **)(param_1 + 0x14))();
-  return;
-}
+/* Native context ABI; Pooka's Free Software License. */
+__attribute__((naked,noreturn)) void recovered_100054c0(void *context,int value) { __asm__ volatile("movl 4(%esp),%ecx\nmovl 8(%esp),%eax\ntestl %eax,%eax\njnz 1f\nincl %eax\n1:\nmovl 0(%ecx),%ebx\nmovl 4(%ecx),%esi\nmovl 8(%ecx),%edi\nmovl 12(%ecx),%ebp\nmovl 16(%ecx),%esp\nmovl 20(%ecx),%edx\njmpl *%edx"); }
 
 
 #undef DAT_1000552d

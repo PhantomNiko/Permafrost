@@ -82,8 +82,10 @@ waveform/channel combinations, frame rounding, zero-length tracks, trimming
 and invalid arguments. Their duration-rounding imports are replaced by C;
 native import-stub instructions are cleared from the candidate initialized
 data. ARM service-base checks and compiler division comparisons also pass.
-Further audio editing, file I/O and release-wide VM behavior still need
-validation.
+Native context-buffer and nonlocal-register comparisons pass on all four
+architectures. x86-64 also passes WAV PCM conversion, malformed-input handling,
+file saving and native/source cross-decoding. Further audio editing, ARM file
+I/O and release-wide VM behavior still need validation.
 
 Corrections identified during this recovery include ARM32 soft-float and
 Darwin variadic argument packing, literal pools embedded in ARM32 text, scalar

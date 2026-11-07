@@ -20,7 +20,7 @@ public class Inputs extends GhidraScript {
   String pattern=arm?"in_(?:[xw][0-8]|[sd][0-7])":arm32?"in_(?:r[0-3]|s(?:[0-9]|1[0-5])|d[0-7])":wide?
       "in_(?:RDI|RSI|RDX|RCX|R8|R9|EDI|ESI|EDX|ECX|R8D|R9D|XMM[0-7])":
       "in_(?:EAX|ECX|EDX)";
-  pattern+="(?:_[0-9]+)?";
+  pattern+="(?:_(?:[0-9]+|[A-Z][a-z]))?";
   long first=Long.decode(getScriptArgs()[0]),last=Long.decode(getScriptArgs()[1]);
   var functions=currentProgram.getFunctionManager().getFunctions(true);
   int fixed=0;var changed=new ArrayList<String>();

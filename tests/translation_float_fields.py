@@ -42,17 +42,38 @@ unsigned recovered_2000(float value)
 }
 ''')
         (notes / '2000.tsv').write_text('F\tlanes._0_4_\t1\tfloat\nF\tlanes._0_4_\t2\tfloat\n')
+        (notes / '3000.c').write_text('''
+double recovered_3000(double value)
+{
+  ulong *pointer;
+  undefined8 slot;
+ pointer=(ulong *)(uintptr_t)pf_double_bits(value);
+ slot=(undefined8)pointer;
+ return (double)slot+dRam0000000000001000+dRam0000000000001008;
+}
+''')
+        (notes / '3000.tsv').write_text('L\tslot\t-8\tundefined8:8\n'
+                                      'V\tdRam0000000000001000\t1000\t8\n'
+                                      'M\t_\t1000\t8:double:8\n'
+                                      'V\tdRam0000000000001008\t1008\t8\tdouble:8\n')
         layout = root / 'layout.json'
-        layout.write_text(json.dumps({'translation': {'pointer_bytes': 8}}))
+        layout.write_text(json.dumps({'translation': {
+            'pointer_bytes': 8, 'scalar_storage_views': True,
+            'state_base': 0x1000, 'state_end': 0x1010,
+            'state_anchor': 'pf_module_state',
+            'declarations': ['extern unsigned char pf_module_state[];']}}))
         subprocess.run([sys.executable, str(repository / 'tools/ghidra/translate.py'),
                         '--layout', str(layout), '--notes', str(notes),
                         '--manual', str(manual), '--out', str(units)], check=True)
         merge(units, root / 'runtime.c', root / 'functions.h')
         with (root / 'runtime.c').open('a') as stream:
             stream.write('''
+unsigned char pf_module_state[16] __attribute__((aligned(16)))={
+ 0,0,0,0,0,0,0xf8,0x3f,0,0,0,0,0,0,2,0x40};
 int main(void) {
  if(recovered_1000(3.5)!=15.75 || recovered_1000(-1.25)!=0.3125)return 1;
  if(recovered_2000(3.5f)!=0x80000001U || recovered_2000(-1.25f)!=0x80000001U)return 2;
+ if(recovered_3000(3.5)!=7.25 || recovered_3000(-1.25)!=2.5)return 3;
  return 0;
 }
 ''')

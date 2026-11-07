@@ -287,8 +287,14 @@ public class Export extends GhidraScript {
                         if(operation.getOutput()!=null)width=operation.getOutput().getSize();
                         else if(operation.getNumInputs()>1)width=operation.getInput(operation.getNumInputs()-1).getSize();
                     }
-                    if(width>0)metadata.append("V\t").append(name).append('\t')
-                        .append(name.substring(name.indexOf("Ram")+3)).append('\t').append(width).append('\n');
+                    if(width>0) {
+                        metadata.append("V\t").append(name).append('\t')
+                            .append(name.substring(name.indexOf("Ram")+3)).append('\t').append(width);
+                        var view=node==null || node.getHigh()==null?null:node.getHigh().getDataType();
+                        if(view instanceof AbstractFloatDataType && view.getLength()==width)
+                            metadata.append('\t').append(type(view));
+                        metadata.append('\n');
+                    }
                 }
                 for (int index = 0; index < tokens.size(); index++) {
                     var field = tokens.get(index).toString();
