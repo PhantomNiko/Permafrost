@@ -13,9 +13,9 @@ from unicorn.arm_const import UC_ARM_REG_R0,UC_ARM_REG_R1,UC_ARM_REG_R2,UC_ARM_R
 from unicorn.arm64_const import UC_ARM64_REG_X0,UC_ARM64_REG_X1,UC_ARM64_REG_X2,UC_ARM64_REG_X3,UC_ARM64_REG_X4,UC_ARM64_REG_X5
 
 
-def exercise(path):
-    lib=DLL(path);cpu=lib.cpu;arm=lib.cpu_type in(12,0x100000c)
-    table=0x40010800 if arm else 0x6800;events=[]
+def exercise(path,api_base=None):
+    lib=DLL(path,api_base=api_base);cpu=lib.cpu;arm=lib.cpu_type in(12,0x100000c)
+    events=[]
     def arguments(count):
         if lib.cpu_type==7:
             stack=cpu.reg_read(UC_X86_REG_ESP)
@@ -40,7 +40,7 @@ def exercise(path):
         cpu.reg_write(lib.result,result)
     for index,offset in enumerate((0xa0,0xa4,0xa8,0xb4,0xb0)):
         address=0x10100+index*16
-        cpu.mem_write(table+offset,struct.pack('<I',address))
+        for table in lib.api_tables:cpu.mem_write(table+offset,struct.pack('<I',address))
         cpu.mem_write(address,struct.pack('<I',0xe12fff1e if lib.cpu_type==12 else 0xd65f03c0)if arm else b'\xc3')
         cpu.hook_add(UC_HOOK_CODE,service,begin=address,end=address)
     cpu.mem_write(0x3000000,b'fixture\0')
@@ -57,7 +57,8 @@ def exercise(path):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('reference',type=Path);parser.add_argument('source',type=Path)
-    args=parser.parse_args();native=exercise(args.reference);source=exercise(args.source)
+    parser.add_argument('--api-base',type=lambda value:int(value,0))
+    args=parser.parse_args();native=exercise(args.reference,args.api_base);source=exercise(args.source,args.api_base)
     assert source==native,(native,source)
     print('Window library: creation arguments, title, dimensions and v13 query record passed.')
 

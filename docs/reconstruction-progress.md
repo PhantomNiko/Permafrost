@@ -68,8 +68,9 @@ four match the 14-case native PNG decoding corpus and pass the public BMP,
 PNG, TGA and XCF reader/writer corpus. ARM32 also cross-decodes native and
 source output for all four formats. Rebuilt exports include C++ type information and
 stream data symbols. ARM64 recovery expands machine-outliner sequences before
-decompilation. The x86-64 window DLL matches native window creation arguments,
-titles, dimensions and query records. The other DLL behavior remains under
+decompilation. The retained window DLLs match native window creation arguments, titles,
+dimensions and query records on all four architectures; their numeric and
+math export comparisons also pass. The other DLL behavior remains under
 recovery. The retained C font core, with updated exports, passes all 12 native
 raster fixtures on each architecture. Its new exponential and time exports
 pass 63 ABI comparisons per architecture, and its numeric exports pass 46.
