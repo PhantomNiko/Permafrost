@@ -17,6 +17,19 @@ def definition_name(source):
     return match[1] if match else None
 
 
+def entry_bindings(directory):
+    """Bind each original unit address, including thunks named for a target."""
+    entries={}
+    for path in sorted(Path(directory).glob('*.c')):
+        try:address=int(path.stem,16)
+        except ValueError:continue
+        name=definition_name(path.read_text())
+        if name is None:
+            raise ValueError('No recovered definition in '+path.name)
+        entries[f'{address:x}']=name
+    return entries
+
+
 def merge(directory, output, header, names=None, descriptions=None):
     names = names or {}
     def rename(text):
