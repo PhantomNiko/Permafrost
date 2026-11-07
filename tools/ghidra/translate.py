@@ -579,6 +579,8 @@ def main():
             if name.startswith('recovered_') and name.removeprefix('recovered_') in sources:
                 continue
             number = global_addresses[name] if name in global_addresses else int(name[-8:], 16)
+            if number in function_addresses and re.match(r'(?:thunk_)?(?:FUN_|recovered_)',name):
+                continue
             kind = globals_by_address.get(number, 'uint:4')
             if name.startswith(('_DAT','ram0x')):
                 kind = memory_types.get(number, (4, 'uint:4'))[1]

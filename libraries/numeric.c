@@ -3,13 +3,17 @@
 #include <stdint.h>
 
 static uint64_t magnitude(double value) {
-    uint64_t result=0;
+    union { uint64_t value; struct { uint32_t low,high; } word; } result={0};
     double place=9223372036854775808.0;
     for(int bit=63;bit>=0;--bit) {
-        if(value>=place){value-=place;result|=1ULL<<bit;}
+        if(value>=place){
+            value-=place;
+            if(bit>=32)result.word.high|=1U<<(bit-32);
+            else result.word.low|=1U<<bit;
+        }
         place*=0.5;
     }
-    return result;
+    return result.value;
 }
 uint64_t __fixunsdfdi(double value) {
     return value<=0.0?0:magnitude(value);

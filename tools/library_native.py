@@ -83,9 +83,22 @@ def build_library(source, output):
             raise ValueError('export has no unique C declaration: ' + label)
     (output / 'functions.h').write_text(header)
     (output / 'runtime.c').write_text((source / 'runtime.c').read_text() + ''.join(entry_source))
+    data_aliases=[]
+    for item in profile.get('data_exports',[]):
+        label=item['name']
+        if not re.fullmatch(r'[A-Za-z_][A-Za-z_0-9$]*',label):
+            raise ValueError('unsupported data export label')
+        data_aliases.append('.globl '+label)
+        if item.get('weak'):
+            data_aliases.append('.weak_definition '+label)
+        data_aliases.append('.set %s,_pf_module_state+%d' % (label,item['offset']))
+    state=(source/'state.c').read_text()
+    if data_aliases:
+        state+='\n__asm__('+json.dumps('\n'.join(data_aliases)) + ');\n'
+    (output/'state.c').write_text(state)
     objects = []
     for name in ('runtime', 'state'):
-        path = output / (name + '.c') if name == 'runtime' else source / 'state.c'
+        path = output / (name + '.c')
         target = output / (name + '.o')
         compile_object(path, target, arch,
                        [str(output), str(source), 'kernel', 'sdk/include'], pic=True,
@@ -94,8 +107,14 @@ def build_library(source, output):
                                     '-Wno-incompatible-function-pointer-types'])
         objects.append(str(target))
     numeric=output/'numeric.o'
-    compile_object(Path('libraries/numeric.c'),numeric,arch,['sdk/include'],pic=True,
-                   extra_flags=['-fno-inline-functions'])
+    # Newer modules export some compiler support routines themselves. Keep
+    # the generic fallbacks private rather than defining the same entry twice.
+    numeric_source=Path('libraries/numeric.c')
+    numeric_names=set(re.findall(r'\b(__\w+)\s*\([^;{}]*\)\s*\{',numeric_source.read_text()))
+    numeric_flags=['-D%s=pf_numeric_fallback_%s' % (item['name'][1:],item['name'][1:])
+                   for item in exports if item['name'][1:] in numeric_names]
+    compile_object(numeric_source,numeric,arch,['sdk/include'],pic=True,
+                   extra_flags=['-fno-inline-functions']+numeric_flags)
     objects.append(str(numeric))
     if arch in ('x86_64','arm64'):
         wide=output/'wide.o'
