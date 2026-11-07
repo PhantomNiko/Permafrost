@@ -25,6 +25,7 @@ float integer_conversion(unsigned value) { return (float)value; }
 void *float_pointer(float f_value) { return (void *)f_value; }
 void *double_pointer(double d_value) { return (void *)d_value; }
 void *value_pointer(pf_kernel_value *value) { return (void *)value->number; }
+void *indexed_pointer(pf_kernel_value *value) { return (void *)value[0].number; }
 #define VectorSignedToFloat(v,m) ((double)(int32_t)(v))
 void *converted_pointer(int v) { return (void *)VectorSignedToFloat(v,0); }
 uint raw_conversion(int value) {
@@ -51,6 +52,7 @@ int main(void) {
  if((uintptr_t)double_pointer(pf_bits_double(0x12345678))!=0x12345678)return 6;
  pf_kernel_value value={.number=pf_bits_float(0x240000)};
  if((uintptr_t)value_pointer(&value)!=0x240000)return 7;
+ if((uintptr_t)indexed_pointer(&value)!=0x240000)return 12;
  if((uintptr_t)converted_pointer(-7)!=pf_float_bits(-7.0f))return 8;
  if(raw_conversion(-7)!=pf_float_bits(-7.0f)||converted_view(-7)!=-7.0f)return 9;
  uint stored[3]={0};value_storage(stored,3.5f);

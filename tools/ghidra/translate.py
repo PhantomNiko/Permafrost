@@ -283,7 +283,7 @@ def rewrite_scalar_storage(source):
         bits='pf_float_bits' if typename=='float' else 'pf_double_bits'
         source=re.sub(r'\(([^()\n]+\*)\)\s*'+re.escape(name)+r'\b',
                       lambda match:'('+match[1]+')(uintptr_t)'+bits+'('+name+')',source)
-    source=re.sub(r'\(([^()\n]+\*)\)\s*(\w+(?:(?:\.|->)\w+)*(?:\.|->)number)\b',
+    source=re.sub(r'\(([^()\n]+\*)\)\s*(\w+(?:\[[^]\n]+\])?(?:(?:\.|->)\w+)*(?:\.|->)number)\b',
                   lambda match:'('+match[1]+')(uintptr_t)pf_float_bits('+match[2]+')',source)
     for match in reversed(list(re.finditer(r'\(([^()\n]+\*)\)\s*(Vector(?:Signed|Unsigned)ToFloat)\(',source))):
         start=match.start(2);end=match.end();depth=1
@@ -336,6 +336,12 @@ def rewrite_scalar_storage(source):
 def rewrite_array_words(source):
     s=source
     arrays=dict(re.findall(r'^  undefined1 (\w+) \[(8|16)\];',s,re.M))
+    for name,size in arrays.items():
+        if size!='8' or not re.fullmatch(r'auVar\d+',name):continue
+        # Eight-byte SSA arrays model register values. A pointer cast reads
+        # that value, rather than taking the address of its C storage.
+        s=re.sub(r'\(([^()\n]+\*)\)\s*'+re.escape(name)+r'\b',
+                 lambda m:'('+m[1]+')(uintptr_t)(*(uint64_t *)(void *)'+name+')',s)
     for name,size in arrays.items():
         typ='uint64_t'if size=='8'else'uint128'
         for other,width in arrays.items():
