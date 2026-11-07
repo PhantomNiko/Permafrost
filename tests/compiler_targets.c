@@ -83,6 +83,11 @@ int main(void) {
  if((uint64_t)sums!=28 || (uint64_t)(sums>>64)!=92)return 18;
  __uint128_t shuffled=pshuflw(0,wide,0x1b);
  if((uint64_t)shuffled!=0xcdef89ab45670123ULL || (uint64_t)(shuffled>>64)!=0xfedcba9876543210ULL)return 19;
+ __uint128_t high_shuffled=pshufhw(0,wide,0x1b);
+ if((uint64_t)high_shuffled!=0x0123456789abcdefULL || (uint64_t)(high_shuffled>>64)!=0x32107654ba98fedcULL)return 73;
+ __uint128_t reversed=vrev(ascending,1);
+ if((uint64_t)reversed!=0x0001020304050607ULL || (uint64_t)(reversed>>64)!=0x08090a0b0c0d0e0fULL)return 74;
+ if(ZEXT716(UINT64_MAX)!=0xffffffffffffffULL)return 75;
  __uint128_t integers=CONCAT88(0x00009c4000007fffULL,0xffffffffffff63c0ULL);
  if((uint64_t)packssdw(integers,0)!=0x7fff7fffffff8000ULL)return 20;
  __uint128_t shorts=CONCAT88(0x00c80080007f0001ULL,0x0000ffffff80ff38ULL);

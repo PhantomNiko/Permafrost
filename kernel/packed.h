@@ -13,6 +13,8 @@ typedef pf_u72 unkuint9;
 typedef pf_u80 unkuint10;
 typedef unsigned _BitInt(40) pf_u40;
 typedef signed _BitInt(40) pf_i40;
+typedef pf_i40 int5;
+#define ZEXT716(value) ((uint128)((uint64_t)(value)&0xffffffffffffffULL))
 #define PF_PACKED_VIEW(n,bits) struct pf_packed_##n {uint128 payload:bits;} __attribute__((packed))
 PF_PACKED_VIEW(9,72);
 PF_PACKED_VIEW(10,80);
@@ -60,6 +62,21 @@ static inline uint128 pshuflw(uint128 ignored,uint128 value,unsigned control) {
     uint128 result=value&((uint128)0xffffffffffffffffULL<<64);
     for(unsigned lane=0;lane<4;lane++)
         result|=(uint128)(uint16_t)(value>>(((control>>(2*lane))&3)*16))<<(lane*16);
+    return result;
+}
+static inline uint128 pshufhw(uint128 ignored,uint128 value,unsigned control) {
+    (void)ignored;
+    uint128 result=(uint64_t)value;
+    for(unsigned lane=0;lane<4;lane++)
+        result|=(uint128)(uint16_t)(value>>((4+((control>>(2*lane))&3))*16))<<((lane+4)*16);
+    return result;
+}
+static inline uint128 vrev(uint128 value,unsigned lane_bytes) {
+    uint128 result=0;
+    for(unsigned byte=0;byte<16;byte++) {
+        unsigned source=(byte&~7U)+(8-lane_bytes-(byte&7U)/lane_bytes*lane_bytes)+byte%lane_bytes;
+        result|=(uint128)(uint8_t)(value>>(source*8))<<(byte*8);
+    }
     return result;
 }
 static inline uint128 psadbw(uint128 a,uint128 b) {
