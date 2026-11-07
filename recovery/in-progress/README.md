@@ -27,6 +27,13 @@ saving and cross-decoding also match, as do saved context buffers and register
 restoration. The ARM32 tests use Darwin's four-byte argument alignment for
 64-bit values. Release-wide VM behavior still needs validation.
 
+The retained Lua C core is adapted to the current exports and ARM64 service
+base. Each architecture passes 13 script fixtures, eight clock/counter checks,
+46 numeric ABI checks and 63 math checks. The exported chrono counter is separate
+from the private `clock()` counter. This corpus does not cover all language
+behavior: function declarations still fail to complete in the reference probe,
+and broader application and VM comparisons remain outstanding.
+
 Diagnostic snapshots and VM disks remain outside tracked source. The normal
 build continues to use the last completed source tree until the next milestone
 passes its complete source build and VM comparisons. That transition must move

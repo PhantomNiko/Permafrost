@@ -6715,7 +6715,7 @@ byte recovered_1000482c(long param_1,undefined8 *param_2)
 uint recovered_100048f4(void *destination,void *source,long offset) {
  struct track {short *samples;unsigned long count,capacity;uint rate;ushort channels;unsigned long mixer;};
  struct track *out=(struct track *)destination,*in=(struct track *)source;
- 
+
  if(!out||!in||offset<0||out->channels!=2||in->channels!=2||!out->rate||!in->rate)return 0;
  unsigned long frames=out->count/2,input_frames=in->count/2;
  if(!frames||!input_frames)return 1;

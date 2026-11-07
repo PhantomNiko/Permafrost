@@ -11,8 +11,8 @@ from vm_fixtures import fixtures
 from unicorn.arm64_const import UC_ARM64_REG_X8
 
 
-def evaluate(path, language, code):
-    lib=DLL(path,instruction_limit=200000000,poison_allocations=True,poison_stack=True)
+def evaluate(path, language, code, api_base=None):
+    lib=DLL(path,instruction_limit=200000000,poison_allocations=True,poison_stack=True,api_base=api_base)
     if language=='winterscript':
         for address,text in((0x3001000,code.encode()),(0x3001200,b'answer')):
             target=address-0x1000
@@ -63,11 +63,12 @@ def main():
     parser.add_argument('language',choices=('lua','rwby','winterscript'))
     parser.add_argument('reference',type=Path)
     parser.add_argument('source',type=Path)
+    parser.add_argument('--api-base',type=lambda value:int(value,0))
     args=parser.parse_args()
     for index,(code,expected)in enumerate(fixtures(args.language)):
-        native=evaluate(args.reference,args.language,code)
+        native=evaluate(args.reference,args.language,code,args.api_base)
         assert native==expected,('reference',index,native,expected)
-        try:actual=evaluate(args.source,args.language,code)
+        try:actual=evaluate(args.source,args.language,code,args.api_base)
         except Exception as error:raise AssertionError(('source VM case failed',index))from error
         assert actual==native,('source',index,actual,native)
         print('%s case %d passed.'%(args.language,index),flush=True)
