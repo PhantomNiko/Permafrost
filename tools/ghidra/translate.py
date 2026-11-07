@@ -390,7 +390,23 @@ def rewrite_integer_vectors(source):
     for name in names:
         source=re.sub(r'\b'+name+r'\s*\[',r'((uint8_t *)(void *)&'+name+')[',source)
     source=re.sub(r'undefined1\s+\[16\]\s+((?:recovered_|FUN_)[0-9a-f]+)',r'uint128 \1',source)
-    return re.sub(r'\(undefined1\s+\[16\]\)', '(uint128)',source)
+    source=re.sub(r'\(undefined1\s+\[16\]\)', '(uint128)',source)
+    # The decompiler reads lanes through casts of a byte-array temporary.
+    # Once that temporary is an integer vector, its value is not an address.
+    widths={'byte':1,'uchar':1,'undefined1':1,'undefined2':2,
+            'undefined4':4,'undefined8':8,'uint':4,'int':4,
+            'uint32_t':4,'int32_t':4,'uint64_t':8,'int64_t':8}
+    vectors=re.findall(r'\buint128\s+(auVar\d+)\b',source)
+    for name in vectors:
+        pattern=(r'\*\(\s*('+ '|'.join(widths)+r')\s*\*\s*\)\s*'
+                 r'(?:\(\s*'+name+r'\s*\+\s*\(uint128\)\s*'
+                 r'(0x[0-9a-fA-F]+|\d+)\s*\)|'+name+r'\b)')
+        def lane(match):
+            width=widths[match[1]];offset=int(match[2],0)if match[2]else 0
+            if offset+width>16:return match[0]
+            return 'PF_PART%d(%s, %d)'%(width,name,offset)
+        source=re.sub(pattern,lane,source)
+    return source
 
 
 

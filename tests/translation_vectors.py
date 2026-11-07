@@ -44,6 +44,16 @@ uint128 load(void *memory) {
  auVar2=*pointer;
  return auVar2;
 }
+uint32_t lane(unsigned index) {
+ undefined1 auVar3 [16];
+ auVar3=((uint128)0x0123456789abcdefULL<<64)|0xfedcba9876543210ULL;
+ uint32_t words[4];
+ words[0]=*(undefined4 *)auVar3;
+ words[1]=*(undefined4 *)(auVar3+(undefined1 [16])0x4);
+ words[2]=*(undefined4 *)(auVar3+(undefined1 [16])0x8);
+ words[3]=*(undefined4 *)(auVar3+(undefined1 [16])0xc);
+ return words[index];
+}
 unsigned bytes(void *memory) {
  undefined1 (*pointer) [16];
  pointer=memory;
@@ -53,6 +63,8 @@ int main(void) {
  uint128 value=((uint128)0x12345678<<64)|0xabcdef;
  if(copy_word(0x123456789abcdef0ULL)!=0x123456789abcdef0ULL)return 4;
  if(register_pointer(0x12345678)!=0x12345678)return 5;
+ if(lane(0)!=0x76543210 || lane(1)!=0xfedcba98 ||
+    lane(2)!=0x89abcdef || lane(3)!=0x01234567)return 6;
  if(address(3)!=0x2030 || load(&value)!=value)return 2;
  unsigned char data[32]={0};data[0]=2;data[18]=3;data[3]=5;
  if(bytes(data)!=10)return 3;
