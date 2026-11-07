@@ -62,7 +62,7 @@ class Image:
 
     def entries(self):
         if self.fat32:
-            yield from self.fat32.entries()
+            yield from self.fat32.entries(recursive=True)
             return
         root = self.sector(self.root_sector)
         if self.wide:
@@ -133,7 +133,10 @@ def make_image(boot, loader, files, sectors=2048):
             raise ValueError('image too small')
         entry = root + index * 256
         output[entry:entry + len(encoded)] = encoded
-        struct.pack_into('<II', output, entry + 240, current if count else 0xffffffff, len(content))
+        directory=not content and any(other.lstrip('/').startswith(name.lstrip('/').rstrip('/')+'/') for other in files)
+        struct.pack_into('<IIII', output, entry + 240,
+                         0 if directory else current if count else 0xffffffff,
+                         len(content),2 if directory else 0,0)
         offset = data + (current - 2) * 4096
         output[offset:offset + len(content)] = content
         for step in range(count):
@@ -178,8 +181,10 @@ def make_wmfs64(files, sectors):
             raise ValueError('WMFS64 image too small')
         entry = index * 256
         directory[entry:entry + len(encoded)] = encoded
-        struct.pack_into('<II', directory, entry + 240,
-                         current if count else 0xffffffff, len(content))
+        is_directory=not content and any(other.lstrip('/').startswith(name.lstrip('/').rstrip('/')+'/') for other in files)
+        struct.pack_into('<IIII', directory, entry + 240,
+                         0 if is_directory else current if count else 0xffffffff,
+                         len(content),2 if is_directory else 0,0)
         offset = data + (current - 2) * 4096
         output[offset:offset + len(content)] = content
         for step in range(count):
@@ -230,6 +235,26 @@ def repack_image(raw, files, partition=0, sectors=None):
     sectors = sectors or len(raw) // SECTOR
     if not image.partitions:
         return make_image(raw[:512], raw[512:BASE * SECTOR], files, sectors)
+    if len(image.partitions)!=3:
+        # Additional volumes can contain swap or other opaque data. Rebuild
+        # only the selected filesystem and preserve their bytes and locations.
+        if sectors!=len(raw)//SECTOR:
+            raise ValueError('resizing a mixed partition layout requires an explicit partition plan')
+        selected=Image(raw,partition)
+        layout=image.partitions[partition]
+        count=layout['sectors'] or sectors-layout['start']
+        if selected.fat32 is not None:
+            volume=make_fat32(files,count)
+        elif selected.wide:
+            volume=make_wmfs64(files,count)
+        else:
+            volume=make_image(raw[:512],raw[512:BASE*SECTOR],files,count+BASE)[BASE*SECTOR:]
+        output=bytearray(raw)
+        start=layout['start']*SECTOR
+        output[start:start+count*SECTOR]=volume
+        if Image(bytes(output),partition).files()!={n.lstrip('/'):b for n,b in files.items()}:
+            raise ValueError('mixed partition update failed its filesystem round trip')
+        return bytes(output)
     volumes = [Image(raw, index).files() for index in range(len(image.partitions))]
     volumes[partition] = files
     return make_disk(raw[:512], raw[512:BASE * SECTOR], *volumes, sectors=sectors,

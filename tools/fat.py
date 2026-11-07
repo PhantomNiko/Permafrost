@@ -61,6 +61,8 @@ class FAT32:
                 yield name,first,size
 
 def make_fat32(files,sectors):
+    if any('/' in name.lstrip('/') for name in files):
+        return make_fat32_tree(files,sectors)
     reserved=32;fat_sectors=1
     while True:
         clusters=sectors-reserved-2*fat_sectors
@@ -109,6 +111,69 @@ def make_fat32(files,sectors):
     check=FAT32(bytes(output));actual={n:check.read(c,s) for n,c,s in check.entries()}
     if actual!={n.lstrip('/'):c for n,c in files.items()}:raise ValueError('FAT32 round trip failed')
     return bytes(output)
+
+
+def make_fat32_tree(files,sectors):
+    """Build nested user files with long names and deterministic aliases."""
+    volume=bytearray(make_fat32({},sectors));geometry=FAT32(volume)
+    root={'children':{},'parent':None};directories=[root];payloads=[]
+    folded=set()
+    for path,data in sorted(files.items()):
+        parts=path.strip('/').split('/');key='/'.join(parts).casefold()
+        if key in folded:raise ValueError('duplicate case-insensitive FAT32 path')
+        folded.add(key);node=root
+        for name in parts:
+            if not name or name in ('.','..') or '\\' in name or '\0' in name or len(name.encode('utf-16-le'))>510:
+                raise ValueError('invalid FAT32 path component')
+        for name in parts[:-1]:
+            key=name.casefold()
+            if key not in node['children']:
+                child={'name':name,'children':{},'parent':node};node['children'][key]=child;directories.append(child)
+            node=node['children'][key]
+            if 'children'not in node:raise ValueError('FAT32 directory collides with file')
+        key=parts[-1].casefold()
+        if key in node['children']:raise ValueError('FAT32 file collides with directory')
+        leaf={'name':parts[-1],'data':bytes(data),'parent':node};node['children'][key]=leaf;payloads.append(leaf)
+    def entries(name,alias,directory,cluster=0,size=0):
+        encoded=name.encode('utf-16-le')+b'\0\0';count=(len(encoded)+25)//26
+        encoded=encoded.ljust(count*26,b'\xff');checksum=0;output=[]
+        for byte in alias:checksum=(((checksum&1)<<7)+(checksum>>1)+byte)&255
+        for part in range(count,0,-1):
+            entry=bytearray(32);entry[0]=part|(64 if part==count else 0);entry[11]=15;entry[13]=checksum
+            fragment=encoded[(part-1)*26:part*26];entry[1:11]=fragment[:10];entry[14:26]=fragment[10:22];entry[28:32]=fragment[22:]
+            output.append(entry)
+        entry=bytearray(32);entry[:11]=alias;entry[11]=16 if directory else 32
+        struct.pack_into('<H',entry,20,cluster>>16);struct.pack_into('<H',entry,26,cluster&65535);struct.pack_into('<I',entry,28,size)
+        return output+[entry]
+    fat=bytearray(geometry.fat_sectors*512);struct.pack_into('<II',fat,0,0xffffff8,0xfffffff);current=2
+    for node in directories:
+        node['aliases']={key:('PF%06d'%i).encode()+b'BIN' for i,key in enumerate(node['children'])}
+        node['slots']=sum(len(entries(child['name'],node['aliases'][key],'children'in child))for key,child in node['children'].items())
+    for node in directories+payloads:
+        length=(node['slots']+(0 if node is root else 2))*32 if 'children'in node else len(node['data'])
+        count=max(1,(length+511)//512)if'children'in node else(length+511)//512
+        if current+count>geometry.total-geometry.reserved-2*geometry.fat_sectors+2:raise ValueError('FAT32 image too small')
+        node['cluster']=current if count else 0
+        for index in range(count):struct.pack_into('<I',fat,(current+index)*4,current+index+1 if index+1<count else 0xfffffff)
+        current+=count
+    def write(node,data):
+        offset=geometry.start+(node['cluster']-2)*512;volume[offset:offset+len(data)]=data
+    for node in directories:
+        output=[]
+        if node is not root:
+            for name,cluster in [('.',node['cluster']),('..',0 if node['parent']is root else node['parent']['cluster'])]:
+                entry=bytearray(32);entry[:11]=name.ljust(11).encode();entry[11]=16
+                struct.pack_into('<H',entry,20,cluster>>16);struct.pack_into('<H',entry,26,cluster&65535);output.append(entry)
+        for key,child in node['children'].items():
+            output+=entries(child['name'],node['aliases'][key],'children'in child,child['cluster'],len(child.get('data',b'')))
+        write(node,b''.join(output))
+    for node in payloads:
+        if node['data']:write(node,node['data'])
+    for copy in range(2):
+        offset=(geometry.reserved+copy*geometry.fat_sectors)*512;volume[offset:offset+len(fat)]=fat
+    check=FAT32(volume);actual={name:check.read(cluster,size)for name,cluster,size in check.entries(recursive=True)}
+    if actual!={name.strip('/'):bytes(data)for name,data in files.items()}:raise ValueError('nested FAT32 round trip failed')
+    return bytes(volume)
 
 
 def make_efi_volume(files,sectors=69632):
