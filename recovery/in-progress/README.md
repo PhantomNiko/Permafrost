@@ -9,6 +9,13 @@ directories contain decompiler signature corrections, source replacements and
 explicit C implementations. The firmware directory contains the current shared
 EFI loader work. The repository license applies throughout.
 
+The library directories contain candidate C implementations, initialized data
+and export/relocation metadata. The PNG x86-64 slice has passed decoding and
+public reader/writer checks for the reference's four supported formats. This
+does not establish release-wide VM equivalence. ARM32's `missing-inputs.txt`
+records functions reviewed through the incoming-register recovery pass before
+export; obsolete manual units for those functions have been removed.
+
 Diagnostic snapshots and VM disks remain outside tracked source. The normal
 build continues to use the last completed source tree until the next milestone
 passes its complete source build and VM comparisons. That transition must move

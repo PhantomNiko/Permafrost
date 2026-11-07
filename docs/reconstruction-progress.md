@@ -55,11 +55,18 @@ the typed builtin comparisons. i386 passes the control-flow corpus. ARM64's
 earlier builtin and control-flow comparisons also pass.
 
 Diagnostic EFI images using the candidate C kernels and reference applications
-reach the desktop on x86-64 and ARM64. The x86-64 kernel's shared C decoder
-matches native pixels for BMP, PNG, TGA and XCF. This reference removed REI and
+reach the desktop on x86-64, ARM64 and ARM32. BIOS mounts the filesystem and
+reaches the interactive shell, but its desktop startup still needs comparison.
+The shared C decoder matches native pixels for BMP, PNG, TGA and XCF on all
+four architectures. This reference removed REI and
 JPEG support, so the next milestone must retain its narrower format set.
 These diagnostic images still contain reference application and library code;
 they are not source-built release artifacts.
+
+The candidate x86-64 PNG DLL builds entirely from C. Its 14 PNG decoding cases
+match the reference, and its public BMP, PNG, TGA and XCF readers and writers
+pass the format corpus. Its rebuilt exports include C++ type information and
+stream data symbols. The other DLL slices remain under recovery.
 
 Corrections identified during this recovery include ARM32 soft-float and
 Darwin variadic argument packing, literal pools embedded in ARM32 text, scalar
@@ -68,8 +75,11 @@ ARM64 exception vectors, and preserved aliases for native thunk entries.
 An unsigned ARM64 scheduler range check must remain unsigned for kernel
 contexts. The x86-64 scheduler also needs explicit bootstrap PC and stack
 stores omitted by the decompiler at a split control-flow block.
+ARM32 needs the equivalent task-context stores. Its API publisher must retain
+a thunk as a function pointer: interpreting that alias as a byte global
+published an instruction byte and caused the desktop's invalid branch.
 
-Remaining gates include BIOS startup, ARM32 VM validation, interactive and
+Remaining gates include BIOS desktop startup, broader ARM32 VM validation, interactive and
 persistent VM behavior, recovery of the new application/library/driver code,
 third-party payload handling, and the macOS 15 SDK. Only after the complete
 source-built image passes VM comparisons will this milestone receive its tag;

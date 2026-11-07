@@ -9,6 +9,6 @@ int recovered_40436224(char *text)
   uint uVar1;
 
   recovered_40438654((int)text,acStack_101);
-  uVar1 = recovered_40439650(acStack_101);
+  uVar1 = recovered_40439650(acStack_101,0,0);
   return uVar1;
 }

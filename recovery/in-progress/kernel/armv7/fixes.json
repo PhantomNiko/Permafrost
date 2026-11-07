@@ -29,7 +29,8 @@
   "4045f00c": {
     "_param_6": "(uint)param_6",
     "_param_7": "(uint)param_7",
-    "_param_8": "(uint)param_8"
+    "_param_8": "(uint)param_8",
+    "_param_10": "param_10"
   },
   "4048e9a0": {
     "_UndefinedInstruction": "(*(char **)(uintptr_t)4)"
@@ -62,5 +63,18 @@
   },
   "404544a4": {
     "  recovered_40401c1c(auStack_268,0,0x44);\n  recovered_4040148c(auStack_268,auStack_224,8);\n  uStack_25c = uStack_218;\n  local_258 = uStack_214;\n  local_254 = iStack_210;\n  uStack_250 = local_20c;\n  uStack_24c = uStack_208;\n  local_248 = uStack_204;\n  local_244 = uStack_200;\n  local_22c = local_1e8;\n  local_240 = (uint)local_1fc;\n  uStack_23c = (uint)((ulonglong)local_1fc >> 0x20);\n  local_230 = local_1ec;\n  local_228 = local_1e4;": "  recovered_4040148c(auStack_268,auStack_224,0x44);"
+  },
+  "4041a0e4": {
+    "recovered_40402ccc(in_r0,in_r1,value)": "recovered_40402ccc(pf_bits_double((uint64_t)(uint32_t)(in_r0) | ((uint64_t)(uint32_t)(in_r1) << 32)))"
+  },
+  "40428dc8": {
+    "recovered_40402ccc(SUB84(dVar54,0),(int)((ulonglong)dVar54 >> 0x20),dVar55)": "recovered_40402ccc(pf_bits_double((uint64_t)(uint32_t)(SUB84(dVar54,0)) | ((uint64_t)(uint32_t)((int)((ulonglong)dVar54 >> 0x20)) << 32)))"
+  },
+  "4042da18": {
+    "recovered_40402ccc((int)*(undefined8 *)(param_2 + 0xc),\n                              (int)((ulonglong)*(undefined8 *)(param_2 + 0xc) >> 0x20),in_d0)": "recovered_40402ccc(pf_bits_double((uint64_t)(uint32_t)((int)*(undefined8 *)(param_2 + 0xc)) | ((uint64_t)(uint32_t)(\n                              (int)((ulonglong)*(undefined8 *)(param_2 + 0xc) >> 0x20)) << 32)))",
+    "recovered_40402ccc((int)*(undefined8 *)(local_a0 + 0x10),\n                              (int)((ulonglong)*(undefined8 *)(local_a0 + 0x10) >> 0x20),in_d0)": "recovered_40402ccc(pf_bits_double((uint64_t)(uint32_t)((int)*(undefined8 *)(local_a0 + 0x10)) | ((uint64_t)(uint32_t)(\n                              (int)((ulonglong)*(undefined8 *)(local_a0 + 0x10) >> 0x20)) << 32)))"
+  },
+  "404dbd90": {
+    "recovered_40419440(auStack_4c);": "((uint *)auStack_4c)[8] = 0;\n  ((uint *)auStack_4c)[9] = (uint)(uintptr_t)recovered_404dc4b8;\n  ((uint *)auStack_4c)[10] = uVar3;\n  recovered_40419440(auStack_4c);"
   }
 }
