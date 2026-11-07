@@ -4,9 +4,9 @@ The supplied 1.0r147-Prerelease reference becomes Permafrost 0.9. `recovery/refe
 records its hash and architecture inventory. Reference images and decompiler
 working files are analysis inputs, never normal build inputs.
 
-When encountered, Zastruga Engine, PicoFrost and Sleet are recovered in the
-sibling repositories `../Zastruga Engine`, `../PicoFrost` and `../Sleet`,
-respectively. Permafrost builds link those implementations from their owning
+When encountered, Zastruga Engine, PicoFrost, Sleet and Amur are recovered in
+the sibling repositories `../Zastruga Engine`, `../PicoFrost`, `../Sleet` and
+`../Amur`, respectively. Permafrost builds link those implementations from their owning
 repositories. `bobsfrost.bin` belongs to PicoFrost. These repositories follow
 the same restriction against recording host paths, account names or other
 host identity information; the public GitHub identity is permitted.
