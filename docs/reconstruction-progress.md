@@ -63,10 +63,14 @@ JPEG support, so the next milestone must retain its narrower format set.
 These diagnostic images still contain reference application and library code;
 they are not source-built release artifacts.
 
-The candidate x86-64 PNG DLL builds entirely from C. Its 14 PNG decoding cases
-match the reference, and its public BMP, PNG, TGA and XCF readers and writers
-pass the format corpus. Its rebuilt exports include C++ type information and
-stream data symbols. The other DLL slices remain under recovery.
+The candidate PNG DLL builds entirely from C on all four architectures. All
+four match the 14-case native PNG decoding corpus. x86-64, ARM64 and i386 also
+pass the public BMP, PNG, TGA and XCF reader/writer corpus; ARM32 file output
+still needs correction. Rebuilt exports include C++ type information and
+stream data symbols. ARM64 recovery expands machine-outliner sequences before
+decompilation. The x86-64 window DLL matches native window creation arguments,
+titles, dimensions and query records. The other DLL behavior remains under
+recovery, including the font rasterizer's virtual-call signatures.
 
 Corrections identified during this recovery include ARM32 soft-float and
 Darwin variadic argument packing, literal pools embedded in ARM32 text, scalar
