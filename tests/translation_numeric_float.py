@@ -8,7 +8,7 @@ import subprocess
 import sys
 import tempfile
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools/ghidra'))
-from translate import rewrite_scalar_storage
+from translate import rewrite_scalar_storage,rewrite_pointer_float_views
 
 
 def main():
@@ -41,8 +41,10 @@ void value_storage(uint *out,float f_storage) {
  out[1]=(int)f_storage;
  out[2]=f_storage;
 }
+float member_number(pf_kernel_value *records) { return (float)records->kind; }
+double indexed_member(pf_kernel_value *records) { return (double)records[1].kind; }
 '''
-    source='#include "support.h"\n'+rewrite_scalar_storage(functions)+'''
+    source='#include "support.h"\n'+rewrite_pointer_float_views(rewrite_scalar_storage(functions),{'records'},True)+'''
 int main(void) {
  if(stack_view()!=3.5f || integer_conversion(7)!=7.0f)return 4;
  if((uintptr_t)float_pointer(pf_bits_float(0x240000))!=0x240000)return 5;
@@ -53,6 +55,8 @@ int main(void) {
  if(raw_conversion(-7)!=pf_float_bits(-7.0f)||converted_view(-7)!=-7.0f)return 9;
  uint stored[3]={0};value_storage(stored,3.5f);
  if(stored[1]!=3||stored[2]!=pf_float_bits(3.5f))return 10;
+ pf_kernel_value records[2]={{.kind=7},{.kind=9}};
+ if(member_number(records)!=7.0f||indexed_member(records)!=9.0)return 11;
  for(unsigned i=0;i<256;i++) {
   if(number(i)!=(float)i)return 1;
   unsigned bits=(0x3fc012u<<8)|i;

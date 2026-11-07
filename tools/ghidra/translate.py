@@ -246,6 +246,17 @@ def rewrite_byte_ranges(source):
     return source
 
 
+def rewrite_pointer_float_views(source,pointer_names,wide=False):
+    for name in sorted(pointer_names,key=len,reverse=True):
+        suffix=r'(?:\[[^]\n]+\])?)(?![\w\[]|->|\.)'
+        source=re.sub(r'\(float\)('+re.escape(name)+suffix,
+                      r'pf_bits_float((uintptr_t)\1)',source)
+        if wide:
+            source=re.sub(r'\(double\)('+re.escape(name)+suffix,
+                          r'pf_bits_double((uintptr_t)\1)',source)
+    return source
+
+
 def rewrite_scalar_storage(source):
     """Restore raw float views lost when an SSA slot is printed as a pointer."""
     source=rewrite_byte_ranges(source)
@@ -625,12 +636,8 @@ def main():
             for name in sorted(pointer_names,key=len,reverse=True):
                 source=re.sub(r'\((longdouble|float10)\)('+re.escape(name)+r')\b',r'(\1)(uintptr_t)\2',source)
         # The decompiler's pointer/float casts are bit reinterpretations.
-        for name in sorted(pointer_names, key=len, reverse=True):
-            source = re.sub(r'\(float\)(' + re.escape(name) + r'(?:\[[^]\n]+\])?)(?![\w\[])',
-                            r'pf_bits_float((uintptr_t)\1)', source)
+        source=rewrite_pointer_float_views(source,pointer_names,WIDE)
         if WIDE:
-            for name in sorted(pointer_names,key=len,reverse=True):
-                source=re.sub(r'\(double\)('+re.escape(name)+r'(?:\[[^]\n]+\])?)(?![\w\[])',r'pf_bits_double((uintptr_t)\1)',source)
             source=re.sub(r'\(([^()\n]+\*)\)\(double\)(SUB\d+\([^()]*\))',r'(\1)(uintptr_t)pf_double_bits((double)\2)',source)
             source=re.sub(r'\(([^()\n]+\*)\)\(double\)(\w+)\b(?!\s*\()',r'(\1)(uintptr_t)pf_double_bits(\2)',source)
             source=re.sub(r'(\b\w+\s*=\s*)\(([^();\n]*\*)\)\s*(\(double\)[^;]+);',
