@@ -365,7 +365,7 @@ PFUIWindowSpec pf_ui_window_spec_refract(PFUIWindowSpec s,uint32_t value);
 uint32_t pf_ui_window_configure(uint32_t id,int32_t x,int32_t y,uint32_t a,uint32_t b);
 uint32_t pf_ui_window_list(void *records,uint32_t capacity,void *count);
 uint32_t pf_ui_window_menu_command(uint32_t id,uint32_t menu,uint32_t command);
-uint32_t pf_ui_window_pointer_event(uint32_t id,int32_t x,int32_t y,uint32_t buttons);
+uint32_t pf_ui_window_pointer_event(uint32_t id,int32_t x,int32_t y,uint32_t buttons,uint32_t flags);
 uint32_t pf_ui_window_pointer_state(uint32_t *window,void *state);
 uint32_t pf_ui_window_focus(uint32_t id,int32_t x,int32_t y);
 uint32_t pf_ui_window_request_close(uint32_t id,int32_t x,int32_t y);

@@ -26,7 +26,7 @@ def exercise(path,api_base=None):
         return args
     def string(ptr):return bytes(cpu.mem_read(ptr,128)).split(b'\0',1)[0]if ptr else None
     record=bytearray(632);struct.pack_into('<I',record,0,17);struct.pack_into('<Q',record,8,0x3100000);struct.pack_into('<I',record,16,8*6*4);struct.pack_into('<6I',record,20,8,8,6,32,0x123456,0);struct.pack_into('<4I',record,64,128,64,2,2)
-    specs={0xa0:('create',3),0xa4:('present',7),0xa8:('close',1),0xb0:('configure',5),0xb4:('query',2),0xec:('menus',4),0x160:('appearance',3),0x164:('mode',3),0x2c:('key',0),0x9c:('yield',0),0xac:('list',3),0xf0:('menu_command',3),0xfc:('pointer_event',4),0x100:('pointer_state',2),0x178:('text',5)}
+    specs={0xa0:('create',3),0xa4:('present',7),0xa8:('close',1),0xb0:('configure',5),0xb4:('query',2),0xec:('menus',4),0x160:('appearance',3),0x164:('mode',3),0x2c:('key',0),0x9c:('yield',0),0xac:('list',3),0xf0:('menu_command',3),0xfc:('pointer_event',5),0x100:('pointer_state',2),0x178:('text',5)}
     def service(cpu,address,length,user):
         offset=(address-0x10200)//16*4;name,count=specs[offset];a=list(arguments(count));result=1
         if name=='create':a[0]=string(a[0]);result=17
@@ -42,7 +42,7 @@ def exercise(path,api_base=None):
                 r,g,b=(flags>>24)&255,(flags>>16)&255,(flags>>8)&255
                 pixels=b''.join(bytes((r,g,b,[0,64,128,255][i%4]))for i in range(w*h));cpu.mem_write(data,pixels)
             cpu.mem_write(a[4],struct.pack('<Q4I',data,stride*h,w,h,stride));a=[value,a[1]&0xffffffff,scale,flags]
-        elif name=='pointer_state':cpu.mem_write(a[1],struct.pack('<7I',17,11,13,2,1,0,0));a=a[:1]
+        elif name=='pointer_state':cpu.mem_write(a[1],struct.pack('<7I',1,2,1,7,9,11,13));a=a[:1]
         elif name=='key':result=keys.pop(0)if keys else 0
         events.append((name,*a));cpu.reg_write(lib.result,result)
     for offset in specs:
@@ -96,9 +96,9 @@ def exercise(path,api_base=None):
         keys[:]=sequence;cpu.mem_write(out,b'\xa5'*40);assert call('keyboard_poll',out)==len(sequence);results.append(('keyboard',bytes(cpu.mem_read(out,24))));assert bytes(cpu.mem_read(out+24,16))==b'\xa5'*16
     call('yield_frames',3)
     # Bare tail forwards must preserve both argument registers and stack words.
-    call('window_configure',17,3,5,7,9);call('window_list',out,4,out+0x100);call('window_menu_command',17,2,3);call('window_pointer_event',17,11,13,2);call('window_focus',17,3,5);call('window_request_close',17,3,5)
+    call('window_configure',17,3,5,7,9);call('window_list',out,4,out+0x100);call('window_menu_command',17,2,3);call('window_pointer_event',17,11,13,2,0x10003);call('window_focus',17,3,5);call('window_request_close',17,3,5)
     struct.pack_into('<I',record,0,17);cpu.mem_write(ctx,struct.pack('<I',17));call('window_pointer_state',ctx,out)
-    keys[:]=[ord('a'),0x4800];cpu.mem_write(out,b'\xa5'*60);assert call('input_poll',ctx,out)==3;results.append(('input',bytes(cpu.mem_read(out,44))));assert bytes(cpu.mem_read(out+44,16))==b'\xa5'*16
+    keys[:]=[ord('a'),0x4800];cpu.mem_write(out,b'\xa5'*60);assert call('input_poll',ctx,out)==3;assert struct.unpack('<5I',bytes(cpu.mem_read(out,20)))==(3,11,13,2,1);results.append(('input',bytes(cpu.mem_read(out,44))));assert bytes(cpu.mem_read(out+44,16))==b'\xa5'*16
     draws=0;ticks=0;stop_draw=0;stop_tick=0
     def app_draw(cpu,address,length,user):
         nonlocal draws
@@ -112,7 +112,7 @@ def exercise(path,api_base=None):
         draws=ticks=0;specification(True,True);cpu.mem_write(ctx,bytes(context_size));w=8 if wide else 4;d=bytearray(112 if wide else 76);struct.pack_into('<Q'if wide else'<I',d,0,ctx);size=72 if wide else 52;d[w:w+size]=cpu.mem_read(spec,size);base=w+size
         for i,value in enumerate([0x16000,0x16010,0x12345678]):struct.pack_into('<Q'if wide else'<I',d,base+i*w,value)
         struct.pack_into('<2I',d,base+3*w,frames,yields);cpu.mem_write(0x3080000,bytes(d));assert call('app_run',0x3080000)==1;results.append(('app counters',draws,ticks));assert bytes(cpu.mem_read(ctx,context_size))==bytes(context_size)
-    for offset,name,args in[(0xb0,'window_configure',(17,3,5,7,9)),(0xac,'window_list',(out,4,out+256)),(0xf0,'window_menu_command',(17,2,3)),(0xfc,'window_pointer_event',(17,11,13,2))]:
+    for offset,name,args in[(0xb0,'window_configure',(17,3,5,7,9)),(0xac,'window_list',(out,4,out+256)),(0xf0,'window_menu_command',(17,2,3)),(0xfc,'window_pointer_event',(17,11,13,2,0x10003))]:
         for mode in['magic','version','size','null']:
             saved=[bytes(cpu.mem_read(t,12))for t in lib.api_tables];slots=[bytes(cpu.mem_read(t+offset,4))for t in lib.api_tables]
             for table in lib.api_tables:

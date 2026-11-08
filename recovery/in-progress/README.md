@@ -71,7 +71,9 @@ callbacks, appearance settings, cached queries, application-loop termination,
 and unavailable services. The numeric, math and saved-context corpora also pass.
 
 Explicit C value types preserve each native aggregate ABI. Typed service wrappers
-preserve arguments lost by indirect tail-call decompilation. The i386 query path
+preserve arguments lost by indirect tail-call decompilation. Pointer events
+retain the fifth flags argument, and input tests use the kernel's actual
+28-byte pointer-state field order. The i386 query path
 retains the original cached record across temporary reuse. ARM32 reconstructs
 repeated RGBA vectors instead of reading Ghidra register-space addresses as RAM.
 ARM64 restores hash return values and text-image field loads omitted by analysis.
