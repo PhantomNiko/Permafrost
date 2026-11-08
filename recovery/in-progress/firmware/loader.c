@@ -65,12 +65,16 @@ static int select_disk(void){
     uintptr_t count=0;void **handles=0;
     if(failed(services->handles(2,&block_guid,0,&count,&handles)))return 0;
     int found=0;
-    for(uintptr_t i=0;i<count;i++){
+    /* Prefer a whole disk so its partition handles cannot become extra targets. */
+    for(unsigned pass=0;pass<2 && !found;pass++)for(uintptr_t i=0;i<count && i<4096;i++){
         Block *candidate=0;
-        if(!failed(services->protocol(handles[i],&block_guid,(void **)&candidate)) && candidate && find_payload(candidate)){found=1;break;}
+        if(failed(services->protocol(handles[i],&block_guid,(void **)&candidate)) || !candidate || !candidate->media)continue;
+        if((candidate->media->partition!=0)!=(pass!=0))continue;
+        if(find_payload(candidate)){found=1;break;}
     }
     services->free_pool(handles);return found;
 }
+#include "disk_context.h"
 struct Volume {uint32_t base,sectors,cluster_sectors,fat_sector,fat_sectors,data_sector,clusters;};
 static int volume_read(struct Volume *volume,uint32_t first,uint32_t count,void *out){
     if(first>volume->sectors || count>volume->sectors-first)return 0;
@@ -365,17 +369,19 @@ static uint32_t dispatch(uint32_t *request){
     switch(request[0]){
     case 1:video_present_legacy();result=key_code();if(blt_video && !result)services->stall(16000);break;
     case 2:case 3:{
+        Block *target=command_disk(request[6]);if(!disk_usable(target))break;
         uint64_t lba=request[2]|(uint64_t)request[3]<<32;
         uintptr_t bytes=request[5];void *buffer=(void *)(uintptr_t)request[4];
-        if(!bytes || (bytes&511) || !buffer || lba>disk->media->last || bytes/512-1>disk->media->last-lba)break;
-        Status status=request[0]==2?disk->read(disk,disk->media->id,lba,bytes,buffer):disk->write(disk,disk->media->id,lba,bytes,buffer);
+        if(!bytes || (bytes&511) || !buffer || lba>target->media->last || bytes/512-1>target->media->last-lba)break;
+        if(request[0]==3 && (target->media->readonly || !target->write))break;
+        Status status=request[0]==2?target->read(target,target->media->id,lba,bytes,buffer):target->write(target,target->media->id,lba,bytes,buffer);
         result=!failed(status);break;
     }
     case 7:if(request[4] && request[5]>=32)result=pointer_read((uint32_t *)(uintptr_t)request[4]);break;
     case 8:result=video_change(request);break;
     case 9:result=video_present_rectangle(request[8],request[9],request[10],request[11]);break;
     case 4:video_present_legacy();result=!failed(services->stall(request[7]));break;
-    case 5:result=!disk->flush || !failed(disk->flush(disk));break;
+    case 5:{Block *target=command_disk(request[6]);if(disk_usable(target))result=!target->flush || !failed(target->flush(target));break;}
     case 6:if(system_table->output && system_table->output->write && request[4])result=!failed(system_table->output->write(system_table->output,(uint16_t *)(uintptr_t)request[4]));break;
     }
     request[1]=result;return result;
@@ -539,10 +545,7 @@ Status EFI_ABI pf_efi_entry(void *image,System *table){
     context[PF_EFI_BRIDGE_EXTENSION/4]=PF_EFI_BRIDGE_MAGIC;context[PF_EFI_BRIDGE_EXTENSION/4+1]=1;
     *(uint64_t *)((uint8_t *)context+PF_EFI_BRIDGE_POINTER)=(uintptr_t)bridge;
     context[10]=(uint32_t)(disk->media->last+1);
-    context[0x54c]=1;context[0x54d]=0;
-    *(uint64_t *)(context+0x54e)=(uintptr_t)disk;
-    context[0x64e]=disk->media->id;context[0x6ce]=0;
-    context[0x74e]=(uint32_t)(disk->media->last+1);context[0x7ce]=0;
+    disk_devices();
     context[0x8c]=1;context[0x8d]=(uintptr_t)io_buffer;context[0x8e]=65536;
     ((uint64_t *)(context+0x194))[0]=(uintptr_t)table;((uint64_t *)(context+0x194))[1]=(uintptr_t)services;
     ((uint64_t *)(context+0x194))[2]=(uintptr_t)table->output;((uint64_t *)(context+0x194))[3]=(uintptr_t)table->input;
