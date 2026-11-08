@@ -278,6 +278,9 @@ def rewrite_scalar_storage(source):
     integer_pointers=set(re.findall(r'\b(?:uint|int|undefined4|uint32_t|int32_t)\s*\*\s*(\w+)',source))
     for typename,name in floating_variables:
         if typename!='float':continue
+        for pointer in integer_pointers:
+            source=re.sub(r'(?<![\w])\*'+re.escape(pointer)+r'\s*=\s*'+re.escape(name)+r'\s*;',
+                          '*'+pointer+' = pf_float_bits('+name+');',source)
         source=re.sub(r'\b(\w+)\s*\[([^]\n]+)\]\s*=\s*'+re.escape(name)+r'\s*;',
                       lambda m:m[1]+'['+m[2]+'] = pf_float_bits('+name+');'
                       if m[1] in integer_pointers else m[0],source)

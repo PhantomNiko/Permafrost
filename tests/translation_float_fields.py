@@ -103,6 +103,19 @@ int recovered_7000(unsigned value)
 }
 ''')
         (notes / '7000.tsv').write_text('Q\t-\t0\t0\nQ\tstorage\t3\t4\n')
+        (notes / '8000.c').write_text('''
+unsigned recovered_8000(float value)
+{
+ uint bits;
+ uint *slot;
+ float number;
+ slot=&bits;
+ number=value;
+ *slot=number;
+ return bits;
+}
+''')
+        (notes / '8000.tsv').write_text('')
         layout = root / 'layout.json'
         layout.write_text(json.dumps({'translation': {
             'pointer_bytes': 8, 'scalar_storage_views': True,
@@ -126,6 +139,7 @@ int main(void) {
  if(recovered_6000(0)!=3||recovered_6000(2147483647)!=3)return 6;
  if(recovered_6000(-1)!=-3||recovered_6000(-2147483647-1)!=-3)return 7;
  if(recovered_7000(42)!=42||recovered_7000(0x80000001U)!=(int)0x80000001U)return 8;
+ if(recovered_8000(1.5f)!=0x3fc00000U||recovered_8000(-0.25f)!=0xbe800000U)return 9;
  return 0;
 }
 ''')
