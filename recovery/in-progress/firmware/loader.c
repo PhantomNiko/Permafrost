@@ -164,7 +164,10 @@ static uintptr_t load_kernel(uint8_t *file,size_t length){
     }
     return entry;
 }
+static unsigned usb_keyboard_available;
+static uint16_t usb_keyboard_read(void);
 static uint16_t key_code(void){
+    if(usb_keyboard_available)return usb_keyboard_read();
     if(!system_table->input || !system_table->input->read)return 0;
     Input *input=system_table->input;
     Key key={0};Status status=input->read(input,&key);
@@ -185,6 +188,7 @@ static RelativePointer *relative_devices[8];
 static AbsolutePointer *absolute_devices[8];
 static unsigned relative_count,absolute_count;
 #include "usb_tablet.h"
+#include "usb_keyboard.h"
 static void pointer_devices(void){
     relative_count=absolute_count=0;
     Guid *guids[]={&relative_guid,&absolute_guid};
@@ -273,6 +277,19 @@ static void video_present(void){
     if(blt_video && blt_pixels && blt_video->blit)
         blt_video->blit(blt_video,blt_pixels,2,0,0,0,0,blt_width,blt_height,blt_width*4);
 }
+static uint32_t video_present_rectangle(uint32_t x,uint32_t y,uint32_t width,uint32_t height){
+    if(!blt_video || !blt_pixels || !blt_video->blit)return 1;
+    int64_t left=(int32_t)x,top=(int32_t)y,right=left+width,bottom=top+height;
+    if(left<0)left=0;if(top<0)top=0;
+    if(right>(int64_t)blt_width)right=blt_width;
+    if(bottom>(int64_t)blt_height)bottom=blt_height;
+    if(left>=right || top>=bottom)return 0;
+    return !failed(blt_video->blit(blt_video,blt_pixels,2,(uintptr_t)left,(uintptr_t)top,
+        (uintptr_t)left,(uintptr_t)top,(uintptr_t)(right-left),(uintptr_t)(bottom-top),blt_width*4));
+}
+static void video_present_legacy(void){
+    if(!context || !(context[PF_EFI_INPUT_CAPABILITIES/4]&PF_EFI_PRESENT_ACTIVE))video_present();
+}
 static unsigned bit_shift(uint32_t mask);
 static int video_select(Video *video){
     if(!video || !video->mode || !video->mode->info)return 0;
@@ -294,6 +311,7 @@ static int video_select(Video *video){
         if(stride<info->width)return 0;
         blt_video=0;
     }
+    context[PF_EFI_INPUT_CAPABILITIES/4]=(context[PF_EFI_INPUT_CAPABILITIES/4]&~(PF_EFI_PRESENT_SUPPORTED|PF_EFI_PRESENT_ACTIVE))|(blt_video?PF_EFI_PRESENT_SUPPORTED:0);
     context[0x13]=(uint32_t)pixels;context[0x192]=(uint32_t)(pixels>>32);
     context[0x14]=(uint32_t)bytes;context[0x15]=stride*4;
     context[0x16]=info->width;context[0x17]=info->height;context[0x18]=32;
@@ -345,7 +363,7 @@ static uint32_t dispatch(uint32_t *request){
     if(!request)return 0;
     uint32_t result=0;
     switch(request[0]){
-    case 1:video_present();result=key_code();if(blt_video && !result)services->stall(16000);break;
+    case 1:video_present_legacy();result=key_code();if(blt_video && !result)services->stall(16000);break;
     case 2:case 3:{
         uint64_t lba=request[2]|(uint64_t)request[3]<<32;
         uintptr_t bytes=request[5];void *buffer=(void *)(uintptr_t)request[4];
@@ -355,7 +373,8 @@ static uint32_t dispatch(uint32_t *request){
     }
     case 7:if(request[4] && request[5]>=32)result=pointer_read((uint32_t *)(uintptr_t)request[4]);break;
     case 8:result=video_change(request);break;
-    case 4:video_present();result=!failed(services->stall(request[7]));break;
+    case 9:result=video_present_rectangle(request[8],request[9],request[10],request[11]);break;
+    case 4:video_present_legacy();result=!failed(services->stall(request[7]));break;
     case 5:result=!disk->flush || !failed(disk->flush(disk));break;
     case 6:if(system_table->output && system_table->output->write && request[4])result=!failed(system_table->output->write(system_table->output,(uint16_t *)(uintptr_t)request[4]));break;
     }
@@ -529,7 +548,10 @@ Status EFI_ABI pf_efi_entry(void *image,System *table){
     ((uint64_t *)(context+0x194))[2]=(uintptr_t)table->output;((uint64_t *)(context+0x194))[3]=(uintptr_t)table->input;
     ((uint64_t *)(context+0x194))[4]=(uintptr_t)disk;((uint64_t *)(context+0x194))[5]=(uintptr_t)services->stall;
     video_context();pointer_devices();usb_tablet_devices();
-    context[PF_EFI_INPUT_CAPABILITIES/4]=usb_tablet_available?PF_EFI_INPUT_USB_OWNED:0;
+#if defined(__arm__) || defined(__aarch64__)
+    usb_keyboard_devices();
+#endif
+    context[PF_EFI_INPUT_CAPABILITIES/4]|=(usb_tablet_available || usb_keyboard_available)?PF_EFI_INPUT_USB_OWNED:0;
     if(!prefetch_disk_context() || !heap_context()){message("Permafrost heap reservation failed.\r\n");return (Status)-1;}
     *(volatile uint32_t *)(uintptr_t)(KERNEL_ADDRESS+16)=(uintptr_t)context;
     message("Starting Permafrost.\r\n");enter(entry);return 0;

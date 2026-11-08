@@ -37,7 +37,8 @@ def build_loader(output, architecture, source=None):
         from native import inspect as native_inspect
         for i,source in enumerate(sources):
             obj=output/('unit%d.o'%i)
-            flags=['-w','-fshort-wchar']+(['-mthumb','-mfloat-abi=soft','-fno-vectorize','-fno-slp-vectorize']if architecture=='armv7'else[])
+            # Darwin treats r9 as scratch; UEFI AAPCS callbacks must preserve it.
+            flags=['-w','-fshort-wchar']+(['-mthumb','-mfloat-abi=soft','-ffixed-r9','-fno-vectorize','-fno-slp-vectorize']if architecture=='armv7'else[])
             compile_object(source,obj,architecture,includes,pic=True,extra_flags=flags)
             objects.append(str(obj))
         stub='--- !tapi-tbd-v3\narchs: [ '+architecture+' ]\nplatform: ios\ninstall-name: /usr/lib/libSystem.B.dylib\nexports:\n  - archs: [ '+architecture+' ]\n    symbols: [ _pf_link_dummy ]\n...\n'

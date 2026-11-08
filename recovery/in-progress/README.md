@@ -339,9 +339,15 @@ booleans, pointer values, and the empty value. Wider interpreter compatibility
 remains open. The ARM32 firmware now selects its full 1280 by 800 virtio GOP
 surface instead of an 800 by 600 console wrapper. Mode changes retain the
 selected output and reject unsupported exact requests. The display no longer
-leaves a stale firmware area beside the desktop. An automated key-injection run
-also exposed occasional repeated characters during expensive full-frame
-presentation; input timing and presentation cadence still need investigation. These runs use the recovered C graphics module
+leaves a stale firmware area beside the desktop. The source kernel now submits clipped presentation rectangles through an
+optional firmware service, retaining automatic presentation for older kernels.
+Direct QEMU boot-keyboard reports replace the firmware typematic queue on ARM;
+held-key repeat uses elapsed counter time. The firmware keyboard driver is
+stopped before its subscription is replaced. ARM32 firmware compilation reserves
+`r9`, which Darwin otherwise treats as scratch while UEFI callbacks require it
+to survive. A register-preservation regression test catches the former fault.
+Both ARM VM diagnostics now enter `2+3`, `7*4`, and `9-6` with results `5`, `28`,
+and `3`, without duplicate characters or the prior callback memory fault. These runs use the recovered C graphics module
 with other reference drivers and programs still present.
 These observations do not establish complete source-image VM equivalence.
 

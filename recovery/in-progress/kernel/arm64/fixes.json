@@ -499,7 +499,9 @@
   },
   "8246d3c4": {},
   "8240d010": {},
-  "82402d00": {},
+  "82402d00": {
+    "if ((param_3 != 0) && (param_4 != 0)) {": "if(pf_efi_present_rectangle((void *)(uintptr_t)*(volatile uint64_t *)(uintptr_t)0x825420b8U,param_1,param_2,param_3,param_4))return;\n  if ((param_3 != 0) && (param_4 != 0)) {"
+  },
   "8241bcc4": {},
   "82421274": {},
   "8241ec38": {},

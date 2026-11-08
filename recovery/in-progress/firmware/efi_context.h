@@ -9,6 +9,8 @@
 #define PF_EFI_CONTEXT_BYTES 0x2150U
 #define PF_EFI_INPUT_CAPABILITIES 0x2148U
 #define PF_EFI_INPUT_USB_OWNED 1U
+#define PF_EFI_PRESENT_SUPPORTED 2U
+#define PF_EFI_PRESENT_ACTIVE 4U
 #define PF_EFI_BRIDGE_MAGIC 0x34424650U
 static inline uintptr_t pf_efi_bridge_address(const void *context) {
     const uint32_t *words=(const uint32_t *)context;

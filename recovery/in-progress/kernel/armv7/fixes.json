@@ -92,5 +92,8 @@
   "40407e00": {
     "(*pcVar9)();": "(*pcVar9)(piVar6);",
     "(*pcVar12)();": "(*pcVar12)(puVar7);"
+  },
+  "404060ac": {
+    "DataMemoryBarrier(0xb);": "DataMemoryBarrier(0xb);\n  pf_efi_present_rectangle((void *)(uintptr_t)*(volatile uint32_t *)(uintptr_t)0x40500004U,param_1,param_2,param_3,param_4);"
   }
 }
