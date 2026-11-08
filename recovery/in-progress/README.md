@@ -175,6 +175,17 @@ interactive ARM32 pointer delivery remains unresolved. The reference firmware
 and source-firmware observations are distinct; the complete source-kernel VM
 checks remain unfinished.
 
+A further ARM32 diagnostic combines the recovered kernel, C firmware and twelve
+source libraries and reaches the desktop while retaining reference programs
+and drivers. Logging now prints the actual driver and program names: ARM32 and
+ARM64 variadic console wrappers consume the caller's `va_list`, and ARM32 script
+error and scheduler logging do the same. i386 console logging strips carriage
+returns like the reference. Four-architecture native comparisons check register
+arguments, stack spills, numeric formatting and line splitting. The source
+ARM32 desktop still lacks images and has clock/input issues; isolated PNG, BMP
+and TGA kernel decodes match the reference, so file/allocator integration still
+needs investigation. This does not establish complete source-image equivalence.
+
 GPT filesystem updates now preserve the existing BIOS boot area, firmware
 partitions and partition tables. Previously, repacking rebuilt a two-partition
 GPT container and discarded the other boot components. A regression fixture
