@@ -24,6 +24,16 @@ def fixtures(language):
             ('function twice(x)\nreturn x*2\nend\nanswer=twice(7)',14),
             ('a={3,5,8}\nanswer=a[2]',5),
             ('answer=(1.5*2.0+0.25)*4',13),
+            ('answer=17%5',2),
+            ('answer=21/3',7),
+            ('answer=0\nif 3<4\nanswer=11\nelse\nanswer=7\nend',11),
+            ('answer=0\nif false\nanswer=7\nelse\nanswer=11\nend',11),
+            ('a={1,2}\na[1]=17\nanswer=a[1]',17),
+            ('function inc(x)\nreturn x+1\nend\nanswer=inc(inc(40))',42),
+            ('function fact(n)\nif n<=1\nreturn 1\nend\nreturn n*fact(n-1)\nend\nanswer=fact(6)',720),
+            ('answer=(-1.5+4.75)*4',13),
+            ('a={3,5,8}\nanswer=0\ni=1\nwhile i<=3\nanswer=answer+a[i]\ni=i+1\nend',16),
+            ('answer=123456789',123456789),
         ]
     if language=='rwby':
         extra += [

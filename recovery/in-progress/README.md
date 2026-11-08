@@ -112,10 +112,10 @@ preserve destination returns needed by map and vector initialization.
 These successful-script cases do not establish exception-path or complete VM
 compatibility; those remain release gates alongside the standalone runtime.
 
-The four standalone WinterScript architecture checkpoints build from C and pass eight
-native/source execution comparisons: arithmetic, precedence, negative integers,
-a loop, a function call, array construction and indexing, floating arithmetic,
-and string comparison. Each also passes 46 numeric-helper and 63 math comparisons,
+The four standalone WinterScript architecture checkpoints build from C and pass 18
+native/source execution comparisons, covering arithmetic, branching, loops,
+recursive and nested function calls, array indexing and updates, floating
+arithmetic, decimal literals and string comparison. Each also passes 46 numeric-helper and 63 math comparisons,
 plus native saved-buffer, register-restoration and scope-unwind context checks.
 Recovered token iteration preserves the owning vector, assignment parsing uses
 the initialized cursor, and floating results retain their native return ABI.
@@ -143,8 +143,15 @@ C libraries, including TerrorUI, while retaining the reference kernel,
 applications, drivers and standalone runtime. The x86-64 diagnostic reaches the
 desktop. ARM64 also reaches the desktop with the GICv3 and guest-RAM timer
 adjustment described above. ARM32 remains at the handoff screen, and BIOS i386
-reaches Batagaika first-boot setup. These observations establish boot progress,
-not interactive TerrorUI or complete source-image equivalence.
+reaches Batagaika first-boot setup. An additional C guest program links against the recovered TerrorUI DLL and
+launches beside the reference desktop compositor. On x86-64 its text, rectangle
+and button render, and a pointer click changes the rectangle colour through the
+C callback. ARM64 also launches and renders this program with the timer
+adjustment above. The same fixture compiles and links for all four targets;
+ARM32 and BIOS i386 interactive display checks remain unfinished. These mixed
+diagnostic disks still retain reference components and are not release images.
+The reusable guest fixture is `tests/ui_guest.c`, built with
+`tests/ui_guest.py` and source-only DLL export stubs in `tools/darwin.py`.
 
 GPT filesystem updates now preserve the existing BIOS boot area, firmware
 partitions and partition tables. Previously, repacking rebuilt a two-partition
