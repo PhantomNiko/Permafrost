@@ -37,7 +37,7 @@ reference programs and drivers and is not a release image.
 An initially inactive window could retain TerrorUI's cached inactive record
 indefinitely: presenting invalidates that cache, but an idle inactive terminal
 can skip presentation. The native terminal also stalls in the delayed-focus
-fixture. `refresh_focus.h` refreshes inactive cached records at the start of
+fixture. the shared `window_focus.h` helper refreshes inactive cached records at the start of
 the recovered terminal's loop. This intentional correction leaves TerrorUI's
 public caching behavior unchanged. Four source regression cases require delayed
 activation to execute a command; four additional native comparisons preserve

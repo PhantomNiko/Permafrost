@@ -1,0 +1,38 @@
+100027e0	int recovered_100027e0(void);
+10007fc0	void * recovered_10007fc0(void *dst,const void *src,unsigned long n);
+10007fc4	void * recovered_10007fc4(void *dst,const void *src,unsigned long n);
+10007fc8	void * recovered_10007fc8(void *dst,int value,unsigned long n);
+10007fcc	int recovered_10007fcc(char *dst,unsigned long n,const char *format,...);
+10007fd0	unsigned long recovered_10007fd0(const char *text);
+10007fd4	unsigned int recovered_10007fd4(void *window);
+10007fd8	unsigned char recovered_10007fd8(void *info);
+10007fdc	unsigned int recovered_10007fdc(void *window,void *spec);
+10007fe0	unsigned int recovered_10007fe0(void *window,void *state);
+10007fe4	unsigned int recovered_10007fe4(void *window,const char *title,const void *pixels,unsigned int width,unsigned int height,unsigned int stride,unsigned int clear);
+10007fe8	unsigned int recovered_10007fe8(void *window,void *info);
+10007fec	unsigned int recovered_10007fec(void *window,const char *file,const char *edit,const char *menu);
+10007ff0	void * recovered_10007ff0(void *output,const char *title,unsigned int width,unsigned int height);
+10007ff4	unsigned int recovered_10007ff4(void *window,void *info);
+10007ff8	void recovered_10007ff8(unsigned int frames);
+100026c8	long long recovered_100026c8(double x);	r1:r0	r1,r0
+10007fac	long long recovered_10007fac(double x);	r1:r0	r1,r0
+10002640	unsigned long long recovered_10002640(double x);	r1:r0	r1,r0
+10007fb0	unsigned long long recovered_10007fb0(double x);	r1:r0	r1,r0
+10002724	long long recovered_10002724(float x);	r0	r1,r0
+10002714	unsigned long long recovered_10002714(float x);	r0	r1,r0
+1000277c	double recovered_1000277c(long long x);	r1:r0	r1,r0
+10007fb4	double recovered_10007fb4(long long x);	r1:r0	r1,r0
+10002734	double recovered_10002734(unsigned long long x);	r1:r0	r1,r0
+10007fb8	double recovered_10007fb8(unsigned long long x);	r1:r0	r1,r0
+100027c0	float recovered_100027c0(long long x);	r1:r0	r0
+100027a4	float recovered_100027a4(unsigned long long x);	r1:r0	r0
+10002228	int recovered_10002228(int a,int b);	r0,r1	r0
+10007fa8	int recovered_10007fa8(int a,int b);	r0,r1	r0
+100021a0	unsigned int recovered_100021a0(unsigned int a,unsigned int b);	r0,r1	r0
+10007fbc	unsigned int recovered_10007fbc(unsigned int a,unsigned int b);	r0,r1	r0
+10002298	int recovered_10002298(int a,int b);	r0,r1	r0
+100021f0	unsigned int recovered_100021f0(unsigned int a,unsigned int b);	r0,r1	r0
+10002464	long long recovered_10002464(long long a,long long b);	r1:r0,r3:r2	r1,r0
+10002300	unsigned long long recovered_10002300(unsigned long long a,unsigned long long b);	r1:r0,r3:r2	r1,r0
+10002584	long long recovered_10002584(long long a,long long b);	r1:r0,r3:r2	r1,r0
+100023e4	unsigned long long recovered_100023e4(unsigned long long a,unsigned long long b);	r1:r0,r3:r2	r1,r0

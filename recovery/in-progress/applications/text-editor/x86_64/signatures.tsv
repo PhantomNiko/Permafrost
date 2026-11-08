@@ -1,0 +1,16 @@
+10000550	int recovered_10000550(void);
+10005cac	void * recovered_10005cac(void *dst,const void *src,unsigned long n);
+10005cb2	void * recovered_10005cb2(void *dst,const void *src,unsigned long n);
+10005cb8	void * recovered_10005cb8(void *dst,int value,unsigned long n);
+10005cbe	int recovered_10005cbe(char *dst,unsigned long n,const char *format,...);
+10005cc4	unsigned long recovered_10005cc4(const char *text);
+10005cca	unsigned int recovered_10005cca(void *window);
+10005cd0	unsigned char recovered_10005cd0(void *info);
+10005cd6	unsigned int recovered_10005cd6(void *window,void *spec);
+10005cdc	unsigned int recovered_10005cdc(void *window,void *state);
+10005ce2	unsigned int recovered_10005ce2(void *window,const char *title,const void *pixels,unsigned int width,unsigned int height,unsigned int stride,unsigned int clear);
+10005ce8	unsigned int recovered_10005ce8(void *window,void *info);
+10005cee	unsigned int recovered_10005cee(void *window,const char *file,const char *edit,const char *menu);
+10005cf4	void * recovered_10005cf4(void *output,const char *title,unsigned int width,unsigned int height);
+10005cfa	unsigned int recovered_10005cfa(void *window,void *info);
+10005d00	void recovered_10005d00(unsigned int frames);

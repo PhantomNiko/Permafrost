@@ -1,4 +1,4 @@
-#include "../refresh_focus.h"
+#include "../../window_focus.h"
 /* Permafrost recovered implementation; Pooka's Free Software License.
  * Fixed entry addresses and original function boundaries are recorded
  * separately in recovery metadata. */
@@ -328,7 +328,7 @@ LAB_100008ca:
           local_58 = CONCAT44(uStack_16f0,local_16f4);
           uStack_50 = 0;
           memset(local_1af8,0,0x278);
-          pf_terminal_refresh_inactive_info(&local_16f8);          uVar6 = terror_ui_window_query(&local_16f8,local_1af8);
+          pf_app_refresh_inactive_info(&local_16f8);          uVar6 = terror_ui_window_query(&local_16f8,local_1af8);
           if ((uVar6 != 0) && (uVar6 = terror_ui_window_sync_buffer(&local_16f8,local_1af8), uVar6 != 0)) {
             local_13a8 = local_16c8;
             PF_PART4(auVar39, 0) = -(uint)(local_16f4 == (uint)local_58);

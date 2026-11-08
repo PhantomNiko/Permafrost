@@ -213,10 +213,19 @@ regressions and preserve native behavior for an already-active window. An x64
 VM diagnostic with the C kernel and libraries executes `2+3` and displays `5`.
 The x64 public keyboard callback now has the SDK's explicit 32-bit return
 contract. Its oracle covers twelve make/break and modifier scancodes plus
-seven active-window, child-process and modifier-routing cases. Scalar and
+eight active-window, child-process and modifier-routing cases. Scalar and
 statement comparisons still pass. The clean VM input check waits for the
 window's active flag before sending keys; fixed-delay input injection was
 inconsistent and does not establish interactive performance or full VM parity.
+
+TextEditor now has C source builds for all four architectures under
+`applications/text-editor`. Native comparisons cover typed text, resized frames,
+Command-based selection/copy/paste, and exact bytes saved through the File menu.
+Its x64 window-spec transport preserves the full title/size prefix, ARM32
+preserves the cursor-column store, and ARM64 resolves its indirect clear import
+to C. The shared `applications/window_focus.h` helper refreshes inactive window
+information for both recovered applications. Full editor VM and persistence
+checks remain pending.
 
 Kernel statement comparisons now cover assignment, returned arithmetic,
 compound assignment, conditional returns, indexed arrays and numeric loops on
