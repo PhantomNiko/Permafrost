@@ -332,8 +332,11 @@ clock text with the current codec. The firmware USB I/O tablet transport and
 explicit input-ownership extension now let both ARM diagnostics open the C
 terminal and accept keyboard input without resetting firmware's USB controller.
 ARM32 also preserves the keyboard and idle bridge request pointers and evaluates
-`2+3` as `5`. ARM64 accepts the same typed input but returns `0`; interpreter
-compatibility remains open. The ARM32 display surface still occupies only part
+`2+3` as `5`. ARM64 now also renders the result as `5`: its integer and pointer
+formatting paths preserve argument bits instead of converting through floating
+point. Thirteen owned-string comparisons cover signed boundaries, floats,
+booleans, pointer values, and the empty value. Wider interpreter compatibility
+remains open. The ARM32 display surface still occupies only part
 of the negotiated output mode. These runs use the recovered C graphics module
 with other reference drivers and programs still present.
 These observations do not establish complete source-image VM equivalence.
