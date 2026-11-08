@@ -16,7 +16,9 @@
     "coprocessor_moveto(0xf,0,1,uVar7,in_cr7,in_cr11)": "pf_clean_data_line(uVar7)"
   },
   "4040b8c0": {
-    "&H_SupervisorCall": "(uint8_t *)(uintptr_t)0xffff0008u"
+    "&H_SupervisorCall": "(uint8_t *)(uintptr_t)0xffff0008u",
+    "uint *puVar10;": "volatile uint *puVar10;",
+    "undefined4 *puVar9;": "volatile undefined4 *puVar9;"
   },
   "404199e8": {
     "_local_28": "PF_PART4(local_28,0)"

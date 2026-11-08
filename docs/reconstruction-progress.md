@@ -151,3 +151,14 @@ The working ARM32 desktop checkpoint remains unchanged while MMIO mapping and
 driver behavior are investigated. A separate ARM64 VM check opens the C terminal
 but does not accept the injected USB keyboard command; pointer success does not
 yet establish keyboard compatibility.
+
+
+The ARM32 isolated USB diagnostic now reaches the desktop and moves the pointer
+without the earlier controller abort. QEMU reported a precise external abort at
+status register 0x10008044: the compiler had narrowed a masked register read to
+a byte access. Volatile 32-bit controller pointers retain the native access
+width. The new native initialization/access-width fixture rejects the prior C
+kernel and passes the repair; the six statement comparisons also pass. This VM
+still omits the unverified reference graphics drivers. Application launch and
+the full graphics path remain unverified, and the ARM64 terminal still rejects
+injected USB keys with the corrected firmware. No release gate is waived.
