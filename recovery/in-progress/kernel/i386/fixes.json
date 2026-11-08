@@ -45,5 +45,8 @@
     "local_2b4.kind = (int)-(float)puVar31;": "local_2b4.kind = (int)pf_float_bits((float)(-(float)puVar31));",
     "(float)local_2b4.kind": "pf_bits_float((uint)local_2b4.kind)"
   },
-  "2040a60": {}
+  "2040a60": {},
+  "202a5c0": {
+    "== (char)piVar8[1]": "== (uint8_t)piVar8[1]"
+  }
 }

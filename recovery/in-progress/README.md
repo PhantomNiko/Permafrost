@@ -392,6 +392,15 @@ Thirty-two native framebuffer comparisons cover element types, clipped and
 fixed-position elements, and visible control pixels. Network, scripting, and
 wider browser interaction checks remain pending.
 
+Storage rescanning now preserves mounted filesystems for drive numbers with
+the high bit set. The reconstruction compared an unsigned drive byte with a
+signed `char`, so a rescan lost mounted-volume types and the scheduler discarded
+applications whose device context could no longer be restored. All four kernel
+corrections use the native unsigned-byte comparison. Three ARM64 native rescan
+comparisons cover mounted types and remapped current-device IDs. All four C
+kernels rebuild, and both ARM installer VM diagnostics now render their forms
+without losing the desktop or application context after scanning storage.
+
 Diagnostic snapshots and VM disks remain outside tracked source. The normal
 build continues to use the last completed source tree until the next milestone
 passes its complete source build and VM comparisons. That transition must move

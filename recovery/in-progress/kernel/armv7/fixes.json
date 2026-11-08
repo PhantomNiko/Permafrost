@@ -95,5 +95,8 @@
   },
   "404060ac": {
     "DataMemoryBarrier(0xb);": "DataMemoryBarrier(0xb);\n  pf_efi_present_rectangle((void *)(uintptr_t)*(volatile uint32_t *)(uintptr_t)0x40500004U,param_1,param_2,param_3,param_4);"
+  },
+  "40438c5c": {
+    "== (char)piVar8[1]": "== (uint8_t)piVar8[1]"
   }
 }
