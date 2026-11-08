@@ -728,11 +728,12 @@ def main():
                 value = '(*(%s *)((uint8_t *)&(%s)+%s))' % (floating, match[1], match[2])
             scale = pointer_fields.get((key, occurrence))
             signed = signed_fields.get((key, occurrence))
+            if re.match(r'\s*=(?!=)',match.string[match.end():]):
+                scale = signed = None
             if signed:
                 if signed not in (1, 2, 4, 8) or signed != int(match[3]):
                     raise ValueError('invalid signed field metadata')
                 value = '((int%d_t)%s)' % (signed * 8, value)
-            if re.match(r'\s*=(?!=)',match.string[match.end():]):scale=None
             if scale:
                 element = {1: 'uint8_t', 2: 'uint16_t', 4: 'uint32_t', 8: 'uint64_t'}.get(
                     scale, 'struct { uint8_t bytes[%d]; }' % scale)

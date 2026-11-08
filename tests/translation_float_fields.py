@@ -83,12 +83,15 @@ int recovered_6000(int value)
 {
  undefined8 pair;
  pair._4_4_=value;
+ pair._0_1_=value<0;
+ if(pair._0_1_!=(value<0))return 9;
  if(-1<pair._4_4_)return 3;
  if(pair._4_4_<0)return -3;
  return 0;
 }
 ''')
-        (notes / '6000.tsv').write_text('I\tpair._4_4_\t2\t4\nI\tpair._4_4_\t3\t4\n')
+        (notes / '6000.tsv').write_text('I\tpair._4_4_\t2\t4\nI\tpair._4_4_\t3\t4\n'
+                                      'I\tpair._0_1_\t1\t1\n')
         layout = root / 'layout.json'
         layout.write_text(json.dumps({'translation': {
             'pointer_bytes': 8, 'scalar_storage_views': True,

@@ -350,6 +350,8 @@ public class Export extends GhidraScript {
                     var operation = dot.getPcodeOp();
                     if (operation != null && (operation.getOpcode() == PcodeOp.INT_SLESS ||
                         operation.getOpcode() == PcodeOp.INT_SLESSEQUAL) &&
+                        value != null && (operation.getInput(0).equals(value) ||
+                        operation.getInput(1).equals(value)) &&
                         (fieldWidth == 1 || fieldWidth == 2 || fieldWidth == 4 || fieldWidth == 8))
                         metadata.append("I\t").append(key).append('\t').append(occurrence)
                             .append('\t').append(fieldWidth).append('\n');
