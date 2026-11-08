@@ -359,6 +359,14 @@ native private register calling convention. These checks cover URL handling,
 while browser rendering, networking, script integration, and VM parity remain
 release gates.
 
+The installer now has four source-only C checkpoints. Shared recovered
+device-list and installation-command operations pass 95 native comparisons per
+CPU, covering all five boot formats and fifteen target choices, device limits,
+signed integer bounds, and multiline success/failure messages. These operations
+replace decompiler errors in fixed addresses, vectorized device parsing, and
+stack-backed status preservation. Full installer GUI and disk-installation VM
+checks remain pending.
+
 Diagnostic snapshots and VM disks remain outside tracked source. The normal
 build continues to use the last completed source tree until the next milestone
 passes its complete source build and VM comparisons. That transition must move
