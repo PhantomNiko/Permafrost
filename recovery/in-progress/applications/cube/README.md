@@ -18,8 +18,9 @@ All comparisons pass on all four architectures. The original private i386
 renderer uses ECX and EDX arguments; its fixed-address globals are populated
 explicitly by the diagnostic harness.
 
-The source application also opens and animates in an x86-64 VM alongside the
-reference desktop and eleven recovered C libraries. That diagnostic retains
+The source application also opens and animates in x86-64 and ARM64 VMs alongside the
+reference desktop and eleven recovered C libraries. ARM64 uses the documented
+temporary timer adjustment. These diagnostics retain
 other reference components and is not a source-only release image. ARM32
 presentation, ARM64 timer startup, BIOS desktop integration and the remaining
 applications, drivers and third-party payloads remain release work.

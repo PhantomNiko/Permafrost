@@ -163,6 +163,18 @@ matches 12 clipping, winding and degenerate-triangle fixtures on every CPU.
 The source demo opens and animates in the x86-64 desktop diagnostic. Remaining
 GUI applications, drivers and the third-party boot payload are still unfinished.
 
+The WFE5 source firmware now uses the recovered kernel's command offsets:
+wait duration at word seven, video dimensions at words eight and nine, and
+video response fields beginning at word twelve. A mock-UEFI fixture checks
+wait dispatch, mode selection and the complete framebuffer response. The
+firmware compiles for all four CPUs through the diagnostic `--source` option
+in `tools/uefi_portable.py`. An ARM32 mixed diagnostic with this C firmware
+presents the desktop through GOP.Blt on virtio-ramfb. Its desktop occupies
+part of the initial GOP mode, the reference clock text is still corrupt, and
+interactive ARM32 pointer delivery remains unresolved. The reference firmware
+and source-firmware observations are distinct; the complete source-kernel VM
+checks remain unfinished.
+
 GPT filesystem updates now preserve the existing BIOS boot area, firmware
 partitions and partition tables. Previously, repacking rebuilt a two-partition
 GPT container and discarded the other boot components. A regression fixture

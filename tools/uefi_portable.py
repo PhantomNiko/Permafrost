@@ -13,9 +13,9 @@ import subprocess
 from pe import pack, inspect
 
 
-def build_loader(output, architecture):
+def build_loader(output, architecture, source=None):
     output=Path(output);output.mkdir(parents=True,exist_ok=True)
-    root=Path('firmware/uefi/common')
+    root=Path(source) if source is not None else Path('firmware/uefi/common')
     sources=[root/'loader.c',Path('kernel/runtime.c'),Path('kernel/compiler.c')]
     includes=[str(root),'sdk/include']
     objects=[];data_start=None
@@ -78,4 +78,5 @@ if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--arch',choices=('i386','x86_64','armv7','arm64'),required=True)
     parser.add_argument('--out',type=Path,required=True)
-    args=parser.parse_args();build_loader(args.out,args.arch)
+    parser.add_argument('--source',type=Path,help='firmware source directory for recovery diagnostics')
+    args=parser.parse_args();build_loader(args.out,args.arch,args.source)

@@ -1,5 +1,5 @@
-/* Permafrost source firmware: disk loading, WFE3 handoff, and live services.
- * Boot-context fields are recovered from the 0.9 firmware and kernel.
+/* Permafrost source firmware: disk loading, WFE5 handoff, and live services.
+ * Boot-context and command fields follow the current reference firmware and kernel.
  * Pooka's Free Software License. */
 #include "platform.h"
 #include "efi_context.h"
@@ -277,11 +277,11 @@ static uint32_t video_change(uint32_t *request){
         Video *video=0;
         if(failed(services->protocol(handles[i],&video_guid,(void **)&video)) || !video || !video->mode)continue;
         uint32_t selected=video->mode->current;
-        if(video->query && video->set && request[7] && request[8]){
+        if(video->query && video->set && request[8] && request[9]){
             for(uint32_t n=0;n<video->mode->maximum;n++){
                 uintptr_t size=0;VideoInfo *info=0;
                 Status status=video->query(video,n,&size,&info);
-                int match=!failed(status) && info && info->format<=3 && info->width==request[7] && info->height==request[8];
+                int match=!failed(status) && info && info->format<=3 && info->width==request[8] && info->height==request[9];
                 if(info)services->free_pool(info);
                 if(match){selected=n;break;}
             }
@@ -289,8 +289,8 @@ static uint32_t video_change(uint32_t *request){
         }
         if(!video->mode->info || video->mode->info->format>3)continue;
         video_context();
-        request[11]=context[0x13];request[12]=context[0x192];
-        for(unsigned n=0;n<11;n++)request[13+n]=context[0x14+n];
+        request[12]=context[0x13];request[13]=context[0x192];
+        for(unsigned n=0;n<11;n++)request[14+n]=context[0x14+n];
         result=1;break;
     }
     services->free_pool(handles);return result;
@@ -309,7 +309,7 @@ static uint32_t dispatch(uint32_t *request){
     }
     case 7:if(request[4] && request[5]>=32)result=pointer_read((uint32_t *)(uintptr_t)request[4]);break;
     case 8:result=video_change(request);break;
-    case 4:video_present();result=!failed(services->stall(request[6]));break;
+    case 4:video_present();result=!failed(services->stall(request[7]));break;
     case 5:result=!disk->flush || !failed(disk->flush(disk));break;
     case 6:if(system_table->output && system_table->output->write && request[4])result=!failed(system_table->output->write(system_table->output,(uint16_t *)(uintptr_t)request[4]));break;
     }
