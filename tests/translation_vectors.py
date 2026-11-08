@@ -26,6 +26,11 @@ uintptr_t register_pointer(uint64_t value) {
  auVar34=(undefined1 [8])value;
  return (uintptr_t)(char *)auVar34;
 }
+uintptr_t stack_array_address(void) {
+  undefined1 local_510 [16];
+ local_510=(undefined1 [16])0;
+ return (long)local_510==(long)(void *)local_510;
+}
 uint128 probe(unsigned byte_index,unsigned byte_value) {
  undefined1 auVar1 [16];
  auVar1=0;
@@ -86,6 +91,7 @@ int main(void) {
  uint128 value=((uint128)0x12345678<<64)|0xabcdef;
  if(copy_word(0x123456789abcdef0ULL)!=0x123456789abcdef0ULL)return 4;
  if(register_pointer(0x12345678)!=0x12345678)return 5;
+ if(!stack_array_address())return 11;
  if(duplicate_pair(0x2100000021ULL)!=
     (((uint128)0x2100000021ULL<<64)|0x2100000021ULL))return 7;
  if(lane(0)!=0x76543210 || lane(1)!=0xfedcba98 ||

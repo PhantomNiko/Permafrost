@@ -352,7 +352,8 @@ def rewrite_array_words(source):
         if not re.search(r'\b'+name+r'\s*=',s):continue
         typ='uint64_t' if size=='8' else 'uint128'
         s=re.sub(r'\b'+name+r'(?=\s*=(?!=))', '(*('+typ+' *)(void *)'+name+')',s)
-        s=re.sub(r'\((?:ulong|long|ulonglong|longlong|undefined8)\)'+name+r'\b(?!\s*\._)', '(*('+typ+' *)(void *)'+name+')',s)
+        if re.fullmatch(r'auVar\d+',name):
+            s=re.sub(r'\((?:ulong|long|ulonglong|longlong|undefined8)\)'+name+r'\b(?!\s*\._)', '(*('+typ+' *)(void *)'+name+')',s)
     s=re.sub(r'\(undefined1\s+\[8\]\)','(uint64_t)',s)
     s=re.sub(r'\(undefined1\s*\(\*\)\s*\[16\]\)','(uint128 *)',s)
     return s
