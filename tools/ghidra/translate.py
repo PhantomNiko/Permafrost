@@ -500,6 +500,10 @@ def main():
             precise=any(row[0]=='Q' for row in rows)
             sources[address]=rewrite_array_words(rewrite_integer_vectors(
                 rewrite_array_values(source,rows)),precise=precise)
+    else:
+        for address,source in sources.items():
+            rows=[line.split('\t') for line in (args.notes/(address+'.tsv')).read_text().splitlines()]
+            sources[address]=rewrite_array_values(source,rows)
     for stale in args.out.glob('*.c'):
         if stale.stem not in sources and stale.stem not in manual:stale.unlink()
     # Signature corrections must also reach declarations shared by callers.
