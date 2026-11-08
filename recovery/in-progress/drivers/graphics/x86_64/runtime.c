@@ -11370,7 +11370,7 @@ char * recovered_1000dcf0(int param_1)
  * Address: 0x1000dd60
  */
 
-bool recovered_1000dd60(long param_1,uint param_2)
+uint32_t recovered_1000dd60(long param_1,uint param_2)
 
 {
   unsigned char frame[160] __attribute__((aligned(16))) = {0};

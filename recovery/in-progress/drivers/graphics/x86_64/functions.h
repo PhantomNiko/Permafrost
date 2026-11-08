@@ -27,6 +27,6 @@ void recovered_1000d960(int *param_1,long param_2,uint param_3,undefined4 param_
                        );
 void recovered_1000da70(long param_1,ulong param_2,ulong param_3);
 char * recovered_1000dcf0(int param_1);
-bool recovered_1000dd60(long param_1,uint param_2);
+uint32_t recovered_1000dd60(long param_1,uint param_2);
 
 /* Original analysis identifiers for manual recovery units. */

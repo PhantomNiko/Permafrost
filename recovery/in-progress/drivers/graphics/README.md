@@ -10,8 +10,10 @@ reference thin library and verifies that the submitted software provider
 callback points into the source-built image. These checks cover an existing
 framebuffer with no enumerated PCI display device. `tests/graphics_pci.py` additionally compares eight ARM32 PCI record cases,
 including failed reads, absent vendor IDs, and bytes the native helper leaves
-untouched. Hardware transport and software rasterizer comparisons remain to be
-completed.
+untouched. `tests/graphics_draw.py` compares native command results and complete
+framebuffer bytes for clear, clipped and empty rectangles, interpolated and
+degenerate triangles, and mixed command batches on all four architectures.
+Hardware transport comparisons remain to be completed.
 
 The compatibility changes preserve an existing firmware framebuffer rather
 than requesting another mode or resetting its virtio GPU queues. ARM32 code

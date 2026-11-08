@@ -10,7 +10,7 @@ from unicorn import UC_HOOK_CODE
 from unicorn.arm_const import *
 from unicorn.arm64_const import *
 from unicorn.x86_const import *
-def run(path):
+def run(path,commands=None):
  lib=DLL(path,instruction_limit=100000000);c=lib.cpu;arm=lib.cpu_type==12;events=[]
  regs={12:[UC_ARM_REG_R0,UC_ARM_REG_R1,UC_ARM_REG_R2,UC_ARM_REG_R3],0x100000c:[UC_ARM64_REG_X0,UC_ARM64_REG_X1,UC_ARM64_REG_X2,UC_ARM64_REG_X3],0x1000007:[UC_X86_REG_RDI,UC_X86_REG_RSI,UC_X86_REG_RDX,UC_X86_REG_RCX]}.get(lib.cpu_type)
  def arguments():
@@ -47,6 +47,15 @@ def run(path):
  a=0x18000+49*16;c.hook_add(UC_HOOK_CODE,provider_hook,begin=a,end=a)
  result=lib.call('_winterboot_kext_init',api,result_bits=32)
  assert provider and all(lib.base<=p<lib.base+0x100000 for p in provider),provider
+ if commands is not None:
+  pixels=0x2f0000;stride=48;width=8;height=8;size=stride*height;c.mem_write(pixels,b'\x5a'*size)
+  encoded=bytearray()
+  for kind,rect,color,vertices in commands:
+   encoded+=struct.pack('<10I4i2I',kind,0,pixels,0,size,width,height,stride,1,0,*rect,color,0)
+   for vertex in vertices:encoded+=struct.pack('<3iI',*vertex)
+  c.mem_write(0x2f1000,bytes(encoded));lib.exports['submit']=provider[-1]
+  submitted=lib.call('submit',0x2f1000,len(commands),result_bits=32)
+  return submitted,bytes(c.mem_read(pixels,size))
  return description,result,events
 
 if __name__=='__main__':
