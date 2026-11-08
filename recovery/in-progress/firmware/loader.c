@@ -215,10 +215,11 @@ static uint32_t pointer_read(uint32_t *out){
     for(unsigned i=0;i<relative_count;i++){
         RelativePointer *device=relative_devices[i];RelativeState state={0};
         if(!device->read || device->read(device,&state))continue;
-        changed=1;out[0]|=2;out[1]|=state.left|(uint32_t)state.right<<1;
-        out[2]=(uint32_t)bounded_i32((int64_t)(int32_t)out[2]+state.x);
-        out[3]=(uint32_t)bounded_i32((int64_t)(int32_t)out[3]+state.y);
-        out[4]=(uint32_t)bounded_i32((int64_t)(int32_t)out[4]+state.z);
+        changed=1;out[0]|=2;out[1]|=(state.left!=0)|(uint32_t)(state.right!=0)<<1;
+        /* WmBaremetalProgramPointerInfo reserves words 2/3 for absolute x/y
+           and words 4/5 for relative dx/dy. Wheel data has no field here. */
+        out[4]=(uint32_t)bounded_i32((int64_t)(int32_t)out[4]+state.x);
+        out[5]=(uint32_t)bounded_i32((int64_t)(int32_t)out[5]+state.y);
     }
     for(unsigned i=0;i<absolute_count;i++){
         AbsolutePointer *device=absolute_devices[i];AbsoluteState state={0};
@@ -230,8 +231,10 @@ static uint32_t pointer_read(uint32_t *out){
         if(state.x<min_x)state.x=min_x;if(state.y<min_y)state.y=min_y;
         if(max_x && state.x>max_x)state.x=max_x;
         if(max_y && state.y>max_y)state.y=max_y;
-        if(!(out[0]&2)){
-            out[0]|=1;out[2]=(uint32_t)bounded_i32((int64_t)(state.x-min_x));
+        /* Firmware can advertise both protocols for a tablet. An empty
+           relative packet must not conceal its absolute position. */
+        if(!(out[0]&2) || (!out[4]&&!out[5])){
+            out[0]=(out[0]&~2U)|1;out[2]=(uint32_t)bounded_i32((int64_t)(state.x-min_x));
             out[3]=(uint32_t)bounded_i32((int64_t)(state.y-min_y));
             out[6]=max_x-min_x>UINT32_MAX?UINT32_MAX:(uint32_t)(max_x-min_x);
             out[7]=max_y-min_y>UINT32_MAX?UINT32_MAX:(uint32_t)(max_y-min_y);

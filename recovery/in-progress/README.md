@@ -259,6 +259,14 @@ All four firmware builds pass. A live ARM32 diagnostic discovers one relative
 and one absolute device and exposes their records in the context. Pointer-driven
 application launching still fails in the ARM diagnostics and remains unfinished.
 
+Firmware command 7 now writes relative movement to the pointer ABI's `dx/dy`
+words rather than its absolute `x/y` words. When a tablet exposes both protocols,
+a zero-motion relative packet no longer hides its absolute position. The host
+bridge fixture checks relative motion, mixed-protocol tablet movement, button
+merging and release, alongside the existing mode and handoff checks. Updated
+firmware builds for all four architectures; live ARM input verification is
+still in progress.
+
 GPT filesystem updates now preserve the existing BIOS boot area, firmware
 partitions and partition tables. Previously, repacking rebuilt a two-partition
 GPT container and discarded the other boot components. A regression fixture

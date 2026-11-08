@@ -10,6 +10,17 @@ static VideoInfo modes[2]={{.width=800,.height=600,.format=1,.stride=800},
 static VideoMode mode={.maximum=2,.info=&modes[0],.framebuffer=UINT64_C(0x12345678000),.bytes=800*600*4};
 static Video video;
 static void *video_handles[1]={&video};
+static RelativeState relative_packet;
+static AbsoluteState absolute_packet;
+static unsigned relative_ready,absolute_ready;
+static Status EFI_ABI mock_relative_read(RelativePointer *device,RelativeState *out){
+    (void)device;if(!relative_ready)return 1;
+    relative_ready=0;*out=relative_packet;return 0;
+}
+static Status EFI_ABI mock_absolute_read(AbsolutePointer *device,AbsoluteState *out){
+    (void)device;if(!absolute_ready)return 1;
+    absolute_ready=0;*out=absolute_packet;return 0;
+}
 static Status EFI_ABI mock_stall(uintptr_t duration){waited=duration;return 0;}
 static Status EFI_ABI mock_free(void *pool){(void)pool;return 0;}
 static Status EFI_ABI mock_query(Video *v,uint32_t index,uintptr_t *size,VideoInfo **out){
@@ -48,6 +59,28 @@ int main(void){
     assert(((uint64_t *)(context+0x4e8))[0]==relative_address);
     assert(((uint64_t *)(context+0x4f8))[0]==absolute_address);
 #endif
+    RelativePointer relative={.read=mock_relative_read};
+    AbsoluteMode absolute_mode={.min_x=100,.min_y=200,.max_x=1100,.max_y=2200};
+    AbsolutePointer absolute={.read=mock_absolute_read,.mode=&absolute_mode};
+    relative_devices[0]=&relative;absolute_devices[0]=&absolute;
+    relative_count=absolute_count=1;
+    uint32_t pointer[8];
+    relative_packet=(RelativeState){.x=5,.y=-3,.left=1};relative_ready=1;
+    assert(pointer_read(pointer)==1);
+    assert(pointer[0]==2&&pointer[1]==1&&pointer[2]==0&&pointer[3]==0);
+    assert((int32_t)pointer[4]==5&&(int32_t)pointer[5]==-3);
+    relative_packet=(RelativeState){0};relative_ready=1;
+    absolute_packet=(AbsoluteState){.x=600,.y=1200,.buttons=2};absolute_ready=1;
+    assert(pointer_read(pointer)==1);
+    assert(pointer[0]==1&&pointer[1]==2&&pointer[2]==500&&pointer[3]==1000);
+    assert(pointer[4]==0&&pointer[5]==0&&pointer[6]==1000&&pointer[7]==2000);
+    relative_packet=(RelativeState){.x=7,.y=9,.left=1};relative_ready=absolute_ready=1;
+    assert(pointer_read(pointer)==1);
+    assert(pointer[0]==2&&pointer[1]==3&&pointer[2]==0&&pointer[3]==0);
+    assert(pointer[4]==7&&pointer[5]==9);
+    relative_packet=(RelativeState){0};relative_ready=1;
+    assert(pointer_read(pointer)==1&&pointer[0]==2&&pointer[1]==0);
+    assert(pointer_read(pointer)==0);
     video.query=mock_query;video.set=mock_set;video.mode=&mode;
     uint32_t request[32]={4,0};request[6]=7;request[7]=33000;
     assert(dispatch(request)==1&&request[1]==1&&waited==33000);
