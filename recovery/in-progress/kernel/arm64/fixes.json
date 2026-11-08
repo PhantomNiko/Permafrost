@@ -212,7 +212,10 @@
   "824308c4": {},
   "82416418": {},
   "8240f2f8": {},
-  "8245de88": {},
+  "8245de88": {
+    "recovered_824643f8(*(int *)(pcVar46 + 0x10));\n            recovered_824234a4(str_8247e7df);": "recovered_824234a4(str_8247e7df,*(int *)(pcVar46 - 0x48),(uint)(byte)pcVar46[-0x44],recovered_824643f8(*(int *)(pcVar46 + 0x10)),(char *)&uStack_c68,acStack_e68);",
+    "bVar15 != pcVar46[-0x44]": "bVar15 != (uint8_t)pcVar46[-0x44]"
+  },
   "8241eaf4": {},
   "8240fdf8": {},
   "824334c4": {},
@@ -1311,7 +1314,9 @@
     "argument_3 = (double)(ulong)(uint)(int)fVar91;": "argument_3 = pf_bits_double((uint64_t)(uint32_t)(int)fVar91);",
     "fVar91 = (float)((int)(uintptr_t)uStack_350 + iVar26 + 1U);": "fVar91 = pf_bits_float((uint32_t)((int)(uintptr_t)uStack_350 + iVar26 + 1U));",
     "fVar91 = (float)((int)fVar91 + 1);": "fVar91 = pf_bits_float(pf_float_bits(fVar91) + 1U);",
-    "if (fVar91 == (float)uStack_350)": "if (pf_float_bits(fVar91) == (uint32_t)(uintptr_t)uStack_350)"
+    "if (fVar91 == (float)uStack_350)": "if (pf_float_bits(fVar91) == (uint32_t)(uintptr_t)uStack_350)",
+    "recovered_824643f8(*(int *)(pcVar49 + 0x10));\n              recovered_824234a4(str_8247e7df);": "recovered_824234a4(str_8247e7df,*(int *)(pcVar49 - 0x48),(uint)(byte)pcVar49[-0x44],recovered_824643f8(*(int *)(pcVar49 + 0x10)),(char *)&uStack_c68,acStack_e68);",
+    "bVar16 != pcVar49[-0x44]": "bVar16 != (uint8_t)pcVar49[-0x44]"
   },
   "8240fe38": {},
   "8241c4f8": {},
