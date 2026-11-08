@@ -1,0 +1,543 @@
+/* Permafrost recovered source; Pooka's Free Software License. */
+#pragma once
+#include "support.h"
+/* Permafrost recovered source; Pooka's Free Software License. */
+#pragma once
+#include "support.h"
+extern unsigned char pf_module_state[];
+/* Permafrost recovered SIMD semantics; Pooka's Free Software License. */
+typedef struct { uint64_t words[3]; } pf_blob24;
+typedef uint64_t uint5;
+#define PF_PART16(value,offset) (*(uint128 *)((uint8_t *)&(value)+(offset)))
+static inline void WaitForEvent(void) { __asm__ volatile("wfe"); }
+__attribute__((noreturn)) static inline uintptr_t SoftwareBreakpoint(unsigned n,uintptr_t pc) { (void)n;(void)pc;__builtin_trap(); }
+static inline uint64_t NEON_sqadd(uint64_t a,uint64_t b,unsigned lane) {
+ uint64_t result=0;
+ for(unsigned i=0;i<2;++i) {
+  int64_t x=(int32_t)(a>>(32*i)),y=(int32_t)(b>>(32*i)),z=x+y;
+  if(z>2147483647)z=2147483647;if(z<(-2147483647-1))z=(-2147483647-1);
+  result|=(uint64_t)(uint32_t)z<<(i*32);
+ } (void)lane;return result;
+}
+static inline uint64_t NEON_ucvtf(uint64_t a) { return pf_double_bits((double)a); }
+static inline uint64_t NEON_umaxv(uint64_t a,unsigned lane) {
+ uint64_t mask=lane==8?~0ULL:((1ULL<<(lane*8))-1),result=0;
+ for(unsigned i=0;i<8/lane;++i){uint64_t v=(a>>(i*lane*8))&mask;if(v>result)result=v;}return result;
+}
+static inline uint128 NEON_fmov(uint64_t bits,unsigned lane) { (void)lane;return ((uint128)bits<<64)|bits; }
+
+#ifndef INFINITY
+#define INFINITY (__builtin_huge_valf())
+#endif
+#define ZEXT812(value) ((uint128)(uint64_t)(value))
+
+#define Reset (*(uint8_t *)(uintptr_t)0)
+#define SUB168(a,b) ((uint64_t)((uint128)(a)>>((b)*8)))
+/* Permafrost library ARM64 intrinsics; Pooka's Free Software License. */
+static inline uint64_t pf_neon_bound(uint64_t a,uint64_t b,unsigned lane,int maximum) {
+ uint64_t result=0;unsigned bits=lane*8;
+ uint64_t mask=bits==64?~0ULL:((1ULL<<bits)-1);
+ for(unsigned i=0;i<8/lane;++i){
+  int64_t x=(int64_t)((a>>(i*bits))<<(64-bits))>>(64-bits);
+  int64_t y=(int64_t)((b>>(i*bits))<<(64-bits))>>(64-bits);
+  result|=((uint64_t)((maximum?x>y:x<y)?x:y)&mask)<<(i*bits);
+ }return result;
+}
+#define NEON_smax(a,b,lane) pf_neon_bound(a,b,lane,1)
+#define NEON_smin(a,b,lane) pf_neon_bound(a,b,lane,0)
+__attribute__((always_inline)) static inline uintptr_t pf_current_sp(void){uintptr_t value;__asm__ volatile("mov %0,sp":"=r"(value));return value;}
+static inline uintptr_t pf_ctr(void){uintptr_t value;__asm__ volatile("mrs %0,ctr_el0":"=r"(value));return value;}
+#define ctr_el0 pf_ctr()
+static inline void DC_CVAC(uintptr_t value){__asm__ volatile("dc cvac,%0"::"r"(value):"memory");}
+static inline void pf_dsb(void){__asm__ volatile("dsb sy"::: "memory");}
+static inline void pf_isb(void){__asm__ volatile("isb"::: "memory");}
+#undef NAN
+#define NAN(value) __builtin_isnan(pf_bits_double(value))
+
+#define DataSynchronizationBarrier(...) pf_dsb()
+#define InstructionSynchronizationBarrier(...) pf_isb()
+
+extern uint8_t pf_module_state[];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Original analysis identifiers for manual recovery units. */
+static inline uint64_t pf_ui_min_u32x2(uint64_t a,uint64_t b,int width){uint32_t al=a,ah=a>>32,bl=b,bh=b>>32;return (uint64_t)(al<bl?al:bl)|((uint64_t)(ah<bh?ah:bh)<<32);}
+#include <permafrost/terror_ui.h>
+void *memcpy(void *,const void *,unsigned long);
+void *memmove(void *,const void *,unsigned long);
+void *memset(void *,int,unsigned long);
+int snprintf(char *,unsigned long,const char *,...);
+static inline void *pf_app_window_spec(void *output,const char *title,unsigned int width,unsigned int height){*(TerrorUIWindowSpec *)output=terror_ui_window_spec(title,width,height);return output;}
+unsigned long strlen(const char *);
+#include "../format.h"
+#define pf_varargs_100022dc_1 recovered_100022dc
+#define UINT_82010800 (*(uint32_t *)(uintptr_t)0x82010800U)
+#define UINT_82010804 (*(uint32_t *)(uintptr_t)0x82010804U)
+#define UINT_82010808 (*(uint32_t *)(uintptr_t)0x82010808U)
+#define UINT_8201080c (*(uint32_t *)(uintptr_t)0x8201080cU)
+#define UINT_82010810 (*(uint32_t *)(uintptr_t)0x82010810U)
+#define UINT_82010814 (*(uint32_t *)(uintptr_t)0x82010814U)
+#define UINT_82010818 (*(uint32_t *)(uintptr_t)0x82010818U)
+#define UINT_8201081c (*(uint32_t *)(uintptr_t)0x8201081cU)
+#define UINT_82010820 (*(uint32_t *)(uintptr_t)0x82010820U)
+#define UINT_82010824 (*(uint32_t *)(uintptr_t)0x82010824U)
+#define UINT_82010828 (*(uint32_t *)(uintptr_t)0x82010828U)
+#define UINT_8201082c (*(uint32_t *)(uintptr_t)0x8201082cU)
+#define UINT_82010830 (*(uint32_t *)(uintptr_t)0x82010830U)
+#define UINT_82010834 (*(uint32_t *)(uintptr_t)0x82010834U)
+#define UINT_82010838 (*(uint32_t *)(uintptr_t)0x82010838U)
+#define UINT_8201083c (*(uint32_t *)(uintptr_t)0x8201083cU)
+#define UINT_82010840 (*(uint32_t *)(uintptr_t)0x82010840U)
+#define UINT_82010844 (*(uint32_t *)(uintptr_t)0x82010844U)
+#define UINT_82010848 (*(uint32_t *)(uintptr_t)0x82010848U)
+#define UINT_8201084c (*(uint32_t *)(uintptr_t)0x8201084cU)
+#define UINT_82010850 (*(uint32_t *)(uintptr_t)0x82010850U)
+#define UINT_82010854 (*(uint32_t *)(uintptr_t)0x82010854U)
+#define UINT_82010858 (*(uint32_t *)(uintptr_t)0x82010858U)
+#define UINT_8201085c (*(uint32_t *)(uintptr_t)0x8201085cU)
+#define UINT_82010860 (*(uint32_t *)(uintptr_t)0x82010860U)
+#define UINT_82010864 (*(uint32_t *)(uintptr_t)0x82010864U)
+#define UINT_82010868 (*(uint32_t *)(uintptr_t)0x82010868U)
+#define UINT_8201086c (*(uint32_t *)(uintptr_t)0x8201086cU)
+#define UINT_82010870 (*(uint32_t *)(uintptr_t)0x82010870U)
+#define UINT_82010874 (*(uint32_t *)(uintptr_t)0x82010874U)
+#define UINT_82010878 (*(uint32_t *)(uintptr_t)0x82010878U)
+#define UINT_8201087c (*(uint32_t *)(uintptr_t)0x8201087cU)
+#define UINT_82010880 (*(uint32_t *)(uintptr_t)0x82010880U)
+#define UINT_82010884 (*(uint32_t *)(uintptr_t)0x82010884U)
+#define UINT_82010888 (*(uint32_t *)(uintptr_t)0x82010888U)
+#define UINT_8201088c (*(uint32_t *)(uintptr_t)0x8201088cU)
+#define UINT_82010890 (*(uint32_t *)(uintptr_t)0x82010890U)
+#define UINT_82010894 (*(uint32_t *)(uintptr_t)0x82010894U)
+#define UINT_82010898 (*(uint32_t *)(uintptr_t)0x82010898U)
+#define UINT_8201089c (*(uint32_t *)(uintptr_t)0x8201089cU)
+#define UINT_820108a0 (*(uint32_t *)(uintptr_t)0x820108a0U)
+#define UINT_820108a4 (*(uint32_t *)(uintptr_t)0x820108a4U)
+#define UINT_820108a8 (*(uint32_t *)(uintptr_t)0x820108a8U)
+#define UINT_820108ac (*(uint32_t *)(uintptr_t)0x820108acU)
+#define UINT_820108b0 (*(uint32_t *)(uintptr_t)0x820108b0U)
+#define UINT_820108b4 (*(uint32_t *)(uintptr_t)0x820108b4U)
+#define UINT_820108b8 (*(uint32_t *)(uintptr_t)0x820108b8U)
+#define UINT_820108bc (*(uint32_t *)(uintptr_t)0x820108bcU)
+#define UINT_820108c0 (*(uint32_t *)(uintptr_t)0x820108c0U)
+#define UINT_820108c4 (*(uint32_t *)(uintptr_t)0x820108c4U)
+#define UINT_820108c8 (*(uint32_t *)(uintptr_t)0x820108c8U)
+#define UINT_820108cc (*(uint32_t *)(uintptr_t)0x820108ccU)
+#define UINT_820108d0 (*(uint32_t *)(uintptr_t)0x820108d0U)
+#define UINT_820108d4 (*(uint32_t *)(uintptr_t)0x820108d4U)
+#define UINT_820108d8 (*(uint32_t *)(uintptr_t)0x820108d8U)
+#define UINT_820108dc (*(uint32_t *)(uintptr_t)0x820108dcU)
+#define UINT_820108e0 (*(uint32_t *)(uintptr_t)0x820108e0U)
+#define UINT_820108e4 (*(uint32_t *)(uintptr_t)0x820108e4U)
+#define UINT_820108e8 (*(uint32_t *)(uintptr_t)0x820108e8U)
+#define UINT_820108ec (*(uint32_t *)(uintptr_t)0x820108ecU)
+#define UINT_820108f0 (*(uint32_t *)(uintptr_t)0x820108f0U)
+#define UINT_820108f4 (*(uint32_t *)(uintptr_t)0x820108f4U)
+#define UINT_820108f8 (*(uint32_t *)(uintptr_t)0x820108f8U)
+#define UINT_820108fc (*(uint32_t *)(uintptr_t)0x820108fcU)
+#define UINT_82010900 (*(uint32_t *)(uintptr_t)0x82010900U)
+#define UINT_82010904 (*(uint32_t *)(uintptr_t)0x82010904U)
+#define UINT_82010908 (*(uint32_t *)(uintptr_t)0x82010908U)
+#define UINT_8201090c (*(uint32_t *)(uintptr_t)0x8201090cU)
+#define UINT_82010910 (*(uint32_t *)(uintptr_t)0x82010910U)
+#define UINT_82010914 (*(uint32_t *)(uintptr_t)0x82010914U)
+#define UINT_82010918 (*(uint32_t *)(uintptr_t)0x82010918U)
+#define UINT_8201091c (*(uint32_t *)(uintptr_t)0x8201091cU)
+#define UINT_82010920 (*(uint32_t *)(uintptr_t)0x82010920U)
+#define UINT_82010924 (*(uint32_t *)(uintptr_t)0x82010924U)
+#define UINT_82010928 (*(uint32_t *)(uintptr_t)0x82010928U)
+#define UINT_8201092c (*(uint32_t *)(uintptr_t)0x8201092cU)
+#define UINT_82010930 (*(uint32_t *)(uintptr_t)0x82010930U)
+#define UINT_82010934 (*(uint32_t *)(uintptr_t)0x82010934U)
+#define UINT_82010938 (*(uint32_t *)(uintptr_t)0x82010938U)
+#define UINT_8201093c (*(uint32_t *)(uintptr_t)0x8201093cU)
+#define UINT_82010940 (*(uint32_t *)(uintptr_t)0x82010940U)
+#define UINT_82010944 (*(uint32_t *)(uintptr_t)0x82010944U)
+#define UINT_82010948 (*(uint32_t *)(uintptr_t)0x82010948U)
+#define UINT_8201094c (*(uint32_t *)(uintptr_t)0x8201094cU)
+#define UINT_82010950 (*(uint32_t *)(uintptr_t)0x82010950U)
+#define UINT_82010954 (*(uint32_t *)(uintptr_t)0x82010954U)
+#define UINT_82010958 (*(uint32_t *)(uintptr_t)0x82010958U)
+#define UINT_8201095c (*(uint32_t *)(uintptr_t)0x8201095cU)
+#define UINT_82010960 (*(uint32_t *)(uintptr_t)0x82010960U)
+#define UINT_82010964 (*(uint32_t *)(uintptr_t)0x82010964U)
+#define UINT_82010968 (*(uint32_t *)(uintptr_t)0x82010968U)
+#define UINT_8201096c (*(uint32_t *)(uintptr_t)0x8201096cU)
+#define UINT_82010970 (*(uint32_t *)(uintptr_t)0x82010970U)
+#define UINT_82010974 (*(uint32_t *)(uintptr_t)0x82010974U)
+#define UINT_82010978 (*(uint32_t *)(uintptr_t)0x82010978U)
+#define UINT_8201097c (*(uint32_t *)(uintptr_t)0x8201097cU)
+#define UINT_82010980 (*(uint32_t *)(uintptr_t)0x82010980U)
+#define UINT_82010984 (*(uint32_t *)(uintptr_t)0x82010984U)
+#define UINT_82010988 (*(uint32_t *)(uintptr_t)0x82010988U)
+#define UINT_8201098c (*(uint32_t *)(uintptr_t)0x8201098cU)
+#define UINT_82010990 (*(uint32_t *)(uintptr_t)0x82010990U)
+#define UINT_82010994 (*(uint32_t *)(uintptr_t)0x82010994U)
+#define UINT_82010998 (*(uint32_t *)(uintptr_t)0x82010998U)
+#define UINT_8201099c (*(uint32_t *)(uintptr_t)0x8201099cU)
+extern uint8_t pf_module_state[];
+void recovered_10000488(void);
+void recovered_10000494(void);
+ulong recovered_10000718(void);
+long recovered_10000764(void);
+ulong recovered_100007a4(void);
+long recovered_100007e0(void);
+ulong * recovered_10000810(long param_1);
+ulong recovered_100008e8(ulong param_1,uint param_2);
+ulong recovered_1000092c(ulong param_1,uint param_2);
+long recovered_10000978(long param_1,uint param_2);
+ulong recovered_100009c8(ulong param_1,ulong param_2);
+ulong recovered_100009d0(ulong param_1,ulong param_2,long *param_3);
+undefined8 recovered_10000a30(undefined8 param_1,undefined8 param_2);
+long recovered_10000a50(ulong param_1,ulong param_2);
+long recovered_10000a90(long param_1,long param_2);
+void recovered_10000adc(void);
+int recovered_10000ae4(int param_1);
+undefined8 recovered_10000af0(ulong param_1);
+void recovered_10000b34(void *param_1);
+undefined8 recovered_10000b78(void *param_1,ulong param_2);
+void recovered_10000bc4(undefined1 *param_1,undefined1 *param_2,ulong param_3);
+void recovered_10000c9c(undefined1 *param_1,undefined1 *param_2,ulong param_3);
+void recovered_10000db0(ulong *param_1,byte param_2,ulong param_3);
+void recovered_10000e48(ulong *param_1,ulong param_2);
+void recovered_10000e4c(ulong *param_1,ulong param_2);
+int recovered_10000e50(byte *param_1,byte *param_2,ulong param_3);
+int recovered_10000fbc(long param_1,long param_2);
+bool recovered_10000fec(int param_1);
+bool recovered_10000ffc(int param_1);
+bool recovered_1000100c(uint param_1);
+bool recovered_10001020(uint param_1);
+bool recovered_1000103c(int param_1);
+bool recovered_1000104c(int param_1);
+int recovered_1000105c(int param_1);
+int recovered_10001070(int param_1);
+long recovered_10001084(long param_1);
+int recovered_100010a8(byte *param_1,byte *param_2);
+int recovered_100010d0(byte *param_1,byte *param_2);
+void recovered_100010d4(long param_1,long param_2);
+void recovered_100010ec(long param_1);
+char * recovered_10001128(char *param_1,char param_2);
+long recovered_10001150(long param_1,char *param_2);
+char * recovered_10001198(char *param_1,char *param_2);
+char * recovered_100011d8(char *param_1,char *param_2);
+undefined * recovered_10001214(void);
+undefined ** recovered_10001220(void);
+void recovered_1000122c(undefined8 *param_1);
+double recovered_100012a4(double param_1,uint param_2);
+uint128 recovered_100012d8(double param_1,int *param_2);
+uint128 recovered_1000134c(double param_1,double param_2);
+uint128 recovered_10001370(double param_1,double param_2);
+uint128 recovered_100013d0(double param_1);
+uint128 recovered_100013ec(double param_1);
+uint128 recovered_10001418(double param_1);
+uint128 recovered_10001454(double param_1);
+long recovered_10001500(double param_1);
+uint128 recovered_10001514(double param_1);
+void recovered_10001568(double param_1);
+uint128 recovered_100015ac(double in_d0);
+uint128 recovered_100015f8(double param_1);
+ulong recovered_10001608(double param_1);
+ulong recovered_10001668(double param_1);
+void recovered_100016b8(ulong param_1);
+uint128 recovered_100016e0(ulong param_1);
+float recovered_10001704(float param_1,float param_2);
+float recovered_10001738(int *in_x0,float param_2);
+float recovered_10001750(uint in_w0,float param_2);
+float recovered_10001768(float param_1,float param_2);
+float recovered_10001784(float param_1);
+float recovered_100017a8(float param_1);
+uint128 recovered_100017c0(double param_1);
+float recovered_100017e8(float param_1);
+float recovered_10001800(float param_1);
+float recovered_10001818(float param_1);
+long recovered_10001830(double param_1);
+float recovered_10001844(float param_1);
+float recovered_1000185c(float param_1);
+float recovered_10001874(float param_1);
+long recovered_10001884(byte *param_1,undefined8 *param_2,uint param_3);
+uint recovered_10001988(int param_1);
+long recovered_100019b8(byte *param_1,undefined8 *param_2,uint param_3);
+uint128 recovered_10001adc(byte *param_1,undefined8 *param_2);
+float recovered_10001c6c(byte *in_x0,undefined8 *in_x1);
+int recovered_10001c84(byte *param_1,ulong param_2,byte *param_3,double *param_4);
+void recovered_100021ac(long *param_1,ulong *param_2,int *param_3,undefined1 param_4);
+void recovered_100021e8(long *param_1,ulong *param_2,int *param_3,char *param_4);
+void recovered_10002238(long *param_1,ulong *param_2,int *param_3,ulong param_4,uint param_5,
+                       int param_6);
+int recovered_100022dc(char *buffer,size_t capacity,const char *format,...);
+void recovered_10002304(ulong param_1,ulong param_2,ulong *param_3);
+void recovered_1000238c(long param_1,ulong param_2,ulong *param_3);
+bool recovered_100023fc(int param_1);
+int recovered_10002544(void);
+void recovered_10002780(char *param_1);
+undefined8 recovered_100027c8(void);
+void recovered_10002800(undefined4 *param_1);
+undefined8 recovered_10002848(undefined8 param_1,uint *param_2);
+undefined8 recovered_10002cc4(void *param_1,uint *param_2);
+bool recovered_10002d1c(int param_1);
+void recovered_10002d68(long param_1,ulong param_2,undefined *in_x2);
+
+/* Original analysis identifiers for manual recovery units. */

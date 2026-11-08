@@ -1,0 +1,13 @@
+{
+  "version": "1.0",
+  "module": "Tayga",
+  "architecture": "x86_64",
+  "entry": "main",
+  "sources": [
+    "runtime.c",
+    "state.c",
+    "entry.c",
+    "compiler.c",
+    "memory.c"
+  ]
+}

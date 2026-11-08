@@ -367,6 +367,15 @@ replace decompiler errors in fixed addresses, vectorized device parsing, and
 stack-backed status preservation. Full installer GUI and disk-installation VM
 checks remain pending.
 
+Tayga startup now has C checkpoints for all four CPUs, with local memory and
+compiler support and no guest DLL or hosted-runtime dependency. Thirty-six
+variadic formatting comparisons and forty-four configuration comparisons pass
+per CPU. Four startup scenarios per CPU compare device selection, configuration
+fallback, process registration, logging, and the first scheduler yield. The
+formatter preserves integer and pointer bits, handles native length modifiers,
+and uses C variadic argument transport. Full VM startup, utility recovery, and
+wider runtime compatibility remain pending.
+
 Diagnostic snapshots and VM disks remain outside tracked source. The normal
 build continues to use the last completed source tree until the next milestone
 passes its complete source build and VM comparisons. That transition must move

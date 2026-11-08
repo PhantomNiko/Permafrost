@@ -92,6 +92,13 @@ def link_dynamic_executable(objects, target, architecture, libraries, entry='mai
                '-segaddr', '__TEXT', hex(base), '-install_name', '/PermafrostApp',
                '-o', str(target), '-L' + str(target.parent),
                '-undefined', 'dynamic_lookup']
+    if not libraries:
+        # Satisfy ld's platform bookkeeping without adding a hosted runtime.
+        stub = ('--- !tapi-tbd-v3\narchs: [ ' + architecture + ' ]\nplatform: ' + platform +
+                '\ninstall-name: /usr/lib/libSystem.B.dylib\nexports:\n'
+                '  - archs: [ ' + architecture + ' ]\n    symbols: [ _pf_link_dummy ]\n...\n')
+        (target.parent / 'libSystem.tbd').write_text(stub)
+        command += ['-lSystem', '-dead_strip_dylibs']
     for index, (install_name, library) in enumerate(libraries.items()):
         metadata = inspect_library(Path(library).read_bytes())
         from macho import ARCHITECTURES
