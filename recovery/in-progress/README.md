@@ -384,6 +384,14 @@ line-based log fallback. The kernel still supplies the command implementations;
 these checks verify the recovered launcher contract rather than all utility
 semantics.
 
+The C Glacier browser now opens and renders its initial page in both ARM VM
+diagnostics alongside the C Tayga startup. ARM64 page-element drawing recovers
+the native eight-way branch table as C control flow. Its old lazy-import data
+now points to linked C interfaces rather than cleared native stub storage.
+Thirty-two native framebuffer comparisons cover element types, clipped and
+fixed-position elements, and visible control pixels. Network, scripting, and
+wider browser interaction checks remain pending.
+
 Diagnostic snapshots and VM disks remain outside tracked source. The normal
 build continues to use the last completed source tree until the next milestone
 passes its complete source build and VM comparisons. That transition must move
