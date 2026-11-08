@@ -1,0 +1,11 @@
+{
+  "version": "1.0",
+  "module": "ActivityMonitor",
+  "architecture": "armv7",
+  "entry": "main",
+  "sources": [
+    "runtime.c",
+    "state.c",
+    "entry.c"
+  ]
+}

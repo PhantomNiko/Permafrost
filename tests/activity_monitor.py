@@ -16,16 +16,24 @@ from unicorn.arm_const import *
 from unicorn.arm64_const import *
 populated=glyphs=screen=False
 library=None
+selected_tab=None
 def exercise(path):
- lib=DLL(path,instruction_limit=1000000000);ui=DLL(library);meta,raw=inspect(library.read_bytes());lib.cpu.mem_write(ui.base,bytes(ui.cpu.mem_read(ui.base,len(raw))));cpu=lib.cpu;w=8 if lib.wide else 4;events=[];presents=[];width=height=0;queries=0;statistics=0
+ lib=DLL(path,instruction_limit=1000000000);ui=DLL(library,load_base=0x1000000);meta,raw=inspect(library.read_bytes());lib.cpu.mem_write(ui.base,bytes(ui.cpu.mem_read(ui.base,len(raw))));cpu=lib.cpu;w=8 if lib.wide else 4;events=[];presents=[];width=height=0;queries=0;statistics=0
  m,_=inspect(path.read_bytes());entry=next((n,a)for a,n in m['symbols']if n=='_main'or n.endswith('_entry'));lib.exports[entry[0]]=lib.base+entry[1]
- if entry[0]!='_main'and lib.cpu_type in [7,0x1000007]:
-  _,app_memory=inspect(path.read_bytes());cpu.mem_write(0x1800000,app_memory[0x1800000:])
+ if entry[0]!='_main':
+  # Executables can contain fixed-address pointer tables without rebases.
+  # Preserve their original data view as well as the relocated code view.
+  _,app_memory=inspect(path.read_bytes())
+  data_start=(next(a for kind,a,n in m['sections']if kind=='__text')if lib.cpu_type in [7,0x1000007]else
+              next(a+n for kind,a,n in m['sections']if kind=='__text'))
+  cpu.mem_write(data_start,app_memory[data_start-m['base']:])
  for item in dynamic(path.read_bytes())['stubs']:
   if item['name']not in ui.exports:raise AssertionError(item['name'])
   target=ui.exports[item['name']];address=lib.base+item['address']
   def imported(cpu,address,size,user,target=target):cpu.reg_write(lib.pc,target)
   cpu.hook_add(UC_HOOK_CODE,imported,begin=address,end=address)
+  if entry[0]!='_main'and lib.cpu_type in [7,0x1000007]:
+   cpu.hook_add(UC_HOOK_CODE,imported,begin=item['address'],end=item['address'])
  def args(count):
   if lib.cpu_type==7:
    sp=cpu.reg_read(UC_X86_REG_ESP);return list(struct.unpack('<'+'I'*count,bytes(cpu.mem_read(sp+4,count*4))))
@@ -66,15 +74,23 @@ def exercise(path):
     for index in range(2):
      record=bytearray(436);struct.pack_into('<16I',record,0,17+index,6,1+index,0x1000007,12+statistics,50+statistics*(10+index),0x1800000,0x20000,0x4000000,0,0x8000000,0,0x3000000,0,1000000,7);name_bytes=[b'ActivityMonitor',b'worker'][index];record[64:64+len(name_bytes)]=name_bytes;record[128:135]=b'fixture';record[160:163]=b'app';cpu.mem_write(a[0]+index*436,bytes(record))
     cpu.mem_write(a[2],struct.pack('<I',2));a=[a[1]]
-   elif name=='create':a[0]=text(a[0]);width,height=(a[1]if screen else min(a[1],160)),min(a[2],320 if screen else 120);value=17
+   elif name=='create':a[0]=text(a[0]);width,height=(a[1]if screen else min(a[1],160)),(a[2]if selected_tab is not None else min(a[2],320 if screen else 120));value=17
    elif name=='query':
     queries+=1
-    record=bytearray(632);struct.pack_into('<2I',record,0,17,1);struct.pack_into('<I',record,16,width*height*4);struct.pack_into('<6I',record,20,1,width,height,width*4,0xefefef,0);cpu.mem_write(a[1],bytes(record));a=a[:1];value=int(queries<=(4 if screen else 24 if populated else 8))
+    record=bytearray(632);struct.pack_into('<2I',record,0,17,1);struct.pack_into('<I',record,16,width*height*4);struct.pack_into('<6I',record,20,1,width,height,width*4,0xefefef,0);cpu.mem_write(a[1],bytes(record));a=a[:1];value=int(queries<=(2 if selected_tab is not None else 4 if screen else 24 if populated else 8))
    elif name=='present':
+    # WMAP dimensions and clear colour are 32-bit wire arguments. Native
+    # callers can leave unspecified high bits in the host argument registers.
+    a[3:7]=[value&0xffffffff for value in a[3:7]]
     a[1]=text(a[1]);pixels=bytes(cpu.mem_read(a[2],a[5]*a[4]));presents.append(pixels);a[2]=('pixels',len(pixels),__import__('hashlib').sha256(pixels).hexdigest())
    elif name=='menus':a=[a[0],*[text(v)for v in a[1:]]]
    elif name=='list':cpu.mem_write(a[2],bytes(4));a=a[1:2]
-   elif name=='pointer_state':cpu.mem_write(a[1],bytes(28));a=a[:1]
+   elif name=='pointer_state':
+    record=bytes(28)
+    if selected_tab is not None:
+     x=198+selected_tab*116+(20 if selected_tab>=2 else 0)+(20 if selected_tab>=3 else 0)+20
+     record=struct.pack('<7I',2,1,1,1,1,x,364)
+    cpu.mem_write(a[1],record);a=a[:1]
    elif name=='text':
     string=text(a[0]);color=a[3]&0xffffffff
     if glyphs:
@@ -94,22 +110,26 @@ def exercise(path):
   print('failed',path.name,'frames',len(presents),'recent',events[-12:],flush=True);raise
  return result,events,presents
 def main():
- global populated,glyphs,screen,library
+ global populated,glyphs,screen,library,selected_tab
  import argparse
  parser=argparse.ArgumentParser(description=__doc__)
  parser.add_argument('reference',type=Path);parser.add_argument('source',type=Path);parser.add_argument('library',type=Path)
  parser.add_argument('--statistics',action='store_true');parser.add_argument('--glyphs',action='store_true');parser.add_argument('--wide-window',action='store_true')
- args=parser.parse_args();populated=args.statistics;glyphs=args.glyphs;screen=args.wide_window;library=args.library
+ parser.add_argument('--tab',type=int,choices=range(5),help='click a statistics tab and compare full-height frames')
+ args=parser.parse_args();populated=args.statistics;glyphs=args.glyphs;screen=args.wide_window;library=args.library;selected_tab=args.tab
  meta,_=inspect(args.source.read_bytes());folder=Path('build/activity-monitor-check')/hex(meta['cpu']);folder.mkdir(parents=True,exist_ok=True)
  diagnostic_reference(args.reference,folder/'reference-diagnostic');diagnostic_reference(args.source,folder/'source-diagnostic')
  native=exercise(folder/'reference-diagnostic');actual=exercise(folder/'source-diagnostic')
- assert native[0]==actual[0]
+ assert native[0]==actual[0],(native[0],actual[0],native[1][:4],actual[1][:4],len(native[2]),len(actual[2]))
  assert len(native[1])==len(actual[1]),(len(native[1]),len(actual[1]))
  for index,(x,y)in enumerate(zip(native[1],actual[1])):
   assert x==y,(index,x,y)
  assert native==actual
  requested={event[1]for event in native[1]if event[0]=='text'}
  assert {b'PROCESS ID',b'PROCESS NAME',b'CPU',b'# THREADS',b'REAL MEMORY',b'VIRTUAL MEMORY',b'ARCHITECTURE'}<=requested,requested
+ if selected_tab is not None:
+  marker=[b'% USER:',b'VM SIZE:',b'DATA READ:',b'SPACE UTILIZED:',b'PACKETS IN: 0'][selected_tab]
+  assert any(label.startswith(marker)for label in requested),('tab was not exercised',selected_tab,requested)
  print('Activity Monitor: native/source UI pixels, text and service calls match.')
 
 

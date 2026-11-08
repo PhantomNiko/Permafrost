@@ -1,0 +1,13 @@
+0x2c	unsigned int service(void);
+0x9c	unsigned int service(void);
+0xb8	unsigned int service(void);
+0xbc	int service(void);
+0xc0	unsigned int service(void *devices,unsigned int capacity,unsigned int *count);
+0x104	unsigned int service(void *processes,unsigned int capacity,unsigned int *count);
+0x108	unsigned int service(void *stats);
+0x10c	unsigned int service(unsigned int process);
+0x110	unsigned int service(int device,void *stats);
+0x124	unsigned int service(void *info);
+0x174	unsigned int service(unsigned int microseconds);
+0x178	unsigned int service(const char *text,unsigned int rgba,unsigned int scale,unsigned int flags,void *image);
+0x194	unsigned int service(unsigned int priority,unsigned int threads);

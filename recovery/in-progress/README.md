@@ -186,13 +186,17 @@ ARM32 desktop still lacks images and has clock/input issues; isolated PNG, BMP
 and TGA kernel decodes match the reference, so file/allocator integration still
 needs investigation. This does not establish complete source-image equivalence.
 
-The x86-64 Activity Monitor is now recovered C under
+The four-architecture Activity Monitor is now recovered C under
 `applications/activity-monitor`. Its initialized data relocates seven static
 column-label pointers from the original fixed-address executable. Comparisons
 through the recovered TerrorUI DLL check live system, process and disk samples,
 window calls, all seven headings and glyph pixels with partial alpha. The source
-application also opens and updates in the mixed x86-64 desktop diagnostic. Its
-other three architectures and complete source-image integration remain pending.
+application also opens and updates in the mixed x86-64 desktop diagnostic.
+Full-height pointer-driven comparisons cover the memory, disk-activity,
+disk-usage and network tabs across the four CPUs. ARM32 preserves both size
+format branches' packed variadic words, i386 recovers fixed-address data and
+its tab switch, and ARM64 expands machine-outlined sequences. Interactive VM
+checks on the other CPUs and complete source-image integration remain pending.
 
 Kernel statement comparisons now cover assignment, returned arithmetic,
 compound assignment, conditional returns, indexed arrays and numeric loops on

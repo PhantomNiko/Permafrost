@@ -15,7 +15,7 @@ from unicorn.arm64_const import *
 
 
 class DLL:
-    def __init__(self,path,instruction_limit=20000000,poison_allocations=False,poison_stack=False,api_base=None):
+    def __init__(self,path,instruction_limit=20000000,poison_allocations=False,poison_stack=False,api_base=None,load_base=0x2800000):
         self.instruction_limit=instruction_limit
         self.poison_stack=poison_stack
         binary=Path(path).read_bytes();metadata,memory=native_inspect(binary);dynamic=inspect(binary)
@@ -29,7 +29,7 @@ class DLL:
             self.cpu.reg_write(UC_X86_REG_FPTAG,0xffff)
         if self.cpu_type==12:
             self.cpu.reg_write(UC_ARM_REG_C1_C0_2,15<<20);self.cpu.reg_write(UC_ARM_REG_FPEXC,1<<30)
-        self.base=0x2800000;self.stop=0x4ff0000;self.next=0x300000;self.allocs={}
+        self.base=load_base;self.stop=0x4ff0000;self.next=0x300000;self.allocs={}
         self.cpu.mem_map(0,0x5000000)
         # Firmware leaves the null page inaccessible; a mapped zero page can
         # conceal invalid AST pointers and other bad native/source accesses.

@@ -117,11 +117,25 @@ public class Varargs extends GhidraScript {
     var formats=constants(op.getInput(fixed),0);var arguments=new ArrayList<Integer>();
     try {
      if(formats.isEmpty())throw new Exception("dynamic format");
+     boolean rawWords=false;int maximumWords=0;
      for(long format:formats) {
       var candidate=widths(format);
+      int words=0;for(int width:candidate)words+=Math.abs(width)/4;
+      maximumWords=Math.max(maximumWords,words);
       for(int i=0;i<Math.min(arguments.size(),candidate.size());i++)
-       if(!arm64 && !arguments.get(i).equals(candidate.get(i)))throw new Exception("format alternatives have different storage");
+       if(!arm64 && !arguments.get(i).equals(candidate.get(i))) {
+        if(x64)throw new Exception("format alternatives have different storage");
+        rawWords=true;
+       }
       if(candidate.size()>arguments.size())arguments=new ArrayList<Integer>(candidate);
+     }
+     // Darwin's 32-bit variadic area is a packed word stream, including a
+     // 64-bit argument split between r3 and the stack. Alternative formats
+     // can consume the same words as either an integer pair or a pointer.
+     // Recover the union of their physical slots without choosing one type
+     // interpretation and discarding the other branch's trailing arguments.
+     if(rawWords) {
+      arguments.clear();for(int i=0;i<maximumWords;i++)arguments.add(4);
      }
     }
     catch(Exception e) {unknown++;println("Review varargs at "+op.getSeqnum().getTarget()+": "+e.getMessage());continue;}
