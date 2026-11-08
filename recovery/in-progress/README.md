@@ -100,6 +100,18 @@ destination pointer. The x86-64 jump-coordinate clamp uses an explicitly signed
 minimum value. These cases do not yet establish complete image-program or VM
 compatibility.
 
+The current Rwby candidates compile from C on all four architectures. Each
+passes 20 native/source script-execution comparisons and 20 bytecode
+serialization comparisons, including 64-bit integers, decimal arithmetic,
+branches, array reads and writes, UTF-8 length, nested calls and recursion.
+Numeric, math and saved-context checks also pass on every architecture.
+Explicit value copies preserve integer and floating payload bits. Recovered
+switches use C control flow, and builtin calls retain their full virtual-call
+arguments. UTF-8 counting uses a scalar C implementation. ARM64 constructors
+preserve destination returns needed by map and vector initialization.
+These successful-script cases do not establish exception-path or complete VM
+compatibility; those remain release gates alongside the standalone runtime.
+
 The untouched x86-64 reference reaches its desktop under QEMU. The BIOS
 reference reaches the Batagaika first-boot setup. With the current virtio-ramfb
 configuration, the ARM32 reference leaves the handoff screen visible while

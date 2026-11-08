@@ -1,0 +1,57 @@
+10000cb4	void recovered_10000cb4(void *pointer);
+10000cf8	void * recovered_10000cf8(void *pointer,unsigned long size);
+1000245c	int recovered_1000245c(char *buffer,unsigned long capacity,char *format,...);
+10000c70	void * recovered_10000c70(unsigned long size);
+10000fd0	int recovered_10000fd0(void *left,void *right,unsigned long count);
+10000d44	void * recovered_10000d44(void *destination,void *source,unsigned long count);
+10000e1c	void * recovered_10000e1c(void *destination,void *source,unsigned long count);
+10000f30	void * recovered_10000f30(void *destination,int value,unsigned long count);
+10001228	int recovered_10001228(char *left,char *right);
+10001204	unsigned long recovered_10001204(char *text);
+10003424	int recovered_10003424(char *left,char *right,unsigned long count);
+10001788	long long recovered_10001788(double value);
+100017e8	unsigned long long recovered_100017e8(double value);
+10001860	double recovered_10001860(long long value);
+10001838	double recovered_10001838(unsigned long long value);
+10003bb8	double recovered_10003bb8(double value);
+10003c78	float recovered_10003c78(float value);
+10003c94	double recovered_10003c94(double value);
+10003c98	double recovered_10003c98(long end,long start);
+10001788	long long recovered_10001788(double value);
+100017e8	unsigned long long recovered_100017e8(double value);
+10001860	double recovered_10001860(long long value);
+10001838	double recovered_10001838(unsigned long long value);
+10003bb8	double recovered_10003bb8(double value);
+10003c78	float recovered_10003c78(float value);
+10003c94	double recovered_10003c94(double value);
+10003c98	double recovered_10003c98(long end,long start);
+10003e38	long long recovered_10003e38(char *text,char **end,int base);
+10003cf4	unsigned long long recovered_10003cf4(char *text,char **end,int base);
+100049f4	long long recovered_100049f4(void *value);
+100070c0	void *recovered_100070c0(unsigned long capacity);
+10006954	void *recovered_10006954(void *output,void *vm,void *code,void *source);	x8,x0,x1,x2
+10005110	void *recovered_10005110(void *output,void *vm,void *code,void *source);	x8,x0,x1,x2
+10006e34	void *recovered_10006e34(void *output,void *argument1,void *argument2);	x8,x0,x1
+10006e30	void *recovered_10006e30(void *output,void *argument1,void *argument2);	x8,x0,x1
+10006e3c	void *recovered_10006e3c(void *output,void *argument1,void *argument2);	x8,x0,x1
+10006e2c	void *recovered_10006e2c(void *output,void *argument1,void *argument2,void *argument3);	x8,x0,x1,x2
+10006e38	void *recovered_10006e38(void *output,void *argument1,void *argument2);	x8,x0,x1
+10006b60	void *recovered_10006b60(void *output,void *argument1,void *argument2);	x8,x0,x1
+10005110	void *recovered_10005110(void *output,void *argument1,void *argument2,void *argument3);	x8,x0,x1,x2
+10006a28	void *recovered_10006a28(void *output,void *argument1,void *argument2);	x8,x0,x1
+10006dc8	void *recovered_10006dc8(void *output,void *argument1);	x8,x0
+10006dc0	void *recovered_10006dc0(void *output,void *argument1,void *argument2);	x8,x0,x1
+10006954	void *recovered_10006954(void *output,void *argument1,void *argument2,void *argument3);	x8,x0,x1,x2
+10006c74	void *recovered_10006c74(void *output,void *argument1,void *argument2);	x8,x0,x1
+10004554	void *recovered_10004554(void *output);	x8
+1000450c	void *recovered_1000450c(void *output);	x8
+100045e0	void *recovered_100045e0(void *output,void *argument1);	x8,x0
+10005118	void *recovered_10005118(void *output,void *argument1,void *argument2,void *argument3);	x8,x0,x1,x2
+1000695c	void *recovered_1000695c(void *output,void *argument1,void *argument2,void *argument3);	x8,x0,x1,x2
+10006a30	void *recovered_10006a30(void *output,void *argument1,void *argument2);	x8,x0,x1
+10006b68	void *recovered_10006b68(void *output,void *argument1,void *argument2);	x8,x0,x1
+10006c7c	void *recovered_10006c7c(void *output,void *argument1,void *argument2);	x8,x0,x1
+1000845c	void *recovered_1000845c(void *destination,void *source);
+10009708	void *recovered_10009708(void *destination,void *source);
+10007104	void *recovered_10007104(void *destination);
+100110e0	void *recovered_100110e0(void *destination,void *source);
