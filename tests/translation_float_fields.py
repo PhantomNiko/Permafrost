@@ -116,6 +116,24 @@ unsigned recovered_8000(float value)
 }
 ''')
         (notes / '8000.tsv').write_text('')
+        (notes / '9000.c').write_text('''
+double recovered_9000(double value,int numeric)
+{
+  undefined8 mixed;
+ if(numeric)mixed = recovered_9001(value);
+ else mixed=(uintptr_t)&value;
+ if(!numeric)return mixed==(uintptr_t)&value;
+ return (longdouble)mixed;
+}
+''')
+        (notes / '9000.tsv').write_text('')
+        (notes / '9001.c').write_text('''
+double recovered_9001(double value)
+{
+ return value*0.5;
+}
+''')
+        (notes / '9001.tsv').write_text('')
         layout = root / 'layout.json'
         layout.write_text(json.dumps({'translation': {
             'pointer_bytes': 8, 'scalar_storage_views': True,
@@ -140,6 +158,8 @@ int main(void) {
  if(recovered_6000(-1)!=-3||recovered_6000(-2147483647-1)!=-3)return 7;
  if(recovered_7000(42)!=42||recovered_7000(0x80000001U)!=(int)0x80000001U)return 8;
  if(recovered_8000(1.5f)!=0x3fc00000U||recovered_8000(-0.25f)!=0xbe800000U)return 9;
+ if(recovered_9000(3.5,1)!=1.75||recovered_9000(-0.25,1)!=-0.125)return 10;
+ if(recovered_9000(3.5,0)!=1.0)return 11;
  return 0;
 }
 ''')

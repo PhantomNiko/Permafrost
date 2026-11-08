@@ -559,9 +559,15 @@ def main():
                     source=re.sub(r'('+name+r'\[[^]\n]+\]) = '+value+r';',r'\1 = pf_float_bits('+value+');',source)
         if current.get('scalar_storage_views'):
             for name in re.findall(r'^  undefined8 (\w+);',source,re.M):
+                for callee, kind in floating.items():
+                    if kind != 'double':continue
+                    source=re.sub(r'\b'+re.escape(name)+r' = '+re.escape(callee)+r'\(',
+                                  name+' = (double)'+callee+'(',source)
                 if re.search(r'\b'+name+r' = \(double\)',source):
                     source=rewrite_double_assignments(source,name)
-                    source=re.sub(r'\((double|float10)\)'+name+r'\b',r'(\1)pf_bits_double('+name+')',source)
+                    source=re.sub(r'\((double|longdouble|float10)\)'+name+r'\b',r'(\1)pf_bits_double('+name+')',source)
+                    if floating.get('recovered_'+address)=='double':
+                        source=re.sub(r'\breturn '+name+r'\s*;', 'return pf_bits_double('+name+');',source)
                     source=source.replace('NAN('+name+')','NAN(pf_bits_double('+name+'))')
                     source=re.sub(r'\b'+name+r'(?=\s*(?:<=|>=|==|!=|<|>)\s*[+-]?\d+\.\d)',
                                   'pf_bits_double('+name+')',source)
