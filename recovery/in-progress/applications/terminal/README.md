@@ -29,3 +29,9 @@ This checkpoint does not establish complete terminal or VM parity. File commands
 clipboard interaction, pointer selection, persistence, and integration with the
 real kernel command interpreter still need broader comparisons. It does not
 advance the canonical release target or replace the full-image validation gate.
+
+The source terminal opens and renders in an x86-64 diagnostic with the C kernel
+and twelve C libraries. That disk retains other reference programs and drivers.
+Two input-injection attempts, including explicit focus and separate held
+keystrokes, produced no visible command input. Real VM command entry and the
+kernel input/scheduling integration remain unresolved.
