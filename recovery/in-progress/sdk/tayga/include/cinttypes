@@ -1,0 +1,16 @@
+#ifndef WINTER_HEADER_CINTTYPES
+#define WINTER_HEADER_CINTTYPES
+
+#include "inttypes.h"
+
+namespace std {
+using ::imaxdiv_t;
+using ::imaxabs;
+using ::imaxdiv;
+using ::strtoimax;
+using ::strtoumax;
+using ::wcstoimax;
+using ::wcstoumax;
+}
+
+#endif

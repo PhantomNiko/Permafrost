@@ -1,0 +1,6 @@
+#ifndef WINTER_HEADER_CASSERT
+#define WINTER_HEADER_CASSERT
+
+#include "assert.h"
+
+#endif

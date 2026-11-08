@@ -1,0 +1,554 @@
+{
+  "version": "1.0",
+  "reference": "WinterBoot-1.0r232-Beta.img",
+  "kind": "reference source with canonical architecture-aware ABI includes",
+  "files": {
+    "algorithm": {
+      "reference_sha256": "2dc1b0e04519c3545e63358fda12456a350f745a25e230bf75132c621b4ba74d",
+      "reference_bytes": 4890
+    },
+    "array": {
+      "reference_sha256": "952fae1fb9f3bb22e25f28c0bf8b5df622639b5e0b1cfaba3b37a354c54f8525",
+      "reference_bytes": 92
+    },
+    "assert.h": {
+      "reference_sha256": "1eebc7b6925aa38d4cf53041e285185fe65d5e55958e8f21b5ff56e1126402b5",
+      "reference_bytes": 242
+    },
+    "atomic": {
+      "reference_sha256": "e60cdafe8bea0d1555247402f1cf0bbbbdde3265c165c0da343f85ec6ad68d7b",
+      "reference_bytes": 154
+    },
+    "bitset": {
+      "reference_sha256": "78a62ff59fcff8f94928aa2aff1c839794b07708bb0021edbc5e1713948925b0",
+      "reference_bytes": 94
+    },
+    "cassert": {
+      "reference_sha256": "3fe64fd999c81ea633c2ee8faa17ec35da876ee8196ecb0c69b177515a4c376e",
+      "reference_bytes": 89
+    },
+    "cctype": {
+      "reference_sha256": "c485fb77ed3b5047c860f6f20d67c4f9aa30ab3a041b45d90cacc69c86b13d0b",
+      "reference_bytes": 344
+    },
+    "cerrno": {
+      "reference_sha256": "02af21147b99cae8546582c0f73b2c6b6e638fa769074151a38c5ddc018d8505",
+      "reference_bytes": 86
+    },
+    "cfenv": {
+      "reference_sha256": "d5df5edfe0f4e65ae4939baa7ae3cdf14f03cc90f1df36349f5c277965df0e5c",
+      "reference_bytes": 374
+    },
+    "cfloat": {
+      "reference_sha256": "1504ea70c3342899cd51b495a0757bd55b6ae270a572d66fc5d293046e9a809c",
+      "reference_bytes": 86
+    },
+    "charconv": {
+      "reference_sha256": "96e0c3f379324ed3235cc4a9f12907eda31d9578f1eb4f9248ec9abe068c986b",
+      "reference_bytes": 98
+    },
+    "chrono": {
+      "reference_sha256": "32c109d099b5a626bd1cb53ff20a4fe73ee5594a5d06b287b67e767132013b08",
+      "reference_bytes": 4059
+    },
+    "cinttypes": {
+      "reference_sha256": "967d1fc111f999b606847cecd88d040696a6ddcbfe06640d9d585246217b7cdc",
+      "reference_bytes": 243
+    },
+    "climits": {
+      "reference_sha256": "d6c5763a3f95dadb95d07a95cf7d1637fedf53bcb07ec397900bbd1ac85b2be1",
+      "reference_bytes": 89
+    },
+    "clocale": {
+      "reference_sha256": "42fb0c20c539b174508b2372176a0e9b47e8e6cb75f6e88edc5eeeb208e84f2b",
+      "reference_bytes": 162
+    },
+    "cmath": {
+      "reference_sha256": "434885217f6dd7c11ae7fb7629f0880f7cff6f0ff56155ce907da575c5c63eea",
+      "reference_bytes": 8346
+    },
+    "complex.h": {
+      "reference_sha256": "c3a673abf6f48da482fe9f6071880b9d5d1453d7e8941f3b24e0a773b680040c",
+      "reference_bytes": 3625
+    },
+    "condition_variable": {
+      "reference_sha256": "abaaa44e380bac404cd68cbdf973cc853de9938c5169aca6dbf29da3d8c53147",
+      "reference_bytes": 118
+    },
+    "cstdarg": {
+      "reference_sha256": "0832795aac373f1bdfe37054fb23591d21e946a7b7e33c900de197a3a0401dd7",
+      "reference_bytes": 125
+    },
+    "cstddef": {
+      "reference_sha256": "1d94a1d2f9d1471cc073fad2de27ed783857367b5df9f89fc41637f6db132ef7",
+      "reference_bytes": 116
+    },
+    "cstdint": {
+      "reference_sha256": "0ce264bb5da881163243fbdecc32fd12ba1503eb15b549f514a441a20fa92949",
+      "reference_bytes": 75
+    },
+    "cstdio": {
+      "reference_sha256": "52dbba762a60202cd7a5233d3be3b288bb596235aebf0e5a7df31d6184e4f776",
+      "reference_bytes": 743
+    },
+    "cstdlib": {
+      "reference_sha256": "25df65b2fd8702170340d3dd29e4f2faa652351e666796715be367add37382ab",
+      "reference_bytes": 723
+    },
+    "cstring": {
+      "reference_sha256": "d1082047b5b1a2783f9546bc65470461d5d2ee5804c09b6e0f12789c055570a5",
+      "reference_bytes": 504
+    },
+    "ctgmath": {
+      "reference_sha256": "bf6f93d2fee5df577ffd257bfde57fac27da17755dfea32a3175cd553030facc",
+      "reference_bytes": 106
+    },
+    "ctime": {
+      "reference_sha256": "68d729466251cad28c0db3cb469ed95d00a7c777543364b213a6c84911d7a9ea",
+      "reference_bytes": 335
+    },
+    "ctype.h": {
+      "reference_sha256": "11f3ae5b74a4ab4bd8785c0b79df565cc741bd62727dafc40e244754dbcd81d2",
+      "reference_bytes": 420
+    },
+    "deque": {
+      "reference_sha256": "42a044329aebe3c03e3bb09d7c918f0ecec9885870bd3378e46f3c36a697c8a4",
+      "reference_bytes": 92
+    },
+    "dirent.h": {
+      "reference_sha256": "eb1f2fa4127ec14c17f9d2bdc45011c75346be4b2e7d0924287fbbe48c40605f",
+      "reference_bytes": 392
+    },
+    "dlfcn.h": {
+      "reference_sha256": "94e1cf22b80ab59ca649bcb8594c23f85d7e3d43790d23ea4847d1d9f33d35a8",
+      "reference_bytes": 363
+    },
+    "errno.h": {
+      "reference_sha256": "57b7ff01b8f168e6cc099f8d698cd64cd0191fb088218021de9751a33cfe1dbc",
+      "reference_bytes": 1083
+    },
+    "exception": {
+      "reference_sha256": "8e3ab9e7ac8058d834c8315b700f7e54d99d4101dd4aa45e1ad30d7e4aa4ffb3",
+      "reference_bytes": 100
+    },
+    "fcntl.h": {
+      "reference_sha256": "9e58795164d9eccfa253919d7c6019aa506b6706b1b1564f1f035898782ec935",
+      "reference_bytes": 790
+    },
+    "fenv.h": {
+      "reference_sha256": "358570f206d0a4f98d270f312110062cb0360abb5fe893ebe63710cbd590933f",
+      "reference_bytes": 1131
+    },
+    "filesystem": {
+      "reference_sha256": "747651825d257d145c6e4d95b9589751d224d81520449dfe446e27a1aa1394c8",
+      "reference_bytes": 8347
+    },
+    "float.h": {
+      "reference_sha256": "34ef1a402d0d5b25ca859b45a73492cbf309bbc214290e1bdf2bbb75efa2a033",
+      "reference_bytes": 1561
+    },
+    "forward_list": {
+      "reference_sha256": "c1ef6ff0a9fa0972c271f9f0f844f2616dfad57b61eadf83414bb5c2032e40db",
+      "reference_bytes": 106
+    },
+    "fstream": {
+      "reference_sha256": "e243df802193037f97b69483740afd3536986ef78dbfe22c4880bef3ef65bc62",
+      "reference_bytes": 6294
+    },
+    "functional": {
+      "reference_sha256": "653691a50af45049c91748c29e6278cd25b17c0a7a78cc58d2de526c63f78655",
+      "reference_bytes": 4256
+    },
+    "future": {
+      "reference_sha256": "a7d0eb86b0c12fa91dd9c803fe12b6a8e72e3e670f3fdc1af134b448239b67ba",
+      "reference_bytes": 94
+    },
+    "grp.h": {
+      "reference_sha256": "ad3fc9c32324aa4638371e6fdcfbc5237ee44ee1e1e924909b68323bac3fcffc",
+      "reference_bytes": 268
+    },
+    "initializer_list": {
+      "reference_sha256": "e86def331b8981cec5fad28f1576e41746a0b472115edc5696014022386f99a4",
+      "reference_bytes": 971
+    },
+    "inttypes.h": {
+      "reference_sha256": "16911e4361ff3de13ac86c6a1ebca503c6ea511cff90d2891882c598be6fdac3",
+      "reference_bytes": 4603
+    },
+    "iomanip": {
+      "reference_sha256": "26df5645798e51e3c82f068e6914c2e1d98963a7b60dc52dd1d8469f81e72a89",
+      "reference_bytes": 4590
+    },
+    "ios": {
+      "reference_sha256": "9256c7db1c83b172c7d1872c49f4795a35fcf1864b64848a4037e30ba1f9967c",
+      "reference_bytes": 637
+    },
+    "iosfwd": {
+      "reference_sha256": "17e82f9287b37f989072b4f8cf324a0a4ed9dffd685bfcda1a13e494441ec55e",
+      "reference_bytes": 146
+    },
+    "iostream": {
+      "reference_sha256": "0d72d00f278ec6e176e315c8bb5ee51bebd15864d2ebab33752af274dbb76c95",
+      "reference_bytes": 9839
+    },
+    "iterator": {
+      "reference_sha256": "e480042d68399b0be157dd1d4e924c801e82d8a380ab0add9b76d86e2d27ae18",
+      "reference_bytes": 98
+    },
+    "limits": {
+      "reference_sha256": "dc196a366c38cc4319f9414bd59a723c87c66acdc2dc8089c0c5f21c82c984ad",
+      "reference_bytes": 94
+    },
+    "limits.h": {
+      "reference_sha256": "915bd3614ecf5fb5aab9e88d73c5217ac5afad9f2e71a0d26854f056c62dc599",
+      "reference_bytes": 827
+    },
+    "list": {
+      "reference_sha256": "f80728463a9fd2eb50616d086054b02d536b27ee0c2faad0bd89d3adad944d4a",
+      "reference_bytes": 90
+    },
+    "locale.h": {
+      "reference_sha256": "c93dbe9265daa0cef88656dfe9327a475666c69ff463c23a7da8c4aac3a2d099",
+      "reference_bytes": 753
+    },
+    "machine/endian.h": {
+      "reference_sha256": "eb42a40f5cbc366bb31b7b592fe8dc6306ffb93afe35adfbb8e3fc746c2e9aef",
+      "reference_bytes": 374
+    },
+    "map": {
+      "reference_sha256": "e2c3cd97bd41070e71c00648c0a6744234c43ae466d50570eb2f3b55b1e442e9",
+      "reference_bytes": 88
+    },
+    "math.h": {
+      "reference_sha256": "3532fc5eb6f5ba87d341905a72b198fb2e33810f087c0fd88c1fe605ef5d09f2",
+      "reference_bytes": 695
+    },
+    "memory": {
+      "reference_sha256": "840194146fbe4a56febab2c67f77eeb9d59a757a9ecacde4bfb1d0a0d25d438f",
+      "reference_bytes": 94
+    },
+    "mutex": {
+      "reference_sha256": "6207ee4701efc98ab68b6991a2b907b9974aee176378fff884aac18840af67b0",
+      "reference_bytes": 437
+    },
+    "new": {
+      "reference_sha256": "cea3c9426a6f2c721c843a668fd38fec671f9d41605760fc31dd4cd6d37ed958",
+      "reference_bytes": 2474
+    },
+    "numeric": {
+      "reference_sha256": "41731ab028c0cf7297eaf548673f562c9b37be1567c9e302d1bae23f77c4d0d1",
+      "reference_bytes": 96
+    },
+    "optional": {
+      "reference_sha256": "d0eae24e16df99f64a4bc70b418309c4faee08140994f7079197be2fb5c3387a",
+      "reference_bytes": 5361
+    },
+    "osreldate.h": {
+      "reference_sha256": "72a3c944f39d5491852ae7ec633f95b4ac0bd3de062bb8c7dc315594da6cf3df",
+      "reference_bytes": 48
+    },
+    "ostream": {
+      "reference_sha256": "187105461064fc46ecad84bad82ca9e7f879e7d70f7e28abb7fab2e513b4d767",
+      "reference_bytes": 89
+    },
+    "poll.h": {
+      "reference_sha256": "cb82b9cd7dd4d464b8a1f5dbc41ce693d3aac8bfa82deaaf6ade48240f253e8f",
+      "reference_bytes": 362
+    },
+    "pthread.h": {
+      "reference_sha256": "b1c6ed6600a7f1f50d69687a7e3050ae0b7dfa27feb424807015a147ad9d7382",
+      "reference_bytes": 2767
+    },
+    "pwd.h": {
+      "reference_sha256": "061ac7e10da8a83b6faef66d30f42294ed7a4f9c9a617053a87a7a7ed230d16f",
+      "reference_bytes": 554
+    },
+    "queue": {
+      "reference_sha256": "73e8849a3e5cdfd51374e327a6ef134e35b3810a1f34a5d7fb443fc1828b14c8",
+      "reference_bytes": 2415
+    },
+    "random": {
+      "reference_sha256": "ebf1d370b54ad98f1c148182e92499fdca4b32072a0269b8be2876ffd4d81163",
+      "reference_bytes": 94
+    },
+    "ratio": {
+      "reference_sha256": "eb9fc317ce6f03d94b53da8526270d72af9d1953daa5a9c35c6b67eab4b5a0aa",
+      "reference_bytes": 300
+    },
+    "regex": {
+      "reference_sha256": "43de5fce20f522d4304a4a647b7db75440fab170bbd98b438fe3c39d65d73920",
+      "reference_bytes": 92
+    },
+    "sched.h": {
+      "reference_sha256": "c5b3a18ce9f489a321bf8ecee023c5e30518fccd42d7aee157620dc0c59422ef",
+      "reference_bytes": 524
+    },
+    "set": {
+      "reference_sha256": "fc111cdeafaa2d4d5aae4eaa76e4c0042a28fc68b0b8373ae386f776a0213254",
+      "reference_bytes": 88
+    },
+    "setjmp.h": {
+      "reference_sha256": "d57b00eb818b5a01a03dbea4a2e49cfa2f63e1753d191338944492b08f7cc8ef",
+      "reference_bytes": 286
+    },
+    "shared_mutex": {
+      "reference_sha256": "fccbc5c7d13a6d30d1264247f6f4a2eb564cfe0d8a41739cd406599313eb5047",
+      "reference_bytes": 1694
+    },
+    "signal.h": {
+      "reference_sha256": "bfb32bad1f9021abc79f0fd542ba273b2ec0a43c9baaed0405cf23b91a738282",
+      "reference_bytes": 1883
+    },
+    "span": {
+      "reference_sha256": "ece5453adc1744367b1e474747dd2f811de860c02b142d73bb041f3a17c3a642",
+      "reference_bytes": 90
+    },
+    "spawn.h": {
+      "reference_sha256": "1e3bb78b0f502d04d8dc1285ee3d4398479ad75373b550c9e9f90a151d77f0df",
+      "reference_bytes": 1048
+    },
+    "sstream": {
+      "reference_sha256": "89d5fdbebdf4088c3a8e1f4a26c0eb6c85716701a76172d5af64b119938cc3f7",
+      "reference_bytes": 6198
+    },
+    "stack": {
+      "reference_sha256": "d1c2a8eb103c1a08349f2179542894ca6ab763d38d711c880ca99da6b6d59941",
+      "reference_bytes": 92
+    },
+    "stdalign.h": {
+      "reference_sha256": "89a7a04348495b1ecd46585c6573e20202baef4b31a06afff00ac2c6de94ba03",
+      "reference_bytes": 214
+    },
+    "stdarg.h": {
+      "reference_sha256": "a69af51d0698ad8efd8ffcbd6503134e53a11fe37181443b28398e180ae94de1",
+      "reference_bytes": 308
+    },
+    "stdbool.h": {
+      "reference_sha256": "6fd4b7cac1102eaf56a37c90db7bbcef61f4037a16e1e65096fa5a9e9189a92c",
+      "reference_bytes": 177
+    },
+    "stddef.h": {
+      "reference_sha256": "5983cf38f18a24ca606c4ea44cb5530203b1c5d53c0e8109f23df70139e37486",
+      "reference_bytes": 878
+    },
+    "stdexcept": {
+      "reference_sha256": "02d3370ecb987367da20643ed5e01d63fcf80b36c7ae1e55bdfa5ebf6126fee5",
+      "reference_bytes": 100
+    },
+    "stdint.h": {
+      "reference_sha256": "41db4ca4fbc679cf7b693ec230816ecb3862165ef450d4007e7ef4a6dd45bc9d",
+      "reference_bytes": 4739
+    },
+    "stdio.h": {
+      "reference_sha256": "8b2140260604d2362f76fbb3e243dbc5a93df217a4750158cfd650d3a32e774c",
+      "reference_bytes": 2473
+    },
+    "stdlib.h": {
+      "reference_sha256": "7775dd1a3dfba1472cc9341885c9fd1d410e4f9662c232d4fe6182c17100394a",
+      "reference_bytes": 2117
+    },
+    "stdnoreturn.h": {
+      "reference_sha256": "4b1db57c212b1c8bb8a60cb31fbfee6498f83569f04c08c60ebeb2f2614f5cb0",
+      "reference_bytes": 135
+    },
+    "string": {
+      "reference_sha256": "73c6d44a9d42788fbe80b6e7697fe09aeb88535ea2d93784ac83fa1d0d2ecf49",
+      "reference_bytes": 94
+    },
+    "string.h": {
+      "reference_sha256": "cfca0e0bf29172e56348d81abf95c933de4a82dd4528f04230cc371e30a5c9e4",
+      "reference_bytes": 1430
+    },
+    "string_view": {
+      "reference_sha256": "0d7f9a7259672029ef3f079c4120f36eb30b2f0d3abc092951de6f64c4154c67",
+      "reference_bytes": 104
+    },
+    "strings.h": {
+      "reference_sha256": "b12366c1308216c6411bd783e73c9e36def0beb254f1779f25755a743cdaed62",
+      "reference_bytes": 384
+    },
+    "sys/auxv.h": {
+      "reference_sha256": "20af5d3b2e3b4a5cc5676d38e34e30b467011425c7683a571e5959bf23018543",
+      "reference_bytes": 204
+    },
+    "sys/ioctl.h": {
+      "reference_sha256": "6eb21e81e31f94b1e0df2856012d1e38a33e281b231f94194a0b492009abd149",
+      "reference_bytes": 311
+    },
+    "sys/mman.h": {
+      "reference_sha256": "1876bab8bee1c8859c86c08ae929bcd208e8db1ff444818b6936f3a1216010ea",
+      "reference_bytes": 857
+    },
+    "sys/mount.h": {
+      "reference_sha256": "93d4116a98393b420a2ee1ca5ebe17f3cbfd9a33d36f92494003773838f475b9",
+      "reference_bytes": 606
+    },
+    "sys/param.h": {
+      "reference_sha256": "c460804558dd8f5a8c70b49129bb1674ff82b0ca5599d9c5336de980ad5fc7ec",
+      "reference_bytes": 161
+    },
+    "sys/resource.h": {
+      "reference_sha256": "d753b6d5987fe2fdcc059ab401192ed561c546f236b4fd96383311d47287a6a5",
+      "reference_bytes": 889
+    },
+    "sys/select.h": {
+      "reference_sha256": "a17194792146d20e352a5415d69b9ba102c2cf8d9fcaf7d8283cf6a81f6aeeef",
+      "reference_bytes": 885
+    },
+    "sys/socket.h": {
+      "reference_sha256": "8e08fdc7ae7b896e2391213a6b81843105f91df820a2120813c02ef65158e0db",
+      "reference_bytes": 1293
+    },
+    "sys/stat.h": {
+      "reference_sha256": "4d9a7c0c4e1546e68ce51c9437e1d7563985417db2c85501f60f19f018e3c6f0",
+      "reference_bytes": 1733
+    },
+    "sys/time.h": {
+      "reference_sha256": "4e8dd011e07a3c762b8f51c22745c457969ad3f167fb645435202c2cf60618b3",
+      "reference_bytes": 303
+    },
+    "sys/types.h": {
+      "reference_sha256": "8123466c1cabd7ac8de3d9b6bd9561bda32f2136ae93c2a4c5bc19a89d29aed2",
+      "reference_bytes": 759
+    },
+    "sys/un.h": {
+      "reference_sha256": "e54a7baac8e57acf06118d67997e4a1d9193863cd174d857ce63bd18acceb5d6",
+      "reference_bytes": 178
+    },
+    "sys/utsname.h": {
+      "reference_sha256": "0f05be2ddd3ab7523e1d9d373b90c5896cf3e1261c0f0e7a03d53f8cc9eac924",
+      "reference_bytes": 233
+    },
+    "sys/wait.h": {
+      "reference_sha256": "940f96d1203c95b01c151062ca190b7eb7b571052400592606cd80b967174fdd",
+      "reference_bytes": 449
+    },
+    "sysexits.h": {
+      "reference_sha256": "3ddc3c3faa2cc08c1de67ee6e565ebb2e4bd69b0a736b60645b346fcf2b53727",
+      "reference_bytes": 417
+    },
+    "system_error": {
+      "reference_sha256": "79dfa3d722faa1bb445d34be445a2ced09bcbaf8e4c1ba6a0a5e663c19fbe46a",
+      "reference_bytes": 6477
+    },
+    "tayga/baremetal_formats.h": {
+      "reference_sha256": "d44bb922a8e7ca6fc7a207e199da50b2475dfa7eec0089b4566c064886918e82",
+      "reference_bytes": 4389
+    },
+    "tayga/baremetal_gpu_api.h": {
+      "reference_sha256": "0eef5aca8aca45aab7707397da826d7efb1b0a22bb7fe925d6e61e94a1ffcd3c",
+      "reference_bytes": 10786
+    },
+    "tayga/baremetal_network_api.h": {
+      "reference_sha256": "baa6eba33e56802f173e8c32fca5b52532f45ecb9b153188f519ad9b2cd53185",
+      "reference_bytes": 1154
+    },
+    "tayga/baremetal_program_api.h": {
+      "reference_sha256": "194248255132bc766b3447f5797e8fbc70df5e2079ac2bb39c403c2d1cc89d20",
+      "reference_bytes": 92850
+    },
+    "tayga/tayga_api.h": {
+      "reference_sha256": "7da3b0f1dbf32a6c7fa89f7fb974c31ed4378dbc4b1d3bd3808feaf5f0035e37",
+      "reference_bytes": 9379
+    },
+    "tayga/tayga_freebsd_driver_api.h": {
+      "reference_sha256": "64f08ca7dc1ef42ba2079735a03476e186221ea3707aeec91934fe9c7f65ac43",
+      "reference_bytes": 7460
+    },
+    "tayga/tayga_runtime.h": {
+      "reference_sha256": "aea034cf59dec04157d654ddb2a6a5c095a104fb3bf2809897972885a8c446a2",
+      "reference_bytes": 13891
+    },
+    "tayga/terror_ui.h": {
+      "reference_sha256": "c2d78bfd043d6de53190d98d091e265fd11fe78ee533ad7ada9109aa52ca959f",
+      "reference_bytes": 9700
+    },
+    "tayga/winter_tls.h": {
+      "reference_sha256": "470583e86f6ebd88af47c056f2cfee798602211f7f440a75d0937dfa8af5f0a8",
+      "reference_bytes": 2627
+    },
+    "tayga_llvm_compat.hpp": {
+      "reference_sha256": "64b01201c0030f6dc22f0b6af46fd82221b93590e892fdd114499d52e575db16",
+      "reference_bytes": 3856
+    },
+    "termios.h": {
+      "reference_sha256": "85bfa4e111ec975847f1ba1b05a141c0dd14fd794821edbea67cee2171f59b3a",
+      "reference_bytes": 774
+    },
+    "tgmath.h": {
+      "reference_sha256": "e8d88da68febc2b667878807b4a2ba64733ee20157f3896e1909da357ce9c97b",
+      "reference_bytes": 17343
+    },
+    "thread": {
+      "reference_sha256": "6adb51a188575e283dba9de77718b147c1cc328940b85363ea395eb6a05936fe",
+      "reference_bytes": 94
+    },
+    "time.h": {
+      "reference_sha256": "75ed87b10f167440c5285540ecff5655b9796f77fae8d958c73b0681f246c10f",
+      "reference_bytes": 1637
+    },
+    "tuple": {
+      "reference_sha256": "bcb3114a964d2c261d0cf7bc7eb6e635d5875d28b6aa8724ff33d160c7a1fa6b",
+      "reference_bytes": 4998
+    },
+    "type_traits": {
+      "reference_sha256": "85dc752adeda4dc9345de01d03fef874b97fc5a4f0d0248a19069beaabe38c40",
+      "reference_bytes": 104
+    },
+    "unistd.h": {
+      "reference_sha256": "d5e2a5948f17ec8b1a128e8c4de378a89ed59937acf1877631155270d2f96dba",
+      "reference_bytes": 2078
+    },
+    "unordered_map": {
+      "reference_sha256": "b97e353069146db58fe92c655a56c9e6f98fe0f2b0ba74027b9b497f4a4f2bda",
+      "reference_bytes": 108
+    },
+    "unordered_set": {
+      "reference_sha256": "02a581018d8d12a464a44cb2ba853385ce29ec121d6533fb8c405a253a26cd95",
+      "reference_bytes": 108
+    },
+    "utility": {
+      "reference_sha256": "b7dd61fab5812560837b4daf4943eef77bcb82e59464bf1d8ebe34308f78f6f7",
+      "reference_bytes": 90
+    },
+    "variant": {
+      "reference_sha256": "56c296e25a5342a08d1d7478159561ff9e26054349163bb52e7638dd5dab7381",
+      "reference_bytes": 96
+    },
+    "vector": {
+      "reference_sha256": "7008d91d1443ae64ab682df2cc974a656f0a7c5c96f2919f2c89c4e2cebc1485",
+      "reference_bytes": 94
+    },
+    "winter_algorithms.hpp": {
+      "reference_sha256": "2e58200f1477469551867411cc26ddbfba344e452b7bd80326d054742eff3132",
+      "reference_bytes": 355094
+    },
+    "winter_compiler.h": {
+      "reference_sha256": "6d47d5c11d1e5c6f316ecc6618680cc375ea47050a42adaf24f7265bbbc17a6d",
+      "reference_bytes": 12747
+    },
+    "winter_std.c": {
+      "reference_sha256": "696b652a7dd15639a90d3f49d3d9d36d85ac4b03734f198e49fd8d9d0d858535",
+      "reference_bytes": 39003
+    },
+    "winter_std.h": {
+      "reference_sha256": "0c09debd23cff2e3d96dc2e4453498709032b6904c4b0973e5cafbf56fe6311a",
+      "reference_bytes": 6713
+    },
+    "winter_std_cpp.h": {
+      "reference_sha256": "dff3fb26bc520907d90b58f3400b1e26b71a537536d6c23f43f8cafadaeac0e7",
+      "reference_bytes": 2380
+    },
+    "winter_stdlib.hpp": {
+      "reference_sha256": "5e43c0938910b3201d64ad551100de147f7160515b94d8ce3483fd120f82d39a",
+      "reference_bytes": 45450
+    }
+  },
+  "compatibility_includes": {
+    "tayga/baremetal_program_api.h": "permafrost/native_api.h",
+    "tayga/baremetal_formats.h": "permafrost/formats.h",
+    "tayga/baremetal_gpu_api.h": "permafrost/gpu.h",
+    "tayga/baremetal_network_api.h": "permafrost/network.h",
+    "tayga/terror_ui.h": "permafrost/terror_ui.h"
+  }
+}

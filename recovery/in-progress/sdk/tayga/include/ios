@@ -1,0 +1,32 @@
+#ifndef WINTER_HEADER_IOS
+#define WINTER_HEADER_IOS
+
+#include "winter_stdlib.hpp"
+
+namespace std {
+
+using streamoff = long long;
+using streamsize = long long;
+using streampos = long long;
+
+class ios_base {
+public:
+	using openmode = unsigned;
+	using seekdir = int;
+
+	static constexpr openmode in = 1u << 0u;
+	static constexpr openmode out = 1u << 1u;
+	static constexpr openmode binary = 1u << 2u;
+	static constexpr openmode app = 1u << 3u;
+	static constexpr openmode trunc = 1u << 4u;
+
+	static constexpr seekdir beg = 0;
+	static constexpr seekdir cur = 1;
+	static constexpr seekdir end = 2;
+};
+
+class ios : public ios_base {};
+
+}
+
+#endif

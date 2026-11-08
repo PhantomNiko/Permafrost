@@ -1,0 +1,7 @@
+#ifndef WINTER_HEADER_ATOMIC
+#define WINTER_HEADER_ATOMIC
+#include "winter_stdlib.hpp"
+#ifndef ATOMIC_FLAG_INIT
+#define ATOMIC_FLAG_INIT {}
+#endif
+#endif

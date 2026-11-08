@@ -1,0 +1,166 @@
+#ifndef TAYGA_HEADER_TUPLE
+#define TAYGA_HEADER_TUPLE
+
+#include "winter_stdlib.hpp"
+
+namespace wm {
+#ifndef TAYGA_PAIR_TUPLE_PROTOCOL
+#define TAYGA_PAIR_TUPLE_PROTOCOL
+template <typename A, typename B>
+struct tuple_size<pair<A, B>> : integral_constant<size_t, 2> {};
+
+template <typename A, typename B>
+struct tuple_element<0, pair<A, B>> {
+	using type = A;
+};
+
+template <typename A, typename B>
+struct tuple_element<1, pair<A, B>> {
+	using type = B;
+};
+
+template <size_t Index, typename A, typename B>
+constexpr typename tuple_element<Index, pair<A, B>>::type& get(pair<A, B>& value) noexcept {
+	if constexpr (Index == 0) {
+		return value.first;
+	} else {
+		return value.second;
+	}
+}
+
+template <size_t Index, typename A, typename B>
+constexpr const typename tuple_element<Index, pair<A, B>>::type& get(const pair<A, B>& value) noexcept {
+	if constexpr (Index == 0) {
+		return value.first;
+	} else {
+		return value.second;
+	}
+}
+
+template <size_t Index, typename A, typename B>
+constexpr typename tuple_element<Index, pair<A, B>>::type&& get(pair<A, B>&& value) noexcept {
+	if constexpr (Index == 0) {
+		return wm::move(value.first);
+	} else {
+		return wm::move(value.second);
+	}
+}
+#endif
+
+namespace detail {
+template <typename T>
+constexpr bool tuple_less_value(const optional<T>& left, const optional<T>& right) {
+	if (!right.has_value()) {
+		return false;
+	}
+	if (!left.has_value()) {
+		return true;
+	}
+	return *left < *right;
+}
+
+template <typename Left, typename Right>
+constexpr bool tuple_less_value(const Left& left, const Right& right) {
+	return left < right;
+}
+
+template <size_t Index, typename... Types>
+constexpr bool tuple_equal_impl(const tuple<Types...>& left, const tuple<Types...>& right) {
+	if constexpr (Index == sizeof...(Types)) {
+		return true;
+	} else {
+		return wm::get<Index>(left) == wm::get<Index>(right) && tuple_equal_impl<Index + 1>(left, right);
+	}
+}
+
+template <size_t Index, typename... Types>
+constexpr bool tuple_less_impl(const tuple<Types...>& left, const tuple<Types...>& right) {
+	if constexpr (Index == sizeof...(Types)) {
+		return false;
+	} else {
+		if (tuple_less_value(wm::get<Index>(left), wm::get<Index>(right))) {
+			return true;
+		}
+		if (tuple_less_value(wm::get<Index>(right), wm::get<Index>(left))) {
+			return false;
+		}
+		return tuple_less_impl<Index + 1>(left, right);
+	}
+}
+}
+
+template <typename... Types>
+constexpr bool operator==(const tuple<Types...>& left, const tuple<Types...>& right) {
+	return detail::tuple_equal_impl<0>(left, right);
+}
+
+template <typename... Types>
+constexpr bool operator!=(const tuple<Types...>& left, const tuple<Types...>& right) {
+	return !(left == right);
+}
+
+template <typename... Types>
+constexpr bool operator<(const tuple<Types...>& left, const tuple<Types...>& right) {
+	return detail::tuple_less_impl<0>(left, right);
+}
+
+template <typename... Types>
+constexpr bool operator>(const tuple<Types...>& left, const tuple<Types...>& right) {
+	return right < left;
+}
+
+template <typename... Types>
+constexpr bool operator<=(const tuple<Types...>& left, const tuple<Types...>& right) {
+	return !(right < left);
+}
+
+template <typename... Types>
+constexpr bool operator>=(const tuple<Types...>& left, const tuple<Types...>& right) {
+	return !(left < right);
+}
+}
+
+namespace std {
+template <typename... Types>
+constexpr tuple<decay_t<Types>...> make_tuple(Types&&... values) {
+	return tuple<decay_t<Types>...>(std::forward<Types>(values)...);
+}
+
+namespace tayga_tuple_detail {
+template <typename LeftTuple, typename RightTuple, size_t... LeftIndexes, size_t... RightIndexes>
+constexpr auto tuple_cat_two_impl(LeftTuple&& left, RightTuple&& right,
+                                  wm::detail::index_sequence<LeftIndexes...>,
+                                  wm::detail::index_sequence<RightIndexes...>) {
+	return tuple<decay_t<decltype(get<LeftIndexes>(forward<LeftTuple>(left)))>...,
+	             decay_t<decltype(get<RightIndexes>(forward<RightTuple>(right)))>...>(
+		get<LeftIndexes>(forward<LeftTuple>(left))...,
+		get<RightIndexes>(forward<RightTuple>(right))...);
+}
+}
+
+template <typename Tuple>
+constexpr auto tuple_cat(Tuple&& tupleValue) {
+	return forward<Tuple>(tupleValue);
+}
+
+template <typename LeftTuple, typename RightTuple>
+constexpr auto tuple_cat(LeftTuple&& left, RightTuple&& right) {
+	using left_type = remove_reference_t<LeftTuple>;
+	using right_type = remove_reference_t<RightTuple>;
+	return tayga_tuple_detail::tuple_cat_two_impl(
+		forward<LeftTuple>(left),
+		forward<RightTuple>(right),
+		wm::detail::make_index_sequence<tuple_size<left_type>::value>{},
+		wm::detail::make_index_sequence<tuple_size<right_type>::value>{});
+}
+
+template <typename FirstTuple, typename SecondTuple, typename ThirdTuple, typename... RestTuples>
+constexpr auto tuple_cat(FirstTuple&& first, SecondTuple&& second, ThirdTuple&& third, RestTuples&&... rest) {
+	return tuple_cat(
+		tuple_cat(forward<FirstTuple>(first), forward<SecondTuple>(second)),
+		forward<ThirdTuple>(third),
+		forward<RestTuples>(rest)...);
+}
+}
+
+#endif

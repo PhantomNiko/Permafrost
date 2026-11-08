@@ -1,0 +1,49 @@
+#ifndef WINTER_HEADER_CSTDIO
+#define WINTER_HEADER_CSTDIO
+
+#include "stdio.h"
+
+namespace std {
+using ::FILE;
+using ::fpos_t;
+using ::stdin;
+using ::stdout;
+using ::stderr;
+using ::printf;
+using ::fprintf;
+using ::snprintf;
+using ::sprintf;
+using ::vprintf;
+using ::vfprintf;
+using ::vsnprintf;
+using ::vsprintf;
+using ::sscanf;
+using ::vsscanf;
+using ::fopen;
+using ::freopen;
+using ::popen;
+using ::fclose;
+using ::pclose;
+using ::fflush;
+using ::fread;
+using ::fwrite;
+using ::fseek;
+using ::ftell;
+using ::feof;
+using ::ferror;
+using ::clearerr;
+using ::fgetc;
+using ::getc;
+using ::getchar;
+using ::ungetc;
+using ::fgets;
+using ::fputc;
+using ::putc;
+using ::putchar;
+using ::fputs;
+using ::puts;
+using ::remove;
+using ::rename;
+}
+
+#endif

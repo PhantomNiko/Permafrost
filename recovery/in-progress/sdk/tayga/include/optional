@@ -1,0 +1,191 @@
+#ifndef TAYGA_HEADER_OPTIONAL
+#define TAYGA_HEADER_OPTIONAL
+
+#include "winter_stdlib.hpp"
+
+namespace wm {
+template <typename T>
+struct __tayga_is_optional : false_type {};
+
+template <typename T>
+struct __tayga_is_optional<optional<T>> : true_type {};
+
+template <typename T, typename U>
+bool operator==(const optional<T>& left, const optional<U>& right) {
+	if (left.has_value() != right.has_value()) {
+		return false;
+	}
+	return !left.has_value() || *left == *right;
+}
+
+template <typename T, typename U>
+bool operator!=(const optional<T>& left, const optional<U>& right) {
+	return !(left == right);
+}
+
+template <typename T>
+bool operator==(const optional<T>& left, nullopt_t) {
+	return !left.has_value();
+}
+
+template <typename T>
+bool operator==(nullopt_t, const optional<T>& right) {
+	return !right.has_value();
+}
+
+template <typename T>
+bool operator!=(const optional<T>& left, nullopt_t) {
+	return left.has_value();
+}
+
+template <typename T>
+bool operator!=(nullopt_t, const optional<T>& right) {
+	return right.has_value();
+}
+
+template <typename T>
+bool operator<(const optional<T>&, nullopt_t) {
+	return false;
+}
+
+template <typename T>
+bool operator<(nullopt_t, const optional<T>& right) {
+	return right.has_value();
+}
+
+template <typename T>
+bool operator<=(const optional<T>& left, nullopt_t) {
+	return !left.has_value();
+}
+
+template <typename T>
+bool operator<=(nullopt_t, const optional<T>&) {
+	return true;
+}
+
+template <typename T>
+bool operator>(const optional<T>& left, nullopt_t) {
+	return left.has_value();
+}
+
+template <typename T>
+bool operator>(nullopt_t, const optional<T>&) {
+	return false;
+}
+
+template <typename T>
+bool operator>=(const optional<T>&, nullopt_t) {
+	return true;
+}
+
+template <typename T>
+bool operator>=(nullopt_t, const optional<T>& right) {
+	return !right.has_value();
+}
+
+template <typename T, typename U,
+          typename = enable_if_t<!__tayga_is_optional<decay_t<U>>::value && !is_same<decay_t<U>, nullopt_t>::value>>
+bool operator==(const optional<T>& left, const U& right) {
+	return left.has_value() && *left == right;
+}
+
+template <typename T, typename U,
+          typename = enable_if_t<!__tayga_is_optional<decay_t<U>>::value && !is_same<decay_t<U>, nullopt_t>::value>>
+bool operator==(const U& left, const optional<T>& right) {
+	return right == left;
+}
+
+template <typename T, typename U,
+          typename = enable_if_t<!__tayga_is_optional<decay_t<U>>::value && !is_same<decay_t<U>, nullopt_t>::value>>
+bool operator!=(const optional<T>& left, const U& right) {
+	return !(left == right);
+}
+
+template <typename T, typename U,
+          typename = enable_if_t<!__tayga_is_optional<decay_t<U>>::value && !is_same<decay_t<U>, nullopt_t>::value>>
+bool operator!=(const U& left, const optional<T>& right) {
+	return !(left == right);
+}
+
+template <typename T>
+bool operator<(const optional<T>& left, const optional<T>& right) {
+	if (!right.has_value()) {
+		return false;
+	}
+	if (!left.has_value()) {
+		return true;
+	}
+	return *left < *right;
+}
+
+template <typename T>
+bool operator>(const optional<T>& left, const optional<T>& right) {
+	return right < left;
+}
+
+template <typename T>
+bool operator<=(const optional<T>& left, const optional<T>& right) {
+	return !(right < left);
+}
+
+template <typename T>
+bool operator>=(const optional<T>& left, const optional<T>& right) {
+	return !(left < right);
+}
+
+template <typename T, typename U,
+          typename = enable_if_t<!__tayga_is_optional<decay_t<U>>::value && !is_same<decay_t<U>, nullopt_t>::value>>
+bool operator<(const optional<T>& left, const U& right) {
+	return !left.has_value() || *left < right;
+}
+
+template <typename T, typename U,
+          typename = enable_if_t<!__tayga_is_optional<decay_t<U>>::value && !is_same<decay_t<U>, nullopt_t>::value>>
+bool operator<(const U& left, const optional<T>& right) {
+	return right.has_value() && left < *right;
+}
+
+template <typename T, typename U,
+          typename = enable_if_t<!__tayga_is_optional<decay_t<U>>::value && !is_same<decay_t<U>, nullopt_t>::value>>
+bool operator>(const optional<T>& left, const U& right) {
+	return right < left;
+}
+
+template <typename T, typename U,
+          typename = enable_if_t<!__tayga_is_optional<decay_t<U>>::value && !is_same<decay_t<U>, nullopt_t>::value>>
+bool operator>(const U& left, const optional<T>& right) {
+	return right < left;
+}
+
+template <typename T, typename U,
+          typename = enable_if_t<!__tayga_is_optional<decay_t<U>>::value && !is_same<decay_t<U>, nullopt_t>::value>>
+bool operator<=(const optional<T>& left, const U& right) {
+	return !(right < left);
+}
+
+template <typename T, typename U,
+          typename = enable_if_t<!__tayga_is_optional<decay_t<U>>::value && !is_same<decay_t<U>, nullopt_t>::value>>
+bool operator<=(const U& left, const optional<T>& right) {
+	return !(right < left);
+}
+
+template <typename T, typename U,
+          typename = enable_if_t<!__tayga_is_optional<decay_t<U>>::value && !is_same<decay_t<U>, nullopt_t>::value>>
+bool operator>=(const optional<T>& left, const U& right) {
+	return !(left < right);
+}
+
+template <typename T, typename U,
+          typename = enable_if_t<!__tayga_is_optional<decay_t<U>>::value && !is_same<decay_t<U>, nullopt_t>::value>>
+bool operator>=(const U& left, const optional<T>& right) {
+	return !(left < right);
+}
+}
+
+namespace std {
+using wm::in_place_t;
+using wm::in_place;
+using wm::make_optional;
+}
+
+#endif

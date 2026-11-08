@@ -1,0 +1,23 @@
+#ifndef WINTER_HEADER_CTIME
+#define WINTER_HEADER_CTIME
+
+#include "time.h"
+
+namespace std {
+using ::clock_t;
+using ::time_t;
+using ::tm;
+using ::timespec;
+using ::clock;
+using ::difftime;
+using ::mktime;
+using ::time;
+using ::asctime;
+using ::ctime;
+using ::gmtime;
+using ::localtime;
+using ::strftime;
+using ::timespec_get;
+}
+
+#endif

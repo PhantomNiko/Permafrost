@@ -1,0 +1,30 @@
+#ifndef TAYGA_HEADER_MUTEX
+#define TAYGA_HEADER_MUTEX
+
+#include "winter_stdlib.hpp"
+
+namespace std {
+class recursive_mutex {
+public:
+	recursive_mutex() = default;
+	recursive_mutex(const recursive_mutex&) = delete;
+	recursive_mutex& operator=(const recursive_mutex&) = delete;
+
+	void lock() {
+		impl_.lock();
+	}
+
+	bool try_lock() {
+		return impl_.try_lock();
+	}
+
+	void unlock() {
+		impl_.unlock();
+	}
+
+private:
+	mutex impl_;
+};
+}
+
+#endif

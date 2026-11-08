@@ -1,0 +1,4 @@
+#ifndef WINTER_HEADER_CONDITION_VARIABLE
+#define WINTER_HEADER_CONDITION_VARIABLE
+#include "winter_stdlib.hpp"
+#endif

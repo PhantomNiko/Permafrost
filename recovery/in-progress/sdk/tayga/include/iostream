@@ -1,0 +1,413 @@
+#ifndef WINTER_HEADER_IOSTREAM
+#define WINTER_HEADER_IOSTREAM
+
+#include "ios"
+#include "cstdio"
+#include "string"
+
+namespace std {
+
+struct __tayga_boolalpha_t {};
+struct __tayga_noboolalpha_t {};
+struct __tayga_dec_t {};
+struct __tayga_hex_t {};
+struct __tayga_oct_t {};
+struct __tayga_uppercase_t {};
+struct __tayga_nouppercase_t {};
+
+inline constexpr __tayga_boolalpha_t boolalpha{};
+inline constexpr __tayga_noboolalpha_t noboolalpha{};
+inline constexpr __tayga_dec_t dec{};
+inline constexpr __tayga_hex_t hex{};
+inline constexpr __tayga_oct_t oct{};
+inline constexpr __tayga_uppercase_t uppercase{};
+inline constexpr __tayga_nouppercase_t nouppercase{};
+
+class locale {
+public:
+	locale() noexcept = default;
+	explicit locale(const char*) noexcept {}
+};
+
+class filebuf {
+public:
+	explicit filebuf(FILE* file = nullptr) noexcept
+		: file(file), memory(nullptr), memory_size(0), memory_offset(nullptr) {}
+
+	filebuf(const char* memory, size_t memory_size, size_t* memory_offset) noexcept
+		: file(nullptr), memory(memory), memory_size(memory_size), memory_offset(memory_offset) {}
+
+	FILE* file;
+	const char* memory;
+	size_t memory_size;
+	size_t* memory_offset;
+};
+
+class istream {
+public:
+	explicit istream(FILE* file = nullptr) noexcept
+		: file_(file), file_slot_(nullptr), memory_(nullptr), memory_size_(0), memory_offset_(0) {}
+	constexpr explicit istream(FILE** file_slot) noexcept
+		: file_(nullptr), file_slot_(file_slot), memory_(nullptr), memory_size_(0), memory_offset_(0) {}
+	~istream() = default;
+
+	filebuf rdbuf() noexcept {
+		if (memory_) {
+			return filebuf(memory_, memory_size_, &memory_offset_);
+		}
+		return filebuf(current_file());
+	}
+
+	int get() {
+		if (memory_) {
+			if (memory_offset_ >= memory_size_) {
+				return EOF;
+			}
+			return (unsigned char)memory_[memory_offset_++];
+		}
+		FILE* file = current_file();
+		return file ? std::fgetc(file) : EOF;
+	}
+
+protected:
+	void set_file(FILE* file) noexcept {
+		file_ = file;
+		file_slot_ = nullptr;
+		memory_ = nullptr;
+		memory_size_ = 0;
+		memory_offset_ = 0;
+	}
+
+	void set_memory(const char* memory, size_t size) noexcept {
+		file_ = nullptr;
+		file_slot_ = nullptr;
+		memory_ = memory;
+		memory_size_ = size;
+		memory_offset_ = 0;
+	}
+
+	void seek_memory(streamoff offset, ios_base::seekdir direction) noexcept {
+		if (!memory_) {
+			return;
+		}
+		long long base = 0;
+		if (direction == ios_base::cur) {
+			base = (long long)memory_offset_;
+		} else if (direction == ios_base::end) {
+			base = (long long)memory_size_;
+		}
+		long long target = base + (long long)offset;
+		if (target < 0) {
+			target = 0;
+		}
+		if ((size_t)target > memory_size_) {
+			target = (long long)memory_size_;
+		}
+		memory_offset_ = (size_t)target;
+	}
+
+	streampos tell_memory() const noexcept {
+		return (streampos)memory_offset_;
+	}
+
+	bool getline_into(string& line) {
+		line.clear();
+		FILE* file = current_file();
+		if (!file) {
+			return false;
+		}
+		for (;;) {
+			const int ch = std::fgetc(file);
+			if (ch == EOF) {
+				return !line.empty();
+			}
+			if (ch == '\n') {
+				return true;
+			}
+			if (ch != '\r') {
+				line.push_back((char)ch);
+			}
+		}
+	}
+
+private:
+	friend bool getline(istream& stream, string& line);
+	FILE* current_file() const noexcept {
+		return file_slot_ ? *file_slot_ : file_;
+	}
+
+	FILE* file_;
+	FILE** file_slot_;
+	const char* memory_;
+	size_t memory_size_;
+	size_t memory_offset_;
+};
+
+inline bool getline(istream& stream, string& line) {
+	return stream.getline_into(line);
+}
+
+template <typename CharT>
+class istreambuf_iterator {
+public:
+	using char_type = CharT;
+	using value_type = CharT;
+	using difference_type = ptrdiff_t;
+	using pointer = const CharT*;
+	using reference = const CharT&;
+
+	istreambuf_iterator() noexcept : data_(), index_(0) {}
+
+	explicit istreambuf_iterator(istream& stream)
+		: data_(make_shared<vector<CharT>>()), index_(0) {
+		for (;;) {
+			const int ch = stream.get();
+			if (ch == EOF) {
+				break;
+			}
+			data_->push_back(static_cast<CharT>(ch));
+		}
+		if (data_->empty()) {
+			data_.reset();
+		}
+	}
+
+	reference operator*() const {
+		return (*data_)[index_];
+	}
+
+	istreambuf_iterator& operator++() {
+		if (data_) {
+			++index_;
+			if (index_ >= data_->size()) {
+				data_.reset();
+				index_ = 0;
+			}
+		}
+		return *this;
+	}
+
+	istreambuf_iterator operator++(int) {
+		istreambuf_iterator copy(*this);
+		++(*this);
+		return copy;
+	}
+
+	bool equal(const istreambuf_iterator& other) const noexcept {
+		if (!data_ && !other.data_) {
+			return true;
+		}
+		return data_ == other.data_ && index_ == other.index_;
+	}
+
+private:
+	template <typename T>
+	friend bool operator==(const istreambuf_iterator<T>& left, const istreambuf_iterator<T>& right) noexcept;
+	template <typename T>
+	friend bool operator!=(const istreambuf_iterator<T>& left, const istreambuf_iterator<T>& right) noexcept;
+
+	shared_ptr<vector<CharT>> data_;
+	size_t index_;
+};
+
+template <typename CharT>
+inline bool operator==(const istreambuf_iterator<CharT>& left, const istreambuf_iterator<CharT>& right) noexcept {
+	return left.equal(right);
+}
+
+template <typename CharT>
+inline bool operator!=(const istreambuf_iterator<CharT>& left, const istreambuf_iterator<CharT>& right) noexcept {
+	return !left.equal(right);
+}
+
+class ostream {
+public:
+	explicit ostream(FILE* file = nullptr) noexcept
+		: file_(file), file_slot_(nullptr), boolalpha_(false), base_(10), uppercase_(false), width_(0), fill_(' ') {}
+	constexpr explicit ostream(FILE** file_slot) noexcept
+		: file_(nullptr), file_slot_(file_slot), boolalpha_(false), base_(10), uppercase_(false), width_(0), fill_(' ') {}
+	~ostream() = default;
+
+	ostream& put(char value) {
+		FILE* file = current_file();
+		if (file) {
+			std::fputc((int)value, file);
+		}
+		return *this;
+	}
+
+	ostream& flush() {
+		FILE* file = current_file();
+		if (file) {
+			std::fflush(file);
+		}
+		return *this;
+	}
+
+	ostream& operator<<(const string& value) {
+		return write_formatted(value.data(), value.size());
+	}
+
+	ostream& operator<<(string_view value) {
+		return write_formatted(value.data(), value.size());
+	}
+
+	ostream& operator<<(const char* value) {
+		return write_formatted(value ? value : "", value ? wm::string_length(value) : 0);
+	}
+
+	ostream& operator<<(char value) {
+		return put(value);
+	}
+
+	ostream& operator<<(bool value) {
+		return *this << (boolalpha_ ? (value ? "true" : "false") : (value ? "1" : "0"));
+	}
+
+	ostream& operator<<(short value) { return write_signed((long long)value); }
+	ostream& operator<<(unsigned short value) { return write_unsigned((unsigned long long)value); }
+	ostream& operator<<(int value) { return write_signed((long long)value); }
+	ostream& operator<<(unsigned int value) { return write_unsigned((unsigned long long)value); }
+	ostream& operator<<(long value) { return write_signed((long long)value); }
+	ostream& operator<<(unsigned long value) { return write_unsigned((unsigned long long)value); }
+	ostream& operator<<(long long value) { return write_signed(value); }
+	ostream& operator<<(unsigned long long value) { return write_unsigned(value); }
+	ostream& operator<<(float value) { return *this << std::to_string(value); }
+	ostream& operator<<(double value) { return *this << std::to_string(value); }
+
+	ostream& operator<<(ostream& (*manipulator)(ostream&)) {
+		return manipulator(*this);
+	}
+
+	ostream& operator<<(__tayga_boolalpha_t) {
+		boolalpha_ = true;
+		return *this;
+	}
+
+	ostream& operator<<(__tayga_noboolalpha_t) {
+		boolalpha_ = false;
+		return *this;
+	}
+
+	ostream& operator<<(__tayga_dec_t) {
+		base_ = 10;
+		return *this;
+	}
+
+	ostream& operator<<(__tayga_hex_t) {
+		base_ = 16;
+		return *this;
+	}
+
+	ostream& operator<<(__tayga_oct_t) {
+		base_ = 8;
+		return *this;
+	}
+
+	ostream& operator<<(__tayga_uppercase_t) {
+		uppercase_ = true;
+		return *this;
+	}
+
+	ostream& operator<<(__tayga_nouppercase_t) {
+		uppercase_ = false;
+		return *this;
+	}
+
+	void set_width(int width) noexcept {
+		width_ = width > 0 ? width : 0;
+	}
+
+	void set_fill(char fill) noexcept {
+		fill_ = fill;
+	}
+
+	ostream& write(const char* data, size_t size) {
+		FILE* file = current_file();
+		if (file && data && size != 0) {
+			std::fwrite(data, 1u, size, file);
+		}
+		return *this;
+	}
+
+	streampos tellp() const {
+		FILE* file = current_file();
+		return file ? (streampos)std::ftell(file) : (streampos)-1;
+	}
+
+protected:
+	void set_file(FILE* file) noexcept {
+		file_ = file;
+		file_slot_ = nullptr;
+	}
+
+private:
+	FILE* current_file() const noexcept {
+		return file_slot_ ? *file_slot_ : file_;
+	}
+
+	ostream& write_formatted(const char* data, size_t size) {
+		if (width_ > 0 && (size_t)width_ > size) {
+			const size_t padding = (size_t)width_ - size;
+			for (size_t i = 0; i < padding; ++i) {
+				put(fill_);
+			}
+		}
+		width_ = 0;
+		return write(data, size);
+	}
+
+	ostream& write_signed(long long value) {
+		if (base_ == 10) {
+			string text = std::to_string(value);
+			return write_formatted(text.data(), text.size());
+		}
+		return write_unsigned((unsigned long long)value);
+	}
+
+	ostream& write_unsigned(unsigned long long value) {
+		string text;
+		if (base_ == 10) {
+			text = std::to_string(value);
+		} else {
+			const char* digits = uppercase_ ? "0123456789ABCDEF" : "0123456789abcdef";
+			const unsigned base = base_ == 8 ? 8u : 16u;
+			char scratch[sizeof(unsigned long long) * 8];
+			size_t count = 0;
+			do {
+				scratch[count++] = digits[value % base];
+				value /= base;
+			} while (value != 0);
+			while (count > 0) {
+				text.push_back(scratch[--count]);
+			}
+		}
+		return write_formatted(text.data(), text.size());
+	}
+
+	FILE* file_;
+	FILE** file_slot_;
+	bool boolalpha_;
+	int base_;
+	bool uppercase_;
+	int width_;
+	char fill_;
+};
+
+inline ostream& endl(ostream& stream) {
+	stream.put('\n');
+	return stream.flush();
+}
+
+inline ostream& flush(ostream& stream) {
+	return stream.flush();
+}
+
+inline istream cin(&stdin);
+inline ostream cout(&stdout);
+inline ostream cerr(&stderr);
+inline ostream clog(&stderr);
+
+}
+
+#endif

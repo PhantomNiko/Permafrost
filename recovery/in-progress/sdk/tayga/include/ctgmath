@@ -1,0 +1,7 @@
+#ifndef WINTER_HEADER_CTGMATH
+#define WINTER_HEADER_CTGMATH
+
+#include "cmath"
+#include "tgmath.h"
+
+#endif

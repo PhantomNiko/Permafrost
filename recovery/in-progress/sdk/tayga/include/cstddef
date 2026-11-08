@@ -1,0 +1,7 @@
+#ifndef TAYGA_HEADER_CSTDDEF
+#define TAYGA_HEADER_CSTDDEF
+
+#include "stddef.h"
+#include "winter_stdlib.hpp"
+
+#endif

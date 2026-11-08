@@ -1,0 +1,4 @@
+#ifndef WINTER_HEADER_SPAN
+#define WINTER_HEADER_SPAN
+#include "winter_stdlib.hpp"
+#endif

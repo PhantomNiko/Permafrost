@@ -1,0 +1,287 @@
+#ifndef WINTER_HEADER_FSTREAM
+#define WINTER_HEADER_FSTREAM
+
+#include "ios"
+#include "iostream"
+#include "string"
+
+namespace std {
+
+namespace detail {
+
+inline int seekdir_to_c(ios_base::seekdir direction) {
+	if (direction == ios_base::cur) return SEEK_CUR;
+	if (direction == ios_base::end) return SEEK_END;
+	return SEEK_SET;
+}
+
+inline const char* fopen_mode(ios_base::openmode mode) {
+	const bool wants_in = (mode & ios_base::in) != 0;
+	const bool wants_out = (mode & ios_base::out) != 0;
+	const bool wants_app = (mode & ios_base::app) != 0;
+	const bool wants_trunc = (mode & ios_base::trunc) != 0;
+	const bool wants_binary = (mode & ios_base::binary) != 0;
+
+	if (wants_in && wants_out) {
+		if (wants_app) return wants_binary ? "a+b" : "a+";
+		if (wants_trunc) return wants_binary ? "w+b" : "w+";
+		return wants_binary ? "r+b" : "r+";
+	}
+	if (wants_out) {
+		if (wants_app) return wants_binary ? "ab" : "a";
+		return wants_binary ? "wb" : "w";
+	}
+	return wants_binary ? "rb" : "r";
+}
+
+} // namespace detail
+
+class basic_file {
+public:
+	basic_file() noexcept : file_(nullptr), good_(false), gcount_(0) {}
+	basic_file(const basic_file&) = delete;
+	basic_file& operator=(const basic_file&) = delete;
+
+	basic_file(basic_file&& other) noexcept
+		: file_(other.file_), good_(other.good_), gcount_(other.gcount_) {
+		other.file_ = nullptr;
+		other.good_ = false;
+		other.gcount_ = 0;
+	}
+
+	basic_file& operator=(basic_file&& other) noexcept {
+		if (this != &other) {
+			close();
+			file_ = other.file_;
+			good_ = other.good_;
+			gcount_ = other.gcount_;
+			other.file_ = nullptr;
+			other.good_ = false;
+			other.gcount_ = 0;
+		}
+		return *this;
+	}
+
+	~basic_file() {
+		close();
+	}
+
+	bool is_open() const noexcept {
+		return file_ != nullptr;
+	}
+
+	bool good() const noexcept {
+		return file_ != nullptr && good_;
+	}
+
+	explicit operator bool() const noexcept {
+		return file_ != nullptr && good_;
+	}
+
+	bool operator!() const noexcept {
+		return !static_cast<bool>(*this);
+	}
+
+	void clear() noexcept {
+		good_ = file_ != nullptr;
+		gcount_ = 0;
+	}
+
+	void close() {
+		if (file_) {
+			std::fclose(file_);
+			file_ = nullptr;
+		}
+		good_ = false;
+		gcount_ = 0;
+	}
+
+	streamsize gcount() const noexcept {
+		return gcount_;
+	}
+
+protected:
+	void open_file(const char* path, ios_base::openmode mode) {
+		close();
+		file_ = std::fopen(path, detail::fopen_mode(mode));
+		good_ = file_ != nullptr;
+		gcount_ = 0;
+	}
+
+	void read_bytes(char* data, streamsize size) {
+		if (!file_ || !data || size < 0) {
+			good_ = false;
+			gcount_ = 0;
+			return;
+		}
+		gcount_ = (streamsize)std::fread(data, 1u, (size_t)size, file_);
+		good_ = gcount_ == size;
+	}
+
+	void write_bytes(const char* data, streamsize size) {
+		if (!file_ || (!data && size != 0) || size < 0) {
+			good_ = false;
+			return;
+		}
+		const size_t written = std::fwrite(data, 1u, (size_t)size, file_);
+		good_ = written == (size_t)size;
+	}
+
+	void seek_get(streamoff offset, ios_base::seekdir direction) {
+		if (!file_ || std::fseek(file_, (long)offset, detail::seekdir_to_c(direction)) != 0) {
+			good_ = false;
+		} else {
+			good_ = true;
+		}
+	}
+
+	streampos tell_get() {
+		if (!file_) {
+			good_ = false;
+			return (streampos)-1;
+		}
+		const long position = std::ftell(file_);
+		if (position < 0) {
+			good_ = false;
+			return (streampos)-1;
+		}
+		good_ = true;
+		return (streampos)position;
+	}
+
+	FILE* file_;
+	bool good_;
+	streamsize gcount_;
+};
+
+class ifstream : public basic_file, public istream {
+public:
+	ifstream() = default;
+	explicit ifstream(const char* path, ios_base::openmode mode = ios_base::in) {
+		open(path, mode);
+	}
+	explicit ifstream(const string& path, ios_base::openmode mode = ios_base::in) {
+		open(path.c_str(), mode);
+	}
+
+	void open(const char* path, ios_base::openmode mode = ios_base::in) {
+		open_file(path, mode | ios_base::in);
+		istream::set_file(basic_file::file_);
+	}
+
+	void close() {
+		basic_file::close();
+		istream::set_file(nullptr);
+	}
+
+	ifstream& read(char* data, streamsize size) {
+		read_bytes(data, size);
+		return *this;
+	}
+
+	ifstream& seekg(streamoff offset, ios_base::seekdir direction = ios_base::beg) {
+		seek_get(offset, direction);
+		return *this;
+	}
+
+	streampos tellg() {
+		return tell_get();
+	}
+
+	streampos tellp() {
+		return tell_get();
+	}
+
+	filebuf rdbuf() noexcept {
+		return filebuf(basic_file::file_);
+	}
+};
+
+class ofstream : public basic_file, public ostream {
+public:
+	ofstream() = default;
+	explicit ofstream(const char* path, ios_base::openmode mode = ios_base::out) {
+		open(path, mode);
+	}
+	explicit ofstream(const string& path, ios_base::openmode mode = ios_base::out) {
+		open(path.c_str(), mode);
+	}
+
+	void open(const char* path, ios_base::openmode mode = ios_base::out) {
+		open_file(path, mode | ios_base::out);
+		ostream::set_file(basic_file::file_);
+	}
+
+	void close() {
+		basic_file::close();
+		ostream::set_file(nullptr);
+	}
+
+	ofstream& write(const char* data, streamsize size) {
+		write_bytes(data, size);
+		return *this;
+	}
+
+	filebuf rdbuf() noexcept {
+		return filebuf(basic_file::file_);
+	}
+};
+
+class fstream : public basic_file, public istream, public ostream {
+public:
+	fstream() = default;
+	explicit fstream(const char* path, ios_base::openmode mode = ios_base::in | ios_base::out) {
+		open(path, mode);
+	}
+	explicit fstream(const string& path, ios_base::openmode mode = ios_base::in | ios_base::out) {
+		open(path.c_str(), mode);
+	}
+
+	void open(const char* path, ios_base::openmode mode = ios_base::in | ios_base::out) {
+		open_file(path, mode);
+		istream::set_file(basic_file::file_);
+		ostream::set_file(basic_file::file_);
+	}
+
+	void close() {
+		basic_file::close();
+		istream::set_file(nullptr);
+		ostream::set_file(nullptr);
+	}
+
+	fstream& read(char* data, streamsize size) {
+		read_bytes(data, size);
+		return *this;
+	}
+
+	fstream& write(const char* data, streamsize size) {
+		write_bytes(data, size);
+		return *this;
+	}
+
+	fstream& seekg(streamoff offset, ios_base::seekdir direction = ios_base::beg) {
+		seek_get(offset, direction);
+		return *this;
+	}
+
+	fstream& seekp(streamoff offset, ios_base::seekdir direction = ios_base::beg) {
+		seek_get(offset, direction);
+		return *this;
+	}
+
+	streampos tellg() {
+		return tell_get();
+	}
+
+	streampos tellp() {
+		return tell_get();
+	}
+
+	filebuf rdbuf() noexcept {
+		return filebuf(basic_file::file_);
+	}
+};
+
+} // namespace std
+
+#endif

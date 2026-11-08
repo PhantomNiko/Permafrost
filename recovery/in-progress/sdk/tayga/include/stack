@@ -1,0 +1,4 @@
+#ifndef WINTER_HEADER_STACK
+#define WINTER_HEADER_STACK
+#include "winter_stdlib.hpp"
+#endif

@@ -1,0 +1,6 @@
+#ifndef WINTER_HEADER_OSTREAM
+#define WINTER_HEADER_OSTREAM
+
+#include "iostream"
+
+#endif

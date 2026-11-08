@@ -1,0 +1,4 @@
+#ifndef WINTER_HEADER_DEQUE
+#define WINTER_HEADER_DEQUE
+#include "winter_stdlib.hpp"
+#endif
