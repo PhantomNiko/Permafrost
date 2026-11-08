@@ -6,8 +6,11 @@ Pooka's Free Software License.
 from pathlib import Path
 import struct
 import sys
+import uuid
+import zlib
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools'))
 from wmfs import BASE, SECTOR, Image, make_disk, repack_image
+from gpt import make_disk as make_gpt_disk, unpack_disk
 
 
 def main():
@@ -45,6 +48,31 @@ def main():
             if (flags==2)!=(name=='Bundle.app'):
                 raise AssertionError('directory marker differs from an empty file')
     print('Mixed filesystem and opaque-volume updates preserve partition bytes.')
+    # A reference GPT disk can also contain BIOS boot code and other firmware.
+    gpt=bytearray(make_gpt_disk(bytes(512),reference))
+    gpt[:16]=b'legacy boot code'
+    opaque=bytes(range(256))*4
+    gpt[40*512:42*512]=opaque
+    entries=bytearray(gpt[1024:1024+128*128])
+    entries[256:272]=uuid.UUID('9d275380-40ad-11db-bf97-000c2911d1b8').bytes_le
+    struct.pack_into('<QQ',entries,256+32,40,41)
+    for header_sector,table_sector in [(1,2),(len(gpt)//512-1,len(gpt)//512-33)]:
+        gpt[table_sector*512:table_sector*512+len(entries)]=entries
+        header=bytearray(gpt[header_sector*512:(header_sector+1)*512])
+        struct.pack_into('<I',header,88,zlib.crc32(entries))
+        struct.pack_into('<I',header,16,0)
+        struct.pack_into('<I',header,16,zlib.crc32(header[:92]))
+        gpt[header_sector*512:(header_sector+1)*512]=header
+    before=bytes(gpt)
+    changed=Image(before).files()|{'added':b'GPT payload update'}
+    actual=repack_image(before,changed)
+    payload_start=struct.unpack_from('<Q',entries,128+32)[0]*512
+    payload_end=payload_start+len(reference)
+    assert actual[:payload_start]==before[:payload_start]
+    assert actual[payload_end:]==before[payload_end:]
+    assert Image(actual).files()==changed
+    assert unpack_disk(actual)[0]==unpack_disk(before)[0]
+    print('GPT updates retain BIOS boot code, firmware partitions and both GPT tables.')
 
 
 if __name__ == '__main__':

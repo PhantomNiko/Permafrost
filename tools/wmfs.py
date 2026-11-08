@@ -227,10 +227,15 @@ def make_disk(boot, loader, firmware, recovery, user, sectors=8192,
 def repack_image(raw, files, partition=0, sectors=None):
     """Update one volume while preserving the other partitions' files."""
     if raw[512:520] == b'EFI PART':
-        from gpt import unpack_disk, make_disk as make_gpt_disk
+        from gpt import unpack_disk, replace_payload, make_disk as make_gpt_disk
         esp, nested = unpack_disk(raw)
-        nested = repack_image(nested,files,partition,sectors or len(nested)//SECTOR)
-        return make_gpt_disk(esp,nested)
+        updated = repack_image(nested,files,partition,sectors or len(nested)//SECTOR)
+        if len(updated)==len(nested):return replace_payload(raw,updated)
+        table,count,extent=struct.unpack_from('<QII',raw,512+72)
+        occupied=sum(any(raw[table*512+i*extent:table*512+i*extent+16])for i in range(count))
+        if occupied!=2:
+            raise ValueError('resizing a mixed GPT layout requires an explicit partition plan')
+        return make_gpt_disk(esp,updated)
     image = Image(raw)
     sectors = sectors or len(raw) // SECTOR
     if not image.partitions:

@@ -51,3 +51,19 @@ def unpack_disk(data):
         found[kind]=data[first*512:(last+1)*512]
     if set(found)!={EFI_TYPE,SHIM_TYPE}:raise ValueError('missing Permafrost GPT partition')
     return found[EFI_TYPE],found[SHIM_TYPE]
+
+
+def replace_payload(data,payload):
+    """Replace the nested disk without changing boot code or other partitions."""
+    _,previous=unpack_disk(data)
+    if len(payload)!=len(previous):
+        raise ValueError('preserving a GPT layout requires an unchanged payload extent')
+    table,count,extent=struct.unpack_from('<QII',data,512+72)
+    for index in range(count):
+        offset=table*512+index*extent
+        if data[offset:offset+16]!=SHIM_TYPE.bytes_le:continue
+        first=struct.unpack_from('<Q',data,offset+32)[0]
+        output=bytearray(data)
+        output[first*512:first*512+len(payload)]=payload
+        return bytes(output)
+    raise ValueError('missing Permafrost GPT partition')
