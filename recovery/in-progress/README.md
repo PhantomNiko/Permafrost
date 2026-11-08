@@ -127,6 +127,21 @@ zero; its full startup and scheduling behavior still needs VM comparison.
 The architectural debugger registers and framebuffer observations remain local
 diagnostics; ARM VM compatibility is still unfinished.
 
+Desktop integration diagnostics replace eleven reference DLLs with the recovered
+C libraries, including TerrorUI, while retaining the reference kernel,
+applications, drivers and standalone runtime. The x86-64 diagnostic reaches the
+desktop. ARM64 also reaches the desktop with the GICv3 and guest-RAM timer
+adjustment described above. ARM32 remains at the handoff screen, and BIOS i386
+reaches Batagaika first-boot setup. These observations establish boot progress,
+not interactive TerrorUI or complete source-image equivalence.
+
+GPT filesystem updates now preserve the existing BIOS boot area, firmware
+partitions and partition tables. Previously, repacking rebuilt a two-partition
+GPT container and discarded the other boot components. A regression fixture
+checks the surrounding bytes, and the repaired BIOS diagnostic reaches setup.
+The source-kernel x86-64 diagnostic separately stops on a startup-script parse
+error before the desktop loads; that kernel integration issue remains open.
+
 Diagnostic snapshots and VM disks remain outside tracked source. The normal
 build continues to use the last completed source tree until the next milestone
 passes its complete source build and VM comparisons. That transition must move

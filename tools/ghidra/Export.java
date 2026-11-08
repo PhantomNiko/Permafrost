@@ -348,6 +348,11 @@ public class Export extends GhidraScript {
                         metadata.append("F\t").append(key).append('\t').append(occurrence)
                             .append('\t').append(fieldWidth==4?"float":"double").append('\n');
                     var operation = dot.getPcodeOp();
+                    if (operation != null && (operation.getOpcode() == PcodeOp.INT_SLESS ||
+                        operation.getOpcode() == PcodeOp.INT_SLESSEQUAL) &&
+                        (fieldWidth == 1 || fieldWidth == 2 || fieldWidth == 4 || fieldWidth == 8))
+                        metadata.append("I\t").append(key).append('\t').append(occurrence)
+                            .append('\t').append(fieldWidth).append('\n');
                     if (operation == null || operation.getOpcode() != PcodeOp.PTRADD ||
                         !operation.getInput(2).isConstant()) continue;
                     // PTRADD uses an integer index as well as a pointer base.

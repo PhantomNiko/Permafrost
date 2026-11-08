@@ -78,6 +78,17 @@ recovered_5010:
 }
 ''')
         (notes / '5000.tsv').write_text('G\trecovered_5010\t5010\tundefined4:4\n')
+        (notes / '6000.c').write_text('''
+int recovered_6000(int value)
+{
+ undefined8 pair;
+ pair._4_4_=value;
+ if(-1<pair._4_4_)return 3;
+ if(pair._4_4_<0)return -3;
+ return 0;
+}
+''')
+        (notes / '6000.tsv').write_text('I\tpair._4_4_\t2\t4\nI\tpair._4_4_\t3\t4\n')
         layout = root / 'layout.json'
         layout.write_text(json.dumps({'translation': {
             'pointer_bytes': 8, 'scalar_storage_views': True,
@@ -98,6 +109,8 @@ int main(void) {
  if(recovered_3000(3.5)!=7.25 || recovered_3000(-1.25)!=2.5)return 3;
  if(recovered_4000(0xab000000000000cdULL)!=0xab000000000000cdULL)return 4;
  if(recovered_5000(0)!=0||recovered_5000(5)!=6)return 5;
+ if(recovered_6000(0)!=3||recovered_6000(2147483647)!=3)return 6;
+ if(recovered_6000(-1)!=-3||recovered_6000(-2147483647-1)!=-3)return 7;
  return 0;
 }
 ''')

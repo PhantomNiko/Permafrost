@@ -714,6 +714,7 @@ def main():
         source = re.sub(r'__(?:fastcall|cdecl|thiscall|stdcall_softfp|regparm[0-9])\s+', '', source)
         pointer_fields = {(row[1], int(row[2])): int(row[3]) for row in metadata if row[0] == 'P'}
         floating_fields = {(row[1], int(row[2])): row[3] for row in metadata if row[0] == 'F'}
+        signed_fields = {(row[1], int(row[2])): int(row[3]) for row in metadata if row[0] == 'I'}
         field_occurrences = {}
         def partial_field(match):
             key = '%s._%s_%s_' % (match[1], match[2], match[3])
@@ -726,6 +727,11 @@ def main():
                     raise ValueError('invalid floating field metadata')
                 value = '(*(%s *)((uint8_t *)&(%s)+%s))' % (floating, match[1], match[2])
             scale = pointer_fields.get((key, occurrence))
+            signed = signed_fields.get((key, occurrence))
+            if signed:
+                if signed not in (1, 2, 4, 8) or signed != int(match[3]):
+                    raise ValueError('invalid signed field metadata')
+                value = '((int%d_t)%s)' % (signed * 8, value)
             if re.match(r'\s*=(?!=)',match.string[match.end():]):scale=None
             if scale:
                 element = {1: 'uint8_t', 2: 'uint16_t', 4: 'uint32_t', 8: 'uint64_t'}.get(
