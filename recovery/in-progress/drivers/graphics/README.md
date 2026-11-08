@@ -8,8 +8,10 @@ C, headers, and relocation metadata, without reference executable inputs.
 `tests/graphics_driver.py` compares descriptors and initialization against a
 reference thin library and verifies that the submitted software provider
 callback points into the source-built image. These checks cover an existing
-framebuffer with no enumerated PCI display device. Hardware transport and
-software rasterizer comparisons remain to be completed.
+framebuffer with no enumerated PCI display device. `tests/graphics_pci.py` additionally compares eight ARM32 PCI record cases,
+including failed reads, absent vendor IDs, and bytes the native helper leaves
+untouched. Hardware transport and software rasterizer comparisons remain to be
+completed.
 
 The compatibility changes preserve an existing firmware framebuffer rather
 than requesting another mode or resetting its virtio GPU queues. ARM32 code

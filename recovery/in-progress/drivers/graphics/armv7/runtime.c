@@ -1815,7 +1815,7 @@ undefined4 recovered_100057e0(undefined4 *api,uint bus,uint slot,uint function,u
  if(!recovered_100059a4((int *)api,bus,slot,function,4,4,&command))command=0;
  if(!recovered_100059a4((int *)api,bus,slot,function,12,4,&header))header=0;
  out[0]=(byte)bus;out[1]=(byte)slot;out[2]=(byte)function;
- __builtin_memcpy(out+4,&identity,4);out[8]=(byte)(classification>>24);out[9]=(byte)(classification>>16);out[10]=(byte)(classification>>8);out[11]=0;out[12]=(byte)(header>>16);
+ __builtin_memcpy(out+4,&identity,4);out[8]=(byte)(classification>>24);out[9]=(byte)(classification>>16);out[10]=(byte)(classification>>8);out[11]=(byte)classification;out[12]=(byte)(header>>16);
  __builtin_memcpy(out+16,&command,4);
  for(uint i=0;i<6;i++){value=0;recovered_100059a4((int *)api,bus,slot,function,16+i*4,4,&value);__builtin_memcpy(out+20+i*4,&value,4);}
  return 1;
@@ -1836,8 +1836,8 @@ int recovered_100059a4(int *api,uint bus,uint slot,uint function,uint offset,uin
   int iVar1;
   code *pcVar2;
 
-  if (((api != (int *)0x0) && ((code *)*api == (0x57U))) && (0x5f < (uint)api[2])) {
-    pcVar2 = (0x57U);
+  if (((api != (int *)0x0) && ((code *)*api == (0x54584b57U))) && (0x5f < (uint)api[2])) {
+    pcVar2 = (0x54584b57U);
     if (out != (uint *)0x0) {
       pcVar2 = (code *)api[0x17];
     }
@@ -2563,8 +2563,8 @@ undefined4 recovered_100065f4(int *param_1,undefined4 param_2,undefined4 param_3
   undefined4 uVar1;
   code *UNRECOVERED_JUMPTABLE;
 
-  if ((param_1 != (int *)0x0) && ((code *)*param_1 == (0x57U))) {
-    UNRECOVERED_JUMPTABLE = (0x57U);
+  if ((param_1 != (int *)0x0) && ((code *)*param_1 == (0x54584b57U))) {
+    UNRECOVERED_JUMPTABLE = (0x54584b57U);
     if ((uint)param_1[2] < 0xc0) {
       if ((uint)param_1[2] < 0x6c) {
         return 0;
