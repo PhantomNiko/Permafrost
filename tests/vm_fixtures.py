@@ -25,6 +25,21 @@ def fixtures(language):
             ('a={3,5,8}\nanswer=a[2]',5),
             ('answer=(1.5*2.0+0.25)*4',13),
         ]
+    if language=='rwby':
+        extra += [
+            ('answer=17%5',2),
+            ('answer=21/3',7),
+            ('answer=4294967297+7',4294967304),
+            ('answer=0\nif 3<4\nanswer=11\nelse\nanswer=7\nend',11),
+            ('answer=0\nif false\nanswer=7\nelse\nanswer=11\nend',11),
+            ('a=[1,2]\na[0]=17\nanswer=a[0]',17),
+            ('answer=utf8_len("Hello")',5),
+            ('answer=utf8_len("雪❄️")',3),
+            ('def inc(x)\nreturn x+1\nend\nanswer=inc(inc(40))',42),
+            ('def fact(n)\nif n<=1\nreturn 1\nend\nreturn n*fact(n-1)\nend\nanswer=fact(6)',720),
+            ('answer=(-1.5+4.75)*4',13),
+            ('a=[3,5,8]\nanswer=0\ni=0\nwhile i<3\nanswer=answer+a[i]\ni=i+1\nend',16),
+        ]
     comparison = ('if "Perma".."frost"=="Permafrost" then answer=1 else answer=0 end'
                   if language == 'lua' else
                   'if "Perma"+"frost"=="Permafrost"\nanswer=1\nelse\nanswer=0\nend')

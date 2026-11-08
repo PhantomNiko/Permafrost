@@ -57,12 +57,15 @@ def main():
         double joined=(double)((pf_double_bits(3.5)&0xffffffff00000000ULL)+(pf_double_bits(3.5)&0xffffffffULL));
         if(joined!=3.5)return 15;
         double joined_words;
+        uint64_t split_bits=pf_double_bits(-13.25);
+        double rejoined=(double)((split_bits & 0xffffffff00000000) + (split_bits & 0xffffffff));
+        if(rejoined!=-13.25)return 18;
         joined_words=(double)(CONCAT44(0x400c0000,0));
         if(joined_words!=3.5)return 16;
         double integer_words=(double)CONCAT31(0,3);
         if(integer_words!=3.0)return 17;
         float float_flag = (float)CONCAT31(0,1);
-        if (pf_float_bits(float_flag) != 1) return 9;
+        if (float_flag != 1.0f) return 9;
         float_flag = (float)(CONCAT31(0,1)&1);
         if (pf_float_bits(float_flag) != 1) return 10;
         byte character = ' ';

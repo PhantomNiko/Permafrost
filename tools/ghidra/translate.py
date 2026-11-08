@@ -185,6 +185,8 @@ def signature(source):
 
 
 def rewrite_double_bits(source):
+    source=re.sub(r'\(double\)\(\((\w+) & 0xffffffff00000000\) \+ '
+                  r'\(\1 & 0xffffffff\)\)',r'pf_bits_double(\1)',source)
     # Wrap balanced CONCAT/mask expressions rather than attempting to parse
     # their arbitrary nesting with a regular expression.
     pattern = r'\(double\)(?=(?:\(*CONCAT(?:17|26|35|44|53|62|71)\(|\(+pf_double_bits\())'
