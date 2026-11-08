@@ -1,0 +1,72 @@
+{
+  "module": "RamfbDriver",
+  "architecture": "i386",
+  "version": "1.0",
+  "install_name": "/lib/RamfbDriver.dylib",
+  "functions": {
+    "0x11e0": "recovered_100011e0",
+    "0x11f0": "recovered_100011f0",
+    "0x36f0": "recovered_100036f0",
+    "0x3840": "recovered_10003840",
+    "0x53d0": "recovered_100053d0",
+    "0x5440": "recovered_10005440",
+    "0x5570": "recovered_10005570",
+    "0x5780": "recovered_10005780",
+    "0xa8f0": "recovered_1000a8f0",
+    "0xaac0": "recovered_1000aac0",
+    "0xb180": "recovered_1000b180",
+    "0xb850": "recovered_1000b850",
+    "0xb980": "recovered_1000b980",
+    "0xb9e0": "recovered_1000b9e0",
+    "0xba30": "recovered_1000ba30",
+    "0xba90": "recovered_1000ba90",
+    "0xbae0": "recovered_1000bae0",
+    "0xbb80": "recovered_1000bb80",
+    "0xbdb0": "recovered_1000bdb0",
+    "0xbe10": "recovered_1000be10"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 4576,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 4592,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 2762,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 382
+      },
+      "tag": 0
+    },
+    {
+      "offset": 2766,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 736
+      },
+      "tag": 0
+    },
+    {
+      "offset": 2770,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 745
+      },
+      "tag": 0
+    }
+  ],
+  "data_exports": []
+}

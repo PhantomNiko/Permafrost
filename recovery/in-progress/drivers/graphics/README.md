@@ -1,6 +1,6 @@
 # Graphics driver recovery checkpoint
 
-The ARM32 and ARM64 driver descriptors, initialization records, software GPU
+The i386, x64, ARM32, and ARM64 driver descriptors, initialization records, software GPU
 provider registration, and C implementations are recovered from the 1.0
 reference. Build each directory with `tools/library_native.py`; the build reads
 C, headers, and relocation metadata, without reference executable inputs.
@@ -22,6 +22,6 @@ need further validation. Other drivers and programs in that diagnostic image
 remain reference binaries, so it is not a source-only release image.
 
 The direct hardware paths contain additional unresolved register and literal
-references. Neither architecture is a completed release driver yet. The 1.0
+references. None of the architecture checkpoints is a completed release driver yet. The 1.0
 release remains gated on all four architectures, complete source recovery,
 VM compatibility, images, and SDK packaging.
