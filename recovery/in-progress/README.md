@@ -211,8 +211,19 @@ GPT filesystem updates now preserve the existing BIOS boot area, firmware
 partitions and partition tables. Previously, repacking rebuilt a two-partition
 GPT container and discarded the other boot components. A regression fixture
 checks the surrounding bytes, and the repaired BIOS diagnostic reaches setup.
-The source-kernel x86-64 diagnostic separately stops on a startup-script parse
-error before the desktop loads; that kernel integration issue remains open.
+A new x86-64 diagnostic with the corrected C kernel and twelve C libraries
+reaches the desktop, including wallpaper, icons, windows and the live clock.
+The disk's kernel payload and its guest-memory entry stub match the rebuilt
+C kernel. Earlier source-kernel startup-script failure is no longer observed
+in this integration build. It still retains reference programs and drivers.
+
+The ARM64 C kernel also reaches the desktop with the current C firmware,
+twelve C libraries and GICv3. This run does not modify the timer interval in
+guest RAM. Wallpaper, icons and window surfaces render. Its epoch-based date
+reflects the reference ARM64 platform RTC stub, which clears the time record
+and returns unavailable. The current ARM32 C firmware/kernel diagnostic still
+has missing images, corrupt clock text and unresolved pointer integration.
+These observations do not establish complete source-image VM equivalence.
 
 Diagnostic snapshots and VM disks remain outside tracked source. The normal
 build continues to use the last completed source tree until the next milestone
