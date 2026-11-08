@@ -255,5 +255,9 @@
   },
   "20e2bf0": {
     "context = acStack_108 + 0x80;\n  recovered_201c9c0(context);": "context = acStack_108 + 0x80;\n  { uint64_t start_context[11] = {0}; uintptr_t stack = *(uintptr_t *)(param_1 + 0xa8); uintptr_t size = *(uintptr_t *)(param_1 + 0xb0); start_context[8] = 0; start_context[9] = (uintptr_t)recovered_20e31e0; start_context[10] = stack ? ((stack + size) & ~(uintptr_t)15) - 8 : (uintptr_t)-8; recovered_201c9c0(start_context); }"
+  },
+  "203e3d0": {
+    "ushort recovered_203e3d0(void)": "uint recovered_203e3d0(void)",
+    "return (ushort)uVar3;": "return uVar3;"
   }
 }

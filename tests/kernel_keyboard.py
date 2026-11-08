@@ -58,9 +58,10 @@ def exercise(binary, reference, mapping=None):
         cpu.hook_add(UC_HOOK_CODE, lambda cpu, address, size, user: finish(0),
                      begin=address, end=address)
     polled = []
+    platform_value = 0x1e61
     def platform(cpu, address, size, user):
         polled.append(True)
-        finish(0x1e61)
+        finish(platform_value)
     address = target('_wm_platform_poll_key_ax')
     cpu.hook_add(UC_HOOK_CODE, platform, begin=address, end=address)
     # The decoder has already executed. Invalidate its translated block before
@@ -88,6 +89,12 @@ def exercise(binary, reference, mapping=None):
         value = call(target('_wm_kernel_program_poll_key_ax'))
         routed.append((value, len(polled)))
         assert value == (0x1e61 if active else 0), (active, child, routed[-1])
+    for platform_value in [0x42e63, 0x10d2b, 0x80010000]:
+        cpu.mem_write(0x21737b0 + 0x34, struct.pack('<I', 10))
+        polled.clear()
+        value = call(target('_wm_kernel_program_poll_key_ax'))
+        routed.append((value, len(polled)))
+        assert value == platform_value, ('modifier flags were truncated', hex(platform_value), hex(value))
     return decoded, routed
 
 
@@ -104,7 +111,7 @@ def main():
     assert expected == actual, (expected, actual)
     assert expected[0] == [0x1e61, 0, 0x332, 0, 0x80010000, 0x10d2b,
                            0, 0x80000000, 0x433, 0, 0x1c0d, 0]
-    print('x64 keyboard: twelve scancode and four process/window routing cases passed.')
+    print('x64 keyboard: twelve scancode and seven process/window/modifier routing cases passed.')
 
 
 if __name__ == '__main__':

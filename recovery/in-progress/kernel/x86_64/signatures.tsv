@@ -788,7 +788,7 @@
 20c48f0	unsigned int recovered_20c48f0(int *param_1,long param_2,unsigned int param_3);	RDI,RSI,EDX
 20e3500	unsigned char recovered_20e3500(unsigned char param_1,unsigned int *param_2);	DIL,RSI
 20e13d0	unsigned int recovered_20e13d0(long param_1,unsigned long *param_2,long param_3,unsigned long *in_R8,unsigned long *in_R9);	RDI,RSI,RDX,RCX,R8
-203e3d0	unsigned short recovered_203e3d0(void);
+203e3d0	unsigned int recovered_203e3d0(void);
 2057e60	unsigned int recovered_2057e60(void);
 2004300	double recovered_2004300(double value);	XMM0_Qa
 2006960	unsigned char recovered_2006960(unsigned long param_1,unsigned long long param_2,unsigned int param_3,unsigned int param_4);	RDI,RSI,EDX,ECX

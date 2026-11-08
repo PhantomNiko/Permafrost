@@ -211,6 +211,12 @@ The terminal now refreshes inactive cached window information so a newly
 activated window can receive keys. All four source builds pass delayed-focus
 regressions and preserve native behavior for an already-active window. An x64
 VM diagnostic with the C kernel and libraries executes `2+3` and displays `5`.
+The x64 public keyboard callback now has the SDK's explicit 32-bit return
+contract. Its oracle covers twelve make/break and modifier scancodes plus
+seven active-window, child-process and modifier-routing cases. Scalar and
+statement comparisons still pass. The clean VM input check waits for the
+window's active flag before sending keys; fixed-delay input injection was
+inconsistent and does not establish interactive performance or full VM parity.
 
 Kernel statement comparisons now cover assignment, returned arithmetic,
 compound assignment, conditional returns, indexed arrays and numeric loops on
