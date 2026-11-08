@@ -92,6 +92,17 @@ int recovered_6000(int value)
 ''')
         (notes / '6000.tsv').write_text('I\tpair._4_4_\t2\t4\nI\tpair._4_4_\t3\t4\n'
                                       'I\tpair._0_1_\t1\t1\n')
+        (notes / '7000.c').write_text('''
+int recovered_7000(unsigned value)
+{
+ undefined1 storage[4];
+ uint *address;
+ address=(uint *)storage;
+ *address=value;
+ return (int)storage;
+}
+''')
+        (notes / '7000.tsv').write_text('Q\t-\t0\t0\nQ\tstorage\t3\t4\n')
         layout = root / 'layout.json'
         layout.write_text(json.dumps({'translation': {
             'pointer_bytes': 8, 'scalar_storage_views': True,
@@ -114,6 +125,7 @@ int main(void) {
  if(recovered_5000(0)!=0||recovered_5000(5)!=6)return 5;
  if(recovered_6000(0)!=3||recovered_6000(2147483647)!=3)return 6;
  if(recovered_6000(-1)!=-3||recovered_6000(-2147483647-1)!=-3)return 7;
+ if(recovered_7000(42)!=42||recovered_7000(0x80000001U)!=(int)0x80000001U)return 8;
  return 0;
 }
 ''')

@@ -279,7 +279,7 @@ public class Export extends GhidraScript {
                 result.getCCodeMarkup().flatten(tokens);
                 metadata.append("Q\t-\t0\t0\n");
                 var arrays=new java.util.HashSet<String>();
-                var arrayPattern=java.util.regex.Pattern.compile("undefined1\\s+(\\w+)\\s*\\[(?:8|16)\\]").matcher(source);
+                var arrayPattern=java.util.regex.Pattern.compile("undefined1\\s+(\\w+)\\s*\\[(?:4|8|16)\\]").matcher(source);
                 while(arrayPattern.find())arrays.add(arrayPattern.group(1));
                 var arrayOccurrences=new HashMap<String,Integer>();
                 for(int index=0;index<tokens.size();index++) {
