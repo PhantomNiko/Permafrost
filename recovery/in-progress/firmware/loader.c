@@ -359,7 +359,7 @@ static uintptr_t legacy_bridge(void){
     ((uint32_t *)entry)[0]=0x58000050; /* ldr x16, literal at +8 */
     ((uint32_t *)entry)[1]=0xd61f0200; /* br x16 */
     *(uint64_t *)(entry+8)=target;
-    __asm__ volatile("dc cvau,%0; dsb ish; ic ivau,%0; dsb ish; isb"::"r"(entry):"memory");
+    __asm__ volatile("dc cvau,%0\ndsb ish\nic ivau,%0\ndsb ish\nisb"::"r"(entry):"memory");
 #elif defined(__x86_64__)
     entry[0]=0x49;entry[1]=0xbb;*(uint64_t *)(entry+2)=target;
     entry[10]=0x41;entry[11]=0xff;entry[12]=0xe3; /* jmp r11 */
@@ -427,15 +427,15 @@ static void enter(uintptr_t entry){
 #if defined(__x86_64__) || defined(__i386__)
     __asm__ volatile("cli;cld":::"memory");
 #elif defined(__aarch64__)
-    __asm__ volatile("msr daifset,#0xf; msr cntv_ctl_el0,xzr; msr cntp_ctl_el0,xzr; isb":::"memory");
+    __asm__ volatile("msr daifset,#0xf\nmsr cntv_ctl_el0,xzr\nmsr cntp_ctl_el0,xzr\nisb":::"memory");
 #else
     __asm__ volatile("cpsid if":::"memory");
     uint32_t control;
     __asm__ volatile("mrc p15,0,%0,c1,c0,2":"=r"(control));
     control|=0x00f00000U;
-    __asm__ volatile("mcr p15,0,%0,c1,c0,2; isb"::"r"(control):"memory");
+    __asm__ volatile("mcr p15,0,%0,c1,c0,2\nisb"::"r"(control):"memory");
     /* Thumb VMSR FPEXC,r0; keep the loader compiled without floating point. */
-    __asm__ volatile("mov r0,#0x40000000; .short 0xeee8,0x0a10":::"r0","memory");
+    __asm__ volatile("mov r0,#0x40000000\n.short 0xeee8,0x0a10":::"r0","memory");
 #endif
 #if defined(__x86_64__)
     __asm__ volatile("andq $-16,%%rsp; jmp *%0"::"r"(entry):"memory");
