@@ -267,6 +267,15 @@ merging and release, alongside the existing mode and handoff checks. Updated
 firmware builds for all four architectures; live ARM input verification is
 still in progress.
 
+Pointer polling now checks a protocol's wait event when its first state read
+reports no packet, then retries only when the event is ready. ARM32's kernel
+fallback also passes the event argument explicitly. This follows the
+[UEFI CheckEvent contract](https://uefi.org/specs/UEFI/2.10/07_Services_Boot_Services.html#efi-boot-services-checkevent)
+and does not block waiting for input. Host firmware cases cover deferred
+relative and absolute packets; the ARM32 oracle checks native ready-packet
+parity, deferred packets, absent events and nonblocking not-ready results.
+Scalar and statement comparisons continue to pass on ARM32.
+
 GPT filesystem updates now preserve the existing BIOS boot area, firmware
 partitions and partition tables. Previously, repacking rebuilt a two-partition
 GPT container and discarded the other boot components. A regression fixture

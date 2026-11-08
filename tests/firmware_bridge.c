@@ -13,6 +13,13 @@ static void *video_handles[1]={&video};
 static RelativeState relative_packet;
 static AbsoluteState absolute_packet;
 static unsigned relative_ready,absolute_ready;
+static unsigned deferred_relative,deferred_absolute,checked;
+static Status EFI_ABI mock_check_event(void *event){
+    checked++;
+    if(event==(void *)(uintptr_t)0x41&&deferred_relative){deferred_relative=0;relative_ready=1;return 0;}
+    if(event==(void *)(uintptr_t)0x42&&deferred_absolute){deferred_absolute=0;absolute_ready=1;return 0;}
+    return 1;
+}
 static Status EFI_ABI mock_relative_read(RelativePointer *device,RelativeState *out){
     (void)device;if(!relative_ready)return 1;
     relative_ready=0;*out=relative_packet;return 0;
@@ -41,7 +48,7 @@ static Status EFI_ABI mock_handles(uint32_t kind,Guid *guid,void *key,uintptr_t 
     assert(kind==2&&guid==&video_guid&&!key);*count=1;*out=video_handles;return 0;
 }
 int main(void){
-    Services boot={.stall=mock_stall,.free_pool=mock_free,.protocol=mock_protocol,.handles=mock_handles};
+    Services boot={.stall=mock_stall,.free_pool=mock_free,.protocol=mock_protocol,.handles=mock_handles,.check_event=mock_check_event};
     System system={0};services=&boot;system_table=&system;context=context_words;
     pointer_devices();
     assert(context[0x4d6]==1&&context[0x4d7]==1);
@@ -81,6 +88,14 @@ int main(void){
     relative_packet=(RelativeState){0};relative_ready=1;
     assert(pointer_read(pointer)==1&&pointer[0]==2&&pointer[1]==0);
     assert(pointer_read(pointer)==0);
+    relative.event=(void *)(uintptr_t)0x41;
+    relative_packet=(RelativeState){.x=3,.y=4};deferred_relative=1;
+    assert(pointer_read(pointer)==1&&checked==1);
+    assert(pointer[0]==2&&pointer[4]==3&&pointer[5]==4);
+    relative.event=0;absolute.event=(void *)(uintptr_t)0x42;
+    deferred_absolute=1;
+    assert(pointer_read(pointer)==1&&checked==2);
+    assert(pointer[0]==1&&pointer[2]==500&&pointer[3]==1000);
     video.query=mock_query;video.set=mock_set;video.mode=&mode;
     uint32_t request[32]={4,0};request[6]=7;request[7]=33000;
     assert(dispatch(request)==1&&request[1]==1&&waited==33000);

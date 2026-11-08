@@ -76,5 +76,11 @@
   },
   "404dbd90": {
     "recovered_40419440(auStack_4c);": "((uint *)auStack_4c)[8] = 0;\n  ((uint *)auStack_4c)[9] = (uint)(uintptr_t)recovered_404dc4b8;\n  ((uint *)auStack_4c)[10] = uVar3;\n  recovered_40419440(auStack_4c);"
+  },
+  "40413834": {
+    "(*pcVar9)()": "((uint (*)(void *))pcVar9)(*(void **)(unaff_r6 + 8))"
+  },
+  "4040a8f4": {
+    "(*pcVar13)()": "((uint (*)(void *))pcVar13)((void *)(uintptr_t)puVar20[2])"
   }
 }

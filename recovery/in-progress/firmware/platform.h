@@ -27,7 +27,8 @@ typedef struct {
     Status(EFI_ABI *free_pages)(uint64_t,uintptr_t);
     Status(EFI_ABI *memory_map)(uintptr_t *,void *,uintptr_t *,uintptr_t *,uint32_t *);
     void *allocate_pool;Status(EFI_ABI *free_pool)(void *);
-    void *create_event,*set_timer,*wait_event,*signal_event,*close_event,*check_event;
+    void *create_event,*set_timer,*wait_event,*signal_event,*close_event;
+    Status(EFI_ABI *check_event)(void *);
     void *install_protocol,*reinstall_protocol,*uninstall_protocol;
     Status(EFI_ABI *protocol)(void *,Guid *,void **);
     void *reserved,*register_notify,*locate_handle,*locate_path,*install_table;

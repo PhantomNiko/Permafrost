@@ -214,7 +214,14 @@ static uint32_t pointer_read(uint32_t *out){
     clear(out,32);uint32_t changed=0;
     for(unsigned i=0;i<relative_count;i++){
         RelativePointer *device=relative_devices[i];RelativeState state={0};
-        if(!device->read || device->read(device,&state))continue;
+        if(!device->read)continue;
+        Status status=device->read(device,&state);
+        /* CheckEvent also runs EVT_NOTIFY_WAIT polling callbacks. It must
+           receive the protocol's event, and must not block waiting for input.
+           UEFI 2.10, Boot Services 7.1.6. */
+        if(status && device->event && services->check_event &&
+           !services->check_event(device->event))status=device->read(device,&state);
+        if(status)continue;
         changed=1;out[0]|=2;out[1]|=(state.left!=0)|(uint32_t)(state.right!=0)<<1;
         /* WmBaremetalProgramPointerInfo reserves words 2/3 for absolute x/y
            and words 4/5 for relative dx/dy. Wheel data has no field here. */
@@ -223,7 +230,11 @@ static uint32_t pointer_read(uint32_t *out){
     }
     for(unsigned i=0;i<absolute_count;i++){
         AbsolutePointer *device=absolute_devices[i];AbsoluteState state={0};
-        if(!device->read || device->read(device,&state))continue;
+        if(!device->read)continue;
+        Status status=device->read(device,&state);
+        if(status && device->event && services->check_event &&
+           !services->check_event(device->event))status=device->read(device,&state);
+        if(status)continue;
         AbsoluteMode *mode=device->mode;
         uint64_t min_x=mode?mode->min_x:0,min_y=mode?mode->min_y:0;
         uint64_t max_x=mode?mode->max_x:0,max_y=mode?mode->max_y:0;
