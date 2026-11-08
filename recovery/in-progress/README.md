@@ -241,6 +241,11 @@ i386 recovers fixed-address switch bodies and private register contracts;
 ARM64 expands outlined sequences and resolves indirect imports to C.
 Desktop VM parity on ARM, broader desktop behavior and complete source-image
 integration remain unfinished. This checkpoint does not advance the release.
+Desktop directory and framebuffer comparisons now pass on all four CPUs.
+ARM32 preserves the device-specific listing call's fifth stack argument,
+restoring the entry-count pointer. ARM64 widens the framebuffer format mask
+before shifting by 32. The C ARM32 desktop also renders the weekday correctly;
+updated live ARM input and listing checks are still in progress.
 
 Kernel statement comparisons now cover assignment, returned arithmetic,
 compound assignment, conditional returns, indexed arrays and numeric loops on

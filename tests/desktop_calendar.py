@@ -29,7 +29,8 @@ def load(original, source, folder, library):
         lib.cpu.mem_write(ui.base, bytes(ui.cpu.mem_read(ui.base, len(ui_memory))))
         metadata, memory = inspect(diagnostic.read_bytes())
         symbols = {n: a for a, n in metadata['symbols']}
-        for name in ['_tundraTimeEpochFromCalendar', '_tundraTimeCalendarFromEpoch']:
+        for name in ['_tundraTimeEpochFromCalendar', '_tundraTimeCalendarFromEpoch',
+                     '_refreshDirectoryWindow', '_refreshHostDisplayState']:
             if name not in names:
                 continue
             target = names[name]

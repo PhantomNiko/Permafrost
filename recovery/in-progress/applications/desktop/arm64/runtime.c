@@ -324,7 +324,7 @@ int recovered_10000640(void)
       }
       uVar15 = recovered_10005e78(&DAT_101219f4);
       if ((((uVar15 == 0) || (DAT_101219f4 == 0)) || (0x20 < DAT_10121a0c)) ||
-         ((((0xfefe7fffU >> ((ulong)DAT_10121a0c & 0x3f) & 1) != 0 || (DAT_10121a00 == 0)) ||
+         ((((0xfefe7fffULL >> ((ulong)DAT_10121a0c & 0x3f) & 1) != 0 || (DAT_10121a00 == 0)) ||
           ((DAT_10121a04 == 0 || (DAT_10121a08 == 0)))))) {
         recovered_10005eb4();
       }
@@ -1252,7 +1252,7 @@ int recovered_10001be0(char *param_1)
     if ((uVar8 != 0) && (lStack_140 != 0)) {
       iVar14 = 0;
       if ((uStack_128 < 0x21) &&
-         (((0xfefe7fffU >> ((ulong)uStack_128 & 0x3f) & 1) == 0 && (iStack_134 != 0)))) {
+         (((0xfefe7fffULL >> ((ulong)uStack_128 & 0x3f) & 1) == 0 && (iStack_134 != 0)))) {
         iVar22 = (int)(uStack_130 >> 0x20);
         if (((int)uStack_130 != 0) && (iVar22 != 0)) {
           if ((((((((int)*(long *)(param_1 + 4) == (int)lStack_140) &&

@@ -12054,7 +12054,13 @@ LAB_1000f02c:
       pcVar15 = pcVar10;
       pcVar10 = (char *)0xff4b;
     }
-    uVar3 = (*pcVar13)(pcVar12,pcVar15,(uint)pcVar10,outEntryCount);
+    if (outEntryCount == (uint *)0xff4b) {
+      uVar3 = ((WmBaremetalProgramListDirectoryOnDeviceFn)(uintptr_t)pcVar13)
+          ((int)(uintptr_t)pcVar12,pcVar15,(WmBaremetalProgramDirectoryEntry *)pcVar10,
+           0xff4b,&local_310);
+    } else {
+      uVar3 = (*pcVar13)(pcVar12,pcVar15,(uint)pcVar10,outEntryCount);
+    }
   }
   if (uVar3 != 0) {
     if (0xff4b < local_310) {
