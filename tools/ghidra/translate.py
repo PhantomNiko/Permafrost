@@ -337,7 +337,7 @@ def rewrite_scalar_storage(source):
 
 def rewrite_array_words(source, precise=False):
     s=source
-    arrays=dict(re.findall(r'^  undefined1 (\w+) \[(8|16)\];',s,re.M))
+    arrays=dict(re.findall(r'^  undefined1 (\w+) \[(4|8|16)\];',s,re.M))
     for name,size in arrays.items():
         if precise or size!='8' or not re.fullmatch(r'auVar\d+',name):continue
         # Eight-byte SSA arrays model register values. A pointer cast reads
@@ -345,18 +345,18 @@ def rewrite_array_words(source, precise=False):
         s=re.sub(r'\(([^()\n]+\*)\)\s*'+re.escape(name)+r'\b',
                  lambda m:'('+m[1]+')(uintptr_t)(*(uint64_t *)(void *)'+name+')',s)
     for name,size in arrays.items():
-        typ='uint64_t'if size=='8'else'uint128'
+        typ={'4':'uint32_t','8':'uint64_t','16':'uint128'}[size]
         for other,width in arrays.items():
             if int(width)<int(size):continue
             s=re.sub(r'\b'+re.escape(name)+r'\s*=\s*'+re.escape(other)+r'\s*;',
                       name+' = (*('+typ+' *)(void *)'+other+');',s)
-    for name,size in re.findall(r'^  undefined1 (\w+) \[(8|16)\];',s,re.M):
+    for name,size in re.findall(r'^  undefined1 (\w+) \[(4|8|16)\];',s,re.M):
         if not re.search(r'\b'+name+r'\s*=',s):continue
-        typ='uint64_t' if size=='8' else 'uint128'
+        typ={'4':'uint32_t','8':'uint64_t','16':'uint128'}[size]
         s=re.sub(r'\b'+name+r'(?=\s*=(?!=))', '(*('+typ+' *)(void *)'+name+')',s)
         if not precise and (size=='8' or re.fullmatch(r'auVar\d+',name)):
             s=re.sub(r'\((?:ulong|long|ulonglong|longlong|undefined8)\)'+name+r'\b(?!\s*\._)', '(*('+typ+' *)(void *)'+name+')',s)
-    s=re.sub(r'\(undefined1\s+\[8\]\)','(uint64_t)',s)
+    s=re.sub(r'\(undefined1\s+\[(4|8)\]\)',lambda m:'('+('uint32_t'if m[1]=='4'else'uint64_t')+')',s)
     s=re.sub(r'\(undefined1\s*\(\*\)\s*\[16\]\)','(uint128 *)',s)
     return s
 

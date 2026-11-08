@@ -32,6 +32,13 @@ uint64_t copy_word(uint64_t value) {
  second=first;
  return *(uint64_t *)(void *)second;
 }
+uint32_t copy_tag(uint32_t value) {
+  undefined1 first_tag [4];
+  undefined1 second_tag [4];
+ first_tag=(undefined1 [4])value;
+ second_tag=first_tag;
+ return *(uint32_t *)(void *)second_tag;
+}
 uintptr_t register_pointer(uint64_t value) {
   undefined1 auVar34 [8];
  auVar34=(undefined1 [8])value;
@@ -101,6 +108,7 @@ uintptr_t row_bound(uintptr_t count) {
 int main(void) {
  uint128 value=((uint128)0x12345678<<64)|0xabcdef;
  if(copy_word(0x123456789abcdef0ULL)!=0x123456789abcdef0ULL)return 4;
+ if(copy_tag(0x89abcdefU)!=0x89abcdefU)return 13;
  if(register_pointer(0x12345678)!=0x12345678)return 5;
  if(!stack_array_address())return 11;
  if(stored_or_address(1)!=0x12345678 || stored_or_address(0)!=1)return 12;
