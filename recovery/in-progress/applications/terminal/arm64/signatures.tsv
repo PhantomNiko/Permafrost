@@ -1,0 +1,12 @@
+100005a0	int recovered_100005a0(void);
+10002a40	void * recovered_10002a40(void *dst,int value,unsigned long n);
+10002a4c	int recovered_10002a4c(char *dst,unsigned long n,const char *format,...);
+10002a58	unsigned long recovered_10002a58(const char *text);
+10002a64	unsigned int recovered_10002a64(void *window);
+10002a70	unsigned int recovered_10002a70(void *window,void *spec);
+10002a7c	unsigned int recovered_10002a7c(void *window,void *state);
+10002a88	unsigned int recovered_10002a88(void *window,const char *title,const void *pixels,unsigned int width,unsigned int height,unsigned int stride,unsigned int clear);
+10002a94	unsigned int recovered_10002a94(void *window,void *info);
+10002aa0	unsigned int recovered_10002aa0(void *window,const char *file,const char *edit,const char *menu);
+10002aac	void * recovered_10002aac(void *output,const char *title,unsigned int width,unsigned int height);	x8,x0,x1,x2
+10002ab8	unsigned int recovered_10002ab8(void *window,void *info);

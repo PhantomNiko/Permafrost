@@ -185,9 +185,9 @@ ARM64 variadic console wrappers consume the caller's `va_list`, and ARM32 script
 error and scheduler logging do the same. i386 console logging strips carriage
 returns like the reference. Four-architecture native comparisons check register
 arguments, stack spills, numeric formatting and line splitting. The source
-ARM32 desktop still lacks images and has clock/input issues; isolated PNG, BMP
-and TGA kernel decodes match the reference, so file/allocator integration still
-needs investigation. This does not establish complete source-image equivalence.
+ARM32 desktop image rendering is now restored by the codec integration described
+below. Pointer input still needs investigation. This does not establish complete
+source-image equivalence.
 
 The four-architecture Activity Monitor is now recovered C under
 `applications/activity-monitor`. Its initialized data relocates seven static
@@ -200,6 +200,13 @@ disk-usage and network tabs across the four CPUs. ARM32 preserves both size
 format branches' packed variadic words, i386 recovers fixed-address data and
 its tab switch, and ARM64 expands machine-outlined sequences. Interactive VM
 checks on the other CPUs and complete source-image integration remain pending.
+
+The Cancer terminal has four C source builds under `applications/terminal`.
+The controlled comparison checks command-worker output, keyboard input,
+partial-alpha text and resized frames through the same source TerrorUI library.
+Its i386 parser now uses decoded C switches rather than native jump addresses;
+ARM64 resolves its indirect memory-clear import to C. File commands, clipboard
+interaction and complete VM integration remain unfinished.
 
 Kernel statement comparisons now cover assignment, returned arithmetic,
 compound assignment, conditional returns, indexed arrays and numeric loops on
