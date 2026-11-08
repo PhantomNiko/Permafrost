@@ -251,6 +251,18 @@ C desktop after restoring the configuration unquoting helper's string return
 and its callers. Configuration string comparisons pass on all four CPUs.
 The ARM64 clock's two-word rectangle return is restored and passes 32 native
 placement/clipping comparisons; its updated VM rendering is being checked.
+The updated ARM64 VM now renders the menu clock at the right edge. ARM pointer
+input and wallpaper scaling still differ from the required behavior.
+
+`tests/guest_storage_probe.c` builds against the recovered SDK for all four CPUs
+with `tests/build_guest_storage.py`. It is intended only for disposable VM disks:
+it writes `/Permafrost-persistence.txt`, reads the bytes back, and reports errors.
+An ARM32 run succeeds, and inspection after VM shutdown confirms the exact
+payload in the user partition. The x64 diagnostic exits unsuccessfully and
+does not create the file. ARM64 reports `FAT metadata flush failed`; its public
+write callback is present, so persistence remains a kernel/filesystem recovery
+gap. i386 has a compile check only. These results do not establish complete
+storage or SDK compatibility and do not produce a release bundle.
 
 Kernel statement comparisons now cover assignment, returned arithmetic,
 compound assignment, conditional returns, indexed arrays and numeric loops on
