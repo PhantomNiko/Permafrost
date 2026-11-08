@@ -84,5 +84,8 @@
   },
   "4040a8f4": {
     "(*pcVar13)()": "((uint (*)(void *))pcVar13)((void *)(uintptr_t)puVar20[2])"
+  },
+  "40456e24": {
+    "(*pcVar2)();": "(*pcVar2)(param_1,param_2,param_3,param_4);"
   }
 }

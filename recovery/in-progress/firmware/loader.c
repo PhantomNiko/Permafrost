@@ -165,7 +165,12 @@ static uintptr_t load_kernel(uint8_t *file,size_t length){
 }
 static uint16_t key_code(void){
     if(!system_table->input || !system_table->input->read)return 0;
-    Key key={0};if(failed(system_table->input->read(system_table->input,&key)))return 0;
+    Input *input=system_table->input;
+    Key key={0};Status status=input->read(input,&key);
+    /* Wait-event callbacks may poll a device before ReadKeyStroke can return it. */
+    if(status && input->event && services->check_event &&
+       !services->check_event(input->event))status=input->read(input,&key);
+    if(status)return 0;
     if(key.character)return key.character;
     static const uint8_t scans[]={0,0x48,0x50,0x4d,0x4b,0x47,0x4f,0x52,0x53,0x49,0x51};
     if(key.scan<sizeof(scans))return (uint16_t)scans[key.scan]<<8;

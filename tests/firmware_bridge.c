@@ -14,8 +14,14 @@ static RelativeState relative_packet;
 static AbsoluteState absolute_packet;
 static unsigned relative_ready,absolute_ready;
 static unsigned deferred_relative,deferred_absolute,checked;
+static unsigned key_ready,deferred_key;
+static Key key_packet;
+static Status EFI_ABI mock_key_read(Input *input,Key *out){
+    (void)input;if(!key_ready)return 1;key_ready=0;*out=key_packet;return 0;
+}
 static Status EFI_ABI mock_check_event(void *event){
     checked++;
+    if(event==(void *)(uintptr_t)0x43&&deferred_key){deferred_key=0;key_ready=1;return 0;}
     if(event==(void *)(uintptr_t)0x41&&deferred_relative){deferred_relative=0;relative_ready=1;return 0;}
     if(event==(void *)(uintptr_t)0x42&&deferred_absolute){deferred_absolute=0;absolute_ready=1;return 0;}
     return 1;
@@ -96,6 +102,12 @@ int main(void){
     deferred_absolute=1;
     assert(pointer_read(pointer)==1&&checked==2);
     assert(pointer[0]==1&&pointer[2]==500&&pointer[3]==1000);
+    Input input={.read=mock_key_read,.event=(void *)(uintptr_t)0x43};
+    system.input=&input;key_packet=(Key){.character='a'};deferred_key=1;
+    assert(key_code()=='a'&&checked==3);
+    assert(key_code()==0&&checked==4);
+    key_packet=(Key){.scan=1};key_ready=1;assert(key_code()==0x4800);
+    input.event=0;assert(key_code()==0&&checked==4);
     video.query=mock_query;video.set=mock_set;video.mode=&mode;
     uint32_t request[32]={4,0};request[6]=7;request[7]=33000;
     assert(dispatch(request)==1&&request[1]==1&&waited==33000);
