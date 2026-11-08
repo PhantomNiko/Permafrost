@@ -333,11 +333,11 @@ def rewrite_scalar_storage(source):
     return source
 
 
-def rewrite_array_words(source):
+def rewrite_array_words(source, precise=False):
     s=source
     arrays=dict(re.findall(r'^  undefined1 (\w+) \[(8|16)\];',s,re.M))
     for name,size in arrays.items():
-        if size!='8' or not re.fullmatch(r'auVar\d+',name):continue
+        if precise or size!='8' or not re.fullmatch(r'auVar\d+',name):continue
         # Eight-byte SSA arrays model register values. A pointer cast reads
         # that value, rather than taking the address of its C storage.
         s=re.sub(r'\(([^()\n]+\*)\)\s*'+re.escape(name)+r'\b',
@@ -352,11 +352,26 @@ def rewrite_array_words(source):
         if not re.search(r'\b'+name+r'\s*=',s):continue
         typ='uint64_t' if size=='8' else 'uint128'
         s=re.sub(r'\b'+name+r'(?=\s*=(?!=))', '(*('+typ+' *)(void *)'+name+')',s)
-        if re.fullmatch(r'auVar\d+',name):
+        if not precise and (size=='8' or re.fullmatch(r'auVar\d+',name)):
             s=re.sub(r'\((?:ulong|long|ulonglong|longlong|undefined8)\)'+name+r'\b(?!\s*\._)', '(*('+typ+' *)(void *)'+name+')',s)
     s=re.sub(r'\(undefined1\s+\[8\]\)','(uint64_t)',s)
     s=re.sub(r'\(undefined1\s*\(\*\)\s*\[16\]\)','(uint128 *)',s)
     return s
+
+
+def rewrite_array_values(source, metadata):
+    views={(row[1],int(row[2])):int(row[3]) for row in metadata
+           if row[0]=='Q' and row[1]!='-'}
+    names={name for name,_ in views}
+    counts={}
+    def replace(match):
+        name=match[0]
+        if name not in names:return name
+        counts[name]=counts.get(name,0)+1
+        width=views.get((name,counts[name]))
+        if match.string[match.end():].lstrip().startswith(('.', '[')):return name
+        return 'PF_PART%d(%s, 0)'%(width,name) if width else name
+    return re.sub(r'\b[A-Za-z_]\w*\b',replace,source)
 
 
 def rewrite_integer_vectors(source):
@@ -474,8 +489,11 @@ def main():
         sources={a:windows_types(s) for a,s in sources.items()}
     sources={a:system_register_views(vector_constant_loads(s),current.get('system_registers',{}))for a,s in sources.items()}
     if WIDE or current.get("integer_vector_128"):
-        sources={a:rewrite_integer_vectors(s) for a,s in sources.items()}
-        sources={a:rewrite_array_words(s)for a,s in sources.items()}
+        for address,source in sources.items():
+            rows=[line.split('\t') for line in (args.notes/(address+'.tsv')).read_text().splitlines()]
+            precise=any(row[0]=='Q' for row in rows)
+            sources[address]=rewrite_array_words(rewrite_integer_vectors(
+                rewrite_array_values(source,rows)),precise=precise)
     for stale in args.out.glob('*.c'):
         if stale.stem not in sources and stale.stem not in manual:stale.unlink()
     # Signature corrections must also reach declarations shared by callers.

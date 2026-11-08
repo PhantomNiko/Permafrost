@@ -8,10 +8,21 @@ import subprocess
 import sys
 import tempfile
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'tools/ghidra'))
-from translate import rewrite_integer_vectors, rewrite_array_words
+from translate import rewrite_integer_vectors, rewrite_array_words, rewrite_array_values
 
 
 def main():
+    view='''
+uintptr_t stored_or_address(unsigned select) {
+  undefined1 local_18 [8];
+ local_18=(undefined1 [8])0x12345678;
+ if(select)return (uintptr_t)(void *)local_18;
+ return (uintptr_t)(void *)local_18==(uintptr_t)&local_18;
+}
+'''
+    # The first cast reads a stored pointer; the second takes the address.
+    view=rewrite_array_values(view,[['Q','local_18','3','8']])
+    view=rewrite_array_words(rewrite_integer_vectors(view),precise=True)
     source = '''
 #include "support.h"
 uint64_t copy_word(uint64_t value) {
@@ -92,6 +103,7 @@ int main(void) {
  if(copy_word(0x123456789abcdef0ULL)!=0x123456789abcdef0ULL)return 4;
  if(register_pointer(0x12345678)!=0x12345678)return 5;
  if(!stack_array_address())return 11;
+ if(stored_or_address(1)!=0x12345678 || stored_or_address(0)!=1)return 12;
  if(duplicate_pair(0x2100000021ULL)!=
     (((uint128)0x2100000021ULL<<64)|0x2100000021ULL))return 7;
  if(lane(0)!=0x76543210 || lane(1)!=0xfedcba98 ||
@@ -111,7 +123,7 @@ int main(void) {
     with tempfile.TemporaryDirectory(prefix='permafrost-vector-views-') as directory:
         root=Path(directory)
         path=root/'probe.c'
-        path.write_text(rewrite_array_words(rewrite_integer_vectors(source)))
+        path.write_text('#include "support.h"\n'+view+rewrite_array_words(rewrite_integer_vectors(source)))
         subprocess.run(['clang','-std=c11','-O2','-I','kernel',str(path),
                         '-o',str(root/'probe')],check=True)
         subprocess.run([str(root/'probe')],check=True)

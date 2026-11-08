@@ -102,10 +102,16 @@ compatibility.
 
 The untouched x86-64 reference reaches its desktop under QEMU. The BIOS
 reference reaches the Batagaika first-boot setup. With the current virtio-ramfb
-configuration, the ARM32 reference stops after kernel handoff. ARM64 faults
+configuration, the ARM32 reference leaves the handoff screen visible while
+debugger sampling finds the kernel executing its formatter. ARM64 faults
 when the VM provides GICv2: its IRQ entry reads the GICv3 ICC_IAR1_EL1 register.
 A GICv3 reference run avoids that exception but still stalls on a blue screen
-amid timer interrupts; timer initialization still needs investigation.
+amid timer interrupts. Debugger inspection finds a zero timer interval while
+the virtual timer remains enabled. A diagnostic run that sets that interval
+to 62,500 ticks (one millisecond at the reported frequency) reaches the desktop.
+That run changes guest RAM and is not an untouched-reference boot result.
+The recovered IRQ already disables the virtual timer when its interval is
+zero; its full startup and scheduling behavior still needs VM comparison.
 The architectural debugger registers and framebuffer observations remain local
 diagnostics; ARM VM compatibility is still unfinished.
 

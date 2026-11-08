@@ -277,6 +277,29 @@ public class Export extends GhidraScript {
                 // Preserve PTRADD's element width before printing loses it.
                 var tokens = new ArrayList<ClangNode>();
                 result.getCCodeMarkup().flatten(tokens);
+                metadata.append("Q\t-\t0\t0\n");
+                var arrays=new java.util.HashSet<String>();
+                var arrayPattern=java.util.regex.Pattern.compile("undefined1\\s+(\\w+)\\s*\\[(?:8|16)\\]").matcher(source);
+                while(arrayPattern.find())arrays.add(arrayPattern.group(1));
+                var arrayOccurrences=new HashMap<String,Integer>();
+                for(int index=0;index<tokens.size();index++) {
+                    var token=tokens.get(index);
+                    if(!(token instanceof ClangVariableToken variable))continue;
+                    String name=variable.getText();
+                    if(!arrays.contains(name))continue;
+                    int occurrence=arrayOccurrences.getOrDefault(name,0)+1;
+                    arrayOccurrences.put(name,occurrence);
+                    var node=variable.getVarnode();
+                    var operation=variable.getPcodeOp();
+                    String next=index+1<tokens.size()?tokens.get(index+1).toString():"";
+                    // PTRSUB with no value node denotes the address of the
+                    // stack object. A scalar CAST reads its stored bits.
+                    if(node!=null && (node.getSize()==4 || node.getSize()==8) &&
+                       operation!=null && operation.getOpcode()==PcodeOp.CAST &&
+                       !next.startsWith(".") && !next.startsWith("["))
+                        metadata.append("Q\t").append(name).append('\t').append(occurrence)
+                            .append('\t').append(node.getSize()).append('\n');
+                }
                 var occurrences = new HashMap<String, Integer>();
                 for(var token:tokens) {
                     if(!(token instanceof ClangVariableToken variable))continue;
