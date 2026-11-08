@@ -234,6 +234,14 @@ records on both sides. An x64 VM types Hello and reports Saved - TextEditor.txt
 after File / Save with the current C firmware. Persistent disk bytes, broader
 editor VM checks, and complete source images remain unfinished.
 
+Tundra now has C desktop builds for all four CPUs under `applications/desktop`.
+An x64 diagnostic boots the C desktop and launches the C editor. Calendar
+comparisons cover 590 cases on each x86 CPU, 510 on ARM32 and 80 on ARM64.
+i386 recovers fixed-address switch bodies and private register contracts;
+ARM64 expands outlined sequences and resolves indirect imports to C.
+Desktop VM parity on ARM, broader desktop behavior and complete source-image
+integration remain unfinished. This checkpoint does not advance the release.
+
 Kernel statement comparisons now cover assignment, returned arithmetic,
 compound assignment, conditional returns, indexed arrays and numeric loops on
 all four CPUs. Three x86-64 return paths previously converted a temporary array
