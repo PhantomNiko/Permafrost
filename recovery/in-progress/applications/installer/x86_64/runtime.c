@@ -290,7 +290,7 @@ int recovered_100005a0(void)
   byte bVar24;
 
   uStack_1650 = 0x100005d1;
-  pf_app_window_spec(local_450,str_10004760,0x280,0x1c8);
+  pf_app_window_spec(local_450,(char *)"Install Permafrost",0x280,0x1c8);
   local_98 = 0;
   pvStack_90 = (void *)0x0;
   local_88 = 0;
@@ -1067,7 +1067,7 @@ LAB_10001790:
           acStack_1649[lVar5 + 1] = '\0';
           uStack_1650 = 0x28;
           recovered_10002750((uint *)&local_98,0x5a,0x1b6,pcVar7,1,0x28,0x28,0x28);
-          terror_ui_window_present(&local_408,str_10004773,pvStack_90,(uint)local_98,PF_PART4(local_98, 4),
+          terror_ui_window_present(&local_408,(char *)"Install Permafrost",pvStack_90,(uint)local_98,PF_PART4(local_98, 4),
                              (uint)local_98 * 4,0xf6f6f6);
           uStack_1650 = 0x10001805;
           terror_ui_keyboard_poll(&local_b0);
