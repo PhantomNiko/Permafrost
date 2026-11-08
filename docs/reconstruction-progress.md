@@ -162,3 +162,13 @@ kernel and passes the repair; the six statement comparisons also pass. This VM
 still omits the unverified reference graphics drivers. Application launch and
 the full graphics path remain unverified, and the ARM64 terminal still rejects
 injected USB keys with the corrected firmware. No release gate is waived.
+
+
+The x86-64 Glacier checkpoint now builds from C with the recovered C TerrorUI,
+JavaScript and TLS libraries. Nineteen native comparisons cover HTTP/HTTPS URL
+parsing, host/port validation, unsupported schemes, and in-place percent decoding.
+Its initialized data uses sparse zero initialization. This is partial browser
+recovery: page rendering, real networking, remaining architectures and VM
+integration are still release gates. The ARM graphics driver is also under
+source recovery; compiling an unexpanded ARM64 decompilation is insufficient
+because machine-outliner register and stack effects must first be expanded.
