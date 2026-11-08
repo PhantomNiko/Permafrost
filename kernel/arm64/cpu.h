@@ -46,10 +46,10 @@ PF_SYSREG_RO(icc_iar1_el1)
 #undef PF_SYSREG_RO
 static inline void pf_write_oslar_el1(uint64_t value){__asm__ volatile("msr oslar_el1,%0"::"r"(value):"memory");}
 static inline void pf_write_icc_eoir1_el1(uint64_t value){__asm__ volatile("msr icc_eoir1_el1,%0"::"r"(value):"memory");}
-static inline uint64_t AT_S1E2R(uint64_t address){uint64_t result;__asm__ volatile("at s1e2r,%1; isb; mrs %0,par_el1":"=r"(result):"r"(address):"memory");return result;}
-static inline uint64_t AT_S1E2W(uint64_t address){uint64_t result;__asm__ volatile("at s1e2w,%1; isb; mrs %0,par_el1":"=r"(result):"r"(address):"memory");return result;}
-static inline uint64_t AT_S1E1R(uint64_t address){uint64_t result;__asm__ volatile("at s1e1r,%1; isb; mrs %0,par_el1":"=r"(result):"r"(address):"memory");return result;}
-static inline uint64_t AT_S1E1W(uint64_t address){uint64_t result;__asm__ volatile("at s1e1w,%1; isb; mrs %0,par_el1":"=r"(result):"r"(address):"memory");return result;}
+static inline uint64_t AT_S1E2R(uint64_t address){uint64_t result;__asm__ volatile("at s1e2r,%1\nisb\nmrs %0,par_el1":"=r"(result):"r"(address):"memory");return result;}
+static inline uint64_t AT_S1E2W(uint64_t address){uint64_t result;__asm__ volatile("at s1e2w,%1\nisb\nmrs %0,par_el1":"=r"(result):"r"(address):"memory");return result;}
+static inline uint64_t AT_S1E1R(uint64_t address){uint64_t result;__asm__ volatile("at s1e1r,%1\nisb\nmrs %0,par_el1":"=r"(result):"r"(address):"memory");return result;}
+static inline uint64_t AT_S1E1W(uint64_t address){uint64_t result;__asm__ volatile("at s1e1w,%1\nisb\nmrs %0,par_el1":"=r"(result):"r"(address):"memory");return result;}
 static inline void DC_CVAC(uint64_t p){__asm__ volatile("dc cvac,%0"::"r"(p):"memory");}
 static inline void DC_CVAU(uint64_t p){__asm__ volatile("dc cvau,%0"::"r"(p):"memory");}
 static inline void IC_IVAU(uint64_t p){__asm__ volatile("ic ivau,%0"::"r"(p):"memory");}

@@ -125,3 +125,17 @@ ARM32 and ARM64 desktop wallpaper scaling now reads the full 32-bit image
 height instead of a decompiler-inferred byte. Both C applications match four
 native framebuffer comparisons, including heights of 256, 280 and 300 pixels.
 Live ARM input and broader rendering remain release gates.
+
+
+The ARM64 C desktop now accepts pointer movement and clicks and launches the C
+Activity Monitor in the diagnostic VM. Address-translation helpers use separate
+assembly lines so the Darwin assembler retains the barrier and PAR read; the
+previous semicolon form discarded them and rejected valid USB controller
+register ranges. Sixteen native architectural-result comparisons cover EL1/EL2,
+read/write checks and valid/fault responses. Scheduler restoration also retains
+its third image-size argument at each process-loading call. Six native byte,
+bounds and cache-flush comparisons pass, and the desktop survives application
+launch in the VM. ARM32 firmware currently supplies a device tree rather than an
+ACPI MCFG table, leaving its original ACPI-only USB discovery path without a PCI
+configuration region. ARM32 input, ARM keyboard behavior and the remaining
+source/release gates are still incomplete.
