@@ -1,0 +1,142 @@
+10000d04	void recovered_10000d04(void *pointer);
+10000d48	void * recovered_10000d48(void *pointer,unsigned long size);
+100024ac	int recovered_100024ac(char *buffer,unsigned long capacity,char *format,...);
+10000cc0	void * recovered_10000cc0(unsigned long size);
+10001020	int recovered_10001020(void *left,void *right,unsigned long count);
+10000d94	void * recovered_10000d94(void *destination,void *source,unsigned long count);
+10000e6c	void * recovered_10000e6c(void *destination,void *source,unsigned long count);
+10000f80	void * recovered_10000f80(void *destination,int value,unsigned long count);
+10001278	int recovered_10001278(char *left,char *right);
+10001254	unsigned long recovered_10001254(char *text);
+10003474	int recovered_10003474(char *left,char *right,unsigned long count);
+100017d8	long long recovered_100017d8(double value);
+10001838	unsigned long long recovered_10001838(double value);
+100018b0	double recovered_100018b0(long long value);
+10001888	double recovered_10001888(unsigned long long value);
+10003c08	double recovered_10003c08(double value);
+10003cc8	float recovered_10003cc8(float value);
+10003ce4	double recovered_10003ce4(double value);
+10003ce8	double recovered_10003ce8(long end,long start);
+100017d8	long long recovered_100017d8(double value);
+10001838	unsigned long long recovered_10001838(double value);
+100018b0	double recovered_100018b0(long long value);
+10001888	double recovered_10001888(unsigned long long value);
+10003c08	double recovered_10003c08(double value);
+10003cc8	float recovered_10003cc8(float value);
+10003ce4	double recovered_10003ce4(double value);
+10003ce8	double recovered_10003ce8(long end,long start);
+10018dbc	void *recovered_10018dbc(void *output,void *vm,void *name);	x8,x0,x1
+10003e88	long long recovered_10003e88(char *text,char **end,int base);
+10003d44	unsigned long long recovered_10003d44(char *text,char **end,int base);
+10006a34	void *recovered_10006a34(void *vm);
+10004234	void *recovered_10004234(void *vm);
+1002f74c	void *recovered_1002f74c(void *destination);
+1002fdc8	void *recovered_1002fdc8(unsigned long capacity);
+1002b558	void *recovered_1002b558(void *output,void *vm,void * argument0);	x8,x0,x1
+10026d88	void *recovered_10026d88(void *output,void *vm,void * argument0);	x8,x0,x1
+10026fb0	void *recovered_10026fb0(void *output,void *vm,void * argument0);	x8,x0,x1
+1002707c	void *recovered_1002707c(void *output,void *vm,void * argument0);	x8,x0,x1
+10026eb0	void *recovered_10026eb0(void *output,void *vm,void * argument0);	x8,x0,x1
+10026e10	void *recovered_10026e10(void *output,void *vm,void * argument0);	x8,x0,x1
+100252cc	void *recovered_100252cc(void *output,void *vm,void * argument0);	x8,x0,x1
+1002700c	void *recovered_1002700c(void *output,void *vm,void * argument0);	x8,x0,x1
+100267c8	void *recovered_100267c8(void *output,void *vm,void * argument0);	x8,x0,x1
+1002f748	void *recovered_1002f748(void *output,void *vm,void * argument0);	x8,x0,x1
+10026f54	void *recovered_10026f54(void *output,void *vm,void * argument0);	x8,x0,x1
+100261c4	void *recovered_100261c4(void *output,void *vm,void * argument0);	x8,x0,x1
+1002652c	void *recovered_1002652c(void *output,void *vm,void * argument0);	x8,x0,x1
+10026d2c	void *recovered_10026d2c(void *output,void *vm,void * argument0);	x8,x0,x1
+10026538	void *recovered_10026538(void *output,void *vm,void * argument0);	x8,x0,x1
+1002bb2c	void *recovered_1002bb2c(void *output,void *vm,void * argument0,void * argument1,void * argument2);	x8,x0,x1,x2,x3
+100263c4	void *recovered_100263c4(void *output,void *vm,void * argument0);	x8,x0,x1
+10025098	void *recovered_10025098(void *output,void *vm,void * argument0);	x8,x0,x1
+10025870	void *recovered_10025870(void *output,void *vm,void * argument0);	x8,x0,x1
+10025234	void *recovered_10025234(void *output,void *vm,void * argument0);	x8,x0,x1
+1002d8d0	void *recovered_1002d8d0(void *output,void *vm,void * argument0);	x8,x0,x1
+10025d00	void *recovered_10025d00(void *output,void *vm,void * argument0);	x8,x0,x1
+10026cc4	void *recovered_10026cc4(void *output,void *vm,void * argument0);	x8,x0,x1
+10027170	void *recovered_10027170(void *output,void *vm,void * argument0);	x8,x0,x1
+1002732c	void *recovered_1002732c(void *output,void *vm,void * argument0);	x8,x0,x1
+10025418	void *recovered_10025418(void *output,void *vm,void * argument0);	x8,x0,x1
+1002728c	void *recovered_1002728c(void *output,void *vm,void * argument0);	x8,x0,x1
+10025534	void *recovered_10025534(void *output,void *vm,void * argument0);	x8,x0,x1
+10025b60	void *recovered_10025b60(void *output,void *vm,void * argument0);	x8,x0,x1
+10026cd0	void *recovered_10026cd0(void *output,void *vm,void * argument0);	x8,x0,x1
+10026110	void *recovered_10026110(void *output,void *vm,void * argument0);	x8,x0,x1
+10026514	void *recovered_10026514(void *output,void *vm,void * argument0);	x8,x0,x1
+1001be34	void *recovered_1001be34(void *output,void *vm,void * argument0);	x8,x0,x1
+10025bb0	void *recovered_10025bb0(void *output,void *vm,void * argument0);	x8,x0,x1
+10023e14	void *recovered_10023e14(void *output,void *vm,void * argument0);	x8,x0,x1
+1002247c	void *recovered_1002247c(void *output,void *vm,void * argument0);	x8,x0,x1
+1002605c	void *recovered_1002605c(void *output,void *vm,void * argument0);	x8,x0,x1
+10025a6c	void *recovered_10025a6c(void *output,void *vm,void * argument0);	x8,x0,x1
+10026988	void *recovered_10026988(void *output,void *vm,void * argument0);	x8,x0,x1
+100267bc	void *recovered_100267bc(void *output,void *vm,void * argument0);	x8,x0,x1
+10026520	void *recovered_10026520(void *output,void *vm,void * argument0);	x8,x0,x1
+100268d8	void *recovered_100268d8(void *output,void *vm,void * argument0);	x8,x0,x1
+1001b824	void *recovered_1001b824(void *output,void *vm,void * argument0,void * argument1);	x8,x0,x1,x2
+1001c0f4	void *recovered_1001c0f4(void *output,void *vm,void * argument0);	x8,x0,x1
+10021448	void *recovered_10021448(void *output,void *vm,void * argument0);	x8,x0,x1
+10023f58	void *recovered_10023f58(void *output,void *vm,void * argument0);	x8,x0,x1
+10021108	void *recovered_10021108(void *output,void *vm,void * argument0);	x8,x0,x1
+100268e4	void *recovered_100268e4(void *output,void *vm,void * argument0);	x8,x0,x1
+10026030	void *recovered_10026030(void *output,void *vm,void * argument0);	x8,x0,x1
+100250f8	void *recovered_100250f8(void *output,void *vm,void * argument0);	x8,x0,x1
+10025970	void *recovered_10025970(void *output,void *vm,void * argument0);	x8,x0,x1
+1000d54c	void *recovered_1000d54c(void *output,void *vm,void * argument0,void * argument1);	x8,x0,x1,x2
+1001bb88	void *recovered_1001bb88(void *output,void *vm,void * argument0);	x8,x0,x1
+1002739c	void *recovered_1002739c(void *output,void *vm,void * argument0);	x8,x0,x1
+1001d024	void *recovered_1001d024(void *output,void *vm,void * argument0,unsigned long argument1);	x8,x0,x1,x2
+10025718	void *recovered_10025718(void *output,void *vm,void * argument0);	x8,x0,x1
+10023978	void *recovered_10023978(void *output,void *vm,void * argument0);	x8,x0,x1
+1001c684	void *recovered_1001c684(void *output,void *vm,void * argument0,unsigned long argument1);	x8,x0,x1,x2
+10023120	void *recovered_10023120(void *output,void *vm,void * argument0,bool argument1);	x8,x0,x1,x2
+10027b80	void *recovered_10027b80(void *output,void *vm,void * argument0,void * argument1,void * argument2);	x8,x0,x1,x2,x3
+1000e7d0	void *recovered_1000e7d0(void *output,void *vm,void * argument0,char argument1,void * argument2);	x8,x0,x1,x2,x3
+1001e9b4	void *recovered_1001e9b4(void *output,void *vm,void * argument0,unsigned long argument1);	x8,x0,x1,x2
+10024198	void *recovered_10024198(void *output,void *vm,void * argument0);	x8,x0,x1
+10024134	void *recovered_10024134(void *output,void *vm,void * argument0);	x8,x0,x1
+1002c91c	void *recovered_1002c91c(void *output,void *vm,void * argument0);	x8,x0,x1
+1002c920	void *recovered_1002c920(void *output,void *vm,void * argument0,void * argument1);	x8,x0,x1,x2
+10023d2c	void *recovered_10023d2c(void *output,void *vm,void * argument0);	x8,x0,x1
+10023bec	void *recovered_10023bec(void *output,void *vm,void * argument0);	x8,x0,x1
+10023edc	void *recovered_10023edc(void *output,void *vm,void * argument0);	x8,x0,x1
+1001ca08	void *recovered_1001ca08(void *output,void *vm,void * argument0,unsigned long argument1);	x8,x0,x1,x2
+1001b830	void *recovered_1001b830(void *output,void *vm,void * argument0,unsigned long argument1);	x8,x0,x1,x2
+1002c04c	void *recovered_1002c04c(void *output,void *vm,void * argument0);	x8,x0,x1
+1001e600	void *recovered_1001e600(void *output,void *vm,void * argument0,unsigned long argument1);	x8,x0,x1,x2
+10008f24	void *recovered_10008f24(void *output,void *vm,void * argument0,void * argument1,void * argument2);	x8,x0,x1,x2,x3
+1001ec24	void *recovered_1001ec24(void *output,void *vm,void * argument0,void * argument1,void * argument2);	x8,x0,x1,x2,x3
+1001d1a0	void *recovered_1001d1a0(void *output,void *vm,void * argument0,unsigned long argument1);	x8,x0,x1,x2
+1001cd04	void *recovered_1001cd04(void *output,void *vm,void * argument0,unsigned long argument1);	x8,x0,x1,x2
+1001e1a8	void *recovered_1001e1a8(void *output,void *vm,void * argument0,unsigned long argument1);	x8,x0,x1,x2
+1000d978	void *recovered_1000d978(void *output,void *vm,void * argument0,void * argument1,unsigned long argument2);	x8,x0,x1,x2,x3
+100068b0	void *recovered_100068b0(void *output,void *vm,void * argument0,void * argument1,unsigned int argument2);	x8,x0,x1,x2,x3
+100271f0	void *recovered_100271f0(void *output,void *vm,void * argument0);	x8,x0,x1
+1001e3b4	void *recovered_1001e3b4(void *output,void *vm,void * argument0,unsigned long argument1);	x8,x0,x1,x2
+1002bd70	void *recovered_1002bd70(void *output,void *vm,void * argument0);	x8,x0,x1
+1001c430	void *recovered_1001c430(void *output,void *vm,void * argument0,unsigned long argument1);	x8,x0,x1,x2
+10027450	void *recovered_10027450(void *output,void *vm,void * argument0);	x8,x0,x1
+10021ba4	void *recovered_10021ba4(void *output,void *vm,void * argument0,void * argument1);	x8,x0,x1,x2
+10007c04	void *recovered_10007c04(void *output,void *vm,unsigned int argument0,void * argument1,unsigned long argument2);	x8,x0,x1,x2,x3
+1002f6a4	void *recovered_1002f6a4(void *output,void *vm,void * argument0);	x8,x0,x1
+1000f33c	void *recovered_1000f33c(void *output,void *vm,void * argument0,void * argument1,unsigned long argument2);	x8,x0,x1,x2,x3
+10019310	void *recovered_10019310(void *output,void *vm,void * argument0,void * argument1,unsigned int argument2);	x8,x0,x1,x2,x3
+1001ec18	void *recovered_1001ec18(void *output,void *vm,void * argument0,unsigned int argument1,void * argument2);	x8,x0,x1,x2,x3
+100070ac	void *recovered_100070ac(void *output,void *vm,void * argument0);	x8,x0,x1
+1002603c	void *recovered_1002603c(void *output,void *vm,void * argument0);	x8,x0,x1
+10008e3c	void *recovered_10008e3c(void *output,void *vm,void * argument0,void * argument1,void * argument2);	x8,x0,x1,x2,x3
+100212ec	void *recovered_100212ec(void *output,void *vm,void * argument0);	x8,x0,x1
+100193c8	void *recovered_100193c8(void *output,void *vm,void * argument0);	x8,x0,x1
+10009d80	void *recovered_10009d80(void *output,void *vm,void * argument0,int argument1,void * argument2,void * argument3);	x8,x0,x1,x2,x3,x4
+1001da0c	void *recovered_1001da0c(void *output,void *vm,void * argument0,void * argument1,void * argument2);	x8,x0,x1,x2,x3
+1002759c	void *recovered_1002759c(void *output,void *vm,void * argument0);	x8,x0,x1
+1001c304	void *recovered_1001c304(void *output,void *vm,unsigned int argument0);	x8,x0,x1
+1001a824	void *recovered_1001a824(void *output,void *vm,void * argument0);	x8,x0,x1
+10006a38	void *recovered_10006a38(void *output,void *vm,void * argument0);	x8,x0,x1
+10018dbc	void *recovered_10018dbc(void *output,void *vm,void * argument0);	x8,x0,x1
+1001ebf0	void *recovered_1001ebf0(void *output,void *vm,unsigned int argument0);	x8,x0,x1
+1003179c	void *recovered_1003179c(void *destination,void *source);
+10006e74	unsigned long recovered_10006e74(void *value,char needle,unsigned long start);
+10006f60	double recovered_10006f60(void *value);
+1000750c	double recovered_1000750c(void *value);

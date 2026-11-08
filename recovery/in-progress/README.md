@@ -112,6 +112,16 @@ preserve destination returns needed by map and vector initialization.
 These successful-script cases do not establish exception-path or complete VM
 compatibility; those remain release gates alongside the standalone runtime.
 
+The ARM64 standalone WinterScript checkpoint now builds from C and passes eight
+native/source execution comparisons: arithmetic, precedence, negative integers,
+a loop, a function call, array construction and indexing, floating arithmetic,
+and string comparison. It also passes 46 numeric-helper and 63 math comparisons,
+plus native saved-buffer, register-restoration and scope-unwind context checks.
+Recovered token iteration preserves the owning vector, assignment parsing uses
+the initialized cursor, and floating results retain their native return ABI.
+The other standalone architectures, exception paths and complete VM behavior
+remain unfinished; this is an implementation checkpoint, not a release tag.
+
 The untouched x86-64 reference reaches its desktop under QEMU. The BIOS
 reference reaches the Batagaika first-boot setup. With the current virtio-ramfb
 configuration, the ARM32 reference leaves the handoff screen visible while
