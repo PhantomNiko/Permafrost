@@ -12501,7 +12501,7 @@ uint recovered_1000f810(int param_1,char *param_2,void *param_3,uint param_4,uin
 #undef DAT_10027618
 #define DAT_10027618 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x4010U)))
 #undef DAT_10027620
-#define DAT_10027620 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x4018U)))
+#define DAT_10027620 (*(uint32_t *)(((uintptr_t)pf_module_state + 0x4018U)))
 #undef _DAT_10027610
 #define _DAT_10027610 (*(int *)(((uintptr_t)pf_module_state + 0x4008U)))
 #define local_40 (*(int *)(frame + 16))

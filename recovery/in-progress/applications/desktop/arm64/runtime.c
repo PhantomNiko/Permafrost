@@ -7572,7 +7572,7 @@ byte recovered_10007910(long param_1)
 #undef DAT_101219c4
 #define DAT_101219c4 (*(uint *)(((uintptr_t)pf_module_state + 0x1118b0U)))
 #undef DAT_101219c8
-#define DAT_101219c8 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x1118b4U)))
+#define DAT_101219c8 (*(uint32_t *)(((uintptr_t)pf_module_state + 0x1118b4U)))
 #define local_78 (*(long *)(frame + 24))
 #define local_70 (*(long *)(frame + 32))
 /* Recovered working notes; Pooka's Free Software License.

@@ -119,3 +119,9 @@ remained. Request payloads and accounting retain native parity; command-gate
 and completion-status corrections are deliberate. Keyboard routing and the
 statement interpreter corpus still pass. These checks validate the storage
 checkpoint, not the unfinished release as a whole.
+
+
+ARM32 and ARM64 desktop wallpaper scaling now reads the full 32-bit image
+height instead of a decompiler-inferred byte. Both C applications match four
+native framebuffer comparisons, including heights of 256, 280 and 300 pixels.
+Live ARM input and broader rendering remain release gates.
