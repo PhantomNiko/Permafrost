@@ -1,0 +1,100 @@
+{
+  "module": "RamfbDriver",
+  "architecture": "arm64",
+  "version": "1.0",
+  "install_name": "/lib/RamfbDriver.dylib",
+  "functions": {
+    "0x480": "recovered_10000480",
+    "0x48c": "recovered_1000048c",
+    "0xa78": "recovered_10000a78",
+    "0xa90": "recovered_10000a90",
+    "0xac8": "recovered_10000ac8",
+    "0xb08": "recovered_10000b08",
+    "0xb18": "recovered_10000b18",
+    "0xb68": "recovered_10000b68",
+    "0xb84": "recovered_10000b84",
+    "0xbe4": "recovered_10000be4",
+    "0x1ce8": "recovered_10001ce8",
+    "0x1d38": "recovered_10001d38",
+    "0x1ddc": "recovered_10001ddc",
+    "0x1df8": "recovered_10001df8",
+    "0x1e38": "recovered_10001e38",
+    "0x1e8c": "recovered_10001e8c",
+    "0x1f04": "recovered_10001f04",
+    "0x2050": "recovered_10002050",
+    "0x209c": "recovered_1000209c",
+    "0x2344": "recovered_10002344",
+    "0x238c": "recovered_1000238c",
+    "0x25c4": "recovered_100025c4",
+    "0x2760": "recovered_10002760",
+    "0x27c4": "recovered_100027c4",
+    "0x28fc": "recovered_100028fc",
+    "0x2914": "recovered_10002914",
+    "0x292c": "recovered_1000292c",
+    "0x2940": "recovered_10002940",
+    "0x2958": "recovered_10002958",
+    "0x2988": "recovered_10002988",
+    "0x29a0": "recovered_100029a0",
+    "0x29b4": "recovered_100029b4",
+    "0x2a1c": "recovered_10002a1c",
+    "0x2a84": "recovered_10002a84",
+    "0x2b38": "recovered_10002b38",
+    "0x2b74": "recovered_10002b74",
+    "0x2bb0": "recovered_10002bb0",
+    "0x2bec": "recovered_10002bec",
+    "0x2c2c": "recovered_10002c2c",
+    "0x2c7c": "recovered_10002c7c",
+    "0x2cb0": "recovered_10002cb0",
+    "0x2cd4": "recovered_10002cd4",
+    "0x2d40": "recovered_10002d40",
+    "0x302c": "recovered_1000302c",
+    "0x3160": "recovered_10003160",
+    "0x31ac": "recovered_100031ac",
+    "0x31cc": "recovered_100031cc",
+    "0x31dc": "recovered_100031dc"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 1152,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 1164,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 2828,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 72
+      },
+      "tag": 0
+    },
+    {
+      "offset": 2836,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 426
+      },
+      "tag": 0
+    },
+    {
+      "offset": 2844,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 435
+      },
+      "tag": 0
+    }
+  ],
+  "data_exports": []
+}

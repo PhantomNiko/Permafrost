@@ -1,0 +1,257 @@
+{
+  "module": "RamfbDriver",
+  "architecture": "armv7",
+  "version": "1.0",
+  "install_name": "/lib/RamfbDriver.dylib",
+  "functions": {
+    "0x3188": "recovered_10003188",
+    "0x3198": "recovered_10003198",
+    "0x39b0": "recovered_100039b0",
+    "0x39d4": "recovered_100039d4",
+    "0x3a1c": "recovered_10003a1c",
+    "0x3a70": "recovered_10003a70",
+    "0x3a84": "recovered_10003a84",
+    "0x3ae8": "recovered_10003ae8",
+    "0x3b10": "recovered_10003b10",
+    "0x3b84": "recovered_10003b84",
+    "0x55b0": "recovered_100055b0",
+    "0x5604": "recovered_10005604",
+    "0x56b4": "recovered_100056b4",
+    "0x56dc": "recovered_100056dc",
+    "0x5718": "recovered_10005718",
+    "0x5780": "recovered_10005780",
+    "0x57e0": "recovered_100057e0",
+    "0x59a4": "recovered_100059a4",
+    "0x5a18": "recovered_10005a18",
+    "0x5d8c": "recovered_10005d8c",
+    "0x5dcc": "recovered_10005dcc",
+    "0x6198": "recovered_10006198",
+    "0x6388": "recovered_10006388",
+    "0x63ec": "recovered_100063ec",
+    "0x6524": "recovered_10006524",
+    "0x653c": "recovered_1000653c",
+    "0x6554": "recovered_10006554",
+    "0x656c": "recovered_1000656c",
+    "0x6588": "recovered_10006588",
+    "0x65c4": "recovered_100065c4",
+    "0x65e0": "recovered_100065e0",
+    "0x65f4": "recovered_100065f4",
+    "0x6660": "recovered_10006660",
+    "0x66c4": "recovered_100066c4",
+    "0x676c": "recovered_1000676c",
+    "0x67c4": "recovered_100067c4",
+    "0x680c": "recovered_1000680c",
+    "0x6864": "recovered_10006864",
+    "0x68a8": "recovered_100068a8",
+    "0x68e4": "recovered_100068e4",
+    "0x6924": "recovered_10006924",
+    "0x694c": "recovered_1000694c",
+    "0x69dc": "recovered_100069dc",
+    "0x6e50": "recovered_10006e50",
+    "0x6f80": "recovered_10006f80",
+    "0x7004": "recovered_10007004",
+    "0x7034": "recovered_10007034",
+    "0x7044": "recovered_10007044",
+    "0x7078": "recovered_10007078",
+    "0x70c8": "recovered_100070c8",
+    "0x7100": "recovered_10007100",
+    "0x7170": "recovered_10007170",
+    "0x71d8": "recovered_100071d8",
+    "0x72bc": "recovered_100072bc",
+    "0x733c": "recovered_1000733c",
+    "0x745c": "recovered_1000745c",
+    "0x7518": "recovered_10007518",
+    "0x75a0": "recovered_100075a0",
+    "0x75ec": "recovered_100075ec",
+    "0x75fc": "recovered_100075fc",
+    "0x760c": "recovered_1000760c",
+    "0x7654": "recovered_10007654",
+    "0x767c": "recovered_1000767c",
+    "0x7698": "recovered_10007698"
+  },
+  "exports": [
+    {
+      "name": "___divdi3",
+      "address": 29500,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___divsi3",
+      "address": 28928,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixdfdi",
+      "address": 30112,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixsfdi",
+      "address": 30204,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixunsdfdi",
+      "address": 29976,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixunssfdi",
+      "address": 30188,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatdidf",
+      "address": 30292,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatdisf",
+      "address": 30360,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatundidf",
+      "address": 30220,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatundisf",
+      "address": 30332,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___moddi3",
+      "address": 29788,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___modsi3",
+      "address": 29040,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___udivdi3",
+      "address": 29144,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___udivsi3",
+      "address": 28792,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___umoddi3",
+      "address": 29372,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___umodsi3",
+      "address": 28872,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 12680,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 12696,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 2380,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x75a0"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 2384,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x7518"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 2388,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x7654"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 2392,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x760c"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 2396,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x7078"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 18776,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 36
+      },
+      "tag": 0
+    },
+    {
+      "offset": 18780,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 390
+      },
+      "tag": 0
+    },
+    {
+      "offset": 18784,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 398
+      },
+      "tag": 1
+    }
+  ],
+  "data_exports": []
+}
