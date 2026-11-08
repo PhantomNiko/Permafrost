@@ -336,8 +336,12 @@ ARM32 also preserves the keyboard and idle bridge request pointers and evaluates
 formatting paths preserve argument bits instead of converting through floating
 point. Thirteen owned-string comparisons cover signed boundaries, floats,
 booleans, pointer values, and the empty value. Wider interpreter compatibility
-remains open. The ARM32 display surface still occupies only part
-of the negotiated output mode. These runs use the recovered C graphics module
+remains open. The ARM32 firmware now selects its full 1280 by 800 virtio GOP
+surface instead of an 800 by 600 console wrapper. Mode changes retain the
+selected output and reject unsupported exact requests. The display no longer
+leaves a stale firmware area beside the desktop. An automated key-injection run
+also exposed occasional repeated characters during expensive full-frame
+presentation; input timing and presentation cadence still need investigation. These runs use the recovered C graphics module
 with other reference drivers and programs still present.
 These observations do not establish complete source-image VM equivalence.
 

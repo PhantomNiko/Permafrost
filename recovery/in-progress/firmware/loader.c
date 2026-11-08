@@ -265,7 +265,7 @@ static uint32_t pointer_read(uint32_t *out){
 /* GOP PixelBltOnly devices (including virtio-ramfb) expose no linear video
  * memory. Keep a reserved BGRA surface and present it through GOP.Blt.
  * https://uefi.org/specs/UEFI/2.10/12_Protocols_Console_Support.html */
-static Video *blt_video;
+static Video *blt_video,*selected_video;
 static uint32_t *blt_pixels;
 static size_t blt_capacity;
 static uintptr_t blt_width,blt_height;
@@ -304,31 +304,43 @@ static int video_select(Video *video){
     return 1;
 }
 static void video_context(void);
+static uint32_t video_change_one(Video *video,uint32_t *request){
+    if(!video || !video->mode || !video->mode->info)return 0;
+    uint32_t selected=video->mode->current;uint64_t distance=UINT64_MAX;unsigned found=0;
+    if(request[8] && request[9]){
+        if(!video->query || !video->set)return 0;
+        for(uint32_t n=0;n<video->mode->maximum && n<4096;n++){
+            uintptr_t size=0;VideoInfo *info=0;Status status=video->query(video,n,&size,&info);
+            if(!failed(status) && info && size>=sizeof(VideoInfo) && info->format<=3 && info->width && info->height){
+                uint64_t dx=info->width>request[8]?info->width-request[8]:request[8]-info->width;
+                uint64_t dy=info->height>request[9]?info->height-request[9]:request[9]-info->height;
+                if((!request[10] || request[10]==32 || !(request[11]&1)) &&
+                   (!(request[11]&1) || (!dx && !dy)) && dx+dy<distance){
+                    selected=n;distance=dx+dy;found=1;
+                }
+            }
+            if(info)services->free_pool(info);
+        }
+        if(!found)return 0;
+        if(selected!=video->mode->current && failed(video->set(video,selected)))return 0;
+    }
+    if(!video_select(video))return 0;selected_video=video;
+    request[12]=context[0x13];request[13]=context[0x192];
+    for(unsigned n=0;n<11;n++)request[14+n]=context[0x14+n];
+    return 1;
+}
 static uint32_t video_change(uint32_t *request){
+    if(selected_video)return video_change_one(selected_video,request);
     uintptr_t count=0;void **handles=0;uint32_t result=0;
     if(failed(services->handles(2,&video_guid,0,&count,&handles)))return 0;
-    for(uintptr_t i=0;i<count;i++){
+    for(uintptr_t i=0;i<count && i<4096;i++){
         Video *video=0;
-        if(failed(services->protocol(handles[i],&video_guid,(void **)&video)) || !video || !video->mode)continue;
-        uint32_t selected=video->mode->current;
-        if(video->query && video->set && request[8] && request[9]){
-            for(uint32_t n=0;n<video->mode->maximum;n++){
-                uintptr_t size=0;VideoInfo *info=0;
-                Status status=video->query(video,n,&size,&info);
-                int match=!failed(status) && info && info->format<=3 && info->width==request[8] && info->height==request[9];
-                if(info)services->free_pool(info);
-                if(match){selected=n;break;}
-            }
-            if(selected!=video->mode->current && failed(video->set(video,selected)))continue;
-        }
-        if(!video->mode->info || video->mode->info->format>3)continue;
-        video_context();
-        request[12]=context[0x13];request[13]=context[0x192];
-        for(unsigned n=0;n<11;n++)request[14+n]=context[0x14+n];
-        result=1;break;
+        if(!failed(services->protocol(handles[i],&video_guid,(void **)&video)) &&
+           video_change_one(video,request)){result=1;break;}
     }
     services->free_pool(handles);return result;
 }
+
 static uint32_t dispatch(uint32_t *request){
     if(!request)return 0;
     uint32_t result=0;
@@ -385,15 +397,23 @@ static uintptr_t legacy_bridge(void){
 }
 static unsigned bit_shift(uint32_t mask){unsigned n=0;if(!mask)return 0;while(!(mask&1)){mask>>=1;n++;}return n;}
 static void video_context(void){
-    Video *console=0;
-    if(system_table->output_handle && !failed(services->protocol(system_table->output_handle,&video_guid,(void **)&console)) && video_select(console))return;
-    uintptr_t count=0;void **handles=0;
-    if(failed(services->handles(2,&video_guid,0,&count,&handles)))return;
-    for(uintptr_t i=0;i<count;i++){
-        Video *video=0;
-        if(!failed(services->protocol(handles[i],&video_guid,(void **)&video)) && video_select(video))break;
+    if(selected_video && video_select(selected_video))return;
+    uintptr_t count=0;void **handles=0;Video *best=0;uint64_t area=0;
+    if(!failed(services->handles(2,&video_guid,0,&count,&handles))){
+        for(uintptr_t i=0;i<count && i<4096;i++){
+            Video *video=0;
+            if(failed(services->protocol(handles[i],&video_guid,(void **)&video)) || !video || !video->mode || !video->mode->info)continue;
+            VideoInfo *info=video->mode->info;
+            if(!info->width || !info->height || info->width>8192 || info->height>8192 || info->format>3)continue;
+            if((info->format==3 || !video->mode->framebuffer)?!video->blit:info->stride<info->width)continue;
+            uint64_t size=(uint64_t)info->width*info->height;
+            if(size>area){best=video;area=size;}
+        }
+        services->free_pool(handles);
+        if(video_select(best)){selected_video=best;return;}
     }
-    services->free_pool(handles);
+    Video *console=0;
+    if(system_table->output_handle && !failed(services->protocol(system_table->output_handle,&video_guid,(void **)&console)))video_select(console);
 }
 
 /* WFE5 exposes the WBPT disk through cached physical-sector extents. */

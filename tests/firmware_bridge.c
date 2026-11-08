@@ -117,5 +117,11 @@ int main(void){
     assert(request[14]==1024*768*4&&request[15]==4096&&request[16]==1024&&request[17]==768&&request[18]==32);
     assert(request[19]==0xff0000&&request[20]==0xff00&&request[21]==0xff);
     assert(request[22]==16&&request[23]==8&&request[24]==0);
+    request[8]=999;request[9]=777;request[11]=1;
+    assert(dispatch(request)==0&&selected==1&&context[0x16]==1024&&context[0x17]==768);
+    request[8]=800;request[9]=600;request[10]=24;
+    assert(dispatch(request)==0&&selected==1);
+    request[10]=32;request[11]=0;
+    assert(dispatch(request)==1&&selected==0&&context[0x16]==800&&context[0x17]==600);
     return 0;
 }
