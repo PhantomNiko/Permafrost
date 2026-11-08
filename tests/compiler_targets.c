@@ -88,6 +88,8 @@ int main(void) {
  __uint128_t reversed=vrev(ascending,1);
  if((uint64_t)reversed!=0x0001020304050607ULL || (uint64_t)(reversed>>64)!=0x08090a0b0c0d0e0fULL)return 74;
  if(ZEXT716(UINT64_MAX)!=0xffffffffffffffULL)return 75;
+ if(CONCAT41(0x12345678U,0x9a)!=0x123456789aULL || CONCAT51(0x123456789aULL,0xbc)!=0x123456789abcULL)return 76;
+ if(CONCAT61(0x123456789abcULL,0xde)!=0x123456789abcdeULL || CONCAT72(0x123456789abcdeULL,0xf012)!=(((__uint128_t)0x12<<64)|0x3456789abcdef012ULL))return 77;
  __uint128_t integers=CONCAT88(0x00009c4000007fffULL,0xffffffffffff63c0ULL);
  if((uint64_t)packssdw(integers,0)!=0x7fff7fffffff8000ULL)return 20;
  __uint128_t shorts=CONCAT88(0x00c80080007f0001ULL,0x0000ffffff80ff38ULL);

@@ -666,6 +666,16 @@ def main():
             if row[0] == 'S':
                 offset, width = int(row[2]), int(row[3])
                 stack_widths[offset] = max(stack_widths.get(offset, 0), width)
+        # Ghidra can split an eight-byte stack store into a seven-byte
+        # array and its neighboring byte, naming the whole view with an
+        # underscore. Preserve the recorded store width and shared frame.
+        local_offsets = {row[1]: int(row[2]) for row in locals_used}
+        for name in set(re.findall(r'\b_(auStack_[0-9a-f]+)\b', source)):
+            if name not in local_offsets:
+                raise ValueError('unknown aggregate stack view: ' + name)
+            width = stack_widths[local_offsets[name]]
+            source = re.sub(r'\b_' + re.escape(name) + r'\b',
+                            'PF_PART%d(%s,0)' % (width,name),source)
         for name, raw in sorted(set(re.findall(r'\b(stack0x([0-9a-f]{8}(?:[0-9a-f]{8})?))\b', source))):
             offset=int(raw,16)
             bits=len(raw)*4

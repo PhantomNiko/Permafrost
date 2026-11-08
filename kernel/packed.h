@@ -54,6 +54,10 @@ PF_PACKED_VIEW(15,120);
 #define CONCAT91(a,b) (((pf_u80)(pf_u72)(a)<<8)|(uint8_t)(b))
 #define CONCAT23(a,b) (((uint64_t)(uint16_t)(a)<<24)|((uint32_t)(b)&0xffffffU))
 #define CONCAT52(a,b) ((((uint64_t)(a)&0xffffffffffULL)<<16)|(uint16_t)(b))
+#define CONCAT41(a,b) (((uint64_t)(uint32_t)(a)<<8)|(uint8_t)(b))
+#define CONCAT51(a,b) ((((uint64_t)(a)&0xffffffffffULL)<<8)|(uint8_t)(b))
+#define CONCAT61(a,b) ((((uint64_t)(a)&0xffffffffffffULL)<<8)|(uint8_t)(b))
+#define CONCAT72(a,b) (((pf_u72)((uint64_t)(a)&0xffffffffffffffULL)<<16)|(uint16_t)(b))
 static inline bool SBORROW2(int16_t a,int16_t b) {
     int32_t result=(int32_t)a-b;return result < -32768 || result > 32767;
 }
