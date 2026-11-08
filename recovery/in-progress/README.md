@@ -186,6 +186,14 @@ ARM32 desktop still lacks images and has clock/input issues; isolated PNG, BMP
 and TGA kernel decodes match the reference, so file/allocator integration still
 needs investigation. This does not establish complete source-image equivalence.
 
+The x86-64 Activity Monitor is now recovered C under
+`applications/activity-monitor`. Its initialized data relocates seven static
+column-label pointers from the original fixed-address executable. Comparisons
+through the recovered TerrorUI DLL check live system, process and disk samples,
+window calls, all seven headings and glyph pixels with partial alpha. The source
+application also opens and updates in the mixed x86-64 desktop diagnostic. Its
+other three architectures and complete source-image integration remain pending.
+
 GPT filesystem updates now preserve the existing BIOS boot area, firmware
 partitions and partition tables. Previously, repacking rebuilt a two-partition
 GPT container and discarded the other boot components. A regression fixture

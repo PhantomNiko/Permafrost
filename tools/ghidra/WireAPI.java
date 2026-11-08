@@ -40,12 +40,23 @@ public class WireAPI extends GhidraScript {
     public void run() throws Exception {
         var args=getScriptArgs();long base=Long.decode(args[1]);
         var memory=currentProgram.getMemory();
+        var rows=Files.readAllLines(Path.of(args[0]));
+        long extent=12;
+        for(String row:rows)if(!row.isBlank())
+            extent=Math.max(extent,Long.decode(row.split("\\t",2)[0])+4);
         if(memory.getBlock(toAddr(base))==null)
-            memory.createInitializedBlock("wmap_services",toAddr(base),0x100,(byte)0,monitor,false);
+            memory.createInitializedBlock("wmap_services",toAddr(base),extent,(byte)0,monitor,false);
+        var block=memory.getBlock(toAddr(base));
+        if(block.getEnd().getOffset()<base+extent-1) {
+            var next=block.getEnd().add(1);
+            var extension=memory.createInitializedBlock("wmap_services_extension",next,
+                base+extent-next.getOffset(),(byte)0,monitor,false);
+            memory.join(block,extension);
+        }
         memory.getBlock(toAddr(base)).setVolatile(true);
         var manager=currentProgram.getDataTypeManager();
         var parser=new CParser(manager);var slots=new HashMap<Long,FunctionDefinitionDataType>();
-        for(String row:Files.readAllLines(Path.of(args[0]))) {
+        for(String row:rows) {
             if(row.isBlank())continue;
             var fields=row.split("\\t",2);
             var address=toAddr(base+Long.decode(fields[0]));
