@@ -30,8 +30,15 @@ clipboard interaction, pointer selection, persistence, and integration with the
 real kernel command interpreter still need broader comparisons. It does not
 advance the canonical release target or replace the full-image validation gate.
 
-The source terminal opens and renders in an x86-64 diagnostic with the C kernel
-and twelve C libraries. That disk retains other reference programs and drivers.
-Two input-injection attempts, including explicit focus and separate held
-keystrokes, produced no visible command input. Real VM command entry and the
-kernel input/scheduling integration remain unresolved.
+The source terminal opens and executes `2+3`, displaying `5`, in an x86-64
+diagnostic with the C kernel and twelve C libraries. That disk retains other
+reference programs and drivers and is not a release image.
+
+An initially inactive window could retain TerrorUI's cached inactive record
+indefinitely: presenting invalidates that cache, but an idle inactive terminal
+can skip presentation. The native terminal also stalls in the delayed-focus
+fixture. `refresh_focus.h` refreshes inactive cached records at the start of
+the recovered terminal's loop. This intentional correction leaves TerrorUI's
+public caching behavior unchanged. Four source regression cases require delayed
+activation to execute a command; four additional native comparisons preserve
+the already-active terminal's pixels, output, and service calls.

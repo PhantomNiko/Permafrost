@@ -207,6 +207,10 @@ partial-alpha text and resized frames through the same source TerrorUI library.
 Its i386 parser now uses decoded C switches rather than native jump addresses;
 ARM64 resolves its indirect memory-clear import to C. File commands, clipboard
 interaction and complete VM integration remain unfinished.
+The terminal now refreshes inactive cached window information so a newly
+activated window can receive keys. All four source builds pass delayed-focus
+regressions and preserve native behavior for an already-active window. An x64
+VM diagnostic with the C kernel and libraries executes `2+3` and displays `5`.
 
 Kernel statement comparisons now cover assignment, returned arithmetic,
 compound assignment, conditional returns, indexed arrays and numeric loops on

@@ -18,6 +18,7 @@ glyphs=screen=False
 library=None
 command=""
 fail_thread=False
+activate_later=False
 def exercise(path):
  lib=DLL(path,instruction_limit=400000000);ui=DLL(library,load_base=0x1000000);meta,raw=inspect(library.read_bytes());lib.cpu.mem_write(ui.base,bytes(ui.cpu.mem_read(ui.base,len(raw))));cpu=lib.cpu;w=8 if lib.wide else 4;events=[];presents=[];width=height=0;queries=0;ticks=0;keys=list(command.encode())+([13]if command else[]);pending=[];queued=[]
  m,_=inspect(path.read_bytes());entry=next((n,a)for a,n in m['symbols']if n=='_main'or n.endswith('_entry'));lib.exports[entry[0]]=lib.base+entry[1]
@@ -106,7 +107,7 @@ def exercise(path):
     queries+=1
     if queries==3:width-=16;height-=8
     if queries==5:width+=16;height+=8
-    record=bytearray(632);struct.pack_into('<2I',record,0,17,1);struct.pack_into('<I',record,16,width*height*4);struct.pack_into('<6I',record,20,1,width,height,width*4,0xefefef,10);cpu.mem_write(a[1],bytes(record));a=a[:1];value=int(queries<=(4 if screen else 8))
+    record=bytearray(632);struct.pack_into('<2I',record,0,17,1);struct.pack_into('<I',record,16,width*height*4);struct.pack_into('<6I',record,20,1,width,height,width*4,0xefefef,8 if activate_later and queries<3 else 10);cpu.mem_write(a[1],bytes(record));a=a[:1];value=int(queries<=(4 if screen else 8))
    elif name=='present':
     # WMAP dimensions and clear colour are 32-bit wire arguments. Native
     # callers can leave unspecified high bits in the host argument registers.
@@ -123,7 +124,7 @@ def exercise(path):
      tw=max(1,min(len(string)*3,1024));th=5;size=tw*th*4;pointer=lib.next;lib.next=(pointer+size+15)&-16;lib.allocs[pointer]=size;r,g,b=(color>>24)&255,(color>>16)&255,(color>>8)&255;pixels=b''.join(bytes((r,g,b,[0,64,128,255][i%4]))for i in range(tw*th));cpu.mem_write(pointer,pixels);cpu.mem_write(a[4],struct.pack('<Q4I',pointer,size,tw,th,tw*4));value=1
     else:cpu.mem_write(a[4],bytes(24));value=0
     a=[string,*[v&0xffffffff for v in a[1:4]]]
-   elif name=='key':value=keys.pop(0)if keys else 0;a=[value]
+   elif name=='key':value=keys.pop(0)if keys and not(activate_later and queries<3)else 0;a=[value]
    events.append((name,*a));finish(value)
   return call
  for offset in specs:
@@ -136,28 +137,35 @@ def exercise(path):
   print('failed',path.name,'frames',len(presents),'recent',events[-12:],flush=True);raise
  return result,events,presents
 def main():
- global glyphs,screen,library,command,fail_thread
+ global glyphs,screen,library,command,fail_thread,activate_later
  import argparse
  parser=argparse.ArgumentParser(description=__doc__)
  parser.add_argument('reference',type=Path);parser.add_argument('source',type=Path);parser.add_argument('library',type=Path)
  parser.add_argument('--glyphs',action='store_true');parser.add_argument('--wide-window',action='store_true')
  parser.add_argument('--command',default='');parser.add_argument('--fail-thread',action='store_true')
- args=parser.parse_args();glyphs=args.glyphs;screen=args.wide_window;library=args.library;command=args.command;fail_thread=args.fail_thread
+ parser.add_argument('--activate-later',action='store_true',help='test source recovery from the native inactive-cache stall')
+ args=parser.parse_args();glyphs=args.glyphs;screen=args.wide_window;library=args.library;command=args.command;fail_thread=args.fail_thread;activate_later=args.activate_later
  meta,_=inspect(args.source.read_bytes());folder=Path('build/terminal-application-check')/hex(meta['cpu']);folder.mkdir(parents=True,exist_ok=True)
  diagnostic_reference(args.reference,folder/'reference-diagnostic');diagnostic_reference(args.source,folder/'source-diagnostic')
- native=exercise(folder/'reference-diagnostic');actual=exercise(folder/'source-diagnostic')
- assert native[0]==actual[0],(native[0],actual[0],native[1][:4],actual[1][:4],len(native[2]),len(actual[2]))
- assert len(native[1])==len(actual[1]),(len(native[1]),len(actual[1]))
- for index,(x,y)in enumerate(zip(native[1],actual[1])):
-  assert x==y,(index,x,y)
- assert native==actual
- requested={event[1]for event in native[1]if event[0]=='text'}
+ if activate_later:
+  assert command and not fail_thread,'The focus regression requires a successful command.'
+  actual=exercise(folder/'source-diagnostic')
+  assert actual[0]==1 and actual[2],('source did not finish with rendered frames',actual[0])
+  assert sum(event[0]=='query'for event in actual[1])>=3,'window did not refresh after activation'
+ else:
+  native=exercise(folder/'reference-diagnostic');actual=exercise(folder/'source-diagnostic')
+  assert native[0]==actual[0],(native[0],actual[0],native[1][:4],actual[1][:4],len(native[2]),len(actual[2]))
+  assert len(native[1])==len(actual[1]),(len(native[1]),len(actual[1]))
+  for index,(x,y)in enumerate(zip(native[1],actual[1])):
+   assert x==y,(index,x,y)
+  assert native==actual
+ requested={event[1]for event in actual[1]if event[0]=='text'}
  assert b'Terminal Cancer'in requested,requested
- if command and not fail_thread:assert any(event[0]=='execute'and event[1]==command.encode()for event in native[1]),'command was not executed'
+ if command and not fail_thread:assert any(event[0]=='execute'and event[1]==command.encode()for event in actual[1]),'command was not executed'
  if command and fail_thread:
-  assert any(event[0]=='thread'for event in native[1]),'worker creation was not attempted'
-  assert not any(event[0]=='execute'for event in native[1]),'failed worker unexpectedly ran'
- print('Cancer terminal: native/source UI pixels, command output and service calls match.')
+  assert any(event[0]=='thread'for event in actual[1]),'worker creation was not attempted'
+  assert not any(event[0]=='execute'for event in actual[1]),'failed worker unexpectedly ran'
+ print('Cancer terminal: delayed activation refreshes focus and executes the command.'if activate_later else 'Cancer terminal: native/source UI pixels, command output and service calls match.')
 
 
 if __name__=='__main__':main()
