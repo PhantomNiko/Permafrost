@@ -33,7 +33,7 @@ def build_kernel(source, output):
     objects = []
     includes = [str(source), 'sdk/include', 'kernel']
     from image_module import make_image_module
-    image_module = make_image_module(output, arch)
+    image_module = make_image_module(output, arch, profile.get('image_source'), profile['version'])
     for name, path, defines in (
         ('implementation', source/'runtime.c', []),
         ('image-module', image_module, []),

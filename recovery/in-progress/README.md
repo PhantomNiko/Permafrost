@@ -207,6 +207,20 @@ store now copies those bytes, preserving the returned value's tag and payload.
 control-flow state and scalar value bytes against the native kernel. These
 isolated checks do not establish startup-script file or complete VM parity.
 
+The kernel builders now select image codec C source with the profile's
+`image_source` field and reject a codec with a different architecture or release
+version. The 1.0 kernel profiles use `recovery/in-progress/libraries/png/ARCH`.
+Previously they silently embedded the canonical predecessor codec. With the
+current codec, all four kernels match native decoding of BMP, PNG, TGA and XCF
+fixtures plus the real interlaced AppIcon and Navigator images. Six statement
+comparisons still pass on each CPU. The ARM32 VM now renders wallpaper, icons
+and readable clock text. Input integration remains unfinished.
+
+Private codec headers are embedded with their allocator helpers routed through
+the kernel allocator bridge. Relocations accept both address-key styles and
+preserve pointer tags. The i386 PNG checkpoint now includes its retained portable
+C decoder header, so a clean build does not depend on a stale output directory.
+
 The C firmware now publishes WFE5 pointer protocol counts and both handle
 arrays. The legacy arrays use 32-bit slots at offsets `0x1360` and `0x1380`;
 the full-width arrays use 64-bit slots at `0x13a0` and `0x13e0`. Reference
@@ -230,8 +244,8 @@ The ARM64 C kernel also reaches the desktop with the current C firmware,
 twelve C libraries and GICv3. This run does not modify the timer interval in
 guest RAM. Wallpaper, icons and window surfaces render. Its epoch-based date
 reflects the reference ARM64 platform RTC stub, which clears the time record
-and returns unavailable. The current ARM32 C firmware/kernel diagnostic still
-has missing images, corrupt clock text and unresolved pointer integration.
+and returns unavailable. The current ARM32 C firmware/kernel diagnostic now renders images and readable
+clock text with the current codec; pointer integration remains unresolved.
 These observations do not establish complete source-image VM equivalence.
 
 Diagnostic snapshots and VM disks remain outside tracked source. The normal

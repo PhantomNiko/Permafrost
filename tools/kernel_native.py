@@ -73,7 +73,7 @@ def build_kernel(output, architecture='i386', profile_path=None):
         if resident:bridge=b''
     from image_module import make_image_module
     objects = [object_for(root / 'runtime.c', 'implementation'),
-               object_for(make_image_module(output, architecture), 'image-module')]
+               object_for(make_image_module(output, architecture, profile.get('image_source'), profile['version']), 'image-module')]
     if architecture == 'i386':
         objects.append(object_for(root / 'firmware.c', 'platform'))
         if profile.get('platform')=='uefi':
