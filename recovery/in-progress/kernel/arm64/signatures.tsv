@@ -54,7 +54,7 @@
 824617b4	long recovered_824617b4(long param_1,long param_2,int param_3);
 824038e4	int recovered_824038e4(void);
 824094f0	unsigned long long recovered_824094f0(void);
-82439e68	unsigned long long recovered_82439e68(long param_1,unsigned long *param_2,int param_3,long param_4,long param_5,long param_6, unsigned int param_7,unsigned int param_8,int *param_9);
+82439e68	unsigned long long recovered_82439e68(void **nodes,unsigned long *count,unsigned long *capacity,unsigned int parent,const char *name,const char *path,unsigned long file_index,unsigned int directory,unsigned int flags,unsigned int *out_index);
 8241e54c	unsigned long long recovered_8241e54c(long param_1,unsigned long long *param_2,unsigned long *param_3);
 82415900	long * recovered_82415900(long *param_1,unsigned long param_2,unsigned int *param_3);
 824619a0	unsigned long recovered_824619a0(unsigned int *param_1,long param_2,long param_3,unsigned long param_4);
@@ -1063,3 +1063,4 @@
 824163d8	void recovered_824163d8(unsigned long long *vector,long position,unsigned char *begin,unsigned long count);	x0,x1,x2,x3
 82419fdc	void recovered_82419fdc(unsigned long long *builder,pf_point *first,pf_point *control,pf_point *last,int depth);	x0,x1,x2,x3,w4
 824214e4	char *recovered_824214e4(char *path);	x0
+82439730	unsigned long long recovered_82439730(void **nodes,unsigned long *count);

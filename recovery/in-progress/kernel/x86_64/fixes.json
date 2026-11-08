@@ -259,5 +259,14 @@
   "203e3d0": {
     "ushort recovered_203e3d0(void)": "uint recovered_203e3d0(void)",
     "return (ushort)uVar3;": "return uVar3;"
+  },
+  "200b810": {
+    "        unaff_R13 = CONCAT71((int7)(uVar4 >> 8),\n                             DAT_02109000 < DAT_021027e4 + (uint)(DAT_021027e4 == 0));\n        goto LAB_0200ba05;\n      }\n    }\n  }\nLAB_0200ba02:": "      }\n      /* A completed EFI transfer succeeds independently of throttle budget. */\n      return 1;\n    }\n  }\nLAB_0200ba02:"
+  },
+  "200c080": {
+    "0x1d2 >>": "0x1de >>"
+  },
+  "200c130": {
+    "0x1d2U >>": "0x1deU >>"
   }
 }

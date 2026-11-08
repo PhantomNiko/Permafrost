@@ -81,7 +81,6 @@
 20e2bf0	void recovered_20e2bf0(char *param_1,unsigned long long *param_2);	RDI,RSI
 20b3750	unsigned char recovered_20b3750(int *param_1,char *param_2,unsigned long long in_RCX,unsigned long long in_R8, unsigned long long in_R9);	RDI,RSI,RDX,RCX,R8
 2022e40	unsigned int recovered_2022e40(long param_1,unsigned long long *param_2);	RDI,RSI
-206e1c0	unsigned char recovered_206e1c0(long param_1,unsigned long *param_2,int param_3,long param_4,long param_5, long param_6,char param_7,unsigned int param_8,unsigned int *param_9);	RDI,RSI,EDX,RCX,R8,R9,stack8,stack16,stack24
 20db050	double recovered_20db050(char *param_1,long param_2);	RDI,RSI
 2005c70	unsigned long long recovered_2005c70(void);
 202dad0	unsigned long long recovered_202dad0(long *param_1,long param_2,unsigned int *param_3,unsigned int *param_4);	RDI,RSI,RDX,RCX
@@ -491,7 +490,6 @@
 206b070	unsigned long recovered_206b070(long param_1,unsigned long param_2,char param_3);	RDI,RSI,DL
 201c9c0	 void recovered_201c9c0(void *context);
 202f770	unsigned long long * recovered_202f770(float param_1,long param_2);	XMM0_Da,RDI
-206d710	unsigned char recovered_206d710(unsigned int *param_1,unsigned long *param_2);	RDI,RSI
 201c2c0	unsigned int recovered_201c2c0(int *param_1,unsigned long param_2,int param_3);	RDI,RSI,EDX
 207a9a0	unsigned char recovered_207a9a0(unsigned long param_1,unsigned long param_2,unsigned int param_3,unsigned int param_4,long param_5);	RDI,RSI,EDX,ECX,R8
 20a5ce0	unsigned char recovered_20a5ce0(long text,int *out);	RDI,RSI
@@ -880,3 +878,5 @@
 202e570	unsigned char recovered_202e570(unsigned int param_1,long param_2,long param_3,long param_4,unsigned long param_5, unsigned long param_6);	EDI,RSI,RDX,RCX,R8,R9
 20db490	unsigned char recovered_20db490(unsigned char *param_1,char *param_2,int *param_3,unsigned int *param_4,char *param_5, unsigned long long param_6,unsigned long long param_7,unsigned long long param_8,unsigned char *param_9, char *param_10,int *param_11,unsigned int *param_12,unsigned long long param_13);	RDI,RSI,RDX,RCX,R8,R9,stack8,stack16,stack24,stack32,stack40,stack48,stack56
 2031e50	void recovered_2031e50(unsigned long long *param_1);	RDI
+206d710	unsigned char recovered_206d710(void **nodes,unsigned long *count);
+206e1c0	unsigned char recovered_206e1c0(void **nodes,unsigned long *count,unsigned long *capacity,unsigned int parent,const char *name,const char *path,unsigned long file_index,unsigned int directory,unsigned int flags,unsigned int *out_index);

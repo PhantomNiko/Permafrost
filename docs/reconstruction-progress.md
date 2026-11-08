@@ -103,3 +103,19 @@ persistent VM behavior, recovery of the new application/library/driver code,
 third-party payload handling, and the macOS 15 SDK. Only after the complete
 source-built image passes VM comparisons will this milestone receive its tag;
 1.1 and 1.2 follow in that order.
+
+
+The current 1.0 ARM64 and x86-64 C kernel candidates pass a disposable-disk
+persistence probe: write through the SDK, read back the exact bytes, shut down
+the VM, and verify the file directly on disk. Recovered FAT tree builders now
+retain full-width capacity pointers, file indexes, implicit-directory sentinels
+and output-node arguments. Native comparisons cover node updates, allocation
+failure and nested implicit/explicit directories on both architectures.
+
+The x86-64 EFI path also corrects two reference defects: its command gate
+excluded the sector read/write commands used by the storage routines, and a
+completed transfer incorrectly reported failure unless a throttle budget
+remained. Request payloads and accounting retain native parity; command-gate
+and completion-status corrections are deliberate. Keyboard routing and the
+statement interpreter corpus still pass. These checks validate the storage
+checkpoint, not the unfinished release as a whole.
