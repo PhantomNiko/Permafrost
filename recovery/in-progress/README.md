@@ -142,7 +142,9 @@ Desktop integration diagnostics replace eleven reference DLLs with the recovered
 C libraries, including TerrorUI, while retaining the reference kernel,
 applications, drivers and standalone runtime. The x86-64 diagnostic reaches the
 desktop. ARM64 also reaches the desktop with the GICv3 and guest-RAM timer
-adjustment described above. ARM32 remains at the handoff screen, and BIOS i386
+adjustment described above. ARM32 still displays the handoff screen, although reading its framebuffer
+from guest RAM reveals a rendered desktop; presentation remains unresolved.
+BIOS i386
 reaches Batagaika first-boot setup. An additional C guest program links against the recovered TerrorUI DLL and
 launches beside the reference desktop compositor. On x86-64 its text, rectangle
 and button render, and a pointer click changes the rectangle colour through the
@@ -152,6 +154,14 @@ ARM32 and BIOS i386 interactive display checks remain unfinished. These mixed
 diagnostic disks still retain reference components and are not release images.
 The reusable guest fixture is `tests/ui_guest.c`, built with
 `tests/ui_guest.py` and source-only DLL export stubs in `tools/darwin.py`.
+
+The 3D demo now has common C application and rendering source under
+`applications/cube`. Four-architecture comparisons cover a full 64-frame
+rotation cycle with CPU rendering, GPU command submission and failed-GPU
+fallback, plus window and keyboard exit/failure paths. Its CPU rasterizer also
+matches 12 clipping, winding and degenerate-triangle fixtures on every CPU.
+The source demo opens and animates in the x86-64 desktop diagnostic. Remaining
+GUI applications, drivers and the third-party boot payload are still unfinished.
 
 GPT filesystem updates now preserve the existing BIOS boot area, firmware
 partitions and partition tables. Previously, repacking rebuilt a two-partition

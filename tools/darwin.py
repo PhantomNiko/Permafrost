@@ -114,6 +114,17 @@ def link_dynamic_executable(objects, target, architecture, libraries, entry='mai
     address = next(a for a, name in metadata['symbols'] if name == '_' + entry)
     header = 32 if architecture in ('x86_64', 'arm64') else 28
     count, size = struct.unpack_from('<II', binary, 16)
+    position = header
+    for _ in range(count):
+        command, length = struct.unpack_from('<II', binary, position)
+        if command == 0xd:  # LC_ID_DYLIB is invalid in MH_EXECUTE.
+            end = header + size
+            binary[position:end - length] = binary[position + length:end]
+            binary[end - length:end] = bytes(length)
+            count -= 1
+            size -= length
+            break
+        position += length
     # The dylib linker omits the executable page-zero segment on all targets.
     # Add the reference loader's LC_MAIN entry in reserved header padding.
     if binary[header + size:header + size + 24] != bytes(24):
