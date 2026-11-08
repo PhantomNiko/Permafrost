@@ -207,6 +207,15 @@ store now copies those bytes, preserving the returned value's tag and payload.
 control-flow state and scalar value bytes against the native kernel. These
 isolated checks do not establish startup-script file or complete VM parity.
 
+The C firmware now publishes WFE5 pointer protocol counts and both handle
+arrays. The legacy arrays use 32-bit slots at offsets `0x1360` and `0x1380`;
+the full-width arrays use 64-bit slots at `0x13a0` and `0x13e0`. Reference
+ARM64 firmware recovery confirms both representations. The host fixture
+checks repeated discovery, unused slots and high pointers without truncation.
+All four firmware builds pass. A live ARM32 diagnostic discovers one relative
+and one absolute device and exposes their records in the context. Pointer-driven
+application launching still fails in the ARM diagnostics and remains unfinished.
+
 GPT filesystem updates now preserve the existing BIOS boot area, firmware
 partitions and partition tables. Previously, repacking rebuilt a two-partition
 GPT container and discarded the other boot components. A regression fixture

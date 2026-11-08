@@ -179,6 +179,7 @@ static RelativePointer *relative_devices[8];
 static AbsolutePointer *absolute_devices[8];
 static unsigned relative_count,absolute_count;
 static void pointer_devices(void){
+    relative_count=absolute_count=0;
     Guid *guids[]={&relative_guid,&absolute_guid};
     for(unsigned kind=0;kind<2;kind++){
         uintptr_t count=0;void **handles=0;
@@ -190,6 +191,17 @@ static void pointer_devices(void){
             if(kind && absolute_count<8)absolute_devices[absolute_count++]=device;
         }
         services->free_pool(handles);
+    }
+    /* WFE5 advertises pointer protocols before the kernel selects its input
+       backend. Publish both the legacy 32-bit and full-width handle arrays. */
+    context[0x4d6]=relative_count;context[0x4d7]=absolute_count;
+    for(unsigned i=0;i<8;i++){
+        uintptr_t relative=i<relative_count?(uintptr_t)relative_devices[i]:0;
+        uintptr_t absolute=i<absolute_count?(uintptr_t)absolute_devices[i]:0;
+        context[0x4d8+i]=relative<=UINT32_MAX?(uint32_t)relative:0;
+        context[0x4e0+i]=absolute<=UINT32_MAX?(uint32_t)absolute:0;
+        ((uint64_t *)(context+0x4e8))[i]=relative;
+        ((uint64_t *)(context+0x4f8))[i]=absolute;
     }
 }
 static int32_t bounded_i32(int64_t value){
