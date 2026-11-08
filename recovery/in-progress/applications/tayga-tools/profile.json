@@ -1,0 +1,38 @@
+{
+  "version": "1.0",
+  "architectures": [
+    "i386",
+    "x86_64",
+    "armv7",
+    "arm64"
+  ],
+  "tools": [
+    "cat",
+    "cd",
+    "echo",
+    "env",
+    "freebsd-driver",
+    "help",
+    "id",
+    "kldload",
+    "kldstat",
+    "kldunload",
+    "lipo",
+    "ls",
+    "make",
+    "mkdir",
+    "nano",
+    "pwd",
+    "rm",
+    "sh",
+    "sudo",
+    "tayga",
+    "touch",
+    "uname",
+    "wget",
+    "whoami"
+  ],
+  "sources": [
+    "tool.c"
+  ]
+}

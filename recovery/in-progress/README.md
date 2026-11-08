@@ -376,6 +376,14 @@ formatter preserves integer and pointer bits, handles native length modifiers,
 and uses C variadic argument transport. Full VM startup, utility recovery, and
 wider runtime compatibility remain pending.
 
+All twenty-four Tayga command launchers now build from one shared C source
+and a tool-name manifest, without guest DLL dependencies or reference build
+inputs. Fifty-eight native forwarding and output-routing comparisons pass per
+CPU, including process command-line selection, failures, stream output, and
+line-based log fallback. The kernel still supplies the command implementations;
+these checks verify the recovered launcher contract rather than all utility
+semantics.
+
 Diagnostic snapshots and VM disks remain outside tracked source. The normal
 build continues to use the last completed source tree until the next milestone
 passes its complete source build and VM comparisons. That transition must move
