@@ -43,7 +43,9 @@ def exercise(binary, reference, mapping=None):
     cpu.hook_add(UC_HOOK_INSN, port, None, 1, 0, UC_X86_INS_IN)
     decoded = []
     for code in [0x1e, 0x9e, 0x03, 0x83, 0x2a, 0x0d,
-                 0x8d, 0xaa, 0x04, 0x84, 0x1c, 0x9c]:
+                 0x8d, 0xaa, 0x04, 0x84, 0x1c, 0x9c,
+                 0xe0, 0x5b, 0x2e, 0xae, 0xe0, 0xdb,
+                 0x1d, 0x2e, 0xae, 0x9d]:
         scancodes[:] = [code]
         decoded.append(call(target('_wm_platform_poll_key_ax')))
 
@@ -110,8 +112,10 @@ def main():
     actual = exercise(args.source.read_bytes(), metadata, json.loads(args.map.read_text()))
     assert expected == actual, (expected, actual)
     assert expected[0] == [0x1e61, 0, 0x332, 0, 0x80010000, 0x10d2b,
-                           0, 0x80000000, 0x433, 0, 0x1c0d, 0]
-    print('x64 keyboard: twelve scancode and eight process/window/modifier routing cases passed.')
+                           0, 0x80000000, 0x433, 0, 0x1c0d, 0,
+                           0, 0x80040000, 0x42e63, 0, 0, 0x80000000,
+                           0x80020000, 0x22e63, 0, 0x80000000]
+    print('x64 keyboard: twenty-two scancode and eight process/window/modifier routing cases passed.')
 
 
 if __name__ == '__main__':

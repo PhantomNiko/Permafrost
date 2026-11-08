@@ -212,11 +212,13 @@ activated window can receive keys. All four source builds pass delayed-focus
 regressions and preserve native behavior for an already-active window. An x64
 VM diagnostic with the C kernel and libraries executes `2+3` and displays `5`.
 The x64 public keyboard callback now has the SDK's explicit 32-bit return
-contract. Its oracle covers twelve make/break and modifier scancodes plus
+contract. Its oracle covers twenty-two make/break and modifier scancodes plus
 eight active-window, child-process and modifier-routing cases. Scalar and
 statement comparisons still pass. The clean VM input check waits for the
 window's active flag before sending keys; fixed-delay input injection was
 inconsistent and does not establish interactive performance or full VM parity.
+The additional scancodes exercise extended Command prefixes, Command-C,
+Control-C, and modifier release through the actual platform decoder.
 
 TextEditor now has C source builds for all four architectures under
 `applications/text-editor`. Native comparisons cover typed text, resized frames,
