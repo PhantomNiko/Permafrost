@@ -345,6 +345,14 @@ presentation; input timing and presentation cadence still need investigation. Th
 with other reference drivers and programs still present.
 These observations do not establish complete source-image VM equivalence.
 
+Glacier now has C application checkpoints for all four CPUs. Each links the
+recovered TerrorUI, WinterJS, and WinterTLS interfaces without using a reference
+application as a build input. Nineteen URL parsing and percent-decoding
+comparisons pass on each architecture; the i386 comparison preserves the
+native private register calling convention. These checks cover URL handling,
+while browser rendering, networking, script integration, and VM parity remain
+release gates.
+
 Diagnostic snapshots and VM disks remain outside tracked source. The normal
 build continues to use the last completed source tree until the next milestone
 passes its complete source build and VM comparisons. That transition must move

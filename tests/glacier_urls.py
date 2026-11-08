@@ -7,6 +7,7 @@ import argparse
 from pathlib import Path
 from desktop_calendar import load
 from native import inspect
+from unicorn.x86_const import UC_X86_REG_ECX, UC_X86_REG_EDX
 
 
 def exercise(reference,source,library,folder):
@@ -23,15 +24,25 @@ def exercise(reference,source,library,folder):
     count=0
     for value in [b'',b'http://example.test/',b'https://example.test/a?q=1',b'HTTP://EXAMPLE.TEST/a',b'https://example.test:8443/path',b'ftp://example.test/',b'http://',b'http://host:bad/',b'http://host:65536/',b'https://host',b'http://host/#fragment']:
         results=[]
-        for lib in libs:
+        for index,lib in enumerate(libs):
             lib.cpu.mem_write(0x2e0000,value+b'\0');lib.cpu.mem_write(0x2e1000,b'\xa5'*0x144);lib.cpu.mem_write(0x2e2000,bytes(128))
-            result=lib.call('_glacier_parse_http_url',0x2e0000,0x2e1000,0x2e2000,128,result_bits=8)
+            if index==0 and lib.cpu_type==7:
+                lib.cpu.reg_write(UC_X86_REG_ECX,0x2e0000)
+                lib.cpu.reg_write(UC_X86_REG_EDX,0x2e1000)
+                result=lib.call('_glacier_parse_http_url',0x2e2000,128,result_bits=8)
+            else:
+                result=lib.call('_glacier_parse_http_url',0x2e0000,0x2e1000,0x2e2000,128,result_bits=8)
             results.append((result,bytes(lib.cpu.mem_read(0x2e1000,0x144)),bytes(lib.cpu.mem_read(0x2e2000,128))))
         assert results[0]==results[1],('HTTP URL parser differs',value,results);count+=1
     for value in [b'',b'/plain/path',b'/a%20b',b'%2Ftmp%2Ffile',b'%zz%2',b'%00tail',b'plus+sign',b'%e2%98%83']:
         results=[]
-        for lib in libs:
-            lib.cpu.mem_write(0x2e0000,value+b'\0'+bytes(32));lib.call('_glacier_url_decode_path_in_place',0x2e0000)
+        for index,lib in enumerate(libs):
+            lib.cpu.mem_write(0x2e0000,value+b'\0'+bytes(32))
+            if index==0 and lib.cpu_type==7:
+                lib.cpu.reg_write(UC_X86_REG_ECX,0x2e0000)
+                lib.call('_glacier_url_decode_path_in_place')
+            else:
+                lib.call('_glacier_url_decode_path_in_place',0x2e0000)
             results.append(bytes(lib.cpu.mem_read(0x2e0000,len(value)+1)))
         assert results[0]==results[1],('URL decoding differs',value,results);count+=1
     print('Glacier: %d native HTTP parser and percent-decoding comparisons passed.'%count)
