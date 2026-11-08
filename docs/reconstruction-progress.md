@@ -139,3 +139,15 @@ launch in the VM. ARM32 firmware currently supplies a device tree rather than an
 ACPI MCFG table, leaving its original ACPI-only USB discovery path without a PCI
 configuration region. ARM32 input, ARM keyboard behavior and the remaining
 source/release gates are still incomplete.
+
+
+An ARM32 device-tree ECAM candidate now discovers the QEMU root PCI bridge
+without synthesizing ACPI tables. Eleven native ACPI address/bounds comparisons
+and equivalent device-tree cases pass; host tests also check malformed headers
+and block bounds. This is an unpromoted recovery candidate: exposing PCI reaches
+a graphics initialization stall, and a diagnostic with those reference graphics
+drivers removed discovers USB but aborts during controller register access.
+The working ARM32 desktop checkpoint remains unchanged while MMIO mapping and
+driver behavior are investigated. A separate ARM64 VM check opens the C terminal
+but does not accept the injected USB keyboard command; pointer success does not
+yet establish keyboard compatibility.
