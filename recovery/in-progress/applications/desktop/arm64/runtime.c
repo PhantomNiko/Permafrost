@@ -835,7 +835,9 @@ LAB_10001484:
                         DAT_10121a58 != uVar10))) &&
                      (!(DAT_101218b1 != '\x01' || DAT_10018080 != -1))) {
                     recovered_1000f254((undefined1 *)&uStack_4210);
-                    recovered_1000f3b4((char *)&uStack_4210,(int *)0x0,(undefined4 *)0x0);
+                    { uint128 clock_rect = recovered_1000f3b4((char *)&uStack_4210,(int *)0x0,(undefined4 *)0x0);
+                      extraout_x0 = PF_PART8(clock_rect,0);
+                      extraout_x1 = PF_PART8(clock_rect,8); }
                     auVar46 = recovered_1000573c(DAT_101219a0,DAT_101219a8,extraout_x0,extraout_x1);
                     auVar45 = recovered_1000573c(PF_PART8(auVar45, 0),PF_PART8(auVar45, 8),PF_PART8(auVar46, 0),
                                                  PF_PART8(auVar46, 8));
@@ -5124,7 +5126,9 @@ uint128 recovered_10005920(void)
 
   local_98 = 0;
   recovered_1000f254(acStack_90);
-  recovered_1000f3b4(acStack_90,(int *)((long)&local_98 + 4),(undefined4 *)&local_98);
+  { uint128 clock_rect = recovered_1000f3b4(acStack_90,(int *)((long)&local_98 + 4),(undefined4 *)&local_98);
+    extraout_x0 = PF_PART8(clock_rect,0);
+    extraout_x1 = PF_PART8(clock_rect,8); }
   auVar2 = recovered_1000573c(DAT_101219a0,DAT_101219a8,extraout_x0,extraout_x1);
   auVar2 = recovered_100057bc(PF_PART8(auVar2, 0),PF_PART8(auVar2, 8),DAT_10018074,DAT_10018078);
   iVar1 = PF_PART4(auVar2, 8);
@@ -6119,7 +6123,7 @@ undefined8 recovered_100063a8(int param_1)
               if (in_x0 != (byte *)0x0) {
                 iVar4 = strcmp((char *)pbVar6,str_10010483);
                 if (iVar4 == 0) {
-                  recovered_10006b54(in_x0);
+                  a = (char *)recovered_10006b54(in_x0);
                   iVar4 = strcmp(a,str_1001051f);
                   if (iVar4 == 0) {
                     DAT_10018088 = 0;
@@ -6192,7 +6196,7 @@ undefined8 recovered_100063a8(int param_1)
                           if (iVar4 == 0) {
                             auStack_70[0] = 0;
                             auStack_70[1] = 0;
-                            recovered_10006b54(in_x0);
+                            extraout_x0_00 = (byte *)recovered_10006b54(in_x0);
                             pcStack_78 = (char *)0x0;
                             if (extraout_x0_00 != (byte *)0x0) {
                               pbVar6 = recovered_10006b14(extraout_x0_00);
@@ -6272,7 +6276,7 @@ LAB_10006978:
                             if ((iVar4 == 0) ||
                                (iVar4 = strcmp((char *)pbVar6,str_100104ed), iVar4 == 0)
                                ) {
-                              recovered_10006b54(in_x0);
+                              a_00 = (byte *)recovered_10006b54(in_x0);
                               if (a_00 != (byte *)0x0) {
                                 bVar2 = recovered_10006bac(a_00,&DAT_10010540);
                                 if ((((bVar2) ||
@@ -6297,7 +6301,7 @@ LAB_10006978:
                             else {
                               iVar4 = strcmp((char *)pbVar6,str_10010503);
                               if (iVar4 == 0) {
-                                recovered_10006b54(in_x0);
+                                extraout_x0_01 = (char *)recovered_10006b54(in_x0);
                                 if ((extraout_x0_01 != (char *)0x0) && (*extraout_x0_01 != '\0')) {
                                   pcVar8 = str_100180a8;
                                   uVar10 = 0x80;
@@ -6309,7 +6313,7 @@ LAB_10006820:
                               else {
                                 iVar4 = strcmp((char *)pbVar6,str_10010514);
                                 if (iVar4 == 0) {
-                                  recovered_10006b54(in_x0);
+                                  extraout_x0 = (char *)recovered_10006b54(in_x0);
                                   if ((extraout_x0 != (char *)0x0) && (*extraout_x0 != '\0')) {
                                     pcVar8 = str_10018128;
                                     uVar10 = 0xf1;
@@ -6525,7 +6529,7 @@ byte * recovered_10006b14(byte *param_1)
  * Address: 0x10006b54
  */
 
-void recovered_10006b54(byte *in_x0)
+byte * recovered_10006b54(byte *in_x0)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -6544,8 +6548,9 @@ void recovered_10006b54(byte *in_x0)
       lVar3 = lVar3 + 1;
     }
     (&DAT_1001c4b8)[lVar3] = 0;
+    return &DAT_1001c4b8;
   }
-  return;
+  return pbVar2;
 }
 
 #undef DAT_1001c4b8
@@ -7744,7 +7749,9 @@ uint128 recovered_10007b74(void)
   recovered_10008eec(0xb0,7,str_1001062c,0x4b4b4b);
   uStack_98 = 0;
   recovered_1000f254(acStack_90);
-  recovered_1000f3b4(acStack_90,(int *)((long)&uStack_98 + 4),(undefined4 *)&uStack_98);
+  { uint128 clock_rect = recovered_1000f3b4(acStack_90,(int *)((long)&uStack_98 + 4),(undefined4 *)&uStack_98);
+    extraout_x0 = PF_PART8(clock_rect,0);
+    extraout_x1 = PF_PART8(clock_rect,8); }
   auVar4 = recovered_1000573c(DAT_101219a0,DAT_101219a8,extraout_x0,extraout_x1);
   auVar4 = recovered_100057bc(PF_PART8(auVar4, 0),PF_PART8(auVar4, 8),DAT_10018074,DAT_10018078);
   iVar3 = PF_PART4(auVar4, 8);
@@ -18593,7 +18600,7 @@ void recovered_1000f254(undefined1 *param_1)
  * Address: 0x1000f3b4
  */
 
-void recovered_1000f3b4(char *param_1,int *param_2,undefined4 *param_3)
+uint128 recovered_1000f3b4(char *param_1,int *param_2,undefined4 *param_3)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -18626,7 +18633,9 @@ void recovered_1000f3b4(char *param_1,int *param_2,undefined4 *param_3)
   if (param_3 != (undefined4 *)0x0) {
     *param_3 = uVar1;
   }
-  return;
+  int left = DAT_10018074 - uVar1 - 2;
+  if (left < 242) left = 242;
+  return CONCAT88(CONCAT44(24,DAT_10018074-left),(uint32_t)left);
 }
 
 #undef DAT_10010422

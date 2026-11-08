@@ -162,7 +162,7 @@ void recovered_10006a24(long param_1,ulong param_2,undefined1 *param_3);
 uint recovered_10006a64(int param_1,char *param_2,void *param_3);
 void recovered_10006abc(char *param_1);
 byte * recovered_10006b14(byte *param_1);
-void recovered_10006b54(byte *in_x0);
+byte * recovered_10006b54(byte *in_x0);
 bool recovered_10006bac(byte *param_1,byte *param_2);
 undefined8 recovered_10006c0c(byte *param_1,int *param_2,undefined8 *param_3);
 bool recovered_10006c94(byte *param_1,byte *param_2);
@@ -349,7 +349,7 @@ int recovered_1000f180(long param_1);
 int recovered_1000f1bc(long param_1);
 ulong recovered_1000f1f8(uint param_1,uint param_2,uint param_3,uint param_4);
 void recovered_1000f254(undefined1 *param_1);
-void recovered_1000f3b4(char *param_1,int *param_2,undefined4 *param_3);
+uint128 recovered_1000f3b4(char *param_1,int *param_2,undefined4 *param_3);
 bool recovered_1000f458(long param_1,int *param_2);
 void recovered_1000f49c(int param_1);
 

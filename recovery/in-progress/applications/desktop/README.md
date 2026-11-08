@@ -33,6 +33,15 @@ allocation on all four CPUs. ARM64 keeps its pixel-format mask in a 64-bit
 expression before shifting by the bits-per-pixel value; a 32-bit C shift by 32
 rejected a supported framebuffer.
 
+ARM64's configuration unquoting helper returns the selected string pointer.
+Its callers now consume that return value for appearance, timezone, automatic
+time, server and background settings. Losing the return contract left callers
+using uninitialized pointers and caused a VM fault in string comparison.
+`tests/desktop_config.py` compares ten whitespace, quote, truncation and pointer
+alias cases on each CPU. ARM64's clock-layout helper also returns its rectangle
+in two registers; its three callers preserve both words. Thirty-two native
+comparisons check screen widths, text clipping and optional output pointers.
+
 An x64 diagnostic with the C desktop, kernel, firmware, libraries and editor
 boots to the desktop, launches the editor and types text. An ARM32 diagnostic
 also reaches the C desktop and displays the weekday correctly. Other reference

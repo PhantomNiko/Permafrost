@@ -246,6 +246,11 @@ ARM32 preserves the device-specific listing call's fifth stack argument,
 restoring the entry-count pointer. ARM64 widens the framebuffer format mask
 before shifting by 32. The C ARM32 desktop also renders the weekday correctly;
 updated live ARM input and listing checks are still in progress.
+ARM32 now shows directory entries in its C desktop VM. ARM64 also reaches the
+C desktop after restoring the configuration unquoting helper's string return
+and its callers. Configuration string comparisons pass on all four CPUs.
+The ARM64 clock's two-word rectangle return is restored and passes 32 native
+placement/clipping comparisons; its updated VM rendering is being checked.
 
 Kernel statement comparisons now cover assignment, returned arithmetic,
 compound assignment, conditional returns, indexed arrays and numeric loops on

@@ -30,7 +30,9 @@ def load(original, source, folder, library):
         metadata, memory = inspect(diagnostic.read_bytes())
         symbols = {n: a for a, n in metadata['symbols']}
         for name in ['_tundraTimeEpochFromCalendar', '_tundraTimeCalendarFromEpoch',
-                     '_refreshDirectoryWindow', '_refreshHostDisplayState']:
+                     '_refreshDirectoryWindow', '_refreshHostDisplayState',
+                     '_unquoteConfigValue', '_loadTundraConfigOnDevice',
+                     '_menuBarClockRectForText']:
             if name not in names:
                 continue
             target = names[name]
@@ -39,6 +41,9 @@ def load(original, source, folder, library):
             lib.exports[name] = lib.base+target
         if index == 0 and reference['base']:
             end = next(a+n for k, a, n in reference['sections'] if k == '__text')
+            if lib.cpu_type == 7:
+                # Fixed jump tables can branch into the original text view.
+                end = next(a for k, a, n in reference['sections'] if k == '__text')
             lib.cpu.mem_write(end, original_memory[end-reference['base']:])
         for item in dynamic(diagnostic.read_bytes())['stubs']:
             if item['name'] not in ui.exports:
