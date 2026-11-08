@@ -11,6 +11,18 @@
   ],
   "next_targets": [
     "1.1",
-    "1.2"
-  ]
+    "1.2",
+    "1.3"
+  ],
+  "queued_references": {
+    "1.3": {
+      "release": "1.3r411",
+      "reference": "Permafrost-polynya-1.3r411.img",
+      "additional_images": [
+        "Permafrost-minimal-1.3r411.img",
+        "Permafrost-install-1.3r411.img"
+      ],
+      "architecture_image_directory": "minimal-1.3r411"
+    }
+  }
 }

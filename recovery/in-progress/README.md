@@ -4,7 +4,10 @@ These are working C replacements, ABI hints and firmware changes for the next
 milestone. They preserve the recovery work before it replaces the active source
 tree. They are not an additional build target or a completed release.
 
-`reference.json` identifies the input image and intended version. The kernel
+`reference.json` identifies the input image and intended version. The queued
+release order is 1.1, 1.2 and 1.3. The supplied 1.3r411 Polynya, minimal,
+installer and architecture-specific minimal images are future analysis inputs;
+they do not change the current 1.0 recovery target or create build targets. The kernel
 directories contain decompiler signature corrections, source replacements and
 explicit C implementations. The firmware directory contains the current shared
 EFI loader work. The repository license applies throughout.
