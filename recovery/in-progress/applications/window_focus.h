@@ -2,6 +2,13 @@
 #pragma once
 #include <permafrost/terror_ui.h>
 
+/* Menu and close notifications can arrive while an active window is idle.
+ * Polling applications must refresh those records before their next query. */
+static inline void pf_app_refresh_window_info(void *storage)
+{
+    ((TerrorUIWindow *)storage)->frameInfoValid = 0;
+}
+
 /* An idle, inactive application may not present another frame. Refresh its
  * cached record so activation and close requests can still reach the loop. */
 static inline void pf_app_refresh_inactive_info(void *storage)

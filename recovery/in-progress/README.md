@@ -226,8 +226,13 @@ Command-based selection/copy/paste, and exact bytes saved through the File menu.
 Its x64 window-spec transport preserves the full title/size prefix, ARM32
 preserves the cursor-column store, and ARM64 resolves its indirect clear import
 to C. The shared `applications/window_focus.h` helper refreshes inactive window
-information for both recovered applications. Full editor VM and persistence
-checks remain pending.
+information in the terminal and every loop in the editor. The editor's active
+cache could otherwise hide menu and close notifications until another frame.
+All four editor builds pass source-only idle-menu regressions without fixture
+cache invalidation. Native algorithm/pixel comparisons explicitly supply fresh
+records on both sides. An x64 VM types Hello and reports Saved - TextEditor.txt
+after File / Save with the current C firmware. Persistent disk bytes, broader
+editor VM checks, and complete source images remain unfinished.
 
 Kernel statement comparisons now cover assignment, returned arithmetic,
 compound assignment, conditional returns, indexed arrays and numeric loops on

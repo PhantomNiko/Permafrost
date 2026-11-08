@@ -160,7 +160,7 @@ LAB_1000071c:
         uVar7 = uStack_924;
         if (cStack_374 == '\x01') {
           memset(&uStack_370,0,0x278);
-          pf_app_refresh_inactive_info(&iStack_928);          uVar12 = terror_ui_window_query(&iStack_928,&uStack_370);
+          pf_app_refresh_window_info(&iStack_928);          uVar12 = terror_ui_window_query(&iStack_928,&uStack_370);
           if (((uVar12 != 0) && (bVar8 = terror_ui_window_info_requests_close(&uStack_370), (bVar8 & 1) == 0)) &&
              (uVar12 = terror_ui_window_sync_buffer(&iStack_928,&uStack_370), uVar12 != 0)) {
             pvStack_5d8 = pvStack_8f8;

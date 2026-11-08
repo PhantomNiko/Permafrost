@@ -914,7 +914,7 @@ int recovered_100027e0(void)
               uVar3 = local_8d4;
               uVar9 = local_8d8;
               memset(&local_350,0,0x278);
-              pf_app_refresh_inactive_info(&local_8dc);              uVar7 = terror_ui_window_query(&local_8dc,&local_350);
+              pf_app_refresh_window_info(&local_8dc);              uVar7 = terror_ui_window_query(&local_8dc,&local_350);
               if (((uVar7 == 0) || (uVar5 = terror_ui_window_info_requests_close(&local_350), uVar5 != '\0')) ||
                  (uVar7 = terror_ui_window_sync_buffer(&local_8dc,&local_350), uVar7 == 0)) break;
               bVar29 = (int *)(local_8d8 ^ uVar9) != (int *)0x0 || local_8d4 != uVar3;

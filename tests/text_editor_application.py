@@ -2,7 +2,9 @@
 """Compare recovered TextEditor behavior through the real C TerrorUI DLL.
 
 Controlled kernel services cover keyboard editing, file saves, clipboard
-round trips, window resizing, clipping, and partial-alpha text images.
+round trips, window resizing, clipping, and partial-alpha text images. Both
+applications query fresh window records: the native application's idle cache
+bug is deliberately excluded from the algorithm and pixel comparison.
 Pooka's Free Software License.
 """
 from pathlib import Path
@@ -20,6 +22,7 @@ library=None
 command=""
 save_document=False
 clipboard_case=False
+idle_menu=False
 def exercise(path):
  lib=DLL(path,instruction_limit=400000000);ui=DLL(library,load_base=0x1000000);meta,raw=inspect(library.read_bytes());lib.cpu.mem_write(ui.base,bytes(ui.cpu.mem_read(ui.base,len(raw))));cpu=lib.cpu;w=8 if lib.wide else 4;events=[];presents=[];width=height=0;queries=0;ticks=0;keys=[13 if key==10 else key for key in command.encode()];clipboard=b'';clipboard_reads=0
  m,_=inspect(path.read_bytes());entry=next((n,a)for a,n in m['symbols']if n=='_main'or n.endswith('_entry'));lib.exports[entry[0]]=lib.base+entry[1]
@@ -64,6 +67,13 @@ def exercise(path):
    spreg=UC_X86_REG_RSP if lib.wide else UC_X86_REG_ESP;sp=cpu.reg_read(spreg);address=int.from_bytes(cpu.mem_read(sp,w),'little');cpu.reg_write(spreg,sp+w)
   else:address=cpu.reg_read(UC_ARM_REG_LR if lib.cpu_type==12 else UC_ARM64_REG_X30)
   cpu.reg_write(lib.pc,address)
+ def fresh_window_info(cpu,address,size,user):
+  window=args(2)[0]
+  if window:
+   cpu.mem_write(window+(72 if lib.wide else 60),bytes(4))
+ address=ui.exports['_terror_ui_window_query']
+ if not idle_menu:
+  cpu.hook_add(UC_HOOK_CODE,fresh_window_info,begin=address,end=address)
  specs={0xa0:('create',3),0xa4:('present',7),0xa8:('close',1),0xb0:('configure',5),0xb4:('query',2),0xec:('menus',4),0x2c:('key',0),0x9c:('yield',0),0xac:('list',3),0xfc:('pointer_event',5),0x100:('pointer_state',2),0x174:('wait',1),0x178:('text',5)}
  specs.update({0x34:('read',2),0xc8:('read_device',3),0x38:('write_file',3),0xd0:('write_device',4)})
  specs.update({0x168:('time',1),0x28:('write',1),0xbc:('current_device',0),0x180:('clipboard_write',2),0x184:('clipboard_read',2),0x188:('clipboard_size',0)})
@@ -87,11 +97,11 @@ def exercise(path):
    elif name=='create':a[0]=text(a[0]);width,height=(a[1]if screen else min(a[1],160)),min(a[2],320 if screen else 120);value=17
    elif name=='query':
     queries+=1
-    if queries==3:width-=16;height-=8
-    if queries==5:width+=16;height+=8
+    if not idle_menu and queries==3:width-=16;height-=8
+    if not idle_menu and queries==5:width+=16;height+=8
     record=bytearray(632);struct.pack_into('<2I',record,0,17,1);struct.pack_into('<I',record,16,width*height*4);struct.pack_into('<6I',record,20,1,width,height,width*4,0xefefef,10);
-    if save_document and queries>=5:struct.pack_into('<3I',record,52,1,1,2)
-    cpu.mem_write(a[1],bytes(record));a=a[:1];value=int(queries<=(4 if screen else 8))
+    if save_document and (ticks>=20 if idle_menu else queries>=5):struct.pack_into('<3I',record,52,1,1,2)
+    cpu.mem_write(a[1],bytes(record));a=a[:1];value=int(ticks<40 if idle_menu else queries<=(4 if screen else 8))
    elif name=='present':
     # WMAP dimensions and clear colour are 32-bit wire arguments. Native
     # callers can leave unspecified high bits in the host argument registers.
@@ -121,22 +131,28 @@ def exercise(path):
   print('failed',path.name,'frames',len(presents),'recent',events[-12:],flush=True);raise
  return result,events,presents
 def main():
- global glyphs,screen,library,command,save_document,clipboard_case
+ global glyphs,screen,library,command,save_document,clipboard_case,idle_menu
  import argparse
  parser=argparse.ArgumentParser(description=__doc__)
  parser.add_argument('reference',type=Path);parser.add_argument('source',type=Path);parser.add_argument('library',type=Path)
  parser.add_argument('--glyphs',action='store_true');parser.add_argument('--wide-window',action='store_true')
  parser.add_argument('--text',default='Hello')
  parser.add_argument('--save',action='store_true');parser.add_argument('--clipboard',action='store_true')
- args=parser.parse_args();glyphs=args.glyphs;screen=args.wide_window;library=args.library;command=args.text;save_document=args.save;clipboard_case=args.clipboard
+ parser.add_argument('--idle-menu',action='store_true',help='source-only regression for menu/close notifications after an active window becomes idle')
+ args=parser.parse_args();glyphs=args.glyphs;screen=args.wide_window;library=args.library;command=args.text;idle_menu=args.idle_menu;save_document=args.save or idle_menu;clipboard_case=args.clipboard
  meta,_=inspect(args.source.read_bytes());folder=Path('build/editor-application-check')/hex(meta['cpu']);folder.mkdir(parents=True,exist_ok=True)
  diagnostic_reference(args.reference,folder/'reference-diagnostic');diagnostic_reference(args.source,folder/'source-diagnostic')
- native=exercise(folder/'reference-diagnostic');actual=exercise(folder/'source-diagnostic')
- assert native[0]==actual[0],(native[0],actual[0],len(native[2]),len(actual[2]))
- assert len(native[1])==len(actual[1]),(len(native[1]),len(actual[1]))
- for index,(x,y)in enumerate(zip(native[1],actual[1])):
-  assert x==y,(index,x,y)
- assert native==actual
+ if idle_menu:
+  actual=exercise(folder/'source-diagnostic')
+  assert actual[0]==0 and actual[2],'source editor did not finish with rendered frames'
+  assert sum(event[0]=='yield'for event in actual[1])>=20,'menu was not delivered after an idle interval'
+ else:
+  native=exercise(folder/'reference-diagnostic');actual=exercise(folder/'source-diagnostic')
+  assert native[0]==actual[0],(native[0],actual[0],len(native[2]),len(actual[2]))
+  assert len(native[1])==len(actual[1]),(len(native[1]),len(actual[1]))
+  for index,(x,y)in enumerate(zip(native[1],actual[1])):
+   assert x==y,(index,x,y)
+  assert native==actual
  requested={event[1]for event in actual[1]if event[0]=='text'}
  assert b'TextEditor.txt'in requested,requested
  if command:assert any(command.split('\n')[0].encode()in value for value in requested),'edited text was not rendered'
@@ -145,6 +161,6 @@ def main():
  if clipboard_case:
   assert any(event[0]=='clipboard_write'and event[1]==command.encode()for event in actual[1]),'selection was not copied intact'
   assert any(event[0]=='clipboard_read'for event in actual[1]),'clipboard was not pasted'
- print('TextEditor: native/source UI pixels, editing, file and clipboard service calls match.')
+ print('TextEditor: idle menu saves the edited bytes and observes close without another key.'if idle_menu else 'TextEditor: native/source UI pixels, editing, file and clipboard service calls match with fresh window records.')
 
 if __name__=='__main__':main()

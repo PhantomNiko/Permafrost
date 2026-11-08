@@ -381,7 +381,7 @@ int recovered_10000550(void)
               local_68 = CONCAT44(uStack_618,local_61c);
               uStack_60 = 0;
               memset(&local_928,0,0x278);
-              pf_app_refresh_inactive_info(&local_620);              uVar31 = terror_ui_window_query(&local_620,&local_928);
+              pf_app_refresh_window_info(&local_620);              uVar31 = terror_ui_window_query(&local_620,&local_928);
               if (((uVar31 == 0) || (uVar29 = terror_ui_window_info_requests_close(&local_928), uVar29 != '\0')) ||
                  (uVar31 = terror_ui_window_sync_buffer(&local_620,&local_928), uVar31 == 0)) break;
               local_2d0 = local_5f0;
