@@ -350,6 +350,9 @@ public class Export extends GhidraScript {
                     var operation = dot.getPcodeOp();
                     if (operation == null || operation.getOpcode() != PcodeOp.PTRADD ||
                         !operation.getInput(2).isConstant()) continue;
+                    // PTRADD uses an integer index as well as a pointer base.
+                    // A field token can describe either operand.
+                    if (value == null || !operation.getInput(0).equals(value)) continue;
                     metadata.append("P\t").append(key).append('\t').append(occurrence)
                         .append('\t').append(operation.getInput(2).getOffset()).append('\n');
                 }
