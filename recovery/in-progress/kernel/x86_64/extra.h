@@ -6,7 +6,6 @@
 #define CONCAT32(a,b) ((((uint64_t)(a)&0xffffffULL)<<16)|(uint16_t)(b))
 typedef pf_u72 unkbyte9;
 static inline uint64_t rdtsc(void) { unsigned low,high; __asm__ volatile("rdtsc":"=a"(low),"=d"(high)); return ((uint64_t)high<<32)|low; }
-static inline uint128 pshufhw(uint128 ignored,uint128 value,unsigned control) { uint128 out=value&0xffffffffffffffffULL; for(unsigned i=0;i<4;i++)out|=((value>>(64+16*((control>>(i*2))&3)))&65535)<<(64+i*16);return out; }
 
 #define _recovered_2000000 (*(uint64_t *)(uintptr_t)0x2000000)
 #define recovered_2000014 (*(uint8_t *)(uintptr_t)0x2000014)

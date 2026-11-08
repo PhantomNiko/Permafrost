@@ -226,6 +226,7 @@
     "BADTYPE": "int32_t"
   },
   "2096580": {
+    "*(undefined1 (*) [8])third = auStack_178;": "*(uint64_t *)third = PF_PART8(auStack_178,0);",
     "_pf_loop_first": "(*(uintptr_t **)(void *)&pf_loop_first)",
     "_pf_loop_last": "(*(uintptr_t **)(void *)&pf_loop_last)",
     "&local_1c8->kind": "(void *)(uintptr_t)local_1c8",

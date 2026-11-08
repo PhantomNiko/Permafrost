@@ -194,6 +194,15 @@ window calls, all seven headings and glyph pixels with partial alpha. The source
 application also opens and updates in the mixed x86-64 desktop diagnostic. Its
 other three architectures and complete source-image integration remain pending.
 
+Kernel statement comparisons now cover assignment, returned arithmetic,
+compound assignment, conditional returns, indexed arrays and numeric loops on
+all four CPUs. Three x86-64 return paths previously converted a temporary array
+into its address instead of copying its first eight value bytes. The recovered
+store now copies those bytes, preserving the returned value's tag and payload.
+`tests/kernel_statements.py` checks the result, error flag, statement position,
+control-flow state and scalar value bytes against the native kernel. These
+isolated checks do not establish startup-script file or complete VM parity.
+
 GPT filesystem updates now preserve the existing BIOS boot area, firmware
 partitions and partition tables. Previously, repacking rebuilt a two-partition
 GPT container and discarded the other boot components. A regression fixture
