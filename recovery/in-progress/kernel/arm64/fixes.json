@@ -141,7 +141,9 @@
   "82423b28": {},
   "824422d8": {},
   "8244e4e8": {},
-  "824060e0": {},
+  "824060e0": {
+    "recovered_82408440();": "if(pf_efi_owns_usb_input((const void *)(uintptr_t)*(volatile uint64_t *)(uintptr_t)0x825420b8U)) return 0;\n  recovered_82408440();"
+  },
   "8241860c": {},
   "8240fa08": {},
   "8243e598": {},

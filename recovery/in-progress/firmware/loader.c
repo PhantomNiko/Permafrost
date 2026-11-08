@@ -3,6 +3,7 @@
  * Pooka's Free Software License. */
 #include "platform.h"
 #include "efi_context.h"
+#include "service_context.h"
 static System *system_table;
 static Services *services;
 static Block *disk;
@@ -183,6 +184,7 @@ static Guid absolute_guid={0x8d59d32b,0xc655,0x4ae9,{0x9b,0x15,0xf2,0x59,0x04,0x
 static RelativePointer *relative_devices[8];
 static AbsolutePointer *absolute_devices[8];
 static unsigned relative_count,absolute_count;
+#include "usb_tablet.h"
 static void pointer_devices(void){
     relative_count=absolute_count=0;
     Guid *guids[]={&relative_guid,&absolute_guid};
@@ -216,6 +218,7 @@ static int32_t bounded_i32(int64_t value){
 }
 static uint32_t pointer_read(uint32_t *out){
     if(!out)return 0;
+    if(usb_tablet_available)return usb_tablet_read(out);
     clear(out,32);uint32_t changed=0;
     for(unsigned i=0;i<relative_count;i++){
         RelativePointer *device=relative_devices[i];RelativeState state={0};
@@ -350,6 +353,13 @@ static uint32_t OS_ABI bridge(uint32_t *request){
 #if defined(__x86_64__) || defined(__i386__)
     __asm__ volatile("sti":::"memory");
     uint32_t result=dispatch(request);__asm__ volatile("cli":::"memory");return result;
+#elif defined(__aarch64__) || defined(__arm__)
+    FirmwareServiceContext kernel_context;
+    if(!firmware_service_ready || !capture_service_context(&kernel_context))return dispatch(request);
+    restore_service_context(&firmware_service);
+    uint32_t result=dispatch(request);
+    capture_service_context(&firmware_service);
+    restore_service_context(&kernel_context);return result;
 #else
     return dispatch(request);
 #endif
@@ -429,6 +439,9 @@ static int heap_context(void){
     return total>=0x800000;
 }
 static void enter(uintptr_t entry){
+#if defined(__aarch64__) || defined(__arm__)
+    firmware_service_ready=capture_service_context(&firmware_service);
+#endif
 #if defined(__x86_64__) || defined(__i386__)
     __asm__ volatile("cli;cld":::"memory");
 #elif defined(__aarch64__)
@@ -495,7 +508,8 @@ Status EFI_ABI pf_efi_entry(void *image,System *table){
     ((uint64_t *)(context+0x194))[0]=(uintptr_t)table;((uint64_t *)(context+0x194))[1]=(uintptr_t)services;
     ((uint64_t *)(context+0x194))[2]=(uintptr_t)table->output;((uint64_t *)(context+0x194))[3]=(uintptr_t)table->input;
     ((uint64_t *)(context+0x194))[4]=(uintptr_t)disk;((uint64_t *)(context+0x194))[5]=(uintptr_t)services->stall;
-    video_context();pointer_devices();
+    video_context();pointer_devices();usb_tablet_devices();
+    context[PF_EFI_INPUT_CAPABILITIES/4]=usb_tablet_available?PF_EFI_INPUT_USB_OWNED:0;
     if(!prefetch_disk_context() || !heap_context()){message("Permafrost heap reservation failed.\r\n");return (Status)-1;}
     *(volatile uint32_t *)(uintptr_t)(KERNEL_ADDRESS+16)=(uintptr_t)context;
     message("Starting Permafrost.\r\n");enter(entry);return 0;

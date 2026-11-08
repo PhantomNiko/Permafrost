@@ -328,7 +328,14 @@ twelve C libraries and GICv3. This run does not modify the timer interval in
 guest RAM. Wallpaper, icons and window surfaces render. Its epoch-based date
 reflects the reference ARM64 platform RTC stub, which clears the time record
 and returns unavailable. The current ARM32 C firmware/kernel diagnostic now renders images and readable
-clock text with the current codec; pointer integration remains unresolved.
+clock text with the current codec. The firmware USB I/O tablet transport and
+explicit input-ownership extension now let both ARM diagnostics open the C
+terminal and accept keyboard input without resetting firmware's USB controller.
+ARM32 also preserves the keyboard and idle bridge request pointers and evaluates
+`2+3` as `5`. ARM64 accepts the same typed input but returns `0`; interpreter
+compatibility remains open. The ARM32 display surface still occupies only part
+of the negotiated output mode. These runs use the recovered C graphics module
+with other reference drivers and programs still present.
 These observations do not establish complete source-image VM equivalence.
 
 Diagnostic snapshots and VM disks remain outside tracked source. The normal

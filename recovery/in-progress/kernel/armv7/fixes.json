@@ -18,7 +18,8 @@
   "4040b8c0": {
     "&H_SupervisorCall": "(uint8_t *)(uintptr_t)0xffff0008u",
     "uint *puVar10;": "volatile uint *puVar10;",
-    "undefined4 *puVar9;": "volatile undefined4 *puVar9;"
+    "undefined4 *puVar9;": "volatile undefined4 *puVar9;",
+    "recovered_4040f490();": "if(pf_efi_owns_usb_input((const void *)(uintptr_t)*(volatile uint32_t *)(uintptr_t)0x40500004U)) return 0;\n  recovered_4040f490();"
   },
   "404199e8": {
     "_local_28": "PF_PART4(local_28,0)"
@@ -87,5 +88,9 @@
   },
   "40456e24": {
     "(*pcVar2)();": "(*pcVar2)(param_1,param_2,param_3,param_4);"
+  },
+  "40407e00": {
+    "(*pcVar9)();": "(*pcVar9)(piVar6);",
+    "(*pcVar12)();": "(*pcVar12)(puVar7);"
   }
 }

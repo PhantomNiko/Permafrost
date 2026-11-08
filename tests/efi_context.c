@@ -15,6 +15,7 @@ int main(void){
  *(uint64_t*)((uint8_t*)context+PF_EFI_BRIDGE_POINTER)=(uintptr_t)callback;
  uint32_t request[2]={5,0};
  assert(((uint32_t(*)(uint32_t*))pf_efi_bridge_address(context))(request)==42);
+ context[2]=0x2148;assert(pf_efi_bridge_address(context)==(uintptr_t)callback);
  context[PF_EFI_BRIDGE_EXTENSION/4]=0;assert(pf_efi_bridge_address(context)==0x12345678);
  return 0;
 }

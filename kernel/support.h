@@ -4,6 +4,7 @@
 #include <stddef.h>
 #include <stdbool.h>
 #include "value.h"
+#include "efi_input.h"
 typedef unsigned char byte;
 typedef unsigned char uchar;
 typedef signed char sbyte;
