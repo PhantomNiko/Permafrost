@@ -47,6 +47,9 @@ static inline uint128 maxpd(uint128 a,uint128 b) {
     union {uint128 bits;double lane[2];} x={.bits=a},y={.bits=b},z;
     for(unsigned i=0;i<2;++i) z.lane[i]=x.lane[i]>y.lane[i]?x.lane[i]:y.lane[i];return z.bits;
 }
+static inline unsigned movmskpd(uintptr_t ignored,uint128 value) {
+    (void)ignored;return (unsigned)((value>>63)&1)|((unsigned)((value>>127)&1)<<1);
+}
 static inline unsigned movmskps(uintptr_t ignored,uint128 value) {
     union {uint128 bits;uint32_t lane[4];} x={.bits=value};unsigned result=0;
     for(unsigned i=0;i<4;++i) result|=(x.lane[i]>>31)<<i;return result;

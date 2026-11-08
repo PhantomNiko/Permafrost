@@ -12,6 +12,13 @@ import re
 
 WIDE = False
 
+def signed_negative_hex(source):
+    """Keep decompiler negative constants from unsigned 32-bit negation."""
+    quoted=re.compile(r'("(?:\\.|[^"\\])*"|\'(?:\\.|[^\'\\])*\'|//[^\n]*|/\*.*?\*/)',re.S)
+    pattern=r'((?:[=(,:?{+*/%&|^<>!]|\breturn)\s*-\s*)(0x[89a-fA-F][0-9a-fA-F]{7})\b(?![uUlL])'
+    return ''.join(part if i%2 else re.sub(pattern,r'\1\2LL',part)
+                   for i,part in enumerate(quoted.split(source)))
+
 def system_register_views(source, registers):
     """Lower architectural register storage to explicit hardware accessors."""
     if not registers:
@@ -755,6 +762,7 @@ def main():
         source = re.sub(r'\b(\w+(?:\[[^]\n]+\])?(?:(?:\.|->)\w+)*)\s*\.\s*_(\d+)_(\d+)_', partial_field, source)
         source = re.sub(r'switch\(([^\n]+)\)', r'switch((uintptr_t)(\1))', source)
         source = re.sub(r'case \([^)]*\*\)(0x[0-9a-f]+):', r'case \1:', source)
+        source = signed_negative_hex(source)
         source = re.sub(r'\(float\)(\w+\[2\])', r'pf_bits_float((uint32_t)\1)', source)
         source = source.replace('ushort in_FPUControlWord;', 'ushort in_FPUControlWord = pf_fpu_control();')
         if not WIDE:
