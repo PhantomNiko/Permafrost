@@ -473,9 +473,10 @@ def main():
     sources = {p.stem: p.read_text() for p in sorted(args.notes.glob('*.c')) if p.stem != 'recovered'}
     function_addresses={int(a,16) for a in sources.keys() | manual.keys()}
     def data_labels(text):
+        labels=set(re.findall(r'(?m)^\s*(recovered_[0-9a-f]+):',text))
         text=re.sub(r'switchD_[0-9a-f]+::switchdataD_([0-9a-f]+)',r'DAT_\1',text)
         return re.sub(r'\b(_?)recovered_([0-9a-f]+)\b',
-            lambda m:m[0] if int(m[2],16) in function_addresses else
+            lambda m:m[0] if m[0] in labels or int(m[2],16) in function_addresses else
                 m[1]+'DAT_'+('%016x' if WIDE else '%08x')%int(m[2],16),text)
     sources={a:data_labels(s) for a,s in sources.items()}
     sources={a:re.sub(r'__stdcall_softfp\s+','',s)for a,s in sources.items()}

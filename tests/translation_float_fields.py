@@ -68,6 +68,16 @@ uint64_t recovered_4000(uint64_t value)
         (notes / '4000.tsv').write_text('L\tauStack_20\t-32\tA:7:undefined1:1\n'
                                       'L\tneighbor\t-25\tundefined1:1\n'
                                       'S\tstack\t-32\t8\n')
+        (notes / '5000.c').write_text('''
+unsigned recovered_5000(unsigned value)
+{
+ if(value)goto recovered_5010;
+ return 0;
+recovered_5010:
+ return value+1;
+}
+''')
+        (notes / '5000.tsv').write_text('G\trecovered_5010\t5010\tundefined4:4\n')
         layout = root / 'layout.json'
         layout.write_text(json.dumps({'translation': {
             'pointer_bytes': 8, 'scalar_storage_views': True,
@@ -87,6 +97,7 @@ int main(void) {
  if(recovered_2000(3.5f)!=0x80000001U || recovered_2000(-1.25f)!=0x80000001U)return 2;
  if(recovered_3000(3.5)!=7.25 || recovered_3000(-1.25)!=2.5)return 3;
  if(recovered_4000(0xab000000000000cdULL)!=0xab000000000000cdULL)return 4;
+ if(recovered_5000(0)!=0||recovered_5000(5)!=6)return 5;
  return 0;
 }
 ''')
