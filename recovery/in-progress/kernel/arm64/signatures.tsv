@@ -1064,3 +1064,4 @@
 82419fdc	void recovered_82419fdc(unsigned long long *builder,pf_point *first,pf_point *control,pf_point *last,int depth);	x0,x1,x2,x3,w4
 824214e4	char *recovered_824214e4(char *path);	x0
 82439730	unsigned long long recovered_82439730(void **nodes,unsigned long *count);
+8246949c	uchar recovered_8246949c(long entry,uchar *name);

@@ -895,7 +895,9 @@
   "82461698": {},
   "82449cec": {},
   "82448c80": {},
-  "82468e58": {},
+  "82468e58": {
+    "recovered_8246949c((long)puVar13)": "recovered_8246949c((long)puVar13,(uchar *)\"firmware\")"
+  },
   "82462a9c": {},
   "82423c24": {},
   "82449180": {},
@@ -1007,7 +1009,9 @@
   "8242aa0c": {},
   "8244a628": {},
   "824357e4": {},
-  "824689cc": {},
+  "824689cc": {
+    "recovered_8246949c((long)piVar7)": "recovered_8246949c((long)piVar7,(uchar *)\"firmware\")"
+  },
   "8241ecac": {},
   "824617b4": {},
   "8240fd10": {},
@@ -1370,7 +1374,11 @@
   "824142dc": {},
   "824310f0": {},
   "8243b258": {},
-  "82468aa0": {},
+  "82468aa0": {
+    "bVar8 = recovered_8246949c((long)puVar14);": "bVar8 = recovered_8246949c((long)puVar14,(uchar *)\"user data\");",
+    "recovered_8246949c((long)puVar14), param_2 = extraout_x1_01": "recovered_8246949c((long)puVar14,(uchar *)\"userdata\"), param_2 = extraout_x1_01",
+    "recovered_8246949c((long)puVar14), param_2 = extraout_x1_02": "recovered_8246949c((long)puVar14,(uchar *)\"WinterSwap\"), param_2 = extraout_x1_02"
+  },
   "82429b64": {},
   "82403a3c": {},
   "8244698c": {},
