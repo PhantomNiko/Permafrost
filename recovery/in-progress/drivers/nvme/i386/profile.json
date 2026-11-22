@@ -1,0 +1,68 @@
+{
+  "module": "KextNVMe",
+  "architecture": "i386",
+  "version": "1.0",
+  "install_name": "/Drivers/storage~nvme~pcie.kext",
+  "functions": {
+    "0x1320": "recovered_10001320",
+    "0x1330": "recovered_10001330",
+    "0x1790": "recovered_10001790",
+    "0x2e90": "recovered_10002e90",
+    "0x2f60": "recovered_10002f60",
+    "0x2f90": "recovered_10002f90",
+    "0x2fc0": "recovered_10002fc0",
+    "0x30a0": "recovered_100030a0",
+    "0x32b0": "recovered_100032b0",
+    "0x3320": "recovered_10003320",
+    "0x3420": "recovered_10003420",
+    "0x3470": "recovered_10003470",
+    "0x3570": "recovered_10003570",
+    "0x3710": "recovered_10003710",
+    "0x3930": "recovered_10003930",
+    "0x3a50": "recovered_10003a50",
+    "0x3c50": "recovered_10003c50"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 4896,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 4912,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 465,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 0
+      },
+      "tag": 0
+    },
+    {
+      "offset": 469,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 20
+      },
+      "tag": 0
+    },
+    {
+      "offset": 473,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 28
+      },
+      "tag": 0
+    }
+  ]
+}

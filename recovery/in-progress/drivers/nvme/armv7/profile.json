@@ -1,0 +1,248 @@
+{
+  "module": "KextNVMe",
+  "architecture": "armv7",
+  "version": "1.0",
+  "install_name": "/Drivers/storage~nvme~pcie.kext",
+  "functions": {
+    "0x1a40": "recovered_10001a40",
+    "0x1a50": "recovered_10001a50",
+    "0x1d00": "recovered_10001d00",
+    "0x2734": "recovered_10002734",
+    "0x27f8": "recovered_100027f8",
+    "0x2814": "recovered_10002814",
+    "0x2830": "recovered_10002830",
+    "0x28f8": "recovered_100028f8",
+    "0x290c": "recovered_1000290c",
+    "0x2960": "recovered_10002960",
+    "0x2a10": "recovered_10002a10",
+    "0x2a38": "recovered_10002a38",
+    "0x2a74": "recovered_10002a74",
+    "0x2c38": "recovered_10002c38",
+    "0x2cac": "recovered_10002cac",
+    "0x2d3c": "recovered_10002d3c",
+    "0x2da0": "recovered_10002da0",
+    "0x2e20": "recovered_10002e20",
+    "0x2ecc": "recovered_10002ecc",
+    "0x2f38": "recovered_10002f38",
+    "0x2f90": "recovered_10002f90",
+    "0x2fa8": "recovered_10002fa8",
+    "0x3040": "recovered_10003040",
+    "0x30a0": "recovered_100030a0",
+    "0x30e0": "recovered_100030e0",
+    "0x3158": "recovered_10003158",
+    "0x31d0": "recovered_100031d0",
+    "0x333c": "recovered_1000333c",
+    "0x337c": "recovered_1000337c",
+    "0x3414": "recovered_10003414",
+    "0x36c0": "recovered_100036c0",
+    "0x3808": "recovered_10003808",
+    "0x3858": "recovered_10003858",
+    "0x3890": "recovered_10003890",
+    "0x3900": "recovered_10003900",
+    "0x3968": "recovered_10003968",
+    "0x3a4c": "recovered_10003a4c",
+    "0x3acc": "recovered_10003acc",
+    "0x3bec": "recovered_10003bec",
+    "0x3ca8": "recovered_10003ca8",
+    "0x3d30": "recovered_10003d30",
+    "0x3d7c": "recovered_10003d7c",
+    "0x3d8c": "recovered_10003d8c",
+    "0x3d9c": "recovered_10003d9c",
+    "0x3de4": "recovered_10003de4",
+    "0x3e0c": "recovered_10003e0c",
+    "0x3e28": "recovered_10003e28"
+  },
+  "exports": [
+    {
+      "name": "___divdi3",
+      "address": 15052,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___divsi3",
+      "address": 14480,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixdfdi",
+      "address": 15664,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixsfdi",
+      "address": 15756,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixunsdfdi",
+      "address": 15528,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixunssfdi",
+      "address": 15740,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatdidf",
+      "address": 15844,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatdisf",
+      "address": 15912,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatundidf",
+      "address": 15772,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatundisf",
+      "address": 15884,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___moddi3",
+      "address": 15340,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___modsi3",
+      "address": 14592,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___udivdi3",
+      "address": 14696,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___udivsi3",
+      "address": 14344,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___umoddi3",
+      "address": 14924,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___umodsi3",
+      "address": 14424,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 6720,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 6736,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 444,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3d30"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 448,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3ca8"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 452,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3de4"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 456,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3d9c"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 460,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3808"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 464,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3858"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 16840,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 36
+      },
+      "tag": 0
+    },
+    {
+      "offset": 16844,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 56
+      },
+      "tag": 0
+    },
+    {
+      "offset": 16848,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 64
+      },
+      "tag": 0
+    }
+  ]
+}
