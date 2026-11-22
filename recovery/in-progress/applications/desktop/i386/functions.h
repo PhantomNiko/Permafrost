@@ -23,7 +23,7 @@ char *strchr(const char *,int);
 static inline uint64_t pf_app_udiv(uint64_t a,uint32_t low,uint32_t high){return a/((uint64_t)low|((uint64_t)high<<32));}
 static inline uint64_t pf_app_umod(uint64_t a,uint32_t low,uint32_t high){return a%((uint64_t)low|((uint64_t)high<<32));}
 static inline int64_t pf_app_div(int64_t a,uint32_t low,uint32_t high){return a/(int64_t)((uint64_t)low|((uint64_t)high<<32));}
-static inline uint64_t pf_app_udiv_full(uint64_t a,uint64_t b){uint64_t q=0,r=0;for(int i=63;i>=0;--i){unsigned carry=r>>63;r=(r<<1)|((a>>i)&1);if(carry||r>=b){r-=b;q|=1ULL<<i;}}return q;}
+static inline uint64_t pf_app_udiv_full(uint64_t a,uint64_t b){if(b && ((a|b)>>32)==0)return (uint32_t)a/(uint32_t)b;uint64_t q=0,r=0;for(int i=63;i>=0;--i){unsigned carry=r>>63;r=(r<<1)|((a>>i)&1);if(carry||r>=b){r-=b;q|=1ULL<<i;}}return q;}
 static inline uint64_t pf_app_umod_full(uint64_t a,uint64_t b){return a-pf_app_udiv_full(a,b)*b;}
 static inline int64_t pf_app_div_full(int64_t a,int64_t b){uint64_t ua=a<0?0-(uint64_t)a:(uint64_t)a,ub=b<0?0-(uint64_t)b:(uint64_t)b,q=pf_app_udiv_full(ua,ub);return (a<0)!=(b<0)?0-q:q;}
 #define UINT_00006814 (*(uint32_t *)(uintptr_t)0x00006814U)

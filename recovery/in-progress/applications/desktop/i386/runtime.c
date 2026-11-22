@@ -2903,6 +2903,14 @@ LAB_1000316c:
               (*pcVar1)(uVar4);
             }
           }
+            /* Recovered C frames may take longer than a native frame. */
+            if (*(volatile uint32_t *)(uintptr_t)0x6800U == 0x50414d57U &&
+                *(volatile uint32_t *)(uintptr_t)0x6804U &&
+                *(volatile uint32_t *)(uintptr_t)0x6808U >= 0xa0U) {
+              uintptr_t yield = *(volatile uint32_t *)(uintptr_t)0x689cU;
+              if (yield) ((void (*)(void))yield)();
+            }
+
         } while ((*(uint8_t *)((uintptr_t)pf_module_state+0x14b0U)) != '\0');
       }
       recovered_10003e90(&(*(uint8_t *)((uintptr_t)pf_module_state+0x14b0U)));
@@ -18084,7 +18092,7 @@ void recovered_100112e0(int in_ECX)
   local_2c = *(int *)(in_ECX + 0xaf0) + 2;
   local_18 = 0;
   iVar10 = 0xc;
-  pcVar8 = "";
+  pcVar8 = (char *)pf_module_state + 0x1ab1U;
   local_20 = in_ECX;
   do {
     uVar17 = (undefined1)(in_stack_fffffebc >> 0x18);
