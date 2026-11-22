@@ -15,7 +15,7 @@ from unicorn.arm64_const import *
 
 
 class DLL:
-    def __init__(self,path,instruction_limit=20000000,poison_allocations=False,poison_stack=False,api_base=None,load_base=0x2800000):
+    def __init__(self,path,instruction_limit=20000000,poison_allocations=False,poison_stack=False,api_base=None,load_base=0x2800000,cpu_model=None):
         self.instruction_limit=instruction_limit
         self.poison_stack=poison_stack
         binary=Path(path).read_bytes();metadata,memory=native_inspect(binary);dynamic=inspect(binary)
@@ -23,6 +23,7 @@ class DLL:
         arm=self.cpu_type in (12,0x100000c)
         architecture=UC_ARCH_ARM if self.cpu_type==12 else UC_ARCH_ARM64 if arm else UC_ARCH_X86
         self.cpu=Uc(architecture,UC_MODE_ARM if arm else UC_MODE_64 if self.wide else UC_MODE_32)
+        if cpu_model is not None:self.cpu.ctl_set_cpu_model(cpu_model)
         if not arm:
             self.cpu.reg_write(UC_X86_REG_FPCW,0x37f)
             self.cpu.reg_write(UC_X86_REG_FPSW,0)

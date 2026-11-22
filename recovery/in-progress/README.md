@@ -407,3 +407,19 @@ passes its complete source build and VM comparisons. That transition must move
 the reviewed implementation into the normal kernel, library, application and SDK
 directories and remove this temporary checkpoint. It must not retain another
 historical build target.
+
+Snowflake now has candidate C implementations for all four architectures, including
+the ARM32 code-generation switches that initially failed automatic analysis.
+The candidates pass 30 option-parser and 220 atomic-runtime comparisons per
+architecture, plus seven CRT argument/environment comparisons and 140 token/state
+comparisons over 28 lexer inputs, including malformed-literal progress behavior. The CRT uses
+the guest process-info entry, and static constructor-table pointers are relocated
+with the initialized data. These checks do not establish compiler correctness;
+translation-unit execution, generated programs, and VM compilation remain gates.
+
+ARM64 WMFS32 compaction now refreshes the mounted geometry and invalidates its
+old FAT after a successful write. Repeated lazy reloads preserve file contents.
+A diagnostic installation to a 512 MiB disk preserves both kernel copies and
+boots into the desktop with browser graphics. Firmware caches at most 128 MiB
+of the boot disk and uses indexed EFI I/O for uncached sectors. These diagnostic
+images still contain unrecovered components and are not release artifacts.

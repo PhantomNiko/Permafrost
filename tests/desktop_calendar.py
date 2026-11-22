@@ -15,7 +15,7 @@ from unicorn import UC_HOOK_CODE
 from unicorn.x86_const import UC_X86_REG_ECX, UC_X86_REG_EDX
 
 
-def load(original, source, folder, library):
+def load(original, source, folder, library, cpu_model=None):
     folder.mkdir(parents=True, exist_ok=True)
     libraries = []
     reference, original_memory = inspect(original.read_bytes())
@@ -23,7 +23,7 @@ def load(original, source, folder, library):
     for index, path in enumerate([original, source]):
         diagnostic = folder / ('native' if index == 0 else 'source')
         diagnostic_reference(path, diagnostic)
-        lib = DLL(diagnostic)
+        lib = DLL(diagnostic,cpu_model=cpu_model)
         ui = DLL(library, load_base=0x1000000)
         _, ui_memory = inspect(library.read_bytes())
         lib.cpu.mem_write(ui.base, bytes(ui.cpu.mem_read(ui.base, len(ui_memory))))
