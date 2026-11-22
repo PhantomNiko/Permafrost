@@ -13,8 +13,7 @@ def build_application(source,output,libraries):
     source,output=Path(source),Path(output)
     profile=json.loads((source/'profile.json').read_text())
     arch=profile['architecture'];output.mkdir(parents=True,exist_ok=True)
-    headers=Path('recovery/in-progress/sdk/include')
-    if not headers.is_dir():headers=Path('sdk/include')
+    headers=Path('sdk/include')
     objects=[]
     for name in profile.get('sources',['runtime.c','state.c','entry.c']):
         path=source/name

@@ -1,0 +1,4 @@
+#ifndef WINTER_HEADER_MAP
+#define WINTER_HEADER_MAP
+#include "winter_stdlib.hpp"
+#endif

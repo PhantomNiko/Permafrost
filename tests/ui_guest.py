@@ -18,7 +18,7 @@ def main():
     repository = Path(__file__).resolve().parents[1]
     sys.path.insert(0, str(repository / 'tools'))
     from darwin import compile_object, link_dynamic_executable
-    headers = repository / 'recovery/in-progress/sdk/include'
+    headers = repository / 'sdk/include'
     if not headers.is_dir():
         headers = repository / 'sdk/include'
     obj = args.output.parent / 'ui-guest.o'

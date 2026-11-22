@@ -1,3 +1,4 @@
+#include "scope_jump.h"
 #include "word_divide.h"
 /* Permafrost recovered implementation; Pooka's Free Software License.
  * Fixed entry addresses and original function boundaries are recorded
@@ -4262,66 +4263,19 @@ undefined4 recovered_100047ec(int param_1)
 /* Recovered working notes; Pooka's Free Software License.
  * Address: ((uintptr_t)pf_module_state+0x3004U)
  */
-
-void recovered_1000483c(int param_1)
-
-{
-  unsigned char frame[64] = {0};
-
-                    /* WARNING: Could not recover jumptable at ((uintptr_t)pf_module_state+0x3010U). Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  (**(code **)(param_1 + 0x24))();
-  return;
-}
+__attribute__((naked,noreturn)) void recovered_1000483c(int param_1){__asm__ volatile(PF_SCOPE_JUMP_ASM);}
 
 
 /* Recovered working notes; Pooka's Free Software License.
  * Address: ((uintptr_t)pf_module_state+0x3014U)
  */
-
-undefined4 recovered_1000484c(undefined4 *param_1)
-
-{
-  unsigned char frame[64] = {0};
-
-  undefined4 unaff_r4;
-  undefined4 unaff_r5;
-  undefined4 unaff_r6;
-  undefined4 unaff_r7;
-  undefined4 unaff_r8;
-  undefined4 unaff_r9;
-  undefined4 unaff_r10;
-  undefined4 unaff_r11;
-  undefined4 unaff_lr;
-
-  *param_1 = unaff_r4;
-  param_1[1] = unaff_r5;
-  param_1[2] = unaff_r6;
-  param_1[3] = unaff_r7;
-  param_1[4] = unaff_r8;
-  param_1[5] = unaff_r9;
-  param_1[6] = unaff_r10;
-  param_1[7] = unaff_r11;
-  param_1[8] = (uintptr_t)(frame + 32);
-  param_1[9] = unaff_lr;
-  return 0;
-}
+__attribute__((naked,returns_twice)) undefined4 recovered_1000484c(undefined4 *param_1){__asm__ volatile("stmia r0,{r4-r11}; str sp,[r0,#32]; str lr,[r0,#36]; mov r0,#0; bx lr");}
 
 
 /* Recovered working notes; Pooka's Free Software License.
  * Address: ((uintptr_t)pf_module_state+0x302cU)
  */
-
-int recovered_10004864(undefined4 param_1,int param_2)
-
-{
-  unsigned char frame[64] = {0};
-
-  if (param_2 == 0) {
-    param_2 = 1;
-  }
-  return param_2;
-}
+__attribute__((naked,noreturn)) int recovered_10004864(undefined4 param_1,int param_2){__asm__ volatile("cmp r1,#0; moveq r1,#1; ldmia r0,{r4-r11}; ldr sp,[r0,#32]; ldr lr,[r0,#36]; mov r0,r1; bx lr");}
 
 
 #undef DAT_100048fc
@@ -8965,3 +8919,21 @@ int recovered_10007c58(int *param_1,int param_2,undefined1 *param_3,undefined1 *
   return iVar6;
 }
 
+
+/* r232 exponential series and time arithmetic; Pooka's Free Software License. */
+#pragma STDC FP_CONTRACT OFF
+double pf_release_exp(double value) {
+ if(value!=value)return value;
+ if(value>709.782712893384)return pf_bits_double(0x7ff0000000000000ULL);
+ if(value< -745.1332191019411)return 0.0;
+ unsigned halves=0;
+ while(value>0.5){value*=0.5;++halves;}
+ while(value< -0.5){value*=0.5;++halves;}
+ double sum=1.0,term=1.0;
+ for(int n=1;n<=32;++n){term=(value/(double)n)*term;sum=sum+term;}
+ while(halves--){sum=sum*sum;}
+ return sum;
+}
+float pf_release_expf(float value){return (float)pf_release_exp((double)value);}
+long double pf_release_expl(long double value){return (long double)pf_release_exp((double)value);}
+double pf_release_difftime(long end,long start){return (double)end-(double)start;}

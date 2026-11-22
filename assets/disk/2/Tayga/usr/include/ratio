@@ -1,0 +1,15 @@
+#ifndef TAYGA_HEADER_RATIO
+#define TAYGA_HEADER_RATIO
+
+#include "winter_stdlib.hpp"
+
+namespace std {
+template <long long Num, long long Den = 1>
+using ratio = wm::chrono::ratio<Num, Den>;
+
+using nano = ratio<1, 1000000000>;
+using micro = wm::chrono::micro;
+using milli = wm::chrono::milli;
+}
+
+#endif

@@ -1,0 +1,268 @@
+#ifndef WINTER_HEADER_SSTREAM
+#define WINTER_HEADER_SSTREAM
+
+#include "cstdint"
+#include "fstream"
+#include "string"
+
+namespace std {
+
+class istringstream : public istream {
+public:
+	istringstream() {
+		refresh_input();
+	}
+
+	explicit istringstream(const string& value) : buffer_(value) {
+		refresh_input();
+	}
+
+	explicit istringstream(string_view value) : buffer_(value) {
+		refresh_input();
+	}
+
+	explicit istringstream(const char* value) : buffer_(value ? value : "") {
+		refresh_input();
+	}
+
+	istringstream(const istringstream&) = delete;
+	istringstream& operator=(const istringstream&) = delete;
+
+	string str() const {
+		return buffer_;
+	}
+
+	void str(const string& value) {
+		buffer_ = value;
+		refresh_input();
+	}
+
+	void str(string_view value) {
+		buffer_ = value;
+		refresh_input();
+	}
+
+	istringstream& seekg(streamoff offset, ios_base::seekdir direction = ios_base::beg) {
+		seek_memory(offset, direction);
+		return *this;
+	}
+
+	streampos tellg() const {
+		return tell_memory();
+	}
+
+private:
+	void refresh_input() {
+		set_memory(buffer_.data(), buffer_.size());
+	}
+
+	string buffer_;
+};
+
+class ostringstream {
+public:
+	ostringstream() = default;
+
+	string str() const {
+		return buffer_;
+	}
+
+	void str(const string& value) {
+		buffer_ = value;
+	}
+
+	locale imbue(const locale& value) {
+		(void)value;
+		return locale();
+	}
+
+	ostringstream& operator<<(const string& value) {
+		append_formatted(value.data(), value.size());
+		return *this;
+	}
+
+	ostringstream& operator<<(string_view value) {
+		append_formatted(value.data(), value.size());
+		return *this;
+	}
+
+	ostringstream& operator<<(const char* value) {
+		append_formatted(value ? value : "", value ? wm::string_length(value) : 0);
+		return *this;
+	}
+
+	ostringstream& operator<<(char value) {
+		buffer_.push_back(value);
+		return *this;
+	}
+
+	ostringstream& operator<<(bool value) {
+		buffer_ += boolalpha_ ? (value ? "true" : "false") : (value ? "1" : "0");
+		return *this;
+	}
+
+	ostringstream& operator<<(short value) { return append_integer((long long)value); }
+	ostringstream& operator<<(unsigned short value) { return append_unsigned((unsigned long long)value); }
+	ostringstream& operator<<(int value) { return append_integer((long long)value); }
+	ostringstream& operator<<(unsigned int value) { return append_unsigned((unsigned long long)value); }
+	ostringstream& operator<<(long value) { return append_integer((long long)value); }
+	ostringstream& operator<<(unsigned long value) { return append_unsigned((unsigned long long)value); }
+	ostringstream& operator<<(long long value) { return append_integer(value); }
+	ostringstream& operator<<(unsigned long long value) { return append_unsigned(value); }
+	ostringstream& operator<<(float value) { buffer_ += std::to_string(value); return *this; }
+	ostringstream& operator<<(double value) { buffer_ += std::to_string(value); return *this; }
+
+	ostringstream& operator<<(__tayga_boolalpha_t) {
+		boolalpha_ = true;
+		return *this;
+	}
+
+	ostringstream& operator<<(__tayga_noboolalpha_t) {
+		boolalpha_ = false;
+		return *this;
+	}
+
+	ostringstream& operator<<(__tayga_dec_t) {
+		base_ = 10;
+		return *this;
+	}
+
+	ostringstream& operator<<(__tayga_hex_t) {
+		base_ = 16;
+		return *this;
+	}
+
+	ostringstream& operator<<(__tayga_oct_t) {
+		base_ = 8;
+		return *this;
+	}
+
+	ostringstream& operator<<(__tayga_uppercase_t) {
+		uppercase_ = true;
+		return *this;
+	}
+
+	ostringstream& operator<<(__tayga_nouppercase_t) {
+		uppercase_ = false;
+		return *this;
+	}
+
+	void set_width(int width) noexcept {
+		width_ = width > 0 ? width : 0;
+	}
+
+	void set_fill(char fill) noexcept {
+		fill_ = fill;
+	}
+
+	ostringstream& operator<<(const void* value) {
+		string text("0x");
+		char scratch[2 + sizeof(uintptr_t) * 2];
+		uintptr_t number = (uintptr_t)value;
+		size_t count = 0;
+		do {
+			const unsigned digit = (unsigned)(number & 0xfu);
+			scratch[count++] = (char)(digit < 10u ? '0' + digit : (uppercase_ ? 'A' : 'a') + digit - 10u);
+			number >>= 4u;
+		} while (number != 0);
+		for (size_t i = 0; i < count; ++i) {
+			text.push_back(scratch[count - i - 1u]);
+		}
+		append_formatted(text.data(), text.size());
+		return *this;
+	}
+
+	ostringstream& operator<<(filebuf source) {
+		if (source.memory && source.memory_offset) {
+			size_t offset = *source.memory_offset;
+			if (offset > source.memory_size) {
+				offset = source.memory_size;
+			}
+			buffer_.append(source.memory + offset, source.memory_size - offset);
+			*source.memory_offset = source.memory_size;
+			return *this;
+		}
+		if (!source.file) {
+			return *this;
+		}
+		char chunk[512];
+		for (;;) {
+			const size_t count = std::fread(chunk, 1u, sizeof(chunk), source.file);
+			if (count == 0) {
+				break;
+			}
+			buffer_.append(chunk, count);
+			if (count < sizeof(chunk)) {
+				break;
+			}
+		}
+		return *this;
+	}
+
+private:
+	ostringstream& append_integer(long long value) {
+		if (base_ == 10) {
+			string text = std::to_string(value);
+			append_formatted(text.data(), text.size());
+		} else {
+			append_unsigned((unsigned long long)value);
+		}
+		return *this;
+	}
+
+	ostringstream& append_unsigned(unsigned long long value) {
+		string text;
+		if (base_ == 10) {
+			text = std::to_string(value);
+		} else {
+			const char* digits = uppercase_ ? "0123456789ABCDEF" : "0123456789abcdef";
+			const unsigned base = base_ == 8 ? 8u : 16u;
+			char scratch[sizeof(unsigned long long) * 8];
+			size_t count = 0;
+			do {
+				scratch[count++] = digits[value % base];
+				value /= base;
+			} while (value != 0);
+			while (count > 0) {
+				text.push_back(scratch[--count]);
+			}
+		}
+		append_formatted(text.data(), text.size());
+		return *this;
+	}
+
+	void append_formatted(const char* data, size_t size) {
+		if (width_ > 0 && (size_t)width_ > size) {
+			const size_t padding = (size_t)width_ - size;
+			for (size_t i = 0; i < padding; ++i) {
+				buffer_.push_back(fill_);
+			}
+		}
+		width_ = 0;
+		buffer_.append(data, size);
+	}
+
+	string buffer_;
+	bool boolalpha_ = false;
+	int base_ = 10;
+	bool uppercase_ = false;
+	int width_ = 0;
+	char fill_ = ' ';
+};
+
+class stringstream : public ostringstream {
+public:
+	stringstream() = default;
+
+	explicit stringstream(const string& value) {
+		str(value);
+	}
+
+	explicit stringstream(string_view value) {
+		str(string(value));
+	}
+};
+
+}
+
+#endif

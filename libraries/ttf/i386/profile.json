@@ -1,7 +1,7 @@
 {
   "module": "WinterTTF",
   "architecture": "i386",
-  "version": "0.9",
+  "version": "1.0",
   "install_name": "/lib/WinterTTF.dylib",
   "functions": {
     "721c": "recovered_1000721c",
@@ -377,7 +377,11 @@
     "9568": "recovered_10009568",
     "c2bc": "recovered_1000c2bc",
     "6d7c": "recovered_10006d7c",
-    "6bb8": "recovered_10006bb8"
+    "6bb8": "recovered_10006bb8",
+    "0xf0003a": "pf_release_difftime",
+    "0xf0003b": "pf_release_exp",
+    "0xf0003c": "pf_release_expf",
+    "0xf0003d": "pf_release_expl"
   },
   "exports": [
     {
@@ -451,18 +455,6 @@
       "address": 31816,
       "section": 1,
       "weak": false
-    },
-    {
-      "name": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE4nposE",
-      "address": 65508,
-      "section": 5,
-      "weak": true
-    },
-    {
-      "name": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE4nposE",
-      "address": 65472,
-      "section": 5,
-      "weak": true
     },
     {
       "name": "__ZSt7nothrow",
@@ -627,6 +619,30 @@
       "weak": false
     },
     {
+      "name": "___fixdfdi",
+      "address": 15728679,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___fixunsdfdi",
+      "address": 15728680,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___floatdidf",
+      "address": 15728681,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___floatundidf",
+      "address": 15728682,
+      "section": 1,
+      "weak": false
+    },
+    {
       "name": "___gxx_personality_sj0",
       "address": 28192,
       "section": 1,
@@ -713,6 +729,30 @@
     {
       "name": "_cosf",
       "address": 21364,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_difftime",
+      "address": 15728698,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_exp",
+      "address": 15728699,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_expf",
+      "address": 15728700,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_expl",
+      "address": 15728701,
       "section": 1,
       "weak": false
     },

@@ -1,0 +1,210 @@
+#ifndef WINTER_HEADER_CMATH
+#define WINTER_HEADER_CMATH
+
+#include "math.h"
+
+namespace std {
+using ::fabs;
+using ::fabsf;
+using ::copysign;
+using ::copysignf;
+using ::floor;
+using ::floorf;
+using ::ceil;
+using ::ceilf;
+using ::trunc;
+using ::truncf;
+using ::nearbyint;
+using ::nearbyintf;
+using ::nearbyintl;
+using ::rint;
+using ::rintf;
+using ::rintl;
+using ::lrint;
+using ::lrintf;
+using ::lrintl;
+using ::round;
+using ::roundf;
+using ::roundl;
+using ::lround;
+using ::lroundf;
+using ::lroundl;
+using ::llrint;
+using ::llrintf;
+using ::llrintl;
+using ::llround;
+using ::llroundf;
+using ::llroundl;
+using ::modf;
+using ::modff;
+using ::modfl;
+using ::fmod;
+using ::fmodf;
+using ::sqrt;
+using ::sqrtf;
+using ::sin;
+using ::sinf;
+using ::cos;
+using ::cosf;
+using ::tan;
+using ::tanf;
+using ::tanl;
+using ::sinh;
+using ::sinhf;
+using ::sinhl;
+using ::cosh;
+using ::coshf;
+using ::coshl;
+using ::tanh;
+using ::tanhf;
+using ::tanhl;
+using ::atan;
+using ::atanf;
+using ::atanl;
+using ::atan2;
+using ::atan2f;
+using ::asin;
+using ::asinf;
+using ::asinl;
+using ::acos;
+using ::acosf;
+using ::acosl;
+using ::log;
+using ::logf;
+using ::log10;
+using ::log10f;
+using ::log10l;
+using ::log2;
+using ::log2f;
+using ::log2l;
+using ::log1p;
+using ::log1pf;
+using ::log1pl;
+using ::logb;
+using ::logbf;
+using ::logbl;
+using ::exp;
+using ::expf;
+using ::expl;
+using ::exp2;
+using ::exp2f;
+using ::exp2l;
+using ::erf;
+using ::erff;
+using ::erfl;
+using ::pow;
+using ::powf;
+using ::isfinite;
+using ::strtod;
+using ::strtof;
+using ::strtoll;
+using ::strtoull;
+using ::strtol;
+using ::strtoul;
+
+inline float fabs(float value) { return ::fabsf(value); }
+inline long double fabs(long double value) { return (long double)::fabs((double)value); }
+inline float copysign(float magnitude, float sign) { return ::copysignf(magnitude, sign); }
+inline long double copysign(long double magnitude, long double sign) { return (long double)::copysign((double)magnitude, (double)sign); }
+inline float floor(float value) { return ::floorf(value); }
+inline long double floor(long double value) { return (long double)::floor((double)value); }
+inline float ceil(float value) { return ::ceilf(value); }
+inline long double ceil(long double value) { return (long double)::ceil((double)value); }
+inline float trunc(float value) { return ::truncf(value); }
+inline long double trunc(long double value) { return (long double)::trunc((double)value); }
+inline float nearbyint(float value) { return ::nearbyintf(value); }
+inline long double nearbyint(long double value) { return ::nearbyintl(value); }
+inline float rint(float value) { return ::rintf(value); }
+inline long double rint(long double value) { return ::rintl(value); }
+inline long lrint(float value) { return ::lrintf(value); }
+inline long lrint(long double value) { return ::lrintl(value); }
+inline float round(float value) { return ::roundf(value); }
+inline long double round(long double value) { return ::roundl(value); }
+inline long lround(float value) { return ::lroundf(value); }
+inline long lround(long double value) { return ::lroundl(value); }
+inline long long llrint(float value) { return ::llrintf(value); }
+inline long long llrint(long double value) { return ::llrintl(value); }
+inline long long llround(float value) { return ::llroundf(value); }
+inline long long llround(long double value) { return ::llroundl(value); }
+inline float modf(float value, float* integer_part) { return ::modff(value, integer_part); }
+inline long double modf(long double value, long double* integer_part) { return ::modfl(value, integer_part); }
+inline float fmod(float x, float y) { return ::fmodf(x, y); }
+inline long double fmod(long double x, long double y) { return (long double)::fmod((double)x, (double)y); }
+inline float sqrt(float value) { return ::sqrtf(value); }
+inline long double sqrt(long double value) { return (long double)::sqrt((double)value); }
+inline float sin(float value) { return ::sinf(value); }
+inline long double sin(long double value) { return (long double)::sin((double)value); }
+inline float cos(float value) { return ::cosf(value); }
+inline long double cos(long double value) { return (long double)::cos((double)value); }
+inline float tan(float value) { return ::tanf(value); }
+inline long double tan(long double value) { return ::tanl(value); }
+inline float sinh(float value) { return ::sinhf(value); }
+inline long double sinh(long double value) { return ::sinhl(value); }
+inline float cosh(float value) { return ::coshf(value); }
+inline long double cosh(long double value) { return ::coshl(value); }
+inline float tanh(float value) { return ::tanhf(value); }
+inline long double tanh(long double value) { return ::tanhl(value); }
+inline float atan(float value) { return ::atanf(value); }
+inline long double atan(long double value) { return ::atanl(value); }
+inline float atan2(float y, float x) { return ::atan2f(y, x); }
+inline long double atan2(long double y, long double x) { return (long double)::atan2((double)y, (double)x); }
+inline float asin(float value) { return ::asinf(value); }
+inline long double asin(long double value) { return ::asinl(value); }
+inline float acos(float value) { return ::acosf(value); }
+inline long double acos(long double value) { return ::acosl(value); }
+inline float log(float value) { return ::logf(value); }
+inline long double log(long double value) { return (long double)::log((double)value); }
+inline float log10(float value) { return ::log10f(value); }
+inline long double log10(long double value) { return ::log10l(value); }
+template <typename T>
+inline double log10(T value) { return ::log10((double)value); }
+inline float log2(float value) { return ::log2f(value); }
+inline long double log2(long double value) { return ::log2l(value); }
+template <typename T>
+inline double log2(T value) { return ::log2((double)value); }
+inline float log1p(float value) { return ::log1pf(value); }
+inline long double log1p(long double value) { return ::log1pl(value); }
+template <typename T>
+inline double log1p(T value) { return ::log1p((double)value); }
+inline float logb(float value) { return ::logbf(value); }
+inline long double logb(long double value) { return ::logbl(value); }
+template <typename T>
+inline double logb(T value) { return ::logb((double)value); }
+inline float exp(float value) { return ::expf(value); }
+inline long double exp(long double value) { return ::expl(value); }
+template <typename T>
+inline double exp(T value) { return ::exp((double)value); }
+inline float exp2(float value) { return ::exp2f(value); }
+inline long double exp2(long double value) { return ::exp2l(value); }
+template <typename T>
+inline double exp2(T value) { return ::exp2((double)value); }
+inline float erf(float value) { return ::erff(value); }
+inline long double erf(long double value) { return ::erfl(value); }
+template <typename T>
+inline double erf(T value) { return ::erf((double)value); }
+inline float pow(float base, float exponent) { return ::powf(base, exponent); }
+inline long double pow(long double base, long double exponent) { return (long double)::pow((double)base, (double)exponent); }
+template <typename A, typename B>
+inline double pow(A base, B exponent) { return ::pow((double)base, (double)exponent); }
+inline bool isfinite(float value) { return ::isfinite((double)value) != 0; }
+inline bool isfinite(long double value) { return ::isfinite((double)value) != 0; }
+template <typename T>
+inline bool isfinite(T value) { return ::isfinite((double)value) != 0; }
+inline bool isnan(float value) { return __builtin_isnan(value); }
+inline bool isnan(double value) { return __builtin_isnan(value); }
+inline bool isnan(long double value) { return __builtin_isnan(value); }
+template <typename T>
+inline bool isnan(T value) { return __builtin_isnan((double)value); }
+inline bool isinf(float value) { return __builtin_isinf(value); }
+inline bool isinf(double value) { return __builtin_isinf(value); }
+inline bool isinf(long double value) { return __builtin_isinf(value); }
+template <typename T>
+inline bool isinf(T value) { return __builtin_isinf((double)value); }
+inline bool signbit(float value) { return __builtin_signbit(value); }
+inline bool signbit(double value) { return __builtin_signbit(value); }
+inline bool signbit(long double value) { return __builtin_signbit(value); }
+template <typename T>
+inline bool signbit(T value) { return __builtin_signbit((double)value); }
+}
+
+#endif

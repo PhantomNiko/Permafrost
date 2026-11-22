@@ -370,3 +370,11 @@ void recovered_1000b284(void *object,void *p0);
 void recovered_1000b2a4(void *object,void *p0);
 
 /* Original analysis identifiers for manual recovery units. */
+
+double pf_release_difftime(long end,long start);
+
+double pf_release_exp(double value);
+
+float pf_release_expf(float value);
+
+long double pf_release_expl(long double value);

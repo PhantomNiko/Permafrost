@@ -1,3 +1,4 @@
+#include "scope_jump.h"
 /* Permafrost recovered implementation; Pooka's Free Software License.
  * Fixed entry addresses and original function boundaries are recorded
  * separately in recovery metadata. */
@@ -8,21 +9,21 @@
 #undef DAT_1000c118
 #define DAT_1000c118 (*(uint64_t *)(((uintptr_t)pf_module_state + 0x6734U)))
 #undef DAT_40010088
-#define DAT_40010088 (*(uint8_t *)(0x40010088U))
+#define DAT_40010088 (*(uint8_t *)(0x82010088U))
 #undef DAT_4001008c
-#define DAT_4001008c (*(uint8_t *)(0x4001008cU))
+#define DAT_4001008c (*(uint8_t *)(0x8201008cU))
 #undef DAT_40010238
-#define DAT_40010238 (*(uint8_t *)(0x40010238U))
+#define DAT_40010238 (*(uint8_t *)(0x82010238U))
 #undef DAT_4001023c
-#define DAT_4001023c (*(uint8_t *)(0x4001023cU))
+#define DAT_4001023c (*(uint8_t *)(0x8201023cU))
 #undef _DAT_40010088
-#define _DAT_40010088 (*(uint *)(0x40010088U))
+#define _DAT_40010088 (*(uint *)(0x82010088U))
 #undef _DAT_4001008c
-#define _DAT_4001008c (*(uint *)(0x4001008cU))
+#define _DAT_4001008c (*(uint *)(0x8201008cU))
 #undef _DAT_40010238
-#define _DAT_40010238 (*(int *)(0x40010238U))
+#define _DAT_40010238 (*(int *)(0x82010238U))
 #undef _DAT_4001023c
-#define _DAT_4001023c (*(uint *)(0x4001023cU))
+#define _DAT_4001023c (*(uint *)(0x8201023cU))
 #define auStack_458 (*(ulong (*)[130])(frame + 16))
 #define uStack_48 (*(ulong *)(frame + 1056))
 /* Recovered working notes; Pooka's Free Software License.
@@ -61,9 +62,9 @@ void recovered_10000608(void)
       uVar4 = 0x40;
     }
     for (; uVar5 != uVar4; uVar5 = uVar5 + 1) {
-      lVar7 = *(long *)(uVar5 * 0x10 + 0x40010248);
+      lVar7 = *(long *)(uVar5 * 0x10 + 0x82010248);
       if (lVar7 != 0) {
-        uVar6 = *(ulong *)(uVar5 * 0x10 + 0x40010240);
+        uVar6 = *(ulong *)(uVar5 * 0x10 + 0x82010240);
         uVar1 = lVar7 + uVar6;
         if (0x300000 < uVar1 && uVar6 < uVar1) {
           if (uVar6 < 0x300001) {
@@ -88,9 +89,9 @@ void recovered_10000608(void)
   else {
     uVar3 = 0;
     for (uVar5 = 0; uVar5 != uVar4; uVar5 = uVar5 + 1) {
-      uVar2 = *(uint *)(uVar5 * 8 + 0x40010094);
+      uVar2 = *(uint *)(uVar5 * 8 + 0x82010094);
       if (uVar2 != 0) {
-        uVar6 = (ulong)*(uint *)(uVar5 * 8 + 0x40010090);
+        uVar6 = (ulong)*(uint *)(uVar5 * 8 + 0x82010090);
         uVar1 = uVar2 + uVar6;
         if (0x300000 < uVar1) {
           if (uVar6 < 0x300001) {
@@ -173,21 +174,21 @@ void recovered_10000608(void)
 #undef DAT_1000c118
 #define DAT_1000c118 (*(uint64_t *)(((uintptr_t)pf_module_state + 0x6734U)))
 #undef DAT_40010088
-#define DAT_40010088 (*(uint8_t *)(0x40010088U))
+#define DAT_40010088 (*(uint8_t *)(0x82010088U))
 #undef DAT_4001008c
-#define DAT_4001008c (*(uint8_t *)(0x4001008cU))
+#define DAT_4001008c (*(uint8_t *)(0x8201008cU))
 #undef DAT_40010238
-#define DAT_40010238 (*(uint8_t *)(0x40010238U))
+#define DAT_40010238 (*(uint8_t *)(0x82010238U))
 #undef DAT_4001023c
-#define DAT_4001023c (*(uint8_t *)(0x4001023cU))
+#define DAT_4001023c (*(uint8_t *)(0x8201023cU))
 #undef _DAT_40010088
-#define _DAT_40010088 (*(uint *)(0x40010088U))
+#define _DAT_40010088 (*(uint *)(0x82010088U))
 #undef _DAT_4001008c
-#define _DAT_4001008c (*(uint *)(0x4001008cU))
+#define _DAT_4001008c (*(uint *)(0x8201008cU))
 #undef _DAT_40010238
-#define _DAT_40010238 (*(int *)(0x40010238U))
+#define _DAT_40010238 (*(int *)(0x82010238U))
 #undef _DAT_4001023c
-#define _DAT_4001023c (*(uint *)(0x4001023cU))
+#define _DAT_4001023c (*(uint *)(0x8201023cU))
 #define auStack_458 (*(ulong (*)[130])(frame + 16))
 #define local_48 (*(ulong *)(frame + 1056))
 /* Recovered working notes; Pooka's Free Software License.
@@ -226,9 +227,9 @@ void recovered_10000614(void)
         uVar4 = 0x40;
       }
       for (; uVar5 != uVar4; uVar5 = uVar5 + 1) {
-        lVar7 = *(long *)(uVar5 * 0x10 + 0x40010248);
+        lVar7 = *(long *)(uVar5 * 0x10 + 0x82010248);
         if (lVar7 != 0) {
-          uVar6 = *(ulong *)(uVar5 * 0x10 + 0x40010240);
+          uVar6 = *(ulong *)(uVar5 * 0x10 + 0x82010240);
           uVar1 = lVar7 + uVar6;
           if (0x300000 < uVar1 && uVar6 < uVar1) {
             if (uVar6 < 0x300001) {
@@ -253,9 +254,9 @@ void recovered_10000614(void)
     else {
       uVar3 = 0;
       for (uVar5 = 0; uVar5 != uVar4; uVar5 = uVar5 + 1) {
-        uVar2 = *(uint *)(uVar5 * 8 + 0x40010094);
+        uVar2 = *(uint *)(uVar5 * 8 + 0x82010094);
         if (uVar2 != 0) {
-          uVar6 = (ulong)*(uint *)(uVar5 * 8 + 0x40010090);
+          uVar6 = (ulong)*(uint *)(uVar5 * 8 + 0x82010090);
           uVar1 = uVar2 + uVar6;
           if (0x300000 < uVar1) {
             if (uVar6 < 0x300001) {
@@ -796,7 +797,7 @@ int recovered_10000c04(int param_1)
 
 /* Preserve the native WMAP tail-call arguments. Pooka's Free Software License. */
 void * recovered_10000c10(size_t size) {
- volatile uint32_t *api=(volatile uint32_t *)(uintptr_t)0x40010800;
+ volatile uint32_t *api=(volatile uint32_t *)(uintptr_t)0x82010800;
  if(api[0]!=0x50414d57 || api[2]<0x58 || !api[19]){return 0;}
  return ((void *(*)(size_t))(uintptr_t)api[0x4c/4])(size);
 }
@@ -804,7 +805,7 @@ void * recovered_10000c10(size_t size) {
 
 /* Preserve the native WMAP tail-call arguments. Pooka's Free Software License. */
 void recovered_10000c54(void *pointer) {
- volatile uint32_t *api=(volatile uint32_t *)(uintptr_t)0x40010800;
+ volatile uint32_t *api=(volatile uint32_t *)(uintptr_t)0x82010800;
  if(api[0]!=0x50414d57 || api[2]<0x58 || !api[20]){return;}
  ((void (*)(void *))(uintptr_t)api[0x50/4])(pointer);
 }
@@ -812,7 +813,7 @@ void recovered_10000c54(void *pointer) {
 
 /* Preserve the native WMAP tail-call arguments. Pooka's Free Software License. */
 void * recovered_10000c98(void *pointer,size_t size) {
- volatile uint32_t *api=(volatile uint32_t *)(uintptr_t)0x40010800;
+ volatile uint32_t *api=(volatile uint32_t *)(uintptr_t)0x82010800;
  if(api[0]!=0x50414d57 || api[2]<0x58 || !api[21]){return 0;}
  return ((void *(*)(void *,size_t))(uintptr_t)api[0x54/4])(pointer,size);
 }
@@ -2739,17 +2740,17 @@ void recovered_10001e24(long param_1,ulong param_2,ulong *param_3)
 #undef DAT_1000c118
 
 #undef DAT_40010800
-#define DAT_40010800 (*(uint8_t *)(0x40010800U))
+#define DAT_40010800 (*(uint8_t *)(0x82010800U))
 #undef DAT_40010804
-#define DAT_40010804 (*(uint8_t *)(0x40010804U))
+#define DAT_40010804 (*(uint8_t *)(0x82010804U))
 #undef DAT_40010808
-#define DAT_40010808 (*(uint8_t *)(0x40010808U))
+#define DAT_40010808 (*(uint8_t *)(0x82010808U))
 #undef Ram0000000040010800
-#define Ram0000000040010800 (*(uint32_t *)(0x40010800U))
+#define Ram0000000040010800 (*(uint32_t *)(0x82010800U))
 #undef Ram0000000040010804
-#define Ram0000000040010804 (*(uint32_t *)(0x40010804U))
+#define Ram0000000040010804 (*(uint32_t *)(0x82010804U))
 #undef Ram0000000040010808
-#define Ram0000000040010808 (*(uint32_t *)(0x40010808U))
+#define Ram0000000040010808 (*(uint32_t *)(0x82010808U))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10001e7c
  */
@@ -2829,7 +2830,7 @@ void recovered_10001fb4(char *param_1,long param_2)
 #undef DAT_1000c130
 #define DAT_1000c130 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x674cU)))
 #undef UINT_40010840
-#define UINT_40010840 (*(uint *)(0x40010840U))
+#define UINT_40010840 (*(uint *)(0x82010840U))
 #define local_230 (*(undefined1 (*)[512])(frame + 16))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x1000206c
@@ -2854,7 +2855,7 @@ void recovered_1000206c(int param_1)
     }
     local_230[uVar3] = 0;
     bVar2 = recovered_10002dac(0x40);
-    if ((bVar2) && (uVar1 = (*(volatile uint32_t *)(uintptr_t)0x40010840), uVar1 != 0)) {
+    if ((bVar2) && (uVar1 = (*(volatile uint32_t *)(uintptr_t)0x82010840), uVar1 != 0)) {
       (*(code *)(ulong)uVar1)(local_230);
     }
     DAT_1000c128 = 0;
@@ -2872,7 +2873,7 @@ void recovered_1000206c(int param_1)
 #undef DAT_1000c130
 #define DAT_1000c130 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x674cU)))
 #undef UINT_40010840
-#define UINT_40010840 (*(uint *)(0x40010840U))
+#define UINT_40010840 (*(uint *)(0x82010840U))
 #define auStack_230 (*(undefined1 (*)[512])(frame + 16))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x100020f8
@@ -2897,7 +2898,7 @@ void recovered_100020f8(void)
   auStack_230[uVar3] = 0;
   bVar2 = recovered_10002dac(0x40);
   if (bVar2) {
-    uVar1 = (*(volatile uint32_t *)(uintptr_t)0x40010840);
+    uVar1 = (*(volatile uint32_t *)(uintptr_t)0x82010840);
     if (uVar1 != 0) {
       (*(code *)(ulong)uVar1)(auStack_230);
     }
@@ -2916,7 +2917,7 @@ void recovered_100020f8(void)
 #undef DAT_1000c130
 #define DAT_1000c130 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x674cU)))
 #undef UINT_40010840
-#define UINT_40010840 (*(uint *)(0x40010840U))
+#define UINT_40010840 (*(uint *)(0x82010840U))
 #define acStack_230 (*(char (*)[512])(frame + 16))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10002100
@@ -2942,7 +2943,7 @@ void recovered_10002100(void)
     acStack_230[uVar3] = '\0';
     bVar2 = recovered_10002dac(0x40);
     if (bVar2) {
-      uVar1 = (*(volatile uint32_t *)(uintptr_t)0x40010840);
+      uVar1 = (*(volatile uint32_t *)(uintptr_t)0x82010840);
       if (uVar1 != 0) {
         (*(code *)(ulong)uVar1)(acStack_230);
       }
@@ -3148,7 +3149,7 @@ void recovered_100021ec(void)
 #undef DAT_1000c130
 
 #undef UINT_40010844
-#define UINT_40010844 (*(uint *)(0x40010844U))
+#define UINT_40010844 (*(uint *)(0x82010844U))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10002210
  */
@@ -3169,7 +3170,7 @@ bool recovered_10002210(long param_1,long param_2,char *param_3,undefined8 param
     bVar3 = recovered_10002dac(0x44);
     bVar2 = false;
     if (bVar3) {
-      uVar1 = (*(volatile uint32_t *)(uintptr_t)0x40010844);
+      uVar1 = (*(volatile uint32_t *)(uintptr_t)0x82010844);
       if (uVar1 == 0) {
         bVar2 = false;
       }
@@ -3358,7 +3359,7 @@ LAB_1000247c:
 #undef uStack_48
 
 #undef UINT_40010834
-#define UINT_40010834 (*(uint *)(0x40010834U))
+#define UINT_40010834 (*(uint *)(0x82010834U))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x100024d4
  */
@@ -3372,7 +3373,7 @@ undefined8 recovered_100024d4(char *param_1,void *param_2)
   uint uVar2;
 
   bVar1 = recovered_10002dac(0x34);
-  if ((bVar1) && (uVar2 = (*(volatile uint32_t *)(uintptr_t)0x40010834), uVar2 != 0)) {
+  if ((bVar1) && (uVar2 = (*(volatile uint32_t *)(uintptr_t)0x82010834), uVar2 != 0)) {
                     /* WARNING: Could not recover jumptable at 0x10002514. Too many branches */
                     /* WARNING: Treating indirect jump as call */
     uVar2 = (*(code *)(ulong)uVar2)(param_1,param_2);
@@ -3962,7 +3963,7 @@ undefined8 recovered_10002a44(long param_1)
 #undef DAT_1000c058
 
 #undef UINT_4001083c
-#define UINT_4001083c (*(uint *)(0x4001083cU))
+#define UINT_4001083c (*(uint *)(0x8201083cU))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10002a7c
  */
@@ -3976,7 +3977,7 @@ undefined8 recovered_10002a7c(char *param_1)
   uint uVar2;
 
   bVar1 = recovered_10002dac(0x3c);
-  if ((bVar1) && (uVar2 = (*(volatile uint32_t *)(uintptr_t)0x4001083c), uVar2 != 0)) {
+  if ((bVar1) && (uVar2 = (*(volatile uint32_t *)(uintptr_t)0x8201083c), uVar2 != 0)) {
                     /* WARNING: Could not recover jumptable at 0x10002ab0. Too many branches */
                     /* WARNING: Treating indirect jump as call */
     uVar2 = (*(code *)(ulong)uVar2)(param_1);
@@ -4027,7 +4028,7 @@ undefined8 recovered_10002ac0(long param_1,long param_2)
 #undef uStack_2c
 
 #undef UINT_40010838
-#define UINT_40010838 (*(uint *)(0x40010838U))
+#define UINT_40010838 (*(uint *)(0x82010838U))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10002b5c
  */
@@ -4041,7 +4042,7 @@ undefined8 recovered_10002b5c(char *param_1,void *param_2,undefined8 param_3)
   uint uVar2;
 
   bVar1 = recovered_10002dac(0x38);
-  if ((bVar1) && (uVar2 = (*(volatile uint32_t *)(uintptr_t)0x40010838), uVar2 != 0)) {
+  if ((bVar1) && (uVar2 = (*(volatile uint32_t *)(uintptr_t)0x82010838), uVar2 != 0)) {
                     /* WARNING: Could not recover jumptable at 0x10002bac. Too many branches */
                     /* WARNING: Treating indirect jump as call */
     uVar2 = (*(code *)(ulong)uVar2)(param_1,param_2,(uint)param_3);
@@ -4356,17 +4357,17 @@ void recovered_10002d98(void)
 #undef DAT_1000c120
 
 #undef DAT_40010800
-#define DAT_40010800 (*(uint8_t *)(0x40010800U))
+#define DAT_40010800 (*(uint8_t *)(0x82010800U))
 #undef DAT_40010804
-#define DAT_40010804 (*(uint8_t *)(0x40010804U))
+#define DAT_40010804 (*(uint8_t *)(0x82010804U))
 #undef DAT_40010808
-#define DAT_40010808 (*(uint8_t *)(0x40010808U))
+#define DAT_40010808 (*(uint8_t *)(0x82010808U))
 #undef Ram0000000040010800
-#define Ram0000000040010800 (*(uint32_t *)(0x40010800U))
+#define Ram0000000040010800 (*(uint32_t *)(0x82010800U))
 #undef Ram0000000040010804
-#define Ram0000000040010804 (*(uint32_t *)(0x40010804U))
+#define Ram0000000040010804 (*(uint32_t *)(0x82010804U))
 #undef Ram0000000040010808
-#define Ram0000000040010808 (*(uint32_t *)(0x40010808U))
+#define Ram0000000040010808 (*(uint32_t *)(0x82010808U))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10002dac
  */
@@ -4398,25 +4399,15 @@ bool recovered_10002dac(int param_1)
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10002e78
  */
-
-void recovered_10002e78(long param_1)
-
-{
-  unsigned char frame[64] = {0};
-
-                    /* WARNING: Could not recover jumptable at 0x10002e88. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  (**(code **)(param_1 + 0x48))();
-  return;
-}
+__attribute__((naked,noreturn)) void recovered_10002e78(long param_1){__asm__ volatile(PF_SCOPE_JUMP_ASM);}
 
 
 /* Native context ABI in a C translation unit. Pooka's Free Software License. */
-__attribute__((naked,returns_twice)) int recovered_10002e8c(void *context){__asm__ volatile("stp x19,x20,[x0]; stp x21,x22,[x0,#16]; stp x23,x24,[x0,#32]; stp x25,x26,[x0,#48]; stp x27,x28,[x0,#64]; stp x29,x30,[x0,#80]; mov x8,sp; str x8,[x0,#96]; mov w0,#0; ret");}
+__attribute__((naked,returns_twice)) int recovered_10002e8c(void *context){__asm__ volatile("stp x19,x20,[x0,#0]\nstp x21,x22,[x0,#16]\nstp x23,x24,[x0,#32]\nstp x25,x26,[x0,#48]\nstp x27,x28,[x0,#64]\nstp x29,x30,[x0,#80]\nmov x8,sp\nstr x8,[x0,#96]\nstp d8,d9,[x0,#104]\nstp d10,d11,[x0,#120]\nstp d12,d13,[x0,#136]\nstp d14,d15,[x0,#152]\nmov w0,#0\nret");}
 
 
 /* Native context ABI in a C translation unit. Pooka's Free Software License. */
-__attribute__((naked,noreturn)) void recovered_10002eb8(void *context,int value){__asm__ volatile("cmp w1,#0; csinc w1,w1,wzr,ne; ldp x19,x20,[x0]; ldp x21,x22,[x0,#16]; ldp x23,x24,[x0,#32]; ldp x25,x26,[x0,#48]; ldp x27,x28,[x0,#64]; ldp x29,x30,[x0,#80]; ldr x8,[x0,#96]; mov sp,x8; mov w0,w1; ret");}
+__attribute__((naked,noreturn)) void recovered_10002eb8(void *context,int value){__asm__ volatile("cbnz w1,1f\nmov w1,#1\n1:\nldp x19,x20,[x0,#0]\nldp x21,x22,[x0,#16]\nldp x23,x24,[x0,#32]\nldp x25,x26,[x0,#48]\nldp x27,x28,[x0,#64]\nldp x29,x30,[x0,#80]\nldr x8,[x0,#96]\nmov sp,x8\nldp d8,d9,[x0,#104]\nldp d10,d11,[x0,#120]\nldp d12,d13,[x0,#136]\nldp d14,d15,[x0,#152]\nmov w0,w1\nret");}
 
 
 /* Recovered working notes; Pooka's Free Software License.
@@ -4672,7 +4663,7 @@ undefined1 * recovered_10002ff8(ulong param_1)
 
 
 #undef UINT_40010850
-#define UINT_40010850 (*(uint *)(0x40010850U))
+#define UINT_40010850 (*(uint *)(0x82010850U))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10003040
  */
@@ -4689,7 +4680,7 @@ void recovered_10003040(long param_1)
     return;
   }
   bVar2 = recovered_10001e7c(0x50);
-  if ((bVar2) && (uVar1 = (*(volatile uint32_t *)(uintptr_t)0x40010850), uVar1 != 0)) {
+  if ((bVar2) && (uVar1 = (*(volatile uint32_t *)(uintptr_t)0x82010850), uVar1 != 0)) {
                     /* WARNING: Could not recover jumptable at 0x10000c88. Too many branches */
                     /* WARNING: Treating indirect jump as call */
     (*(code *)(ulong)uVar1)(param_1 + -0x30);
@@ -4716,7 +4707,7 @@ long recovered_10003050(long param_1)
 #undef DAT_1000c330
 #define DAT_1000c330 (*(void * *)(((uintptr_t)pf_module_state + 0x694cU)))
 #undef UINT_40010850
-#define UINT_40010850 (*(uint *)(0x40010850U))
+#define UINT_40010850 (*(uint *)(0x82010850U))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10003058
  */
@@ -4741,7 +4732,7 @@ void recovered_10003058(void)
         (**(code **)((long)pvVar3 + 8))((long)pvVar3 + 0x30);
       }
       bVar4 = recovered_10001e7c(0x50);
-      if ((bVar4) && (uVar2 = (*(volatile uint32_t *)(uintptr_t)0x40010850), uVar2 != 0)) {
+      if ((bVar4) && (uVar2 = (*(volatile uint32_t *)(uintptr_t)0x82010850), uVar2 != 0)) {
                     /* WARNING: Could not recover jumptable at 0x10000c88. Too many branches */
                     /* WARNING: Treating indirect jump as call */
         (*(code *)(ulong)uVar2)(pvVar3);
@@ -5826,7 +5817,7 @@ long * recovered_10003970(char *param_1,uint param_2,uint param_3)
   }
   bVar2 = recovered_100051c0(0xa0);
   if (bVar2) {
-    uVar3 = (*(volatile uint32_t *)(uintptr_t)0x400108a0);
+    uVar3 = (*(volatile uint32_t *)(uintptr_t)0x820108a0);
     if (uVar3 != 0) {
       uVar3 = (*(code *)(ulong)uVar3)(pcVar1,param_2,param_3);
       *(uint *)(plVar4 + 3) = uVar3;
@@ -6031,7 +6022,7 @@ void recovered_10003b1c(undefined8 *param_1)
     bVar18 = recovered_100051c0(0xa4);
     uVar19 = (uint)bVar18;
     if (bVar18) {
-      uVar19 = (*(volatile uint32_t *)(uintptr_t)0x400108a4);
+      uVar19 = (*(volatile uint32_t *)(uintptr_t)0x820108a4);
       if (uVar19 == 0) {
         uVar19 = 0;
       }
@@ -6077,7 +6068,7 @@ ulong recovered_10003df4(long param_1)
       bVar2 = recovered_100051c0(0xb4);
       uVar4 = (ulong)bVar2;
       if (bVar2) {
-        uVar1 = (*(volatile uint32_t *)(uintptr_t)0x400108b4);
+        uVar1 = (*(volatile uint32_t *)(uintptr_t)0x820108b4);
         if (uVar1 == 0) {
           uVar4 = 0;
         }
@@ -6101,7 +6092,7 @@ ulong recovered_10003df4(long param_1)
 
 
 #undef UINT_400108b0
-#define UINT_400108b0 (*(uint *)(0x400108b0U))
+#define UINT_400108b0 (*(uint *)(0x820108b0U))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10003e70
  */
@@ -6124,7 +6115,7 @@ void recovered_10003e70(long param_1)
       iVar1 = *(int *)(param_1 + 0x24);
       iVar2 = *(int *)(param_1 + 0x28);
       bVar5 = recovered_100051c0(0xb0);
-      if ((bVar5) && (uVar4 = (*(volatile uint32_t *)(uintptr_t)0x400108b0), uVar4 != 0)) {
+      if ((bVar5) && (uVar4 = (*(volatile uint32_t *)(uintptr_t)0x820108b0), uVar4 != 0)) {
                     /* WARNING: Could not recover jumptable at 0x10003ed4. Too many branches */
                     /* WARNING: Treating indirect jump as call */
         (*(code *)(ulong)uVar4)(uVar3,iVar1,iVar2,1,1);
@@ -6161,7 +6152,7 @@ void recovered_10003ee8(long param_1)
   }
   uVar1 = *(uint *)(param_1 + 0x18);
   if (((uVar1 != 0) && (bVar3 = recovered_100051c0(0xa8), bVar3)) &&
-     (uVar2 = (*(volatile uint32_t *)(uintptr_t)0x400108a8), uVar2 != 0)) {
+     (uVar2 = (*(volatile uint32_t *)(uintptr_t)0x820108a8), uVar2 != 0)) {
     (*(code *)(ulong)uVar2)(uVar1);
   }
   recovered_10003af4((undefined8 *)param_1);
@@ -6408,7 +6399,7 @@ void recovered_10004004(long param_1,int param_2,int param_3)
     bVar18 = recovered_100051c0(0xa4);
     uVar19 = (uint)bVar18;
     if (bVar18) {
-      uVar19 = (*(volatile uint32_t *)(uintptr_t)0x400108a4);
+      uVar19 = (*(volatile uint32_t *)(uintptr_t)0x820108a4);
       if (uVar19 == 0) {
         uVar19 = 0;
       }
@@ -6608,7 +6599,7 @@ void recovered_1000406c(long param_1,undefined1 *param_2)
     bVar18 = recovered_100051c0(0xa4);
     uVar19 = (uint)bVar18;
     if (bVar18) {
-      uVar19 = (*(volatile uint32_t *)(uintptr_t)0x400108a4);
+      uVar19 = (*(volatile uint32_t *)(uintptr_t)0x820108a4);
       if (uVar19 == 0) {
         uVar19 = 0;
       }
@@ -6787,7 +6778,7 @@ void recovered_100040a4(long param_1,uint *param_2)
     bVar17 = recovered_100051c0(0xa4);
     uVar18 = (uint)bVar17;
     if (bVar17) {
-      uVar18 = (*(volatile uint32_t *)(uintptr_t)0x400108a4);
+      uVar18 = (*(volatile uint32_t *)(uintptr_t)0x820108a4);
       if (uVar18 == 0) {
         uVar18 = 0;
       }
@@ -6867,11 +6858,11 @@ void recovered_1000410c(long *param_1,undefined1 *param_2,undefined1 *param_3)
 #undef DAT_10005ae0
 #define DAT_10005ae0 (*(uint8_t *)(((uintptr_t)pf_module_state + 0xfcU)))
 #undef UINT_4001087c
-#define UINT_4001087c (*(uint *)(0x4001087cU))
+#define UINT_4001087c (*(uint *)(0x8201087cU))
 #undef UINT_40010880
-#define UINT_40010880 (*(uint *)(0x40010880U))
+#define UINT_40010880 (*(uint *)(0x82010880U))
 #undef UINT_4001089c
-#define UINT_4001089c (*(uint *)(0x4001089cU))
+#define UINT_4001089c (*(uint *)(0x8201089cU))
 #undef UNK_10005ae8
 #define UNK_10005ae8 (*(uint64_t *)(((uintptr_t)pf_module_state + 0x104U)))
 #undef _DAT_10005ae0
@@ -6919,7 +6910,7 @@ void recovered_10004120(long param_1)
   recovered_10003df4(param_1);
   bVar3 = recovered_100051c0(0x80);
   if (!bVar3) goto LAB_100042f8;
-  uVar7 = (*(volatile uint32_t *)(uintptr_t)0x40010880);
+  uVar7 = (*(volatile uint32_t *)(uintptr_t)0x82010880);
   if ((uVar7 == 0) || (iVar4 = (*(code *)(ulong)uVar7)(&local_a0), iVar4 == 0)) goto LAB_100042f8;
   local_50 = 0;
   local_80[3] = 0;
@@ -6930,7 +6921,7 @@ void recovered_10004120(long param_1)
   local_80[0] = 0;
   bVar3 = recovered_100051c0(0x7c);
   if (bVar3) {
-    uVar7 = (*(volatile uint32_t *)(uintptr_t)0x4001087c);
+    uVar7 = (*(volatile uint32_t *)(uintptr_t)0x8201087c);
     if ((uVar7 == 0) || (iVar4 = (*(code *)(ulong)uVar7)(local_80), iVar4 == 0)) goto LAB_10004240;
     iVar4 = 0;
     bVar3 = true;
@@ -7012,7 +7003,7 @@ LAB_100042f8:
   }
   bVar3 = recovered_100051c0(0x9c);
   if (bVar3) {
-    uVar7 = (*(volatile uint32_t *)(uintptr_t)0x4001089c);
+    uVar7 = (*(volatile uint32_t *)(uintptr_t)0x8201089c);
     if (uVar7 != 0) {
       (*(code *)(ulong)uVar7)();
     }
@@ -7067,7 +7058,7 @@ LAB_100042f8:
 #undef PTR_DAT_10008008
 #define PTR_DAT_10008008 (*(uint8_t * *)(((uintptr_t)pf_module_state + 0x2624U)))
 #undef UINT_4001082c
-#define UINT_4001082c (*(uint *)(0x4001082cU))
+#define UINT_4001082c (*(uint *)(0x8201082cU))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10004344
  */
@@ -7098,7 +7089,7 @@ switchD_100045c4_caseD_49:
       if (!bVar4) {
         return;
       }
-      uVar6 = (*(volatile uint32_t *)(uintptr_t)0x4001082c);
+      uVar6 = (*(volatile uint32_t *)(uintptr_t)0x8201082c);
       if (uVar6 == 0) {
         return;
       }
@@ -7439,7 +7430,7 @@ void recovered_10004684(long param_1,undefined1 param_2,undefined1 param_3,undef
     bVar17 = recovered_100051c0(0xa4);
     uVar18 = (uint)bVar17;
     if (bVar17) {
-      uVar18 = (*(volatile uint32_t *)(uintptr_t)0x400108a4);
+      uVar18 = (*(volatile uint32_t *)(uintptr_t)0x820108a4);
       if (uVar18 == 0) {
         uVar18 = 0;
       }
@@ -8207,7 +8198,7 @@ LAB_10004ab0:
 #undef local_70
 
 #undef UINT_40010858
-#define UINT_40010858 (*(uint *)(0x40010858U))
+#define UINT_40010858 (*(uint *)(0x82010858U))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10004c6c
  */
@@ -8221,7 +8212,7 @@ undefined8 recovered_10004c6c(char *param_1,void *param_2)
   uint uVar2;
 
   bVar1 = recovered_100051c0(0x58);
-  if ((bVar1) && (uVar2 = (*(volatile uint32_t *)(uintptr_t)0x40010858), uVar2 != 0)) {
+  if ((bVar1) && (uVar2 = (*(volatile uint32_t *)(uintptr_t)0x82010858), uVar2 != 0)) {
                     /* WARNING: Could not recover jumptable at 0x10004cac. Too many branches */
                     /* WARNING: Treating indirect jump as call */
     uVar2 = (*(code *)(ulong)uVar2)(param_1,param_2);
@@ -8249,7 +8240,7 @@ bool recovered_10004cc0(undefined8 *param_1,char *param_2)
 
 
 #undef UINT_40010850
-#define UINT_40010850 (*(uint *)(0x40010850U))
+#define UINT_40010850 (*(uint *)(0x82010850U))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10004cd8
  */
@@ -8263,7 +8254,7 @@ void recovered_10004cd8(void *param_1)
   bool bVar2;
 
   bVar2 = recovered_100051c0(0x50);
-  if ((bVar2) && (uVar1 = (*(volatile uint32_t *)(uintptr_t)0x40010850), uVar1 != 0)) {
+  if ((bVar2) && (uVar1 = (*(volatile uint32_t *)(uintptr_t)0x82010850), uVar1 != 0)) {
                     /* WARNING: Could not recover jumptable at 0x10004d0c. Too many branches */
                     /* WARNING: Treating indirect jump as call */
     (*(code *)(ulong)uVar1)(param_1);
@@ -8288,7 +8279,7 @@ undefined8 recovered_10004d18(float param_1,char *param_2)
   void *pvVar3;
 
   bVar2 = recovered_100051c0(0x68);
-  if ((bVar2) && (uVar1 = (*(volatile uint32_t *)(uintptr_t)0x40010868), uVar1 != 0)) {
+  if ((bVar2) && (uVar1 = (*(volatile uint32_t *)(uintptr_t)0x82010868), uVar1 != 0)) {
                     /* WARNING: Could not recover jumptable at 0x100186d8. Too many branches */
                     /* WARNING: Treating indirect jump as call */
     pvVar3 = (*(code *)(ulong)uVar1)(param_2,param_1);
@@ -8311,7 +8302,7 @@ void recovered_10004d6c(float param_1,void *param_2)
   bool bVar2;
 
   bVar2 = recovered_100051c0(0x70);
-  if ((bVar2) && (uVar1 = (*(volatile uint32_t *)(uintptr_t)0x40010870), uVar1 != 0)) {
+  if ((bVar2) && (uVar1 = (*(volatile uint32_t *)(uintptr_t)0x82010870), uVar1 != 0)) {
                     /* WARNING: Could not recover jumptable at 0x100186f0. Too many branches */
                     /* WARNING: Treating indirect jump as call */
     (*(code *)(ulong)uVar1)(param_2,param_1);
@@ -8365,7 +8356,7 @@ recovered_10004dbc(double param_1,long param_2,long param_3,undefined8 param_4,u
     }
     bVar2 = recovered_100051c0(0x74);
     if (bVar2) {
-      uVar1 = (*(volatile uint32_t *)(uintptr_t)0x40010874);
+      uVar1 = (*(volatile uint32_t *)(uintptr_t)0x82010874);
       if ((uVar1 != 0) &&
          (iVar3 = (*(code *)(ulong)uVar1)
                             ((void *)param_2,(char *)param_3,(uint)param_4,(uint)param_5,
@@ -8414,7 +8405,7 @@ void recovered_10004f00(void *param_1)
   bool bVar2;
 
   bVar2 = recovered_100051c0(0x78);
-  if ((bVar2) && (uVar1 = (*(volatile uint32_t *)(uintptr_t)0x40010878), uVar1 != 0)) {
+  if ((bVar2) && (uVar1 = (*(volatile uint32_t *)(uintptr_t)0x82010878), uVar1 != 0)) {
                     /* WARNING: Could not recover jumptable at 0x10004f34. Too many branches */
                     /* WARNING: Treating indirect jump as call */
     (*(code *)(ulong)uVar1)(param_1);
@@ -8646,17 +8637,17 @@ char * recovered_100051a4(ulong size)
 
 
 #undef DAT_40010800
-#define DAT_40010800 (*(uint8_t *)(0x40010800U))
+#define DAT_40010800 (*(uint8_t *)(0x82010800U))
 #undef DAT_40010804
-#define DAT_40010804 (*(uint8_t *)(0x40010804U))
+#define DAT_40010804 (*(uint8_t *)(0x82010804U))
 #undef DAT_40010808
-#define DAT_40010808 (*(uint8_t *)(0x40010808U))
+#define DAT_40010808 (*(uint8_t *)(0x82010808U))
 #undef Ram0000000040010800
-#define Ram0000000040010800 (*(uint32_t *)(0x40010800U))
+#define Ram0000000040010800 (*(uint32_t *)(0x82010800U))
 #undef Ram0000000040010804
-#define Ram0000000040010804 (*(uint32_t *)(0x40010804U))
+#define Ram0000000040010804 (*(uint32_t *)(0x82010804U))
 #undef Ram0000000040010808
-#define Ram0000000040010808 (*(uint32_t *)(0x40010808U))
+#define Ram0000000040010808 (*(uint32_t *)(0x82010808U))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x100051c0
  */
@@ -9406,3 +9397,21 @@ long recovered_10005898(long *param_1,long param_2,undefined1 *param_3,undefined
   return lVar3;
 }
 
+
+/* r232 exponential series and time arithmetic; Pooka's Free Software License. */
+#pragma STDC FP_CONTRACT OFF
+double pf_release_exp(double value) {
+ if(value!=value)return value;
+ if(value>709.782712893384)return pf_bits_double(0x7ff0000000000000ULL);
+ if(value< -745.1332191019411)return 0.0;
+ unsigned halves=0;
+ while(value>0.5){value*=0.5;++halves;}
+ while(value< -0.5){value*=0.5;++halves;}
+ double sum=1.0,term=1.0;
+ for(int n=1;n<=32;++n){term=(value/(double)n)*term;sum=sum+term;}
+ while(halves--){sum=sum*sum;}
+ return sum;
+}
+float pf_release_expf(float value){return (float)pf_release_exp((double)value);}
+long double pf_release_expl(long double value){return (long double)pf_release_exp((double)value);}
+double pf_release_difftime(long end,long start){return (double)end-(double)start;}

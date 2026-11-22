@@ -1,0 +1,361 @@
+#ifndef WINTER_HEADER_FILESYSTEM
+#define WINTER_HEADER_FILESYSTEM
+
+#include "cerrno"
+#include "cstring"
+#include "fstream"
+#include "iostream"
+#include "string"
+#include "vector"
+
+#if !defined(USE_WINTERBOOT) && defined(__has_include)
+#if __has_include(<dirent.h>) && __has_include(<sys/stat.h>)
+#define WINTER_FILESYSTEM_HAS_POSIX 1
+#include <dirent.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#else
+#define WINTER_FILESYSTEM_HAS_POSIX 0
+#endif
+#else
+#define WINTER_FILESYSTEM_HAS_POSIX 0
+#endif
+
+namespace std {
+namespace filesystem {
+
+class path {
+public:
+	using value_type = char;
+
+	path() = default;
+	path(const char* text) : text_(text ? text : "") {}
+	path(const std::string& text) : text_(text) {}
+	path(std::string&& text) : text_(std::move(text)) {}
+
+	const std::string& string() const noexcept {
+		return text_;
+	}
+
+	std::string generic_string() const {
+		std::string out = text_;
+		for (char& ch : out) {
+			if (ch == '\\') {
+				ch = '/';
+			}
+		}
+		return out;
+	}
+
+	const char* c_str() const noexcept {
+		return text_.c_str();
+	}
+
+	operator const char*() const noexcept {
+		return c_str();
+	}
+
+	bool empty() const noexcept {
+		return text_.empty();
+	}
+
+	path filename() const {
+		const std::string clean = trim_trailing_separators(text_);
+		const size_t slash = clean.find_last_of("/\\");
+		return slash == std::string::npos ? path(clean) : path(clean.substr(slash + 1));
+	}
+
+	path parent_path() const {
+		const std::string clean = trim_trailing_separators(text_);
+		const size_t slash = clean.find_last_of("/\\");
+		if (slash == std::string::npos) {
+			return path();
+		}
+		if (slash == 0) {
+			return path(clean.substr(0, 1));
+		}
+		return path(clean.substr(0, slash));
+	}
+
+	path extension() const {
+		const std::string name = filename().string();
+		const size_t dot = name.find_last_of('.');
+		if (dot == std::string::npos || dot == 0) {
+			return path();
+		}
+		return path(name.substr(dot));
+	}
+
+	path& operator/=(const path& rhs) {
+		if (rhs.text_.empty()) {
+			return *this;
+		}
+		if (text_.empty() || is_absolute(rhs.text_)) {
+			text_ = rhs.text_;
+			return *this;
+		}
+		if (!is_separator(text_.back())) {
+			text_.push_back('/');
+		}
+		text_ += rhs.text_;
+		return *this;
+	}
+
+private:
+	friend path operator/(path lhs, const path& rhs);
+	friend bool operator==(const path& lhs, const path& rhs) noexcept;
+	friend bool operator!=(const path& lhs, const path& rhs) noexcept;
+	friend bool operator<(const path& lhs, const path& rhs) noexcept;
+
+	static bool is_separator(char ch) noexcept {
+		return ch == '/' || ch == '\\';
+	}
+
+	static bool is_absolute(const std::string& text) noexcept {
+		return !text.empty() && is_separator(text[0]);
+	}
+
+	static std::string trim_trailing_separators(const std::string& text) {
+		size_t end = text.size();
+		while (end > 1 && is_separator(text[end - 1])) {
+			--end;
+		}
+		return text.substr(0, end);
+	}
+
+	std::string text_;
+};
+
+inline path operator/(path lhs, const path& rhs) {
+	lhs /= rhs;
+	return lhs;
+}
+
+inline bool operator==(const path& lhs, const path& rhs) noexcept {
+	return lhs.text_ == rhs.text_;
+}
+
+inline bool operator!=(const path& lhs, const path& rhs) noexcept {
+	return !(lhs == rhs);
+}
+
+inline bool operator<(const path& lhs, const path& rhs) noexcept {
+	return lhs.text_ < rhs.text_;
+}
+
+inline bool operator==(const path& lhs, const char* rhs) {
+	return lhs.string() == std::string(rhs ? rhs : "");
+}
+
+inline bool operator!=(const path& lhs, const char* rhs) {
+	return !(lhs == rhs);
+}
+
+inline bool operator==(const char* lhs, const path& rhs) {
+	return rhs == lhs;
+}
+
+inline bool operator!=(const char* lhs, const path& rhs) {
+	return !(rhs == lhs);
+}
+
+inline ostream& operator<<(ostream& stream, const path& value) {
+	return stream << value.string();
+}
+
+bool exists(const path& value);
+bool is_regular_file(const path& value);
+bool is_directory(const path& value);
+
+class directory_entry {
+public:
+	directory_entry() = default;
+	explicit directory_entry(path entryPath) : path_(std::move(entryPath)) {}
+
+	const path& path() const noexcept {
+		return path_;
+	}
+
+	bool is_regular_file() const {
+		return filesystem::is_regular_file(path_);
+	}
+
+	bool is_directory() const {
+		return filesystem::is_directory(path_);
+	}
+
+private:
+	filesystem::path path_;
+};
+
+namespace detail {
+
+#if WINTER_FILESYSTEM_HAS_POSIX
+inline bool stat_path(const path& value, struct stat* out) {
+	return out && ::stat(value.c_str(), out) == 0;
+}
+
+inline void collect_recursive(const path& root, vector<directory_entry>& out) {
+	DIR* dir = ::opendir(root.c_str());
+	if (!dir) {
+		return;
+	}
+	while (dirent* entry = ::readdir(dir)) {
+		if (std::strcmp(entry->d_name, ".") == 0 || std::strcmp(entry->d_name, "..") == 0) {
+			continue;
+		}
+		path child = root / entry->d_name;
+		out.push_back(directory_entry(child));
+		if (filesystem::is_directory(child)) {
+			collect_recursive(child, out);
+		}
+	}
+	::closedir(dir);
+}
+#endif
+
+} // namespace detail
+
+inline bool exists(const path& value) {
+#if WINTER_FILESYSTEM_HAS_POSIX
+	struct stat info;
+	return detail::stat_path(value, &info);
+#else
+	ifstream in(value.string(), ios_base::binary);
+	return in.good();
+#endif
+}
+
+inline bool is_regular_file(const path& value) {
+#if WINTER_FILESYSTEM_HAS_POSIX
+	struct stat info;
+	return detail::stat_path(value, &info) && S_ISREG(info.st_mode);
+#else
+	ifstream in(value.string(), ios_base::binary);
+	return in.good();
+#endif
+}
+
+inline bool is_directory(const path& value) {
+#if WINTER_FILESYSTEM_HAS_POSIX
+	struct stat info;
+	return detail::stat_path(value, &info) && S_ISDIR(info.st_mode);
+#else
+	(void)value;
+	return false;
+#endif
+}
+
+inline bool create_directories(const path& value) {
+	if (value.empty() || exists(value)) {
+		return true;
+	}
+	const path parent = value.parent_path();
+	if (!parent.empty() && parent != value && !exists(parent)) {
+		if (!create_directories(parent)) {
+			return false;
+		}
+	}
+#if WINTER_FILESYSTEM_HAS_POSIX
+	if (::mkdir(value.c_str(), 0777) == 0) {
+		return true;
+	}
+	return errno == 17 || exists(value);
+#else
+	return false;
+#endif
+}
+
+inline path relative(const path& target, const path& base) {
+	std::string targetText = target.generic_string();
+	std::string baseText = base.generic_string();
+	while (!baseText.empty() && baseText.back() == '/') {
+		baseText.pop_back();
+	}
+	if (!baseText.empty() && targetText.rfind(baseText, 0) == 0) {
+		size_t offset = baseText.size();
+		if (targetText.size() == offset) {
+			return path(".");
+		}
+		if (targetText[offset] == '/') {
+			++offset;
+		}
+		return path(targetText.substr(offset));
+	}
+	return target;
+}
+
+class recursive_directory_iterator {
+public:
+	using value_type = directory_entry;
+	using reference = const directory_entry&;
+	using pointer = const directory_entry*;
+
+	recursive_directory_iterator() : entries_(), index_(0) {}
+
+	explicit recursive_directory_iterator(const path& root)
+		: entries_(make_shared<vector<directory_entry>>()), index_(0) {
+#if WINTER_FILESYSTEM_HAS_POSIX
+		detail::collect_recursive(root, *entries_);
+#else
+		(void)root;
+#endif
+		if (entries_->empty()) {
+			entries_.reset();
+		}
+	}
+
+	recursive_directory_iterator begin() const {
+		return *this;
+	}
+
+	recursive_directory_iterator end() const {
+		return recursive_directory_iterator();
+	}
+
+	reference operator*() const {
+		return (*entries_)[index_];
+	}
+
+	pointer operator->() const {
+		return &(*entries_)[index_];
+	}
+
+	recursive_directory_iterator& operator++() {
+		if (entries_) {
+			++index_;
+			if (index_ >= entries_->size()) {
+				entries_.reset();
+				index_ = 0;
+			}
+		}
+		return *this;
+	}
+
+	bool equal(const recursive_directory_iterator& other) const noexcept {
+		if (!entries_ && !other.entries_) {
+			return true;
+		}
+		return entries_ == other.entries_ && index_ == other.index_;
+	}
+
+private:
+	friend bool operator==(const recursive_directory_iterator& lhs, const recursive_directory_iterator& rhs) noexcept;
+	friend bool operator!=(const recursive_directory_iterator& lhs, const recursive_directory_iterator& rhs) noexcept;
+
+	shared_ptr<vector<directory_entry>> entries_;
+	size_t index_;
+};
+
+inline bool operator==(const recursive_directory_iterator& lhs, const recursive_directory_iterator& rhs) noexcept {
+	return lhs.equal(rhs);
+}
+
+inline bool operator!=(const recursive_directory_iterator& lhs, const recursive_directory_iterator& rhs) noexcept {
+	return !lhs.equal(rhs);
+}
+
+} // namespace filesystem
+} // namespace std
+
+#endif

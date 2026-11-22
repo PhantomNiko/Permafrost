@@ -1,7 +1,7 @@
 {
   "module": "WinterLua",
   "architecture": "i386",
-  "version": "0.9",
+  "version": "1.0",
   "install_name": "/lib/WinterLua.dylib",
   "functions": {
     "27e5c": "recovered_10027e5c",
@@ -1016,7 +1016,11 @@
     "2bce8": "recovered_1002bce8",
     "197c4": "recovered_100197c4",
     "d014": "recovered_1000d014",
-    "2f374": "recovered_1002f374"
+    "2f374": "recovered_1002f374",
+    "300970": "pf_release_difftime",
+    "300980": "pf_release_exp",
+    "300990": "pf_release_expf",
+    "3009a0": "pf_release_expl"
   },
   "exports": [
     {
@@ -1060,18 +1064,6 @@
       "address": 15924,
       "section": 1,
       "weak": false
-    },
-    {
-      "name": "__ZN2wm13unordered_mapINS_6stringEN6winter3lua8LuaValueENS_4hashIS1_EENS_8equal_toIS1_EEE4nposE",
-      "address": 205380,
-      "section": 5,
-      "weak": true
-    },
-    {
-      "name": "__ZN2wm13unordered_mapINS_6stringEmNS_4hashIS1_EENS_8equal_toIS1_EEE4nposE",
-      "address": 205296,
-      "section": 5,
-      "weak": true
     },
     {
       "name": "__ZN6winter3lua14runLuaBytecodeERNS0_5LuaVMERKNS0_11LuaBytecodeE",
@@ -1478,7 +1470,7 @@
     {
       "name": "__ZSt7nothrow",
       "address": 204680,
-      "section": 5,
+      "section": 2,
       "weak": false
     },
     {
@@ -1490,181 +1482,181 @@
     {
       "name": "__ZTIN2wm13runtime_errorE",
       "address": 229472,
-      "section": 12,
+      "section": 6,
       "weak": true
     },
     {
       "name": "__ZTIN2wm6detail20shared_control_blockE",
       "address": 229540,
-      "section": 12,
+      "section": 6,
       "weak": true
     },
     {
       "name": "__ZTIN2wm6detail25shared_control_block_implIN6winter3lua17LuaFunctionHandleEEE",
       "address": 229548,
-      "section": 12,
+      "section": 6,
       "weak": true
     },
     {
       "name": "__ZTIN2wm6detail25shared_control_block_implINS_13unordered_mapINS_6stringEN6winter3lua8LuaValueENS_4hashIS3_EENS_8equal_toIS3_EEEEEE",
       "address": 231164,
-      "section": 12,
+      "section": 6,
       "weak": true
     },
     {
       "name": "__ZTIN2wm6detail25shared_control_block_implINS_6vectorIN6winter3lua8LuaValueEEEEE",
       "address": 231132,
-      "section": 12,
+      "section": 6,
       "weak": true
     },
     {
       "name": "__ZTIN2wm6detail25shared_control_block_implISt7fstreamEE",
       "address": 232172,
-      "section": 12,
+      "section": 6,
       "weak": true
     },
     {
       "name": "__ZTIN2wm8functionIFN6winter3lua8LuaValueERNS2_5LuaVMERKNS_6vectorIS3_EEEE4baseE",
       "address": 231200,
-      "section": 12,
+      "section": 6,
       "weak": true
     },
     {
       "name": "__ZTIN2wm8functionIFN6winter3lua8LuaValueERNS2_5LuaVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E_EE",
       "address": 231208,
-      "section": 12,
+      "section": 6,
       "weak": true
     },
     {
       "name": "__ZTIN2wm9exceptionE",
       "address": 229464,
-      "section": 12,
+      "section": 6,
       "weak": true
     },
     {
       "name": "__ZTISt10basic_file",
       "address": 230780,
-      "section": 12,
+      "section": 6,
       "weak": true
     },
     {
       "name": "__ZTISt7fstream",
       "address": 232112,
-      "section": 12,
+      "section": 6,
       "weak": true
     },
     {
       "name": "__ZTISt7istream",
       "address": 231072,
-      "section": 12,
+      "section": 6,
       "weak": true
     },
     {
       "name": "__ZTISt7ostream",
       "address": 230788,
-      "section": 12,
+      "section": 6,
       "weak": true
     },
     {
       "name": "__ZTISt8ifstream",
       "address": 231080,
-      "section": 12,
+      "section": 6,
       "weak": true
     },
     {
       "name": "__ZTISt8ofstream",
       "address": 230796,
-      "section": 12,
+      "section": 6,
       "weak": true
     },
     {
       "name": "__ZTSN2wm13runtime_errorE",
       "address": 204736,
-      "section": 5,
+      "section": 2,
       "weak": true
     },
     {
       "name": "__ZTSN2wm6detail20shared_control_blockE",
       "address": 204938,
-      "section": 5,
+      "section": 2,
       "weak": true
     },
     {
       "name": "__ZTSN2wm6detail25shared_control_block_implIN6winter3lua17LuaFunctionHandleEEE",
       "address": 204864,
-      "section": 5,
+      "section": 2,
       "weak": true
     },
     {
       "name": "__ZTSN2wm6detail25shared_control_block_implINS_13unordered_mapINS_6stringEN6winter3lua8LuaValueENS_4hashIS3_EENS_8equal_toIS3_EEEEEE",
       "address": 208917,
-      "section": 5,
+      "section": 2,
       "weak": true
     },
     {
       "name": "__ZTSN2wm6detail25shared_control_block_implINS_6vectorIN6winter3lua8LuaValueEEEEE",
       "address": 208840,
-      "section": 5,
+      "section": 2,
       "weak": true
     },
     {
       "name": "__ZTSN2wm6detail25shared_control_block_implISt7fstreamEE",
       "address": 212426,
-      "section": 5,
+      "section": 2,
       "weak": true
     },
     {
       "name": "__ZTSN2wm8functionIFN6winter3lua8LuaValueERNS2_5LuaVMERKNS_6vectorIS3_EEEE4baseE",
       "address": 209162,
-      "section": 5,
+      "section": 2,
       "weak": true
     },
     {
       "name": "__ZTSN2wm8functionIFN6winter3lua8LuaValueERNS2_5LuaVMERKNS_6vectorIS3_EEEE6holderIZNS4_4Impl12bindDefaultsEvEUlS5_S9_E_EE",
       "address": 209045,
-      "section": 5,
+      "section": 2,
       "weak": true
     },
     {
       "name": "__ZTSN2wm9exceptionE",
       "address": 204757,
-      "section": 5,
+      "section": 2,
       "weak": true
     },
     {
       "name": "__ZTSSt10basic_file",
       "address": 207672,
-      "section": 5,
+      "section": 2,
       "weak": true
     },
     {
       "name": "__ZTSSt7fstream",
       "address": 212415,
-      "section": 5,
+      "section": 2,
       "weak": true
     },
     {
       "name": "__ZTSSt7istream",
       "address": 208829,
-      "section": 5,
+      "section": 2,
       "weak": true
     },
     {
       "name": "__ZTSSt7ostream",
       "address": 207687,
-      "section": 5,
+      "section": 2,
       "weak": true
     },
     {
       "name": "__ZTSSt8ifstream",
       "address": 208817,
-      "section": 5,
+      "section": 2,
       "weak": true
     },
     {
       "name": "__ZTSSt8ofstream",
       "address": 207660,
-      "section": 5,
+      "section": 2,
       "weak": true
     },
     {
@@ -1684,6 +1676,12 @@
       "address": 213116,
       "section": 9,
       "weak": false
+    },
+    {
+      "name": "__ZZN2wm6chrono6detail15next_clock_tickEvE4tick",
+      "address": 3147472,
+      "section": 8,
+      "weak": true
     },
     {
       "name": "__ZdaPv",
@@ -1818,6 +1816,30 @@
       "weak": false
     },
     {
+      "name": "___fixdfdi",
+      "address": 3147840,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___fixunsdfdi",
+      "address": 3147856,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___floatdidf",
+      "address": 3147872,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___floatundidf",
+      "address": 3147888,
+      "section": 1,
+      "weak": false
+    },
+    {
       "name": "___gxx_personality_sj0",
       "address": 14556,
       "section": 1,
@@ -1904,6 +1926,30 @@
     {
       "name": "_cosf",
       "address": 7728,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_difftime",
+      "address": 3148144,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_exp",
+      "address": 3148160,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_expf",
+      "address": 3148176,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_expl",
+      "address": 3148192,
       "section": 1,
       "weak": false
     },
@@ -16152,5 +16198,12 @@
     "4db0": 1,
     "4cc0": 1,
     "4ef0": 2
-  }
+  },
+  "data_exports": [
+    {
+      "name": "__ZZN2wm6chrono6detail15next_clock_tickEvE4tick",
+      "offset": 165760,
+      "weak": true
+    }
+  ]
 }

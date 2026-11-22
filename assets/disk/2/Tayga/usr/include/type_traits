@@ -1,0 +1,6 @@
+#ifndef TAYGA_HEADER_TYPE_TRAITS
+#define TAYGA_HEADER_TYPE_TRAITS
+
+#include "winter_stdlib.hpp"
+
+#endif

@@ -12,7 +12,7 @@ def main():
     repository=Path(__file__).resolve().parents[1]
     sys.path.insert(0,str(repository/'tools'))
     from darwin import TARGETS
-    headers=repository/'recovery/in-progress/sdk/include'
+    headers=repository/'sdk/include'
     if not headers.is_dir():headers=repository/'sdk/include'
     for architecture,target in TARGETS.items():
         for language in ('c','c++'):

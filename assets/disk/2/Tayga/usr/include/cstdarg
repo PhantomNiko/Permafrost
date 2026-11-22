@@ -1,0 +1,10 @@
+#ifndef WINTER_HEADER_CSTDARG
+#define WINTER_HEADER_CSTDARG
+
+#include "stdarg.h"
+
+namespace std {
+using ::va_list;
+}
+
+#endif

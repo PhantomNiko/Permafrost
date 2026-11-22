@@ -1,80 +1,36 @@
-# Permafrost 0.9 SDK for macOS 15
+# Permafrost 1.0 SDK
 
-Build the SDK alongside the images or independently with
-`python3 tools/sdk.py`. It requires Python 3 and Apple Command Line Tools and
-can be moved without installation at a fixed path.
-
-```sh
-build/Permafrost0.9.sdk/bin/pf-cc sdk/examples/hello.c -o build/hello
-build/Permafrost0.9.sdk/bin/pf-cc sdk/examples/nightmode.cpp -o build/nightmode
-build/Permafrost0.9.sdk/bin/pf-wmfs build/Permafrost-0.9.img --partition 2 \
-  --put hello=build/hello --out build/development.img
-```
-
-The default output is i386 Mach-O MH_PRELOAD. Select `--arch x86_64`,
-`--arch armv7` (ARM32), `--arch arm64`, or `--arch universal` for all four
-CPU slices. These choices also work with `--format flat`. Enter a native
-program's filename at the OS prompt to run it. The x86 entry uses cdecl on
-i386 and SysV on x86-64; ARM code uses the Darwin conventions selected by
-the bundled compiler driver. C++ entry points use `extern "C" int main(void)`.
-
-The default load address is 0x200000 on x86 and 0x42000000 on ARM. Programs
-share the kernel address space and should return without corrupting it.
-
-Use `--runtime` to link the supplied freestanding 64-bit arithmetic and memory
-helpers. Their C sources are included in `usr/src`; omit the option when the
-application supplies its own helpers.
+The relocatable `.sdk` bundle targets Permafrost on i386, x86-64, ARM32
+(`armv7`) and ARM64. Its host tools require Python 3 and Apple Clang/Clang++ on
+macOS 15. It includes the recovered Tayga C/C++ headers, startup objects,
+runtime archives and all twelve native libraries for each architecture.
 
 ```sh
-build/Permafrost0.9.sdk/bin/pf-cc --runtime sdk/examples/wide-arithmetic.c -o build/wide-arithmetic
+python3 tools/sdk.py
+build/Permafrost1.0.sdk/bin/pf-cc --arch arm64 \
+  build/Permafrost1.0.sdk/Examples/runtime.c -o hello
+build/Permafrost1.0.sdk/bin/pf-cc --arch arm64 \
+  build/Permafrost1.0.sdk/Examples/runtime.cpp -o hello-cpp
 ```
 
-For raw code and callback modules, explicitly request flat output and select
-the address used by the loading script:
+Copy the matching architecture's executable into `Tayga/root` on the user
+volume and run it through Tayga. `pf-tayga-cc` is an alias for `pf-cc`.
+`--clang-arg` passes a compiler option. Multiple source files may be linked
+into one executable. `--library INSTALL_NAME=DYLIB` links a native library;
+the matching thin DLLs are under `usr/lib/ARCH`.
 
-```sh
-build/Permafrost0.9.sdk/bin/pf-cc --format flat --base 0x240000 \
-  sdk/examples/native-module.c -o build/native-module.bin
-```
+The runtime supports allocation, stdio, file operations, argument parsing,
+constructors/finalizers, and the supplied C++ headers. It is freestanding:
+C++ exception unwinding, RTTI and host operating-system services are unavailable.
+The runtime sources are included under `usr/src/runtime` and can be rebuilt
+with `bin/pf-build-runtime --arch ARCH --output DIRECTORY`.
 
-WMAP version 13 occupies 252 bytes at 0x6800 on x86 and 0x40010800 on ARM.
-`pf_wire_api()` exposes its 60 service addresses as 32-bit integers.
-`pf_api()` decodes them into native function pointers on every architecture.
-Check the table's magic, version, and size before using its services.
-`pf_status` preserves the native byte-sized C++ boolean return convention.
+`usr/include/permafrost/native_api.h` documents the fixed-width WMAP service
+records and readiness checks. `terror_ui.h` describes graphical windows,
+input, drawing, clipping and presentation. `tayga/tayga_api.h` describes
+processes, streams, shell modes and command execution. Historical ABI symbol
+names are retained where needed for compatibility.
 
-The header describes console, keyboard, graphics, files, callbacks, allocation,
-PNG, WAV audio, fonts, framebuffer, pointer, directory, launch, thread, and
-window entries, device-specific filesystem operations, window menus, shutdown,
-and hardware information. Device query records occupy 504 bytes and hardware
-information records 160 bytes. File blobs occupy 12 bytes, PNG images 24 bytes, and WAV
-records 28 bytes. Use `pf_blob_data()`, `pf_image_data()`, and `pf_audio_data()`
-to obtain native pointers from their address fields. PNG addresses have
-separate low and high words. Callback values contain native pointers:
-24 bytes on 32-bit CPUs and 40 bytes on 64-bit CPUs. Window query records
-carry 64-bit addresses and occupy 604 bytes on every CPU; use
-`pf_window_pixels()` to decode their pixel address.
-
-The local integer/string log formatter uses WMAP rather than a private kernel
-address, supporting both firmware variants. Unsupported format conversions
-should be formatted by the application itself.
-
-This is a freestanding SDK. It supplies basic types, native interfaces, examples,
-small ELF32/ELF64 linkers, a Mach-O writer, and WBPT/WMFS/FAT32 image tools. It does
-not supply a hosted C/C++ standard library, exceptions, RTTI, dynamic linking
-or an Apple platform integration. In-house runtime implementation files are
-application source, not an upstream Lua SDK dependency. See the bundle's license-scope document for component notices.
-
-`PF_KERNEL_BASE` defaults to 0x02000000 on both x86 CPUs and
-0x40400000 on ARM. Public services use
-WMAP and require no private kernel address. `pf-wmfs` edits the nested WBPT
-volumes inside a GPT UEFI image while preserving its EFI partition.
-
-The SDK also includes the nine current universal guest DLLs in `usr/lib`.
-The compiler driver builds freestanding programs; these libraries preserve the
-original guest C++ export names for existing Mach-O software and tooling.
-
-In the current kernel scripting interface, `dir()` returns the current path;
-use `dir("list")` to print the directory listing and file sizes.
-
-File blobs returned by `read_file` and `stat_file_on_device` borrow the filesystem cache. Do not pass their data to `deallocate`; writes, deletion and device changes can invalidate the view. Copy bytes into an allocation when they must survive those operations.
+All guest startup objects and archives are rebuilt from C/C++ source. Archive
+metadata and ZIP entries use reproducible identities and timestamps. The bundle
+contains no fixed host checkout paths and can be moved without installation.

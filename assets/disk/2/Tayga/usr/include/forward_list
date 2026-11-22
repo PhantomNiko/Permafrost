@@ -1,0 +1,4 @@
+#ifndef WINTER_HEADER_FORWARD_LIST
+#define WINTER_HEADER_FORWARD_LIST
+#include "winter_stdlib.hpp"
+#endif

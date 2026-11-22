@@ -23,6 +23,7 @@ command=""
 save_document=False
 clipboard_case=False
 idle_menu=False
+delayed_input=False
 def exercise(path):
  lib=DLL(path,instruction_limit=400000000);ui=DLL(library,load_base=0x1000000);meta,raw=inspect(library.read_bytes());lib.cpu.mem_write(ui.base,bytes(ui.cpu.mem_read(ui.base,len(raw))));cpu=lib.cpu;w=8 if lib.wide else 4;events=[];presents=[];width=height=0;queries=0;ticks=0;keys=[13 if key==10 else key for key in command.encode()];clipboard=b'';clipboard_reads=0
  m,_=inspect(path.read_bytes());entry=next((n,a)for a,n in m['symbols']if n=='_main'or n.endswith('_entry'));lib.exports[entry[0]]=lib.base+entry[1]
@@ -82,7 +83,7 @@ def exercise(path):
    nonlocal width,height,queries,ticks,clipboard,clipboard_reads
    name,count=specs[offset];a=list(args(count));value=1
    if name=='time':
-    cpu.mem_write(a[0],struct.pack('<6I',24,1,1000,0,ticks,0));a=[]
+    cpu.mem_write(a[0],struct.pack('<6I',24,1,1000,0,0 if delayed_input else ticks,0));a=[]
    elif name in ['yield','wait']:ticks+=1
    elif name=='read':cpu.mem_write(a[1],bytes(12));a=[text(a[0])];value=0
    elif name=='read_device':cpu.mem_write(a[2],bytes(12));a=[a[0],text(a[1])];value=0
@@ -97,11 +98,11 @@ def exercise(path):
    elif name=='create':a[0]=text(a[0]);width,height=(a[1]if screen else min(a[1],160)),min(a[2],320 if screen else 120);value=17
    elif name=='query':
     queries+=1
-    if not idle_menu and queries==3:width-=16;height-=8
-    if not idle_menu and queries==5:width+=16;height+=8
+    if not idle_menu and not delayed_input and queries==3:width-=16;height-=8
+    if not idle_menu and not delayed_input and queries==5:width+=16;height+=8
     record=bytearray(632);struct.pack_into('<2I',record,0,17,1);struct.pack_into('<I',record,16,width*height*4);struct.pack_into('<6I',record,20,1,width,height,width*4,0xefefef,10);
     if save_document and (ticks>=20 if idle_menu else queries>=5):struct.pack_into('<3I',record,52,1,1,2)
-    cpu.mem_write(a[1],bytes(record));a=a[:1];value=int(ticks<40 if idle_menu else queries<=(4 if screen else 8))
+    cpu.mem_write(a[1],bytes(record));a=a[:1];value=int(ticks<45 if delayed_input else ticks<40 if idle_menu else queries<=(4 if screen else 8))
    elif name=='present':
     # WMAP dimensions and clear colour are 32-bit wire arguments. Native
     # callers can leave unspecified high bits in the host argument registers.
@@ -118,7 +119,7 @@ def exercise(path):
      tw=max(1,min(len(string)*3,1024));th=5;size=tw*th*4;pointer=lib.next;lib.next=(pointer+size+15)&-16;lib.allocs[pointer]=size;r,g,b=(color>>24)&255,(color>>16)&255,(color>>8)&255;pixels=b''.join(bytes((r,g,b,[0,64,128,255][i%4]))for i in range(tw*th));cpu.mem_write(pointer,pixels);cpu.mem_write(a[4],struct.pack('<Q4I',pointer,size,tw,th,tw*4));value=1
     else:cpu.mem_write(a[4],bytes(24));value=0
     a=[string,*[v&0xffffffff for v in a[1:4]]]
-   elif name=='key':value=keys.pop(0)if keys else 0;a=[value]
+   elif name=='key':value=keys.pop(0)if keys and (not delayed_input or ticks>=20)else 0;a=[value]
    events.append((name,*a));finish(value)
   return call
  for offset in specs:
@@ -131,15 +132,16 @@ def exercise(path):
   print('failed',path.name,'frames',len(presents),'recent',events[-12:],flush=True);raise
  return result,events,presents
 def main():
- global glyphs,screen,library,command,save_document,clipboard_case,idle_menu
+ global glyphs,screen,library,command,save_document,clipboard_case,idle_menu,delayed_input
  import argparse
  parser=argparse.ArgumentParser(description=__doc__)
  parser.add_argument('reference',type=Path);parser.add_argument('source',type=Path);parser.add_argument('library',type=Path)
  parser.add_argument('--glyphs',action='store_true');parser.add_argument('--wide-window',action='store_true')
  parser.add_argument('--text',default='Hello')
  parser.add_argument('--save',action='store_true');parser.add_argument('--clipboard',action='store_true')
+ parser.add_argument('--delayed-input',action='store_true',help='type after idle without resize or clock changes')
  parser.add_argument('--idle-menu',action='store_true',help='source-only regression for menu/close notifications after an active window becomes idle')
- args=parser.parse_args();glyphs=args.glyphs;screen=args.wide_window;library=args.library;command=args.text;idle_menu=args.idle_menu;save_document=args.save or idle_menu;clipboard_case=args.clipboard
+ args=parser.parse_args();delayed_input=args.delayed_input;glyphs=args.glyphs;screen=args.wide_window;library=args.library;command=args.text;idle_menu=args.idle_menu;save_document=args.save or idle_menu;clipboard_case=args.clipboard
  meta,_=inspect(args.source.read_bytes());folder=Path('build/editor-application-check')/hex(meta['cpu']);folder.mkdir(parents=True,exist_ok=True)
  diagnostic_reference(args.reference,folder/'reference-diagnostic');diagnostic_reference(args.source,folder/'source-diagnostic')
  if idle_menu:

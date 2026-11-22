@@ -1,7 +1,7 @@
 {
   "module": "WinterTTF",
   "architecture": "armv7",
-  "version": "0.9",
+  "version": "1.0",
   "install_name": "/lib/WinterTTF.dylib",
   "functions": {
     "721c": "recovered_1000721c",
@@ -377,7 +377,11 @@
     "9568": "recovered_10009568",
     "c2bc": "recovered_1000c2bc",
     "6d7c": "recovered_10006d7c",
-    "6bb8": "recovered_10006bb8"
+    "6bb8": "recovered_10006bb8",
+    "0xf00042": "pf_release_difftime",
+    "0xf00043": "pf_release_exp",
+    "0xf00044": "pf_release_expf",
+    "0xf00045": "pf_release_expl"
   },
   "exports": [
     {
@@ -451,18 +455,6 @@
       "address": 31816,
       "section": 1,
       "weak": false
-    },
-    {
-      "name": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE4nposE",
-      "address": 65508,
-      "section": 5,
-      "weak": true
-    },
-    {
-      "name": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE4nposE",
-      "address": 65472,
-      "section": 5,
-      "weak": true
     },
     {
       "name": "__ZSt7nothrow",
@@ -634,9 +626,9 @@
     },
     {
       "name": "___fixdfdi",
-      "address": 16496,
+      "address": 15728680,
       "section": 1,
-      "weak": true
+      "weak": false
     },
     {
       "name": "___fixsfdi",
@@ -646,9 +638,9 @@
     },
     {
       "name": "___fixunsdfdi",
-      "address": 16360,
+      "address": 15728682,
       "section": 1,
-      "weak": true
+      "weak": false
     },
     {
       "name": "___fixunssfdi",
@@ -658,9 +650,9 @@
     },
     {
       "name": "___floatdidf",
-      "address": 16656,
+      "address": 15728684,
       "section": 1,
-      "weak": true
+      "weak": false
     },
     {
       "name": "___floatdisf",
@@ -670,9 +662,9 @@
     },
     {
       "name": "___floatundidf",
-      "address": 16604,
+      "address": 15728686,
       "section": 1,
-      "weak": true
+      "weak": false
     },
     {
       "name": "___floatundisf",
@@ -785,6 +777,30 @@
     {
       "name": "_cosf",
       "address": 21364,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_difftime",
+      "address": 15728706,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_exp",
+      "address": 15728707,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_expf",
+      "address": 15728708,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_expl",
+      "address": 15728709,
       "section": 1,
       "weak": false
     },

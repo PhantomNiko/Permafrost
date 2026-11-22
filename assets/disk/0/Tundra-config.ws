@@ -1,0 +1,12 @@
+@@TundraMode = "solid"
+@@TundraMode = "clear"
+@@TundraMode = "blur"
+TundraMode = "refract"
+TundraBackground = 15
+TundraShadow = 0
+TundraRefractRange = 35
+TundraBlurRange = 8
+TundraTimezone = "UTC"
+TundraAutoTime = true
+TundraTimeServer = "pool.ntp.org"
+background = "images/holly.png"

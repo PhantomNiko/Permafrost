@@ -1,6 +1,6 @@
 /* Pooka's Free Software License. WFE5 disk inventory and indexed I/O. */
 #include <assert.h>
-#include "../recovery/in-progress/firmware/loader.c"
+#include "../firmware/uefi/common/loader.c"
 static Media media[5];static Block devices[5];static void *handles[7];
 static unsigned freed,reads,writes,flushes;static Block *last;
 static Status EFI_ABI read_block(Block *self,uint32_t id,uint64_t lba,uintptr_t bytes,void *out){assert(id==self->media->id&&lba==37&&bytes==512&&out==(void *)(uintptr_t)0x200000);last=self;reads++;return 0;}

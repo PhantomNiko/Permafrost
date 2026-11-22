@@ -14,7 +14,7 @@ from macho import pack_segments
 
 
 def build_kernel(output, architecture='i386', profile_path=None):
-    profile_path = profile_path or Path('recovery/kernels', architecture + '.json')
+    profile_path = profile_path or Path('kernel',architecture,'build-profile.json')
     profile = json.loads(profile_path.read_text())
     if profile['architecture'] != architecture:
         raise ValueError('kernel profile architecture does not match')

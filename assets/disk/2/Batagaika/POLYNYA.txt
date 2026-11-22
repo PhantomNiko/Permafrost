@@ -1,0 +1,4 @@
+Batagaika user data root for the Mach Polynya boot path.
+
+The Mach bootstrap directory is staged under /Batagaika/mach_servers. A
+root-level /mach_servers compatibility copy is also present for older artifacts.

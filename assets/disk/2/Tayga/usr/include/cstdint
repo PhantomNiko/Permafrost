@@ -1,0 +1,6 @@
+#ifndef WINTER_CSTDINT
+#define WINTER_CSTDINT
+
+#include "stdint.h"
+
+#endif

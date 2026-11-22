@@ -315,3 +315,11 @@ undefined8 * recovered_10005854(undefined8 *param_1,long param_2);
 long recovered_10005898(long *param_1,long param_2,undefined1 *param_3,undefined1 *param_4);
 
 /* Original analysis identifiers for manual recovery units. */
+
+double pf_release_difftime(long end,long start);
+
+double pf_release_exp(double value);
+
+float pf_release_expf(float value);
+
+long double pf_release_expl(long double value);

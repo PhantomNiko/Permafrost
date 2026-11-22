@@ -1,3 +1,4 @@
+#include "scope_jump.h"
 /* Permafrost recovered implementation; Pooka's Free Software License.
  * Fixed entry addresses and original function boundaries are recorded
  * separately in recovery metadata. */
@@ -8,21 +9,21 @@
 #undef DAT_100100e8
 #define DAT_100100e8 (*(uint64_t *)(((uintptr_t)pf_module_state + 0x624cU)))
 #undef DAT_40010088
-#define DAT_40010088 (*(uint8_t *)(0x40010088U))
+#define DAT_40010088 (*(uint8_t *)(0x82010088U))
 #undef DAT_4001008c
-#define DAT_4001008c (*(uint8_t *)(0x4001008cU))
+#define DAT_4001008c (*(uint8_t *)(0x8201008cU))
 #undef DAT_40010238
-#define DAT_40010238 (*(uint8_t *)(0x40010238U))
+#define DAT_40010238 (*(uint8_t *)(0x82010238U))
 #undef DAT_4001023c
-#define DAT_4001023c (*(uint8_t *)(0x4001023cU))
+#define DAT_4001023c (*(uint8_t *)(0x8201023cU))
 #undef _DAT_40010088
-#define _DAT_40010088 (*(uint *)(0x40010088U))
+#define _DAT_40010088 (*(uint *)(0x82010088U))
 #undef _DAT_4001008c
-#define _DAT_4001008c (*(uint *)(0x4001008cU))
+#define _DAT_4001008c (*(uint *)(0x8201008cU))
 #undef _DAT_40010238
-#define _DAT_40010238 (*(int *)(0x40010238U))
+#define _DAT_40010238 (*(int *)(0x82010238U))
 #undef _DAT_4001023c
-#define _DAT_4001023c (*(uint *)(0x4001023cU))
+#define _DAT_4001023c (*(uint *)(0x8201023cU))
 #define auStack_458 (*(ulong (*)[130])(frame + 16))
 #define uStack_48 (*(ulong *)(frame + 1056))
 /* Recovered working notes; Pooka's Free Software License.
@@ -61,9 +62,9 @@ void recovered_10000608(void)
       uVar4 = 0x40;
     }
     for (; uVar5 != uVar4; uVar5 = uVar5 + 1) {
-      lVar7 = *(long *)(uVar5 * 0x10 + 0x40010248);
+      lVar7 = *(long *)(uVar5 * 0x10 + 0x82010248);
       if (lVar7 != 0) {
-        uVar6 = *(ulong *)(uVar5 * 0x10 + 0x40010240);
+        uVar6 = *(ulong *)(uVar5 * 0x10 + 0x82010240);
         uVar1 = lVar7 + uVar6;
         if (0x300000 < uVar1 && uVar6 < uVar1) {
           if (uVar6 < 0x300001) {
@@ -88,9 +89,9 @@ void recovered_10000608(void)
   else {
     uVar3 = 0;
     for (uVar5 = 0; uVar5 != uVar4; uVar5 = uVar5 + 1) {
-      uVar2 = *(uint *)(uVar5 * 8 + 0x40010094);
+      uVar2 = *(uint *)(uVar5 * 8 + 0x82010094);
       if (uVar2 != 0) {
-        uVar6 = (ulong)*(uint *)(uVar5 * 8 + 0x40010090);
+        uVar6 = (ulong)*(uint *)(uVar5 * 8 + 0x82010090);
         uVar1 = uVar2 + uVar6;
         if (0x300000 < uVar1) {
           if (uVar6 < 0x300001) {
@@ -173,21 +174,21 @@ void recovered_10000608(void)
 #undef DAT_100100e8
 #define DAT_100100e8 (*(uint64_t *)(((uintptr_t)pf_module_state + 0x624cU)))
 #undef DAT_40010088
-#define DAT_40010088 (*(uint8_t *)(0x40010088U))
+#define DAT_40010088 (*(uint8_t *)(0x82010088U))
 #undef DAT_4001008c
-#define DAT_4001008c (*(uint8_t *)(0x4001008cU))
+#define DAT_4001008c (*(uint8_t *)(0x8201008cU))
 #undef DAT_40010238
-#define DAT_40010238 (*(uint8_t *)(0x40010238U))
+#define DAT_40010238 (*(uint8_t *)(0x82010238U))
 #undef DAT_4001023c
-#define DAT_4001023c (*(uint8_t *)(0x4001023cU))
+#define DAT_4001023c (*(uint8_t *)(0x8201023cU))
 #undef _DAT_40010088
-#define _DAT_40010088 (*(uint *)(0x40010088U))
+#define _DAT_40010088 (*(uint *)(0x82010088U))
 #undef _DAT_4001008c
-#define _DAT_4001008c (*(uint *)(0x4001008cU))
+#define _DAT_4001008c (*(uint *)(0x8201008cU))
 #undef _DAT_40010238
-#define _DAT_40010238 (*(int *)(0x40010238U))
+#define _DAT_40010238 (*(int *)(0x82010238U))
 #undef _DAT_4001023c
-#define _DAT_4001023c (*(uint *)(0x4001023cU))
+#define _DAT_4001023c (*(uint *)(0x8201023cU))
 #define local_48 (*(ulong *)(frame + 1056))
 #define auStack_458 (*(ulong (*)[130])(frame + 16))
 /* Recovered working notes; Pooka's Free Software License.
@@ -226,9 +227,9 @@ void recovered_10000614(void)
         uVar4 = 0x40;
       }
       for (; uVar5 != uVar4; uVar5 = uVar5 + 1) {
-        lVar7 = *(long *)(uVar5 * 0x10 + 0x40010248);
+        lVar7 = *(long *)(uVar5 * 0x10 + 0x82010248);
         if (lVar7 != 0) {
-          uVar6 = *(ulong *)(uVar5 * 0x10 + 0x40010240);
+          uVar6 = *(ulong *)(uVar5 * 0x10 + 0x82010240);
           uVar1 = lVar7 + uVar6;
           if (0x300000 < uVar1 && uVar6 < uVar1) {
             if (uVar6 < 0x300001) {
@@ -253,9 +254,9 @@ void recovered_10000614(void)
     else {
       uVar3 = 0;
       for (uVar5 = 0; uVar5 != uVar4; uVar5 = uVar5 + 1) {
-        uVar2 = *(uint *)(uVar5 * 8 + 0x40010094);
+        uVar2 = *(uint *)(uVar5 * 8 + 0x82010094);
         if (uVar2 != 0) {
-          uVar6 = (ulong)*(uint *)(uVar5 * 8 + 0x40010090);
+          uVar6 = (ulong)*(uint *)(uVar5 * 8 + 0x82010090);
           uVar1 = uVar2 + uVar6;
           if (0x300000 < uVar1) {
             if (uVar6 < 0x300001) {
@@ -786,7 +787,7 @@ int recovered_10000c04(int param_1)
 
 /* Preserve the native WMAP tail-call arguments. Pooka's Free Software License. */
 void * recovered_10000c10(size_t size) {
- volatile uint32_t *api=(volatile uint32_t *)(uintptr_t)0x40010800;
+ volatile uint32_t *api=(volatile uint32_t *)(uintptr_t)0x82010800;
  if(api[0]!=0x50414d57 || api[2]<0x58 || !api[19]){return 0;}
  return ((void *(*)(size_t))(uintptr_t)api[0x4c/4])(size);
 }
@@ -794,7 +795,7 @@ void * recovered_10000c10(size_t size) {
 
 /* Preserve the native WMAP tail-call arguments. Pooka's Free Software License. */
 void recovered_10000c54(void *pointer) {
- volatile uint32_t *api=(volatile uint32_t *)(uintptr_t)0x40010800;
+ volatile uint32_t *api=(volatile uint32_t *)(uintptr_t)0x82010800;
  if(api[0]!=0x50414d57 || api[2]<0x58 || !api[20]){return;}
  ((void (*)(void *))(uintptr_t)api[0x50/4])(pointer);
 }
@@ -802,7 +803,7 @@ void recovered_10000c54(void *pointer) {
 
 /* Preserve the native WMAP tail-call arguments. Pooka's Free Software License. */
 void * recovered_10000c98(void *pointer,size_t size) {
- volatile uint32_t *api=(volatile uint32_t *)(uintptr_t)0x40010800;
+ volatile uint32_t *api=(volatile uint32_t *)(uintptr_t)0x82010800;
  if(api[0]!=0x50414d57 || api[2]<0x58 || !api[21]){return 0;}
  return ((void *(*)(void *,size_t))(uintptr_t)api[0x54/4])(pointer,size);
 }
@@ -2549,17 +2550,17 @@ void recovered_10001d28(long param_1,ulong param_2,ulong *param_3)
 #undef DAT_100100e8
 
 #undef DAT_40010800
-#define DAT_40010800 (*(uint8_t *)(0x40010800U))
+#define DAT_40010800 (*(uint8_t *)(0x82010800U))
 #undef DAT_40010804
-#define DAT_40010804 (*(uint8_t *)(0x40010804U))
+#define DAT_40010804 (*(uint8_t *)(0x82010804U))
 #undef DAT_40010808
-#define DAT_40010808 (*(uint8_t *)(0x40010808U))
+#define DAT_40010808 (*(uint8_t *)(0x82010808U))
 #undef _DAT_40010800
-#define _DAT_40010800 (*(int *)(0x40010800U))
+#define _DAT_40010800 (*(int *)(0x82010800U))
 #undef _DAT_40010804
-#define _DAT_40010804 (*(int *)(0x40010804U))
+#define _DAT_40010804 (*(int *)(0x82010804U))
 #undef _DAT_40010808
-#define _DAT_40010808 (*(uint *)(0x40010808U))
+#define _DAT_40010808 (*(uint *)(0x82010808U))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10001d80
  */
@@ -2635,9 +2636,9 @@ void recovered_10001eb8(char *param_1,long param_2)
 #undef DAT_10010100
 #define DAT_10010100 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x6264U)))
 #undef DAT_40010840
-#define DAT_40010840 (*(uint8_t *)(0x40010840U))
+#define DAT_40010840 (*(uint8_t *)(0x82010840U))
 #undef _DAT_40010840
-#define _DAT_40010840 (*(uint *)(0x40010840U))
+#define _DAT_40010840 (*(uint *)(0x82010840U))
 #define local_230 (*(undefined1 (*)[512])(frame + 16))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10001f70
@@ -2682,9 +2683,9 @@ void recovered_10001f70(int param_1)
 #undef DAT_10010100
 #define DAT_10010100 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x6264U)))
 #undef DAT_40010840
-#define DAT_40010840 (*(uint8_t *)(0x40010840U))
+#define DAT_40010840 (*(uint8_t *)(0x82010840U))
 #undef _DAT_40010840
-#define _DAT_40010840 (*(uint *)(0x40010840U))
+#define _DAT_40010840 (*(uint *)(0x82010840U))
 #define auStack_230 (*(undefined1 (*)[512])(frame + 16))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10001ffc
@@ -2727,9 +2728,9 @@ void recovered_10001ffc(void)
 #undef DAT_10010100
 #define DAT_10010100 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x6264U)))
 #undef DAT_40010840
-#define DAT_40010840 (*(uint8_t *)(0x40010840U))
+#define DAT_40010840 (*(uint8_t *)(0x82010840U))
 #undef _DAT_40010840
-#define _DAT_40010840 (*(uint *)(0x40010840U))
+#define _DAT_40010840 (*(uint *)(0x82010840U))
 #define auStack_230 (*(undefined1 (*)[512])(frame + 16))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10002004
@@ -2978,9 +2979,9 @@ void recovered_100020f0(void)
 #undef str_1000a14e
 
 #undef DAT_40010844
-#define DAT_40010844 (*(uint8_t *)(0x40010844U))
+#define DAT_40010844 (*(uint8_t *)(0x82010844U))
 #undef _DAT_40010844
-#define _DAT_40010844 (*(uint *)(0x40010844U))
+#define _DAT_40010844 (*(uint *)(0x82010844U))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10002114
  */
@@ -3191,9 +3192,9 @@ LAB_10002380:
 #undef uStack_48
 
 #undef DAT_40010834
-#define DAT_40010834 (*(uint8_t *)(0x40010834U))
+#define DAT_40010834 (*(uint8_t *)(0x82010834U))
 #undef _DAT_40010834
-#define _DAT_40010834 (*(uint *)(0x40010834U))
+#define _DAT_40010834 (*(uint *)(0x82010834U))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x100023d8
  */
@@ -3800,9 +3801,9 @@ undefined8 recovered_10002948(long param_1)
 #undef DAT_10010058
 
 #undef DAT_4001083c
-#define DAT_4001083c (*(uint8_t *)(0x4001083cU))
+#define DAT_4001083c (*(uint8_t *)(0x8201083cU))
 #undef _DAT_4001083c
-#define _DAT_4001083c (*(uint *)(0x4001083cU))
+#define _DAT_4001083c (*(uint *)(0x8201083cU))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10002980
  */
@@ -3870,9 +3871,9 @@ undefined8 recovered_100029c4(long param_1,long param_2)
 #undef uStack_2c
 
 #undef DAT_40010838
-#define DAT_40010838 (*(uint8_t *)(0x40010838U))
+#define DAT_40010838 (*(uint8_t *)(0x82010838U))
 #undef _DAT_40010838
-#define _DAT_40010838 (*(uint *)(0x40010838U))
+#define _DAT_40010838 (*(uint *)(0x82010838U))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10002a60
  */
@@ -4204,17 +4205,17 @@ void recovered_10002c9c(void)
 #undef DAT_100100f0
 
 #undef DAT_40010800
-#define DAT_40010800 (*(uint8_t *)(0x40010800U))
+#define DAT_40010800 (*(uint8_t *)(0x82010800U))
 #undef DAT_40010804
-#define DAT_40010804 (*(uint8_t *)(0x40010804U))
+#define DAT_40010804 (*(uint8_t *)(0x82010804U))
 #undef DAT_40010808
-#define DAT_40010808 (*(uint8_t *)(0x40010808U))
+#define DAT_40010808 (*(uint8_t *)(0x82010808U))
 #undef _DAT_40010800
-#define _DAT_40010800 (*(int *)(0x40010800U))
+#define _DAT_40010800 (*(int *)(0x82010800U))
 #undef _DAT_40010804
-#define _DAT_40010804 (*(int *)(0x40010804U))
+#define _DAT_40010804 (*(int *)(0x82010804U))
 #undef _DAT_40010808
-#define _DAT_40010808 (*(uint *)(0x40010808U))
+#define _DAT_40010808 (*(uint *)(0x82010808U))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10002cb0
  */
@@ -4242,33 +4243,15 @@ bool recovered_10002cb0(int param_1)
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10002d7c
  */
-
-ulonglong recovered_10002d7c(long param_1)
-
-{
-  unsigned char frame[64] = {0};
-
-  ulonglong uVar1;
-
-                    /* WARNING: Could not recover jumptable at 0x10002d8c. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  uVar1 = (**(code **)(param_1 + 0x48))();
-  return uVar1;
-}
+__attribute__((naked,noreturn)) ulonglong recovered_10002d7c(long param_1){__asm__ volatile(PF_SCOPE_JUMP_ASM);}
 
 
 /* Permafrost architecture recovery; Pooka's Free Software License. */
-__attribute__((naked, returns_twice)) unsigned long recovered_10002d90(unsigned long *context)
-{
- __asm__ volatile("stp x19,x20,[x0]\nstp x21,x22,[x0,#16]\nstp x23,x24,[x0,#32]\nstp x25,x26,[x0,#48]\nstp x27,x28,[x0,#64]\nstp x29,x30,[x0,#80]\nmov x8,sp\nstr x8,[x0,#96]\nmov w0,#0\nret");
-}
+__attribute__((naked,returns_twice)) unsigned long recovered_10002d90(unsigned long *context){__asm__ volatile("stp x19,x20,[x0,#0]\nstp x21,x22,[x0,#16]\nstp x23,x24,[x0,#32]\nstp x25,x26,[x0,#48]\nstp x27,x28,[x0,#64]\nstp x29,x30,[x0,#80]\nmov x8,sp\nstr x8,[x0,#96]\nstp d8,d9,[x0,#104]\nstp d10,d11,[x0,#120]\nstp d12,d13,[x0,#136]\nstp d14,d15,[x0,#152]\nmov w0,#0\nret");}
 
 
 /* Permafrost architecture recovery; Pooka's Free Software License. */
-__attribute__((naked,noreturn)) void recovered_10002dbc(unsigned long *context,int value)
-{
- __asm__ volatile("cmp w1,#0\ncsinc w1,w1,wzr,ne\nldp x19,x20,[x0]\nldp x21,x22,[x0,#16]\nldp x23,x24,[x0,#32]\nldp x25,x26,[x0,#48]\nldp x27,x28,[x0,#64]\nldp x29,x30,[x0,#80]\nldr x8,[x0,#96]\nmov sp,x8\nmov w0,w1\nret");
-}
+__attribute__((naked,noreturn)) void recovered_10002dbc(unsigned long *context,int value){__asm__ volatile("cbnz w1,1f\nmov w1,#1\n1:\nldp x19,x20,[x0,#0]\nldp x21,x22,[x0,#16]\nldp x23,x24,[x0,#32]\nldp x25,x26,[x0,#48]\nldp x27,x28,[x0,#64]\nldp x29,x30,[x0,#80]\nldr x8,[x0,#96]\nmov sp,x8\nldp d8,d9,[x0,#104]\nldp d10,d11,[x0,#120]\nldp d12,d13,[x0,#136]\nldp d14,d15,[x0,#152]\nmov w0,w1\nret");}
 
 
 /* Recovered working notes; Pooka's Free Software License.
@@ -4524,9 +4507,9 @@ undefined1 * recovered_10002efc(ulong param_1)
 
 
 #undef DAT_40010850
-#define DAT_40010850 (*(uint8_t *)(0x40010850U))
+#define DAT_40010850 (*(uint8_t *)(0x82010850U))
 #undef _DAT_40010850
-#define _DAT_40010850 (*(uint *)(0x40010850U))
+#define _DAT_40010850 (*(uint *)(0x82010850U))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10002f44
  */
@@ -4572,9 +4555,9 @@ long recovered_10002f54(long param_1)
 #undef DAT_10010300
 #define DAT_10010300 (*(uint64_t *)(((uintptr_t)pf_module_state + 0x6464U)))
 #undef DAT_40010850
-#define DAT_40010850 (*(uint8_t *)(0x40010850U))
+#define DAT_40010850 (*(uint8_t *)(0x82010850U))
 #undef _DAT_40010850
-#define _DAT_40010850 (*(uint *)(0x40010850U))
+#define _DAT_40010850 (*(uint *)(0x82010850U))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10002f5c
  */
@@ -12596,3 +12579,21 @@ void recovered_10009ba8(undefined8 *param_1,undefined8 *param_2)
   return;
 }
 
+
+/* r232 exponential series and time arithmetic; Pooka's Free Software License. */
+#pragma STDC FP_CONTRACT OFF
+double pf_release_exp(double value) {
+ if(value!=value)return value;
+ if(value>709.782712893384)return pf_bits_double(0x7ff0000000000000ULL);
+ if(value< -745.1332191019411)return 0.0;
+ unsigned halves=0;
+ while(value>0.5){value*=0.5;++halves;}
+ while(value< -0.5){value*=0.5;++halves;}
+ double sum=1.0,term=1.0;
+ for(int n=1;n<=32;++n){term=(value/(double)n)*term;sum=sum+term;}
+ while(halves--){sum=sum*sum;}
+ return sum;
+}
+float pf_release_expf(float value){return (float)pf_release_exp((double)value);}
+long double pf_release_expl(long double value){return (long double)pf_release_exp((double)value);}
+double pf_release_difftime(long end,long start){return (double)end-(double)start;}

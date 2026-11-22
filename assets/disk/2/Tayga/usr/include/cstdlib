@@ -1,0 +1,48 @@
+#ifndef WINTER_HEADER_CSTDLIB
+#define WINTER_HEADER_CSTDLIB
+
+#include "stdlib.h"
+
+namespace std {
+using ::div_t;
+using ::ldiv_t;
+using ::lldiv_t;
+using ::malloc;
+using ::free;
+using ::realloc;
+using ::calloc;
+using ::qsort;
+using ::bsearch;
+using ::rand;
+using ::srand;
+using ::exit;
+using ::_Exit;
+using ::quick_exit;
+using ::atexit;
+using ::at_quick_exit;
+using ::strtol;
+using ::strtoul;
+using ::strtoll;
+using ::strtoull;
+using ::strtod;
+using ::strtof;
+using ::strtold;
+using ::atoi;
+using ::atol;
+using ::atoll;
+using ::atof;
+using ::abs;
+using ::labs;
+using ::llabs;
+using ::div;
+using ::ldiv;
+using ::lldiv;
+using ::abort;
+using ::getenv;
+using ::setenv;
+using ::unsetenv;
+using ::putenv;
+using ::system;
+}
+
+#endif

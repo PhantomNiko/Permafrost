@@ -1,6 +1,6 @@
 /* Pooka's Free Software License. Bounded WFE5 cache publication. */
 #include <assert.h>
-#include "../recovery/in-progress/firmware/loader.c"
+#include "../firmware/uefi/common/loader.c"
 static uint64_t allocation,read_lba[256];
 static uintptr_t read_bytes[256];
 static unsigned read_count;

@@ -1,0 +1,4 @@
+#ifndef WINTER_HEADER_ARRAY
+#define WINTER_HEADER_ARRAY
+#include "winter_stdlib.hpp"
+#endif

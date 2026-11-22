@@ -1,73 +1,57 @@
-# Permafrost 0.9 recovery
+# Permafrost 1.0 validation
 
-The supplied 1.0r147-Prerelease disk is the reference for this milestone. Only Permafrost
-0.9 is an active image build target. Its hash and four-architecture inventory
-are recorded in `recovery/reference.json`.
+This milestone recovers the supplied 1.0r232 Beta for i386, x86-64, ARM32 and
+ARM64. `recovery/reference.json` records the input hash and architecture
+inventory. Only 1.0 is an active build target.
 
-The BIOS chain, shared four-architecture EFI loader, kernels, nine native DLLs
-and bundled utilities build from C/C++ source. Normal builds require neither
-reference executables nor a decompiler. Small architectural transitions and
-ABI adapters use inline assembly inside C. Python generates containers and
-relocation tables.
+The normal build compiles kernels, BIOS/UEFI firmware, twelve libraries,
+hardware drivers, nine applications, twenty-four Tayga command wrappers,
+and the C/C++ SDK startup/runtime from source. The embedded Mach distribution
+is retained unchanged with its own notices and excluded from source recovery.
+Assets are checked against a manifest; normal builds do not open a reference
+image. Installed binaries and retained Mach files have release provenance hashes.
 
-Both x86 kernels load at 0x02000000. IA32 EFI shares the BIOS C implementation
-with a firmware-specific profile and separate initialized data; ARM kernels load at 0x40400000. WMAP v13 is 252 bytes with
-32-bit service addresses on all CPUs, at 0x6800 on x86 and 0x40010800 on ARM.
-The SDK converts those slots into native function pointers and uses explicit
-record layouts.
+VM validation uses BIOS/VBE for i386, UEFI for x64, and UEFI `virt` machines
+with GICv3, `virtio-ramfb`, a virtio block disk and USB keyboard/tablet for ARM.
+The graphical desktop boots on all four architectures. Pointer launches,
+keyboard entry and terminal expression evaluation are exercised. The tested
+configurations use 512 MiB on x86, 1 GiB on ARM32 and 2 GiB on ARM64. The EFI image
+also includes an IA32 loader; the i386 VM coverage uses BIOS.
 
-Native/source comparisons cover twelve generated TrueType raster fixtures on
-each CPU, including scaled linear and quadratic outlines. Lua passes seven VM
-fixtures per CPU; Rwby and standalone WinterScript pass eight each. Those tests
-cover arithmetic, signed values, precedence, loops, arrays, float arithmetic
-and string conditionals;
-Rwby and WinterScript also cover functions. The 32-bit Rwby compiler produces
-byte-identical arithmetic and loop bytecode. ABI probes cover ARM64 X8 result
-pointers and Darwin i386 aggregate-return stack cleanup.
+Each architecture VM compiles and runs a C++ program using the guest Snowflake
+compiler. Each also executes SDK C and C++ programs that exercise allocation,
+formatted output, vectors, accumulation and constructor initialization, followed
+by a file write/read round trip. Test variants append capture-only log storage
+and substitute an automatic test application; they do not patch kernel service
+behavior. These diagnostic kernels and applications are not release artifacts.
 
-Recovery fixes include unsigned ASCII classification, integer/float storage
-views, full 64-bit returns on 32-bit CPUs, incoming stack parameters, private
-VFP conventions, shared-pointer receiver arguments, token-vector ownership,
-fast condition outputs and source implementations of numeric conversions.
-The i386 program allocation services preserve incoming arguments and results.
+Native/source comparison fixtures cover language runtimes, numerical helpers,
+image/font rendering, saved contexts, GUI pixels, events, filesystem interfaces,
+driver records and the C/C++ runtime. The recovered desktop, terminal, editor,
+activity monitor and cube have application-level comparison fixtures. TLS tests
+exercise independent OpenSSL handshakes and encrypted HTTP exchanges.
 
-Hardware validation uses Bochs for BIOS and QEMU for EFI. All three VM DLLs
-pass their fixtures through both string and file APIs on all five boot paths,
-for 230 booted cases. The complete bundled kernel self-test also passes each
-path. Public SDK checks exercise allocation, files, PNG decoding and native
-callbacks. BIOS additionally runs relocated-SDK C, C++ and runtime Mach-O
-programs. Emulated API comparisons complement those boots. These checks do not establish equivalence
-for every application or physical hardware configuration.
+Recent BIOS repairs restore private USB/PCI arguments, pointer-provider output
+forwarding, WMFS detection, file lookup, desktop startup, pixel copy arguments,
+menu bounds, cooperative-yield arguments, and command-output capture. The latter
+passes 400 native log-copy, clipping, error-range and buffer-guard comparisons.
+Both file-window toolbar paths retain the native pinned-path pointer. BIOS
+platform ticks advance while the flat loader masks interrupts, and desktop
+frames yield so slow C rendering cannot starve other processes.
 
-Known limits:
+The x64 driver cache compares unsigned device IDs consistently, avoiding repeated
+mounts of BIOS-numbered drives. Firmware-owned input bypasses competing raw
+providers. ARM64 enters a reserved kernel stack while retaining the firmware
+stack for EFI service calls; this prevents large command frames from reaching
+an EFI stack guard. Platform pointer providers retain the output pointer on all
+eight applicable slices.
 
-- TrueType Type 1 and compound-glyph paths are outside the raster fixtures.
-- The native Lua reference terminates on the current function-declaration
-  fixture, so Lua closures/functions are outside the conformance suite.
-- The SDK is freestanding; new applications do not receive a hosted C++
-  standard library, exceptions or RTTI. The guest DLLs preserve original C++
-  export names for compatibility; exhaustive foreign vtable interoperability
-  is not established by the direct-entry fixtures.
+The SDK portability test copies the bundle outside the repository, rebuilds its
+ARM64 runtime from bundled sources and cross-compiles C/C++ examples for all
+four CPUs without repository headers. Archive identities and timestamps are
+normalized. Source and packaged-artifact checks reject embedded host paths.
 
-UEFI follow-up fixes cover interactive x86-64 line copying, ARM32 console
-result ownership, the full-width
-firmware bridge used when ARM64 firmware loads above 4 GiB, and GOP
-PixelBltOnly displays. The loader supplies a reserved BGRA surface and
-presents it with GOP.Blt during input polling and waits. UTM virtio-ramfb
-boots now have visible output on ARM32 and ARM64; ARM64 is also tested
-with 4096 MiB of RAM.
-
-The console regression types expressions, strings and variable assignments
-through QEMU keyboard events rather than relying only on startup scripts.
-`tests/uefi.py --command` supports this check, `--expect` requires serial
-result lines, and `--screenshot` captures the display.
-
-Follow-up validation includes typed x86-64 expressions and persistent
-variables, ARM32/ARM64 virtio-ramfb framebuffer and window lifecycle checks,
-ARM64 SDK services with 4096 MiB RAM, and the BIOS hardware suite.
-
-The recovered 32-bit stdio code reads the file data pointer and byte count
-from the native metadata record. i386 flat calls align the stack for native
-C++ DLLs, and i386 Mach-O code uses x87 without requiring SSE firmware state.
-Native/source emulation starts with the FPU state established by the boot
-chain. Guest VM checks protect the null page and validate heap ownership.
+These checks establish the behavior they exercise, rather than proving every
+possible guest program equivalent. Architectural boundaries use small inline
+instruction sequences in C translation units. Original ABI symbol names remain
+where required for software compatibility; visible OS branding is Permafrost.

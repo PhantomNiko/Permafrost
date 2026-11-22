@@ -15,6 +15,6 @@ if __name__=='__main__':
  parser.add_argument('--output',required=True,type=Path);args=parser.parse_args()
  args.output.mkdir(parents=True,exist_ok=True);obj=args.output/'probe.o'
  compile_object(Path('tests/guest_storage_probe.c'),obj,args.architecture,
-                ['recovery/in-progress/sdk/include','sdk/include'],pic=True)
+                ['sdk/include','sdk/include'],pic=True)
  print(link_dynamic_executable([obj],args.output/'StorageProbe',args.architecture,
        {'/lib/TerrorUI.dylib':args.library},entry='main'))

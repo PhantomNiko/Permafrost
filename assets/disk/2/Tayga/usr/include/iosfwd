@@ -1,0 +1,12 @@
+#ifndef WINTER_HEADER_IOSFWD
+#define WINTER_HEADER_IOSFWD
+
+#include "ios"
+
+namespace std {
+class filebuf;
+class istream;
+class ostream;
+}
+
+#endif

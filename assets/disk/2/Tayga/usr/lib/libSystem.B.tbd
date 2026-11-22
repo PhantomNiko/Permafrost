@@ -1,0 +1,8 @@
+--- !tapi-tbd-v3
+archs: [ i386, x86_64, armv7, arm64 ]
+platform: macosx
+install-name: /usr/lib/libSystem.B.dylib
+exports:
+  - archs: [ i386, x86_64, armv7, arm64 ]
+    symbols: [ dyld_stub_binder ]
+...

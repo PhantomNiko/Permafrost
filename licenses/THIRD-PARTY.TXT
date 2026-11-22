@@ -1,12 +1,16 @@
-Permafrost 0.7 component scope
+Permafrost 1.0 component scope
 
-The current firmware and WinterLua are the in-house implementations recovered
-from reference 0.8. The current build does not include OpenBIOS or upstream Lua.
+The current firmware and WinterLua are in-house implementations. The current
+build does not include OpenBIOS or upstream Lua.
+
+The embedded Mach distribution is retained unchanged and is excluded from
+reverse engineering. Its supplied notices remain in the image's recovery
+volume under license/Mach-Kernel-LICENSE.txt, license/Mach-Kernel-README.txt
+and license/Acks.md. Pooka's Free Software License does not replace these terms.
 
 Historical milestones using external components retain their licenses and
 notices. Their sources are obtained from:
 https://github.com/PhantomNiko/openbios
 https://github.com/PhantomNiko/lua/tree/Permafrost
 
-Pooka's Free Software License does not replace third-party licenses.
-See LICENSES.md and DEPENDENCIES.md for scope and source checkout locations.
+See LICENSES.md and DEPENDENCIES.md for source and distribution scope.

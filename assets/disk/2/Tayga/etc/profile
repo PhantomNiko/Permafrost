@@ -1,0 +1,9 @@
+PATH=/bin:/usr/bin
+SHELL=/bin/tayga
+HOME=/home/user
+CPATH=/usr/include
+LIBRARY_PATH=/usr/lib:/lib
+SDKROOT=/
+TAYGA_SYSROOT=/
+TAYGA_VERSION=0.1
+TAYGA_RELEASE=Alpha

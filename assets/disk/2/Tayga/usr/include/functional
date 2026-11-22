@@ -1,0 +1,134 @@
+#ifndef TAYGA_HEADER_FUNCTIONAL
+#define TAYGA_HEADER_FUNCTIONAL
+
+#include "winter_stdlib.hpp"
+#include "utility"
+
+namespace std {
+namespace placeholders {
+template <int Index>
+struct __tayga_placeholder {
+	static constexpr int value = Index;
+};
+
+inline constexpr __tayga_placeholder<1> _1{};
+inline constexpr __tayga_placeholder<2> _2{};
+inline constexpr __tayga_placeholder<3> _3{};
+inline constexpr __tayga_placeholder<4> _4{};
+inline constexpr __tayga_placeholder<5> _5{};
+inline constexpr __tayga_placeholder<6> _6{};
+inline constexpr __tayga_placeholder<7> _7{};
+inline constexpr __tayga_placeholder<8> _8{};
+inline constexpr __tayga_placeholder<9> _9{};
+inline constexpr __tayga_placeholder<10> _10{};
+}
+
+template <typename T>
+struct is_placeholder : integral_constant<int, 0> {};
+
+template <int Index>
+struct is_placeholder<placeholders::__tayga_placeholder<Index>> : integral_constant<int, Index> {};
+
+template <int Index>
+struct is_placeholder<const placeholders::__tayga_placeholder<Index>> : integral_constant<int, Index> {};
+
+template <typename Fn>
+class __tayga_not_fn {
+public:
+	explicit __tayga_not_fn(Fn fn) : fn_(std::move(fn)) {}
+
+	template <typename... Args>
+	constexpr auto operator()(Args&&... args) -> decltype(!declval<Fn&>()(std::forward<Args>(args)...)) {
+		return !fn_(std::forward<Args>(args)...);
+	}
+
+	template <typename... Args>
+	constexpr auto operator()(Args&&... args) const -> decltype(!declval<const Fn&>()(std::forward<Args>(args)...)) {
+		return !fn_(std::forward<Args>(args)...);
+	}
+
+private:
+	Fn fn_;
+};
+
+template <typename Fn>
+constexpr __tayga_not_fn<decay_t<Fn>> not_fn(Fn&& fn) {
+	return __tayga_not_fn<decay_t<Fn>>(std::forward<Fn>(fn));
+}
+
+template <typename T>
+struct __tayga_is_reference_wrapper : false_type {};
+
+template <typename T>
+struct __tayga_is_reference_wrapper<reference_wrapper<T>> : true_type {};
+
+template <typename BoundArg, typename CallTuple>
+constexpr decltype(auto) __tayga_bind_resolve(BoundArg& boundArg, CallTuple&& callArgs) {
+	using clean_arg = remove_cv_t<remove_reference_t<BoundArg>>;
+	constexpr int placeholder = is_placeholder<clean_arg>::value;
+	if constexpr (placeholder > 0) {
+		return std::get<static_cast<size_t>(placeholder - 1)>(std::forward<CallTuple>(callArgs));
+	} else if constexpr (__tayga_is_reference_wrapper<clean_arg>::value) {
+		return boundArg.get();
+	} else {
+		return boundArg;
+	}
+}
+
+template <typename Fn, typename... BoundArgs>
+class __tayga_bind_object {
+public:
+	__tayga_bind_object(Fn fn, BoundArgs... args)
+		: fn_(std::move(fn)), args_(std::move(args)...) {}
+
+	template <typename... CallArgs>
+	constexpr decltype(auto) operator()(CallArgs&&... callArgs) {
+		return call(std::make_index_sequence<sizeof...(BoundArgs)>(), std::forward<CallArgs>(callArgs)...);
+	}
+
+	template <typename... CallArgs>
+	constexpr decltype(auto) operator()(CallArgs&&... callArgs) const {
+		return call(std::make_index_sequence<sizeof...(BoundArgs)>(), std::forward<CallArgs>(callArgs)...);
+	}
+
+private:
+	template <size_t... Indexes, typename... CallArgs>
+	constexpr decltype(auto) call(std::index_sequence<Indexes...>, CallArgs&&... callArgs) {
+		auto calls = std::forward_as_tuple(std::forward<CallArgs>(callArgs)...);
+		return std::invoke(fn_, __tayga_bind_resolve(std::get<Indexes>(args_), calls)...);
+	}
+
+	template <size_t... Indexes, typename... CallArgs>
+	constexpr decltype(auto) call(std::index_sequence<Indexes...>, CallArgs&&... callArgs) const {
+		auto calls = std::forward_as_tuple(std::forward<CallArgs>(callArgs)...);
+		return std::invoke(fn_, __tayga_bind_resolve(std::get<Indexes>(args_), calls)...);
+	}
+
+	Fn fn_;
+	std::tuple<BoundArgs...> args_;
+};
+
+template <typename Fn, typename... Args>
+constexpr auto bind(Fn&& fn, Args&&... args) {
+	return __tayga_bind_object<decay_t<Fn>, decay_t<Args>...>(
+		std::forward<Fn>(fn),
+		std::forward<Args>(args)...);
+}
+
+template <typename T = void>
+struct multiplies {
+	constexpr T operator()(const T& left, const T& right) const {
+		return left * right;
+	}
+};
+
+template <>
+struct multiplies<void> {
+	template <typename A, typename B>
+	constexpr auto operator()(A&& left, B&& right) const -> decltype(std::forward<A>(left) * std::forward<B>(right)) {
+		return std::forward<A>(left) * std::forward<B>(right);
+	}
+};
+}
+
+#endif

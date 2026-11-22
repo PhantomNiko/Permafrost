@@ -1,7 +1,7 @@
 {
   "module": "WinterTTF",
   "architecture": "arm64",
-  "version": "0.9",
+  "version": "1.0",
   "install_name": "/lib/WinterTTF.dylib",
   "functions": {
     "962c": "recovered_1000962c",
@@ -364,7 +364,11 @@
     "1f70": "recovered_10001f70",
     "f24": "recovered_10000f24",
     "54e8": "recovered_100054e8",
-    "1c60": "recovered_10001c60"
+    "1c60": "recovered_10001c60",
+    "0xf0003d": "pf_release_difftime",
+    "0xf0003e": "pf_release_exp",
+    "0xf0003f": "pf_release_expf",
+    "0xf00040": "pf_release_expl"
   },
   "exports": [
     {
@@ -620,6 +624,30 @@
       "weak": false
     },
     {
+      "name": "___fixdfdi",
+      "address": 15728682,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___fixunsdfdi",
+      "address": 15728683,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___floatdidf",
+      "address": 15728684,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___floatundidf",
+      "address": 15728685,
+      "section": 1,
+      "weak": false
+    },
+    {
       "name": "___gxx_personality_sj0",
       "address": 12680,
       "section": 1,
@@ -706,6 +734,30 @@
     {
       "name": "_cosf",
       "address": 5336,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_difftime",
+      "address": 15728701,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_exp",
+      "address": 15728702,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_expf",
+      "address": 15728703,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_expl",
+      "address": 15728704,
       "section": 1,
       "weak": false
     },

@@ -71,7 +71,7 @@ def main():
     parser.add_argument('architecture',choices=['i386','x86_64','armv7','arm64'])
     parser.add_argument('reference',type=Path);parser.add_argument('library',type=Path)
     args=parser.parse_args();root=Path('build/cube-render')/args.architecture;root.mkdir(parents=True,exist_ok=True)
-    obj=root/'render.o';compile_object(Path('recovery/in-progress/applications/cube/render.c'),obj,args.architecture,['sdk/include'],pic=True)
+    obj=root/'render.o';compile_object(Path('applications/cube/render.c'),obj,args.architecture,['sdk/include'],pic=True)
     source=root/'source';link_dynamic_executable([obj],source,args.architecture,{'/lib/TerrorUI.dylib':args.library},entry='drawCubeCpu')
     diagnostic_reference(source,root/'source-diagnostic');diagnostic_reference(args.reference,root/'reference-diagnostic')
     exercise(root/'reference-diagnostic',root/'source-diagnostic')

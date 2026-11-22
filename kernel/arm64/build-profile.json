@@ -1,0 +1,15 @@
+{
+  "version": "1.0",
+  "architecture": "arm64",
+  "source": "kernel/arm64",
+  "base": 2185232384,
+  "entry": 2185232404,
+  "text_start": 2185232576,
+  "text_end": 2185701960,
+  "state_end": 2187792384,
+  "core_base": 2188378112,
+  "main": "recovered_82431aa4",
+  "set_loader_context": "recovered_824022d0",
+  "inline_constants": {},
+  "upstream_display_version": "1.0"
+}

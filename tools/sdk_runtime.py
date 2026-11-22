@@ -38,5 +38,5 @@ def build_runtime(source,output,architecture):
 
 if __name__=='__main__':
  bundled=Path(__file__).resolve().parents[1]/'usr/src/runtime'
- default_source=bundled if bundled.is_dir()else Path('recovery/in-progress/sdk/runtime')
+ default_source=bundled if bundled.is_dir()else Path('sdk/runtime')
  parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--source',type=Path,default=default_source);parser.add_argument('--output',type=Path,required=True);parser.add_argument('--arch',choices=ARCHITECTURES,required=True);args=parser.parse_args();result=build_runtime(args.source,args.output,args.arch);print('Built source SDK runtime for '+args.arch)

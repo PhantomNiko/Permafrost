@@ -4,7 +4,7 @@
 void *memcpy(void *,const void *,size_t);
 void *memset(void *,int,size_t);
 #define assert(condition) do { if(!(condition)) __builtin_trap(); } while(0)
-#include "../recovery/in-progress/firmware/loader.c"
+#include "../firmware/uefi/common/loader.c"
 static uint8_t bytes[8*1024*1024],output[5*1024*1024+64],fat[512];
 static unsigned reads,allocations,releases,fail_read;
 static Status EFI_ABI pages(uint32_t kind,uint32_t type,uintptr_t count,uint64_t *address){

@@ -1,0 +1,6 @@
+#ifndef TAYGA_HEADER_UTILITY
+#define TAYGA_HEADER_UTILITY
+
+#include "type_traits"
+
+#endif

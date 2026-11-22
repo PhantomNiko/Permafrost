@@ -1,0 +1,4 @@
+#ifndef WINTER_HEADER_EXCEPTION
+#define WINTER_HEADER_EXCEPTION
+#include "winter_stdlib.hpp"
+#endif

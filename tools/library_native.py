@@ -177,6 +177,8 @@ def build_library(source, output):
     if {item['name'] for item in actual['imports']} - {'dyld_stub_binder'}:
         raise ValueError('source library acquired an unresolved runtime dependency')
     target = output / profile['module']
+    # Equal-length display branding leaves mangled ABI identifiers intact.
+    binary=re.sub(rb'(?<![A-Za-z0-9_])(?:WinterBoot|WinterMoon)(?![A-Za-z0-9_])',b'Permafrost',binary)
     target.write_bytes(binary)
     (output / 'source-map.json').write_text(json.dumps(symbols, indent=2) + '\n')
     return target

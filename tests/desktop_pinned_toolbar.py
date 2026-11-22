@@ -14,7 +14,7 @@ class Finished(Exception):pass
 
 def exercise(reference,source,library,output):
  old,_=inspect(reference.read_bytes());new,_=inspect(source.read_bytes());names={n:a for a,n in old['symbols']};symbols={n:a for a,n in new['symbols']+new['data_symbols']};state=next(a+n for k,a,n in old['sections']if k=='__text')
- for pinned in [False,True]:
+ for function,pinned in [(f,p)for f in ['100112e0','100104e0']for p in [False,True]]:
   results=[]
   for index,lib in enumerate(load(reference,source,output,library)):
    c=lib.cpu
@@ -32,11 +32,13 @@ def exercise(reference,source,library,output):
     ret(c,a,z,u)
    for original,recovered,callback in [('_drawTextN','1000ec70',text),('_fillRectAlpha','1000f370',ret),('_drawRect','1000efc0',ret)]:
     a=lib.base+(symbols['_recovered_'+recovered]if index else 0x1800000+int(recovered,16)-0x10000000);c.hook_add(UC_HOOK_CODE,callback,begin=a,end=a)
-   lib.exports['file']=lib.base+(symbols['_recovered_100112e0']if index else names['_drawFileWindowContent'])
+    if not index:
+     a=0x1800000+int(recovered,16)-0x10000000;c.hook_add(UC_HOOK_CODE,callback,begin=a,end=a)
+   lib.exports['file']=lib.base+(symbols['_recovered_'+function]if index else 0x1800000+int(function,16)-0x10000000)
    if not index:c.reg_write(UC_X86_REG_ECX,record)
    try:lib.call('file',*([record]if index else[]))
    except Finished:pass
-   assert events and events[-1]=='device 4 /Docs',events;results.append(events)
+   assert events and events[-1]=='device 4 /Docs',(function,index,events);results.append(events)
   assert results[0]==results[1],(pinned,results)
   assert results[0]==(['Tools']if pinned else[])+['device 4 /Docs'],results
  print('File-window toolbar: native pinned and empty toolbar text matches.')

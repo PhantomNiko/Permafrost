@@ -1,0 +1,28 @@
+{
+  "version": "1.0",
+  "architecture": "i386",
+  "source": "kernel/i386",
+  "base": 33554432,
+  "entry": 33554452,
+  "text_start": 33557712,
+  "text_end": 34346524,
+  "state_end": 35999744,
+  "core_base": 36700160,
+  "main": "recovered_2044080",
+  "set_loader_context": "recovered_2004860",
+  "inline_constants": {},
+  "upstream_display_version": "1.0",
+  "platform": "bios",
+  "resident_bios_bridge": true,
+  "firmware_entries": {
+    "2000062": "pf_bios_poll_key",
+    "2000153": "pf_bios_read_bundle",
+    "20002b8": "pf_bios_query_capacity",
+    "20003f5": "pf_bios_write_sectors",
+    "200052d": "pf_bios_set_mode13",
+    "20005f8": "pf_bios_wait_microseconds",
+    "2000700": "pf_bios_set_text_mode",
+    "20007cb": "pf_bios_set_wxga_mode"
+  },
+  "image_source": "libraries/png/i386"
+}

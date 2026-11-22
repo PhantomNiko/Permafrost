@@ -1,6 +1,6 @@
 {
-  "version": "0.9",
-  "reference_version": "1.0r147-Prerelease",
+  "version": "1.0",
+  "reference_version": "1.0r232-Beta",
   "architectures": [
     "i386",
     "x86_64",
@@ -9,2693 +9,2296 @@
   ],
   "images": [
     {
-      "reference": "WinterBoot-1.0r147-Prerelease.img",
-      "bytes": 112970240,
-      "sha256": "688c92f949172cbb2d2cf8a1b3f5fb57798681d85a990e011ff4614c8a0ed7e2"
+      "reference": "WinterBoot-1.0r232-Beta.img",
+      "bytes": 226538496,
+      "sha256": "858f67689de241b2aa5d048d4abebbc0e69009a4858613193844fc1155623661"
     }
   ],
   "programs": {
-    "WinterBoot": {
-      "reference_sha256": "fb69d7ea7546b46a23645408486f10416e762ed67dd9edd23ab6a26040f00ebd",
-      "architectures": {
-        "x86_64": {
-          "cpu": 16777223,
-          "base": 33554432,
-          "end": 34508800,
-          "entry": 33554452,
-          "sections": [
-            [
-              "__text",
-              33554432,
-              660572
-            ],
-            [
-              "__const",
-              34215008,
-              4408
-            ],
-            [
-              "__cstring",
-              34219416,
-              38620
-            ],
-            [
-              "__gcc_except_tab",
-              34258036,
-              1024
-            ],
-            [
-              "__got",
-              34263040,
-              48
-            ],
-            [
-              "__const",
-              34263088,
-              3376
-            ],
-            [
-              "__data",
-              34266464,
-              644
-            ],
-            [
-              "__common",
-              34267120,
-              144
-            ],
-            [
-              "__bss",
-              34267264,
-              238044
-            ]
-          ],
-          "symbols": 952,
-          "data_symbols": 308,
-          "reference_sha256": "29abf8cc65316828924a3fc925474146ec9d552dcd2ffae65f710599071dcab6"
-        },
-        "armv7": {
-          "cpu": 12,
-          "base": 1077936128,
-          "end": 1078484992,
-          "entry": 1077936148,
-          "sections": [
-            [
-              "__text",
-              1077936128,
-              393908
-            ],
-            [
-              "__cstring",
-              1078330036,
-              40038
-            ],
-            [
-              "__const",
-              1078370080,
-              2384
-            ],
-            [
-              "__gcc_except_tab",
-              1078372464,
-              964
-            ],
-            [
-              "__nl_symbol_ptr",
-              1078374400,
-              152
-            ],
-            [
-              "__const",
-              1078374552,
-              2652
-            ],
-            [
-              "__data",
-              1078377208,
-              576
-            ],
-            [
-              "__common",
-              1078377784,
-              68
-            ],
-            [
-              "__bss",
-              1078377856,
-              104532
-            ]
-          ],
-          "symbols": 1240,
-          "data_symbols": 145,
-          "reference_sha256": "f2f89edf990ecce84a59bc25e41c3a9940a17079c36fb1cbac837ccb275d8270"
-        },
-        "i386": {
-          "cpu": 7,
-          "base": 33554432,
-          "end": 34414592,
-          "entry": 33554452,
-          "sections": [
-            [
-              "__text",
-              33554432,
-              572332
-            ],
-            [
-              "__const",
-              34126768,
-              10024
-            ],
-            [
-              "__cstring",
-              34136792,
-              38588
-            ],
-            [
-              "__gcc_except_tab",
-              34175380,
-              1024
-            ],
-            [
-              "__nl_symbol_ptr",
-              34177024,
-              144
-            ],
-            [
-              "__const",
-              34177168,
-              1808
-            ],
-            [
-              "__data",
-              34178976,
-              600
-            ],
-            [
-              "__common",
-              34179576,
-              68
-            ],
-            [
-              "__bss",
-              34179648,
-              231692
-            ]
-          ],
-          "symbols": 960,
-          "data_symbols": 314,
-          "reference_sha256": "8e611dd1e0934d3fa169218d85c3d51d23531dacdc50d132d94836334ab13a61"
-        },
-        "arm64": {
-          "cpu": 16777228,
-          "base": 1077936128,
-          "end": 1078550528,
-          "entry": 1077936148,
-          "sections": [
-            [
-              "__text",
-              1077936128,
-              316580
-            ],
-            [
-              "__const",
-              1078252720,
-              3408
-            ],
-            [
-              "__cstring",
-              1078256128,
-              40082
-            ],
-            [
-              "__gcc_except_tab",
-              1078296212,
-              2300
-            ],
-            [
-              "__got",
-              1078300672,
-              8
-            ],
-            [
-              "__const",
-              1078300680,
-              4688
-            ],
-            [
-              "__data",
-              1078305368,
-              629
-            ],
-            [
-              "__common",
-              1078306000,
-              136
-            ],
-            [
-              "__bss",
-              1078306144,
-              240688
-            ]
-          ],
-          "symbols": 2218,
-          "data_symbols": 127,
-          "reference_sha256": "de70102e74121d981ce1c2d413c0c1c0afb3dcf274d6f7143231a41ae8ee64a5"
-        }
+    "0:Permafrost": {
+      "i386": {
+        "cpu": 7,
+        "base": 33554432,
+        "end": 35999744,
+        "entry": 33554452,
+        "sha256": "b1df47e8cd474d2a7b510583e450bef08697ad487dcf84294a8dd79301e6a237"
       },
-      "other_reference_cpu_ids": [
-        "0x11000012",
-        "0x1000012",
-        "0x10000012",
-        "0x12"
-      ]
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 33554432,
+        "end": 36192256,
+        "entry": 33554452,
+        "sha256": "2c7e1e7afed5a5a92022ea2b90aa5126d2c8488b598f4348f7fbac3fc06c80f2"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 1077936128,
+        "end": 1080385536,
+        "entry": 1077936148,
+        "sha256": "80df367c8f2804c32de89294fb2d068815e60a70953a168430efcb0e01644ada"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 2185232384,
+        "end": 2187792384,
+        "entry": 2185232404,
+        "sha256": "9acf5c5639e686bd25cc7c5d9f6e86b26711bb0b424f3b2a7d7eaabafe6e7d66"
+      }
     },
-    "WinterBIOS": {
-      "reference_sha256": "935c2c17294b4d9d5ab1d298cc870d9eac9c11e0422e852edc743176e7baaac5",
-      "architectures": {
-        "i386": {
-          "cpu": 7,
-          "base": 131072,
-          "end": 991232,
-          "entry": 131092,
-          "sections": [
-            [
-              "__text",
-              131072,
-              572332
-            ],
-            [
-              "__const",
-              703408,
-              10024
-            ],
-            [
-              "__cstring",
-              713432,
-              38588
-            ],
-            [
-              "__gcc_except_tab",
-              752020,
-              1024
-            ],
-            [
-              "__nl_symbol_ptr",
-              753664,
-              144
-            ],
-            [
-              "__const",
-              753808,
-              1808
-            ],
-            [
-              "__data",
-              755616,
-              600
-            ],
-            [
-              "__common",
-              756216,
-              68
-            ],
-            [
-              "__bss",
-              756288,
-              231692
-            ]
-          ],
-          "symbols": 960,
-          "data_symbols": 314,
-          "reference_sha256": "935c2c17294b4d9d5ab1d298cc870d9eac9c11e0422e852edc743176e7baaac5"
-        }
+    "0:Tayga.app/Contents/Permafrost/Tayga": {
+      "i386": {
+        "cpu": 7,
+        "base": 25165824,
+        "end": 25194496,
+        "entry": null,
+        "sha256": "ce62f4f17bb29194edee719c74a78dbe408f443f68cd9b9b7792720f8bf23fe7"
       },
-      "other_reference_cpu_ids": []
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 25165824,
+        "end": 25202688,
+        "entry": null,
+        "sha256": "a81cedd24f4064dffe923bf677850143fa3f9c761cae669fdcced02932402c38"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "3206ad7ad2e1771bdbfbacd1fc2235e80e85329dc00227432171e79b9405ee69"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 49152,
+        "entry": null,
+        "sha256": "971326ff7d4337aef6573c2ac6d51f2a984e8bd8a9744acfd56adad31c243ef9"
+      }
     },
-    "lib/WinterPNG.dylib": {
-      "reference_sha256": "d5437d05b30310718f657d33f620cf1e5a7fb491fdf7da27164d04792cb2ed93",
-      "architectures": {
-        "x86_64": {
-          "cpu": 16777223,
-          "base": 0,
-          "end": 147456,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1216,
-              118595
-            ],
-            [
-              "__const",
-              119824,
-              1984
-            ],
-            [
-              "__cstring",
-              121808,
-              569
-            ],
-            [
-              "__gcc_except_tab",
-              122380,
-              580
-            ],
-            [
-              "__data",
-              126976,
-              88
-            ],
-            [
-              "__common",
-              127072,
-              144
-            ],
-            [
-              "__bss",
-              127216,
-              2864
-            ]
-          ],
-          "symbols": 219,
-          "data_symbols": 62,
-          "reference_sha256": "ddbd344d37c83be10d3ac0abefeffdbb619e9d2cdc7ad51106b607fa7aaca8b9"
-        },
-        "i386": {
-          "cpu": 7,
-          "base": 0,
-          "end": 114688,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              4304,
-              85568
-            ],
-            [
-              "__const",
-              89872,
-              3108
-            ],
-            [
-              "__cstring",
-              92980,
-              569
-            ],
-            [
-              "__gcc_except_tab",
-              93552,
-              580
-            ],
-            [
-              "__unwind_info",
-              94132,
-              72
-            ],
-            [
-              "__nl_symbol_ptr",
-              94208,
-              8
-            ],
-            [
-              "__data",
-              94216,
-              48
-            ],
-            [
-              "__common",
-              94264,
-              64
-            ],
-            [
-              "__bss",
-              94328,
-              2784
-            ]
-          ],
-          "symbols": 220,
-          "data_symbols": 61,
-          "reference_sha256": "ff12778f60be66bf2ff1ce361a2cac9fc1b4b440b1c0afccdc3bed40d90c769c"
-        },
-        "armv7": {
-          "cpu": 12,
-          "base": 0,
-          "end": 147456,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              13472,
-              66088
-            ],
-            [
-              "__stub_helper",
-              79560,
-              36
-            ],
-            [
-              "__cstring",
-              79596,
-              572
-            ],
-            [
-              "__gcc_except_tab",
-              80168,
-              548
-            ],
-            [
-              "__const",
-              80716,
-              1196
-            ],
-            [
-              "__symbolstub1",
-              81912,
-              8
-            ],
-            [
-              "__lazy_symbol",
-              81920,
-              8
-            ],
-            [
-              "__data",
-              81928,
-              52
-            ],
-            [
-              "__common",
-              81980,
-              64
-            ],
-            [
-              "__bss",
-              82048,
-              2780
-            ],
-            [
-              "__nl_symbol_ptr",
-              98304,
-              12
-            ]
-          ],
-          "symbols": 309,
-          "data_symbols": 55,
-          "reference_sha256": "610f88f8c02d81c026f6d62452b92deaa45912bb20bb6f49bdccc852d64cac0e"
-        },
-        "arm64": {
-          "cpu": 16777228,
-          "base": 0,
-          "end": 131072,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1464,
-              49436
-            ],
-            [
-              "__const",
-              50912,
-              1588
-            ],
-            [
-              "__cstring",
-              52500,
-              572
-            ],
-            [
-              "__gcc_except_tab",
-              53072,
-              1296
-            ],
-            [
-              "__unwind_info",
-              54368,
-              776
-            ],
-            [
-              "__got",
-              65536,
-              8
-            ],
-            [
-              "__data",
-              81920,
-              88
-            ],
-            [
-              "__common",
-              82008,
-              136
-            ],
-            [
-              "__bss",
-              82144,
-              2808
-            ]
-          ],
-          "symbols": 448,
-          "data_symbols": 46,
-          "reference_sha256": "8fccca1f74419150fc4a7449292e58d81124b6fa9d0341464f98ab78e2fd611f"
-        }
+    "0:lib/PermafrostWindow.dylib": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 57344,
+        "entry": null,
+        "sha256": "04d050c1f5489a147f99d45820361eee1df65df74d861086771cfb424e106080"
       },
-      "other_reference_cpu_ids": [
-        "0x11000012",
-        "0x10000012",
-        "0x12",
-        "0x1000012"
-      ]
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 73728,
+        "entry": null,
+        "sha256": "489d4867dfd1c54316f8882d36ae312c4b82cfad6f0d9ea88ea1cc1f8b15b411"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 98304,
+        "entry": null,
+        "sha256": "98f0f3580d21dbbd68077b80de42c13167ce923dc1e52c7280c89ca733a6ce4d"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 98304,
+        "entry": null,
+        "sha256": "ec4c4c5711840ce0e537677b75ce43e657144e84b2c00b9da59456525ea16d64"
+      }
     },
-    "lib/WinterAudio.dylib": {
-      "reference_sha256": "70ac0f60534a275e39fa4cdd2342a9cd043521e3e040c41eb4333d129d5b675b",
-      "architectures": {
-        "x86_64": {
-          "cpu": 16777223,
-          "base": 0,
-          "end": 69632,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1536,
-              41607
-            ],
-            [
-              "__const",
-              43152,
-              637
-            ],
-            [
-              "__cstring",
-              43789,
-              498
-            ],
-            [
-              "__gcc_except_tab",
-              44288,
-              300
-            ],
-            [
-              "__got",
-              45056,
-              64
-            ],
-            [
-              "__mod_init_func",
-              45120,
-              32
-            ],
-            [
-              "__const",
-              45152,
-              288
-            ],
-            [
-              "__data",
-              49152,
-              184
-            ],
-            [
-              "__common",
-              49344,
-              144
-            ],
-            [
-              "__bss",
-              49488,
-              568
-            ]
-          ],
-          "symbols": 208,
-          "data_symbols": 56,
-          "reference_sha256": "1b9b3af3892501af732d726b631734b2e2e8e735f2481dcedc102a6955022392"
-        },
-        "i386": {
-          "cpu": 7,
-          "base": 0,
-          "end": 61440,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              2624,
-              32626
-            ],
-            [
-              "__const",
-              35264,
-              720
-            ],
-            [
-              "__cstring",
-              35984,
-              498
-            ],
-            [
-              "__gcc_except_tab",
-              36484,
-              300
-            ],
-            [
-              "__unwind_info",
-              36784,
-              72
-            ],
-            [
-              "__mod_init_func",
-              36864,
-              16
-            ],
-            [
-              "__const",
-              36880,
-              152
-            ],
-            [
-              "__nl_symbol_ptr",
-              40960,
-              76
-            ],
-            [
-              "__data",
-              41036,
-              112
-            ],
-            [
-              "__common",
-              41148,
-              64
-            ],
-            [
-              "__bss",
-              41212,
-              536
-            ]
-          ],
-          "symbols": 208,
-          "data_symbols": 55,
-          "reference_sha256": "1d93caf1fc4bc9e9bb7d1b46c771d68657bbd25964d66178f77de04753f28220"
-        },
-        "armv7": {
-          "cpu": 12,
-          "base": 0,
-          "end": 81920,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              3008,
-              28792
-            ],
-            [
-              "__stub_helper",
-              31800,
-              36
-            ],
-            [
-              "__cstring",
-              31836,
-              563
-            ],
-            [
-              "__gcc_except_tab",
-              32400,
-              236
-            ],
-            [
-              "__const",
-              32636,
-              117
-            ],
-            [
-              "__symbolstub1",
-              32756,
-              8
-            ],
-            [
-              "__lazy_symbol",
-              32768,
-              8
-            ],
-            [
-              "__data",
-              32776,
-              100
-            ],
-            [
-              "__common",
-              32876,
-              64
-            ],
-            [
-              "__bss",
-              32940,
-              536
-            ],
-            [
-              "__nl_symbol_ptr",
-              49152,
-              80
-            ],
-            [
-              "__mod_init_func",
-              49232,
-              16
-            ],
-            [
-              "__const",
-              49248,
-              152
-            ]
-          ],
-          "symbols": 278,
-          "data_symbols": 55,
-          "reference_sha256": "f044b17f343d032fe373a0d2a48401d152abafc8d776fb02fe4e2e5882934f8e"
-        },
-        "arm64": {
-          "cpu": 16777228,
-          "base": 0,
-          "end": 98304,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1624,
-              22308
-            ],
-            [
-              "__const",
-              23936,
-              297
-            ],
-            [
-              "__cstring",
-              24233,
-              563
-            ],
-            [
-              "__gcc_except_tab",
-              24796,
-              316
-            ],
-            [
-              "__unwind_info",
-              25112,
-              648
-            ],
-            [
-              "__got",
-              32768,
-              72
-            ],
-            [
-              "__mod_init_func",
-              32840,
-              32
-            ],
-            [
-              "__const",
-              32872,
-              288
-            ],
-            [
-              "__data",
-              49152,
-              184
-            ],
-            [
-              "__common",
-              49336,
-              136
-            ],
-            [
-              "__bss",
-              49472,
-              560
-            ]
-          ],
-          "symbols": 309,
-          "data_symbols": 53,
-          "reference_sha256": "5fcb0ad481473f7e74b5d01694f7aa324a476f7e4e15082f8732b72a21d9f121"
-        }
+    "0:lib/TerrorUI.dylib": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 61440,
+        "entry": null,
+        "sha256": "a203e836b85be373583ca68c6ec41bbe2f2d4406127105386c178edef1bd06d0"
       },
-      "other_reference_cpu_ids": [
-        "0x11000012",
-        "0x10000012",
-        "0x12",
-        "0x1000012"
-      ]
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 73728,
+        "entry": null,
+        "sha256": "01402b0d89d029bc6f9ed9d08fabeb415a510b01fce8528bdb90c44583b0aaa7"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 98304,
+        "entry": null,
+        "sha256": "7d0bbdf88bfa724447b1fa80866d07f6d2546cb0501b47f9f21afc5d6845a19b"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 98304,
+        "entry": null,
+        "sha256": "9623551ddb49bed1c07e4952998169fe76920082ece1e0fd57e9a19ac04ac0d6"
+      }
     },
-    "lib/WinterRwby.dylib": {
-      "reference_sha256": "ff28def1b8eca3e89b9b8c9ea63008ce05be82b600f2fbc9b0183cbd29e55296",
-      "architectures": {
-        "x86_64": {
-          "cpu": 16777223,
-          "base": 0,
-          "end": 348160,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1456,
-              234391
-            ],
-            [
-              "__const",
-              235856,
-              5536
-            ],
-            [
-              "__cstring",
-              241392,
-              3847
-            ],
-            [
-              "__gcc_except_tab",
-              245240,
-              3620
-            ],
-            [
-              "__got",
-              249856,
-              40
-            ],
-            [
-              "__const",
-              249896,
-              3184
-            ],
-            [
-              "__data",
-              253952,
-              128
-            ],
-            [
-              "__common",
-              254080,
-              144
-            ],
-            [
-              "__bss",
-              254224,
-              600
-            ]
-          ],
-          "symbols": 546,
-          "data_symbols": 297,
-          "reference_sha256": "31bac85e75d53df239f93e99356e83cc15925b18d2e1d730d56d71b56f859231"
-        },
-        "i386": {
-          "cpu": 7,
-          "base": 0,
-          "end": 315392,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              2496,
-              192288
-            ],
-            [
-              "__const",
-              194784,
-              10640
-            ],
-            [
-              "__cstring",
-              205424,
-              3847
-            ],
-            [
-              "__gcc_except_tab",
-              209272,
-              3636
-            ],
-            [
-              "__unwind_info",
-              212908,
-              72
-            ],
-            [
-              "__const",
-              212992,
-              1600
-            ],
-            [
-              "__nl_symbol_ptr",
-              217088,
-              204
-            ],
-            [
-              "__data",
-              217296,
-              76
-            ],
-            [
-              "__common",
-              217372,
-              64
-            ],
-            [
-              "__bss",
-              217436,
-              556
-            ]
-          ],
-          "symbols": 546,
-          "data_symbols": 296,
-          "reference_sha256": "b894adab98a7cce092f765daf97acc60dcce1196d0ef223d64296bba89270522"
-        },
-        "armv7": {
-          "cpu": 12,
-          "base": 0,
-          "end": 327680,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              17136,
-              135072
-            ],
-            [
-              "__stub_helper",
-              152208,
-              36
-            ],
-            [
-              "__cstring",
-              152244,
-              3944
-            ],
-            [
-              "__gcc_except_tab",
-              156188,
-              2600
-            ],
-            [
-              "__const",
-              158788,
-              5044
-            ],
-            [
-              "__symbolstub1",
-              163832,
-              8
-            ],
-            [
-              "__lazy_symbol",
-              163840,
-              8
-            ],
-            [
-              "__data",
-              163848,
-              80
-            ],
-            [
-              "__common",
-              163928,
-              64
-            ],
-            [
-              "__bss",
-              163992,
-              552
-            ],
-            [
-              "__nl_symbol_ptr",
-              180224,
-              220
-            ],
-            [
-              "__const",
-              180444,
-              1600
-            ]
-          ],
-          "symbols": 873,
-          "data_symbols": 292,
-          "reference_sha256": "e31de5d1e3846c4dbc5d3cea43e5cf59687f21831bc946cc6096554ef667832c"
-        },
-        "arm64": {
-          "cpu": 16777228,
-          "base": 0,
-          "end": 278528,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1544,
-              89564
-            ],
-            [
-              "__const",
-              91112,
-              5496
-            ],
-            [
-              "__cstring",
-              96608,
-              3944
-            ],
-            [
-              "__gcc_except_tab",
-              100552,
-              7224
-            ],
-            [
-              "__unwind_info",
-              107776,
-              3392
-            ],
-            [
-              "__got",
-              114688,
-              64
-            ],
-            [
-              "__const",
-              114752,
-              3184
-            ],
-            [
-              "__data",
-              131072,
-              128
-            ],
-            [
-              "__common",
-              131200,
-              136
-            ],
-            [
-              "__bss",
-              131336,
-              592
-            ]
-          ],
-          "symbols": 1088,
-          "data_symbols": 290,
-          "reference_sha256": "b84e0d324905ea279313cfb3f7cc61ef0422d40add24920efdf53a34b1231d5e"
-        }
+    "0:lib/TundraWindow.dylib": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 61440,
+        "entry": null,
+        "sha256": "c7287f11ec56c6dde658ec2ffc719d160df83ebf62e2456e241c1c2536f298aa"
       },
-      "other_reference_cpu_ids": [
-        "0x11000012",
-        "0x10000012",
-        "0x12",
-        "0x1000012"
-      ]
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 73728,
+        "entry": null,
+        "sha256": "b5afba1a729c353feb7c5ce759180cb0ccda804da0116847cf11fdb08fd8f70f"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 98304,
+        "entry": null,
+        "sha256": "ad4e719dad14f57f9f802228c1e078ebaf45de5e269b0f4478591de4605cd18e"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 98304,
+        "entry": null,
+        "sha256": "761767c4cb2757ba944d53945077f8de3f5b95631b06a0b0b57d8bd8f7d6e77b"
+      }
     },
-    "lib/WinterScript.dylib": {
-      "reference_sha256": "69bb51d2155458e390ee6ba96b1bd764940d175b777f4c5cbbaa54b7ebdcd7db",
-      "architectures": {
-        "x86_64": {
-          "cpu": 16777223,
-          "base": 0,
-          "end": 917504,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1456,
-              733412
-            ],
-            [
-              "__const",
-              734880,
-              7735
-            ],
-            [
-              "__cstring",
-              742615,
-              10882
-            ],
-            [
-              "__gcc_except_tab",
-              753500,
-              11212
-            ],
-            [
-              "__got",
-              765952,
-              48
-            ],
-            [
-              "__const",
-              766000,
-              6488
-            ],
-            [
-              "__data",
-              774144,
-              96
-            ],
-            [
-              "__common",
-              774240,
-              144
-            ],
-            [
-              "__bss",
-              774384,
-              1016
-            ]
-          ],
-          "symbols": 952,
-          "data_symbols": 598,
-          "reference_sha256": "00784796d6093273d258e67af32873ac60bc1b469f0e027f4edb417d332c0c36"
-        },
-        "i386": {
-          "cpu": 7,
-          "base": 0,
-          "end": 839680,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1440,
-              633042
-            ],
-            [
-              "__const",
-              634496,
-              31440
-            ],
-            [
-              "__cstring",
-              665936,
-              10919
-            ],
-            [
-              "__gcc_except_tab",
-              676856,
-              11200
-            ],
-            [
-              "__unwind_info",
-              688056,
-              72
-            ],
-            [
-              "__const",
-              688128,
-              3272
-            ],
-            [
-              "__nl_symbol_ptr",
-              692224,
-              100
-            ],
-            [
-              "__data",
-              692328,
-              56
-            ],
-            [
-              "__common",
-              692384,
-              64
-            ],
-            [
-              "__bss",
-              692448,
-              800
-            ]
-          ],
-          "symbols": 953,
-          "data_symbols": 595,
-          "reference_sha256": "8da5f7bebb6d750101f601ddb672a2d580df2deaf83d0b581428d8644566fd8b"
-        },
-        "armv7": {
-          "cpu": 12,
-          "base": 0,
-          "end": 655360,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              15056,
-              400800
-            ],
-            [
-              "__stub_helper",
-              415856,
-              36
-            ],
-            [
-              "__cstring",
-              415892,
-              11072
-            ],
-            [
-              "__gcc_except_tab",
-              426964,
-              8248
-            ],
-            [
-              "__const",
-              435212,
-              7139
-            ],
-            [
-              "__symbolstub1",
-              442352,
-              16
-            ],
-            [
-              "__lazy_symbol",
-              442368,
-              16
-            ],
-            [
-              "__data",
-              442384,
-              64
-            ],
-            [
-              "__common",
-              442448,
-              64
-            ],
-            [
-              "__bss",
-              442512,
-              760
-            ],
-            [
-              "__nl_symbol_ptr",
-              458752,
-              124
-            ],
-            [
-              "__const",
-              458880,
-              3316
-            ]
-          ],
-          "symbols": 1442,
-          "data_symbols": 548,
-          "reference_sha256": "6815a3822760ae7e17491e76ef8e5380573b9b8ff5dfa43a2b00313f4a71ce16"
-        },
-        "arm64": {
-          "cpu": 16777228,
-          "base": 0,
-          "end": 573440,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1624,
-              243576
-            ],
-            [
-              "__const",
-              245200,
-              8128
-            ],
-            [
-              "__cstring",
-              253328,
-              11072
-            ],
-            [
-              "__gcc_except_tab",
-              264400,
-              25744
-            ],
-            [
-              "__unwind_info",
-              290144,
-              6064
-            ],
-            [
-              "__eh_frame",
-              296208,
-              120
-            ],
-            [
-              "__got",
-              311296,
-              88
-            ],
-            [
-              "__const",
-              311384,
-              6576
-            ],
-            [
-              "__data",
-              327680,
-              96
-            ],
-            [
-              "__common",
-              327776,
-              136
-            ],
-            [
-              "__bss",
-              327912,
-              944
-            ]
-          ],
-          "symbols": 2464,
-          "data_symbols": 544,
-          "reference_sha256": "5075c22795a60cbdcb86f73bade1e7f1fda03d4a8677034b63045655193b741b"
-        }
+    "0:lib/WinterAudio.dylib": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 61440,
+        "entry": null,
+        "sha256": "32c72c039094d18e13c2ac8c7e39617fa74d2e6cb429e2ab907eac2f1cccdf92"
       },
-      "other_reference_cpu_ids": [
-        "0x11000012",
-        "0x10000012",
-        "0x12",
-        "0x1000012"
-      ]
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 77824,
+        "entry": null,
+        "sha256": "3c7da7e24197e3860702dc79eb9dd48c586499460ec680f130dd1f4738ff038f"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 98304,
+        "entry": null,
+        "sha256": "f1a0e5a6d1114e9b02d30c8786fac08acd72d43c3324f8c48d84e66fb92cfd05"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 98304,
+        "entry": null,
+        "sha256": "dc8c4c305b5ddd2b8108f5f77c9cf851736b8b9d75348cb5dcfe8cc9c11ef861"
+      }
     },
-    "lib/WinterBootWindow.dylib": {
-      "reference_sha256": "35a09634946f66b008b0e977cfc55bd160c91854028e3282e183c74dfd89cb67",
-      "architectures": {
-        "x86_64": {
-          "cpu": 16777223,
-          "base": 0,
-          "end": 65536,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1376,
-              36344
-            ],
-            [
-              "__const",
-              37728,
-              448
-            ],
-            [
-              "__cstring",
-              38176,
-              485
-            ],
-            [
-              "__gcc_except_tab",
-              38664,
-              116
-            ],
-            [
-              "__const",
-              40960,
-              288
-            ],
-            [
-              "__data",
-              45056,
-              88
-            ],
-            [
-              "__common",
-              45152,
-              191
-            ],
-            [
-              "__bss",
-              45344,
-              632
-            ]
-          ],
-          "symbols": 196,
-          "data_symbols": 74,
-          "reference_sha256": "334ea9aaca4b397859846e90c71f504a6eb0b5846fe3a2752a7a612ef148b29b"
-        },
-        "i386": {
-          "cpu": 7,
-          "base": 0,
-          "end": 53248,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1424,
-              29230
-            ],
-            [
-              "__const",
-              30656,
-              1424
-            ],
-            [
-              "__cstring",
-              32080,
-              485
-            ],
-            [
-              "__gcc_except_tab",
-              32568,
-              116
-            ],
-            [
-              "__unwind_info",
-              32684,
-              72
-            ],
-            [
-              "__const",
-              32768,
-              144
-            ],
-            [
-              "__nl_symbol_ptr",
-              36864,
-              8
-            ],
-            [
-              "__data",
-              36872,
-              48
-            ],
-            [
-              "__common",
-              36920,
-              111
-            ],
-            [
-              "__bss",
-              37032,
-              596
-            ]
-          ],
-          "symbols": 196,
-          "data_symbols": 73,
-          "reference_sha256": "cc6e160012581d5b7ec7932b21772d79b8a055c8270d54271b518843402b46da"
-        },
-        "armv7": {
-          "cpu": 12,
-          "base": 0,
-          "end": 81920,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              6564,
-              25496
-            ],
-            [
-              "__stub_helper",
-              32060,
-              36
-            ],
-            [
-              "__cstring",
-              32096,
-              491
-            ],
-            [
-              "__gcc_except_tab",
-              32588,
-              116
-            ],
-            [
-              "__const",
-              32704,
-              56
-            ],
-            [
-              "__symbolstub1",
-              32760,
-              8
-            ],
-            [
-              "__lazy_symbol",
-              32768,
-              8
-            ],
-            [
-              "__data",
-              32776,
-              52
-            ],
-            [
-              "__common",
-              32828,
-              111
-            ],
-            [
-              "__bss",
-              32940,
-              596
-            ],
-            [
-              "__nl_symbol_ptr",
-              49152,
-              12
-            ],
-            [
-              "__const",
-              49164,
-              144
-            ]
-          ],
-          "symbols": 263,
-          "data_symbols": 73,
-          "reference_sha256": "e4bb86eec7d4c0ce4ed79421f9f1d053f530146828dcedd5245b87811183f07b"
-        },
-        "arm64": {
-          "cpu": 16777228,
-          "base": 0,
-          "end": 98304,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1552,
-              21384
-            ],
-            [
-              "__const",
-              22944,
-              279
-            ],
-            [
-              "__cstring",
-              23223,
-              491
-            ],
-            [
-              "__gcc_except_tab",
-              23716,
-              164
-            ],
-            [
-              "__unwind_info",
-              23880,
-              512
-            ],
-            [
-              "__got",
-              32768,
-              8
-            ],
-            [
-              "__const",
-              32776,
-              288
-            ],
-            [
-              "__data",
-              49152,
-              88
-            ],
-            [
-              "__common",
-              49240,
-              183
-            ],
-            [
-              "__bss",
-              49424,
-              632
-            ]
-          ],
-          "symbols": 289,
-          "data_symbols": 71,
-          "reference_sha256": "6ee645446990073fa4a24b7a445812a9c2f85b4e647ee70c32c58747b37347d4"
-        }
+    "0:lib/WinterJS.dylib": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "cac240d95960f003827577017c8a9112a7e77a4b67635471623c2ba9275a0225"
       },
-      "other_reference_cpu_ids": [
-        "0x11000012",
-        "0x10000012",
-        "0x12",
-        "0x1000012"
-      ]
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 77824,
+        "entry": null,
+        "sha256": "695793fa982829183c872281929add7be389bcb0596984c376aa2fac5e6f46c7"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 114688,
+        "entry": null,
+        "sha256": "11096c77f2ae40abb7e5f0903582ffad7f4aac155ca9f8aee3f9f56dd7fd3ad3"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 81920,
+        "entry": null,
+        "sha256": "b744b4072e600b6516e9d7f0c0b14b52afd281c925f2feae8a967cbe5b820c9f"
+      }
     },
-    "lib/WinterTTF.dylib": {
-      "reference_sha256": "f0f50ff937bdfdbd288cd9f82c696a49ff9c29fdadff59502b7222b0bcc899f8",
-      "architectures": {
-        "x86_64": {
-          "cpu": 16777223,
-          "base": 0,
-          "end": 106496,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1376,
-              76781
-            ],
-            [
-              "__const",
-              78160,
-              599
-            ],
-            [
-              "__cstring",
-              78759,
-              554
-            ],
-            [
-              "__gcc_except_tab",
-              79316,
-              380
-            ],
-            [
-              "__const",
-              81920,
-              240
-            ],
-            [
-              "__data",
-              86016,
-              88
-            ],
-            [
-              "__common",
-              86112,
-              144
-            ],
-            [
-              "__bss",
-              86256,
-              600
-            ]
-          ],
-          "symbols": 216,
-          "data_symbols": 42,
-          "reference_sha256": "2bf33f9deeb459a96c25c96c1ae0351b5f3070b8809288e0fef3d85e3909d6c1"
-        },
-        "i386": {
-          "cpu": 7,
-          "base": 0,
-          "end": 90112,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              4704,
-              58537
-            ],
-            [
-              "__const",
-              63248,
-              1272
-            ],
-            [
-              "__cstring",
-              64520,
-              554
-            ],
-            [
-              "__gcc_except_tab",
-              65076,
-              380
-            ],
-            [
-              "__unwind_info",
-              65456,
-              72
-            ],
-            [
-              "__const",
-              65536,
-              120
-            ],
-            [
-              "__nl_symbol_ptr",
-              69632,
-              12
-            ],
-            [
-              "__data",
-              69644,
-              48
-            ],
-            [
-              "__common",
-              69692,
-              64
-            ],
-            [
-              "__bss",
-              69756,
-              556
-            ]
-          ],
-          "symbols": 216,
-          "data_symbols": 41,
-          "reference_sha256": "d69d43e02757a055775e8cc3b5262017c3036edaf3b036cbaf2e3049d92fc918"
-        },
-        "armv7": {
-          "cpu": 12,
-          "base": 0,
-          "end": 131072,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              15712,
-              48696
-            ],
-            [
-              "__stub_helper",
-              64408,
-              36
-            ],
-            [
-              "__cstring",
-              64444,
-              557
-            ],
-            [
-              "__gcc_except_tab",
-              65004,
-              360
-            ],
-            [
-              "__const",
-              65364,
-              168
-            ],
-            [
-              "__symbolstub1",
-              65532,
-              4
-            ],
-            [
-              "__lazy_symbol",
-              65536,
-              4
-            ],
-            [
-              "__data",
-              65540,
-              52
-            ],
-            [
-              "__common",
-              65592,
-              64
-            ],
-            [
-              "__bss",
-              65656,
-              552
-            ],
-            [
-              "__nl_symbol_ptr",
-              81920,
-              24
-            ],
-            [
-              "__const",
-              81944,
-              120
-            ]
-          ],
-          "symbols": 374,
-          "data_symbols": 45,
-          "reference_sha256": "90d2729c71936627ad443e158f6f5400037672de8e14a4877fda83c5a496856e"
-        },
-        "arm64": {
-          "cpu": 16777228,
-          "base": 0,
-          "end": 114688,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1544,
-              39312
-            ],
-            [
-              "__const",
-              40864,
-              400
-            ],
-            [
-              "__cstring",
-              41264,
-              557
-            ],
-            [
-              "__gcc_except_tab",
-              41824,
-              820
-            ],
-            [
-              "__unwind_info",
-              42644,
-              936
-            ],
-            [
-              "__got",
-              49152,
-              24
-            ],
-            [
-              "__const",
-              49176,
-              240
-            ],
-            [
-              "__data",
-              65536,
-              88
-            ],
-            [
-              "__common",
-              65624,
-              136
-            ],
-            [
-              "__bss",
-              65760,
-              592
-            ]
-          ],
-          "symbols": 449,
-          "data_symbols": 43,
-          "reference_sha256": "1c2a302b7b1b7073e7906b807e328fd79c491b072872f79d980f861a3f079186"
-        }
+    "0:lib/WinterLua.dylib": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 540672,
+        "entry": null,
+        "sha256": "014edf431db13ef02c84b460b421c3426e1373244279a44cd5f406854c8b3c55"
       },
-      "other_reference_cpu_ids": [
-        "0x11000012",
-        "0x10000012",
-        "0x12",
-        "0x1000012"
-      ]
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 602112,
+        "entry": null,
+        "sha256": "aa0b79af8da1dac8e1c5b55c82069762390548954f82a81d2e4ca54922aebab1"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 606208,
+        "entry": null,
+        "sha256": "809d4e719d223405122371aa56ddb29eaf4b0056196ab43e4a99cd3d1067fcc5"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 442368,
+        "entry": null,
+        "sha256": "7e0a95ac472a8362dcd3d301fa0760af7a0727f6ae43d673a74b7ff64105e390"
+      }
     },
-    "lib/TundraWindow.dylib": {
-      "reference_sha256": "f585ad590dbf0511e472b020bc99b4085cae603ddb7853f9648531d989a5c036",
-      "architectures": {
-        "x86_64": {
-          "cpu": 16777223,
-          "base": 0,
-          "end": 65536,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1376,
-              35768
-            ],
-            [
-              "__const",
-              37152,
-              424
-            ],
-            [
-              "__cstring",
-              37576,
-              487
-            ],
-            [
-              "__gcc_except_tab",
-              38064,
-              124
-            ],
-            [
-              "__const",
-              40960,
-              288
-            ],
-            [
-              "__data",
-              45056,
-              88
-            ],
-            [
-              "__common",
-              45152,
-              191
-            ],
-            [
-              "__bss",
-              45344,
-              580
-            ]
-          ],
-          "symbols": 200,
-          "data_symbols": 74,
-          "reference_sha256": "29cac65376caf757332e8be655b821eeb84b39fa3cce0df73522a68a55aa1a73"
-        },
-        "i386": {
-          "cpu": 7,
-          "base": 0,
-          "end": 53248,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1424,
-              29454
-            ],
-            [
-              "__const",
-              30880,
-              1196
-            ],
-            [
-              "__cstring",
-              32076,
-              487
-            ],
-            [
-              "__gcc_except_tab",
-              32564,
-              124
-            ],
-            [
-              "__unwind_info",
-              32688,
-              72
-            ],
-            [
-              "__const",
-              32768,
-              144
-            ],
-            [
-              "__nl_symbol_ptr",
-              36864,
-              8
-            ],
-            [
-              "__data",
-              36872,
-              48
-            ],
-            [
-              "__common",
-              36920,
-              111
-            ],
-            [
-              "__bss",
-              37032,
-              544
-            ]
-          ],
-          "symbols": 200,
-          "data_symbols": 73,
-          "reference_sha256": "f31879f9bec9d9a042da89949d5dc231a818169f87bc36430662aad93cc0e15f"
-        },
-        "armv7": {
-          "cpu": 12,
-          "base": 0,
-          "end": 81920,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              6200,
-              25848
-            ],
-            [
-              "__stub_helper",
-              32048,
-              36
-            ],
-            [
-              "__cstring",
-              32084,
-              493
-            ],
-            [
-              "__gcc_except_tab",
-              32580,
-              124
-            ],
-            [
-              "__const",
-              32704,
-              56
-            ],
-            [
-              "__symbolstub1",
-              32760,
-              8
-            ],
-            [
-              "__lazy_symbol",
-              32768,
-              8
-            ],
-            [
-              "__data",
-              32776,
-              52
-            ],
-            [
-              "__common",
-              32828,
-              111
-            ],
-            [
-              "__bss",
-              32940,
-              544
-            ],
-            [
-              "__nl_symbol_ptr",
-              49152,
-              12
-            ],
-            [
-              "__const",
-              49164,
-              144
-            ]
-          ],
-          "symbols": 265,
-          "data_symbols": 73,
-          "reference_sha256": "4d6bda506b7665f8cd33cef5c9fe02649f1f6200d969329d67fc186771e7040d"
-        },
-        "arm64": {
-          "cpu": 16777228,
-          "base": 0,
-          "end": 98304,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1544,
-              21468
-            ],
-            [
-              "__const",
-              23024,
-              287
-            ],
-            [
-              "__cstring",
-              23311,
-              493
-            ],
-            [
-              "__gcc_except_tab",
-              23804,
-              196
-            ],
-            [
-              "__unwind_info",
-              24000,
-              544
-            ],
-            [
-              "__got",
-              32768,
-              8
-            ],
-            [
-              "__const",
-              32776,
-              288
-            ],
-            [
-              "__data",
-              49152,
-              88
-            ],
-            [
-              "__common",
-              49240,
-              183
-            ],
-            [
-              "__bss",
-              49424,
-              576
-            ]
-          ],
-          "symbols": 297,
-          "data_symbols": 71,
-          "reference_sha256": "12ba969f6cfc268d86e7eca874d80a75512cf6588c67a96f770f1c2f6b04a668"
-        }
+    "0:lib/WinterPNG.dylib": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 94208,
+        "entry": null,
+        "sha256": "259cfccddfdfc63f9d16abb34b20c81299d8ca7160a7eac8357173124c9bbce4"
       },
-      "other_reference_cpu_ids": [
-        "0x11000012",
-        "0x10000012",
-        "0x12",
-        "0x1000012"
-      ]
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 126976,
+        "entry": null,
+        "sha256": "87c7c42a7a07d3f2d566c9f4aa58ca4cdc7d3df18d275c3f45a0a90b552bd112"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 147456,
+        "entry": null,
+        "sha256": "781ece665100031ff7418b204a14d20fd2bff5d53d79738317e55d0997ede328"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 114688,
+        "entry": null,
+        "sha256": "94386fabb584c91b630a7ad797fd06243b936a3c227fb4e689a427e64ad887d8"
+      }
     },
-    "lib/WinterLua.dylib": {
-      "reference_sha256": "0c9d9db3dbe4910182691fcfe507c930ece4173ce35d5b1b7b99eb579a3e0f41",
-      "architectures": {
-        "x86_64": {
-          "cpu": 16777223,
-          "base": 0,
-          "end": 466944,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1456,
-              321192
-            ],
-            [
-              "__const",
-              322656,
-              8712
-            ],
-            [
-              "__cstring",
-              331368,
-              4610
-            ],
-            [
-              "__gcc_except_tab",
-              335980,
-              6800
-            ],
-            [
-              "__got",
-              344064,
-              56
-            ],
-            [
-              "__const",
-              344120,
-              5696
-            ],
-            [
-              "__data",
-              352256,
-              88
-            ],
-            [
-              "__common",
-              352352,
-              144
-            ],
-            [
-              "__bss",
-              352496,
-              572
-            ]
-          ],
-          "symbols": 698,
-          "data_symbols": 538,
-          "reference_sha256": "25987df7bb0567c3a4beda5c6fc7a2c98f542a30864e68edfbdb85a67eecdf38"
-        },
-        "i386": {
-          "cpu": 7,
-          "base": 0,
-          "end": 421888,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1728,
-              266364
-            ],
-            [
-              "__const",
-              268096,
-              19400
-            ],
-            [
-              "__cstring",
-              287496,
-              4610
-            ],
-            [
-              "__gcc_except_tab",
-              292108,
-              6820
-            ],
-            [
-              "__unwind_info",
-              298928,
-              72
-            ],
-            [
-              "__const",
-              299008,
-              2860
-            ],
-            [
-              "__nl_symbol_ptr",
-              303104,
-              76
-            ],
-            [
-              "__data",
-              303180,
-              48
-            ],
-            [
-              "__common",
-              303228,
-              64
-            ],
-            [
-              "__bss",
-              303292,
-              540
-            ]
-          ],
-          "symbols": 699,
-          "data_symbols": 538,
-          "reference_sha256": "2481fdaee54df497e58ba4463b8828aba990c2a98e348c08bfc4246cb9f7c49b"
-        },
-        "armv7": {
-          "cpu": 12,
-          "base": 0,
-          "end": 393216,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              2076,
-              193776
-            ],
-            [
-              "__stub_helper",
-              195852,
-              36
-            ],
-            [
-              "__cstring",
-              195888,
-              4697
-            ],
-            [
-              "__gcc_except_tab",
-              200588,
-              4108
-            ],
-            [
-              "__const",
-              204696,
-              8286
-            ],
-            [
-              "__symbolstub1",
-              212984,
-              8
-            ],
-            [
-              "__lazy_symbol",
-              212992,
-              8
-            ],
-            [
-              "__data",
-              213000,
-              52
-            ],
-            [
-              "__common",
-              213052,
-              64
-            ],
-            [
-              "__bss",
-              213116,
-              540
-            ],
-            [
-              "__nl_symbol_ptr",
-              229376,
-              88
-            ],
-            [
-              "__const",
-              229464,
-              2896
-            ]
-          ],
-          "symbols": 1013,
-          "data_symbols": 483,
-          "reference_sha256": "6e14ceab0b81edc5e45b49dd5da8010f8108bee24698313761274f28f64dc1d5"
-        },
-        "arm64": {
-          "cpu": 16777228,
-          "base": 0,
-          "end": 360448,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1624,
-              121024
-            ],
-            [
-              "__const",
-              122656,
-              8768
-            ],
-            [
-              "__cstring",
-              131424,
-              4697
-            ],
-            [
-              "__gcc_except_tab",
-              136124,
-              11604
-            ],
-            [
-              "__unwind_info",
-              147728,
-              4128
-            ],
-            [
-              "__eh_frame",
-              151856,
-              56
-            ],
-            [
-              "__got",
-              163840,
-              72
-            ],
-            [
-              "__const",
-              163912,
-              5768
-            ],
-            [
-              "__data",
-              180224,
-              88
-            ],
-            [
-              "__common",
-              180312,
-              136
-            ],
-            [
-              "__bss",
-              180448,
-              564
-            ]
-          ],
-          "symbols": 1523,
-          "data_symbols": 481,
-          "reference_sha256": "48468726bbe712570adfdc44270dfd753d4c27aac7648d6ac740d81dfd596b2d"
-        }
+    "0:lib/WinterPiet.dylib": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 102400,
+        "entry": null,
+        "sha256": "efafabc4f7b1de94a427a41fd49fa64799b7ecf95767f3655dd636edaf608991"
       },
-      "other_reference_cpu_ids": [
-        "0x11000012",
-        "0x10000012",
-        "0x12",
-        "0x1000012"
-      ]
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 114688,
+        "entry": null,
+        "sha256": "a3d2e05c9ccd5074ecfcdcca0919fae7208ab6aacdcb0ef27fbc37c4e435262a"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 147456,
+        "entry": null,
+        "sha256": "dc281839bcfa676105dea808e3dca9b814c254b50cd0b8170e5033b6592bb78e"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 131072,
+        "entry": null,
+        "sha256": "64a38542a9ed0ba20c111171b23dd5fc28a89d855cec4a761390f1f74df89e17"
+      }
     },
-    "lib/WinterPiet.dylib": {
-      "reference_sha256": "fa0a7a8661e7950bf7ccb860f335d8cd0830ebd737a97d9eb31638dbe5996314",
-      "architectures": {
-        "x86_64": {
-          "cpu": 16777223,
-          "base": 0,
-          "end": 106496,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1536,
-              52679
-            ],
-            [
-              "__const",
-              54224,
-              2855
-            ],
-            [
-              "__cstring",
-              57079,
-              472
-            ],
-            [
-              "__gcc_except_tab",
-              57552,
-              332
-            ],
-            [
-              "__got",
-              61440,
-              64
-            ],
-            [
-              "__mod_init_func",
-              61504,
-              32
-            ],
-            [
-              "__const",
-              61536,
-              1696
-            ],
-            [
-              "__data",
-              65536,
-              184
-            ],
-            [
-              "__common",
-              65728,
-              144
-            ],
-            [
-              "__bss",
-              65872,
-              568
-            ]
-          ],
-          "symbols": 322,
-          "data_symbols": 121,
-          "reference_sha256": "d096d7834981576c241e89b643f6ccf65a598e7223377c7fd7297f81b751b6a5"
-        },
-        "i386": {
-          "cpu": 7,
-          "base": 0,
-          "end": 98304,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              4560,
-              44370
-            ],
-            [
-              "__const",
-              48944,
-              3415
-            ],
-            [
-              "__cstring",
-              52359,
-              472
-            ],
-            [
-              "__gcc_except_tab",
-              52832,
-              332
-            ],
-            [
-              "__unwind_info",
-              53164,
-              72
-            ],
-            [
-              "__mod_init_func",
-              53248,
-              16
-            ],
-            [
-              "__const",
-              53264,
-              848
-            ],
-            [
-              "__nl_symbol_ptr",
-              57344,
-              68
-            ],
-            [
-              "__data",
-              57412,
-              112
-            ],
-            [
-              "__common",
-              57524,
-              64
-            ],
-            [
-              "__bss",
-              57588,
-              536
-            ]
-          ],
-          "symbols": 322,
-          "data_symbols": 120,
-          "reference_sha256": "b91a172a2e9b63b01c18bf83a1991b6b224aeb5c65937eaadf4d0ddc6c33b33e"
-        },
-        "armv7": {
-          "cpu": 12,
-          "base": 0,
-          "end": 131072,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              8140,
-              37684
-            ],
-            [
-              "__stub_helper",
-              45824,
-              36
-            ],
-            [
-              "__cstring",
-              45860,
-              475
-            ],
-            [
-              "__gcc_except_tab",
-              46336,
-              316
-            ],
-            [
-              "__const",
-              46652,
-              2495
-            ],
-            [
-              "__symbolstub1",
-              49148,
-              4
-            ],
-            [
-              "__lazy_symbol",
-              49152,
-              4
-            ],
-            [
-              "__data",
-              49156,
-              100
-            ],
-            [
-              "__common",
-              49256,
-              64
-            ],
-            [
-              "__bss",
-              49320,
-              536
-            ],
-            [
-              "__nl_symbol_ptr",
-              65536,
-              72
-            ],
-            [
-              "__mod_init_func",
-              65608,
-              16
-            ],
-            [
-              "__const",
-              65624,
-              848
-            ]
-          ],
-          "symbols": 408,
-          "data_symbols": 120,
-          "reference_sha256": "c17ee69b480f96e1cccd2a4e36a911d23d431f3d93013119290e110402b1f5be"
-        },
-        "arm64": {
-          "cpu": 16777228,
-          "base": 0,
-          "end": 131072,
-          "entry": null,
-          "sections": [
-            [
-              "__text",
-              1704,
-              28344
-            ],
-            [
-              "__const",
-              30048,
-              2659
-            ],
-            [
-              "__cstring",
-              32707,
-              475
-            ],
-            [
-              "__gcc_except_tab",
-              33184,
-              784
-            ],
-            [
-              "__unwind_info",
-              33968,
-              1000
-            ],
-            [
-              "__eh_frame",
-              34968,
-              56
-            ],
-            [
-              "__got",
-              49152,
-              72
-            ],
-            [
-              "__mod_init_func",
-              49224,
-              32
-            ],
-            [
-              "__const",
-              49256,
-              1696
-            ],
-            [
-              "__data",
-              65536,
-              184
-            ],
-            [
-              "__common",
-              65720,
-              136
-            ],
-            [
-              "__bss",
-              65856,
-              560
-            ]
-          ],
-          "symbols": 471,
-          "data_symbols": 118,
-          "reference_sha256": "e1f46bc286a47db569b5ed190d8c49c5cf089781d453fc4f0020dedd0b5d1a26"
-        }
+    "0:lib/WinterRwby.dylib": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 434176,
+        "entry": null,
+        "sha256": "7e119552a45deff976ab26f48c51a48a42bc2449999ce50d9e66b88c822d2c00"
       },
-      "other_reference_cpu_ids": [
-        "0x11000012",
-        "0x10000012",
-        "0x12",
-        "0x1000012"
-      ]
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 483328,
+        "entry": null,
+        "sha256": "37887de7483c95da890a134f73ab81d0f66bb2446f62f3006b1c43bdef4f4def"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 491520,
+        "entry": null,
+        "sha256": "7e4ee3111ea3eec82e3ca8f8980c0cf3bf3a978d8afb3db83cf054a3540c544f"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 360448,
+        "entry": null,
+        "sha256": "9d0cf5b9e50d8bf7f55983e4fa96bfbc0cb3c90bad84c34ce6a9956b5e98fd21"
+      }
+    },
+    "0:lib/WinterScript.dylib": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 913408,
+        "entry": null,
+        "sha256": "dc34738afcf4ae80986b7eb76f7124630d8ee5ffcc0cef6f0e2341840f491d98"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 1011712,
+        "entry": null,
+        "sha256": "4797507baa5f2e8a2e3c3d5f8cbda631378d281b38fd2da8ea20dcd2d6435085"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 950272,
+        "entry": null,
+        "sha256": "9970c5f6eb46cc550d9616af79baed69c27e0526d081ba701540ddf817dddb97"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 622592,
+        "entry": null,
+        "sha256": "3878600c6ef8b97c833aa3c1b3b9558e9d0bb960c69c862fe8a084c4e916c334"
+      }
+    },
+    "0:lib/WinterTLS.dylib": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "a90fd3e07f84daa4c7763c070e7bcb240858441c3c2936e71c1a684ad7305c33"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 77824,
+        "entry": null,
+        "sha256": "d2f0a00967a116e0542a5585241c33b62d56533ca5b23aeb9ece30f3bb998f13"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 114688,
+        "entry": null,
+        "sha256": "d9f58b2c304ad54a7236029e7b61ef69ce77dcf47a3b30a1d70c6a873f5ea225"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 81920,
+        "entry": null,
+        "sha256": "d7c405363a1b25fc0db40723a0a3e6d40f78d0b48ab0c9548b5c7c1e25e6b90c"
+      }
+    },
+    "0:lib/WinterTTF.dylib": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 94208,
+        "entry": null,
+        "sha256": "823ef8d4a91f3c9f286c9b8692108e68864bf30ae594e46ddc051c7951d23cc2"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 114688,
+        "entry": null,
+        "sha256": "7bcdb28c9d0c5c14c3ca2ca7e13704e0bdf2226f0d71606218435edf24a1c300"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 131072,
+        "entry": null,
+        "sha256": "5ac72d68a6f8469f4eadd165dd9f35022b590b958d1ff2e03850a099b0ba81cc"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 114688,
+        "entry": null,
+        "sha256": "c5d12083fc7e895d6b97139fe96355e50ead33443bad0415d506f23662239452"
+      }
+    },
+    "1:Permafrost": {
+      "i386": {
+        "cpu": 7,
+        "base": 33554432,
+        "end": 35999744,
+        "entry": 33554452,
+        "sha256": "b1df47e8cd474d2a7b510583e450bef08697ad487dcf84294a8dd79301e6a237"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 33554432,
+        "end": 36192256,
+        "entry": 33554452,
+        "sha256": "2c7e1e7afed5a5a92022ea2b90aa5126d2c8488b598f4348f7fbac3fc06c80f2"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 1077936128,
+        "end": 1080385536,
+        "entry": 1077936148,
+        "sha256": "80df367c8f2804c32de89294fb2d068815e60a70953a168430efcb0e01644ada"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 2185232384,
+        "end": 2187792384,
+        "entry": 2185232404,
+        "sha256": "9acf5c5639e686bd25cc7c5d9f6e86b26711bb0b424f3b2a7d7eaabafe6e7d66"
+      }
+    },
+    "1:lib/PermafrostWindow.dylib": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 57344,
+        "entry": null,
+        "sha256": "04d050c1f5489a147f99d45820361eee1df65df74d861086771cfb424e106080"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 73728,
+        "entry": null,
+        "sha256": "489d4867dfd1c54316f8882d36ae312c4b82cfad6f0d9ea88ea1cc1f8b15b411"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 98304,
+        "entry": null,
+        "sha256": "98f0f3580d21dbbd68077b80de42c13167ce923dc1e52c7280c89ca733a6ce4d"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 98304,
+        "entry": null,
+        "sha256": "ec4c4c5711840ce0e537677b75ce43e657144e84b2c00b9da59456525ea16d64"
+      }
+    },
+    "1:lib/TerrorUI.dylib": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 61440,
+        "entry": null,
+        "sha256": "a203e836b85be373583ca68c6ec41bbe2f2d4406127105386c178edef1bd06d0"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 73728,
+        "entry": null,
+        "sha256": "01402b0d89d029bc6f9ed9d08fabeb415a510b01fce8528bdb90c44583b0aaa7"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 98304,
+        "entry": null,
+        "sha256": "7d0bbdf88bfa724447b1fa80866d07f6d2546cb0501b47f9f21afc5d6845a19b"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 98304,
+        "entry": null,
+        "sha256": "9623551ddb49bed1c07e4952998169fe76920082ece1e0fd57e9a19ac04ac0d6"
+      }
+    },
+    "1:lib/TundraWindow.dylib": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 61440,
+        "entry": null,
+        "sha256": "c7287f11ec56c6dde658ec2ffc719d160df83ebf62e2456e241c1c2536f298aa"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 73728,
+        "entry": null,
+        "sha256": "b5afba1a729c353feb7c5ce759180cb0ccda804da0116847cf11fdb08fd8f70f"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 98304,
+        "entry": null,
+        "sha256": "ad4e719dad14f57f9f802228c1e078ebaf45de5e269b0f4478591de4605cd18e"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 98304,
+        "entry": null,
+        "sha256": "761767c4cb2757ba944d53945077f8de3f5b95631b06a0b0b57d8bd8f7d6e77b"
+      }
+    },
+    "1:lib/WinterAudio.dylib": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 61440,
+        "entry": null,
+        "sha256": "32c72c039094d18e13c2ac8c7e39617fa74d2e6cb429e2ab907eac2f1cccdf92"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 77824,
+        "entry": null,
+        "sha256": "3c7da7e24197e3860702dc79eb9dd48c586499460ec680f130dd1f4738ff038f"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 98304,
+        "entry": null,
+        "sha256": "f1a0e5a6d1114e9b02d30c8786fac08acd72d43c3324f8c48d84e66fb92cfd05"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 98304,
+        "entry": null,
+        "sha256": "dc8c4c305b5ddd2b8108f5f77c9cf851736b8b9d75348cb5dcfe8cc9c11ef861"
+      }
+    },
+    "1:lib/WinterJS.dylib": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "cac240d95960f003827577017c8a9112a7e77a4b67635471623c2ba9275a0225"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 77824,
+        "entry": null,
+        "sha256": "695793fa982829183c872281929add7be389bcb0596984c376aa2fac5e6f46c7"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 114688,
+        "entry": null,
+        "sha256": "11096c77f2ae40abb7e5f0903582ffad7f4aac155ca9f8aee3f9f56dd7fd3ad3"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 81920,
+        "entry": null,
+        "sha256": "b744b4072e600b6516e9d7f0c0b14b52afd281c925f2feae8a967cbe5b820c9f"
+      }
+    },
+    "1:lib/WinterLua.dylib": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 540672,
+        "entry": null,
+        "sha256": "014edf431db13ef02c84b460b421c3426e1373244279a44cd5f406854c8b3c55"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 602112,
+        "entry": null,
+        "sha256": "aa0b79af8da1dac8e1c5b55c82069762390548954f82a81d2e4ca54922aebab1"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 606208,
+        "entry": null,
+        "sha256": "809d4e719d223405122371aa56ddb29eaf4b0056196ab43e4a99cd3d1067fcc5"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 442368,
+        "entry": null,
+        "sha256": "7e0a95ac472a8362dcd3d301fa0760af7a0727f6ae43d673a74b7ff64105e390"
+      }
+    },
+    "1:lib/WinterPNG.dylib": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 94208,
+        "entry": null,
+        "sha256": "259cfccddfdfc63f9d16abb34b20c81299d8ca7160a7eac8357173124c9bbce4"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 126976,
+        "entry": null,
+        "sha256": "87c7c42a7a07d3f2d566c9f4aa58ca4cdc7d3df18d275c3f45a0a90b552bd112"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 147456,
+        "entry": null,
+        "sha256": "781ece665100031ff7418b204a14d20fd2bff5d53d79738317e55d0997ede328"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 114688,
+        "entry": null,
+        "sha256": "94386fabb584c91b630a7ad797fd06243b936a3c227fb4e689a427e64ad887d8"
+      }
+    },
+    "1:lib/WinterPiet.dylib": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 102400,
+        "entry": null,
+        "sha256": "efafabc4f7b1de94a427a41fd49fa64799b7ecf95767f3655dd636edaf608991"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 114688,
+        "entry": null,
+        "sha256": "a3d2e05c9ccd5074ecfcdcca0919fae7208ab6aacdcb0ef27fbc37c4e435262a"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 147456,
+        "entry": null,
+        "sha256": "dc281839bcfa676105dea808e3dca9b814c254b50cd0b8170e5033b6592bb78e"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 131072,
+        "entry": null,
+        "sha256": "64a38542a9ed0ba20c111171b23dd5fc28a89d855cec4a761390f1f74df89e17"
+      }
+    },
+    "1:lib/WinterRwby.dylib": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 434176,
+        "entry": null,
+        "sha256": "7e119552a45deff976ab26f48c51a48a42bc2449999ce50d9e66b88c822d2c00"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 483328,
+        "entry": null,
+        "sha256": "37887de7483c95da890a134f73ab81d0f66bb2446f62f3006b1c43bdef4f4def"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 491520,
+        "entry": null,
+        "sha256": "7e4ee3111ea3eec82e3ca8f8980c0cf3bf3a978d8afb3db83cf054a3540c544f"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 360448,
+        "entry": null,
+        "sha256": "9d0cf5b9e50d8bf7f55983e4fa96bfbc0cb3c90bad84c34ce6a9956b5e98fd21"
+      }
+    },
+    "1:lib/WinterScript.dylib": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 913408,
+        "entry": null,
+        "sha256": "dc34738afcf4ae80986b7eb76f7124630d8ee5ffcc0cef6f0e2341840f491d98"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 1011712,
+        "entry": null,
+        "sha256": "4797507baa5f2e8a2e3c3d5f8cbda631378d281b38fd2da8ea20dcd2d6435085"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 950272,
+        "entry": null,
+        "sha256": "9970c5f6eb46cc550d9616af79baed69c27e0526d081ba701540ddf817dddb97"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 622592,
+        "entry": null,
+        "sha256": "3878600c6ef8b97c833aa3c1b3b9558e9d0bb960c69c862fe8a084c4e916c334"
+      }
+    },
+    "1:lib/WinterTLS.dylib": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "a90fd3e07f84daa4c7763c070e7bcb240858441c3c2936e71c1a684ad7305c33"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 77824,
+        "entry": null,
+        "sha256": "d2f0a00967a116e0542a5585241c33b62d56533ca5b23aeb9ece30f3bb998f13"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 114688,
+        "entry": null,
+        "sha256": "d9f58b2c304ad54a7236029e7b61ef69ce77dcf47a3b30a1d70c6a873f5ea225"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 81920,
+        "entry": null,
+        "sha256": "d7c405363a1b25fc0db40723a0a3e6d40f78d0b48ab0c9548b5c7c1e25e6b90c"
+      }
+    },
+    "1:lib/WinterTTF.dylib": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 94208,
+        "entry": null,
+        "sha256": "823ef8d4a91f3c9f286c9b8692108e68864bf30ae594e46ddc051c7951d23cc2"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 114688,
+        "entry": null,
+        "sha256": "7bcdb28c9d0c5c14c3ca2ca7e13704e0bdf2226f0d71606218435edf24a1c300"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 131072,
+        "entry": null,
+        "sha256": "5ac72d68a6f8469f4eadd165dd9f35022b590b958d1ff2e03850a099b0ba81cc"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 114688,
+        "entry": null,
+        "sha256": "c5d12083fc7e895d6b97139fe96355e50ead33443bad0415d506f23662239452"
+      }
+    },
+    "2:3D Demo.app/Contents/Permafrost/3DDemo": {
+      "i386": {
+        "cpu": 7,
+        "base": 25165824,
+        "end": 25182208,
+        "entry": null,
+        "sha256": "78ac85158d9caa96ace0e1d232f77f75276063223a709450f62512242e036015"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 25165824,
+        "end": 25182208,
+        "entry": null,
+        "sha256": "bae78998e00d301bc4dd4a4b47f4bed913646f2eb91b586c28f1d8af80e77197"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 49152,
+        "entry": null,
+        "sha256": "eb719ddf442bd51c308cbbc2b72223ec72b9521fdddfeb2368068afef88fba5c"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "0161c7f8002e6e416ae61a452b7279f648a490b9549f27a914fb6dfb28ac62b0"
+      }
+    },
+    "2:ActivityMonitor.app/Contents/Permafrost/ActivityMonitor": {
+      "i386": {
+        "cpu": 7,
+        "base": 25165824,
+        "end": 25202688,
+        "entry": null,
+        "sha256": "d7e07928c3ae322d1ff336f0a610bd9bb665cb5be828fbecce0c91d60efd6e2b"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 25165824,
+        "end": 25206784,
+        "entry": null,
+        "sha256": "0631be2ceaee050b9e040c9435416a3a3c2ec73581569c53f80294260b8190c8"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "589ddc7c9c0955b0fde57bb277e0dfee4ef1ae817b75be4c668ef417e116692f"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "d24cd5513f364763b43bded8f982183b17008c59bb4e52abe23a33c6fbfe7595"
+      }
+    },
+    "2:Cancer.app/Contents/Permafrost/Cancer": {
+      "i386": {
+        "cpu": 7,
+        "base": 25165824,
+        "end": 25206784,
+        "entry": null,
+        "sha256": "d8603a5f6b51c5d472596b940c2f016d9d8bd8181feac48826f7b985b6ce4b18"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 25165824,
+        "end": 25210880,
+        "entry": null,
+        "sha256": "3ae8a09660d874a9912408806da56ead953d362dac3171b9bf67b739bda6c179"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 81920,
+        "entry": null,
+        "sha256": "08c9b980a194293fd445919f05d0f576aa595b74b8c237e0ce715ddff8d3dbcf"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "56e1d5ff2cb3267eee1cccd8f658c2f961b4a524ec3b32d7ff2f21b5ec169fad"
+      }
+    },
+    "2:Drivers/audio~intel~hda.kext": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 57344,
+        "entry": null,
+        "sha256": "cb0531412867c9ad5f94b873d38f2da5d86e0abb6620780c44a492e2e749aba9"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "698f9b82777be85eb109fd3daaa0cca363e441e8bcb59997edba3b6dee1f200d"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 81920,
+        "entry": null,
+        "sha256": "43768e1aedb69fbf46838ba444325af98ae70124dacd23980cee1d66a30fd5a3"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "919a273fe93fc2879903190c8620f78d26bfd29607b5679c4851a0c0d9cc2732"
+      }
+    },
+    "2:Drivers/audio~isa~sb16.kext": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 57344,
+        "entry": null,
+        "sha256": "cb0531412867c9ad5f94b873d38f2da5d86e0abb6620780c44a492e2e749aba9"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "698f9b82777be85eb109fd3daaa0cca363e441e8bcb59997edba3b6dee1f200d"
+      }
+    },
+    "2:Drivers/cpu~arm64~host.kext": {
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "89511201d90ae6501039270698621910b42b72d0e8e687e5e70d5e87c52e8d05"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 49152,
+        "entry": null,
+        "sha256": "a1166058917e92a328f5d6744eb326577946ed3dcc8043a79e5849f64bcae158"
+      }
+    },
+    "2:Drivers/cpu~armv7~cortex-a15.kext": {
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "89511201d90ae6501039270698621910b42b72d0e8e687e5e70d5e87c52e8d05"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 49152,
+        "entry": null,
+        "sha256": "a1166058917e92a328f5d6744eb326577946ed3dcc8043a79e5849f64bcae158"
+      }
+    },
+    "2:Drivers/cpu~i386~qemu-generic.kext": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 12288,
+        "entry": null,
+        "sha256": "3f3933a8b89487d3599582c8d5e52d407caf2688626cb84a753b3251437f74d5"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 16384,
+        "entry": null,
+        "sha256": "45ea3b80093aaf3a21a618986af593ee5f90c3776db5f15f1b32329fe22906de"
+      }
+    },
+    "2:Drivers/cpu~x86_64~skylake-client.kext": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 12288,
+        "entry": null,
+        "sha256": "3f3933a8b89487d3599582c8d5e52d407caf2688626cb84a753b3251437f74d5"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 16384,
+        "entry": null,
+        "sha256": "45ea3b80093aaf3a21a618986af593ee5f90c3776db5f15f1b32329fe22906de"
+      }
+    },
+    "2:Drivers/graphics~cirrus~vga.kext": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "ebd88993bdf5c7232db5ff2fd897b74353ed3a480536fc4267bebb10e888fbd2"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 73728,
+        "entry": null,
+        "sha256": "3b2eaf7fdeb9d3444dbfd4731a6250e225a91307f6ac6d286463005f33eb070f"
+      }
+    },
+    "2:Drivers/graphics~virtio~ramfb.kext": {
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 81920,
+        "entry": null,
+        "sha256": "12f47e44be76bbf352eaf55d8dab7953c4f4449394bd0464f582b463f57ceac7"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "4325800f0338087207c002552cf4e5a6ec624cf050faf66d0c53215070eca36e"
+      }
+    },
+    "2:Drivers/graphics~virtio~vga.kext": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "ebd88993bdf5c7232db5ff2fd897b74353ed3a480536fc4267bebb10e888fbd2"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 73728,
+        "entry": null,
+        "sha256": "3b2eaf7fdeb9d3444dbfd4731a6250e225a91307f6ac6d286463005f33eb070f"
+      }
+    },
+    "2:Drivers/input~i2c-hid~yoga-slim7x.kext": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 12288,
+        "entry": null,
+        "sha256": "e389b9724ad2378a436fc2176d89867c48e01959413ec9ac12698e83a6034db1"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 12288,
+        "entry": null,
+        "sha256": "ab44b4112b4370d3cc244366fa1fea180a2cd282074118a8c0c42a1c9acb7e56"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "3c40abf36704a3cf7d67e2ba680628714b8053a8dbca2111a3e61002d4ecc4f4"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "4fac05bbee572ddc155e2903f29d92034834d7c1c706c41716ca13ea3c38a3a7"
+      }
+    },
+    "2:Drivers/network~virtio~pci.kext": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 94208,
+        "entry": null,
+        "sha256": "902930c26f7391eea570dd2970b143067b22bffc3d5060dead3f800c11c2f1cb"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 106496,
+        "entry": null,
+        "sha256": "e3477004840e0ef40162717ba7ee60af687c495d565a7584033ca2710416bb31"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 114688,
+        "entry": null,
+        "sha256": "9f2c265210200755c37bfd13dfcfbb11c242e921784cf15174e1b768d39f8613"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 98304,
+        "entry": null,
+        "sha256": "960958be51cdf5137eee550df1841d5b480ddb88c2efb1d80772554206895949"
+      }
+    },
+    "2:Drivers/platform~apple~macbook-2008.kext": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 77824,
+        "entry": null,
+        "sha256": "65dec239731a7c29b0c2250cf5a13252c53300225d00a84f1b36e29816359433"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 94208,
+        "entry": null,
+        "sha256": "f4149ace47070026c378310920bb74235d5fc6a2351b274e3041f2a549c8f47e"
+      }
+    },
+    "2:Drivers/platform~apple~macbook-pro-2008.kext": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 77824,
+        "entry": null,
+        "sha256": "d3665d7452bcb101d4a30c4c3869d57fb632c4259948a26a3aa89080793dbc5f"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 94208,
+        "entry": null,
+        "sha256": "d8367c7b0c25692562ba3048cdf56dda3211882a8d0fad730066e734c906eb48"
+      }
+    },
+    "2:Drivers/platform~generic~hardware.kext": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 57344,
+        "entry": null,
+        "sha256": "751f3c063f5b6b188668fae6050a090e670ccbf3fe2d485689c00626d6c77e64"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "1b8d4f6e8bd8301e12dd898a7b267dd8a54bc075f24f37e03df61e80946ef3a1"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 81920,
+        "entry": null,
+        "sha256": "23888c6060fd0a221b4a62f166f831b1f2ea4c6b0627ccf1f5d3f7acb510ea7b"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "1b52945bb0a67751ca9afaa3b689f7d05974ebe94d3ae2852a43237de40ddfff"
+      }
+    },
+    "2:Drivers/pointer~qemu~usb-hid.kext": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 49152,
+        "entry": null,
+        "sha256": "6f9a03673c24cdb0812c302d541e6fc88474b48977130b652b91832805dfe0c7"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 53248,
+        "entry": null,
+        "sha256": "add96fd1267f4db447106be33012a7dca649365f3165b740eb4c1fd789df2942"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "54900c4aa5119332d904764efe23ff4f34f946fd857c590a44ddc32d7ff7bac9"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "8198a708f2f81dcf7475c1bb5096af0c7d890874ab5f5a1d443c693e5a86d6bb"
+      }
+    },
+    "2:Drivers/rng~virtio~pci.kext": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 53248,
+        "entry": null,
+        "sha256": "990b119b8888315417af8600996fb76214d8982d1f5c71b923f770dce7b846ad"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 61440,
+        "entry": null,
+        "sha256": "3b957533b74030f6c99d323b59f6bc878538fd89999017fb6eab3c02f3c93722"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 81920,
+        "entry": null,
+        "sha256": "e89c529b772329ad7625e81710bee6b59adff6a3a2414d36a318b958d21fde2f"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "494dd17d5cbd4737fa79cb375e329be16cf95da39623757dd5c71993cb2e4ca7"
+      }
+    },
+    "2:Drivers/serial~qemu~spice.kext": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 20480,
+        "entry": null,
+        "sha256": "eda20139ab054bfed6f156a1c25a4b96fdc34690cfc5d195b026a38dc0309b77"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 24576,
+        "entry": null,
+        "sha256": "3124ba349e9525f6947cef63636d1231d2784fa83b5d847fb18d95b7be9f8e35"
+      }
+    },
+    "2:Drivers/serial~virtio~spice.kext": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 20480,
+        "entry": null,
+        "sha256": "eda20139ab054bfed6f156a1c25a4b96fdc34690cfc5d195b026a38dc0309b77"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 24576,
+        "entry": null,
+        "sha256": "3124ba349e9525f6947cef63636d1231d2784fa83b5d847fb18d95b7be9f8e35"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "9ea101316ee119667661c15defeb7f9c6b13fb1a5ba8a64da140955ee862f842"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 49152,
+        "entry": null,
+        "sha256": "c7ec7f786304c5848ee5447dbd0b2c327984786aa34fc5e172497a18da909a3b"
+      }
+    },
+    "2:Drivers/storage~nvme~pcie.kext": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 28672,
+        "entry": null,
+        "sha256": "2aea6dbaf7fbbb75ebc03255975d6d905c8724b082b94261d462bd6d1c62dac8"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 28672,
+        "entry": null,
+        "sha256": "972c3c839ee3f9199b2e4aa6b48b51cb1ea31f16b88c41437fa8c22db90dbcc5"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "b4065aeb2e86746ff3aabaf4873ef4698fec22d3e85b6fcd8f75675d49de98d2"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "a89b9abfb3fa289ec48d63cf1131a1d22fac704f988e909f8a25c73008091844"
+      }
+    },
+    "2:Drivers/storage~usb~mass-storage~boot-0.kext": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 24576,
+        "entry": null,
+        "sha256": "cf16440f25c5db77c069508b46a6ad89f18818a722c456565dd45fe9f575ac50"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 28672,
+        "entry": null,
+        "sha256": "96344b8d4be37f54fbbaafc48252d76f254a464ff16e0c4be7683c3ec1968659"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "80f9bee6fd5a87f2152c85510a3d0aef7f2fe05fa09f44906045efc8471a8d40"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 49152,
+        "entry": null,
+        "sha256": "ddeb47774d62d7dcbe54843007918072dd097f450abacbd60ae6448de55bc572"
+      }
+    },
+    "2:Drivers/usb~qemu~xhci.kext": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 45056,
+        "entry": null,
+        "sha256": "068d7e9fea431b3263e75c652f43e21b215527ddca22e78bcfa64ff4bed115e3"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 53248,
+        "entry": null,
+        "sha256": "feabbc045a72258459c7c7f94dfa32f9130d7a0c5971eb643f946cecba5c3849"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "0e8e9cdec7ba9f953649cf0e383f964f6c4290c7ce0fddf15bc729fe152704f9"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 49152,
+        "entry": null,
+        "sha256": "b234313f1c3fc591a62979efa3481eaa07d8173f7844fa7f389372783f1bbc8d"
+      }
+    },
+    "2:Glacier.app/Contents/Permafrost/Glacier": {
+      "i386": {
+        "cpu": 7,
+        "base": 25165824,
+        "end": 25296896,
+        "entry": null,
+        "sha256": "067247b22537a1800813a739cc2fea41f117ec08d7f5332e24bcb95e1109a5d4"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 25165824,
+        "end": 25313280,
+        "entry": null,
+        "sha256": "ab8a59e69e592b07d82bd014ebf981027949a24f0cd27f8852cbc79490c628e1"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 180224,
+        "entry": null,
+        "sha256": "664cb5906004e7cc3183d3c77d8ae250bdbe64d332fd04877589a2be9f9d8411"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 147456,
+        "entry": null,
+        "sha256": "29be3ab23cf3d66e3c73902809f720da898ef41ccbdfd1a29e4ebc2e3838c3a4"
+      }
+    },
+    "2:Install.app/Contents/Permafrost/Install": {
+      "i386": {
+        "cpu": 7,
+        "base": 25165824,
+        "end": 25190400,
+        "entry": null,
+        "sha256": "d5ba607e52dc42baea028a66a82f640d756bb75568c5222732c36232ae896065"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 25165824,
+        "end": 25194496,
+        "entry": null,
+        "sha256": "c0d45a470999881c6b299c1ad223735a15958298b70c39ae28d43c5bd67f85f2"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "127ac068b3d3cd0674c413d575172ada9b402a6b5e99e6872b3db713b2111efe"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "53bc7f580e68193949935ea09f9f4ebbab30192bded9596314c5de1778dfe1d1"
+      }
+    },
+    "2:Tayga/bin/cat": {
+      "i386": {
+        "cpu": 7,
+        "base": 25165824,
+        "end": 25190400,
+        "entry": null,
+        "sha256": "b0b2149d94f7fdaa50ff9ed6c88967aea03c5ff21f826e813c7add594555f8fe"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 25165824,
+        "end": 25198592,
+        "entry": null,
+        "sha256": "0a925db706050e446dd556794ada5635b103a11dcdba419df3b5235ccd6f7ebf"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "52d2768a9b42ae8c043860e493da760542f51566409a07583983645d6a4b0979"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 49152,
+        "entry": null,
+        "sha256": "d7794711a975014bda5136ddb15fd72b578ce4c1708192e3b6bec6f6f9a74e91"
+      }
+    },
+    "2:Tayga/bin/cd": {
+      "i386": {
+        "cpu": 7,
+        "base": 25165824,
+        "end": 25190400,
+        "entry": null,
+        "sha256": "ead8fb2dc4a826e972b5e51b8f9c2322d470d921a1b8cba5e4fe0ba91204878f"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 25165824,
+        "end": 25198592,
+        "entry": null,
+        "sha256": "71f579a5a64933dce31393dfd17f08eeb1b8999bafe66a4d6725d237a48ef43e"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "dfc19fece58b6ba19ab378fce58c92ef05a623e450fd064481457a2f14dd3575"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 49152,
+        "entry": null,
+        "sha256": "83295696da55cf63fd3305e6843830088a046842c1e162880e8de4e9ddc6c5ec"
+      }
+    },
+    "2:Tayga/bin/echo": {
+      "i386": {
+        "cpu": 7,
+        "base": 25165824,
+        "end": 25190400,
+        "entry": null,
+        "sha256": "da5cb6a18462f230e726cf6b9f424c72886fc02b4bbbf9dbb557dd537ad4d015"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 25165824,
+        "end": 25198592,
+        "entry": null,
+        "sha256": "dd51c9802f5578968342f5410f97a5c906cb39e6b7a3ccb8935d0ae7849ece28"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "4322131105e433d5ba5aa94303abe103615b00a61c0bf2792452785a343cf0da"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 49152,
+        "entry": null,
+        "sha256": "6cc52bb83259ac25dd8bd0359a328cee6ae3c51a2cbe6b6b6fad901c44076003"
+      }
+    },
+    "2:Tayga/bin/env": {
+      "i386": {
+        "cpu": 7,
+        "base": 25165824,
+        "end": 25190400,
+        "entry": null,
+        "sha256": "9c8a7b9db48dd4ee5374d85ceefa8a395584f57504aa9dcdb9dc4911ea1c6541"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 25165824,
+        "end": 25198592,
+        "entry": null,
+        "sha256": "7801ea42ae4b1ee2462ac8752ac150dd744448b2c3dfb666773109ae4ef781b1"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "6736c696d42c81815677a3c17af18685f4c4af5cc63e16e08a3fb87794a7d96e"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 49152,
+        "entry": null,
+        "sha256": "dec89de1f9fd156147afb49c775286afdeceeaa9909b854d675f190b5475d872"
+      }
+    },
+    "2:Tayga/bin/freebsd-driver": {
+      "i386": {
+        "cpu": 7,
+        "base": 25165824,
+        "end": 25190400,
+        "entry": null,
+        "sha256": "b35a9ad9ffa7750af5335a35273acc6135c52efa7acee17aa9141a43226697d0"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 25165824,
+        "end": 25198592,
+        "entry": null,
+        "sha256": "4b88a555c4375de9b412a56d0b4402d7209f9367ea2ae71f87e1fba2f8dcd7fa"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "fe1a4af76fb75a200d2463f60ab24e148a14ab17c2a7be5b34d2817a6ffa5802"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 49152,
+        "entry": null,
+        "sha256": "24646cd2d369b8ef26025197bb6f5816b7732d730aeb5e2a61a128c42c76926d"
+      }
+    },
+    "2:Tayga/bin/help": {
+      "i386": {
+        "cpu": 7,
+        "base": 25165824,
+        "end": 25190400,
+        "entry": null,
+        "sha256": "643ddf45f4e2aa69ca45c153cb19db234337c4b27bd03867a3bbdf51b8496512"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 25165824,
+        "end": 25198592,
+        "entry": null,
+        "sha256": "b970ff7ebbbe5fe60cb5af383725d993f9292e2b9536df9b1055cefc8ee8f8dd"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "0e931120af26fe812e566e2822a41b6130ff17478c1efd929d4d43ad83a769f7"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 49152,
+        "entry": null,
+        "sha256": "c9f885d449f143c878e8eeeed878ade13fc36caa88bf620cebecc76e009f8e8e"
+      }
+    },
+    "2:Tayga/bin/id": {
+      "i386": {
+        "cpu": 7,
+        "base": 25165824,
+        "end": 25190400,
+        "entry": null,
+        "sha256": "ffca387402e2bd5ffc7072c6bdfc25e9ad841faaf2f220ad920828dc54816ce0"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 25165824,
+        "end": 25198592,
+        "entry": null,
+        "sha256": "2a602525488ded98769c06880c5dd47604a44fcb25560d34bb4e63609535d732"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "9c9e22a410a444fedf6f1991cd5aba34c909c100d0d12e4d7cd2a57e0178c6fb"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 49152,
+        "entry": null,
+        "sha256": "38e81203ccb8f3f5ff917beeca60a8d36261c058499516e6e84d6b87c90e5b35"
+      }
+    },
+    "2:Tayga/bin/kldload": {
+      "i386": {
+        "cpu": 7,
+        "base": 25165824,
+        "end": 25190400,
+        "entry": null,
+        "sha256": "9ea6e631abf337fda690682d32402d7449d59d31d917422dfa13bd03722e4633"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 25165824,
+        "end": 25198592,
+        "entry": null,
+        "sha256": "fe2c58e5d39a1340436ecfc138e3a986511298edc19df567cdd5e2907350e423"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "22bb8c07b967c4d4a5a6ebdf0a5353ae2d2a4f7bad558c65697610a63a65826a"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 49152,
+        "entry": null,
+        "sha256": "9680ef0ae51616a9b8866c154925b2a5a62430f0865b3b0b8f5c6c061ec9f64c"
+      }
+    },
+    "2:Tayga/bin/kldstat": {
+      "i386": {
+        "cpu": 7,
+        "base": 25165824,
+        "end": 25190400,
+        "entry": null,
+        "sha256": "1edc0c5667e96c84e056e850319479800b02afc0a3285b584a8debc4a96e88a1"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 25165824,
+        "end": 25198592,
+        "entry": null,
+        "sha256": "92869993441920c4d7c94e658c460998fc2d54f7a8bf36c95f8c02907a5b6e14"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "4e776705ea39f98ff47acc4426eed32cd84e89b697b53b14b68908959a5e8d8b"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 49152,
+        "entry": null,
+        "sha256": "a89123073f50b177f631940d62e1fe3cfea870e503c7159e8190a5ba1be4ebc6"
+      }
+    },
+    "2:Tayga/bin/kldunload": {
+      "i386": {
+        "cpu": 7,
+        "base": 25165824,
+        "end": 25190400,
+        "entry": null,
+        "sha256": "31f81559e23203866710cb00ac49ba5ef0b59303a0ea732fc6420ddc1b38a940"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 25165824,
+        "end": 25198592,
+        "entry": null,
+        "sha256": "d98a1d6af128a9cb02d82b4ec7bc784a3465bfe41c027bc21b0875d3f42ac974"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "3190376f50fbbb62cf10ba6f94eda0a1f5ee97bd12c894468b41c38777276349"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 49152,
+        "entry": null,
+        "sha256": "88e0f89526f23975bb4b5b1739472057fd09f5eb1264479118f63e7d74f30d29"
+      }
+    },
+    "2:Tayga/bin/lipo": {
+      "i386": {
+        "cpu": 7,
+        "base": 25165824,
+        "end": 25190400,
+        "entry": null,
+        "sha256": "c34ba846444a3b1a15e0e2ed1c91434253d5a63c40bc1207917c95667a0bac88"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 25165824,
+        "end": 25198592,
+        "entry": null,
+        "sha256": "89e9f533b0a744c97975611a56699997c525a54df5c7d5e9c9e8245d540ce1c9"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "bf8e4260f0ba371d285445a867251391d4001a1e258366468fb0474c11889445"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 49152,
+        "entry": null,
+        "sha256": "8ee4a5a862b6319c51db5492e010e4c06b6c816ba868c0a8018e456ab93ab0bd"
+      }
+    },
+    "2:Tayga/bin/ls": {
+      "i386": {
+        "cpu": 7,
+        "base": 25165824,
+        "end": 25190400,
+        "entry": null,
+        "sha256": "67d4219e011b0e2229e34dc094198b421db23682edcced236d8c96eba669b22b"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 25165824,
+        "end": 25198592,
+        "entry": null,
+        "sha256": "1d74fca4ff0dedb7a4ec1b3e892b91da08217c4d8d6dc2f93a3504428e52e8cf"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "06db87c81b3fd6dc2bdf96666bdde995e27734f1059e1b0eaf67ea3ed1ed10d6"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 49152,
+        "entry": null,
+        "sha256": "0f5a1fe2123d9ebbe90f6559036bc92f64e05ed56e934c6b8af9a2ea9ed402c8"
+      }
+    },
+    "2:Tayga/bin/make": {
+      "i386": {
+        "cpu": 7,
+        "base": 25165824,
+        "end": 25190400,
+        "entry": null,
+        "sha256": "353b681633878b3689b95329b156997e9aaf8d22ef5f70497ae8e60325932342"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 25165824,
+        "end": 25198592,
+        "entry": null,
+        "sha256": "8aa07cb5ca46c12ccbce57ea7dfd312fad3d74cab01cea765c93ebc9010ff7c1"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "dec60cb8ff621485d4283c12a1baa979b9245a2a72663a18616dc4ca9c47c8c2"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 49152,
+        "entry": null,
+        "sha256": "ed6dc862c9eee1545da3f7fd9ee0121d128e4c073af67cc896b63ea048676def"
+      }
+    },
+    "2:Tayga/bin/mkdir": {
+      "i386": {
+        "cpu": 7,
+        "base": 25165824,
+        "end": 25190400,
+        "entry": null,
+        "sha256": "073fe71a2bf7a02f5ada27726fa96418b1aba0c02b5962538e8aa55ef07b79a3"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 25165824,
+        "end": 25198592,
+        "entry": null,
+        "sha256": "85794d4fc2e0a949942ac3ebea437c55111b5059237dbc1cf9cdc6d960f4ce16"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "f66ad0e8b2d9d5794c0e0518afb4beafe3b178af734caa0a67a17b9ab99e9642"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 49152,
+        "entry": null,
+        "sha256": "a5b98dec222193d4321d1a5b74bce0e6110acfd22a1d8a3d89fe4164a58a533c"
+      }
+    },
+    "2:Tayga/bin/nano": {
+      "i386": {
+        "cpu": 7,
+        "base": 25165824,
+        "end": 25190400,
+        "entry": null,
+        "sha256": "ce9e046c95367856b23a0df20866830eb1e57f586b1f2b513c9ec2fa9db7d586"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 25165824,
+        "end": 25198592,
+        "entry": null,
+        "sha256": "6bf15124389a3974c4a91df6a1c9d3846105953bc2adbfefcc4b3c6d5fb6c86d"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "be6a96040609d46c0e9643d70edf35e71ad6dfcda2176acf00ead1a38a35b3c9"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 49152,
+        "entry": null,
+        "sha256": "59ed61844269c97e3ea256d2ab665031e9b23395d54d665b4bfd8ddebfced302"
+      }
+    },
+    "2:Tayga/bin/pwd": {
+      "i386": {
+        "cpu": 7,
+        "base": 25165824,
+        "end": 25190400,
+        "entry": null,
+        "sha256": "067c48325d6fb7754e75cd1c5f7fbd490ed57bfcea40a77638410a001611da65"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 25165824,
+        "end": 25198592,
+        "entry": null,
+        "sha256": "affde3af24b08e1c6788ee45794703e794722af16b6ca9a5b64eab99ac1620be"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "ae12e3ebcd5cb01cdcb3b6b0a1c78f04dcdf81ab00df4578531deb4d58b019c6"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 49152,
+        "entry": null,
+        "sha256": "2b8e4ab247f33c3608ed05c98c3407f879601925dac292f717c174f500593163"
+      }
+    },
+    "2:Tayga/bin/rm": {
+      "i386": {
+        "cpu": 7,
+        "base": 25165824,
+        "end": 25190400,
+        "entry": null,
+        "sha256": "5d2966ac51180e0dc5f6e5ce421029f5c6bb5dec85c0e8468ffe2e352bbde276"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 25165824,
+        "end": 25198592,
+        "entry": null,
+        "sha256": "98d00155449fe5f320d725f3d7cccef4bc5b91ae2a3ecb88a6dd99eb2832524a"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "949efc7736dc5014572e63ed9c43c5dcf23808aa116549695d971fe37d8e2ca2"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 49152,
+        "entry": null,
+        "sha256": "5b1011e2e80cfbaf738e1003f5e7b3875c9f4b5f7ef7176117117f770b98af62"
+      }
+    },
+    "2:Tayga/bin/sh": {
+      "i386": {
+        "cpu": 7,
+        "base": 25165824,
+        "end": 25190400,
+        "entry": null,
+        "sha256": "148e47a7e01492d18f8c38ec6f3c6a9eacdce7c9f93f80ad70d36899d0e28cda"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 25165824,
+        "end": 25198592,
+        "entry": null,
+        "sha256": "b5924b0966f027541a8c7cdf50757170d2fb7cb9a88caa1e8f1498ad0c125b34"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "69d49b9077e31744020a4512ef67c2d46207637476ef589c0b2d17a2d1872034"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 49152,
+        "entry": null,
+        "sha256": "3c8592fab4f68a57fa0d51eb195b0358a3ab6aa5315bae2bf928ce08cf119d9c"
+      }
+    },
+    "2:Tayga/bin/sudo": {
+      "i386": {
+        "cpu": 7,
+        "base": 25165824,
+        "end": 25190400,
+        "entry": null,
+        "sha256": "f2ee7b7b9bbf74570e0ce9f93c65e0d1066338609db6ea31cca554ce68c9e6c4"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 25165824,
+        "end": 25198592,
+        "entry": null,
+        "sha256": "c7242abf82dd009985f3184baa713cb64b657b62a45d70fc506b58fa7aa9e4c9"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "a711884f548f26385b432806c4518e1235d2123d3e9dc59e3a573e1d56fb7fc3"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 49152,
+        "entry": null,
+        "sha256": "2609e80d9781c0b687f8427a1ae760126e06619922d60ac77b768af76528d1bb"
+      }
+    },
+    "2:Tayga/bin/tayga": {
+      "i386": {
+        "cpu": 7,
+        "base": 25165824,
+        "end": 25190400,
+        "entry": null,
+        "sha256": "383721d6f232912eb2d44457a66f6b963c56fae5a7e704a1b292419b3d9bc350"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 25165824,
+        "end": 25198592,
+        "entry": null,
+        "sha256": "a2b5e394fbe41e00d11ddd16fc99b14a24d8bce617526c5bc943c941063e6464"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "db9d439ed13cfc3b235ea757de6b8df5e8b15fa73bfb829dd9c20e251dcab43b"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 49152,
+        "entry": null,
+        "sha256": "a93ebada966e98dd9b0bb0fb119a3526701147cb227cfea71094e05a71b58b2a"
+      }
+    },
+    "2:Tayga/bin/touch": {
+      "i386": {
+        "cpu": 7,
+        "base": 25165824,
+        "end": 25190400,
+        "entry": null,
+        "sha256": "127dedee18c6c27ffd2854fd3f137ab663f76391359b7cf2e6d82b0d2cb4ace2"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 25165824,
+        "end": 25198592,
+        "entry": null,
+        "sha256": "a9e0d7719a26dac4af741d429f973b38009d2284cf4d6c491b1d0e9f98bed9c7"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "7c1ecdc2993ef67d8115f6735a00a4c44a4fcfa472cba0de210d1db137e1ecf1"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 49152,
+        "entry": null,
+        "sha256": "37eea5753d829df65266e097f353c51ef2f4f312b12487dbfa572a406d9dd91e"
+      }
+    },
+    "2:Tayga/bin/uname": {
+      "i386": {
+        "cpu": 7,
+        "base": 25165824,
+        "end": 25190400,
+        "entry": null,
+        "sha256": "16ee4c6f1c8b90131ffe6444589599b22f7864304ae44da98bd9bb067cdcdba6"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 25165824,
+        "end": 25198592,
+        "entry": null,
+        "sha256": "27ad3612e0dd423f236a751859d0cc589fa995ce0341c6cc8150e32b2ff80ba7"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "50a3ebd73565d77751595bd59c29ffa12324b9884b8e82c548221789055e0d78"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 49152,
+        "entry": null,
+        "sha256": "c86558802ba1674e1f8814a0fb1a3f56285ad8a2b78430793fcf00621a0b960b"
+      }
+    },
+    "2:Tayga/bin/wget": {
+      "i386": {
+        "cpu": 7,
+        "base": 25165824,
+        "end": 25190400,
+        "entry": null,
+        "sha256": "43d057f6ca3c0b64fa59339635c3f5a7758a2aa6e3a0e293c90f5b4118bb443e"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 25165824,
+        "end": 25198592,
+        "entry": null,
+        "sha256": "c01bf206e539b7c8fa49a2b311ee4a4a6d16619d9b53c5985a4b1fa819ad3e1f"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "8ef63db21a60bb9891c5421670d03928c74dbf4513492481bb1bb7af640d5570"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 49152,
+        "entry": null,
+        "sha256": "3eb55bf1bed9e9f355f18c96d00084247b0c0ddce05bb95da405019b929cc494"
+      }
+    },
+    "2:Tayga/bin/whoami": {
+      "i386": {
+        "cpu": 7,
+        "base": 25165824,
+        "end": 25190400,
+        "entry": null,
+        "sha256": "68a3389ad3bc8dc6ef607e8ce00b744e4aaa998c54f90a39babd23483fa6268a"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 25165824,
+        "end": 25198592,
+        "entry": null,
+        "sha256": "c41cd19465d56f4a0144c0d367b68e1aac22d3a5ab337f4ef3c186e197d207cf"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "6b6344d5191a5e8c643d0e388acb6b18431310b6b39791bb97879597dd733fec"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 49152,
+        "entry": null,
+        "sha256": "cc4d6d64257887cd0ffc726cdc8d429af6899d7fc244c012793d0264bfdbeee4"
+      }
+    },
+    "2:Tayga/usr/bin/snowflake": {
+      "i386": {
+        "cpu": 7,
+        "base": 2097152,
+        "end": 2469888,
+        "entry": null,
+        "sha256": "c8feb07a5309e763686e378f1614e8f4418b3683d0238aac90da16f68fea7260"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 2097152,
+        "end": 2461696,
+        "entry": null,
+        "sha256": "940fccdb447396e86f5e1ce0392319dfca0a68232e63a2a3c341e69f7d29bdbd"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 409600,
+        "entry": null,
+        "sha256": "9a4445564abc382f9be3e0eda07c139a52e74f0bc481e155ae6ec0e8eff47461"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 409600,
+        "entry": null,
+        "sha256": "4b5c29b2cf75799d19c4ea4b9d3a908a2d7263a5983ce2a3f2f660991c6ab3f0"
+      }
+    },
+    "2:Tayga/usr/lib/arm64/crt1.o": {
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 869,
+        "entry": null,
+        "sha256": "f68841446ed19850bf9763e05e57e4699ab81679481a8cba178fcadf76076273"
+      }
+    },
+    "2:Tayga/usr/lib/armv7/crt1.o": {
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 1444,
+        "entry": null,
+        "sha256": "803ea9223d43bc805389ba34137881a41c276693c089d2ce52e97da7d0c9334c"
+      }
+    },
+    "2:Tayga/usr/lib/i386/crt1.o": {
+      "i386": {
+        "cpu": 7,
+        "base": 0,
+        "end": 1249,
+        "entry": null,
+        "sha256": "79d768656a7c7060488e5441671568ef535d1d04444172dce71d7e14a66e91bf"
+      }
+    },
+    "2:Tayga/usr/lib/x86_64/crt1.o": {
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 0,
+        "end": 1185,
+        "entry": null,
+        "sha256": "a4181c495c15e6c19eda5108512d07a08ac5a249838daf1da690f76725fef3e8"
+      }
+    },
+    "2:TextEditor.app/Contents/Permafrost/TextEditor": {
+      "i386": {
+        "cpu": 7,
+        "base": 25165824,
+        "end": 25202688,
+        "entry": null,
+        "sha256": "d61d545a458ad5e972e3193562e9311717830d727e558621997a46315d2818e6"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 25165824,
+        "end": 25198592,
+        "entry": null,
+        "sha256": "d9a6ec31fc146cafbaa00e87778ef7e8aa56d8589593932e493b4e1dee4de137"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "689e029d4fe6f2c40d78b444c6c9a79e5b28d131dba926f59c7256355d385738"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 65536,
+        "entry": null,
+        "sha256": "2e690789a7eeb71d887ee94515b00d8699014dfecf999bd7b31ec872c8cde197"
+      }
+    },
+    "2:Tundra.app/Contents/Permafrost/Tundra": {
+      "i386": {
+        "cpu": 7,
+        "base": 25165824,
+        "end": 26398720,
+        "entry": null,
+        "sha256": "ff3b63b913b89b7efd8e650675f8277aae52d5871b9990817505f2d86cc5b52b"
+      },
+      "x86_64": {
+        "cpu": 16777223,
+        "base": 25165824,
+        "end": 26411008,
+        "entry": null,
+        "sha256": "8750c5df4785004c1cb094e98f2b4c28ad2845bf8c7a6945a023d823c11848e2"
+      },
+      "armv7": {
+        "cpu": 12,
+        "base": 0,
+        "end": 1261568,
+        "entry": null,
+        "sha256": "d1cb75bdf2fe84b463329de71b5c63b1a0dd0149c79be5b8ca195c5ed41c2730"
+      },
+      "arm64": {
+        "cpu": 16777228,
+        "base": 0,
+        "end": 1228800,
+        "entry": null,
+        "sha256": "dc09b6ec7731095b54e22449eacefcf1982cf5a11d998c54ef1b8632108c2756"
+      }
     }
   },
-  "partitions": [
-    {
-      "name": "firmware",
-      "type": 1,
-      "start": 66,
-      "sectors": 28692,
-      "flags": 0
-    },
-    {
-      "name": "recovery",
-      "type": 1,
-      "start": 28758,
-      "sectors": 22478,
-      "flags": 1
-    },
-    {
-      "name": "drivers",
-      "type": 5,
-      "start": 51236,
-      "sectors": 69680,
-      "flags": 0
-    },
-    {
-      "name": "user data",
-      "type": 3,
-      "start": 120916,
-      "sectors": 0,
-      "flags": 0
-    }
+  "exceptions": [
+    "embedded Mach distribution"
   ]
 }

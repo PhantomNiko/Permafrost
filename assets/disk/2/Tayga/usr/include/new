@@ -1,0 +1,69 @@
+#ifndef WINTER_NEW
+#define WINTER_NEW
+
+#include "stddef.h"
+
+namespace std {
+
+class bad_alloc {
+public:
+	bad_alloc() noexcept = default;
+	virtual ~bad_alloc() {}
+	virtual const char* what() const noexcept { return "bad allocation"; }
+};
+
+struct nothrow_t {
+	explicit nothrow_t() = default;
+};
+
+extern const nothrow_t nothrow;
+
+enum class align_val_t : size_t {};
+#define WINTER_HAS_ALIGN_VAL_T 1
+
+using new_handler = void (*)();
+
+inline new_handler& __winter_new_handler_slot() noexcept {
+	static new_handler handler = nullptr;
+	return handler;
+}
+
+inline new_handler set_new_handler(new_handler handler) noexcept {
+	new_handler old = __winter_new_handler_slot();
+	__winter_new_handler_slot() = handler;
+	return old;
+}
+
+inline new_handler get_new_handler() noexcept {
+	return __winter_new_handler_slot();
+}
+
+}
+
+void* operator new(size_t size);
+void* operator new[](size_t size);
+void* operator new(size_t size, std::align_val_t alignment);
+void* operator new[](size_t size, std::align_val_t alignment);
+void* operator new(size_t size, const std::nothrow_t&) noexcept;
+void* operator new[](size_t size, const std::nothrow_t&) noexcept;
+void* operator new(size_t size, std::align_val_t alignment, const std::nothrow_t&) noexcept;
+void* operator new[](size_t size, std::align_val_t alignment, const std::nothrow_t&) noexcept;
+void operator delete(void* pointer) noexcept;
+void operator delete[](void* pointer) noexcept;
+void operator delete(void* pointer, size_t size) noexcept;
+void operator delete[](void* pointer, size_t size) noexcept;
+void operator delete(void* pointer, std::align_val_t alignment) noexcept;
+void operator delete[](void* pointer, std::align_val_t alignment) noexcept;
+void operator delete(void* pointer, size_t size, std::align_val_t alignment) noexcept;
+void operator delete[](void* pointer, size_t size, std::align_val_t alignment) noexcept;
+void operator delete(void* pointer, const std::nothrow_t&) noexcept;
+void operator delete[](void* pointer, const std::nothrow_t&) noexcept;
+void operator delete(void* pointer, std::align_val_t alignment, const std::nothrow_t&) noexcept;
+void operator delete[](void* pointer, std::align_val_t alignment, const std::nothrow_t&) noexcept;
+
+inline void* operator new(size_t, void* pointer) noexcept { return pointer; }
+inline void* operator new[](size_t, void* pointer) noexcept { return pointer; }
+inline void operator delete(void*, void*) noexcept {}
+inline void operator delete[](void*, void*) noexcept {}
+
+#endif

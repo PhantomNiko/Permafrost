@@ -1,0 +1,163 @@
+#ifndef WINTER_HEADER_IOMANIP
+#define WINTER_HEADER_IOMANIP
+
+#include "iostream"
+#include "sstream"
+#include <time.h>
+
+namespace std {
+
+struct __tayga_setw_t { int value; };
+struct __tayga_setfill_t { char value; };
+struct __tayga_setprecision_t { int value; };
+struct __tayga_put_time_t {
+	const struct tm* value;
+	const char* format;
+};
+
+inline __tayga_setw_t setw(int value) { return {value}; }
+inline __tayga_setfill_t setfill(char value) { return {value}; }
+inline __tayga_setprecision_t setprecision(int value) { return {value}; }
+inline __tayga_put_time_t put_time(const struct tm* value, const char* format) { return {value, format}; }
+
+namespace __tayga_iomanip_detail {
+
+inline void append_padded_number(string& output, int value, int width, char fill) {
+	if (value < 0) {
+		output.push_back('-');
+		value = -value;
+	}
+	char scratch[16];
+	size_t count = 0;
+	do {
+		scratch[count++] = (char)('0' + (value % 10));
+		value /= 10;
+	} while (value != 0 && count < sizeof(scratch));
+	while ((int)count < width) {
+		output.push_back(fill);
+		++count;
+	}
+	while (count > 0) {
+		output.push_back(scratch[--count]);
+	}
+}
+
+inline string format_time(const struct tm* value, const char* format) {
+	if (!value || !format) {
+		return string();
+	}
+	static constexpr const char* short_weekdays[] = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
+	static constexpr const char* long_weekdays[] = {
+		"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+	static constexpr const char* short_months[] = {
+		"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+	static constexpr const char* long_months[] = {
+		"January", "February", "March", "April", "May", "June",
+		"July", "August", "September", "October", "November", "December"};
+	string output;
+	for (size_t i = 0; format[i] != '\0'; ++i) {
+		if (format[i] != '%') {
+			output.push_back(format[i]);
+			continue;
+		}
+		++i;
+		const char code = format[i];
+		if (code == '\0') {
+			output.push_back('%');
+			break;
+		}
+		switch (code) {
+		case '%':
+			output.push_back('%');
+			break;
+		case 'a':
+			output += short_weekdays[(value->tm_wday >= 0 && value->tm_wday < 7) ? value->tm_wday : 0];
+			break;
+		case 'A':
+			output += long_weekdays[(value->tm_wday >= 0 && value->tm_wday < 7) ? value->tm_wday : 0];
+			break;
+		case 'b':
+		case 'h':
+			output += short_months[(value->tm_mon >= 0 && value->tm_mon < 12) ? value->tm_mon : 0];
+			break;
+		case 'B':
+			output += long_months[(value->tm_mon >= 0 && value->tm_mon < 12) ? value->tm_mon : 0];
+			break;
+		case 'd':
+			append_padded_number(output, value->tm_mday, 2, '0');
+			break;
+		case 'e':
+			append_padded_number(output, value->tm_mday, 2, ' ');
+			break;
+		case 'H':
+			append_padded_number(output, value->tm_hour, 2, '0');
+			break;
+		case 'M':
+			append_padded_number(output, value->tm_min, 2, '0');
+			break;
+		case 'S':
+			append_padded_number(output, value->tm_sec, 2, '0');
+			break;
+		case 'T':
+			append_padded_number(output, value->tm_hour, 2, '0');
+			output.push_back(':');
+			append_padded_number(output, value->tm_min, 2, '0');
+			output.push_back(':');
+			append_padded_number(output, value->tm_sec, 2, '0');
+			break;
+		case 'Y':
+			append_padded_number(output, value->tm_year + 1900, 4, '0');
+			break;
+		case 'y':
+			append_padded_number(output, (value->tm_year + 1900) % 100, 2, '0');
+			break;
+		default:
+			output.push_back('%');
+			output.push_back(code);
+			break;
+		}
+	}
+	return output;
+}
+
+}
+
+inline ostream& operator<<(ostream& stream, __tayga_setw_t manipulator) {
+	stream.set_width(manipulator.value);
+	return stream;
+}
+
+inline ostream& operator<<(ostream& stream, __tayga_setfill_t manipulator) {
+	stream.set_fill(manipulator.value);
+	return stream;
+}
+
+inline ostream& operator<<(ostream& stream, __tayga_setprecision_t) {
+	return stream;
+}
+
+inline ostream& operator<<(ostream& stream, __tayga_put_time_t manipulator) {
+	return stream << __tayga_iomanip_detail::format_time(manipulator.value, manipulator.format);
+}
+
+inline ostringstream& operator<<(ostringstream& stream, __tayga_setw_t manipulator) {
+	stream.set_width(manipulator.value);
+	return stream;
+}
+
+inline ostringstream& operator<<(ostringstream& stream, __tayga_setfill_t manipulator) {
+	stream.set_fill(manipulator.value);
+	return stream;
+}
+
+inline ostringstream& operator<<(ostringstream& stream, __tayga_setprecision_t) {
+	return stream;
+}
+
+inline ostringstream& operator<<(ostringstream& stream, __tayga_put_time_t manipulator) {
+	return stream << __tayga_iomanip_detail::format_time(manipulator.value, manipulator.format);
+}
+
+}
+
+#endif

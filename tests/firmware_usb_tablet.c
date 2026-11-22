@@ -1,6 +1,6 @@
 /* Pooka's Free Software License. Firmware-owned QEMU USB tablet transport. */
 #include <assert.h>
-#include "../recovery/in-progress/firmware/loader.c"
+#include "../firmware/uefi/common/loader.c"
 static PFUSB usb;
 static void *handles[1]={&usb};
 static PFUSBCallback callback;

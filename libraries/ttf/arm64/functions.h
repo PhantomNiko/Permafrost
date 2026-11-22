@@ -420,3 +420,11 @@ void recovered_10009b8c(undefined8 *param_1,undefined8 *param_2);
 void recovered_10009ba8(undefined8 *param_1,undefined8 *param_2);
 
 /* Original analysis identifiers for manual recovery units. */
+
+double pf_release_difftime(long end,long start);
+
+double pf_release_exp(double value);
+
+float pf_release_expf(float value);
+
+long double pf_release_expl(long double value);

@@ -17,7 +17,7 @@ def main():
     for path in args.images:
         raw = path.read_bytes()
         files = Image(raw).files()
-        files['startup.ws'] = Path('assets/BinaryWriter.ws').read_bytes()
+        files['startup.ws'] = Path('assets/disk/2/BinaryWriter.ws').read_bytes()
         if Image(raw).partitions:
             files['startup.ws'] = b'device("mount",4,"FAT32")\ndevice("target",4)\n' + files['startup.ws']
         raw = repack_image(raw, files, sectors=81920)

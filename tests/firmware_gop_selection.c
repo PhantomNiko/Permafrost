@@ -1,6 +1,6 @@
 /* Pooka's Free Software License. GOP selection across RAMFB and virtio outputs. */
 #include <assert.h>
-#include "../recovery/in-progress/firmware/loader.c"
+#include "../firmware/uefi/common/loader.c"
 static uint32_t words[PF_EFI_CONTEXT_BYTES/4];
 static uint32_t surface[1280*800];
 static VideoInfo small={.width=800,.height=600,.stride=800,.format=1};

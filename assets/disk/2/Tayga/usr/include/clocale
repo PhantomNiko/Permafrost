@@ -1,0 +1,12 @@
+#ifndef WINTER_HEADER_CLOCALE
+#define WINTER_HEADER_CLOCALE
+
+#include "locale.h"
+
+namespace std {
+using ::lconv;
+using ::setlocale;
+using ::localeconv;
+}
+
+#endif

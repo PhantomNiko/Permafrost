@@ -1,7 +1,7 @@
 {
   "module": "TundraWindow",
   "architecture": "armv7",
-  "version": "0.9",
+  "version": "1.0",
   "install_name": "/lib/TundraWindow.dylib",
   "functions": {
     "3b34": "recovered_10003b34",
@@ -268,7 +268,11 @@
     "4d68": "recovered_10004d68",
     "43a8": "recovered_100043a8",
     "4ea8": "recovered_10004ea8",
-    "6b2c": "recovered_10006b2c"
+    "6b2c": "recovered_10006b2c",
+    "0xf00046": "pf_release_difftime",
+    "0xf00047": "pf_release_exp",
+    "0xf00048": "pf_release_expf",
+    "0xf00049": "pf_release_expl"
   },
   "exports": [
     {
@@ -482,10 +486,22 @@
       "weak": false
     },
     {
+      "name": "___fixdfdi",
+      "address": 15728675,
+      "section": 1,
+      "weak": false
+    },
+    {
       "name": "___fixsfdi",
       "address": 6768,
       "section": 1,
       "weak": true
+    },
+    {
+      "name": "___fixunsdfdi",
+      "address": 15728677,
+      "section": 1,
+      "weak": false
     },
     {
       "name": "___fixunssfdi",
@@ -494,10 +510,22 @@
       "weak": true
     },
     {
+      "name": "___floatdidf",
+      "address": 15728679,
+      "section": 1,
+      "weak": false
+    },
+    {
       "name": "___floatdisf",
       "address": 6812,
       "section": 1,
       "weak": true
+    },
+    {
+      "name": "___floatundidf",
+      "address": 15728681,
+      "section": 1,
+      "weak": false
     },
     {
       "name": "___floatundisf",
@@ -664,6 +692,30 @@
     {
       "name": "_destroyWindow",
       "address": 24108,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_difftime",
+      "address": 15728710,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_exp",
+      "address": 15728711,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_expf",
+      "address": 15728712,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_expl",
+      "address": 15728713,
       "section": 1,
       "weak": false
     },

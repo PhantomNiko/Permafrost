@@ -1,6 +1,6 @@
 /* Pooka's Free Software License. WFE5 kernel/firmware command ABI fixture. */
 #include <assert.h>
-#include "../recovery/in-progress/firmware/loader.c"
+#include "../firmware/uefi/common/loader.c"
 static uintptr_t waited;
 static uint32_t selected;
 static uintptr_t relative_address=0x12345000,absolute_address=0x23456000;
@@ -104,7 +104,7 @@ int main(void){
     assert(pointer[0]==1&&pointer[2]==500&&pointer[3]==1000);
     Input input={.read=mock_key_read,.event=(void *)(uintptr_t)0x43};
     system.input=&input;key_packet=(Key){.character='a'};deferred_key=1;
-    assert(key_code()=='a'&&checked==3);
+    assert(key_code()==0x1e61&&checked==3);
     assert(key_code()==0&&checked==4);
     key_packet=(Key){.scan=1};key_ready=1;assert(key_code()==0x4800);
     input.event=0;assert(key_code()==0&&checked==4);

@@ -1,0 +1,836 @@
+{
+  "reference_sha256": "858f67689de241b2aa5d048d4abebbc0e69009a4858613193844fc1155623661",
+  "volumes": [
+    {
+      "files": [
+        {
+          "path": "Mach",
+          "sha256": "38576b591782a50265a7800ac75eb8592f93c73538aef7f92753bca6b8a8f82f",
+          "exception": "embedded Mach distribution"
+        },
+        {
+          "path": "Tayga-config.ws",
+          "sha256": "3b0d0814b4e302f09f4599c4aba7781a1f23a647f93712d95640d72e13a7e5b1"
+        },
+        {
+          "path": "Tayga.app/Contents/Info.plist",
+          "sha256": "44c5d8acee800df00817e086a49bc4605f5122ca14a28939b1edaf21faee3299"
+        },
+        {
+          "path": "Tundra-config.ws",
+          "sha256": "69112954546ff41dd83c3cfd89413838385339103b9d93e5ce63b4884c923744"
+        },
+        {
+          "path": "startup.cmd",
+          "sha256": "5b89ac08923a36105b7d1780ba035f69f5efadfc0b6e9a9c3774894420267707"
+        },
+        {
+          "path": "startup.ws",
+          "sha256": "e72abff11f159ac5a3daad8850f66d7f09bf4cb71344d0bef2aabf2cb3b3ecbe"
+        },
+        {
+          "path": "system-font.wbf",
+          "sha256": "04a00f285ff58f639d8f98298c7a1bf4fefb782d158c3d520855236319daba51"
+        },
+        {
+          "path": "LICENSE.TXT",
+          "sha256": "c36fe9099de34de52570c21153d22e8ce09bb193ed2bbda4b333f0514a2ca54b"
+        }
+      ],
+      "directories": [
+        "Tayga.app",
+        "Tayga.app/Contents",
+        "Tayga.app/Contents/Permafrost",
+        "lib"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "Mach",
+          "sha256": "38576b591782a50265a7800ac75eb8592f93c73538aef7f92753bca6b8a8f82f",
+          "exception": "embedded Mach distribution"
+        },
+        {
+          "path": "license/Acks.md",
+          "sha256": "33ac72c9c0702429751763dfd3cc3d4e9d263a47ae9ae6283bfac9373b8679f0"
+        },
+        {
+          "path": "license/Mach-Kernel-LICENSE.txt",
+          "sha256": "5be14c8d4aba683e4b86ce2fa2815dd3aa80dabbca3312da8141a53fcc20a426"
+        },
+        {
+          "path": "license/Mach-Kernel-README.txt",
+          "sha256": "5022d1be7bf5d0f9b3cca4816a34e7367b38ee81a5b2274928f001327baf938a"
+        },
+        {
+          "path": "system-font.wbf",
+          "sha256": "04a00f285ff58f639d8f98298c7a1bf4fefb782d158c3d520855236319daba51"
+        },
+        {
+          "path": "LICENSE.TXT",
+          "sha256": "c36fe9099de34de52570c21153d22e8ce09bb193ed2bbda4b333f0514a2ca54b"
+        }
+      ],
+      "directories": [
+        "lib",
+        "license"
+      ]
+    },
+    {
+      "files": [
+        {
+          "path": "3D Demo.app/Contents/Info.plist",
+          "sha256": "1c44eb72fd64eb858f52b2652d0790d1d040304c5f10aebd164a7b67ac92534f"
+        },
+        {
+          "path": "ActivityMonitor.app/Contents/Info.plist",
+          "sha256": "c8fae4f8f73095ef5c0e0b96331d4085f826c789dc1b7ea359fa8ee024451944"
+        },
+        {
+          "path": "ActivityMonitor.app/Contents/Resources/AppIcon.png",
+          "sha256": "e294fe8e4ad2c84f17c11867fd9281b91e9549d40b7bc2637bc47270ae39e414"
+        },
+        {
+          "path": "Batagaika/POLYNYA.txt",
+          "sha256": "e761d50f18cf3347218d17ff0eb8bbda40a176c68658d44b4ca256121fb08f87"
+        },
+        {
+          "path": "Batagaika/etc/batagaika-server.conf",
+          "sha256": "373f640addf4c1d1698e28f145ea53a0b99c6c73eb9058d89f4e9f8e46297b9c"
+        },
+        {
+          "path": "Batagaika/mach_servers/bootstrap",
+          "sha256": "18e0ffc1d8bbcf7da89d040bef11887ae9a9a0dcc36dbb8f2d93bc3979df7c2c",
+          "exception": "embedded Mach distribution"
+        },
+        {
+          "path": "Batagaika/mach_servers/mach.boot",
+          "sha256": "589e2aef734ecce8ed50e090668636f44b7d6369735a334b8743f764c05f9982",
+          "exception": "embedded Mach distribution"
+        },
+        {
+          "path": "Batagaika/mach_servers/mach_kernel",
+          "sha256": "1dc30591f605521138f4b2ca2ca69d5872ddf8506bdc6800ee37f8b932c3042d",
+          "exception": "embedded Mach distribution"
+        },
+        {
+          "path": "Batagaika/mach_servers/paging_file",
+          "sha256": "2daeb1f36095b44b318410b3f4e8b5d989dcc7bb023d1426c492dab0a3053e74",
+          "exception": "embedded Mach distribution"
+        },
+        {
+          "path": "Batagaika/mach_servers/startup",
+          "sha256": "b4a07c8659a51d3d8620c7c0b1f6824366dbeb9d103dfd86b9f00d8e841b11a4",
+          "exception": "embedded Mach distribution"
+        },
+        {
+          "path": "Batagaika/usr/bin/winterlua",
+          "sha256": "912e5d9a615ef982df4f5a7fba917c49fc167823775e5188a980cc762279caba"
+        },
+        {
+          "path": "Batagaika/usr/bin/winterrwby",
+          "sha256": "e2d84af5d950bc3cdbdc82f0ebd19f4968f97938133f0acd029bbbe8948a64bb"
+        },
+        {
+          "path": "Batagaika/usr/bin/winterscript",
+          "sha256": "7b964ca11bac3b07fe891e48af13584f2e474610dac525c799f9abace831f164"
+        },
+        {
+          "path": "BinaryWriter.ws",
+          "sha256": "aa82b5315e18b3f9cf4f66ef4aafd078c21f4164120bb1474407efd1886708e4"
+        },
+        {
+          "path": "Cancer.app/Contents/Info.plist",
+          "sha256": "9c621c704f9368227f7f0c5980212c4f779b16c7c4a85656d87ec86de9372541"
+        },
+        {
+          "path": "Cancer.app/Contents/Resources/AppIcon.png",
+          "sha256": "0e67322f15adfef82f14543cb67378b1f17500970f155a2318d40fbedac0432b"
+        },
+        {
+          "path": "Glacier.app/Contents/Info.plist",
+          "sha256": "648b6a78cacfcaf329a4df5631d61623bf67b654719b5b4dba5bc7c4f76f145d"
+        },
+        {
+          "path": "Install.app/Contents/Info.plist",
+          "sha256": "ee05a6fd17a64bab72ae7a41ad0caba9ad33cfb7dd471590ed853edd56bfddea"
+        },
+        {
+          "path": "Install.app/Contents/Resources/AppIcon.png",
+          "sha256": "1e35afbb1cd89624bdedff5ade1cb7c26e92b42330a4d30198fe03e40cec9d31"
+        },
+        {
+          "path": "LICENSE.TXT",
+          "sha256": "c36fe9099de34de52570c21153d22e8ce09bb193ed2bbda4b333f0514a2ca54b"
+        },
+        {
+          "path": "Tayga/etc/profile",
+          "sha256": "5eef3ab303926f2403494f51ac27daeca4849b92375dd8735b06b30d8fb3b33d"
+        },
+        {
+          "path": "Tayga/etc/snowflake/archs.txt",
+          "sha256": "af883b2dca6b5f29bf3238431e3725dc6535d7ef48dfa86be0f69fb6a8a5dc9a"
+        },
+        {
+          "path": "Tayga/etc/snowflake/targets.conf",
+          "sha256": "55a37435b4edb0438f0f9a28751444e1522e7c6f97da9dbc07607a39ed3cdd2b"
+        },
+        {
+          "path": "Tayga/home/.keep",
+          "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+        },
+        {
+          "path": "Tayga/home/user/.keep",
+          "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+        },
+        {
+          "path": "Tayga/lib/.keep",
+          "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+        },
+        {
+          "path": "Tayga/root/.keep",
+          "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+        },
+        {
+          "path": "Tayga/root/build-hello.sh",
+          "sha256": "cdbdacf84f8af2ba394a27765f27ef30da1ac82822bf56acef0add940d4964a7"
+        },
+        {
+          "path": "Tayga/root/hello.cpp",
+          "sha256": "8eedc7daf733f6558af3f08767d96b034a528790f17edd5e3cfa09a4b41dc93b"
+        },
+        {
+          "path": "Tayga/tmp/.keep",
+          "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+        },
+        {
+          "path": "Tayga/usr/bin/.keep",
+          "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+        },
+        {
+          "path": "Tayga/usr/include/algorithm",
+          "sha256": "2dc1b0e04519c3545e63358fda12456a350f745a25e230bf75132c621b4ba74d"
+        },
+        {
+          "path": "Tayga/usr/include/array",
+          "sha256": "952fae1fb9f3bb22e25f28c0bf8b5df622639b5e0b1cfaba3b37a354c54f8525"
+        },
+        {
+          "path": "Tayga/usr/include/assert.h",
+          "sha256": "1eebc7b6925aa38d4cf53041e285185fe65d5e55958e8f21b5ff56e1126402b5"
+        },
+        {
+          "path": "Tayga/usr/include/atomic",
+          "sha256": "e60cdafe8bea0d1555247402f1cf0bbbbdde3265c165c0da343f85ec6ad68d7b"
+        },
+        {
+          "path": "Tayga/usr/include/bitset",
+          "sha256": "78a62ff59fcff8f94928aa2aff1c839794b07708bb0021edbc5e1713948925b0"
+        },
+        {
+          "path": "Tayga/usr/include/cassert",
+          "sha256": "3fe64fd999c81ea633c2ee8faa17ec35da876ee8196ecb0c69b177515a4c376e"
+        },
+        {
+          "path": "Tayga/usr/include/cctype",
+          "sha256": "c485fb77ed3b5047c860f6f20d67c4f9aa30ab3a041b45d90cacc69c86b13d0b"
+        },
+        {
+          "path": "Tayga/usr/include/cerrno",
+          "sha256": "02af21147b99cae8546582c0f73b2c6b6e638fa769074151a38c5ddc018d8505"
+        },
+        {
+          "path": "Tayga/usr/include/cfenv",
+          "sha256": "d5df5edfe0f4e65ae4939baa7ae3cdf14f03cc90f1df36349f5c277965df0e5c"
+        },
+        {
+          "path": "Tayga/usr/include/cfloat",
+          "sha256": "1504ea70c3342899cd51b495a0757bd55b6ae270a572d66fc5d293046e9a809c"
+        },
+        {
+          "path": "Tayga/usr/include/charconv",
+          "sha256": "96e0c3f379324ed3235cc4a9f12907eda31d9578f1eb4f9248ec9abe068c986b"
+        },
+        {
+          "path": "Tayga/usr/include/chrono",
+          "sha256": "32c109d099b5a626bd1cb53ff20a4fe73ee5594a5d06b287b67e767132013b08"
+        },
+        {
+          "path": "Tayga/usr/include/cinttypes",
+          "sha256": "967d1fc111f999b606847cecd88d040696a6ddcbfe06640d9d585246217b7cdc"
+        },
+        {
+          "path": "Tayga/usr/include/climits",
+          "sha256": "d6c5763a3f95dadb95d07a95cf7d1637fedf53bcb07ec397900bbd1ac85b2be1"
+        },
+        {
+          "path": "Tayga/usr/include/clocale",
+          "sha256": "42fb0c20c539b174508b2372176a0e9b47e8e6cb75f6e88edc5eeeb208e84f2b"
+        },
+        {
+          "path": "Tayga/usr/include/cmath",
+          "sha256": "434885217f6dd7c11ae7fb7629f0880f7cff6f0ff56155ce907da575c5c63eea"
+        },
+        {
+          "path": "Tayga/usr/include/complex.h",
+          "sha256": "c3a673abf6f48da482fe9f6071880b9d5d1453d7e8941f3b24e0a773b680040c"
+        },
+        {
+          "path": "Tayga/usr/include/condition_variable",
+          "sha256": "abaaa44e380bac404cd68cbdf973cc853de9938c5169aca6dbf29da3d8c53147"
+        },
+        {
+          "path": "Tayga/usr/include/cstdarg",
+          "sha256": "0832795aac373f1bdfe37054fb23591d21e946a7b7e33c900de197a3a0401dd7"
+        },
+        {
+          "path": "Tayga/usr/include/cstddef",
+          "sha256": "1d94a1d2f9d1471cc073fad2de27ed783857367b5df9f89fc41637f6db132ef7"
+        },
+        {
+          "path": "Tayga/usr/include/cstdint",
+          "sha256": "0ce264bb5da881163243fbdecc32fd12ba1503eb15b549f514a441a20fa92949"
+        },
+        {
+          "path": "Tayga/usr/include/cstdio",
+          "sha256": "52dbba762a60202cd7a5233d3be3b288bb596235aebf0e5a7df31d6184e4f776"
+        },
+        {
+          "path": "Tayga/usr/include/cstdlib",
+          "sha256": "25df65b2fd8702170340d3dd29e4f2faa652351e666796715be367add37382ab"
+        },
+        {
+          "path": "Tayga/usr/include/cstring",
+          "sha256": "d1082047b5b1a2783f9546bc65470461d5d2ee5804c09b6e0f12789c055570a5"
+        },
+        {
+          "path": "Tayga/usr/include/ctgmath",
+          "sha256": "bf6f93d2fee5df577ffd257bfde57fac27da17755dfea32a3175cd553030facc"
+        },
+        {
+          "path": "Tayga/usr/include/ctime",
+          "sha256": "68d729466251cad28c0db3cb469ed95d00a7c777543364b213a6c84911d7a9ea"
+        },
+        {
+          "path": "Tayga/usr/include/ctype.h",
+          "sha256": "11f3ae5b74a4ab4bd8785c0b79df565cc741bd62727dafc40e244754dbcd81d2"
+        },
+        {
+          "path": "Tayga/usr/include/deque",
+          "sha256": "42a044329aebe3c03e3bb09d7c918f0ecec9885870bd3378e46f3c36a697c8a4"
+        },
+        {
+          "path": "Tayga/usr/include/dirent.h",
+          "sha256": "eb1f2fa4127ec14c17f9d2bdc45011c75346be4b2e7d0924287fbbe48c40605f"
+        },
+        {
+          "path": "Tayga/usr/include/dlfcn.h",
+          "sha256": "94e1cf22b80ab59ca649bcb8594c23f85d7e3d43790d23ea4847d1d9f33d35a8"
+        },
+        {
+          "path": "Tayga/usr/include/errno.h",
+          "sha256": "57b7ff01b8f168e6cc099f8d698cd64cd0191fb088218021de9751a33cfe1dbc"
+        },
+        {
+          "path": "Tayga/usr/include/exception",
+          "sha256": "8e3ab9e7ac8058d834c8315b700f7e54d99d4101dd4aa45e1ad30d7e4aa4ffb3"
+        },
+        {
+          "path": "Tayga/usr/include/fcntl.h",
+          "sha256": "9e58795164d9eccfa253919d7c6019aa506b6706b1b1564f1f035898782ec935"
+        },
+        {
+          "path": "Tayga/usr/include/fenv.h",
+          "sha256": "358570f206d0a4f98d270f312110062cb0360abb5fe893ebe63710cbd590933f"
+        },
+        {
+          "path": "Tayga/usr/include/filesystem",
+          "sha256": "747651825d257d145c6e4d95b9589751d224d81520449dfe446e27a1aa1394c8"
+        },
+        {
+          "path": "Tayga/usr/include/float.h",
+          "sha256": "34ef1a402d0d5b25ca859b45a73492cbf309bbc214290e1bdf2bbb75efa2a033"
+        },
+        {
+          "path": "Tayga/usr/include/forward_list",
+          "sha256": "c1ef6ff0a9fa0972c271f9f0f844f2616dfad57b61eadf83414bb5c2032e40db"
+        },
+        {
+          "path": "Tayga/usr/include/fstream",
+          "sha256": "e243df802193037f97b69483740afd3536986ef78dbfe22c4880bef3ef65bc62"
+        },
+        {
+          "path": "Tayga/usr/include/functional",
+          "sha256": "653691a50af45049c91748c29e6278cd25b17c0a7a78cc58d2de526c63f78655"
+        },
+        {
+          "path": "Tayga/usr/include/future",
+          "sha256": "a7d0eb86b0c12fa91dd9c803fe12b6a8e72e3e670f3fdc1af134b448239b67ba"
+        },
+        {
+          "path": "Tayga/usr/include/grp.h",
+          "sha256": "ad3fc9c32324aa4638371e6fdcfbc5237ee44ee1e1e924909b68323bac3fcffc"
+        },
+        {
+          "path": "Tayga/usr/include/initializer_list",
+          "sha256": "e86def331b8981cec5fad28f1576e41746a0b472115edc5696014022386f99a4"
+        },
+        {
+          "path": "Tayga/usr/include/inttypes.h",
+          "sha256": "16911e4361ff3de13ac86c6a1ebca503c6ea511cff90d2891882c598be6fdac3"
+        },
+        {
+          "path": "Tayga/usr/include/iomanip",
+          "sha256": "26df5645798e51e3c82f068e6914c2e1d98963a7b60dc52dd1d8469f81e72a89"
+        },
+        {
+          "path": "Tayga/usr/include/ios",
+          "sha256": "9256c7db1c83b172c7d1872c49f4795a35fcf1864b64848a4037e30ba1f9967c"
+        },
+        {
+          "path": "Tayga/usr/include/iosfwd",
+          "sha256": "17e82f9287b37f989072b4f8cf324a0a4ed9dffd685bfcda1a13e494441ec55e"
+        },
+        {
+          "path": "Tayga/usr/include/iostream",
+          "sha256": "0d72d00f278ec6e176e315c8bb5ee51bebd15864d2ebab33752af274dbb76c95"
+        },
+        {
+          "path": "Tayga/usr/include/iterator",
+          "sha256": "e480042d68399b0be157dd1d4e924c801e82d8a380ab0add9b76d86e2d27ae18"
+        },
+        {
+          "path": "Tayga/usr/include/limits",
+          "sha256": "dc196a366c38cc4319f9414bd59a723c87c66acdc2dc8089c0c5f21c82c984ad"
+        },
+        {
+          "path": "Tayga/usr/include/limits.h",
+          "sha256": "915bd3614ecf5fb5aab9e88d73c5217ac5afad9f2e71a0d26854f056c62dc599"
+        },
+        {
+          "path": "Tayga/usr/include/list",
+          "sha256": "f80728463a9fd2eb50616d086054b02d536b27ee0c2faad0bd89d3adad944d4a"
+        },
+        {
+          "path": "Tayga/usr/include/locale.h",
+          "sha256": "c93dbe9265daa0cef88656dfe9327a475666c69ff463c23a7da8c4aac3a2d099"
+        },
+        {
+          "path": "Tayga/usr/include/machine/endian.h",
+          "sha256": "eb42a40f5cbc366bb31b7b592fe8dc6306ffb93afe35adfbb8e3fc746c2e9aef"
+        },
+        {
+          "path": "Tayga/usr/include/map",
+          "sha256": "e2c3cd97bd41070e71c00648c0a6744234c43ae466d50570eb2f3b55b1e442e9"
+        },
+        {
+          "path": "Tayga/usr/include/math.h",
+          "sha256": "3532fc5eb6f5ba87d341905a72b198fb2e33810f087c0fd88c1fe605ef5d09f2"
+        },
+        {
+          "path": "Tayga/usr/include/memory",
+          "sha256": "840194146fbe4a56febab2c67f77eeb9d59a757a9ecacde4bfb1d0a0d25d438f"
+        },
+        {
+          "path": "Tayga/usr/include/mutex",
+          "sha256": "6207ee4701efc98ab68b6991a2b907b9974aee176378fff884aac18840af67b0"
+        },
+        {
+          "path": "Tayga/usr/include/new",
+          "sha256": "cea3c9426a6f2c721c843a668fd38fec671f9d41605760fc31dd4cd6d37ed958"
+        },
+        {
+          "path": "Tayga/usr/include/numeric",
+          "sha256": "41731ab028c0cf7297eaf548673f562c9b37be1567c9e302d1bae23f77c4d0d1"
+        },
+        {
+          "path": "Tayga/usr/include/optional",
+          "sha256": "d0eae24e16df99f64a4bc70b418309c4faee08140994f7079197be2fb5c3387a"
+        },
+        {
+          "path": "Tayga/usr/include/osreldate.h",
+          "sha256": "72a3c944f39d5491852ae7ec633f95b4ac0bd3de062bb8c7dc315594da6cf3df"
+        },
+        {
+          "path": "Tayga/usr/include/ostream",
+          "sha256": "187105461064fc46ecad84bad82ca9e7f879e7d70f7e28abb7fab2e513b4d767"
+        },
+        {
+          "path": "Tayga/usr/include/poll.h",
+          "sha256": "cb82b9cd7dd4d464b8a1f5dbc41ce693d3aac8bfa82deaaf6ade48240f253e8f"
+        },
+        {
+          "path": "Tayga/usr/include/pthread.h",
+          "sha256": "b1c6ed6600a7f1f50d69687a7e3050ae0b7dfa27feb424807015a147ad9d7382"
+        },
+        {
+          "path": "Tayga/usr/include/pwd.h",
+          "sha256": "061ac7e10da8a83b6faef66d30f42294ed7a4f9c9a617053a87a7a7ed230d16f"
+        },
+        {
+          "path": "Tayga/usr/include/queue",
+          "sha256": "73e8849a3e5cdfd51374e327a6ef134e35b3810a1f34a5d7fb443fc1828b14c8"
+        },
+        {
+          "path": "Tayga/usr/include/random",
+          "sha256": "ebf1d370b54ad98f1c148182e92499fdca4b32072a0269b8be2876ffd4d81163"
+        },
+        {
+          "path": "Tayga/usr/include/ratio",
+          "sha256": "eb9fc317ce6f03d94b53da8526270d72af9d1953daa5a9c35c6b67eab4b5a0aa"
+        },
+        {
+          "path": "Tayga/usr/include/regex",
+          "sha256": "43de5fce20f522d4304a4a647b7db75440fab170bbd98b438fe3c39d65d73920"
+        },
+        {
+          "path": "Tayga/usr/include/sched.h",
+          "sha256": "c5b3a18ce9f489a321bf8ecee023c5e30518fccd42d7aee157620dc0c59422ef"
+        },
+        {
+          "path": "Tayga/usr/include/set",
+          "sha256": "fc111cdeafaa2d4d5aae4eaa76e4c0042a28fc68b0b8373ae386f776a0213254"
+        },
+        {
+          "path": "Tayga/usr/include/setjmp.h",
+          "sha256": "d57b00eb818b5a01a03dbea4a2e49cfa2f63e1753d191338944492b08f7cc8ef"
+        },
+        {
+          "path": "Tayga/usr/include/shared_mutex",
+          "sha256": "fccbc5c7d13a6d30d1264247f6f4a2eb564cfe0d8a41739cd406599313eb5047"
+        },
+        {
+          "path": "Tayga/usr/include/signal.h",
+          "sha256": "bfb32bad1f9021abc79f0fd542ba273b2ec0a43c9baaed0405cf23b91a738282"
+        },
+        {
+          "path": "Tayga/usr/include/span",
+          "sha256": "ece5453adc1744367b1e474747dd2f811de860c02b142d73bb041f3a17c3a642"
+        },
+        {
+          "path": "Tayga/usr/include/spawn.h",
+          "sha256": "1e3bb78b0f502d04d8dc1285ee3d4398479ad75373b550c9e9f90a151d77f0df"
+        },
+        {
+          "path": "Tayga/usr/include/sstream",
+          "sha256": "89d5fdbebdf4088c3a8e1f4a26c0eb6c85716701a76172d5af64b119938cc3f7"
+        },
+        {
+          "path": "Tayga/usr/include/stack",
+          "sha256": "d1c2a8eb103c1a08349f2179542894ca6ab763d38d711c880ca99da6b6d59941"
+        },
+        {
+          "path": "Tayga/usr/include/stdalign.h",
+          "sha256": "89a7a04348495b1ecd46585c6573e20202baef4b31a06afff00ac2c6de94ba03"
+        },
+        {
+          "path": "Tayga/usr/include/stdarg.h",
+          "sha256": "a69af51d0698ad8efd8ffcbd6503134e53a11fe37181443b28398e180ae94de1"
+        },
+        {
+          "path": "Tayga/usr/include/stdbool.h",
+          "sha256": "6fd4b7cac1102eaf56a37c90db7bbcef61f4037a16e1e65096fa5a9e9189a92c"
+        },
+        {
+          "path": "Tayga/usr/include/stddef.h",
+          "sha256": "5983cf38f18a24ca606c4ea44cb5530203b1c5d53c0e8109f23df70139e37486"
+        },
+        {
+          "path": "Tayga/usr/include/stdexcept",
+          "sha256": "02d3370ecb987367da20643ed5e01d63fcf80b36c7ae1e55bdfa5ebf6126fee5"
+        },
+        {
+          "path": "Tayga/usr/include/stdint.h",
+          "sha256": "41db4ca4fbc679cf7b693ec230816ecb3862165ef450d4007e7ef4a6dd45bc9d"
+        },
+        {
+          "path": "Tayga/usr/include/stdio.h",
+          "sha256": "8b2140260604d2362f76fbb3e243dbc5a93df217a4750158cfd650d3a32e774c"
+        },
+        {
+          "path": "Tayga/usr/include/stdlib.h",
+          "sha256": "7775dd1a3dfba1472cc9341885c9fd1d410e4f9662c232d4fe6182c17100394a"
+        },
+        {
+          "path": "Tayga/usr/include/stdnoreturn.h",
+          "sha256": "4b1db57c212b1c8bb8a60cb31fbfee6498f83569f04c08c60ebeb2f2614f5cb0"
+        },
+        {
+          "path": "Tayga/usr/include/string",
+          "sha256": "73c6d44a9d42788fbe80b6e7697fe09aeb88535ea2d93784ac83fa1d0d2ecf49"
+        },
+        {
+          "path": "Tayga/usr/include/string.h",
+          "sha256": "cfca0e0bf29172e56348d81abf95c933de4a82dd4528f04230cc371e30a5c9e4"
+        },
+        {
+          "path": "Tayga/usr/include/string_view",
+          "sha256": "0d7f9a7259672029ef3f079c4120f36eb30b2f0d3abc092951de6f64c4154c67"
+        },
+        {
+          "path": "Tayga/usr/include/strings.h",
+          "sha256": "b12366c1308216c6411bd783e73c9e36def0beb254f1779f25755a743cdaed62"
+        },
+        {
+          "path": "Tayga/usr/include/sys/auxv.h",
+          "sha256": "20af5d3b2e3b4a5cc5676d38e34e30b467011425c7683a571e5959bf23018543"
+        },
+        {
+          "path": "Tayga/usr/include/sys/ioctl.h",
+          "sha256": "6eb21e81e31f94b1e0df2856012d1e38a33e281b231f94194a0b492009abd149"
+        },
+        {
+          "path": "Tayga/usr/include/sys/mman.h",
+          "sha256": "1876bab8bee1c8859c86c08ae929bcd208e8db1ff444818b6936f3a1216010ea"
+        },
+        {
+          "path": "Tayga/usr/include/sys/mount.h",
+          "sha256": "93d4116a98393b420a2ee1ca5ebe17f3cbfd9a33d36f92494003773838f475b9"
+        },
+        {
+          "path": "Tayga/usr/include/sys/param.h",
+          "sha256": "c460804558dd8f5a8c70b49129bb1674ff82b0ca5599d9c5336de980ad5fc7ec"
+        },
+        {
+          "path": "Tayga/usr/include/sys/resource.h",
+          "sha256": "d753b6d5987fe2fdcc059ab401192ed561c546f236b4fd96383311d47287a6a5"
+        },
+        {
+          "path": "Tayga/usr/include/sys/select.h",
+          "sha256": "a17194792146d20e352a5415d69b9ba102c2cf8d9fcaf7d8283cf6a81f6aeeef"
+        },
+        {
+          "path": "Tayga/usr/include/sys/socket.h",
+          "sha256": "8e08fdc7ae7b896e2391213a6b81843105f91df820a2120813c02ef65158e0db"
+        },
+        {
+          "path": "Tayga/usr/include/sys/stat.h",
+          "sha256": "4d9a7c0c4e1546e68ce51c9437e1d7563985417db2c85501f60f19f018e3c6f0"
+        },
+        {
+          "path": "Tayga/usr/include/sys/time.h",
+          "sha256": "4e8dd011e07a3c762b8f51c22745c457969ad3f167fb645435202c2cf60618b3"
+        },
+        {
+          "path": "Tayga/usr/include/sys/types.h",
+          "sha256": "8123466c1cabd7ac8de3d9b6bd9561bda32f2136ae93c2a4c5bc19a89d29aed2"
+        },
+        {
+          "path": "Tayga/usr/include/sys/un.h",
+          "sha256": "e54a7baac8e57acf06118d67997e4a1d9193863cd174d857ce63bd18acceb5d6"
+        },
+        {
+          "path": "Tayga/usr/include/sys/utsname.h",
+          "sha256": "0f05be2ddd3ab7523e1d9d373b90c5896cf3e1261c0f0e7a03d53f8cc9eac924"
+        },
+        {
+          "path": "Tayga/usr/include/sys/wait.h",
+          "sha256": "940f96d1203c95b01c151062ca190b7eb7b571052400592606cd80b967174fdd"
+        },
+        {
+          "path": "Tayga/usr/include/sysexits.h",
+          "sha256": "3ddc3c3faa2cc08c1de67ee6e565ebb2e4bd69b0a736b60645b346fcf2b53727"
+        },
+        {
+          "path": "Tayga/usr/include/system_error",
+          "sha256": "79dfa3d722faa1bb445d34be445a2ced09bcbaf8e4c1ba6a0a5e663c19fbe46a"
+        },
+        {
+          "path": "Tayga/usr/include/tayga/baremetal_formats.h",
+          "sha256": "d44bb922a8e7ca6fc7a207e199da50b2475dfa7eec0089b4566c064886918e82"
+        },
+        {
+          "path": "Tayga/usr/include/tayga/baremetal_gpu_api.h",
+          "sha256": "0eef5aca8aca45aab7707397da826d7efb1b0a22bb7fe925d6e61e94a1ffcd3c"
+        },
+        {
+          "path": "Tayga/usr/include/tayga/baremetal_network_api.h",
+          "sha256": "baa6eba33e56802f173e8c32fca5b52532f45ecb9b153188f519ad9b2cd53185"
+        },
+        {
+          "path": "Tayga/usr/include/tayga/baremetal_program_api.h",
+          "sha256": "194248255132bc766b3447f5797e8fbc70df5e2079ac2bb39c403c2d1cc89d20"
+        },
+        {
+          "path": "Tayga/usr/include/tayga/tayga_api.h",
+          "sha256": "7da3b0f1dbf32a6c7fa89f7fb974c31ed4378dbc4b1d3bd3808feaf5f0035e37"
+        },
+        {
+          "path": "Tayga/usr/include/tayga/tayga_freebsd_driver_api.h",
+          "sha256": "64f08ca7dc1ef42ba2079735a03476e186221ea3707aeec91934fe9c7f65ac43"
+        },
+        {
+          "path": "Tayga/usr/include/tayga/tayga_runtime.h",
+          "sha256": "aea034cf59dec04157d654ddb2a6a5c095a104fb3bf2809897972885a8c446a2"
+        },
+        {
+          "path": "Tayga/usr/include/tayga/terror_ui.h",
+          "sha256": "c2d78bfd043d6de53190d98d091e265fd11fe78ee533ad7ada9109aa52ca959f"
+        },
+        {
+          "path": "Tayga/usr/include/tayga/winter_tls.h",
+          "sha256": "470583e86f6ebd88af47c056f2cfee798602211f7f440a75d0937dfa8af5f0a8"
+        },
+        {
+          "path": "Tayga/usr/include/tayga_llvm_compat.hpp",
+          "sha256": "64b01201c0030f6dc22f0b6af46fd82221b93590e892fdd114499d52e575db16"
+        },
+        {
+          "path": "Tayga/usr/include/termios.h",
+          "sha256": "85bfa4e111ec975847f1ba1b05a141c0dd14fd794821edbea67cee2171f59b3a"
+        },
+        {
+          "path": "Tayga/usr/include/tgmath.h",
+          "sha256": "e8d88da68febc2b667878807b4a2ba64733ee20157f3896e1909da357ce9c97b"
+        },
+        {
+          "path": "Tayga/usr/include/thread",
+          "sha256": "6adb51a188575e283dba9de77718b147c1cc328940b85363ea395eb6a05936fe"
+        },
+        {
+          "path": "Tayga/usr/include/time.h",
+          "sha256": "75ed87b10f167440c5285540ecff5655b9796f77fae8d958c73b0681f246c10f"
+        },
+        {
+          "path": "Tayga/usr/include/tuple",
+          "sha256": "bcb3114a964d2c261d0cf7bc7eb6e635d5875d28b6aa8724ff33d160c7a1fa6b"
+        },
+        {
+          "path": "Tayga/usr/include/type_traits",
+          "sha256": "85dc752adeda4dc9345de01d03fef874b97fc5a4f0d0248a19069beaabe38c40"
+        },
+        {
+          "path": "Tayga/usr/include/unistd.h",
+          "sha256": "d5e2a5948f17ec8b1a128e8c4de378a89ed59937acf1877631155270d2f96dba"
+        },
+        {
+          "path": "Tayga/usr/include/unordered_map",
+          "sha256": "b97e353069146db58fe92c655a56c9e6f98fe0f2b0ba74027b9b497f4a4f2bda"
+        },
+        {
+          "path": "Tayga/usr/include/unordered_set",
+          "sha256": "02a581018d8d12a464a44cb2ba853385ce29ec121d6533fb8c405a253a26cd95"
+        },
+        {
+          "path": "Tayga/usr/include/utility",
+          "sha256": "b7dd61fab5812560837b4daf4943eef77bcb82e59464bf1d8ebe34308f78f6f7"
+        },
+        {
+          "path": "Tayga/usr/include/variant",
+          "sha256": "56c296e25a5342a08d1d7478159561ff9e26054349163bb52e7638dd5dab7381"
+        },
+        {
+          "path": "Tayga/usr/include/vector",
+          "sha256": "7008d91d1443ae64ab682df2cc974a656f0a7c5c96f2919f2c89c4e2cebc1485"
+        },
+        {
+          "path": "Tayga/usr/include/winter_algorithms.hpp",
+          "sha256": "2e58200f1477469551867411cc26ddbfba344e452b7bd80326d054742eff3132"
+        },
+        {
+          "path": "Tayga/usr/include/winter_compiler.h",
+          "sha256": "6d47d5c11d1e5c6f316ecc6618680cc375ea47050a42adaf24f7265bbbc17a6d"
+        },
+        {
+          "path": "Tayga/usr/include/winter_std.c",
+          "sha256": "696b652a7dd15639a90d3f49d3d9d36d85ac4b03734f198e49fd8d9d0d858535"
+        },
+        {
+          "path": "Tayga/usr/include/winter_std.h",
+          "sha256": "0c09debd23cff2e3d96dc2e4453498709032b6904c4b0973e5cafbf56fe6311a"
+        },
+        {
+          "path": "Tayga/usr/include/winter_std_cpp.h",
+          "sha256": "dff3fb26bc520907d90b58f3400b1e26b71a537536d6c23f43f8cafadaeac0e7"
+        },
+        {
+          "path": "Tayga/usr/include/winter_stdlib.hpp",
+          "sha256": "5e43c0938910b3201d64ad551100de147f7160515b94d8ce3483fd120f82d39a"
+        },
+        {
+          "path": "Tayga/usr/lib/libSystem.B.tbd",
+          "sha256": "9117efef2b909d05984186184a5c03d6013756bca50e7acc5dc7bc0d2ca249f6"
+        },
+        {
+          "path": "Tayga/var/.keep",
+          "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+        },
+        {
+          "path": "TextEditor.app/Contents/Info.plist",
+          "sha256": "30f3e910d8b0f947cbc16245b48580ec895ada2937d7a23a141afdb942eed5b6"
+        },
+        {
+          "path": "TextEditor.app/Contents/Resources/AppIcon.png",
+          "sha256": "788592fd0e9ff59c77e6bf8b04c8dde3ea6dbcde75d98a04c15252249442c368"
+        },
+        {
+          "path": "Tundra.app/Contents/Info.plist",
+          "sha256": "5b2f72c9a723124de9c59bdb06b454ab75b7a8742691c586d30bb9f999f681bf"
+        },
+        {
+          "path": "Tundra.app/Contents/Resources/AppIcon.png",
+          "sha256": "f0eb471f70a1be5eeec7394ad97d7c136af5a256143d42e7e59d6a10d896905a"
+        },
+        {
+          "path": "Tundra.app/Contents/Resources/Navigator.png",
+          "sha256": "9e25d9ddc192a1d4c9179e3fdc86f1d1def04c41d8e4caaf7e7e9b421a2d4980"
+        },
+        {
+          "path": "Tundra.app/Contents/Resources/Unknown.png",
+          "sha256": "610aac256e945072013cb1bb28afc1d9bff0b1ce9f869d2184185d1df8008235"
+        },
+        {
+          "path": "images/Polynya-chan.png",
+          "sha256": "108d7a829975858083aa161f2f1abca0d524f7eb6519c0db9e6d96dcf03bf377"
+        },
+        {
+          "path": "images/connect.xcf",
+          "sha256": "b90cda35f0232b71bb33d24b35cb15bd8ebb7fe221e89fb22aebc3682ae13c3d"
+        },
+        {
+          "path": "images/holly.png",
+          "sha256": "4e2b7c45c3cc95803b05d86986fae090960bf9a9c8371a27f2881a0b1d5d2f5a"
+        },
+        {
+          "path": "images/oxygen.png",
+          "sha256": "9670741ac39c4279b3370f5ad6271c9a81d2b033de5fd14684b8f900d75e2c55"
+        },
+        {
+          "path": "mach_servers/bootstrap",
+          "sha256": "18e0ffc1d8bbcf7da89d040bef11887ae9a9a0dcc36dbb8f2d93bc3979df7c2c",
+          "exception": "embedded Mach distribution"
+        },
+        {
+          "path": "mach_servers/mach.boot",
+          "sha256": "589e2aef734ecce8ed50e090668636f44b7d6369735a334b8743f764c05f9982",
+          "exception": "embedded Mach distribution"
+        },
+        {
+          "path": "mach_servers/mach_kernel",
+          "sha256": "1dc30591f605521138f4b2ca2ca69d5872ddf8506bdc6800ee37f8b932c3042d",
+          "exception": "embedded Mach distribution"
+        },
+        {
+          "path": "mach_servers/paging_file",
+          "sha256": "2daeb1f36095b44b318410b3f4e8b5d989dcc7bb023d1426c492dab0a3053e74",
+          "exception": "embedded Mach distribution"
+        },
+        {
+          "path": "mach_servers/startup",
+          "sha256": "b4a07c8659a51d3d8620c7c0b1f6824366dbeb9d103dfd86b9f00d8e841b11a4",
+          "exception": "embedded Mach distribution"
+        },
+        {
+          "path": "startup.cmd",
+          "sha256": "5b89ac08923a36105b7d1780ba035f69f5efadfc0b6e9a9c3774894420267707"
+        },
+        {
+          "path": "system-font.wbf",
+          "sha256": "04a00f285ff58f639d8f98298c7a1bf4fefb782d158c3d520855236319daba51"
+        }
+      ],
+      "directories": []
+    }
+  ]
+}

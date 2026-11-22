@@ -4,7 +4,7 @@
 static uint64_t now;
 static uint64_t test_clock(void){return now;}
 #define PF_USB_KEYBOARD_CLOCK test_clock
-#include "../recovery/in-progress/firmware/loader.c"
+#include "../firmware/uefi/common/loader.c"
 static PFUSB usb;
 static void *handles[1]={&usb};
 static unsigned canceled,armed,freed;
@@ -21,9 +21,11 @@ static void report(unsigned modifiers,unsigned key){uint8_t packet[8]={(uint8_t)
 int main(void){
  Services boot={.handles=list,.protocol=protocol,.free_pool=release,.disconnect=(void *)disconnect};System table={0};services=&boot;system_table=&table;
  usb=(PFUSB){.async=subscribe,.device=device,.interface=interface,.endpoint=endpoint};usb_keyboard_devices();assert(usb_keyboard_available&&canceled==1&&armed==1&&freed==1);
- report(0,31);assert(key_code()=='2'&&!key_code());report(0,31);assert(!key_code());now=499;assert(!key_code());now=500;assert(key_code()=='2'&&!key_code());now=5000;assert(key_code()=='2'&&!key_code());report(0,0);now=9000;assert(!key_code());
- report(2,46);assert(key_code()=='+');report(0,0);report(0,32);assert(key_code()=='3');report(0,0);report(0,40);assert(key_code()=='\r');report(0,0);
- report(0,57);report(0,0);report(0,4);assert(key_code()=='A');report(0,0);report(2,4);assert(key_code()=='a');report(0,0);report(1,6);assert(key_code()==3);report(0,0);report(0,82);assert(key_code()==0x4800);report(0,0);
+ report(0,31);assert(key_code()==0x0332&&!key_code());report(0,31);assert(!key_code());now=499;assert(!key_code());now=500;assert(key_code()==0x0332&&!key_code());now=5000;assert(key_code()==0x0332&&!key_code());report(0,0);now=9000;assert(!key_code());
+ report(2,46);assert(key_code()==0x10d2b);report(0,0);assert(key_code()==0x80000000U);report(0,32);assert(key_code()==0x0433);report(0,0);report(0,40);assert(key_code()==0x1c0d);report(0,0);
+ report(0,57);report(0,0);report(0,4);assert(key_code()==0x1e41);report(0,0);report(2,4);assert(key_code()==0x11e61);report(0,0);assert(key_code()==0x80000000U);report(1,6);assert(key_code()==0x22e03);report(0,0);assert(key_code()==0x80000000U);report(0,82);assert(key_code()==0x4800);report(0,0);
+ report(8,22);assert(key_code()==0x41f53);report(0,0);assert(key_code()==0x80000000U);report(0,68);assert(key_code()==0x5700);report(0,0);report(0,69);assert(key_code()==0x5800);report(0,0);
+
  uint8_t bad[8]={0,0,1};callback(bad,8,0,0);assert(!key_code());bad[2]=4;callback(bad,7,0,0);callback(bad,8,0,1);assert(!key_code());
- for(unsigned i=0;i<70;i++){report(0,5);report(0,0);}for(unsigned i=0;i<63;i++)assert(key_code()=='B');assert(!key_code());return 0;
+ for(unsigned i=0;i<70;i++){report(0,5);report(0,0);}for(unsigned i=0;i<63;i++)assert(key_code()==0x3042);assert(!key_code());return 0;
 }

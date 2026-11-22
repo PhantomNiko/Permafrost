@@ -12,44 +12,39 @@ static unsigned disk_transfer(unsigned write,uint32_t drive,uint32_t lba,uint32_
     struct pf_bios_regs r={.eax=write?0x4300:0x4200,.edx=drive,.esi=0x6000};
     return pf_bios_interrupt(0x13,&r);
 }
-unsigned FUN_0200002c(void) {
+unsigned pf_bios_poll_key(void) {
     struct pf_bios_regs r={.eax=0x0100};pf_bios_interrupt(0x16,&r);
     if(r.flags&0x40)return 0;
     r=(struct pf_bios_regs){0};pf_bios_interrupt(0x16,&r);return r.eax&0xffff;
 }
-unsigned FUN_02000113(void) {
-    struct pf_bios_regs r={.eax=0x1130,.ebx=0x0600};pf_bios_interrupt(0x10,&r);
-    *(volatile uint16_t *)0x2000ccc=r.es;*(volatile uint16_t *)0x2000cce=(uint16_t)r.ebp;
-    *(volatile uint16_t *)0x2000cd0=(uint16_t)r.ecx;
-    return r.ecx!=0;
-}
-unsigned FUN_0200022b(void) {
-    uint32_t offset=PF_WORD(0x2000cda),length=PF_WORD(0x2000cde);
+
+unsigned pf_bios_read_bundle(void) {
+    uint32_t offset=PF_WORD(0x2000c40),length=PF_WORD(0x2000c44);
     if(length>0x7000-(offset&511))return 0;
-    unsigned ok=disk_transfer(0,PF_WORD(0x2000cd2),PF_WORD(0x2000cd6)+(offset>>9),((offset&511)+length+511)>>9);
+    unsigned ok=disk_transfer(0,PF_WORD(0x2000c38),PF_WORD(0x2000c3c)+(offset>>9),((offset&511)+length+511)>>9);
     return ok;
 }
-unsigned FUN_02000386(void) {
+unsigned pf_bios_query_capacity(void) {
     volatile uint8_t *parameters=(volatile uint8_t *)0x5000;
     for(unsigned i=0;i<32;++i)parameters[i]=0;
     *(volatile uint16_t *)parameters=30;
-    struct pf_bios_regs r={.eax=0x4800,.edx=PF_WORD(0x2000cee),.esi=0x5000};
+    struct pf_bios_regs r={.eax=0x4800,.edx=PF_WORD(0x2000c54),.esi=0x5000};
     if(!pf_bios_interrupt(0x13,&r))return 0;
     uint64_t sectors=*(volatile uint64_t *)(parameters+16);
-    PF_WORD(0x2000cf2)=sectors>0xffffffffULL?0xffffffffU:(uint32_t)sectors;
+    PF_WORD(0x2000c58)=sectors>0xffffffffULL?0xffffffffU:(uint32_t)sectors;
     return sectors!=0;
 }
-unsigned FUN_020004b9(void) {return disk_transfer(1,PF_WORD(0x2000ce2),PF_WORD(0x2000ce6),PF_WORD(0x2000cea));}
-unsigned FUN_020005e7(void) {struct pf_bios_regs r={.eax=0x13};pf_bios_interrupt(0x10,&r);return 1;}
-unsigned FUN_020006a8(unsigned microseconds) {
+unsigned pf_bios_write_sectors(void) {return disk_transfer(1,PF_WORD(0x2000c48),PF_WORD(0x2000c4c),PF_WORD(0x2000c50));}
+unsigned pf_bios_set_mode13(void) {struct pf_bios_regs r={.eax=0x13};pf_bios_interrupt(0x10,&r);return 1;}
+unsigned pf_bios_wait_microseconds(unsigned microseconds) {
     struct pf_bios_regs r={.eax=0x8600,.ecx=microseconds>>16,.edx=microseconds&0xffff};
     return pf_bios_interrupt(0x15,&r);
 }
-unsigned FUN_020007a6(void) {
+unsigned pf_bios_set_text_mode(void) {
     struct pf_bios_regs r={.eax=3};pf_bios_interrupt(0x10,&r);
-    PF_WORD(0x20d18)=0;return 1;
+    PF_WORD(0x2000c7e)=0;return 1;
 }
-unsigned FUN_02000867(void) {
+unsigned pf_bios_set_wxga_mode(void) {
     volatile uint8_t *controller=(volatile uint8_t *)0x5000;
     for(unsigned i=0;i<512;++i)controller[i]=0;
     PF_WORD(0x5000)=0x32454256;
@@ -65,11 +60,11 @@ unsigned FUN_02000867(void) {
         if(width!=1280 || height!=800)continue;
         r=(struct pf_bios_regs){.eax=0x4f02,.ebx=mode|0x4000};pf_bios_interrupt(0x10,&r);
         if((r.eax&0xffff)!=0x4f)return 0;
-        PF_WORD(0x20d18)=*(volatile uint32_t *)(info+40);
-        PF_WORD(0x20d1c)=*(volatile uint16_t *)(info+16);PF_WORD(0x20d20)=width;PF_WORD(0x20d24)=height;PF_WORD(0x20d28)=32;
-        PF_WORD(0x20d2c)=(1U<<info[31])-1;PF_WORD(0x20d30)=info[32];
-        PF_WORD(0x20d34)=(1U<<info[33])-1;PF_WORD(0x20d38)=info[34];
-        PF_WORD(0x20d3c)=(1U<<info[35])-1;PF_WORD(0x20d40)=info[36];return 1;
+        PF_WORD(0x2000c7e)=*(volatile uint32_t *)(info+40);
+        PF_WORD(0x2000c82)=*(volatile uint16_t *)(info+16);PF_WORD(0x2000c86)=width;PF_WORD(0x2000c8a)=height;PF_WORD(0x2000c8e)=32;
+        PF_WORD(0x2000c92)=info[31];PF_WORD(0x2000c96)=info[32];
+        PF_WORD(0x2000c9a)=info[33];PF_WORD(0x2000c9e)=info[34];
+        PF_WORD(0x2000ca2)=info[35];PF_WORD(0x2000ca6)=info[36];return 1;
     }
     return 0;
 }

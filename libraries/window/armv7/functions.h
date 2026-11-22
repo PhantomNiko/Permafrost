@@ -311,3 +311,11 @@ undefined4 * recovered_10007c18(undefined4 *param_1,int param_2);
 int recovered_10007c58(int *param_1,int param_2,undefined1 *param_3,undefined1 *param_4);
 
 /* Original analysis identifiers for manual recovery units. */
+
+double pf_release_difftime(long end,long start);
+
+double pf_release_exp(double value);
+
+float pf_release_expf(float value);
+
+long double pf_release_expl(long double value);
