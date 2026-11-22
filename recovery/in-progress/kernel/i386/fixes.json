@@ -378,5 +378,16 @@
     "uVar10 = recovered_2055b30((int)local_121,incoming_edx,(char *)param_3);": "uVar10 = recovered_2055b30((uint)local_212,0x20c5dc0,(int)local_121,incoming_edx,(char *)param_3);",
     "uVar10 = recovered_20559e0();": "uVar10 = recovered_20559e0((int)local_212,(char *)local_121);",
     "uVar10 = recovered_20559e0(),": "uVar10 = recovered_20559e0((int)local_303,(char *)local_3f4),"
+  },
+  "205b200": {
+    "0 << bVar5 | (uint)(ushort)((uVar16 >> 8) >> 0x20 - bVar5)": "(uint)(((uint64_t)(uint)(uVar16 >> 8) << bVar5) >> 32)",
+    "0 << bVar5 | uVar10 >> 0x20 - bVar5": "(uint)(((uint64_t)uVar10 << bVar5) >> 32)",
+    "0 << bVar8 | (uint)(bVar15 >> 0x20 - bVar8)": "(uint)(((uint64_t)bVar15 << bVar8) >> 32)",
+    "0 << bVar15 | (bVar5 & 0x7f) >> 0x20 - bVar15": "(uint)(((uint64_t)(bVar5 & 0x7f) << bVar15) >> 32)"
+  },
+  "205c1d0": {
+    "0 << bVar10 | (uint)(ushort)((uVar8 >> 8) >> 0x20 - bVar10)": "(uint)(((uint64_t)(uint)(uVar8 >> 8) << bVar10) >> 32)",
+    "0 << bVar7 | (bVar10 & 0x7f) >> 0x20 - bVar7": "(uint)(((uint64_t)(bVar10 & 0x7f) << bVar7) >> 32)",
+    "0 << bVar10 | (uint)((byte)local_34 >> 0x20 - bVar10)": "(uint)(((uint64_t)(byte)local_34 << bVar10) >> 32)"
   }
 }
