@@ -959,7 +959,7 @@ LAB_02047c80:
             return uVar7 & 0xffffffff;
           }
           puVar18 = auStack_574 + -1;
-          if (cVar24 == '\0') {
+          if (*(char *)puVar18 == '\0') {
             puVar18 = (uint *)0x0;
           }
           param_13 = (byte *)(ulong)param_11;

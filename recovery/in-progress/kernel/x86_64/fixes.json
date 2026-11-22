@@ -302,7 +302,8 @@
     "abStack_179[uVar7] - 9 < 5": "(uint)(abStack_179[uVar7]) - 9 < 5",
     "*pbVar8 - 9 < 5": "(uint)(*pbVar8) - 9 < 5",
     "recovered_2046aa0(extraout_XMM0_Qa_02,param_2,param_3,param_4,param_5,\n                                          param_6,param_7,param_8,pbVar8,param_10,param_11,\n                                          (ulong)(bVar21 - 9),param_13,param_14)": "recovered_2046aa0(pbVar8,param_10,param_11)",
-    "4 < bVar21 - 9": "4 < (uint)(bVar21) - 9"
+    "4 < bVar21 - 9": "4 < (uint)(bVar21) - 9",
+    "puVar18 = auStack_574 + -1;\n          if (cVar24 == '\\0')": "puVar18 = auStack_574 + -1;\n          if (*(char *)puVar18 == '\\0')"
   },
   "2048950": {
     "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5",
