@@ -901,3 +901,28 @@
 2002120	int recovered_2002120(const unsigned char *left,const unsigned char *right);	ECX,EDX
 2027fb0	unsigned int recovered_2027fb0(int path);	ECX
 2013e40	unsigned int recovered_2013e40(unsigned char bus,unsigned char device,unsigned char function,unsigned char *out);	ECX,EDX,stack4,stack8
+2014ce0	void recovered_2014ce0(unsigned int port,unsigned int value);	ECX,EDX
+2014320	void recovered_2014320(unsigned int queue,void *callback);	ECX,EDX
+2017240	unsigned int recovered_2017240(void *out);	ECX
+2016e20	void recovered_2016e20(void *out,unsigned int a,unsigned int b,unsigned int c);	ECX,EDX,stack4,stack8
+2016e80	unsigned int recovered_2016e80(void *td);	ECX
+2017800	void recovered_2017800(void *out,unsigned int a,unsigned int b,unsigned int c,unsigned int d);	ECX,EDX,stack4,stack8,stack12
+2017860	void recovered_2017860(unsigned int pointer);	ECX
+20178e0	unsigned int recovered_20178e0(void *td);	ECX
+2010dd0	unsigned int recovered_2010dd0(unsigned int *out);	ECX
+2014970	unsigned int recovered_2014970(int controller,unsigned int queue);	ECX,EDX
+2014d30	unsigned int recovered_2014d30(int controller,void *data,unsigned int size);	ECX,EDX,stack4
+2016340	unsigned int recovered_2016340(int controller,unsigned int device,unsigned char a,unsigned char b,unsigned char c,unsigned char d,unsigned short e);	ECX,EDX,stack4,stack8,stack12,stack16,stack20
+20169e0	unsigned int recovered_20169e0(int controller,unsigned int device,unsigned char a,unsigned char b,unsigned char c,unsigned char d,unsigned short e,unsigned short f,unsigned char direction,void *data,unsigned short size);	ECX,EDX,stack4,stack8,stack12,stack16,stack20,stack24,stack28,stack32,stack36
+2016dc0	void recovered_2016dc0(void *out,unsigned int a,unsigned int b,unsigned int c,unsigned int d);	ECX,EDX,stack4,stack8,stack12
+20091e0	unsigned int recovered_20091e0(unsigned int pointer,unsigned int size,unsigned int *out);	ECX,EDX,stack4
+2014010	unsigned int recovered_2014010(unsigned int size,unsigned char cycle);	ECX,EDX
+2014210	unsigned int recovered_2014210(unsigned int size);	ECX
+2015220	unsigned int recovered_2015220(int controller,unsigned int timeout,unsigned int *out);	ECX,EDX,stack4
+2015350	unsigned int recovered_2015350(unsigned int *out);	ECX
+2015580	unsigned int recovered_2015580(void *ring,unsigned int *cursor,unsigned int *cycle);	ECX,EDX,stack4
+2015680	unsigned int recovered_2015680(unsigned int low,unsigned int high,unsigned int control,int timeout,unsigned int *slot,unsigned char *completion);	ECX,EDX,stack4,stack8,stack12,stack16
+20157d0	unsigned int recovered_20157d0(unsigned int ring,unsigned int *cursor,unsigned char *cycle,unsigned int low,unsigned int high,unsigned int size,unsigned int control,unsigned int *out);	ECX,EDX,stack4,stack8,stack12,stack16,stack20,stack24
+2015980	unsigned int recovered_2015980(void *event,unsigned int timeout);	ECX,EDX
+2015af0	unsigned int recovered_2015af0(unsigned char kind,unsigned char request,unsigned short value,unsigned short index,unsigned char direction,unsigned char *data,unsigned short size);	ECX,EDX,stack4,stack8,stack12,stack16,stack20
+2015da0	unsigned int recovered_2015da0(char *data,unsigned int size,unsigned int *out);	ECX,EDX,stack4

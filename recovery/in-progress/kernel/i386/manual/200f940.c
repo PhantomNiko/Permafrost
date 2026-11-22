@@ -123,10 +123,8 @@
 #define local_50 (*(byte *)(frame + 96))
 #define local_4f (*(byte *)(frame + 97))
 #define local_4e (*(byte *)(frame + 98))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x200f940
- */
 
+/* Pooka's Free Software License. Recovered controller access. */
 void recovered_200f940(void)
 
 {
@@ -273,13 +271,13 @@ LAB_02010370:
             sVar10 = sVar18;
             if ((uVar7 & 0xffbf) == 0x1003) {
               if (local_56 < 8 && local_57 < 0x20) {
-                out(0xcf8,(uint)local_58 * 0x10000 + -0x7ffffffc +
+                pf_pci_out32(0xcf8,(uint)local_58 * 0x10000 + -0x7ffffffc +
                           ((uint)local_56 << 8 | (uint)local_57 << 0xb));
-                uVar6 = in(0xcfc);
+                uVar6 = pf_pci_in16(0xcfc);
                 if (local_56 < 8 && local_57 < 0x20) {
-                  out(0xcf8,(uint)local_58 * 0x10000 + -0x7ffffffc +
+                  pf_pci_out32(0xcf8,(uint)local_58 * 0x10000 + -0x7ffffffc +
                             ((uint)local_56 << 8 | (uint)local_57 << 0xb));
-                  out(0xcfc,uVar6 | 7);
+                  pf_pci_out16(0xcfc,uVar6 | 7);
                 }
               }
               uVar7 = (uint)local_52;
@@ -289,7 +287,7 @@ LAB_02010370:
               sVar10 = sVar18;
               if (((uVar7 & 0xffbf) == 0x1003) && ((local_4a & 0x10) != 0)) {
                 if (local_56 < 8 && local_57 < 0x20) {
-                  out(0xcf8,(uint)local_58 * 0x10000 + -0x7fffffcc +
+                  pf_pci_out32(0xcf8,(uint)local_58 * 0x10000 + -0x7fffffcc +
                             ((uint)local_56 << 8 | (uint)local_57 << 0xb));
                   bVar2 = in(0xcfc);
                   uVar7 = (uint)bVar2;
@@ -304,13 +302,13 @@ LAB_02010370:
                     uVar13 = 0;
                     while ((local_57 < 0x20 && (local_56 < 8))) {
                       local_1c = uVar17;
-                      out(0xcf8,uVar7 & 0xfc | (uint)local_57 << 0xb |
+                      pf_pci_out32(0xcf8,uVar7 & 0xfc | (uint)local_57 << 0xb |
                                 (uint)local_56 << 8 | (uint)local_58 << 0x10 | 0x80000000);
                       cVar3 = in((ushort)uVar7 | 0xcfc);
                       if ((0x1f < local_57) || (7 < local_56)) break;
                       local_24 = uVar13;
                       local_20 = uVar7;
-                      out(0xcf8,uVar7 + 1 & 0xfc | (uint)local_57 << 0xb |
+                      pf_pci_out32(0xcf8,uVar7 + 1 & 0xfc | (uint)local_57 << 0xb |
                                 (uint)local_56 << 8 | (uint)local_58 << 0x10 | 0x80000000);
                       bVar2 = in((ushort)(uVar7 + 1) | 0xcfc);
                       uVar12 = (uint)bVar2 << 8;
@@ -319,12 +317,12 @@ LAB_02010370:
                         uVar12 = (uint)CONCAT11(bVar2,0x1f < uVar15);
                         if (7 < local_56 || 0x1f < uVar15) goto LAB_020105df;
                         local_11 = bVar2;
-                        out(0xcf8,uVar7 + 3 & 0xfc | uVar15 << 0xb |
+                        pf_pci_out32(0xcf8,uVar7 + 3 & 0xfc | uVar15 << 0xb |
                                   (uint)local_56 << 8 | (uint)local_58 << 0x10 | 0x80000000);
                         bVar5 = in((ushort)(uVar7 + 3) | 0xcfc);
                         if (local_56 < 8 && local_57 < 0x20) {
                           local_29 = bVar5;
-                          out(0xcf8,uVar7 + 4 & 0xfc | (uint)local_57 << 0xb |
+                          pf_pci_out32(0xcf8,uVar7 + 4 & 0xfc | (uint)local_57 << 0xb |
                                     (uint)local_56 << 8 | (uint)local_58 << 0x10 | 0x80000000);
                           bVar5 = in((ushort)(uVar7 + 4) | 0xcfc);
                           if (0x1f < local_57) goto LAB_02010644;
@@ -333,7 +331,7 @@ LAB_02010370:
                             uVar15 = uVar7 + 8;
                             if ((uVar15 & 3) != 0) goto LAB_020105df;
                             local_5d = bVar5;
-                            out(0xcf8,(uVar15 & 0xfc | (uint)local_58 << 0x10) + 0x80000000 +
+                            pf_pci_out32(0xcf8,(uVar15 & 0xfc | (uint)local_58 << 0x10) + 0x80000000 +
                                       ((uint)local_56 << 8 | (uint)local_57 << 0xb));
                             uVar12 = in((ushort)uVar15 | 0xcfc);
                             if (0x1f < local_57) goto LAB_020107fd;
@@ -341,7 +339,7 @@ LAB_02010370:
                             if (7 < local_56) goto LAB_02010644;
                             uVar15 = uVar7 + 0xc;
                             if ((uVar15 & 3) == 0) {
-                              out(0xcf8,(uVar15 & 0xfc | (uint)local_58 << 0x10) + 0x80000000 +
+                              pf_pci_out32(0xcf8,(uVar15 & 0xfc | (uint)local_58 << 0x10) + 0x80000000 +
                                         ((uint)local_56 << 8 | (uint)local_57 << 0xb));
                               uVar15 = in((ushort)uVar15 | 0xcfc);
                               uVar8 = uVar15 + uVar12;
@@ -374,7 +372,7 @@ LAB_020107a8:
                                 if ((local_57 < 0x20) && (local_56 < 8)) {
                                   uVar7 = local_20 + 0x10;
                                   if ((uVar7 & 3) == 0) {
-                                    out(0xcf8,(uVar7 & 0xfc | (uint)local_58 << 0x10) + 0x80000000 +
+                                    pf_pci_out32(0xcf8,(uVar7 & 0xfc | (uint)local_58 << 0x10) + 0x80000000 +
                                               ((uint)local_56 << 8 | (uint)local_57 << 0xb));
                                     local_5c = in((ushort)uVar7 | 0xcfc);
                                     uVar13 = local_24;
@@ -447,13 +445,13 @@ LAB_020105df:
           sVar18 = 0x1af4;
           if ((uVar7 & 0xffbf) != 0x1012) goto LAB_02010370;
           if (local_56 < 8 && local_57 < 0x20) {
-            out(0xcf8,(uint)local_58 * 0x10000 + -0x7ffffffc +
+            pf_pci_out32(0xcf8,(uint)local_58 * 0x10000 + -0x7ffffffc +
                       ((uint)local_56 << 8 | (uint)local_57 << 0xb));
-            uVar6 = in(0xcfc);
+            uVar6 = pf_pci_in16(0xcfc);
             if (local_56 < 8 && local_57 < 0x20) {
-              out(0xcf8,(uint)local_58 * 0x10000 + -0x7ffffffc +
+              pf_pci_out32(0xcf8,(uint)local_58 * 0x10000 + -0x7ffffffc +
                         ((uint)local_56 << 8 | (uint)local_57 << 0xb));
-              out(0xcfc,uVar6 | 7);
+              pf_pci_out16(0xcfc,uVar6 | 7);
             }
           }
           uVar7 = (uint)local_52;
@@ -461,7 +459,7 @@ LAB_020105df:
           if (local_54 == 0x1af4) {
             if (((uVar7 & 0xffbf) == 0x1012) && ((local_4a & 0x10) != 0)) {
               if (local_56 < 8 && local_57 < 0x20) {
-                out(0xcf8,(uint)local_58 * 0x10000 + -0x7fffffcc +
+                pf_pci_out32(0xcf8,(uint)local_58 * 0x10000 + -0x7fffffcc +
                           ((uint)local_56 << 8 | (uint)local_57 << 0xb));
                 bVar2 = in(0xcfc);
                 uVar7 = (uint)bVar2;
@@ -477,12 +475,12 @@ LAB_020105df:
                     local_18 = uVar12;
                     if ((0x1f < local_57) || (7 < local_56)) break;
                     local_24 = uVar13;
-                    out(0xcf8,uVar7 & 0xfc | (uint)local_57 << 0xb |
+                    pf_pci_out32(0xcf8,uVar7 & 0xfc | (uint)local_57 << 0xb |
                               (uint)local_56 << 8 | (uint)local_58 << 0x10 | 0x80000000);
                     cVar3 = in((ushort)uVar7 | 0xcfc);
                     if ((0x1f < local_57) || (7 < local_56)) break;
                     local_20 = uVar7;
-                    out(0xcf8,uVar7 + 1 & 0xfc | (uint)local_57 << 0xb |
+                    pf_pci_out32(0xcf8,uVar7 + 1 & 0xfc | (uint)local_57 << 0xb |
                               (uint)local_56 << 8 | (uint)local_58 << 0x10 | 0x80000000);
                     bVar2 = in((ushort)(uVar7 + 1) | 0xcfc);
                     uVar8 = (uint)bVar2 << 8;
@@ -492,12 +490,12 @@ LAB_020105df:
                       uVar8 = (uint)CONCAT11(bVar2,0x1f < uVar14);
                       if (!(7 < local_56 || 0x1f < uVar14)) {
                         local_11 = bVar2;
-                        out(0xcf8,uVar7 + 3 & 0xfc | uVar14 << 0xb |
+                        pf_pci_out32(0xcf8,uVar7 + 3 & 0xfc | uVar14 << 0xb |
                                   (uint)local_56 << 8 | (uint)local_58 << 0x10 | 0x80000000);
                         uVar4 = in((ushort)(uVar7 + 3) | 0xcfc);
                         if (local_56 < 8 && local_57 < 0x20) {
                           local_64 = CONCAT31(PF_PART3(local_64, 1),uVar4);
-                          out(0xcf8,uVar7 + 4 & 0xfc | (uint)local_57 << 0xb |
+                          pf_pci_out32(0xcf8,uVar7 + 4 & 0xfc | (uint)local_57 << 0xb |
                                     (uint)local_56 << 8 | (uint)local_58 << 0x10 | 0x80000000);
                           bVar5 = in((ushort)(uVar7 + 4) | 0xcfc);
                           if (0x1f < local_57) goto LAB_02010011;
@@ -505,7 +503,7 @@ LAB_020105df:
                           if ((7 < local_56) || (uVar14 = uVar7 + 8, (uVar14 & 3) != 0))
                           goto LAB_020101bc;
                           local_29 = bVar5;
-                          out(0xcf8,(uVar14 & 0xfc | (uint)local_58 << 0x10) + 0x80000000 +
+                          pf_pci_out32(0xcf8,(uVar14 & 0xfc | (uint)local_58 << 0x10) + 0x80000000 +
                                     ((uint)local_56 << 8 | (uint)local_57 << 0xb));
                           uVar15 = in((ushort)uVar14 | 0xcfc);
                           if (0x1f < local_57) goto LAB_020101b0;
@@ -513,7 +511,7 @@ LAB_020105df:
                           uVar8 = uVar7 + 0xc;
                           if ((uVar8 & 3) == 0) {
                             local_28 = uVar17;
-                            out(0xcf8,(uVar8 & 0xfc | (uint)local_58 << 0x10) + 0x80000000 +
+                            pf_pci_out32(0xcf8,(uVar8 & 0xfc | (uint)local_58 << 0x10) + 0x80000000 +
                                       ((uint)local_56 << 8 | (uint)local_57 << 0xb));
                             uVar8 = in((ushort)uVar8 | 0xcfc);
                             uVar14 = uVar8 + uVar15;
@@ -541,7 +539,7 @@ LAB_02010164:
                                   if (((local_57 < 0x20) && (local_56 < 8)) &&
                                      (uVar7 = local_20 + 0x10, (uVar7 & 3) == 0)) {
                                     local_28 = uVar17;
-                                    out(0xcf8,(uVar7 & 0xfc | (uint)local_58 << 0x10) + 0x80000000 +
+                                    pf_pci_out32(0xcf8,(uVar7 & 0xfc | (uint)local_58 << 0x10) + 0x80000000 +
                                               ((uint)local_56 << 8 | (uint)local_57 << 0xb));
                                     local_5c = in((ushort)uVar7 | 0xcfc);
                                     if (local_5c != 0) {
@@ -623,13 +621,13 @@ switchD_02010b37_caseD_1:
             uVar7 = DAT_021044f4;
             if (uVar7 < 8) {
               if (local_56 < 8 && local_57 < 0x20) {
-                out(0xcf8,(uint)local_58 * 0x10000 + -0x7ffffffc +
+                pf_pci_out32(0xcf8,(uint)local_58 * 0x10000 + -0x7ffffffc +
                           ((uint)local_56 << 8 | (uint)local_57 << 0xb));
-                uVar6 = in(0xcfc);
+                uVar6 = pf_pci_in16(0xcfc);
                 if (local_56 < 8 && local_57 < 0x20) {
-                  out(0xcf8,(uint)local_58 * 0x10000 + -0x7ffffffc +
+                  pf_pci_out32(0xcf8,(uint)local_58 * 0x10000 + -0x7ffffffc +
                             ((uint)local_56 << 8 | (uint)local_57 << 0xb));
-                  out(0xcfc,uVar6 | 7);
+                  pf_pci_out16(0xcfc,uVar6 | 7);
                 }
               }
               uVar7 = 0;
@@ -694,13 +692,13 @@ switchD_02010b37_caseD_0:
               if ((((uVar7 < 8) && (1 < auStack_48[4] + 1)) && ((auStack_48[4] & 1) != 0)) &&
                  ((auStack_48[4] & 0xffe0) != 0)) {
                 if (local_56 < 8 && local_57 < 0x20) {
-                  out(0xcf8,(uint)local_58 * 0x10000 + -0x7ffffffc +
+                  pf_pci_out32(0xcf8,(uint)local_58 * 0x10000 + -0x7ffffffc +
                             ((uint)local_56 << 8 | (uint)local_57 << 0xb));
-                  uVar6 = in(0xcfc);
+                  uVar6 = pf_pci_in16(0xcfc);
                   if (local_56 < 8 && local_57 < 0x20) {
-                    out(0xcf8,(uint)local_58 * 0x10000 + -0x7ffffffc +
+                    pf_pci_out32(0xcf8,(uint)local_58 * 0x10000 + -0x7ffffffc +
                               ((uint)local_56 << 8 | (uint)local_57 << 0xb));
-                    out(0xcfc,uVar6 | 7);
+                    pf_pci_out16(0xcfc,uVar6 | 7);
                   }
                 }
                 iVar16 = local_56 + 0x80000000 + ((uint)local_57 << 8 | (uint)local_58 << 0x10);

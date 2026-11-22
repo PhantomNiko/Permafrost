@@ -2695,7 +2695,7 @@ undefined4 recovered_10006a38(int param_1)
   }
                     /* WARNING: Could not recover jumptable at 0x10006a60. Too many branches */
                     /* WARNING: Treating indirect jump as call */
-  uVar1 = (*UNRECOVERED_JUMPTABLE)();
+  uVar1 = (*UNRECOVERED_JUMPTABLE)(param_1);
   return uVar1;
 }
 

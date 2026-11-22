@@ -601,3 +601,19 @@ transport cases, seven public pointer-cache transitions and thirteen native
 keyboard/wait cases pass. The complete source VM moves the pointer, opens the
 File menu and closes it with Escape. Desktop application launch is still being
 traced; these results do not establish completed release compatibility.
+
+The BIOS USB controller helpers now retain their private register arguments.
+HID report decoding, OHCI/UHCI descriptor writes and DMA conversion match 440
+native cases. MMIO access retains control-register reads and translation/cache
+refreshes: 128 paged mapping cases match the reference, with 80 separate tests
+for the C BIOS loader's flat physical address adapter. Present-controller PCI
+configuration writes and mapped records also match the reference.
+
+Platform pointer providers now forward the output pointer on every supported
+slice: generic hardware on all four architectures, and both MacBook providers
+on i386 and x64. Each of the eight slices passes 16 native forwarding and guard
+cases. A BIOS VM hardware watchpoint identified the omitted argument as the
+cause of a pointer packet overwriting desktop instructions. With the repaired
+providers, the full source BIOS VM accepts pointer movement and file selection
+and remains running after keyboard input. Application scheduling and the file
+window status rendering still require work before the release is complete.

@@ -7,6 +7,12 @@ undefined4 recovered_2005b60(uint incoming_ecx,uint incoming_edx,int param_3,uin
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
+  /* The C BIOS loader retains a flat physical address space. */
+  if (!(pf_read_cr0() & 0x80000000U) && param_4 && !param_3 &&
+      (uint64_t)incoming_ecx + (incoming_edx ? incoming_edx : 1) <= 0x100000000ULL) {
+    *param_4 = incoming_ecx;
+    return 1;
+  }
   uint uVar1;
   uint uVar2;
   uint uVar3;
@@ -14,8 +20,8 @@ undefined4 recovered_2005b60(uint incoming_ecx,uint incoming_edx,int param_3,uin
   uint uVar5;
   uint uVar6;
   bool bVar7;
-  int in_CR0;
-  uint in_CR4;
+  int in_CR0 = (int)pf_read_cr0();
+  uint in_CR4 = pf_read_cr4();
 
   if ((param_4 != (uint *)0x0) && (_DAT_00006234 != 0)) {
     uVar3 = incoming_ecx & 0x1fffff;
@@ -52,6 +58,7 @@ undefined4 recovered_2005b60(uint incoming_ecx,uint incoming_edx,int param_3,uin
           uVar2 = uVar2 + 0x200000;
           uVar5 = uVar5 + bVar7;
         } while (uVar5 < uVar1 || uVar5 - uVar1 < (uint)(uVar2 < uVar4));
+        pf_flush_mmio_mapping();
         *param_4 = uVar3;
         return CONCAT31((int3)((uint)param_4 >> 8),1);
       }

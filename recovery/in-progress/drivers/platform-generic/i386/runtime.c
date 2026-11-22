@@ -9218,7 +9218,7 @@ undefined4 recovered_10009e10(int param_1)
     if (param_1 != 0 && *(code **)(DAT_1000c000 + 0x24) != (code *)0x0) {
                     /* WARNING: Could not recover jumptable at 0x10009e30. Too many branches */
                     /* WARNING: Treating indirect jump as call */
-      uVar1 = (**(code **)(DAT_1000c000 + 0x24))();
+      uVar1 = (**(code **)(DAT_1000c000 + 0x24))(param_1);
       return uVar1;
     }
   }

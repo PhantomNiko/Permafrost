@@ -258,7 +258,7 @@ int recovered_2008e70(uint param_1,uint param_2);
 uint recovered_2008f70(void);
 void * recovered_2008fd0(uint incoming_ecx,uint incoming_edx,int param_3,uint param_4);
 uint recovered_2009190(uint param_1,uint param_2,uint param_3,uint *param_4,int *param_5);
-bool recovered_20091e0(uint *param_1);
+uint recovered_20091e0(uint pointer,uint size,uint *out);
 void recovered_20093f0(void);
 uint recovered_2009400(void);
 uint recovered_2009b20(uchar param_1,int *param_2);
@@ -280,7 +280,7 @@ uint recovered_200b1e0(void);
 uint recovered_200b230(uint *param_1);
 uint recovered_200bf60(int param_1);
 void recovered_200f940(void);
-undefined4 recovered_2010dd0(void);
+uint recovered_2010dd0(uint *out);
 void recovered_20111a0(uint *param_1,uint *param_2);
 void recovered_20111d0(uint *param_1,uint *param_2,uint *param_3);
 void recovered_2011210(uint *param_1,uint *param_2,uint *param_3,uint *param_4);
@@ -337,46 +337,43 @@ int recovered_2013a40(void);
 int recovered_2013a80(uchar in_CL);
 uint recovered_2013ae0(int incoming_ecx,uchar *incoming_edx);
 uint recovered_2013e40(uchar bus,uchar device,uchar function,uchar *out);
-undefined4 recovered_2014010(void);
-undefined4 recovered_2014210(void);
-void recovered_2014320(void);
+uint recovered_2014010(uint size,uchar cycle);
+uint recovered_2014210(uint size);
+void recovered_2014320(uint queue,void *callback);
 void recovered_2014530(uint *param_1,uint param_2);
 void recovered_2014750(void);
 void recovered_2014860(int param_1,uint param_2);
-undefined4 recovered_2014970(void);
-void recovered_2014ce0(void);
-undefined4 recovered_2014d30(ulong param_1);
+uint recovered_2014970(int controller,uint queue);
+void recovered_2014ce0(uint port,uint value);
+uint recovered_2014d30(int controller,void *data,uint size);
 undefined4 recovered_2014ee0(int *param_1,char param_2);
 undefined4 recovered_2015120(void);
-undefined4 recovered_2015220(uint *param_1);
-undefined4 recovered_2015350(void);
-undefined4 recovered_2015580(undefined4 *param_1);
-undefined4 recovered_2015680(uint param_1,int param_2,uint *param_3,undefined1 *param_4);
-undefined4
-recovered_20157d0(byte *param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
-                 undefined4 param_5,int *param_6);
-undefined4 recovered_2015980(void);
-bool recovered_2015af0(undefined2 param_1,undefined2 param_2,byte param_3,undefined1 *param_4,
-                      ushort param_5);
-undefined4 recovered_2015da0(uint *param_1);
+uint recovered_2015220(int controller,uint timeout,uint *out);
+uint recovered_2015350(uint *out);
+uint recovered_2015580(void *ring,uint *cursor,uint *cycle);
+uint recovered_2015680(uint low,uint high,uint control,int timeout,uint *slot,uchar *completion);
+uint recovered_20157d0(uint ring,uint *cursor,uchar *cycle,uint low,uint high,uint size,uint control
+                      ,uint *out);
+uint recovered_2015980(void *event,uint timeout);
+uint recovered_2015af0(uchar kind,uchar request,ushort value,ushort index,uchar direction,
+                      uchar *data,ushort size);
+uint recovered_2015da0(char *data,uint size,uint *out);
 undefined4 recovered_2015f20(void);
-undefined4
-recovered_2016340(undefined1 param_1,byte param_2,byte param_3,undefined1 param_4,ushort param_5);
-undefined4
-recovered_20169e0(undefined4 param_1,undefined4 param_2,undefined1 param_3,undefined1 param_4,
-                 undefined2 param_5,undefined2 param_6,char param_7,undefined1 *param_8,
-                 ushort param_9);
-void recovered_2016dc0(undefined4 param_1,undefined4 param_2,undefined4 param_3);
-void recovered_2016e20(undefined4 param_1,undefined4 param_2);
-bool recovered_2016e80(void);
+uint recovered_2016340(int controller,uint device,uchar a,uchar b,uchar c,uchar d,ushort e);
+uint recovered_20169e0(int controller,uint device,uchar a,uchar b,uchar c,uchar d,ushort e,ushort f,
+                      uchar direction,void *data,ushort size);
+void recovered_2016dc0(void *out,uint a,uint b,uint c,uint d);
+void recovered_2016e20(void *out,uint a,uint b,uint c);
+uint recovered_2016e80(void *td);
 undefined4 recovered_2016f40(void);
-bool recovered_2017240(void);
+uint recovered_2017240(void *out);
 undefined4
-recovered_20172c0(char param_1,byte param_2,undefined1 param_3,undefined1 param_4,undefined2 param_5
-                 ,undefined2 param_6,char param_7,undefined1 *param_8,ushort param_9);
-void recovered_2017800(undefined4 param_1,undefined4 param_2,undefined4 param_3);
-void recovered_2017860(void);
-byte recovered_20178e0(void);
+recovered_20172c0(uint in_ECX_00,uint in_EDX,char param_3,byte param_4,undefined1 param_5,
+                 undefined1 param_6,undefined2 param_7,undefined2 param_8,char param_9,
+                 undefined1 *param_10,ushort param_11);
+void recovered_2017800(void *out,uint a,uint b,uint c,uint d);
+void recovered_2017860(uint pointer);
+uint recovered_20178e0(void *td);
 undefined4 recovered_20179d0(void);
 uint recovered_2017a70(int incoming_ecx,uint incoming_edx);
 uint recovered_2017cb0(void);
@@ -1767,9 +1764,3 @@ ulonglong recovered_20c15e0(uint in_EDX,uint *param_2,uint *param_3,int *param_4
 #define pf_varargs_202ecc0__4__4__4__4__4__4__4__4_ recovered_202ecc0
 #define pf_varargs_202ecc0__4__4__4__4__4__4__4__4__4_ recovered_202ecc0
 #define pf_varargs_202ecc0__4__4__4__4__4__4__4__4__4__4_ recovered_202ecc0
-
-
-
-
-
-
