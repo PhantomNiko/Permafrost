@@ -14340,6 +14340,7 @@ uint recovered_200a8f0(void)
     }
   }
   else {
+    if(pf_efi_owns_usb_input((const void *)(uintptr_t)*(volatile uint64_t *)0x2109008U))goto pf_firmware_key;
     iVar7 = 0x10;
     do {
       bVar1 = DAT_0212dc80;
@@ -14425,6 +14426,7 @@ LAB_0200aa05:
       }
       iVar7 = iVar7 + -1;
     } while (iVar7 != 0);
+pf_firmware_key:
     if ((((*DAT_02109008 == 0x33454657) && (DAT_02109008[1] == 5)) &&
         (0x2137 < (uint)DAT_02109008[2])) &&
        ((uVar6 = DAT_02109008[0x45], (code *)(ulong)uVar6 != (code *)0x0 &&
@@ -60662,6 +60664,11 @@ LAB_0203e4de:
     goto LAB_0203e575;
   }
 LAB_0203e516:
+  if(pf_efi_owns_usb_input((const void *)(uintptr_t)*(volatile uint64_t *)0x2109008U)) {
+    uVar3 = recovered_200a8f0();
+    if(uVar3 != 0)goto LAB_0203e563;
+    goto LAB_0203e573;
+  }
   if (DAT_0227aa00 == 0) {
 LAB_0203e55a:
     uVar3 = recovered_200a8f0();
@@ -64201,7 +64208,7 @@ uchar recovered_2041e60(int param_1)
           return '\0';
         }
         if (((DAT_02102800 == param_1) && (DAT_0215a894 == '\x01')) &&
-           ((DAT_0215a7dc == (&DAT_0216a9c4)[lVar3 * 0x68] &&
+           (((byte)DAT_0215a7dc == (&DAT_0216a9c4)[lVar3 * 0x68] &&
             ((DAT_0215a7ec == (&DAT_0216a9c8)[lVar3 * 0x1a] && (DAT_0215a7fc == iVar1)))))) {
           return '\x01';
         }
@@ -88206,6 +88213,7 @@ LAB_02053079:
       uVar6 = 0;
       local_34 = uVar11;
       if (uVar5 != 0) {
+        uint pf_burst_start = recovered_20094a0();
         do {
           iVar2 = DAT_021711d0;
           if (pcVar8 == (char *)0x0) {
@@ -88223,6 +88231,11 @@ LAB_02053079:
           uVar6 = uVar6 + 1;
           recovered_20e2e80(pcVar8,'\0');
           pcVar8 = (char *)0x0;
+          /* Bound a process burst by one platform clock tick. */
+          if ((uint)(recovered_20094a0() - pf_burst_start) != 0) {
+            uVar5 = uVar6;
+            break;
+          }
         } while (uVar6 != uVar5);
         uVar6 = uVar5;
       }

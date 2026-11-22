@@ -617,3 +617,25 @@ cause of a pointer packet overwriting desktop instructions. With the repaired
 providers, the full source BIOS VM accepts pointer movement and file selection
 and remains running after keyboard input. Application scheduling and the file
 window status rendering still require work before the release is complete.
+
+Source x86 process bursts now stop after an elapsed platform clock tick, so
+rendering in recovered C does not hold a process burst for thousands of GUI
+frames. Native constant-clock dispatch, task cleanup and budget results match
+on i386 and x64; deadline tests verify that short bursts release dispatcher
+locks. The BIOS staging checksum helper also retains its private process
+pointer, with 16 native checksum and corruption cases passing. The x64 source
+VM now starts terminal windows promptly. This scheduling adaptation bounds wall
+time while preserving the service ABI and maximum requested work count.
+
+Firmware-owned x64 keyboard polling now bypasses raw providers and direct PS/2
+reads. Twenty-three native keyboard transport and wait cases pass, including
+owned-provider routing. The VM still does not reach the keyboard service from
+the terminal polling loop; that application/UI integration remains unresolved.
+
+The x64 mounted-device reuse check now compares the drive identifier as a byte.
+Signed promotion previously made drives 0x80 and 0xff appear different from
+their existing mounted state, so task switches repeatedly loaded the FAT.
+Sixty native cache/reuse and remount cases reproduce the prior mismatch and
+pass with the corrected comparison. A longer full source VM run also reached
+terminal keyboard polling, entered 2+3 and displayed 5; the normal source build with the mount correction now launches the terminal and
+accepts 2+3 with output 5 within the shorter VM check as well.

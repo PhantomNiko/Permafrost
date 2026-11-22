@@ -846,7 +846,7 @@ undefined4 recovered_205a6b0(int incoming_ecx,uint incoming_edx,char param_3,int
 uint recovered_205a700(uint *incoming_ecx,uint incoming_edx,uint param_3,uint param_4,int *param_5);
 undefined4 recovered_205a7b0(undefined4 in_EAX,char *in_ECX,char *in_EDX);
 void recovered_205a830(char *param_1);
-bool recovered_205a8a0(void);
+bool recovered_205a8a0(uint in_ECX);
 void recovered_205a930(void);
 void recovered_205a9f0(void *in_ECX);
 uint recovered_205aef0(int incoming_ecx,void *incoming_edx,uint param_3,int param_4);

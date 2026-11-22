@@ -478,5 +478,8 @@
   },
   "205df10": {
     "if (param_1 == (uchar *)0x0) {": "if(pf_efi_owns_usb_input((const void *)(uintptr_t)*(volatile uint64_t *)0x2109008U))return recovered_200c2c0((ulong)param_1);\n if (param_1 == (uchar *)0x0) {"
+  },
+  "2041e60": {
+    "DAT_0215a7dc == (&DAT_0216a9c4)[lVar3 * 0x68]": "(byte)DAT_0215a7dc == (&DAT_0216a9c4)[lVar3 * 0x68]"
   }
 }

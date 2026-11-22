@@ -73354,6 +73354,7 @@ LAB_02039c9c:
           }
           uVar4 = 0;
           if (in_ECX != 0) {
+            uint pf_burst_start = recovered_20081a0();
             do {
               if (pcVar6 == (char *)0x0) {
                 while( true ) {
@@ -73375,6 +73376,7 @@ LAB_02039c9c:
               uVar9 = recovered_20ba3c0(pcVar6,0);
               uVar5 = (uint)(uVar9 >> 0x20);
               pcVar6 = (char *)0x0;
+              if ((uint)(recovered_20081a0() - pf_burst_start) != 0) {in_ECX=uVar4;break;}
             } while (uVar4 != in_ECX);
             uVar4 = in_ECX;
           }
@@ -73383,7 +73385,7 @@ LAB_02039e10:
             recovered_20ba510((int)incoming_ecx,uVar5);
           }
           if (*incoming_ecx == '\x01') {
-            bVar3 = recovered_205a8a0();
+            bVar3 = recovered_205a8a0((uint)incoming_ecx);
             if (bVar3) {
               bVar3 = (incoming_ecx[0x28] & 1U) == 0;
               if (!bVar3) {
@@ -113395,14 +113397,13 @@ void recovered_205a830(char *param_1)
  * Address: 0x205a8a0
  */
 
-bool recovered_205a8a0(void)
+bool recovered_205a8a0(uint in_ECX)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
   uint uVar1;
   uint uVar2;
-  uint in_ECX;
   uint uVar3;
   uint uVar4;
   byte *pbVar5;
