@@ -18,6 +18,10 @@ public class FixedData extends GhidraScript {
    memory.setBytes(address,bytes);
   }
   block.setExecute(false);
+  // This view includes mutable globals and BSS. Treating it as read-only lets
+  // the decompiler replace live state (for example environ) with initial zeros.
+  block.setRead(true);
+  block.setWrite(true);
   if(args.length>2)for(String row:Files.readAllLines(Path.of(args[2]))) {
    if(row.isBlank())continue;
    var fields=row.split("\t");var place=toAddr(Long.decode(fields[0]));
