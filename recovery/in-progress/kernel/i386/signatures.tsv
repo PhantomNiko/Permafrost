@@ -858,3 +858,4 @@
 2039a70	unsigned int __fastcall recovered_2039a70(unsigned int budget);
 20569c0	unsigned int __fastcall recovered_20569c0(void *device,unsigned int format);
 20537a0	unsigned int __fastcall recovered_20537a0(char *name,void *entry);
+2053c90	bool __fastcall recovered_2053c90(char *path,unsigned int device,char *error,unsigned int *process);

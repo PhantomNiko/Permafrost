@@ -190,13 +190,16 @@
     "recovered_2039a70();": "recovered_2039a70(DAT_020de164);"
   },
   "202c200": {
-    "recovered_2039a70();": "recovered_2039a70(DAT_020de164);"
+    "recovered_2039a70();": "recovered_2039a70(DAT_020de164);",
+    "recovered_2053c90((char *)local_1b4,(uint *)0x0);": "recovered_2053c90((int)local_111,DAT_020d9d44,(char *)local_1b4,(uint *)0x0);"
   },
   "202ca80": {
-    "recovered_2039a70();": "recovered_2039a70(DAT_020de164);"
+    "recovered_2039a70();": "recovered_2039a70(DAT_020de164);",
+    "recovered_2053c90(local_c8,&local_1c);": "recovered_2053c90(0x20c5bfd,iVar1,local_c8,&local_1c);"
   },
   "202ded0": {
-    "recovered_2039a70();": "recovered_2039a70(DAT_020de164);"
+    "recovered_2039a70();": "recovered_2039a70(DAT_020de164);",
+    "recovered_2053c90(local_1ad,&local_1c);": "recovered_2053c90((int)local_ca1,uVar7,local_1ad,&local_1c);"
   },
   "2039960": {
     "recovered_2039a70();": "recovered_2039a70(DAT_020de164);"
@@ -229,5 +232,10 @@
   },
   "2052ff0": {
     "recovered_20537a0();": "recovered_20537a0((char *)local_457+0x1e2,(int)pvVar12 + uVar14);"
+  },
+  "2053c90": {
+    "bool recovered_2053c90(char *param_1,uint *param_2)": "bool recovered_2053c90(int in_ECX,uint in_EDX,char *param_1,uint *param_2)",
+    "  int in_ECX;\n": "",
+    "  uint in_EDX;\n": ""
   }
 }
