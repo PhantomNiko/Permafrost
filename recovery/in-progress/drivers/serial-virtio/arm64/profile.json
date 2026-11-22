@@ -1,0 +1,66 @@
+{
+  "module": "KextVirtioSpice",
+  "architecture": "arm64",
+  "version": "1.0",
+  "install_name": "/Drivers/serial~virtio~spice.kext",
+  "functions": {
+    "0x3e0": "recovered_100003e0",
+    "0x3ec": "recovered_100003ec",
+    "0x658": "recovered_10000658",
+    "0x668": "recovered_10000668",
+    "0xa5c": "recovered_10000a5c",
+    "0xaac": "recovered_10000aac",
+    "0xb04": "recovered_10000b04",
+    "0xbb4": "recovered_10000bb4",
+    "0xbd0": "recovered_10000bd0",
+    "0xc10": "recovered_10000c10",
+    "0xc64": "recovered_10000c64",
+    "0xcdc": "recovered_10000cdc",
+    "0xe28": "recovered_10000e28",
+    "0xe7c": "recovered_10000e7c",
+    "0x1124": "recovered_10001124"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 992,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 1004,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 11700,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 36
+      },
+      "tag": 0
+    },
+    {
+      "offset": 11708,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 258
+      },
+      "tag": 0
+    },
+    {
+      "offset": 11716,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 265
+      },
+      "tag": 0
+    }
+  ]
+}

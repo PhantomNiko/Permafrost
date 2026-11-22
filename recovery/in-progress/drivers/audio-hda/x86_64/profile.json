@@ -1,0 +1,68 @@
+{
+  "module": "KextHDA",
+  "architecture": "x86_64",
+  "version": "1.0",
+  "install_name": "/Drivers/audio~intel~hda.kext",
+  "functions": {
+    "0x420": "recovered_10000420",
+    "0x430": "recovered_10000430",
+    "0x13d0": "recovered_100013d0",
+    "0x37b0": "recovered_100037b0",
+    "0x38e0": "recovered_100038e0",
+    "0x3950": "recovered_10003950",
+    "0x3ab0": "recovered_10003ab0",
+    "0x3d30": "recovered_10003d30",
+    "0xaca0": "recovered_1000aca0",
+    "0xb030": "recovered_1000b030",
+    "0xb190": "recovered_1000b190",
+    "0xb210": "recovered_1000b210",
+    "0xb280": "recovered_1000b280",
+    "0xb2f0": "recovered_1000b2f0",
+    "0xb360": "recovered_1000b360",
+    "0xb490": "recovered_1000b490",
+    "0xb7d0": "recovered_1000b7d0"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 1056,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 1072,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 6093,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 0
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6101,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 248
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6109,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 254
+      },
+      "tag": 0
+    }
+  ]
+}

@@ -1,0 +1,223 @@
+{
+  "module": "KextVirtioSpice",
+  "architecture": "armv7",
+  "version": "1.0",
+  "install_name": "/Drivers/serial~virtio~spice.kext",
+  "functions": {
+    "0x2440": "recovered_10002440",
+    "0x2450": "recovered_10002450",
+    "0x2760": "recovered_10002760",
+    "0x2774": "recovered_10002774",
+    "0x2d14": "recovered_10002d14",
+    "0x2d78": "recovered_10002d78",
+    "0x2dcc": "recovered_10002dcc",
+    "0x2e7c": "recovered_10002e7c",
+    "0x2ea4": "recovered_10002ea4",
+    "0x2ee0": "recovered_10002ee0",
+    "0x2f48": "recovered_10002f48",
+    "0x2fa8": "recovered_10002fa8",
+    "0x316c": "recovered_1000316c",
+    "0x31e0": "recovered_100031e0",
+    "0x3554": "recovered_10003554",
+    "0x35e8": "recovered_100035e8",
+    "0x3638": "recovered_10003638",
+    "0x3670": "recovered_10003670",
+    "0x36e0": "recovered_100036e0",
+    "0x3748": "recovered_10003748",
+    "0x382c": "recovered_1000382c",
+    "0x38ac": "recovered_100038ac",
+    "0x39cc": "recovered_100039cc",
+    "0x3a88": "recovered_10003a88",
+    "0x3b10": "recovered_10003b10",
+    "0x3b5c": "recovered_10003b5c",
+    "0x3b6c": "recovered_10003b6c",
+    "0x3b7c": "recovered_10003b7c",
+    "0x3bc4": "recovered_10003bc4",
+    "0x3bec": "recovered_10003bec",
+    "0x3c08": "recovered_10003c08"
+  },
+  "exports": [
+    {
+      "name": "___divdi3",
+      "address": 14508,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___divsi3",
+      "address": 13936,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixdfdi",
+      "address": 15120,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixsfdi",
+      "address": 15212,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixunsdfdi",
+      "address": 14984,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixunssfdi",
+      "address": 15196,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatdidf",
+      "address": 15300,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatdisf",
+      "address": 15368,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatundidf",
+      "address": 15228,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatundisf",
+      "address": 15340,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___moddi3",
+      "address": 14796,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___modsi3",
+      "address": 14048,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___udivdi3",
+      "address": 14152,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___udivsi3",
+      "address": 13800,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___umoddi3",
+      "address": 14380,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___umodsi3",
+      "address": 13880,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 9280,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 9296,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 988,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3b10"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 992,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3a88"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 996,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3bc4"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 1000,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3b7c"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 1004,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x35e8"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 17384,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 36
+      },
+      "tag": 0
+    },
+    {
+      "offset": 17388,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 258
+      },
+      "tag": 0
+    },
+    {
+      "offset": 17392,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 264
+      },
+      "tag": 1
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "module": "KextHardware",
+  "architecture": "arm64",
+  "version": "1.0",
+  "install_name": "/Drivers/platform~generic~hardware.kext",
+  "functions": {
+    "0x480": "recovered_10000480",
+    "0x48c": "recovered_1000048c",
+    "0x960": "recovered_10000960",
+    "0x988": "recovered_10000988",
+    "0x99c": "recovered_1000099c",
+    "0xaa4": "recovered_10000aa4",
+    "0xbb4": "recovered_10000bb4",
+    "0xc20": "recovered_10000c20",
+    "0xc90": "recovered_10000c90",
+    "0xcf8": "recovered_10000cf8",
+    "0xebc": "recovered_10000ebc",
+    "0x1798": "recovered_10001798",
+    "0x1cb0": "recovered_10001cb0",
+    "0x1d04": "recovered_10001d04",
+    "0x1d14": "recovered_10001d14",
+    "0x1dc4": "recovered_10001dc4",
+    "0x1e04": "recovered_10001e04",
+    "0x1e20": "recovered_10001e20",
+    "0x1f6c": "recovered_10001f6c",
+    "0x1fb8": "recovered_10001fb8",
+    "0x2014": "recovered_10002014",
+    "0x212c": "recovered_1000212c",
+    "0x2198": "recovered_10002198",
+    "0x2228": "recovered_10002228",
+    "0x228c": "recovered_1000228c",
+    "0x2304": "recovered_10002304",
+    "0x232c": "recovered_1000232c",
+    "0x2420": "recovered_10002420",
+    "0x2620": "recovered_10002620",
+    "0x2678": "recovered_10002678",
+    "0x26ec": "recovered_100026ec",
+    "0x2760": "recovered_10002760",
+    "0x27b8": "recovered_100027b8",
+    "0x27d0": "recovered_100027d0",
+    "0x2810": "recovered_10002810",
+    "0x2850": "recovered_10002850",
+    "0x288c": "recovered_1000288c",
+    "0x28ac": "recovered_100028ac",
+    "0x28e8": "recovered_100028e8",
+    "0x2bd4": "recovered_10002bd4",
+    "0x2d08": "recovered_10002d08",
+    "0x2d54": "recovered_10002d54",
+    "0x2d74": "recovered_10002d74",
+    "0x2d84": "recovered_10002d84"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 1152,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 1164,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 4044,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 32
+      },
+      "tag": 0
+    },
+    {
+      "offset": 4052,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 167
+      },
+      "tag": 0
+    },
+    {
+      "offset": 4060,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 176
+      },
+      "tag": 0
+    },
+    {
+      "offset": 4068,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1353
+      },
+      "tag": 0
+    },
+    {
+      "offset": 4076,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1334
+      },
+      "tag": 0
+    },
+    {
+      "offset": 4084,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1315
+      },
+      "tag": 0
+    },
+    {
+      "offset": 4092,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1372
+      },
+      "tag": 0
+    },
+    {
+      "offset": 4100,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1150
+      },
+      "tag": 0
+    },
+    {
+      "offset": 4108,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1394
+      },
+      "tag": 0
+    }
+  ]
+}

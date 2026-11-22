@@ -1,0 +1,123 @@
+{
+  "module": "KextHardware",
+  "architecture": "i386",
+  "version": "1.0",
+  "install_name": "/Drivers/platform~generic~hardware.kext",
+  "functions": {
+    "0x1210": "recovered_10001210",
+    "0x1220": "recovered_10001220",
+    "0x1f90": "recovered_10001f90",
+    "0x21c0": "recovered_100021c0",
+    "0x22c0": "recovered_100022c0",
+    "0x2360": "recovered_10002360",
+    "0x3e60": "recovered_10003e60",
+    "0x7480": "recovered_10007480",
+    "0x9030": "recovered_10009030",
+    "0x9240": "recovered_10009240",
+    "0x9380": "recovered_10009380",
+    "0x95c0": "recovered_100095c0",
+    "0x9640": "recovered_10009640",
+    "0x9b10": "recovered_10009b10",
+    "0x9c90": "recovered_10009c90",
+    "0x9e10": "recovered_10009e10",
+    "0x9e40": "recovered_10009e40",
+    "0x9e70": "recovered_10009e70"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 4624,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 4640,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 2666,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 490
+      },
+      "tag": 0
+    },
+    {
+      "offset": 2670,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 625
+      },
+      "tag": 0
+    },
+    {
+      "offset": 2674,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 634
+      },
+      "tag": 0
+    },
+    {
+      "offset": 2678,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 1801
+      },
+      "tag": 0
+    },
+    {
+      "offset": 2682,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 1782
+      },
+      "tag": 0
+    },
+    {
+      "offset": 2686,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 1763
+      },
+      "tag": 0
+    },
+    {
+      "offset": 2690,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 1820
+      },
+      "tag": 0
+    },
+    {
+      "offset": 2694,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 1598
+      },
+      "tag": 0
+    },
+    {
+      "offset": 2698,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 1842
+      },
+      "tag": 0
+    }
+  ]
+}

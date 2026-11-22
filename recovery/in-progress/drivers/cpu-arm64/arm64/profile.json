@@ -1,0 +1,60 @@
+{
+  "module": "KextCPUARM64",
+  "architecture": "arm64",
+  "version": "1.0",
+  "install_name": "/Drivers/cpu~arm64~host.kext",
+  "functions": {
+    "0x390": "recovered_10000390",
+    "0x39c": "recovered_1000039c",
+    "0x564": "recovered_10000564",
+    "0x574": "recovered_10000574",
+    "0x5d8": "recovered_100005d8",
+    "0x664": "recovered_10000664",
+    "0x6bc": "recovered_100006bc",
+    "0x76c": "recovered_1000076c",
+    "0x788": "recovered_10000788"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 912,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 924,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 14356,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 0
+      },
+      "tag": 0
+    },
+    {
+      "offset": 14364,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 163
+      },
+      "tag": 0
+    },
+    {
+      "offset": 14372,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 167
+      },
+      "tag": 0
+    }
+  ]
+}

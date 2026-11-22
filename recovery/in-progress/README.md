@@ -536,3 +536,14 @@ helpers additionally pass 60 DMA service-contract cases per driver and CPU.
 The recovery restores ARM32 PC-relative state references, MMIO return values,
 x64 queue-register operands, and complete callback arguments. VM integration
 with the complete source-built driver set remains a release gate.
+
+
+The remaining CPU, firmware serial, VirtIO serial, USB storage, HDA/SB16 audio,
+generic/Apple platform, and I2C-HID drivers now have C source checkpoints.
+All 36 reference-supported architecture slices rebuild independently and match
+native basic initialization, registration, API bounds, and failure behavior.
+Serial, audio, and platform discovery also compares valid, absent-vendor, and
+multifunction PCI cases. The driver manifest records the reference-supported
+architectures and shared filenames; Cirrus and VirtIO VGA use the same x86
+implementation, while ramfb supplies the ARM implementations. Whole-image VM
+integration remains under validation.

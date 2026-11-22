@@ -1,0 +1,53 @@
+{
+  "module": "KextCPU64",
+  "architecture": "x86_64",
+  "version": "1.0",
+  "install_name": "/Drivers/cpu~x86_64~skylake-client.kext",
+  "functions": {
+    "0x380": "recovered_10000380",
+    "0x390": "recovered_10000390"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 896,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 912,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 4117,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 0
+      },
+      "tag": 0
+    },
+    {
+      "offset": 4125,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 145
+      },
+      "tag": 0
+    },
+    {
+      "offset": 4133,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 149
+      },
+      "tag": 0
+    }
+  ]
+}

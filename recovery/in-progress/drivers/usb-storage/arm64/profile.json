@@ -1,0 +1,66 @@
+{
+  "module": "KextUSBStorage",
+  "architecture": "arm64",
+  "version": "1.0",
+  "install_name": "/Drivers/storage~usb~mass-storage~boot-0.kext",
+  "functions": {
+    "0x3e0": "recovered_100003e0",
+    "0x3ec": "recovered_100003ec",
+    "0x810": "recovered_10000810",
+    "0x820": "recovered_10000820",
+    "0x86c": "recovered_1000086c",
+    "0x8bc": "recovered_100008bc",
+    "0xbb0": "recovered_10000bb0",
+    "0xc08": "recovered_10000c08",
+    "0xcb8": "recovered_10000cb8",
+    "0xcd4": "recovered_10000cd4",
+    "0xd14": "recovered_10000d14",
+    "0xd88": "recovered_10000d88",
+    "0xed4": "recovered_10000ed4",
+    "0xf24": "recovered_10000f24",
+    "0x11cc": "recovered_100011cc"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 992,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 1004,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 11492,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 36
+      },
+      "tag": 0
+    },
+    {
+      "offset": 11500,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 218
+      },
+      "tag": 0
+    },
+    {
+      "offset": 11508,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 226
+      },
+      "tag": 0
+    }
+  ]
+}

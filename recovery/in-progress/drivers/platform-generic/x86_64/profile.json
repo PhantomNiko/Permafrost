@@ -1,0 +1,69 @@
+{
+  "module": "KextHardware",
+  "architecture": "x86_64",
+  "version": "1.0",
+  "install_name": "/Drivers/platform~generic~hardware.kext",
+  "functions": {
+    "0x470": "recovered_10000470",
+    "0x480": "recovered_10000480",
+    "0x1860": "recovered_10001860",
+    "0x1a90": "recovered_10001a90",
+    "0x1bb0": "recovered_10001bb0",
+    "0x1c60": "recovered_10001c60",
+    "0x3ea0": "recovered_10003ea0",
+    "0x86f0": "recovered_100086f0",
+    "0xaab0": "recovered_1000aab0",
+    "0xad30": "recovered_1000ad30",
+    "0xae90": "recovered_1000ae90",
+    "0xb140": "recovered_1000b140",
+    "0xb1e0": "recovered_1000b1e0",
+    "0xb890": "recovered_1000b890",
+    "0xba50": "recovered_1000ba50",
+    "0xbc10": "recovered_1000bc10",
+    "0xbc40": "recovered_1000bc40",
+    "0xbc80": "recovered_1000bc80"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 1136,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 1152,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 2896,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 48
+      },
+      "tag": 0
+    },
+    {
+      "offset": 2904,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 183
+      },
+      "tag": 0
+    },
+    {
+      "offset": 2912,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 192
+      },
+      "tag": 0
+    }
+  ]
+}

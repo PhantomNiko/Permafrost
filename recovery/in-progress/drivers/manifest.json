@@ -1,0 +1,226 @@
+{
+  "version": "1.0",
+  "drivers": [
+    {
+      "directory": "audio-hda",
+      "files": [
+        "audio~intel~hda.kext"
+      ],
+      "architectures": [
+        "i386",
+        "x86_64",
+        "armv7",
+        "arm64"
+      ]
+    },
+    {
+      "directory": "audio-sb16",
+      "files": [
+        "audio~isa~sb16.kext"
+      ],
+      "architectures": [
+        "i386",
+        "x86_64"
+      ]
+    },
+    {
+      "directory": "cpu-arm64",
+      "files": [
+        "cpu~arm64~host.kext"
+      ],
+      "architectures": [
+        "armv7",
+        "arm64"
+      ]
+    },
+    {
+      "directory": "cpu-armv7",
+      "files": [
+        "cpu~armv7~cortex-a15.kext"
+      ],
+      "architectures": [
+        "armv7",
+        "arm64"
+      ]
+    },
+    {
+      "directory": "cpu-i386",
+      "files": [
+        "cpu~i386~qemu-generic.kext"
+      ],
+      "architectures": [
+        "i386",
+        "x86_64"
+      ]
+    },
+    {
+      "directory": "cpu-x86_64",
+      "files": [
+        "cpu~x86_64~skylake-client.kext"
+      ],
+      "architectures": [
+        "i386",
+        "x86_64"
+      ]
+    },
+    {
+      "directory": "graphics",
+      "files": [
+        "graphics~cirrus~vga.kext",
+        "graphics~virtio~vga.kext"
+      ],
+      "architectures": [
+        "i386",
+        "x86_64"
+      ]
+    },
+    {
+      "directory": "graphics",
+      "files": [
+        "graphics~virtio~ramfb.kext"
+      ],
+      "architectures": [
+        "armv7",
+        "arm64"
+      ]
+    },
+    {
+      "directory": "input-i2c-hid",
+      "files": [
+        "input~i2c-hid~yoga-slim7x.kext"
+      ],
+      "architectures": [
+        "i386",
+        "x86_64",
+        "armv7",
+        "arm64"
+      ]
+    },
+    {
+      "directory": "network",
+      "files": [
+        "network~virtio~pci.kext"
+      ],
+      "architectures": [
+        "i386",
+        "x86_64",
+        "armv7",
+        "arm64"
+      ]
+    },
+    {
+      "directory": "platform-macbook",
+      "files": [
+        "platform~apple~macbook-2008.kext"
+      ],
+      "architectures": [
+        "i386",
+        "x86_64"
+      ]
+    },
+    {
+      "directory": "platform-macbook-pro",
+      "files": [
+        "platform~apple~macbook-pro-2008.kext"
+      ],
+      "architectures": [
+        "i386",
+        "x86_64"
+      ]
+    },
+    {
+      "directory": "platform-generic",
+      "files": [
+        "platform~generic~hardware.kext"
+      ],
+      "architectures": [
+        "i386",
+        "x86_64",
+        "armv7",
+        "arm64"
+      ]
+    },
+    {
+      "directory": "usb-pointer",
+      "files": [
+        "pointer~qemu~usb-hid.kext"
+      ],
+      "architectures": [
+        "i386",
+        "x86_64",
+        "armv7",
+        "arm64"
+      ]
+    },
+    {
+      "directory": "rng",
+      "files": [
+        "rng~virtio~pci.kext"
+      ],
+      "architectures": [
+        "i386",
+        "x86_64",
+        "armv7",
+        "arm64"
+      ]
+    },
+    {
+      "directory": "serial-qemu",
+      "files": [
+        "serial~qemu~spice.kext"
+      ],
+      "architectures": [
+        "i386",
+        "x86_64"
+      ]
+    },
+    {
+      "directory": "serial-virtio",
+      "files": [
+        "serial~virtio~spice.kext"
+      ],
+      "architectures": [
+        "i386",
+        "x86_64",
+        "armv7",
+        "arm64"
+      ]
+    },
+    {
+      "directory": "nvme",
+      "files": [
+        "storage~nvme~pcie.kext"
+      ],
+      "architectures": [
+        "i386",
+        "x86_64",
+        "armv7",
+        "arm64"
+      ]
+    },
+    {
+      "directory": "usb-storage",
+      "files": [
+        "storage~usb~mass-storage~boot-0.kext"
+      ],
+      "architectures": [
+        "i386",
+        "x86_64",
+        "armv7",
+        "arm64"
+      ]
+    },
+    {
+      "directory": "usb-xhci",
+      "files": [
+        "usb~qemu~xhci.kext"
+      ],
+      "architectures": [
+        "i386",
+        "x86_64",
+        "armv7",
+        "arm64"
+      ]
+    }
+  ]
+}

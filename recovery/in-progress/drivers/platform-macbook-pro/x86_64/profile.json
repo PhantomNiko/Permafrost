@@ -1,0 +1,66 @@
+{
+  "module": "KextMacbookPro",
+  "architecture": "x86_64",
+  "version": "1.0",
+  "install_name": "/Drivers/platform~apple~macbook-pro-2008.kext",
+  "functions": {
+    "0x480": "recovered_10000480",
+    "0x490": "recovered_10000490",
+    "0xa070": "recovered_1000a070",
+    "0xc400": "recovered_1000c400",
+    "0x112a0": "recovered_100112a0",
+    "0x11440": "recovered_10011440",
+    "0x11690": "recovered_10011690",
+    "0x118c0": "recovered_100118c0",
+    "0x11ad0": "recovered_10011ad0",
+    "0x11d50": "recovered_10011d50",
+    "0x11f20": "recovered_10011f20",
+    "0x120e0": "recovered_100120e0",
+    "0x12110": "recovered_10012110",
+    "0x12150": "recovered_10012150",
+    "0x124b0": "recovered_100124b0"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 1152,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 1168,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 4896,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 48
+      },
+      "tag": 0
+    },
+    {
+      "offset": 4904,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 323
+      },
+      "tag": 0
+    },
+    {
+      "offset": 4912,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 332
+      },
+      "tag": 0
+    }
+  ]
+}

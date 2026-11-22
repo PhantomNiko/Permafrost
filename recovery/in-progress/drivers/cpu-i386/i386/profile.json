@@ -1,0 +1,53 @@
+{
+  "module": "KextCPU32",
+  "architecture": "i386",
+  "version": "1.0",
+  "install_name": "/Drivers/cpu~i386~qemu-generic.kext",
+  "functions": {
+    "0x620": "recovered_10000620",
+    "0x630": "recovered_10000630"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 1568,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 1584,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 286,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 0
+      },
+      "tag": 0
+    },
+    {
+      "offset": 290,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 163
+      },
+      "tag": 0
+    },
+    {
+      "offset": 294,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 167
+      },
+      "tag": 0
+    }
+  ]
+}

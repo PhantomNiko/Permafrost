@@ -1,0 +1,120 @@
+{
+  "module": "KextMacbookPro",
+  "architecture": "i386",
+  "version": "1.0",
+  "install_name": "/Drivers/platform~apple~macbook-pro-2008.kext",
+  "functions": {
+    "0x12a0": "recovered_100012a0",
+    "0x12b0": "recovered_100012b0",
+    "0x7fd0": "recovered_10007fd0",
+    "0x9d10": "recovered_10009d10",
+    "0xd790": "recovered_1000d790",
+    "0xd900": "recovered_1000d900",
+    "0xdb30": "recovered_1000db30",
+    "0xdd50": "recovered_1000dd50",
+    "0xdf40": "recovered_1000df40",
+    "0xe150": "recovered_1000e150",
+    "0xe2e0": "recovered_1000e2e0",
+    "0xe460": "recovered_1000e460",
+    "0xe490": "recovered_1000e490",
+    "0xe4c0": "recovered_1000e4c0",
+    "0xe7f0": "recovered_1000e7f0"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 4768,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 4784,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 4330,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 222
+      },
+      "tag": 0
+    },
+    {
+      "offset": 4334,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 497
+      },
+      "tag": 0
+    },
+    {
+      "offset": 4338,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 506
+      },
+      "tag": 0
+    },
+    {
+      "offset": 4342,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 2804
+      },
+      "tag": 0
+    },
+    {
+      "offset": 4346,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 2785
+      },
+      "tag": 0
+    },
+    {
+      "offset": 4350,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 2766
+      },
+      "tag": 0
+    },
+    {
+      "offset": 4354,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 2823
+      },
+      "tag": 0
+    },
+    {
+      "offset": 4358,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 2610
+      },
+      "tag": 0
+    },
+    {
+      "offset": 4362,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 2845
+      },
+      "tag": 0
+    }
+  ]
+}

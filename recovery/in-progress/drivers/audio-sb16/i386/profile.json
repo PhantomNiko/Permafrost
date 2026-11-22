@@ -1,0 +1,68 @@
+{
+  "module": "KextSB16",
+  "architecture": "i386",
+  "version": "1.0",
+  "install_name": "/Drivers/audio~isa~sb16.kext",
+  "functions": {
+    "0x1310": "recovered_10001310",
+    "0x1320": "recovered_10001320",
+    "0x1f30": "recovered_10001f30",
+    "0x3ad0": "recovered_10003ad0",
+    "0x3c00": "recovered_10003c00",
+    "0x3c70": "recovered_10003c70",
+    "0x3dc0": "recovered_10003dc0",
+    "0x3fd0": "recovered_10003fd0",
+    "0x9d30": "recovered_10009d30",
+    "0x9f00": "recovered_10009f00",
+    "0xa030": "recovered_1000a030",
+    "0xa090": "recovered_1000a090",
+    "0xa0e0": "recovered_1000a0e0",
+    "0xa130": "recovered_1000a130",
+    "0xa180": "recovered_1000a180",
+    "0xa270": "recovered_1000a270",
+    "0xa540": "recovered_1000a540"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 4880,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 4896,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 2668,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 380
+      },
+      "tag": 0
+    },
+    {
+      "offset": 2672,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 628
+      },
+      "tag": 0
+    },
+    {
+      "offset": 2676,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 634
+      },
+      "tag": 0
+    }
+  ]
+}

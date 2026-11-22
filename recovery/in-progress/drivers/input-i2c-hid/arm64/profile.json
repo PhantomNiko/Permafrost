@@ -1,0 +1,75 @@
+{
+  "module": "KextI2CHID",
+  "architecture": "arm64",
+  "version": "1.0",
+  "install_name": "/Drivers/input~i2c-hid~yoga-slim7x.kext",
+  "functions": {
+    "0x480": "recovered_10000480",
+    "0x48c": "recovered_1000048c",
+    "0x898": "recovered_10000898",
+    "0x8b0": "recovered_100008b0",
+    "0x954": "recovered_10000954",
+    "0x964": "recovered_10000964",
+    "0xe94": "recovered_10000e94",
+    "0x10f0": "recovered_100010f0",
+    "0x1170": "recovered_10001170",
+    "0x1304": "recovered_10001304",
+    "0x135c": "recovered_1000135c",
+    "0x1378": "recovered_10001378",
+    "0x13b8": "recovered_100013b8",
+    "0x1424": "recovered_10001424",
+    "0x1518": "recovered_10001518",
+    "0x1704": "recovered_10001704",
+    "0x1754": "recovered_10001754",
+    "0x178c": "recovered_1000178c",
+    "0x1800": "recovered_10001800",
+    "0x1870": "recovered_10001870",
+    "0x18f4": "recovered_100018f4",
+    "0x1938": "recovered_10001938",
+    "0x1974": "recovered_10001974",
+    "0x19a8": "recovered_100019a8"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 1152,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 1164,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 9588,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 297
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9596,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 438
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9604,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 444
+      },
+      "tag": 0
+    }
+  ]
+}

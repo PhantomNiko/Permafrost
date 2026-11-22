@@ -1,0 +1,57 @@
+{
+  "module": "KextUSBStorage",
+  "architecture": "i386",
+  "version": "1.0",
+  "install_name": "/Drivers/storage~usb~mass-storage~boot-0.kext",
+  "functions": {
+    "0xda0": "recovered_10000da0",
+    "0xdb0": "recovered_10000db0",
+    "0x2680": "recovered_10002680",
+    "0x3670": "recovered_10003670",
+    "0x3880": "recovered_10003880",
+    "0x3a50": "recovered_10003a50"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 3488,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 3504,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 1372,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 380
+      },
+      "tag": 0
+    },
+    {
+      "offset": 1376,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 562
+      },
+      "tag": 0
+    },
+    {
+      "offset": 1380,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 570
+      },
+      "tag": 0
+    }
+  ]
+}

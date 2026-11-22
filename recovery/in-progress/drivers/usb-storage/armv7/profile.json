@@ -1,0 +1,223 @@
+{
+  "module": "KextUSBStorage",
+  "architecture": "armv7",
+  "version": "1.0",
+  "install_name": "/Drivers/storage~usb~mass-storage~boot-0.kext",
+  "functions": {
+    "0x2348": "recovered_10002348",
+    "0x2358": "recovered_10002358",
+    "0x28cc": "recovered_100028cc",
+    "0x28e0": "recovered_100028e0",
+    "0x294c": "recovered_1000294c",
+    "0x29bc": "recovered_100029bc",
+    "0x2e08": "recovered_10002e08",
+    "0x2e5c": "recovered_10002e5c",
+    "0x2f0c": "recovered_10002f0c",
+    "0x2f34": "recovered_10002f34",
+    "0x2f70": "recovered_10002f70",
+    "0x2fd0": "recovered_10002fd0",
+    "0x3170": "recovered_10003170",
+    "0x31e8": "recovered_100031e8",
+    "0x355c": "recovered_1000355c",
+    "0x35f0": "recovered_100035f0",
+    "0x3640": "recovered_10003640",
+    "0x3678": "recovered_10003678",
+    "0x36e8": "recovered_100036e8",
+    "0x3750": "recovered_10003750",
+    "0x3834": "recovered_10003834",
+    "0x38b4": "recovered_100038b4",
+    "0x39d4": "recovered_100039d4",
+    "0x3a90": "recovered_10003a90",
+    "0x3b18": "recovered_10003b18",
+    "0x3b64": "recovered_10003b64",
+    "0x3b74": "recovered_10003b74",
+    "0x3b84": "recovered_10003b84",
+    "0x3bcc": "recovered_10003bcc",
+    "0x3bf4": "recovered_10003bf4",
+    "0x3c10": "recovered_10003c10"
+  },
+  "exports": [
+    {
+      "name": "___divdi3",
+      "address": 14516,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___divsi3",
+      "address": 13944,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixdfdi",
+      "address": 15128,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixsfdi",
+      "address": 15220,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixunsdfdi",
+      "address": 14992,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixunssfdi",
+      "address": 15204,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatdidf",
+      "address": 15308,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatdisf",
+      "address": 15376,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatundidf",
+      "address": 15236,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatundisf",
+      "address": 15348,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___moddi3",
+      "address": 14804,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___modsi3",
+      "address": 14056,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___udivdi3",
+      "address": 14160,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___udivsi3",
+      "address": 13808,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___umoddi3",
+      "address": 14388,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___umodsi3",
+      "address": 13888,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 9032,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 9048,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 980,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3b18"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 984,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3a90"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 988,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3bcc"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 992,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3b84"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 996,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x35f0"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 17376,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 36
+      },
+      "tag": 0
+    },
+    {
+      "offset": 17380,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 218
+      },
+      "tag": 0
+    },
+    {
+      "offset": 17384,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 226
+      },
+      "tag": 0
+    }
+  ]
+}

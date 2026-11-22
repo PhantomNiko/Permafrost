@@ -1,0 +1,217 @@
+{
+  "module": "KextCPUARM64",
+  "architecture": "armv7",
+  "version": "1.0",
+  "install_name": "/Drivers/cpu~arm64~host.kext",
+  "functions": {
+    "0x33f0": "recovered_100033f0",
+    "0x3400": "recovered_10003400",
+    "0x3650": "recovered_10003650",
+    "0x3664": "recovered_10003664",
+    "0x36c8": "recovered_100036c8",
+    "0x3758": "recovered_10003758",
+    "0x37ac": "recovered_100037ac",
+    "0x385c": "recovered_1000385c",
+    "0x3884": "recovered_10003884",
+    "0x38c0": "recovered_100038c0",
+    "0x3910": "recovered_10003910",
+    "0x3948": "recovered_10003948",
+    "0x39b8": "recovered_100039b8",
+    "0x3a20": "recovered_10003a20",
+    "0x3b04": "recovered_10003b04",
+    "0x3b84": "recovered_10003b84",
+    "0x3ca4": "recovered_10003ca4",
+    "0x3d60": "recovered_10003d60",
+    "0x3de8": "recovered_10003de8",
+    "0x3e34": "recovered_10003e34",
+    "0x3e44": "recovered_10003e44",
+    "0x3e54": "recovered_10003e54",
+    "0x3e9c": "recovered_10003e9c",
+    "0x3ec4": "recovered_10003ec4",
+    "0x3ee0": "recovered_10003ee0"
+  },
+  "exports": [
+    {
+      "name": "___divdi3",
+      "address": 15236,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___divsi3",
+      "address": 14664,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixdfdi",
+      "address": 15848,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixsfdi",
+      "address": 15940,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixunsdfdi",
+      "address": 15712,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixunssfdi",
+      "address": 15924,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatdidf",
+      "address": 16028,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatdisf",
+      "address": 16096,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatundidf",
+      "address": 15956,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatundisf",
+      "address": 16068,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___moddi3",
+      "address": 15524,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___modsi3",
+      "address": 14776,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___udivdi3",
+      "address": 14880,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___udivsi3",
+      "address": 14528,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___umoddi3",
+      "address": 15108,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___umodsi3",
+      "address": 14608,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 13296,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 13312,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 260,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3de8"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 264,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3d60"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 268,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3e9c"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 272,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3e54"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 276,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x38c0"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 16656,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 36
+      },
+      "tag": 0
+    },
+    {
+      "offset": 16660,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 198
+      },
+      "tag": 1
+    },
+    {
+      "offset": 16664,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 202
+      },
+      "tag": 1
+    }
+  ]
+}
