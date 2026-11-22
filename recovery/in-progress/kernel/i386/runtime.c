@@ -36459,7 +36459,7 @@ uint recovered_2025810(uint *param_1,uint *param_2,uint *param_3)
                 uVar8 = uVar8 + 1;
               } while (uVar8 < local_3c);
               local_84[1] = 7;
-              uVar8 = recovered_20262d0(local_3c,local_30,local_14);
+              uVar8 = recovered_20262d0(local_34,local_20,local_3c,local_30,local_14);
               local_30 = 0;
               recovered_20195a0(local_34);
               uVar8 = uVar8 & 0xff;
@@ -36844,32 +36844,19 @@ void recovered_20262c0(uchar *param_1)
  * Address: 0x20262d0
  */
 
-undefined4 recovered_20262d0(uint param_1,ulong param_2,undefined4 *param_3)
-
+/* Pooka's Free Software License. Recovered ECX/EDX RGBA copy contract. */
+unsigned int recovered_20262d0(const void *pixels,unsigned int width,unsigned int height,unsigned int size,unsigned int *out)
 {
-  unsigned char frame[64] __attribute__((aligned(16))) = {0};
-
-  uint uVar1;
-  void *out;
-  void *in_ECX;
-  uint in_EDX;
-
-  if ((((param_3 == (undefined4 *)0x0) || (recovered_2001e00(param_3,0,0x18), in_ECX == (void *)0x0)
-       ) || (uVar1 = in_EDX * 4,
-            ((ulong)((ulonglong)uVar1 * (ulonglong)param_1) != param_2 ||
-            (int)((ulonglong)uVar1 * (ulonglong)param_1 >> 0x20) + (in_EDX >> 0x1e) * param_1 != 0)
-            || 0x3fffffff < in_EDX)) || (out = recovered_2001650(param_2), out == (void *)0x0)) {
-    return 0;
-  }
-  recovered_2001b70(out,in_ECX,param_2);
-  *param_3 = out;
-  param_3[1] = 0;
-  param_3[2] = param_2;
-  param_3[3] = in_EDX;
-  param_3[4] = param_1;
-  param_3[5] = uVar1;
-  return CONCAT31((int3)(uVar1 >> 8),1);
+ if(!out)return 0;
+ recovered_2001e00(out,0,24);
+ if(!pixels || width>=0x40000000U || (unsigned long long)width*4U*height!=size)return 0;
+ void *copy=recovered_2001650(size);
+ if(!copy)return 0;
+ recovered_2001b70(copy,pixels,size);
+ out[0]=(unsigned int)(uintptr_t)copy;out[1]=0;out[2]=size;out[3]=width;out[4]=height;out[5]=width*4U;
+ return 1;
 }
+
 
 
 #undef DAT_020c22b0

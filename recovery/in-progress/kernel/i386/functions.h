@@ -531,7 +531,7 @@ void recovered_2026180(uchar *param_1,float param_2);
 uint recovered_2026190(uint *param_1,uint *param_2,uint *param_3,uint param_4,uint param_5,
                       uint param_6,uint *param_7);
 void recovered_20262c0(uchar *param_1);
-undefined4 recovered_20262d0(uint param_1,ulong param_2,undefined4 *param_3);
+unsigned int recovered_20262d0(const void *pixels,unsigned int width,unsigned int height,unsigned int size,unsigned int *out);
 uint recovered_2026380(int param_1,uint param_2,int *param_3,ushort *param_4);
 void recovered_2026b60(int *param_1,uint param_2);
 longdouble recovered_2026bf0(uint3 *param_1,short param_2,ushort param_3);

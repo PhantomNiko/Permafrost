@@ -49,3 +49,11 @@ applications and drivers remain on that disk. This is a source recovery
 checkpoint, not a release or full desktop equivalence claim. ARM VM interaction,
 whole-frame comparisons, menus, file operations, application switching, exceptional
 paths and the remaining image components still need broader validation.
+
+The i386 entry now retains the graphics-success branch and desktop event loop.
+An older analysis had treated the fixed-address data view as read-only and
+removed that branch after folding the framebuffer output fields to zero.
+`tests/desktop_startup.py` compares eight native startup cases, including failed
+mode entry, failed display queries, invalid buffers and pitch, and successful
+16-, 24-, and 32-bit framebuffer entry. The full BIOS VM reaches framebuffer
+initialization; later initialization still needs compatibility work.

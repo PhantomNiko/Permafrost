@@ -560,3 +560,11 @@ distribution is retained as the explicit recovery exception, with its license
 materials. Initial VM runs reach the desktop on ARM32, ARM64, and x86-64. BIOS
 application discovery and graphics-mode entry still need correction; this is
 not a completed or tagged release.
+
+The i386 desktop now retains its successful graphics startup branch. A second
+BIOS fault exposed missing ECX/EDX arguments in the kernel RGBA-copy helper;
+the recovered helper and PNG downsampling caller now preserve the pixel pointer
+and width. Sixty-six native comparisons cover dimensions, overflow, null
+arguments, copied pixels, output guards and allocation failures. Eight desktop
+startup comparisons exercise mode failures and valid 16-, 24-, and 32-bit modes.
+The subsequent complete BIOS desktop run remains a release gate.

@@ -897,3 +897,4 @@
 2050860	void recovered_2050860(unsigned int cluster,unsigned int value);	ECX,EDX
 20519d0	unsigned int recovered_20519d0(unsigned int cluster);	ECX
 2051b70	unsigned int recovered_2051b70(int *nodes,unsigned int *count,unsigned int *capacity,unsigned int parent,char *name,char *path,unsigned int index,unsigned int directory,unsigned int flags,unsigned int *output);	ECX,EDX,stack4,stack8,stack12,stack16,stack20,stack24,stack28,stack32
+20262d0	unsigned int recovered_20262d0(const void *pixels,unsigned int width,unsigned int height,unsigned int size,unsigned int *out);	ECX,EDX,stack4,stack8,stack12
