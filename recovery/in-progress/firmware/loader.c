@@ -82,17 +82,34 @@ static int volume_read(struct Volume *volume,uint32_t first,uint32_t count,void 
 }
 static int chain(struct Volume *volume,const uint8_t *fat,uint32_t first,size_t size,uint8_t *out){
     size_t cluster_bytes=(size_t)volume->cluster_sectors*512;
-    uint8_t *temporary=allocate(cluster_bytes,0);if(!temporary)return 0;
+    if(!cluster_bytes)return 0;
+    uint8_t *temporary=0;
     size_t written=0;uint32_t steps=0;
     while(written<size){
-        if(first<2 || first-2>=volume->clusters || ++steps>volume->clusters ||
-           (uint64_t)first*4+4>(uint64_t)volume->fat_sectors*512)return 0;
+        if(first<2 || first-2>=volume->clusters || steps>=volume->clusters ||
+           (uint64_t)first*4+4>(uint64_t)volume->fat_sectors*512)break;
         uint64_t relative=(uint64_t)volume->data_sector+(uint64_t)(first-2)*volume->cluster_sectors;
-        if(relative>UINT32_MAX || !volume_read(volume,(uint32_t)relative,volume->cluster_sectors,temporary))return 0;
-        size_t length=size-written;if(length>cluster_bytes)length=cluster_bytes;
-        copy(out+written,temporary,length);written+=length;first=le32(fat+(size_t)first*4);
+        if(relative>UINT32_MAX)break;
+        size_t remaining=size-written;
+        if(remaining<cluster_bytes){
+            if(!temporary)temporary=allocate(cluster_bytes,0);
+            if(!temporary || !volume_read(volume,(uint32_t)relative,volume->cluster_sectors,temporary))break;
+            copy(out+written,temporary,remaining);written+=remaining;break;
+        }
+        /* Source-built universal kernels span thousands of adjacent clusters.
+         * Read their full runs directly into the output, with a 2 MiB I/O cap. */
+        uint32_t run=1,next=le32(fat+(size_t)first*4);
+        uint32_t limit=4096/volume->cluster_sectors;if(!limit)limit=1;
+        while(run<limit && run<remaining/cluster_bytes &&
+              run<volume->clusters-steps && first-2+run<volume->clusters &&
+              next==first+run && (uint64_t)next*4+4<=(uint64_t)volume->fat_sectors*512){
+            run++;next=le32(fat+(size_t)next*4);
+        }
+        if(!volume_read(volume,(uint32_t)relative,run*volume->cluster_sectors,out+written))break;
+        written+=(size_t)run*cluster_bytes;steps+=run;first=next;
     }
-    services->free_pages((uintptr_t)temporary,(cluster_bytes+4095)/4096);return 1;
+    if(temporary)services->free_pages((uintptr_t)temporary,(cluster_bytes+4095)/4096);
+    return written==size;
 }
 static uint8_t *load_file(uint32_t base,uint32_t sectors,const char *name,size_t *size){
     struct Volume volume={.base=base,.sectors=sectors};
