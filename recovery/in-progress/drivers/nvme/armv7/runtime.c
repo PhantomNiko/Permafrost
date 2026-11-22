@@ -1195,13 +1195,12 @@ undefined4 recovered_100031d0(int *param_1,int param_2,int *param_3,uint param_4
 
   uint uVar1;
   uint value;
-  int iVar2;
-  uint uVar3;
+  uint uVar2;
+  int iVar3;
   int iVar4;
-  int iVar5;
-  uint uVar6;
+  uint uVar5;
 
-  recovered_1000333c(param_1);
+  recovered_1000333c(param_1,*(uint *)param_2,*(int *)(param_2 + 0x10) * *(int *)(param_2 + 0xc));
   uVar1 = recovered_10003858(*(int *)(param_2 + 0x14) + 1,*(uint *)(param_2 + 0xc));
   *(uint *)(param_2 + 0x14) = uVar1;
   if ((((param_1 != (int *)0x0) && (*param_1 == (0x54584b57U))) && (0x7b < (uint)param_1[2])) &&
@@ -1212,21 +1211,21 @@ undefined4 recovered_100031d0(int *param_1,int param_2,int *param_3,uint param_4
   uVar1 = recovered_10003040(param_1,*(uint *)(param_2 + 0x20),uVar1);
   if (uVar1 != 0) {
     for (uVar1 = 0; uVar1 <= (0x4c4b3fU); uVar1 = uVar1 + 100) {
-      iVar5 = param_3[4];
-      iVar2 = *param_3;
-      iVar4 = param_3[6];
-      recovered_1000333c(param_1);
-      uVar3 = *(uint *)(iVar5 * iVar4 + iVar2 + 0xc);
-      uVar6 = -((int)(uVar3 << 0xf) >> 0x1f);
-      if (uVar6 == param_3[7]) {
+      iVar4 = param_3[4];
+      uVar2 = *param_3;
+      iVar3 = param_3[6];
+      recovered_1000333c(param_1,uVar2,param_3[3] * iVar4);
+      uVar2 = *(uint *)(iVar4 * iVar3 + uVar2 + 0xc);
+      uVar5 = -((int)(uVar2 << 0xf) >> 0x1f);
+      if (uVar5 == param_3[7]) {
         value = recovered_10003858(param_3[6] + 1,param_3[3]);
         param_3[6] = value;
         if (value == 0) {
-          param_3[7] = uVar6 ^ 1;
+          param_3[7] = uVar5 ^ 1;
         }
         recovered_10003040(param_1,param_3[8],value);
-        if ((uVar3 & 0xffff) == param_4) {
-          if (uVar3 < 0x20000) {
+        if ((uVar2 & 0xffff) == param_4) {
+          if (uVar2 < 0x20000) {
             return 1;
           }
           return 0;
@@ -1243,32 +1242,12 @@ undefined4 recovered_100031d0(int *param_1,int param_2,int *param_3,uint param_4
 #undef DAT_10003334
 #undef DAT_10003338
 
-#undef DAT_10003378
-#define DAT_10003378 (*(int *)(0x10003378U))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x1000333c
- */
-
-void recovered_1000333c(int *param_1)
-
-{
-  unsigned char frame[64] __attribute__((aligned(16))) = {0};
-
-  if ((param_1 != (int *)0x0) && (*param_1 == (0x54584b57U))) {
-    if ((uint)param_1[2] < 0x78) {
-      return;
-    }
-    if ((code *)param_1[0x1d] != (code *)0x0) {
-                    /* WARNING: Could not recover jumptable at 0x10003370. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-      (*(code *)param_1[0x1d])(0);
-      return;
-    }
-  }
-  return;
+/* Pooka's Free Software License. Recovered DMA synchronization arguments. */
+void recovered_1000333c(int *api,uint pointer,uint size){
+ if(api && (uint)api[0]==0x54584b57U && (uint)api[2]>=120 && api[29])
+   ((void (*)(uint,uint,uint))(uintptr_t)(uint)api[29])(0,pointer,size);
 }
 
-#undef DAT_10003378
 
 #define uStack_24 (*(undefined4 *)(frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
@@ -1290,7 +1269,7 @@ bool recovered_1000337c(int *param_1,int param_2,undefined4 param_3,undefined4 p
   *(undefined4 *)(extraout_r0 + 0x28) = param_3;
   iVar1 = recovered_100031d0(param_1,param_2 + 0x14,(int *)(param_2 + 0x38),uStack_24 >> 0x10);
   if (iVar1 != 0) {
-    recovered_1000333c(param_1);
+    recovered_1000333c(param_1,*(uint *)(param_2 + 0xb0),0x1000);
   }
   return iVar1 != 0;
 }
@@ -1438,17 +1417,19 @@ recovered_100036c0(int *param_1,int param_2,undefined4 param_3,int param_4,undef
   uint uVar2;
   int iVar3;
   int iVar4;
+  uint size;
   undefined4 uVar5;
 
   uVar5 = 0;
   uStack_24 = 0;
-  if (0xffffdfff < param_8 * param_7 - 0x2001U) {
+  size = param_8 * param_7;
+  if (0xffffdfff < size - 0x2001) {
     if (param_4 == 1) {
-      recovered_1000333c(param_1);
+      recovered_1000333c(param_1,*(uint *)(param_2 + 0xa4),size);
     }
     recovered_100030e0(param_2,(int *)(param_2 + 0x5c),(char)param_4,param_3,
                        (undefined2 *)((int)&uStack_24 + 2));
-    if ((uint)(param_8 * param_7) < 0x1001) {
+    if (size < 0x1001) {
       uVar2 = *(uint *)(param_2 + 0xa8);
       iVar4 = 0;
       iVar3 = *(int *)(param_2 + 0xac);
@@ -1474,7 +1455,7 @@ recovered_100036c0(int *param_1,int param_2,undefined4 param_3,int param_4,undef
     *(char *)(extraout_r0 + 0x29) = (char)((uint)param_5 >> 8);
     iVar1 = recovered_100031d0(param_1,param_2 + 0x5c,(int *)(param_2 + 0x80),uStack_24 >> 0x10);
     if ((iVar1 != 0) && (uVar5 = 1, param_4 == 2)) {
-      recovered_1000333c(param_1);
+      recovered_1000333c(param_1,*(uint *)(param_2 + 0xa4),size);
     }
   }
   return uVar5;

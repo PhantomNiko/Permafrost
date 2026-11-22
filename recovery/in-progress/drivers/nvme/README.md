@@ -15,5 +15,9 @@ ARM transports explicitly preserve MMIO write values and DMA arguments. Queue
 allocation returns its native status on ARM64. The i386 initializer explicitly
 constructs the provider callback record and preserves PCI visitor arguments.
 
-Command submission, completion processing and storage I/O in a VM still need
-comparison. These source checkpoints do not establish release-wide equivalence.
+`tests/nvme_submission.py` compares 30 native command-ID, completion-status,
+phase, ring-wrap, doorbell, DMA synchronization and guard cases per CPU. ARM
+synchronization preserves the buffer address and byte count.
+
+Storage I/O in a VM still needs comparison. These source checkpoints do not
+establish release-wide equivalence.

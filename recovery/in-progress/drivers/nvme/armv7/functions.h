@@ -357,7 +357,7 @@ void recovered_100030e0(int param_1,int *param_2,undefined1 param_3,undefined4 p
 void recovered_10003158(int param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
                        undefined4 param_5);
 undefined4 recovered_100031d0(int *param_1,int param_2,int *param_3,uint param_4);
-void recovered_1000333c(int *param_1);
+void recovered_1000333c(int *api,uint pointer,uint size);
 bool recovered_1000337c(int *param_1,int param_2,undefined4 param_3,undefined4 param_4);
 undefined4
 recovered_10003414(uint param_1,uint param_2,undefined1 *param_3,uint param_4,int param_5);

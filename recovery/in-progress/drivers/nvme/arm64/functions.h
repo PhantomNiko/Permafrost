@@ -359,7 +359,7 @@ void recovered_10001630(long param_1,long *param_2,undefined1 param_3,undefined4
 void recovered_10001698(long param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
                        undefined4 param_5);
 ulong recovered_1000170c(int *param_1,long param_2,long *param_3,uint param_4);
-void recovered_10001854(int *param_1);
+void recovered_10001854(int *api,ulong pointer,uint size);
 undefined4 recovered_10001888(long param_1,uint param_2);
 ulong recovered_100018ac(int *param_1,long param_2,undefined4 param_3,undefined8 param_4);
 undefined8
