@@ -38,7 +38,8 @@ of the C runtime, linked C/C++ programs in VMs, and packaging in the final
 macOS SDK remain release gates.
 
 `tools/tayga_cc.py` links ordinary C/C++ source with these startup and runtime
-objects from an SDK bundle. The C++ entry uses C linkage. The SDK examples
+objects from an SDK bundle. It exposes conventional C++ main functions through
+the C startup interface. The SDK examples
 exercise heap strings, formatted output, vectors, accumulation, and a static
 constructor. Both examples cross-compile for all four architectures; the ARM64
 VM also runs them and prints their expected results. Other VM architectures
