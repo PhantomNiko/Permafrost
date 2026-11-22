@@ -27,6 +27,20 @@ def make_disk(esp,payload):
         struct.pack_into('<I',result,16,zlib.crc32(result[:92]));return result
     output[512:1024]=header(1,total-1,2);output[1024:1024+len(entries)]=entries
     output[(total-33)*512:(total-1)*512]=entries;output[(total-1)*512:]=header(total-1,1,total-33)
+    # Native disk tools also discover WBPT at the whole device's sector 65.
+    # Its records use whole-device LBAs; the nested table stays payload-relative.
+    table=bytearray(payload[65*512:66*512])
+    if table[:4]==b'WBPT':
+        version,count=struct.unpack_from('<HH',table,4)
+        if version!=1 or not 1<=count<=14:raise ValueError('invalid nested WBPT table')
+        for i in range(count):
+            offset=32+i*32;kind,start,sectors=struct.unpack_from('<III',table,offset)
+            if not kind:continue
+            if start>=len(payload)//512 or sectors>len(payload)//512-start:
+                raise ValueError('WBPT partition exceeds nested payload')
+            if shim_start+start>0xffffffff:raise ValueError('WBPT mirror LBA exceeds 32 bits')
+            struct.pack_into('<I',table,offset+4,shim_start+start)
+        output[65*512:66*512]=table
     return bytes(output)
 
 
