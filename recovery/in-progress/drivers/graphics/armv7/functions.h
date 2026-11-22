@@ -363,10 +363,10 @@ undefined4 recovered_10006660(int *param_1,undefined4 param_2,undefined4 param_3
 void recovered_100066c4(int param_1,char *param_2,uint param_3,undefined4 param_4);
 undefined4 recovered_1000676c(int *param_1,int param_2,undefined4 param_3,int param_4);
 void recovered_100067c4(int *param_1,int param_2);
-undefined4 recovered_1000680c(int *param_1,int param_2,undefined4 param_3,int param_4);
+unsigned int recovered_1000680c(int *api,unsigned int pointer,unsigned int size,unsigned int output);
 void recovered_10006864(undefined1 *param_1,undefined4 param_2,undefined4 param_3);
 void recovered_100068a8(int *param_1,int param_2,int param_3,undefined4 param_4,undefined4 param_5);
-void recovered_100068e4(int *param_1);
+void recovered_100068e4(int *api,unsigned int pointer,unsigned int size);
 undefined4 recovered_10006924(undefined4 *param_1);
 int recovered_1000694c(int param_1);
 undefined4 recovered_100069dc(int param_1,uint param_2);

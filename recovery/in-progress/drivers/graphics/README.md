@@ -27,3 +27,13 @@ The direct hardware paths contain additional unresolved register and literal
 references. None of the architecture checkpoints is a completed release driver yet. The 1.0
 release remains gated on all four architectures, complete source recovery,
 VM compatibility, images, and SDK packaging.
+
+
+ARM DMA helpers and their PCI-driver callers now preserve pointer, byte-count,
+and output arguments. Each ARM checkpoint passes 60 native DMA boundary cases;
+ARM64 also passes 234 hardware-service transport comparisons. Registration,
+PCI records, and all eight software rendering comparisons still match native
+behavior. Disposable ARM32 and ARM64 desktop VMs render the repaired drivers,
+open the terminal through pointer input, and accept three typed expressions
+with results 5, 28, and 3. These remain mixed diagnostic images until the full
+source-only image assembly is validated.

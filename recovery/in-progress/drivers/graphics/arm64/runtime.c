@@ -893,15 +893,416 @@ void recovered_10000b84(long param_1,char *param_2,char *param_3)
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10000be4
  */
+#undef DAT_10003510
+#undef DAT_10003518
+#undef DAT_100036d3
+#undef DAT_100036d5
+#undef DAT_10003b72
+#undef DAT_10003c52
+#undef DAT_10003c54
+#undef DAT_10003c5a
+#undef DAT_10008000
+#undef DAT_10008010
+#undef DAT_10008014
+#undef DAT_10008020
+#undef DAT_10008028
+#undef DAT_10008040
+#undef DAT_10008060
+#undef DAT_10008068
+#undef DAT_10008070
+#undef DAT_10008078
+#undef DAT_1000807c
+#undef DAT_10008080
+#undef DAT_100080a8
+#undef UNK_10008022
+#undef UNK_10008023
+#undef str_10003711
+#undef str_1000371e
+#undef str_10003734
+#undef str_10003748
+#undef str_10003766
+#undef str_10003774
+#undef str_10003784
+#undef str_10003798
+#undef str_100037b0
+#undef str_100037c8
+#undef str_100037e1
+#undef str_100037f2
+#undef str_10003802
+#undef str_10003811
+#undef str_1000381a
+#undef str_10003836
+#undef str_10003841
+#undef str_10003851
+#undef str_10003858
+#undef str_10003868
+#undef str_10003875
+#undef str_1000388b
+#undef str_100038a1
+#undef str_100038b7
+#undef str_100038cd
+#undef str_100038e6
+#undef str_100038fe
+#undef str_1000390b
+#undef str_1000391c
+#undef str_10003930
+#undef str_10003940
+#undef str_10003957
+#undef str_1000396a
+#undef str_10003974
+#undef str_10003987
+#undef str_1000399e
+#undef str_100039aa
+#undef str_100039b6
+#undef str_100039c3
+#undef str_100039cd
+#undef str_100039e1
+#undef str_100039f0
+#undef str_10003a03
+#undef str_10003a15
+#undef str_10003a2b
+#undef str_10003a34
+#undef str_10003a3c
+#undef str_10003a44
+#undef str_10003a4e
+#undef str_10003a5a
+#undef str_10003a6f
+#undef str_10003a77
+#undef str_10003a7f
+#undef str_10003a87
+#undef str_10003a93
+#undef str_10003a9b
+#undef str_10003aa3
+#undef str_10003aab
+#undef str_10003ab3
+#undef str_10003abe
+#undef str_10003ac4
+#undef str_10003ace
+#undef str_10003ae3
+#undef str_10003af4
+#undef str_10003b00
+#undef str_10003b0c
+#undef str_10003b18
+#undef str_10003b27
+#undef str_10003b31
+#undef str_10003b3f
+#undef str_10003b50
+#undef str_10003b5c
+#undef str_10003b68
+#undef str_10003b77
+#undef str_10003b80
+#undef str_10003b9e
+#undef str_10003bba
+#undef str_10003bd0
+#undef str_10003bea
+#undef str_10003bfa
+#undef str_10003c07
+#undef str_10003c17
+#undef str_10003c21
+#undef str_10003c29
+#undef str_10003c32
+#undef str_10003c3a
+#undef str_10003c46
+#undef str_10003c5f
+#undef str_10003c68
+#undef str_10003c71
+#undef str_10003c79
+#undef str_10003c84
+#undef uRam0000000010008022
+#undef uRam0000000010008023
+#undef acStack_8f4
+#undef uStack_4f4
+#undef uStack_4f0
+#undef uStack_4e8
+#undef uStack_4e0
+#undef uStack_4d8
+#undef uStack_4d0
+#undef uStack_4c8
+#undef uStack_4b8
+#undef uStack_4b0
+#undef uStack_4a8
+#undef uStack_4a4
+#undef uStack_498
+#undef uStack_494
+#undef uStack_490
+#undef uStack_48c
+#undef uStack_488
+#undef uStack_484
+#undef uStack_480
+#undef uStack_47c
+#undef uStack_478
+#undef uStack_474
+#undef uStack_470
+#undef uStack_468
+#undef uStack_460
+#undef auStack_c8
+#undef DAT_10003510
+#define DAT_10003510 (*(uint64_t *)(((uintptr_t)pf_module_state + 0x14U)))
+#undef DAT_10003518
+#define DAT_10003518 (*(uint64_t *)(((uintptr_t)pf_module_state + 0x1cU)))
+#undef DAT_100036d3
+#define DAT_100036d3 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x1d7U)))
+#undef DAT_100036d5
+#define DAT_100036d5 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x1d9U)))
+#undef DAT_10003b72
+#define DAT_10003b72 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x676U)))
+#undef DAT_10003c52
+#define DAT_10003c52 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x756U)))
+#undef DAT_10003c54
+#define DAT_10003c54 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x758U)))
+#undef DAT_10003c5a
+#define DAT_10003c5a (*(uint8_t *)(((uintptr_t)pf_module_state + 0x75eU)))
+#undef DAT_10008000
+#define DAT_10008000 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x4b04U)))
+#undef DAT_10008010
+#define DAT_10008010 (*(uint32_t *)(((uintptr_t)pf_module_state + 0x4b14U)))
+#undef DAT_10008014
+#define DAT_10008014 (*(uint16_t *)(((uintptr_t)pf_module_state + 0x4b18U)))
+#undef DAT_10008020
+#define DAT_10008020 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x4b24U)))
+#undef DAT_10008028
+#define DAT_10008028 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x4b2cU)))
+#undef DAT_10008040
+#define DAT_10008040 (*(uint32_t *)(((uintptr_t)pf_module_state + 0x4b44U)))
+#undef DAT_10008060
+#define DAT_10008060 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x4b64U)))
+#undef DAT_10008068
+#define DAT_10008068 (*(uint64_t *)(((uintptr_t)pf_module_state + 0x4b6cU)))
+#undef DAT_10008070
+#define DAT_10008070 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x4b74U)))
+#undef DAT_10008078
+#define DAT_10008078 (*(uint32_t *)(((uintptr_t)pf_module_state + 0x4b7cU)))
+#undef DAT_1000807c
+#define DAT_1000807c (*(uint16_t *)(((uintptr_t)pf_module_state + 0x4b80U)))
+#undef DAT_10008080
+#define DAT_10008080 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x4b84U)))
+#undef DAT_100080a8
+#define DAT_100080a8 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x4bacU)))
+#undef UNK_10008022
+#define UNK_10008022 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x4b26U)))
+#undef UNK_10008023
+#define UNK_10008023 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x4b27U)))
+#undef str_10003711
+#define str_10003711 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x215U)))
+#undef str_1000371e
+#define str_1000371e (*(char (*)[1])(((uintptr_t)pf_module_state + 0x222U)))
+#undef str_10003734
+#define str_10003734 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x238U)))
+#undef str_10003748
+#define str_10003748 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x24cU)))
+#undef str_10003766
+#define str_10003766 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x26aU)))
+#undef str_10003774
+#define str_10003774 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x278U)))
+#undef str_10003784
+#define str_10003784 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x288U)))
+#undef str_10003798
+#define str_10003798 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x29cU)))
+#undef str_100037b0
+#define str_100037b0 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x2b4U)))
+#undef str_100037c8
+#define str_100037c8 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x2ccU)))
+#undef str_100037e1
+#define str_100037e1 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x2e5U)))
+#undef str_100037f2
+#define str_100037f2 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x2f6U)))
+#undef str_10003802
+#define str_10003802 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x306U)))
+#undef str_10003811
+#define str_10003811 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x315U)))
+#undef str_1000381a
+#define str_1000381a (*(char (*)[1])(((uintptr_t)pf_module_state + 0x31eU)))
+#undef str_10003836
+#define str_10003836 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x33aU)))
+#undef str_10003841
+#define str_10003841 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x345U)))
+#undef str_10003851
+#define str_10003851 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x355U)))
+#undef str_10003858
+#define str_10003858 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x35cU)))
+#undef str_10003868
+#define str_10003868 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x36cU)))
+#undef str_10003875
+#define str_10003875 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x379U)))
+#undef str_1000388b
+#define str_1000388b (*(char (*)[1])(((uintptr_t)pf_module_state + 0x38fU)))
+#undef str_100038a1
+#define str_100038a1 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x3a5U)))
+#undef str_100038b7
+#define str_100038b7 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x3bbU)))
+#undef str_100038cd
+#define str_100038cd (*(char (*)[1])(((uintptr_t)pf_module_state + 0x3d1U)))
+#undef str_100038e6
+#define str_100038e6 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x3eaU)))
+#undef str_100038fe
+#define str_100038fe (*(char (*)[1])(((uintptr_t)pf_module_state + 0x402U)))
+#undef str_1000390b
+#define str_1000390b (*(char (*)[1])(((uintptr_t)pf_module_state + 0x40fU)))
+#undef str_1000391c
+#define str_1000391c (*(char (*)[1])(((uintptr_t)pf_module_state + 0x420U)))
+#undef str_10003930
+#define str_10003930 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x434U)))
+#undef str_10003940
+#define str_10003940 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x444U)))
+#undef str_10003957
+#define str_10003957 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x45bU)))
+#undef str_1000396a
+#define str_1000396a (*(char (*)[1])(((uintptr_t)pf_module_state + 0x46eU)))
+#undef str_10003974
+#define str_10003974 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x478U)))
+#undef str_10003987
+#define str_10003987 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x48bU)))
+#undef str_1000399e
+#define str_1000399e (*(char (*)[1])(((uintptr_t)pf_module_state + 0x4a2U)))
+#undef str_100039aa
+#define str_100039aa (*(char (*)[1])(((uintptr_t)pf_module_state + 0x4aeU)))
+#undef str_100039b6
+#define str_100039b6 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x4baU)))
+#undef str_100039c3
+#define str_100039c3 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x4c7U)))
+#undef str_100039cd
+#define str_100039cd (*(char (*)[1])(((uintptr_t)pf_module_state + 0x4d1U)))
+#undef str_100039e1
+#define str_100039e1 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x4e5U)))
+#undef str_100039f0
+#define str_100039f0 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x4f4U)))
+#undef str_10003a03
+#define str_10003a03 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x507U)))
+#undef str_10003a15
+#define str_10003a15 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x519U)))
+#undef str_10003a2b
+#define str_10003a2b (*(char (*)[1])(((uintptr_t)pf_module_state + 0x52fU)))
+#undef str_10003a34
+#define str_10003a34 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x538U)))
+#undef str_10003a3c
+#define str_10003a3c (*(char (*)[1])(((uintptr_t)pf_module_state + 0x540U)))
+#undef str_10003a44
+#define str_10003a44 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x548U)))
+#undef str_10003a4e
+#define str_10003a4e (*(char (*)[1])(((uintptr_t)pf_module_state + 0x552U)))
+#undef str_10003a5a
+#define str_10003a5a (*(char (*)[1])(((uintptr_t)pf_module_state + 0x55eU)))
+#undef str_10003a6f
+#define str_10003a6f (*(char (*)[1])(((uintptr_t)pf_module_state + 0x573U)))
+#undef str_10003a77
+#define str_10003a77 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x57bU)))
+#undef str_10003a7f
+#define str_10003a7f (*(char (*)[1])(((uintptr_t)pf_module_state + 0x583U)))
+#undef str_10003a87
+#define str_10003a87 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x58bU)))
+#undef str_10003a93
+#define str_10003a93 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x597U)))
+#undef str_10003a9b
+#define str_10003a9b (*(char (*)[1])(((uintptr_t)pf_module_state + 0x59fU)))
+#undef str_10003aa3
+#define str_10003aa3 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x5a7U)))
+#undef str_10003aab
+#define str_10003aab (*(char (*)[1])(((uintptr_t)pf_module_state + 0x5afU)))
+#undef str_10003ab3
+#define str_10003ab3 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x5b7U)))
+#undef str_10003abe
+#define str_10003abe (*(char (*)[1])(((uintptr_t)pf_module_state + 0x5c2U)))
+#undef str_10003ac4
+#define str_10003ac4 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x5c8U)))
+#undef str_10003ace
+#define str_10003ace (*(char (*)[1])(((uintptr_t)pf_module_state + 0x5d2U)))
+#undef str_10003ae3
+#define str_10003ae3 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x5e7U)))
+#undef str_10003af4
+#define str_10003af4 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x5f8U)))
+#undef str_10003b00
+#define str_10003b00 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x604U)))
+#undef str_10003b0c
+#define str_10003b0c (*(char (*)[1])(((uintptr_t)pf_module_state + 0x610U)))
+#undef str_10003b18
+#define str_10003b18 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x61cU)))
+#undef str_10003b27
+#define str_10003b27 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x62bU)))
+#undef str_10003b31
+#define str_10003b31 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x635U)))
+#undef str_10003b3f
+#define str_10003b3f (*(char (*)[1])(((uintptr_t)pf_module_state + 0x643U)))
+#undef str_10003b50
+#define str_10003b50 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x654U)))
+#undef str_10003b5c
+#define str_10003b5c (*(char (*)[1])(((uintptr_t)pf_module_state + 0x660U)))
+#undef str_10003b68
+#define str_10003b68 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x66cU)))
+#undef str_10003b77
+#define str_10003b77 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x67bU)))
+#undef str_10003b80
+#define str_10003b80 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x684U)))
+#undef str_10003b9e
+#define str_10003b9e (*(char (*)[1])(((uintptr_t)pf_module_state + 0x6a2U)))
+#undef str_10003bba
+#define str_10003bba (*(char (*)[1])(((uintptr_t)pf_module_state + 0x6beU)))
+#undef str_10003bd0
+#define str_10003bd0 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x6d4U)))
+#undef str_10003bea
+#define str_10003bea (*(char (*)[1])(((uintptr_t)pf_module_state + 0x6eeU)))
+#undef str_10003bfa
+#define str_10003bfa (*(char (*)[1])(((uintptr_t)pf_module_state + 0x6feU)))
+#undef str_10003c07
+#define str_10003c07 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x70bU)))
+#undef str_10003c17
+#define str_10003c17 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x71bU)))
+#undef str_10003c21
+#define str_10003c21 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x725U)))
+#undef str_10003c29
+#define str_10003c29 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x72dU)))
+#undef str_10003c32
+#define str_10003c32 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x736U)))
+#undef str_10003c3a
+#define str_10003c3a (*(char (*)[1])(((uintptr_t)pf_module_state + 0x73eU)))
+#undef str_10003c46
+#define str_10003c46 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x74aU)))
+#undef str_10003c5f
+#define str_10003c5f (*(char (*)[1])(((uintptr_t)pf_module_state + 0x763U)))
+#undef str_10003c68
+#define str_10003c68 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x76cU)))
+#undef str_10003c71
+#define str_10003c71 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x775U)))
+#undef str_10003c79
+#define str_10003c79 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x77dU)))
+#undef str_10003c84
+#define str_10003c84 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x788U)))
+#undef uRam0000000010008022
+#define uRam0000000010008022 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x4b26U)))
+#undef uRam0000000010008023
+#define uRam0000000010008023 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x4b27U)))
+#define acStack_8f4 (*(char (*)[1024])(frame + 28))
+#define uStack_4f4 (*(uint *)(frame + 1052))
+#define uStack_4f0 (*(undefined8 *)(frame + 1056))
+#define uStack_4e8 (*(undefined8 *)(frame + 1064))
+#define uStack_4e0 (*(ulong *)(frame + 1072))
+#define uStack_4d8 (*(undefined8 *)(frame + 1080))
+#define uStack_4d0 (*(undefined8 *)(frame + 1088))
+#define uStack_4c8 (*(undefined8 *)(frame + 1096))
+#define uStack_4b8 (*(ulong *)(frame + 1112))
+#define uStack_4b0 (*(ulong *)(frame + 1120))
+#define uStack_4a8 (*(uint *)(frame + 1128))
+#define uStack_4a4 (*(uint *)(frame + 1132))
+#define uStack_498 (*(uint *)(frame + 1144))
+#define uStack_494 (*(uint *)(frame + 1148))
+#define uStack_490 (*(uint *)(frame + 1152))
+#define uStack_48c (*(uint *)(frame + 1156))
+#define uStack_488 (*(uint *)(frame + 1160))
+#define uStack_484 (*(uint *)(frame + 1164))
+#define uStack_480 (*(uint *)(frame + 1168))
+#define uStack_47c (*(uint *)(frame + 1172))
+#define uStack_478 (*(uint *)(frame + 1176))
+#define uStack_474 (*(uint *)(frame + 1180))
+#define uStack_470 (*(uint *)(frame + 1184))
+#define uStack_468 (*(ulong *)(frame + 1192))
+#define uStack_460 (*(uint *)(frame + 1200))
+#define auStack_c8 (*(uint (*)[26])(frame + 2120))
+/* Recovered working notes; Pooka's Free Software License.
+ * Address: 0x10000be4
+ */
 
 void recovered_10000be4(int *param_1,byte *param_2,int *param_3)
 
 {
-  int firmware_framebuffer[13]={0};
-  if (param_2 && *(unsigned short *)(param_2+4)==0x1af4 &&
-      *(unsigned short *)(param_2+6)==0x1050 &&
-      recovered_10000a90(param_1,(long)firmware_framebuffer) &&
-      recovered_10000ac8(firmware_framebuffer)) return;
   unsigned char frame[2352] __attribute__((aligned(16))) = {0};
 
   byte bVar1;
@@ -1304,16 +1705,14 @@ LAB_10000efc:
           recovered_10000a78(&DAT_10008020,0x14);
           recovered_10000a78((undefined1 *)&DAT_10008040,0x18);
           recovered_10000a78(&DAT_10008080,0x198);
-          uVar15 = recovered_10002bb0(param_1,((uintptr_t)pf_module_state + 0x4b64U),0x20,(long)auStack_c8);
-          if (((((int)uVar15 != 0) &&
-               ((uVar15 = recovered_10002bb0(param_1,((uintptr_t)pf_module_state + 0x4b14U),8,(long)&uStack_4d0),
-                (int)uVar15 != 0 &&
-                (uVar15 = recovered_10002bb0(param_1,((uintptr_t)pf_module_state + 0x4b24U),0x14,(long)&uStack_4d8),
-                (int)uVar15 != 0)))) &&
-              (uVar15 = recovered_10002bb0(param_1,((uintptr_t)pf_module_state + 0x4b44U),0x18,(long)&uStack_4e0),
-              (int)uVar15 != 0)) &&
-             (uVar15 = recovered_10002bb0(param_1,((uintptr_t)pf_module_state + 0x4b84U),0x198,(long)&uStack_4e8),
-             (int)uVar15 != 0)) {
+          uVar9 = recovered_10002bb0(param_1,((uintptr_t)pf_module_state + 0x4b64U),0x20,(ulong)auStack_c8);
+          if ((((uVar9 != 0) &&
+               ((uVar9 = recovered_10002bb0(param_1,((uintptr_t)pf_module_state + 0x4b14U),8,(ulong)&uStack_4d0), uVar9 != 0 &&
+                (uVar9 = recovered_10002bb0(param_1,((uintptr_t)pf_module_state + 0x4b24U),0x14,(ulong)&uStack_4d8), uVar9 != 0)
+                ))) && (uVar9 = recovered_10002bb0(param_1,((uintptr_t)pf_module_state + 0x4b44U),0x18,(ulong)&uStack_4e0),
+                       uVar9 != 0)) &&
+             (uVar9 = recovered_10002bb0(param_1,((uintptr_t)pf_module_state + 0x4b84U),0x198,(ulong)&uStack_4e8), uVar9 != 0))
+          {
             DAT_10008040 = 0x100;
             recovered_10002bec(&DAT_10008060,(undefined4)uStack_4e0,PF_PART4(uStack_4e8, 4));
             DAT_10008068 = DAT_10003510;
@@ -1327,11 +1726,11 @@ LAB_10000efc:
             recovered_10002c2c(param_1,uStack_4c8,0x20,(ulong)auStack_c8[0],uStack_4d0 >> 0x20);
             recovered_10002c2c(param_1,uStack_4c8,0x28,uStack_4d0 & 0xffffffff,uStack_4d8 >> 0x20);
             recovered_10002c2c(param_1,uStack_4c8,0x30,uStack_4d8 & 0xffffffff,uStack_4e0 >> 0x20);
-            recovered_10002c7c(param_1);
-            recovered_10002c7c(param_1);
-            recovered_10002c7c(param_1);
-            recovered_10002c7c(param_1);
-            recovered_10002c7c(param_1);
+            recovered_10002c7c(param_1,((uintptr_t)pf_module_state + 0x4b64U),0x20);
+            recovered_10002c7c(param_1,((uintptr_t)pf_module_state + 0x4b14U),8);
+            recovered_10002c7c(param_1,((uintptr_t)pf_module_state + 0x4b24U),0x14);
+            recovered_10002c7c(param_1,((uintptr_t)pf_module_state + 0x4b44U),0x18);
+            recovered_10002c7c(param_1,((uintptr_t)pf_module_state + 0x4b84U),0x198);
             recovered_100029a0(param_1,uStack_4c8,0x1c,1);
             recovered_10002988(param_1,uStack_4c8,0x1c,(long)&uStack_4f0);
             recovered_100028fc(param_1,uStack_4c8,0x14,(long)&uStack_4f4);
@@ -1341,7 +1740,7 @@ LAB_10000efc:
             recovered_100029a0(param_1,uStack_468,0,0);
             iVar8 = 100;
             do {
-              recovered_10002c7c(param_1);
+              recovered_10002c7c(param_1,((uintptr_t)pf_module_state + 0x4b24U),0x14);
               uVar9 = (uint)CONCAT11(uRam0000000010008023,uRam0000000010008022);
               if (uVar9 != 0) goto LAB_100018d8;
               if ((((param_1 != (int *)0x0) && (*param_1 == 0x54584b57)) &&
@@ -1352,7 +1751,7 @@ LAB_10000efc:
             } while (iVar8 != 0);
             uVar9 = 0;
 LAB_100018d8:
-            recovered_10002c7c(param_1);
+            recovered_10002c7c(param_1,((uintptr_t)pf_module_state + 0x4b84U),0x198);
             if (uVar9 == 0) {
               uVar21 = 0;
               uVar13 = 0;
@@ -1466,6 +1865,151 @@ LAB_10001988:
   }
   return;
 }
+
+#undef DAT_10003510
+#undef DAT_10003518
+#undef DAT_100036d3
+#undef DAT_100036d5
+#undef DAT_10003b72
+#undef DAT_10003c52
+#undef DAT_10003c54
+#undef DAT_10003c5a
+#undef DAT_10008000
+#undef DAT_10008010
+#undef DAT_10008014
+#undef DAT_10008020
+#undef DAT_10008028
+#undef DAT_10008040
+#undef DAT_10008060
+#undef DAT_10008068
+#undef DAT_10008070
+#undef DAT_10008078
+#undef DAT_1000807c
+#undef DAT_10008080
+#undef DAT_100080a8
+#undef UNK_10008022
+#undef UNK_10008023
+#undef str_10003711
+#undef str_1000371e
+#undef str_10003734
+#undef str_10003748
+#undef str_10003766
+#undef str_10003774
+#undef str_10003784
+#undef str_10003798
+#undef str_100037b0
+#undef str_100037c8
+#undef str_100037e1
+#undef str_100037f2
+#undef str_10003802
+#undef str_10003811
+#undef str_1000381a
+#undef str_10003836
+#undef str_10003841
+#undef str_10003851
+#undef str_10003858
+#undef str_10003868
+#undef str_10003875
+#undef str_1000388b
+#undef str_100038a1
+#undef str_100038b7
+#undef str_100038cd
+#undef str_100038e6
+#undef str_100038fe
+#undef str_1000390b
+#undef str_1000391c
+#undef str_10003930
+#undef str_10003940
+#undef str_10003957
+#undef str_1000396a
+#undef str_10003974
+#undef str_10003987
+#undef str_1000399e
+#undef str_100039aa
+#undef str_100039b6
+#undef str_100039c3
+#undef str_100039cd
+#undef str_100039e1
+#undef str_100039f0
+#undef str_10003a03
+#undef str_10003a15
+#undef str_10003a2b
+#undef str_10003a34
+#undef str_10003a3c
+#undef str_10003a44
+#undef str_10003a4e
+#undef str_10003a5a
+#undef str_10003a6f
+#undef str_10003a77
+#undef str_10003a7f
+#undef str_10003a87
+#undef str_10003a93
+#undef str_10003a9b
+#undef str_10003aa3
+#undef str_10003aab
+#undef str_10003ab3
+#undef str_10003abe
+#undef str_10003ac4
+#undef str_10003ace
+#undef str_10003ae3
+#undef str_10003af4
+#undef str_10003b00
+#undef str_10003b0c
+#undef str_10003b18
+#undef str_10003b27
+#undef str_10003b31
+#undef str_10003b3f
+#undef str_10003b50
+#undef str_10003b5c
+#undef str_10003b68
+#undef str_10003b77
+#undef str_10003b80
+#undef str_10003b9e
+#undef str_10003bba
+#undef str_10003bd0
+#undef str_10003bea
+#undef str_10003bfa
+#undef str_10003c07
+#undef str_10003c17
+#undef str_10003c21
+#undef str_10003c29
+#undef str_10003c32
+#undef str_10003c3a
+#undef str_10003c46
+#undef str_10003c5f
+#undef str_10003c68
+#undef str_10003c71
+#undef str_10003c79
+#undef str_10003c84
+#undef uRam0000000010008022
+#undef uRam0000000010008023
+#undef acStack_8f4
+#undef uStack_4f4
+#undef uStack_4f0
+#undef uStack_4e8
+#undef uStack_4e0
+#undef uStack_4d8
+#undef uStack_4d0
+#undef uStack_4c8
+#undef uStack_4b8
+#undef uStack_4b0
+#undef uStack_4a8
+#undef uStack_4a4
+#undef uStack_498
+#undef uStack_494
+#undef uStack_490
+#undef uStack_48c
+#undef uStack_488
+#undef uStack_484
+#undef uStack_480
+#undef uStack_47c
+#undef uStack_478
+#undef uStack_474
+#undef uStack_470
+#undef uStack_468
+#undef uStack_460
+#undef auStack_c8
+
 
 #undef DAT_10003510
 #undef DAT_10003518
@@ -2832,23 +3376,13 @@ void recovered_10002b74(int *param_1,undefined8 param_2)
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10002bb0
  */
-
-undefined8 recovered_10002bb0(int *param_1,long param_2,undefined8 param_3,long param_4)
-
-{
-  unsigned char frame[64] __attribute__((aligned(16))) = {0};
-
-  undefined8 uVar1;
-
-  if ((((param_1 == (int *)0x0) || (*param_1 != 0x54584b57)) || ((uint)param_1[2] < 0x74)) ||
-     (((param_4 == 0 || (param_2 == 0)) || (param_1[0x1c] == 0)))) {
-    return 0;
-  }
-                    /* WARNING: Could not recover jumptable at 0x10002be8. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  uVar1 = (*(code *)(ulong)(uint)param_1[0x1c])(0,param_2,param_3,param_4);
-  return uVar1;
+/* Pooka's Free Software License. Recovered DMA service contract. */
+unsigned int recovered_10002bb0(int *api,unsigned long pointer,unsigned int size,unsigned long output){
+ if(!api||(unsigned)api[0]!=0x54584b57U||(unsigned)api[2]<116||!pointer||!output||!api[28])return 0;
+ return ((unsigned int (*)(unsigned long,unsigned long,unsigned int,unsigned long))(uintptr_t)(unsigned)api[28])(0,pointer,size,output);
 }
+
+
 
 
 /* Recovered working notes; Pooka's Free Software License.
@@ -2916,21 +3450,13 @@ recovered_10002c2c(int *param_1,long param_2,int param_3,undefined8 param_4,unde
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10002c7c
  */
-
-void recovered_10002c7c(int *param_1)
-
-{
-  unsigned char frame[64] __attribute__((aligned(16))) = {0};
-
-  if ((((param_1 == (int *)0x0) || (*param_1 != 0x54584b57)) || ((uint)param_1[2] < 0x78)) ||
-     (param_1[0x1d] == 0)) {
-    return;
-  }
-                    /* WARNING: Could not recover jumptable at 0x10002ca8. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  (*(code *)(ulong)(uint)param_1[0x1d])(0);
-  return;
+/* Pooka's Free Software License. Recovered DMA service contract. */
+void recovered_10002c7c(int *api,unsigned long pointer,unsigned int size){
+ if(api&&(unsigned)api[0]==0x54584b57U&&(unsigned)api[2]>=120&&api[29])
+ ((void (*)(unsigned long,unsigned long,unsigned int))(uintptr_t)(unsigned)api[29])(0,pointer,size);
 }
+
+
 
 
 /* Recovered working notes; Pooka's Free Software License.

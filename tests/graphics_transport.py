@@ -21,7 +21,7 @@ SPECS={
  '_qemu_kext_io_read':lambda api,a,o:[api,a&0xffff,4,o],
  '_qemu_kext_io_write':lambda api,a,o:[api,a&0xffff],
  '_wm_kext_dma_address':lambda api,a,o:[api,0x2f2000,128,o],
- '_wm_kext_dma_sync':lambda api,a,o:[api],
+ '_wm_kext_dma_sync':lambda api,a,o:[api,0x2f2000,128],
  '_wm_kext_hardware_barrier':lambda api,a,o:[api],
 }
 def run(path,native_addresses):
@@ -29,7 +29,7 @@ def run(path,native_addresses):
  for name,address in native_addresses.items():lib.exports[name]=symbols.get(name,symbols.get('_recovered_%x'%(0x10000000+address)))
  def callback(slot):
   def hook(c,a,z,u):
-   regs=[c.reg_read(r)for r in [UC_ARM64_REG_X0,UC_ARM64_REG_X1,UC_ARM64_REG_X2,UC_ARM64_REG_X3]];n=0 if slot==30 else 1 if slot==29 else 2 if slot==22 else 4 if slot==28 else 3;events.append((slot,tuple(regs[:n])));c.reg_write(lib.result,1)
+   regs=[c.reg_read(r)for r in [UC_ARM64_REG_X0,UC_ARM64_REG_X1,UC_ARM64_REG_X2,UC_ARM64_REG_X3]];n=0 if slot==30 else 3 if slot==29 else 2 if slot==22 else 4 if slot==28 else 3;events.append((slot,tuple(regs[:n])));c.reg_write(lib.result,1)
    if slot==28:regs[2]=regs[3]
    if slot in [21,26,47,28]and 0x2f0000<=regs[2]<0x2f3000:c.mem_write(regs[2],struct.pack('<I',0x89abcdef))
   return hook

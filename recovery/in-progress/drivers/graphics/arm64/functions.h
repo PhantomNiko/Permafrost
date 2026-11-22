@@ -368,11 +368,11 @@ undefined8 recovered_10002a1c(int *param_1,ulong param_2,undefined8 param_3,unde
 void recovered_10002a84(long param_1,char *param_2,ulong param_3);
 undefined8 recovered_10002b38(int *param_1,undefined8 param_2,undefined8 param_3,long param_4);
 void recovered_10002b74(int *param_1,undefined8 param_2);
-undefined8 recovered_10002bb0(int *param_1,long param_2,undefined8 param_3,long param_4);
+unsigned int recovered_10002bb0(int *api,unsigned long pointer,unsigned int size,unsigned long output);
 void recovered_10002bec(undefined1 *param_1,undefined4 param_2,undefined4 param_3);
 undefined8
 recovered_10002c2c(int *param_1,long param_2,int param_3,undefined8 param_4,undefined8 param_5);
-void recovered_10002c7c(int *param_1);
+void recovered_10002c7c(int *api,unsigned long pointer,unsigned int size);
 undefined4 recovered_10002cb0(undefined4 *param_1);
 char * recovered_10002cd4(int param_1);
 bool recovered_10002d40(long param_1,uint param_2);
