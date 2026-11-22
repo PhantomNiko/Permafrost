@@ -31,6 +31,7 @@ def exercise(reference,source,library,folder):
    l.cpu.mem_write(address,struct.pack('<I',0xe12fff1e if l.cpu_type==12 else 0xd65f03c0)if l.cpu_type in [12,0x100000c]else b'\xc3');l.cpu.hook_add(UC_HOOK_CODE,read,begin=address,end=address)
   for api in l.api_tables:l.cpu.mem_write(api+0xc8,struct.pack('<I',0x12000));l.cpu.mem_write(api+0x34,struct.pack('<I',0x12010))
  cases=[b'',b'unknown=1\n',b'ramsize=123456\n',b'ramsize=0\n',b'ramsize=-1\n',b'ramsize=4294967295\n',b'ramsize=4294967296\n',b' ramsize = 4096 ;\n',b'username=alpha\nroot_password=beta\nuser_password=gamma\n',b'username="alpha beta"\n',b'# ramsize=123\n// ramsize=456\n',b'username='+b'x'*150+b'\n',b'ramsize=7\nramsize=9\n']
+ cases += [b'ramsize = 1572864\nswap_only = false\nroot_password =\nusername =\nuser_password =\n',b'username=\nuser_password=\n',b'\nusername=\n\n',b'username = \t\r\nuser_password = unused\n']
  cases += [b'swap_only='+v+b'\n'for v in [b'1',b'true',b'yes',b'on',b'0',b'false',b'TRUE',b' true ',b'"true"']]
  count=0
  for size in [412,200]:

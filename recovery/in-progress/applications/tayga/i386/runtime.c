@@ -4006,7 +4006,7 @@ LAB_100048e0:
       local_144[iVar1] = 0;
       pbVar8 = local_144;
       pbVar9 = pbVar8;
-      while ((*pbVar8 - 9 < 0x18 && ((0x800013U >> (*pbVar8 - 9 & 0x1f) & 1) != 0))) {
+      while (((uint)(*pbVar8) - 9U < 0x18 && ((0x800013U >> ((uint)(*pbVar8) - 9U & 0x1f) & 1) != 0))) {
         pbVar8 = pbVar8 + 1;
         pbVar9 = pbVar9 + 1;
       }
@@ -4014,7 +4014,7 @@ LAB_100048e0:
       pbVar7 = pbVar8 + iVar6;
       if (0 < iVar6) {
         do {
-          if ((0x17 < pbVar7[-1] - 9) || ((0x800013U >> (pbVar7[-1] - 9 & 0x1f) & 1) == 0)) break;
+          if ((0x17 < (uint)(pbVar7[-1]) - 9U) || ((0x800013U >> ((uint)(pbVar7[-1]) - 9U & 0x1f) & 1) == 0)) break;
           pbVar7 = pbVar7 + -1;
         } while (pbVar8 < pbVar7);
       }
@@ -4025,7 +4025,7 @@ LAB_100048e0:
         if (uVar5 != 0) {
           pbVar9 = pbVar7;
           do {
-            if ((0x17 < pbVar9[-1] - 9) || ((0x800013U >> (pbVar9[-1] - 9 & 0x1f) & 1) == 0))
+            if ((0x17 < (uint)(pbVar9[-1]) - 9U) || ((0x800013U >> ((uint)(pbVar9[-1]) - 9U & 0x1f) & 1) == 0))
             goto LAB_100049f0;
             pbVar9 = pbVar9 + -1;
             uVar5 = uVar5 - 1;
@@ -4042,7 +4042,7 @@ LAB_100048e0:
     uVar5 = uVar5 - 1;
     if (uVar5 == 0) break;
 LAB_100049f0:
-    if ((0x17 < *pbVar8 - 9) || ((0x800013U >> (*pbVar8 - 9 & 0x1f) & 1) == 0)) goto LAB_10004997;
+    if ((0x17 < (uint)(*pbVar8) - 9U) || ((0x800013U >> ((uint)(*pbVar8) - 9U & 0x1f) & 1) == 0)) goto LAB_10004997;
   }
   pbVar8 = pbVar9;
 LAB_10004995:
@@ -4056,7 +4056,7 @@ LAB_10004997:
   pbVar8 = pbVar7;
   while( true ) {
     pbVar8 = pbVar8 + 1;
-    if ((0x17 < *pbVar8 - 9) || ((0x800013U >> (*pbVar8 - 9 & 0x1f) & 1) == 0)) break;
+    if ((0x17 < (uint)(*pbVar8) - 9U) || ((0x800013U >> ((uint)(*pbVar8) - 9U & 0x1f) & 1) == 0)) break;
     pbVar7 = pbVar7 + 1;
   }
   uVar5 = recovered_10001e10((int)pbVar8);
@@ -4066,7 +4066,7 @@ LAB_10004997:
   else {
     pbVar7 = pbVar7 + uVar5;
     do {
-      if ((0x17 < *pbVar7 - 9) || ((0x800013U >> (*pbVar7 - 9 & 0x1f) & 1) == 0)) goto LAB_10004a58;
+      if ((0x17 < (uint)(*pbVar7) - 9U) || ((0x800013U >> ((uint)(*pbVar7) - 9U & 0x1f) & 1) == 0)) goto LAB_10004a58;
       pbVar7 = pbVar7 + -1;
       uVar5 = uVar5 - 1;
     } while (uVar5 != 0);
@@ -4084,7 +4084,7 @@ LAB_10004a58:
     pbVar8 = local_94;
     while( true ) {
       pbVar8 = pbVar8 + 1;
-      uVar5 = *pbVar9 - 9;
+      uVar5 = (uint)(*pbVar9) - 9U;
       if ((0x17 < uVar5) || ((0x800013U >> (uVar5 & 0x1f) & 1) == 0)) break;
       pbVar9 = pbVar9 + 1;
     }
@@ -4108,7 +4108,7 @@ LAB_10004b72:
     iVar6 = recovered_10001e40(local_c4,(byte *)((uintptr_t)pf_module_state+0x323U));
     if (iVar6 == 0) {
       pbVar8 = local_94;
-      while ((*pbVar8 - 9 < 0x18 && ((0x800013U >> (*pbVar8 - 9 & 0x1f) & 1) != 0))) {
+      while (((uint)(*pbVar8) - 9U < 0x18 && ((0x800013U >> ((uint)(*pbVar8) - 9U & 0x1f) & 1) != 0))) {
         pbVar8 = pbVar8 + 1;
       }
       iVar6 = recovered_10001e40(pbVar8,(byte *)((uintptr_t)pf_module_state+0x352U));

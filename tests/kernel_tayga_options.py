@@ -25,7 +25,9 @@ def run(binary,addresses,native):
  for value in [b'',b'/root',b'-l /root',b'-a',b'-la /root',b'"two words"',b'/root\t',b'-z',b'\t/root\r\n',b'/root\x01']:
   for suffix in [b'',b'\0\0--bad\0',b'next --bad\0']:
    lib.cpu.mem_write(0x3000000,value+b'\0'+suffix+bytes(128));lib.cpu.mem_write(0x3001000,bytes(4096))
-   result=lib.call('_tayga_execute_ls',0x3000000,0x3001000,4096,result_bits=32);text=bytes(lib.cpu.mem_read(0x3001000,4096)).split(b'\0')[0];results.append((result,text))
+   try:result=lib.call('_tayga_execute_ls',0x3000000,0x3001000,4096,result_bits=32)
+   except Exception as exc:raise AssertionError((native,value,suffix,hex(lib.cpu.reg_read(lib.pc))))from exc
+   text=bytes(lib.cpu.mem_read(0x3001000,4096)).split(b'\0')[0];results.append((result,text))
  return results
 if __name__=='__main__':
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('reference',type=Path);p.add_argument('source',type=Path);p.add_argument('--abi',type=Path,required=True);p.add_argument('--map',type=Path,required=True);a=p.parse_args();m,_=inspect(a.reference.read_bytes());native={n:p for p,n in m['symbols']};mapping=json.loads(a.map.read_text());abi=json.loads(a.abi.read_text());source={v['original']:mapping.get('_'+v['symbol'],mapping.get(v['symbol']))for v in abi.values()};expected=run(a.reference.read_bytes(),native,True);actual=run(a.source.read_bytes(),source,False);assert expected==actual,[(i,e,s)for i,(e,s)in enumerate(zip(expected,actual))if e!=s];print('Tayga ls: 30 native path, quote, option, control-byte, and terminator-boundary comparisons passed.')
