@@ -586,3 +586,18 @@ native fallback/bundle cases pass, including restoration of the selected
 filesystem context. The complete BIOS source VM now loads Tayga from its
 firmware bundle and then presents the desktop, without copying that bundle to
 the user volume. Input and remaining visual compatibility are still under test.
+
+The BIOS pointer-controller PCI helper now retains its private bus/device
+arguments and uses 32-bit configuration-port reads and writes. Thirty-six native
+configuration cases compare complete records, guard bytes, register selection,
+absent vendors and invalid inputs. Its controller discovery caller also matches
+all 512 native bus/device/function probes. Real xHCI transfer and input behavior
+remain under verification.
+
+The x64 firmware transport now passes its request pointer for pointer polling,
+keyboard polling, waits and text output. Firmware-owned USB input bypasses raw
+controller probing and inactive raw pointer providers. Sixteen native pointer
+transport cases, seven public pointer-cache transitions and thirteen native
+keyboard/wait cases pass. The complete source VM moves the pointer, opens the
+File menu and closes it with Escape. Desktop application launch is still being
+traced; these results do not establish completed release compatibility.

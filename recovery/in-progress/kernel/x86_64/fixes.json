@@ -457,5 +457,26 @@
   "205f250": {
     "recovered_2046aa0(CONCAT44(uVar4,uVar3),in_XMM1_Qa,in_XMM2_Qa,in_XMM3_Qa,in_XMM4_Qa,\n                          in_XMM5_Qa,in_XMM6_Qa,in_XMM7_Qa,(byte *)&local_238,&DAT_022819d0,0x2000,\n                          puVar23,(byte *)ppppppppppppuVar22,(char *)in_R9)": "recovered_2046aa0((byte *)&local_238,&DAT_022819d0,0x2000)",
     "recovered_2046aa0(CONCAT44(extraout_XMM0_Db_01,extraout_XMM0_Da_01),in_XMM1_Qa,in_XMM2_Qa,\n                            in_XMM3_Qa,in_XMM4_Qa,in_XMM5_Qa,in_XMM6_Qa,in_XMM7_Qa,\n                            (byte *)&local_238,&DAT_022819d0,0x2000,puVar23,\n                            (byte *)ppppppppppppuVar22,(char *)in_R9)": "recovered_2046aa0((byte *)&local_238,&DAT_022819d0,0x2000)"
+  },
+  "2009a80": {
+    "(*(code *)(ulong)uVar107)();": "((void (*)(void *))(uintptr_t)uVar107)(puVar111);"
+  },
+  "200a8f0": {
+    "uVar6 = (*(code *)(ulong)uVar6)();": "uVar6 = ((uint (*)(void *))(uintptr_t)uVar6)((void *)(uintptr_t)(uint)DAT_02109008[0x46]);"
+  },
+  "200bef0": {
+    "iVar5 = (*(code *)(ulong)uVar3)();": "iVar5 = ((int (*)(void *))(uintptr_t)uVar3)(puVar10);"
+  },
+  "200c2c0": {
+    "iVar3 = (*(code *)(ulong)uVar4)();": "iVar3 = ((int (*)(void *))(uintptr_t)uVar4)(puVar6);"
+  },
+  "200c620": {
+    "recovered_2002110((void *)param_1,0,0x20);": "recovered_2002110((void *)param_1,0,0x20);\n if(pf_efi_owns_usb_input((const void *)(uintptr_t)*(volatile uint64_t *)0x2109008U))return 0;"
+  },
+  "2011130": {
+    "if (DAT_0212dca4 !=": "if(pf_efi_owns_usb_input((const void *)(uintptr_t)*(volatile uint64_t *)0x2109008U))return;\n if (DAT_0212dca4 !="
+  },
+  "205df10": {
+    "if (param_1 == (uchar *)0x0) {": "if(pf_efi_owns_usb_input((const void *)(uintptr_t)*(volatile uint64_t *)0x2109008U))return recovered_200c2c0((ulong)param_1);\n if (param_1 == (uchar *)0x0) {"
   }
 }

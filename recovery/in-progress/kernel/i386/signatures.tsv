@@ -900,3 +900,4 @@
 20262d0	unsigned int recovered_20262d0(const void *pixels,unsigned int width,unsigned int height,unsigned int size,unsigned int *out);	ECX,EDX,stack4,stack8,stack12
 2002120	int recovered_2002120(const unsigned char *left,const unsigned char *right);	ECX,EDX
 2027fb0	unsigned int recovered_2027fb0(int path);	ECX
+2013e40	unsigned int recovered_2013e40(unsigned char bus,unsigned char device,unsigned char function,unsigned char *out);	ECX,EDX,stack4,stack8

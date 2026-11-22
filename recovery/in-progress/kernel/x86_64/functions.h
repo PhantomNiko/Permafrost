@@ -1,6 +1,7 @@
 /* Permafrost recovered source; Pooka's Free Software License. */
 #pragma once
 #include "support.h"
+#include "efi_input.h"
 /* Permafrost recovered source; Pooka's Free Software License. */
 #pragma once
 #include "support.h"

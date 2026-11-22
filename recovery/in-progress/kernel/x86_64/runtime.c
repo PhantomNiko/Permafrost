@@ -2,6 +2,7 @@
  * Fixed entry addresses and original function boundaries are recorded
  * separately in recovery metadata. */
 #include "functions.h"
+#include "efi_input.h"
 
 /* Reviewed instruction-equivalent C. Pooka's Free Software License. */
 
@@ -13615,7 +13616,7 @@ LAB_02009d3b:
               *(int *)(puVar111 + 2) = (int)local_f8;
               *(undefined4 *)((long)puVar111 + 0x14) = 0;
               *puVar111 = 6;
-              (*(code *)(ulong)uVar107)();
+              ((void (*)(void *))(uintptr_t)uVar107)(puVar111);
             }
             param_3 = (ulong *)((long)param_3 + uVar110);
             uVar109 = uVar109 - uVar110;
@@ -14429,7 +14430,7 @@ LAB_0200aa05:
        ((uVar6 = DAT_02109008[0x45], (code *)(ulong)uVar6 != (code *)0x0 &&
         ((undefined8 *)(ulong)(uint)DAT_02109008[0x46] != (undefined8 *)0x0)))) {
       *(undefined8 *)(ulong)(uint)DAT_02109008[0x46] = 1;
-      uVar6 = (*(code *)(ulong)uVar6)();
+      uVar6 = ((uint (*)(void *))(uintptr_t)uVar6)((void *)(uintptr_t)(uint)DAT_02109008[0x46]);
       if ((uVar6 & 0xffff) != 0) {
         return uVar6 & 0xffff;
       }
@@ -15435,7 +15436,7 @@ LAB_0200bfe9:
       }
       *(int *)((long)puVar10 + 0x1c) = param_1;
       *puVar10 = 4;
-      iVar5 = (*(code *)(ulong)uVar3)();
+      iVar5 = ((int (*)(void *))(uintptr_t)uVar3)(puVar10);
     }
     bVar11 = iVar5 != 0;
   }
@@ -15839,7 +15840,7 @@ LAB_0200c450:
     *(int *)(puVar6 + 2) = (int)param_1;
     *(undefined4 *)((long)puVar6 + 0x14) = 0x20;
     *puVar6 = 7;
-    iVar3 = (*(code *)(ulong)uVar4)();
+    iVar3 = ((int (*)(void *))(uintptr_t)uVar4)(puVar6);
     if (iVar3 == 0) goto LAB_0200c450;
     bVar8 = *(int *)(param_1 + 4) != 0;
     bVar7 = (*(byte *)param_1 & 3) != 0 || bVar8;
@@ -16541,6 +16542,7 @@ uchar recovered_200c620(long param_1)
   }
   local_68 = (uint *)param_1;
   recovered_2002110((void *)param_1,0,0x20);
+  if(pf_efi_owns_usb_input((const void *)(uintptr_t)*(volatile uint64_t *)0x2109008U))return 0;
   recovered_2011130();
   lVar21 = DAT_0212d3a0;
   if (DAT_0212d390 != '\x01') goto LAB_0200cbb6;
@@ -19803,6 +19805,7 @@ LAB_0200fc50:
 void recovered_2011130(void)
 
 {
+  if(pf_efi_owns_usb_input((const void *)(uintptr_t)*(volatile uint64_t *)0x2109008U))return;
   unsigned char frame[272] __attribute__((aligned(16))) = {0};
 
   short sVar1;
@@ -98736,6 +98739,7 @@ LAB_0205de51:
 uint recovered_205df10(uchar *param_1)
 
 {
+ if(pf_efi_owns_usb_input((const void *)(uintptr_t)*(volatile uint64_t *)0x2109008U))return recovered_200c2c0((ulong)param_1);
   unsigned char frame[160] __attribute__((aligned(16))) = {0};
 
   uint uVar1;

@@ -441,5 +441,9 @@
   },
   "2001ff0": {
     "recovered_2002120()": "recovered_2002120((const unsigned char *)left,(const unsigned char *)right)"
+  },
+  "2013e40": {
+    "in(0xcfc)": "pf_pci_in32(0xcfc)",
+    "out(0xcf8,": "pf_pci_out32(0xcf8,"
   }
 }
