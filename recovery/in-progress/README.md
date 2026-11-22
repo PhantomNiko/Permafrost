@@ -459,3 +459,26 @@ ARM32, i386, and x64 argument counters. The previous C promotions scanned beyond
 the command terminator and reported thousands of arguments. Six native process,
 command, quoting, argument-count, and complete-record comparisons pass on every
 architecture, including the unaffected ARM64 path.
+
+
+The ARM Tayga output helper and directory-command callers now preserve native
+variadic arguments. Each ARM target passes 112 formatted-buffer comparisons and
+30 directory-option/path comparisons, including poisoned bytes after a string
+terminator. ARM64 also retains 64-bit integer payloads through the kernel's
+numeric formatter. Unsigned whitespace predicates are restored in the recovered
+32-bit and x64 Tayga command parsers.
+
+The source compiler and SDK runtime now rebase the standard-stream objects,
+descriptor slots, and environment vector in fixed-address executable data.
+ARM32 and x64 also forward the output buffer for device file reads and the data
+pointer/length for writes. All four targets pass native initialized-state checks
+and ten read plus ten write boundary comparisons. ARM32 and ARM64 diagnostic VMs
+compile and execute the source probe, run the C and C++ SDK samples, and complete
+a 26-byte stdio write/read/seek round trip. These remain mixed diagnostic images;
+unrecovered components and broader VM parity still block the release.
+
+The i386 scheduler's private space-burst function now receives its native budget
+argument, including seven callers that previously discarded it. An idle or busy
+scheduler matches eight native budget/lock cases. The missing argument had left
+an uninitialized C local and allowed an invalid fall-through in generated code.
+The x86 VM command probes are still under verification.

@@ -184,5 +184,30 @@
   },
   "2073c50": {
     "*pbVar7 - 9 < 5": "(uint)(*pbVar7) - 9 < 5"
+  },
+  "2029350": {
+    "recovered_2039a70();": "recovered_2039a70(DAT_020de164);"
+  },
+  "202c200": {
+    "recovered_2039a70();": "recovered_2039a70(DAT_020de164);"
+  },
+  "202ca80": {
+    "recovered_2039a70();": "recovered_2039a70(DAT_020de164);"
+  },
+  "202ded0": {
+    "recovered_2039a70();": "recovered_2039a70(DAT_020de164);"
+  },
+  "2039960": {
+    "recovered_2039a70();": "recovered_2039a70(DAT_020de164);"
+  },
+  "2048290": {
+    "recovered_2039a70();": "recovered_2039a70(DAT_020de164);"
+  },
+  "205ea10": {
+    "recovered_2039a70();": "recovered_2039a70(DAT_020de164);"
+  },
+  "2039a70": {
+    "uint recovered_2039a70(void)": "uint recovered_2039a70(uint in_ECX)",
+    "  uint in_ECX;\n": ""
   }
 }

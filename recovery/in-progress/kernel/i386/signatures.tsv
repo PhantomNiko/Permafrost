@@ -855,3 +855,4 @@
 
 205e600	unsigned int recovered_205e600(int device);	ECX
 205e700	void recovered_205e700(int device);	ECX
+2039a70	unsigned int __fastcall recovered_2039a70(unsigned int budget);
