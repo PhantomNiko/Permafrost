@@ -527,6 +527,12 @@ Status EFI_ABI pf_efi_entry(void *image,System *table){
     if(services->watchdog)services->watchdog(0,0,0,0);
     message("Permafrost 1.0 source firmware\r\n");
     if(!allocate(4096,SHARED_ADDRESS) || !allocate(0x100000,PROGRAM_ADDRESS)){message("Shared memory reservation failed.\r\n");return (Status)-1;}
+#if defined(__aarch64__)
+    /* Older ARM64 tools share the ARM32 WMAP address. Reserve its page so
+     * the kernel allocator cannot overwrite the compatibility table. */
+    if(!allocate(4096,0x40010000U)){message("Legacy API reservation failed.\r\n");return (Status)-1;}
+    clear((void *)0x40010000U,4096);
+#endif
     clear((void *)(uintptr_t)SHARED_ADDRESS,4096);
     context=allocate(PF_EFI_CONTEXT_BYTES,0);command=allocate(4096,0);io_buffer=allocate(65536,0);
     if(!context || !command || !io_buffer || !select_disk()){message("Permafrost disk not found.\r\n");return (Status)-1;}

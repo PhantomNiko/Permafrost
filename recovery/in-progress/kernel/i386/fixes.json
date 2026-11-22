@@ -51,5 +51,16 @@
   },
   "203e3a0": {
     "        puVar6 = (uchar *)recovered_2050b00((uint)bVar4,uVar18,(int)puVar13,(uint)puVar23);\n        recovered_2001710(puVar13);": "        puVar6 = (uchar *)recovered_2050b00((uint)bVar4,uVar18,(int)puVar13,(uint)puVar23);\n  /* Compaction changes the on-disk layout used by subsequent lazy reads. */\n  if ((unsigned char)(uintptr_t)puVar6 && puVar13 && (uint)puVar23 >= 0x30 &&\n      (*(uint32_t *)0x213075cU == 1 || *(uint32_t *)0x213075cU == 6)) {\n    uint32_t *written = (uint32_t *)puVar13;\n    if (written[0] == 0x53464d57U && written[1] == 0x3233U) {\n      recovered_2001710((void *)(uintptr_t)*(uint32_t *)0x2130778U);\n      *(uint32_t *)0x2130778U = 0;\n      *(uint32_t *)0x2130760U = written[5];\n      *(uint32_t *)0x2130764U = written[6];\n      *(uint32_t *)0x2130768U = written[9];\n      *(uint32_t *)0x213076cU = written[10];\n      *(uint32_t *)0x2130770U = written[7];\n      *(uint32_t *)0x2130774U = written[8];\n      *(uint32_t *)0x213077cU = written[10] + 2U;\n    }\n  }\n\n        recovered_2001710(puVar13);"
+  },
+  "205e0e0": {
+    "uVar2 = recovered_205e600();\n      if ((char)uVar2": "uVar2 = recovered_205e600(*piVar8);\n      if ((char)uVar2",
+    "recovered_205e600()": "recovered_205e600(iVar7)",
+    "recovered_205e700()": "recovered_205e700((int)DAT_020d9d5c)"
+  },
+  "205e700": {
+    "recovered_205e600()": "recovered_205e600(in_ECX)"
+  },
+  "202ed80": {
+    "recovered_205e700()": "recovered_205e700((int)DAT_020d9d5c)"
   }
 }

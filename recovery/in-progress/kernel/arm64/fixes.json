@@ -118,7 +118,9 @@
   "82438f68": {},
   "8240ab70": {},
   "824490c4": {},
-  "82431aa4": {},
+  "82431aa4": {
+    "  _DAT_82010998 = 0x8242cd48;": "  _DAT_82010998 = 0x8242cd48;\n  /* Legacy ARM tooling uses the firmware-reserved compatibility table. */\n  recovered_82400928((void *)0x40010800U,(const void *)0x82010800U,0x19c);"
+  },
   "82463028": {},
   "82415cfc": {},
   "824199ec": {},

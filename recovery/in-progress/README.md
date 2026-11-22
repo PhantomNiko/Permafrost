@@ -435,3 +435,14 @@ A diagnostic installation to a 512 MiB disk preserves both kernel copies and
 boots into the desktop with browser graphics. Firmware caches at most 128 MiB
 of the boot disk and uses indexed EFI I/O for uncached sectors. These diagnostic
 images still contain unrecovered components and are not release artifacts.
+
+Tayga root detection now retries a complete directory listing when the initial
+16-entry buffer omits required directories. Seven native comparisons and three
+extended-list/allocation-bound cases pass on every architecture. The i386 private
+root and environment helpers also receive their original device argument.
+ARM64 firmware reserves the legacy ARM API page, and the kernel publishes a
+compatibility copy of its service table there. This lets older ARM64 tooling use
+its original table address without the allocator overwriting it. In an ARM64 VM,
+the source Snowflake compiler reads a C program, writes its executable to the
+user-data volume, and runs it with the expected formatted output. The diagnostic
+still contains other reference components and is not a release image.

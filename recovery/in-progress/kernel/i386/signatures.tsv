@@ -852,3 +852,6 @@
 200052d	unsigned int recovered_200052d(void);		EAX
 2000700	unsigned int recovered_2000700(void);		EAX
 20007cb	unsigned int recovered_20007cb(void);		EAX
+
+205e600	unsigned int recovered_205e600(int device);	ECX
+205e700	void recovered_205e700(int device);	ECX
