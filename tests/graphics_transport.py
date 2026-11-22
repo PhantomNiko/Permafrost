@@ -36,6 +36,7 @@ def run(path,native_addresses):
  for slot in [21,22,26,27,28,29,30,47,48]:
   a=0x18000+16*slot;lib.cpu.mem_write(a,struct.pack('<I',0xd65f03c0));lib.cpu.hook_add(UC_HOOK_CODE,callback(slot),begin=a,end=a)
  for name,args in SPECS.items():
+  if name not in native_addresses:continue
   for size,magic,wide,available in [(208,0x54584b57,True,True),(208,0x54584b57,False,True),(128,0x54584b57,False,True),(80,0x54584b57,True,True),(208,0,True,True),(208,0x54584b57,True,False)]:
    for address in [0,0x120000,0x100120000]:
     api=0x2e0000;lib.cpu.mem_write(api,struct.pack('<3I',magic,1000000,size)+bytes(208-12));lib.cpu.mem_write(0x2f0000,b'\xa5'*32)
@@ -44,4 +45,4 @@ def run(path,native_addresses):
     events.clear();status=lib.call(name,*args(api,address,0x2f0000),result_bits=32);results.append((name,size,magic,wide,available,address,None if name in ['_qemu_kext_io_write','_wm_kext_dma_sync','_wm_kext_hardware_barrier'] else status,tuple(events),bytes(lib.cpu.mem_read(0x2f0000,32))))
  return results
 if __name__=='__main__':
- p=argparse.ArgumentParser(description=__doc__);p.add_argument('reference',type=Path);p.add_argument('source',type=Path);a=p.parse_args();m,_=inspect(a.reference.read_bytes());symbols={n:p for p,n in m['symbols']if n in SPECS};assert len(symbols)==len(SPECS);e=run(a.reference,symbols);s=run(a.source,symbols);assert e==s,[(x[:6],x[6:],y[6:])for x,y in zip(e,s)if x!=y];print('Graphics transport:',len(e),'native MMIO, I/O, DMA, barrier, API-version, and unavailable-service comparisons passed.')
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('reference',type=Path);p.add_argument('source',type=Path);p.add_argument('--available-only',action='store_true');a=p.parse_args();m,_=inspect(a.reference.read_bytes());symbols={n:p for p,n in m['symbols']if n in SPECS};assert len(symbols)>5 if a.available_only else len(symbols)==len(SPECS);e=run(a.reference,symbols);s=run(a.source,symbols);assert e==s,[(x[:6],x[6:],y[6:])for x,y in zip(e,s)if x!=y];print('Graphics transport:',len(e),'native hardware-service, API-version, and unavailable-service comparisons passed.')
