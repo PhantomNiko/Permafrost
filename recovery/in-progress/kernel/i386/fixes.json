@@ -433,5 +433,12 @@
   },
   "2025810": {
     "recovered_20262d0(local_3c,local_30,local_14)": "recovered_20262d0(local_34,local_20,local_3c,local_30,local_14)"
+  },
+  "20a7d20": {
+    "recovered_2001b70(local_ac,&local_2ac,8);": "recovered_2001b70(local_ac,&local_2ac,0x44);",
+    "recovered_2001b70(local_68,&local_2ac,8);": "recovered_2001b70(local_68,&local_2ac,0x44);"
+  },
+  "2001ff0": {
+    "recovered_2002120()": "recovered_2002120((const unsigned char *)left,(const unsigned char *)right)"
   }
 }

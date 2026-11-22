@@ -138,7 +138,7 @@ void * recovered_2001e00(void *out,int value,ulong count);
 void recovered_2001eb0(uchar *param_1,int param_2);
 void recovered_2001f50(uchar *param_1,int param_2);
 int recovered_2001ff0(void *left,void *right,ulong size);
-int recovered_2002120(void);
+int recovered_2002120(const unsigned char *in_ECX,const unsigned char *in_EDX);
 bool recovered_2002160(int param_1);
 bool recovered_2002180(int param_1);
 bool recovered_20021a0(uint param_1);

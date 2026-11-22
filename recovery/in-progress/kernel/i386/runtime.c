@@ -1717,7 +1717,7 @@ LAB_020020d6:
     }
     for (; 3 < size; size = size - 4) {
       if (*(uint *)left != *(uint *)right) {
-        iVar3 = recovered_2002120();
+        iVar3 = recovered_2002120((const unsigned char *)left,(const unsigned char *)right);
         return iVar3;
       }
       left = (void *)((int)left + 4);
@@ -1747,13 +1747,11 @@ LAB_020020a5:
  * Address: 0x2002120
  */
 
-int recovered_2002120(void)
+int recovered_2002120(const unsigned char *in_ECX,const unsigned char *in_EDX)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
-  char *in_ECX;
-  char *in_EDX;
   uint uVar1;
 
   uVar1 = (uint)CONCAT11(*in_EDX,*in_ECX);
@@ -201203,7 +201201,7 @@ int recovered_20a7d20(uint in_ECX,uint in_EDX,uint param_3)
      ((iVar3 = recovered_2001ff0(&local_2ac,&DAT_020d11fa,6), iVar3 != 0 ||
       (iVar3 = 0xc, (ushort)(local_2a6 << 8 | local_2a6 >> 8) != 2)))) {
     recovered_2001e00(local_ac,0,0x44);
-    recovered_2001b70(local_ac,&local_2ac,8);
+    recovered_2001b70(local_ac,&local_2ac,0x44);
     local_a4 = local_2a4;
     local_94 = local_294;
     local_90 = local_290;
@@ -201220,7 +201218,7 @@ int recovered_20a7d20(uint in_ECX,uint in_EDX,uint param_3)
     iVar3 = 1;
     if ((char)uVar2 == '\0') {
       recovered_2001e00(local_68,0,0x44);
-      recovered_2001b70(local_68,&local_2ac,8);
+      recovered_2001b70(local_68,&local_2ac,0x44);
       local_5c = CONCAT22(uStack_29e,CONCAT11(bStack_29f,uStack_2a0));
       local_60 = local_2a4;
       local_58 = CONCAT13(uStack_299,CONCAT21(uStack_29b,local_29c));

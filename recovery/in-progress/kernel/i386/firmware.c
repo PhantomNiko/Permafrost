@@ -62,9 +62,9 @@ unsigned pf_bios_set_wxga_mode(void) {
         if((r.eax&0xffff)!=0x4f)return 0;
         PF_WORD(0x2000c7e)=*(volatile uint32_t *)(info+40);
         PF_WORD(0x2000c82)=*(volatile uint16_t *)(info+16);PF_WORD(0x2000c86)=width;PF_WORD(0x2000c8a)=height;PF_WORD(0x2000c8e)=32;
-        PF_WORD(0x2000c92)=(1U<<info[31])-1;PF_WORD(0x2000c96)=info[32];
-        PF_WORD(0x2000c9a)=(1U<<info[33])-1;PF_WORD(0x2000c9e)=info[34];
-        PF_WORD(0x2000ca2)=(1U<<info[35])-1;PF_WORD(0x2000ca6)=info[36];return 1;
+        PF_WORD(0x2000c92)=info[31];PF_WORD(0x2000c96)=info[32];
+        PF_WORD(0x2000c9a)=info[33];PF_WORD(0x2000c9e)=info[34];
+        PF_WORD(0x2000ca2)=info[35];PF_WORD(0x2000ca6)=info[36];return 1;
     }
     return 0;
 }

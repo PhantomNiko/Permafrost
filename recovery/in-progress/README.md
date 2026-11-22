@@ -568,3 +568,13 @@ and width. Sixty-six native comparisons cover dimensions, overflow, null
 arguments, copied pixels, output guards and allocation failures. Eight desktop
 startup comparisons exercise mode failures and valid 16-, 24-, and 32-bit modes.
 The subsequent complete BIOS desktop run remains a release gate.
+
+BIOS framebuffer metadata now reports VBE channel bit counts, as required by
+the display API, instead of channel masks. The complete source diagnostic shows
+the desktop and wallpaper in color. Its storage detector now copies every
+native header field and passes the arguments to the private four-byte memory
+comparison helper. Previously a valid WMFS32 volume was misclassified as WMFS64,
+which prevented fallback access to the firmware application bundle. Sixty-six
+native volume-detection cases cover real WMFS32/WMFS64 headers, damaged geometry,
+media bounds and read failures; 944 memory-comparison cases cover alignment,
+length, equality and unsigned-byte differences.
