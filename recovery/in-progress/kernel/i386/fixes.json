@@ -230,7 +230,11 @@
   },
   "2039a70": {
     "uint recovered_2039a70(void)": "uint recovered_2039a70(uint in_ECX)",
-    "  uint in_ECX;\n": ""
+    "  uint in_ECX;\n": "",
+    "  uint *incoming_edx;": "  uint *incoming_edx;\n  int pf_selected_task_slot;",
+    "    pcVar6 = recovered_20b9e00();": "    pcVar6 = recovered_20b9e00(0,&pf_selected_task_slot);",
+    "                pcVar6 = recovered_20b9e00(0,&pf_selected_task_slot);": "                pcVar6 = recovered_20b9e00((int)incoming_ecx,&pf_selected_task_slot);",
+    "recovered_20b9fd0()": "recovered_20b9fd0((int)pcVar6)"
   },
   "20569c0": {
     "undefined4 recovered_20569c0(void)": "undefined4 recovered_20569c0(int in_ECX,uint in_EDX)",
@@ -344,5 +348,35 @@
   "2055940": {
     "undefined4 recovered_2055940(void)": "undefined4 recovered_2055940(char *in_ECX)",
     "  char *in_ECX;\n": ""
+  },
+  "20b9e00": {
+    "char * recovered_20b9e00(void)": "char * recovered_20b9e00(int in_ECX,int *in_EDX)",
+    "  int in_ECX;\n": "",
+    "  int *in_EDX;\n": "",
+    "          bVar4 = recovered_20b9fd0();": "          bVar4 = recovered_20b9fd0((int)pcVar7);",
+    "        bVar4 = recovered_20b9fd0();": "        bVar4 = recovered_20b9fd0((int)pcVar6);"
+  },
+  "20b9fd0": {
+    "bool recovered_20b9fd0(void)": "bool recovered_20b9fd0(int in_ECX)",
+    "  int in_ECX;\n": ""
+  },
+  "20559e0": {
+    "undefined4 recovered_20559e0(void)": "undefined4 recovered_20559e0(int in_ECX,char *in_EDX)",
+    "  int in_ECX;\n": "",
+    "  char *in_EDX;\n": ""
+  },
+  "2055b30": {
+    "undefined4 recovered_2055b30(int param_1,char *param_2,char *param_3)": "undefined4 recovered_2055b30(uint in_ECX,uint in_EDX,int param_1,char *param_2,char *param_3)",
+    "  uint in_ECX;\n": "",
+    "  uint in_EDX;\n": "",
+    "      uVar5 = recovered_20559e0();": "      uVar5 = recovered_20559e0((int)local_105,(char *)local_4c0);",
+    "    uVar5 = recovered_20559e0();": "    uVar5 = recovered_20559e0((int)local_105,param_2);"
+  },
+  "2054720": {
+    "uVar10 = recovered_2055b30((int)local_121,incoming_edx,(char *)param_3);\n                      if": "uVar10 = recovered_2055b30((uint)local_212,0x20c5dab,(int)local_121,incoming_edx,(char *)param_3);\n                      if",
+    "(uVar10 = recovered_2055b30((int)local_121,incoming_edx,(char *)param_3),": "(uVar10 = recovered_2055b30((uint)local_212,0x20c5db5,(int)local_121,incoming_edx,(char *)param_3),",
+    "uVar10 = recovered_2055b30((int)local_121,incoming_edx,(char *)param_3);": "uVar10 = recovered_2055b30((uint)local_212,0x20c5dc0,(int)local_121,incoming_edx,(char *)param_3);",
+    "uVar10 = recovered_20559e0();": "uVar10 = recovered_20559e0((int)local_212,(char *)local_121);",
+    "uVar10 = recovered_20559e0(),": "uVar10 = recovered_20559e0((int)local_303,(char *)local_3f4),"
   }
 }

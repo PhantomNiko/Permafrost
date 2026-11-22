@@ -874,3 +874,7 @@
 20557e0	void __fastcall recovered_20557e0(unsigned int process,char *path);
 2055940	unsigned int __fastcall recovered_2055940(char *path);
 205ea10	void __fastcall recovered_205ea10(unsigned int process);
+20b9e00	char *__fastcall recovered_20b9e00(void *process,int *slot);
+20b9fd0	bool __fastcall recovered_20b9fd0(void *task);
+20559e0	unsigned int recovered_20559e0(char *path,char *actual);	ECX,EDX
+2055b30	unsigned int recovered_2055b30(char *bundle,char *platform,char *executable,char *path,char *error);	ECX,EDX,stack4,stack8,stack12
