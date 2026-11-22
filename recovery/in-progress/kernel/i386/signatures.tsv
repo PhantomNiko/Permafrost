@@ -861,3 +861,9 @@
 2053c90	bool __fastcall recovered_2053c90(char *path,unsigned int device,char *error,unsigned int *process);
 2047930	unsigned int __fastcall recovered_2047930(char *line);
 2047db0	unsigned int __fastcall recovered_2047db0(char *line);
+2047d20	bool __fastcall recovered_2047d20(char *path,char *suffix);
+2054640	unsigned char __fastcall recovered_2054640(char *command,char *path,char *error);
+2054e00	unsigned int __fastcall recovered_2054e00(void *image,unsigned int size,char *name,unsigned int device,char *path,char *error);
+2048050	unsigned int __fastcall recovered_2048050(char *command,char *output,unsigned int capacity);
+2048120	bool __fastcall recovered_2048120(char *line);
+202ded0	char __fastcall recovered_202ded0(char *command,char *arguments,char *path,char *output,unsigned int capacity);
