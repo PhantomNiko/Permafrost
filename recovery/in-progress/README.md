@@ -415,7 +415,15 @@ architecture, plus seven CRT argument/environment comparisons and 140 token/stat
 comparisons over 28 lexer inputs, including malformed-literal progress behavior. The CRT uses
 the guest process-info entry, and static constructor-table pointers are relocated
 with the initialized data. These checks do not establish compiler correctness;
-translation-unit execution, generated programs, and VM compilation remain gates.
+ARM64 and x64 additionally pass 23 full compilation comparisons through an
+in-memory file interface, generating C and executables for the four target
+architectures. The corpus covers arithmetic, loops, calls, enums, formatted
+output, and process arguments. Their source-only checkpoint builds also pass
+the earlier runtime corpora. Native stack-probe helpers preserve compiler
+arguments, and function-body bounds survive lexer advancement. Variadic console
+output passes eight printf/fprintf comparisons on both 64-bit architectures
+and ARM32. ARM32 and i386 compilation differences, generated-program execution,
+guest file I/O, and VM compilation remain gates.
 
 WMFS32 compaction on all four architectures now refreshes the mounted geometry
 and invalidates its old FAT after a successful write. Native/source comparisons
