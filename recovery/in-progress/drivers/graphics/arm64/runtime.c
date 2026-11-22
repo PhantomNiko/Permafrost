@@ -1813,7 +1813,7 @@ recovered_10001f04(int *param_1,undefined8 param_2,undefined8 param_3,undefined8
     uVar2 = recovered_10002050(param_1,param_2,param_3,param_4,0,4,(long)&local_48 + 4);
     if ((int)uVar2 != 0) {
       uVar2 = 0;
-      if (((PF_PART2(local_48, 4) != 0) && (PF_PART2(local_48, 4) != -1)) &&
+      if (((PF_PART2(local_48, 4) != 0) && (PF_PART2(local_48, 4) != 0xffffU)) &&
          (uVar2 = recovered_10002050(param_1,param_2,param_3,param_4,8,4,(long)&local_48),
          (int)uVar2 != 0)) {
         uVar2 = recovered_10002050(param_1,param_2,param_3,param_4,4,4,(long)(param_5 + 0x10));

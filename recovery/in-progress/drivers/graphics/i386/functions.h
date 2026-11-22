@@ -279,7 +279,7 @@ void recovered_100036f0(int in_ECX,char *in_EDX,uint param_3);
 void recovered_10003840(int *in_ECX,byte *in_EDX,int *param_3);
 void recovered_100053d0(int in_ECX,uint in_EDX,char *param_3);
 void recovered_10005440(int in_ECX,char *in_EDX,uint param_3);
-undefined4 recovered_10005570(int *in_ECX,byte param_2,byte param_3,undefined1 *param_4);
+undefined4 recovered_10005570(int *in_ECX,byte in_DL,byte param_2,byte param_3,undefined1 *param_4);
 void recovered_10005780(uint in_EAX,int *in_ECX,undefined1 *in_EDX,int param_4);
 char * recovered_1000a8f0(int in_ECX);
 bool recovered_1000aac0(int *in_ECX,ushort *in_EDX,int *param_3);

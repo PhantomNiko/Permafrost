@@ -1759,35 +1759,35 @@ LAB_10001734:
           local_14 = pbVar10;
           do {
             bVar11 = (byte)iVar3;
-            iVar4 = recovered_10005570(api,bVar11,0,(undefined1 *)&local_56c);
+            iVar4 = recovered_10005570(api,(byte)(uintptr_t)local_14,bVar11,0,(undefined1 *)&local_56c);
             if (iVar4 != 0) {
               recovered_10003840(api,(byte *)&local_56c,(int *)&local_18);
               if ((char)local_560 < '\0') {
-                iVar4 = recovered_10005570(api,bVar11,1,abStack_c5 + 1);
+                iVar4 = recovered_10005570(api,(byte)(uintptr_t)local_14,bVar11,1,abStack_c5 + 1);
                 if (iVar4 != 0) {
                   recovered_10003840(api,abStack_c5 + 1,(int *)&local_18);
                 }
-                iVar4 = recovered_10005570(api,bVar11,2,abStack_c5 + 1);
+                iVar4 = recovered_10005570(api,(byte)(uintptr_t)local_14,bVar11,2,abStack_c5 + 1);
                 if (iVar4 != 0) {
                   recovered_10003840(api,abStack_c5 + 1,(int *)&local_18);
                 }
-                iVar4 = recovered_10005570(api,bVar11,3,abStack_c5 + 1);
+                iVar4 = recovered_10005570(api,(byte)(uintptr_t)local_14,bVar11,3,abStack_c5 + 1);
                 if (iVar4 != 0) {
                   recovered_10003840(api,abStack_c5 + 1,(int *)&local_18);
                 }
-                iVar4 = recovered_10005570(api,bVar11,4,abStack_c5 + 1);
+                iVar4 = recovered_10005570(api,(byte)(uintptr_t)local_14,bVar11,4,abStack_c5 + 1);
                 if (iVar4 != 0) {
                   recovered_10003840(api,abStack_c5 + 1,(int *)&local_18);
                 }
-                iVar4 = recovered_10005570(api,bVar11,5,abStack_c5 + 1);
+                iVar4 = recovered_10005570(api,(byte)(uintptr_t)local_14,bVar11,5,abStack_c5 + 1);
                 if (iVar4 != 0) {
                   recovered_10003840(api,abStack_c5 + 1,(int *)&local_18);
                 }
-                iVar4 = recovered_10005570(api,bVar11,6,abStack_c5 + 1);
+                iVar4 = recovered_10005570(api,(byte)(uintptr_t)local_14,bVar11,6,abStack_c5 + 1);
                 if (iVar4 != 0) {
                   recovered_10003840(api,abStack_c5 + 1,(int *)&local_18);
                 }
-                iVar4 = recovered_10005570(api,bVar11,7,abStack_c5 + 1);
+                iVar4 = recovered_10005570(api,(byte)(uintptr_t)local_14,bVar11,7,abStack_c5 + 1);
                 if (iVar4 != 0) {
                   recovered_10003840(api,abStack_c5 + 1,(int *)&local_18);
                 }
@@ -4049,7 +4049,7 @@ void recovered_10005440(int in_ECX,char *in_EDX,uint param_3)
  * Address: 0x10005570
  */
 
-undefined4 recovered_10005570(int *in_ECX,byte param_2,byte param_3,undefined1 *param_4)
+undefined4 recovered_10005570(int *in_ECX,byte in_DL,byte param_2,byte param_3,undefined1 *param_4)
 
 {
   unsigned char frame[96] __attribute__((aligned(16))) = {0};
@@ -4057,7 +4057,6 @@ undefined4 recovered_10005570(int *in_ECX,byte param_2,byte param_3,undefined1 *
   int iVar1;
   undefined4 uVar2;
   int iVar3;
-  undefined1 in_DL;
   int *piVar4;
 
   local_24 = 0;

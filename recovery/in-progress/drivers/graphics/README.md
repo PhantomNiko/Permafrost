@@ -8,8 +8,8 @@ C, headers, and relocation metadata, without reference executable inputs.
 `tests/graphics_driver.py` compares descriptors and initialization against a
 reference thin library and verifies that the submitted software provider
 callback points into the source-built image. These checks cover an existing
-framebuffer with no enumerated PCI display device. `tests/graphics_pci.py` additionally compares eight ARM32 PCI record cases,
-including failed reads, absent vendor IDs, and bytes the native helper leaves
+framebuffer with no enumerated PCI display device. `tests/graphics_pci.py` additionally compares eight PCI record cases on each architecture,
+including bus/slot/function fields, failed reads, absent vendor IDs, and bytes the native helper leaves
 untouched. `tests/graphics_draw.py` compares native command results and complete
 framebuffer bytes for clear, clipped and empty rectangles, interpolated and
 degenerate triangles, and mixed command batches on all four architectures.
