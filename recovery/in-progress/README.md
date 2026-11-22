@@ -417,8 +417,11 @@ the guest process-info entry, and static constructor-table pointers are relocate
 with the initialized data. These checks do not establish compiler correctness;
 translation-unit execution, generated programs, and VM compilation remain gates.
 
-ARM64 WMFS32 compaction now refreshes the mounted geometry and invalidates its
-old FAT after a successful write. Repeated lazy reloads preserve file contents.
+WMFS32 compaction on all four architectures now refreshes the mounted geometry
+and invalidates its old FAT after a successful write. Native/source comparisons
+cover resident and lazy files, metadata, cluster chains, and every file byte.
+Repeated lazy reloads preserve file contents. The x64 rewrite also restores
+the pointer scale of a merged stack slot used for cluster-count arrays.
 A diagnostic installation to a 512 MiB disk preserves both kernel copies and
 boots into the desktop with browser graphics. Firmware caches at most 128 MiB
 of the boot disk and uses indexed EFI I/O for uncached sectors. These diagnostic

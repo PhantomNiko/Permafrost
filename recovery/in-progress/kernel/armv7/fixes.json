@@ -98,5 +98,8 @@
   },
   "40438c5c": {
     "== (char)piVar8[1]": "== (uint8_t)piVar8[1]"
+  },
+  "40450dd0": {
+    "    uVar186 = recovered_4046563c((uint)bVar194,uVar219,(int)pcVar218,uVar220);\n    recovered_40400d68(pcVar218);": "    uVar186 = recovered_4046563c((uint)bVar194,uVar219,(int)pcVar218,uVar220);\n  /* Compaction changes the on-disk layout used by subsequent lazy reads. */\n  if (uVar186 && pcVar218 && uVar220 >= 0x30 &&\n      (*(uint32_t *)0x40531750U == 1 || *(uint32_t *)0x40531750U == 6)) {\n    uint32_t *written = (uint32_t *)pcVar218;\n    if (written[0] == 0x53464d57U && written[1] == 0x3233U) {\n      recovered_40400d68((void *)(uintptr_t)*(uint32_t *)0x4053176cU);\n      *(uint32_t *)0x4053176cU = 0;\n      *(uint32_t *)0x40531754U = written[5];\n      *(uint32_t *)0x40531758U = written[6];\n      *(uint32_t *)0x4053175cU = written[9];\n      *(uint32_t *)0x40531760U = written[10];\n      *(uint32_t *)0x40531764U = written[7];\n      *(uint32_t *)0x40531768U = written[8];\n      *(uint32_t *)0x40531770U = written[10] + 2U;\n    }\n  }\n\n    recovered_40400d68(pcVar218);"
   }
 }
