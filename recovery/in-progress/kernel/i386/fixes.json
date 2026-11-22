@@ -217,10 +217,16 @@
     "recovered_2047930()": "recovered_2047930((void*)incoming_ecx)",
     "recovered_2047d20()": "recovered_2047d20((char *)local_111,(char *)0x20c5864)",
     "recovered_2054640((int)local_1b1)": "recovered_2054640((char *)local_111,(char *)local_2a2,(int)local_1b1)",
-    "recovered_2054e00((char *)puVar7,uVar4,(char *)local_111,local_1b1)": "recovered_2054e00((int)local_20,local_1c,(char *)puVar7,uVar4,(char *)local_111,local_1b1)"
+    "recovered_2054e00((char *)puVar7,uVar4,(char *)local_111,local_1b1)": "recovered_2054e00((int)local_20,local_1c,(char *)puVar7,uVar4,(char *)local_111,local_1b1)",
+    "recovered_2055940()": "recovered_2055940((char *)local_111)",
+    "recovered_20557e0()": "recovered_20557e0(uVar4,(char *)local_111)",
+    "uVar4 = recovered_2054e00((int)local_20,local_1c,(char *)puVar7,uVar4,(char *)local_111,local_1b1);": "uVar4 = recovered_2054e00((int)local_20,local_1c,(char *)puVar7,uVar4,(char *)local_111,local_1b1);\n                    uint pf_created_process = uVar4;",
+    "recovered_205ea10()": "recovered_205ea10(pf_created_process)"
   },
   "205ea10": {
-    "recovered_2039a70();": "recovered_2039a70(DAT_020de164);"
+    "recovered_2039a70();": "recovered_2039a70(DAT_020de164);",
+    "void recovered_205ea10(void)": "void recovered_205ea10(int in_ECX)",
+    "  int in_ECX;\n": ""
   },
   "2039a70": {
     "uint recovered_2039a70(void)": "uint recovered_2039a70(uint in_ECX)",
@@ -249,7 +255,8 @@
     "bool recovered_2053c90(char *param_1,uint *param_2)": "bool recovered_2053c90(int in_ECX,uint in_EDX,char *param_1,uint *param_2)",
     "  int in_ECX;\n": "",
     "  uint in_EDX;\n": "",
-    "recovered_2054e00((char *)puVar19,local_20,(char *)local_125,param_1)": "recovered_2054e00((int)piVar12,local_24,(char *)puVar19,local_20,(char *)local_125,param_1)"
+    "recovered_2054e00((char *)puVar19,local_20,(char *)local_125,param_1)": "recovered_2054e00((int)piVar12,local_24,(char *)puVar19,local_20,(char *)local_125,param_1)",
+    "recovered_20557e0()": "recovered_20557e0(uVar8,(char *)local_125)"
   },
   "2047930": {
     "uint recovered_2047930(void)": "uint recovered_2047930(undefined1 *in_ECX)",
@@ -328,5 +335,14 @@
   },
   "20bf6a0": {
     "recovered_20392a0(0x20bf980,": "recovered_20392a0((int)&recovered_20bf980,"
+  },
+  "20557e0": {
+    "void recovered_20557e0(void)": "void recovered_20557e0(int in_ECX,char *in_EDX)",
+    "  int in_ECX;\n": "",
+    "  char *in_EDX;\n": ""
+  },
+  "2055940": {
+    "undefined4 recovered_2055940(void)": "undefined4 recovered_2055940(char *in_ECX)",
+    "  char *in_ECX;\n": ""
   }
 }
