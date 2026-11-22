@@ -2846,7 +2846,7 @@ undefined8 recovered_10002bb0(int *param_1,long param_2,undefined8 param_3,long 
   }
                     /* WARNING: Could not recover jumptable at 0x10002be8. Too many branches */
                     /* WARNING: Treating indirect jump as call */
-  uVar1 = (*(code *)(ulong)(uint)param_1[0x1c])(0);
+  uVar1 = (*(code *)(ulong)(uint)param_1[0x1c])(0,param_2,param_3,param_4);
   return uVar1;
 }
 
