@@ -1,0 +1,94 @@
+{
+  "module": "KextPointer",
+  "architecture": "arm64",
+  "version": "1.0",
+  "install_name": "/Drivers/pointer~qemu~usb-hid.kext",
+  "functions": {
+    "0x478": "recovered_10000478",
+    "0x484": "recovered_10000484",
+    "0x4a4": "recovered_100004a4",
+    "0x4e0": "recovered_100004e0",
+    "0x708": "recovered_10000708",
+    "0x718": "recovered_10000718",
+    "0x774": "recovered_10000774",
+    "0x1648": "recovered_10001648",
+    "0x16a0": "recovered_100016a0",
+    "0x16f4": "recovered_100016f4",
+    "0x1798": "recovered_10001798",
+    "0x17b4": "recovered_100017b4",
+    "0x17f4": "recovered_100017f4",
+    "0x186c": "recovered_1000186c",
+    "0x18d0": "recovered_100018d0",
+    "0x1a1c": "recovered_10001a1c",
+    "0x1a6c": "recovered_10001a6c",
+    "0x1d14": "recovered_10001d14",
+    "0x1d5c": "recovered_10001d5c",
+    "0x1dc0": "recovered_10001dc0",
+    "0x1ef8": "recovered_10001ef8",
+    "0x1f10": "recovered_10001f10",
+    "0x1f28": "recovered_10001f28",
+    "0x1f3c": "recovered_10001f3c",
+    "0x1f54": "recovered_10001f54",
+    "0x1f6c": "recovered_10001f6c",
+    "0x1fd8": "recovered_10001fd8",
+    "0x2044": "recovered_10002044",
+    "0x20f8": "recovered_100020f8",
+    "0x2138": "recovered_10002138",
+    "0x2178": "recovered_10002178"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 1144,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 1248,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_qemu_pointer_state",
+      "address": 1156,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_qemu_poll_key",
+      "address": 1188,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 7160,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 36
+      },
+      "tag": 0
+    },
+    {
+      "offset": 7168,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 162
+      },
+      "tag": 0
+    },
+    {
+      "offset": 7176,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 170
+      },
+      "tag": 0
+    }
+  ]
+}

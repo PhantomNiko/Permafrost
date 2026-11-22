@@ -1,0 +1,251 @@
+{
+  "module": "KextPointer",
+  "architecture": "armv7",
+  "version": "1.0",
+  "install_name": "/Drivers/pointer~qemu~usb-hid.kext",
+  "functions": {
+    "0xac0": "recovered_10000ac0",
+    "0xad0": "recovered_10000ad0",
+    "0xb00": "recovered_10000b00",
+    "0xb4c": "recovered_10000b4c",
+    "0xe10": "recovered_10000e10",
+    "0xe24": "recovered_10000e24",
+    "0xe8c": "recovered_10000e8c",
+    "0x25b4": "recovered_100025b4",
+    "0x2618": "recovered_10002618",
+    "0x266c": "recovered_1000266c",
+    "0x271c": "recovered_1000271c",
+    "0x2744": "recovered_10002744",
+    "0x2780": "recovered_10002780",
+    "0x27e0": "recovered_100027e0",
+    "0x2854": "recovered_10002854",
+    "0x2a18": "recovered_10002a18",
+    "0x2a8c": "recovered_10002a8c",
+    "0x2e00": "recovered_10002e00",
+    "0x2e40": "recovered_10002e40",
+    "0x2ea4": "recovered_10002ea4",
+    "0x2fdc": "recovered_10002fdc",
+    "0x2ff4": "recovered_10002ff4",
+    "0x300c": "recovered_1000300c",
+    "0x3020": "recovered_10003020",
+    "0x303c": "recovered_1000303c",
+    "0x3058": "recovered_10003058",
+    "0x30c4": "recovered_100030c4",
+    "0x3128": "recovered_10003128",
+    "0x31d0": "recovered_100031d0",
+    "0x3228": "recovered_10003228",
+    "0x3270": "recovered_10003270",
+    "0x3300": "recovered_10003300",
+    "0x3350": "recovered_10003350",
+    "0x3388": "recovered_10003388",
+    "0x33f8": "recovered_100033f8",
+    "0x3460": "recovered_10003460",
+    "0x3544": "recovered_10003544",
+    "0x35c4": "recovered_100035c4",
+    "0x36e4": "recovered_100036e4",
+    "0x37a0": "recovered_100037a0",
+    "0x3828": "recovered_10003828",
+    "0x3874": "recovered_10003874",
+    "0x3884": "recovered_10003884",
+    "0x3894": "recovered_10003894",
+    "0x38dc": "recovered_100038dc",
+    "0x3904": "recovered_10003904",
+    "0x3920": "recovered_10003920"
+  },
+  "exports": [
+    {
+      "name": "___divdi3",
+      "address": 13764,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___divsi3",
+      "address": 13192,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixdfdi",
+      "address": 14376,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixsfdi",
+      "address": 14468,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixunsdfdi",
+      "address": 14240,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixunssfdi",
+      "address": 14452,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatdidf",
+      "address": 14556,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatdisf",
+      "address": 14624,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatundidf",
+      "address": 14484,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatundisf",
+      "address": 14596,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___moddi3",
+      "address": 14052,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___modsi3",
+      "address": 13304,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___udivdi3",
+      "address": 13408,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___udivsi3",
+      "address": 13056,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___umoddi3",
+      "address": 13636,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___umodsi3",
+      "address": 13136,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 2752,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 2892,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_qemu_pointer_state",
+      "address": 2768,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_qemu_poll_key",
+      "address": 2816,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 1732,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3828"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 1736,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x37a0"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 1740,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x38dc"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 1744,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3894"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 1748,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3300"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 18128,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 36
+      },
+      "tag": 0
+    },
+    {
+      "offset": 18132,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 162
+      },
+      "tag": 0
+    },
+    {
+      "offset": 18136,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 170
+      },
+      "tag": 0
+    }
+  ]
+}

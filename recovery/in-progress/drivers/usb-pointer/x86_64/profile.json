@@ -1,0 +1,73 @@
+{
+  "module": "KextPointer",
+  "architecture": "x86_64",
+  "version": "1.0",
+  "install_name": "/Drivers/pointer~qemu~usb-hid.kext",
+  "functions": {
+    "0x420": "recovered_10000420",
+    "0x430": "recovered_10000430",
+    "0x460": "recovered_10000460",
+    "0x4a0": "recovered_100004a0",
+    "0x1190": "recovered_10001190",
+    "0x2650": "recovered_10002650",
+    "0x28d0": "recovered_100028d0",
+    "0x9090": "recovered_10009090",
+    "0x9420": "recovered_10009420",
+    "0x9580": "recovered_10009580"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 1056,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 1184,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_qemu_pointer_state",
+      "address": 1072,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_qemu_poll_key",
+      "address": 1120,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 2589,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 0
+      },
+      "tag": 0
+    },
+    {
+      "offset": 2597,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 120
+      },
+      "tag": 0
+    },
+    {
+      "offset": 2605,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 128
+      },
+      "tag": 0
+    }
+  ]
+}
