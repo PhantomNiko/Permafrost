@@ -311,5 +311,18 @@
   "20598a0": {
     "uint *param_9,int param_10)": "uint *param_9,int param_10,ulong error_capacity)",
     "in_stack_00000024": "error_capacity"
+  },
+  "2001800": {
+    "void recovered_2001800(void)": "void recovered_2001800(int *in_ECX)",
+    "  int *in_ECX;\n": ""
+  },
+  "20011a0": {
+    "undefined4 recovered_20011a0(void)": "undefined4 recovered_20011a0(uint *in_ECX,int in_EDX)",
+    "  uint *in_ECX;\n": "",
+    "  int in_EDX;\n": ""
+  },
+  "2001860": {
+    "recovered_2001800()": "recovered_2001800((int *)((char *)data-16))",
+    "recovered_20011a0()": "recovered_20011a0((uint *)((char *)data-16),uVar11)"
   }
 }
