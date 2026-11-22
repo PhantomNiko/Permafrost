@@ -547,3 +547,16 @@ multifunction PCI cases. The driver manifest records the reference-supported
 architectures and shared filenames; Cirrus and VirtIO VGA use the same x86
 implementation, while ramfb supplies the ARM implementations. Whole-image VM
 integration remains under validation.
+
+The complete current C kernel implementations, initialized data, ABI headers,
+and build profiles are now saved beside the reviewed repair units for all four
+architectures. Independent builds from these saved sources exactly reproduce
+the corresponding current diagnostic kernels. No reference kernel executable
+is a build input.
+
+A whole-image candidate now replaces every in-scope kernel, library, application,
+driver, command launcher, and SDK runtime with source builds. The embedded Mach
+distribution is retained as the explicit recovery exception, with its license
+materials. Initial VM runs reach the desktop on ARM32, ARM64, and x86-64. BIOS
+application discovery and graphics-mode entry still need correction; this is
+not a completed or tagged release.
