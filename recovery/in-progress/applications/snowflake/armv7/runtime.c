@@ -41333,7 +41333,7 @@ undefined4 recovered_10045c8c(int param_1,char *param_2,int param_3,int param_4)
             if (_DAT_400108d0 == (code *)0x0) {
               return 0;
             }
-            uVar1 = (*_DAT_400108d0)(*(undefined4 *)(param_1 + 0x14),local_202);
+            uVar1 = (*_DAT_400108d0)(*(undefined4 *)(param_1 + 0x14),local_202,param_3,param_4);
             return uVar1;
           }
         }
@@ -44836,7 +44836,7 @@ undefined4 recovered_10048aec(int param_1,char *param_2,int param_3)
       if (_DAT_400108c8 == (code *)0x0) {
         return 0;
       }
-      uVar2 = (*_DAT_400108c8)(*(undefined4 *)(param_1 + 0x14),local_202);
+      uVar2 = (*_DAT_400108c8)(*(undefined4 *)(param_1 + 0x14),local_202,param_3);
       return uVar2;
     }
   }

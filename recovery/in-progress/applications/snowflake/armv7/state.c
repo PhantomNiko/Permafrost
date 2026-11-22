@@ -4777,4 +4777,12 @@ void pf_app_initialize(void){
 {uintptr_t value=(uintptr_t)pf_module_state+0x35eU; __builtin_memcpy(pf_module_state+0x243c,&value,4);}
 {uintptr_t value=(uintptr_t)pf_module_state+0x35eU; __builtin_memcpy(pf_module_state+0x2440,&value,4);}
 {uintptr_t value=(uintptr_t)pf_module_state+0x35eU; __builtin_memcpy(pf_module_state+0x2444,&value,4);}
+/* Rebase standard streams, descriptor slots, and the environment vector. */
+{uintptr_t value=(uintptr_t)pf_module_state+0x2450U; __builtin_memcpy(pf_module_state+0x2574,&value,4);}
+{uintptr_t value=(uintptr_t)pf_module_state+0x2578U; __builtin_memcpy(pf_module_state+0x269c,&value,4);}
+{uintptr_t value=(uintptr_t)pf_module_state+0x26a0U; __builtin_memcpy(pf_module_state+0x27c4,&value,4);}
+{uintptr_t value=(uintptr_t)pf_module_state+0x2870U; __builtin_memcpy(pf_module_state+0x27c8,&value,4);}
+{uintptr_t value=(uintptr_t)pf_module_state+0x2450U; __builtin_memcpy(pf_module_state+0x27d8,&value,4);}
+{uintptr_t value=(uintptr_t)pf_module_state+0x2578U; __builtin_memcpy(pf_module_state+0x27dc,&value,4);}
+{uintptr_t value=(uintptr_t)pf_module_state+0x26a0U; __builtin_memcpy(pf_module_state+0x27e0,&value,4);}
 }

@@ -6802,7 +6802,7 @@ recovered_1003ba40(long param_1,char *param_2,long param_3,int param_4,undefined
         if (((_DAT_00006800 == 0x50414d57) && (_DAT_00006804 != 0)) &&
            ((0xb < _DAT_00006808 && (0xd3 < _DAT_00006808)))) {
           if ((code *)(ulong)_DAT_000068d0 != (code *)0x0) {
-            uVar3 = (*(code *)(ulong)_DAT_000068d0)(*(undefined4 *)(param_1 + 0x14),local_128);
+            uVar3 = (*(code *)(ulong)_DAT_000068d0)(*(undefined4 *)(param_1 + 0x14),local_128,param_3,param_4);
           }
         }
         else if (((_DAT_00006800 == 0x50414d57) && (_DAT_00006804 != 0)) &&
@@ -9982,7 +9982,7 @@ recovered_1003e780(long param_1,char *param_2,long param_3,undefined8 in_XMM0_Qa
           if ((code *)(ulong)_DAT_000068c8 == (code *)0x0) {
             return 0;
           }
-          uVar2 = (*(code *)(ulong)_DAT_000068c8)(*(undefined4 *)(param_1 + 0x14),local_128);
+          uVar2 = (*(code *)(ulong)_DAT_000068c8)(*(undefined4 *)(param_1 + 0x14),local_128,param_3);
         }
         else {
           if (_DAT_00006800 != 0x50414d57) {
