@@ -51791,7 +51791,7 @@ int recovered_40436224(char *text)
  * Address: 0x4043624c
  */
 
-uchar recovered_4043624c(char *param_1,void *param_2,uint param_3)
+uint recovered_4043624c(char *param_1,void *param_2,uint param_3)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -52214,7 +52214,7 @@ LAB_40436324:
  * Address: 0x404369e8
  */
 
-bool recovered_404369e8(char *param_1,ulong param_2)
+uint recovered_404369e8(char *param_1,ulong param_2)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -52384,7 +52384,7 @@ undefined4 recovered_40436c14(void)
 
 /* Reviewed instruction-equivalent C. Pooka's Free Software License. */
 
-uchar recovered_40436ca0(char *param_1)
+uint recovered_40436ca0(char *param_1)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -52776,7 +52776,7 @@ LAB_404371b0:
  * Address: 0x40437434
  */
 
-uchar recovered_40437434(char *param_1,void *param_2)
+uint recovered_40437434(char *param_1,void *param_2)
 
 {
   unsigned char frame[336] __attribute__((aligned(16))) = {0};
@@ -52853,7 +52853,7 @@ void recovered_40437508(int param_1,uchar *param_2,uchar *param_3,uchar *param_4
  * Address: 0x40437554
  */
 
-uchar recovered_40437554(char *param_1,uint param_2,void *param_3)
+uint recovered_40437554(char *param_1,uint param_2,void *param_3)
 
 {
   unsigned char frame[336] __attribute__((aligned(16))) = {0};
@@ -53758,7 +53758,7 @@ void * recovered_4043808c(void *param_1,uint param_2)
  * Address: 0x404381c4
  */
 
-uchar recovered_404381c4(char *param_1,char *param_2,uint param_3,uint *param_4)
+uint recovered_404381c4(char *param_1,char *param_2,uint param_3,uint *param_4)
 
 {
   unsigned char frame[624] __attribute__((aligned(16))) = {0};
@@ -75321,7 +75321,7 @@ undefined4 recovered_4044a748(char *param_1,uint param_2)
 
 /* Reviewed instruction-equivalent C. Pooka's Free Software License. */
 
-uchar recovered_4044a8b0(char *param_1,char *param_2)
+uint recovered_4044a8b0(char *param_1,char *param_2)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -75340,7 +75340,7 @@ uchar recovered_4044a8b0(char *param_1,char *param_2)
  * Address: 0x4044a8d4
  */
 
-uchar recovered_4044a8d4(char *param_1)
+uint recovered_4044a8d4(char *param_1)
 
 {
   unsigned char frame[320] __attribute__((aligned(16))) = {0};
@@ -76101,7 +76101,7 @@ void recovered_4044b260(byte param_1)
  * Address: 0x4044b300
  */
 
-uchar recovered_4044b300(uint param_1)
+uint recovered_4044b300(uint param_1)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -80586,7 +80586,7 @@ LAB_4044f84c:
  * Address: 0x4044f930
  */
 
-uchar recovered_4044f930(uint param_1,char *param_2,void *param_3,uint param_4,uint param_5,uint param_6,
+uint recovered_4044f930(uint param_1,char *param_2,void *param_3,uint param_4,uint param_5,uint param_6,
                   uint param_7)
 
 {
@@ -80948,7 +80948,7 @@ int recovered_4044fb20(int param_1)
  * Address: 0x4044fce8
  */
 
-uchar recovered_4044fce8(uint param_1)
+uint recovered_4044fce8(uint param_1)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -80972,7 +80972,7 @@ uchar recovered_4044fce8(uint param_1)
  * Address: 0x4044fd38
  */
 
-uchar recovered_4044fd38(void *param_1,uint param_2,uint *param_3)
+uint recovered_4044fd38(void *param_1,uint param_2,uint *param_3)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -81080,7 +81080,7 @@ void recovered_4044fdc0(int param_1,uint *param_2)
  * Address: 0x4044fee8
  */
 
-uchar recovered_4044fee8(uint param_1,int param_2,int param_3,uint param_4,uint param_5)
+uint recovered_4044fee8(uint param_1,int param_2,int param_3,uint param_4,uint param_5)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -81191,7 +81191,7 @@ undefined4 recovered_4044fffc(int param_1,int param_2,int param_3)
  * Address: 0x4045004c
  */
 
-uchar recovered_4045004c(uint param_1,void *param_2)
+uint recovered_4045004c(uint param_1,void *param_2)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -81212,7 +81212,7 @@ uchar recovered_4045004c(uint param_1,void *param_2)
  * Address: 0x40450094
  */
 
-uchar recovered_40450094(uint param_1,char *param_2,void *param_3,uint param_4,uint param_5,uint param_6,
+uint recovered_40450094(uint param_1,char *param_2,void *param_3,uint param_4,uint param_5,uint param_6,
                   uint param_7,uint *param_8)
 
 {
@@ -87569,7 +87569,7 @@ LAB_40456af0:
  * Address: 0x40456c70
  */
 
-uchar recovered_40456c70(void *param_1)
+uint recovered_40456c70(void *param_1)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -87736,7 +87736,7 @@ void recovered_40456e24(undefined4 param_1,undefined4 param_2,int param_3,int pa
  * Address: 0x40456e98
  */
 
-uchar recovered_40456e98(void *param_1)
+uint recovered_40456e98(void *param_1)
 
 {
   unsigned char frame[112] __attribute__((aligned(16))) = {0};

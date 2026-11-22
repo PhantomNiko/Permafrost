@@ -681,3 +681,17 @@ The complete C/C++ build produces both images and the portable macOS 15 SDK.
 The SDK builds C and C++ examples for all four CPUs outside the checkout and
 rebuilds its ARM64 runtime from bundled sources. Final VM shortcut, file-menu
 and animated graphics checks remain in progress before tagging.
+
+
+Public kernel services now return their declared 32-bit status values rather
+than decompiler-inferred byte results. The old x64 missing-file status returned
+zero in AL with stale nonzero upper bits in EAX; native code explicitly clears
+those bits. A regression reproduces that mismatch with the earlier source and
+compares the complete result register and cleared file record on all four CPUs.
+The repaired source passes. Eighty-two narrow public result declarations were
+corrected across the four slices; private byte-return interfaces remain local.
+
+ARM32, ARM64 and BIOS editor Save As checks persist the entered text on the
+writable user volume. Diagnostic disks disable QEMU snapshots for persistence
+verification. BIOS user-volume IDs differ from EFI volume IDs. The x64 launcher
+and GUI checks are being repeated with the public result correction.

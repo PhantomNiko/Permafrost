@@ -1,7 +1,7 @@
 /* Reviewed instruction-equivalent C. Pooka's Free Software License. */
 #include "functions.h"
 
-uchar recovered_4044a8b0(char *param_1,char *param_2)
+uint recovered_4044a8b0(char *param_1,char *param_2)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};

@@ -61268,7 +61268,7 @@ ulonglong recovered_203ef70(long path){ unsigned char token[248]={0}; recovered_
  * Address: 0x203efa0
  */
 
-uchar recovered_203efa0(char *param_1,void *param_2,uint param_3)
+uint recovered_203efa0(char *param_1,void *param_2,uint param_3)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -61652,7 +61652,7 @@ LAB_0203f099:
  * Address: 0x203f6a0
  */
 
-bool recovered_203f6a0(char *param_1,uint param_2)
+uint recovered_203f6a0(char *param_1,uint param_2)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -61810,7 +61810,7 @@ undefined4 recovered_203f880(void)
  * Address: 0x203f8e0
  */
 
-uchar recovered_203f8e0(char *param_1)
+uint recovered_203f8e0(char *param_1)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -62224,7 +62224,7 @@ LAB_0203fe3a:
  * Address: 0x2040060
  */
 
-uchar recovered_2040060(char *param_1,void *param_2)
+uint recovered_2040060(char *param_1,void *param_2)
 
 {
   unsigned char frame[352] __attribute__((aligned(16))) = {0};
@@ -62289,7 +62289,7 @@ void recovered_2040130(long param_1,ulonglong *param_2,uint param_3,uint param_4
  * Address: 0x2040180
  */
 
-uchar recovered_2040180(char *param_1,uint param_2,void *param_3)
+uint recovered_2040180(char *param_1,uint param_2,void *param_3)
 
 {
   unsigned char frame[352] __attribute__((aligned(16))) = {0};
@@ -63054,7 +63054,7 @@ void * recovered_2040be0(void *param_1,uint param_2)
  * Address: 0x2040ce0
  */
 
-uchar recovered_2040ce0(char *param_1,char *param_2,uint param_3,uint *param_4)
+uint recovered_2040ce0(char *param_1,char *param_2,uint param_3,uint *param_4)
 
 {
   unsigned char frame[688] __attribute__((aligned(16))) = {0};
@@ -64258,7 +64258,7 @@ uchar recovered_2041e60(int param_1)
  * Address: 0x2041f50
  */
 
-uchar recovered_2041f50(int param_1,long param_2,uint *param_3)
+uint recovered_2041f50(int param_1,long param_2,uint *param_3)
 
 {
   unsigned char frame[368] __attribute__((aligned(16))) = {0};
@@ -64739,7 +64739,7 @@ joined_r0x0204d3ee:
  * Address: 0x20426d0
  */
 
-uchar recovered_20426d0(int param_1,long param_2,long param_3,uint param_4,uint *param_5)
+uint recovered_20426d0(int param_1,long param_2,long param_3,uint param_4,uint *param_5)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -64850,7 +64850,7 @@ uchar recovered_20426d0(int param_1,long param_2,long param_3,uint param_4,uint 
  * Address: 0x2042880
  */
 
-uchar recovered_2042880(int param_1,long param_2,long param_3,uint param_4)
+uint recovered_2042880(int param_1,long param_2,long param_3,uint param_4)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -64924,7 +64924,7 @@ LAB_02042973:
  * Address: 0x20429b0
  */
 
-uchar recovered_20429b0(int param_1,long param_2)
+uint recovered_20429b0(int param_1,long param_2)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -64965,7 +64965,7 @@ uchar recovered_20429b0(int param_1,long param_2)
  * Address: 0x2042a50
  */
 
-uchar recovered_2042a50(int param_1,long param_2,long param_3)
+uint recovered_2042a50(int param_1,long param_2,long param_3)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -65327,7 +65327,7 @@ LAB_02042ff1:
  * Address: 0x20430a0
  */
 
-uchar recovered_20430a0(int param_1,long param_2)
+uint recovered_20430a0(int param_1,long param_2)
 
 {
   unsigned char frame[352] __attribute__((aligned(16))) = {0};
@@ -65555,7 +65555,7 @@ LAB_020432c9:
  * Address: 0x2043450
  */
 
-uchar recovered_2043450(int param_1,long param_2,long param_3)
+uint recovered_2043450(int param_1,long param_2,long param_3)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -65596,7 +65596,7 @@ uchar recovered_2043450(int param_1,long param_2,long param_3)
  * Address: 0x2043500
  */
 
-byte recovered_2043500(int param_1,long param_2,ulonglong *param_3,uint param_4,uint param_5,
+uint recovered_2043500(int param_1,long param_2,ulonglong *param_3,uint param_4,uint param_5,
                       uint param_6,uint param_7)
 
 {
@@ -65684,7 +65684,7 @@ long recovered_20435d0(float param_1,int param_2,long param_3)
  * Address: 0x2043680
  */
 
-uchar recovered_2043680(ulonglong param_1,ulong ************param_2,ulong ******param_3,
+uint recovered_2043680(ulonglong param_1,ulong ************param_2,ulong ******param_3,
                        ulong ******param_4,ulonglong param_5,ulonglong param_6,ulonglong param_7,
                        ulonglong param_8,int param_9,long param_10,uint param_11,ulonglong param_12,
                        ulong ********param_13,ulong ********param_14)
@@ -87200,7 +87200,7 @@ undefined8 recovered_2052200(char *param_1,uint param_2)
  * Address: 0x2052340
  */
 
-uchar recovered_2052340(char *param_1,char *param_2)
+uint recovered_2052340(char *param_1,char *param_2)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -87218,7 +87218,7 @@ uchar recovered_2052340(char *param_1,char *param_2)
  * Address: 0x2052370
  */
 
-uchar recovered_2052370(char *param_1)
+uint recovered_2052370(char *param_1)
 
 {
   unsigned char frame[320] __attribute__((aligned(16))) = {0};
@@ -88010,7 +88010,7 @@ void recovered_2052d10(byte param_1)
  * Address: 0x2052db0
  */
 
-uchar recovered_2052db0(uint param_1)
+uint recovered_2052db0(uint param_1)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -90062,7 +90062,7 @@ LAB_02054d81:
  * Address: 0x2054fe0
  */
 
-bool recovered_2054fe0(undefined4 *param_1)
+uint recovered_2054fe0(undefined4 *param_1)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -91971,7 +91971,7 @@ LAB_02056a42:
  * Address: 0x2056b10
  */
 
-uchar recovered_2056b10(uint param_1,char *param_2,void *param_3,uint param_4,uint param_5,
+uint recovered_2056b10(uint param_1,char *param_2,void *param_3,uint param_4,uint param_5,
                        uint param_6,uint param_7)
 
 {
@@ -92214,7 +92214,7 @@ ulonglong recovered_2056ce0(int param_1)
  * Address: 0x2056ea0
  */
 
-uchar recovered_2056ea0(uint param_1)
+uint recovered_2056ea0(uint param_1)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -92237,7 +92237,7 @@ uchar recovered_2056ea0(uint param_1)
  * Address: 0x2056ef0
  */
 
-uchar recovered_2056ef0(void *param_1,uint param_2,uint *param_3)
+uint recovered_2056ef0(void *param_1,uint param_2,uint *param_3)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -92331,7 +92331,7 @@ void recovered_2056f90(long param_1,ulonglong *param_2,ulonglong param_3,ulonglo
  * Address: 0x20570d0
  */
 
-uchar recovered_20570d0(uint param_1,int param_2,int param_3,uint param_4,uint param_5)
+uint recovered_20570d0(uint param_1,int param_2,int param_3,uint param_4,uint param_5)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -92454,7 +92454,7 @@ undefined8 recovered_20571f0(int param_1,int param_2,int param_3)
  * Address: 0x2057250
  */
 
-uchar recovered_2057250(uint param_1,void *param_2)
+uint recovered_2057250(uint param_1,void *param_2)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -92573,7 +92573,7 @@ ulong recovered_2057340(int param_1,uchar *param_2,uchar *param_3,uchar *param_4
  * Address: 0x2057400
  */
 
-uchar recovered_2057400(int param_1,uint param_2,uint param_3)
+uint recovered_2057400(int param_1,uint param_2,uint param_3)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -92645,7 +92645,7 @@ undefined8 recovered_2057450(int param_1,int param_2,int param_3,uint param_4,ui
  * Address: 0x2057510
  */
 
-bool recovered_2057510(int param_1,undefined8 *param_2)
+uint recovered_2057510(int param_1,undefined8 *param_2)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -98454,7 +98454,7 @@ LAB_0205d81c:
  * Address: 0x205db40
  */
 
-uchar recovered_205db40(void *param_1)
+uint recovered_205db40(void *param_1)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -98603,7 +98603,7 @@ void recovered_205dcc0(undefined4 param_1,undefined4 param_2,int param_3,int par
  * Address: 0x205dd20
  */
 
-uchar recovered_205dd20(void *param_1)
+uint recovered_205dd20(void *param_1)
 
 {
   unsigned char frame[112] __attribute__((aligned(16))) = {0};

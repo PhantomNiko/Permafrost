@@ -3,7 +3,7 @@
 
 
 
-bool recovered_203bac0(int param_1)
+uint recovered_203bac0(int param_1)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};

@@ -16,7 +16,7 @@
  * Address: 0x2039a00
  */
 
-uchar recovered_2039a00(uint param_1)
+uint recovered_2039a00(uint param_1)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
