@@ -1,6 +1,5 @@
-/* Reviewed instruction-equivalent C. Pooka's Free Software License. */
+/* Recovered implementation; Pooka's Free Software License. */
 #include "functions.h"
-#define DAT_00006128 (*(uint8_t *)(0x6128U))
 #define DAT_02098a58 (*(uint32_t volatile *)(0x20e3c10U))
 #define DAT_02098a5c (*(uint32_t volatile *)(0x20e3c14U))
 #define DAT_02098a60 (*(uint32_t volatile *)(0x20e3c18U))
@@ -13,48 +12,73 @@
 #define Ram02098a7c (*(uint32_t volatile *)(0x20e3c34U))
 #define Ram02098a80 (*(uint32_t volatile *)(0x20e3c38U))
 #define Ram02098a84 (*(uint32_t volatile *)(0x20e3c3cU))
+#define str_0208e306 (*(char (*)[1])(0x20c50aeU))
+#define DAT_00006124 (*(uint8_t *)(0x6124U))
+#define DAT_00006128 (*(uint8_t *)(0x6128U))
+#define DAT_0000612c (*(uint8_t *)(0x612cU))
+#define DAT_020e3c10 (*(uint32_t volatile *)(0x20e3c10U))
+#define DAT_020e3c14 (*(uint32_t volatile *)(0x20e3c14U))
+#define DAT_020e3c18 (*(uint32_t volatile *)(0x20e3c18U))
+#define DAT_020e3c1c (*(uint32_t volatile *)(0x20e3c1cU))
+#define DAT_020e3c20 (*(uint32_t volatile *)(0x20e3c20U))
+#define DAT_020e3c24 (*(uint32_t volatile *)(0x20e3c24U))
+#define DAT_020e3c28 (*(uint8_t volatile *)(0x20e3c28U))
+#define DAT_020e3c2c (*(uint8_t volatile *)(0x20e3c2cU))
+#define DAT_020e3c30 (*(uint8_t volatile *)(0x20e3c30U))
+#define DAT_020e3c34 (*(uint8_t volatile *)(0x20e3c34U))
+#define DAT_020e3c38 (*(uint8_t volatile *)(0x20e3c38U))
+#define DAT_020e3c3c (*(uint8_t volatile *)(0x20e3c3cU))
+#define Ram020e3c28 (*(uint32_t volatile *)(0x20e3c28U))
+#define Ram020e3c2c (*(uint32_t volatile *)(0x20e3c2cU))
+#define Ram020e3c30 (*(uint32_t volatile *)(0x20e3c30U))
+#define Ram020e3c34 (*(uint32_t volatile *)(0x20e3c34U))
+#define Ram020e3c38 (*(uint32_t volatile *)(0x20e3c38U))
+#define Ram020e3c3c (*(uint32_t volatile *)(0x20e3c3cU))
 #define _DAT_00006124 (*(uint *)(0x6124U))
 #define _DAT_00006128 (*(uint *)(0x6128U))
 #define _DAT_0000612c (*(uint *)(0x612cU))
-#define local_11 (*(bool *)(frame + 175))
-#define local_18 (*(uint *)(frame + 168))
-#define local_1c (*(uint *)(frame + 164))
-#define local_20 (*(uint *)(frame + 160))
-#define local_24 (*(uint *)(frame + 156))
-#define local_28 (*(uint *)(frame + 152))
-#define local_2c (*(uint *)(frame + 148))
-#define local_30 (*(uint *)(frame + 144))
-#define local_31 (*(undefined1 *)(frame + 143))
-#define local_32 (*(undefined1 *)(frame + 142))
-#define local_33 (*(undefined1 *)(frame + 141))
-#define local_34 (*(undefined1 *)(frame + 140))
-#define local_35 (*(undefined1 *)(frame + 139))
-#define local_36 (*(undefined1 *)(frame + 138))
-#define local_37 (*(undefined1 *)(frame + 137))
-#define local_38 (*(undefined1 *)(frame + 136))
-#define local_39 (*(undefined1 *)(frame + 135))
-#define local_3a (*(undefined1 *)(frame + 134))
-#define local_3b (*(undefined1 *)(frame + 133))
-#define local_3c (*(undefined1 *)(frame + 132))
-#define local_40 (*(undefined4 *)(frame + 128))
-#define local_44 (*(undefined4 *)(frame + 124))
-#define local_45 (*(undefined1 *)(frame + 123))
-#define local_46 (*(undefined1 *)(frame + 122))
-#define local_47 (*(undefined1 *)(frame + 121))
-#define local_48 (*(undefined1 *)(frame + 120))
-#define local_49 (*(undefined1 *)(frame + 119))
-#define local_4a (*(undefined1 *)(frame + 118))
-#define local_4b (*(undefined1 *)(frame + 117))
-#define local_4c (*(undefined1 *)(frame + 116))
-#define local_50 (*(uint *)(frame + 112))
-#define local_54 (*(uint *)(frame + 108))
-#define local_5c (*(undefined8 *)(frame + 100))
-#define local_60 (*(uint *)(frame + 96))
-#define local_64 (*(uint *)(frame + 92))
-#define local_9c (*(char (*)[56])(frame + 36))
+#define str_020c50ae (*(char (*)[1])(0x20c50aeU))
 #define local_a0 (*(ushort *)(frame + 32))
-#define str_0208e306 (*(char (*)[1])(0x20c50aeU))
-undefined4 recovered_2005220(uint param_1,uint param_2,uint param_3,uint param_4,uint param_5)
+#define local_9c (*(char (*)[56])(frame + 36))
+#define local_64 (*(uint *)(frame + 92))
+#define local_60 (*(uint *)(frame + 96))
+#define local_5c (*(undefined8 *)(frame + 100))
+#define local_54 (*(uint *)(frame + 108))
+#define local_50 (*(uint *)(frame + 112))
+#define local_4c (*(uchar *)(frame + 116))
+#define local_4b (*(undefined1 *)(frame + 117))
+#define local_4a (*(undefined1 *)(frame + 118))
+#define local_49 (*(undefined1 *)(frame + 119))
+#define local_48 (*(undefined1 *)(frame + 120))
+#define local_47 (*(undefined1 *)(frame + 121))
+#define local_46 (*(undefined1 *)(frame + 122))
+#define local_45 (*(undefined1 *)(frame + 123))
+#define local_44 (*(undefined4 *)(frame + 124))
+#define local_40 (*(undefined4 *)(frame + 128))
+#define local_3c (*(undefined1 *)(frame + 132))
+#define local_3b (*(undefined1 *)(frame + 133))
+#define local_3a (*(undefined1 *)(frame + 134))
+#define local_39 (*(undefined1 *)(frame + 135))
+#define local_38 (*(undefined1 *)(frame + 136))
+#define local_37 (*(undefined1 *)(frame + 137))
+#define local_36 (*(undefined1 *)(frame + 138))
+#define local_35 (*(undefined1 *)(frame + 139))
+#define local_34 (*(undefined1 *)(frame + 140))
+#define local_33 (*(undefined1 *)(frame + 141))
+#define local_32 (*(undefined1 *)(frame + 142))
+#define local_31 (*(undefined1 *)(frame + 143))
+#define local_30 (*(uint *)(frame + 144))
+#define local_2c (*(uint *)(frame + 148))
+#define local_28 (*(uint *)(frame + 152))
+#define local_24 (*(uint *)(frame + 156))
+#define local_20 (*(uint *)(frame + 160))
+#define local_1c (*(uint *)(frame + 164))
+#define acStack_a4 (*(char (*)[4])(frame + 28))
+#define local_18 (*(uint *)(frame + 168))
+#define local_11 (*(bool *)(frame + 175))
+
+
+uint recovered_2005220(uint param_1,uint param_2,uint param_3,uint param_4,uint param_5)
 
 {
   unsigned char frame[224] __attribute__((aligned(16))) = {0};
@@ -205,9 +229,9 @@ undefined4 recovered_2005220(uint param_1,uint param_2,uint param_3,uint param_4
           do {
             if (local_9c[iVar10 + 9] == '\0') {
               if ((iVar10 == 0) &&
-                 (iVar10 = recovered_2001ff0(local_9c,str_0208e306,9), iVar10 == 0)) {
+                 (iVar10 = recovered_2001ff0(local_9c,str_020c50ae,9), iVar10 == 0)) {
                 recovered_2001e00(&local_4c,0,0x1c);
-                local_4c = (undefined1)local_20;
+                local_4c = (uchar)local_20;
                 local_4b = (undefined1)local_1c;
                 local_4a = (undefined1)(local_28 >> 8);
                 local_49 = (undefined1)local_28;
@@ -233,18 +257,18 @@ undefined4 recovered_2005220(uint param_1,uint param_2,uint param_3,uint param_4
                 if ((char)uVar11 == '\0') {
                   return 0;
                 }
-                DAT_02098a58 = param_1;
-                DAT_02098a5c = param_2;
-                DAT_02098a60 = param_5;
-                DAT_02098a64 = param_3;
-                DAT_02098a68 = param_4;
-                DAT_02098a6c = 0x20;
-                Ram02098a70 = 8;
-                Ram02098a74 = 0x10;
-                Ram02098a78 = 8;
-                Ram02098a7c = 8;
-                Ram02098a80 = 8;
-                Ram02098a84 = 0;
+                DAT_020e3c10 = param_1;
+                DAT_020e3c14 = param_2;
+                DAT_020e3c18 = param_5;
+                DAT_020e3c1c = param_3;
+                DAT_020e3c20 = param_4;
+                DAT_020e3c24 = 0x20;
+                Ram020e3c28 = 8;
+                Ram020e3c2c = 0x10;
+                Ram020e3c30 = 8;
+                Ram020e3c34 = 8;
+                Ram020e3c38 = 8;
+                Ram020e3c3c = 0;
                 return CONCAT31((int3)((uint)extraout_ECX >> 8),1);
               }
               break;
@@ -262,3 +286,79 @@ undefined4 recovered_2005220(uint param_1,uint param_2,uint param_3,uint param_4
   }
   return 0;
 }
+#undef DAT_02098a58
+#undef DAT_02098a5c
+#undef DAT_02098a60
+#undef DAT_02098a64
+#undef DAT_02098a68
+#undef DAT_02098a6c
+#undef Ram02098a70
+#undef Ram02098a74
+#undef Ram02098a78
+#undef Ram02098a7c
+#undef Ram02098a80
+#undef Ram02098a84
+#undef str_0208e306
+#undef DAT_00006124
+#undef DAT_00006128
+#undef DAT_0000612c
+#undef DAT_020e3c10
+#undef DAT_020e3c14
+#undef DAT_020e3c18
+#undef DAT_020e3c1c
+#undef DAT_020e3c20
+#undef DAT_020e3c24
+#undef DAT_020e3c28
+#undef DAT_020e3c2c
+#undef DAT_020e3c30
+#undef DAT_020e3c34
+#undef DAT_020e3c38
+#undef DAT_020e3c3c
+#undef Ram020e3c28
+#undef Ram020e3c2c
+#undef Ram020e3c30
+#undef Ram020e3c34
+#undef Ram020e3c38
+#undef Ram020e3c3c
+#undef _DAT_00006124
+#undef _DAT_00006128
+#undef _DAT_0000612c
+#undef str_020c50ae
+#undef local_a0
+#undef local_9c
+#undef local_64
+#undef local_60
+#undef local_5c
+#undef local_54
+#undef local_50
+#undef local_4c
+#undef local_4b
+#undef local_4a
+#undef local_49
+#undef local_48
+#undef local_47
+#undef local_46
+#undef local_45
+#undef local_44
+#undef local_40
+#undef local_3c
+#undef local_3b
+#undef local_3a
+#undef local_39
+#undef local_38
+#undef local_37
+#undef local_36
+#undef local_35
+#undef local_34
+#undef local_33
+#undef local_32
+#undef local_31
+#undef local_30
+#undef local_2c
+#undef local_28
+#undef local_24
+#undef local_20
+#undef local_1c
+#undef acStack_a4
+#undef local_18
+#undef local_11

@@ -1,5 +1,7 @@
-/* Reviewed instruction-equivalent C. Pooka's Free Software License. */
+/* Recovered implementation; Pooka's Free Software License. */
 #include "functions.h"
+
+
 
 int recovered_20022a0(char *left,char *right)
 
@@ -17,12 +19,12 @@ int recovered_20022a0(char *left,char *right)
     do {
       uVar2 = (uint)bVar1;
       left = left + 1;
-      if (bVar1 != *right) goto LAB_02001c86;
+      if (bVar1 != *right) goto LAB_020022d6;
       right = right + 1;
       bVar1 = *left;
     } while (bVar1 != 0);
     uVar2 = 0;
   }
-LAB_02001c86:
+LAB_020022d6:
   return uVar2 - (byte)*right;
 }

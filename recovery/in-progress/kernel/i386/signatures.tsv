@@ -879,3 +879,15 @@
 20559e0	unsigned int recovered_20559e0(char *path,char *actual);	ECX,EDX
 2055b30	unsigned int recovered_2055b30(char *bundle,char *platform,char *executable,char *path,char *error);	ECX,EDX,stack4,stack8,stack12
 205d640	unsigned int recovered_205d640(int device);	ECX
+205a9f0	void recovered_205a9f0(void *task);	ECX
+2029940	void *recovered_2029940(unsigned int size);	ECX
+2030400	void recovered_2030400(char *path,char *cwd,char *output);	ECX,EDX,stack4
+2030680	unsigned int recovered_2030680(char *path,char *entry);	ECX,EDX
+205e5b0	void recovered_205e5b0(char *path,char *output);	ECX,EDX
+2039a70	unsigned int recovered_2039a70(unsigned int budget);	ECX
+2048050	unsigned int recovered_2048050(char *command,char *output,unsigned int capacity);	ECX,EDX,stack4
+202ded0	char recovered_202ded0(char *command,char *arguments,char *path,char *output,unsigned int capacity);	ECX,EDX,stack4,stack8,stack12
+205ea10	void recovered_205ea10(unsigned int process);	ECX
+202dae0	bool recovered_202dae0(byte *param_1,char *param_2,uint param_3);	stack4,stack8,stack12
+2033040	uint recovered_2033040(byte * in_ECX,byte *in_ECX_00,char *in_EDX,uint param_3);	ECX,stack4,stack8,stack12
+20727b0	undefined4 recovered_20727b0(uint * in_ECX,uint *in_ECX_00,char *in_EDX,uint param_3,char *param_4,uint param_5);	ECX,stack4,stack8,stack12,stack16,stack20

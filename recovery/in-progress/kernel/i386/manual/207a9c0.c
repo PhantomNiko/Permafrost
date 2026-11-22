@@ -1,7 +1,9 @@
-/* Reviewed instruction-equivalent C. Pooka's Free Software License. */
+/* Recovered implementation; Pooka's Free Software License. */
 #include "functions.h"
 
-bool recovered_207a9c0(char *incoming_ecx,char *incoming_edx)
+
+
+uchar recovered_207a9c0(char *incoming_ecx,char *incoming_edx)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -10,7 +12,7 @@ bool recovered_207a9c0(char *incoming_ecx,char *incoming_edx)
   char cVar2;
 
   if (incoming_edx == (char *)0x0 || incoming_ecx == (char *)0x0) {
-    return false;
+    return '\0';
   }
   cVar1 = *incoming_ecx;
   while( true ) {
@@ -28,11 +30,11 @@ bool recovered_207a9c0(char *incoming_ecx,char *incoming_edx)
         cVar2 = cVar2 + -0x20;
       }
       if (cVar1 != cVar2) {
-        return false;
+        return '\0';
       }
     }
     incoming_edx = incoming_edx + 1;
     cVar1 = *incoming_ecx;
   }
-  return false;
+  return '\0';
 }

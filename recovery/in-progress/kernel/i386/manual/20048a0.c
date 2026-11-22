@@ -1,7 +1,9 @@
-/* Reviewed instruction-equivalent C. Pooka's Free Software License. */
+/* Recovered implementation; Pooka's Free Software License. */
 #include "functions.h"
 
-undefined4 recovered_20048a0(undefined2 param_1,int param_2,uint *param_3)
+
+
+uint recovered_20048a0(ushort param_1,int param_2,uint *param_3)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};

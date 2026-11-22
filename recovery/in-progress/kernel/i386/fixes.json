@@ -238,7 +238,8 @@
     "  uint *incoming_edx;": "  uint *incoming_edx;\n  int pf_selected_task_slot;",
     "    pcVar6 = recovered_20b9e00();": "    pcVar6 = recovered_20b9e00(0,&pf_selected_task_slot);",
     "                pcVar6 = recovered_20b9e00(0,&pf_selected_task_slot);": "                pcVar6 = recovered_20b9e00((int)incoming_ecx,&pf_selected_task_slot);",
-    "recovered_20b9fd0()": "recovered_20b9fd0((int)pcVar6)"
+    "recovered_20b9fd0()": "recovered_20b9fd0((int)pcVar6)",
+    "recovered_205a9f0();": "recovered_205a9f0(pcVar6);"
   },
   "20569c0": {
     "undefined4 recovered_20569c0(void)": "undefined4 recovered_20569c0(int in_ECX,uint in_EDX)",
@@ -397,5 +398,37 @@
   "202cf30": {
     "recovered_205d640()": "recovered_205d640(iVar7)",
     "uVar6 = recovered_205d640(iVar7);": "uVar6 = recovered_205d640(*(int *)(local_7e10 + uVar5 * 504 + 496));"
+  },
+  "205a9f0": {
+    "void recovered_205a9f0(void)": "void recovered_205a9f0(void *in_ECX)",
+    "  void *in_ECX;\n": ""
+  },
+  "203c1c0": {
+    "recovered_205a9f0();": "recovered_205a9f0(pcVar1);"
+  },
+  "2058fe0": {
+    "recovered_205a9f0();": "recovered_205a9f0(pcVar5);"
+  },
+  "205a930": {
+    "recovered_205a9f0();": "recovered_205a9f0(pcVar2);"
+  },
+  "20ba160": {
+    "recovered_205a9f0();": "recovered_205a9f0(extraout_ECX);"
+  },
+  "20ba3c0": {
+    "recovered_205a9f0();": "recovered_205a9f0(incoming_ecx);"
+  },
+  "2029940": {
+    "undefined4 * recovered_2029940(void)": "undefined4 * recovered_2029940(uint in_ECX)",
+    "  uint in_ECX;\n": ""
+  },
+  "2029930": {
+    "puVar1 = recovered_2029940();": "puVar1 = recovered_2029940(param_1);"
+  },
+  "2029b10": {
+    "puVar3 = recovered_2029940();": "puVar3 = recovered_2029940(param_2);"
+  },
+  "203da80": {
+    "out = recovered_2029940();": "out = recovered_2029940(count);"
   }
 }

@@ -1,5 +1,7 @@
-/* Reviewed instruction-equivalent C. Pooka's Free Software License. */
+/* Recovered implementation; Pooka's Free Software License. */
 #include "functions.h"
+
+
 
 int recovered_2019320(char *left,char *right,ulong size)
 

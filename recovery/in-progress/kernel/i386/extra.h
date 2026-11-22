@@ -58,3 +58,38 @@ static inline uint64_t rdtsc(void){uint32_t low,high;__asm__ volatile("rdtsc":"=
 static inline uint64_t xinuse(uint32_t selector){uint32_t low,high;__asm__ volatile("xgetbv":"=a"(low),"=d"(high):"c"(selector));return((uint64_t)high<<32)|low;}
 
 #include "workspace.h"
+#define pf_varargs_2003aa0__4_ recovered_20044f0
+#define pf_varargs_2003aa0__4__4_ recovered_20044f0
+#define pf_varargs_2003aa0__4__4__4_ recovered_20044f0
+#define pf_varargs_2003aa0__4__4__4__4_ recovered_20044f0
+#define pf_varargs_2003aa0__4__4__4__4__4_ recovered_20044f0
+#define pf_varargs_2003aa0__4__4__4__4__4__4_ recovered_20044f0
+#define pf_varargs_2003aa0__4__4__4__4__4__4__4_ recovered_20044f0
+#define pf_varargs_2003aa0__4__4__4__4__4__4__4__4__4_ recovered_20044f0
+#define pf_varargs_2003aa0__4__4__4__4__4__4__4__4__4__4_ recovered_20044f0
+#define pf_varargs_2003aa0__4__4__4__4__4__4__4__4__4__4__4_ recovered_20044f0
+#define pf_varargs_2003aa0__4__4__4__8__4__4__4__4_ recovered_20044f0
+#define pf_varargs_2003aa0__8_ recovered_20044f0
+#define pf_varargs_2003aa0__8__8__8__4__4__4_ recovered_20044f0
+#define pf_varargs_2003aa0___ recovered_20044f0
+#define pf_varargs_202ebf0__4_ recovered_202ce90
+#define pf_varargs_202ebf0__4__4_ recovered_202ce90
+#define pf_varargs_202ebf0__4__4__4_ recovered_202ce90
+#define pf_varargs_202ebf0__4__4__4__4_ recovered_202ce90
+#define pf_varargs_202ebf0__4__4__4__4__4_ recovered_202ce90
+#define pf_varargs_202ebf0__4__4__4__4__4__4_ recovered_202ce90
+#define pf_varargs_202ebf0__4__4__4__4__4__4__4__4__4__4_ recovered_202ce90
+#define pf_varargs_202ebf0__4__4__4__4__4__4__4__4__4__4__4_ recovered_202ce90
+#define pf_varargs_204ff60__4_ recovered_207a2e0
+#define pf_varargs_204ff60__4__4_ recovered_207a2e0
+#define pf_varargs_204ff60__4__4__4_ recovered_207a2e0
+#define pf_varargs_204ff60___ recovered_207a2e0
+#define pf_varargs_202ecc0__4_ recovered_202ecc0
+#define pf_varargs_202ecc0__4__4_ recovered_202ecc0
+#define pf_varargs_202ecc0__4__4__4_ recovered_202ecc0
+#define pf_varargs_202ecc0__4__4__4__4_ recovered_202ecc0
+#define pf_varargs_202ecc0__4__4__4__4__4_ recovered_202ecc0
+#define pf_varargs_202ecc0__4__4__4__4__4__4__4_ recovered_202ecc0
+#define pf_varargs_202ecc0__4__4__4__4__4__4__4__4_ recovered_202ecc0
+#define pf_varargs_202ecc0__4__4__4__4__4__4__4__4__4_ recovered_202ecc0
+#define pf_varargs_202ecc0__4__4__4__4__4__4__4__4__4__4_ recovered_202ecc0

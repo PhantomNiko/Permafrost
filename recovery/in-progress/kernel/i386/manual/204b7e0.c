@@ -1,6 +1,7 @@
-/* Scalar equivalent of the native SIMD and tail pixel conversions.
- * Pooka's Free Software License. */
+/* Recovered implementation; Pooka's Free Software License. */
 #include "functions.h"
+
+
 void recovered_204b7e0(uint32_t *surface,uint32_t *framebuffer,int pitch){
  uint32_t width=surface[0],height=surface[1];
  uint8_t *source=(uint8_t *)(uintptr_t)surface[2];
