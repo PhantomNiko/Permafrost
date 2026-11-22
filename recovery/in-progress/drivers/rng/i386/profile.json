@@ -1,0 +1,69 @@
+{
+  "module": "KextRNG",
+  "architecture": "i386",
+  "version": "1.0",
+  "install_name": "/Drivers/rng~virtio~pci.kext",
+  "functions": {
+    "0xb40": "recovered_10000b40",
+    "0xb50": "recovered_10000b50",
+    "0x1520": "recovered_10001520",
+    "0x2d80": "recovered_10002d80",
+    "0x2ed0": "recovered_10002ed0",
+    "0x2f40": "recovered_10002f40",
+    "0x3070": "recovered_10003070",
+    "0x3280": "recovered_10003280",
+    "0x83f0": "recovered_100083f0",
+    "0x85c0": "recovered_100085c0",
+    "0x8c80": "recovered_10008c80",
+    "0x9350": "recovered_10009350",
+    "0x9480": "recovered_10009480",
+    "0x94e0": "recovered_100094e0",
+    "0x9530": "recovered_10009530",
+    "0x9590": "recovered_10009590",
+    "0x95e0": "recovered_100095e0",
+    "0x9680": "recovered_10009680"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 2880,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 2896,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 2348,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 380
+      },
+      "tag": 0
+    },
+    {
+      "offset": 2352,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 463
+      },
+      "tag": 0
+    },
+    {
+      "offset": 2356,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 467
+      },
+      "tag": 0
+    }
+  ]
+}

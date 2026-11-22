@@ -1,0 +1,89 @@
+{
+  "module": "KextRNG",
+  "architecture": "arm64",
+  "version": "1.0",
+  "install_name": "/Drivers/rng~virtio~pci.kext",
+  "functions": {
+    "0x478": "recovered_10000478",
+    "0x484": "recovered_10000484",
+    "0x6c4": "recovered_100006c4",
+    "0x6d4": "recovered_100006d4",
+    "0x1630": "recovered_10001630",
+    "0x1680": "recovered_10001680",
+    "0x16d0": "recovered_100016d0",
+    "0x1774": "recovered_10001774",
+    "0x1790": "recovered_10001790",
+    "0x17d0": "recovered_100017d0",
+    "0x1824": "recovered_10001824",
+    "0x189c": "recovered_1000189c",
+    "0x19e8": "recovered_100019e8",
+    "0x1a34": "recovered_10001a34",
+    "0x1cdc": "recovered_10001cdc",
+    "0x1d24": "recovered_10001d24",
+    "0x1f5c": "recovered_10001f5c",
+    "0x20f8": "recovered_100020f8",
+    "0x2110": "recovered_10002110",
+    "0x2174": "recovered_10002174",
+    "0x22ac": "recovered_100022ac",
+    "0x22c4": "recovered_100022c4",
+    "0x22dc": "recovered_100022dc",
+    "0x22f0": "recovered_100022f0",
+    "0x2308": "recovered_10002308",
+    "0x2338": "recovered_10002338",
+    "0x2350": "recovered_10002350",
+    "0x2364": "recovered_10002364",
+    "0x23cc": "recovered_100023cc",
+    "0x2434": "recovered_10002434",
+    "0x2494": "recovered_10002494",
+    "0x2548": "recovered_10002548",
+    "0x2584": "recovered_10002584",
+    "0x25c0": "recovered_100025c0",
+    "0x25fc": "recovered_100025fc",
+    "0x264c": "recovered_1000264c",
+    "0x2680": "recovered_10002680",
+    "0x26a4": "recovered_100026a4"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 1144,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 1156,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 5712,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 36
+      },
+      "tag": 0
+    },
+    {
+      "offset": 5720,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 119
+      },
+      "tag": 0
+    },
+    {
+      "offset": 5728,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 123
+      },
+      "tag": 0
+    }
+  ]
+}
