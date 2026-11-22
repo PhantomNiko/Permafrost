@@ -453,3 +453,9 @@ precision and string arguments when constructing child paths; merged register
 pairs previously shifted a pointer into the value 1. A separate fill corpus
 checks 2,113 alignment, length, value, boundary, and null-zero cases per CPU for
 the C memory-fill routine's aligned word stores.
+
+Process-info serialization now preserves unsigned whitespace comparisons in the
+ARM32, i386, and x64 argument counters. The previous C promotions scanned beyond
+the command terminator and reported thousands of arguments. Six native process,
+command, quoting, argument-count, and complete-record comparisons pass on every
+architecture, including the unaffected ARM64 path.

@@ -104,5 +104,8 @@
   },
   "404381c4": {
     "      recovered_40404a88(&local_20d,0xf1,pcVar14,CONCAT44(in_stack_fffffdc4,puVar13),\n                         CONCAT44(param_4,in_stack_fffffdcc),(char *)param_3);": "      /* These are 32-bit variadic arguments, not reconstructed register pairs. */\n      if (local_115[0] == '\\0') {\n        recovered_40404a88(&local_20d,0xf1,\"%.*s\",(int)(uintptr_t)puVar12,(char *)local_11c);\n      } else {\n        recovered_40404a88(&local_20d,0xf1,\"%s/%.*s\",(char *)local_115,\n                         (int)(uintptr_t)puVar12,(char *)local_11c);\n      }"
+  },
+  "4043c17c": {
+    "*pbVar15 - 9 < 5": "(uint)*pbVar15 - 9 < 5"
   }
 }

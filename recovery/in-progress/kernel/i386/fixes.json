@@ -62,5 +62,8 @@
   },
   "202ed80": {
     "recovered_205e700()": "recovered_205e700((int)DAT_020d9d5c)"
+  },
+  "202d430": {
+    "*pbVar10 - 9 < 5": "(uint)*pbVar10 - 9 < 5"
   }
 }
