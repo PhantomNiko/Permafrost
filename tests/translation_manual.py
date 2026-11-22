@@ -30,9 +30,19 @@ unsigned int recovered_1000(unsigned int value)
 #include "functions.h"
 unsigned int recovered_2000(unsigned int value) { return value + 1; }
 ''')
+        # A reviewed replacement must supersede an untranslatable export.
+        (notes / '2000.c').write_text('''
+unsigned int recovered_2000(unsigned int value)
+{
+  if (hasExclusiveAccess(0x2000)) return value;
+  return 0;
+}
+''')
+        (notes / '2000.tsv').write_text('')
         layout = root / 'layout.json'
         layout.write_text(json.dumps({'translation': {
             'pointer_bytes': 8,
+            'atomic_views': True,
             'declarations': ['#define thunk_FUN_2010 recovered_2000',
                              '#define pf_varargs_6000 recovered_2000'],
         }}))

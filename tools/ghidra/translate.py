@@ -550,6 +550,8 @@ def main():
         header.append(declaration + ';')
     (args.out / 'functions.h').write_text('\n'.join(header) + '\n')
     for address, source in sources.items():
+        if address in manual:
+            continue
         if current.get('float_slot_views'):
             # Merged variant storage can have a float declaration while its
             # integer and pointer branches access the same four raw bytes.
