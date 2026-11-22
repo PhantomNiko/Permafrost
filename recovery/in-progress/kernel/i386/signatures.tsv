@@ -891,3 +891,9 @@
 202dae0	bool recovered_202dae0(byte *param_1,char *param_2,uint param_3);	stack4,stack8,stack12
 2033040	uint recovered_2033040(byte * in_ECX,byte *in_ECX_00,char *in_EDX,uint param_3);	ECX,stack4,stack8,stack12
 20727b0	undefined4 recovered_20727b0(uint * in_ECX,uint *in_ECX_00,char *in_EDX,uint param_3,char *param_4,uint param_5);	ECX,stack4,stack8,stack12,stack16,stack20
+204d6c0	unsigned int recovered_204d6c0(unsigned int count,unsigned int *cluster);	ECX,EDX
+204d8e0	unsigned int recovered_204d8e0(unsigned int cluster,void *data,unsigned int size,unsigned int count);	ECX,EDX,stack4,stack8
+204dbc0	void recovered_204dbc0(unsigned int cluster);	ECX
+2050860	void recovered_2050860(unsigned int cluster,unsigned int value);	ECX,EDX
+20519d0	unsigned int recovered_20519d0(unsigned int cluster);	ECX
+2051b70	unsigned int recovered_2051b70(int *nodes,unsigned int *count,unsigned int *capacity,unsigned int parent,char *name,char *path,unsigned int index,unsigned int directory,unsigned int flags,unsigned int *output);	ECX,EDX,stack4,stack8,stack12,stack16,stack20,stack24,stack28,stack32

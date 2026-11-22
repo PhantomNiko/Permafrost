@@ -498,3 +498,30 @@ sector reads, and lazy file bytes on all four architectures. Damaged signatures
 and mismatched filesystem types are rejected. The BIOS diagnostic now mounts the
 user-data volume and reaches its application startup attempts; application and
 Tayga compatibility remain incomplete.
+
+
+The i386 Tayga application now preserves unsigned whitespace bounds when parsing
+empty configuration values. All four application parsers pass 52 native cases,
+including the reference configuration with empty password and username values.
+Recovered i386 shell and kernel boundaries also preserve the public launch ABI,
+private task-release pointer, and requested program-allocation size. Nineteen
+native regression suites cover the resulting path, loader, allocator, bundle,
+queue, process, and scheduler behavior.
+
+The i386 FAT mutation helpers now preserve cluster, buffer, length, count, and
+output-index arguments. Forty-two native FAT12/16/32 chain comparisons cover
+allocation, release, sector payloads, read-only media, and write failures. Full
+FAT32 create, overwrite, nested growth, and empty-file operations produce matching
+disk contents on all four architectures. The BIOS diagnostic now compiles and
+runs the source compiler probe, executes the C and C++ SDK samples with constructor
+initialization, and completes the 26-byte file round trip. These diagnostic
+results do not yet establish parity for complete source-built release images.
+
+VirtIO RNG drivers now have independent C source checkpoints for all four
+architectures. Each checkpoint rebuild passes 16 native descriptor, API,
+initialization, PCI-device, multifunction, and registration comparisons.
+
+Embedded Mach distributions are outside the requested reverse engineering scope.
+Any retained distribution must keep its applicable third-party license materials.
+This exception does not waive source recovery or VM compatibility for Permafrost
+components outside that distribution.
