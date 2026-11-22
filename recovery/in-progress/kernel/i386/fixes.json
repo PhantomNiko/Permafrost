@@ -148,7 +148,8 @@
   },
   "205db60": {
     "abStack_231[iVar9 + 1] - 9 < 5": "(uint)(abStack_231[iVar9 + 1]) - 9 < 5",
-    "abStack_231[uVar6] - 9 < 5": "(uint)(abStack_231[uVar6]) - 9 < 5"
+    "abStack_231[uVar6] - 9 < 5": "(uint)(abStack_231[uVar6]) - 9 < 5",
+    "4 < bVar2 - 9": "4 < (uint)(bVar2) - 9"
   },
   "2062c20": {
     "param_2[iVar8] - 9 < 5": "(uint)(param_2[iVar8]) - 9 < 5",
@@ -209,5 +210,24 @@
   "2039a70": {
     "uint recovered_2039a70(void)": "uint recovered_2039a70(uint in_ECX)",
     "  uint in_ECX;\n": ""
+  },
+  "20569c0": {
+    "undefined4 recovered_20569c0(void)": "undefined4 recovered_20569c0(int in_ECX,uint in_EDX)",
+    "  int in_ECX;\n": "",
+    "  uint in_EDX;\n": ""
+  },
+  "20562d0": {
+    "recovered_20569c0();": "recovered_20569c0((int)incoming_ecx,incoming_edx);"
+  },
+  "20537a0": {
+    "undefined4 recovered_20537a0(void)": "undefined4 recovered_20537a0(char *in_ECX,int in_EDX)",
+    "  char *in_ECX;\n": "",
+    "  int in_EDX;\n": ""
+  },
+  "20581b0": {
+    "recovered_20537a0();": "recovered_20537a0(local_121,param_8 + iVar6);"
+  },
+  "2052ff0": {
+    "recovered_20537a0();": "recovered_20537a0((char *)local_457+0x1e2,(int)pvVar12 + uVar14);"
   }
 }

@@ -880,3 +880,4 @@
 2031e50	void recovered_2031e50(unsigned long long *param_1);	RDI
 206d710	unsigned char recovered_206d710(void **nodes,unsigned long *count);
 206e1c0	unsigned char recovered_206e1c0(void **nodes,unsigned long *count,unsigned long *capacity,unsigned int parent,const char *name,const char *path,unsigned long file_index,unsigned int directory,unsigned int flags,unsigned int *out_index);
+2046aa0	unsigned long recovered_2046aa0(char *command,char *output,unsigned int capacity);

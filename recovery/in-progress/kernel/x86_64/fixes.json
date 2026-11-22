@@ -20,7 +20,9 @@
   },
   "207c660": {
     "_auStack_277": "PF_PART8(auStack_277,0)",
-    "bVar1 - 9 < 5": "(uint)(bVar1) - 9 < 5"
+    "bVar1 - 9 < 5": "(uint)(bVar1) - 9 < 5",
+    "recovered_2046aa0(CONCAT71(PF_PART8(auStack_277,0),abStack_279[1]),in_XMM1_Qa,in_XMM2_Qa,\n                                      in_XMM3_Qa,in_XMM4_Qa,in_XMM5_Qa,in_XMM6_Qa,in_XMM7_Qa,text,\n                                      acStack_bf8 + 0x80,0x800,uVar7,in_R8,in_R9)": "recovered_2046aa0(text,acStack_bf8 + 0x80,0x800)",
+    "4 < bVar1 - 9": "4 < (uint)(bVar1) - 9"
   },
   "207bcd0": {
     "undefined1 auVar50 [12];": "pf_u96 auVar50;",
@@ -298,28 +300,37 @@
     "abStack_379[uVar7] - 9 < 5": "(uint)(abStack_379[uVar7]) - 9 < 5",
     "abStack_179[lVar15 + 1] - 9 < 5": "(uint)(abStack_179[lVar15 + 1]) - 9 < 5",
     "abStack_179[uVar7] - 9 < 5": "(uint)(abStack_179[uVar7]) - 9 < 5",
-    "*pbVar8 - 9 < 5": "(uint)(*pbVar8) - 9 < 5"
+    "*pbVar8 - 9 < 5": "(uint)(*pbVar8) - 9 < 5",
+    "recovered_2046aa0(extraout_XMM0_Qa_02,param_2,param_3,param_4,param_5,\n                                          param_6,param_7,param_8,pbVar8,param_10,param_11,\n                                          (ulong)(bVar21 - 9),param_13,param_14)": "recovered_2046aa0(pbVar8,param_10,param_11)",
+    "4 < bVar21 - 9": "4 < (uint)(bVar21) - 9"
   },
   "2048950": {
-    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5",
+    "4 < *pbVar2 - 9": "4 < (uint)(*pbVar2) - 9"
   },
   "2048c10": {
-    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5",
+    "4 < *pbVar5 - 9": "4 < (uint)(*pbVar5) - 9"
   },
   "2049220": {
-    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5",
+    "4 < *pbVar3 - 9": "4 < (uint)(*pbVar3) - 9"
   },
   "2049db0": {
-    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5",
+    "4 < *pbVar5 - 9": "4 < (uint)(*pbVar5) - 9"
   },
   "204a8d0": {
-    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5",
+    "4 < *pbVar2 - 9": "4 < (uint)(*pbVar2) - 9"
   },
   "204adb0": {
-    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5",
+    "4 < *pbVar4 - 9": "4 < (uint)(*pbVar4) - 9"
   },
   "204b170": {
-    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5",
+    "4 < *pbVar3 - 9": "4 < (uint)(*pbVar3) - 9"
   },
   "204b5a0": {
     "bVar8 - 9 < 5": "(uint)(bVar8) - 9 < 5",
@@ -330,36 +341,46 @@
     "abStack_269[lVar5 + 1] - 9 < 5": "(uint)(abStack_269[lVar5 + 1]) - 9 < 5",
     "abStack_269[uVar8] - 9 < 5": "(uint)(abStack_269[uVar8]) - 9 < 5",
     "*pbVar17 - 9 < 5": "(uint)(*pbVar17) - 9 < 5",
-    "*pbVar20 - 9 < 5": "(uint)(*pbVar20) - 9 < 5"
+    "*pbVar20 - 9 < 5": "(uint)(*pbVar20) - 9 < 5",
+    "4 < *pbVar17 - 9": "4 < (uint)(*pbVar17) - 9"
   },
   "204d1e0": {
     "bVar11 - 9 < 5": "(uint)(bVar11) - 9 < 5",
     "*pbVar14 - 9 < 5": "(uint)(*pbVar14) - 9 < 5"
   },
   "204da10": {
-    "*pbVar5 - 9 < 5": "(uint)(*pbVar5) - 9 < 5"
+    "*pbVar5 - 9 < 5": "(uint)(*pbVar5) - 9 < 5",
+    "4 < *pbVar5 - 9": "4 < (uint)(*pbVar5) - 9"
   },
   "204e290": {
-    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5",
+    "4 < *pbVar5 - 9": "4 < (uint)(*pbVar5) - 9"
   },
   "204ea30": {
-    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5",
+    "4 < *pbVar3 - 9": "4 < (uint)(*pbVar3) - 9"
   },
   "204f000": {
-    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5",
+    "4 < *pbVar5 - 9": "4 < (uint)(*pbVar5) - 9"
   },
   "204f730": {
-    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5",
+    "4 < *pbVar3 - 9": "4 < (uint)(*pbVar3) - 9"
   },
   "2050070": {
     "bVar11 - 9 < 5": "(uint)(bVar11) - 9 < 5",
     "bVar5 - 9 < 5": "(uint)(bVar5) - 9 < 5"
   },
   "2050660": {
-    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5",
+    "recovered_2046aa0(extraout_XMM0_Qa,in_XMM1_Qa,in_XMM2_Qa,in_XMM3_Qa,in_XMM4_Qa,\n                                in_XMM5_Qa,in_XMM6_Qa,in_XMM7_Qa,local_338,acStack_bb8 + 0x80,0x800,\n                                (ulong)bVar9,in_R8,in_R9)": "recovered_2046aa0(local_338,acStack_bb8 + 0x80,0x800)",
+    "4 < *pbVar2 - 9": "4 < (uint)(*pbVar2) - 9",
+    "4 < bVar9 - 9": "4 < (uint)(bVar9) - 9"
   },
   "2050d10": {
-    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5",
+    "4 < *pbVar3 - 9": "4 < (uint)(*pbVar3) - 9"
   },
   "2051420": {
     "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
@@ -371,7 +392,10 @@
     "abStack_379[uVar13] - 9 < 5": "(uint)(abStack_379[uVar13]) - 9 < 5",
     "abStack_179[lVar15 + 1] - 9 < 5": "(uint)(abStack_179[lVar15 + 1]) - 9 < 5",
     "abStack_179[uVar13] - 9 < 5": "(uint)(abStack_179[uVar13]) - 9 < 5",
-    "*pbVar7 - 9 < 5": "(uint)(*pbVar7) - 9 < 5"
+    "*pbVar7 - 9 < 5": "(uint)(*pbVar7) - 9 < 5",
+    "recovered_2046aa0(extraout_XMM0_Qa_02,in_XMM1_Qa,in_XMM2_Qa,in_XMM3_Qa,\n                                           in_XMM4_Qa,in_XMM5_Qa,in_XMM6_Qa,in_XMM7_Qa,pbVar7,\n                                           param_2,param_3,(ulong)(bVar21 - 9),in_R8,in_R9)": "recovered_2046aa0(pbVar7,param_2,param_3)",
+    "recovered_2046aa0(in_XMM0_Qa,in_XMM1_Qa,in_XMM2_Qa,in_XMM3_Qa,in_XMM4_Qa,in_XMM5_Qa,\n                               in_XMM6_Qa,in_XMM7_Qa,param_1,&DAT_022819d0,0x2000,\n                               CONCAT71((int7)((ulong)in_RCX >> 8),\n                                        param_3 == 0 || param_2 == (char *)0x0),in_R8,in_R9)": "recovered_2046aa0(param_1,&DAT_022819d0,0x2000)",
+    "4 < bVar21 - 9": "4 < (uint)(bVar21) - 9"
   },
   "2063450": {
     "bVar7 - 9 < 5": "(uint)(bVar7) - 9 < 5",
@@ -415,7 +439,9 @@
     "abStack_289[lVar10 + 1] - 9 < 5": "(uint)(abStack_289[lVar10 + 1]) - 9 < 5",
     "abStack_289[uVar5] - 9 < 5": "(uint)(abStack_289[uVar5]) - 9 < 5",
     "abStack_289[2] - 9 < 5": "(uint)(abStack_289[2]) - 9 < 5",
-    "bVar18 - 9 < 5": "(uint)(bVar18) - 9 < 5"
+    "bVar18 - 9 < 5": "(uint)(bVar18) - 9 < 5",
+    "recovered_2046aa0(uVar7,in_XMM1_Qa,in_XMM2_Qa,in_XMM3_Qa,in_XMM4_Qa,in_XMM5_Qa,\n                               in_XMM6_Qa,in_XMM7_Qa,abStack_289 + 1,&local_b88,0x800,(ulong)bVar18,\n                               pbVar9,(char *)pbVar8)": "recovered_2046aa0(abStack_289 + 1,&local_b88,0x800)",
+    "recovered_2046aa0(extraout_XMM0_Qa_03,in_XMM1_Qa,in_XMM2_Qa,in_XMM3_Qa,in_XMM4_Qa,\n                               in_XMM5_Qa,in_XMM6_Qa,in_XMM7_Qa,abStack_d85 + -3,&local_b88,0x800,\n                               pbVar17,pbVar9,(char *)pbVar8)": "recovered_2046aa0(abStack_d85 + -3,&local_b88,0x800)"
   },
   "2094b80": {
     "abStack_459[lVar12 + 1] - 9 < 5": "(uint)(abStack_459[lVar12 + 1]) - 9 < 5",
@@ -425,5 +451,9 @@
   },
   "2095610": {
     "*pbVar10 - 9 < 5": "(uint)(*pbVar10) - 9 < 5"
+  },
+  "205f250": {
+    "recovered_2046aa0(CONCAT44(uVar4,uVar3),in_XMM1_Qa,in_XMM2_Qa,in_XMM3_Qa,in_XMM4_Qa,\n                          in_XMM5_Qa,in_XMM6_Qa,in_XMM7_Qa,(byte *)&local_238,&DAT_022819d0,0x2000,\n                          puVar23,(byte *)ppppppppppppuVar22,(char *)in_R9)": "recovered_2046aa0((byte *)&local_238,&DAT_022819d0,0x2000)",
+    "recovered_2046aa0(CONCAT44(extraout_XMM0_Db_01,extraout_XMM0_Da_01),in_XMM1_Qa,in_XMM2_Qa,\n                            in_XMM3_Qa,in_XMM4_Qa,in_XMM5_Qa,in_XMM6_Qa,in_XMM7_Qa,\n                            (byte *)&local_238,&DAT_022819d0,0x2000,puVar23,\n                            (byte *)ppppppppppppuVar22,(char *)in_R9)": "recovered_2046aa0((byte *)&local_238,&DAT_022819d0,0x2000)"
   }
 }

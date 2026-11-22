@@ -482,3 +482,19 @@ argument, including seven callers that previously discarded it. An idle or busy
 scheduler matches eight native budget/lock cases. The missing argument had left
 an uninitialized C local and allowed an invalid fall-through in generated code.
 The x86 VM command probes are still under verification.
+
+
+The public x64 Tayga command entry now exposes its native three arguments;
+spurious vector-register parameters had shifted SDK calls into unrelated stack
+slots. Twenty-four native inactive-subsystem/buffer-boundary comparisons pass.
+The x64 VM now accepts directory and compiler commands, but executable lookup
+and compiler output remain unresolved. Reversed unsigned whitespace tests are
+also preserved, preventing option parsing from advancing past a terminator.
+
+The i386 FAT loader now receives the device record and requested format, and
+long-filename fragment handling receives both its destination and directory
+entry. A synthetic FAT32 device matches native mounting, nested names, geometry,
+sector reads, and lazy file bytes on all four architectures. Damaged signatures
+and mismatched filesystem types are rejected. The BIOS diagnostic now mounts the
+user-data volume and reaches its application startup attempts; application and
+Tayga compatibility remain incomplete.

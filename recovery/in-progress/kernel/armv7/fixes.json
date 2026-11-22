@@ -149,7 +149,8 @@
     "pbVar15[-iVar5] - 9 < 5": "(uint)(pbVar15[-iVar5]) - 9 < 5",
     "abStack_421[uVar7] - 9 < 5": "(uint)(abStack_421[uVar7]) - 9 < 5",
     "*pbVar8 - 9 < 5": "(uint)(*pbVar8) - 9 < 5",
-    "pbVar15[-(int)pbVar8] - 9 < 5": "(uint)(pbVar15[-(int)pbVar8]) - 9 < 5"
+    "pbVar15[-(int)pbVar8] - 9 < 5": "(uint)(pbVar15[-(int)pbVar8]) - 9 < 5",
+    "4 < *pbVar8 - 9": "4 < (uint)(*pbVar8) - 9"
   },
   "40445218": {
     "*pbVar11 - 9 < 5": "(uint)(*pbVar11) - 9 < 5"
