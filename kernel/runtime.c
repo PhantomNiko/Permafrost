@@ -3,6 +3,7 @@
  * The null-tolerant strlen behavior is deliberate and matches the reference.
  */
 #include <stddef.h>
+#include <stdint.h>
 
 void *pf_memcpy(void *destination, const void *source, size_t count) {
     unsigned char *out = destination;
@@ -24,7 +25,18 @@ void *pf_memmove(void *destination, const void *source, size_t count) {
 
 void *pf_memset(void *destination, int value, size_t count) {
     unsigned char *out = destination;
-    for (size_t i = 0; i < count; ++i) out[i] = (unsigned char)value;
+    unsigned char byte = (unsigned char)value;
+    while (count && ((uintptr_t)out & (sizeof(uintptr_t) - 1))) {
+        *out++ = byte;
+        --count;
+    }
+    uintptr_t repeated = ((uintptr_t)-1 / 255) * byte;
+    while (count >= sizeof(uintptr_t)) {
+        *(uintptr_t *)out = repeated;
+        out += sizeof(uintptr_t);
+        count -= sizeof(uintptr_t);
+    }
+    while (count--) *out++ = byte;
     return destination;
 }
 

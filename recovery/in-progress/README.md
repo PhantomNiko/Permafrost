@@ -446,3 +446,10 @@ its original table address without the allocator overwriting it. In an ARM64 VM,
 the source Snowflake compiler reads a C program, writes its executable to the
 user-data volume, and runs it with the expected formatted output. The diagnostic
 still contains other reference components and is not a release image.
+
+The mounted-directory corpus now compares 32 path, capacity, synthesized-parent,
+name, and metadata cases per CPU. ARM32 preserves the 32-bit width of variadic
+precision and string arguments when constructing child paths; merged register
+pairs previously shifted a pointer into the value 1. A separate fill corpus
+checks 2,113 alignment, length, value, boundary, and null-zero cases per CPU for
+the C memory-fill routine's aligned word stores.
