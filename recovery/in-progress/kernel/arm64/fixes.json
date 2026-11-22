@@ -1320,7 +1320,8 @@
     "fVar91 = (float)((int)fVar91 + 1);": "fVar91 = pf_bits_float(pf_float_bits(fVar91) + 1U);",
     "if (fVar91 == (float)uStack_350)": "if (pf_float_bits(fVar91) == (uint32_t)(uintptr_t)uStack_350)",
     "recovered_824643f8(*(int *)(pcVar49 + 0x10));\n              recovered_824234a4(str_8247e7df);": "recovered_824234a4(str_8247e7df,*(int *)(pcVar49 - 0x48),(uint)(byte)pcVar49[-0x44],recovered_824643f8(*(int *)(pcVar49 + 0x10)),(char *)&uStack_c68,acStack_e68);",
-    "bVar16 != pcVar49[-0x44]": "bVar16 != (uint8_t)pcVar49[-0x44]"
+    "bVar16 != pcVar49[-0x44]": "bVar16 != (uint8_t)pcVar49[-0x44]",
+    "  out->auxiliary = (void *)0x0;\n  ppVar54 = out;": "  out->auxiliary = (void *)0x0;\n  if (recovered_8244ccd4((uchar *)name,(uchar *)\"installer\")) return (uchar)recovered_8245de88((long)context,name,(long)values,count,(ulonglong *)out);\n  ppVar54 = out;"
   },
   "8240fe38": {},
   "8241c4f8": {},

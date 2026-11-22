@@ -10,7 +10,7 @@ from native import inspect
 from unicorn import Uc,UC_ARCH_ARM64,UC_MODE_ARM,UC_HOOK_CODE
 from unicorn.arm64_const import *
 
-def run(binary,mapping=None,entry=0x8245de88):
+def run(binary,mapping=None,entry=0x8245de88,valid=True):
  metadata,memory=inspect(binary);cpu=Uc(UC_ARCH_ARM64,UC_MODE_ARM)
  cpu.mem_map(0,0x5000000);cpu.mem_map(0x82000000,0x8000000);cpu.mem_write(metadata['base'],memory)
  def address(native):return native if mapping is None else mapping.get('_recovered_%x'%native,mapping.get('recovered_%x'%native))
@@ -18,6 +18,7 @@ def run(binary,mapping=None,entry=0x8245de88):
  def string(pointer):return bytes(cpu.mem_read(pointer,512)).split(b'\0')[0].decode()
  def argument(c,a,z,u):
   assert c.reg_read(UC_ARM64_REG_X4)==0
+  if not valid:finish(0);return
   c.mem_write(c.reg_read(UC_ARM64_REG_X5),struct.pack('<Q',0x3100000));finish()
  def skip(c,a,z,u):finish()
  rows=[]
@@ -33,15 +34,17 @@ def run(binary,mapping=None,entry=0x8245de88):
   struct.pack_into('<I',records,i*104,7+i);records[i*104+4]=drive;struct.pack_into('<I',records,i*104+12,1048576*(i+1))
  records[2*104+72:2*104+76]=b'WORK'
  cpu.mem_write(0x82558008,bytes(records));cpu.mem_write(0x8266ed28,struct.pack('<Q',3))
+ cpu.mem_write(0x3103000,b'\x5a'*64)
  cpu.reg_write(UC_ARM64_REG_SP,0x4fe0000);cpu.reg_write(UC_ARM64_REG_X30,0x4ff0000)
  for reg,value in zip([UC_ARM64_REG_X0,UC_ARM64_REG_X1,UC_ARM64_REG_X2,UC_ARM64_REG_X3,UC_ARM64_REG_X4],[0,0x3101000,0x3102000,1,0x3103000]):cpu.reg_write(reg,value)
  cpu.emu_start(address(entry),0x4ff0000,count=2000000)
  assert cpu.reg_read(UC_ARM64_REG_PC)==0x4ff0000
- assert [row[:2]for row in rows]==[(8,0x81),(9,0x82)],rows
- return rows
+ assert [row[:2]for row in rows]==([(8,0x81),(9,0x82)]if valid else[]),rows
+ return rows,bytes(cpu.mem_read(0x3103000,64))
 
 if __name__=='__main__':
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('reference',type=Path);p.add_argument('source',type=Path);p.add_argument('--map',type=Path,required=True);a=p.parse_args()
  for entry in [0x8245de88,0x8245378c]:
-  expected=run(a.reference.read_bytes(),entry=entry);actual=run(a.source.read_bytes(),json.loads(a.map.read_text()),entry);assert expected==actual,(expected,actual)
+  for valid in [True,False]:
+   expected=run(a.reference.read_bytes(),entry=entry,valid=valid);actual=run(a.source.read_bytes(),json.loads(a.map.read_text()),entry,valid);assert expected==actual,(expected,actual)
  print('ARM64 installer target list: native IDs, drive numbers, sizes, labels, and partition kinds passed.')
