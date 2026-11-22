@@ -14,6 +14,25 @@ other bits, and the native destructor-registration entry returns success
 without retaining callbacks. The recovered implementation preserves these
 behaviors.
 
-The remaining C runtime and startup objects still need source integration
-before this directory can replace `libtayga.a` in a completed SDK bundle.
-This is a recovery checkpoint, not a separate release target.
+This is a recovery checkpoint. Final SDK integration and VM validation are
+required before it replaces the active release runtime.
+
+The architecture directories now recover the guest C runtime from C source.
+`crt.c` supplies process startup, argument parsing, constructor and finalizer
+ranges, and periodic yields. `compiler.c` and `memory.c` supply freestanding
+compiler support; private headers record the recovered C types. The runtime
+closure excludes Snowflake's compiler functions. Initialized data is expressed
+as C constants and pointer relocations.
+
+`tools/sdk_runtime.py` builds `crt1.o` and `libtayga.a` for each architecture
+without reading reference objects or archives. All public C symbols exported
+by the reference SDK objects are present. `tests/sdk_c_runtime.py` compares
+522 string, memory, and integer-conversion cases per architecture, while
+`tests/sdk_crt_startup.py` compares six startup scenarios per architecture,
+including constructor ordering, reverse finalization, null slots, and yields.
+The startup fixture uses explicit section placement (`-no_data_const`) so the
+linker preserves the two constructor ranges consistently.
+
+These checks establish the covered interfaces. Guest file services, the rest
+of the C runtime, linked C/C++ programs in VMs, and packaging in the final
+macOS SDK remain release gates.

@@ -1,0 +1,1765 @@
+/* Permafrost recovered source; Pooka's Free Software License. */
+#pragma once
+#include "support.h"
+/* Permafrost recovered source; Pooka's Free Software License. */
+#pragma once
+#include "support.h"
+extern unsigned char pf_module_state[];
+/* Permafrost ARM32 recovery intrinsics; Pooka's Free Software License. */
+#pragma once
+#define PF_VECTOR_WORD(address) (*(volatile uint32_t *)(uintptr_t)(address))
+#define Reset PF_VECTOR_WORD(0)
+#define UndefinedInstruction PF_VECTOR_WORD(4)
+#define SupervisorCall PF_VECTOR_WORD(8)
+#define PrefetchAbort PF_VECTOR_WORD(12)
+#define DataAbort PF_VECTOR_WORD(16)
+#define FIQ PF_VECTOR_WORD(28)
+#define IRQ PF_VECTOR_WORD(24)
+static inline void WaitForEvent(void){__asm__ volatile("wfe");}
+static inline void DataMemoryBarrier(uint32_t scope){(void)scope;__asm__ volatile("dmb ish":::"memory");}
+static inline void *software_udf(uint32_t value,uint32_t pc){(void)value;(void)pc;__builtin_trap();}
+#define LZCOUNT(value) ((value)?__builtin_clz((uint32_t)(value)):32)
+static inline int32_t pf_arm_to_signed(double value,uint32_t mode){(void)mode;if(value!=value)return 0;if(value>=2147483647.0)return 2147483647;if(value<=-2147483648.0)return (-2147483647-1);return (int32_t)value;}
+static inline uint32_t pf_arm_to_unsigned(double value,uint32_t mode){(void)mode;if(!(value>0))return 0;if(value>=4294967295.0)return 0xffffffffU;return (uint32_t)value;}
+static inline int32_t pf_arm_bits32_signed(uint32_t value,uint32_t mode){return pf_arm_to_signed(pf_bits_float(value),mode);}
+static inline int32_t pf_arm_bits64_signed(uint64_t value,uint32_t mode){return pf_arm_to_signed(pf_bits_double(value),mode);}
+static inline uint32_t pf_arm_bits32_unsigned(uint32_t value,uint32_t mode){return pf_arm_to_unsigned(pf_bits_float(value),mode);}
+static inline uint32_t pf_arm_bits64_unsigned(uint64_t value,uint32_t mode){return pf_arm_to_unsigned(pf_bits_double(value),mode);}
+#define VectorFloatToSigned(value,mode) _Generic((value),float:pf_arm_to_signed,double:pf_arm_to_signed,uint64_t:pf_arm_bits64_signed,int64_t:pf_arm_bits64_signed,default:pf_arm_bits32_signed)(value,mode)
+#define VectorFloatToUnsigned(value,mode) _Generic((value),float:pf_arm_to_unsigned,double:pf_arm_to_unsigned,uint64_t:pf_arm_bits64_unsigned,int64_t:pf_arm_bits64_unsigned,default:pf_arm_bits32_unsigned)(value,mode)
+#define VectorSignedToFloat(value,mode) ((double)(int32_t)(value))
+#define VectorUnsignedToFloat(value,mode) ((double)(uint32_t)(value))
+static inline int32_t pf_arm_signed_sat(int64_t value,unsigned bits){int64_t high=((int64_t)1<<(bits-1))-1,low=-high-1;return value>high?high:value<low?low:value;}
+static inline uint32_t pf_arm_unsigned_sat(int64_t value,unsigned bits){uint64_t high=((uint64_t)1<<bits)-1;return value<0?0:(uint64_t)value>high?high:value;}
+#define SignedSaturate(value,bits) pf_arm_signed_sat((int64_t)(value),bits)
+#define UnsignedSaturate(value,bits) pf_arm_unsigned_sat((int64_t)(value),bits)
+#define SignedDoesSaturate(value,bits) ((void)0)
+#define UnsignedDoesSaturate(value,bits) ((void)0)
+
+#define pf_arm_signed_to_float_bits(value,mode) pf_float_bits((float)VectorSignedToFloat(value,mode))
+
+#define VectorFloatToSigned(value,mode) _Generic((value),float:pf_arm_to_signed,double:pf_arm_to_signed,uint32_t:pf_arm_bits32_signed,uint64_t:pf_arm_bits64_signed)(value,mode)
+#define VectorSignedToFloat(value,mode) ((double)(int32_t)(value))
+#define VectorUnsignedToFloat(value,mode) ((double)(uint32_t)(value))
+
+extern uint8_t pf_module_state[];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Original analysis identifiers for manual recovery units. */
+#include "word_divide.h"
+#define NotUsed (*(volatile uint32_t *)(uintptr_t)0x14)
+#define ABS(value) __builtin_fabs(value)
+#include "../format.h"
+typedef int pf_compare(const void *,const void *);
+static unsigned pf_snow_atomic_guard;
+static inline void pf_snow_atomic_enter(void){while(__atomic_exchange_n(&pf_snow_atomic_guard,1,__ATOMIC_ACQUIRE)){} }
+static inline void pf_snow_atomic_leave(void){__atomic_store_n(&pf_snow_atomic_guard,0,__ATOMIC_RELEASE);}
+#define pf_varargs_10043634__4_ recovered_10043634
+#define pf_varargs_10043634__4__4_ recovered_10043634
+#define pf_varargs_10043634__4__4__4__4__4__4__4_ recovered_10043634
+#define pf_varargs_10043634___ recovered_10043634
+#ifndef INFINITY
+#define INFINITY (__builtin_huge_valf())
+#endif
+typedef struct pf_snow_value { int kind; int integer; char text[384]; } pf_snow_value;
+extern uint8_t pf_module_state[];
+void recovered_10002850(void);
+void recovered_10002c7c(void);
+int recovered_10002dc8(int argc,char **argv);
+uchar recovered_100031c0(int param_1,char **param_2,void *param_3);
+void recovered_10003b20(void);
+void recovered_10003ba0(void);
+void * recovered_10003be4(char *param_1,ulong *param_2);
+uchar recovered_10003e00(void *param_1,void *param_2);
+void recovered_1000426c(void *param_1);
+void recovered_10004358(void *param_1);
+uchar recovered_100043c0(void *param_1,void *param_2,void *param_3);
+void recovered_10004730(void *param_1);
+uchar recovered_100047b8(char *param_1,uchar *param_2,ulong param_3);
+void recovered_10004964(void *param_1);
+bool recovered_100049f8(char *param_1,char *param_2);
+uchar recovered_10004ab4(char *param_1,char *param_2);
+uchar recovered_10004bb8(void *options,char *name);
+uint recovered_10004ce8(char *param_1);
+uchar recovered_10004d74(char *param_1,void *param_2);
+uchar recovered_10004eec(char *param_1);
+void * recovered_1000507c(char *param_1);
+void recovered_10005514(void *param_1);
+uint recovered_10005588(char *param_1,void *param_2);
+uchar recovered_10005750(void *param_1);
+uchar recovered_100058dc(void *param_1);
+uchar recovered_10006228(void *param_1,char *param_2,int param_3);
+int recovered_100063a0(void *param_1,char *param_2);
+void recovered_100064d0(char *param_1,void *param_2);
+void recovered_1000680c(void *param_1,char *param_2);
+uchar recovered_100068ac(void *param_1,void *param_2);
+void recovered_10006bc8(void *param_1);
+uchar recovered_10007498(void *param_1,void *param_2);
+uchar recovered_100077f4(void *param_1,void *param_2);
+uchar recovered_10007c28(void *param_1,void *param_2);
+void recovered_1000807c(void *param_1);
+bool recovered_100081dc(char param_1);
+bool recovered_10008260(char param_1);
+void recovered_100082e4(char *param_1,ulong param_2,char *param_3,ulong param_4);
+void recovered_100083bc(void *param_1,void *param_2);
+void * recovered_10008450(char *param_1,char *param_2);
+void recovered_10008560(void *param_1);
+int recovered_100087b4(char param_1);
+uint recovered_1000888c(pf_snow_value *param_1);
+pf_snow_value * recovered_10008920(pf_snow_value *__return_storage_ptr__,void *param_2);
+pf_snow_value * recovered_100089f0(pf_snow_value *__return_storage_ptr__,void *param_2);
+bool recovered_10008ac0(void *param_1,char *param_2);
+bool recovered_10008b68(void *param_1,char *param_2);
+bool recovered_10008c1c(pf_snow_value *param_1);
+pf_snow_value * recovered_10008c80(pf_snow_value *__return_storage_ptr__,void *param_2);
+pf_snow_value * recovered_10008d50(pf_snow_value *__return_storage_ptr__,int param_2);
+pf_snow_value * recovered_10008dc0(pf_snow_value *__return_storage_ptr__,void *param_2);
+pf_snow_value * recovered_10008e78(pf_snow_value *__return_storage_ptr__,void *param_2);
+pf_snow_value * recovered_10008f30(pf_snow_value *__return_storage_ptr__,void *param_2);
+pf_snow_value * recovered_10008fe8(pf_snow_value *__return_storage_ptr__,void *param_2);
+pf_snow_value * recovered_10009214(pf_snow_value *__return_storage_ptr__,void *param_2);
+int * recovered_1000945c(pf_snow_value *param_1,char *param_2,ulong param_3);
+pf_snow_value * recovered_10009544(pf_snow_value *__return_storage_ptr__,void *param_2);
+pf_snow_value * recovered_10009668(pf_snow_value *__return_storage_ptr__,void *param_2);
+pf_snow_value * recovered_10009814(pf_snow_value *__return_storage_ptr__,void *param_2);
+pf_snow_value *
+recovered_100099dc(pf_snow_value *__return_storage_ptr__,pf_snow_value *param_2,int param_3);
+pf_snow_value * recovered_10009aa8(pf_snow_value *__return_storage_ptr__,void *param_2);
+uint recovered_10009fb0(void *param_1,char *param_2);
+uint recovered_1000a050(void *param_1,char *param_2);
+void recovered_1000a0d0(void *param_1,char *param_2,int param_3);
+pf_snow_value *
+recovered_1000a1b0(pf_snow_value *__return_storage_ptr__,void *param_2,pf_snow_value param_3);
+uint recovered_1000a420(char *param_1);
+pf_snow_value * recovered_1000a830(pf_snow_value *__return_storage_ptr__,void *param_2);
+pf_snow_value *
+recovered_1000adec(pf_snow_value *__return_storage_ptr__,void *param_2,char *param_3);
+int recovered_1000af60(void *param_1,char *param_2);
+uchar recovered_1000b080(void *param_1,char *param_2,int *param_3);
+void recovered_1000b158(void *param_1,char *param_2,pf_snow_value param_3);
+void recovered_1000b2a8(void *param_1);
+pf_snow_value * recovered_1000b390(pf_snow_value *__return_storage_ptr__,char *param_2);
+uint recovered_1000b468(void *param_1,pf_snow_value *param_2,uint param_3);
+pf_snow_value *
+recovered_1000b5bc(pf_snow_value *__return_storage_ptr__,void *param_2,char *param_3,
+                  pf_snow_value *param_4,uint param_5,bool *param_6);
+int recovered_1000ba20(void *param_1,char *param_2);
+pf_snow_value *
+recovered_1000bb4c(pf_snow_value *__return_storage_ptr__,void *param_2,char *param_3,
+                  pf_snow_value *param_4,uint param_5,bool *param_6);
+uint recovered_1000be20(void *param_1,bool param_2);
+uchar recovered_1000d02c(void *param_1,bool param_2);
+uchar recovered_1000d28c(void *param_1,bool param_2);
+uchar recovered_1000d650(void *param_1,bool param_2);
+void recovered_1000dbb0(void *param_1,bool param_2);
+void recovered_1000de20(void *param_1,bool param_2);
+void recovered_1000e0c8(void *param_1,bool param_2,bool param_3);
+void recovered_1000e3c8(void *param_1,char *param_2,int param_3,int param_4);
+uchar recovered_1000e64c(void *param_1,bool param_2);
+uint recovered_1000e98c(void *param_1,char *param_2,bool param_3);
+void * recovered_1000f238(void *param_1);
+void * recovered_1000f3cc(void *param_1);
+uint recovered_1000f7c4(void *param_1,char *param_2);
+uchar recovered_1000f914(void *param_1,char *param_2,bool param_3);
+void recovered_1000fbd8(void *param_1,void *param_2);
+bool recovered_1000fc70(char *param_1,char **param_2,char **param_3,char **param_4);
+void * recovered_10010084(char *param_1);
+void * recovered_1001023c(char *param_1,char *param_2);
+void recovered_100102bc(char **param_1,char **param_2);
+void recovered_100103ec(void *param_1);
+void recovered_100104c0(void *param_1,char *param_2,int param_3);
+uchar recovered_10010568(void *param_1,char *param_2);
+void recovered_10010694(char *param_1,pf_snow_value *param_2,uint param_3,char *param_4,
+                       ulong param_5);
+void recovered_10010bd0(char *param_1,ulong param_2,char *param_3);
+void recovered_10010c8c(char *param_1,ulong param_2,char param_3);
+void recovered_10010d48(char *param_1,ulong param_2,int param_3,bool param_4,bool param_5);
+uint recovered_10010e7c(char *param_1);
+uchar recovered_10010fd4(void *param_1,char *param_2,char *param_3,char *param_4,char *param_5,
+                        char *param_6);
+void recovered_10011258(char *param_1,void *param_2);
+uchar recovered_100114c8(char *param_1,char *param_2,char *param_3,ulong param_4,uint *param_5,
+                        bool *param_6);
+uint recovered_1001174c(char *param_1);
+uint recovered_10011880(void *param_1,char *param_2,bool param_3,uint param_4,uint param_5,
+                       bool param_6,bool param_7);
+uchar recovered_10011d94(void *param_1,int param_2,int param_3,int param_4);
+uchar recovered_10011fb4(void *param_1);
+void recovered_10015808(char *param_1,ulong param_2,char *param_3);
+uchar recovered_10015978(void *param_1,char *param_2,char *param_3,ulong param_4);
+void recovered_10015b00(void *param_1);
+uint recovered_10015b4c(void *param_1,char *param_2,bool param_3);
+void * recovered_10015bec(void *param_1);
+uchar recovered_10015e5c(void *param_1,char *param_2);
+uchar recovered_10016120(void *param_1,char *param_2,ulong param_3);
+uchar recovered_10016398(void *param_1,char *param_2,char *param_3,bool param_4);
+uchar recovered_100164ec(void *param_1,bool param_2);
+uchar recovered_10016c50(void *param_1,int param_2,uint param_3);
+uchar recovered_10017140(void *param_1,char *param_2,ulong param_3);
+uchar recovered_10017384(void *param_1,char *param_2,char *param_3,ulong param_4);
+uint recovered_100175ec(void *param_1,char *param_2);
+uint recovered_10017744(char *param_1);
+uint recovered_100177fc(void *param_1,char *param_2,char *param_3,uint *param_4,bool *param_5);
+uchar recovered_100180cc(void *param_1,char *param_2);
+void recovered_10018e68(void *param_1);
+void recovered_100190d4(void *param_1);
+void recovered_10019194(void *param_1);
+void recovered_100192e8(void *param_1);
+void recovered_100193a8(void *param_1);
+void recovered_10019468(void *param_1);
+void recovered_10019528(void *param_1);
+void recovered_10019734(void *param_1);
+void recovered_10019910(void *param_1);
+void recovered_10019a30(void *param_1);
+void recovered_10019b50(void *param_1);
+void recovered_10019ce4(void *param_1);
+void recovered_1001a608(void *param_1);
+uint recovered_1001b270(void *param_1,char *param_2);
+void recovered_1001b4a8(void *param_1);
+uchar recovered_1001b5d0(void *param_1,char *param_2);
+uchar recovered_1001b900(char *param_1);
+uchar recovered_1001b9b8(void *param_1,char *param_2);
+bool recovered_1001becc(char *param_1,char *param_2);
+uchar recovered_1001bff0(char *param_1,uint param_2,int *param_3);
+uchar recovered_1001c22c(void *param_1,char *param_2,char *param_3);
+uchar recovered_1001c2f4(void *param_1,char *param_2,char *param_3,ulong param_4);
+uchar recovered_1001c494(void *param_1,char *param_2,char *param_3,char *param_4);
+uchar recovered_1001c730(void *param_1);
+uint recovered_1001c910(char *param_1,char *param_2);
+uchar recovered_1001c9b0(void *param_1,char *param_2,bool *param_3);
+uchar recovered_1001d4e0(void *param_1,char *param_2,ulong param_3);
+uint recovered_1001d7bc(void *param_1,char *param_2,char *param_3,bool param_4,uint param_5,
+                       uint param_6,bool param_7,bool param_8);
+uint recovered_1001d954(void *param_1,char *param_2,char *param_3,bool param_4);
+uchar recovered_1001da98(void *param_1);
+uchar recovered_1001dc70(void *param_1,int param_2);
+uchar recovered_1001de4c(void *param_1);
+uchar recovered_1001e414(void *param_1);
+uchar recovered_1001e5fc(void *param_1);
+uchar recovered_1001e6d0(void *param_1,int param_2);
+uchar recovered_1001e870(void *param_1);
+uchar recovered_1001ea38(void *param_1,int param_2);
+uchar recovered_1001ebec(void *param_1);
+uchar recovered_1001ee84(void *param_1);
+uchar recovered_1001f088(void *param_1);
+uchar recovered_1001fb10(void *param_1);
+uchar recovered_10020274(void *param_1);
+uchar recovered_100204c0(void *param_1);
+uchar recovered_10020718(void *param_1);
+uchar recovered_10020a88(void *param_1);
+uchar recovered_10020e10(void *param_1,bool param_2);
+uchar recovered_10021098(void *param_1);
+uchar recovered_100219f4(void *param_1);
+uchar recovered_10021f8c(void *param_1,int param_2);
+uchar recovered_10022140(void *param_1);
+uchar recovered_1002246c(void *param_1,int *param_2);
+uint recovered_100228e4(char *param_1);
+bool recovered_100229b4(char *param_1,char *param_2);
+uchar recovered_10022ad8(void *param_1,char *param_2,ulong param_3);
+uchar recovered_10022cb4(void *param_1,char *param_2,int *param_3,int *param_4,int *param_5,
+                        uint *param_6);
+uchar recovered_10022f64(void *param_1,int param_2,int param_3,uint param_4,int param_5,int param_6,
+                        int param_7);
+uchar recovered_100234bc(void *param_1,int param_2,uint param_3,int param_4);
+uchar recovered_10023850(void *param_1,char *param_2,char *param_3,char *param_4,ulong param_5);
+int recovered_100239a4(void *param_1,char *param_2);
+uchar recovered_10023e60(void *param_1,char *param_2,ulong param_3,bool *param_4);
+uchar recovered_10024004(void *param_1,char *param_2,char *param_3,char *param_4,bool param_5);
+uchar recovered_100241f8(void *param_1,char *param_2,char *param_3);
+uchar recovered_1002442c(void *param_1,int param_2,int param_3,int param_4,int param_5,char *param_6
+                        ,uint param_7,uint *param_8,uint *param_9);
+uchar recovered_1002475c(void *param_1,void *param_2,void *param_3);
+uchar recovered_10024db8(void *param_1,void *param_2,void *param_3);
+uchar recovered_10025464(void *param_1,void *param_2,void *param_3);
+uchar recovered_10025af0(void *param_1,uint *param_2,uint param_3,void *param_4);
+uchar recovered_10025fc4(void *param_1,uint *param_2,uint param_3,int param_4,void *param_5);
+uchar recovered_10026470(void *param_1,void *param_2,void *param_3);
+uchar recovered_100267c0(void *param_1,uint param_2,bool param_3);
+uchar recovered_100268a8(void *param_1,void *param_2,ulong param_3);
+uchar recovered_100269b4(void *param_1,ulonglong param_2,bool param_3);
+uchar recovered_10026aec(void *param_1,void *param_2,uint param_3);
+bool recovered_10026e54(void *param_1,ulong param_2);
+uchar recovered_10026f28(void *param_1,void *param_2);
+uchar recovered_1002a9fc(void *param_1,void *param_2,uint param_3,uint param_4);
+uchar recovered_1002ac18(void *param_1,void *param_2,int param_3);
+uchar recovered_1002b378(void *param_1,ulong param_2);
+uchar recovered_1002b454(void *param_1,void *param_2,void *param_3,uint param_4);
+uchar recovered_1002bbb8(void *param_1,uint param_2,uint param_3);
+uchar recovered_1002bd50(void *param_1,void *param_2);
+uchar recovered_1002ce10(void *param_1,uint param_2,uint param_3);
+uchar recovered_1002cf9c(void *param_1,uint param_2,uint param_3);
+bool recovered_1002d0d0(void *param_1,int param_2,uint param_3,ulong param_4);
+uchar recovered_1002d234(void *param_1,uint param_2,uint param_3);
+uchar recovered_1002d358(void *param_1,uint param_2,uint param_3);
+uint recovered_1002d48c(uint param_1,uint param_2,uint param_3);
+uint recovered_1002d530(uint param_1,uint param_2,uint param_3);
+uint recovered_1002d5d0(uint param_1,uint param_2,uint param_3);
+uint recovered_1002d678(uint param_1,uint param_2,uint param_3);
+uint recovered_1002d720(uint param_1,uint param_2,uint param_3);
+uint recovered_1002d7c8(uint param_1,uint param_2,uint param_3);
+uchar recovered_1002d870(void *param_1,uint param_2,uint param_3);
+uchar recovered_1002dc88(void *param_1,uint param_2,uint param_3);
+uchar recovered_1002e0a0(void *param_1,uint param_2,uint param_3);
+uchar recovered_1002e758(void *param_1,uint param_2,uint param_3);
+uchar recovered_1002eaf8(void *param_1,uint param_2,void *param_3,int param_4);
+uchar recovered_1002f014(void *param_1,uint param_2,int param_3);
+uchar recovered_1002f44c(void *param_1,uint param_2,uint param_3,uint param_4);
+uchar recovered_1002f71c(void *param_1,uint param_2);
+uint recovered_1002f9a0(void *param_1,uint param_2);
+uint recovered_1002fa68(void *param_1,uint param_2,uint param_3);
+uchar recovered_1002fb60(void *param_1,uint param_2,uint param_3,void *param_4,int param_5);
+uchar recovered_100303e8(void *param_1,uint param_2,uint param_3,uint param_4,void *param_5,
+                        uint param_6);
+uchar recovered_100306d4(void *param_1,uint param_2);
+uchar recovered_10030e00(void *param_1,void *param_2,void *param_3);
+uchar recovered_100342a8(void *param_1,void *param_2,void *param_3,uint param_4);
+uint recovered_10034bcc(uint param_1,uint param_2,uint param_3);
+uint recovered_10034c6c(uint param_1,uint param_2,uint param_3);
+uint recovered_10034d0c(uint param_1,uint param_2,uint param_3);
+uint recovered_10034db4(uint param_1,uint param_2,uint param_3,uint param_4);
+uint recovered_10034e78(uint param_1,uint param_2,uint param_3);
+uint recovered_10034f20(uint param_1,uint param_2,uint param_3);
+uint recovered_10034fc8(uint param_1,uint param_2,uint param_3);
+uint recovered_10035068(uint param_1,uint param_2,uint param_3);
+uint recovered_10035108(uint param_1,uint param_2,uint param_3);
+uint recovered_100351a8(uint param_1);
+uchar recovered_1003520c(void *param_1,ulong param_2,uint param_3,ulong param_4);
+uchar recovered_10035390(void *param_1,uint param_2);
+uint recovered_10035528(void *param_1,uint param_2,uint param_3);
+uchar recovered_100355c8(void *param_1,uint param_2);
+uchar recovered_10035844(void *param_1,uint param_2,uint param_3);
+uchar recovered_10035cd4(void *param_1,ulong param_2,uint param_3,ulong param_4);
+uchar recovered_10035e58(void *param_1,ulong param_2,uint param_3,ulong param_4);
+undefined4 * recovered_10035fc4(undefined4 *param_1);
+uchar recovered_10036018(void *param_1,uint param_2,uint param_3);
+uchar recovered_10036140(void *param_1,uint param_2);
+uint recovered_10036338(uint param_1,uint param_2);
+uchar recovered_100363c4(void *param_1,ulong param_2,uint param_3,ulong param_4);
+uchar recovered_10036548(void *param_1,uint param_2);
+uint recovered_10036864(uint param_1,uint param_2,uint param_3);
+uint recovered_10036914(uint param_1,uint param_2,uint param_3);
+uint recovered_100369c4(void *param_1);
+uint recovered_10036b14(uint param_1,uint param_2,uint param_3);
+uchar recovered_10036bc8(void *param_1,ulong param_2,uint param_3,bool param_4);
+uint recovered_10036da8(uint param_1,uint param_2,uint param_3);
+uint recovered_10036e4c(void *param_1);
+uint recovered_10036ea8(uint param_1,uint param_2);
+uint recovered_10036f38(uint param_1,uint param_2,uint param_3);
+uint recovered_10036fdc(uint param_1,uint param_2,uint param_3);
+uint recovered_10037080(uint param_1,uint param_2,uint param_3);
+uint recovered_10037124(uint param_1,uint param_2,uint param_3);
+uint recovered_100371c8(uint param_1,uint param_2,uint param_3);
+uchar recovered_10037274(void *param_1,ulong param_2,uint param_3,ulong param_4);
+uint recovered_100373f8(uint param_1,uint param_2);
+uint recovered_10037484(uint param_1,uint param_2,uint param_3);
+uchar recovered_10037538(void *param_1,uint param_2,uint param_3,ulong *param_4);
+uchar recovered_10037644(void *param_1,uint param_2,uint param_3,uint param_4,ulong *param_5,
+                        uint *param_6,ulong *param_7,uint *param_8,uint *param_9);
+uchar recovered_10037834(void *param_1,uint param_2,uint param_3,uint param_4);
+uint recovered_1003847c(void *param_1,uint param_2,uint param_3,uint param_4);
+uchar recovered_100385a4(void *param_1,uint param_2,uint param_3,ulong *param_4,uint *param_5,
+                        uint param_6);
+uchar recovered_100386d8(void *param_1,uint param_2,uint param_3,uint param_4,ulong *param_5,
+                        uint *param_6,uint param_7);
+uchar recovered_100388c8(void *param_1,uint param_2,uint param_3,uint param_4);
+uint recovered_10038cac(void *param_1,void *param_2,void *param_3,uint param_4,uint param_5);
+uchar recovered_10038e10(void *param_1,uint param_2,uint param_3,uint param_4,uint param_5,
+                        uint param_6);
+uchar recovered_10039054(ulong *param_1,uint *param_2,uint param_3,ulong param_4);
+uint recovered_1003915c(uint param_1,uint param_2);
+uchar recovered_100391ec(void *param_1,uint param_2);
+uchar recovered_10039290(void *param_1,uint param_2);
+uchar recovered_100396d0(void *param_1,uint param_2);
+uchar recovered_10039978(void *param_1,uint param_2,uint param_3,bool param_4);
+uchar recovered_10039f3c(void *param_1,uint param_2,bool param_3);
+uint recovered_1003a0bc(uint param_1,uint param_2,uint param_3);
+uchar recovered_1003a160(void *param_1);
+uint recovered_1003a4fc(void *param_1,uint param_2,uint param_3,uint param_4);
+uint recovered_1003a754(void *param_1);
+undefined4 * recovered_1003a868(undefined4 *param_1);
+uint recovered_1003a8cc(void *param_1,uint param_2,uint param_3);
+uint recovered_1003ac8c(void *param_1,uint param_2,uint param_3);
+uint recovered_1003b0dc(void *param_1,uint param_2,uint param_3,uint param_4);
+uint recovered_1003b378(void *param_1,void *param_2,uint param_3,uint param_4,uint param_5);
+uint recovered_1003b60c(void *param_1,uint param_2,uint param_3,uint param_4);
+uint recovered_1003b870(void *param_1,void *param_2,uint param_3,uint param_4,uint param_5);
+uint recovered_1003bb3c(void *param_1,uchar param_2);
+uint recovered_1003bbb8(uint param_1,uint param_2);
+uint recovered_1003bc50(uint param_1,uint param_2);
+uint recovered_1003bcf0(void *param_1,uint param_2,uint param_3,bool param_4);
+uint recovered_1003bdf0(uint param_1,uint param_2,uint param_3);
+uint recovered_1003be94(uint param_1,uint param_2,uint param_3);
+uint recovered_1003bf38(uint param_1,uint param_2);
+uint recovered_1003bfc0(uint param_1);
+uint recovered_1003c020(void *param_1,uint param_2,uint param_3);
+uint recovered_1003c120(uint param_1,uint param_2,uint param_3);
+uint recovered_1003c1c4(uint param_1,uint param_2,uint param_3);
+uint recovered_1003c268(uint param_1,uint param_2);
+uint recovered_1003c2f4(uint param_1,uint param_2,uint param_3);
+uint recovered_1003c398(void *param_1,uint param_2);
+uint recovered_1003c520(void *param_1,uint param_2);
+uint recovered_1003c810(void *param_1,uint param_2,uint param_3);
+uint recovered_1003c99c(void *param_1,uint param_2,uint param_3);
+uint recovered_1003cac4(void *param_1,uint param_2,uint param_3,bool param_4);
+uint recovered_1003cc10(int param_1);
+uint recovered_1003cc6c(void *param_1,uint param_2,uint param_3);
+uint recovered_1003cd8c(int param_1);
+uint recovered_1003ce24(void *param_1,void *param_2,uint param_3,uint param_4);
+uint recovered_1003cfb4(uint param_1,int param_2);
+uint recovered_1003d068(uint param_1,int param_2);
+uchar recovered_1003d11c(void *param_1,ulong param_2);
+uint recovered_1003d310(void *param_1,ushort param_2,bool param_3);
+void recovered_1003d3d4(char *param_1);
+undefined1 recovered_1003d500(void *param_1);
+void recovered_1003d664(void);
+undefined4 recovered_1003d784(int param_1,char *param_2,int param_3,int param_4);
+void recovered_1003d894(void *param_1,char *param_2,uint param_3);
+undefined4 recovered_1003d9ec(undefined4 param_1);
+uint recovered_1003daa4(char *param_1,int param_2,uint param_3);
+undefined4 recovered_1003dcd0(void);
+bool recovered_1003dd10(int *param_1,int param_2);
+bool recovered_1003ddbc(int *param_1);
+bool recovered_1003de78(char param_1);
+bool recovered_1003df1c(int param_1,char *param_2,char *param_3,ulong param_4);
+undefined4
+recovered_1003e06c(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4);
+undefined1 recovered_1003e170(int param_1,char *param_2,char *param_3,ulong param_4);
+bool recovered_1003e6c0(char param_1);
+undefined4 recovered_1003e73c(undefined4 param_1,undefined4 param_2,undefined4 param_3);
+undefined4 recovered_1003e824(undefined1 *param_1,int param_2);
+void recovered_1003e898(void *param_1,uint param_2);
+void recovered_1003e9c8(void *param_1,char *param_2);
+undefined4 recovered_1003ebc8(undefined1 *param_1,int param_2);
+undefined4 recovered_1003ecc8(int param_1,int param_2);
+undefined4 recovered_1003ed84(undefined4 param_1,undefined4 param_2);
+uchar recovered_1003ee5c(char *param_1,char *param_2,ulong param_3);
+undefined4 recovered_1003f084(int param_1,char *param_2,int param_3);
+undefined4 recovered_1003f178(undefined4 param_1,undefined4 param_2,undefined4 param_3);
+undefined4 recovered_1003f268(undefined4 param_1,undefined4 param_2);
+int recovered_1003f340(int argc,char **argv);
+uint recovered_1003f3c0(uint a,uint b);
+uint recovered_1003f410(uint a,uint b);
+int recovered_1003f448(int a,int b);
+int recovered_1003f4b8(int a,int b);
+void recovered_1003f520(void);
+void recovered_1003f538(void);
+int recovered_1003f930(void);
+void recovered_1003f974(void);
+int recovered_1003f9c4(void);
+void recovered_1003fa00(void);
+uint * recovered_1003fa44(int param_1);
+longlong recovered_1003fb50(uint param_1,int param_2,uint param_3);
+ulonglong recovered_1003fba4(uint param_1,uint param_2,uint param_3);
+undefined8 recovered_1003fbf8(uint param_1,int param_2,uint param_3);
+ulonglong recovered_1003fc44(ulonglong a,ulonglong b);
+ulonglong recovered_1003fd28(ulonglong a,ulonglong b);
+longlong recovered_1003fda8(longlong a,longlong b);
+longlong recovered_1003fec0(longlong a,longlong b);
+void recovered_1003ff7c(void);
+int recovered_1003ff84(int value);
+void * recovered_1003ff90(ulong size);
+void recovered_1003ffe4(void *pointer);
+void * recovered_10040034(void *pointer,ulong size);
+void * recovered_10040088(void *destination,void *source,ulong count);
+void * recovered_1004030c(void *destination,void *source,ulong count);
+void * recovered_10040818(void *destination,int value,ulong count);
+void recovered_10040a18(undefined4 *param_1,uint param_2);
+void recovered_10040c14(undefined4 *param_1,uint param_2);
+int recovered_10040e10(void *left,void *right,ulong count);
+int recovered_10041008(byte *param_1,byte *param_2);
+int recovered_10041058(int value);
+int recovered_1004106c(int value);
+int recovered_10041080(int value);
+int recovered_10041098(int value);
+int recovered_100410c4(int value);
+int recovered_100410e4(int value);
+int recovered_100410f8(int value);
+int recovered_10041108(int value);
+ulong recovered_10041118(char *text);
+int recovered_10041140(char *left,char *right);
+int recovered_10041184(char *left,char *right);
+char * recovered_100411c8(char *destination,char *source);
+char * recovered_100411e4(char *text);
+char * recovered_100414f8(char *text,int value);
+ulong recovered_1004152c(char *text,char *accept);
+char * recovered_10041590(char *text,char *accept);
+char * recovered_100415f0(char *haystack,char *needle);
+undefined * recovered_10041654(void);
+undefined * recovered_10041664(void);
+undefined4 recovered_10041674(undefined4 *param_1);
+double recovered_10041724(undefined4 param_1,undefined4 param_2,uint param_3);
+double recovered_10041768(undefined4 param_1,undefined4 param_2,int *param_3);
+double recovered_10041820(double x,double y);
+double recovered_10041858(double base,double exponent);
+double recovered_100418d8(double value);
+double recovered_10041908(double value);
+double recovered_1004194c(double value);
+double recovered_10041998(double value);
+longlong recovered_10041ad8(double value);
+double recovered_10041b08(double value);
+double recovered_10041bc8(double value);
+double recovered_10041c78(double value);
+longlong recovered_10041c98(double x);
+ulonglong recovered_10041d58(double x);
+double recovered_10041de0(ulonglong x);
+double recovered_10041e28(longlong x);
+float recovered_10041eb8(float x,float y);
+float recovered_10041efc(float param_1,float *param_2);
+float recovered_10041fb8(float param_1,uint param_2);
+float recovered_10042004(float base,float exponent);
+float recovered_1004208c(float value);
+float recovered_100420c4(float value);
+double recovered_10042110(double value);
+float recovered_10042164(float value);
+float recovered_100421c0(float value);
+float recovered_10042218(float value);
+long recovered_1004235c(double value);
+float recovered_10042390(float value);
+float recovered_10042458(float value);
+float recovered_10042510(float value);
+long recovered_1004252c(char *text,char **endptr,int base);
+ulong recovered_10042680(char *text,char **endptr,int base);
+double recovered_100427e0(char *text,char **endptr,int in_s0,undefined4 in_s1);
+float recovered_100429b4(char *text,char **endptr);
+int recovered_100429d0(char *buffer,unsigned long size,char *format,void *input);
+int recovered_10043634(char *buffer,unsigned long size,char *format,...);
+void recovered_10043664(int *param_1,int *param_2,int *param_3);
+void recovered_10043850(int *param_1,int *param_2);
+void recovered_100438d8(int *param_1);
+void recovered_100439b8(void *function,void *caller);
+void recovered_10043a84(void *function,void *caller);
+ulonglong recovered_10043a88(float x);
+longlong recovered_10043a98(float x);
+float recovered_10043aa8(ulonglong x);
+float recovered_10043ac4(longlong x);
+uint8_t recovered_10043ae0(uint8_t *pointer,...);
+void recovered_10043b24(uint8_t *pointer,uint8_t value,...);
+uint8_t recovered_10043b68(uint8_t *pointer,uint8_t value,...);
+uint64_t recovered_10043bb4(uint8_t *pointer,uint8_t *expected,uint8_t value,...);
+uint8_t recovered_10043c24(uint8_t *pointer,uint8_t value,...);
+uint8_t recovered_10043c74(uint8_t *pointer,uint8_t value,...);
+uint8_t recovered_10043cc4(uint8_t *pointer,uint8_t value,...);
+uint8_t recovered_10043d14(uint8_t *pointer,uint8_t value,...);
+uint8_t recovered_10043d64(uint8_t *pointer,uint8_t value,...);
+uint8_t recovered_10043db4(uint8_t *pointer,uint8_t value,...);
+uint16_t recovered_10043e08(uint16_t *pointer,...);
+void recovered_10043e4c(uint16_t *pointer,uint16_t value,...);
+uint16_t recovered_10043e90(uint16_t *pointer,uint16_t value,...);
+uint64_t recovered_10043edc(uint16_t *pointer,uint16_t *expected,uint16_t value,...);
+uint16_t recovered_10043f4c(uint16_t *pointer,uint16_t value,...);
+uint16_t recovered_10043f9c(uint16_t *pointer,uint16_t value,...);
+uint16_t recovered_10043fec(uint16_t *pointer,uint16_t value,...);
+uint16_t recovered_1004403c(uint16_t *pointer,uint16_t value,...);
+uint16_t recovered_1004408c(uint16_t *pointer,uint16_t value,...);
+uint16_t recovered_100440dc(uint16_t *pointer,uint16_t value,...);
+uint32_t recovered_10044130(uint32_t *pointer,...);
+void recovered_10044174(uint32_t *pointer,uint32_t value,...);
+uint32_t recovered_100441b8(uint32_t *pointer,uint32_t value,...);
+uint64_t recovered_10044204(uint32_t *pointer,uint32_t *expected,uint32_t value,...);
+uint32_t recovered_10044274(uint32_t *pointer,uint32_t value,...);
+uint32_t recovered_100442c4(uint32_t *pointer,uint32_t value,...);
+uint32_t recovered_10044314(uint32_t *pointer,uint32_t value,...);
+uint32_t recovered_10044364(uint32_t *pointer,uint32_t value,...);
+uint32_t recovered_100443b4(uint32_t *pointer,uint32_t value,...);
+uint32_t recovered_10044404(uint32_t *pointer,uint32_t value,...);
+uint64_t recovered_10044458(uint64_t *pointer,...);
+void recovered_100444a4(uint64_t *pointer,uint64_t value,...);
+uint64_t recovered_100444f4(uint64_t *pointer,uint64_t value,...);
+uint64_t recovered_10044554(uint64_t *pointer,uint64_t *expected,uint64_t value,...);
+uint64_t recovered_100445f0(uint64_t *pointer,uint64_t value,...);
+uint64_t recovered_10044658(uint64_t *pointer,uint64_t value,...);
+uint64_t recovered_100446c0(uint64_t *pointer,uint64_t value,...);
+uint64_t recovered_10044728(uint64_t *pointer,uint64_t value,...);
+uint64_t recovered_10044790(uint64_t *pointer,uint64_t value,...);
+uint64_t recovered_100447f8(uint64_t *pointer,uint64_t value,...);
+bool recovered_10044868(uint8_t *pointer,...);
+void recovered_100448c0(uint8_t *pointer,...);
+void recovered_10044904(size_t size,uint8_t *pointer,uint8_t *value,...);
+void recovered_10044970(size_t size,uint8_t *pointer,uint8_t *value,...);
+void recovered_100449e0(size_t size,uint8_t *pointer,uint8_t *value,uint8_t *out,...);
+uint64_t recovered_10044a7c(size_t size,uint8_t *pointer,uint8_t *value,uint8_t *desired,...);
+void recovered_10044b38(void *param_1);
+void recovered_10044b88(char *param_1);
+void * recovered_10044c70(char *path,char *mode);
+undefined * recovered_10044f7c(void);
+undefined4 recovered_10045234(int param_1,char *param_2,char *param_3);
+undefined4 recovered_1004553c(int param_1);
+void * recovered_10045810(char *path,char *mode,void *stream);
+int recovered_1004599c(void *stream);
+void * recovered_10045a70(char *path,char *mode);
+void * recovered_10045a74(char *path,char *mode,void *stream);
+void * recovered_10045a78(int fd,char *mode);
+void * recovered_10045b70(char *command,char *mode);
+int recovered_10045b8c(void *stream);
+int recovered_10045ba8(void *stream);
+undefined4 recovered_10045c8c(int param_1,char *param_2,int param_3,int param_4);
+int recovered_10045e10(void *stream);
+undefined4 recovered_10045e14(int *param_1);
+ulong recovered_10045f84(void *ptr,ulong size,ulong count,void *stream);
+ulong recovered_10046204(void *ptr,ulong size,ulong count,void *stream);
+ulong recovered_100463c4(void *ptr,ulong size,ulong count,void *stream);
+ulong recovered_100463c8(void *ptr,ulong size,ulong count,void *stream);
+int recovered_100463cc(void *stream,long offset,int origin);
+undefined4 recovered_10046484(int *param_1,uint param_2,int param_3);
+long recovered_1004653c(void *stream);
+int recovered_10046578(int *param_1);
+int recovered_100465b4(void *stream,longlong offset,int origin);
+longlong recovered_1004666c(void *stream);
+int recovered_100466b0(void *stream,long *pos);
+int recovered_1004671c(void *stream,long *pos);
+int recovered_10046798(void *stream);
+undefined1 recovered_100467c0(int *param_1);
+int recovered_100467e8(void *stream);
+undefined1 recovered_10046810(int *param_1);
+void recovered_10046838(void *stream);
+void recovered_1004685c(int *param_1);
+int recovered_10046880(void *stream);
+int recovered_100468bc(void *stream);
+int recovered_10046950(void *stream);
+uint recovered_100469e4(int *param_1);
+int recovered_10046a78(void);
+int recovered_10046b18(int ch,void *stream);
+uint recovered_10046b58(uint param_1,int *param_2);
+char * recovered_10046b98(char *text,int count,void *stream);
+int recovered_10046c88(int ch,void *stream);
+int recovered_10046cc4(int ch,void *stream);
+int recovered_10046d00(int ch);
+int recovered_10046d44(char *text,void *stream);
+int recovered_10046d8c(char *text);
+int recovered_10046e18(void *stream,char *format,void *args);
+int recovered_10046e74(void *stream,char *format,...);
+int recovered_10046ef0(char *format,void *args);
+int recovered_10046f54(char *format,...);
+int recovered_10046fdc(char *buffer,char *format,void *input);
+int recovered_10046fec(char *buffer,char *format,...);
+int recovered_1004702c(char *buffer,char *format,void *args);
+int recovered_10047800(char *buffer,char *format,...);
+int recovered_10047834(void *stream,char *buffer,int mode,ulong size);
+void recovered_10047870(void *stream,char *buffer);
+void recovered_100478a4(char *prefix);
+char * recovered_10047984(int error_number);
+char * recovered_10047c24(char *buffer);
+int recovered_10047c84(char *path);
+undefined4 recovered_10047c88(char *param_1);
+undefined4 recovered_10047df8(char *param_1);
+int recovered_10047dfc(char *oldPath,char *newPath);
+int recovered_1004801c(char *oldPath,char *newPath);
+undefined4 recovered_10048020(char *param_1,uint param_2);
+undefined4 recovered_10048130(int param_1,void *param_2);
+undefined4 recovered_10048300(char *param_1);
+ulonglong recovered_10048358(uint param_1,void *param_2,ulong param_3);
+ulonglong recovered_100483c8(uint param_1,void *param_2,ulong param_3);
+undefined4 recovered_10048438(uint param_1);
+void recovered_100485a4(uint param_1,uint param_2,undefined4 param_3,int param_4);
+undefined4 recovered_10048664(uint param_1);
+uint recovered_1004876c(uint param_1,uint param_2);
+undefined4 recovered_100488ac(undefined4 *param_1);
+undefined4 recovered_100488d8(void);
+undefined4 recovered_100488f4(void);
+undefined4 recovered_10048910(void);
+undefined4 recovered_1004892c(void);
+undefined4 recovered_10048948(void);
+undefined4 recovered_10048964(void);
+undefined4 recovered_10048980(void);
+undefined8 recovered_1004899c(void);
+undefined8 recovered_100489bc(void);
+uint recovered_100489dc(uint param_1,undefined4 param_2,int param_3);
+undefined4 recovered_10048aec(int param_1,char *param_2,int param_3);
+undefined4 recovered_10048c44(int param_1,char *param_2,uint *param_3,uint *param_4,uint *param_5);
+undefined4 recovered_10048f3c(int param_1,void *param_2);
+undefined4 recovered_10048f40(uint param_1,void *param_2);
+undefined4 recovered_10049060(int param_1,undefined4 *param_2);
+undefined4 recovered_10049150(uint param_1,undefined4 *param_2);
+undefined4 recovered_10049270(char *param_1);
+undefined4 recovered_100493e0(char *param_1);
+void recovered_100493e4(int param_1);
+undefined4 recovered_10049400(uint param_1);
+void recovered_10049478(int param_1);
+undefined4 recovered_10049494(uint param_1);
+void recovered_1004950c(int param_1);
+undefined4 recovered_10049528(undefined4 param_1);
+void recovered_1004954c(int param_1);
+undefined4 recovered_10049568(char *param_1);
+char * recovered_1004963c(char *param_1,uint param_2);
+undefined8 recovered_100496f4(void);
+undefined4 recovered_10049714(void);
+undefined4 recovered_10049730(void);
+undefined4 recovered_1004974c(int param_1,uint param_2,int param_3);
+int recovered_100498cc(uint param_1,uint param_2,int param_3);
+int recovered_100499fc(uint param_1);
+uint * recovered_10049a50(char *param_1);
+uint * recovered_10049b8c(uint *param_1);
+undefined4 recovered_10049bc4(void *param_1);
+void recovered_10049bfc(int param_1);
+void * recovered_10049c0c(undefined4 param_1,uint param_2,undefined4 param_3,uint param_4,
+                         uint param_5,int param_6);
+undefined4 recovered_10049d7c(void *param_1);
+undefined4 recovered_10049d90(void);
+undefined4 recovered_10049d98(void);
+undefined4 recovered_10049da0(void);
+int recovered_10049da8(byte *param_1);
+undefined4 recovered_10049e90(void);
+void recovered_10049eac(int param_1,byte *param_2,uint param_3);
+undefined4 recovered_10049f1c(byte *param_1,char *param_2,int param_3);
+undefined4 recovered_1004a024(char *param_1,byte *param_2);
+undefined4 recovered_1004a198(byte *param_1,uint param_2);
+undefined4 recovered_1004a1f0(char *param_1);
+undefined4 recovered_1004a28c(int param_1);
+char * recovered_1004a3f0(int param_1,char *param_2);
+undefined4 recovered_1004a4a8(char *param_1,int param_2);
+void recovered_1004a6e0(char *param_1);
+undefined4 recovered_1004a6e8(int param_1);
+undefined4 recovered_1004a738(int param_1);
+void recovered_1004a788(void);
+void recovered_1004a818(void);
+void recovered_1004a8a8(void);
+void recovered_1004a998(void);
+bool recovered_1004aa28(uint param_1);
+undefined4 recovered_1004aa3c(void);
+undefined4 recovered_1004aa44(void);
+undefined4 recovered_1004aa4c(void);
+undefined4 recovered_1004aa54(void);
+undefined4 recovered_1004aa5c(int param_1);
+undefined4 recovered_1004aa88(int param_1);
+undefined4 recovered_1004aab4(void);
+undefined4 recovered_1004ab3c(void);
+int recovered_1004ab44(int param_1);
+undefined4 recovered_1004ac6c(void);
+undefined4 recovered_1004acf4(void);
+undefined4 recovered_1004ad10(int param_1,int *param_2);
+undefined4 recovered_1004ad14(int param_1,int *param_2);
+undefined4 recovered_1004aef0(int param_1,int *param_2);
+undefined4 recovered_1004aef4(int param_1,int *param_2);
+undefined4 recovered_1004aef8(int param_1);
+undefined4 recovered_1004b078(void);
+undefined4 recovered_1004b080(void);
+undefined4 recovered_1004b088(void);
+undefined4 recovered_1004b0f0(void);
+undefined4 recovered_1004b158(undefined4 param_1,undefined4 *param_2);
+undefined4 recovered_1004b1d0(undefined4 *param_1,undefined4 *param_2);
+undefined4 recovered_1004b214(undefined4 param_1,undefined4 *param_2);
+undefined4 recovered_1004b260(undefined4 param_1,undefined4 *param_2);
+undefined4 recovered_1004b274(undefined4 *param_1);
+undefined4
+recovered_1004b288(undefined4 param_1,undefined4 *param_2,undefined4 param_3,void *param_4);
+undefined4 recovered_1004b2c0(uint param_1,undefined4 *param_2);
+undefined4 recovered_1004b360(uint param_1);
+undefined4 recovered_1004b39c(undefined4 param_1,void *param_2);
+undefined4 recovered_1004b3e4(void);
+undefined4 recovered_1004b44c(void);
+undefined4 recovered_1004b454(void);
+undefined4 recovered_1004b45c(void);
+undefined4 recovered_1004b464(void);
+undefined4 recovered_1004b46c(void);
+undefined4 recovered_1004b474(undefined4 param_1,undefined4 *param_2);
+undefined4 recovered_1004b4a0(char *param_1);
+undefined4 recovered_1004b580(void *param_1,uint param_2);
+undefined4 recovered_1004b614(int param_1,undefined4 param_2);
+undefined4 recovered_1004b664(int param_1,undefined8 *param_2,undefined8 *param_3);
+undefined4 recovered_1004b6cc(int param_1,uint *param_2,uint *param_3);
+undefined4 recovered_1004b790(int param_1,uint *param_2,uint *param_3);
+undefined4 recovered_1004b854(void);
+undefined4 recovered_1004b85c(int param_1);
+undefined4 recovered_1004b918(undefined4 *param_1);
+undefined4 recovered_1004b948(undefined4 *param_1);
+undefined4 recovered_1004b978(uint *param_1,uint param_2,uint param_3);
+undefined4 recovered_1004b9bc(uint *param_1,uint param_2,uint param_3);
+uint recovered_1004ba00(uint *param_1,uint param_2,uint param_3);
+undefined4 recovered_1004ba38(uint param_1,undefined8 *param_2);
+undefined4 recovered_1004badc(uint param_1,undefined4 param_2,undefined8 *param_3);
+void recovered_1004bb38(undefined4 *param_1);
+undefined4 recovered_1004bb78(uint param_1,int param_2,undefined4 *param_3);
+uint recovered_1004bc18(int param_1,uint *param_2,uint *param_3,uint *param_4);
+int recovered_1004bd90(int param_1,int param_2);
+undefined4 recovered_1004be50(int *param_1,undefined *param_2);
+undefined4 recovered_1004be98(int *param_1,undefined4 param_2,undefined *param_3,undefined4 param_4);
+undefined4 recovered_1004bee8(undefined4 param_1,undefined4 *param_2);
+undefined4 recovered_1004befc(void);
+undefined4 recovered_1004bf04(undefined4 *param_1);
+undefined4 recovered_1004bf18(void);
+undefined4 recovered_1004bf20(undefined4 *param_1);
+undefined4 recovered_1004bf34(void);
+undefined4 recovered_1004bf3c(void);
+undefined4 recovered_1004bf44(void);
+undefined4 recovered_1004bf4c(void);
+undefined4 recovered_1004bf54(undefined4 *param_1);
+undefined4 recovered_1004bf68(void);
+undefined4 recovered_1004bf70(undefined4 *param_1,undefined4 param_2);
+undefined4 recovered_1004bf80(undefined4 *param_1);
+undefined4 recovered_1004bf94(void);
+undefined4 recovered_1004bf9c(void);
+undefined4 recovered_1004bfa4(void);
+undefined4 recovered_1004bfac(void);
+undefined4 recovered_1004bfb4(void);
+undefined4 recovered_1004bfbc(int *param_1);
+undefined4 recovered_1004c1f4(uint param_1);
+undefined4 recovered_1004c22c(uint param_1);
+undefined4 recovered_1004c268(uint param_1,undefined4 param_2);
+undefined4 recovered_1004c2a8(undefined4 *param_1);
+undefined4 recovered_1004c2bc(void);
+undefined4 recovered_1004c2c4(void);
+undefined4 recovered_1004c2cc(void);
+undefined4 recovered_1004c2d4(void);
+undefined4 recovered_1004c2dc(void);
+bool recovered_1004c364(int param_1,int param_2);
+void recovered_1004c374(undefined4 *param_1);
+undefined4 recovered_1004c38c(void);
+undefined4 recovered_1004c394(void);
+undefined4 recovered_1004c39c(void);
+undefined4 recovered_1004c3a4(void);
+undefined4
+recovered_1004c3ac(int *param_1,int param_2,undefined4 param_3,undefined4 param_4,int *param_5);
+void recovered_1004c5ec(int *in_r0,int in_r1,undefined4 in_r3,undefined4 in_stack_00000000);
+undefined4 * recovered_1004c60c(int param_1);
+undefined4 * recovered_1004c74c(char *param_1);
+int recovered_1004c8a0(int param_1,undefined4 *param_2,void *param_3,uint param_4,
+                      undefined4 *param_5);
+undefined4 recovered_1004ca4c(undefined4 *param_1,undefined4 *param_2,void *param_3,uint param_4);
+int recovered_1004cbb4(int param_1,int param_2,int param_3,uint param_4,int *param_5);
+undefined4 * recovered_1004cc38(int param_1);
+undefined4 * recovered_1004cd98(char *param_1);
+undefined4 recovered_1004cf1c(void);
+undefined4 recovered_1004cf6c(void);
+undefined4 recovered_1004cfbc(void);
+undefined1 * recovered_1004cfc4(void);
+ulong recovered_1004cfe0(char *text,ulong max_length);
+void * recovered_1004d018(void *param_1,ulong param_2);
+int recovered_1004d088(byte *param_1,byte *param_2);
+int recovered_1004d144(byte *param_1,byte *param_2,int param_3);
+int recovered_1004d1cc(char *left,char *right,ulong count);
+void recovered_1004d238(void *param_1,void *param_2,ulong param_3);
+int recovered_1004d248(void *left,void *right,ulong count);
+char * recovered_1004d24c(char *param_1,char *param_2,undefined4 *param_3);
+void * recovered_1004d2f8(void *memory,int value,ulong count);
+char * recovered_1004d32c(char *text,int value);
+char * recovered_1004d368(int param_1);
+ulong recovered_1004d398(char *text,char *reject);
+char * recovered_1004d3f4(char *destination,char *source,ulong count);
+char * recovered_1004d480(char *destination,char *source);
+char * recovered_1004d4a8(char *destination,char *source,ulong count);
+ulong recovered_1004d504(char *destination,char *source,ulong count);
+char * recovered_1004d584(char *text,char *delimiters);
+void * recovered_1004d620(ulong count,ulong size);
+void recovered_1004d688(uint seed);
+int recovered_1004d6a4(void);
+long recovered_1004d6d8(long value);
+longlong recovered_1004d6e4(longlong value);
+void recovered_1004d6f8(int *param_1,int param_2,int param_3);
+void recovered_1004d73c(int *param_1,int param_2,int param_3);
+void recovered_1004d780(undefined4 *param_1,uint param_2,int param_3,uint param_4,int param_5);
+longlong recovered_1004d7fc(char *text,char **endptr,int base);
+ulonglong recovered_1004d810(char *text,char **endptr,int base);
+undefined4 recovered_1004d824(uint param_1);
+undefined4 recovered_1004d858(ushort *param_1,ushort param_2);
+undefined4 recovered_1004d89c(uint param_1);
+undefined4 recovered_1004d8c8(ushort *param_1,uint param_2);
+uint recovered_1004d924(uint param_1);
+undefined4 recovered_1004d93c(void);
+undefined4 recovered_1004d94c(undefined4 param_1);
+undefined4 recovered_1004d964(undefined4 *param_1);
+undefined4 recovered_1004d9b0(undefined4 *param_1);
+undefined4 recovered_1004da10(undefined4 *param_1);
+undefined4 recovered_1004da64(uint *param_1);
+__attribute__((naked,returns_twice)) int recovered_1004dac8(void *context);
+__attribute__((naked,noreturn)) void recovered_1004dae0(void *context,int value);
+bool recovered_1004db08(undefined4 param_1,uint param_2);
+bool recovered_1004db24(uint param_1);
+bool recovered_1004db40(undefined4 param_1,uint param_2);
+bool recovered_1004db5c(int param_1,uint param_2);
+bool recovered_1004db78(uint param_1);
+bool recovered_1004db90(int param_1,uint param_2);
+bool recovered_1004dbac(int param_1,uint param_2);
+bool recovered_1004dbd4(uint param_1);
+bool recovered_1004dc00(undefined4 param_1,undefined4 param_2);
+bool recovered_1004dc18(undefined4 param_1,uint param_2);
+bool recovered_1004dc3c(uint param_1);
+bool recovered_1004dc60(int param_1,uint param_2);
+uint recovered_1004dca8(undefined4 param_1,uint param_2);
+uint recovered_1004dcb0(uint param_1);
+bool recovered_1004dcb8(undefined4 param_1,undefined4 param_2);
+undefined4 recovered_1004dcf8(int param_1,uint param_2);
+undefined4 recovered_1004dd68(float param_1);
+undefined4 recovered_1004ddd4(int param_1,uint param_2);
+int recovered_1004de14(double value);
+double recovered_1004de30(double value);
+float recovered_1004de60(float value);
+double recovered_1004deb0(double value);
+double recovered_1004dee0(double value);
+float recovered_1004df10(float value);
+double recovered_1004df60(double value);
+double recovered_1004df90(double value);
+float recovered_1004dfc0(float value);
+double recovered_1004e010(double value);
+long recovered_1004e040(double value);
+long recovered_1004e08c(float value);
+long recovered_1004e0dc(double value);
+longlong recovered_1004e128(double value);
+longlong recovered_1004e174(float value);
+longlong recovered_1004e1c4(double value);
+double recovered_1004e210(double value);
+float recovered_1004e428(float value);
+double recovered_1004e450(double value);
+double recovered_1004e458(double y,double x);
+float recovered_1004e558(float y,float x);
+undefined4
+recovered_1004e668(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+                  double in_d0);
+double recovered_1004e768(double value);
+float recovered_1004e8a8(float value);
+double recovered_1004ea00(double value);
+double recovered_1004eb40(double value);
+float recovered_1004ec80(float value);
+double recovered_1004edd8(double value);
+double recovered_1004ef18(double value);
+float recovered_1004ef88(float value);
+double recovered_1004f008(double value);
+double recovered_1004f078(double value);
+float recovered_1004f100(float value);
+double recovered_1004f1a8(double value);
+double recovered_1004f230(double value);
+float recovered_1004f2c8(float value);
+double recovered_1004f368(double value);
+double recovered_1004f400(undefined4 param_1,undefined4 param_2);
+float recovered_1004f490(float param_1);
+double recovered_1004f540(undefined4 param_1,undefined4 param_2);
+double recovered_1004f5d0(double value);
+float recovered_1004f668(float value);
+double recovered_1004f714(double value);
+double recovered_1004f7ac(double value);
+float recovered_1004f844(float value);
+double recovered_1004f8f0(double value);
+double recovered_1004f988(double value);
+float recovered_1004fa28(float value);
+double recovered_1004fad0(double value);
+double recovered_1004fb70(double value);
+float recovered_1004fb98(float value);
+double recovered_1004fbd0(double value);
+double recovered_1004fbf8(double value);
+float recovered_1004fc0c(float value);
+double recovered_1004fc3c(double value);
+double recovered_1004fc50(double value);
+float recovered_1004fcc0(float value);
+double recovered_1004fd48(double value);
+double recovered_1004fdb8(double value,double *integer_part);
+float recovered_1004fdec(float value,float *integer_part);
+double recovered_1004fe34(double value,double *integer_part);
+double recovered_1004fe68(double value);
+float recovered_1004ff90(float value);
+double recovered_100500b8(double value);
+double recovered_100501e0(undefined4 param_1,undefined4 param_2);
+float recovered_10050310(float param_1);
+double recovered_10050440(undefined4 param_1,undefined4 param_2);
+double recovered_10050570(double value);
+float recovered_10050598(float value);
+int recovered_100505d0(char *text);
+long recovered_100505dc(char *text);
+longlong recovered_100505e8(char *text);
+double recovered_10050604(char *text,char **endptr,int in_s0,undefined4 in_s1);
+void recovered_10050608(char *param_1,undefined8 in_d0);
+void recovered_10050610(void *base,ulong count,ulong size,pf_compare *compare);
+void * recovered_10050794(void *key,void *base,ulong count,ulong size,pf_compare *compare);
+int recovered_1005082c(int value);
+int recovered_1005086c(int value);
+int recovered_10050880(int value);
+int recovered_100508ac(int value);
+int recovered_10050920(int value);
+int recovered_10050940(int value);
+int recovered_10050954(void);
+double recovered_100509e4(long end,long start);
+int recovered_100509f8(uint32_t *tm);
+int recovered_10050ce8(uint param_1,uint param_2,int param_3);
+undefined4 * recovered_10050d94(uint *param_1);
+undefined4 * recovered_100510f4(uint *in_r0);
+undefined * recovered_10051110(undefined4 *param_1);
+undefined * recovered_100511ec(uint *in_r0);
+uint recovered_100512a8(int *param_1,uint param_2,char *param_3,int *param_4);
+undefined4 recovered_10051b9c(int param_1,uint param_2,int *param_3,uint param_4,int param_5);
+undefined4 recovered_10051c64(undefined4 *param_1,int param_2);
+undefined4 recovered_10051c9c(char *param_1,int *param_2,int *param_3,uint *param_4);
+
+/* Original analysis identifiers for manual recovery units. */
+
+/* SDK public symbol bindings. */
+void recovered_1004a788(void) __asm__("__Exit");
+void recovered_100448c0(uint8_t *pointer,...) __asm__("___atomic_clear");
+uint64_t recovered_10044a7c(size_t size,uint8_t *pointer,uint8_t *value,uint8_t *desired,...) __asm__("___atomic_compare_exchange");
+uint64_t recovered_10043bb4(uint8_t *pointer,uint8_t *expected,uint8_t value,...) __asm__("___atomic_compare_exchange_1");
+uint64_t recovered_10043edc(uint16_t *pointer,uint16_t *expected,uint16_t value,...) __asm__("___atomic_compare_exchange_2");
+uint64_t recovered_10044204(uint32_t *pointer,uint32_t *expected,uint32_t value,...) __asm__("___atomic_compare_exchange_4");
+uint64_t recovered_10044554(uint64_t *pointer,uint64_t *expected,uint64_t value,...) __asm__("___atomic_compare_exchange_8");
+void recovered_100449e0(size_t size,uint8_t *pointer,uint8_t *value,uint8_t *out,...) __asm__("___atomic_exchange");
+uint8_t recovered_10043b68(uint8_t *pointer,uint8_t value,...) __asm__("___atomic_exchange_1");
+uint16_t recovered_10043e90(uint16_t *pointer,uint16_t value,...) __asm__("___atomic_exchange_2");
+uint32_t recovered_100441b8(uint32_t *pointer,uint32_t value,...) __asm__("___atomic_exchange_4");
+uint64_t recovered_100444f4(uint64_t *pointer,uint64_t value,...) __asm__("___atomic_exchange_8");
+uint8_t recovered_10043c24(uint8_t *pointer,uint8_t value,...) __asm__("___atomic_fetch_add_1");
+uint16_t recovered_10043f4c(uint16_t *pointer,uint16_t value,...) __asm__("___atomic_fetch_add_2");
+uint32_t recovered_10044274(uint32_t *pointer,uint32_t value,...) __asm__("___atomic_fetch_add_4");
+uint64_t recovered_100445f0(uint64_t *pointer,uint64_t value,...) __asm__("___atomic_fetch_add_8");
+uint8_t recovered_10043cc4(uint8_t *pointer,uint8_t value,...) __asm__("___atomic_fetch_and_1");
+uint16_t recovered_10043fec(uint16_t *pointer,uint16_t value,...) __asm__("___atomic_fetch_and_2");
+uint32_t recovered_10044314(uint32_t *pointer,uint32_t value,...) __asm__("___atomic_fetch_and_4");
+uint64_t recovered_100446c0(uint64_t *pointer,uint64_t value,...) __asm__("___atomic_fetch_and_8");
+uint8_t recovered_10043db4(uint8_t *pointer,uint8_t value,...) __asm__("___atomic_fetch_nand_1");
+uint16_t recovered_100440dc(uint16_t *pointer,uint16_t value,...) __asm__("___atomic_fetch_nand_2");
+uint32_t recovered_10044404(uint32_t *pointer,uint32_t value,...) __asm__("___atomic_fetch_nand_4");
+uint64_t recovered_100447f8(uint64_t *pointer,uint64_t value,...) __asm__("___atomic_fetch_nand_8");
+uint8_t recovered_10043d14(uint8_t *pointer,uint8_t value,...) __asm__("___atomic_fetch_or_1");
+uint16_t recovered_1004403c(uint16_t *pointer,uint16_t value,...) __asm__("___atomic_fetch_or_2");
+uint32_t recovered_10044364(uint32_t *pointer,uint32_t value,...) __asm__("___atomic_fetch_or_4");
+uint64_t recovered_10044728(uint64_t *pointer,uint64_t value,...) __asm__("___atomic_fetch_or_8");
+uint8_t recovered_10043c74(uint8_t *pointer,uint8_t value,...) __asm__("___atomic_fetch_sub_1");
+uint16_t recovered_10043f9c(uint16_t *pointer,uint16_t value,...) __asm__("___atomic_fetch_sub_2");
+uint32_t recovered_100442c4(uint32_t *pointer,uint32_t value,...) __asm__("___atomic_fetch_sub_4");
+uint64_t recovered_10044658(uint64_t *pointer,uint64_t value,...) __asm__("___atomic_fetch_sub_8");
+uint8_t recovered_10043d64(uint8_t *pointer,uint8_t value,...) __asm__("___atomic_fetch_xor_1");
+uint16_t recovered_1004408c(uint16_t *pointer,uint16_t value,...) __asm__("___atomic_fetch_xor_2");
+uint32_t recovered_100443b4(uint32_t *pointer,uint32_t value,...) __asm__("___atomic_fetch_xor_4");
+uint64_t recovered_10044790(uint64_t *pointer,uint64_t value,...) __asm__("___atomic_fetch_xor_8");
+void recovered_10044904(size_t size,uint8_t *pointer,uint8_t *value,...) __asm__("___atomic_load");
+uint8_t recovered_10043ae0(uint8_t *pointer,...) __asm__("___atomic_load_1");
+uint16_t recovered_10043e08(uint16_t *pointer,...) __asm__("___atomic_load_2");
+uint32_t recovered_10044130(uint32_t *pointer,...) __asm__("___atomic_load_4");
+uint64_t recovered_10044458(uint64_t *pointer,...) __asm__("___atomic_load_8");
+void recovered_10044970(size_t size,uint8_t *pointer,uint8_t *value,...) __asm__("___atomic_store");
+void recovered_10043b24(uint8_t *pointer,uint8_t value,...) __asm__("___atomic_store_1");
+void recovered_10043e4c(uint16_t *pointer,uint16_t value,...) __asm__("___atomic_store_2");
+void recovered_10044174(uint32_t *pointer,uint32_t value,...) __asm__("___atomic_store_4");
+void recovered_100444a4(uint64_t *pointer,uint64_t value,...) __asm__("___atomic_store_8");
+bool recovered_10044868(uint8_t *pointer,...) __asm__("___atomic_test_and_set");
+void recovered_100439b8(void *function,void *caller) __asm__("___cyg_profile_func_enter");
+void recovered_10043a84(void *function,void *caller) __asm__("___cyg_profile_func_exit");
+double recovered_10041e28(longlong x) __asm__("___floatdidf");
+float recovered_10043ac4(longlong x) __asm__("___floatdisf");
+float recovered_10043aa8(ulonglong x) __asm__("___floatundisf");
+void recovered_100438d8(int *param_1) __asm__("___sanitizer_cov_trace_pc_guard");
+void recovered_10043850(int *param_1,int *param_2) __asm__("___sanitizer_cov_trace_pc_guard_init");
+void recovered_1004a818(void) __asm__("__exit");
+void recovered_1003ff7c(void) __asm__("_abort");
+int recovered_1003ff84(int value) __asm__("_abs");
+undefined4 recovered_10048948(void) __asm__("_accept");
+void recovered_1004954c(int param_1) __asm__("_access");
+double recovered_1004eb40(double value) __asm__("_acos");
+float recovered_1004ec80(float value) __asm__("_acosf");
+double recovered_1004edd8(double value) __asm__("_acosl");
+undefined4 recovered_1004b080(void) __asm__("_alarm");
+undefined * recovered_10051110(undefined4 *param_1) __asm__("_asctime");
+double recovered_1004e768(double value) __asm__("_asin");
+float recovered_1004e8a8(float value) __asm__("_asinf");
+double recovered_1004ea00(double value) __asm__("_asinl");
+undefined4 recovered_1004a738(int param_1) __asm__("_at_quick_exit");
+double recovered_1004e210(double value) __asm__("_atan");
+double recovered_1004e458(double y,double x) __asm__("_atan2");
+float recovered_1004e558(float y,float x) __asm__("_atan2f");
+undefined4
+recovered_1004e668(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
+                  double in_d0) __asm__("_atan2l");
+float recovered_1004e428(float value) __asm__("_atanf");
+double recovered_1004e450(double value) __asm__("_atanl");
+undefined4 recovered_1004a6e8(int param_1) __asm__("_atexit");
+void recovered_10050608(char *param_1,undefined8 in_d0) __asm__("_atof");
+int recovered_100505d0(char *text) __asm__("_atoi");
+long recovered_100505dc(char *text) __asm__("_atol");
+longlong recovered_100505e8(char *text) __asm__("_atoll");
+int recovered_1004d248(void *left,void *right,ulong count) __asm__("_bcmp");
+void recovered_1004d238(void *param_1,void *param_2,ulong param_3) __asm__("_bcopy");
+undefined4 recovered_10048910(void) __asm__("_bind");
+void * recovered_10050794(void *key,void *base,ulong count,ulong size,pf_compare *compare) __asm__("_bsearch");
+void recovered_10040a18(undefined4 *param_1,uint param_2) __asm__("_bzero");
+void * recovered_1004d620(ulong count,ulong size) __asm__("_calloc");
+double recovered_10041908(double value) __asm__("_ceil");
+float recovered_100420c4(float value) __asm__("_ceilf");
+void recovered_1004bb38(undefined4 *param_1) __asm__("_cfmakeraw");
+undefined4 recovered_10049568(char *param_1) __asm__("_chdir");
+void recovered_100493e4(int param_1) __asm__("_chmod");
+void recovered_10049478(int param_1) __asm__("_chown");
+void recovered_10046838(void *stream) __asm__("_clearerr");
+int recovered_10050954(void) __asm__("_clock");
+undefined4 recovered_1004b214(undefined4 param_1,undefined4 *param_2) __asm__("_clock_gettime");
+undefined4 recovered_10048438(uint param_1) __asm__("_close");
+undefined4 recovered_10049bc4(void *param_1) __asm__("_closedir");
+undefined4 recovered_100488f4(void) __asm__("_connect");
+double recovered_10041bc8(double value) __asm__("_cos");
+float recovered_10042458(float value) __asm__("_cosf");
+double recovered_1004f7ac(double value) __asm__("_cosh");
+float recovered_1004f844(float value) __asm__("_coshf");
+double recovered_1004f8f0(double value) __asm__("_coshl");
+undefined4 recovered_10048300(char *param_1) __asm__("_creat");
+undefined * recovered_100511ec(uint *in_r0) __asm__("_ctime");
+double recovered_100509e4(long end,long start) __asm__("_difftime");
+void recovered_1004d6f8(int *param_1,int param_2,int param_3) __asm__("_div");
+undefined4 recovered_1004cfbc(void) __asm__("_dlclose");
+undefined1 * recovered_1004cfc4(void) __asm__("_dlerror");
+undefined4 recovered_1004cf1c(void) __asm__("_dlopen");
+undefined4 recovered_1004cf6c(void) __asm__("_dlsym");
+undefined4 recovered_10048664(uint param_1) __asm__("_dup");
+uint recovered_1004876c(uint param_1,uint param_2) __asm__("_dup2");
+undefined4 recovered_10049e90(void) __asm__("_elf_aux_info");
+double recovered_1004fe68(double value) __asm__("_erf");
+double recovered_100501e0(undefined4 param_1,undefined4 param_2) __asm__("_erfc");
+float recovered_10050310(float param_1) __asm__("_erfcf");
+double recovered_10050440(undefined4 param_1,undefined4 param_2) __asm__("_erfcl");
+float recovered_1004ff90(float value) __asm__("_erff");
+double recovered_100500b8(double value) __asm__("_erfl");
+undefined4 recovered_1004ad10(int param_1,int *param_2) __asm__("_execv");
+undefined4 recovered_1004aef0(int param_1,int *param_2) __asm__("_execve");
+undefined4 recovered_1004aef4(int param_1,int *param_2) __asm__("_execvp");
+void recovered_1004a8a8(void) __asm__("_exit");
+double recovered_1004f078(double value) __asm__("_exp");
+double recovered_1004f230(double value) __asm__("_exp2");
+float recovered_1004f2c8(float value) __asm__("_exp2f");
+double recovered_1004f368(double value) __asm__("_exp2l");
+float recovered_1004f100(float value) __asm__("_expf");
+double recovered_1004f1a8(double value) __asm__("_expl");
+double recovered_1004f400(undefined4 param_1,undefined4 param_2) __asm__("_expm1");
+float recovered_1004f490(float param_1) __asm__("_expm1f");
+double recovered_1004f540(undefined4 param_1,undefined4 param_2) __asm__("_expm1l");
+double recovered_10041c78(double value) __asm__("_fabs");
+float recovered_10042510(float value) __asm__("_fabsf");
+undefined4 recovered_10049400(uint param_1) __asm__("_fchmod");
+undefined4 recovered_10049494(uint param_1) __asm__("_fchown");
+int recovered_1004599c(void *stream) __asm__("_fclose");
+uint recovered_100489dc(uint param_1,undefined4 param_2,int param_3) __asm__("_fcntl");
+void * recovered_10045a78(int fd,char *mode) __asm__("_fdopen");
+undefined4 recovered_1004d824(uint param_1) __asm__("_feclearexcept");
+undefined4 recovered_1004d964(undefined4 *param_1) __asm__("_fegetenv");
+undefined4 recovered_1004d858(ushort *param_1,ushort param_2) __asm__("_fegetexceptflag");
+undefined4 recovered_1004d93c(void) __asm__("_fegetround");
+undefined4 recovered_1004d9b0(undefined4 *param_1) __asm__("_feholdexcept");
+int recovered_10046798(void *stream) __asm__("_feof");
+undefined4 recovered_1004d89c(uint param_1) __asm__("_feraiseexcept");
+int recovered_100467e8(void *stream) __asm__("_ferror");
+undefined4 recovered_1004da10(undefined4 *param_1) __asm__("_fesetenv");
+undefined4 recovered_1004d8c8(ushort *param_1,uint param_2) __asm__("_fesetexceptflag");
+undefined4 recovered_1004d94c(undefined4 param_1) __asm__("_fesetround");
+uint recovered_1004d924(uint param_1) __asm__("_fetestexcept");
+undefined4 recovered_1004da64(uint *param_1) __asm__("_feupdateenv");
+int recovered_10045ba8(void *stream) __asm__("_fflush");
+int recovered_100468bc(void *stream) __asm__("_fgetc");
+int recovered_100466b0(void *stream,long *pos) __asm__("_fgetpos");
+char * recovered_10046b98(char *text,int count,void *stream) __asm__("_fgets");
+int recovered_10046880(void *stream) __asm__("_fileno");
+double recovered_100418d8(double value) __asm__("_floor");
+float recovered_1004208c(float value) __asm__("_floorf");
+double recovered_10041820(double x,double y) __asm__("_fmod");
+float recovered_10041eb8(float x,float y) __asm__("_fmodf");
+void * recovered_10044c70(char *path,char *mode) __asm__("_fopen");
+undefined4 recovered_1004acf4(void) __asm__("_fork");
+int recovered_10046e74(void *stream,char *format,...) __asm__("_fprintf");
+int recovered_10046c88(int ch,void *stream) __asm__("_fputc");
+int recovered_10046d44(char *text,void *stream) __asm__("_fputs");
+ulong recovered_10045f84(void *ptr,ulong size,ulong count,void *stream) __asm__("_fread");
+void recovered_1003ffe4(void *pointer) __asm__("_free");
+void * recovered_10045810(char *path,char *mode,void *stream) __asm__("_freopen");
+double recovered_10041768(undefined4 param_1,undefined4 param_2,int *param_3) __asm__("_frexp");
+float recovered_10041efc(float param_1,float *param_2) __asm__("_frexpf");
+int recovered_100463cc(void *stream,long offset,int origin) __asm__("_fseek");
+int recovered_100465b4(void *stream,longlong offset,int origin) __asm__("_fseeko");
+int recovered_1004671c(void *stream,long *pos) __asm__("_fsetpos");
+undefined4 recovered_10048f40(uint param_1,void *param_2) __asm__("_fstat");
+undefined4 recovered_10049150(uint param_1,undefined4 *param_2) __asm__("_fstatfs");
+int recovered_100499fc(uint param_1) __asm__("_fsync");
+long recovered_1004653c(void *stream) __asm__("_ftell");
+longlong recovered_1004666c(void *stream) __asm__("_ftello");
+int recovered_100498cc(uint param_1,uint param_2,int param_3) __asm__("_ftruncate");
+ulong recovered_10046204(void *ptr,ulong size,ulong count,void *stream) __asm__("_fwrite");
+int recovered_10046950(void *stream) __asm__("_getc");
+int recovered_10046a78(void) __asm__("_getchar");
+char * recovered_1004963c(char *param_1,uint param_2) __asm__("_getcwd");
+undefined4 recovered_1004aa54(void) __asm__("_getegid");
+int recovered_10049da8(byte *param_1) __asm__("_getenv");
+undefined4 recovered_1004aa44(void) __asm__("_geteuid");
+undefined4 recovered_1004aa4c(void) __asm__("_getgid");
+undefined4 * recovered_1004cc38(int param_1) __asm__("_getgrgid");
+undefined4 * recovered_1004cd98(char *param_1) __asm__("_getgrnam");
+undefined4 recovered_1004b580(void *param_1,uint param_2) __asm__("_gethostname");
+undefined4 recovered_1004b078(void) __asm__("_getpagesize");
+undefined4 recovered_1004aab4(void) __asm__("_getpid");
+undefined4 recovered_1004ab3c(void) __asm__("_getppid");
+void recovered_10049eac(int param_1,byte *param_2,uint param_3) __asm__("_getprogpath");
+undefined4 * recovered_1004c74c(char *param_1) __asm__("_getpwnam");
+int recovered_1004cbb4(int param_1,int param_2,int param_3,uint param_4,int *param_5) __asm__("_getpwnam_r");
+undefined4 * recovered_1004c60c(int param_1) __asm__("_getpwuid");
+int recovered_1004c8a0(int param_1,undefined4 *param_2,void *param_3,uint param_4,
+                      undefined4 *param_5) __asm__("_getpwuid_r");
+undefined4 recovered_1004b2c0(uint param_1,undefined4 *param_2) __asm__("_getrlimit");
+undefined4 recovered_1004b39c(undefined4 param_1,void *param_2) __asm__("_getrusage");
+int recovered_1004ab44(int param_1) __asm__("_getsid");
+undefined4 recovered_1004b1d0(undefined4 *param_1,undefined4 *param_2) __asm__("_gettimeofday");
+undefined4 recovered_1004aa3c(void) __asm__("_getuid");
+undefined4 * recovered_10050d94(uint *param_1) __asm__("_gmtime");
+undefined4 recovered_1004bb78(uint param_1,int param_2,undefined4 *param_3) __asm__("_ioctl");
+int recovered_10041098(int value) __asm__("_isalnum");
+int recovered_10041080(int value) __asm__("_isalpha");
+bool recovered_1004aa28(uint param_1) __asm__("_isatty");
+int recovered_100410c4(int value) __asm__("_isblank");
+int recovered_10050920(int value) __asm__("_iscntrl");
+int recovered_1005086c(int value) __asm__("_isdigit");
+int recovered_1004de14(double value) __asm__("_isfinite");
+int recovered_10050940(int value) __asm__("_isgraph");
+int recovered_10041058(int value) __asm__("_islower");
+int recovered_100410e4(int value) __asm__("_isprint");
+int recovered_100508ac(int value) __asm__("_ispunct");
+int recovered_1005082c(int value) __asm__("_isspace");
+int recovered_1004106c(int value) __asm__("_isupper");
+int recovered_10050880(int value) __asm__("_isxdigit");
+undefined4 recovered_1004b85c(int param_1) __asm__("_kill");
+long recovered_1004d6d8(long value) __asm__("_labs");
+void recovered_1004950c(int param_1) __asm__("_lchown");
+double recovered_10041724(undefined4 param_1,undefined4 param_2,uint param_3) __asm__("_ldexp");
+float recovered_10041fb8(float param_1,uint param_2) __asm__("_ldexpf");
+void recovered_1004d73c(int *param_1,int param_2,int param_3) __asm__("_ldiv");
+undefined4 recovered_10049730(void) __asm__("_link");
+undefined4 recovered_1004892c(void) __asm__("_listen");
+longlong recovered_1004d6e4(longlong value) __asm__("_llabs");
+void recovered_1004d780(undefined4 *param_1,uint param_2,int param_3,uint param_4,int param_5) __asm__("_lldiv");
+longlong recovered_1004e128(double value) __asm__("_llrint");
+longlong recovered_1004e174(float value) __asm__("_llrintf");
+longlong recovered_1004e1c4(double value) __asm__("_llrintl");
+longlong recovered_10041ad8(double value) __asm__("_llround");
+undefined * recovered_10041664(void) __asm__("_localeconv");
+undefined4 * recovered_100510f4(uint *in_r0) __asm__("_localtime");
+double recovered_10041998(double value) __asm__("_log");
+double recovered_10050570(double value) __asm__("_log10");
+float recovered_10050598(float value) __asm__("_log10f");
+double recovered_1004fbf8(double value) __asm__("_log1p");
+float recovered_1004fc0c(float value) __asm__("_log1pf");
+double recovered_1004fc3c(double value) __asm__("_log1pl");
+double recovered_1004fb70(double value) __asm__("_log2");
+float recovered_1004fb98(float value) __asm__("_log2f");
+double recovered_1004fbd0(double value) __asm__("_log2l");
+double recovered_1004fc50(double value) __asm__("_logb");
+float recovered_1004fcc0(float value) __asm__("_logbf");
+double recovered_1004fd48(double value) __asm__("_logbl");
+float recovered_10042218(float value) __asm__("_logf");
+__attribute__((naked,noreturn)) void recovered_1004dae0(void *context,int value) __asm__("_longjmp");
+long recovered_1004e040(double value) __asm__("_lrint");
+long recovered_1004e08c(float value) __asm__("_lrintf");
+long recovered_1004e0dc(double value) __asm__("_lrintl");
+long recovered_1004235c(double value) __asm__("_lround");
+void recovered_100485a4(uint param_1,uint param_2,undefined4 param_3,int param_4) __asm__("_lseek");
+undefined4 recovered_10048f3c(int param_1,void *param_2) __asm__("_lstat");
+undefined4 recovered_10049da0(void) __asm__("_madvise");
+void * recovered_1003ff90(ulong size) __asm__("_malloc");
+void * recovered_1004d2f8(void *memory,int value,ulong count) __asm__("_memchr");
+int recovered_10040e10(void *left,void *right,ulong count) __asm__("_memcmp");
+void * recovered_10040088(void *destination,void *source,ulong count) __asm__("_memcpy");
+void * recovered_1004030c(void *destination,void *source,ulong count) __asm__("_memmove");
+void * recovered_10040818(void *destination,int value,ulong count) __asm__("_memset");
+undefined4 recovered_10049270(char *param_1) __asm__("_mkdir");
+void recovered_1004a6e0(char *param_1) __asm__("_mkstemp");
+undefined4 recovered_1004a4a8(char *param_1,int param_2) __asm__("_mkstemps");
+int recovered_100509f8(uint32_t *tm) __asm__("_mktime");
+void * recovered_10049c0c(undefined4 param_1,uint param_2,undefined4 param_3,uint param_4,
+                         uint param_5,int param_6) __asm__("_mmap");
+double recovered_1004fdb8(double value,double *integer_part) __asm__("_modf");
+float recovered_1004fdec(float value,float *integer_part) __asm__("_modff");
+double recovered_1004fe34(double value,double *integer_part) __asm__("_modfl");
+undefined4 recovered_10049d90(void) __asm__("_mprotect");
+undefined4 recovered_10049d98(void) __asm__("_msync");
+undefined4 recovered_10049d7c(void *param_1) __asm__("_munmap");
+undefined4 recovered_1004b158(undefined4 param_1,undefined4 *param_2) __asm__("_nanosleep");
+double recovered_1004df90(double value) __asm__("_nearbyint");
+float recovered_1004dfc0(float value) __asm__("_nearbyintf");
+double recovered_1004e010(double value) __asm__("_nearbyintl");
+undefined4 recovered_10048020(char *param_1,uint param_2) __asm__("_open");
+uint * recovered_10049a50(char *param_1) __asm__("_opendir");
+int recovered_10045b8c(void *stream) __asm__("_pclose");
+void recovered_100478a4(char *prefix) __asm__("_perror");
+undefined4 recovered_100488ac(undefined4 *param_1) __asm__("_pipe");
+int recovered_1004bd90(int param_1,int param_2) __asm__("_poll");
+void * recovered_10045b70(char *command,char *mode) __asm__("_popen");
+undefined4
+recovered_1004c3ac(int *param_1,int param_2,undefined4 param_3,undefined4 param_4,int *param_5) __asm__("_posix_spawn");
+undefined4 recovered_1004c39c(void) __asm__("_posix_spawn_file_actions_addclose");
+undefined4 recovered_1004c394(void) __asm__("_posix_spawn_file_actions_adddup2");
+undefined4 recovered_1004c3a4(void) __asm__("_posix_spawn_file_actions_addopen");
+undefined4 recovered_1004c38c(void) __asm__("_posix_spawn_file_actions_destroy");
+void recovered_1004c374(undefined4 *param_1) __asm__("_posix_spawn_file_actions_init");
+void recovered_1004c5ec(int *in_r0,int in_r1,undefined4 in_r3,undefined4 in_stack_00000000) __asm__("_posix_spawnp");
+double recovered_10041858(double base,double exponent) __asm__("_pow");
+float recovered_10042004(float base,float exponent) __asm__("_powf");
+int recovered_10046f54(char *format,...) __asm__("_printf");
+undefined4 recovered_1004bf18(void) __asm__("_pthread_attr_destroy");
+undefined4 recovered_1004bf04(undefined4 *param_1) __asm__("_pthread_attr_init");
+undefined4 recovered_1004bfb4(void) __asm__("_pthread_cond_broadcast");
+undefined4 recovered_1004bf94(void) __asm__("_pthread_cond_destroy");
+undefined4 recovered_1004bf80(undefined4 *param_1) __asm__("_pthread_cond_init");
+undefined4 recovered_1004bfac(void) __asm__("_pthread_cond_signal");
+undefined4 recovered_1004bfa4(void) __asm__("_pthread_cond_timedwait");
+undefined4 recovered_1004bf9c(void) __asm__("_pthread_cond_wait");
+undefined4 recovered_1004be98(int *param_1,undefined4 param_2,undefined *param_3,undefined4 param_4) __asm__("_pthread_create");
+undefined4 recovered_1004befc(void) __asm__("_pthread_detach");
+bool recovered_1004c364(int param_1,int param_2) __asm__("_pthread_equal");
+undefined4 recovered_1004c22c(uint param_1) __asm__("_pthread_getspecific");
+undefined4 recovered_1004bee8(undefined4 param_1,undefined4 *param_2) __asm__("_pthread_join");
+undefined4 recovered_1004bfbc(int *param_1) __asm__("_pthread_key_create");
+undefined4 recovered_1004c1f4(uint param_1) __asm__("_pthread_key_delete");
+undefined4 recovered_1004bf34(void) __asm__("_pthread_mutex_destroy");
+undefined4 recovered_1004bf20(undefined4 *param_1) __asm__("_pthread_mutex_init");
+undefined4 recovered_1004bf3c(void) __asm__("_pthread_mutex_lock");
+undefined4 recovered_1004bf44(void) __asm__("_pthread_mutex_trylock");
+undefined4 recovered_1004bf4c(void) __asm__("_pthread_mutex_unlock");
+undefined4 recovered_1004bf68(void) __asm__("_pthread_mutexattr_destroy");
+undefined4 recovered_1004bf54(undefined4 *param_1) __asm__("_pthread_mutexattr_init");
+undefined4 recovered_1004bf70(undefined4 *param_1,undefined4 param_2) __asm__("_pthread_mutexattr_settype");
+undefined4 recovered_1004be50(int *param_1,undefined *param_2) __asm__("_pthread_once");
+undefined4 recovered_1004c2bc(void) __asm__("_pthread_rwlock_destroy");
+undefined4 recovered_1004c2a8(undefined4 *param_1) __asm__("_pthread_rwlock_init");
+undefined4 recovered_1004c2c4(void) __asm__("_pthread_rwlock_rdlock");
+undefined4 recovered_1004c2d4(void) __asm__("_pthread_rwlock_unlock");
+undefined4 recovered_1004c2cc(void) __asm__("_pthread_rwlock_wrlock");
+undefined4 recovered_1004c2dc(void) __asm__("_pthread_self");
+undefined4 recovered_1004c268(uint param_1,undefined4 param_2) __asm__("_pthread_setspecific");
+undefined4 recovered_1004b790(int param_1,uint *param_2,uint *param_3) __asm__("_pthread_sigmask");
+int recovered_10046cc4(int ch,void *stream) __asm__("_putc");
+int recovered_10046d00(int ch) __asm__("_putchar");
+undefined4 recovered_1004a1f0(char *param_1) __asm__("_putenv");
+int recovered_10046d8c(char *text) __asm__("_puts");
+void recovered_10050610(void *base,ulong count,ulong size,pf_compare *compare) __asm__("_qsort");
+void recovered_1004a998(void) __asm__("_quick_exit");
+undefined4 recovered_1004b854(void) __asm__("_raise");
+int recovered_1004d6a4(void) __asm__("_rand");
+ulonglong recovered_10048358(uint param_1,void *param_2,ulong param_3) __asm__("_read");
+uint * recovered_10049b8c(uint *param_1) __asm__("_readdir");
+undefined8 recovered_100496f4(void) __asm__("_readlink");
+void * recovered_10040034(void *pointer,ulong size) __asm__("_realloc");
+char * recovered_1004a3f0(int param_1,char *param_2) __asm__("_realpath");
+undefined8 recovered_100489bc(void) __asm__("_recv");
+int recovered_10047c84(char *path) __asm__("_remove");
+int recovered_10047dfc(char *oldPath,char *newPath) __asm__("_rename");
+void recovered_10049bfc(int param_1) __asm__("_rewinddir");
+double recovered_1004dee0(double value) __asm__("_rint");
+float recovered_1004df10(float value) __asm__("_rintf");
+double recovered_1004df60(double value) __asm__("_rintl");
+undefined4 recovered_100493e0(char *param_1) __asm__("_rmdir");
+double recovered_1004de30(double value) __asm__("_round");
+float recovered_1004de60(float value) __asm__("_roundf");
+double recovered_1004deb0(double value) __asm__("_roundl");
+undefined4 recovered_1004b454(void) __asm__("_sched_get_priority_max");
+undefined4 recovered_1004b44c(void) __asm__("_sched_get_priority_min");
+undefined4 recovered_1004b474(undefined4 param_1,undefined4 *param_2) __asm__("_sched_getparam");
+undefined4 recovered_1004b464(void) __asm__("_sched_getscheduler");
+undefined4 recovered_1004b46c(void) __asm__("_sched_setparam");
+undefined4 recovered_1004b45c(void) __asm__("_sched_setscheduler");
+undefined4 recovered_1004b3e4(void) __asm__("_sched_yield");
+uint recovered_1004bc18(int param_1,uint *param_2,uint *param_3,uint *param_4) __asm__("_select");
+undefined8 recovered_1004899c(void) __asm__("_send");
+void recovered_10047870(void *stream,char *buffer) __asm__("_setbuf");
+undefined4 recovered_10049f1c(byte *param_1,char *param_2,int param_3) __asm__("_setenv");
+undefined4 recovered_1004aa88(int param_1) __asm__("_setgid");
+__attribute__((naked,returns_twice)) int recovered_1004dac8(void *context) __asm__("_setjmp");
+undefined * recovered_10041654(void) __asm__("_setlocale");
+undefined4 recovered_1004b360(uint param_1) __asm__("_setrlimit");
+undefined4 recovered_1004ac6c(void) __asm__("_setsid");
+undefined4 recovered_10048980(void) __asm__("_setsockopt");
+undefined4 recovered_1004aa5c(int param_1) __asm__("_setuid");
+int recovered_10047834(void *stream,char *buffer,int mode,ulong size) __asm__("_setvbuf");
+undefined4 recovered_10048964(void) __asm__("_shutdown");
+undefined4 recovered_1004b664(int param_1,undefined8 *param_2,undefined8 *param_3) __asm__("_sigaction");
+undefined4 recovered_1004b978(uint *param_1,uint param_2,uint param_3) __asm__("_sigaddset");
+undefined4 recovered_1004b9bc(uint *param_1,uint param_2,uint param_3) __asm__("_sigdelset");
+undefined4 recovered_1004b918(undefined4 *param_1) __asm__("_sigemptyset");
+undefined4 recovered_1004b948(undefined4 *param_1) __asm__("_sigfillset");
+uint recovered_1004ba00(uint *param_1,uint param_2,uint param_3) __asm__("_sigismember");
+undefined4 recovered_1004b614(int param_1,undefined4 param_2) __asm__("_signal");
+undefined4 recovered_1004b6cc(int param_1,uint *param_2,uint *param_3) __asm__("_sigprocmask");
+double recovered_10041b08(double value) __asm__("_sin");
+float recovered_10042390(float value) __asm__("_sinf");
+double recovered_1004f5d0(double value) __asm__("_sinh");
+float recovered_1004f668(float value) __asm__("_sinhf");
+double recovered_1004f714(double value) __asm__("_sinhl");
+undefined4 recovered_1004b088(void) __asm__("_sleep");
+int recovered_10043634(char *buffer,unsigned long size,char *format,...) __asm__("_snprintf");
+undefined4 recovered_100488d8(void) __asm__("_socket");
+int recovered_10046fec(char *buffer,char *format,...) __asm__("_sprintf");
+double recovered_1004194c(double value) __asm__("_sqrt");
+float recovered_100421c0(float value) __asm__("_sqrtf");
+void recovered_1004d688(uint seed) __asm__("_srand");
+int recovered_10047800(char *buffer,char *format,...) __asm__("_sscanf");
+undefined4 recovered_10048130(int param_1,void *param_2) __asm__("_stat");
+undefined4 recovered_10049060(int param_1,undefined4 *param_2) __asm__("_statfs");
+int recovered_1004d088(byte *param_1,byte *param_2) __asm__("_strcasecmp");
+char * recovered_1004d480(char *destination,char *source) __asm__("_strcat");
+char * recovered_100414f8(char *text,int value) __asm__("_strchr");
+int recovered_10041140(char *left,char *right) __asm__("_strcmp");
+int recovered_10041184(char *left,char *right) __asm__("_strcoll");
+char * recovered_100411c8(char *destination,char *source) __asm__("_strcpy");
+ulong recovered_1004d398(char *text,char *reject) __asm__("_strcspn");
+char * recovered_100411e4(char *text) __asm__("_strdup");
+char * recovered_10047984(int error_number) __asm__("_strerror");
+uint recovered_100512a8(int *param_1,uint param_2,char *param_3,int *param_4) __asm__("_strftime");
+ulong recovered_10041118(char *text) __asm__("_strlen");
+int recovered_1004d144(byte *param_1,byte *param_2,int param_3) __asm__("_strncasecmp");
+char * recovered_1004d4a8(char *destination,char *source,ulong count) __asm__("_strncat");
+int recovered_1004d1cc(char *left,char *right,ulong count) __asm__("_strncmp");
+char * recovered_1004d3f4(char *destination,char *source,ulong count) __asm__("_strncpy");
+void * recovered_1004d018(void *param_1,ulong param_2) __asm__("_strndup");
+ulong recovered_1004cfe0(char *text,ulong max_length) __asm__("_strnlen");
+char * recovered_10041590(char *text,char *accept) __asm__("_strpbrk");
+char * recovered_1004d32c(char *text,int value) __asm__("_strrchr");
+char * recovered_1004d368(int param_1) __asm__("_strsignal");
+ulong recovered_1004152c(char *text,char *accept) __asm__("_strspn");
+char * recovered_100415f0(char *haystack,char *needle) __asm__("_strstr");
+double recovered_100427e0(char *text,char **endptr,int in_s0,undefined4 in_s1) __asm__("_strtod");
+float recovered_100429b4(char *text,char **endptr) __asm__("_strtof");
+char * recovered_1004d584(char *text,char *delimiters) __asm__("_strtok");
+char * recovered_1004d24c(char *param_1,char *param_2,undefined4 *param_3) __asm__("_strtok_r");
+long recovered_1004252c(char *text,char **endptr,int base) __asm__("_strtol");
+double recovered_10050604(char *text,char **endptr,int in_s0,undefined4 in_s1) __asm__("_strtold");
+longlong recovered_1004d7fc(char *text,char **endptr,int base) __asm__("_strtoll");
+ulong recovered_10042680(char *text,char **endptr,int base) __asm__("_strtoul");
+ulonglong recovered_1004d810(char *text,char **endptr,int base) __asm__("_strtoull");
+ulong recovered_1004d504(char *destination,char *source,ulong count) __asm__("_strxfrm");
+undefined4 recovered_10049714(void) __asm__("_symlink");
+undefined4 recovered_1004aef8(int param_1) __asm__("_sysconf");
+undefined4 recovered_1004a28c(int param_1) __asm__("_system");
+double recovered_1004ef18(double value) __asm__("_tan");
+float recovered_1004ef88(float value) __asm__("_tanf");
+double recovered_1004f988(double value) __asm__("_tanh");
+float recovered_1004fa28(float value) __asm__("_tanhf");
+double recovered_1004fad0(double value) __asm__("_tanhl");
+double recovered_1004f008(double value) __asm__("_tanl");
+void recovered_10044b38(void *param_1) __asm__("_tayga_libc_prepare");
+undefined4 recovered_1004ba38(uint param_1,undefined8 *param_2) __asm__("_tcgetattr");
+undefined4 recovered_1004badc(uint param_1,undefined4 param_2,undefined8 *param_3) __asm__("_tcsetattr");
+undefined4 recovered_10041674(undefined4 *param_1) __asm__("_time");
+undefined4 recovered_10051c64(undefined4 *param_1,int param_2) __asm__("_timespec_get");
+char * recovered_10047c24(char *buffer) __asm__("_tmpnam");
+int recovered_100410f8(int value) __asm__("_tolower");
+int recovered_10041108(int value) __asm__("_toupper");
+double recovered_10042110(double value) __asm__("_trunc");
+undefined4 recovered_1004974c(int param_1,uint param_2,int param_3) __asm__("_truncate");
+float recovered_10042164(float value) __asm__("_truncf");
+undefined4 recovered_10049528(undefined4 param_1) __asm__("_umask");
+undefined4 recovered_1004b4a0(char *param_1) __asm__("_uname");
+int recovered_10046b18(int ch,void *stream) __asm__("_ungetc");
+undefined4 recovered_10047c88(char *param_1) __asm__("_unlink");
+undefined4 recovered_1004a198(byte *param_1,uint param_2) __asm__("_unsetenv");
+undefined4 recovered_1004b0f0(void) __asm__("_usleep");
+int recovered_10046e18(void *stream,char *format,void *args) __asm__("_vfprintf");
+int recovered_10046ef0(char *format,void *args) __asm__("_vprintf");
+int recovered_100429d0(char *buffer,unsigned long size,char *format,void *input) __asm__("_vsnprintf");
+int recovered_10046fdc(char *buffer,char *format,void *input) __asm__("_vsprintf");
+int recovered_1004702c(char *buffer,char *format,void *args) __asm__("_vsscanf");
+undefined4 recovered_1004b274(undefined4 *param_1) __asm__("_wait");
+undefined4
+recovered_1004b288(undefined4 param_1,undefined4 *param_2,undefined4 param_3,void *param_4) __asm__("_wait4");
+undefined4 recovered_1004b260(undefined4 param_1,undefined4 *param_2) __asm__("_waitpid");
+undefined4 recovered_1004dcf8(int param_1,uint param_2) __asm__("_wm_math_fpclassify");
+undefined4 recovered_1004dd68(float param_1) __asm__("_wm_math_fpclassifyf");
+undefined4 recovered_1004ddd4(int param_1,uint param_2) __asm__("_wm_math_fpclassifyl");
+bool recovered_1004db08(undefined4 param_1,uint param_2) __asm__("_wm_math_isfinite");
+bool recovered_1004db24(uint param_1) __asm__("_wm_math_isfinitef");
+bool recovered_1004db40(undefined4 param_1,uint param_2) __asm__("_wm_math_isfinitel");
+bool recovered_1004db5c(int param_1,uint param_2) __asm__("_wm_math_isinf");
+bool recovered_1004db78(uint param_1) __asm__("_wm_math_isinff");
+bool recovered_1004db90(int param_1,uint param_2) __asm__("_wm_math_isinfl");
+bool recovered_1004dbac(int param_1,uint param_2) __asm__("_wm_math_isnan");
+bool recovered_1004dbd4(uint param_1) __asm__("_wm_math_isnanf");
+bool recovered_1004dc00(undefined4 param_1,undefined4 param_2) __asm__("_wm_math_isnanl");
+bool recovered_1004dc18(undefined4 param_1,uint param_2) __asm__("_wm_math_isnormal");
+bool recovered_1004dc3c(uint param_1) __asm__("_wm_math_isnormalf");
+bool recovered_1004dc60(int param_1,uint param_2) __asm__("_wm_math_isnormall");
+uint recovered_1004dca8(undefined4 param_1,uint param_2) __asm__("_wm_math_signbit");
+uint recovered_1004dcb0(uint param_1) __asm__("_wm_math_signbitf");
+bool recovered_1004dcb8(undefined4 param_1,undefined4 param_2) __asm__("_wm_math_signbitl");
+uint * recovered_1003fa44(int param_1) __asm__("_wm_probe_heap_alloc");
+int recovered_1003f930(void) __asm__("_wm_probe_heap_free_bytes");
+void recovered_1003f974(void) __asm__("_wm_probe_heap_free_bytes64");
+void recovered_1003f520(void) __asm__("_wm_probe_heap_reset");
+int recovered_1003f9c4(void) __asm__("_wm_probe_heap_total_bytes");
+void recovered_1003fa00(void) __asm__("_wm_probe_heap_total_bytes64");
+void recovered_1004685c(int *param_1) __asm__("_wmfs_clearerr");
+undefined4 recovered_10045e14(int *param_1) __asm__("_wmfs_fclose");
+undefined1 recovered_100467c0(int *param_1) __asm__("_wmfs_feof");
+undefined1 recovered_10046810(int *param_1) __asm__("_wmfs_ferror");
+int recovered_10045e10(void *stream) __asm__("_wmfs_fflush");
+void * recovered_10045a70(char *path,char *mode) __asm__("_wmfs_fopen");
+ulong recovered_100463c4(void *ptr,ulong size,ulong count,void *stream) __asm__("_wmfs_fread");
+void * recovered_10045a74(char *path,char *mode,void *stream) __asm__("_wmfs_freopen");
+undefined4 recovered_10046484(int *param_1,uint param_2,int param_3) __asm__("_wmfs_fseek");
+int recovered_10046578(int *param_1) __asm__("_wmfs_ftell");
+ulong recovered_100463c8(void *ptr,ulong size,ulong count,void *stream) __asm__("_wmfs_fwrite");
+uint recovered_100469e4(int *param_1) __asm__("_wmfs_getc");
+undefined4 recovered_10047df8(char *param_1) __asm__("_wmfs_remove");
+int recovered_1004801c(char *oldPath,char *newPath) __asm__("_wmfs_rename");
+uint recovered_10046b58(uint param_1,int *param_2) __asm__("_wmfs_ungetc");
+ulonglong recovered_100483c8(uint param_1,void *param_2,ulong param_3) __asm__("_write");

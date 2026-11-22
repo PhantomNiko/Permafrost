@@ -35803,7 +35803,7 @@ long recovered_10038840(char *text,char **endptr,int base)
   byte *pbVar8;
   ulong uVar9;
 
-  for (pbVar8 = (byte *)text; (bVar1 = *pbVar8, bVar1 - 9 < 5 || (bVar1 == 0x20));
+  for (pbVar8 = (byte *)text; (bVar1 = *pbVar8, (byte)(bVar1 - 9) < 5 || (bVar1 == 0x20));
       pbVar8 = pbVar8 + 1) {
   }
   uVar9 = (ulong)((bVar1 - 0x2b & 0xfd) == 0);
@@ -35882,7 +35882,7 @@ ulong recovered_10038970(char *text,char **endptr,int base)
   ulong uVar7;
   byte *pbVar8;
 
-  for (pbVar8 = (byte *)text; (bVar1 = *pbVar8, bVar1 - 9 < 5 || (bVar1 == 0x20));
+  for (pbVar8 = (byte *)text; (bVar1 = *pbVar8, (byte)(bVar1 - 9) < 5 || (bVar1 == 0x20));
       pbVar8 = pbVar8 + 1) {
   }
   uVar7 = (ulong)((bVar1 - 0x2b & 0xfd) == 0);
@@ -35978,7 +35978,7 @@ double recovered_10038aa0(char *text,char **endptr)
   double dVar12;
   double dVar13;
 
-  for (pbVar3 = (byte *)text; (bVar1 = *pbVar3, bVar1 - 9 < 5 || (bVar1 == 0x20));
+  for (pbVar3 = (byte *)text; (bVar1 = *pbVar3, (byte)(bVar1 - 9) < 5 || (bVar1 == 0x20));
       pbVar3 = pbVar3 + 1) {
   }
   pbVar3 = pbVar3 + ((bVar1 - 0x2b & 0xfd) == 0);

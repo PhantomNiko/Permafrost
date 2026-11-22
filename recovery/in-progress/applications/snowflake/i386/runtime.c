@@ -36491,7 +36491,7 @@ long recovered_1003d700(char *text,char **endptr,int base)
   pbVar3 = (byte *)text;
   while( true ) {
     bVar1 = *pbVar3;
-    if ((4 < bVar1 - 9) && (bVar1 != 0x20)) break;
+    if ((4 < (byte)(bVar1 - 9)) && (bVar1 != 0x20)) break;
     pbVar3 = pbVar3 + 1;
   }
   uVar7 = (uint)((bVar1 - 0x2b & 0xfd) == 0);
@@ -36572,7 +36572,7 @@ ulong recovered_1003d850(char *text,char **endptr,int base)
   pbVar3 = (byte *)text;
   while( true ) {
     bVar1 = *pbVar3;
-    if ((4 < bVar1 - 9) && (bVar1 != 0x20)) break;
+    if ((4 < (byte)(bVar1 - 9)) && (bVar1 != 0x20)) break;
     pbVar3 = pbVar3 + 1;
   }
   uVar7 = (uint)((bVar1 - 0x2b & 0xfd) == 0);
