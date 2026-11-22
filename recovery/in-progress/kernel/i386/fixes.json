@@ -148,7 +148,11 @@
     "abStack_169[uVar5] - 9 < 5": "(uint)(abStack_169[uVar5]) - 9 < 5",
     "pcVar6[iVar4 + 1] - 9 < 5": "(uint)(pcVar6[iVar4 + 1]) - 9 < 5",
     "pcVar6[uVar5] - 9 < 5": "(uint)(pcVar6[uVar5]) - 9 < 5",
-    "*pbVar9 - 9 < 5": "(uint)(*pbVar9) - 9 < 5"
+    "*pbVar9 - 9 < 5": "(uint)(*pbVar9) - 9 < 5",
+    "uint recovered_205d640(void)": "uint recovered_205d640(int in_ECX)",
+    "  int in_ECX;\n": "",
+    "(byte)(uint)(pcVar6[iVar4 + 1]) - 9 < 5": "(uint)(byte)(pcVar6[iVar4 + 1]) - 9U < 5U",
+    "(byte)(uint)(pcVar6[uVar5]) - 9 < 5": "(uint)(byte)(pcVar6[uVar5]) - 9U < 5U"
   },
   "205db60": {
     "abStack_231[iVar9 + 1] - 9 < 5": "(uint)(abStack_231[iVar9 + 1]) - 9 < 5",
@@ -389,5 +393,9 @@
     "0 << bVar10 | (uint)(ushort)((uVar8 >> 8) >> 0x20 - bVar10)": "(uint)(((uint64_t)(uint)(uVar8 >> 8) << bVar10) >> 32)",
     "0 << bVar7 | (bVar10 & 0x7f) >> 0x20 - bVar7": "(uint)(((uint64_t)(bVar10 & 0x7f) << bVar7) >> 32)",
     "0 << bVar10 | (uint)((byte)local_34 >> 0x20 - bVar10)": "(uint)(((uint64_t)(byte)local_34 << bVar10) >> 32)"
+  },
+  "202cf30": {
+    "recovered_205d640()": "recovered_205d640(iVar7)",
+    "uVar6 = recovered_205d640(iVar7);": "uVar6 = recovered_205d640(*(int *)(local_7e10 + uVar5 * 504 + 496));"
   }
 }
