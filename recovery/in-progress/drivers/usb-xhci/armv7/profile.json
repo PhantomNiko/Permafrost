@@ -1,0 +1,237 @@
+{
+  "module": "KextXHCI",
+  "architecture": "armv7",
+  "version": "1.0",
+  "install_name": "/Drivers/usb~qemu~xhci.kext",
+  "functions": {
+    "0xa50": "recovered_10000a50",
+    "0xa60": "recovered_10000a60",
+    "0xd3c": "recovered_10000d3c",
+    "0xd50": "recovered_10000d50",
+    "0x2534": "recovered_10002534",
+    "0x2598": "recovered_10002598",
+    "0x25ec": "recovered_100025ec",
+    "0x269c": "recovered_1000269c",
+    "0x26c4": "recovered_100026c4",
+    "0x2700": "recovered_10002700",
+    "0x2768": "recovered_10002768",
+    "0x27c8": "recovered_100027c8",
+    "0x298c": "recovered_1000298c",
+    "0x2a00": "recovered_10002a00",
+    "0x2a90": "recovered_10002a90",
+    "0x2e04": "recovered_10002e04",
+    "0x2e44": "recovered_10002e44",
+    "0x2ea8": "recovered_10002ea8",
+    "0x2fe0": "recovered_10002fe0",
+    "0x2ff8": "recovered_10002ff8",
+    "0x3010": "recovered_10003010",
+    "0x3024": "recovered_10003024",
+    "0x3040": "recovered_10003040",
+    "0x305c": "recovered_1000305c",
+    "0x30c8": "recovered_100030c8",
+    "0x312c": "recovered_1000312c",
+    "0x31a0": "recovered_100031a0",
+    "0x3248": "recovered_10003248",
+    "0x32a0": "recovered_100032a0",
+    "0x32e8": "recovered_100032e8",
+    "0x3338": "recovered_10003338",
+    "0x3370": "recovered_10003370",
+    "0x33e0": "recovered_100033e0",
+    "0x3448": "recovered_10003448",
+    "0x352c": "recovered_1000352c",
+    "0x35ac": "recovered_100035ac",
+    "0x36cc": "recovered_100036cc",
+    "0x3788": "recovered_10003788",
+    "0x3810": "recovered_10003810",
+    "0x385c": "recovered_1000385c",
+    "0x386c": "recovered_1000386c",
+    "0x387c": "recovered_1000387c",
+    "0x38c4": "recovered_100038c4",
+    "0x38ec": "recovered_100038ec",
+    "0x3908": "recovered_10003908"
+  },
+  "exports": [
+    {
+      "name": "___divdi3",
+      "address": 13740,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___divsi3",
+      "address": 13168,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixdfdi",
+      "address": 14352,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixsfdi",
+      "address": 14444,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixunsdfdi",
+      "address": 14216,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixunssfdi",
+      "address": 14428,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatdidf",
+      "address": 14532,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatdisf",
+      "address": 14600,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatundidf",
+      "address": 14460,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatundisf",
+      "address": 14572,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___moddi3",
+      "address": 14028,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___modsi3",
+      "address": 13280,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___udivdi3",
+      "address": 13384,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___udivsi3",
+      "address": 13032,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___umoddi3",
+      "address": 13612,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___umodsi3",
+      "address": 13112,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 2640,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 2656,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 1756,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3810"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 1760,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3788"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 1764,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x38c4"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 1768,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x387c"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 1772,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x32e8"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 18152,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 36
+      },
+      "tag": 0
+    },
+    {
+      "offset": 18156,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 134
+      },
+      "tag": 0
+    },
+    {
+      "offset": 18160,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 138
+      },
+      "tag": 0
+    }
+  ]
+}

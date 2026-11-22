@@ -1,0 +1,80 @@
+{
+  "module": "KextXHCI",
+  "architecture": "arm64",
+  "version": "1.0",
+  "install_name": "/Drivers/usb~qemu~xhci.kext",
+  "functions": {
+    "0x3e0": "recovered_100003e0",
+    "0x3ec": "recovered_100003ec",
+    "0x634": "recovered_10000634",
+    "0x644": "recovered_10000644",
+    "0x1548": "recovered_10001548",
+    "0x1594": "recovered_10001594",
+    "0x15e0": "recovered_100015e0",
+    "0x1684": "recovered_10001684",
+    "0x16a0": "recovered_100016a0",
+    "0x16e0": "recovered_100016e0",
+    "0x1730": "recovered_10001730",
+    "0x17a8": "recovered_100017a8",
+    "0x18f4": "recovered_100018f4",
+    "0x1944": "recovered_10001944",
+    "0x19b0": "recovered_100019b0",
+    "0x1c58": "recovered_10001c58",
+    "0x1ca0": "recovered_10001ca0",
+    "0x1d04": "recovered_10001d04",
+    "0x1e3c": "recovered_10001e3c",
+    "0x1e54": "recovered_10001e54",
+    "0x1e6c": "recovered_10001e6c",
+    "0x1e80": "recovered_10001e80",
+    "0x1e98": "recovered_10001e98",
+    "0x1eb0": "recovered_10001eb0",
+    "0x1f1c": "recovered_10001f1c",
+    "0x1f88": "recovered_10001f88",
+    "0x1fe0": "recovered_10001fe0",
+    "0x2094": "recovered_10002094",
+    "0x20d4": "recovered_100020d4"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 992,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 1004,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 7296,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 36
+      },
+      "tag": 0
+    },
+    {
+      "offset": 7304,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 134
+      },
+      "tag": 0
+    },
+    {
+      "offset": 7312,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 138
+      },
+      "tag": 0
+    }
+  ]
+}

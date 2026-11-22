@@ -1,0 +1,59 @@
+{
+  "module": "KextXHCI",
+  "architecture": "i386",
+  "version": "1.0",
+  "install_name": "/Drivers/usb~qemu~xhci.kext",
+  "functions": {
+    "0xbd0": "recovered_10000bd0",
+    "0xbe0": "recovered_10000be0",
+    "0x15b0": "recovered_100015b0",
+    "0x24d0": "recovered_100024d0",
+    "0x26e0": "recovered_100026e0",
+    "0x2740": "recovered_10002740",
+    "0x84a0": "recovered_100084a0",
+    "0x8670": "recovered_10008670"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 3024,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 3040,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 2163,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 383
+      },
+      "tag": 0
+    },
+    {
+      "offset": 2167,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 481
+      },
+      "tag": 0
+    },
+    {
+      "offset": 2171,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 485
+      },
+      "tag": 0
+    }
+  ]
+}

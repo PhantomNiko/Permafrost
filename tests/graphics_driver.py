@@ -39,7 +39,7 @@ def run(path,commands=None):
  for slot in [3,10,16,23,49]:
   a=0x18000+slot*16;c.mem_write(a,struct.pack('<I',0xe12fff1e if arm else 0xd65f03c0)if lib.cpu_type in (12,0x100000c)else b'\xc3');c.hook_add(UC_HOOK_CODE,callback(slot),begin=a,end=a);c.mem_write(api+slot*4,struct.pack('<I',a))
  descriptor=lib.call('_winterboot_kext_descriptor',result_bits=64 if lib.wide else 32)
- record=bytes(c.mem_read(descriptor,20));fields=struct.unpack('<5I',record)
+ record=bytes(c.mem_read(descriptor,32 if lib.wide else 20));fields=struct.unpack('<2I3Q'if lib.wide else'<5I',record)
  assert fields[0]==1 and fields[1]==0
  description=tuple(text(p) for p in fields[2:])
  provider=[]

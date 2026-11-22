@@ -18,8 +18,8 @@ public class Inputs extends GhidraScript {
   boolean arm32=currentProgram.getRegister("r0")!=null;
   boolean wide=currentProgram.getDefaultPointerSize()==8;
   String pattern=arm?"in_(?:[xw][0-8]|[sd][0-7])":arm32?"in_(?:r[0-3]|s(?:[0-9]|1[0-5])|d[0-7])":wide?
-      "in_(?:RDI|RSI|RDX|RCX|R8|R9|EDI|ESI|EDX|ECX|R8D|R9D|XMM[0-7])":
-      "in_(?:EAX|ECX|EDX)";
+      "in_(?:RDI|RSI|RDX|RCX|R8|R9|EDI|ESI|EDX|ECX|R8D|R9D|DI|SI|DX|CX|R8W|R9W|DIL|SIL|DL|CL|R8B|R9B|XMM[0-7])":
+      "in_(?:EAX|ECX|EDX|AX|CX|DX|AL|CL|DL)";
   pattern+="(?:_(?:[0-9]+|[A-Z][a-z]))?";
   long first=Long.decode(getScriptArgs()[0]),last=Long.decode(getScriptArgs()[1]);
   var known=new java.util.HashSet<Long>();
