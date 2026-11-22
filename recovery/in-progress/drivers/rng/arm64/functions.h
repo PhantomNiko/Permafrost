@@ -365,10 +365,10 @@ void recovered_10002434(long param_1,char *param_2,char *param_3);
 void recovered_10002494(long param_1,char *param_2,ulong param_3);
 undefined8 recovered_10002548(int *param_1,undefined8 param_2,undefined8 param_3,long param_4);
 void recovered_10002584(int *param_1,undefined8 param_2);
-undefined8 recovered_100025c0(int *param_1,long param_2,undefined8 param_3,long param_4);
+unsigned int recovered_100025c0(int *api,unsigned long pointer,unsigned int size,unsigned long output);
 undefined8
 recovered_100025fc(int *param_1,long param_2,int param_3,undefined8 param_4,undefined8 param_5);
-void recovered_1000264c(int *param_1);
+void recovered_1000264c(int *api,unsigned long pointer,unsigned int size);
 undefined4 recovered_10002680(undefined4 *param_1);
 char * recovered_100026a4(int param_1);
 

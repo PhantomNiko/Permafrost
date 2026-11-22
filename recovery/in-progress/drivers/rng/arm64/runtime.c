@@ -170,6 +170,8 @@ void recovered_100006c4(undefined1 *param_1,ulong param_2,char *param_3)
 #define DAT_10002a80 (*(uint8_t *)(((uintptr_t)pf_module_state + 0xc8U)))
 #undef DAT_10002a82
 #define DAT_10002a82 (*(uint8_t *)(((uintptr_t)pf_module_state + 0xcaU)))
+#undef DAT_10002aaf
+#define DAT_10002aaf (*(uint8_t *)(((uintptr_t)pf_module_state + 0xf7U)))
 #undef DAT_10002eb6
 #define DAT_10002eb6 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x4feU)))
 #undef DAT_10002fa0
@@ -815,13 +817,11 @@ LAB_1000096c:
       recovered_100020f8(&DAT_10008000,6);
       recovered_100020f8(&DAT_10008010,0xc);
       recovered_100020f8(&DAT_10008030,0x20);
-      uVar11 = recovered_100025c0(param_1,((uintptr_t)pf_module_state + 0x5668U),0x10,(long)auStack_b0);
-      if (((((int)uVar11 != 0) &&
-           (uVar11 = recovered_100025c0(param_1,((uintptr_t)pf_module_state + 0x5648U),6,(long)&uStack_4b8), (int)uVar11 != 0))
-          && (uVar11 = recovered_100025c0(param_1,((uintptr_t)pf_module_state + 0x5658U),0xc,(long)&uStack_4c0),
-             (int)uVar11 != 0)) &&
-         (uVar11 = recovered_100025c0(param_1,((uintptr_t)pf_module_state + 0x5678U),0x20,(long)&uStack_4c8), (int)uVar11 != 0))
-      {
+      uVar7 = recovered_100025c0(param_1,((uintptr_t)pf_module_state + 0x5668U),0x10,(ulong)auStack_b0);
+      if ((((uVar7 != 0) &&
+           (uVar7 = recovered_100025c0(param_1,((uintptr_t)pf_module_state + 0x5648U),6,(ulong)&uStack_4b8), uVar7 != 0)) &&
+          (uVar7 = recovered_100025c0(param_1,((uintptr_t)pf_module_state + 0x5658U),0xc,(ulong)&uStack_4c0), uVar7 != 0)) &&
+         (uVar7 = recovered_100025c0(param_1,((uintptr_t)pf_module_state + 0x5678U),0x20,(ulong)&uStack_4c8), uVar7 != 0)) {
         recovered_10002350(param_1,uStack_4b0,0x16,0);
         recovered_10002338(param_1,uStack_4b0,0x18,(long)&uStack_4d0);
         if ((int)uStack_4d0 == 0) {
@@ -845,10 +845,10 @@ LAB_1000096c:
           recovered_100025fc(param_1,uStack_4b0,0x20,(ulong)auStack_b0[0],uStack_4b8 >> 0x20);
           recovered_100025fc(param_1,uStack_4b0,0x28,uStack_4b8 & 0xffffffff,uStack_4c0 >> 0x20);
           recovered_100025fc(param_1,uStack_4b0,0x30,uStack_4c0 & 0xffffffff,uStack_4c8 >> 0x20);
-          recovered_1000264c(param_1);
-          recovered_1000264c(param_1);
-          recovered_1000264c(param_1);
-          recovered_1000264c(param_1);
+          recovered_1000264c(param_1,((uintptr_t)pf_module_state + 0x5668U),0x10);
+          recovered_1000264c(param_1,((uintptr_t)pf_module_state + 0x5648U),6);
+          recovered_1000264c(param_1,((uintptr_t)pf_module_state + 0x5658U),0xc);
+          recovered_1000264c(param_1,((uintptr_t)pf_module_state + 0x5678U),0x20);
           recovered_10002350(param_1,uStack_4b0,0x1c,1);
           recovered_10002338(param_1,uStack_4b0,0x1c,(long)&uStack_4d8 + 4);
           recovered_100022ac(param_1,uStack_4b0,0x14,(long)&uStack_4d8);
@@ -858,7 +858,7 @@ LAB_1000096c:
           recovered_10002350(param_1,uStack_450,0,0);
           iVar6 = 100;
           do {
-            recovered_1000264c(param_1);
+            recovered_1000264c(param_1,((uintptr_t)pf_module_state + 0x5658U),0xc);
             uVar7 = (uint)CONCAT11(uRam0000000010008013,uRam0000000010008012);
             if (uVar7 != 0) goto LAB_100012ec;
             if (((param_1 != (int *)0x0) && (*param_1 == 0x54584b57)) &&
@@ -869,7 +869,7 @@ LAB_1000096c:
           } while (iVar6 != 0);
           uVar7 = 0;
 LAB_100012ec:
-          recovered_1000264c(param_1);
+          recovered_1000264c(param_1,((uintptr_t)pf_module_state + 0x5678U),0x20);
           if (uVar7 == 0) {
             uVar9 = 0;
             uVar10 = 0;
@@ -896,7 +896,7 @@ LAB_100012ec:
   recovered_10001680((long)acStack_8d8,0x400,pcVar13);
 LAB_10001338:
   pcVar13 = recovered_10001a34((long)param_2);
-  recovered_100006c4((undefined1 *)auStack_b0,0x60,(char *)((uintptr_t)pf_module_state + 0xf7U));
+  recovered_100006c4((undefined1 *)auStack_b0,0x60,&DAT_10002aaf);
   recovered_10001680((long)auStack_b0,0x60,&DAT_10002fa0);
   recovered_10001824((long)auStack_b0,0x60,(uint)*param_2,2);
   recovered_10001680((long)auStack_b0,0x60,(char *)((uintptr_t)pf_module_state + 0x5eaU));
@@ -943,6 +943,7 @@ LAB_10001338:
 
 #undef DAT_10002a80
 #undef DAT_10002a82
+#undef DAT_10002aaf
 #undef DAT_10002eb6
 #undef DAT_10002fa0
 #undef DAT_10002fa6
@@ -2410,25 +2411,10 @@ void recovered_10002584(int *param_1,undefined8 param_2)
 }
 
 
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x100025c0
- */
-
-undefined8 recovered_100025c0(int *param_1,long param_2,undefined8 param_3,long param_4)
-
-{
-  unsigned char frame[64] __attribute__((aligned(16))) = {0};
-
-  undefined8 uVar1;
-
-  if ((((param_1 == (int *)0x0) || (*param_1 != 0x54584b57)) || ((uint)param_1[2] < 0x74)) ||
-     (((param_4 == 0 || (param_2 == 0)) || (param_1[0x1c] == 0)))) {
-    return 0;
-  }
-                    /* WARNING: Could not recover jumptable at 0x100025f8. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  uVar1 = (*(code *)(ulong)(uint)param_1[0x1c])(0);
-  return uVar1;
+/* Pooka's Free Software License. Recovered DMA service contract. */
+unsigned int recovered_100025c0(int *api,unsigned long pointer,unsigned int size,unsigned long output){
+ if(!api||(unsigned)api[0]!=0x54584b57U||(unsigned)api[2]<116||!pointer||!output||!api[28])return 0;
+ return ((unsigned int (*)(unsigned long,unsigned long,unsigned int,unsigned long))(uintptr_t)(unsigned)api[28])(0,pointer,size,output);
 }
 
 
@@ -2471,23 +2457,10 @@ recovered_100025fc(int *param_1,long param_2,int param_3,undefined8 param_4,unde
 }
 
 
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x1000264c
- */
-
-void recovered_1000264c(int *param_1)
-
-{
-  unsigned char frame[64] __attribute__((aligned(16))) = {0};
-
-  if ((((param_1 == (int *)0x0) || (*param_1 != 0x54584b57)) || ((uint)param_1[2] < 0x78)) ||
-     (param_1[0x1d] == 0)) {
-    return;
-  }
-                    /* WARNING: Could not recover jumptable at 0x10002678. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  (*(code *)(ulong)(uint)param_1[0x1d])(0);
-  return;
+/* Pooka's Free Software License. Recovered DMA service contract. */
+void recovered_1000264c(int *api,unsigned long pointer,unsigned int size){
+ if(api&&(unsigned)api[0]==0x54584b57U&&(unsigned)api[2]>=120&&api[29])
+ ((void (*)(unsigned long,unsigned long,unsigned int))(uintptr_t)(unsigned)api[29])(0,pointer,size);
 }
 
 

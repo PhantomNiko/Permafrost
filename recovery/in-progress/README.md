@@ -525,3 +525,14 @@ Embedded Mach distributions are outside the requested reverse engineering scope.
 Any retained distribution must keep its applicable third-party license materials.
 This exception does not waive source recovery or VM compatibility for Permafrost
 components outside that distribution.
+
+
+The VirtIO network driver now rebuilds from C for all four architectures. Each
+independent checkpoint build passes 16 native discovery cases, eight queue
+negotiation/DMA cases, and 24 packet-path cases. The packet comparisons include
+payload bytes, complete mutable driver state, receive requeueing, hardware
+notifications, transmit completion, and timeout behavior. ARM network and RNG
+helpers additionally pass 60 DMA service-contract cases per driver and CPU.
+The recovery restores ARM32 PC-relative state references, MMIO return values,
+x64 queue-register operands, and complete callback arguments. VM integration
+with the complete source-built driver set remains a release gate.
