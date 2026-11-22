@@ -139,7 +139,8 @@
   "2048120": {
     "*pbVar2 - 9 < 5": "(uint)(*pbVar2) - 9 < 5",
     "bool recovered_2048120(void)": "bool recovered_2048120(byte *in_ECX)",
-    "  byte *in_ECX;\n": ""
+    "  byte *in_ECX;\n": "",
+    "recovered_2027fb0(), extraout_EAX_01 != -1": "recovered_2027fb0((int)local_111) != 0xffffffffU"
   },
   "205d640": {
     "abStack_c9[iVar4 + 1] - 9 < 5": "(uint)(abStack_c9[iVar4 + 1]) - 9 < 5",

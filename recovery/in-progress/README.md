@@ -578,3 +578,11 @@ which prevented fallback access to the firmware application bundle. Sixty-six
 native volume-detection cases cover real WMFS32/WMFS64 headers, damaged geometry,
 media bounds and read failures; 944 memory-comparison cases cover alignment,
 length, equality and unsigned-byte differences.
+
+The i386 startup command path now preserves the private file-lookup argument
+and index result. Losing that result incorrectly selected the current-volume
+read path and bypassed firmware fallback. Twelve native lookup cases and seven
+native fallback/bundle cases pass, including restoration of the selected
+filesystem context. The complete BIOS source VM now loads Tayga from its
+firmware bundle and then presents the desktop, without copying that bundle to
+the user volume. Input and remaining visual compatibility are still under test.

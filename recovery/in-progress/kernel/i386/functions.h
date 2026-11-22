@@ -546,7 +546,7 @@ uint recovered_2027720(uchar in_CL);
 void recovered_2027df0(void);
 ulonglong recovered_2027e10(long param_1,uint *param_2);
 undefined4 recovered_2027f10(int incoming_ecx,undefined4 *incoming_edx,undefined4 *param_3);
-void recovered_2027fb0(void);
+uint recovered_2027fb0(int path);
 uchar recovered_2027fe0(char *param_1,void *param_2,uint param_3);
 uint recovered_2028050(int incoming_ecx,void *incoming_edx,int param_3);
 bool recovered_2028700(char *param_1,ulong param_2);

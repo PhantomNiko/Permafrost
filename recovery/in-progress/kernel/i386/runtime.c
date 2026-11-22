@@ -39135,18 +39135,13 @@ undefined4 recovered_2027f10(int incoming_ecx,undefined4 *incoming_edx,undefined
  * Address: 0x2027fb0
  */
 
-void recovered_2027fb0(void)
-
-{
-  unsigned char frame[304] __attribute__((aligned(16))) = {0};
-
-  int in_ECX;
-  uint incoming_edx;
-
-  recovered_202a060(in_ECX,local_f9);
-  recovered_202af10(local_f9,incoming_edx);
-  return;
+/* Pooka's Free Software License. Preserve the private path argument and lookup result. */
+uint recovered_2027fb0(int path){
+ unsigned char normalized[241];
+ recovered_202a060(path,normalized);
+ return recovered_202af10(normalized,0);
 }
+
 
 #undef local_f9
 
@@ -88942,7 +88937,7 @@ LAB_020483fe:
                 local_14 = CONCAT31((int3)((uint)extraout_EAX_00 >> 8),1);
               }
               cVar1 = DAT_021307dc;
-              if ((cVar1 == '\x01') && (recovered_2027fb0(), extraout_EAX_01 != -1)) {
+              if ((cVar1 == '\x01') && (recovered_2027fb0((int)local_111) != 0xffffffffU)) {
                 uVar4 = recovered_2027f10((int)local_111,(uint *)&local_20,&local_1c);
                 if ((char)uVar4 == '\0') {
                   if ((char)local_14 == '\0') {
