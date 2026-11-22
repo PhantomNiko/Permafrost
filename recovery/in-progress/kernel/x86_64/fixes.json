@@ -19,7 +19,8 @@
     "double *local_40;": "uintptr_t *local_40;"
   },
   "207c660": {
-    "_auStack_277": "PF_PART8(auStack_277,0)"
+    "_auStack_277": "PF_PART8(auStack_277,0)",
+    "bVar1 - 9 < 5": "(uint)(bVar1) - 9 < 5"
   },
   "207bcd0": {
     "undefined1 auVar50 [12];": "pf_u96 auVar50;",
@@ -277,7 +278,152 @@
     "local_78 +": "((undefined2 *)(uintptr_t)local_78) +"
   },
   "2044bf0": {
-    "*pbVar8 - 9 < 5": "(uint)*pbVar8 - 9 < 5",
-    "bVar9 - 9 < 5": "(uint)bVar9 - 9 < 5"
+    "*pbVar8 - 9 < 5": "(uint)(*pbVar8) - 9 < 5",
+    "bVar9 - 9 < 5": "(uint)(bVar9) - 9 < 5"
+  },
+  "2045410": {
+    "bVar6 - 9 < 5": "(uint)(bVar6) - 9 < 5",
+    "*pbVar9 - 9 < 5": "(uint)(*pbVar9) - 9 < 5"
+  },
+  "2045780": {
+    "*pbVar2 - 9 < 5": "(uint)(*pbVar2) - 9 < 5"
+  },
+  "20458a0": {
+    "bVar3 - 9 < 5": "(uint)(bVar3) - 9 < 5"
+  },
+  "2046aa0": {
+    "bVar21 - 9 < 5": "(uint)(bVar21) - 9 < 5",
+    "*pbVar9 - 9 < 5": "(uint)(*pbVar9) - 9 < 5",
+    "abStack_379[lVar15 + 1] - 9 < 5": "(uint)(abStack_379[lVar15 + 1]) - 9 < 5",
+    "abStack_379[uVar7] - 9 < 5": "(uint)(abStack_379[uVar7]) - 9 < 5",
+    "abStack_179[lVar15 + 1] - 9 < 5": "(uint)(abStack_179[lVar15 + 1]) - 9 < 5",
+    "abStack_179[uVar7] - 9 < 5": "(uint)(abStack_179[uVar7]) - 9 < 5",
+    "*pbVar8 - 9 < 5": "(uint)(*pbVar8) - 9 < 5"
+  },
+  "2048950": {
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+  },
+  "2048c10": {
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+  },
+  "2049220": {
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+  },
+  "2049db0": {
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+  },
+  "204a8d0": {
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+  },
+  "204adb0": {
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+  },
+  "204b170": {
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+  },
+  "204b5a0": {
+    "bVar8 - 9 < 5": "(uint)(bVar8) - 9 < 5",
+    "*pbVar16 - 9 < 5": "(uint)(*pbVar16) - 9 < 5"
+  },
+  "204bbf0": {
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5",
+    "abStack_269[lVar5 + 1] - 9 < 5": "(uint)(abStack_269[lVar5 + 1]) - 9 < 5",
+    "abStack_269[uVar8] - 9 < 5": "(uint)(abStack_269[uVar8]) - 9 < 5",
+    "*pbVar17 - 9 < 5": "(uint)(*pbVar17) - 9 < 5",
+    "*pbVar20 - 9 < 5": "(uint)(*pbVar20) - 9 < 5"
+  },
+  "204d1e0": {
+    "bVar11 - 9 < 5": "(uint)(bVar11) - 9 < 5",
+    "*pbVar14 - 9 < 5": "(uint)(*pbVar14) - 9 < 5"
+  },
+  "204da10": {
+    "*pbVar5 - 9 < 5": "(uint)(*pbVar5) - 9 < 5"
+  },
+  "204e290": {
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+  },
+  "204ea30": {
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+  },
+  "204f000": {
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+  },
+  "204f730": {
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+  },
+  "2050070": {
+    "bVar11 - 9 < 5": "(uint)(bVar11) - 9 < 5",
+    "bVar5 - 9 < 5": "(uint)(bVar5) - 9 < 5"
+  },
+  "2050660": {
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+  },
+  "2050d10": {
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+  },
+  "2051420": {
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+  },
+  "2063380": {
+    "bVar21 - 9 < 5": "(uint)(bVar21) - 9 < 5",
+    "*pbVar8 - 9 < 5": "(uint)(*pbVar8) - 9 < 5",
+    "abStack_379[lVar15 + 1] - 9 < 5": "(uint)(abStack_379[lVar15 + 1]) - 9 < 5",
+    "abStack_379[uVar13] - 9 < 5": "(uint)(abStack_379[uVar13]) - 9 < 5",
+    "abStack_179[lVar15 + 1] - 9 < 5": "(uint)(abStack_179[lVar15 + 1]) - 9 < 5",
+    "abStack_179[uVar13] - 9 < 5": "(uint)(abStack_179[uVar13]) - 9 < 5",
+    "*pbVar7 - 9 < 5": "(uint)(*pbVar7) - 9 < 5"
+  },
+  "2063450": {
+    "bVar7 - 9 < 5": "(uint)(bVar7) - 9 < 5",
+    "*pbVar3 - 9 < 5": "(uint)(*pbVar3) - 9 < 5"
+  },
+  "207c110": {
+    "abStack_e9[lVar6 + 1] - 9 < 5": "(uint)(abStack_e9[lVar6 + 1]) - 9 < 5",
+    "abStack_e9[uVar9] - 9 < 5": "(uint)(abStack_e9[uVar9]) - 9 < 5",
+    "local_188[lVar6] - 9 < 5": "(uint)(local_188[lVar6]) - 9 < 5",
+    "local_188[uVar9 - 1] - 9 < 5": "(uint)(local_188[uVar9 - 1]) - 9 < 5",
+    "puVar5[lVar6 + 1] - 9 < 5": "(uint)(puVar5[lVar6 + 1]) - 9 < 5",
+    "puVar5[uVar9] - 9 < 5": "(uint)(puVar5[uVar9]) - 9 < 5",
+    "bVar1 - 9 < 5": "(uint)(bVar1) - 9 < 5",
+    "*text - 9 < 5": "(uint)(*text) - 9 < 5"
+  },
+  "20825f0": {
+    "param_4[lVar9] - 9 < 5": "(uint)(param_4[lVar9]) - 9 < 5",
+    "param_4[uVar4 - 1] - 9 < 5": "(uint)(param_4[uVar4 - 1]) - 9 < 5"
+  },
+  "208f740": {
+    "bVar9 - 9 < 5": "(uint)(bVar9) - 9 < 5",
+    "*pbVar12 - 9 < 5": "(uint)(*pbVar12) - 9 < 5"
+  },
+  "208fe50": {
+    "bVar5 - 9 < 5": "(uint)(bVar5) - 9 < 5",
+    "*pbVar7 - 9 < 5": "(uint)(*pbVar7) - 9 < 5"
+  },
+  "2090a80": {
+    "bVar8 - 9 < 5": "(uint)(bVar8) - 9 < 5",
+    "*pbVar13 - 9 < 5": "(uint)(*pbVar13) - 9 < 5",
+    "*pbVar12 - 9 < 5": "(uint)(*pbVar12) - 9 < 5"
+  },
+  "2093860": {
+    "param_2[lVar6] - 9 < 5": "(uint)(param_2[lVar6]) - 9 < 5",
+    "param_2[uVar3 - 1] - 9 < 5": "(uint)(param_2[uVar3 - 1]) - 9 < 5",
+    "param_3[lVar6] - 9 < 5": "(uint)(param_3[lVar6]) - 9 < 5",
+    "param_3[uVar5 - 1] - 9 < 5": "(uint)(param_3[uVar5 - 1]) - 9 < 5"
+  },
+  "2093d30": {
+    "*pbVar9 - 9 < 5": "(uint)(*pbVar9) - 9 < 5",
+    "abStack_289[lVar10 + 1] - 9 < 5": "(uint)(abStack_289[lVar10 + 1]) - 9 < 5",
+    "abStack_289[uVar5] - 9 < 5": "(uint)(abStack_289[uVar5]) - 9 < 5",
+    "abStack_289[2] - 9 < 5": "(uint)(abStack_289[2]) - 9 < 5",
+    "bVar18 - 9 < 5": "(uint)(bVar18) - 9 < 5"
+  },
+  "2094b80": {
+    "abStack_459[lVar12 + 1] - 9 < 5": "(uint)(abStack_459[lVar12 + 1]) - 9 < 5",
+    "abStack_459[uVar5] - 9 < 5": "(uint)(abStack_459[uVar5]) - 9 < 5",
+    "*pbVar11 - 9 < 5": "(uint)(*pbVar11) - 9 < 5",
+    "*pbVar17 - 9 < 5": "(uint)(*pbVar17) - 9 < 5"
+  },
+  "2095610": {
+    "*pbVar10 - 9 < 5": "(uint)(*pbVar10) - 9 < 5"
   }
 }

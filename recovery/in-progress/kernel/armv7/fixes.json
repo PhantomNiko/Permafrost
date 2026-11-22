@@ -106,6 +106,125 @@
     "      recovered_40404a88(&local_20d,0xf1,pcVar14,CONCAT44(in_stack_fffffdc4,puVar13),\n                         CONCAT44(param_4,in_stack_fffffdcc),(char *)param_3);": "      /* These are 32-bit variadic arguments, not reconstructed register pairs. */\n      if (local_115[0] == '\\0') {\n        recovered_40404a88(&local_20d,0xf1,\"%.*s\",(int)(uintptr_t)puVar12,(char *)local_11c);\n      } else {\n        recovered_40404a88(&local_20d,0xf1,\"%s/%.*s\",(char *)local_115,\n                         (int)(uintptr_t)puVar12,(char *)local_11c);\n      }"
   },
   "4043c17c": {
-    "*pbVar15 - 9 < 5": "(uint)*pbVar15 - 9 < 5"
+    "*pbVar15 - 9 < 5": "(uint)(*pbVar15) - 9 < 5"
+  },
+  "4043c958": {
+    "*pbVar7 - 9 < 5": "(uint)(*pbVar7) - 9 < 5"
+  },
+  "4043ccec": {
+    "*pbVar1 - 9 < 5": "(uint)(*pbVar1) - 9 < 5"
+  },
+  "4043e038": {
+    "(byte)*puVar5 - 9 < 5": "(uint)((byte)*puVar5) - 9 < 5",
+    "pbVar19[-iVar6] - 9 < 5": "(uint)(pbVar19[-iVar6]) - 9 < 5",
+    "local_224[uVar9 - 1] - 9 < 5": "(uint)(local_224[uVar9 - 1]) - 9 < 5"
+  },
+  "4043fe78": {
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+  },
+  "4044014c": {
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+  },
+  "4044075c": {
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+  },
+  "40441354": {
+    "(byte)*param_1 - 9 < 5": "(uint)((byte)*param_1) - 9 < 5"
+  },
+  "40442740": {
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+  },
+  "40442ca4": {
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+  },
+  "404430bc": {
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+  },
+  "404434fc": {
+    "*pbVar13 - 9 < 5": "(uint)(*pbVar13) - 9 < 5"
+  },
+  "40443b38": {
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5",
+    "pbVar15[-1] - 9 < 5": "(uint)(pbVar15[-1]) - 9 < 5",
+    "pbVar15[-iVar5] - 9 < 5": "(uint)(pbVar15[-iVar5]) - 9 < 5",
+    "abStack_421[uVar7] - 9 < 5": "(uint)(abStack_421[uVar7]) - 9 < 5",
+    "*pbVar8 - 9 < 5": "(uint)(*pbVar8) - 9 < 5",
+    "pbVar15[-(int)pbVar8] - 9 < 5": "(uint)(pbVar15[-(int)pbVar8]) - 9 < 5"
+  },
+  "40445218": {
+    "*pbVar11 - 9 < 5": "(uint)(*pbVar11) - 9 < 5"
+  },
+  "40445ae8": {
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+  },
+  "40446378": {
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+  },
+  "40446bbc": {
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+  },
+  "40447204": {
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+  },
+  "4044798c": {
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+  },
+  "40448930": {
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5",
+    "*pbVar6 - 9 < 5": "(uint)(*pbVar6) - 9 < 5"
+  },
+  "40449004": {
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5"
+  },
+  "40449720": {
+    "*param_1 - 9 < 5": "(uint)(*param_1) - 9 < 5",
+    "pbVar20[-1] - 9 < 5": "(uint)(pbVar20[-1]) - 9 < 5"
+  },
+  "4045c3c8": {
+    "*pbVar4 - 9 < 5": "(uint)(*pbVar4) - 9 < 5"
+  },
+  "40474c00": {
+    "local_170[uVar4 - 1] - 9 < 5": "(uint)(local_170[uVar4 - 1]) - 9 < 5",
+    "out[-iVar7] - 9 < 5": "(uint)(out[-iVar7]) - 9 < 5",
+    "abStack_c5[uVar4] - 9 < 5": "(uint)(abStack_c5[uVar4]) - 9 < 5",
+    "pcVar5[1 - iVar7] - 9 < 5": "(uint)(pcVar5[1 - iVar7]) - 9 < 5",
+    "pcVar5[uVar4] - 9 < 5": "(uint)(pcVar5[uVar4]) - 9 < 5",
+    "*pbVar10 - 9 < 5": "(uint)(*pbVar10) - 9 < 5"
+  },
+  "4047513c": {
+    "acStack_b23[uVar1 + 0x7fe] - 9 < 5": "(uint)(acStack_b23[uVar1 + 0x7fe]) - 9 < 5"
+  },
+  "4047add8": {
+    "param_4[-iVar4] - 9 < 5": "(uint)(param_4[-iVar4]) - 9 < 5",
+    "param_4[uVar2 - 1] - 9 < 5": "(uint)(param_4[uVar2 - 1]) - 9 < 5"
+  },
+  "4048782c": {
+    "*pbVar3 - 9 < 5": "(uint)(*pbVar3) - 9 < 5"
+  },
+  "40487f94": {
+    "*pbVar2 - 9 < 5": "(uint)(*pbVar2) - 9 < 5"
+  },
+  "40488c14": {
+    "*pbVar4 - 9 < 5": "(uint)(*pbVar4) - 9 < 5",
+    "*pbVar3 - 9 < 5": "(uint)(*pbVar3) - 9 < 5"
+  },
+  "4048ba20": {
+    "param_2[-iVar3] - 9 < 5": "(uint)(param_2[-iVar3]) - 9 < 5",
+    "param_2[uVar2 - 1] - 9 < 5": "(uint)(param_2[uVar2 - 1]) - 9 < 5",
+    "param_3[-iVar3] - 9 < 5": "(uint)(param_3[-iVar3]) - 9 < 5",
+    "param_3[uVar4 - 1] - 9 < 5": "(uint)(param_3[uVar4 - 1]) - 9 < 5"
+  },
+  "4048bea8": {
+    "*pbVar6 - 9 < 5": "(uint)(*pbVar6) - 9 < 5",
+    "acStack_a23[uVar3 + 0x7fe] - 9 < 5": "(uint)(acStack_a23[uVar3 + 0x7fe]) - 9 < 5"
+  },
+  "4048ce20": {
+    "pbVar14[-iVar17] - 9 < 5": "(uint)(pbVar14[-iVar17]) - 9 < 5",
+    "abStack_716[uVar5] - 9 < 5": "(uint)(abStack_716[uVar5]) - 9 < 5",
+    "*pbVar20 - 9 < 5": "(uint)(*pbVar20) - 9 < 5",
+    "*pbVar15 - 9 < 5": "(uint)(*pbVar15) - 9 < 5"
+  },
+  "4048d8c0": {
+    "*pbVar5 - 9 < 5": "(uint)(*pbVar5) - 9 < 5"
   }
 }

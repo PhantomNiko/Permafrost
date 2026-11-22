@@ -792,3 +792,4 @@
 404bcb14	float recovered_404bcb14(float value);	s0	s0	__stdcall_softfp
 404bcbb0	float recovered_404bcbb0(float value);	s0	s0	__stdcall_softfp
 404bcd1c	float recovered_404bcd1c(float value);	s0	s0	__stdcall_softfp
+4043df44	void recovered_4043df44(char *out,unsigned int capacity,char *format,...);

@@ -502,7 +502,11 @@
     "dVar6 = (double)(ulong)*(ushort *)pdStack_78;": "dVar6 = pf_bits_double((uint64_t)((ulong)*(ushort *)pdStack_78));",
     "dVar6 = (double)(ulong)*(uint *)pdStack_78;": "dVar6 = pf_bits_double((uint64_t)((ulong)*(uint *)pdStack_78));",
     "(long)dVar6": "(long)pf_double_bits(dVar6)",
-    "dVar6 = (double)-(long)pf_double_bits(dVar6);": "dVar6 = pf_bits_double((uint64_t)-(long)pf_double_bits(dVar6));"
+    "dVar6 = (double)-(long)pf_double_bits(dVar6);": "dVar6 = pf_bits_double((uint64_t)-(long)pf_double_bits(dVar6));",
+    "  uint uVar10;": "  ulong uVar10;",
+    "SUB84(dVar6,0)": "pf_double_bits(dVar6)",
+    "SUB84(*local_78,0)": "pf_double_bits(*local_78)",
+    "SUB84(*pdStack_78,0)": "pf_double_bits(*pdStack_78)"
   },
   "8246d3c4": {},
   "8240d010": {},
@@ -1264,7 +1268,9 @@
   "82430cf4": {},
   "82452034": {},
   "8246c6a4": {},
-  "82401f4c": {},
+  "82401f4c": {
+    "int *param_3,uint param_4,uint param_5": "int *param_3,ulong param_4,uint param_5"
+  },
   "82453570": {},
   "82404320": {},
   "8243d4a0": {},

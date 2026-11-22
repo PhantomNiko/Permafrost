@@ -61,9 +61,128 @@
     "recovered_205e600()": "recovered_205e600(in_ECX)"
   },
   "202ed80": {
-    "recovered_205e700()": "recovered_205e700((int)DAT_020d9d5c)"
+    "recovered_205e700()": "recovered_205e700((int)DAT_020d9d5c)",
+    "*pbVar7 - 9 < 5": "(uint)(*pbVar7) - 9 < 5",
+    "abStack_34d[iVar8 + 1] - 9 < 5": "(uint)(abStack_34d[iVar8 + 1]) - 9 < 5",
+    "abStack_34d[uVar11] - 9 < 5": "(uint)(abStack_34d[uVar11]) - 9 < 5",
+    "abStack_14a[iVar8 + 1] - 9 < 5": "(uint)(abStack_14a[iVar8 + 1]) - 9 < 5",
+    "abStack_14a[uVar11] - 9 < 5": "(uint)(abStack_14a[uVar11]) - 9 < 5"
   },
   "202d430": {
-    "*pbVar10 - 9 < 5": "(uint)*pbVar10 - 9 < 5"
+    "*pbVar10 - 9 < 5": "(uint)(*pbVar10) - 9 < 5"
+  },
+  "202dae0": {
+    "*pbVar8 - 9 < 5": "(uint)(*pbVar8) - 9 < 5"
+  },
+  "202ddc0": {
+    "*pbVar5 - 9 < 5": "(uint)(*pbVar5) - 9 < 5"
+  },
+  "20308e0": {
+    "*in_ECX - 9 < 5": "(uint)(*in_ECX) - 9 < 5"
+  },
+  "2030b50": {
+    "*in_ECX - 9 < 5": "(uint)(*in_ECX) - 9 < 5"
+  },
+  "2031030": {
+    "*in_ECX - 9 < 5": "(uint)(*in_ECX) - 9 < 5"
+  },
+  "2031a60": {
+    "*in_ECX - 9 < 5": "(uint)(*in_ECX) - 9 < 5"
+  },
+  "2032470": {
+    "*in_ECX - 9 < 5": "(uint)(*in_ECX) - 9 < 5"
+  },
+  "20328a0": {
+    "*in_ECX - 9 < 5": "(uint)(*in_ECX) - 9 < 5"
+  },
+  "2032c00": {
+    "*in_ECX - 9 < 5": "(uint)(*in_ECX) - 9 < 5"
+  },
+  "2033040": {
+    "*pbVar11 - 9 < 5": "(uint)(*pbVar11) - 9 < 5"
+  },
+  "20335d0": {
+    "*in_ECX - 9 < 5": "(uint)(*in_ECX) - 9 < 5",
+    "abStack_235[iVar5 + 1] - 9 < 5": "(uint)(abStack_235[iVar5 + 1]) - 9 < 5",
+    "abStack_235[uVar11] - 9 < 5": "(uint)(abStack_235[uVar11]) - 9 < 5",
+    "*pbVar16 - 9 < 5": "(uint)(*pbVar16) - 9 < 5"
+  },
+  "2034a10": {
+    "*pbVar11 - 9 < 5": "(uint)(*pbVar11) - 9 < 5"
+  },
+  "2035200": {
+    "*in_ECX - 9 < 5": "(uint)(*in_ECX) - 9 < 5"
+  },
+  "20358a0": {
+    "*in_ECX - 9 < 5": "(uint)(*in_ECX) - 9 < 5"
+  },
+  "2035f80": {
+    "*in_ECX - 9 < 5": "(uint)(*in_ECX) - 9 < 5"
+  },
+  "20364d0": {
+    "*in_ECX - 9 < 5": "(uint)(*in_ECX) - 9 < 5"
+  },
+  "2036b20": {
+    "*in_ECX - 9 < 5": "(uint)(*in_ECX) - 9 < 5"
+  },
+  "20376e0": {
+    "*in_ECX - 9 < 5": "(uint)(*in_ECX) - 9 < 5"
+  },
+  "2037cc0": {
+    "*in_ECX - 9 < 5": "(uint)(*in_ECX) - 9 < 5"
+  },
+  "2038330": {
+    "*in_ECX - 9 < 5": "(uint)(*in_ECX) - 9 < 5"
+  },
+  "2048120": {
+    "*pbVar2 - 9 < 5": "(uint)(*pbVar2) - 9 < 5"
+  },
+  "205d640": {
+    "abStack_c9[iVar4 + 1] - 9 < 5": "(uint)(abStack_c9[iVar4 + 1]) - 9 < 5",
+    "abStack_c9[uVar5] - 9 < 5": "(uint)(abStack_c9[uVar5]) - 9 < 5",
+    "abStack_169[iVar4 + 1] - 9 < 5": "(uint)(abStack_169[iVar4 + 1]) - 9 < 5",
+    "abStack_169[uVar5] - 9 < 5": "(uint)(abStack_169[uVar5]) - 9 < 5",
+    "pcVar6[iVar4 + 1] - 9 < 5": "(uint)(pcVar6[iVar4 + 1]) - 9 < 5",
+    "pcVar6[uVar5] - 9 < 5": "(uint)(pcVar6[uVar5]) - 9 < 5",
+    "*pbVar9 - 9 < 5": "(uint)(*pbVar9) - 9 < 5"
+  },
+  "205db60": {
+    "abStack_231[iVar9 + 1] - 9 < 5": "(uint)(abStack_231[iVar9 + 1]) - 9 < 5",
+    "abStack_231[uVar6] - 9 < 5": "(uint)(abStack_231[uVar6]) - 9 < 5"
+  },
+  "2062c20": {
+    "param_2[iVar8] - 9 < 5": "(uint)(param_2[iVar8]) - 9 < 5",
+    "param_2[uVar5 - 1] - 9 < 5": "(uint)(param_2[uVar5 - 1]) - 9 < 5"
+  },
+  "206e890": {
+    "*pbVar6 - 9 < 5": "(uint)(*pbVar6) - 9 < 5"
+  },
+  "206ee40": {
+    "*pbVar7 - 9 < 5": "(uint)(*pbVar7) - 9 < 5"
+  },
+  "206f920": {
+    "*pbVar8 - 9 < 5": "(uint)(*pbVar8) - 9 < 5",
+    "*pbVar7 - 9 < 5": "(uint)(*pbVar7) - 9 < 5"
+  },
+  "2072420": {
+    "in_EDX[iVar4] - 9 < 5": "(uint)(in_EDX[iVar4]) - 9 < 5",
+    "in_EDX[uVar2 - 1] - 9 < 5": "(uint)(in_EDX[uVar2 - 1]) - 9 < 5",
+    "param_1[iVar4] - 9 < 5": "(uint)(param_1[iVar4]) - 9 < 5",
+    "param_1[uVar3 - 1] - 9 < 5": "(uint)(param_1[uVar3 - 1]) - 9 < 5"
+  },
+  "20727b0": {
+    "*pbVar6 - 9 < 5": "(uint)(*pbVar6) - 9 < 5",
+    "abStack_23d[iVar4 + 1] - 9 < 5": "(uint)(abStack_23d[iVar4 + 1]) - 9 < 5",
+    "abStack_23d[uVar2] - 9 < 5": "(uint)(abStack_23d[uVar2]) - 9 < 5",
+    "bVar1 - 9 < 5": "(uint)(bVar1) - 9 < 5"
+  },
+  "20732b0": {
+    "local_503[iVar4 + 0xf1] - 9 < 5": "(uint)(local_503[iVar4 + 0xf1]) - 9 < 5",
+    "local_503[uVar5 + 0xf0] - 9 < 5": "(uint)(local_503[uVar5 + 0xf0]) - 9 < 5",
+    "*pbVar13 - 9 < 5": "(uint)(*pbVar13) - 9 < 5",
+    "*pbVar16 - 9 < 5": "(uint)(*pbVar16) - 9 < 5"
+  },
+  "2073c50": {
+    "*pbVar7 - 9 < 5": "(uint)(*pbVar7) - 9 < 5"
   }
 }
