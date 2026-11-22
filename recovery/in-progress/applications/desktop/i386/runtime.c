@@ -11673,7 +11673,7 @@ void recovered_1000c710(void)
   iVar2 = (*(uint32_t *)(pf_module_state+0x12d4U));
   local_18 = (*(uint32_t *)(pf_module_state+0x12d4U));
   iVar7 = (*(uint32_t *)(pf_module_state+0x12d4U));
-  if (-1 < (*(uint32_t *)(pf_module_state+0x12d4U))) {
+  if (-1 < (int32_t)(*(uint32_t *)(pf_module_state+0x12d4U))) {
     iVar7 = 0;
   }
   if ((*(uint32_t *)(pf_module_state+0x12d4U)) < 1) {

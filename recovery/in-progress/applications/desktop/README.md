@@ -57,3 +57,9 @@ removed that branch after folding the framebuffer output fields to zero.
 mode entry, failed display queries, invalid buffers and pitch, and successful
 16-, 24-, and 32-bit framebuffer entry. The full BIOS VM reaches framebuffer
 initialization; later initialization still needs compatibility work.
+
+The i386 menu-bar width clamp retains its signed comparison after mapping the
+fixed-address state into C. An unsigned promotion had made the clamp reject the
+paint extent and leave the background untouched. `tests/desktop_menubar.py`
+compares the complete framebuffer with native drawing at widths of 200, 800 and
+1280 pixels; all three cases match, including background, text and bounds.
