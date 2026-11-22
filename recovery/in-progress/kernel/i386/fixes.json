@@ -287,11 +287,29 @@
   "2054e00": {
     "uint recovered_2054e00(char *param_1,uint param_2,char *param_3,char *param_4)": "uint recovered_2054e00(int in_ECX,int in_EDX,char *param_1,uint param_2,char *param_3,char *param_4)",
     "  int in_ECX;\n": "",
-    "  int in_EDX;\n": ""
+    "  int in_EDX;\n": "",
+    "recovered_2059260(7,(uint *)&local_2c,&local_28,param_4,0xa0)": "recovered_2059260((uint *)in_ECX,in_EDX,7,(uint *)&local_2c,&local_28,param_4,0xa0)"
   },
   "2048050": {
     "uint recovered_2048050(int param_1)": "uint recovered_2048050(byte *in_ECX,char *in_EDX,int param_1)",
     "  byte *in_ECX;\n": "",
     "  char *in_EDX;\n": ""
+  },
+  "2059260": {
+    "uint recovered_2059260(int param_1,uint *param_2,uint *param_3,char *param_4,ulong param_5)": "uint recovered_2059260(uint *in_ECX,uint in_EDX,int param_1,uint *param_2,uint *param_3,char *param_4,ulong param_5)",
+    "  uint *in_ECX;\n": "",
+    "  uint in_EDX;\n": "",
+    "(int)param_4);\n  return uVar2;": "(int)param_4,param_5);\n  return uVar2;"
+  },
+  "205ba40": {
+    "recovered_2059260(local_18,(uint *)&local_28,&local_24,(char *)param_4,0xa0)": "recovered_2059260((uint *)local_14,local_20,local_18,(uint *)&local_28,&local_24,(char *)param_4,0xa0)"
+  },
+  "20b2600": {
+    "recovered_2059260(7,local_a4,&local_48,(char *)local_404,0x60)": "recovered_2059260(*(uint **)(uVar3+0xf4+pf_macho_source_index*0x110),*(uint *)(uVar3+0xf8+pf_macho_source_index*0x110),7,local_a4,&local_48,(char *)local_404,0x60)",
+    "uVar4 = recovered_202af10(local_172c,incoming_edx_00);": "uVar4 = recovered_202af10(local_172c,incoming_edx_00);\n        uint pf_macho_source_index = uVar4;"
+  },
+  "20598a0": {
+    "uint *param_9,int param_10)": "uint *param_9,int param_10,ulong error_capacity)",
+    "in_stack_00000024": "error_capacity"
   }
 }

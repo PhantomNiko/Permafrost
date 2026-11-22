@@ -867,3 +867,5 @@
 2048050	unsigned int __fastcall recovered_2048050(char *command,char *output,unsigned int capacity);
 2048120	bool __fastcall recovered_2048120(char *line);
 202ded0	char __fastcall recovered_202ded0(char *command,char *arguments,char *path,char *output,unsigned int capacity);
+2059260	unsigned int __fastcall recovered_2059260(void *image,unsigned int size,int cpu,unsigned int *selected,unsigned int *length,char *error,unsigned int capacity);
+20598a0	unsigned int __fastcall recovered_20598a0(void *image,unsigned int size,unsigned int cpu,unsigned int magic,unsigned int header_size,char swap,char *name,unsigned int *selected,unsigned int *length,char *error,unsigned int capacity);
