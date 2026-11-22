@@ -927,3 +927,4 @@
 2015af0	unsigned int recovered_2015af0(unsigned char kind,unsigned char request,unsigned short value,unsigned short index,unsigned char direction,unsigned char *data,unsigned short size);	ECX,EDX,stack4,stack8,stack12,stack16,stack20
 2015da0	unsigned int recovered_2015da0(char *data,unsigned int size,unsigned int *out);	ECX,EDX,stack4
 205a8a0	unsigned char recovered_205a8a0(unsigned int process);	ECX
+2039960	void recovered_2039960(unsigned char runnable);	CL

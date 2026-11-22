@@ -504,6 +504,10 @@ static int heap_context(void){
     context[0x1f]=(uint32_t)top;context[0x20]=(uint32_t)(top>>32);
     return total>=0x800000;
 }
+#if defined(__aarch64__)
+/* Keep kernel command frames off the firmware's guarded boot-services stack. */
+static uintptr_t kernel_stack_top;
+#endif
 static void enter(uintptr_t entry){
 #if defined(__aarch64__) || defined(__arm__)
     firmware_service_ready=capture_service_context(&firmware_service);
@@ -526,6 +530,9 @@ static void enter(uintptr_t entry){
     __builtin_unreachable();
 #elif defined(__i386__)
     __asm__ volatile("andl $-16,%%esp; jmp *%0"::"r"(entry):"memory");
+    __builtin_unreachable();
+#elif defined(__aarch64__)
+    __asm__ volatile("mov sp,%1\nbr %0"::"r"(entry),"r"(kernel_stack_top):"memory");
     __builtin_unreachable();
 #else
     ((void (*)(void))entry)();
@@ -582,6 +589,11 @@ Status EFI_ABI pf_efi_entry(void *image,System *table){
     usb_keyboard_devices();
 #endif
     context[PF_EFI_INPUT_CAPABILITIES/4]|=(usb_tablet_available || usb_keyboard_available)?PF_EFI_INPUT_USB_OWNED:0;
+#if defined(__aarch64__)
+    void *kernel_stack=allocate(0x200000,0);
+    if(!kernel_stack){message("Kernel stack reservation failed.\r\n");return (Status)-1;}
+    kernel_stack_top=(uintptr_t)kernel_stack+0x200000;
+#endif
     if(!prefetch_disk_context() || !heap_context()){message("Permafrost heap reservation failed.\r\n");return (Status)-1;}
     *(volatile uint32_t *)(uintptr_t)(KERNEL_ADDRESS+16)=(uintptr_t)context;
     message("Starting Permafrost.\r\n");enter(entry);return 0;

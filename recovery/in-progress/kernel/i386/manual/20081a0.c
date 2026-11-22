@@ -31,6 +31,21 @@ uint recovered_20081a0(void)
   piVar2 = (int *)DAT_020e0004;
   if ((((piVar2 == (int *)0x0) || (*piVar2 != 0x33454657)) || (piVar2[1] != 5)) ||
      ((uint)piVar2[2] < 0x2138)) {
+    /* The C BIOS loader keeps interrupts masked outside BIOS calls. */
+    static uint64_t pf_bios_tick_start;
+    static uint32_t pf_bios_tick_base;
+    static byte pf_bios_tick_ready;
+    uint frequency = recovered_2017cb0();
+    if (frequency) {
+      uint64_t now = rdtsc();
+      if (!pf_bios_tick_ready) {
+        pf_bios_tick_start = now;
+        pf_bios_tick_base = _DAT_0000046c;
+        pf_bios_tick_ready = 1;
+      }
+      return pf_bios_tick_base + (uint)((now - pf_bios_tick_start) /
+             ((uint64_t)frequency * 0xd6a1U));
+    }
     uVar8 = _DAT_0000046c;
   }
   else {

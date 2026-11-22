@@ -547,7 +547,7 @@ LAB_0202e8f0:
             recovered_2039a70(uVar4);
           } while( true );
         }
-        recovered_2039960();
+        recovered_2039960(0);
         uVar4 = ~uVar10;
         uVar10 = uVar10 + 1;
         if ((uVar4 & 0x7ff) == 0) {

@@ -9118,6 +9118,21 @@ uint recovered_20081a0(void)
   piVar2 = (int *)DAT_020e0004;
   if ((((piVar2 == (int *)0x0) || (*piVar2 != 0x33454657)) || (piVar2[1] != 5)) ||
      ((uint)piVar2[2] < 0x2138)) {
+    /* The C BIOS loader keeps interrupts masked outside BIOS calls. */
+    static uint64_t pf_bios_tick_start;
+    static uint32_t pf_bios_tick_base;
+    static byte pf_bios_tick_ready;
+    uint frequency = recovered_2017cb0();
+    if (frequency) {
+      uint64_t now = rdtsc();
+      if (!pf_bios_tick_ready) {
+        pf_bios_tick_start = now;
+        pf_bios_tick_base = _DAT_0000046c;
+        pf_bios_tick_ready = 1;
+      }
+      return pf_bios_tick_base + (uint)((now - pf_bios_tick_start) /
+             ((uint64_t)frequency * 0xd6a1U));
+    }
     uVar8 = _DAT_0000046c;
   }
   else {
@@ -29099,7 +29114,7 @@ uint recovered_2017cb0(void)
   uint uVar12;
   uint uVar13;
   uint uVar14;
-  byte in_ID;
+  byte in_ID = (byte)pf_cpu_cpuid_available();
   ulonglong uVar15;
 
   cVar5 = DAT_02130020;
@@ -29108,6 +29123,7 @@ uint recovered_2017cb0(void)
     return uVar8;
   }
   DAT_02130020 = 1;
+  DAT_020d9d38 = in_ID;
   recovered_2001e00(&local_24,0,0x10);
   recovered_2001e00(&local_34,0,0x10);
   uVar8 = DAT_020d9d38;
@@ -45238,7 +45254,7 @@ LAB_02029577:
     }
   }
   else {
-    recovered_2039960();
+    recovered_2039960(0);
   }
   goto LAB_02029423;
 LAB_0202969d:
@@ -49421,7 +49437,7 @@ LAB_0202cd13:
           recovered_2039a70(DAT_020de164);
         }
         else {
-          recovered_2039960();
+          recovered_2039960(0);
         }
         iVar10 = iVar10 + 1;
       } while (iVar10 != 0x40000);
@@ -52397,7 +52413,7 @@ LAB_0202e8f0:
             recovered_2039a70(uVar4);
           } while( true );
         }
-        recovered_2039960();
+        recovered_2039960(0);
         uVar4 = ~uVar10;
         uVar10 = uVar10 + 1;
         if ((uVar4 & 0x7ff) == 0) {
@@ -73095,7 +73111,7 @@ void recovered_2039940(void)
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
 
-  recovered_2039960();
+  recovered_2039960(1);
   return;
 }
 
@@ -73114,7 +73130,7 @@ void recovered_2039940(void)
  * Address: 0x2039960
  */
 
-void recovered_2039960(void)
+void recovered_2039960(byte in_CL)
 
 {
   unsigned char frame[64] __attribute__((aligned(16))) = {0};
@@ -73124,7 +73140,6 @@ void recovered_2039960(void)
   uchar uVar3;
   undefined3 extraout_var = 0;
   int iVar4;
-  byte in_CL;
   uint uVar5;
 
   uVar3 = recovered_2006ec0();
@@ -73182,7 +73197,7 @@ uchar recovered_2039a00(uint param_1)
   (&DAT_0214b364)[uVar2 * 0x12] = uVar2;
   if (2000 < param_1 && (&DAT_0214b320)[uVar2 * 0x12] != 0) {
     do {
-      recovered_2039960();
+      recovered_2039960(0);
       param_1 = param_1 - 2000;
     } while (2000 < param_1);
   }
@@ -116158,7 +116173,7 @@ void recovered_205d0b0(void)
   if (iVar1 != 0) {
     *(undefined1 *)(iVar1 + 2) = 1;
   }
-  recovered_2039960();
+  recovered_2039960(1);
   do {
                     /* WARNING: Do nothing block with infinite loop */
   } while( true );
@@ -226746,7 +226761,7 @@ void recovered_20ba6b0(void)
       pf_varargs_202ce90__4__4_(str_020d59ec,iVar1 + 0x78U,uVar3);
     }
   }
-  recovered_2039960();
+  recovered_2039960(1);
   do {
                     /* WARNING: Do nothing block with infinite loop */
   } while( true );
@@ -232578,7 +232593,7 @@ LAB_020bf782:
     if (uVar1 < uVar4) {
       uVar1 = 0;
       do {
-        recovered_2039960();
+        recovered_2039960(1);
         uVar5 = DAT_022543c0;
         if (uVar4 <= uVar5) break;
         bVar7 = uVar1 < 199999;
@@ -232782,7 +232797,7 @@ uVar1 = (__typeof__(DAT_022543c4))(pf_atomic_old | (uVar5));
           local_14 = local_14 + 1;
         } while (local_14 < 0x400);
         if ((~uVar6 & 3) == 0) {
-          recovered_2039960();
+          recovered_2039960(1);
         }
         uVar6 = uVar6 + 1;
       } while (uVar6 < (uint)param_1[1]);

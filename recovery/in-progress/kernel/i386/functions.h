@@ -643,7 +643,7 @@ uint recovered_20392a0(int incoming_ecx,uint incoming_edx,char *param_3,int para
 uint recovered_2039700(int param_1,uint param_2,char *param_3,uint param_4);
 uint recovered_2039820(uint param_1,uint param_2);
 void recovered_2039940(void);
-void recovered_2039960(void);
+void recovered_2039960(byte in_CL);
 uchar recovered_2039a00(uint param_1);
 uint recovered_2039a70(uint in_ECX);
 uint recovered_2039e80(void);

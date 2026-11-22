@@ -639,3 +639,10 @@ Sixty native cache/reuse and remount cases reproduce the prior mismatch and
 pass with the corrected comparison. A longer full source VM run also reached
 terminal keyboard polling, entered 2+3 and displayed 5; the normal source build with the mount correction now launches the terminal and
 accepts 2+3 with output 5 within the shorter VM check as well.
+
+The BIOS scheduler now preserves the native private CL argument for cooperative
+yields and split waits. Seven native public-service cases pass. The flat C BIOS
+loader uses a TSC-derived platform clock while interrupts are masked; native
+EFI clock deltas remain unchanged. The source BIOS VM passes guest Snowflake
+compilation, C and C++ SDK execution, constructor initialization, and a file
+write/read round trip. Desktop task dispatch still requires verification.
