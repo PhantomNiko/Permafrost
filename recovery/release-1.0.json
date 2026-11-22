@@ -1,0 +1,47 @@
+{
+  "version": "1.0",
+  "reference_release": "1.0r232-Beta",
+  "architectures": [
+    "i386",
+    "x86_64",
+    "armv7",
+    "arm64"
+  ],
+  "artifacts": {
+    "Permafrost-1.0.img": {
+      "bytes": 368346112,
+      "sha256": "8d513a86c885fdf8b8cc9327b01e17fe6aafcb2ec8d49134e9cd54d48bc8af32"
+    },
+    "Permafrost-1.0-UEFI.img": {
+      "bytes": 405798912,
+      "sha256": "4229b9bab5fbca7a5999a160c20055508469a60f9e64e873f96a6a922dd3f903"
+    },
+    "Permafrost1.0.sdk.zip": {
+      "bytes": 5171845,
+      "sha256": "390dce64e2f6634a5f66eb753bdcf89596a2693dcebbd4b656e7eee9a68e708e"
+    }
+  },
+  "exceptions": [
+    "embedded Mach distribution"
+  ],
+  "validation_document": "docs/release.md",
+  "source_provenance": {
+    "installed_source_products": 88,
+    "retained_mach_paths": 12,
+    "reference_image_required_to_build": false
+  },
+  "validation": {
+    "vm_architectures": [
+      "i386",
+      "x86_64",
+      "armv7",
+      "arm64"
+    ],
+    "graphics": "desktop, terminal, editor, activity monitor and animated cube",
+    "editor_persistence": "entered bytes verified in the user-volume image on all four CPUs",
+    "guest_development": "Snowflake C++ compilation, SDK C/C++ execution and file round trip",
+    "native_regressions": "full public status, keyboard width, storage, drivers, UI and runtime comparisons",
+    "sdk_portability": "relocated bundle rebuilds runtime and compiles C/C++ for all four CPUs",
+    "mach_source_recovery": "excluded by request"
+  }
+}

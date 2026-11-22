@@ -695,3 +695,19 @@ ARM32, ARM64 and BIOS editor Save As checks persist the entered text on the
 writable user volume. Diagnostic disks disable QEMU snapshots for persistence
 verification. BIOS user-volume IDs differ from EFI volume IDs. The x64 launcher
 and GUI checks are being repeated with the public result correction.
+
+
+## 1.0 validation complete
+
+The final public-status correction restores x64 application launch. The source
+editor displays entered text and the source 3D demo presents changing animation
+frames. Final editor Save As runs on BIOS, x64, ARM32 and ARM64 each persist
+exactly `hello` in the user-volume disk image. The diagnostic launch helpers,
+capture kernels and modified test disks are excluded from release products.
+
+The normal BIOS and EFI payloads match, all installed executable/object paths
+have source or retained-Mach provenance, artifact hashes verify, and the portable
+SDK check passes. The final source scan includes decoded state arrays and finds
+no host paths or account name. `docs/release.md` documents validation scope and
+`recovery/release-1.0.json` records artifact hashes. Permafrost 1.0 is ready for
+its milestone tag; 1.1 is next. No embedded Mach source recovery was attempted.

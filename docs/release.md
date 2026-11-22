@@ -14,7 +14,10 @@ image. Installed binaries and retained Mach files have release provenance hashes
 VM validation uses BIOS/VBE for i386, UEFI for x64, and UEFI `virt` machines
 with GICv3, `virtio-ramfb`, a virtio block disk and USB keyboard/tablet for ARM.
 The graphical desktop boots on all four architectures. Pointer launches,
-keyboard entry and terminal expression evaluation are exercised. The tested
+keyboard entry and terminal expression evaluation are exercised. The editor
+accepts text and saves it to the writable user volume on each architecture.
+The 3D demo renders changing animation frames on all four CPUs. EFI keyboard
+checks also exercise modifier-key selection, cut and paste. The tested
 configurations use 512 MiB on x86, 1 GiB on ARM32 and 2 GiB on ARM64. The EFI image
 also includes an IA32 loader; the i386 VM coverage uses BIOS.
 
@@ -39,6 +42,14 @@ Both file-window toolbar paths retain the native pinned-path pointer. BIOS
 platform ticks advance while the flat loader masks interrupts, and desktop
 frames yield so slow C rendering cannot starve other processes.
 
+The ARM64 editor retains insertion and deletion return values so input after an
+idle interval invalidates the frame. Delayed editing matches native UI pixels
+and events on all four CPUs. Firmware and kernel keyboard paths retain complete
+scan codes, modifier flags and modifier-only transitions: 32 native keyboard
+result cases and 24 firmware forwarding cases pass. Public kernel status
+services use 32-bit results; a missing-file regression reproduces the former
+x64 stale-high-bit result and passes full-register comparisons on all CPUs.
+
 The x64 driver cache compares unsigned device IDs consistently, avoiding repeated
 mounts of BIOS-numbered drives. Firmware-owned input bypasses competing raw
 providers. ARM64 enters a reserved kernel stack while retaining the firmware
@@ -50,6 +61,7 @@ The SDK portability test copies the bundle outside the repository, rebuilds its
 ARM64 runtime from bundled sources and cross-compiles C/C++ examples for all
 four CPUs without repository headers. Archive identities and timestamps are
 normalized. Source and packaged-artifact checks reject embedded host paths.
+`recovery/release-1.0.json` records the final artifact sizes and SHA-256 hashes.
 
 These checks establish the behavior they exercise, rather than proving every
 possible guest program equivalent. Architectural boundaries use small inline

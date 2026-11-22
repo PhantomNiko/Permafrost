@@ -1,6 +1,6 @@
 {
   "target": "1.0",
-  "status": "in-progress",
+  "status": "complete",
   "reference": "WinterBoot-1.0r232-Beta.img",
   "sha256": "858f67689de241b2aa5d048d4abebbc0e69009a4858613193844fc1155623661",
   "architectures": [
@@ -24,5 +24,8 @@
       ],
       "architecture_image_directory": "minimal-1.3r411"
     }
-  }
+  },
+  "tag": "1.0",
+  "validation": "docs/release.md",
+  "artifacts": "recovery/release-1.0.json"
 }
