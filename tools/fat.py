@@ -2,6 +2,34 @@
 """FAT32 volume reader and writer for the current Permafrost user partition."""
 import struct
 
+def _short_name(name):
+    """Retain canonical uppercase 8.3 names without adding a long-name record."""
+    stem, separator, extension = name.partition('.')
+    allowed = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789$%'-_@~`!(){}^#&"
+    if (not 1 <= len(stem) <= 8 or len(extension) > 3 or
+            (separator and not extension) or
+            any(character not in allowed for character in stem + extension)):
+        return None
+    return (stem.ljust(8) + extension.ljust(3)).encode('ascii')
+
+
+def _aliases(names):
+    reserved = {alias for name in names if (alias := _short_name(name)) is not None}
+    result = {}
+    serial = 0
+    for name in names:
+        alias = _short_name(name)
+        if alias is None:
+            while True:
+                alias = ('PF%06d' % serial).encode() + b'BIN'
+                serial += 1
+                if alias not in reserved:
+                    reserved.add(alias)
+                    break
+        result[name] = alias
+    return result
+
+
 class FAT32:
     def __init__(self,data,base=0):
         self.data=data;self.base=base
@@ -73,12 +101,13 @@ def make_fat32(files,sectors):
     if len({name.lstrip('/').casefold() for name in files})!=len(files):
         raise ValueError('duplicate case-insensitive FAT32 filename')
     entries=[]
+    aliases = _aliases([name.lstrip('/') for name in files])
     for index,(name,content) in enumerate(files.items()):
         name=name.lstrip('/')
         if not name or '/' in name or '\\' in name or '\0' in name:raise ValueError('invalid FAT32 filename')
-        text=name.encode('utf-16-le')+b'\0\0';count=(len(text)+25)//26
+        text=name.encode('utf-16-le')+b'\0\0';count=0 if _short_name(name) is not None else (len(text)+25)//26
         if count>20:raise ValueError('FAT32 filename too long')
-        short=('PF%06d'%index).encode()+b'BIN';checksum=0
+        short=aliases[name];checksum=0
         for c in short:checksum=(((checksum&1)<<7)+(checksum>>1)+c)&255
         text=text.ljust(count*26,b'\xff')
         for part in range(count,0,-1):
@@ -135,7 +164,7 @@ def make_fat32_tree(files,sectors):
         if key in node['children']:raise ValueError('FAT32 file collides with directory')
         leaf={'name':parts[-1],'data':bytes(data),'parent':node};node['children'][key]=leaf;payloads.append(leaf)
     def entries(name,alias,directory,cluster=0,size=0):
-        encoded=name.encode('utf-16-le')+b'\0\0';count=(len(encoded)+25)//26
+        encoded=name.encode('utf-16-le')+b'\0\0';count=0 if alias == _short_name(name) else (len(encoded)+25)//26
         encoded=encoded.ljust(count*26,b'\xff');checksum=0;output=[]
         for byte in alias:checksum=(((checksum&1)<<7)+(checksum>>1)+byte)&255
         for part in range(count,0,-1):
@@ -147,7 +176,8 @@ def make_fat32_tree(files,sectors):
         return output+[entry]
     fat=bytearray(geometry.fat_sectors*512);struct.pack_into('<II',fat,0,0xffffff8,0xfffffff);current=2
     for node in directories:
-        node['aliases']={key:('PF%06d'%i).encode()+b'BIN' for i,key in enumerate(node['children'])}
+        aliases = _aliases([child['name'] for child in node['children'].values()])
+        node['aliases']={key:aliases[child['name']] for key,child in node['children'].items()}
         node['slots']=sum(len(entries(child['name'],node['aliases'][key],'children'in child))for key,child in node['children'].items())
     for node in directories+payloads:
         length=(node['slots']+(0 if node is root else 2))*32 if 'children'in node else len(node['data'])
