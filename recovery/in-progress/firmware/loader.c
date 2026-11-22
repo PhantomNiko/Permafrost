@@ -443,9 +443,13 @@ static void video_context(void){
 
 /* WFE5 exposes the WBPT disk through cached physical-sector extents. */
 static int prefetch_disk_context(void){
+    /* Missing extents fall through to indexed EFI I/O. Keep large disks from
+       exhausting the cache table or consuming the kernel's working memory. */
+    uint32_t cached_sectors=payload_sectors;
+    if(cached_sectors>262144U)cached_sectors=262144U;
     unsigned count=0;
-    for(uint32_t offset=0;offset<payload_sectors;){
-        uint32_t sectors=payload_sectors-offset;if(sectors>4096)sectors=4096;
+    for(uint32_t offset=0;offset<cached_sectors;){
+        uint32_t sectors=cached_sectors-offset;if(sectors>4096)sectors=4096;
         if(count>=255)return 0;
         void *buffer=allocate((size_t)sectors*512,0);
         if(!buffer || !read_sectors(payload_lba+offset,sectors,buffer))return 0;

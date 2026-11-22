@@ -1406,7 +1406,9 @@
   "82409d8c": {},
   "8240eb58": {},
   "82422490": {},
-  "8242d680": {},
+  "8242d680": {
+    "  recovered_82400748(pcVar49);\n  if ((int)uVar53 != 0) {": "  /* A successful WMFS32 rewrite may compact its FAT, directory and data.\n   * Later lazy loads must use the layout that was actually written. */\n  if ((int)uVar53 != 0 && pcVar49 && uStack_308 >= 0x30 &&\n      (DAT_8266f1d4 == 1 || DAT_8266f1d4 == 6)) {\n    uint32_t *written = (uint32_t *)pcVar49;\n    if (written[0] == 0x53464d57U && written[1] == 0x3233U) {\n      recovered_82400748((void *)(uintptr_t)DAT_8266f1f0);\n      DAT_8266f1f0 = 0;\n      DAT_8266f1d8 = written[5];\n      DAT_8266f1dc = written[6];\n      DAT_8266f1e0 = written[9];\n      DAT_8266f1e4 = written[10];\n      DAT_8266f1e8 = written[7];\n      DAT_8266f1ec = written[8];\n      DAT_8266f1f8 = (uint64_t)written[10] + 2;\n    }\n  }\n  recovered_82400748(pcVar49);\n  if ((int)uVar53 != 0) {"
+  },
   "8246ec7c": {},
   "8244a970": {},
   "8240b28c": {},
