@@ -36,3 +36,15 @@ linker preserves the two constructor ranges consistently.
 These checks establish the covered interfaces. Guest file services, the rest
 of the C runtime, linked C/C++ programs in VMs, and packaging in the final
 macOS SDK remain release gates.
+
+`tools/tayga_cc.py` links ordinary C/C++ source with these startup and runtime
+objects from an SDK bundle. The C++ entry uses C linkage. The SDK examples
+exercise heap strings, formatted output, vectors, accumulation, and a static
+constructor. Both examples cross-compile for all four architectures; the ARM64
+VM also runs them and prints their expected results. Other VM architectures
+and the remaining runtime services still need validation.
+
+The portable bundle check also rebuilds its ARM64 runtime from the bundled
+C/C++ sources outside the repository, then links both examples for every CPU.
+Archive member timestamps, user IDs, and group IDs are normalized to zero.
+Generated sample executables are checked for embedded host paths.

@@ -72,7 +72,7 @@ def preload(objects, target, architecture, base, entry='main'):
     return pack_segments([(first, end - first, memory[:end - first])], metadata['entry'], architecture)
 
 
-def link_dynamic_executable(objects, target, architecture, libraries, entry='main'):
+def link_dynamic_executable(objects, target, architecture, libraries, entry='main', extra_flags=()):
     """Link guest DLL imports without depending on a macOS hosted runtime.
 
     Libraries maps guest install names to source-built thin dylibs. Text stubs
@@ -112,7 +112,7 @@ def link_dynamic_executable(objects, target, architecture, libraries, entry='mai
                 '  - archs: [ ' + architecture + ' ]\n    symbols: ' + json.dumps(symbols) + '\n...\n')
         (target.parent / ('lib' + label + '.tbd')).write_text(stub)
         command.append('-l' + label)
-    subprocess.run(command + [str(obj) for obj in objects], check=True)
+    subprocess.run(command + list(extra_flags) + [str(obj) for obj in objects], check=True)
     binary = bytearray(target.read_bytes())
     unresolved = {item['name'] for item in inspect_library(binary)['imports']} - available
     if unresolved:
