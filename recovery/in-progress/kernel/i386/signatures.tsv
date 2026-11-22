@@ -859,3 +859,5 @@
 20569c0	unsigned int __fastcall recovered_20569c0(void *device,unsigned int format);
 20537a0	unsigned int __fastcall recovered_20537a0(char *name,void *entry);
 2053c90	bool __fastcall recovered_2053c90(char *path,unsigned int device,char *error,unsigned int *process);
+2047930	unsigned int __fastcall recovered_2047930(char *line);
+2047db0	unsigned int __fastcall recovered_2047db0(char *line);

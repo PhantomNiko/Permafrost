@@ -199,13 +199,15 @@
   },
   "202ded0": {
     "recovered_2039a70();": "recovered_2039a70(DAT_020de164);",
-    "recovered_2053c90(local_1ad,&local_1c);": "recovered_2053c90((int)local_ca1,uVar7,local_1ad,&local_1c);"
+    "recovered_2053c90(local_1ad,&local_1c);": "recovered_2053c90((int)local_ca1,uVar7,local_1ad,&local_1c);",
+    "recovered_2047930()": "recovered_2047930((void*)in_ECX)"
   },
   "2039960": {
     "recovered_2039a70();": "recovered_2039a70(DAT_020de164);"
   },
   "2048290": {
-    "recovered_2039a70();": "recovered_2039a70(DAT_020de164);"
+    "recovered_2039a70();": "recovered_2039a70(DAT_020de164);",
+    "recovered_2047930()": "recovered_2047930((void*)incoming_ecx)"
   },
   "205ea10": {
     "recovered_2039a70();": "recovered_2039a70(DAT_020de164);"
@@ -237,5 +239,25 @@
     "bool recovered_2053c90(char *param_1,uint *param_2)": "bool recovered_2053c90(int in_ECX,uint in_EDX,char *param_1,uint *param_2)",
     "  int in_ECX;\n": "",
     "  uint in_EDX;\n": ""
+  },
+  "2047930": {
+    "uint recovered_2047930(void)": "uint recovered_2047930(undefined1 *in_ECX)",
+    "  undefined1 *in_ECX;\n": "",
+    "local_4c[iVar1] - 9 < 5": "(uint)(local_4c[iVar1]) - 9 < 5",
+    "local_4c[uVar2 - 1] - 9 < 5": "(uint)(local_4c[uVar2 - 1]) - 9 < 5"
+  },
+  "2047db0": {
+    "undefined4 recovered_2047db0(void)": "undefined4 recovered_2047db0(char *in_ECX)",
+    "  char *in_ECX;\n": ""
+  },
+  "2044080": {
+    "                recovered_2027720(in_CL_01);\n              }\n              uVar6 = recovered_2047930();\n              if ((char)uVar6 == '\\0') {\n                uVar11 = recovered_2047db0();\n": "                recovered_2027720(in_CL_01);\n              }\n              uVar6 = recovered_2047930((void*)&local_454);\n              if ((char)uVar6 == '\\0') {\n                uVar11 = recovered_2047db0((void*)&local_454);\n",
+    "              uVar6 = recovered_2047930();\n              if ((char)uVar6 == '\\0') {\n                uVar11 = recovered_2047db0();\n                if ((char)uVar11 == '\\0') {\n                  uVar22 = recovered_2043be0((char *)&local_454,(char *)0x0,0);\n": "              uVar6 = recovered_2047930((void*)&local_454);\n              if ((char)uVar6 == '\\0') {\n                uVar11 = recovered_2047db0((void*)&local_454);\n                if ((char)uVar11 == '\\0') {\n                  uVar22 = recovered_2043be0((char *)&local_454,(char *)0x0,0);\n",
+    "    if ((uchar)local_654 != '\\0') {\n      pf_varargs_202ce90__4__4_(&DAT_020c585f,0x20c4a24,(uint)&local_654);\n      uVar6 = recovered_2047930();\n      if ((char)uVar6 == '\\0') {\n        uVar8 = recovered_2002270((char *)&local_654);\n": "    if ((uchar)local_654 != '\\0') {\n      pf_varargs_202ce90__4__4_(&DAT_020c585f,0x20c4a24,(uint)&local_654);\n      uVar6 = recovered_2047930((void*)&local_654);\n      if ((char)uVar6 == '\\0') {\n        uVar8 = recovered_2002270((char *)&local_654);\n",
+    "        if (uVar8 < uVar13) {\nLAB_02047330:\n          uVar11 = recovered_2047db0();\n          bVar19 = (byte)uVar11;\n          iVar14 = DAT_020d9d4c;\n": "        if (uVar8 < uVar13) {\nLAB_02047330:\n          uVar11 = recovered_2047db0((void*)&local_654);\n          bVar19 = (byte)uVar11;\n          iVar14 = DAT_020d9d4c;\n"
+  },
+  "2043be0": {
+    "recovered_2047930()": "recovered_2047930((void*)pbVar9)",
+    "recovered_2047db0()": "recovered_2047db0((void*)pbVar9)"
   }
 }
