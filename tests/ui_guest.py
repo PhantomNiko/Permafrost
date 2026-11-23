@@ -14,13 +14,13 @@ def main():
     parser.add_argument('architecture', choices=('i386', 'x86_64', 'armv7', 'arm64'))
     parser.add_argument('library', type=Path)
     parser.add_argument('output', type=Path)
+    parser.add_argument('--headers',type=Path,help='release-matched public header directory')
     args = parser.parse_args()
     repository = Path(__file__).resolve().parents[1]
     sys.path.insert(0, str(repository / 'tools'))
     from darwin import compile_object, link_dynamic_executable
-    headers = repository / 'sdk/include'
-    if not headers.is_dir():
-        headers = repository / 'sdk/include'
+    headers = args.headers if args.headers is not None else repository / 'sdk/include'
+    if not headers.is_dir():raise ValueError('public header directory not found')
     obj = args.output.parent / 'ui-guest.o'
     compile_object(repository / 'tests/ui_guest.c', obj, args.architecture,
                    [headers, repository / 'sdk/include'], pic=True)

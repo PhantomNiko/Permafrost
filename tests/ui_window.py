@@ -12,9 +12,9 @@ from unicorn.arm_const import *
 from unicorn.arm64_const import *
 
 
-def exercise(path,api_base=None):
+def exercise(path,api_base=None,layout="1.0"):
     lib=DLL(path,poison_stack=True,api_base=api_base);cpu=lib.cpu;wide=lib.wide
-    ctx=0x3000000;spec=0x3010000;out=0x3020000;title=0x3030000
+    extra=(8 if wide else 4)if layout=="1.1"else 0;ctx=0x3000000;spec=0x3010000;out=0x3020000;title=0x3030000
     events=[];results=[];keys=[];present_success=True
     def arguments(count):
         if lib.cpu_type==7:
@@ -77,9 +77,9 @@ def exercise(path,api_base=None):
         if owned:
             struct.pack_into('<4I',record,24,32,24,128,0x123456)
             def make_view(kind,color=0x5599cc,padding=(0,0,0,0),alignment=1,children=0,count=0):
-                d=bytearray(88 if wide else 72);struct.pack_into('<II',d,0,kind,3);struct.pack_into('<Q'if wide else'<I',d,8,title);struct.pack_into('<Q'if wide else'<I',d,16 if wide else 12,children);struct.pack_into('<II4I2i4i',d,24 if wide else 16,count,3,alignment,0x102030,color,1,0,0,*padding)
+                d=bytearray((88 if wide else 72)+extra);struct.pack_into('<II',d,0,kind,3);struct.pack_into('<Q'if wide else'<I',d,8,title);struct.pack_into('<Q'if wide else'<I',d,(16 if wide else 12)+extra,children);struct.pack_into('<II4I2i4i',d,(24 if wide else 16)+extra,count,3,alignment,0x102030,color,1,0,0,*padding)
                 if kind==3:
-                    struct.pack_into('<Q'if wide else'<I',d,72 if wide else 64,0x15000);struct.pack_into('<Q'if wide else'<I',d,80 if wide else 68,0x12345678)
+                    struct.pack_into('<Q'if wide else'<I',d,(72 if wide else 64)+extra,0x15000);struct.pack_into('<Q'if wide else'<I',d,(80 if wide else 68)+extra,0x12345678)
                 return bytes(d)
             def button_callback(cpu,address,length,user):
                 assert arguments(1)[0]==0x12345678;events.append(('button',0x12345678))
@@ -124,7 +124,7 @@ def exercise(path,api_base=None):
 
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('reference',type=Path);p.add_argument('source',type=Path);p.add_argument('--api-base',type=lambda s:int(s,0));a=p.parse_args();native=exercise(a.reference,a.api_base);source=exercise(a.source,a.api_base)
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('reference',type=Path);p.add_argument('source',type=Path);p.add_argument('--api-base',type=lambda s:int(s,0));p.add_argument('--layout',choices=['1.0','1.1'],default='1.0');a=p.parse_args();native=exercise(a.reference,a.api_base,a.layout);source=exercise(a.source,a.api_base,a.layout)
     for i,(x,y)in enumerate(zip(native[0],source[0])):assert x==y,(i,x,y)
     for i,(x,y)in enumerate(zip(native[1],source[1])):
         def compact(v):return ('pixels',len(v),__import__('hashlib').sha256(v).hexdigest()[:12])if isinstance(v,bytes)and len(v)>128 else v

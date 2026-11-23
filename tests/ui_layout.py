@@ -13,9 +13,9 @@ from unicorn.arm_const import UC_ARM_REG_R0,UC_ARM_REG_R1,UC_ARM_REG_R2,UC_ARM_R
 from unicorn.arm64_const import UC_ARM64_REG_X0,UC_ARM64_REG_X1,UC_ARM64_REG_X2,UC_ARM64_REG_X3,UC_ARM64_REG_X4
 
 
-def exercise(path,api_base=None):
+def exercise(path,api_base=None,layout="1.0"):
     lib=DLL(path,poison_stack=True,api_base=api_base);cpu=lib.cpu;wide=lib.wide
-    size=88 if wide else 72;pointer_fmt='<Q'if wide else'<I';results=[];events=[]
+    extra=(8 if wide else 4)if layout=="1.1"else 0;size=(88 if wide else 72)+extra;pointer_fmt='<Q'if wide else'<I';results=[];events=[]
     def text_service(cpu,address,length,user):
         if lib.cpu_type==7:
             sp=cpu.reg_read(UC_X86_REG_ESP);args=struct.unpack('<5I',bytes(cpu.mem_read(sp+4,20)))
@@ -35,8 +35,8 @@ def exercise(path,api_base=None):
     def view(kind=0,flags=0,width=0,height=0,padding=(0,0,0,0),scale=1,children=0,count=0,spacing=0):
         data=bytearray(size);struct.pack_into('<II',data,0,kind,flags)
         struct.pack_into(pointer_fmt,data,8,0x3020100 if kind==3 else 0x3020000)
-        struct.pack_into(pointer_fmt,data,16 if wide else 12,children)
-        struct.pack_into('<II4I2i4i',data,24 if wide else 16,count,spacing&0xffffffff,1,0x202020,0xf6f6f6,scale,width,height,*padding)
+        struct.pack_into(pointer_fmt,data,(16 if wide else 12)+extra,children)
+        struct.pack_into('<II4I2i4i',data,(24 if wide else 16)+extra,count,spacing&0xffffffff,1,0x202020,0xf6f6f6,scale,width,height,*padding)
         return bytes(data)
     def measure(value,available=(100,80),null=False):
         cpu.mem_write(0x3000000,value);ptr=0 if null else 0x3000000
@@ -66,8 +66,8 @@ def exercise(path,api_base=None):
 
 
 def main():
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('reference',type=Path);parser.add_argument('source',type=Path);parser.add_argument('--api-base',type=lambda s:int(s,0));args=parser.parse_args()
-    a=exercise(args.reference,args.api_base);b=exercise(args.source,args.api_base)
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('reference',type=Path);parser.add_argument('source',type=Path);parser.add_argument('--api-base',type=lambda s:int(s,0));parser.add_argument('--layout',choices=['1.0','1.1'],default='1.0');args=parser.parse_args()
+    a=exercise(args.reference,args.api_base,args.layout);b=exercise(args.source,args.api_base,args.layout)
     for index,(x,y)in enumerate(zip(a[0],b[0])):assert x==y,(index,x,y)
     assert a==b,('text service trace',a[1],b[1])
     print(f'TerrorUI: {len(a[0])} layout cases and {len(a[1])} text-service calls passed.')

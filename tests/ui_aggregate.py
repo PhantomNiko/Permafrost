@@ -12,10 +12,10 @@ from unicorn.x86_const import UC_X86_REG_RDX
 from unicorn.arm64_const import UC_ARM64_REG_X8,UC_ARM64_REG_X1
 
 
-def exercise(path,api_base=None):
+def exercise(path,api_base=None,layout="1.0"):
     lib=DLL(path,poison_stack=True,api_base=api_base)
     out=0x3000000;incoming=0x3010000;wide=lib.wide
-    width=8 if wide else 4;view_size=88 if wide else 72;spec_size=72 if wide else 52
+    width=8 if wide else 4;extra=width if layout=="1.1"else 0;view_size=(88 if wide else 72)+extra;spec_size=72 if wide else 52
     results=[]
     def aggregate(name,size,args=(),value=None):
         lib.cpu.mem_write(out,b'\xa5'*(size+16))
@@ -57,17 +57,23 @@ def exercise(path,api_base=None):
         assert aggregate('insets',16,(value,))==struct.pack('<4I',*[value]*4)
         assert aggregate('insets_xy',16,(value,17))==struct.pack('<4I',17,value,17,value)
     assert aggregate('insets_make',16,(1,2,3,4))==struct.pack('<4I',1,2,3,4)
-    default=bytearray(view_size);struct.pack_into('<4I',default,32 if wide else 24,1,0x202020,0xf6f6f6,1)
+    default=bytearray(view_size);struct.pack_into('<4I',default,(32 if wide else 24)+extra,1,0x202020,0xf6f6f6,1)
     assert aggregate('view_empty',view_size)==default
     ptr=lambda data,offset,value:struct.pack_into('<Q'if wide else'<I',data,offset,value)
     for name,kind,args in [('text',1,(0x3020000,)),('rectangle',2,(0x123456,)),('spacer',4,()),('button',3,(0x3020000,0x3030000,0x3040000)),('hstack',5,(0x3050000,3,7)),('vstack',6,(0x3050000,3,7)),('zstack',7,(0x3050000,3))]:
         expected=bytearray(default);struct.pack_into('<I',expected,0,kind)
         if kind in[1,3]:ptr(expected,8,args[0])
-        if kind==2:struct.pack_into('<I',expected,4,2);struct.pack_into('<I',expected,40 if wide else 32,args[0])
-        if kind==3:ptr(expected,72 if wide else 64,args[1]);ptr(expected,80 if wide else 68,args[2])
+        if kind==2:struct.pack_into('<I',expected,4,2);struct.pack_into('<I',expected,(40 if wide else 32)+extra,args[0])
+        if kind==3:ptr(expected,(72 if wide else 64)+extra,args[1]);ptr(expected,(80 if wide else 68)+extra,args[2])
         if kind in[5,6,7]:
-            ptr(expected,16 if wide else 12,args[0]);struct.pack_into('<II',expected,24 if wide else 16,args[1],args[2]if kind!=7 else 0)
+            ptr(expected,(16 if wide else 12)+extra,args[0]);struct.pack_into('<II',expected,(24 if wide else 16)+extra,args[1],args[2]if kind!=7 else 0)
         assert aggregate(name,view_size,args)==expected,(name,results[-1][1].hex(),expected.hex())
+    if layout=="1.1":
+        for buffer in [0,0x3020000]:
+            for capacity in [0,1,32]:
+                for secret in [0,1,7]:
+                    expected=bytearray(default);struct.pack_into('<II',expected,0,8,16 if secret else 0);ptr(expected,8,buffer);ptr(expected,8+width,capacity);struct.pack_into('<I',expected,(32 if wide else 24)+extra,0);ptr(expected,(72 if wide else 64)+extra,0x3030000);ptr(expected,(80 if wide else 68)+extra,0x3040000)
+                    assert aggregate('text_field',view_size,(buffer,capacity,secret,0x3030000,0x3040000))==expected
     for w,h in[(0,0),(17,23),(0xffffffff,3)]:
         expected=bytearray(spec_size);ptr(expected,0,0x3020000);struct.pack_into('<8I',expected,width,w,h,w*4&0xffffffff,0xf6f6f6,0xffffffff,0xffffffff,0xffffffff,0)
         assert aggregate('window_spec',spec_size,(0x3020000,w,h))==expected
@@ -77,8 +83,8 @@ def exercise(path,api_base=None):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('reference',type=Path);parser.add_argument('source',type=Path)
-    parser.add_argument('--api-base',type=lambda s:int(s,0))
-    args=parser.parse_args();native=exercise(args.reference,args.api_base);source=exercise(args.source,args.api_base)
+    parser.add_argument('--api-base',type=lambda s:int(s,0));parser.add_argument('--layout',choices=['1.0','1.1'],default='1.0')
+    args=parser.parse_args();native=exercise(args.reference,args.api_base,args.layout);source=exercise(args.source,args.api_base,args.layout)
     for i,(a,b)in enumerate(zip(native,source)):assert a==b,(i,a,b)
     assert len(native)==len(source)
     print(f'TerrorUI: {len(native)} aggregate constructor/modifier cases passed.')

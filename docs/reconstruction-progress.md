@@ -1176,3 +1176,12 @@ request-packet clearing; synthetic device-tree requests and the resulting
 framebuffer descriptor match the reference. The VM acquires its console
 handles but still reports graphics unavailable. A native-kernel control run
 and firmware request tracing are investigating this remaining difference.
+
+TerrorUI 1.1 now builds from C for all four CPUs. Its view ABI includes the new
+text-capacity word and text-field constructor. Each architecture passes 368
+aggregate cases, 273 layout cases with 136 text-service calls, and 182
+window/input operations with 293 service calls, including identical pixels.
+Repairs include private IA32 register arguments, complete query/presentation
+outputs, requested reallocation sizes, scalar ARM32 literal pools and portable
+RGBA fills. The in-progress SDK records the larger view and text-field API.
+System VM integration and the remaining source components still gate release.
