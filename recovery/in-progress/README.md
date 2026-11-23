@@ -21,20 +21,22 @@ unresolved. These checks still use the original kernel and applications.
 The kernel folders contain candidate C, initialized data, ABI metadata and
 manual replacements. `recovery.json` records translation settings and reviewed
 exclusive-store expectations. Complete C translations for all four architectures compile to
-objects; the x64 kernel also links with the recovered 1.1 image codec. Its first
-VM test exposed a firmware text-output ABI defect, now repaired and compared
-with the original for every byte value. Startup advances to framebuffer
-initialization but still halts during storage initialization. The captured-state
-comparison isolates a missing command pointer in the firmware flush path;
-the correction is undergoing mount and VM verification. ARM64 timer, peripheral
-and spurious IRQ comparisons preserve integer, SIMD and system state; geometry
-aggregate returns match 260 finite and exceptional input pairs.
+objects; x64, ARM32 and ARM64 also link with the recovered 1.1 image codec.
+The x64 text-output and firmware flush ABI corrections pass direct comparisons.
+Startup advances through PFS admission and module metadata probing. The next
+VM blocker is dynamic module loading: a memory allocator was inferred as
+returning void, leaving its callers with undefined pointers. Its ABI is being
+recovered before the next VM comparison. ARM64 timer, peripheral and spurious
+IRQ comparisons preserve integer, SIMD and system state; geometry aggregate
+returns match 260 finite and exceptional input pairs.
 ARM64 analysis expands machine-outliner blocks before decompilation. ARM32
 exclusive operations now use explicit hardware primitives and retain native
 retry paths; primitive and native/source heap-lock comparisons pass.
 
-The x64 image codec builds from 234 recovered C functions. Fourteen native/source
-PNG decode cases pass. Encoder and file-I/O recovery remains in progress. The
+Image codecs for all four architectures link from recovered C. Fourteen
+native/source PNG decode cases pass on x64 and ARM64. The ARM32 small-fixture
+cases pass, with a remaining large dynamic-Huffman mismatch; i386 still has a
+compressed scanline mismatch. Encoder and file-I/O recovery remains in progress. The
 1.1 codec exports BMP, PNG, TGA and XCF writers; its exports do not include the
 older REI and JPEG writers. The source-kernel VM is still a differential test
 with reference application payloads.
@@ -44,3 +46,9 @@ for the kernel and all installed modules/applications, portable SDK validation,
 VM keyboard/storage/graphics comparisons and the 1.1 milestone tag remain
 outstanding. See the reconstruction progress record for completed component
 checks. Pooka's Free Software License applies throughout this checkpoint.
+
+The kernel PFZ1 Mach-O wrapper shares the firmware token/checksum decoder,
+with the native size policy and output validation. Fourteen native/source
+cases preserve output, error strings and allocation/free behavior. The shared
+firmware decoder also passes bounds and malformed-stream checks on all four
+CPUs. Temporary VM tracing remains in ignored build output.

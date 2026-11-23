@@ -38,6 +38,10 @@
       "2096660": {
         "joined_r0x02096922:\n    uVar6 = 0;\n  }": "    uVar6 = 0;\n  }",
         "if (lVar9 == 0) goto joined_r0x02096922;": "if (lVar9 == 0) {uVar6=0;goto joined_r0x02096922;}"
+      },
+      "20bbc90": {
+        "recovered_2005f40((char *)unaff_R13,0xf2,&DAT_02127e46);": "recovered_2005f40((char *)unaff_R13,0xf2,&DAT_02127e46,(char *)ppuVar23);",
+        "recovered_2097b00(str_02130d34);": "recovered_2097b00(str_02130d34,(char *)unaff_R13);"
       }
     }
   }

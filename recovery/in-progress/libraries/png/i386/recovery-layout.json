@@ -1,0 +1,70 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268439088,
+  "text_end": 268519618,
+  "state_end": 268541952,
+  "translation": {
+    "pointer_bytes": 4,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 268519618,
+    "state_end": 268541952,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"x86_cpu.h\""
+    ],
+    "system_registers": {
+      "MXCSR": "rw"
+    },
+    "source_replacements": {
+      "1000d620": {
+        "0x10014da3": "((uintptr_t)pf_module_state+0x4e1U)"
+      },
+      "1000c590": {
+        "0x10014de5": "((uintptr_t)pf_module_state+0x523U)"
+      },
+      "1000d9f0": {
+        "0x10014da3": "((uintptr_t)pf_module_state+0x4e1U)"
+      },
+      "10008170": {
+        "0x10014db0": "((uintptr_t)pf_module_state+0x4eeU)"
+      },
+      "1000c850": {
+        "0x10014da3": "((uintptr_t)pf_module_state+0x4e1U)",
+        "0x100149b4": "((uintptr_t)pf_module_state+0xf2U)",
+        "0x10014dab": "((uintptr_t)pf_module_state+0x4e9U)",
+        "0x10014ddb": "((uintptr_t)pf_module_state+0x519U)",
+        "0x10014da6": "((uintptr_t)pf_module_state+0x4e4U)"
+      },
+      "100080d0": {
+        "0x100149b4": "((uintptr_t)pf_module_state+0xf2U)",
+        "0x10014d99": "((uintptr_t)pf_module_state+0x4d7U)"
+      },
+      "100082f0": {
+        "0x10014dc2": "((uintptr_t)pf_module_state+0x500U)",
+        "0x10014dd6": "((uintptr_t)pf_module_state+0x514U)",
+        "0x10014dab": "((uintptr_t)pf_module_state+0x4e9U)",
+        "0x10014dc7": "((uintptr_t)pf_module_state+0x505U)",
+        "0x10014da6": "((uintptr_t)pf_module_state+0x4e4U)",
+        "0x10014dd1": "((uintptr_t)pf_module_state+0x50fU)",
+        "0x10014de0": "((uintptr_t)pf_module_state+0x51eU)",
+        "0x100149b4": "((uintptr_t)pf_module_state+0xf2U)",
+        "0x10014d99": "((uintptr_t)pf_module_state+0x4d7U)",
+        "0x10014ddb": "((uintptr_t)pf_module_state+0x519U)"
+      },
+      "100115e0": {
+        "0x100152fc": "((uintptr_t)pf_module_state+0xa3aU)",
+        "0x100152a4": "((uintptr_t)pf_module_state+0x9e2U)"
+      },
+      "10014590": {
+        "pvVar1 = (void *)((&switchD_100145bb::switchdataD_10014814)[in_ECX] + 0x100145a1);": "pvVar1 = (void *)0;",
+        "pvVar1 = (void *)((&DAT_10014814)[in_ECX] + 0x100145a1);": "pvVar1 = (void *)0;"
+      }
+    }
+  }
+}

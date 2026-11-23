@@ -12,7 +12,7 @@
   "set_loader_context": "recovered_82403540",
   "inline_constants": {},
   "upstream_display_version": "1.1",
-  "image_source": "libraries/png/arm64",
+  "image_source": "recovery/in-progress/libraries/png/arm64",
   "functions": {
     "82400014": "recovered_82400014",
     "82400084": "recovered_82400084",

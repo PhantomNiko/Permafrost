@@ -1,6 +1,10 @@
 /* Recovered PFZ1 token and checksum semantics. Pooka's Free Software License. */
 #include "pfz.h"
 
+#ifndef PF_PFZ_MAXIMUM_SIZE
+#define PF_PFZ_MAXIMUM_SIZE (128U * 1024U * 1024U)
+#endif
+
 struct input_stream {
     pf_pfz_read read;
     void *context;
@@ -38,7 +42,7 @@ int pf_pfz_decode(pf_pfz_read read, void *context, size_t input_size,
     if (header[0] != 'P' || header[1] != 'F' || header[2] != 'Z' || header[3] != '1')
         return PF_PFZ_HEADER;
     size_t size = little32(header + 4);
-    if (size > 128U * 1024U * 1024U || little32(header + 8) != input_size - 16 ||
+    if (size > PF_PFZ_MAXIMUM_SIZE || little32(header + 8) != input_size - 16 ||
         size > capacity || (size && !destination)) return PF_PFZ_SIZE;
     struct input_stream stream;
     stream.read = read;

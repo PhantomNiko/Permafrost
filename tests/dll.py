@@ -35,7 +35,7 @@ class DLL:
         # Firmware leaves the null page inaccessible; a mapped zero page can
         # conceal invalid AST pointers and other bad native/source accesses.
         self.cpu.mem_unmap(0,0x1000)
-        shared=([api_base]if api_base is not None else
+        shared=([api_base&~0xffff]if api_base is not None and arm else[api_base]if api_base is not None else
                 [0x40010000,0x82010000]if self.cpu_type==0x100000c else[0x40010000])
         if arm:
             for address in shared:self.cpu.mem_map(address,0x10000)
@@ -56,7 +56,7 @@ class DLL:
             value=int.from_bytes(memory[address:address+width],'little');tag=value&(1<<63)if width==8 else 0
             memory[address:address+width]=(((value&~tag)+self.base)|tag).to_bytes(width,'little')
         self.cpu.mem_write(self.base,bytes(memory));self.exports={e['name']:self.base+e['address']for e in dynamic['exports']}
-        tables=[address+0x800 for address in shared]if arm else[api_base if api_base is not None else 0x6800]
+        tables=([api_base]if api_base is not None else[address+0x800 for address in shared])if arm else[api_base if api_base is not None else 0x6800]
         self.api_tables=tables
         for entry in tables:self.cpu.mem_write(entry,struct.pack('<III',0x50414d57,1000000,412))
         self.result=UC_ARM_REG_R0 if self.cpu_type==12 else UC_ARM64_REG_X0 if arm else UC_X86_REG_RAX if self.wide else UC_X86_REG_EAX

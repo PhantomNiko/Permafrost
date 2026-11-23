@@ -277678,3 +277678,8 @@ void recovered_40526338(void)
 #undef DAT_4052638c
 #undef DAT_40526390
 #undef DAT_40526394
+
+/* Shared image codec allocation before WMAP installation. */
+void *pf_image_allocate(uintptr_t size){return recovered_40401d40(size);}
+void pf_image_release(void *pointer){recovered_40401dc0(pointer);}
+void *pf_image_reallocate(void *pointer,uintptr_t size){return recovered_40401e38(pointer,size);}

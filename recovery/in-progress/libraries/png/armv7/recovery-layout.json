@@ -1,0 +1,249 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268440560,
+  "text_end": 268532136,
+  "state_end": 268582912,
+  "translation": {
+    "pointer_bytes": 4,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 268532136,
+    "state_end": 268582912,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"armv7-recovery.h\"",
+      "#include \"cpu.h\"",
+      "#include \"arm_exclusive.h\"",
+      "#include \"coprocessors.h\"",
+      "#include \"neon.h\"",
+      "static inline __attribute__((always_inline)) uintptr_t pf_current_sp(void){uintptr_t value;__asm__ volatile(\"mov %0,sp\":\"=r\"(value));return value;}"
+    ],
+    "stack_register": "register0x00000054",
+    "system_registers": {},
+    "literal_data": {
+      "100085a4": "24f60000",
+      "100085a8": "3c000000",
+      "10008414": "94f70000",
+      "10008418": "3c000000",
+      "100133c4": "00007f43",
+      "10004cf0": "000000000000e043",
+      "10013ce8": "74480000",
+      "10013cec": "3c080000",
+      "10017950": "c00d0000",
+      "10017954": "0ce9ffff",
+      "10017958": "c4460000",
+      "1000829c": "dcf80000",
+      "100082a0": "1c000000",
+      "10005028": "00000000",
+      "1000aab8": "88e00000",
+      "1000aae0": "38210000",
+      "10017998": "d0e8ffff",
+      "1001799c": "20090000",
+      "100179a0": "84460000",
+      "100179a4": "640d0000",
+      "100051b4": "00000000",
+      "10004e98": "00000000",
+      "100052f8": "000080ff",
+      "100052f0": "ef39fafe422ee63f",
+      "1000f2fc": "c8980000",
+      "1000f300": "000f0000",
+      "1000fdb8": "a0820000",
+      "1000fdbc": "c0030000",
+      "1000fdb0": "0201000306050407",
+      "10004a68": "000000000000f0ff",
+      "10004a70": "ef39fafe422ee63f",
+      "1000d160": "64b80000",
+      "1000d164": "2c1a0000",
+      "1000de10": "0c0000000d000000",
+      "1000de18": "0e0000000f000000",
+      "1000de20": "0800000009000000",
+      "1000de28": "0a0000000b000000",
+      "1000de30": "0400000005000000",
+      "1000de38": "0600000007000000",
+      "1000de40": "0000000001000000",
+      "1000de48": "0200000003000000",
+      "10004f54": "00000000",
+      "10008f98": "ef39fafe422e8640",
+      "10008f90": "000000000000f07f",
+      "10008fa0": "51302dd5104987c0",
+      "10016db0": "0000000001000000",
+      "10016db8": "0200000003000000",
+      "10016dc0": "2083b8ed2083b8ed",
+      "10016dc8": "2083b8ed2083b8ed",
+      "10014404": "ec390000",
+      "10014408": "fc000000",
+      "10016a0c": "7c130000",
+      "10016a10": "4c000000",
+      "10016484": "f0190000",
+      "10016488": "3c010000",
+      "1000c2ec": "24bd0000",
+      "1000c2f0": "e0030000",
+      "10004b38": "182d4454fb210940",
+      "10004b40": "182d4454fb2119c0",
+      "10004b48": "182d4454fb2109c0",
+      "10004b50": "182d4454fb211940",
+      "10004b58": "0000000000005e40",
+      "10004b60": "0000000000b0b3c0",
+      "1000866c": "6cf50000",
+      "10008670": "3c000000",
+      "10004d78": "000000000000e043",
+      "10010b40": "247e0000",
+      "10010b44": "e8240000",
+      "10009080": "ef39fafe422e8640",
+      "10009078": "000000000000f07f",
+      "10009088": "51302dd5104987c0",
+      "10008e98": "ef39fafe422e8640",
+      "10008e90": "000000000000f07f",
+      "10008ea0": "51302dd5104987c0",
+      "10017410": "fc010000",
+      "1000e2e4": "bc9b0000",
+      "1000e2e8": "44020000",
+      "10004bf0": "182d4454fb210940",
+      "10004bf8": "182d4454fb2119c0",
+      "10004c00": "182d4454fb2109c0",
+      "10004c08": "182d4454fb211940",
+      "10004c10": "00000000008086c0",
+      "100084dc": "dcf60000",
+      "100084e0": "3c000000",
+      "10005488": "182d4454fb210940",
+      "10005490": "182d4454fb2119c0",
+      "10005498": "182d4454fb2109c0",
+      "100054a0": "182d4454fb211940",
+      "100054a8": "00000000008086c0",
+      "10015558": "e4360000",
+      "1001555c": "60130000",
+      "10012678": "74570000",
+      "1001267c": "f8000000",
+      "100053c8": "182d4454fb210940",
+      "100053d0": "182d4454fb2119c0",
+      "100053d8": "182d4454fb2109c0",
+      "100053e0": "182d4454fb211940",
+      "100053e8": "0000000000005e40",
+      "100053f0": "0000000000b0b3c0",
+      "1000f930": "d0870000",
+      "1000f934": "78040000",
+      "1000f928": "0201000306050407"
+    },
+    "source_replacements": {
+      "100022d0": {
+        "0x10018080": "((uintptr_t)pf_module_state+0x6d8U)"
+      },
+      "100015b0": {
+        "0x10018080": "((uintptr_t)pf_module_state+0x6d8U)"
+      },
+      "1000fdc0": {
+        "0x10017acf": "((uintptr_t)pf_module_state+0x127U)",
+        "0x10017ac9": "((uintptr_t)pf_module_state+0x121U)",
+        "DAT_10010b40 + 0x1000fe10": "((uintptr_t)pf_module_state+0x28cU)"
+      },
+      "1000f400": {
+        "0x10017acf": "((uintptr_t)pf_module_state+0x127U)",
+        "DAT_1000f930 + 0x1000f450": "((uintptr_t)pf_module_state+0x278U)"
+      },
+      "10014570": {
+        "0x100186fc": "((uintptr_t)pf_module_state+0xd54U)",
+        "0x100182a0": "((uintptr_t)pf_module_state+0x8f8U)"
+      },
+      "100021b8": {
+        "0x10018080": "((uintptr_t)pf_module_state+0x6d8U)"
+      },
+      "1000e2ec": {
+        "0x10017acf": "((uintptr_t)pf_module_state+0x127U)",
+        "0x10017d10": "((uintptr_t)pf_module_state+0x368U)",
+        "DAT_1000f2fc + 0x1000e33c": "((uintptr_t)pf_module_state+0x25cU)"
+      },
+      "100024b8": {
+        "0x10018080": "((uintptr_t)pf_module_state+0x6d8U)"
+      },
+      "10001c18": {
+        "0x10018080": "((uintptr_t)pf_module_state+0x6d8U)"
+      },
+      "10001edc": {
+        "0x10018080": "((uintptr_t)pf_module_state+0x6d8U)"
+      },
+      "1000dfbc": {
+        "0x10017b11": "((uintptr_t)pf_module_state+0x169U)",
+        "DAT_1000e2e4 + 0x1000e030": "((uintptr_t)pf_module_state+0x244U)"
+      },
+      "10001d84": {
+        "0x10018080": "((uintptr_t)pf_module_state+0x6d8U)"
+      },
+      "100018bc": {
+        "0x10018080": "((uintptr_t)pf_module_state+0x6d8U)"
+      },
+      "10001b80": {
+        "0x10018080": "((uintptr_t)pf_module_state+0x6d8U)"
+      },
+      "10001cc8": {
+        "0x10018080": "((uintptr_t)pf_module_state+0x6d8U)"
+      },
+      "1000f938": {
+        "0x10017acf": "((uintptr_t)pf_module_state+0x127U)",
+        "0x10017fac": "((uintptr_t)pf_module_state+0x604U)",
+        "DAT_1000fdb8 + 0x1000f988": "((uintptr_t)pf_module_state+0x280U)"
+      },
+      "1000f3f8": {
+        "0x10017acf": "((uintptr_t)pf_module_state+0x127U)",
+        "0x10017d10": "((uintptr_t)pf_module_state+0x368U)",
+        "DAT_1000f2fc + 0x1000e33c": "((uintptr_t)pf_module_state+0x25cU)"
+      },
+      "10001e2c": {
+        "0x10018080": "((uintptr_t)pf_module_state+0x6d8U)"
+      },
+      "10002240": {
+        "0x10018080": "((uintptr_t)pf_module_state+0x6d8U)"
+      },
+      "1000be3c": {
+        "DAT_1000c2ec + 0x1000be8c": "((uintptr_t)pf_module_state+0x208U)"
+      },
+      "100133c8": {
+        "DAT_10013ce8 + 0x10013420": "((uintptr_t)pf_module_state+0x2ecU)"
+      },
+      "10008218": {
+        "DAT_1000829c + 0x10008240": "((uintptr_t)pf_module_state+0x174U)"
+      },
+      "1001688c": {
+        "DAT_10016a0c + 0x10016954": "((uintptr_t)pf_module_state+0x328U)"
+      },
+      "100085ac": {
+        "DAT_1000866c + 0x100085f0": "((uintptr_t)pf_module_state+0x1b4U)"
+      },
+      "100124b8": {
+        "DAT_10012678 + 0x10012514": "((uintptr_t)pf_module_state+0x2e0U)"
+      },
+      "100084e4": {
+        "DAT_100085a4 + 0x10008528": "((uintptr_t)pf_module_state+0x1a4U)"
+      },
+      "10017918": {
+        "DAT_10017950 + 0x10017938": "((uintptr_t)pf_module_state+0xd50U)"
+      },
+      "10008354": {
+        "DAT_10008414 + 0x10008398": "((uintptr_t)pf_module_state+0x184U)"
+      },
+      "1001795c": {
+        "DAT_100179a4 + 0x10017995": "((uintptr_t)pf_module_state+0xd51U)"
+      },
+      "1000c300": {
+        "DAT_1000d160 + 0x1000c358": "((uintptr_t)pf_module_state+0x214U)"
+      },
+      "1000841c": {
+        "DAT_100084dc + 0x10008460": "((uintptr_t)pf_module_state+0x194U)"
+      },
+      "10016270": {
+        "DAT_10016484 + 0x100162d8": "((uintptr_t)pf_module_state+0x320U)"
+      },
+      "10009a68": {
+        "DAT_1000aab8 + 0x10009ae4": "((uintptr_t)pf_module_state+0x1c4U)"
+      },
+      "10015b94": {
+        "0x10017914": "((uintptr_t)pf_module_state-0x94U)",
+        "0x10017988": "((uintptr_t)pf_module_state-0x20U)"
+      }
+    }
+  }
+}

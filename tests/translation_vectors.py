@@ -115,7 +115,11 @@ uintptr_t row_bound32(uintptr_t count) {
  pointer32=(void *)count;
  return (uintptr_t)(pointer32[-1]+28);
 }
+uintptr_t cast_row_address(void *memory,unsigned offset){
+ return (uintptr_t)(*(undefined1 (*) [16])(memory)+offset);
+}
 int main(void) {
+ if(cast_row_address((void *)0x12340,7)!=0x12347)return 31;
  uint128 value=((uint128)0x12345678<<64)|0xabcdef;
  if(copy_word(0x123456789abcdef0ULL)!=0x123456789abcdef0ULL)return 4;
  if(copy_tag(0x89abcdefU)!=0x89abcdefU)return 13;

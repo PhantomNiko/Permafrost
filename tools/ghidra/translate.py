@@ -663,6 +663,16 @@ def rewrite_array_values(source, metadata):
 
 
 def rewrite_vector_pointers(source,width,typename):
+    # An explicit pointer-to-array cast also decays after dereference when
+    # followed by byte arithmetic. Preserve the address before scalarizing it.
+    pattern=r'\*\(undefined1\s*\(\*\)\s*\['+str(width)+r'\]\)\('
+    for match in reversed(list(re.finditer(pattern,source))):
+        end=match.end();depth=1
+        while depth and end<len(source):
+            depth+=(source[end]=='(')-(source[end]==')');end+=1
+        if depth:raise ValueError('unclosed array pointer expression')
+        if re.match(r'\s*[+-]',source[end:]):
+            source=source[:match.start()]+'(uint8_t *)('+source[match.end():end]+source[end:]
     pointers=re.findall(r'undefined1\s*\(\*\s*(\w+)\)\s*\['+str(width)+r'\]',source)
     byte_pointers=re.findall(r'\b(?:undefined1|uint8_t|char|byte)\s*\*\s*(\w+)\b',source)
     source=re.sub(r'undefined1\s*\((\*+)\s*(\w+)?\)\s*\['+str(width)+r'\]',
@@ -956,6 +966,13 @@ def main():
             location='0x%xU' % number
             if current.get('state_anchor') and current['state_base'] <= number < current['state_end']:
                 location='((uintptr_t)%s + 0x%xU)' % (current['state_anchor'],number-current['state_base'])
+            literal=current.get('literal_data',{}).get(format(number,'x'))
+            if literal is not None:
+                payload=bytes.fromhex(literal)
+                if not payload:raise ValueError('empty recovered literal')
+                label='pf_literal_'+address+'_'+name
+                preamble.append('static const unsigned char '+label+'[] __attribute__((aligned(16)))={'+','.join('0x%02x'%v for v in payload)+'};')
+                location='(uintptr_t)'+label
             volatile=any(first<=number<last for first,last in current.get('volatile_ranges',[]))
             if packed_width:
                 tags={3:('pf_uint24','pf_payload_bits'),5:('pf_uint40','pf_payload_bits'),6:('pf_uint48','pf_payload_bits'),7:('pf_uint56','pf_payload_bits'),12:('pf_uint96','pf_payload_bits')}

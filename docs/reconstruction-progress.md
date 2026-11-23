@@ -829,3 +829,25 @@ The 1.1 reference exposes BMP, PNG, TGA and XCF writers, with no REI or JPEG
 writer exports. Reference allocator callbacks use the 1.1 x64 service table at
 guest address `0x280800`; the test harness can now select this explicitly.
 The completed 1.0 tag remains unchanged; no 1.1 tag has been created.
+
+The next 1.1 checkpoint compiles all four C kernels and links x64 and both ARM
+candidates against matching 1.1 codecs. The x64 firmware flush correction passes
+success/failure command comparisons and removes the PFS admission failure.
+Recovered variadic scheduler tracing and private call signatures remove
+spurious SIMD arguments. Two reviewed path-copy calls now supply their string
+arguments. Module metadata probing matches the original using captured VM
+state; dynamic loading exposes a missing allocator return type that remains
+under recovery. Diagnostic images still carry reference applications.
+
+ARM64 IRQ comparisons cover timer, peripheral and spurious interrupts, all 31
+integer and 32 SIMD registers, system state, stack and GIC acknowledgement.
+The two-double geometry return matches 260 finite and exceptional pairs.
+ARM64 codec analysis expands 464 calls to 118 machine-outliner sequences;
+fourteen PNG decoder comparisons pass. ARM32 passes ten small decoder fixtures
+but still differs on the large dynamic-Huffman fixture; i386 has a compressed
+scanline failure. Encoder checks remain incomplete.
+
+The shared PFZ decoder passes bounds, CRC and malformed-token tests on all four
+architectures. Fourteen kernel PFZ1 Mach-O comparisons additionally verify
+supported image magic, returned bytes, error strings and allocation/free
+behavior. These are component checks; no 1.1 VM equivalence or tag is claimed.

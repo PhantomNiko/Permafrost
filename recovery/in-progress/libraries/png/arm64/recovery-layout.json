@@ -1,0 +1,84 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268436920,
+  "text_end": 268481336,
+  "state_end": 268550144,
+  "translation": {
+    "pointer_bytes": 8,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 268481336,
+    "state_end": 268550144,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"arm64-recovery.h\"",
+      "#include \"cpu.h\"",
+      "#ifndef INFINITY",
+      "#define INFINITY (__builtin_huge_valf())",
+      "#endif",
+      "static inline __attribute__((always_inline)) uintptr_t pf_current_sp(void){uintptr_t value;__asm__ volatile(\"mov %0,sp\":\"=r\"(value));return value;}"
+    ],
+    "stack_register": "register0x00000008",
+    "system_registers": {
+      "tpidr_el0": "rw",
+      "tpidrro_el0": "rw",
+      "fpcr": "rw",
+      "fpsr": "rw"
+    },
+    "source_replacements": {
+      "10008548": {
+        "0x1000b883": "((uintptr_t)pf_module_state+0x54bU)",
+        "0x1000b724": "((uintptr_t)pf_module_state+0x3ecU)"
+      },
+      "10004490": {
+        "0x100100b0": "((uintptr_t)pf_module_state+0x4d78U)"
+      },
+      "100031d4": {
+        "0x1000b7cf": "((uintptr_t)pf_module_state+0x497U)"
+      },
+      "10004e34": {
+        "0x1000b8a7": "((uintptr_t)pf_module_state+0x56fU)"
+      },
+      "10003184": {
+        "0x1000b7b1": "((uintptr_t)pf_module_state+0x479U)"
+      },
+      "10007cb4": {
+        "0x1000b8c5": "((uintptr_t)pf_module_state+0x58dU)"
+      },
+      "1000a88c": {
+        "0x10010330": "((uintptr_t)pf_module_state+0x4ff8U)",
+        "0x10010390": "((uintptr_t)pf_module_state+0x5058U)",
+        "0x1000b668": "((uintptr_t)pf_module_state+0x330U)"
+      },
+      "100082e4": {
+        "0x1000b883": "((uintptr_t)pf_module_state+0x54bU)",
+        "0x1000b487": "((uintptr_t)pf_module_state+0x14fU)"
+      },
+      "10007de0": {
+        "0x1000b487": "((uintptr_t)pf_module_state+0x14fU)",
+        "0x1000b883": "((uintptr_t)pf_module_state+0x54bU)"
+      },
+      "10009404": {
+        "0x10010330": "((uintptr_t)pf_module_state+0x4ff8U)",
+        "0x10010390": "((uintptr_t)pf_module_state+0x5058U)",
+        "0x1000b668": "((uintptr_t)pf_module_state+0x330U)"
+      },
+      "100005e4": {},
+      "100082e8": {
+        "0x1000b883": "((uintptr_t)pf_module_state+0x54bU)"
+      },
+      "100024f0": {
+        "0x1000b7ab": "((uintptr_t)pf_module_state+0x473U)",
+        "0x1000b77d": "((uintptr_t)pf_module_state+0x445U)"
+      },
+      "100086d8": {
+        "0x1000b883": "((uintptr_t)pf_module_state+0x54bU)"
+      }
+    }
+  }
+}
