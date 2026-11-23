@@ -50432,11 +50432,12 @@ undefined4 recovered_202f800(char *in_ECX,int in_EDX)
   if (iVar5 != 0) {
     return 0;
   }
-  if (local_204 + 1U < 2) {
+  int pf_disk_handle=local_204;
+  if (pf_disk_handle + 1U < 2) {
     return 0;
   }
   local_21c = 0;
-  bVar4 = recovered_2042ab0(local_204,0,(int)&local_214,0x200,'\0');
+  bVar4 = recovered_2042ab0(pf_disk_handle,0,(int)&local_214,0x200,'\0');
   if (((((bVar4) && (local_16 == 'U')) &&
        ((local_15 == -0x56 && ((local_1f4[2] == 0x54594c50 && (local_1e8 == 1)))))) &&
       (local_1e6 == 9)) && (local_42 != '\x7f' || local_52 != '\x7f')) {
@@ -50547,7 +50548,7 @@ undefined4 recovered_202f800(char *in_ECX,int in_EDX)
               uVar7 = local_c4 + local_c8;
             }
           }
-          iVar5 = recovered_202e6b0(local_204);
+          iVar5 = recovered_202e6b0(pf_disk_handle);
           uVar8 = recovered_2030470(iVar5,&local_21c);
           uVar11 = uVar7;
           if ((char)uVar8 != '\0') {
@@ -50560,10 +50561,10 @@ undefined4 recovered_202f800(char *in_ECX,int in_EDX)
             *(undefined4 *)(in_EDX + 0x120) = 0;
             *(undefined4 *)(in_EDX + 0x648) = 0xd;
             *(undefined4 *)(in_EDX + 0x64c) = 0;
-            DAT_02176f10 = local_204;
+            DAT_02176f10 = pf_disk_handle;
 LAB_0202fc7c:
             DAT_02176f14 = uVar11;
-            recovered_20302a0(local_204,uVar11);
+            recovered_20302a0(pf_disk_handle,uVar11);
             iVar5 = extraout_EAX;
 LAB_0202fc89:
             return CONCAT31((int3)((uint)iVar5 >> 8),1);
@@ -50573,7 +50574,7 @@ LAB_0202fc89:
     }
   }
 LAB_0202f9bb:
-  bVar4 = recovered_2042ab0(local_204,1,(int)&local_214,0x200,'\0');
+  bVar4 = recovered_2042ab0(pf_disk_handle,1,(int)&local_214,0x200,'\0');
   if (((bVar4) && (iVar5 = recovered_20019c0(&local_214,str_02111d60,8), iVar5 == 0)) &&
      (iVar5 = local_1f4[1] + -1 + (uint)(0xfffffffe < local_1f4[0]),
      0xfffffe7e < local_1c0 - 0x201 &&
@@ -50589,7 +50590,7 @@ LAB_0202f9bb:
       if (((0x200 < uVar11 + local_1c0) ||
           (uVar7 = ((int)((ulonglong)uVar14 * (ulonglong)local_1c0 >> 0x20) << 0x17 | uVar7 >> 9) +
                    local_218, local_1f4[0] < uVar7)) ||
-         (bVar4 = recovered_2042ab0(local_204,uVar7,(int)&local_214,0x200,'\0'), !bVar4)) break;
+         (bVar4 = recovered_2042ab0(pf_disk_handle,uVar7,(int)&local_214,0x200,'\0'), !bVar4)) break;
       left = (void *)((int)local_1f4 + (uVar11 - 0x20));
       iVar5 = recovered_20019c0(left,str_0210f015 + 7,0x10);
       if ((iVar5 != 0) && (iVar5 = recovered_20019c0(left,&DAT_0210f00c,0x10), iVar5 == 0)) {
@@ -50617,7 +50618,7 @@ LAB_0202f9bb:
       local_231 = uVar14 < local_1c4;
     } while (uVar14 != local_1c4);
   }
-  bVar4 = recovered_2042ab0(local_204,0x41,(int)&local_214,0x200,'\0');
+  bVar4 = recovered_2042ab0(pf_disk_handle,0x41,(int)&local_214,0x200,'\0');
   if (((bVar4) && (local_214 == (char *)0x54504257)) && ((short)local_210 == 1)) {
     if ((ushort)(PF_PART2(local_210, 2) - 1) < 4) {
       iVar10 = 0;
@@ -50642,7 +50643,7 @@ LAB_0202fc02:
         DAT_02176f14 = uVar11;
       }
 LAB_0202fc72:
-      DAT_02176f10 = local_204;
+      DAT_02176f10 = pf_disk_handle;
       if (uVar11 == 0) goto LAB_0202fc89;
       goto LAB_0202fc7c;
     }
@@ -50660,7 +50661,7 @@ LAB_0202fc90:
   local_214 = str_021119d4;
   local_210 = 1;
   local_20c = 0;
-  local_208 = (char *)local_204;
+  local_208 = (char *)pf_disk_handle;
   pcVar3 = (code *)DAT_0211e00c;
   (*pcVar3)(&local_214);
   return 0;

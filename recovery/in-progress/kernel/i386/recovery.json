@@ -47,6 +47,14 @@
         "in_XCR0": "pf_xcr0_value",
         "pf_xcr0_value = pf_xcr0_value & uVar3;": "pf_xcr0_value = uVar3;",
         "ulonglong pf_xcr0_value = (ulonglong)pf_read_xcr0();": "ulonglong pf_xcr0_value = 0;"
+      },
+      "202f800": {
+        "  if (local_204 + 1U < 2) {": "  int pf_disk_handle=local_204;\n  if (pf_disk_handle + 1U < 2) {",
+        "recovered_2042ab0(local_204,": "recovered_2042ab0(pf_disk_handle,",
+        "recovered_202e6b0(local_204)": "recovered_202e6b0(pf_disk_handle)",
+        "DAT_02176f10 = local_204;": "DAT_02176f10 = pf_disk_handle;",
+        "recovered_20302a0(local_204,": "recovered_20302a0(pf_disk_handle,",
+        "local_208 = (char *)local_204;": "local_208 = (char *)pf_disk_handle;"
       }
     }
   }

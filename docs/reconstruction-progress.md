@@ -1016,3 +1016,10 @@ around firmware calls and handles seek results, short reads/writes and errors.
 It matches 120 native/source cases with interrupt state, callback packets and
 buffer canaries checked. These isolated results do not establish VM storage
 parity; full boot-disk admission is still being tested.
+
+IA32 disk-path admission now keeps the opened firmware handle independent of
+the sector-read scratch buffer. The native implementation keeps that value in
+a register; reusing its former stack field after the sector read corrupted the
+handle. Differential admission preserves the partition metadata, handle,
+capacity and callback sequence. The VM now reads its boot disk and reaches
+PolynyaFS admission, which still rejects the mount with invalid argument.
