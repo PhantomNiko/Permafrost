@@ -14,7 +14,8 @@ from translate import vector_constant_loads
 def main():
     expressions=[('*(uint32_t *)((undefined1 [16])0x0 + (undefined1 [16])0x4)',0),
                  ('*(void **)((undefined1 [16])0x0 + (undefined1 [16])0x8)',0),
-                 ('*(uint32_t *)((undefined1 [16])0x1122334455667788 + (undefined1 [16])0x4)',0x11223344)]
+                 ('*(uint32_t *)((undefined1 [16])0x1122334455667788 + (undefined1 [16])0x4)',0x11223344),
+                 ('*(undefined4 *)\n    ((undefined1  [16])0x0 + (undefined1  [16])0xc)',0)]
     code='#include "support.h"\n_Static_assert(_Alignof(uint128)==1, "recovered vectors may be unaligned");\nint main(void){\n'
     for expression,expected in expressions:
         rewritten=vector_constant_loads(expression)

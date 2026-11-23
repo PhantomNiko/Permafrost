@@ -91,7 +91,7 @@ def descriptor_register_views(source):
 def vector_constant_loads(source):
     # The decompiler prints a vector byte slice as pointer arithmetic on an
     # array-cast constant. It denotes bytes of the constant, not physical RAM.
-    pattern=r'\*\(([A-Za-z_][A-Za-z_0-9\s]*\*+)\)\(\(undefined1\s+\[(8|16)\]\)(0x[0-9a-fA-F]+)\s*\+\s*\(undefined1\s+\[\2\]\)(0x[0-9a-fA-F]+)\)'
+    pattern=r'\*\(([A-Za-z_][A-Za-z_0-9\s]*\*+)\)\s*\(\(undefined1\s+\[(8|16)\]\)(0x[0-9a-fA-F]+)\s*\+\s*\(undefined1\s+\[\2\]\)(0x[0-9a-fA-F]+)\)'
     def replace(match):
         count=int(match[2]);value=int(match[3],16);offset=int(match[4],16)
         if offset>=count or value>=(1<<(count*8)):
