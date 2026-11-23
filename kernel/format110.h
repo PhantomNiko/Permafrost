@@ -19,7 +19,8 @@ static uint64_t pf_format110_unsigned(__builtin_va_list *args,unsigned length){
  case 2:return (unsigned short)__builtin_va_arg(*args,unsigned);
  case 3:return __builtin_va_arg(*args,unsigned long);
  case 4:case 7:return __builtin_va_arg(*args,unsigned long long);
- case 5:case 6:return __builtin_va_arg(*args,uintptr_t);
+ case 5:return __builtin_va_arg(*args,uintptr_t);
+ case 6:return (uint64_t)(int64_t)__builtin_va_arg(*args,intptr_t);
  default:return __builtin_va_arg(*args,unsigned);
  }
 }
