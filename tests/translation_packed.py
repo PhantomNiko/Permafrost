@@ -25,6 +25,7 @@ def main():
  auVar2=auVar1 ^ (undefined1 [WIDTH])0x1234;
  storage=auVar2;
  *(undefined1 (*) [WIDTH])(out.data) = storage;
+ storage = *(undefined1 (*) [WIDTH])(out.data);
  if((storage ^ storage)!=0)return 3;
  if(out.before!=0x39 || out.after!=0x7b)return 1;
  for(unsigned i=0;i<WIDTH;i++){

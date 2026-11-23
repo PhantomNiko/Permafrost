@@ -4651,23 +4651,9 @@ LAB_100044a8:
 #undef local_80
 #undef abStack_51
 
-#define uStack00000010 (*(undefined1 *)(pf_stack_frame + 48))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x100051c0
- */
+/* Native variadic formatter; Pooka's Free Software License. */
+int recovered_100051c0(char *out,uint capacity,char *format,...){__builtin_va_list arguments;__builtin_va_start(arguments,format);int count=recovered_10004460(out,capacity,format,(void *)arguments);__builtin_va_end(arguments);return count;}
 
-int recovered_100051c0(char *out,uint capacity,char *format,...)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  int iVar1;
-
-  iVar1 = recovered_10004460(out,capacity,format,&uStack00000010);
-  return iVar1;
-}
-
-#undef uStack00000010
 
 #undef DAT_10000000
 #define DAT_10000000 (*(uint8_t *)(0x10000000U))
@@ -12232,8 +12218,8 @@ byte recovered_1000d9f0(undefined4 *param_1,int param_2,int param_3,int param_4)
       }
       uVar3 = 0;
       if (iVar2 == 0x12) {
-        local_4c = 0x1000da04;
-        iVar2 = 0x1000da04;
+        local_4c = ((uintptr_t)pf_module_state+0x38eU-0x724cU);
+        iVar2 = ((uintptr_t)pf_module_state+0x38eU-0x724cU);
         do {
           while( true ) {
             iVar4 = uVar3 * size + param_2 + 3;
@@ -12381,7 +12367,7 @@ byte recovered_1000dcd0(char *param_1,char *param_2,char *param_3,uint param_4)
 
   local_90 = auStack_14 + 0x10;
   local_88 = auStackY_170 + 0x80;
-  local_4c = 0x1000dce4;
+  local_4c = ((uintptr_t)pf_module_state-0x6bdeU);
   local_98 = PTR_recovered_10006c80_10015008;
   local_94 = &DAT_10014f08;
   local_8c = 0x18aa;

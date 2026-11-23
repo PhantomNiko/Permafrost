@@ -862,3 +862,11 @@ The x64 BMP, PNG, TGA and XCF writer corpus passes detection, cross-decoding
 and invalid dimensions. The small XCF writer fixture is byte-identical. Its
 folded constant-string indices now relocate with the module. These are codec
 component checks; the complete 1.1 source image and SDK are not yet released.
+
+The remaining 1.1 codec writer comparisons now pass on i386, ARM32 and ARM64
+as well. Native C variadic entry points retain formatter arguments; ARM64
+file-name copies receive the path operand from the native stack convention.
+i386 TGA/XCF position-relative string references relocate with module data.
+ARM32 copies three packed colour bytes rather than converting their source
+array address into a pixel. BMP, PNG, TGA and XCF all pass cross-decoding and
+invalid-dimension checks on each architecture.

@@ -78,6 +78,12 @@
       },
       "100086d8": {
         "0x1000b883": "((uintptr_t)pf_module_state+0x54bU)"
+      },
+      "10003594": {
+        "recovered_10002bbc((char *)(puVar4 + 1),0xf1,&DAT_1000b7ae);": "recovered_10002bbc((char *)(puVar4 + 1),0xf1,&DAT_1000b7ae,param_1);"
+      },
+      "10003280": {
+        "recovered_10002bbc((char *)(puVar4 + 1),0xf1,&DAT_1000b7ae);": "recovered_10002bbc((char *)(puVar4 + 1),0xf1,&DAT_1000b7ae,param_1);"
       }
     }
   }

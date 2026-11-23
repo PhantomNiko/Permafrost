@@ -29,7 +29,8 @@
         "0x10014de5": "((uintptr_t)pf_module_state+0x523U)"
       },
       "1000d9f0": {
-        "0x10014da3": "((uintptr_t)pf_module_state+0x4e1U)"
+        "0x10014da3": "((uintptr_t)pf_module_state+0x4e1U)",
+        "0x1000da04": "((uintptr_t)pf_module_state+0x38eU-0x724cU)"
       },
       "10008170": {
         "0x10014db0": "((uintptr_t)pf_module_state+0x4eeU)"
@@ -68,6 +69,9 @@
       "10012de0": {
         "0x100145b8": "((uintptr_t)pf_module_state-0x30aU)",
         "0x1001462c": "((uintptr_t)pf_module_state-0x296U)"
+      },
+      "1000dcd0": {
+        "0x1000dce4": "((uintptr_t)pf_module_state-0x6bdeU)"
       }
     }
   }

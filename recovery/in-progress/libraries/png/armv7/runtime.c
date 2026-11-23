@@ -5984,25 +5984,9 @@ code_r0x10005a30:
 #undef local_64
 #undef local_60
 
-#define local_4 (*(undefined4 *)(pf_stack_frame + 28))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x10006738
- */
+/* Native variadic formatter; Pooka's Free Software License. */
+int recovered_10006738(char *out,uint capacity,char *format,...){__builtin_va_list arguments;__builtin_va_start(arguments,format);int count=recovered_10005970(out,capacity,format,(void *)arguments);__builtin_va_end(arguments);return count;}
 
-int recovered_10006738(char *out,uint capacity,char *format,...)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  int iVar1;
-  undefined4 in_r3;
-
-  local_4 = in_r3;
-  iVar1 = recovered_10005970(out,capacity,format,&local_4);
-  return iVar1;
-}
-
-#undef local_4
 
 #undef DAT_1001807c
 #define DAT_1001807c (*(uint32_t *)(((uintptr_t)pf_module_state + 0x6d4U)))
@@ -19657,7 +19641,7 @@ LAB_10013b7c:
                                     }
                                     else {
                                       iVar8 = 3;
-                                      PF_PART3(local_c8,0) = *(undefined1 (*) [3])((int)local_c4 + iVar11);
+                                      PF_PART3(local_c8,0) = PF_PART3(*(undefined1 (*) [3])((int)local_c4 + iVar11),0);
                                       if (uVar19 == 1) goto LAB_10013b7c;
                                     }
                                   }
