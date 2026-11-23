@@ -890,3 +890,17 @@ direct longjmp call sites pass the resume value one. Native instructions at
 these architecture boundaries remain in C translation units. ARM task contexts,
 complete VM behavior, source recovery of remaining modules and SDK promotion
 remain release gates; no 1.1 tag has been created.
+
+The next 1.1 ARM checkpoint preserves optional arguments for conditional format
+strings, including storage addresses that choose between partition numbers and
+filesystem names. ARM32 recovers 631 integer/pointer format calls; wider optional
+operands remain explicitly flagged for ABI review. ARM64 recovers 406 calls.
+The scalar ARM64 formatter matches 587 native cases covering integer widths,
+pointers, fractions, string precision, truncation and destination canaries.
+Unsigned byte-range lowering now preserves all 256 PFS kind values. The complete
+ARM64 catalogue matches all 414 native records before module admission. Its VM
+now passes the earlier mounting/formatting failure and stops at shell admission.
+The x64 provider receives global-lookup and value-release operands. A separate
+1,500-operation allocator comparison preserves payloads and complete heap state;
+the live startup script failure still needs investigation. These component
+results do not establish complete VM equivalence or authorize a release tag.

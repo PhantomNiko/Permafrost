@@ -411,8 +411,8 @@ def rewrite_double_assignments(source, name):
 
 
 def rewrite_byte_ranges(source):
-    # Native unsigned subtraction in ASCII range checks must remain unsigned
-    # after C promotes an 8-bit input to int.
+    # Native unsigned subtraction in ASCII and PFS kind ranges must remain
+    # unsigned after C promotes an 8-bit input to int.
     narrow = r'\(byte\)\s*[A-Za-z_]\w*(?:\[[^]\n]+\])?'
     names = re.findall(r'\b(?:byte|uchar|uint8_t)\s+(\w+)', source)
     pointers = re.findall(r'\b(?:byte|uchar|uint8_t)\s*\*\s*(\w+)', source)
@@ -422,7 +422,7 @@ def rewrite_byte_ranges(source):
         narrow='(?:'+narrow+')'
     if names:
         narrow = '(?:' + narrow + r'|\b(?:' + '|'.join(map(re.escape,names)) + r')\b(?:\[[^]\n]+\])?)'
-    value = '(' + narrow + r'\s*-\s*)(0x(?:30|41|61))\b(?![Uu])'
+    value = '(' + narrow + r'\s*-\s*)(0x(?:30|41|61|5)|5)\b(?![Uu])'
     source=re.sub(value,lambda m:m[1]+m[2]+'U',source)
     # Pointer casts can contain nested address arithmetic.
     pattern=r'\*\((?:byte|uchar|uint8_t)\s*\*\)\s*\('
@@ -430,7 +430,7 @@ def rewrite_byte_ranges(source):
         end=match.end();depth=1
         while depth:
             depth+=(source[end]=='(')-(source[end]==')');end+=1
-        tail=re.match(r'\s*-\s*0x(?:30|41|61)\b(?![Uu])',source[end:])
+        tail=re.match(r'\s*-\s*(?:0x(?:30|41|61|5)|5)\b(?![Uu])',source[end:])
         if tail:
             position=end+tail.end();source=source[:position]+'U'+source[position:]
     return source
@@ -850,7 +850,7 @@ def main():
             text=re.sub(r'\bwchar_t\b','uint16_t',text)
             return text.replace('PF_MODEL_U64','unsigned long long').replace('PF_MODEL_I64','long long')
         sources={a:windows_types(s) for a,s in sources.items()}
-    sources={a:system_register_views(vector_constant_loads(s),current.get('system_registers',{}))for a,s in sources.items()}
+    sources={a:system_register_views(vector_constant_loads(rewrite_byte_ranges(s)),current.get('system_registers',{}))for a,s in sources.items()}
     if current.get('register_inputs'):
         sources={a:register_input_views(s,current['register_inputs'])for a,s in sources.items()}
     if current.get('descriptor_register_views'):

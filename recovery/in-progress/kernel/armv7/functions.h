@@ -430,7 +430,7 @@ undefined4
 recovered_4043343c(uint param_1,undefined1 *param_2,char *param_3,byte *param_4,ushort *param_5,
                   undefined1 *param_6);
 undefined4 recovered_40433724(uint param_1,uint param_2,uint param_3);
-void recovered_40433df0(undefined4 param_1,undefined4 param_2);
+void recovered_40433df0(uint param_1,uint param_2);
 bool recovered_40433e60(int *param_1,uint param_2,uint param_3);
 bool recovered_40433f98(uint param_1,uint param_2,uint param_3,uint param_4,uint param_5,
                        uint param_6);
@@ -1235,11 +1235,11 @@ void * recovered_4049e450(int deviceId,char *path,float fontSize);
 uint recovered_4049e4e0(int deviceId,char *path,uint launchMode);
 undefined4 recovered_4049e624(char *param_1,uint *param_2,undefined4 *param_3);
 uint recovered_4049e828(char *path,uint launchMode);
-void recovered_4049f4f4(undefined4 param_1,char *param_2,char *param_3);
+void recovered_4049f4f4(void *param_1,char *param_2,char *param_3);
 uint recovered_4049f6b0(char *oldPath,char *newPath);
 uint recovered_4049f8c0(char *path);
 uint recovered_4049f94c(void *function,void *context,char *name);
-void recovered_4049fa40(char *param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4);
+void recovered_4049fa40(char *format,...);
 uint recovered_4049fab4(void *function,void *context,char *name,uint priority);
 uint recovered_4049fbb4(uint priority,uint threadCount);
 uint recovered_4049fdb4(void);
@@ -1451,7 +1451,7 @@ uint recovered_404c705c(int param_1,char *param_2,uint param_3,uint param_4,uint
                        undefined4 *param_6);
 undefined4 recovered_404c710c(int param_1,undefined4 param_2,undefined4 param_3,uint param_4);
 undefined4 recovered_404c72c0(char *param_1,int param_2,undefined4 *param_3,ulong *param_4);
-void recovered_404c74f4(undefined4 param_1,uint param_2);
+void recovered_404c74f4(void *param_1,uint param_2);
 uint recovered_404c75f4(int param_1,int *param_2,byte *param_3,uint param_4,int param_5,uint param_6
                        ,int *param_7,uint *param_8);
 uint * recovered_404c76c8(uint param_1);
@@ -1701,7 +1701,7 @@ recovered_404e8720(uint *param_1,uint param_2,int param_3,int *param_4,uint *par
                   ulong param_7);
 undefined4
 recovered_404e8bd0(uint *param_1,uint param_2,uint param_3,uint param_4,uint param_5,int param_6,
-                  undefined4 param_7,int *param_8,uint *param_9,char *param_10,ulong param_11);
+                  void *param_7,int *param_8,uint *param_9,char *param_10,ulong param_11);
 undefined4 recovered_404e8fc8(void);
 undefined4
 recovered_404e95cc(uint *param_1,uint param_2,uint *param_3,uint param_4,int *param_5,uint *param_6,
@@ -1871,7 +1871,7 @@ void recovered_40500f30(void);
 void recovered_40500f44(char *text,ulong length,int first,int last);
 bool recovered_40501160(int param_1,int param_2,uint param_3,uint param_4);
 undefined4 recovered_4050133c(int param_1,uint param_2,undefined8 *param_3,int *param_4);
-void recovered_40501a54(char *param_1,ulong param_2,undefined4 param_3,int *param_4);
+void recovered_40501a54(char *param_1,ulong param_2,void *param_3,int *param_4);
 void recovered_40501b1c(uint param_1,char *param_2,ulong param_3);
 bool recovered_40501b74(int param_1,void *param_2,uint param_3,uint param_4,undefined4 param_5,
                        undefined4 param_6,void *param_7,uint param_8);
@@ -2080,7 +2080,7 @@ undefined4 recovered_4051ea30(int param_1,uint param_2,uint param_3,char *param_
 undefined4 recovered_4051efbc(undefined4 *param_1,uint param_2,int param_3);
 undefined4 recovered_4051f084(int param_1,int param_2,uint *param_3,uint *param_4,uint *param_5);
 void recovered_4051f18c(char *param_1,void *param_2);
-char * recovered_4051f4d4(char *param_1,undefined4 param_2,char *param_3,ulong param_4);
+char * recovered_4051f4d4(char *param_1,uint param_2,char *param_3,ulong param_4);
 void recovered_4051f5fc(void *param_1,uint param_2,char *param_3);
 void recovered_4051f670(void *param_1,char *param_2);
 void recovered_4051f6c8(undefined2 *param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4

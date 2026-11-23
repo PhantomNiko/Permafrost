@@ -8,7 +8,7 @@ import subprocess
 import sys
 import tempfile
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools/ghidra'))
-from translate import aggregate_views,rewrite_scalar_storage,physical_array_extent
+from translate import aggregate_views,rewrite_scalar_storage,physical_array_extent,rewrite_byte_ranges
 
 
 def main():
@@ -49,7 +49,17 @@ byte *address_bits(double *pointer){return (byte *)*pointer;}
 }
 #undef counts
 '''
-    source+='''int main(void){uint32_t value=7;double pointer=pf_bits_double(0x123456789abcdef0ULL);if((uintptr_t)address_bits(&pointer)!=0x123456789abcdef0ULL)return 9;return split_counts()!=136 || stack_probe() || parameter_probe(3)!=0x12345600 || multiply(&value)!=28 || bits((void *)0x1000)!=0x4000;}\n'''
+    source+=rewrite_byte_ranges('''int kinds(void){
+ byte array[1];
+ for(unsigned i=0;i<256;i++){
+  array[0]=i;
+  if((array[0]-5<2)!=(i==5 || i==6))return 1;
+  if((1<(byte)array[0]-5)!=(i!=5 && i!=6))return 2;
+ }
+ return 0;
+}
+''')
+    source+='''int main(void){uint32_t value=7;double pointer=pf_bits_double(0x123456789abcdef0ULL);if((uintptr_t)address_bits(&pointer)!=0x123456789abcdef0ULL)return 9;return kinds() || split_counts()!=136 || stack_probe() || parameter_probe(3)!=0x12345600 || multiply(&value)!=28 || bits((void *)0x1000)!=0x4000;}\n'''
     root=Path(__file__).resolve().parents[1]
     with tempfile.TemporaryDirectory(prefix='permafrost-aggregate-')as directory:
         out=Path(directory);(out/'probe.c').write_text(source)

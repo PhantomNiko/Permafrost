@@ -2351,7 +2351,7 @@ void recovered_82486f1c(undefined1 *param_1,undefined1 *param_2);
 void recovered_82486f34(ulong *param_1);
 void recovered_82486f48(long param_1,int param_2,uint param_3,uint param_4);
 bool recovered_82487104(long param_1,uint param_2,undefined8 *param_3,int *param_4);
-char * recovered_824874ec(char *param_1,ulong param_2,undefined8 param_3,int *param_4);
+char * recovered_824874ec(char *param_1,ulong param_2,void *param_3,int *param_4);
 ulong recovered_82487588(ulong param_1,char *param_2,ulong param_3);
 undefined8
 recovered_824875cc(long param_1,long *param_2,undefined1 param_3,void *param_4,uint param_5);

@@ -11,6 +11,28 @@ import java.util.*;
 import java.nio.file.*;
 
 public class FormatCalls extends GhidraScript {
+ private Set<Long> constants(Varnode node,int depth) {
+  if(node.isConstant())return Set.of(node.getOffset());
+  if(depth==0 || node.getDef()==null)return null;
+  PcodeOp op=node.getDef();
+  if(op.getOpcode()==PcodeOp.COPY || op.getOpcode()==PcodeOp.CAST)
+   return constants(op.getInput(0),depth-1);
+  var result=new TreeSet<Long>();
+  if(op.getOpcode()==PcodeOp.MULTIEQUAL) {
+   for(Varnode input:op.getInputs()) {
+    var values=constants(input,depth-1);if(values==null)return null;
+    result.addAll(values);if(result.size()>16)return null;
+   }
+   return result;
+  }
+  if(op.getOpcode()==PcodeOp.PTRSUB || op.getOpcode()==PcodeOp.INT_ADD) {
+   var a=constants(op.getInput(0),depth-1);var b=constants(op.getInput(1),depth-1);
+   if(a==null || b==null)return null;
+   for(long first:a)for(long second:b)result.add(first+second);
+   return result.size()>16?null:result;
+  }
+  return null;
+ }
  private Long constant(Varnode node,int depth) {
   if(node.isConstant())return node.getOffset();
   if(depth==0 || node.getDef()==null)return null;
@@ -69,8 +91,7 @@ public class FormatCalls extends GhidraScript {
  }
  public void run()throws Exception {
   boolean appleArm=currentProgram.getRegister("x0")!=null;
-  if(currentProgram.getRegister("r0")!=null)
-   throw new Exception("ARM32 optional floating operands require explicit ABI review");
+  boolean arm32=currentProgram.getRegister("r0")!=null;
   // Arguments: first last report target:fixed-count:format-index [...].
   String[] args=getScriptArgs();long first=Long.decode(args[0]),last=Long.decode(args[1]);
   var targets=new HashMap<Long,int[]>();
@@ -95,15 +116,33 @@ public class FormatCalls extends GhidraScript {
     if(op.getOpcode()!=PcodeOp.CALL)continue;
     int[] model=targets.get(op.getInput(0).getOffset());
     if(model==null || op.getNumInputs()<=model[1]+1)continue;
-    Long pointer=constant(op.getInput(model[1]+1),12);if(pointer==null)continue;
-    String format=text(pointer);if(format==null)continue;
+    var pointers=constants(op.getInput(model[1]+1),24);if(pointers==null || pointers.isEmpty())continue;
+    var formats=new ArrayList<String>();
+    for(long pointer:pointers) {String value=text(pointer);if(value==null){formats.clear();break;}formats.add(value);}
+    if(formats.isEmpty())continue;
     Function callee=getFunctionAt(op.getInput(0).getAddress());
     if(callee==null)callee=getFunctionAt(toAddr(op.getInput(0).getOffset()));
     if(callee==null || callee.getParameterCount()<model[0])continue;
     try {
      var types=new ArrayList<DataType>();
      for(int i=0;i<model[0];i++)types.add(callee.getParameter(i).getDataType());
-     types.addAll(arguments(format));
+     var optional=new ArrayList<DataType>();
+     for(String format:formats) {
+      var variant=arguments(format);
+      for(int i=0;i<variant.size();i++) {
+       DataType next=variant.get(i);
+       if(i==optional.size()){optional.add(next);continue;}
+       DataType previous=optional.get(i);
+       if(previous.isEquivalent(next))continue;
+       if(previous instanceof AbstractFloatDataType || next instanceof AbstractFloatDataType)
+        throw new Exception("Conflicting floating format operands require explicit ABI review");
+       int width=Math.max(previous.getLength(),next.getLength());
+       optional.set(i,width==8?UnsignedLongLongDataType.dataType:UnsignedIntegerDataType.dataType);
+      }
+     }
+     if(arm32 && optional.stream().anyMatch(t->t.getLength()>4))
+      throw new Exception("ARM32 wide optional operands require explicit ABI review");
+     types.addAll(optional);
      var parameters=new ParameterDefinition[types.size()];
      for(int i=0;i<types.size();i++)parameters[i]=new ParameterDefinitionImpl("arg"+i,types.get(i),null);
      var signature=new FunctionDefinitionDataType("format_"+op.getSeqnum().getTarget(),currentProgram.getDataTypeManager());
@@ -114,7 +153,7 @@ public class FormatCalls extends GhidraScript {
       throw new Exception("Missing format-call convention "+convention);
      signature.setCallingConvention(convention);
      HighFunctionDBUtil.writeOverride(caller,op.getSeqnum().getTarget(),signature);
-     output.add(String.format("%x\t%s\t%d\t%s",address,op.getSeqnum().getTarget(),types.size(),format.replace("\n","\\n").replace("\t","\\t")));
+     output.add(String.format("%x\t%s\t%d\t%s",address,op.getSeqnum().getTarget(),types.size(),String.join(" | ",formats).replace("\n","\\n").replace("\t","\\t")));
      count++;
     }catch(Exception exception){printerr("Format at "+op.getSeqnum().getTarget()+": "+exception.getMessage());}
    }

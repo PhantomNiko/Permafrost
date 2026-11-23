@@ -180864,7 +180864,7 @@ LAB_020bef2a:
       if (((int)uVar18 != 0) && (lVar26 = DAT_025ebb40, lVar26 != 0)) {
         pcVar21 = str_02130725;
         pcVar48 = local_968;
-        cVar12 = (**(code **)(lVar26 + 0xa0))();
+        cVar12 = ((unsigned char (*)(const char *,void *))*(uintptr_t *)(lVar26+0xa0))(pcVar21,pcVar48);
         if (cVar12 != '\0') {
           pcVar30 = (char *)CONCAT71((int7)((ulong)pcVar30 >> 8),PF_PART4(local_968, 4) != 0);
           DAT_0261f080 = (PF_PART4(local_968, 0) & 0xfffffffb) == 1 && PF_PART4(local_968, 4) != 0;
@@ -180872,7 +180872,7 @@ LAB_020bef2a:
         lVar26 = DAT_025ebb40;
         if (lVar26 != 0) {
           pcVar21 = local_968;
-          (**(code **)(lVar26 + 0xa8))();
+          ((void (*)(void *))*(uintptr_t *)(lVar26+0xa8))(pcVar21);
         }
       }
       uVar18 = recovered_200d180();
