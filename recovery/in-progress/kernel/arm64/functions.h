@@ -1997,7 +1997,7 @@ long recovered_824739a4(long param_1);
 int recovered_824739c8(long param_1);
 uint recovered_824739f8(byte *param_1,ulong param_2,void *param_3,ulong param_4);
 void recovered_82473c48(byte *param_1,ulong param_2,void *param_3,ulong param_4);
-void recovered_82473d34(byte *param_1);
+uint32_t recovered_82473d34(byte *param_1);
 undefined8
 recovered_82473d44(long param_1,ulong param_2,ulong param_3,undefined4 *param_4,ulong *param_5,
                   long *param_6);
@@ -2119,7 +2119,7 @@ ulonglong recovered_8247ba70(uint *param_1,ulong param_2,uint param_3,undefined8
                             ulong *param_5,char *param_6,ulong param_7);
 undefined8 recovered_8247bcd4(char *param_1,ulong param_2,ulong param_3,ulong *param_4);
 uint recovered_8247bd3c(uint param_1,uint param_2);
-void recovered_8247bd68(uint *param_1,ulong param_2,uint param_3,uint param_4,ulong param_5,
+uint64_t recovered_8247bd68(uint *param_1,ulong param_2,uint param_3,uint param_4,ulong param_5,
                        undefined8 param_6,undefined8 *param_7,ulong *param_8,char *param_9,
                        ulong param_10);
 undefined8

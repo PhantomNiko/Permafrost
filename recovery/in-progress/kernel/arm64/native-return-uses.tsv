@@ -46,3 +46,5 @@
 82489210	4	_wm_kernel_kext_io_port_read	[[4, 2185850928, 2185850932, "cbz w0, #0x82496f48"]]
 8249578c	4	_luks2_pbkdf2_sha256	[[4, 2185832544, 2185832548, "cbz w0, #0x82492a50"], [4, 2185832584, 2185832588, "cbz w0, #0x82492a50"], [4, 2185834176, 2185834180, "cbz w0, #0x82492fe8"], [4, 2185834280, 2185834284, "cbz w0, #0x82492fe8"]]
 82495f48	4	_luks2_read_metadata_at	[[4, 2185833320, 2185833324, "tbnz w0, #0, #0x82492b80"], [4, 2185833336, 2185833340, "cbz w0, #0x82493008"]]
+8247bd68	8	_macho_select_image_by_cpu	Native direct tail branch to macho_select_image_by_cpu_ordered
+82473d34	4	_fs_polynyafs_io_flush	Native status preserved across callback lock release

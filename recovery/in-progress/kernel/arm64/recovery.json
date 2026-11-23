@@ -145,6 +145,18 @@
           "expected": "1"
         }
       ]
+    },
+    "source_replacements": {
+      "8246226c": {
+        "uStack_270._4_1_ == cVar17": "uStack_270._4_1_ == (byte)cVar17"
+      },
+      "8247ba70": {
+        "      recovered_8247bd68(": "      return recovered_8247bd68(",
+        "      return extraout_x0;": ""
+      },
+      "82497274": {
+        "CONCAT12(bVar8,uVar3) < 2": "POPCOUNT(uVar5 & 0x300000U) < 2"
+      }
     }
   }
 }

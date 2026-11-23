@@ -930,3 +930,22 @@ its available heap in the VM. Conditional format recovery covers 657 x64 call
 sites. Array-expression lowering retains the scalar memory operand of an XOR
 instead of taking the address of the resulting value. Complete VM startup,
 installed component recovery and SDK promotion remain unfinished.
+
+ARM64 boot selection now compares the mounted drive identifier as an unsigned
+byte, matching the native LDRB comparison for drive 0x80. This retains the boot
+partition across temporary filesystem switches. The Mach-O selection tail
+wrapper preserves its status, and module-role validation counts only the two
+role bits rather than retaining stale upper SIMD lanes. Stage4 metadata and
+success status now match the native probe in captured guest state. The VM
+advances into loaded module code; module execution remains under recovery.
+
+Both ARM PFS flush callbacks now return the storage status after releasing
+their locks. Each architecture passes 512 native/source drive and status
+comparisons plus null-context checks. Complete ARM32 volume admission matches
+status, allocation events, firmware requests and resulting disk bytes; the
+current VM fixture exercises 949 commands and 402 allocation events. The
+ARM32 allocation-entry writer shares the reader's native sentinel validation,
+removing another misidentified jump table. Its 1,152 native/source cases cover
+reserved links, bounds, encoded block bytes and callback status. Its direct
+writer adapter also preserves the returned status. VM admission and rendering
+checks continue; these changes do not constitute a completed 1.1 release.

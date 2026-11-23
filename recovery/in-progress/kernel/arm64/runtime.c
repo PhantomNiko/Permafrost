@@ -121821,7 +121821,7 @@ LAB_824630f8:
           if (((uStack_258 & 0x10000000000) != 0) && ((uStack_258 & 0x100000000) == 0)) {
             iVar18 = DAT_82738d04;
             cVar17 = DAT_82738cf4;
-            if (PF_PART1(uStack_270, 4) == cVar17 && PF_PART4(uStack_268, 4) == iVar18) {
+            if (PF_PART1(uStack_270, 4) == (byte)cVar17 && PF_PART4(uStack_268, 4) == iVar18) {
               uVar22 = DAT_82738d08;
               lVar38 = lVar37;
               if (uVar22 == 0) {
@@ -144915,22 +144915,16 @@ void recovered_82473c48(byte *param_1,ulong param_2,void *param_3,ulong param_4)
  * Address: 0x82473d34
  */
 
-void recovered_82473d34(byte *param_1)
+/* Native PFS flush callback preserves status across lock release.
+ * Pooka's Free Software License. */
 
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  byte bVar1;
-
-  if (param_1 == (byte *)0x0) {
-    return;
-  }
-  bVar1 = *param_1;
-  recovered_8244a488((int *)&UNK_827381c8);
-  recovered_8246dff8((ulong)bVar1);
-  Ram00000000827381c8 = 0;
-  return;
+uint32_t recovered_82473d34(byte *context){
+ if(!context)return 0;
+ recovered_8244a488((int *)(uintptr_t)0x827381c8U);
+ uint32_t status=recovered_8246dff8(*context);
+ __atomic_store_n((unsigned *)(uintptr_t)0x827381c8U,0,__ATOMIC_RELEASE);return status;
 }
+
 
 #undef Ram00000000827381c8
 #undef UNK_827381c8
@@ -154116,9 +154110,9 @@ LAB_8247bc64:
       uVar2 = 0xfeedfacf;
       uVar3 = 0x20;
 LAB_8247bca8:
-      recovered_8247bd68(param_1,param_2,param_3,uVar2,uVar3,pcVar4,param_4,param_5,param_6,param_7)
+      return recovered_8247bd68(param_1,param_2,param_3,uVar2,uVar3,pcVar4,param_4,param_5,param_6,param_7)
       ;
-      return extraout_x0;
+
     }
     pcVar4 = str_824a0a9b;
   }
@@ -154203,17 +154197,15 @@ uint recovered_8247bd3c(uint param_1,uint param_2)
  * Address: 0x8247bd68
  */
 
-void recovered_8247bd68(uint *param_1,ulong param_2,uint param_3,uint param_4,ulong param_5,
-                       undefined8 param_6,undefined8 *param_7,ulong *param_8,char *param_9,
-                       ulong param_10)
+/* Native direct tail transfer preserves the selected-image status.
+ * Pooka's Free Software License. */
 
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  recovered_8247bda0(param_1,param_2,param_3,param_4,param_5,0,param_6,param_7,param_8,param_9,
-                     param_10);
-  return;
+uint64_t recovered_8247bd68(uint *data,ulong length,uint cpu,uint magic,ulong header,
+                          undefined8 name,undefined8 *out,ulong *out_length,
+                          char *error,ulong error_capacity){
+ return recovered_8247bda0(data,length,cpu,magic,header,0,(void *)name,out,out_length,error,error_capacity);
 }
+
 
 
 #undef str_824a09eb
@@ -189941,7 +189933,7 @@ byte recovered_82497274(long param_1,int *param_2)
               iVar4 = DAT_824a98e8;
               bVar8 = POPCOUNT((char)((uVar5 & 0x300000) >> 0x10));
               uVar3 = NEON_uaddlv((ulong)bVar8 << 0x10,1);
-              if (param_2[0x13] == iVar4 && CONCAT12(bVar8,uVar3) < 2) {
+              if (param_2[0x13] == iVar4 && POPCOUNT(uVar5 & 0x300000U) < 2) {
                 if ((uVar5 & 0x300000) == 0) {
                   bVar8 = 1;
                 }

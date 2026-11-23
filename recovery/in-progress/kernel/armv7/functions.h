@@ -680,7 +680,7 @@ int recovered_4044f4a4(undefined4 *param_1,uint param_2,uint param_3,byte *param
 int recovered_4044fad4(undefined4 *param_1,uint param_2,uint param_3,byte *param_4,uint param_5,
                       int *param_6,int *param_7,int *param_8);
 void recovered_4045004c(undefined4 *param_1,uint param_2,uint param_3,undefined4 *param_4);
-void recovered_40450078(undefined4 *param_1,uint param_2,uint param_3,undefined4 *param_4);
+uint32_t recovered_40450078(undefined4 *param_1,uint param_2,uint param_3,undefined4 *param_4);
 int recovered_404500a0(undefined4 *param_1,int param_2,byte *param_3,int param_4);
 int recovered_40450178(undefined4 *param_1,uint param_2,uint param_3,char *param_4,uint param_5,
                       int *param_6);
@@ -1597,7 +1597,7 @@ undefined4 recovered_404d8ce4(int param_1,int param_2);
 bool recovered_404d8d64(byte *param_1,uint param_2,uint param_3,undefined *param_4,uint param_5);
 undefined4
 recovered_404d93a4(byte *param_1,uint param_2,uint param_3,undefined *param_4,undefined1 *param_5);
-void recovered_404d9568(byte *param_1);
+uint32_t recovered_404d9568(byte *param_1);
 void recovered_404d95f8(undefined1 *param_1,undefined4 param_2,undefined4 param_3,void *param_4);
 undefined4
 recovered_404d9958(undefined4 *param_1,uint param_2,undefined *param_3,undefined1 *param_4,

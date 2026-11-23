@@ -73588,24 +73588,9 @@ int recovered_4044f1d8(undefined4 *param_1,uint param_2,uint param_3,undefined4 
   if (uVar4 < param_3 || param_3 - uVar4 < (uint)((uint)param_1[2] <= param_2)) {
     return 1;
   }
-  uVar8 = param_4[2];
-  uVar7 = param_4[3];
-  if (-(uVar7 + (0xfffffff9 < uVar8)) < (uint)(uVar8 + 6 < 7)) {
-                    /* WARNING: Could not recover jumptable at 0x4044f264. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-    iVar6 = (*(code *)(&PTR_LAB_4044f268)[uVar8 + 6])();
-    return iVar6;
-  }
-  uVar9 = uVar7 + (0xffffefff < uVar8);
-  if (uVar9 == 0 && (0xffb < uVar8 + 0x1000) <= uVar9) {
-    return 10;
-  }
-  if (uVar4 < uVar7 || uVar7 - uVar4 < (uint)((uint)param_1[2] <= uVar8)) {
-    return 10;
-  }
-  if (uVar8 == param_2 && uVar7 == param_3) {
-    return 10;
-  }
+  /* Native sentinel switch shares allocation-entry validation with the reader. */
+  iVar6 = recovered_40449298(param_2,param_3,param_1[2],param_1[3],(int)param_4);
+  if(iVar6 != 0)return iVar6;
   lVar10 = recovered_404019f4(param_2,param_3,0x1fff,0);
   puVar3 = (undefined4 *)param_1[10];
   if (puVar3 != (undefined4 *)0x0) {
@@ -74222,14 +74207,13 @@ void recovered_4045004c(undefined4 *param_1,uint param_2,uint param_3,undefined4
  * Address: 0x40450078
  */
 
-void recovered_40450078(undefined4 *param_1,uint param_2,uint param_3,undefined4 *param_4)
+/* Native allocation-writer callback preserves the callee status.
+ * Pooka's Free Software License. */
 
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  recovered_4044f1d8((undefined4 *)*param_1,param_2,param_3,param_4,(void *)param_1[1]);
-  return;
+uint32_t recovered_40450078(undefined4 *context,uint low,uint high,undefined4 *entry){
+ return recovered_4044f1d8((undefined4 *)(uintptr_t)context[0],low,high,entry,(void *)(uintptr_t)context[1]);
 }
+
 
 
 #define abStack_21c (*(byte (*)[540])(pf_stack_frame + 20))
@@ -203552,40 +203536,17 @@ recovered_404d93a4(byte *param_1,uint param_2,uint param_3,undefined *param_4,un
  * Address: 0x404d9568
  */
 
-void recovered_404d9568(byte *param_1)
+/* Native PFS flush callback returns the storage status after releasing its lock.
+ * Pooka's Free Software License. */
 
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  int iVar1;
-  int iVar2;
-
-  if (param_1 == (byte *)0x0) {
-    return;
-  }
-  DataMemoryBarrier(0xb);
-  do {
-    iVar1 = pf_arm_ldrex32(0x40682b70);
-    iVar2 = pf_arm_strex32(0x40682b70,1);
-  } while (iVar2 != 0);
-  DataMemoryBarrier(0xb);
-  while (iVar1 != 0) {
-    do {
-      iVar1 = DAT_40682b70;
-    } while (iVar1 != 0);
-    DataMemoryBarrier(0xb);
-    do {
-      iVar1 = pf_arm_ldrex32(0x40682b70);
-      iVar2 = pf_arm_strex32(0x40682b70,1);
-    } while (iVar2 != 0);
-    DataMemoryBarrier(0xb);
-  }
-  DataMemoryBarrier(0xb);
-  recovered_404cde08((undefined4 *)(uint)*param_1);
-  DataMemoryBarrier(0xb);
-  DAT_40682b70 = 0;
-  return;
+uint32_t recovered_404d9568(byte *context){
+ if(!context)return 0;
+ volatile unsigned *lock=(volatile unsigned *)(uintptr_t)0x40682b70U;
+ while(__atomic_exchange_n(lock,1,__ATOMIC_ACQUIRE)){while(__atomic_load_n(lock,__ATOMIC_RELAXED)){} }
+ uint32_t status=recovered_404cde08((undefined4 *)(uintptr_t)*context);
+ __atomic_store_n(lock,0,__ATOMIC_RELEASE);return status;
 }
+
 
 #undef DAT_40682b70
 
