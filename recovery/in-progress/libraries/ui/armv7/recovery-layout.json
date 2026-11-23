@@ -390,6 +390,13 @@
       "1000db1c": {
         "        iVar4 = (*_DAT_400108a4)(in_r12);": "        iVar4 = (*_DAT_400108a4)(in_r12,param_2,pf_pixels,param_4,param_5,param_6,param_7);",
         "  bool bVar8;": "  bool bVar8;\n  byte *pf_pixels=param_3;"
+      },
+      "1000d86c": {
+        "void recovered_1000d86c(void)": "void recovered_1000d86c(uint windowId)",
+        "(*_DAT_400108a8)()": "(*_DAT_400108a8)(windowId)"
+      },
+      "1000d270": {
+        "recovered_1000d86c();": "recovered_1000d86c(iVar2);"
       }
     }
   },

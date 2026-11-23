@@ -11787,7 +11787,7 @@ LAB_1000a8e6:
       param_1[0xc] = 0;
       param_1[0xd] = 0;
     }
-    recovered_1000aa90();
+    recovered_1000aa90(iVar11);
     recovered_10002a60(param_1,0,0x350);
   }
   return 0;
@@ -11828,7 +11828,7 @@ LAB_1000a8e6:
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void recovered_1000aa90(void)
+void recovered_1000aa90(uint windowId)
 
 {
   unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
@@ -11837,7 +11837,7 @@ void recovered_1000aa90(void)
      ((0xab < _DAT_00280808 && ((code *)(ulong)_DAT_002808a8 != (code *)0x0)))) {
                     /* WARNING: Could not recover jumptable at 0x1000aad3. Too many branches */
                     /* WARNING: Treating indirect jump as call */
-    (*(code *)(ulong)_DAT_002808a8)();
+    (*(code *)(ulong)_DAT_002808a8)(windowId);
     return;
   }
   return;

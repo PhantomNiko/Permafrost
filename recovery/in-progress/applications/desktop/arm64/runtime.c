@@ -29914,7 +29914,7 @@ ulong recovered_10018370(undefined8 *param_1)
           *(undefined8 *)(dst + 100) = uVar5;
           *(undefined8 *)(dst + 0x74) = uVar5;
           iVar2 = ((int)_DAT_1002f0a8 - (int)uVar5) / 2;
-          iVar3 = (PF_PART4(_DAT_1002f0a8, 4) - (int)((ulong)uVar5 >> 0x20)) / 2;
+          iVar3 = ((int)PF_PART4(_DAT_1002f0a8, 4) - (int)((ulong)uVar5 >> 0x20)) / 2;
           *(int *)(dst + 0x5c) = iVar2;
           *(int *)(dst + 0x60) = iVar3;
           *(int *)(dst + 0x6c) = iVar2;
@@ -32354,7 +32354,7 @@ LAB_10019ddc:
     pcVar15 = *(char **)(DAT_10061168 + uVar22 * 8);
     if (*pcVar15 == '\x01') {
       iVar17 = ((int)_DAT_1002f0a8 - *(int *)(pcVar15 + 100)) / 2;
-      iVar6 = (PF_PART4(_DAT_1002f0a8, 4) - *(int *)(pcVar15 + 0x68)) / 2;
+      iVar6 = ((int)PF_PART4(_DAT_1002f0a8, 4) - *(int *)(pcVar15 + 0x68)) / 2;
       *(int *)(pcVar15 + 0x5c) = iVar17;
       *(int *)(pcVar15 + 0x60) = iVar6;
       *(int *)(pcVar15 + 0x6c) = iVar17;

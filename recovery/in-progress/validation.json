@@ -98,7 +98,9 @@
       "x86_64",
       "armv7",
       "arm64"
-    ]
+    ],
+    "desktop_arm64_initial_and_menu_placement_records": 10,
+    "ui_failed_window_lifecycle_paths_per_cpu": 3
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",
   "kernel_compilation": "All four candidate C kernels link; full VM parity remains incomplete.",
@@ -107,5 +109,5 @@
   "efi_mode": "retained firmware services; cooperative scheduling",
   "desktop_vm": "Source desktop reaches and launches the source UI guest on all four CPUs; ARM64 colour-change callback verified. BIOS shell input and broader compatibility remain unresolved.",
   "terminal_vm": "Source terminals accept 1+1 and display 2 inside their windows on x64, ARM32 and ARM64. BIOS IA32 accepts keyboard input but reports that no shell accepted the command. Broader compatibility remains incomplete.",
-  "diagnostics_vm": "x64 source diagnostics renders live service/hardware data. ARM64 launch integration remains under investigation. The reference provides no ARM32 diagnostics slice."
+  "diagnostics_vm": "x64 and ARM64 source diagnostics render live service/hardware data. ARM64 oversized-window placement is repaired. Broader VM parity remains incomplete. The reference provides no ARM32 diagnostics slice."
 }

@@ -568,7 +568,7 @@ void recovered_1000d1f8(undefined4 *param_1,undefined4 param_2,undefined4 param_
                        undefined4 param_9,undefined4 param_10,undefined4 param_11,
                        undefined4 param_12,undefined4 param_13,undefined4 param_14,uint param_15);
 int recovered_1000d270(int *param_1,int *param_2);
-void recovered_1000d86c(void);
+void recovered_1000d86c(uint windowId);
 undefined4 recovered_1000d8bc(int *param_1,undefined *param_2,undefined *param_3,undefined *param_4);
 bool recovered_1000d950(int *param_1,uint param_2,uint param_3,int param_4);
 bool recovered_1000da28(int *param_1,int param_2,uint param_3,int param_4);

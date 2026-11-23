@@ -11012,7 +11012,7 @@ LAB_1000d6a8:
     else {
       param_1[0xb] = 0;
     }
-    recovered_1000d86c();
+    recovered_1000d86c(iVar2);
     recovered_10006080(param_1,0,0x340);
   }
   return 0;
@@ -11053,7 +11053,7 @@ LAB_1000d6a8:
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void recovered_1000d86c(void)
+void recovered_1000d86c(uint windowId)
 
 {
   unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
@@ -11066,7 +11066,7 @@ void recovered_1000d86c(void)
   }
                     /* WARNING: Could not recover jumptable at 0x1000d8b8. Too many branches */
                     /* WARNING: Treating indirect jump as call */
-  (*_DAT_400108a8)();
+  (*_DAT_400108a8)(windowId);
   return;
 }
 

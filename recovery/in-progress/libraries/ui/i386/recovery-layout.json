@@ -292,6 +292,13 @@
       },
       "10009c00": {
         "(*_DAT_00280854)(iVar4);": "(*_DAT_00280854)(iVar4,uVar2);"
+      },
+      "100094a0": {
+        "void recovered_100094a0(void)": "void recovered_100094a0(uint windowId)",
+        "(*_DAT_002808a8)()": "(*_DAT_002808a8)(windowId)"
+      },
+      "10008e90": {
+        "recovered_100094a0();": "recovered_100094a0(iVar8);"
       }
     }
   }

@@ -53867,7 +53867,8 @@
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
         "DAT_10023540": "terror_ui_window_set_content_size",
-        "DAT_1002f0a8": "_DAT_1002f0a8"
+        "DAT_1002f0a8": "_DAT_1002f0a8",
+        "(PF_PART4(_DAT_1002f0a8, 4) - (int)((ulong)uVar5 >> 0x20)) / 2": "((int)PF_PART4(_DAT_1002f0a8, 4) - (int)((ulong)uVar5 >> 0x20)) / 2"
       },
       "100184f8": {
         "FUN_1002336c": "memcmp",
@@ -55778,7 +55779,8 @@
         "0x100253f3": "((uintptr_t)pf_module_state + 0x2087U)",
         "0x1004b548": "((uintptr_t)pf_module_state + 0x281dcU)",
         "0x10024a51": "((uintptr_t)pf_module_state + 0x16e5U)",
-        "DAT_1002f0a8": "_DAT_1002f0a8"
+        "DAT_1002f0a8": "_DAT_1002f0a8",
+        "(PF_PART4(_DAT_1002f0a8, 4) - *(int *)(pcVar15 + 0x68)) / 2": "((int)PF_PART4(_DAT_1002f0a8, 4) - *(int *)(pcVar15 + 0x68)) / 2"
       },
       "1001a820": {
         "FUN_1002336c": "memcmp",

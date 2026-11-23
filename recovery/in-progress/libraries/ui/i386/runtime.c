@@ -9529,7 +9529,7 @@ LAB_10009326:
     else {
       param_1[0xb] = 0;
     }
-    recovered_100094a0();
+    recovered_100094a0(iVar8);
     recovered_100024b0(param_1,0,0x340);
   }
   return 0;
@@ -9573,14 +9573,14 @@ LAB_10009326:
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-void recovered_100094a0(void)
+void recovered_100094a0(uint windowId)
 
 {
   unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
 
   if ((((_DAT_00280800 == 0x50414d57) && (_DAT_00280804 != 0)) && (0xb < _DAT_00280808)) &&
      ((0xab < _DAT_00280808 && (_DAT_002808a8 != (code *)0x0)))) {
-    (*_DAT_002808a8)();
+    (*_DAT_002808a8)(windowId);
   }
   return;
 }

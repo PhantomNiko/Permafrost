@@ -109,11 +109,16 @@ Diagnostics has recovered C checkpoints for IA32, x64 and ARM64, matching the
 reference slice coverage. Nine native comparisons per CPU cover fallback UI,
 populated records, all five power-policy controls, zero services and counts at
 and above the 72-record limit. ARM64 telemetry retains its dynamic format stack
-arguments. The x64 VM displays live hardware and service rows; ARM64 launch
-integration remains unresolved. The reference has no ARM32 diagnostics slice.
+arguments. The x64 and ARM64 VMs display live hardware and service rows. The reference has no ARM32 diagnostics slice.
 
 The candidate SDK now defaults to the native 1.1 x86 table at 0x280800. Its
 terminal, script-variable and damaged-rectangle wrappers pass 63 availability,
 argument and result cases per CPU in both C and C++. Candidate runtime archives
 build from C/C++ and dispatch allocation through the 1.1 table on every CPU.
 The inherited runtime still needs complete 1.1 equivalence and VM validation.
+
+ARM64 window creation and the menu centering action now preserve signed
+coordinates when a window exceeds the display height. Ten native placement
+records cover both paths. The repaired VM displays the diagnostics window.
+Three failed-window paths per CPU also compare native cleanup and window IDs;
+the IA32, x64 and ARM32 close forwarders now retain their native arguments.

@@ -32,6 +32,13 @@
       "10009f20": {
         "(*(undefined8 *)((long)&PTR_str_100108f9_10012000 + lVar9)),": "(*(undefined8 *)((long)&PTR_str_100108f9_10012000 + lVar9),&local_3f78),",
         "(*(undefined8 *)((long)&PTR_str_100108f9_10012000 + lVar9 * 4));": "(*(undefined8 *)((long)&PTR_str_100108f9_10012000 + lVar9 * 4),&local_3f78);"
+      },
+      "1000a4f0": {
+        "recovered_1000aa90();": "recovered_1000aa90(iVar11);"
+      },
+      "1000aa90": {
+        "void recovered_1000aa90(void)": "void recovered_1000aa90(uint windowId)",
+        "(*(code *)(ulong)_DAT_002808a8)()": "(*(code *)(ulong)_DAT_002808a8)(windowId)"
       }
     }
   }

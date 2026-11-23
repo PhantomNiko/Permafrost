@@ -216,7 +216,7 @@ undefined8 * recovered_1000a440(undefined8 *param_1);
 undefined8 * recovered_1000a470(undefined8 *param_1,uint param_2);
 undefined8 * recovered_1000a4b0(undefined8 *param_1,uint param_2);
 int recovered_1000a4f0(int *param_1,undefined8 *param_2);
-void recovered_1000aa90(void);
+void recovered_1000aa90(uint windowId);
 undefined8 recovered_1000aae0(int *param_1,undefined *param_2,undefined *param_3,undefined *param_4);
 undefined8 recovered_1000ab50(int *param_1,uint param_2,uint param_3);
 undefined8 recovered_1000ac20(int *param_1,int param_2,uint param_3);
