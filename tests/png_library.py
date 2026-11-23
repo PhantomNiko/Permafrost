@@ -29,8 +29,8 @@ def fixture(width, height, filtering, level):
  return data,pixels
 
 
-def decode(path,data):
- library=DLL(path);library.cpu.mem_write(0x3000000,data);library.cpu.mem_write(0x3001000,bytes(64))
+def decode(path,data,api_base=None):
+ library=DLL(path,api_base=api_base);library.cpu.mem_write(0x3000000,data);library.cpu.mem_write(0x3001000,bytes(64))
  status=library.call('__ZN2wm3png11load_memoryEPKhmRNS0_5ImageE',0x3000000,len(data),0x3001000)
  size=32 if library.wide else 20
  width,height,address,count,capacity=struct.unpack('<IIQQQ'if library.wide else'<IIIII',bytes(library.cpu.mem_read(0x3001000,size)))
@@ -40,12 +40,12 @@ def decode(path,data):
 
 def main():
  import argparse
- parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('reference',type=Path);parser.add_argument('source',type=Path);args=parser.parse_args()
+ parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('reference',type=Path);parser.add_argument('source',type=Path);parser.add_argument('--api-base',type=lambda x:int(x,0));args=parser.parse_args()
  cases=[fixture(3,2,f,level)for f in range(5)for level in (0,9)]
  cases.append(fixture(64,64,0,9))
  valid,_=cases[0];cases.extend((data,None)for data in (b'bad signature',valid[:24],valid[:-20]))
  for index,(data,pixels)in enumerate(cases):
-  try:actual,expected=decode(args.source,data),decode(args.reference,data)
+  try:actual,expected=decode(args.source,data,args.api_base),decode(args.reference,data,args.api_base)
   except Exception as error:raise AssertionError('PNG decoding case %d failed'%index)from error
   assert actual==expected,(index,actual[:3],expected[:3])
   if pixels is not None:assert expected[0] and actual[3]==pixels,index

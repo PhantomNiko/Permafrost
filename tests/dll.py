@@ -56,7 +56,7 @@ class DLL:
             value=int.from_bytes(memory[address:address+width],'little');tag=value&(1<<63)if width==8 else 0
             memory[address:address+width]=(((value&~tag)+self.base)|tag).to_bytes(width,'little')
         self.cpu.mem_write(self.base,bytes(memory));self.exports={e['name']:self.base+e['address']for e in dynamic['exports']}
-        tables=[address+0x800 for address in shared]if arm else[0x6800]
+        tables=[address+0x800 for address in shared]if arm else[api_base if api_base is not None else 0x6800]
         self.api_tables=tables
         for entry in tables:self.cpu.mem_write(entry,struct.pack('<III',0x50414d57,1000000,412))
         self.result=UC_ARM_REG_R0 if self.cpu_type==12 else UC_ARM64_REG_X0 if arm else UC_X86_REG_RAX if self.wide else UC_X86_REG_EAX

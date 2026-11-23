@@ -12,6 +12,11 @@ import re
 
 WIDE = False
 
+def rename_identifier(source, original, replacement):
+    quoted=re.compile(r'("(?:\\.|[^"\\])*"|\'(?:\\.|[^\'\\])*\'|//[^\n]*|/\*.*?\*/)',re.S)
+    return ''.join(part if i%2 else re.sub(r'\b'+re.escape(original)+r'\b',replacement,part)
+                   for i,part in enumerate(quoted.split(source)))
+
 def signed_negative_hex(source):
     """Keep decompiler negative constants from unsigned 32-bit negation."""
     quoted=re.compile(r'("(?:\\.|[^"\\])*"|\'(?:\\.|[^\'\\])*\'|//[^\n]*|/\*.*?\*/)',re.S)
@@ -71,7 +76,7 @@ def descriptor_register_views(source):
     for number,match in reversed(list(enumerate(pattern.finditer(source)))):
         variable,operation=match.groups()
         following=source[match.end():]
-        part=re.search(r'(uStack_([0-9a-f]+))\s*=\s*\(undefined([26])\)\(\((?:ulong|uint)\)'+re.escape(variable)+r'\s*>>\s*0x10\);',following)
+        part=re.search(r'(uStack_([0-9a-f]+))\s*=\s*\(undefined([26])\)\((?:\((?:ulong|uint)\))?'+re.escape(variable)+r'\s*>>\s*0x10\);',following)
         if not part:raise ValueError('unreviewed descriptor-register result packing')
         offset,width=int(part[2],16),int(part[3])
         neighbor='uStack_'+format(offset-width,'x')
@@ -101,12 +106,15 @@ def packed_vector_views(source):
     # SSA arrays denote register bits. Physical stack arrays retain their
     # byte storage: a _BitInt(96) object may occupy sixteen bytes in C.
     types={2:'uint16_t',3:'uint32_t',4:'uint32_t',8:'uint64_t',
-           **{n:'pf_u'+str(n*8) for n in range(9,16)},16:'uint128'}
+           **{n:'pf_u'+str(n*8) for n in range(9,16)},16:'uint128',32:'uint256'}
     for width,typename in types.items():
-        source=re.sub(r'undefined1\s+((?:auVar\d+|in_XMM\d+))\s*\['+str(width)+r'\];',
-                      typename+r' \1;',source)
+        # Four/eight-byte SSA storage has already acquired explicit scalar
+        # loads/stores in rewrite_array_words. Keep those backing arrays.
+        if width not in (4,8):
+            source=re.sub(r'undefined1\s+((?:auVar\d+|in_XMM\d+))\s*\['+str(width)+r'\];',
+                          typename+r' \1;',source)
         source=re.sub(r'\(undefined1\s+\['+str(width)+r'\]\)', '('+typename+')',source)
-    names=re.findall(r'\b(?:uint128|undefined16|pf_u\d+|uint\d+_t)\s+((?:auVar\d+|in_XMM\d+))\s*;',source)
+    names=re.findall(r'\b(?:uint128|uint256|undefined16|pf_u\d+|uint\d+_t)\s+((?:auVar\d+|in_XMM\d+))\s*;',source)
     for name in set(names):
         source=re.sub(r'\b'+name+r'\[([^\]\n]+)\]',r'PF_PART1('+name+r',\1)',source)
     return source
@@ -439,9 +447,12 @@ def rewrite_pointer_float_views(source,pointer_names,wide=False):
     return source
 
 
-def rewrite_scalar_storage(source):
+def rewrite_scalar_storage(source, pointer_types=()):
     """Restore raw float views lost when an SSA slot is printed as a pointer."""
     source=rewrite_byte_ranges(source)
+    for name in re.findall(r'\b[A-Za-z_]\w*\s*\*+\s*(\w+)\b',source):
+        source=re.sub(r'(?<![\w*])'+re.escape(name)+r'\b(?=\s*\*\s*(?:0x[0-9a-f]+|\d))',
+                      '(uintptr_t)'+name,source)
     integers=set(re.findall(r'\b(?:uint|int|undefined4|uint32_t|int32_t)\s+(\w+)\s*;',source))
     converted=set()
     for match in reversed(list(re.finditer(r'\b(\w+)\s*=\s*(Vector(?:Signed|Unsigned)ToFloat)\(',source))):
@@ -455,6 +466,10 @@ def rewrite_scalar_storage(source):
         source=re.sub(r'\(float\)\s*'+re.escape(name)+r'\b',
                       'pf_bits_float((uint32_t)'+name+')',source)
     floating_variables=re.findall(r'\b(float|double)\s+(\w+)\b(?!\s*\()',source)
+    for typename,name in list(re.findall(r'\b(float|double)\s*\*\s*(\w+)\b',source))+list(pointer_types):
+        bits='pf_float_bits' if typename=='float' else 'pf_double_bits'
+        source=re.sub(r'\(([^()\n]+\*)\)\s*('+re.escape(name)+r'\[[^]\n]+\])',
+                      lambda m:'('+m[1]+')(uintptr_t)'+bits+'('+m[2]+')',source)
     integer_pointers=set(re.findall(r'\b(?:uint|int|undefined4|uint32_t|int32_t)\s*\*\s*(\w+)',source))
     for typename,name in floating_variables:
         if typename!='float':continue
@@ -567,6 +582,69 @@ def exact_array_stores(source):
     return re.sub(pattern,indirect,source)
 
 
+def array_bitwise_reads(source, arrays):
+    # Apply after subpiece lowering; a slice is already a correctly sized
+    # scalar lvalue and must not become a member of a PF_PART expression.
+    for name,count in arrays.items():
+        width=int(count)
+        if not 1<=width<=16 or re.fullmatch(r'(?:auVar\d+|in_XMM\d+)',name):continue
+        view='PF_PART%d(%s,0)'%(width,name)
+        source=re.sub(r'\b'+re.escape(name)+r'\b(?=\s*[&|^])',view,source)
+        source=re.sub(r'([|^~]\s*)\b'+re.escape(name)+r'\b(?![.\[])',lambda m:m[1]+view,source)
+        source=re.sub(r'(\b\w+\s*&\s*)\b'+re.escape(name)+r'\b(?![.\[])',lambda m:m[1]+view,source)
+        source=re.sub(r'(VectorBitwise(?:InsertIfTrue|InsertIfFalse|Select)\s*\(\s*)'+re.escape(name)+r'\b(?=\s*,)',
+                      lambda m:m[1]+view,source)
+    return source
+
+
+def duplicate_return_labels(source):
+    """Coalesce cloned switch exits only when every clone returns one constant."""
+    labels=re.findall(r'^(\w+):',source,re.M)
+    for label in set(labels):
+        if labels.count(label)<2:continue
+        matches=list(re.finditer(r'^'+re.escape(label)+r':\s*return\s+(0x[0-9a-f]+|[0-9]+);',source,re.M))
+        if len(matches)!=labels.count(label) or len({m[1]for m in matches})!=1:
+            raise ValueError('unreviewed duplicate label '+label)
+        for match in reversed(matches[:-1]):
+            source=source[:match.start()]+source[match.start():].replace(label+':','',1)
+    return source
+
+
+def aggregate_views(source, metadata):
+    """Restore each aggregate access using its recorded p-code width."""
+    widths={(r[1],int(r[2])):int(r[3]) for r in metadata if r[0]=='U'}
+    offsets={r[1]:int(r[2]) for r in metadata if r[0]=='L'}
+    stack={}
+    for r in metadata:
+        if r[0]=='S':stack[int(r[2])]=max(stack.get(int(r[2]),0),int(r[3]))
+    parameters={}
+    signature_text=source.split('\n{',1)[0]
+    for alias in set(re.findall(r'\b_param_[0-9]+\b',source)):
+        name=alias[1:]
+        match=re.search(r'\b(byte|char|uchar|ushort|short|uint|int|undefined[124])\s+'+name+r'\b',signature_text)
+        seen={width for (key,_),width in widths.items()if key==alias}
+        if not match or seen!={4}:raise ValueError('unreviewed parameter aggregate '+alias)
+        parameters[name]=(match[1],'pf_aggregate_'+name)
+    counts={}
+    def replace(match):
+        alias=match[0];name=alias[1:]
+        counts[alias]=counts.get(alias,0)+1
+        if name in parameters:return parameters[name][1]
+        width=widths.get((alias,counts[alias]),stack.get(offsets.get(name)))
+        if width is None or not 1<=width<=16:raise ValueError('unknown aggregate width '+alias)
+        return 'PF_PART%d(%s,0)'%(width,name)
+    source=re.sub(r'\b_(?:local|auStack|uStack|param)_[0-9a-f]+\b',replace,source)
+    if parameters:
+        opening=source.index('\n{')+2
+        signature_text,body=source[:opening],source[opening:]
+        initial=[]
+        for name,(typename,temporary)in parameters.items():
+            body=rename_identifier(body,name,'(*('+typename+' *)(void *)&'+temporary+')')
+            initial.append('  uint32_t '+temporary+' = (uint32_t)'+name+';')
+        source=signature_text+'\n'+'\n'.join(initial)+'\n'+body
+    return source
+
+
 def rewrite_array_values(source, metadata):
     views={(row[1],int(row[2])):int(row[3]) for row in metadata
            if row[0]=='Q' and row[1]!='-'}
@@ -582,12 +660,11 @@ def rewrite_array_values(source, metadata):
     return re.sub(r'\b[A-Za-z_]\w*\b',replace,source)
 
 
-def rewrite_integer_vectors(source):
-    """Retain byte access when vector SSA values become C integers."""
-    pointers=re.findall(r'undefined1\s*\(\*\s*(\w+)\)\s*\[16\]',source)
+def rewrite_vector_pointers(source,width,typename):
+    pointers=re.findall(r'undefined1\s*\(\*\s*(\w+)\)\s*\['+str(width)+r'\]',source)
     byte_pointers=re.findall(r'\b(?:undefined1|uint8_t|char|byte)\s*\*\s*(\w+)\b',source)
-    source=re.sub(r'undefined1\s*\((\*+)\s*(\w+)?\)\s*\[16\]',
-                  lambda match:'uint128 '+match[1]+(match[2] or ''),source)
+    source=re.sub(r'undefined1\s*\((\*+)\s*(\w+)?\)\s*\['+str(width)+r'\]',
+                  lambda match:typename+' '+match[1]+(match[2] or ''),source)
     for name in pointers:
         source=re.sub(r'\b'+re.escape(name)+r'\s*\[([^]\n]+)\]\s*\+',
                       lambda match:'((uint8_t *)(void *)&'+name+'['+match[1]+']) +',source)
@@ -608,18 +685,27 @@ def rewrite_integer_vectors(source):
         # vector assignment reads its sixteen bytes. Keep both operations.
         cast=r'\(([^()\n]+)\)\s*'+re.escape(name)+r'\s*\[([^]\n]+)\]'
         def indexed(match):
-            if match[1].strip() in ('uint128','undefined16'):return match[0]
+            if match[1].strip() in (typename,'undefined'+str(width)):return match[0]
             return '('+match[1]+')(uintptr_t)('+name+'+('+match[2]+'))'
         source=re.sub(cast,indexed,source)
         cast=r'\(([^()\n]+)\)\s*\*'+re.escape(name)+r'\b'
         def decayed(match):
-            if match[1].strip() in ('uint128','undefined16'):return match[0]
+            if match[1].strip() in (typename,'undefined'+str(width)):return match[0]
             return '('+match[1]+')(uintptr_t)'+name
         source=re.sub(cast,decayed,source)
         source=re.sub(r'(?<![\w])\*'+re.escape(name)+r'\b(?=\s*[+-])',
                       '((uint8_t *)(void *)'+name+')',source)
         source=re.sub(r'\b'+re.escape(name)+r'(?=\s*\*\s*(?:0x[0-9a-f]+|\d))',
                       '(uintptr_t)'+name,source)
+    return source
+
+
+def rewrite_integer_vectors(source):
+    """Retain byte access when vector SSA values become C integers."""
+    source=re.sub(r'\(\*\(undefined1\s*\(\*\)\s*\[(?:16|32)\]\)([^()]+)\)\[([^]\n]+)\]',
+                  r'((uint8_t *)(\1))[\2]',source)
+    source=rewrite_vector_pointers(source,16,'uint128')
+    source=rewrite_vector_pointers(source,32,'uint256')
     names=re.findall(r'undefined1 (auVar\d+) \[16\];',source)
     source=re.sub(r'undefined1 (auVar\d+) \[16\];',r'uint128 \1;',source)
     for name in names:
@@ -676,11 +762,12 @@ def main():
     manual_root=args.manual or Path('kernel/manual')
     manual = {path.stem: path.read_text() for path in manual_root.glob('*.c')}
     args.out.mkdir(parents=True, exist_ok=True)
-    sources = {p.stem: p.read_text() for p in sorted(args.notes.glob('*.c')) if p.stem != 'recovered'}
+    sources = {p.stem: rename_identifier(p.read_text(),'frame','pf_argument_frame')
+               for p in sorted(args.notes.glob('*.c')) if p.stem != 'recovered'}
     function_addresses={int(a,16) for a in sources.keys() | manual.keys()}
     def data_labels(text):
         labels=set(re.findall(r'(?m)^\s*(recovered_[0-9a-f]+):',text))
-        text=re.sub(r'switchD_[0-9a-f]+::switchdataD_([0-9a-f]+)',r'DAT_\1',text)
+        text=re.sub(r'switchD_[0-9a-f]+\s*::\s*switchdataD_([0-9a-f]+)',r'DAT_\1',text)
         return re.sub(r'\b(_?)recovered_([0-9a-f]+)\b',
             lambda m:m[0] if m[0] in labels or int(m[2],16) in function_addresses else
                 m[1]+'DAT_'+('%016x' if WIDE else '%08x')%int(m[2],16),text)
@@ -829,7 +916,7 @@ def main():
                     memory_types[number] = (int(size), kind)
         volatile_views={row[1]:(int(row[2],16),int(row[3]))for row in metadata if row[0]=='V'}
         volatile_types={row[1]:row[4]for row in metadata if row[0]=='V' and len(row)>4}
-        globals_used = sorted({row[1] for row in metadata if row[0] == 'G'} | set(volatile_views) | set(re.findall(r'\b(?:_?DAT|str|_LAB)_[0-9a-f]{8,16}\b|\b[a-zA-Z]*Ram[0-9a-f]{8,16}\b|\bram0x[0-9a-f]{8,16}\b|\bPTR_\w+_[0-9a-f]{8,16}\b', source)))
+        globals_used = sorted({row[1] for row in metadata if row[0] == 'G'} | set(volatile_views) | set(re.findall(r'\b(?:_?DAT|str|_LAB|UNK)_[0-9a-f]{8,16}\b|\b[a-zA-Z]*Ram[0-9a-f]{8,16}\b|\bram0x[0-9a-f]{8,16}\b|\bPTR_\w+_[0-9a-f]{8,16}\b', source)))
         preamble = ['#include "functions.h"']
         for name in globals_used:
             if not re.fullmatch(r'[A-Za-z_]\w*',name):continue
@@ -841,6 +928,8 @@ def main():
             if number in function_addresses and re.match(r'(?:thunk_)?(?:FUN_|recovered_)',name):
                 continue
             kind = globals_by_address.get(number, 'uint:4')
+            if name.startswith('UNK_'):
+                kind=memory_types.get(number,(1,'undefined1:1'))[1]
             if name.startswith(('_DAT','ram0x')):
                 kind = memory_types.get(number, (4, 'uint:4'))[1]
             typename = 'char[1]' if name.startswith('str_') else ctype(kind)
@@ -914,12 +1003,7 @@ def main():
         # array and its neighboring byte, naming the whole view with an
         # underscore. Preserve the recorded store width and shared frame.
         local_offsets = {row[1]: int(row[2]) for row in locals_used}
-        for name in set(re.findall(r'\b_(auStack_[0-9a-f]+)\b', source)):
-            if name not in local_offsets:
-                raise ValueError('unknown aggregate stack view: ' + name)
-            width = stack_widths[local_offsets[name]]
-            source = re.sub(r'\b_' + re.escape(name) + r'\b',
-                            'PF_PART%d(%s,0)' % (width,name),source)
+        source=aggregate_views(source,metadata)
         for name, raw in sorted(set(re.findall(r'\b(stack0x([0-9a-f]{8}(?:[0-9a-f]{8})?))\b', source))):
             offset=int(raw,16)
             bits=len(raw)*4
@@ -962,6 +1046,7 @@ def main():
                 value = '((%s *)(uintptr_t)%s)' % (element, value)
             return value
         source = re.sub(r'\b(\w+(?:\[[^]\n]+\])?(?:(?:\.|->)\w+)*)\s*\.\s*_(\d+)_(\d+)_', partial_field, source)
+        source=duplicate_return_labels(source)
         source = re.sub(r'switch\(([^\n]+)\)', r'switch((uintptr_t)(\1))', source)
         source = re.sub(r'case \([^)]*\*\)(0x[0-9a-f]+):', r'case \1:', source)
         source = signed_negative_hex(source)
@@ -991,8 +1076,6 @@ def main():
                 pointer_expression=root.startswith('&') or any(re.match(re.escape(name)+r'\b',root) for name in pointer_names)
                 if not pointer_expression and not re.match(r'(?:SUB|CONCAT)\d+',expression) and ('pf_bits_double(' in expression or (floating_operand and not integral_index)):
                     source=source[:match.start()]+'('+match[1]+')(uintptr_t)pf_double_bits('+expression+')'+source[end:]
-            for name in set(re.findall(r'\b(_local_[0-9a-f]+)\b',source)):
-                source=re.sub(r'\b'+name+r'\b','(*(uint128 *)(void *)&'+name[1:]+')',source)
             for name in sorted(set(re.findall(r'\bin_register_[0-9a-f]+\b',source))):
                 if not re.search(r'^  \w+ '+name+r';',source,re.M):preamble.append('#define '+name+' ((uint64_t)0)')
                 else:source=re.sub(r'(^  \w+ '+name+r');',r'\1 = 0;',source,flags=re.M)
@@ -1022,7 +1105,15 @@ def main():
             source = re.sub(r'\(ulonglong\)\s*' + name + r'\b', 'pf_double_bits(' + name + ')', source)
         source = rewrite_double_bits(source)
         if current.get('scalar_storage_views'):
-            source=rewrite_scalar_storage(source)
+            pointer_types=[]
+            for row in locals_used:
+                kind=re.fullmatch(r'(?:P:|A:\d+:)(float:4|double:8)',row[3])
+                if kind:pointer_types.append((kind[1].split(':')[0],row[1]))
+            source=rewrite_scalar_storage(source,pointer_types)
+            for name in re.findall(r'\bcode\s*\*\s*(\w+)\b',source):
+                source=re.sub(r'\b'+re.escape(name)+r'\[',
+                              '((uint8_t *)(uintptr_t)'+name+')[',source)
+            source=source.replace('(code)','(uint8_t)')
             for match in reversed(list(re.finditer(r'\(([^()\n]+\*)\)\s*((?:recovered_|FUN_)[0-9a-f]+)\(',source))):
                 if match[2] not in floating:continue
                 start=match.start(2);end=match.end();depth=1
@@ -1062,11 +1153,15 @@ def main():
         if address == '20f7c7' and source.count('LAB_0020f81e:') > 1:
             point=source.rfind('LAB_0020f81e:')
             source=source[:point]+source[point:].replace('LAB_0020f81e:', '', 1)
-        if WIDE or current.get('integer_vector_128'):source=packed_vector_views(source)
+        if WIDE or current.get('integer_vector_128'):
+            arrays=dict(re.findall(r'^  undefined1 (\w+) \[(\d+)\];',sources[address],re.M))
+            source=array_bitwise_reads(source,arrays)
+            source=packed_vector_views(source)
         if current.get('atomic_views'):
             try:source=atomic_views(source,current.get('exclusive_expected',{}).get(address))
             except ValueError as error:raise ValueError(address+': '+str(error)) from error
         opening = source.index('\n{') + 2
+        source=rename_identifier(source,'frame','pf_stack_frame')
         source = source[:opening] + '\n  unsigned char pf_stack_frame[%d] __attribute__((aligned(16))) = {0};\n' % (frame_size + 32) + source[opening:]
         generated=re.sub(r'\bframe\b','pf_stack_frame','\n'.join(preamble + macros))
         (args.out / (address + '.c')).write_text('\n'.join(line.rstrip() for line in (generated + '\n' + source).splitlines()).rstrip() + '\n')

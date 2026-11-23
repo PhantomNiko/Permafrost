@@ -59,13 +59,18 @@ def prepare(ghidra, java_home):
         backup = path.with_suffix(path.suffix+'.permafrost-original')
         if not backup.exists():
             backup.write_bytes(path.read_bytes())
-        original = backup.read_text()
+        # Preserve independent fixes to the installed language. The backup is
+        # for restoration, not an input that would discard later model fixes.
+        original = path.read_text()
         if name=='ARM.sinc':
             additions=''.join('define pcodeop pf_arm_'+op+str(width)+';\n'
                               for op in ['ldrex','strex'] for width in [8,16,32,64])
-            updated=original.replace('define pcodeop hasExclusiveAccess;',
-                                      'define pcodeop hasExclusiveAccess;\n'+additions)
-            if updated==original:raise ValueError('exclusive-access userop declaration not found')
+            if 'define pcodeop pf_arm_ldrex32;' in original:
+                updated=original
+            else:
+                updated=original.replace('define pcodeop hasExclusiveAccess;',
+                                          'define pcodeop hasExclusiveAccess;\n'+additions)
+                if updated==original:raise ValueError('exclusive-access userop declaration not found')
         else:
             updated=replace_instructions(original,thumb=name.startswith('ARMTHUMB'))
         path.write_text(updated)

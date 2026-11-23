@@ -8,6 +8,17 @@ typedef unsigned _BitInt(96) pf_u96;
 typedef unsigned _BitInt(104) pf_u104;
 typedef unsigned _BitInt(112) pf_u112;
 typedef unsigned _BitInt(120) pf_u120;
+typedef struct {uint8_t bytes[32];} uint256;
+struct pf_packed_32 {uint256 payload;} __attribute__((packed));
+static inline uint256 vpshufb_avx2(uint256 value,uint256 control) {
+    uint256 result={{0}};
+    for(unsigned byte=0;byte<32;byte++){
+        unsigned select=control.bytes[byte];
+        if(!(select&128U))
+            result.bytes[byte]=value.bytes[(byte&16U)|(select&15U)];
+    }
+    return result;
+}
 typedef pf_u80 unkbyte10;
 typedef pf_u72 unkuint9;
 typedef pf_u80 unkuint10;

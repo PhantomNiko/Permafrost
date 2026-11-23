@@ -8,7 +8,7 @@ import subprocess
 import sys
 import tempfile
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools/ghidra'))
-from translate import exact_array_stores,packed_vector_views
+from translate import exact_array_stores,packed_vector_views,array_bitwise_reads
 
 
 def main():
@@ -25,6 +25,7 @@ def main():
  auVar2=auVar1 ^ (undefined1 [WIDTH])0x1234;
  storage=auVar2;
  *(undefined1 (*) [WIDTH])(out.data) = storage;
+ if((storage ^ storage)!=0)return 3;
  if(out.before!=0x39 || out.after!=0x7b)return 1;
  for(unsigned i=0;i<WIDTH;i++){
   unsigned char expected=i==0?0xcb:i==1?0xed:0xff;
@@ -33,8 +34,9 @@ def main():
  return 0;
 }
 '''.replace('WIDTH',str(width))
-        source+=packed_vector_views(exact_array_stores(function))
-    source+='int main(void){return '+'|'.join('probe_%d()'%width for width in [2,3,9,10,11,12,13,14,15,16])+';}\n'
+        source+=array_bitwise_reads(packed_vector_views(exact_array_stores(function)),{'storage':str(width)})
+    source+='''int shuffle(void){uint256 value,mask;for(unsigned i=0;i<32;i++){value.bytes[i]=i;mask.bytes[i]=(31-i)|(i%3==0?128:0);}uint256 out=vpshufb_avx2(value,mask);for(unsigned i=0;i<32;i++)if(out.bytes[i]!=(i%3==0?0:((i&16)|((31-i)&15))))return 1;return 0;}\n'''
+    source+='int main(void){return '+'|'.join('probe_%d()'%width for width in [2,3,9,10,11,12,13,14,15,16])+'|shuffle();}\n'
     root=Path(__file__).resolve().parents[1]
     with tempfile.TemporaryDirectory(prefix='permafrost-packed-')as directory:
         path=Path(directory);(path/'probe.c').write_text(source)

@@ -282,10 +282,19 @@ public class Export extends GhidraScript {
                 var arrayPattern=java.util.regex.Pattern.compile("undefined1\\s+(\\w+)\\s*\\[(?:4|8|16)\\]").matcher(source);
                 while(arrayPattern.find())arrays.add(arrayPattern.group(1));
                 var arrayOccurrences=new HashMap<String,Integer>();
+                var aggregateOccurrences=new HashMap<String,Integer>();
                 for(int index=0;index<tokens.size();index++) {
                     var token=tokens.get(index);
                     if(!(token instanceof ClangVariableToken variable))continue;
                     String name=variable.getText();
+                    if(name.matches("_(?:local|auStack|uStack|param)_[0-9a-f]+")) {
+                        int occurrence=aggregateOccurrences.getOrDefault(name,0)+1;
+                        aggregateOccurrences.put(name,occurrence);
+                        var value=variable.getVarnode();
+                        if(value!=null)
+                            metadata.append("U\t").append(name).append('\t').append(occurrence)
+                                .append('\t').append(value.getSize()).append('\n');
+                    }
                     if(!arrays.contains(name))continue;
                     int occurrence=arrayOccurrences.getOrDefault(name,0)+1;
                     arrayOccurrences.put(name,occurrence);

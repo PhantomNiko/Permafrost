@@ -8,7 +8,7 @@ import subprocess
 import sys
 import tempfile
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'tools/ghidra'))
-from translate import rewrite_integer_vectors, rewrite_array_words, rewrite_array_values
+from translate import rewrite_integer_vectors, rewrite_array_words, rewrite_array_values, packed_vector_views
 
 
 def main():
@@ -105,6 +105,16 @@ uintptr_t row_bound(uintptr_t count) {
  pointer=(void *)count;
  return (uintptr_t)(pointer[-1]+12);
 }
+unsigned bytes32(void *memory) {
+ undefined1 (*pointer32) [32];
+ pointer32=memory;
+ return (*pointer32)[0]+pointer32[1][2]+*(unsigned char *)(*pointer32+3);
+}
+uintptr_t row_bound32(uintptr_t count) {
+ undefined1 (*pointer32) [32];
+ pointer32=(void *)count;
+ return (uintptr_t)(pointer32[-1]+28);
+}
 int main(void) {
  uint128 value=((uint128)0x12345678<<64)|0xabcdef;
  if(copy_word(0x123456789abcdef0ULL)!=0x123456789abcdef0ULL)return 4;
@@ -117,8 +127,9 @@ int main(void) {
  if(lane(0)!=0x76543210 || lane(1)!=0xfedcba98 ||
     lane(2)!=0x89abcdef || lane(3)!=0x01234567)return 6;
  if(address(3)!=0x2030 || load(&value)!=value)return 2;
- unsigned char data[32]={0};data[0]=2;data[18]=3;data[3]=5;
- if(bytes(data)!=10)return 3;
+ unsigned char data[64]={0};data[0]=2;data[18]=3;data[34]=3;data[3]=5;
+ if(bytes(data)!=10 || bytes32(data)!=10)return 3;
+ if(row_bound32(32)!=28 || row_bound32(64)!=60)return 14;
  if(byte_offset(data,18)!=3)return 8;
  if(byte_alias(data,18)!=3)return 9;
  if(row_bound(12)!=8 || row_bound(32)!=28)return 10;
@@ -131,7 +142,7 @@ int main(void) {
     with tempfile.TemporaryDirectory(prefix='permafrost-vector-views-') as directory:
         root=Path(directory)
         path=root/'probe.c'
-        path.write_text('#include "support.h"\n'+view+rewrite_array_words(rewrite_integer_vectors(source)))
+        path.write_text('#include "support.h"\n'+view+packed_vector_views(rewrite_array_words(rewrite_integer_vectors(source))))
         subprocess.run(['clang','-std=c11','-O2','-I','kernel',str(path),
                         '-o',str(root/'probe')],check=True)
         subprocess.run([str(root/'probe')],check=True)

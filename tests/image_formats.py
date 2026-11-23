@@ -12,8 +12,8 @@ from unicorn.arm_const import UC_ARM_REG_R0,UC_ARM_REG_R1,UC_ARM_REG_R2
 from unicorn.arm64_const import UC_ARM64_REG_X0,UC_ARM64_REG_X1,UC_ARM64_REG_X2
 
 
-def library(path):
-    lib=DLL(path,instruction_limit=200000000);lib.files={}
+def library(path,api_base=None):
+    lib=DLL(path,instruction_limit=200000000,api_base=api_base);lib.files={}
     arm=lib.cpu_type in(12,0x100000c)
     def write(cpu,address,size,user):
         if lib.cpu_type==7:
@@ -46,10 +46,10 @@ def inspect_image(lib,data):
 FORMATS=('bmp','png','rei','tga','xcf','jpeg')
 
 
-def exercise(path,formats=FORMATS):
+def exercise(path,formats=FORMATS,api_base=None):
     results={};pixels=bytes([255,0,0,255,0,255,0,128,0,0,255,0,13,57,99,255,250,240,230,255,1,2,3,255])
     for format in formats:
-        lib=library(path);name=('fixture.'+format).encode()+b'\0';lib.cpu.mem_write(0x3000000,name);lib.cpu.mem_write(0x3001000,pixels)
+        lib=library(path,api_base);name=('fixture.'+format).encode()+b'\0';lib.cpu.mem_write(0x3000000,name);lib.cpu.mem_write(0x3001000,pixels)
         symbol='__ZN2wm3png%d%s_rgba8_fileEPKcPKhii'%(20 if format=='jpeg'else 19,'save_'+format)
         assert lib.call(symbol,0x3000000,0x3001000,3,2)==1,(format,'encode failed')
         assert name[:-1].decode()in lib.files,(str(path),format,list(lib.files))
@@ -63,17 +63,18 @@ def exercise(path,formats=FORMATS):
 
 
 def main():
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('reference',type=Path);parser.add_argument('source',type=Path);args=parser.parse_args()
-    reference,source=exercise(args.reference),exercise(args.source)
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('reference',type=Path);parser.add_argument('source',type=Path);parser.add_argument('--api-base',type=lambda x:int(x,0));parser.add_argument('--formats',default=','.join(FORMATS));args=parser.parse_args()
+    formats=tuple(args.formats.split(','))
+    reference,source=exercise(args.reference,formats,api_base=args.api_base),exercise(args.source,formats,api_base=args.api_base)
     for format in reference:
         expected=reference[format][1]
         assert expected[1] is not None,(format,'reference fixture did not decode')
         for encoded in(reference[format][0],source[format][0]):
-            original=inspect_image(library(args.reference),encoded)
-            recovered=inspect_image(library(args.source),encoded)
+            original=inspect_image(library(args.reference,args.api_base),encoded)
+            recovered=inspect_image(library(args.source,args.api_base),encoded)
             assert original[1] is not None,(format,'encoded stream rejected by native decoder')
             assert recovered==original,(format,'native/source decoded pixels differ')
             if format!='jpeg':
                 assert original==expected,(format,'lossless encoder changed pixels')
-    print('Image formats: six encoders, format detection, decoding, and invalid dimensions passed.')
+    print('Image formats: %d encoders, format detection, decoding, and invalid dimensions passed.'%len(formats))
 if __name__=='__main__':main()
