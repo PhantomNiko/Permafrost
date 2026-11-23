@@ -757,3 +757,20 @@ publication and failed compare-exchange cases retain the observed values.
 Instruction-reviewed annotations cover folded comparisons across labels and
 reject stale target/store descriptions. These checks do not establish kernel
 or release-wide VM parity. Candidate kernel sources remain in progress.
+
+The read-only C PolynyaFS boot reader now passes its CPU fixtures on all four
+architectures. It handles primary and backup headers, allocation chains,
+fragmented files, directory records spanning blocks, Unicode paths, empty
+entries, mount-link records and parent traversal. Bounds, damaged metadata and
+input failures are checked. On every CPU it also reads five complete files
+from the supplied image byte for byte: both startup scripts, Garamond, the
+compressed kernel and Stage4 module. This is a firmware component, not a
+replacement for the kernel's writable filesystem implementation.
+
+A test-only image replaces the reference's complete filesystem with a volume
+created by the new writer while retaining original executable payloads. BIOS,
+x64 EFI, ARM32 and ARM64 each reach the Tundra desktop from that volume. This
+establishes the new image format's boot compatibility; it does not constitute
+a source-built release. The original BIOS desktop requires more than ninety
+seconds in the current emulation configuration. These test images, original
+payloads, VM disks and screenshots remain outside the tracked source tree.
