@@ -122,6 +122,7 @@ public class FormatCalls extends GhidraScript {
     if(formats.isEmpty())continue;
     Function callee=getFunctionAt(op.getInput(0).getAddress());
     if(callee==null)callee=getFunctionAt(toAddr(op.getInput(0).getOffset()));
+    if(callee!=null && callee.isThunk())callee=callee.getThunkedFunction(true);
     if(callee==null || callee.getParameterCount()<model[0])continue;
     try {
      var types=new ArrayList<DataType>();

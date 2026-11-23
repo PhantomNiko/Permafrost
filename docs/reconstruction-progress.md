@@ -1307,3 +1307,17 @@ kernel, UI and both window libraries launch the C UI guest and deliver its
 colour-change callback; the desktop host and remaining apps are still native
 reference payloads. Desktop exit and keyboard interaction remain unresolved.
 The ordinary build target has not changed.
+
+The first source-only 1.1 desktop candidate now builds for x64 with the
+candidate SDK and recovered UI import library. It boots the diagnostic VM,
+launches the C UI guest and delivers its colour-change callback. Explicit
+font-service float prototypes preserve the reference's 16-point request; an
+unprototyped C call had promoted it to double and produced one-pixel labels.
+Menu, dock and window-title labels now render in the VM. Direct comparisons
+cover five framebuffer allocation/resize cases, six font-open calls (including
+the device and legacy paths) and six guarded bitmap-text rasters. The test
+loader now accounts for nonzero executable bases. Ghidra import analysis
+follows thunks before inspecting their parameter types, and C translation
+preserves discarded atomic exchanges through pointer and array lvalues.
+Other desktop CPUs, keyboard routing, remaining applications and complete
+VM parity are still in progress. No 1.1 release tag has been created.

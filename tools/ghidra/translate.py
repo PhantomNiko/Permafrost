@@ -275,7 +275,7 @@ def atomic_views(source, exclusive_expected=None):
                 if not old_value.strip().endswith(target):
                     raise ValueError('unreviewed atomic failure result: '+old_value)
                 cast=old_value.strip()[:-len(target)].strip()
-                if cast and not re.fullmatch(r'\([A-Za-z_][A-Za-z_0-9\s*]*\)',cast):
+                if cast and not re.fullmatch(r'(?:\([A-Za-z_][A-Za-z_0-9\s*]*\))+',cast):
                     raise ValueError('unreviewed atomic failure cast: '+cast)
                 tail='if (!'+success+') '+old+' = '+cast+'pf_atomic_expected;\n'
             return ('{ __typeof__('+target+') pf_atomic_expected = '+expected+';\n'+
@@ -294,6 +294,10 @@ def atomic_views(source, exclusive_expected=None):
             target,operator,value=update.groups()
             operation={'+':'add','|':'or','&':'and','^':'xor'}[operator]
             return '__atomic_fetch_'+operation+'(&('+target+'),'+value+',__ATOMIC_SEQ_CST);'
+        store=re.fullmatch(r'(\*[^;=]+?|[A-Za-z_]\w*\[[^;=]+\])\s*=\s*([^;=]+);',body)
+        if store:
+            target,value=store.groups()
+            return '(void)__atomic_exchange_n(&('+target+'),'+value+',__ATOMIC_SEQ_CST);'
         statements=[line.strip()for line in body.split(';')if line.strip()]
         writes=[(index,match)for index,line in enumerate(statements)
                 if(match:=re.fullmatch(r'(_?DAT_[0-9a-f]+|Ram[0-9a-f]+)\s*=\s*(.+)',line))]

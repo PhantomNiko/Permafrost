@@ -39,23 +39,23 @@ class DLL:
                 [0x40010000,0x82010000]if self.cpu_type==0x100000c else[0x40010000])
         if arm:
             for address in shared:self.cpu.mem_map(address,0x10000)
-        memory=bytearray(memory);locations=rebase_locations(binary,dynamic);handled=set()
+        memory=bytearray(memory);locations=[(address-metadata['base'],width)for address,width in rebase_locations(binary,dynamic)];handled=set()
         if self.cpu_type==12:
-            text,size=next((a,n)for k,a,n in metadata['sections']if k=='__text');pending={}
+            text,size=next((a-metadata['base'],n)for k,a,n in metadata['sections']if k=='__text');pending={}
             for address,width in sorted(locations):
                 if width!=4 or not text<=address<text+size:continue
                 word=int.from_bytes(memory[address:address+4],'little');op=word&0x0ff00000;r=(word>>12)&15;immediate=((word>>4)&0xf000)|(word&4095)
                 if op==0x03000000:pending[r]=(address,word,immediate)
                 elif op==0x03400000:
-                    first,low,low_value=pending.pop(r);value=((immediate<<16)|low_value)+self.base
+                    first,low,low_value=pending.pop(r);value=((immediate<<16)|low_value)+self.base-metadata['base']
                     for a,instruction,half in ((first,low,value&65535),(address,word,value>>16)):
                         memory[a:a+4]=((instruction&~0x000f0fff)|((half&0xf000)<<4)|(half&4095)).to_bytes(4,'little');handled.add(a)
             if pending:raise AssertionError('unpaired ARM address relocation')
         for address,width in locations:
             if address in handled:continue
             value=int.from_bytes(memory[address:address+width],'little');tag=value&(1<<63)if width==8 else 0
-            memory[address:address+width]=(((value&~tag)+self.base)|tag).to_bytes(width,'little')
-        self.cpu.mem_write(self.base,bytes(memory));self.exports={e['name']:self.base+e['address']for e in dynamic['exports']}
+            memory[address:address+width]=(((value&~tag)+self.base-metadata['base'])|tag).to_bytes(width,'little')
+        self.cpu.mem_write(self.base,bytes(memory));self.exports={e['name']:self.base+e['address']-metadata['base']for e in dynamic['exports']}
         tables=([api_base]if api_base is not None else[address+0x800 for address in shared])if arm else[api_base if api_base is not None else 0x6800]
         self.api_tables=tables
         for entry in tables:self.cpu.mem_write(entry,struct.pack('<III',0x50414d57,1000000,412))

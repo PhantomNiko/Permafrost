@@ -9,11 +9,11 @@ from pathlib import Path
 from darwin import compile_object,link_dynamic_executable
 
 
-def build_application(source,output,libraries):
+def build_application(source,output,libraries,headers=None):
     source,output=Path(source),Path(output)
     profile=json.loads((source/'profile.json').read_text())
     arch=profile['architecture'];output.mkdir(parents=True,exist_ok=True)
-    headers=Path('sdk/include')
+    headers=Path('sdk/include')if headers is None else Path(headers)
     objects=[]
     for name in profile.get('sources',['runtime.c','state.c','entry.c']):
         path=source/name
@@ -30,11 +30,12 @@ def build_application(source,output,libraries):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('source',type=Path);parser.add_argument('output',type=Path)
+    parser.add_argument('--headers',type=Path,default=Path('sdk/include'))
     parser.add_argument('--library',action='append',default=[],metavar='INSTALL_NAME=SOURCE_DYLIB')
     args=parser.parse_args();libraries={}
     for item in args.library:
         install,path=item.split('=',1);libraries[install]=Path(path)
-    print(build_application(args.source,args.output,libraries))
+    print(build_application(args.source,args.output,libraries,headers=args.headers))
 
 
 if __name__=='__main__':main()
