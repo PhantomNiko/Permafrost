@@ -2,6 +2,7 @@
  * Fixed entry addresses and original function boundaries are recorded
  * separately in recovery metadata. */
 #include "functions.h"
+#include "efi_video110.h"
 
 void recovered_40400014(void){pf_kernel_entry();}
 
@@ -7527,6 +7528,8 @@ void recovered_40406a24(undefined8 *param_1)
 void recovered_40406a48(int *param_1)
 
 {
+  pf_efi110_remember_context(param_1);
+
   unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
 
   char cVar1;
@@ -8744,22 +8747,14 @@ recovered_40407e10(uint param_1,uint param_2,uint param_3,uint param_4,uint para
 #undef local_20
 #undef local_1c
 
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x40407ea8
- */
-
-void recovered_40407ea8(undefined4 param_1,undefined4 param_2,int param_3,int param_4)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  if (param_3 == 0 || param_4 == 0) {
-    return;
-  }
-  DataMemoryBarrier(0xb);
-  DataMemoryBarrier(0xf);
-  DataMemoryBarrier(0xf);
-  return;
+/* Framebuffer coherency and optional firmware presentation. Pooka's Free Software License. */
+#include "efi_video110.h"
+void recovered_40407ea8(uint32_t x,uint32_t y,int width,int height){
+ if(!width||!height)return;
+ DataMemoryBarrier(0xb);
+ DataMemoryBarrier(0xf);
+ DataMemoryBarrier(0xf);
+ pf_efi110_present_rectangle((void *)(uintptr_t)*(volatile uint32_t *)(uintptr_t)0x40535000U,x,y,width,height);
 }
 
 

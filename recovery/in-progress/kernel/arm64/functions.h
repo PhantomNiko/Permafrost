@@ -164,7 +164,7 @@ recovered_82404bb8(uint param_1,uint param_2,uint param_3,uint param_4,uint para
 undefined8
 recovered_82404cbc(uint param_1,uint param_2,uint param_3,uint param_4,uint param_5,
                   undefined4 param_6);
-void recovered_82404d68(undefined8 param_1,undefined8 param_2,int param_3,int param_4);
+void recovered_82404d68(undefined8 x,undefined8 y,int width,int height);
 void recovered_82404d80(void);
 undefined8 recovered_82404d8c(uint param_1,int param_2,uint param_3,uint *param_4);
 undefined8 recovered_82404e2c(undefined8 param_1,int param_2);

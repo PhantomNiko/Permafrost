@@ -149,7 +149,7 @@ recovered_40407d50(uint param_1,uint param_2,uint param_3,uint param_4,uint para
 undefined4
 recovered_40407e10(uint param_1,uint param_2,uint param_3,uint param_4,uint param_5,
                   undefined4 param_6);
-void recovered_40407ea8(undefined4 param_1,undefined4 param_2,int param_3,int param_4);
+void recovered_40407ea8(uint32_t x,uint32_t y,int width,int height);
 void recovered_40407ec8(void);
 bool recovered_40407ed4(uint param_1,int param_2,int param_3,uint *param_4);
 undefined4 recovered_40407f10(uint param_1,int param_2,int param_3,uint *param_4);

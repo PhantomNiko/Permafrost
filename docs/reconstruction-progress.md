@@ -992,3 +992,11 @@ of discarding it. Its delayed consumer in shell routing retains that value
 across optional output handling. The recovered selector and route wrapper
 match 805 native cases covering capability masks, provider ordering, callback
 arguments, lock release and zero/nonzero status values.
+
+The recovered ARM builds retain the optional WFE11 source-firmware extension
+separately from the native boot-context copy. Explicit rectangle presentation
+now reaches GOP.Blt on PixelBltOnly displays. The ARM32 VM displays the Tundra
+desktop and its shell evaluates `1+1` as `2` without a false rejected-command
+message. Desktop pointer updates, background/icon rendering and ARM64 shell
+input remain under investigation. The presentation handshake regression covers
+native-size context copies as well as extension validation and request fields.

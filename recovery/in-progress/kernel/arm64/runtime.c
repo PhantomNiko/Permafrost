@@ -2,6 +2,7 @@
  * Fixed entry addresses and original function boundaries are recorded
  * separately in recovery metadata. */
 #include "functions.h"
+#include "efi_video110.h"
 
 void recovered_82400014(void){pf_kernel_entry();}
 
@@ -4944,6 +4945,8 @@ void recovered_82403520(undefined8 *param_1)
 void recovered_82403540(ulong param_1)
 
 {
+  pf_efi110_remember_context((void *)(uintptr_t)param_1);
+
   unsigned char pf_stack_frame[112] __attribute__((aligned(16))) = {0};
 
   char cVar1;
@@ -6819,21 +6822,14 @@ LAB_82404d40:
 
 #undef puStack_48
 
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x82404d68
- */
-
-void recovered_82404d68(undefined8 param_1,undefined8 param_2,int param_3,int param_4)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  if ((param_3 != 0) && (param_4 != 0)) {
-    DataMemoryBarrier(2,3);
-    DataSynchronizationBarrier(3,3,0);
-    DataSynchronizationBarrier(3,3,0);
-  }
-  return;
+/* Framebuffer coherency and optional firmware presentation. Pooka's Free Software License. */
+#include "efi_video110.h"
+void recovered_82404d68(undefined8 x,undefined8 y,int width,int height){
+ if(!width||!height)return;
+ DataMemoryBarrier(2,3);
+ DataSynchronizationBarrier(3,3,0);
+ DataSynchronizationBarrier(3,3,0);
+ pf_efi110_present_rectangle((void *)(uintptr_t)*(volatile uint64_t *)(uintptr_t)0x826f5228U,x,y,width,height);
 }
 
 

@@ -13,7 +13,8 @@
       "void pf_kernel_entry(void);",
       "#include \"arm64-recovery.h\"",
       "typedef struct pf_ws_value110 { unsigned long words[8]; } pf_ws_value110;",
-      "#include \"cpu.h\""
+      "#include \"cpu.h\"",
+      "#include \"efi_video110.h\""
     ],
     "volatile_ranges": [
       [
@@ -86,6 +87,9 @@
       },
       "82497274": {
         "CONCAT12(bVar8,uVar3) < 2": "POPCOUNT(uVar5 & 0x300000U) < 2"
+      },
+      "82403540": {
+        "  bVar4 = DAT_826f5100;": "  pf_efi110_remember_context((void *)(uintptr_t)param_1);\n  bVar4 = DAT_826f5100;"
       }
     },
     "exclusive_expected": {
