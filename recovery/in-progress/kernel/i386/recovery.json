@@ -35,7 +35,9 @@
     },
     "descriptor_register_views": true,
     "void_result_calls": [
-      "20868c0"
+      "20868c0",
+      "20b24a0",
+      "21052c0"
     ],
     "integer_vector_128": true,
     "source_replacements": {

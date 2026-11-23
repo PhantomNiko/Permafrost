@@ -1,0 +1,2 @@
+20b24a0	void recovered_20b24a0(const char *format,...);
+21052c0	void recovered_21052c0(char *error,unsigned long capacity,const char *format,...);
