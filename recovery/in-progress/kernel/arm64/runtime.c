@@ -136973,70 +136973,22 @@ void recovered_8246d5b4(long *param_1,char *param_2)
 
 #undef auStack_a0
 
-#undef UNK_8249f535
-#define UNK_8249f535 (*(uint8_t volatile *)(0x8249f535U))
-#undef UNK_8249f53e
-#define UNK_8249f53e (*(uint8_t volatile *)(0x8249f53eU))
-#undef UNK_8249f544
-#define UNK_8249f544 (*(uint8_t volatile *)(0x8249f544U))
-#undef UNK_8249f54a
-#define UNK_8249f54a (*(uint8_t volatile *)(0x8249f54aU))
-#undef UNK_8249f550
-#define UNK_8249f550 (*(uint8_t volatile *)(0x8249f550U))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x8246d5e0
- */
-
-ulong recovered_8246d5e0(ulong param_1,char *param_2,ulong param_3)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  bool bVar1;
-  bool bVar2;
-  uint uVar3;
-  char *format;
-
-  if ((param_2 != (char *)0x0) && (param_3 != 0)) {
-    if (param_1 >> 0x1e == 0) {
-      if (param_1 < 0x100000) {
-        if (param_1 < 0x400) {
-          format = &UNK_8249f550;
-        }
-        else {
-          format = &UNK_8249f54a;
-        }
-      }
-      else {
-        format = &UNK_8249f544;
-      }
-    }
-    else {
-      bVar1 = false;
-      bVar2 = true;
-      if (0x6666666 < (param_1 & 0x3fffffff)) {
-        uVar3 = (uint)(param_1 >> 0x1e);
-        bVar2 = 8 < uVar3;
-        bVar1 = uVar3 == 9;
-      }
-      if (!bVar2 || bVar1) {
-        format = &UNK_8249f535;
-      }
-      else {
-        format = &UNK_8249f53e;
-      }
-    }
-    uVar3 = recovered_824026e8(param_2,param_3,format);
-    param_1 = (ulong)uVar3;
-  }
-  return param_1;
+/* Native compact byte units and integer decimal thresholds.
+ * Pooka's Free Software License. */
+ulong recovered_8246d5e0(ulong bytes,char *out,ulong capacity){
+ if(!out || !capacity)return bytes;
+ unsigned long whole=bytes>>30;
+ if(whole){
+  unsigned long fraction=bytes&0x3fffffffUL;
+  if(fraction>=0x6666667UL && (unsigned)whole<=9)
+   return (unsigned)recovered_824026e8(out,capacity,"%u.%u GB",(unsigned)whole,(unsigned)(fraction*5>>29));
+  return (unsigned)recovered_824026e8(out,capacity,"%u GB",(unsigned)whole);
+ }
+ if(bytes>=0x100000)return (unsigned)recovered_824026e8(out,capacity,"%u MB",(unsigned)(bytes>>20));
+ if(bytes>=0x400)return (unsigned)recovered_824026e8(out,capacity,"%u KB",(unsigned)(bytes>>10));
+ return (unsigned)recovered_824026e8(out,capacity,"%u B",(unsigned)bytes);
 }
 
-#undef UNK_8249f535
-#undef UNK_8249f53e
-#undef UNK_8249f544
-#undef UNK_8249f54a
-#undef UNK_8249f550
 
 #undef DAT_82738328
 #define DAT_82738328 (*(uint64_t volatile *)(0x82738328U))
@@ -171471,93 +171423,14 @@ LAB_82488954:
 #undef acStack_680
 #undef acStack_280
 
-#undef UNK_8249f535
-#define UNK_8249f535 (*(uint8_t volatile *)(0x8249f535U))
-#undef UNK_8249f53e
-#define UNK_8249f53e (*(uint8_t volatile *)(0x8249f53eU))
-#undef UNK_8249f544
-#define UNK_8249f544 (*(uint8_t volatile *)(0x8249f544U))
-#undef UNK_8249f54a
-#define UNK_8249f54a (*(uint8_t volatile *)(0x8249f54aU))
-#undef UNK_8249f550
-#define UNK_8249f550 (*(uint8_t volatile *)(0x8249f550U))
-#undef str_824a3c1d
-#define str_824a3c1d (*(char volatile (*)[1])(0x824a3c1dU))
-#define acStack_70 (*(char (*)[112])(pf_stack_frame + 16))
-#define acStack_50 (*(char (*)[80])(pf_stack_frame + 48))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x82488978
- */
-
-ulong recovered_82488978(ulong param_1,ulong param_2,char *param_3)
-
-{
-  unsigned char pf_stack_frame[160] __attribute__((aligned(16))) = {0};
-
-  bool bVar1;
-  bool bVar2;
-  uint uVar3;
-  ulong uVar4;
-  char *arg2;
-  uint unaff_w19;
-
-  if (param_3 != (char *)0x0) {
-    if (param_2 == 0) {
-      if (param_3 != (char *)0x0) {
-        uVar4 = param_1 >> 0x1e;
-        if (uVar4 == 0) {
-          if (param_1 < 0x100000) {
-            if (param_1 < 0x400) {
-              arg2 = &UNK_8249f550;
-            }
-            else {
-              param_1 = param_1 >> 10;
-              arg2 = &UNK_8249f54a;
-            }
-          }
-          else {
-            param_1 = param_1 >> 0x14;
-            arg2 = &UNK_8249f544;
-          }
-        }
-        else {
-          bVar1 = false;
-          bVar2 = true;
-          if (0x6666666 < (param_1 & 0x3fffffff)) {
-            bVar2 = 8 < (uint)uVar4;
-            bVar1 = (uint)uVar4 == 9;
-          }
-          if (!bVar2 || bVar1) {
-            unaff_w19 = (uint)((param_1 & 0x3fffffff) * 5 >> 0x1d);
-            arg2 = &UNK_8249f535;
-            param_1 = uVar4;
-          }
-          else {
-            arg2 = &UNK_8249f53e;
-            param_1 = uVar4;
-          }
-        }
-        uVar3 = recovered_824026e8(param_3,0x20,arg2,(uint)param_1,unaff_w19);
-        param_1 = (ulong)uVar3;
-      }
-      return param_1;
-    }
-    recovered_8246d5e0(param_1,acStack_50,0x20);
-    recovered_8246d5e0(param_2,acStack_70,0x20);
-    uVar3 = recovered_824026e8(param_3,0x20,str_824a3c1d,acStack_50,acStack_70);
-    param_1 = (ulong)uVar3;
-  }
-  return param_1;
+/* Native fast/slow memory label. Pooka's Free Software License. */
+ulong recovered_82488978(ulong fast,ulong slow,char *out){
+ if(!out)return fast;
+ if(!slow)return recovered_8246d5e0(fast,out,32);
+ char first[32],second[32];recovered_8246d5e0(fast,first,sizeof(first));recovered_8246d5e0(slow,second,sizeof(second));
+ return (unsigned)recovered_824026e8(out,32,(char *)(uintptr_t)0x824a3c1dU,first,second);
 }
 
-#undef UNK_8249f535
-#undef UNK_8249f53e
-#undef UNK_8249f544
-#undef UNK_8249f54a
-#undef UNK_8249f550
-#undef str_824a3c1d
-#undef acStack_70
-#undef acStack_50
 
 #undef DAT_8249cbc4
 #define DAT_8249cbc4 (*(uint8_t volatile *)(0x8249cbc4U))
