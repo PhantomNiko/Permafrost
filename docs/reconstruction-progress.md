@@ -1261,3 +1261,15 @@ cases, including exceptional values and exact exponential results. Shared
 release-matched C helpers replace stale register-pair and aggregate-return
 bodies; ARM32 rounding callers pass typed doubles. Window creation/query,
 56 system-font cases per CPU and saved-context checks remain passing.
+
+x64 physical disk IDs retain their unsigned byte width during volume
+reconciliation and the kernel's initial boot-volume match. A signed comparison
+made disk 0x80 miss the boot partition, select the whole-disk alias and later
+fail duplicate-member admission. The corrected C kernel boots the desktop,
+launches the source UI guest from its application dock entry, and delivers the
+pointer callback that changes its rectangle from blue to green. The other
+applications and window host in this diagnostic remain reference payloads.
+Five synthetic native/source rescan cases cover disk IDs 0x80, 0x81, 0xff and
+0x40, changed identities, preserved selections and mounted-volume metadata.
+Active-volume reselection with captured reference inventory also matches 415
+disk operations and 758 allocation events. Full release parity is outstanding.

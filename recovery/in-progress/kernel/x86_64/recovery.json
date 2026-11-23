@@ -65,7 +65,8 @@
         "(**(code **)(lVar26 + 0xa8))()": "((void (*)(void *))*(uintptr_t *)(lVar26+0xa8))(pcVar21)",
         "(**(code **)(lVar51 + 0x20))()": "((unsigned char (*)(const void *,uintptr_t))*(uintptr_t *)(lVar51+0x20))(pcVar21,(uintptr_t)pcVar48)",
         "(**(code **)(lVar26 + 0x28))()": "((unsigned char (*)(const char *))*(uintptr_t *)(lVar26+0x28))(pcVar21)",
-        "(**(code **)(lVar26 + 0x70))()": "((void (*)(void *))*(uintptr_t *)(lVar26+0x70))(pcVar30)"
+        "(**(code **)(lVar26 + 0x70))()": "((void (*)(void *))*(uintptr_t *)(lVar26+0x70))(pcVar30)",
+        "local_968[4] == cVar12": "local_968[4] == (byte)cVar12"
       },
       "21222c0": {
         "(*local_68)(&DAT_02132f90)": "((int (*)(const void *,const void *))local_68)(&DAT_02132f90,local_40)"
@@ -468,6 +469,10 @@
       },
       "201fbb0": {
         "(*(code *)(ulong)uVar25)()": "(*(code *)(ulong)uVar25)((void *)(uintptr_t)uVar21)"
+      },
+      "20a2520": {
+        "pcVar22[0x84]": "(byte)pcVar22[0x84]",
+        "pcVar22[-0x70]": "(byte)pcVar22[-0x70]"
       }
     }
   }

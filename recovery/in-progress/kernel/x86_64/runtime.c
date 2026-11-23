@@ -151174,7 +151174,7 @@ LAB_020a33a0:
           iVar12 = *(int *)(lVar25 + 0x88);
           iVar10 = *(int *)((long)pvVar15 + uVar29 * 0x150 + 0x88);
           if (iVar12 == iVar10) {
-            if ((((*(byte *)(lVar25 + 0x84) != pcVar22[0x84]) ||
+            if ((((*(byte *)(lVar25 + 0x84) != (byte)pcVar22[0x84]) ||
                  (*(int *)(lVar25 + 0x8c) != *(int *)(pcVar22 + 0x8c))) ||
                 ((*(int *)(lVar25 + 0x90) != *(int *)(pcVar22 + 0x90) ||
                  ((*(int *)(lVar25 + 0xa0) != *(int *)(pcVar22 + 0xa0) ||
@@ -151201,7 +151201,7 @@ LAB_020a3230:
           {
 LAB_020a3238:
             if (((((*(byte *)(lVar25 + 0x84) & 0xe0) != 0x20 &&
-                   *(byte *)(lVar25 + 0x84) == pcVar22[0x84]) &&
+                   *(byte *)(lVar25 + 0x84) == (byte)pcVar22[0x84]) &&
                  (*(int *)(lVar25 + 0x8c) == *(int *)(pcVar22 + 0x8c))) &&
                 (*(char *)(lVar25 + 0xa5) == '\0')) && (pcVar22[0xa5] == '\0')) {
               if ((*(int *)(lVar25 + 0xa0) == 0) && (*(int *)(pcVar22 + 0xa0) == 0)) {
@@ -151329,7 +151329,7 @@ joined_r0x020a338b:
             do {
               if (*(int *)(lVar25 + 0x88 + lVar26) == *(int *)(pcVar22 + -0x6c)) {
                 lVar1 = lVar25 + lVar26;
-                if ((((*(byte *)(lVar1 + 0x84) == pcVar22[-0x70]) &&
+                if ((((*(byte *)(lVar1 + 0x84) == (byte)pcVar22[-0x70]) &&
                      (*(int *)(lVar1 + 0x8c) == *(int *)(pcVar22 + -0x68))) &&
                     ((*(int *)(lVar1 + 0x90) == *(int *)(pcVar22 + -100) &&
                      ((*(int *)(lVar1 + 0xa0) == *(int *)(pcVar22 + -0x54) &&
@@ -176580,7 +176580,7 @@ LAB_020bdaa6:
             if (((uStack_950 & 0x10000000000) != 0) && ((uStack_950 & 0x100000000) == 0)) {
               cVar12 = DAT_025ebcec;
               pcVar30 = (char *)0x0;
-              if (local_968[4] == cVar12) {
+              if (local_968[4] == (byte)cVar12) {
                 uVar36 = DAT_025ebcfc;
                 pcVar30 = (char *)(ulong)uVar36;
                 if (PF_PART4(local_968, 12) == uVar36) {
