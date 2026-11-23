@@ -1138,3 +1138,13 @@ IA32 dependency loading now preserves its incoming architecture register
 through recursive library loads. The previous code forwarded a stale string
 pointer as a CPU type. Forty-eight native/source cases compare dependency
 names, architecture, policy and required/optional success behavior.
+
+ARM64 TrueType recovery now retains backend receivers, scalar floating
+returns, affine point pairs and the rasteriser's hidden aggregate result.
+Contour vectors retain their raw pointer/count words rather than numerically
+converting double-typed stack aliases. Portable contour construction, layout
+and coverage code pass 162 native/source RGBA rasters and 81 metric records,
+including the bundled font, multiline text and Unicode, with cache and heap
+canaries. The ARM64 VM now displays desktop artwork, icons and readable
+TrueType text. A storage allocation diagnostic still overlays the desktop;
+writing, shell integration and remaining source recovery are unfinished.

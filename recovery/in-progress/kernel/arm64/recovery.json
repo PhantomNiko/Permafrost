@@ -14,7 +14,14 @@
       "#include \"arm64-recovery.h\"",
       "#include \"efi_video110.h\"",
       "typedef struct pf_ws_value110 { unsigned long words[8]; } pf_ws_value110;",
-      "#include \"cpu.h\""
+      "#include \"cpu.h\"",
+      "typedef struct pf_glyph { int left,top,width,height;double advance;unsigned char *pixels;unsigned long count,capacity; } pf_glyph;",
+      "typedef struct pf_glyph_position { void *glyph;int x,y; } pf_glyph_position;",
+      "typedef struct pf_layout { int left,top,right,bottom;pf_glyph_position *data;unsigned long count,capacity; } pf_layout;",
+      "typedef struct pf_u32_vector { unsigned int *data;unsigned long count,capacity; } pf_u32_vector;",
+      "typedef struct pf_ttf_backend { void *vtable;unsigned char *data;unsigned long length;unsigned char reserved[312]; } pf_ttf_backend;",
+      "typedef struct pf_font_cache110 { float size;unsigned int padding;unsigned long age,pixels;void *entries;unsigned long count,capacity;void *buckets;unsigned long bucket_count,bucket_capacity;void *next;unsigned long next_count,next_capacity,reserved; } pf_font_cache110;",
+      "typedef struct pf_font_handle110 { void *backend;float size;unsigned int padding;unsigned long age;pf_font_cache110 caches[4]; } pf_font_handle110;"
     ],
     "volatile_ranges": [
       [
@@ -451,6 +458,28 @@
       },
       "8244a2c4": {
         "recovered_8244a3b0(unaff_x30)": "recovered_8244a3b0(__builtin_return_address(0))"
+      },
+      "82442c08": {
+        "dVar7 = (**(code **)(**(long **)font + 0x20))(*(long **)font);": "dVar7 = ((double (*)(void *))*(uintptr_t *)(**(uintptr_t **)font+0x20))(*(void **)font);",
+        "(**(code **)(**(long **)font + 0x18))((double)fVar6 / dVar7);": "{pf_glyph value=((pf_glyph (*)(void *,uint,double))*(uintptr_t *)(**(uintptr_t **)font+0x18))(*(void **)font,local_44,(double)fVar6/dVar7);recovered_82400f60(auStack_78,&value,sizeof(value));}",
+        "undefined8 auStack_78 [3];": "undefined8 auStack_78 [6];"
+      },
+      "824442c8": {
+        "void recovered_824442c8(pf_glyph *__return_storage_ptr__,pf_ttf_backend *backend,uint glyph,\n                       double scale)\n\n{": "pf_glyph recovered_824442c8(pf_ttf_backend *backend,uint glyph,double scale)\n{\n pf_glyph pf_result110;pf_glyph *__return_storage_ptr__=&pf_result110;",
+        "  return;": "  return pf_result110;"
+      },
+      "82446a70": {
+        "recovered_82445338(param_1,uStack_a0,&lStack_120);": "recovered_82445338((pf_glyph *)param_1,&lStack_120,pf_bits_double(uStack_a0));"
+      },
+      "82444a58": {
+        "(long)local_b8": "(long)pf_double_bits(local_b8)",
+        "(long)dStack_b0": "(long)pf_double_bits(dStack_b0)",
+        "(ulong)dStack_b0": "pf_double_bits(dStack_b0)",
+        "(ulong)pStack_150.x": "pf_double_bits(pStack_150.x)",
+        "pStack_150.x = (double)(CONCAT71(pStack_150.x._1_7_,local_d0[uVar25]) & 0xffffffffffffff01\n                                 );": "pStack_150.x = pf_bits_double(CONCAT71(pStack_150.x._1_7_,local_d0[uVar25]) & 0xffffffffffffff01ULL);",
+        "pStack_160.x = (double)CONCAT71(pStack_160.x._1_7_,1);": "pStack_160.x = pf_bits_double(CONCAT71(pStack_160.x._1_7_,1));",
+        "pStack_140.x = (double)CONCAT71(pStack_140.x._1_7_,1);": "pStack_140.x = pf_bits_double(CONCAT71(pStack_140.x._1_7_,1));",
+        "dStack_b0 != (double)": "pf_double_bits(dStack_b0) != "
       }
     },
     "exclusive_expected": {

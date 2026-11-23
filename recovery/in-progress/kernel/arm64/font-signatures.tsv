@@ -1,0 +1,17 @@
+82445a38	pf_point recovered_82445a38(pf_affine *matrix,pf_point *point);
+8244260c	void *recovered_8244260c(const void *data,unsigned long size,float height);
+8244289c	void *recovered_8244289c(const char *path,float height);
+8244298c	void recovered_8244298c(void *font,float height);
+824429a8	unsigned int recovered_824429a8(void *font,const char *text,void *metrics);
+824430b4	void *recovered_824430b4(void *font,const char *text,int red,int green,int blue,double opacity);
+82443a18	void recovered_82443a18(void *font);
+82442c08	pf_glyph *recovered_82442c08(void *font,unsigned int glyph);
+82443658	pf_layout recovered_82443658(void *font,pf_u32_vector *text);
+824442c8	pf_glyph recovered_824442c8(pf_ttf_backend *backend,unsigned int glyph,double scale);
+82445338	pf_glyph recovered_82445338(void *outline,double advance);
+82444a58	unsigned long recovered_82444a58(pf_ttf_backend *backend,unsigned int glyph,double *transform,long *outline,int depth);
+824445c0	double recovered_824445c0(void *backend);
+824445cc	double recovered_824445cc(void *backend);
+824445d8	double recovered_824445d8(void *backend);
+824445e0	double recovered_824445e0(void *backend);
+824445e8	int recovered_824445e8(void *backend);
