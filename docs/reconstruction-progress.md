@@ -734,3 +734,26 @@ The new Garamond font retains its supplied OFL notice. Embedded Mach remains
 excluded from source recovery. The 1.0 tag is complete; 1.1 has not been built,
 VM-validated or tagged, and the existing builder has not yet been relabeled as
 1.1. Kernel decompilation and the remaining component inventory are in progress.
+
+The PolynyaFS writer now creates deterministic single-member volumes, including
+allocation tables, contiguous extents, empty files, directories, mount links,
+free space and a backup header. A newly generated fixture passes the original
+Stage3 validators for both headers and 309 directory records. Original reader
+routines also agree on every allocation entry and sampled nested, Unicode,
+mount-link and directory-boundary lookups and multi-block extents.
+
+The freestanding C PFZ1 decoder runs on i386, x64, ARM32 and ARM64 in CPU
+emulation. All four decode payloads independently checked by the native Stage3
+decoder and reject insufficient output capacity, bad CRCs, truncated streams,
+invalid back references and nonzero unused control bits. Its input callback
+supports reading boot files without loading the complete compressed input.
+Bootloader integration is still outstanding.
+
+Kernel recovery now expands ARM64 machine-outliner sequences before
+decompilation. Additional exclusive-memory and x86 locked-operation patterns
+are lowered to compiler atomics. A concurrent host fixture performs 80,000
+protected updates and 80,000 exclusive increments without losing updates;
+publication and failed compare-exchange cases retain the observed values.
+Instruction-reviewed annotations cover folded comparisons across labels and
+reject stale target/store descriptions. These checks do not establish kernel
+or release-wide VM parity. Candidate kernel sources remain in progress.

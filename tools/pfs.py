@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Read PolynyaFS 0.3 volumes. Pooka's Free Software License.
+"""Read and create PolynyaFS 0.3 volumes. Pooka's Free Software License.
 
 The block, allocation-chain and directory-record formats are recovered from
 1.1 Stage3. Mount links are returned as records and never followed implicitly.
@@ -8,6 +8,7 @@ import argparse
 from dataclasses import dataclass
 from pathlib import Path
 import struct
+import hashlib
 
 BLOCK_SIZE = 0x20000
 RECORD_SIZE = 512
@@ -49,6 +50,114 @@ class Entry:
     first: int
     size: int
     record_offset: int
+
+
+@dataclass(frozen=True)
+class Node:
+    """An image input: regular file (1), directory (2), or mount link (6)."""
+    kind: int = 1
+    data: bytes = b''
+    flags: int = 0
+
+
+def build(nodes, *, label='Permafrost', spare_blocks=16):
+    """Create a deterministic, writable single-member volume with a backup.
+
+    Paths use slash separators. Missing parent directories are created. Links
+    contain their native target bytes and are never resolved by the builder.
+    Each file or directory receives one contiguous allocation extent.
+    """
+    encoded_label = label.encode('utf-8')
+    if len(encoded_label) > 255 or b'\0' in encoded_label or spare_blocks < 0:
+        raise ValueError('invalid PolynyaFS label or free-space count')
+    tree = {'': Node(2)}
+    for path, value in nodes.items():
+        parts = path.split('/')
+        if any(not part or part in ('.', '..') or '\\' in part or '\0' in part
+               or len(part.encode('utf-8')) > 255 for part in parts):
+            raise ValueError('invalid PolynyaFS input path')
+        value = Node(data=value) if isinstance(value, bytes) else value
+        if not isinstance(value, Node) or value.kind not in (1, 2, 6) or not 0 <= value.flags <= 7:
+            raise ValueError('invalid PolynyaFS input node')
+        if not isinstance(value.data, bytes) or value.kind == 2 and value.data:
+            raise ValueError('invalid PolynyaFS input contents')
+        tree[path] = value
+        for count in range(1, len(parts)):
+            tree.setdefault('/'.join(parts[:count]), Node(2))
+    children = {path: [] for path, node in tree.items() if node.kind == 2}
+    for path in sorted(tree):
+        if not path:
+            continue
+        parent = path.rpartition('/')[0]
+        if parent not in children:
+            raise ValueError('PolynyaFS parent is not a directory')
+        children[parent].append(path)
+    sizes = {path: (len(children[path]) + 1) * RECORD_SIZE if node.kind == 2
+             else len(node.data) for path, node in tree.items()}
+    counts = {path: (size + BLOCK_SIZE - 1) // BLOCK_SIZE for path, size in sizes.items()}
+    table_count = 8
+    while True:
+        total = max(12, 1 + table_count + sum(counts.values()) + spare_blocks)
+        needed = max(8, (total + TABLE_ENTRIES - 1) // TABLE_ENTRIES)
+        if needed == table_count:
+            break
+        table_count = needed
+    raw = bytearray((total + 1) * BLOCK_SIZE)
+    allocations = [(0, 0)] * total
+    firsts = {}
+    cursor = table_count + 1
+    for path in sorted(tree):
+        count = counts[path]
+        firsts[path] = cursor if count else END
+        if count:
+            allocations[cursor] = (0, END)
+            for number in range(cursor + 1, cursor + count):
+                allocations[number] = (cursor, CONTINUATION)
+        cursor += count
+    for path, node in tree.items():
+        if not counts[path]:
+            continue
+        content = node.data
+        if node.kind == 2:
+            content = bytearray(sizes[path])
+            for index, child in enumerate(children[path]):
+                item = tree[child]
+                name = child.rsplit('/', 1)[-1].encode('utf-8')
+                record = bytearray(RECORD_SIZE)
+                struct.pack_into('<BBHIQQ', record, 0, item.kind, len(name), item.flags, 0,
+                                 firsts[child], 0 if item.kind == 2 else len(item.data))
+                record[0x40:0x40 + len(name)] = name
+                struct.pack_into('<I', record, 4, crc32c(record))
+                content[index * RECORD_SIZE:(index + 1) * RECORD_SIZE] = record
+        start = firsts[path] * BLOCK_SIZE
+        raw[start:start + len(content)] = content
+    for number in range(table_count + 1):
+        allocations[number] = (0, END - 2)
+    for table in range(table_count):
+        start = (table + 1) * BLOCK_SIZE
+        for slot in range(TABLE_ENTRIES):
+            index = table * TABLE_ENTRIES + slot
+            if index >= total:
+                break
+            struct.pack_into('<QQ', raw, start + slot * 16, *allocations[index])
+        raw[start + BLOCK_SIZE - 16:start + BLOCK_SIZE - 8] = b'PFATLINK'
+        struct.pack_into('<Q', raw, start + BLOCK_SIZE - 8,
+                         table + 2 if table + 1 < table_count else END)
+    header = bytearray(BLOCK_SIZE)
+    header[:16] = MAGIC
+    struct.pack_into('<HH', header, 0x10, 0, 3)
+    struct.pack_into('<I', header, 0x20, BLOCK_SIZE)
+    # Content-derived UUID, independent of host paths, users and timestamps.
+    header[0x28:0x38] = hashlib.sha256(raw[BLOCK_SIZE:] + encoded_label).digest()[:16]
+    header[0x38:0x38 + len(encoded_label)] = encoded_label
+    struct.pack_into('<6Q', header, 0x138, 0, total, total, 1, table_count, firsts[''])
+    struct.pack_into('<I', header, 0x14, crc32c(header[:0x1000]))
+    raw[:BLOCK_SIZE] = header
+    struct.pack_into('<Q', header, 0x18, 0x20)
+    struct.pack_into('<I', header, 0x14, 0)
+    struct.pack_into('<I', header, 0x14, crc32c(header[:0x1000]))
+    raw[total * BLOCK_SIZE:] = header
+    return bytes(raw)
 
 
 def decode_entry(data, offset=0):

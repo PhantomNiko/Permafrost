@@ -107,7 +107,17 @@ def stack_declaration(source, name):
     return (match, match[1].strip() + re.sub(r'\s', '', match[2])) if match else (None, None)
 
 
-def atomic_views(source):
+def atomic_views(source, exclusive_expected=None):
+    # Explicit values are for reviewed instruction sequences whose load/guard
+    # the decompiler moved across a label. Require the complete ordered list
+    # of target/store pairs so stale annotations cannot silently apply.
+    reviewed = iter(exclusive_expected) if exclusive_expected is not None else None
+    # STXR produces the status and the conditional store in one instruction;
+    # Ghidra can emit those two p-code effects in either order.
+    source = re.sub(r'(ExclusiveMonitorPass\([^;]+;\s*if\s*\(\w+\)\s*\{\s*)'
+                    r'(\w+\s*=\s*ExclusiveMonitorsStatus\(\);)\s*'
+                    r'((_?DAT_[0-9a-f]+|\*\w+)\s*=\s*[^;]+;)',
+                    r'\1\3\n\2', source)
     monitor_pattern=re.compile(r'(\w+)\s*=\s*\(bool\)\s*ExclusiveMonitorPass\(([^,]+),0x10\);\s*if\s*\(\1\)\s*\{\s*(_?DAT_[0-9a-f]+|\*\w+)\s*=\s*([^;]+);\s*(\w+)\s*=\s*ExclusiveMonitorsStatus\(\);\s*\}')
     while (monitor:=monitor_pattern.search(source)):
         success,address,target,value,status=monitor.groups()
@@ -115,19 +125,89 @@ def atomic_views(source):
             if address.strip()!=target[1:]:raise ValueError('exclusive pointer and store disagree')
         elif int(address,16)!=int(target.split('_')[-1],16):
             raise ValueError('exclusive address and store disagree')
-        loads=list(re.finditer(r'\b(\w+)\s*=\s*'+re.escape(target)+r'\s*;',source[:monitor.start()]))
-        if not loads:raise ValueError('exclusive store has no preceding load: '+target)
-        expected=loads[-1][1]
+        casts=r'(?:\([A-Za-z_][A-Za-z_0-9\s*]*\)\s*)*'
+        loads=list(re.finditer(r'\b(\w+)\s*=\s*'+casts+re.escape(target)+r'\s*;',source[:monitor.start()]))
+        if reviewed is not None:
+            item = next(reviewed, None)
+            if item is None or item['target'] != target or item['value'] != value.strip():
+                raise ValueError('exclusive instruction annotation does not match store')
+            expected = item['expected']
+        elif loads:
+            expected=loads[-1][1]
+        elif re.fullmatch(re.escape(target)+r'\s*[+|&^]\s*[^;]+', value.strip()):
+            # Folded exclusive read-modify-write. Both the comparison and the
+            # new value must use the same observed word, even under contention.
+            expected='__atomic_load_n(&('+target+'),__ATOMIC_RELAXED)'
+            value=value.replace(target, 'pf_exclusive_expected')
+        else:
+            # The decompiler can fold an exclusive load used only by a
+            # constant guard into the guard itself. Its failure arm clears the
+            # monitor and leaves the acquisition path, so the store expects
+            # the guarded value. Only the observed zero/one states are modeled.
+            guard=(r'if\s*\(\s*'+re.escape(target)+
+                   r'\s*!=\s*([01])\s*\)\s*\{\s*ClearExclusiveLocal\(\);\s*'
+                   r'(?:goto\s+\w+|return(?:\s+[^;]+)?|break);')
+            guards=list(re.finditer(guard,source[:monitor.start()]))
+            if not guards:
+                raise ValueError('exclusive store has no preceding load: '+target)
+            expected=guards[-1][1]
         operation=('{ __typeof__('+target+') pf_exclusive_expected = '+expected+';\n'+
                    success+' = __atomic_compare_exchange_n(&('+target+'),&pf_exclusive_expected,'+
                    value+',0,__ATOMIC_ACQ_REL,__ATOMIC_RELAXED);\n'+
                    status+' = '+success+' ? 0 : 1;\n}')
         source=source[:monitor.start()]+operation+source[monitor.end():]
+    if reviewed is not None and next(reviewed, None) is not None:
+        raise ValueError('unused exclusive instruction annotation')
     if 'ExclusiveMonitorPass('in source or 'ExclusiveMonitorsStatus('in source:
         raise ValueError('unreviewed ARM64 exclusive-memory operation')
     def replace(match):
         body=match[1].strip()
         if not body:return '__atomic_thread_fence(__ATOMIC_SEQ_CST);'
+        address_setup=re.fullmatch(r'((\w+)\s*=\s*\([A-Za-z_][A-Za-z_0-9\s]*\*+\s*\)[^;]+;)\s*(.*)',body,re.S)
+        if address_setup and re.search(r'\*'+re.escape(address_setup[2])+r'\s*=',address_setup[3]):
+            return address_setup[1]+'\n'+atomic_views('LOCK();'+address_setup[3]+'UNLOCK();')
+        loaded_compare=re.fullmatch(r'(\w+)\s*=\s*([^;]+);\s*'
+                                    r'if\s*\(\1\s*==\s*([^;]+?)\)\s*'
+                                    r'\{\s*\2\s*=\s*([^;]+);\s*\}'
+                                    r'(?:\s*else\s*\{([^{}]+)\})?',body)
+        if loaded_compare:
+            old,target,expected,value,failure=loaded_compare.groups()
+            return ('{ __typeof__('+target+') pf_atomic_expected = '+expected+';\n'+
+                    'int pf_atomic_success = __atomic_compare_exchange_n(&('+target+'),'+
+                    '&pf_atomic_expected,'+value+',0,__ATOMIC_SEQ_CST,__ATOMIC_SEQ_CST);\n'+
+                    old+' = pf_atomic_expected;\n'+
+                    ('if (!pf_atomic_success) {'+failure+'}\n'if failure else'')+'}')
+        conditional=re.fullmatch(r'if\s*\(([^;]+?)\s*==\s*([^;]+?)\)\s*'
+                                 r'\{\s*([^;=]+?)\s*=\s*([^;]+);\s*\}',body)
+        if conditional:
+            left,right,target,value=conditional.groups()
+            target=target.strip()
+            if left.strip()==target:expected=right
+            elif right.strip()==target:expected=left
+            else:raise ValueError('conditional atomic comparison does not name its target')
+            return ('{ __typeof__('+target+') pf_atomic_expected = '+expected+';\n'+
+                    '(void)__atomic_compare_exchange_n(&('+target+'),&pf_atomic_expected,'+
+                    value+',0,__ATOMIC_SEQ_CST,__ATOMIC_SEQ_CST);\n}')
+        compare=re.fullmatch(r'(\w+)\s*=\s*([^;]+?)\s*==\s*([^;]+?);\s*'
+                             r'if\s*\(\1\)\s*\{\s*([^;=]+?)\s*=\s*([^;]+);\s*\}'
+                             r'(?:\s*else\s*\{\s*(\w+)\s*=\s*([^;]+);\s*\})?',body)
+        if compare:
+            success,left,right,target,value,old,old_value=compare.groups()
+            target=target.strip()
+            if left.strip()==target:expected=right
+            elif right.strip()==target:expected=left
+            else:raise ValueError('atomic comparison does not name its store target')
+            tail=''
+            if old:
+                if not old_value.strip().endswith(target):
+                    raise ValueError('unreviewed atomic failure result: '+old_value)
+                cast=old_value.strip()[:-len(target)].strip()
+                if cast and not re.fullmatch(r'\([A-Za-z_][A-Za-z_0-9\s*]*\)',cast):
+                    raise ValueError('unreviewed atomic failure cast: '+cast)
+                tail='if (!'+success+') '+old+' = '+cast+'pf_atomic_expected;\n'
+            return ('{ __typeof__('+target+') pf_atomic_expected = '+expected+';\n'+
+                    success+' = __atomic_compare_exchange_n(&('+target+'),&pf_atomic_expected,'+
+                    value+',0,__ATOMIC_SEQ_CST,__ATOMIC_SEQ_CST);\n'+tail+'}')
         exchange=re.fullmatch(r'(\w+)\s*=\s*([^;]+?)\s*;\s*\2\s*=\s*([^;]+);',body)
         if exchange:
             old,target,value=exchange.groups()
@@ -864,7 +944,7 @@ def main():
             source=source[:point]+source[point:].replace('LAB_0020f81e:', '', 1)
         if WIDE:source=packed_vector_views(source)
         if current.get('atomic_views'):
-            try:source=atomic_views(source)
+            try:source=atomic_views(source,current.get('exclusive_expected',{}).get(address))
             except ValueError as error:raise ValueError(address+': '+str(error)) from error
         opening = source.index('\n{') + 2
         source = source[:opening] + '\n  unsigned char frame[%d] __attribute__((aligned(16))) = {0};\n' % (frame_size + 32) + source[opening:]
