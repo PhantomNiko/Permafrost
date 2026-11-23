@@ -1,0 +1,21 @@
+2000a40	4	_wm_probe_heap_alloc_below	[[4, 33593095, 33593103, "test eax, eax"]]
+2022380	4	_wm_platform_heap_free_bytes64	[[4, 34166687, 34166714, "mov dword ptr [esp + 0x2c], eax"], [4, 34179845, 34179852, "sub edi, eax"], [4, 34181692, 34181700, "mov dword ptr [esi + 4], eax"], [4, 34320320, 34320329, "push eax"], [4, 34532382, 34532395, "push eax"], [4, 34650872, 34650877, "mov dword ptr [esi], eax"]]
+2022430	4	_wm_platform_heap_total_bytes64	[[4, 34166441, 34166446, "mov ecx, eax"], [4, 34166530, 34166535, "add eax, ebx"], [4, 34166608, 34166613, "mov ecx, eax"], [4, 34166644, 34166655, "sub edi, eax"], [4, 34171060, 34171065, "mov esi, eax"], [4, 34171099, 34171104, "shrd eax, edx, 0x14"], [4, 34179836, 34179841, "mov edi, eax"], [4, 34181703, 34181711, "mov dword ptr [esi + 0xc], eax"], [4, 34320241, 34320257, "push eax"], [4, 34334253, 34334258, "mov ecx, eax"], [4, 34486923, 34486928, "mov esi, eax"], [4, 34486955, 34486960, "sub esi, eax"], [4, 34532580, 34532585, "mov ecx, eax"]]
+2048d00	4	_pfs_external_reference_append_suffix	[[4, 33927257, 33927265, "mov dword ptr [esp + 0x10], eax"]]
+205b410	4	_pfs_runtime_create	[[4, 34109562, 34109570, "test eax, eax"]]
+205b870	4	_pfs_runtime_mkdir	[[4, 34158797, 34158805, "test eax, eax"]]
+205b8e0	4	_pfs_runtime_replace	[[4, 34109609, 34109617, "test eax, eax"]]
+205d270	4	_pfs_runtime_rename	[[4, 34155536, 34155544, "test eax, eax"]]
+205dab0	4	_pfs_runtime_delete	[[4, 34126670, 34126678, "mov esi, eax"]]
+2062f60	4	_pfs_expand_plan	[[4, 34216727, 34216738, "mov dword ptr [edx + 0xc], eax"]]
+2069c00	4	__ZL25header_from_transfer_wordPv	[[4, 33986519, 33986524, "test eax, eax"]]
+2076580	4	__ZN2wm3png12_GLOBAL__N_112crc32_updateEjPKhm	[[4, 33996240, 33996251, "cmp eax, ecx"], [4, 34012571, 34012579, "bswap eax"]]
+2083b80	4	_kernel_heap_malloc	[[4, 34095433, 34095438, "mov ecx, eax"], [4, 34425991, 34426000, "mov dword ptr [ecx + 0xc8], eax"], [4, 34567606, 34567611, "mov ecx, eax"]]
+20a29b0	4	_kernel_pfs_expand_request_signature	[[4, 34214604, 34214609, "mov dword ptr [esp + 0x3c], eax"]]
+20b6d20	4	_kernel_heap_realloc	[[4, 34199801, 34199806, "test eax, eax"], [4, 34567545, 34567550, "mov ecx, eax"]]
+20b7d30	4	_kernel_heap_malloc_range	[[4, 34127955, 34127960, "mov dword ptr [esp + 4], eax"], [4, 34128057, 34128062, "test eax, eax"]]
+20f6100	1	_driver_loaded_reserve	[[1, 34561508, 34561513, "test al, al"]]
+21087e0	4	_storage_partition_name_from_kind	[[4, 34632343, 34632400, "push eax"], [4, 34633491, 34633499, "mov dword ptr [esp + 0x18], eax"], [4, 34634219, 34634227, "mov dword ptr [esp + 0x10], eax"], [4, 34636476, 34636484, "mov edi, eax"]]
+202f5f0	4	_platform_pooka_collect_available_memory	Reviewed delayed EAX consumers in platform startup
+2000670	4	_wm_probe_heap_free_bytes	Reviewed EAX sum and wrapper return
+2000760	4	_wm_probe_heap_total_bytes	Reviewed EAX sum and wrapper return

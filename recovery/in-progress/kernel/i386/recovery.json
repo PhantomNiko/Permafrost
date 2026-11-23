@@ -34,10 +34,19 @@
       "in_ID": "rw"
     },
     "descriptor_register_views": true,
+    "void_result_calls": [
+      "20868c0"
+    ],
     "integer_vector_128": true,
     "source_replacements": {
       "20854c0": {
-        "joined_r0x02085771:\n  uVar7 = 0;\njoined_r0x02085771:": "  uVar7 = 0;\njoined_r0x02085771:"
+        "joined_r0x02085771:\n  uVar7 = 0;\njoined_r0x02085771:": "  uVar7 = 0;\njoined_r0x02085771:",
+        "joined_r0x02085771:\n  uVar6 = 0;\njoined_r0x02085771:": "  uVar6 = 0;\njoined_r0x02085771:"
+      },
+      "200cd00": {
+        "in_XCR0": "pf_xcr0_value",
+        "pf_xcr0_value = pf_xcr0_value & uVar3;": "pf_xcr0_value = uVar3;",
+        "ulonglong pf_xcr0_value = (ulonglong)pf_read_xcr0();": "ulonglong pf_xcr0_value = 0;"
       }
     }
   }

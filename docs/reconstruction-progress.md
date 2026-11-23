@@ -1000,3 +1000,19 @@ desktop and its shell evaluates `1+1` as `2` without a false rejected-command
 message. Desktop pointer updates, background/icon rendering and ARM64 shell
 input remain under investigation. The presentation handshake regression covers
 native-size context copies as well as extension validation and request fields.
+
+IA32 entry now preserves the preload firmware callback passed on the caller's
+stack, in addition to the optional loader-context pointer. Native/source
+comparisons cover five entry handoffs, 24 unavailable-firmware discovery
+requests, 48 available-memory cell/record/bounds cases and 587 formatter cases.
+Reviewed callback signatures preserve request pointers at 108 OpenBIOS call
+sites. Recovered return-register uses retain available-memory discovery and
+heap accounting results. The candidate compiles and boots to the graphical
+kernel banner with a plausible heap; boot-disk signature capture still fails
+at LBA 257, so IA32 storage and full startup remain incomplete.
+
+The IA32 OpenBIOS transfer routine now preserves the native interrupt guard
+around firmware calls and handles seek results, short reads/writes and errors.
+It matches 120 native/source cases with interrupt state, callback packets and
+buffer canaries checked. These isolated results do not establish VM storage
+parity; full boot-disk admission is still being tested.

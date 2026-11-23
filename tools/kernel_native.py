@@ -81,10 +81,12 @@ def build_kernel(output, architecture='i386', profile_path=None):
     objects += [object_for(Path('kernel/runtime.c'), 'libc'),
                 object_for(Path('kernel/format.c'), 'format'),
                 object_for(Path('kernel/compiler.c'), 'compiler'),
-                object_for(Path('kernel/entry.c'), 'entry', [
+                object_for(Path(profile.get('entry_source','kernel/entry.c')), 'entry', [
                     'PF_SET_LOADER_CONTEXT=' + profile['set_loader_context'],
                     'PF_KERNEL_MAIN=' + profile['main'],
-                    'PF_KERNEL_LOAD_BASE=0x%x' % profile['base']])]
+                    'PF_KERNEL_LOAD_BASE=0x%x' % profile['base']] +
+                    (['PF_SET_PRELOAD_HANDOFF='+profile['set_preload_handoff']]
+                     if profile.get('set_preload_handoff') else []))]
     core, symbols, _ = link(objects, base=profile['core_base'], shim=False,
                             externals=bridge_symbols)
     if architecture == 'i386' and not slide and profile['base']<0x1e0000 and profile['core_base'] + len(core) >= 0x1e0000:
