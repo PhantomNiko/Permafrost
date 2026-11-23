@@ -38,6 +38,17 @@ float converted_view(int value) {
  bits=VectorSignedToFloat(value,0);
  return (float)bits;
 }
+uint64_t wide_raw_conversion(int value) {
+ uint64_t wide_bits;
+ wide_bits=VectorSignedToFloat
+          (value,0);
+ return wide_bits;
+}
+double wide_converted_view(int value) {
+ uint64_t wide_bits;
+ wide_bits=VectorSignedToFloat(value,0);
+ return (double)wide_bits;
+}
 void value_storage(uint *out,float f_storage) {
  out[1]=(int)f_storage;
  out[2]=f_storage;
@@ -45,6 +56,9 @@ void value_storage(uint *out,float f_storage) {
 float member_number(pf_kernel_value *records) { return (float)records->kind; }
 double indexed_member(pf_kernel_value *records) { return (double)records[1].kind; }
 uint upper_word(double upper_value) { return (ulong)upper_value >> 0x20; }
+double joined_words(double joined_value) {
+ return (double)(((ulonglong)joined_value & 0xffffffff00000000) + ((ulonglong)joined_value & 0xffffffff));
+}
 '''
     source='#include "support.h"\n'+rewrite_pointer_float_views(rewrite_scalar_storage(functions),{'records'},True)+'''
 int main(void) {
@@ -56,6 +70,7 @@ int main(void) {
  if((uintptr_t)indexed_pointer(&value)!=0x240000)return 12;
  if((uintptr_t)converted_pointer(-7)!=pf_float_bits(-7.0f))return 8;
  if(raw_conversion(-7)!=pf_float_bits(-7.0f)||converted_view(-7)!=-7.0f)return 9;
+ if(wide_raw_conversion(-7)!=pf_double_bits(-7.0)||wide_converted_view(-7)!=-7.0)return 15;
  uint stored[3]={0};value_storage(stored,3.5f);
  if(stored[1]!=3||stored[2]!=pf_float_bits(3.5f))return 10;
  pf_kernel_value records[2]={{.kind=7},{.kind=9}};
@@ -63,6 +78,7 @@ int main(void) {
  for(uint64_t i=0;i<512;i++) {
   uint64_t bits=(i*UINT64_C(0x9e3779b97f4a7c15))^UINT64_C(0x4085e00000000000);
   if(upper_word(pf_bits_double(bits))!=(uint)(bits>>32))return 13;
+  if(pf_double_bits(joined_words(pf_bits_double(bits)))!=bits)return 14;
  }
  for(unsigned i=0;i<256;i++) {
   if(number(i)!=(float)i)return 1;

@@ -17,8 +17,14 @@ public class CallSignatures extends GhidraScript {
    var function=getFunctionAt(toAddr(Long.parseLong(fields[0],16)));
    if(function==null)throw new Exception("Missing caller "+fields[0]);
    var address=toAddr(Long.parseLong(fields[1],16));
-   var type=(FunctionDefinitionDataType)parser.parse(fields[2]);
-   type.setCallingConvention(currentProgram.getCompilerSpec().getDefaultCallingConvention().getName());
+   String unique="pf_call_"+fields[1]+"_"+Integer.toUnsignedString(fields[2].hashCode(),16);
+   String declaration=fields[2].replaceFirst("\\b[A-Za-z_][A-Za-z_0-9]*(?=\\s*\\()",unique);
+   var type=(FunctionDefinitionDataType)parser.parse(declaration);
+   String convention=fields.length>3 && !fields[3].isBlank()?fields[3]:
+       currentProgram.getCompilerSpec().getDefaultCallingConvention().getName();
+   if(currentProgram.getCompilerSpec().getCallingConvention(convention)==null)
+       throw new Exception("Unknown calling convention "+convention);
+   type.setCallingConvention(convention);
    HighFunctionDBUtil.writeOverride(function,address,type);
   }
  }

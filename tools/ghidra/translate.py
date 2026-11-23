@@ -454,20 +454,31 @@ def rewrite_scalar_storage(source, pointer_types=()):
         source=re.sub(r'(?<![\w*])'+re.escape(name)+r'\b(?=\s*\*\s*(?:0x[0-9a-f]+|\d))',
                       '(uintptr_t)'+name,source)
     integers=set(re.findall(r'\b(?:uint|int|undefined4|uint32_t|int32_t)\s+(\w+)\s*;',source))
+    wide_integers=set(re.findall(r'\b(?:undefined8|ulonglong|uint64_t|int64_t)\s+(\w+)\s*;',source))
     converted=set()
-    for match in reversed(list(re.finditer(r'\b(\w+)\s*=\s*(Vector(?:Signed|Unsigned)ToFloat)\(',source))):
-        if match[1] not in integers:continue
+    wide_converted=set()
+    for match in reversed(list(re.finditer(r'\b(\w+)\s*=\s*(Vector(?:Signed|Unsigned)ToFloat)\s*\(',source))):
+        if match[1] not in integers and match[1] not in wide_integers:continue
         start=match.start(2);end=match.end();depth=1
         while depth:
             depth+=(source[end]=='(')-(source[end]==')');end+=1
-        converted.add(match[1])
-        source=source[:start]+'pf_float_bits((float)'+source[start:end]+')'+source[end:]
+        wide=match[1] in wide_integers
+        (wide_converted if wide else converted).add(match[1])
+        source=source[:start]+('pf_double_bits((double)'if wide else'pf_float_bits((float)')+source[start:end]+')'+source[end:]
     for name in converted:
         source=re.sub(r'\(float\)\s*'+re.escape(name)+r'\b',
                       'pf_bits_float((uint32_t)'+name+')',source)
+    for name in wide_converted:
+        source=re.sub(r'\(double\)\s*'+re.escape(name)+r'\b',
+                      'pf_bits_double((uint64_t)'+name+')',source)
     floating_variables=re.findall(r'\b(float|double)\s+(\w+)\b(?!\s*\()',source)
     for typename,name in floating_variables:
         if typename=='double':
+            # Rejoining both words of a typed double reads the same value.
+            # Ghidra prints integer casts for the register pieces.
+            cast=r'\((?:ulonglong|ulong|uint64_t)\)\s*'+re.escape(name)
+            source=re.sub(r'\(double\)\(\('+cast+r'\s*&\s*0xffffffff00000000\)\s*\+\s*\('+cast+r'\s*&\s*0xffffffff\)\)',
+                          name,source)
             # An upper-word extraction reads the IEEE representation. A
             # numeric conversion destroys the exponent and mantissa bits.
             source=re.sub(r'\((?:ulong|ulonglong|uint64_t)\)\s*'+re.escape(name)+
@@ -853,7 +864,7 @@ def main():
             lambda m:m[0] if m[0] in labels or int(m[2],16) in function_addresses else
                 m[1]+'DAT_'+('%016x' if WIDE else '%08x')%int(m[2],16),text)
     sources={a:data_labels(s) for a,s in sources.items()}
-    sources={a:re.sub(r'__stdcall_softfp\s+','',s)for a,s in sources.items()}
+    sources={a:re.sub(r'\b(?:__stdcall_softfp|pf_darwin_varargs[0-9]+)\s+','',s)for a,s in sources.items()}
     if current.get('windows_types'):
         def windows_types(text):
             text=re.sub(r'\bunsigned long long\b','PF_MODEL_U64',text)
