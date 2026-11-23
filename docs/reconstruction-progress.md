@@ -1044,3 +1044,31 @@ records, including the bundled Garamond font and composite Unicode glyphs,
 with cache reuse and allocation canaries. Floor and ceiling match 3,620 native
 representations. Desktop integration remains under VM validation; these
 component comparisons do not establish complete graphics or release parity.
+
+IA32 nonlocal contexts preserve saved registers, normalized longjmp returns,
+floating controls and scope transfers in five native/source cases. Rebase
+stream recovery now uses defined 64-bit shifts when forming ULEB high words;
+64 stream comparisons pass. Stage4 and WinterShell parsing, segment records,
+loaded bytes and real rebases match native execution with binding isolated.
+The VM starts hardware drivers and the cooperative scheduler, but later enters
+an invalid-opcode loop during firmware I/O. Isolated file loading reads the
+complete Tundra executable with the same SHA-256 and transport requests as the
+reference. Three hundred mixed allocator operations also preserve payloads
+and complete heap hashes. These checks do not establish IA32 VM compatibility.
+
+Recovered IA32 boot-progress and storage-error entry points retain variadic
+arguments instead of narrowing them to a byte. Forty native/source diagnostic
+cases cover driver names, wide integers, gated output, multiline serialization,
+truncation and buffer guards. Formatter and relocation regressions continue
+to pass after call-site recovery.
+
+ARM32 volume-prefix validation preserves the complete lookup name instead of
+using its first byte as the character iterator. Its 136 native/source cases
+cover name validation, limits, null outputs and canaries. WFE11 storage passes
+192 block/buffered read/write comparisons covering indexed devices, chunking,
+payloads, failures and bounds. Healthy reference-state replay also matches
+system/ESP/system volume switches and the bundled font's complete file bytes.
+The source-kernel VM still loses access to its system volume during desktop
+resource discovery; temporary tracing identifies the failed switch back from
+the ESP. Backgrounds, icons, integrated fonts, ARM64 shell input and remaining
+source recovery still gate the 1.1 images, SDK and milestone tag.
