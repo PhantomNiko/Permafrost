@@ -949,3 +949,16 @@ removing another misidentified jump table. Its 1,152 native/source cases cover
 reserved links, bounds, encoded block bytes and callback status. Its direct
 writer adapter also preserves the returned status. VM admission and rendering
 checks continue; these changes do not constitute a completed 1.1 release.
+
+The x64 kernel now reaches the Tundra desktop using reference application
+modules. Recovered font-backend virtual calls preserve receivers and floating
+returns; glyph outlines, quadratic subdivision, supersampling, multiline
+layout and public text metrics use reviewed C. Comparison against two generated
+fonts and the reference distribution's font covers 126 complete RGBA rasters
+and 63 metric records at three sizes, including cache reuse, colors, opacity,
+multiline text and allocation canaries. Full regeneration preserves these
+results. Floor and ceiling also match 3,620 native representations, including
+negative fractions and the reference's 32-bit conversion boundary behavior.
+Startup provider calls now forward program buffers, lengths and release
+arguments. Remaining application recovery and full VM compatibility still gate
+the 1.1 images, SDK and tag.

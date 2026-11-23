@@ -1,0 +1,9 @@
+2085e20	2085f8e	double pf_font_metric_2085f8e(void *backend);
+2085e20	2085fba	void *pf_font_glyph_2085fba(void *out,void *backend,unsigned int glyph,double scale);
+2087e20	2087ef9	double pf_font_metric_2087ef9(void *backend);
+2087e20	2087f18	double pf_font_metric_2087f18(void *backend);
+2087e20	2087f37	int pf_font_metric_2087f37(void *backend);
+2087e20	2087fab	double pf_font_metric_2087fab(void *backend);
+2087e20	2087fca	double pf_font_metric_2087fca(void *backend);
+2087e20	2087fe9	double pf_font_metric_2087fe9(void *backend);
+2087e20	2088008	int pf_font_metric_2088008(void *backend);

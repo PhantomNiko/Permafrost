@@ -4,6 +4,11 @@
 #include "support.h"
 void pf_kernel_entry(void);
 #include "x86_cpu.h"
+typedef struct pf_glyph { int left,top,width,height;double advance;unsigned char *pixels;unsigned long count,capacity; } pf_glyph;
+typedef struct pf_glyph_position { void *glyph;int x,y; } pf_glyph_position;
+typedef struct pf_layout { int left,top,right,bottom;pf_glyph_position *data;unsigned long count,capacity; } pf_layout;
+typedef struct pf_u32_vector { unsigned int *data;unsigned long count,capacity; } pf_u32_vector;
+typedef struct pf_ttf_backend { void *vtable;unsigned char *data;unsigned long length;unsigned char reserved[312]; } pf_ttf_backend;
 void recovered_2000014(void);
 unsigned int recovered_200002f(void);
 void recovered_2000094(void);
@@ -1064,22 +1069,22 @@ ulong recovered_20841d0(undefined4 param_1,void *param_2,void *param_3,long para
 undefined8 * recovered_2084d00(float param_1,byte *param_2,ulong param_3);
 undefined8 * recovered_20853c0(float param_1,char *param_2);
 void recovered_20856b0(float param_1,long *param_2);
-uint recovered_20856d0(long *param_1,byte *param_2,int *param_3);
-long recovered_2085e20(undefined8 *param_1,uint param_2);
+uint recovered_20856d0(long *font,byte *text,int *out);
+pf_glyph * recovered_2085e20(void *font,uint glyph);
 undefined8 * recovered_2086440(undefined8 *param_1,byte *param_2);
 float * recovered_2086bf0(long param_1);
 void recovered_2086d30(long *param_1,ulong param_2);
 void recovered_2086f20(long param_1);
 undefined4 *
 recovered_20870a0(double param_1,long *param_2,byte *param_3,uint param_4,uint param_5,uint param_6);
-uint128 * recovered_2087e20(uint128 *param_1,long *param_2,int *param_3);
+pf_layout *recovered_2087e20(pf_layout *out,void *font,pf_u32_vector *text);
 void recovered_20884b0(long *param_1);
 void recovered_2088520(long *param_1);
 void recovered_2088590(long *param_1);
 void recovered_20887c0(undefined8 *param_1);
 void recovered_2088890(undefined8 *param_1);
 uchar recovered_2088970(long param_1,long *param_2);
-int * recovered_2089540(double param_1,int *param_2,double *param_3,uint param_4);
+pf_glyph * recovered_2089540(pf_glyph *out,pf_ttf_backend *backend,uint glyph,double scale);
 double recovered_2089a70(long param_1);
 double recovered_2089a90(long param_1);
 double recovered_2089ab0(long param_1);
@@ -1088,18 +1093,18 @@ undefined8 recovered_2089af0(void);
 uchar recovered_2089b00(long param_1,uint param_2,undefined8 *param_3);
 uchar recovered_2089bd0(long param_1);
 bool recovered_208a070(long param_1);
-ulong recovered_208a570(double *param_1,uint param_2,double *param_3,long *param_4,
-                       undefined4 param_5);
-int * recovered_208c060(undefined8 param_1,int *param_2,long *param_3);
+ulong recovered_208a570(pf_ttf_backend *backend,uint glyph,double *transform,long *outline,
+                       uint depth);
+pf_glyph *recovered_208c060(double advance,int *destination,long *outline);
 ulonglong recovered_208c700(long *param_1,byte *param_2);
 void recovered_208cab0(long *param_1,ulong param_2);
 void recovered_208ce00(long *param_1,ulong param_2);
 void recovered_208d000(long *param_1,long param_2,undefined8 *param_3);
 long recovered_208d180(long *param_1,long param_2,undefined1 *param_3);
-uint recovered_208d3d0(long *param_1,double *param_2);
-void recovered_208d6d0(long *param_1,double *param_2);
-void recovered_208d8b0(long *param_1);
-void recovered_208da10(long *param_1,double *param_2,double *param_3,double *param_4,int param_5);
+void recovered_208d3d0(long *outline,double *point);
+void recovered_208d6d0(long *outline,double *point);
+void recovered_208d8b0(long *outline);
+void recovered_208da10(long *outline,double *first,double *control,double *last,int depth);
 void recovered_208db00(undefined8 *param_1);
 void recovered_208dc20(undefined8 *param_1);
 ulong recovered_208dc40(long param_1,byte *param_2);

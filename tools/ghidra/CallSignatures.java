@@ -18,6 +18,7 @@ public class CallSignatures extends GhidraScript {
    if(function==null)throw new Exception("Missing caller "+fields[0]);
    var address=toAddr(Long.parseLong(fields[1],16));
    var type=(FunctionDefinitionDataType)parser.parse(fields[2]);
+   type.setCallingConvention(currentProgram.getCompilerSpec().getDefaultCallingConvention().getName());
    HighFunctionDBUtil.writeOverride(function,address,type);
   }
  }

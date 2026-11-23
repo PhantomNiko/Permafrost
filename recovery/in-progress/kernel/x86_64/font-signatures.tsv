@@ -1,0 +1,5 @@
+2089540	pf_glyph *recovered_2089540(pf_glyph *out,pf_ttf_backend *backend,unsigned int glyph,double scale);
+2085e20	pf_glyph *recovered_2085e20(void *font,unsigned int glyph);
+2087e20	pf_layout *recovered_2087e20(pf_layout *out,void *font,pf_u32_vector *text);
+208a570	unsigned long recovered_208a570(pf_ttf_backend *backend,unsigned int glyph,double *transform,long *outline,unsigned int depth);
+208c060	pf_glyph *recovered_208c060(double advance,int *out,long *outline);
