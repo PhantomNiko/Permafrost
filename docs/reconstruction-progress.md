@@ -1198,9 +1198,9 @@ The x64 retained-firmware key and pointer callbacks now receive their request
 packet. Fourteen native/source cases preserve callback arguments, input values,
 status and output guards. TerrorUI's first-use theme detection also retains its
 variable-output pointer. First-use and explicit-reload comparisons match the
-reference on all four CPUs. The x64 VM delivers pointer-driven application
-launch, but the integration fixture still produces an empty window; this does
-not yet establish application or desktop parity.
+reference on all four CPUs. The x64 VM responds to pointer input, but the empty window is a folder
+dialog rather than a launched guest. Its missing application entries and
+volume-admission state remain under investigation.
 
 IA32 TrueType uses recovered font/cache types, explicit metric virtual-call
 signatures and the same verified C contour/raster algorithms as ARM32. The
@@ -1230,3 +1230,19 @@ scope record moved from offsets 64/72/80 to 48/56/64. Saved-context, nonlocal
 return and scope-transfer comparisons pass for both libraries on all four CPUs.
 The tests include the larger 1.1 floating/thread-state buffers. Complete C++
 exception handling remains a separate integration check.
+
+PermafrostWindow 1.1 now compiles from recovered C for all four CPUs. The
+console-window checks compare 78 raster, state and input results per CPU,
+including aspect-preserving image scaling, cursor presentation, framebuffer
+padding and boundary guards. Release-specific exception function boundaries,
+ARM32 literal cells and ARM64 128-bit vector bounds are recovered explicitly.
+The x64 SIMD unsigned-to-float conversion uses its scalar C equivalent.
+Saved-context and scope-transfer comparisons use the 1.1 ABI. Full exception
+handling and VM integration remain outstanding.
+
+The x64 failed-boot RAM snapshot can remount its volume with either the
+reference or C kernel. A replay preserving the firmware bridge and replacing
+only UEFI device read/write/flush operations and timer polling matches 93
+device operations and succeeds in both kernels. This narrows the unresolved
+boot failure to an earlier state or operation; it does not establish live
+firmware compatibility.
