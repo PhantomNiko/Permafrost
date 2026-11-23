@@ -1231,7 +1231,7 @@ uint recovered_20a4310(int deviceId);
 uint recovered_20a4360(int deviceId,char *path,void *outInfo);
 void recovered_20a4470(int param_1,char *param_2,uint *param_3);
 undefined8 recovered_20a44b0(int param_1,char *param_2,int param_3,uint *param_4);
-void recovered_20a4670(int param_1,char *param_2,uint *param_3);
+uint recovered_20a4670(int param_1,char *param_2,uint *param_3);
 uint recovered_20a46b0(int deviceId,char *path,void *entries,uint entryCapacity,uint *outEntryCount);
 byte recovered_20a4730(int param_1,char *param_2,long param_3,undefined4 param_4,undefined8 param_5,
                       undefined4 param_6,uint *param_7,undefined4 *param_8);

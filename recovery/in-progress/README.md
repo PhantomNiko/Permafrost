@@ -66,3 +66,10 @@ script-setting conversion pass direct comparisons; the VM renders the source
 UI guest and its colour-change callback. Broader input, time and BIOS checks
 still need compatibility work. These desktop sources do not complete recovery
 of the other installed applications.
+
+IA32 desktop text drawing now retains its native ECX/EDX coordinates through
+image blitting. Four guarded TrueType call/clipping comparisons pass and VM
+menu and desktop labels are visible. The extended owned-file service passes
+argument, result and guard comparisons on every CPU; the IA32, x64 and ARM32
+kernel wrappers explicitly return the native result. BIOS shell input remains
+unresolved despite matching direct routing replays.

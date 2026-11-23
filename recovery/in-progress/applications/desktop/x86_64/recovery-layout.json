@@ -10102,7 +10102,8 @@
         "FUN_10045788": "terror_ui_window_set_content_size",
         "thunk_FUN_10045788": "terror_ui_window_set_content_size",
         "recovered_10045788": "terror_ui_window_set_content_size",
-        "DAT_10045788": "terror_ui_window_set_content_size"
+        "DAT_10045788": "terror_ui_window_set_content_size",
+        "(*(code *)(ulong)_DAT_00280a1c)()": "((uint (*)(int, char *, uint *))(uintptr_t)_DAT_00280a1c)((int)param_1,param_2,param_3)"
       },
       "100149f0": {
         "FUN_1004562c": "memcmp",

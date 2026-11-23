@@ -106,7 +106,7 @@ undefined4 recovered_10015950(undefined1 *reg_ecx,undefined1 *reg_edx);
 void recovered_10015a20(int reg_ecx,uint reg_edx,char param_3);
 int recovered_10015d70(char *reg_ecx);
 uint recovered_10015ee0(void);
-void recovered_10016000(void);
+void recovered_10016000(void *reg_ecx);
 void recovered_10016180(void *reg_ecx);
 undefined4 recovered_10016520(int reg_ecx,int *reg_edx);
 void recovered_100169d0(undefined4 *reg_ecx);
@@ -122,7 +122,7 @@ uint recovered_1001a1e0(char *reg_ecx,char *reg_edx);
 void recovered_1001a230(void);
 void recovered_1001a880(void);
 void recovered_1001aa70(void);
-void recovered_1001b1d0(char *reg_ecx);
+void recovered_1001b1d0(char *reg_ecx,uint reg_edx);
 void recovered_1001c370(void);
 void recovered_1001c530(void);
 void recovered_1001c670(void);
@@ -130,9 +130,9 @@ void recovered_1001cc10(void);
 void recovered_1001cd80(void);
 void recovered_1001d4d0(void);
 void recovered_1001d5f0(uint reg_ecx,uint reg_edx,uint param_3,uint param_4,undefined4 param_5);
-void recovered_1001d7e0(int *reg_ecx,int param_2,uint param_3,uint param_4);
+void recovered_1001d7e0(int *reg_ecx,int reg_edx,int param_3,uint param_4,uint param_5);
 void recovered_1001d980(int reg_ecx,int reg_edx,int param_3,int param_4,uint param_5);
-void recovered_1001dcc0(int param_1,char *param_2,undefined4 param_3);
+void recovered_1001dcc0(int reg_ecx,int reg_edx,int param_3,char *param_4,undefined4 param_5);
 undefined4 * recovered_1001de40(char *reg_ecx,char *reg_edx);
 void recovered_1001e730(uint reg_ecx,uint reg_edx,uint param_3,byte param_4);
 uint recovered_1001e920(uint reg_ecx,uint reg_edx,int param_3,int param_4,uint3 param_5,byte param_6
@@ -141,7 +141,7 @@ void recovered_1001eb50(int reg_ecx,int reg_edx,char *param_3,uint param_4,uint 
                        );
 undefined4
 recovered_1001edf0(byte *reg_ecx,uint reg_edx,uint param_3,undefined4 param_4,undefined4 *param_5);
-uint recovered_1001f330(int *param_1);
+uint recovered_1001f330(int reg_ecx,int reg_edx,int *param_3);
 byte recovered_1001f4c0(int reg_ecx);
 undefined4 * recovered_1001f5f0(char *reg_ecx,int reg_edx,char param_3);
 undefined4 recovered_1001fea0(byte *reg_ecx);
@@ -149,7 +149,7 @@ char * recovered_10020090(int reg_ecx,char *reg_edx,char *param_3);
 int * recovered_100203a0(undefined1 *reg_ecx,int reg_edx);
 void recovered_100204b0(char *reg_ecx,char *reg_edx,char *param_3);
 void recovered_10020600(undefined4 *reg_ecx,int reg_edx);
-void recovered_10020ae0(uint param_1,uint param_2,byte param_3);
+void recovered_10020ae0(int reg_ecx,int reg_edx,uint param_3,uint param_4,byte param_5);
 void recovered_10020d20(int reg_ecx,int reg_edx,uint param_3,uint param_4,void *param_5,char param_6
                        );
 void recovered_10021010(int reg_ecx,int reg_edx,int param_3,int param_4,uint3 param_5,int param_6);
@@ -173,20 +173,22 @@ void recovered_100295e0(int *reg_ecx);
 int * recovered_100299b0(int reg_ecx,int reg_edx,int param_3,int param_4);
 void recovered_10029d40(int *reg_ecx,int reg_edx,int param_3,int param_4,int param_5,int param_6,
                        int param_7,int param_8,int param_9,char param_10,char param_11);
-void recovered_10029ef0(int param_1,int param_2,int param_3,char param_4);
+void recovered_10029ef0(uint reg_ecx,uint reg_edx,int param_3,int param_4,int param_5,char param_6);
 uint recovered_1002a160(byte *reg_ecx,ushort *reg_edx,uint param_3,byte param_4,char param_5);
 void recovered_1002a320(uint reg_ecx,uint reg_edx,uint param_3,uint param_4);
 uint recovered_1002a670(char *reg_ecx,uint reg_edx);
 void recovered_1002a9d0(char *reg_ecx,char *reg_edx,char *param_3,char *param_4,uint param_5);
 void recovered_1002ab50(uint reg_ecx,uint reg_edx,char *param_3,uint param_4);
-void recovered_1002adc0(int param_1,int param_2,char *param_3,char param_4);
+void recovered_1002adc0(uint reg_ecx,uint reg_edx,int param_3,int param_4,char *param_5,char param_6
+                       );
 void recovered_1002af10(uint reg_ecx,char *reg_edx,char *param_3,char *param_4);
 void recovered_1002afe0(char *reg_ecx,uint reg_edx,uint param_3,uint param_4);
 void recovered_1002b130(char *reg_ecx,char *reg_edx,int param_3);
 void recovered_1002b270(int reg_ecx);
 void recovered_1002bb10(int *reg_ecx,int reg_edx);
 void recovered_1002bb90(int *reg_ecx,int reg_edx);
-void recovered_1002bda0(int reg_edx,int param_2,int param_3,int param_4,int param_5,char param_6);
+void recovered_1002bda0(int reg_ecx,int reg_edx,int param_3,int param_4,int param_5,int param_6,
+                       char param_7);
 void recovered_1002c0c0(void);
 void recovered_1002c1b0(undefined4 *reg_ecx,int reg_edx,int param_3,int param_4);
 int recovered_1002c400(int *reg_ecx,uint reg_edx,uint param_3,int param_4,int param_5);
@@ -198,7 +200,7 @@ void recovered_1002d420(undefined4 *reg_ecx);
 void recovered_1002d4b0(int reg_ecx);
 void recovered_1002de00(int reg_ecx,int reg_edx,int param_3,int param_4,int param_5,int param_6,
                        int param_7);
-void recovered_1002e640(int param_1,char *param_2,undefined4 param_3);
+void recovered_1002e640(int reg_ecx,int reg_edx,int param_3,char *param_4,undefined4 param_5);
 void recovered_1002e7a0(int reg_ecx,undefined4 reg_edx,int *param_3);
 void recovered_1002ea70(char *reg_ecx,int reg_edx,int param_3,uint param_4,uint param_5);
 undefined4 recovered_1002f060(void);
@@ -228,7 +230,7 @@ void recovered_10034030(int reg_ecx);
 undefined4 recovered_100340d0(int reg_ecx,int reg_edx);
 int recovered_10034190(int reg_ecx,int reg_edx);
 uint recovered_10034450(int reg_ecx,int reg_edx);
-undefined4 recovered_100344c0(int reg_edx);
+undefined4 recovered_100344c0(byte *reg_ecx,int reg_edx);
 void recovered_100345f0(byte *reg_ecx,int reg_edx,byte *param_3);
 void recovered_10034d10(int reg_ecx);
 void recovered_10034e10(int reg_ecx);
@@ -239,12 +241,12 @@ int recovered_10035700(int reg_ecx,int reg_edx,int param_3);
 void recovered_100357d0(char *reg_ecx);
 undefined4 recovered_10035820(int reg_ecx,int reg_edx,int param_3);
 int recovered_10035e00(int reg_ecx,int reg_edx,int param_3);
-void recovered_10035f00(void);
+void recovered_10035f00(int reg_ecx);
 bool recovered_10035fa0(char *reg_ecx,int reg_edx,undefined1 *param_3);
 void recovered_100360a0(char *reg_ecx);
 void recovered_10036a90(char *reg_ecx,char param_2);
 void recovered_10036c10(int reg_ecx,char *param_2);
-char * recovered_10037070(int reg_ecx,int param_2,char *param_3,char param_4);
+char * recovered_10037070(int reg_ecx,char *reg_edx,int param_3,char *param_4,char param_5);
 void recovered_10037840(undefined1 *reg_ecx,int reg_edx);
 void recovered_10037a00(uint reg_ecx);
 void recovered_10037cb0(void);
@@ -274,14 +276,14 @@ void recovered_1003af90(int reg_ecx,undefined4 reg_edx,undefined4 param_3,byte *
                        byte *param_5,int param_6,char param_7);
 uint recovered_1003b190(int reg_ecx);
 bool recovered_1003b320(char *reg_ecx,uint reg_edx,char *param_3);
-void recovered_1003b4c0(char *reg_ecx,undefined4 reg_edx);
-uint recovered_1003b700(byte *reg_ecx);
+void recovered_1003b4c0(char *reg_ecx,int reg_edx);
+uint recovered_1003b700(byte *reg_ecx,int reg_edx);
 undefined1 * recovered_1003b9e0(char *reg_ecx);
 char * recovered_1003bce0(undefined4 reg_ecx,char *reg_edx,byte param_3,int *param_4);
 char * recovered_1003cd80(int reg_ecx,uint reg_edx,int *param_3);
 undefined4 recovered_1003d4b0(char *reg_ecx,uint reg_edx,uint param_3,int *param_4);
 bool recovered_1003d510(char *reg_ecx,uint reg_edx,int param_3,uint param_4,uint *param_5);
-char * recovered_1003d840(char *reg_ecx,byte param_2,void *param_3,uint param_4);
+char * recovered_1003d840(char *reg_ecx,char *reg_edx,byte param_3,void *param_4,uint param_5);
 int recovered_1003e0e0(int reg_ecx,uint reg_edx,byte param_3);
 undefined4 recovered_1003e420(int reg_ecx,uint reg_edx);
 undefined4 * recovered_1003e640(undefined4 reg_ecx,void *reg_edx,void *param_3);
@@ -308,7 +310,7 @@ void recovered_10040b30(undefined4 reg_ecx,undefined4 reg_edx);
 void recovered_10040c00(int reg_ecx,undefined4 reg_edx,undefined4 param_3);
 void recovered_10040e50(byte *reg_ecx,byte *reg_edx);
 bool recovered_100412b0(byte *reg_ecx);
-bool recovered_100413d0(char *param_1);
+bool recovered_100413d0(char *reg_ecx,char *param_2);
 int recovered_10041680(int reg_ecx,int reg_edx,int param_3);
 void recovered_100417f0(int reg_ecx,uint reg_edx);
 void recovered_10041960(int reg_ecx,uint reg_edx);
@@ -326,9 +328,9 @@ undefined4
 recovered_10043840(uint reg_ecx,uint reg_edx,uint param_3,uint param_4,uint param_5,uint param_6,
                   longlong *param_7);
 undefined4
-recovered_10043a40(uint reg_edx,uint param_2,uint param_3,uint param_4,uint param_5,uint param_6,
-                  int param_7,int param_8,uint param_9,uint param_10,int param_11,int param_12,
-                  uint param_13);
+recovered_10043a40(char *reg_ecx,uint reg_edx,uint param_3,uint param_4,uint param_5,uint param_6,
+                  uint param_7,int param_8,int param_9,uint param_10,uint param_11,int param_12,
+                  int param_13,uint param_14);
 void recovered_100454a0(int reg_ecx,int reg_edx,int param_3,int param_4);
 void recovered_10045610(int reg_ecx,int reg_edx,int param_3,int param_4);
 bool recovered_10045790(int reg_ecx,int reg_edx,int param_3,int param_4);

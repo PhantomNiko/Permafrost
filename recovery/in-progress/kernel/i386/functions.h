@@ -1222,7 +1222,7 @@ uint recovered_2092300(int deviceId);
 uint recovered_2092370(int deviceId,char *path,void *outInfo);
 void recovered_2092480(int param_1,int param_2,uint *param_3);
 undefined4 recovered_20924c0(int in_ECX,int in_EDX,int param_3,uint *param_4);
-void recovered_2092680(int param_1,int param_2,uint *param_3);
+uint recovered_2092680(int param_1,int param_2,uint *param_3);
 uint recovered_20926c0(int deviceId,char *path,void *entries,uint entryCapacity,uint *outEntryCount);
 byte recovered_2092740(int param_1,char *param_2,undefined4 param_3,undefined4 param_4,
                       undefined4 param_5,undefined4 param_6,int *param_7,undefined4 *param_8);

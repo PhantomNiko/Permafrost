@@ -18000,7 +18000,7 @@ undefined8 recovered_100147d0(undefined8 param_1,char *param_2,uint *param_3)
      ((uVar3 = Ram0000000000280808, 0x21f < uVar3 && (_DAT_00280a1c != 0)))) {
                     /* WARNING: Could not recover jumptable at 0x10014827. Too many branches */
                     /* WARNING: Treating indirect jump as call */
-    uVar4 = (*(code *)(ulong)_DAT_00280a1c)();
+    uVar4 = ((uint (*)(int, char *, uint *))(uintptr_t)_DAT_00280a1c)((int)param_1,param_2,param_3);
     return uVar4;
   }
   iVar1 = Ram0000000000280800;

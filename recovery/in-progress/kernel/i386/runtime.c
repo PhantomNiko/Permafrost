@@ -132128,15 +132128,14 @@ undefined4 recovered_20924c0(int in_ECX,int in_EDX,int param_3,uint *param_4)
  * Address: 0x2092680
  */
 
-void recovered_2092680(int param_1,int param_2,uint *param_3)
+uint recovered_2092680(int param_1,int param_2,uint *param_3)
 
 {
   unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
 
 
   recovered_2083a40(__builtin_return_address(0));
-  recovered_20924c0(param_1,param_2,2,param_3);
-  return;
+  return recovered_20924c0(param_1,param_2,2,param_3);
 }
 
 #undef unaff_retaddr
