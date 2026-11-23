@@ -12,6 +12,7 @@
       "#include \"support.h\"",
       "void pf_kernel_entry(void);",
       "#include \"arm64-recovery.h\"",
+      "typedef struct pf_ws_value110 { unsigned long words[8]; } pf_ws_value110;",
       "#include \"cpu.h\""
     ],
     "volatile_ranges": [
@@ -72,6 +73,20 @@
       "esr_el2": "rw",
       "far_el2": "rw",
       "id_aa64pfr0_el1": "ro"
+    },
+    "source_replacements": {
+      "8246226c": {
+        "uStack_270._4_1_ == cVar17": "uStack_270._4_1_ == (byte)cVar17",
+        "(**(code **)(lVar40 + 0x78))(&uStack_270);": "{pf_ws_value110 value=((pf_ws_value110 (*)(void))*(uintptr_t *)(lVar40+0x78))();recovered_82400f60(&uStack_270,&value,sizeof(value));}",
+        "(**(code **)(lVar40 + 0x20))(uStack_270)": "((unsigned char (*)(const void *,uintptr_t))*(uintptr_t *)(lVar40+0x20))(uStack_270,(uintptr_t)pvStack_860)"
+      },
+      "8247ba70": {
+        "      recovered_8247bd68(": "      return recovered_8247bd68(",
+        "      return extraout_x0;": ""
+      },
+      "82497274": {
+        "CONCAT12(bVar8,uVar3) < 2": "POPCOUNT(uVar5 & 0x300000U) < 2"
+      }
     },
     "exclusive_expected": {
       "8240c7b8": [
@@ -145,18 +160,6 @@
           "expected": "1"
         }
       ]
-    },
-    "source_replacements": {
-      "8246226c": {
-        "uStack_270._4_1_ == cVar17": "uStack_270._4_1_ == (byte)cVar17"
-      },
-      "8247ba70": {
-        "      recovered_8247bd68(": "      return recovered_8247bd68(",
-        "      return extraout_x0;": ""
-      },
-      "82497274": {
-        "CONCAT12(bVar8,uVar3) < 2": "POPCOUNT(uVar5 & 0x300000U) < 2"
-      }
     }
   }
 }
