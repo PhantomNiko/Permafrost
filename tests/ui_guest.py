@@ -7,6 +7,7 @@ compositor to check rendering, pointer delivery and the colour-change callback.
 import argparse
 from pathlib import Path
 import sys
+import struct
 
 
 def main():
@@ -26,7 +27,10 @@ def main():
                    [headers, repository / 'sdk/include'], pic=True)
     link_dynamic_executable([obj], args.output, args.architecture,
                             {'/lib/TerrorUI.dylib': args.library})
-    print(args.architecture + ': source TerrorUI guest program linked.')
+    image=args.output.read_bytes()
+    assert struct.unpack_from('<II',image,12)[0]==2
+    assert struct.unpack_from('<I',image,24)[0]&0x200000,'guest executable must permit independent process mapping'
+    print(args.architecture + ': source TerrorUI guest program linked with PIE metadata.')
 
 
 if __name__ == '__main__':

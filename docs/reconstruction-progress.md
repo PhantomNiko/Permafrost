@@ -1185,3 +1185,11 @@ Repairs include private IA32 register arguments, complete query/presentation
 outputs, requested reallocation sizes, scalar ARM32 literal pools and portable
 RGBA fills. The in-progress SDK records the larger view and text-field API.
 System VM integration and the remaining source components still gate release.
+
+The guest executable linker now marks its position-independent output with
+`MH_PIE`. The 1.1 independent-process loader rejected these executables without
+that bit. The source UI guest compiles and links for all four CPUs. ARM32 and
+ARM64 VMs launch it through the desktop, display its text/controls and deliver
+the pointer callback that changes its rectangle color. x64 pointer-driven
+launch remains under investigation. IA32 retained-firmware storage passes 192
+native/source transfer, status, bounds, packet and canary comparisons.

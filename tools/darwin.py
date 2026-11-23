@@ -137,6 +137,8 @@ def link_dynamic_executable(objects, target, architecture, libraries, entry='mai
     if binary[header + size:header + size + 24] != bytes(24):
         raise ValueError('no reserved space for executable entry command')
     struct.pack_into('<I', binary, 12, 2)
+    # These PIC executables support rebasing into independent process mappings.
+    struct.pack_into('<I', binary, 24, struct.unpack_from('<I', binary, 24)[0] | 0x200000)
     struct.pack_into('<II', binary, 16, count + 1, size + 24)
     struct.pack_into('<IIQQ', binary, header + size, 0x80000028, 24,
                      address - metadata['base'], 0)
