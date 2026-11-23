@@ -207598,39 +207598,6 @@ LAB_020de9fa:
 #undef str_02115b96
 #undef str_02115ba6
 
-#undef DAT_0211232b
-#define DAT_0211232b (*(uint8_t volatile *)(0x211232bU))
-#undef str_02115ea5
-#define str_02115ea5 (*(char volatile (*)[1])(0x2115ea5U))
-#undef str_02115ec2
-#define str_02115ec2 (*(char volatile (*)[1])(0x2115ec2U))
-#undef str_02115ee7
-#define str_02115ee7 (*(char volatile (*)[1])(0x2115ee7U))
-#undef str_02115f0b
-#define str_02115f0b (*(char volatile (*)[1])(0x2115f0bU))
-#undef str_02115f28
-#define str_02115f28 (*(char volatile (*)[1])(0x2115f28U))
-#undef str_02115f44
-#define str_02115f44 (*(char volatile (*)[1])(0x2115f44U))
-#undef str_02115f62
-#define str_02115f62 (*(char volatile (*)[1])(0x2115f62U))
-#undef str_02115f81
-#define str_02115f81 (*(char volatile (*)[1])(0x2115f81U))
-#define local_24 (*(uint * *)(pf_stack_frame + 108))
-#define local_20 (*(uint *)(pf_stack_frame + 112))
-#define local_1c (*(uint *)(pf_stack_frame + 116))
-#define local_18 (*(uint *)(pf_stack_frame + 120))
-#define arg3 (*(char * *)(pf_stack_frame + 28))
-#define local_70 (*(uint *)(pf_stack_frame + 32))
-#define local_6c (*(uint *)(pf_stack_frame + 36))
-#define local_64 (*(uint *)(pf_stack_frame + 44))
-#define local_60 (*(uint *)(pf_stack_frame + 48))
-#define local_58 (*(uint *)(pf_stack_frame + 56))
-#define local_4c (*(uint *)(pf_stack_frame + 68))
-#define local_40 (*(uint *)(pf_stack_frame + 80))
-#define local_3c (*(uint *)(pf_stack_frame + 84))
-#define local_2c (*(uint * *)(pf_stack_frame + 100))
-#define local_28 (*(uint * *)(pf_stack_frame + 104))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x20dea10
  */
@@ -207638,8 +207605,6 @@ LAB_020de9fa:
 undefined4 recovered_20dea10(int in_ECX,char *in_EDX,ulong param_3)
 
 {
-  unsigned char pf_stack_frame[176] __attribute__((aligned(16))) = {0};
-
   uint uVar1;
   int iVar2;
   int iVar3;
@@ -207658,6 +207623,21 @@ undefined4 recovered_20dea10(int in_ECX,char *in_EDX,ulong param_3)
   uint uVar16;
   uint uVar17;
   bool bVar18;
+  char *arg3;
+  uint local_70;
+  uint local_6c;
+  uint local_64;
+  uint local_60;
+  uint local_58;
+  uint local_4c;
+  uint local_40;
+  uint local_3c;
+  uint *local_2c;
+  uint *local_28;
+  uint *local_24;
+  uint local_20;
+  uint local_1c;
+  uint local_18;
 
   uVar10 = *(uint *)(in_ECX + 0x44);
   uVar9 = 0;
@@ -207696,12 +207676,12 @@ switchD_020deae0_caseD_0:
             if (param_3 == 0 || in_EDX == (char *)0x0) {
               return 0;
             }
-            arg3 = str_02115f81;
+            arg3 = "unsupported Mach-O rebase opcode";
             goto override_prt_20df254_9b0a0a95;
           }
           local_70 = uVar12 + 1;
           uVar14 = uVar9 & 0xf;
-          switch((uintptr_t)(bVar4 >> 4)) {
+          switch(bVar4 >> 4) {
           case 0:
             goto switchD_020deae0_caseD_0;
           case 1:
@@ -207714,7 +207694,7 @@ LAB_020df282:
               if (param_3 == 0 || in_EDX == (char *)0x0) {
                 return 0;
               }
-              arg3 = str_02115ec2;
+              arg3 = "invalid Mach-O rebase segment offset";
               goto override_prt_20df254_9b0a0a95;
             }
             local_70 = uVar12 + 2;
@@ -207733,7 +207713,7 @@ LAB_020df282:
               bVar4 = (byte)uVar9 & 0x1f;
               uVar17 = (uint)uVar13 << ((byte)uVar9 & 0x1f);
               uVar12 = uVar17;
-              local_60 = 0 << bVar4 | (uint)(uVar13 >> 0x20 - bVar4);
+              local_60 = 0 << bVar4 | (uint)((uint)((ulonglong)uVar13 >> (0x20 - bVar4)));
               if ((uVar9 & 0x20) != 0) {
                 uVar12 = 0;
                 local_60 = uVar17;
@@ -207768,7 +207748,7 @@ LAB_020df282:
                 bVar4 = (byte)uVar9 & 0x1f;
                 uVar16 = (uint)uVar13 << ((byte)uVar9 & 0x1f);
                 uVar17 = uVar16;
-                uVar14 = 0 << bVar4 | (uint)(uVar13 >> 0x20 - bVar4);
+                uVar14 = 0 << bVar4 | (uint)((uint)((ulonglong)uVar13 >> (0x20 - bVar4)));
                 if ((uVar9 & 0x20) != 0) {
                   uVar17 = 0;
                   uVar14 = uVar16;
@@ -207796,21 +207776,21 @@ LAB_020df30a:
               if (param_3 == 0 || in_EDX == (char *)0x0) {
                 return 0;
               }
-              arg3 = str_02115f0b;
+              arg3 = "Mach-O fixup offset overflow";
             }
             else {
 LAB_020df2a5:
               if (param_3 == 0 || in_EDX == (char *)0x0) {
                 return 0;
               }
-              arg3 = str_02115ee7;
+              arg3 = "invalid Mach-O rebase address delta";
             }
             goto override_prt_20df254_9b0a0a95;
           case 4:
             bVar4 = (byte)local_18 & 0x1f;
             uVar17 = uVar14 << ((byte)local_18 & 0x1f);
             uVar9 = uVar17;
-            uVar12 = 0 << bVar4 | uVar14 >> 0x20 - bVar4;
+            uVar12 = 0 << bVar4 | (uint)((ulonglong)uVar14 >> (0x20 - bVar4));
             if ((local_18 & 0x20) != 0) {
               uVar9 = 0;
               uVar12 = uVar17;
@@ -207828,7 +207808,7 @@ LAB_020df2c1:
                 if (param_3 == 0 || in_EDX == (char *)0x0) {
                   return 0;
                 }
-                arg3 = str_02115f28;
+                arg3 = "invalid Mach-O rebase count";
                 goto override_prt_20df254_9b0a0a95;
               }
               local_70 = uVar12 + 2;
@@ -207842,7 +207822,7 @@ LAB_020df2c1:
                 bVar6 = (byte)uVar9 & 0x1f;
                 uVar17 = (uint)(bVar4 & 0x7f) << ((byte)uVar9 & 0x1f);
                 uVar14 = uVar17;
-                uVar12 = 0 << bVar6 | (uint)((bVar4 & 0x7f) >> 0x20 - bVar6);
+                uVar12 = 0 << bVar6 | (uint)((uint)((ulonglong)(bVar4 & 0x7f) >> (0x20 - bVar6)));
                 if ((uVar9 & 0x20) != 0) {
                   uVar14 = 0;
                   uVar12 = uVar17;
@@ -207930,7 +207910,7 @@ LAB_020df1c6:
                 bVar4 = (byte)uVar9 & 0x1f;
                 uVar16 = (uint)uVar13 << ((byte)uVar9 & 0x1f);
                 uVar17 = uVar16;
-                uVar14 = 0 << bVar4 | (uint)(uVar13 >> 0x20 - bVar4);
+                uVar14 = 0 << bVar4 | (uint)((uint)((ulonglong)uVar13 >> (0x20 - bVar4)));
                 if ((uVar9 & 0x20) != 0) {
                   uVar17 = 0;
                   uVar14 = uVar16;
@@ -207960,14 +207940,14 @@ LAB_020df350:
               if (param_3 == 0 || in_EDX == (char *)0x0) {
                 return 0;
               }
-              arg3 = str_02115f0b;
+              arg3 = "Mach-O fixup offset overflow";
             }
             else {
 LAB_020df2e7:
               if (param_3 == 0 || in_EDX == (char *)0x0) {
                 return 0;
               }
-              arg3 = str_02115f44;
+              arg3 = "invalid Mach-O rebase address";
             }
             goto override_prt_20df254_9b0a0a95;
           case 8:
@@ -207989,7 +207969,7 @@ LAB_020df2e7:
                 bVar4 = (byte)uVar12 & 0x1f;
                 uVar16 = (uint)uVar13 << ((byte)uVar12 & 0x1f);
                 uVar17 = uVar16;
-                uVar14 = 0 << bVar4 | (uint)(uVar13 >> 0x20 - bVar4);
+                uVar14 = 0 << bVar4 | (uint)((uint)((ulonglong)uVar13 >> (0x20 - bVar4)));
                 if ((uVar12 & 0x20) != 0) {
                   uVar17 = 0;
                   uVar14 = uVar16;
@@ -208014,7 +207994,7 @@ LAB_020df2e7:
                   bVar6 = (byte)uVar9 & 0x1f;
                   uVar16 = (uint)(bVar4 & 0x7f) << ((byte)uVar9 & 0x1f);
                   uVar17 = uVar16;
-                  uVar14 = 0 << bVar6 | (uint)((bVar4 & 0x7f) >> 0x20 - bVar6);
+                  uVar14 = 0 << bVar6 | (uint)((uint)((ulonglong)(bVar4 & 0x7f) >> (0x20 - bVar6)));
                   if ((uVar9 & 0x20) != 0) {
                     uVar17 = 0;
                     uVar14 = uVar16;
@@ -208071,7 +208051,7 @@ LAB_020df266:
             if (param_3 == 0 || in_EDX == (char *)0x0) {
               return 0;
             }
-            arg3 = str_02115f62;
+            arg3 = "invalid Mach-O repeated rebase";
             goto override_prt_20df254_9b0a0a95;
           }
           uVar12 = local_70;
@@ -208080,38 +208060,15 @@ LAB_020df266:
       }
     }
     if (param_3 != 0 && in_EDX != (char *)0x0) {
-      arg3 = str_02115ea5;
+      arg3 = "invalid Mach-O rebase stream";
 override_prt_20df254_9b0a0a95:
-      recovered_2003fc0(in_EDX,param_3,&DAT_0211232b,arg3);
+      recovered_2003fc0(in_EDX,param_3,&"%s",arg3);
     }
   }
   return 0;
 }
 
-#undef DAT_0211232b
-#undef str_02115ea5
-#undef str_02115ec2
-#undef str_02115ee7
-#undef str_02115f0b
-#undef str_02115f28
-#undef str_02115f44
-#undef str_02115f62
-#undef str_02115f81
-#undef local_24
-#undef local_20
-#undef local_1c
-#undef local_18
-#undef arg3
-#undef local_70
-#undef local_6c
-#undef local_64
-#undef local_60
-#undef local_58
-#undef local_4c
-#undef local_40
-#undef local_3c
-#undef local_2c
-#undef local_28
+
 
 #undef str_021155dd
 #define str_021155dd (*(char volatile (*)[1])(0x21155ddU))
