@@ -10,6 +10,8 @@ from darwin import compile_object,link_dynamic_executable
 from native import inspect
 from dll import DLL
 from unicorn.x86_const import UC_X86_REG_ECX,UC_X86_REG_EDX
+from unicorn import UC_HOOK_CODE
+from dylib import inspect as dynamic
 
 
 def diagnostic_reference(original,output):
@@ -39,6 +41,12 @@ def exercise(original,source):
     actual=DLL(source,instruction_limit=100000000)
     nm,_=inspect(original.read_bytes());sm,_=inspect(source.read_bytes())
     for lib,metadata in [(native,nm),(actual,sm)]:
+        for stub in dynamic((original if lib is native else source).read_bytes())['stubs']:
+            if stub['name']!='_terror_ui_colour':continue
+            pc=lib.base+stub['address']-metadata['base']
+            lib.cpu.mem_write(pc,struct.pack('<I',0xe12fff1e if lib.cpu_type==12 else 0xd65f03c0)
+                              if lib.cpu_type in [12,0x100000c]else b'\xc3')
+            lib.cpu.hook_add(UC_HOOK_CODE,lambda cpu,address,size,user,lib=lib:cpu.reg_write(lib.result,0x123456),begin=pc,end=pc)
         names={name:address for address,name in metadata['symbols']+metadata['data_symbols']}
         lib.exports['_drawCubeCpu']=lib.base+names['_drawCubeCpu']
         if '_gCubeWindowWidth'in names:
@@ -70,8 +78,9 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('architecture',choices=['i386','x86_64','armv7','arm64'])
     parser.add_argument('reference',type=Path);parser.add_argument('library',type=Path)
+    parser.add_argument('--source-dir',type=Path,default=Path('applications/cube'))
     args=parser.parse_args();root=Path('build/cube-render')/args.architecture;root.mkdir(parents=True,exist_ok=True)
-    obj=root/'render.o';compile_object(Path('applications/cube/render.c'),obj,args.architecture,['sdk/include'],pic=True)
+    obj=root/'render.o';compile_object(args.source_dir/'render.c',obj,args.architecture,['recovery/in-progress/sdk/include','sdk/include'],pic=True)
     source=root/'source';link_dynamic_executable([obj],source,args.architecture,{'/lib/TerrorUI.dylib':args.library},entry='drawCubeCpu')
     diagnostic_reference(source,root/'source-diagnostic');diagnostic_reference(args.reference,root/'reference-diagnostic')
     exercise(root/'reference-diagnostic',root/'source-diagnostic')

@@ -15,14 +15,17 @@ from native import inspect
 from dylib import inspect as dynamic
 
 
-def exercise(path,mode):
+def exercise(path,mode,arguments=(),frame_limit=64):
     lib=DLL(path,instruction_limit=150000000);cpu=lib.cpu;wide=lib.wide;w=8 if wide else 4
     meta,memory=inspect(path.read_bytes());names={n:a for a,n in meta['symbols']+meta['data_symbols']}
     entry=next(n for n in names if n=='_main'or n.endswith('_gpu_cube_entry'));lib.exports[entry]=lib.base+names[entry]
-    if lib.cpu_type==7 and '_winterboot_gpu_cube_entry'in names:
-        # This fixed-address i386 executable has absolute references rather
-        # than dyld rebases. Keep that original data view for its code.
-        cpu.mem_write(0x1800000,memory[0x1800000:])
+    if '_winterboot_gpu_cube_entry' in names:
+        # Native executables can contain fixed-address data without rebases.
+        data = next(a+n for kind,a,n in meta['sections'] if kind=='__text')
+        cpu.mem_write(data,memory[data-meta['base']:])
+    if lib.cpu_type in [7,0x1000007]:
+        cpu.mem_write(0x280800,bytes(cpu.mem_read(0x6800,412)))
+        lib.api_tables.append(0x280800)
     events=[];frames=0;submits=0
     def args(count):
         if lib.cpu_type==7:
@@ -45,7 +48,15 @@ def exercise(path,mode):
     def service(name):
         def call(cpu,address,size,user):
             nonlocal frames,submits
-            if name=='spec':
+            if name=='udivdi3':
+                assert lib.cpu_type==7
+                sp=cpu.reg_read(UC_X86_REG_ESP);numerator,denominator=struct.unpack('<2Q',cpu.mem_read(sp+4,16))
+                value=numerator//denominator
+                cpu.reg_write(UC_X86_REG_EDX,value>>32);done(value&0xffffffff)
+            elif name=='colour':
+                role=args(1)[0]&0xffffffff;events.append(('colour',role));done(0x123456 if role==0 else 0x657483)
+            elif name=='begin_frame':events.append(('begin_frame',));done()
+            elif name=='spec':
                 if lib.cpu_type==0x100000c:out=cpu.reg_read(UC_ARM64_REG_X8);title,width,height=args(3)
                 else:out,title,width,height=args(4)
                 data=bytearray(72 if wide else 52);struct.pack_into('<Q'if wide else'<I',data,0,title);struct.pack_into('<3I',data,w,width,height,width*4);cpu.mem_write(out,bytes(data));events.append(('spec',text(title),width,height));done(out,pop=4 if lib.cpu_type==7 else 0)
@@ -68,35 +79,67 @@ def exercise(path,mode):
             elif name=='wait':events.append(('wait',args(1)[0]));done(1)
             else:raise AssertionError(name)
         return call
+    import_targets={}
     for item in dynamic(path.read_bytes())['stubs']:
         if item['name'] in names:
             target=lib.base+names[item['name']]
             def local_target(cpu,address,size,user,target=target):cpu.reg_write(lib.pc,target)
             address=lib.base+item['address'];cpu.hook_add(UC_HOOK_CODE,local_target,begin=address,end=address)
+            import_targets[item['name']]=address
             continue
         name=item['name'].removeprefix('_terror_ui_window_')
-        if name not in ['spec','open','query','info_requests_close','sync_buffer','present','close']:continue
+        if item['name']=='_terror_ui_colour':name='colour'
+        if item['name']=='___udivdi3':name='udivdi3'
+        if name not in ['spec','open','query','info_requests_close','sync_buffer','present','close','colour','begin_frame','udivdi3']:continue
         name='requests_close'if name=='info_requests_close'else name
         address=lib.base+item['address'];cpu.hook_add(UC_HOOK_CODE,service(name),begin=address,end=address)
+        import_targets[item['name']]=address
+    for item in dynamic(path.read_bytes())['pointers']:
+        if item['name'] in import_targets:
+            value=import_targets[item['name']].to_bytes(w,'little')
+            cpu.mem_write(lib.base+item['address']-meta['base'],value)
+            if '_winterboot_gpu_cube_entry' in names:cpu.mem_write(item['address'],value)
     for offset,name in [(0x114,'gpu_info'),(0x118,'gpu_submit'),(0x2c,'key'),(0x174,'wait')]:
         address=0x18000+offset*16
         for table in lib.api_tables:cpu.mem_write(table+offset,struct.pack('<I',address))
         cpu.mem_write(address,struct.pack('<I',0xe12fff1e if lib.cpu_type==12 else 0xd65f03c0)if lib.cpu_type in [12,0x100000c]else b'\xc3');cpu.hook_add(UC_HOOK_CODE,service(name),begin=address,end=address)
-    result=lib.call(entry,result_bits=32)
+    argc=argv=0
+    if arguments:
+        strings=[b'3DDemo']+[arg.encode()for arg in arguments]
+        pointers=[]
+        for index,text_value in enumerate(strings):
+            pointer=0x3300000+index*256;pointers.append(pointer);cpu.mem_write(pointer,text_value+b'\0')
+        argc=len(strings);argv=0x3310000
+        cpu.mem_write(argv,b''.join(pointer.to_bytes(w,'little')for pointer in pointers+[0]))
+    result=lib.call(entry,argc,argv,result_bits=32)
     expected_result=0 if mode in ['open_failure','no_pixels']else 1
-    expected_frames=0 if mode in ['open_failure','no_pixels','query_failure','close','sync_failure']else 1 if mode in ['q','escape','extended']else 64
+    expected_frames=0 if mode in ['open_failure','no_pixels','query_failure','close','sync_failure']else 1 if mode in ['q','escape','extended']else frame_limit
     assert (result,frames)==(expected_result,expected_frames),(mode,result,frames)
     return events
 
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('reference',type=Path);p.add_argument('source',type=Path);a=p.parse_args();root=a.source.parent
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('reference',type=Path);p.add_argument('source',type=Path);p.add_argument('--timeouts',action='store_true');a=p.parse_args();root=a.source.parent
     diagnostic_reference(a.reference,root/'reference-application-diagnostic');diagnostic_reference(a.source,root/'source-application-diagnostic')
     for mode in ['cpu','gpu','fallback','open_failure','no_pixels','query_failure','close','sync_failure','q','escape','extended']:
         native=exercise(root/'reference-application-diagnostic',mode);actual=exercise(root/'source-application-diagnostic',mode)
         assert len(native)==len(actual),(mode,len(native),len(actual))
         for index,(x,y)in enumerate(zip(native,actual)):assert x==y,(mode,index,x[:2],y[:2])
         print('Cube application: '+mode+' native/source frames and service calls passed.',flush=True)
+    if a.timeouts:
+        cases=[(['timeout_frames=1'],1),(['timeout_frames=2'],2),(['timeout_frames=0'],64),
+               (['timeout_ms=1'],1),(['timeout_ms=34'],2),(['timeout=1'],31),
+               (['timeout_frames=0002'],2),(['timeout_frames=4294967296'],64),
+               (['timeout_ms=4294967295'],64),(['timeout=4294967295'],64),
+               (['timeout_frames=2junk'],64),(['timeout_frames='],64),
+               (['timeout=0'],64),(['timeout_frames=-1'],64),
+               (['timeout_frames=1','timeout_ms=34'],2),
+               (['timeout_frames=1','timeout_ms=bad'],1)]
+        for arguments,limit in cases:
+            native=exercise(root/'reference-application-diagnostic','cpu',arguments,limit)
+            actual=exercise(root/'source-application-diagnostic','cpu',arguments,limit)
+            assert native==actual,('cube timeout differs',arguments)
+        print('Cube application: 16 timeout parsing, overflow, rounding and precedence cases match.',flush=True)
 
 
 if __name__=='__main__':main()

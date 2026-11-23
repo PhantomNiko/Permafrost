@@ -75,7 +75,17 @@
       "arm64"
     ],
     "ui_scrollbar_guarded_snapshot_cases_per_cpu": 7,
-    "terminal_x64_native_vector_comparisons": 1806
+    "terminal_x64_native_vector_comparisons": 1806,
+    "cube_c_build": [
+      "i386",
+      "x86_64",
+      "armv7",
+      "arm64"
+    ],
+    "cube_native_lifecycle_modes_per_cpu": 11,
+    "cube_native_timeout_cases_per_cpu": 16,
+    "cube_native_raster_cases_per_cpu": 12,
+    "desktop_x64_client_dirty_rasters": 10
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",
   "kernel_compilation": "All four candidate C kernels link; full VM parity remains incomplete.",
@@ -83,5 +93,5 @@
   "normal_build": "1.0; migration to 1.1 remains in progress",
   "efi_mode": "retained firmware services; cooperative scheduling",
   "desktop_vm": "Source desktop reaches and launches the source UI guest on all four CPUs; ARM64 colour-change callback verified. BIOS shell input and broader compatibility remain unresolved.",
-  "terminal_vm": "Source x64 terminal opens; command evaluation emits output outside its window. Native terminal on the source kernel reproduces this defect. ARM32 launch and remaining VM compatibility checks are incomplete."
+  "terminal_vm": "Source terminals accept 1+1 and display 2 inside their windows on x64, ARM32 and ARM64. BIOS IA32 accepts keyboard input but reports that no shell accepted the command. Broader compatibility remains incomplete."
 }

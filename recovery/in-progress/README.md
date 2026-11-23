@@ -93,3 +93,15 @@ VM checks still expose kernel and integration defects. The x64 terminal evaluate
 a command but emits the result outside its window; the native terminal reproduces
 this on the candidate kernel. ARM32 terminal launch needs further work. These
 checkpoints do not establish full VM parity or finish the 1.1 application inventory.
+
+The cube candidate is common C source for all four CPUs. The 1.1 theme colours,
+frame lifecycle and timeout arguments pass native comparisons: eleven lifecycle
+modes, sixteen timeout cases and twelve CPU raster cases per CPU. Historical
+1.0 sources remain outside this candidate until the release target is promoted.
+
+The x64 desktop now preserves full-width dirty rectangles. Ten guarded native
+client rasters cover full and partial presentation, including coordinates above
+255. The x64 VM terminal retains its command and result after this repair.
+ARM32 and ARM64 terminals also accept and display a calculation. BIOS IA32
+accepts the keyboard command, but its shell routing still rejects it. VM parity
+and the remaining source inventory are not complete.
