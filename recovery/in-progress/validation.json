@@ -38,11 +38,28 @@
       "x86_64",
       "armv7"
     ],
-    "arm64_efi_input": "menu opens; subsequent selection/input check unresolved"
+    "arm64_efi_input": "menu opens; subsequent selection/input check unresolved",
+    "desktop_c_build": [
+      "i386",
+      "x86_64",
+      "armv7",
+      "arm64"
+    ],
+    "desktop_font_and_config_native_comparisons": [
+      "i386",
+      "x86_64",
+      "armv7",
+      "arm64"
+    ],
+    "desktop_arm_background_native_guarded_rasters": 11,
+    "desktop_owned_file_native_cases_per_cpu": 13,
+    "arm64_script_setting_native_cases": 75,
+    "ia32_ttf_native_guarded_rasters": 4
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",
-  "kernel_compilation": "incomplete",
-  "sdk": "not promoted",
+  "kernel_compilation": "All four candidate C kernels link; full VM parity remains incomplete.",
+  "sdk": "Candidate 1.1 headers compile and pass isolated C/C++ wire-service checks on all four CPUs; bundle not promoted.",
   "normal_build": "1.0; migration to 1.1 remains in progress",
-  "efi_mode": "retained firmware services; cooperative scheduling"
+  "efi_mode": "retained firmware services; cooperative scheduling",
+  "desktop_vm": "Source desktop reaches and launches the source UI guest on all four CPUs; ARM64 colour-change callback verified. BIOS shell input and broader compatibility remain unresolved."
 }

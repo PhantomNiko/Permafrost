@@ -73,3 +73,8 @@ menu and desktop labels are visible. The extended owned-file service passes
 argument, result and guard comparisons on every CPU; the IA32, x64 and ARM32
 kernel wrappers explicitly return the native result. BIOS shell input remains
 unresolved despite matching direct routing replays.
+
+The candidate SDK header exposes the 608-byte 1.1 wire table, retaining its
+five unassigned slots and the original fixed-width service addresses. The
+reviewed owned-file and script-run wrappers pass C and C++ argument, result
+and unavailable-service checks on every CPU. The SDK bundle is not promoted.
