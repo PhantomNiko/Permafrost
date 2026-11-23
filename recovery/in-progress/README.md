@@ -23,10 +23,10 @@ manual replacements. `recovery.json` records translation settings and reviewed
 exclusive-store expectations. Complete C translations for all four architectures compile to
 objects; x64, ARM32 and ARM64 also link with the recovered 1.1 image codec.
 The x64 text-output and firmware flush ABI corrections pass direct comparisons.
-Startup advances through PFS admission and module metadata probing. The next
-VM blocker is dynamic module loading: a memory allocator was inferred as
-returning void, leaving its callers with undefined pointers. Its ABI is being
-recovered before the next VM comparison. ARM64 timer, peripheral and spurious
+The x64 diagnostic advances through PFS admission, module metadata and dynamic
+loading into WinterShell. Known allocator return values, module initialization
+descriptors, stack-origin alignment and forwarded script paths have been
+recovered. Full startup and VM parity remain unfinished. ARM64 timer, peripheral and spurious
 IRQ comparisons preserve integer, SIMD and system state; geometry aggregate
 returns match 260 finite and exceptional input pairs.
 ARM64 analysis expands machine-outliner blocks before decompilation. ARM32

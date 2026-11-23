@@ -34,6 +34,10 @@
       "in_ID": "rw"
     },
     "descriptor_register_views": true,
+    "void_result_calls": [
+      "2097b00"
+    ],
+    "stack_origin_bias": 8,
     "source_replacements": {
       "2096660": {
         "joined_r0x02096922:\n    uVar6 = 0;\n  }": "    uVar6 = 0;\n  }",
@@ -41,7 +45,19 @@
       },
       "20bbc90": {
         "recovered_2005f40((char *)unaff_R13,0xf2,&DAT_02127e46);": "recovered_2005f40((char *)unaff_R13,0xf2,&DAT_02127e46,(char *)ppuVar23);",
-        "recovered_2097b00(str_02130d34);": "recovered_2097b00(str_02130d34,(char *)unaff_R13);"
+        "recovered_2005f40(pcVar21,0xf2,&DAT_02127e46);": "recovered_2005f40(pcVar21,0xf2,&DAT_02127e46,(char *)unaff_R13);",
+        "recovered_2097b00(str_02130d34);": "recovered_2097b00(str_02130d34,(char *)unaff_R13);",
+        "recovered_20947a0()": "recovered_20947a0(pcVar21)"
+      },
+      "21222c0": {
+        "(*local_68)(&DAT_02132f90)": "((int (*)(const void *,const void *))local_68)(&DAT_02132f90,local_40)"
+      }
+    },
+    "call_argument_defaults": {
+      "2072110": {
+        "1": [
+          "1"
+        ]
       }
     }
   }

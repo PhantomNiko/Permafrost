@@ -47,7 +47,13 @@ public class NativeSymbols extends GhidraScript {
     CreateFunctionCmd.fixupFunctionBody(currentProgram,f,monitor);
     // Section analyzers can name the first function __text. Keep the same
     // address identifier used by the other recovery and source-build tools.
-    f.setName("recovered_"+Long.toHexString(a),SourceType.USER_DEFINED);
+    String name="recovered_"+Long.toHexString(a);
+    // A section analyzer can replace the function name while retaining the
+    // seeded name as a separate label at the same address.
+    for(var symbol:currentProgram.getSymbolTable().getSymbols(toAddr(a)))
+     if(symbol.getName().equals(name) && symbol.getSymbolType()==ghidra.program.model.symbol.SymbolType.LABEL)
+      symbol.delete();
+    f.setName(name,SourceType.USER_DEFINED);
    }
   }
   println("Removed "+remove.size()+" analysis-only native function entries");

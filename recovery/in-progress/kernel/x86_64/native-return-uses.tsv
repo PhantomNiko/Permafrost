@@ -1,0 +1,11 @@
+# entry	return bytes	native symbol	[width, call, read, instruction] evidence
+2000b60	8	_wm_probe_heap_alloc_below	[[8, 33601414, 33601419, "mov r15, rax"]]
+2046ee0	1	_platform_qemu_uhci_install_qh_schedule	[[1, 33844325, 33844330, "test al, al"], [1, 33853237, 33853249, "test al, al"]]
+2050b20	4	_pfs_external_reference_append_suffix	[[4, 33967517, 33967522, "test eax, eax"]]
+2065590	4	_pfs_runtime_mkdir	[[4, 34232820, 34232825, "test eax, eax"]]
+206c0b0	4	_pfs_expand_plan	[[4, 34291089, 34291094, "mov dword ptr [rbx + 0xc], eax"]]
+20726b0	8	__ZL25header_from_transfer_wordPv	[[8, 34021873, 34021878, "test rax, rax"]]
+2094c30	8	_kernel_heap_malloc	[[8, 34165361, 34165366, "test rax, rax"], [8, 34498210, 34498219, "mov qword ptr [rcx + 0xf8], rax"], [8, 34654848, 34654853, "mov rcx, rax"]]
+20c7af0	8	_kernel_heap_realloc	[[8, 34274470, 34274475, "mov r12, rax"], [8, 34654776, 34654781, "mov rcx, rax"]]
+20c8ad0	8	_kernel_heap_malloc_range	[[8, 34200651, 34200656, "test rax, rax"], [8, 34200819, 34200824, "test rax, rax"]]
+210b3b0	1	_driver_loaded_reserve	[[1, 34648120, 34648125, "test al, al"]]

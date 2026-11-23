@@ -870,3 +870,23 @@ i386 TGA/XCF position-relative string references relocate with module data.
 ARM32 copies three packed colour bytes rather than converting their source
 array address into a pixel. BMP, PNG, TGA and XCF all pass cross-decoding and
 invalid-dimension checks on each architecture.
+
+The next 1.1 kernel checkpoint restores native pointer/word returns consumed
+by callers and constant-format arguments at 626 x64 and 344 ARM64 call sites.
+ARM64 analysis uses explicit models for optional stack operands; emitted C
+retains its native variadic declarations. x64 stack-frame origins preserve
+the entry stack's eight-byte bias, including descriptor-name address-bit
+selection. The module initializer receives both the host API and descriptor.
+The diagnostic x64 kernel reaches WinterShell. Isolated startup-file reads,
+line splitting, tokenization and two assignment statements match the original
+through both kernels. The provider file runner also preserves its path operand.
+Full VM startup remains under investigation.
+
+The x64 kernel's nonlocal context entry points now save/restore callee-saved
+registers, stack/return addresses, MXCSR and the x87 control word with their
+native field widths. Direct comparisons cover zero, positive and negative
+restore values, untouched buffer canaries and scope transfers. All native
+direct longjmp call sites pass the resume value one. Native instructions at
+these architecture boundaries remain in C translation units. ARM task contexts,
+complete VM behavior, source recovery of remaining modules and SDK promotion
+remain release gates; no 1.1 tag has been created.

@@ -572,6 +572,9 @@ def exact_array_stores(source):
             value=match[1].strip()
             if value in arrays and int(arrays[value])>=width:
                 value='PF_PART%d(%s,0)'%(width,value)
+            dereference=re.match(r'^\*\(undefined1\s*\(\*\)\s*\[(\d+)\]\)',value)
+            if dereference:
+                value='PF_PART%d(%s,0)'%(int(dereference[1]),value)
             return 'PF_PART%d(%s,0) = %s;'%(width,name,value)
         source=re.sub(r'\b'+re.escape(name)+r'\s*=(?!=)\s*([^;]+);',store,source)
     # An explicit array dereference on an assignment copies N bytes. C arrays
@@ -792,6 +795,24 @@ def rewrite_void_results(source,callees,address):
             while depth:
                 depth+=(source[end]=='(')-(source[end]==')');end+=1
             source=source[:match.start()]+'('+source[match.start():end]+', (uintptr_t)0)'+source[end:]
+    return source
+
+
+def call_argument_defaults(source,callees,address):
+    """Restore reviewed implicit operands only at the recorded call arity."""
+    for callee,arities in callees.items():
+        if address==callee:continue
+        for match in reversed(list(re.finditer(r'\brecovered_'+callee+r'\(',source))):
+            end=match.end();depth=1;commas=0
+            while depth and end<len(source):
+                token=source[end]
+                if token==',' and depth==1:commas+=1
+                depth+=(token=='(')-(token==')');end+=1
+            if depth:raise ValueError('unclosed reviewed call')
+            count=commas+1 if source[match.end():end-1].strip()else 0
+            extra=arities.get(str(count))
+            if extra:
+                source=source[:end-1]+(','if count else'')+','.join(extra)+source[end-1:]
     return source
 
 def main():
@@ -1072,7 +1093,7 @@ def main():
                 width = 8 if WIDE else 4
             macros.append('#define %s (*(uint%d_t *)(frame + %d))'%(name,width*8,frame_size+offset))
         source = source.replace(current.get('stack_register', 'register0x00000020' if WIDE else 'register0x00000010'), '(uintptr_t)(frame + %d)' % frame_size)
-        source = re.sub(r'__(?:fastcall|cdecl|thiscall|stdcall_softfp|regparm[0-9])\s+', '', source)
+        source = re.sub(r'__(?:fastcall|cdecl|thiscall|stdcall_softfp|regparm[0-9]|pf_format[13])\s+', '', source)
         pointer_fields = {(row[1], int(row[2])): int(row[3]) for row in metadata if row[0] == 'P'}
         floating_fields = {(row[1], int(row[2])): row[3] for row in metadata if row[0] == 'F'}
         signed_fields = {(row[1], int(row[2])): int(row[3]) for row in metadata if row[0] == 'I'}
@@ -1204,6 +1225,7 @@ def main():
             source = re.sub(r'(recovered_21a8b\([^;]+;)', r'\1\n  __builtin_va_end(args);', source, count=1)
         source = re.sub(r'^(  (?:undefined\d*|int|uint|char|byte|ushort|ulonglong|longlong|float10|float|double)\s+\**(?:extraout_\w+|in_EAX|unaff_EBX));$',
                         r'\1 = 0;', source, flags=re.M)
+        source=call_argument_defaults(source,current.get('call_argument_defaults',{}),address)
         source=rewrite_void_results(source,current.get('void_result_calls',[]),address)
         if address == '20f7c7' and source.count('LAB_0020f81e:') > 1:
             point=source.rfind('LAB_0020f81e:')
@@ -1221,6 +1243,7 @@ def main():
         generated=re.sub(r'\bframe\b','pf_stack_frame','\n'.join(preamble + macros))
         (args.out / (address + '.c')).write_text('\n'.join(line.rstrip() for line in (generated + '\n' + source).splitlines()).rstrip() + '\n')
     for name, content in manual.items():
+        content=call_argument_defaults(content,current.get('call_argument_defaults',{}),name)
         (args.out / (name + '.c')).write_text(rewrite_void_results(content,current.get('void_result_calls',[]),name))
 
 
