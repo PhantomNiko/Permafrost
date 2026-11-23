@@ -48,7 +48,8 @@
       "200cd00": {
         "in_XCR0": "pf_xcr0_value",
         "pf_xcr0_value = pf_xcr0_value & uVar3;": "pf_xcr0_value = uVar3;",
-        "ulonglong pf_xcr0_value = (ulonglong)pf_read_xcr0();": "ulonglong pf_xcr0_value = 0;"
+        "ulonglong pf_xcr0_value = (ulonglong)pf_read_xcr0();": "ulonglong pf_xcr0_value = 0;",
+        "  uVar4 = DAT_0217499c._0_1_;\n  uVar10 = DAT_0217499c;\n  if ((uVar10 & 2) != 0)": "  pf_x86_configure_boot_fpu110(DAT_0217499c);\n  uVar4 = DAT_0217499c._0_1_;\n  uVar10 = DAT_0217499c;\n  if ((uVar10 & 2) != 0)"
       },
       "202f800": {
         "  if (local_204 + 1U < 2) {": "  int pf_disk_handle=local_204;\n  if (pf_disk_handle + 1U < 2) {",

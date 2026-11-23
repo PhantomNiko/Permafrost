@@ -14600,6 +14600,7 @@ LAB_0200cf3c:
     uVar5 = uVar5 & 0x1004;
     if (uVar5 == 0x1000) goto LAB_0200d035;
   }
+  pf_x86_configure_boot_fpu110(DAT_0217499c);
   uVar4 = PF_PART1(DAT_0217499c, 0);
   uVar10 = DAT_0217499c;
   if ((uVar10 & 2) != 0) {

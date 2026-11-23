@@ -1083,3 +1083,14 @@ now matches native physical write payloads and succeeds without a damaged
 chain. Allocation callback signatures explicitly return their 32-bit status,
 with 42 receiver, scratch/output pointer and status comparisons. VM integration
 of the repaired allocator remains the next check.
+
+The IA32 boot CPU feature routine now performs its native CR0/CR4 writes and
+sets x87 precision to the reference control word before SSE state operations.
+Twenty native/source fixtures cover feature masks, firmware-retention policy,
+control registers and x87 state. VM startup advances through processor start,
+but its later firmware transition still fails and is not release-ready.
+
+The repaired ARM32 VM retains a readable system volume, and its shell evaluates
+`1+1` as `2`. The post-boot directory tree validates after the ledger writes.
+Desktop artwork and integrated fonts still use fallbacks, so filesystem
+integrity alone does not establish graphics equivalence.

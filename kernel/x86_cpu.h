@@ -28,6 +28,19 @@ static inline uint16_t pf_read_cs(void) {
     uint16_t value;__asm__ volatile("mov %%cs,%0":"=r"(value));return value;
 }
 static inline uint64_t pf_read_xcr0(void) {return xinuse(0);}
+/* WFE11 boot feature setup writes control registers before using SSE state. */
+static inline void pf_x86_configure_boot_fpu110(uint32_t features) {
+    if (features & 1) {
+        uintptr_t control=(pf_read_cr0() & ~(uintptr_t)14) | 2;
+        uint16_t precision=0x027f;
+        __asm__ volatile("mov %0,%%cr0"::"r"(control):"memory");
+        __asm__ volatile("fninit; fldcw %0"::"m"(precision):"memory");
+    }
+    if (features & 2) {
+        uintptr_t control=pf_read_cr4() | 0x600;
+        __asm__ volatile("mov %0,%%cr4"::"r"(control):"memory");
+    }
+}
 static inline void invlpg(uintptr_t address) {
     __asm__ volatile("invlpg (%0)"::"r"(address):"memory");
 }
