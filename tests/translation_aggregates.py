@@ -8,7 +8,7 @@ import subprocess
 import sys
 import tempfile
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools/ghidra'))
-from translate import aggregate_views,rewrite_scalar_storage
+from translate import aggregate_views,rewrite_scalar_storage,physical_array_extent
 
 
 def main():
@@ -40,11 +40,20 @@ uint32_t parameter_probe(byte param_7)
 uintptr_t bits(uint32_t *pointer){return pointer * 4;}
 byte *address_bits(double *pointer){return (byte *)*pointer;}
 ''')
-    source+='''int main(void){uint32_t value=7;double pointer=pf_bits_double(0x123456789abcdef0ULL);if((uintptr_t)address_bits(&pointer)!=0x123456789abcdef0ULL)return 9;return stack_probe() || parameter_probe(3)!=0x12345600 || multiply(&value)!=28 || bits((void *)0x1000)!=0x4000;}\n'''
+    extent=physical_array_extent('uint32_t[3]',64,4)
+    source+='\n#define counts (*( '+extent.replace('[',' (*)[')+' )(frame))\n'
+    source+='''uint32_t split_counts(void){
+ unsigned char frame[64] __attribute__((aligned(16)));volatile unsigned limit=16;
+ for(unsigned i=0;i<16;i++)((uint32_t *)(void *)frame)[i]=i+1;
+ uint32_t sum=0;for(unsigned i=0;i<limit;i++)sum+=counts[i];return sum;
+}
+#undef counts
+'''
+    source+='''int main(void){uint32_t value=7;double pointer=pf_bits_double(0x123456789abcdef0ULL);if((uintptr_t)address_bits(&pointer)!=0x123456789abcdef0ULL)return 9;return split_counts()!=136 || stack_probe() || parameter_probe(3)!=0x12345600 || multiply(&value)!=28 || bits((void *)0x1000)!=0x4000;}\n'''
     root=Path(__file__).resolve().parents[1]
     with tempfile.TemporaryDirectory(prefix='permafrost-aggregate-')as directory:
         out=Path(directory);(out/'probe.c').write_text(source)
-        subprocess.run(['clang','-std=c11','-O2','-nostdinc','-I',str(root/'sdk/include'),'-I',str(root/'kernel'),str(out/'probe.c'),'-o',str(out/'probe')],check=True)
+        subprocess.run(['clang','-std=c11','-O2','-fsanitize=array-bounds','-fno-sanitize-recover=array-bounds','-nostdinc','-I',str(root/'sdk/include'),'-I',str(root/'kernel'),str(out/'probe.c'),'-o',str(out/'probe')],check=True)
         subprocess.run([str(out/'probe')],check=True)
     print('Per-access aggregate widths preserve adjacent bytes and parameter aliases; pointer scaling retains dereferences.')
 

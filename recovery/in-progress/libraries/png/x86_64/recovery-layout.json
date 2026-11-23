@@ -72,7 +72,13 @@
         "0x1001b1db": "((uintptr_t)pf_module_state+0x6afU)"
       },
       "100108c0": {
-        "0x1001b1a3": "((uintptr_t)pf_module_state+0x677U)"
+        "0x1001b1a3": "((uintptr_t)pf_module_state+0x677U)",
+        "0x4006c7a": "(((uintptr_t)pf_module_state+0x6bcU)/4)",
+        "0x4006c7c": "(((uintptr_t)pf_module_state+0x6c4U)/4)",
+        "0x4006c7e": "(((uintptr_t)pf_module_state+0x6ccU)/4)",
+        "0x4006c80": "(((uintptr_t)pf_module_state+0x6d4U)/4)",
+        "0x1001b1e8": "((uintptr_t)pf_module_state+0x6bcU)",
+        "0x1001b19d": "((uintptr_t)pf_module_state+0x671U)"
       },
       "100196f0": {
         "0x1001c41c": "((uintptr_t)pf_module_state+0x18f0U)",

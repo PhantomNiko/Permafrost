@@ -647,6 +647,22 @@ def aggregate_views(source, metadata):
     return source
 
 
+def physical_array_extent(typename, available, pointer_bytes):
+    """A named stack view may span fields split into other decompiler locals."""
+    match=re.fullmatch(r'(.+)\[(\d+)\]',typename)
+    if not match or '['in match[1]:return typename
+    element=match[1].strip()
+    widths={'char':1,'byte':1,'uchar':1,'undefined1':1,'uint8_t':1,
+            'short':2,'ushort':2,'undefined2':2,'uint16_t':2,
+            'int':4,'uint':4,'float':4,'undefined4':4,'uint32_t':4,
+            'long':pointer_bytes,'ulong':pointer_bytes,'uintptr_t':pointer_bytes,
+            'longlong':8,'ulonglong':8,'double':8,'undefined8':8,'uint64_t':8,
+            'uint128':16,'undefined16':16}
+    width=pointer_bytes if '*'in element else widths.get(element)
+    if width is None:return typename
+    return element+'['+str(max(int(match[2]),available//width))+']'
+
+
 def rewrite_array_values(source, metadata):
     views={(row[1],int(row[2])):int(row[3]) for row in metadata
            if row[0]=='Q' and row[1]!='-'}
@@ -660,6 +676,24 @@ def rewrite_array_values(source, metadata):
         if match.string[match.end():].lstrip().startswith(('.', '[')):return name
         return 'PF_PART%d(%s, 0)'%(width,name) if width else name
     return re.sub(r'\b[A-Za-z_]\w*\b',replace,source)
+
+
+def array_concat_reads(source):
+    """CONCAT consumes register bits, including byte-array stack views."""
+    arrays=set(re.findall(r'\bundefined1\s+(\w+)\s*\[\d+\]',source))
+    for match in reversed(list(re.finditer(r'\bCONCAT([1-9])([1-9])\(',source))):
+        start=match.end();depth=1;comma=None;end=start
+        while depth and end<len(source):
+            token=source[end]
+            if token==',' and depth==1:comma=end
+            depth+=(token=='(')-(token==')');end+=1
+        if depth or comma is None:continue
+        first=source[start:comma];last=source[comma+1:end-1]
+        def bits(value,width):
+            name=value.strip()
+            return 'PF_PART%d(%s,0)'%(width,name)if name in arrays else value
+        source=source[:start]+bits(first,int(match[1]))+','+bits(last,int(match[2]))+source[end-1:]
+    return source
 
 
 def rewrite_vector_pointers(source,width,typename):
@@ -800,6 +834,7 @@ def main():
         sources={a:register_input_views(s,current['register_inputs'])for a,s in sources.items()}
     if current.get('descriptor_register_views'):
         sources={a:descriptor_register_views(s)for a,s in sources.items()}
+    sources={a:array_concat_reads(s)for a,s in sources.items()}
     if WIDE or current.get("integer_vector_128"):
         for address,source in sources.items():
             rows=[line.split('\t') for line in (args.notes/(address+'.tsv')).read_text().splitlines()]
@@ -993,7 +1028,7 @@ def main():
         frame_size = max([32] + [-int(row[2]) + 16 for row in locals_used])
         # Native code can select adjacent fields with address OR operations.
         # Preserve the stack origin's alignment as well as relative offsets.
-        frame_size = (frame_size + 15) & ~15
+        frame_size = ((frame_size + 15) & ~15)+current.get('stack_origin_bias',0)
         addressed_offsets = {int(x, 0) for x in re.findall(current.get('stack_register', 'register0x00000020' if WIDE else 'register0x00000010')+r'\s*\+\s*(-0x[0-9a-f]+)', source)}
         macros = []
         for row in locals_used:
@@ -1012,6 +1047,7 @@ def main():
             if not match:
                 continue
             source = source[:match.start()] + source[match.end():]
+            typename=physical_array_extent(typename,-int(offset),8 if WIDE else 4)
             macros.append('#define %s %s' % (name, lvalue(typename, 'frame + %d' % (frame_size + int(offset)))))
         stack_widths = {}
         for row in metadata:

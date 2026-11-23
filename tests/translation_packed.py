@@ -8,7 +8,7 @@ import subprocess
 import sys
 import tempfile
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools/ghidra'))
-from translate import exact_array_stores,packed_vector_views,array_bitwise_reads
+from translate import exact_array_stores,packed_vector_views,array_bitwise_reads,array_concat_reads
 
 
 def main():
@@ -36,7 +36,13 @@ def main():
 '''.replace('WIDTH',str(width))
         source+=array_bitwise_reads(packed_vector_views(exact_array_stores(function)),{'storage':str(width)})
     source+='''int shuffle(void){uint256 value,mask;for(unsigned i=0;i<32;i++){value.bytes[i]=i;mask.bytes[i]=(31-i)|(i%3==0?128:0);}uint256 out=vpshufb_avx2(value,mask);for(unsigned i=0;i<32;i++)if(out.bytes[i]!=(i%3==0?0:((i&16)|((31-i)&15))))return 1;return 0;}\n'''
-    source+='int main(void){return '+'|'.join('probe_%d()'%width for width in [2,3,9,10,11,12,13,14,15,16])+'|shuffle();}\n'
+    source+=array_concat_reads('''int concatenate(void){
+ undefined1 rgb[4]={0x12,0x34,0x56,0x78};
+ return CONCAT12(0xab,rgb)!=0xab3412 || CONCAT21(rgb,0xcd)!=0x3412cd ||
+        CONCAT13(0xef,rgb)!=0xef563412 || CONCAT11(0x56,CONCAT11(0x78,rgb))!=0x5612;
+}
+''')
+    source+='int main(void){return '+'|'.join('probe_%d()'%width for width in [2,3,9,10,11,12,13,14,15,16])+'|shuffle()|concatenate();}\n'
     root=Path(__file__).resolve().parents[1]
     with tempfile.TemporaryDirectory(prefix='permafrost-packed-')as directory:
         path=Path(directory);(path/'probe.c').write_text(source)

@@ -851,3 +851,14 @@ The shared PFZ decoder passes bounds, CRC and malformed-token tests on all four
 architectures. Fourteen kernel PFZ1 Mach-O comparisons additionally verify
 supported image magic, returned bytes, error strings and allocation/free
 behavior. These are component checks; no 1.1 VM equivalence or tag is claimed.
+
+The 1.1 codec checkpoint now passes the fourteen PNG decode fixtures on all
+four architectures. The 32-bit scalar DEFLATE state machine also matches 87
+native/source cases per architecture: fixed and dynamic Huffman trees, varied
+payloads, output limits, bad checksums, trailing data and truncated streams.
+Physical stack-array views retain their full available storage, and CONCAT
+reads the bytes of a stack array instead of converting its address to a value.
+The x64 BMP, PNG, TGA and XCF writer corpus passes detection, cross-decoding
+and invalid dimensions. The small XCF writer fixture is byte-identical. Its
+folded constant-string indices now relocate with the module. These are codec
+component checks; the complete 1.1 source image and SDK are not yet released.

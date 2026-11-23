@@ -64,6 +64,10 @@
       "10014590": {
         "pvVar1 = (void *)((&switchD_100145bb::switchdataD_10014814)[in_ECX] + 0x100145a1);": "pvVar1 = (void *)0;",
         "pvVar1 = (void *)((&DAT_10014814)[in_ECX] + 0x100145a1);": "pvVar1 = (void *)0;"
+      },
+      "10012de0": {
+        "0x100145b8": "((uintptr_t)pf_module_state-0x30aU)",
+        "0x1001462c": "((uintptr_t)pf_module_state-0x296U)"
       }
     }
   }

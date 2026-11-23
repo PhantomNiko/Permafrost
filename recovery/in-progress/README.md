@@ -34,9 +34,11 @@ exclusive operations now use explicit hardware primitives and retain native
 retry paths; primitive and native/source heap-lock comparisons pass.
 
 Image codecs for all four architectures link from recovered C. Fourteen
-native/source PNG decode cases pass on x64 and ARM64. The ARM32 small-fixture
-cases pass, with a remaining large dynamic-Huffman mismatch; i386 still has a
-compressed scanline mismatch. Encoder and file-I/O recovery remains in progress. The
+native/source PNG decode cases pass on every architecture. The scalar 32-bit
+DEFLATE reconstruction also passes 87 stream, size-limit and malformed-input
+comparisons on i386 and ARM32. All four x64 writers pass cross-decoding and
+invalid-dimension checks; the XCF fixture matches the native bytes. Encoder
+and file-I/O checks on the other architectures remain in progress. The
 1.1 codec exports BMP, PNG, TGA and XCF writers; its exports do not include the
 older REI and JPEG writers. The source-kernel VM is still a differential test
 with reference application payloads.

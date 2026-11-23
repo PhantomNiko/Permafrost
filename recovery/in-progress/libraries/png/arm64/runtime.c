@@ -87,7 +87,7 @@ cVar1 = bVar2 ? 0 : 1;
 #define _DAT_82010238 (*(int *)(0x82010238U))
 #undef _DAT_8201023c
 #define _DAT_8201023c (*(uint *)(0x8201023cU))
-#define auStack_458 (*(ulong (*)[130])(pf_stack_frame + 24))
+#define auStack_458 (*(ulong (*)[139])(pf_stack_frame + 24))
 #define local_48 (*(ulong *)(pf_stack_frame + 1064))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x1000061c
@@ -2056,7 +2056,7 @@ undefined ** recovered_10001a8c(void)
 #define DAT_82010968 (*(uint8_t *)(0x82010968U))
 #undef _DAT_82010968
 #define _DAT_82010968 (*(uint *)(0x82010968U))
-#define auStack_38 (*(undefined1 (*)[8])(pf_stack_frame + 24))
+#define auStack_38 (*(undefined1 (*)[56])(pf_stack_frame + 24))
 #define local_30 (*(undefined8 *)(pf_stack_frame + 32))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10001a98
@@ -3527,7 +3527,7 @@ void recovered_10002a94(long *param_1,ulong *param_2,int *param_3,undefined1 par
 #define str_1000b789 (*(char (*)[1])(((uintptr_t)pf_module_state + 0x451U)))
 #undef str_1000b79a
 #define str_1000b79a (*(char (*)[1])(((uintptr_t)pf_module_state + 0x462U)))
-#define acStack_80 (*(char (*)[64])(pf_stack_frame + 16))
+#define acStack_80 (*(char (*)[128])(pf_stack_frame + 16))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10002ad0
  */
@@ -3944,7 +3944,7 @@ void recovered_10002fcc(char *param_1,long param_2)
 #define DAT_82010840 (*(uint8_t *)(0x82010840U))
 #undef _DAT_82010840
 #define _DAT_82010840 (*(uint *)(0x82010840U))
-#define local_230 (*(undefined1 (*)[512])(pf_stack_frame + 16))
+#define local_230 (*(undefined1 (*)[560])(pf_stack_frame + 16))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10003084
  */
@@ -3991,7 +3991,7 @@ void recovered_10003084(int param_1)
 #define DAT_82010840 (*(uint8_t *)(0x82010840U))
 #undef _DAT_82010840
 #define _DAT_82010840 (*(uint *)(0x82010840U))
-#define auStack_230 (*(undefined1 (*)[512])(pf_stack_frame + 16))
+#define auStack_230 (*(undefined1 (*)[560])(pf_stack_frame + 16))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10003110
  */
@@ -4036,7 +4036,7 @@ void recovered_10003110(void)
 #define DAT_82010840 (*(uint8_t *)(0x82010840U))
 #undef _DAT_82010840
 #define _DAT_82010840 (*(uint *)(0x82010840U))
-#define auStack_230 (*(undefined1 (*)[512])(pf_stack_frame + 16))
+#define auStack_230 (*(undefined1 (*)[560])(pf_stack_frame + 16))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10003118
  */
@@ -4077,7 +4077,7 @@ void recovered_10003118(void)
 
 #undef DAT_1000b7ae
 #define DAT_1000b7ae (*(uint8_t *)(((uintptr_t)pf_module_state + 0x476U)))
-#define acStack_160 (*(char (*)[320])(pf_stack_frame + 16))
+#define acStack_160 (*(char (*)[352])(pf_stack_frame + 16))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10003120
  */
@@ -11151,7 +11151,7 @@ LAB_10008e24:
 }
 
 
-#define local_24 (*(byte (*)[4])(pf_stack_frame + 28))
+#define local_24 (*(byte (*)[36])(pf_stack_frame + 28))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x10008e30
  */
@@ -12612,8 +12612,8 @@ long recovered_10009fd0(long *param_1,undefined1 *param_2)
 }
 
 
-#define auStack_90 (*(ulong (*)[8])(pf_stack_frame + 80))
-#define auStack_d0 (*(uint (*)[16])(pf_stack_frame + 16))
+#define auStack_90 (*(ulong (*)[18])(pf_stack_frame + 80))
+#define auStack_d0 (*(uint (*)[52])(pf_stack_frame + 16))
 #define uStack_48 (*(undefined5 *)(pf_stack_frame + 152))
 #define pvStack_50 (*(void * *)(pf_stack_frame + 144))
 #define uStack_40 (*(undefined5 *)(pf_stack_frame + 160))
