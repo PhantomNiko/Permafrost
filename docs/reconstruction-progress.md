@@ -1296,3 +1296,14 @@ layout and point-mapping calls. Native/source checks cover 75 colour indices,
 the SDK execute against both implementations on all four target CPUs, checking
 aggregate argument passing and the 16-, 84- and 188-byte public structures.
 These declarations support desktop recovery; the full SDK remains unfinished.
+
+The candidate IA32 BIOS loader reads PolynyaFS and loads the source kernel's
+uncompressed Mach-O slice. It reserves the loaded extent in its memory map,
+enables SSE and supplies retained disk, text, wait and framebuffer services.
+Its C PS/2 pointer backend polls auxiliary packets and reports bounded absolute
+coordinates while preserving keyboard bytes. Controller and packet fixtures
+pass, as do 14 native/source kernel input-bridge cases. In the BIOS VM the C
+kernel, UI and both window libraries launch the C UI guest and deliver its
+colour-change callback; the desktop host and remaining apps are still native
+reference payloads. Desktop exit and keyboard interaction remain unresolved.
+The ordinary build target has not changed.
