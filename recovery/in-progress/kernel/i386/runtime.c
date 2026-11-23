@@ -6172,7 +6172,7 @@ void recovered_2005370(int *param_1,int param_2)
         local_60 = str_0211190a;
         local_5c = 4;
         local_58 = 1;
-        local_54 = local_50;
+        local_54 = local_64;
         local_50 = str_021119c7;
         local_4c = &local_68;
         local_48 = 4;
@@ -154932,7 +154932,7 @@ void recovered_20a9620(undefined4 param_1,undefined4 param_2,undefined1 param_3)
  * Address: 0x20a9680
  */
 
-void recovered_20a9680(void)
+unsigned int recovered_20a9680(void)
 
 {
   unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
@@ -154957,12 +154957,12 @@ void recovered_20a9680(void)
     }
   }
   __atomic_thread_fence(__ATOMIC_SEQ_CST);
-  recovered_20a9730();
+  unsigned int result = recovered_20a9730();
   __atomic_thread_fence(__ATOMIC_SEQ_CST);
   DAT_02464b00 = 0;
   __atomic_thread_fence(__ATOMIC_SEQ_CST);
   DAT_02464afc = 0;
-  return;
+  return result;
 }
 
 #undef DAT_02464afc

@@ -1362,7 +1362,7 @@ undefined4 recovered_20a8e40(char *param_1,uint *param_2);
 undefined4 recovered_20a8fe0(int param_1,byte *param_2,int param_3,char *param_4,ulong param_5);
 undefined4 recovered_20a9420(undefined4 param_1,undefined4 param_2,undefined1 param_3);
 void recovered_20a9620(undefined4 param_1,undefined4 param_2,undefined1 param_3);
-void recovered_20a9680(void);
+unsigned int recovered_20a9680(void);
 undefined4 recovered_20a9730(void);
 uint recovered_20a9b40(void *outInfo);
 undefined4 recovered_20a9c10(void);

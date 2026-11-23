@@ -1162,3 +1162,17 @@ rotation and teardown pass alongside native/source raster and metrics checks
 on ARM32, ARM64 and x86-64. Allocation extent tests now cover both ARM CPUs,
 with 154 native/source cases each. ARM64 console behavior and directory
 allocation diagnostics remain unresolved.
+
+ARM64's specialised line reader now retains the source arguments of three
+formatted string copies. Eight native/source keyboard cases cover expression
+input, backspace/delete, escape, newline, truncation and guards. A VM run exits
+the desktop, accepts `1+1` and returns `2`. Directory allocation diagnostics
+remain visible.
+
+IA32 graphics startup now returns the platform result through its public
+wrapper. Four native/source cases preserve the result, checkpoint order and
+lock guards. Firmware console handoff also retains the chosen node across
+request-packet clearing; synthetic device-tree requests and the resulting
+framebuffer descriptor match the reference. The VM acquires its console
+handles but still reports graphics unavailable. A native-kernel control run
+and firmware request tracing are investigating this remaining difference.

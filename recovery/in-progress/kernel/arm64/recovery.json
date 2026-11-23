@@ -483,6 +483,10 @@
       },
       "82443a18": {
         "(**(code **)(**(long **)font + 8))();": "((void (*)(void *))*(uintptr_t *)(**(uintptr_t **)font+8))(*(void **)font);"
+      },
+      "824664fc": {
+        "recovered_824026e8(acStack_269,0x200,&DAT_8249dac6);": "recovered_824026e8(acStack_269,0x200,&DAT_8249dac6,&DAT_82739c30);",
+        "recovered_824026e8(param_1,param_2,&DAT_8249dac6);": "recovered_824026e8(param_1,param_2,&DAT_8249dac6,acStack_269);"
       }
     },
     "exclusive_expected": {

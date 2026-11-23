@@ -124079,7 +124079,7 @@ LAB_82450c68:
           uVar1 = uVar7 >> 8 & 0xff;
           if ((uVar7 & 0xff) == 0xd || uVar1 == 0x1c) {
             (&DAT_82739c30)[uVar15] = 0;
-            recovered_824026e8(acStack_269,0x200,&DAT_8249dac6);
+            recovered_824026e8(acStack_269,0x200,&DAT_8249dac6,&DAT_82739c30);
             param_1[uVar15] = '\0';
             goto LAB_82450f40;
           }
@@ -124137,7 +124137,7 @@ LAB_82450d70:
       DAT_82738101 = 1;
     }
     (&DAT_82739c30)[uVar15] = 0;
-    recovered_824026e8(acStack_269,0x200,&DAT_8249dac6);
+    recovered_824026e8(acStack_269,0x200,&DAT_8249dac6,&DAT_82739c30);
     param_1[uVar15] = '\0';
     recovered_824145b4(&DAT_8249d4e3);
 LAB_82450f40:
@@ -124145,7 +124145,7 @@ LAB_82450f40:
     DAT_82739c30 = 0;
     DAT_82738398 = uVar14;
     recovered_8244ba60();
-    recovered_824026e8(param_1,param_2,&DAT_8249dac6);
+    recovered_824026e8(param_1,param_2,&DAT_8249dac6,acStack_269);
     recovered_8242da90(acStack_269,0x200);
     uVar14 = 1;
   }
