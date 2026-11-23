@@ -1193,3 +1193,11 @@ ARM64 VMs launch it through the desktop, display its text/controls and deliver
 the pointer callback that changes its rectangle color. x64 pointer-driven
 launch remains under investigation. IA32 retained-firmware storage passes 192
 native/source transfer, status, bounds, packet and canary comparisons.
+
+The x64 retained-firmware key and pointer callbacks now receive their request
+packet. Fourteen native/source cases preserve callback arguments, input values,
+status and output guards. TerrorUI's first-use theme detection also retains its
+variable-output pointer. First-use and explicit-reload comparisons match the
+reference on all four CPUs. The x64 VM delivers pointer-driven application
+launch, but the integration fixture still produces an empty window; this does
+not yet establish application or desktop parity.

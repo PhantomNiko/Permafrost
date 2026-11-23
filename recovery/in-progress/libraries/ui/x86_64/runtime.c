@@ -10802,7 +10802,7 @@ recovered_10009f20(undefined8 *param_1,undefined8 param_2,int param_3,undefined4
     if ((((_DAT_00280800 == 0x50414d57) && (_DAT_00280804 != 0)) && (0xb < _DAT_00280808)) &&
        (((0x207 < _DAT_00280808 && ((code *)(ulong)_DAT_00280a04 != (code *)0x0)) &&
         (iVar3 = (*(code *)(ulong)_DAT_00280a04)
-                           (*(undefined8 *)((long)&PTR_str_100108f9_10012000 + lVar9)), iVar3 != 0))
+                           (*(undefined8 *)((long)&PTR_str_100108f9_10012000 + lVar9),&local_3f78), iVar3 != 0))
        )) goto LAB_1000a1ac;
     lVar9 = lVar9 + 0x10;
   } while (lVar9 != 0x490);
@@ -10862,7 +10862,7 @@ LAB_1000a1c0:
         if ((0xb < _DAT_00280808) && (PF_PART4(local_3f78, 4) = 0, 0x207 < _DAT_00280808)) {
           if ((code *)(ulong)_DAT_00280a04 == (code *)0x0) goto LAB_1000a1c0;
           iVar3 = (*(code *)(ulong)_DAT_00280a04)
-                            (*(undefined8 *)((long)&PTR_str_100108f9_10012000 + lVar9 * 4));
+                            (*(undefined8 *)((long)&PTR_str_100108f9_10012000 + lVar9 * 4),&local_3f78);
           bVar1 = (int)local_3f78 == 1 && iVar3 != 0;
         }
       }

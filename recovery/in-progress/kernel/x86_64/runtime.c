@@ -24321,7 +24321,7 @@ uint recovered_2015ac0(void)
       uVar5 = DAT_0223bc30;
       if ((uVar5 != 0 && uVar4 != 0) && 0x21f7 < uVar8) {
         *(undefined8 *)(ulong)uVar5 = 1;
-        uVar7 = (*(code *)(ulong)uVar4)();
+        uVar7 = (*(code *)(ulong)uVar4)((void *)(uintptr_t)uVar5);
         return (uint)uVar7;
       }
     }
@@ -34783,7 +34783,7 @@ ulong recovered_201fbb0(uint *param_1)
           uVar21 = DAT_0223bc30;
           if ((undefined8 *)(ulong)uVar21 != (undefined8 *)0x0) {
             *(undefined8 *)(ulong)uVar21 = 7;
-            uVar12 = (*(code *)(ulong)uVar25)();
+            uVar12 = (*(code *)(ulong)uVar25)((void *)(uintptr_t)uVar21);
             local_38 = CONCAT71((int7)((ulong)uVar12 >> 8),(int)uVar12 != 0);
             goto LAB_02020554;
           }

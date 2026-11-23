@@ -28,6 +28,10 @@
       },
       "1000b230": {
         "(*(code *)(ulong)_DAT_00280854)(lVar5);": "(*(code *)(ulong)_DAT_00280854)(lVar5,uVar3);"
+      },
+      "10009f20": {
+        "(*(undefined8 *)((long)&PTR_str_100108f9_10012000 + lVar9)),": "(*(undefined8 *)((long)&PTR_str_100108f9_10012000 + lVar9),&local_3f78),",
+        "(*(undefined8 *)((long)&PTR_str_100108f9_10012000 + lVar9 * 4));": "(*(undefined8 *)((long)&PTR_str_100108f9_10012000 + lVar9 * 4),&local_3f78);"
       }
     }
   }

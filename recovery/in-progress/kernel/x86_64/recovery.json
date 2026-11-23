@@ -462,6 +462,12 @@
       },
       "20ad170": {
         "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "2015ac0": {
+        "(*(code *)(ulong)uVar4)()": "(*(code *)(ulong)uVar4)((void *)(uintptr_t)uVar5)"
+      },
+      "201fbb0": {
+        "(*(code *)(ulong)uVar25)()": "(*(code *)(ulong)uVar25)((void *)(uintptr_t)uVar21)"
       }
     }
   }
