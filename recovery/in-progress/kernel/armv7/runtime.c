@@ -69632,6 +69632,8 @@ LAB_4044a404:
                   do {
                     local_40 = param_10[uVar13 * 6 + 2];
                     uStack_3c = param_10[uVar13 * 6 + 3];
+                    /* Native stores the continuation sentinel through its saved stack pointer. */
+                    local_38 = -6; local_34 = 0xffffffffU;
                     iVar6 = (*(code *)param_2)(param_3,local_40 + uVar16,
                                                uStack_3c + uVar11 + (uint)CARRY4(local_40,uVar16),
                                                &local_40);
@@ -69664,6 +69666,9 @@ LAB_4044a404:
               uStack_3c = puVar9[1];
               uVar13 = uVar13 + 1;
               local_40 = *puVar9;
+              /* Native links the next extent, or ends this chain. */
+              local_38 = uVar13 < uVar8 ? (int)param_10[uVar13 * 6 + 2] : -1;
+              local_34 = uVar13 < uVar8 ? param_10[uVar13 * 6 + 3] : 0xffffffffU;
               iVar6 = (*(code *)param_2)(param_3,puVar9[2],puVar9[3],&local_40);
               puVar9 = puVar9 + 6;
             } while (iVar6 == 0);
@@ -90450,31 +90455,15 @@ undefined4 recovered_40462bec(uint *param_1,undefined8 *param_2,void *param_3,un
 }
 
 
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x40462c7c
- */
-
-void recovered_40462c7c(int *param_1,uint param_2,uint param_3,undefined4 *param_4)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  recovered_4044da14((undefined4 *)(*param_1 + 0x2c),param_2,param_3,*(int *)param_1[1],param_4);
-  return;
+/* Native allocation reader callback retains its status. Pooka's Free Software License. */
+uint recovered_40462c7c(int *context,uint low,uint high,uint *entry){
+ return recovered_4044da14((uint *)(uintptr_t)(*context+0x2c),low,high,*(int *)(uintptr_t)context[1],entry);
 }
 
 
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x40462cac
- */
-
-void recovered_40462cac(int *param_1,uint param_2,uint param_3,undefined4 *param_4)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  recovered_4044f1d8((undefined4 *)(*param_1 + 0x5c),param_2,param_3,param_4,*(void **)param_1[1]);
-  return;
+/* Native allocation writer callback retains its status. Pooka's Free Software License. */
+uint recovered_40462cac(int *context,uint low,uint high,uint *entry){
+ return recovered_4044f1d8((uint *)(uintptr_t)(*context+0x5c),low,high,entry,*(void **)(uintptr_t)context[1]);
 }
 
 

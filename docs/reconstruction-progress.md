@@ -1072,3 +1072,14 @@ The source-kernel VM still loses access to its system volume during desktop
 resource discovery; temporary tracing identifies the failed switch back from
 the ESP. Backgrounds, icons, integrated fonts, ARM64 shell input and remaining
 source recovery still gate the 1.1 images, SDK and milestone tag.
+
+ARM32 directory corruption is reproduced with the real kernel write path and
+an isolated physical transport. The extent allocator omitted native stores
+through a saved stack pointer: new heads lacked end-of-chain or next-extent
+links, and continuation blocks lacked their marker. Restored C stores match
+154 native extent-plan, fragmented-run, 64-bit index, rollback and canary cases;
+the previous implementation fails that fixture. Complete directory creation
+now matches native physical write payloads and succeeds without a damaged
+chain. Allocation callback signatures explicitly return their 32-bit status,
+with 42 receiver, scratch/output pointer and status comparisons. VM integration
+of the repaired allocator remains the next check.

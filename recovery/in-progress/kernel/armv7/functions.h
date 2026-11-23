@@ -846,8 +846,8 @@ int recovered_404626d0(undefined4 *param_1,uint *param_2,uint param_3,int *param
 int recovered_40462b74(undefined4 *param_1,uint param_2,uint param_3,undefined4 *param_4);
 undefined4 recovered_40462bbc(uint *param_1);
 undefined4 recovered_40462bec(uint *param_1,undefined8 *param_2,void *param_3,undefined1 *param_4);
-void recovered_40462c7c(int *param_1,uint param_2,uint param_3,undefined4 *param_4);
-void recovered_40462cac(int *param_1,uint param_2,uint param_3,undefined4 *param_4);
+uint recovered_40462c7c(int *context,uint low,uint high,uint *entry);
+uint recovered_40462cac(int *context,uint low,uint high,uint *entry);
 char * recovered_40462ce0(uint param_1);
 undefined4
 recovered_40462d00(int param_1,uint param_2,uint param_3,int *param_4,void *param_5,int *param_6);

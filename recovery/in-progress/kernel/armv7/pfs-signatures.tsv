@@ -1,0 +1,2 @@
+40462c7c	unsigned int recovered_40462c7c(int *context,unsigned int low,unsigned int high,unsigned int *entry);
+40462cac	unsigned int recovered_40462cac(int *context,unsigned int low,unsigned int high,unsigned int *entry);

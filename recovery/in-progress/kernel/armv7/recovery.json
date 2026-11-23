@@ -50,6 +50,10 @@
       "40411c90": {
         "uVar5 = (*pcVar4)();": "uVar5 = ((unsigned (*)(void *))pcVar4)(puVar3);"
       },
+      "4044a188": {
+        "                    uStack_3c = param_10[uVar13 * 6 + 3];\n                    iVar6 =": "                    uStack_3c = param_10[uVar13 * 6 + 3];\n                    /* Native stores the continuation sentinel through its saved stack pointer. */\n                    local_38 = -6; local_34 = 0xffffffffU;\n                    iVar6 =",
+        "              local_40 = *puVar9;\n              iVar6 =": "              local_40 = *puVar9;\n              /* Native links the next extent, or ends this chain. */\n              local_38 = uVar13 < uVar8 ? (int)param_10[uVar13 * 6 + 2] : -1;\n              local_34 = uVar13 < uVar8 ? param_10[uVar13 * 6 + 3] : 0xffffffffU;\n              iVar6 ="
+      },
       "4047dc40": {
         "(**(code **)(*piVar2 + 0x10))": "((double (*)(void *))*(uintptr_t *)(*piVar2 + 0x10))",
         "(**(code **)(*(int *)font->backend + 0x14))": "((double (*)(void *))*(uintptr_t *)(*(int *)font->backend + 0x14))",
