@@ -613,7 +613,7 @@ char * recovered_10000630(void)
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-int recovered_10000640(void)
+int recovered_10000640(int argc,char **argv)
 
 {
   unsigned char pf_stack_frame[17872] __attribute__((aligned(16))) = {0};
@@ -664,12 +664,10 @@ int recovered_10000640(void)
   long lVar41;
   uint *puVar42;
   int iVar43;
-  long in_RSI;
   byte *pbVar44;
   ulong uVar45;
   long lVar46;
   long lVar47;
-  uint in_EDI;
   int iVar48;
   int iVar49;
   uint uVar50;
@@ -869,10 +867,10 @@ LAB_1000088d:
             }
           }
 LAB_10000e19:
-          if (1 < (int)in_EDI && in_RSI != 0) {
+          if (1 < argc && argv != (char **)0x0) {
             uVar23 = 1;
             do {
-              pcVar28 = *(char **)(in_RSI + uVar23 * 8);
+              pcVar28 = argv[uVar23];
               if (pcVar28 != (char *)0x0) {
                 pcVar67 = thunk_strchr(pcVar28,0x3d);
                 uVar25 = (long)pcVar67 - (long)pcVar28;
@@ -883,7 +881,7 @@ LAB_10000e19:
                 }
               }
               uVar23 = uVar23 + 1;
-            } while (in_EDI != uVar23);
+            } while ((uint)argc != uVar23);
           }
           if (DAT_1004c1c0 != '\0') {
             uVar23 = (ulong)DAT_100490a8;

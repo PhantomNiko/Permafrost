@@ -35,7 +35,7 @@ static inline void pf_app_scrollbars_layout(unsigned long long a,unsigned long l
 #define thunk_terror_ui_window_set_content_size terror_ui_window_set_content_size
 extern uint8_t pf_module_state[];
 char * recovered_10000630(void);
-int recovered_10000640(void);
+int recovered_10000640(int argc,char **argv);
 ulong recovered_10006e30(char *param_1);
 void recovered_10007940(undefined1 *param_1);
 void recovered_10007a40(void);

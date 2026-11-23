@@ -1,4 +1,4 @@
 /* Pooka's Free Software License. */
 #include "functions.h"
 void pf_app_initialize(void);
-int main(void){pf_app_initialize();return recovered_10000640();}
+int main(int argc,char **argv){pf_app_initialize();return recovered_10000640(argc,argv);}

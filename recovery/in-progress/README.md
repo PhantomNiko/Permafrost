@@ -54,3 +54,12 @@ with the native size policy and output validation. Fourteen native/source
 cases preserve output, error strings and allocation/free behavior. The shared
 firmware decoder also passes bounds and malformed-stream checks on all four
 CPUs. Temporary VM tracing remains in ignored build output.
+
+The desktop candidate now has C source checkpoints for every CPU. Its typed
+16-point font services, configuration string returns and path comparisons pass
+native/source fixtures on all four CPUs. ARM32 wallpaper scaling preserves full
+32-bit image dimensions, including heights above 255; nine guarded crop and
+scaling rasters match. The x64 desktop launches and interacts with the source
+UI guest in the VM. ARM32 application launch, ARM64 presentation and BIOS input
+still need compatibility work. These desktop sources do not complete recovery
+of the other installed applications.
