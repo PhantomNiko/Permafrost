@@ -4506,213 +4506,25 @@ double recovered_100047e0(double param_1)
 #undef DAT_1000fc60
 #undef _DAT_1000fc60
 
-#undef DAT_1000fbe0
-#define DAT_1000fbe0 (*(double *)(((uintptr_t)pf_module_state + 0xcU)))
-#undef DAT_1000fc50
-#define DAT_1000fc50 (*(double *)(((uintptr_t)pf_module_state + 0x7cU)))
-#undef DAT_1000fc60
-#define DAT_1000fc60 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x8cU)))
-#undef _DAT_1000fc60
-#define _DAT_1000fc60 (*(uint64_t *)(((uintptr_t)pf_module_state + 0x8cU)))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x10004800
- */
+/* Verified native compiler-helper semantics; Pooka's Free Software License. */
+extern long long pf_numeric_fallback___fixdfdi(double);
+long long recovered_10004800(double value){return pf_numeric_fallback___fixdfdi(value);}
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-ulong recovered_10004800(double param_1)
+/* Verified native compiler-helper semantics; Pooka's Free Software License. */
+extern unsigned long long pf_numeric_fallback___fixunsdfdi(double);
+unsigned long long recovered_100048d0(double value){return pf_numeric_fallback___fixunsdfdi(value);}
 
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
 
-  long lVar1;
-  long lVar2;
-  ulong uVar3;
-  ulong uVar4;
-  ulong uVar5;
-  double dVar6;
-  double dVar7;
+/* Verified native compiler-helper semantics; Pooka's Free Software License. */
+extern double pf_numeric_fallback___floatundidf(unsigned long long);
+double recovered_10004980(unsigned long long value){return pf_numeric_fallback___floatundidf(value);}
 
-  if ((param_1 == 0.0) && (!NAN(param_1))) {
-    return 0;
-  }
-  dVar7 = (double)(_DAT_1000fc60 ^ (ulong)param_1);
-  if ((double)(_DAT_1000fc60 ^ (ulong)param_1) <= param_1) {
-    dVar7 = param_1;
-  }
-  lVar1 = 0x3f;
-  uVar4 = 0;
-  dVar6 = DAT_1000fc50;
-  do {
-    uVar5 = 1L << ((byte)lVar1 & 0x3f);
-    if (dVar7 < dVar6) {
-      uVar5 = 0;
-    }
-    dVar7 = (double)(-(ulong)(dVar7 < dVar6) & (ulong)dVar7 |
-                    ~-(ulong)(dVar7 < dVar6) & (ulong)(dVar7 - dVar6));
-    lVar2 = lVar1 + -1;
-    uVar3 = 1L << ((byte)lVar2 & 0x3f);
-    dVar6 = dVar6 * DAT_1000fbe0;
-    if (dVar7 < dVar6) {
-      uVar3 = 0;
-    }
-    dVar7 = (double)(~-(ulong)(dVar7 < dVar6) & (ulong)(dVar7 - dVar6) |
-                    -(ulong)(dVar7 < dVar6) & (ulong)dVar7);
-    uVar4 = uVar3 | uVar5 | uVar4;
-    dVar6 = dVar6 * DAT_1000fbe0;
-    lVar1 = lVar1 + -2;
-  } while (lVar2 != 0);
-  uVar5 = -uVar4;
-  if (0.0 <= param_1) {
-    uVar5 = uVar4;
-  }
-  return uVar5;
-}
 
-#undef DAT_1000fbe0
-#undef DAT_1000fc50
-#undef DAT_1000fc60
-#undef _DAT_1000fc60
+/* Verified native compiler-helper semantics; Pooka's Free Software License. */
+extern double pf_numeric_fallback___floatdidf(long long);
+double recovered_100049d0(long long value){return pf_numeric_fallback___floatdidf(value);}
 
-#undef DAT_1000fbe0
-#define DAT_1000fbe0 (*(double *)(((uintptr_t)pf_module_state + 0xcU)))
-#undef DAT_1000fc50
-#define DAT_1000fc50 (*(double *)(((uintptr_t)pf_module_state + 0x7cU)))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x100048d0
- */
-
-ulong recovered_100048d0(double param_1)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  ulong uVar1;
-  ulong uVar2;
-  long lVar3;
-  long lVar4;
-  ulong uVar5;
-  double dVar6;
-  double dVar7;
-
-  if (param_1 <= 0.0) {
-    return 0;
-  }
-  lVar3 = 0x3f;
-  uVar2 = 0;
-  dVar6 = DAT_1000fc50;
-  do {
-    uVar5 = 1L << ((byte)lVar3 & 0x3f);
-    if (param_1 < dVar6) {
-      uVar5 = 0;
-    }
-    dVar7 = (double)(-(ulong)(param_1 < dVar6) & (ulong)param_1 |
-                    ~-(ulong)(param_1 < dVar6) & (ulong)(param_1 - dVar6));
-    lVar4 = lVar3 + -1;
-    uVar1 = 1L << ((byte)lVar4 & 0x3f);
-    dVar6 = dVar6 * DAT_1000fbe0;
-    if (dVar7 < dVar6) {
-      uVar1 = 0;
-    }
-    param_1 = (double)(~-(ulong)(dVar7 < dVar6) & (ulong)(dVar7 - dVar6) |
-                      -(ulong)(dVar7 < dVar6) & (ulong)dVar7);
-    uVar2 = uVar1 | uVar5 | uVar2;
-    dVar6 = dVar6 * DAT_1000fbe0;
-    lVar3 = lVar3 + -2;
-  } while (lVar4 != 0);
-  return uVar2;
-}
-
-#undef DAT_1000fbe0
-#undef DAT_1000fc50
-
-#undef DAT_1000fbe8
-#define DAT_1000fbe8 (*(double *)(((uintptr_t)pf_module_state + 0x14U)))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x10004980
- */
-
-double recovered_10004980(ulong param_1)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  bool bVar1;
-  double dVar2;
-  double dVar3;
-
-  if (param_1 == 0) {
-    return 0.0;
-  }
-  dVar2 = 0.0;
-  dVar3 = DAT_1000fbe8;
-  do {
-    if ((param_1 & 1) != 0) {
-      dVar2 = dVar2 + dVar3;
-    }
-    dVar3 = dVar3 + dVar3;
-    bVar1 = 1 < param_1;
-    param_1 = param_1 >> 1;
-  } while (bVar1);
-  return dVar2;
-}
-
-#undef DAT_1000fbe8
-
-#undef DAT_1000fbe8
-#define DAT_1000fbe8 (*(double *)(((uintptr_t)pf_module_state + 0x14U)))
-#undef DAT_1000fc60
-#define DAT_1000fc60 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x8cU)))
-#undef _DAT_1000fc60
-#define _DAT_1000fc60 (*(uint64_t *)(((uintptr_t)pf_module_state + 0x8cU)))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x100049d0
- */
-
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
-double recovered_100049d0(ulong param_1)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  bool bVar1;
-  ulong uVar2;
-  double dVar3;
-  double dVar4;
-
-  if ((long)param_1 < 0) {
-    dVar4 = 0.0;
-    uVar2 = -param_1;
-    dVar3 = DAT_1000fbe8;
-    do {
-      if ((uVar2 & 1) != 0) {
-        dVar4 = dVar4 + dVar3;
-      }
-      dVar3 = dVar3 + dVar3;
-      bVar1 = 1 < uVar2;
-      uVar2 = uVar2 >> 1;
-    } while (bVar1);
-    return (double)((ulong)dVar4 ^ _DAT_1000fc60);
-  }
-  dVar3 = 0.0;
-  if (param_1 != 0) {
-    dVar4 = DAT_1000fbe8;
-    do {
-      if ((param_1 & 1) != 0) {
-        dVar3 = dVar3 + dVar4;
-      }
-      dVar4 = dVar4 + dVar4;
-      bVar1 = 1 < param_1;
-      param_1 = param_1 >> 1;
-    } while (bVar1);
-  }
-  return dVar3;
-}
-
-#undef DAT_1000fbe8
-#undef DAT_1000fc60
-#undef _DAT_1000fc60
 
 /* Reviewed instruction-equivalent C. Pooka's Free Software License. */
 
@@ -9498,302 +9310,32 @@ bool recovered_10008ae0(ulong param_1)
 }
 
 
-#undef DAT_1000fbe0
-#define DAT_1000fbe0 (*(double *)(((uintptr_t)pf_module_state + 0xcU)))
-#undef DAT_1000fbe8
-#define DAT_1000fbe8 (*(double *)(((uintptr_t)pf_module_state + 0x14U)))
-#undef DAT_1000fc48
-#define DAT_1000fc48 (*(double *)(((uintptr_t)pf_module_state + 0x74U)))
-#undef DAT_1000fd00
-#define DAT_1000fd00 (*(double *)(((uintptr_t)pf_module_state + 0x12cU)))
-#undef DAT_1000fd08
-#define DAT_1000fd08 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x134U)))
-#undef DAT_1000fd10
-#define DAT_1000fd10 (*(double *)(((uintptr_t)pf_module_state + 0x13cU)))
-#undef DAT_1000fd18
-#define DAT_1000fd18 (*(double *)(((uintptr_t)pf_module_state + 0x144U)))
-#undef _DAT_1000fd08
-#define _DAT_1000fd08 (*(double *)(((uintptr_t)pf_module_state + 0x134U)))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x10008b10
- */
-
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
-double recovered_10008b10(double param_1)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  uint uVar1;
-  int iVar2;
-  uint uVar3;
-  double dVar4;
-  double dVar5;
-  double dVar6;
-  double dVar7;
-  double dVar8;
-  double dVar9;
-
-  if (NAN(param_1)) {
-    return param_1;
-  }
-  if (_DAT_1000fd08 < param_1) {
-    return DAT_1000fd00;
-  }
-  dVar4 = 0.0;
-  if (DAT_1000fd10 <= param_1) {
-    uVar1 = 0;
-    if (DAT_1000fbe0 < param_1) {
-      uVar1 = 0;
-      do {
-        param_1 = param_1 * DAT_1000fbe0;
-        uVar1 = uVar1 + 1;
-      } while (DAT_1000fbe0 < param_1);
-    }
-    for (; param_1 < DAT_1000fc48; param_1 = param_1 * DAT_1000fbe0) {
-      uVar1 = uVar1 + 1;
-    }
-    iVar2 = 4;
-    dVar4 = DAT_1000fbe8;
-    dVar5 = DAT_1000fbe8;
-    dVar6 = DAT_1000fbe8;
-    do {
-      dVar7 = (param_1 / dVar5) * dVar6;
-      dVar9 = (param_1 / (double)(iVar2 + -2)) * dVar7;
-      dVar8 = (param_1 / (double)(iVar2 + -1)) * dVar9;
-      dVar6 = (param_1 / (double)iVar2) * dVar8;
-      dVar4 = dVar4 + dVar7 + dVar9 + dVar8 + dVar6;
-      dVar5 = dVar5 + DAT_1000fd18;
-      iVar2 = iVar2 + 4;
-    } while (iVar2 != 0x24);
-    if (uVar1 != 0) {
-      uVar3 = uVar1 & 7;
-      if (7 < uVar1) {
-        uVar1 = uVar1 & 0xfffffff8;
-        do {
-          dVar4 = dVar4 * dVar4 * dVar4 * dVar4;
-          dVar4 = dVar4 * dVar4;
-          dVar4 = dVar4 * dVar4;
-          dVar4 = dVar4 * dVar4;
-          dVar4 = dVar4 * dVar4;
-          dVar4 = dVar4 * dVar4;
-          dVar4 = dVar4 * dVar4;
-          uVar1 = uVar1 - 8;
-        } while (uVar1 != 0);
-      }
-      for (; uVar3 != 0; uVar3 = uVar3 - 1) {
-        dVar4 = dVar4 * dVar4;
-      }
-    }
-  }
-  return dVar4;
+/* r232 exponential series and time arithmetic; Pooka's Free Software License. */
+#pragma STDC FP_CONTRACT OFF
+double recovered_10008b10(double value) {
+ if(value!=value)return value;
+ if(value>709.782712893384)return pf_bits_double(0x7ff0000000000000ULL);
+ if(value< -745.1332191019411)return 0.0;
+ unsigned halves=0;
+ while(value>0.5){value*=0.5;++halves;}
+ while(value< -0.5){value*=0.5;++halves;}
+ double sum=1.0,term=1.0;
+ for(int n=1;n<=32;++n){term=(value/(double)n)*term;sum=sum+term;}
+ while(halves--){sum=sum*sum;}
+ return sum;
 }
 
-#undef DAT_1000fbe0
-#undef DAT_1000fbe8
-#undef DAT_1000fc48
-#undef DAT_1000fd00
-#undef DAT_1000fd08
-#undef DAT_1000fd10
-#undef DAT_1000fd18
-#undef _DAT_1000fd08
 
-#undef DAT_1000fbe0
-#define DAT_1000fbe0 (*(double *)(((uintptr_t)pf_module_state + 0xcU)))
-#undef DAT_1000fbe8
-#define DAT_1000fbe8 (*(double *)(((uintptr_t)pf_module_state + 0x14U)))
-#undef DAT_1000fc48
-#define DAT_1000fc48 (*(double *)(((uintptr_t)pf_module_state + 0x74U)))
-#undef DAT_1000fd00
-#define DAT_1000fd00 (*(double *)(((uintptr_t)pf_module_state + 0x12cU)))
-#undef DAT_1000fd08
-#define DAT_1000fd08 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x134U)))
-#undef DAT_1000fd10
-#define DAT_1000fd10 (*(double *)(((uintptr_t)pf_module_state + 0x13cU)))
-#undef DAT_1000fd18
-#define DAT_1000fd18 (*(double *)(((uintptr_t)pf_module_state + 0x144U)))
-#undef DAT_1000fd20
-#define DAT_1000fd20 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x14cU)))
-#undef _DAT_1000fd08
-#define _DAT_1000fd08 (*(double *)(((uintptr_t)pf_module_state + 0x134U)))
-#undef _DAT_1000fd20
-#define _DAT_1000fd20 (*(float *)(((uintptr_t)pf_module_state + 0x14cU)))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x10008c80
- */
+/* Native exponential ABI; Pooka's Free Software License. */
+float recovered_10008c80(float value){return (float)recovered_10008b10((double)value);}
 
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
 
-float recovered_10008c80(float param_1)
+/* Native exponential ABI; Pooka's Free Software License. */
+long double recovered_10008e10(long double value){return (long double)recovered_10008b10((double)value);}
 
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
 
-  uint uVar1;
-  int iVar2;
-  uint uVar3;
-  double dVar4;
-  double dVar5;
-  double dVar6;
-  double dVar7;
-  double dVar8;
-  double dVar9;
-  double dVar10;
-
-  dVar6 = (double)param_1;
-  if (NAN(param_1)) {
-    return param_1;
-  }
-  if (_DAT_1000fd08 < dVar6) {
-    return (float)DAT_1000fd00;
-  }
-  dVar5 = 0.0;
-  if (DAT_1000fd10 <= dVar6) {
-    uVar1 = 0;
-    if (_DAT_1000fd20 < param_1) {
-      uVar1 = 0;
-      do {
-        dVar6 = dVar6 * DAT_1000fbe0;
-        uVar1 = uVar1 + 1;
-      } while (DAT_1000fbe0 < dVar6);
-    }
-    for (; dVar6 < DAT_1000fc48; dVar6 = dVar6 * DAT_1000fbe0) {
-      uVar1 = uVar1 + 1;
-    }
-    iVar2 = 4;
-    dVar4 = DAT_1000fbe8;
-    dVar5 = DAT_1000fbe8;
-    dVar7 = DAT_1000fbe8;
-    do {
-      dVar8 = (dVar6 / dVar4) * dVar7;
-      dVar10 = (dVar6 / (double)(iVar2 + -2)) * dVar8;
-      dVar9 = (dVar6 / (double)(iVar2 + -1)) * dVar10;
-      dVar7 = (dVar6 / (double)iVar2) * dVar9;
-      dVar5 = dVar5 + dVar8 + dVar10 + dVar9 + dVar7;
-      dVar4 = dVar4 + DAT_1000fd18;
-      iVar2 = iVar2 + 4;
-    } while (iVar2 != 0x24);
-    if (uVar1 != 0) {
-      uVar3 = uVar1 & 7;
-      if (7 < uVar1) {
-        uVar1 = uVar1 & 0xfffffff8;
-        do {
-          dVar5 = dVar5 * dVar5 * dVar5 * dVar5;
-          dVar5 = dVar5 * dVar5;
-          dVar5 = dVar5 * dVar5;
-          dVar5 = dVar5 * dVar5;
-          dVar5 = dVar5 * dVar5;
-          dVar5 = dVar5 * dVar5;
-          dVar5 = dVar5 * dVar5;
-          uVar1 = uVar1 - 8;
-        } while (uVar1 != 0);
-      }
-      for (; uVar3 != 0; uVar3 = uVar3 - 1) {
-        dVar5 = dVar5 * dVar5;
-      }
-    }
-  }
-  return (float)dVar5;
-}
-
-#undef DAT_1000fbe0
-#undef DAT_1000fbe8
-#undef DAT_1000fc48
-#undef DAT_1000fd00
-#undef DAT_1000fd08
-#undef DAT_1000fd10
-#undef DAT_1000fd18
-#undef DAT_1000fd20
-#undef _DAT_1000fd08
-#undef _DAT_1000fd20
-
-#undef DAT_1000fbe0
-#define DAT_1000fbe0 (*(double *)(((uintptr_t)pf_module_state + 0xcU)))
-#undef DAT_1000fbe8
-#define DAT_1000fbe8 (*(uint64_t *)(((uintptr_t)pf_module_state + 0x14U)))
-#undef DAT_1000fc48
-#define DAT_1000fc48 (*(double *)(((uintptr_t)pf_module_state + 0x74U)))
-#undef DAT_1000fd00
-#define DAT_1000fd00 (*(uint64_t *)(((uintptr_t)pf_module_state + 0x12cU)))
-#undef DAT_1000fd08
-#define DAT_1000fd08 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x134U)))
-#undef DAT_1000fd10
-#define DAT_1000fd10 (*(double *)(((uintptr_t)pf_module_state + 0x13cU)))
-#undef DAT_1000fd18
-#define DAT_1000fd18 (*(uint64_t *)(((uintptr_t)pf_module_state + 0x144U)))
-#undef _DAT_1000fd08
-#define _DAT_1000fd08 (*(double *)(((uintptr_t)pf_module_state + 0x134U)))
-#define in_stack_00000008 (*(longdouble *)(pf_stack_frame + 40))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x10008e10
- */
-
-/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
-
-void recovered_10008e10(void)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  uint uVar1;
-  int iVar2;
-  uint uVar3;
-  double dVar4;
-
-  dVar4 = (double)in_stack_00000008;
-  if ((dVar4 <= _DAT_1000fd08) && (DAT_1000fd10 <= dVar4)) {
-    uVar1 = 0;
-    if (DAT_1000fbe0 < dVar4) {
-      uVar1 = 0;
-      do {
-        dVar4 = dVar4 * DAT_1000fbe0;
-        uVar1 = uVar1 + 1;
-      } while (DAT_1000fbe0 < dVar4);
-    }
-    for (; dVar4 < DAT_1000fc48; dVar4 = dVar4 * DAT_1000fbe0) {
-      uVar1 = uVar1 + 1;
-    }
-    iVar2 = 4;
-    do {
-      iVar2 = iVar2 + 4;
-    } while (iVar2 != 0x24);
-    if (uVar1 != 0) {
-      uVar3 = uVar1 & 7;
-      if (7 < uVar1) {
-        uVar1 = uVar1 & 0xfffffff8;
-        do {
-          uVar1 = uVar1 - 8;
-        } while (uVar1 != 0);
-      }
-      for (; uVar3 != 0; uVar3 = uVar3 - 1) {
-      }
-    }
-  }
-  return;
-}
-
-#undef DAT_1000fbe0
-#undef DAT_1000fbe8
-#undef DAT_1000fc48
-#undef DAT_1000fd00
-#undef DAT_1000fd08
-#undef DAT_1000fd10
-#undef DAT_1000fd18
-#undef _DAT_1000fd08
-#undef in_stack_00000008
-
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x10008fa0
- */
-
-double recovered_10008fa0(long param_1,long param_2)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  return (double)param_1 - (double)param_2;
-}
+/* Native time difference; Pooka's Free Software License. */
+double recovered_10008fa0(long end,long start){return (double)end-(double)start;}
 
 
 #undef DAT_1000fbe0

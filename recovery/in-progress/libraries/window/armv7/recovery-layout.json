@@ -369,6 +369,12 @@
       },
       "10002188": {
         "0x100100b0": "((uintptr_t)pf_module_state+0x2c0U)"
+      },
+      "10004748": {
+        "recovered_10004908(SUB84(dVar1,0),(int)((ulonglong)dVar1 >> 0x20))": "recovered_10004908(dVar1)"
+      },
+      "10004fcc": {
+        "recovered_10004908(SUB84(dVar1,0),(int)((ulonglong)dVar1 >> 0x20))": "recovered_10004908(dVar1)"
       }
     }
   }

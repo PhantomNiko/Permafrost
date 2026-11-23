@@ -162,64 +162,31 @@ uint recovered_100011b8(uint a,uint b)
 }
 
 
-/* Reviewed instruction-equivalent C. Pooka's Free Software License. */
-
-undefined8 recovered_10001224(float param_1)
-
-{
-  unsigned char frame[64] = {0};
-
-  undefined8 uVar1;
-
-  uVar1 = recovered_100049c8(SUB84((double)param_1,0),(int)((ulonglong)(double)param_1 >> 0x20));
-  return uVar1;
-}
+/* Recovered compiler scalar conversion; Pooka's Free Software License. */
+unsigned long long recovered_10001224(float value){return (unsigned long long)value;}
 
 
-/* Reviewed instruction-equivalent C. Pooka's Free Software License. */
-
-undefined8 recovered_10001234(float param_1)
-
-{
-  unsigned char frame[64] = {0};
-
-  undefined8 uVar1;
-
-  uVar1 = recovered_10004908(SUB84((double)param_1,0),(int)((ulonglong)(double)param_1 >> 0x20));
-  return uVar1;
-}
+/* Recovered compiler scalar conversion; Pooka's Free Software License. */
+long long recovered_10001234(float value){return (long long)value;}
 
 
-/* Reviewed instruction-equivalent C. Pooka's Free Software License. */
-
-float recovered_10001244(uint param_1,uint param_2)
-
-{
-  unsigned char frame[64] = {0};
-
-  undefined4 extraout_r0 = 0;
-  undefined4 extraout_r1 = 0;
-
-  recovered_10004a50(param_1,param_2);
-  return (float)pf_bits_double(CONCAT44(extraout_r1,extraout_r0));
-}
+/* Recovered compiler scalar conversion; Pooka's Free Software License. */
+float recovered_10001244(unsigned long long value){return (float)value;}
 
 
 /* Recovered working notes; Pooka's Free Software License.
- * Address: 0x10001260
+ * Address: 0x10000bc8
  */
 
-float recovered_10001260(int param_1,int param_2)
+float recovered_10001260(undefined4 param_1,undefined4 param_2)
 
 {
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
+  double dVar1;
 
-  undefined4 extraout_r0 = 0;
-  undefined4 extraout_r1 = 0;
-
-  recovered_10004a98(param_1,param_2);
-  return (float)pf_bits_double(CONCAT44(extraout_r1,extraout_r0));
+  dVar1 = recovered_10004a98(CONCAT44(param_2,param_1));
+  return (float)(double)(((ulonglong)dVar1 & 0xffffffff00000000) + ((ulonglong)dVar1 & 0xffffffff));
 }
+
 
 
 #undef DAT_100100a8
@@ -4144,7 +4111,7 @@ undefined8 recovered_10004748(undefined4 param_1,undefined4 param_2)
     dVar1 = 0.5;
   }
   dVar1 = dVar1 + pf_bits_double(CONCAT44(param_2,param_1));
-  uVar2 = recovered_10004908(SUB84(dVar1,0),(int)(pf_double_bits(dVar1) >> 0x20));
+  uVar2 = recovered_10004908(dVar1);
   return uVar2;
 }
 
@@ -4242,181 +4209,24 @@ double recovered_100048e8(undefined4 param_1,undefined4 param_2)
 }
 
 
-#undef DAT_100049c0
-#define DAT_100049c0 (*(double *)(((uintptr_t)&pf_window_literal_100049c0)))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x10004908
- */
-
-undefined8 recovered_10004908(undefined4 param_1,undefined4 param_2)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  uint uVar1;
-  uint uVar2;
-  uint uVar3;
-  uint uVar4;
-  uint uVar5;
-  bool bVar6;
-  double dVar7;
-  double dVar8;
-  double dVar9;
-
-  dVar7 = pf_bits_double(CONCAT44(param_2,param_1));
-  if (dVar7 == 0.0) {
-    return 0;
-  }
-  uVar5 = 0;
-  uVar1 = 0x3f;
-  uVar4 = 0;
-  dVar8 = DAT_100049c0;
-  dVar9 = dVar7;
-  if (dVar7 < 0.0) {
-    dVar9 = -dVar7;
-  }
-  do {
-    uVar2 = 1 << (uVar1 & 0xff);
-    uVar3 = uVar1 - 0x20;
-    if (-1 < (int)uVar3) {
-      uVar2 = 0;
-    }
-    if (dVar8 <= dVar9) {
-      uVar5 = uVar5 | uVar2;
-    }
-    uVar2 = 1 >> (0x20 - uVar1 & 0xff);
-    if (-1 < (int)uVar3) {
-      uVar2 = 1 << (uVar3 & 0xff);
-    }
-    if (dVar8 <= dVar9) {
-      uVar4 = uVar4 | uVar2;
-      dVar9 = dVar9 - dVar8;
-    }
-    bVar6 = uVar1 != 0;
-    uVar1 = uVar1 - 1;
-    dVar8 = dVar8 * 0.5;
-  } while (bVar6);
-  uVar2 = -(uVar4 + (uVar5 != 0));
-  uVar1 = -uVar5;
-  if (0.0 <= dVar7) {
-    uVar2 = uVar4;
-    uVar1 = uVar5;
-  }
-  return CONCAT44(uVar2,uVar1);
-}
-
-#undef DAT_100049c0
-
-#undef DAT_10004a48
-#define DAT_10004a48 (*(double *)(((uintptr_t)&pf_window_literal_10004a48)))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x100049c8
- */
-
-undefined8 recovered_100049c8(undefined4 param_1,undefined4 param_2)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  uint uVar1;
-  uint uVar2;
-  uint uVar3;
-  uint uVar4;
-  uint uVar5;
-  bool bVar6;
-  double dVar7;
-  double dVar8;
-
-  dVar7 = pf_bits_double(CONCAT44(param_2,param_1));
-  uVar1 = 0;
-  uVar2 = 0;
-  if (dVar7 <= 0.0) {
-    return 0;
-  }
-  uVar3 = 0x3f;
-  dVar8 = DAT_10004a48;
-  do {
-    uVar4 = 1 << (uVar3 & 0xff);
-    uVar5 = uVar3 - 0x20;
-    if (-1 < (int)uVar5) {
-      uVar4 = 0;
-    }
-    if (dVar8 <= dVar7) {
-      uVar1 = uVar1 | uVar4;
-    }
-    uVar4 = 1 >> (0x20 - uVar3 & 0xff);
-    if (-1 < (int)uVar5) {
-      uVar4 = 1 << (uVar5 & 0xff);
-    }
-    if (dVar8 <= dVar7) {
-      uVar2 = uVar2 | uVar4;
-      dVar7 = dVar7 - dVar8;
-    }
-    bVar6 = uVar3 != 0;
-    uVar3 = uVar3 - 1;
-    dVar8 = dVar8 * 0.5;
-  } while (bVar6);
-  return CONCAT44(uVar2,uVar1);
-}
-
-#undef DAT_10004a48
-
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x10004a50
- */
-
-void recovered_10004a50(uint param_1,uint param_2)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  byte bVar1;
-
-  if (param_1 == 0 && param_2 == 0) {
-    return;
-  }
-  do {
-    bVar1 = (byte)param_2;
-    param_2 = param_2 >> 1;
-    param_1 = (uint)(bVar1 & 1) << 0x1f | param_1 >> 1;
-  } while (param_1 != 0 || param_2 != 0);
-  return;
-}
+/* Verified native compiler-helper semantics; Pooka's Free Software License. */
+extern long long pf_numeric_fallback___fixdfdi(double);
+long long recovered_10004908(double value){return pf_numeric_fallback___fixdfdi(value);}
 
 
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x10004a98
- */
+/* Verified native compiler-helper semantics; Pooka's Free Software License. */
+extern unsigned long long pf_numeric_fallback___fixunsdfdi(double);
+unsigned long long recovered_100049c8(double value){return pf_numeric_fallback___fixunsdfdi(value);}
 
-void recovered_10004a98(int param_1,int param_2)
 
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
+/* Verified native compiler-helper semantics; Pooka's Free Software License. */
+extern double pf_numeric_fallback___floatundidf(unsigned long long);
+double recovered_10004a50(unsigned long long value){return pf_numeric_fallback___floatundidf(value);}
 
-  byte bVar1;
-  uint uVar2;
-  uint uVar3;
 
-  if (param_2 < 0) {
-    uVar2 = -param_1;
-    uVar3 = -(param_2 + (uint)(param_1 != 0));
-    do {
-      bVar1 = (byte)uVar3;
-      uVar3 = uVar3 >> 1;
-      uVar2 = (uint)(bVar1 & 1) << 0x1f | uVar2 >> 1;
-    } while (uVar2 != 0 || uVar3 != 0);
-    return;
-  }
-  if (param_1 == 0 && param_2 == 0) {
-    return;
-  }
-  do {
-    bVar1 = (byte)param_2;
-    param_2 = (uint)param_2 >> 1;
-    param_1 = (uint)(bVar1 & 1) << 0x1f | (uint)param_1 >> 1;
-  } while (param_1 != 0 || param_2 != 0);
-  return;
-}
+/* Verified native compiler-helper semantics; Pooka's Free Software License. */
+extern double pf_numeric_fallback___floatdidf(long long);
+double recovered_10004a98(long long value){return pf_numeric_fallback___floatdidf(value);}
 
 
 #undef DAT_10004b68
@@ -4786,7 +4596,7 @@ long recovered_10004fcc(undefined4 in_r0,undefined4 in_r1)
     dVar1 = 0.5;
   }
   dVar1 = dVar1 + pf_bits_double(CONCAT44(in_r1,in_r0));
-  uVar2 = recovered_10004908(SUB84(dVar1,0),(int)(pf_double_bits(dVar1) >> 0x20));
+  uVar2 = recovered_10004908(dVar1);
   return (long)uVar2;
 }
 
@@ -8765,205 +8575,32 @@ bool recovered_10008a70(undefined4 param_1,uint param_2)
 }
 
 
-#undef DAT_10008b60
-#define DAT_10008b60 (*(double *)(((uintptr_t)&pf_window_literal_10008b60)))
-#undef DAT_10008b68
-#define DAT_10008b68 (*(double *)(((uintptr_t)&pf_window_literal_10008b68)))
-#undef DAT_10008b70
-#define DAT_10008b70 (*(double *)(((uintptr_t)&pf_window_literal_10008b70)))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x10008a90
- */
-
-double recovered_10008a90(undefined4 param_1,undefined4 param_2)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  int iVar1;
-  int iVar2;
-  double dVar3;
-  double dVar4;
-  double dVar5;
-  double dVar6;
-
-  dVar3 = pf_bits_double(CONCAT44(param_2,param_1));
-  if (NAN(dVar3)) {
-    return pf_bits_double(CONCAT44(param_2,param_1));
-  }
-  if (dVar3 <= DAT_10008b68) {
-    dVar4 = 0.0;
-    if (DAT_10008b70 <= dVar3) {
-      iVar1 = 0;
-      for (; 0.5 < dVar3; dVar3 = dVar3 * 0.5) {
-        iVar1 = iVar1 + 1;
-      }
-      for (; dVar3 < -0.5; dVar3 = dVar3 * 0.5) {
-        iVar1 = iVar1 + 1;
-      }
-      iVar2 = 0x20;
-      dVar5 = 1.0;
-      dVar4 = 1.0;
-      dVar6 = 1.0;
-      do {
-        iVar2 = iVar2 + -1;
-        dVar6 = dVar6 * (dVar3 / dVar5);
-        dVar5 = dVar5 + 1.0;
-        dVar4 = dVar4 + dVar6;
-      } while (iVar2 != 0);
-      for (; iVar1 != 0; iVar1 = iVar1 + -1) {
-        dVar4 = dVar4 * dVar4;
-      }
-    }
-    return dVar4;
-  }
-  return DAT_10008b60;
+/* r232 exponential series and time arithmetic; Pooka's Free Software License. */
+#pragma STDC FP_CONTRACT OFF
+double recovered_10008a90(double value) {
+ if(value!=value)return value;
+ if(value>709.782712893384)return pf_bits_double(0x7ff0000000000000ULL);
+ if(value< -745.1332191019411)return 0.0;
+ unsigned halves=0;
+ while(value>0.5){value*=0.5;++halves;}
+ while(value< -0.5){value*=0.5;++halves;}
+ double sum=1.0,term=1.0;
+ for(int n=1;n<=32;++n){term=(value/(double)n)*term;sum=sum+term;}
+ while(halves--){sum=sum*sum;}
+ return sum;
 }
 
-#undef DAT_10008b60
-#undef DAT_10008b68
-#undef DAT_10008b70
 
-#undef DAT_10008c60
-#define DAT_10008c60 (*(double *)(((uintptr_t)&pf_window_literal_10008c60)))
-#undef DAT_10008c68
-#define DAT_10008c68 (*(double *)(((uintptr_t)&pf_window_literal_10008c68)))
-#undef DAT_10008c70
-#define DAT_10008c70 (*(double *)(((uintptr_t)&pf_window_literal_10008c70)))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x10008b78
- */
+/* Native exponential ABI; Pooka's Free Software License. */
+float recovered_10008b78(float value){return (float)recovered_10008a90((double)value);}
 
-float recovered_10008b78(float param_1)
 
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
+/* Native exponential ABI; Pooka's Free Software License. */
+long double recovered_10008c78(long double value){return (long double)recovered_10008a90((double)value);}
 
-  int iVar1;
-  int iVar2;
-  double dVar3;
-  double dVar4;
-  double dVar5;
-  double dVar6;
 
-  dVar3 = (double)param_1;
-  if (NAN(param_1)) {
-    dVar4 = dVar3;
-  }
-  else if (dVar3 <= DAT_10008c68) {
-    dVar4 = 0.0;
-    if (DAT_10008c70 <= dVar3) {
-      iVar1 = 0;
-      if (0.5 < param_1) {
-        do {
-          dVar3 = dVar3 * 0.5;
-          iVar1 = iVar1 + 1;
-        } while (0.5 < dVar3);
-      }
-      for (; dVar3 < -0.5; dVar3 = dVar3 * 0.5) {
-        iVar1 = iVar1 + 1;
-      }
-      iVar2 = 0x20;
-      dVar5 = 1.0;
-      dVar4 = 1.0;
-      dVar6 = 1.0;
-      do {
-        iVar2 = iVar2 + -1;
-        dVar6 = dVar6 * (dVar3 / dVar5);
-        dVar5 = dVar5 + 1.0;
-        dVar4 = dVar4 + dVar6;
-      } while (iVar2 != 0);
-      for (; iVar1 != 0; iVar1 = iVar1 + -1) {
-        dVar4 = dVar4 * dVar4;
-      }
-    }
-  }
-  else {
-    dVar4 = DAT_10008c60;
-  }
-  return (float)dVar4;
-}
-
-#undef DAT_10008c60
-#undef DAT_10008c68
-#undef DAT_10008c70
-
-#undef DAT_10008d48
-#define DAT_10008d48 (*(double *)(((uintptr_t)&pf_window_literal_10008d48)))
-#undef DAT_10008d50
-#define DAT_10008d50 (*(double *)(((uintptr_t)&pf_window_literal_10008d50)))
-#undef DAT_10008d58
-#define DAT_10008d58 (*(double *)(((uintptr_t)&pf_window_literal_10008d58)))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x10008c78
- */
-
-double recovered_10008c78(undefined4 param_1,undefined4 param_2)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  int iVar1;
-  int iVar2;
-  double dVar3;
-  double dVar4;
-  double dVar5;
-  double dVar6;
-
-  dVar3 = pf_bits_double(CONCAT44(param_2,param_1));
-  if (NAN(dVar3)) {
-    return pf_bits_double(CONCAT44(param_2,param_1));
-  }
-  if (dVar3 <= DAT_10008d50) {
-    dVar4 = 0.0;
-    if (DAT_10008d58 <= dVar3) {
-      iVar1 = 0;
-      for (; 0.5 < dVar3; dVar3 = dVar3 * 0.5) {
-        iVar1 = iVar1 + 1;
-      }
-      for (; dVar3 < -0.5; dVar3 = dVar3 * 0.5) {
-        iVar1 = iVar1 + 1;
-      }
-      iVar2 = 0x20;
-      dVar5 = 1.0;
-      dVar4 = 1.0;
-      dVar6 = 1.0;
-      do {
-        iVar2 = iVar2 + -1;
-        dVar6 = dVar6 * (dVar3 / dVar5);
-        dVar5 = dVar5 + 1.0;
-        dVar4 = dVar4 + dVar6;
-      } while (iVar2 != 0);
-      for (; iVar1 != 0; iVar1 = iVar1 + -1) {
-        dVar4 = dVar4 * dVar4;
-      }
-    }
-    return dVar4;
-  }
-  return DAT_10008d48;
-}
-
-#undef DAT_10008d48
-#undef DAT_10008d50
-#undef DAT_10008d58
-
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x10008d60
- */
-
-double recovered_10008d60(undefined4 param_1,undefined4 param_2)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  uint in_fpscr;
-  double dVar1;
-  double dVar2;
-
-  dVar1 = (double)VectorSignedToFloat(param_2,(byte)(in_fpscr >> 0x16) & 3);
-  dVar2 = (double)VectorSignedToFloat(param_1,(byte)(in_fpscr >> 0x16) & 3);
-  return dVar2 - dVar1;
-}
+/* Native time difference; Pooka's Free Software License. */
+double recovered_10008d60(long end,long start){return (double)end-(double)start;}
 
 
 /* Reviewed instruction-equivalent C. Pooka's Free Software License. */

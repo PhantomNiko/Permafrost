@@ -1255,3 +1255,9 @@ TundraWindow's ARM64 numeric/math checks, including NaN propagation. Its
 window queries, 56 system-font cases and context checks continue to pass.
 The console vector helper keeps the full-width bound operation while its
 separate 64-bit reduction retains its original lane count.
+
+TundraWindow's remaining CPUs now also pass the 46 numeric and 63 math ABI
+cases, including exceptional values and exact exponential results. Shared
+release-matched C helpers replace stale register-pair and aggregate-return
+bodies; ARM32 rounding callers pass typed doubles. Window creation/query,
+56 system-font cases per CPU and saved-context checks remain passing.
