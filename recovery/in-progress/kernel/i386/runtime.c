@@ -100268,73 +100268,24 @@ int recovered_2069670(void)
 
 #undef DAT_02464610
 
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x2069690
- */
-
-void recovered_2069690(int param_1)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-                    /* WARNING: Could not recover jumptable at 0x0206969a. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  (**(code **)(param_1 + 0x24))();
-  return;
+/* Native IA32 exception-scope stack, frame and program-counter transfer.
+ * Pooka's Free Software License. */
+__attribute__((naked,noreturn)) void recovered_2069690(void *context){
+ __asm__ volatile("movl 4(%esp),%eax\nmovl 40(%eax),%esp\nmovl 32(%eax),%ebp\njmpl *36(%eax)");
 }
 
 
-#define unaff_retaddr (*(undefined4 *)(pf_stack_frame + 32))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x20696a0
- */
-
-/* WARNING: Removing unreachable block (ram,0x020696ca) */
-
-undefined4 recovered_20696a0(undefined4 *param_1)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  int iVar1;
-  undefined4 unaff_EBX = 0;
-  undefined4 unaff_EBP;
-  undefined4 unaff_ESI;
-  undefined4 unaff_EDI;
-
-  *param_1 = unaff_EBX;
-  param_1[1] = unaff_ESI;
-  param_1[2] = unaff_EDI;
-  param_1[3] = unaff_EBP;
-  param_1[4] = &param_1;
-  param_1[5] = unaff_retaddr;
-  param_1[6] = 0xffffffff;
-  iVar1 = cpuid_Version_info(1);
-  if ((*(uint *)(iVar1 + 8) & 0x3000000) == 0x3000000) {
-    param_1[6] = pf_read_MXCSR();
-  }
-  *(undefined2 *)(param_1 + 7) = ((undefined2)pf_fpu_control());
-  return 0;
+/* Native IA32 nonlocal context and floating-point control state.
+ * Pooka's Free Software License. */
+__attribute__((naked,returns_twice)) int recovered_20696a0(void *context){
+ __asm__ volatile("movl 4(%esp),%eax\nmovl %ebx,0(%eax)\nmovl %esi,4(%eax)\nmovl %edi,8(%eax)\nmovl %ebp,12(%eax)\nleal 4(%esp),%edx\nmovl %edx,16(%eax)\nmovl (%esp),%edx\nmovl %edx,20(%eax)\nmovl $-1,24(%eax)\nmovl %eax,%esi\nmovl $1,%eax\ncpuid\nandl $0x3000000,%edx\ncmpl $0x3000000,%edx\njne 1f\nstmxcsr 24(%esi)\n1: fnstcw 28(%esi)\nxorl %eax,%eax\nmovl 0(%esi),%ebx\nmovl 4(%esi),%esi\nret");
 }
 
-#undef unaff_retaddr
 
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x20696f0
- */
-
-void recovered_20696f0(int param_1)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  if (*(int *)(param_1 + 0x18) != -1) {
-    pf_write_MXCSR(*(undefined4 *)(param_1 + 0x18));
-  }
-                    /* WARNING: Could not recover jumptable at 0x0206971c. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  (**(code **)(param_1 + 0x14))();
-  return;
+/* Native IA32 context restore and zero-to-one longjmp normalization.
+ * Pooka's Free Software License. */
+__attribute__((naked,noreturn)) void recovered_20696f0(void *context,int value){
+ __asm__ volatile("movl 4(%esp),%edx\nmovl 8(%esp),%eax\ntestl %eax,%eax\njne 1f\nmovl $1,%eax\n1: cmpl $-1,24(%edx)\nje 2f\nldmxcsr 24(%edx)\n2: fldcw 28(%edx)\nmovl 0(%edx),%ebx\nmovl 4(%edx),%esi\nmovl 8(%edx),%edi\nmovl 12(%edx),%ebp\nmovl 16(%edx),%esp\njmpl *20(%edx)");
 }
 
 
@@ -121455,14 +121406,14 @@ LAB_02083854:
               __atomic_thread_fence(__ATOMIC_SEQ_CST);
               if (*(int *)(iVar1 + 0x1c) == 0) {
                 *(undefined1 *)(iVar1 + 0x10) = 1;
-                iVar5 = recovered_20696a0((undefined4 *)(iVar1 + 0x60));
+                iVar5 = recovered_20696a0((void *)(iVar1 + 0x60));
                 if (iVar5 != 0) {
                   *(undefined1 *)(iVar1 + 0x10) = 0;
                   return;
                 }
               }
                     /* WARNING: Subroutine does not return */
-              recovered_20696f0((int)(&UNK_02477840 + iVar7));
+              recovered_20696f0(&UNK_02477840 + iVar7,1);
             }
             piVar6 = piVar6 + 3;
             iVar5 = iVar5 + -1;
@@ -121613,7 +121564,7 @@ void recovered_2083a40(void *caller)
     if (((iVar1 != 0) && (*(int *)(iVar1 + 0x18) != 0)) &&
        ((*(int *)(iVar1 + 0x18) != 3 || (*(int *)(iVar1 + 0x1c) != 0)))) {
                     /* WARNING: Subroutine does not return */
-      recovered_20696f0((int)(&UNK_02477840 + uVar3 * 0x70));
+      recovered_20696f0(&UNK_02477840 + uVar3 * 0x70,1);
     }
   }
   uVar3 = recovered_2008bf0();
@@ -138164,9 +138115,9 @@ void recovered_20950b0(void)
       if ((((*(int *)(iVar3 + 0x18) != 3) || (*(int *)(iVar3 + 0x18) == 0)) ||
           (*(int *)(iVar3 + 0x18) == 5)) ||
          ((*(int *)(iVar3 + 0x1c) != 0 ||
-          (iVar3 = recovered_20696a0((undefined4 *)(iVar3 + 0x60)), iVar3 == 0)))) {
+          (iVar3 = recovered_20696a0((void *)(iVar3 + 0x60)), iVar3 == 0)))) {
                     /* WARNING: Subroutine does not return */
-        recovered_20696f0((int)(&UNK_02477840 + iVar2));
+        recovered_20696f0(&UNK_02477840 + iVar2,1);
       }
       return;
     }
@@ -155551,7 +155502,7 @@ uint recovered_20a83d0(char *server,void *outInfo,char *errorText,uint errorText
               if (((iVar5 != 0) && (*(int *)(iVar5 + 0x18) != 0)) &&
                  ((*(int *)(iVar5 + 0x18) != 3 || (*(int *)(iVar5 + 0x1c) != 0)))) {
                     /* WARNING: Subroutine does not return */
-                recovered_20696f0((int)(&UNK_02477840 + uVar3 * 0x70));
+                recovered_20696f0(&UNK_02477840 + uVar3 * 0x70,1);
               }
             }
             recovered_201b110(1000);
@@ -156172,7 +156123,7 @@ LAB_020a93e6:
           if (((iVar7 != 0) && (*(int *)(iVar7 + 0x18) != 0)) &&
              ((*(int *)(iVar7 + 0x18) != 3 || (*(int *)(iVar7 + 0x1c) != 0)))) {
                     /* WARNING: Subroutine does not return */
-            recovered_20696f0((int)(&UNK_02477840 + uVar9 * 0x70));
+            recovered_20696f0(&UNK_02477840 + uVar9 * 0x70,1);
           }
         }
         recovered_201b110(1000);
@@ -157205,7 +157156,7 @@ undefined4 recovered_20aa190(uint *param_1)
         if (((iVar1 != 0) && (*(int *)(iVar1 + 0x18) != 0)) &&
            ((*(int *)(iVar1 + 0x18) != 3 || (*(int *)(iVar1 + 0x1c) != 0)))) {
                     /* WARNING: Subroutine does not return */
-          recovered_20696f0((int)(&UNK_02477840 + uVar5 * 0x70));
+          recovered_20696f0(&UNK_02477840 + uVar5 * 0x70,1);
         }
       }
     }
@@ -157443,7 +157394,7 @@ void recovered_20aa630(void)
     if (((iVar1 != 0) && (*(int *)(iVar1 + 0x18) != 0)) &&
        ((*(int *)(iVar1 + 0x18) != 3 || (*(int *)(iVar1 + 0x1c) != 0)))) {
                     /* WARNING: Subroutine does not return */
-      recovered_20696f0((int)(&UNK_02477840 + uVar2 * 0x70));
+      recovered_20696f0(&UNK_02477840 + uVar2 * 0x70,1);
     }
   }
   return;
@@ -158412,7 +158363,7 @@ uint recovered_20ab520(char *line,char *outText,uint outTextSize)
     if (((iVar2 != 0) && (*(int *)(iVar2 + 0x18) != 0)) &&
        ((*(int *)(iVar2 + 0x18) != 3 || (*(int *)(iVar2 + 0x1c) != 0)))) {
                     /* WARNING: Subroutine does not return */
-      recovered_20696f0((int)(&UNK_02477840 + uVar5 * 0x70));
+      recovered_20696f0(&UNK_02477840 + uVar5 * 0x70,1);
     }
   }
   pcVar10 = &DAT_0211178b;
@@ -211797,14 +211748,14 @@ LAB_020e2cf1:
     }
   }
   recovered_200b4e0();
-  iVar5 = recovered_20696a0((undefined4 *)(in_EDX + 0x20));
+  iVar5 = recovered_20696a0(in_EDX + 0x20);
   if (iVar5 == 0) {
     if (*(char *)(in_ECX + 0xd) != '\0') {
       if (*(char *)(in_ECX + 0x10) == '\x01') {
         recovered_200b500();
       }
                     /* WARNING: Subroutine does not return */
-      recovered_20696f0(in_ECX + 0x60);
+      recovered_20696f0((void *)(in_ECX + 0x60),1);
     }
     *(undefined1 *)(in_ECX + 0xd) = 1;
     recovered_2094d00(str_0211678f,*(uint *)(in_ECX + 0x24),(void *)(in_ECX + 0xb4));
@@ -221953,7 +221904,7 @@ LAB_020ed2c0:
         if (((iVar6 != 0) && (*(int *)(iVar6 + 0x18) != 0)) &&
            ((*(int *)(iVar6 + 0x18) != 3 || (*(int *)(iVar6 + 0x1c) != 0)))) {
                     /* WARNING: Subroutine does not return */
-          recovered_20696f0((int)(&UNK_02477840 + uVar9 * 0x70));
+          recovered_20696f0(&UNK_02477840 + uVar9 * 0x70,1);
         }
       }
       recovered_201b110(1000);
@@ -222256,7 +222207,7 @@ undefined4 recovered_20ed990(void *in_ECX,uint *in_EDX,int param_3)
         if (((iVar1 != 0) && (*(int *)(iVar1 + 0x18) != 0)) &&
            ((*(int *)(iVar1 + 0x18) != 3 || (*(int *)(iVar1 + 0x1c) != 0)))) {
                     /* WARNING: Subroutine does not return */
-          recovered_20696f0((int)(&UNK_02477840 + uVar2 * 0x70));
+          recovered_20696f0(&UNK_02477840 + uVar2 * 0x70,1);
         }
       }
       recovered_201b110(1000);
@@ -222399,7 +222350,7 @@ undefined4 recovered_20eda80(int in_ECX,uint in_EDX,char *param_3,char *param_4,
           if (((iVar4 != 0) && (*(int *)(iVar4 + 0x18) != 0)) &&
              ((*(int *)(iVar4 + 0x18) != 3 || (*(int *)(iVar4 + 0x1c) != 0)))) {
                     /* WARNING: Subroutine does not return */
-            recovered_20696f0((int)(&UNK_02477840 + uVar3 * 0x70));
+            recovered_20696f0(&UNK_02477840 + uVar3 * 0x70,1);
           }
         }
         recovered_201b110(1000);
@@ -239084,7 +239035,7 @@ LAB_020ff167:
             if (((iVar12 != 0) && (*(int *)(iVar12 + 0x18) != 0)) &&
                ((*(int *)(iVar12 + 0x18) != 3 || (*(int *)(iVar12 + 0x1c) != 0)))) {
                     /* WARNING: Subroutine does not return */
-              recovered_20696f0((int)(&UNK_02477840 + uVar16 * 0x70));
+              recovered_20696f0(&UNK_02477840 + uVar16 * 0x70,1);
             }
           }
           uVar10 = uVar10 + uVar11;
@@ -243268,7 +243219,7 @@ undefined4 recovered_21036e0(int param_1,uint param_2,int param_3,char *param_4,
             if (((iVar4 != 0) && (*(int *)(iVar4 + 0x18) != 0)) &&
                ((*(int *)(iVar4 + 0x18) != 3 || (*(int *)(iVar4 + 0x1c) != 0)))) {
                     /* WARNING: Subroutine does not return */
-              recovered_20696f0((int)(&UNK_02477840 + uVar2 * 0x70));
+              recovered_20696f0(&UNK_02477840 + uVar2 * 0x70,1);
             }
           }
           recovered_201b110(1000);
@@ -249032,7 +248983,7 @@ recovered_2108da0(int in_ECX,int in_EDX,void *param_3,uint param_4,int param_5,u
             if (((iVar2 != 0) && (*(int *)(iVar2 + 0x18) != 0)) &&
                ((*(int *)(iVar2 + 0x18) != 3 || (*(int *)(iVar2 + 0x1c) != 0)))) {
                     /* WARNING: Subroutine does not return */
-              recovered_20696f0((int)(&UNK_02477840 + uVar3 * 0x70));
+              recovered_20696f0(&UNK_02477840 + uVar3 * 0x70,1);
             }
           }
           uVar5 = uVar5 + 1;
