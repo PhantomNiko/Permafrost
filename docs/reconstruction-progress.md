@@ -913,3 +913,20 @@ of ten allocation results match the original allocation sizes and admission
 branch. The VM progresses to a later null callback exception, still under
 investigation. The x64 allocator comparison is now reproducible with synthetic
 guest state and covers 1,500 operations without requiring a VM capture.
+
+The ARM32 PFS allocation-entry validator now implements the native sentinel
+jump table in C. A misidentified indirect call had jumped to zero for reserved
+link entries. The replacement matches 3,864 native cases, including reserved
+values, bounds and 64-bit carries. Regeneration retains this implementation
+and the allocation guard; both comparison suites pass again after regeneration.
+
+Reviewed return-register corrections now apply to 47 ARM64, 17 ARM32 and 11
+x64 functions. Custom VOID storage previously prevented the ARM64 analysis
+script from applying its entire manifest; explicit return-register replacement
+preserves custom parameter locations. ARM64 native-storage enumeration matches
+160 count, bounded-record and canary cases. ARM32 free-heap reporting matches
+253 linked-list cases, including totals exceeding four GiB. x64 now reports
+its available heap in the VM. Conditional format recovery covers 657 x64 call
+sites. Array-expression lowering retains the scalar memory operand of an XOR
+instead of taking the address of the resulting value. Complete VM startup,
+installed component recovery and SDK promotion remain unfinished.

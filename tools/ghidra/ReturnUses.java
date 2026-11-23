@@ -5,6 +5,8 @@ import ghidra.app.script.GhidraScript;
 import ghidra.program.model.data.*;
 import ghidra.program.model.symbol.SourceType;
 import java.nio.file.*;
+import ghidra.program.model.listing.VariableStorage;
+import ghidra.program.model.pcode.Varnode;
 
 public class ReturnUses extends GhidraScript {
  public void run()throws Exception {
@@ -22,7 +24,19 @@ public class ReturnUses extends GhidraScript {
     case 8:type=UnsignedLongLongDataType.dataType;break;
     default:throw new Exception("Unsupported return width "+fields[1]);
    }
-   function.setReturnType(type,SourceType.USER_DEFINED);count++;
+   // A decompiler-inferred custom VOID storage cannot be resized. Replace
+   // only the return storage, preserving reviewed custom parameter locations.
+   var register=currentProgram.getRegister("x0");
+   if(register==null)register=currentProgram.getRegister("RAX");
+   boolean arm32=false;
+   if(register==null){register=currentProgram.getRegister("r0");arm32=register!=null;}
+   if(register==null)register=currentProgram.getRegister("EAX");
+   if(register==null)throw new Exception("Return-register model needs review");
+   function.setCustomVariableStorage(true);
+   var storage=arm32 && type.getLength()==8?
+       new VariableStorage(currentProgram,currentProgram.getRegister("r1"),register):
+       new VariableStorage(currentProgram,new Varnode(register.getAddress(),type.getLength()));
+   function.setReturn(type,storage,SourceType.USER_DEFINED);count++;
   }
   println("Applied reviewed native return uses: "+count);
  }

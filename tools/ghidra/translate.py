@@ -574,7 +574,12 @@ def exact_array_stores(source):
                 value='PF_PART%d(%s,0)'%(width,value)
             dereference=re.match(r'^\*\(undefined1\s*\(\*\)\s*\[(\d+)\]\)',value)
             if dereference:
-                value='PF_PART%d(%s,0)'%(int(dereference[1]),value)
+                size=int(dereference[1])
+                scalar={1:'uint8_t',2:'uint16_t',4:'uint32_t',8:'uint64_t',16:'uint128'}.get(size)
+                # Lower the memory operand itself: the remaining expression
+                # can be an XOR or another rvalue whose address cannot be taken.
+                value=('*('+scalar+' *)'+value[dereference.end():] if scalar else
+                       'PF_PART%d(%s,0)'%(size,value))
             return 'PF_PART%d(%s,0) = %s;'%(width,name,value)
         source=re.sub(r'\b'+re.escape(name)+r'\s*=(?!=)\s*([^;]+);',store,source)
     # An explicit array dereference on an assignment copies N bytes. C arrays

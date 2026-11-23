@@ -38,6 +38,13 @@
       "2097b00"
     ],
     "stack_origin_bias": 8,
+    "call_argument_defaults": {
+      "2072110": {
+        "1": [
+          "1"
+        ]
+      }
+    },
     "source_replacements": {
       "2096660": {
         "joined_r0x02096922:\n    uVar6 = 0;\n  }": "    uVar6 = 0;\n  }",
@@ -53,13 +60,6 @@
       },
       "21222c0": {
         "(*local_68)(&DAT_02132f90)": "((int (*)(const void *,const void *))local_68)(&DAT_02132f90,local_40)"
-      }
-    },
-    "call_argument_defaults": {
-      "2072110": {
-        "1": [
-          "1"
-        ]
       }
     }
   }

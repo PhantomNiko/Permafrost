@@ -9,3 +9,4 @@
 20c7af0	8	_kernel_heap_realloc	[[8, 34274470, 34274475, "mov r12, rax"], [8, 34654776, 34654781, "mov rcx, rax"]]
 20c8ad0	8	_kernel_heap_malloc_range	[[8, 34200651, 34200656, "test rax, rax"], [8, 34200819, 34200824, "test rax, rax"]]
 210b3b0	1	_driver_loaded_reserve	[[1, 34648120, 34648125, "test al, al"]]
+2025590	8	_wm_platform_heap_free_bytes64	[[8, 34240908, 34240913, "mov r12, rax"], [8, 34254486, 34254493, "sub r15, rax"], [8, 34256500, 34256505, "mov qword ptr [rbx + 4], rax"], [8, 34390632, 34390642, "mov rdi, rax"], [8, 34618046, 34618063, "mov rdi, rax"], [8, 34741107, 34741112, "mov qword ptr [r15], rax"]]
