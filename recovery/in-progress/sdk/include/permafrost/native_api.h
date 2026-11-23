@@ -7,7 +7,7 @@
 #elif defined(__arm__)
 #define WM_BAREMETAL_PROGRAM_API_PHYSICAL 0x40010800u
 #else
-#define WM_BAREMETAL_PROGRAM_API_PHYSICAL 0x00006800u
+#define WM_BAREMETAL_PROGRAM_API_PHYSICAL 0x00280800u
 #endif
 #endif
 #define WM_BAREMETAL_PROGRAM_API_MAGIC 0x50414d57u
@@ -305,6 +305,12 @@ typedef struct WmBaremetalProgramAppWindowInfo {
 	char editMenu[160];
 	char windowMenu[160];
 } WmBaremetalProgramAppWindowInfo;
+
+/* Source image dimensions followed by the damaged client rectangle. */
+typedef struct WmBaremetalProgramAppWindowRectUpdate {
+ uint32_t width,height,stride;
+ uint32_t x,y,rectWidth,rectHeight;
+} WmBaremetalProgramAppWindowRectUpdate;
 
 typedef struct WmBaremetalProgramAppWindowPointerInfo {
 	uint32_t flags;
@@ -2342,6 +2348,83 @@ static inline uint32_t wm_program_ws_run_file_on_device(int32_t deviceId,const c
  if(!wm_program_api_field_ready(api,WM_BAREMETAL_PROGRAM_API_WS_RUN_FILE_ON_DEVICE_FN_OFFSET))return 0u;
  uint32_t address=api->wsRunFileOnDeviceFn;
  return address?(uint32_t)((unsigned char (*)(int32_t,const char *))(uintptr_t)address)(deviceId,path):0u;
+#endif
+}
+
+static inline uint32_t wm_program_terminal_open(void) {
+#ifdef WM_BAREMETAL_PROGRAM_USE_X64_BRIDGE
+ return (uint32_t)WM_PROGRAM_X64_CALL0(WM_BAREMETAL_PROGRAM_API_TERMINAL_OPEN_FN_OFFSET);
+#else
+ const volatile WmBaremetalProgramApi *api=wm_program_api();
+ if(!wm_program_api_field_ready(api,WM_BAREMETAL_PROGRAM_API_TERMINAL_OPEN_FN_OFFSET))return 0u;
+ uint32_t address=api->terminalOpenFn;
+ return address?(uint32_t)((uint32_t (*)(void))(uintptr_t)address)():0u;
+#endif
+}
+
+static inline uint32_t wm_program_terminal_drain(char *output,uint32_t capacity) {
+#ifdef WM_BAREMETAL_PROGRAM_USE_X64_BRIDGE
+ return (uint32_t)WM_PROGRAM_X64_CALL2(WM_BAREMETAL_PROGRAM_API_TERMINAL_DRAIN_FN_OFFSET, output,capacity);
+#else
+ const volatile WmBaremetalProgramApi *api=wm_program_api();
+ if(!wm_program_api_field_ready(api,WM_BAREMETAL_PROGRAM_API_TERMINAL_DRAIN_FN_OFFSET))return 0u;
+ uint32_t address=api->terminalDrainFn;
+ return address?(uint32_t)((uint32_t (*)(char *,uint32_t))(uintptr_t)address)(output,capacity):0u;
+#endif
+}
+
+static inline uint32_t wm_program_terminal_input_state(void) {
+#ifdef WM_BAREMETAL_PROGRAM_USE_X64_BRIDGE
+ return (uint32_t)WM_PROGRAM_X64_CALL0(WM_BAREMETAL_PROGRAM_API_TERMINAL_INPUT_STATE_FN_OFFSET)&255u;
+#else
+ const volatile WmBaremetalProgramApi *api=wm_program_api();
+ if(!wm_program_api_field_ready(api,WM_BAREMETAL_PROGRAM_API_TERMINAL_INPUT_STATE_FN_OFFSET))return 0u;
+ uint32_t address=api->terminalInputStateFn;
+ return address?((uint32_t (*)(void))(uintptr_t)address)()&255u:0u;
+#endif
+}
+
+static inline uint32_t wm_program_terminal_submit(const char *line) {
+#ifdef WM_BAREMETAL_PROGRAM_USE_X64_BRIDGE
+ return (uint32_t)WM_PROGRAM_X64_CALL1(WM_BAREMETAL_PROGRAM_API_TERMINAL_SUBMIT_FN_OFFSET, line);
+#else
+ const volatile WmBaremetalProgramApi *api=wm_program_api();
+ if(!wm_program_api_field_ready(api,WM_BAREMETAL_PROGRAM_API_TERMINAL_SUBMIT_FN_OFFSET))return 0u;
+ uint32_t address=api->terminalSubmitFn;
+ return address?(uint32_t)((uint32_t (*)(const char *))(uintptr_t)address)(line):0u;
+#endif
+}
+
+static inline uint32_t wm_program_terminal_cancel(void) {
+#ifdef WM_BAREMETAL_PROGRAM_USE_X64_BRIDGE
+ return (uint32_t)WM_PROGRAM_X64_CALL0(WM_BAREMETAL_PROGRAM_API_TERMINAL_CANCEL_FN_OFFSET);
+#else
+ const volatile WmBaremetalProgramApi *api=wm_program_api();
+ if(!wm_program_api_field_ready(api,WM_BAREMETAL_PROGRAM_API_TERMINAL_CANCEL_FN_OFFSET))return 0u;
+ uint32_t address=api->terminalCancelFn;
+ return address?(uint32_t)((uint32_t (*)(void))(uintptr_t)address)():0u;
+#endif
+}
+
+static inline uint32_t wm_program_ws_get_variable(const char *name,WmBaremetalProgramWinterScriptValue *outValue) {
+#ifdef WM_BAREMETAL_PROGRAM_USE_X64_BRIDGE
+ return (uint32_t)WM_PROGRAM_X64_CALL2(WM_BAREMETAL_PROGRAM_API_WS_GET_VARIABLE_FN_OFFSET, name,outValue);
+#else
+ const volatile WmBaremetalProgramApi *api=wm_program_api();
+ if(!wm_program_api_field_ready(api,WM_BAREMETAL_PROGRAM_API_WS_GET_VARIABLE_FN_OFFSET))return 0u;
+ uint32_t address=api->wsGetVariableFn;
+ return address?(uint32_t)((uint32_t (*)(const char *,WmBaremetalProgramWinterScriptValue *))(uintptr_t)address)(name,outValue):0u;
+#endif
+}
+
+static inline uint32_t wm_program_app_window_update_rect(uint32_t window,const void *pixels,const WmBaremetalProgramAppWindowRectUpdate *rect) {
+#ifdef WM_BAREMETAL_PROGRAM_USE_X64_BRIDGE
+ return (uint32_t)WM_PROGRAM_X64_CALL3(WM_BAREMETAL_PROGRAM_API_APP_WINDOW_UPDATE_RECT_FN_OFFSET, window,pixels,rect);
+#else
+ const volatile WmBaremetalProgramApi *api=wm_program_api();
+ if(!wm_program_api_field_ready(api,WM_BAREMETAL_PROGRAM_API_APP_WINDOW_UPDATE_RECT_FN_OFFSET))return 0u;
+ uint32_t address=api->appWindowUpdateRectFn;
+ return address?(uint32_t)((uint32_t (*)(uint32_t,const void *,const WmBaremetalProgramAppWindowRectUpdate *))(uintptr_t)address)(window,pixels,rect):0u;
 #endif
 }
 

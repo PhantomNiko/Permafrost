@@ -1,0 +1,8 @@
+{
+  "architecture": "arm64",
+  "functions": 558,
+  "public_functions": 515,
+  "data_exports": 7,
+  "version": "1.1",
+  "runtime_recovery": "Existing C/C++ runtime with updated 1.1 WMAP placement; reference runtime equivalence remains under validation."
+}

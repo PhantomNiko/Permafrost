@@ -102,3 +102,6 @@
 0x244	unsigned int service(void);
 0x248	unsigned int service(const char *line);
 0x24c	unsigned int service(void);
+0x1d8	unsigned int service(void);
+0x1dc	unsigned int service(unsigned int index,void *state);
+0x1e0	unsigned int service(unsigned int index,void *request);

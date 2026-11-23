@@ -1,0 +1,8 @@
+{
+  "architecture": "i386",
+  "functions": 529,
+  "public_functions": 513,
+  "data_exports": 7,
+  "version": "1.1",
+  "runtime_recovery": "Existing C/C++ runtime with updated 1.1 WMAP placement; reference runtime equivalence remains under validation."
+}

@@ -89,10 +89,9 @@ Pigeon shares the Cancer implementation: its native code and initialized runtime
 sections are identical; ARM64 differs only in a name in the link-edit segment.
 Both applications build from the checked-in C sources on every CPU.
 
-VM checks still expose kernel and integration defects. The x64 terminal evaluates
-a command but emits the result outside its window; the native terminal reproduces
-this on the candidate kernel. ARM32 terminal launch needs further work. These
-checkpoints do not establish full VM parity or finish the 1.1 application inventory.
+Terminal VM checks now accept and display a calculation on x64, ARM32 and
+ARM64. BIOS keyboard input reaches the terminal, but its shell route rejects
+the command. Full VM parity and the 1.1 source inventory remain incomplete.
 
 The cube candidate is common C source for all four CPUs. The 1.1 theme colours,
 frame lifecycle and timeout arguments pass native comparisons: eleven lifecycle
@@ -105,3 +104,16 @@ client rasters cover full and partial presentation, including coordinates above
 ARM32 and ARM64 terminals also accept and display a calculation. BIOS IA32
 accepts the keyboard command, but its shell routing still rejects it. VM parity
 and the remaining source inventory are not complete.
+
+Diagnostics has recovered C checkpoints for IA32, x64 and ARM64, matching the
+reference slice coverage. Nine native comparisons per CPU cover fallback UI,
+populated records, all five power-policy controls, zero services and counts at
+and above the 72-record limit. ARM64 telemetry retains its dynamic format stack
+arguments. The x64 VM displays live hardware and service rows; ARM64 launch
+integration remains unresolved. The reference has no ARM32 diagnostics slice.
+
+The candidate SDK now defaults to the native 1.1 x86 table at 0x280800. Its
+terminal, script-variable and damaged-rectangle wrappers pass 63 availability,
+argument and result cases per CPU in both C and C++. Candidate runtime archives
+build from C/C++ and dispatch allocation through the 1.1 table on every CPU.
+The inherited runtime still needs complete 1.1 equivalence and VM validation.

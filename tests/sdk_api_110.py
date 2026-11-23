@@ -13,10 +13,7 @@ from unicorn import UC_HOOK_CODE
 from unicorn.arm_const import *
 from unicorn.arm64_const import *
 from unicorn.x86_const import *
-SOURCE='''#if defined(__i386__) || defined(__x86_64__)
-#define WM_BAREMETAL_PROGRAM_API_PHYSICAL 0x280800u
-#endif
-#include <permafrost/terror_ui.h>
+SOURCE='''#include <permafrost/terror_ui.h>
 #include <stddef.h>
 #ifdef __cplusplus
 #define ASSERT static_assert
