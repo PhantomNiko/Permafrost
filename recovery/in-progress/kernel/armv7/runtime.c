@@ -144430,8 +144430,7 @@ uint recovered_4049e4e0(int deviceId,char *path,uint launchMode)
 #undef str_405272bc
 #undef local_18c
 
-#define local_124 (*(char (*)[292])(pf_stack_frame + 28))
-#define local_a4 (*(byte (*)[164])(pf_stack_frame + 156))
+/* Keep the native validator character separate from the volume-name buffer. */
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x4049e624
  */
@@ -144439,8 +144438,6 @@ uint recovered_4049e4e0(int deviceId,char *path,uint launchMode)
 undefined4 recovered_4049e624(char *param_1,uint *param_2,undefined4 *param_3)
 
 {
-  unsigned char pf_stack_frame[352] __attribute__((aligned(16))) = {0};
-
   char cVar1;
   int iVar2;
   int iVar3;
@@ -144450,6 +144447,8 @@ undefined4 recovered_4049e624(char *param_1,uint *param_2,undefined4 *param_3)
   uint uVar7;
   int iVar8;
   bool bVar9;
+  char local_124 [128];
+  byte local_a4 [132];
 
   if (param_1 == (char *)0x0) {
     return 0;
@@ -144486,30 +144485,31 @@ undefined4 recovered_4049e624(char *param_1,uint *param_2,undefined4 *param_3)
     }
     uVar6 = 0x7fffffff;
     if ((bVar4 == 0) && (uVar6 = 0x7fffffff, local_a4[0] != 0)) {
+      byte pf_volume_character = local_a4[0];
       iVar8 = 0;
       iVar2 = 1;
       uVar7 = 1;
       do {
         if (iVar2 == 0x80) goto LAB_4049e7f8;
-        if (local_a4[0] == 0x5c) {
+        if (pf_volume_character == 0x5c) {
           if (iVar8 == 0) goto LAB_4049e7f8;
           uVar7 = uVar7 + 1;
           iVar8 = 0;
           if (6 < uVar7) goto LAB_4049e7f8;
         }
         else {
-          bVar9 = 9 < (byte)(local_a4[0] - 0x30U);
-          bVar4 = local_a4[0];
+          bVar9 = 9 < (byte)(pf_volume_character - 0x30);
+          bVar4 = pf_volume_character;
           if (bVar9) {
-            bVar4 = (local_a4[0] & 0xdf) + 0xbf;
+            bVar4 = (pf_volume_character & 0xdf) + 0xbf;
           }
-          if ((bVar9 && 0x19 < bVar4) && (local_a4[0] != 0x5f && local_a4[0] != 0x2d))
+          if ((bVar9 && 0x19 < bVar4) && (pf_volume_character != 0x5f && pf_volume_character != 0x2d))
           goto LAB_4049e7f8;
           iVar8 = iVar8 + 1;
         }
-        local_a4[0] = local_a4[iVar2];
+        pf_volume_character = local_a4[iVar2];
         iVar2 = iVar2 + 1;
-      } while (local_a4[0] != 0);
+      } while (pf_volume_character != 0);
       if (((iVar8 != 0) && (1 < uVar7)) &&
          (uVar6 = recovered_404e01c8(0xfffffffe,local_a4,0x80), 0x7fffffff < uVar6)) {
         uVar6 = 0x7fffffff;
@@ -144526,8 +144526,7 @@ LAB_4049e7f8:
   return 1;
 }
 
-#undef local_124
-#undef local_a4
+
 
 #undef DAT_40526e93
 #define DAT_40526e93 (*(uint8_t volatile *)(0x40526e93U))
