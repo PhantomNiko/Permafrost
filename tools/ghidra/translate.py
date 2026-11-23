@@ -466,6 +466,13 @@ def rewrite_scalar_storage(source, pointer_types=()):
         source=re.sub(r'\(float\)\s*'+re.escape(name)+r'\b',
                       'pf_bits_float((uint32_t)'+name+')',source)
     floating_variables=re.findall(r'\b(float|double)\s+(\w+)\b(?!\s*\()',source)
+    for typename,name in floating_variables:
+        if typename=='double':
+            # An upper-word extraction reads the IEEE representation. A
+            # numeric conversion destroys the exponent and mantissa bits.
+            source=re.sub(r'\((?:ulong|ulonglong|uint64_t)\)\s*'+re.escape(name)+
+                          r'\b(?=\s*>>\s*(?:0x20|32)\b)',
+                          'pf_double_bits('+name+')',source)
     for typename,name in list(re.findall(r'\b(float|double)\s*\*\s*(\w+)\b',source))+list(pointer_types):
         bits='pf_float_bits' if typename=='float' else 'pf_double_bits'
         source=re.sub(r'\(([^()\n]+\*)\)\s*\*'+re.escape(name)+r'\b',

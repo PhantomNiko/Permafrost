@@ -44,6 +44,7 @@ void value_storage(uint *out,float f_storage) {
 }
 float member_number(pf_kernel_value *records) { return (float)records->kind; }
 double indexed_member(pf_kernel_value *records) { return (double)records[1].kind; }
+uint upper_word(double upper_value) { return (ulong)upper_value >> 0x20; }
 '''
     source='#include "support.h"\n'+rewrite_pointer_float_views(rewrite_scalar_storage(functions),{'records'},True)+'''
 int main(void) {
@@ -59,6 +60,10 @@ int main(void) {
  if(stored[1]!=3||stored[2]!=pf_float_bits(3.5f))return 10;
  pf_kernel_value records[2]={{.kind=7},{.kind=9}};
  if(member_number(records)!=7.0f||indexed_member(records)!=9.0)return 11;
+ for(uint64_t i=0;i<512;i++) {
+  uint64_t bits=(i*UINT64_C(0x9e3779b97f4a7c15))^UINT64_C(0x4085e00000000000);
+  if(upper_word(pf_bits_double(bits))!=(uint)(bits>>32))return 13;
+ }
  for(unsigned i=0;i<256;i++) {
   if(number(i)!=(float)i)return 1;
   unsigned bits=(0x3fc012u<<8)|i;
