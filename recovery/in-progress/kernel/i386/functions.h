@@ -581,7 +581,7 @@ undefined4 recovered_2041df0(undefined4 in_ECX,uint in_EDX,int param_3,uint para
 uint recovered_20420c0(byte in_CL,uint in_EDX,int param_3,uint param_4);
 void recovered_20422a0(undefined **in_ECX_00,int in_EDX);
 undefined4 recovered_20425d0(int in_ECX,uint *in_EDX);
-bool recovered_2042ab0(int in_ECX,uint in_EDX,int param_3,uint param_4,char param_5);
+bool recovered_2042ab0(int handle,uint lba,int buffer,uint bytes,char write);
 undefined4 recovered_2042ce0(void);
 undefined4
 recovered_2042fe0(undefined4 in_ECX,undefined4 in_EDX,int param_3,uint param_4,byte param_5);
@@ -626,7 +626,8 @@ int recovered_20470c0(undefined4 *in_ECX,uint in_EDX,uint param_3,uint param_4,u
                      char *param_6,void *param_7);
 void recovered_20472b0(undefined4 *param_1,undefined4 *param_2);
 void recovered_20472e0(undefined4 *param_1,undefined4 *param_2);
-undefined4 recovered_2047310(uint param_1,uint param_2,uint param_3,uint param_4,int param_5);
+uint32_t recovered_2047310(uint32_t current_low,uint32_t current_high,
+                          uint32_t total_low,uint32_t total_high,int entry_address);
 undefined4 recovered_2047410(uint param_1,int param_2,void *param_3);
 undefined4 recovered_20474f0(int param_1,int param_2,int param_3);
 int recovered_2047550(undefined *param_1,undefined4 param_2,uint param_3,uint param_4,uint param_5,
@@ -979,7 +980,7 @@ void recovered_2069de0(undefined4 *param_1);
 void recovered_2069e00(undefined4 *param_1);
 void recovered_2069e40(int in_stack_00000004);
 void recovered_2069e60(void);
-void recovered_2069e70(int param_1);
+void recovered_2069e70(int exception);
 void recovered_2069ed0(int in_ECX);
 void recovered_2069f70(int param_1);
 undefined4 recovered_2069f90(void);
@@ -1677,11 +1678,10 @@ undefined4
 recovered_20d7cb0(uint *in_ECX,uint in_EDX,undefined1 *param_3,undefined4 *param_4,uint *param_5,
                  undefined4 *param_6,char *param_7,ulong param_8);
 undefined8 recovered_20d8080(uint *in_ECX);
-undefined4
-recovered_20d80a0(char *in_ECX,uint in_EDX,undefined4 *param_3,ulong *param_4,char *param_5,
-                 ulong param_6);
-undefined4
-recovered_20d8540(undefined1 *param_1,undefined4 *param_2,uint *param_3,char *param_4,ulong param_5);
+uint recovered_20d80a0(char *input,uint input_size,undefined4 *output,
+                           uint *output_size,char *error,ulong error_size);
+uchar recovered_20d8540(void *bytes,uint length,uint cpu,void **out,uint *out_size,char *error,
+                       uint error_size);
 undefined4
 recovered_20d87c0(uint *in_ECX,uint in_EDX,uint param_3,uint param_4,uint param_5,char param_6,
                  void *param_7,undefined4 *param_8,uint *param_9,char *param_10,ulong param_11);

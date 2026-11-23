@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
-"""Compare ARM32 PFS allocation-entry validation and reserved link sentinels.
+"""Compare IA32/ARM32 PFS allocation-entry validation and reserved link sentinels.
 
 Pooka's Free Software License. Reference binaries remain external inputs.
 """
 import argparse,json,random,struct
 from pathlib import Path
 from kernel_scalars import Kernel
+from native import inspect
 p=argparse.ArgumentParser(description=__doc__)
 p.add_argument('reference',type=Path);p.add_argument('source',type=Path);p.add_argument('--map',required=True,type=Path)
-a=p.parse_args();mapping=json.loads(a.map.read_text());entry=0x40449298
-libs=[Kernel(a.reference.read_bytes(),{'entry':entry,'_ws_errorf':0x4fe0000},True),Kernel(a.source.read_bytes(),{'entry':mapping['_recovered_%x'%entry],'_ws_errorf':0x4fe0000})]
+a=p.parse_args();mapping=json.loads(a.map.read_text());meta,_=inspect(a.reference.read_bytes());assert meta['cpu']in(7,12);arm=meta['cpu']==12;entry=0x40449298 if arm else 0x2047310
+libs=[Kernel(a.reference.read_bytes(),{'entry':entry,'_ws_errorf':0x4fe0000},arm),Kernel(a.source.read_bytes(),{'entry':mapping[('_'if arm else'')+'recovered_%x'%entry],'_ws_errorf':0x4fe0000})]
 mask=(1<<64)-1;magic=0x4b4e494c54414650;cases=[]
 for current,total in [(0,2134),(1,2134),(2133,2134),(2134,2134),(2135,2134),(0xffffffff,0x100000001),(0x100000000,0x100000001),(mask-1,mask)]:
  for link in [0,1,current,current+1,total-1,total,mask,*range(mask-4100,mask-4090),*range(mask-10,mask)]:

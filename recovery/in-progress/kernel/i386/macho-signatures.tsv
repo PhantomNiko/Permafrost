@@ -1,0 +1,1 @@
+20d8540	unsigned char recovered_20d8540(const void *bytes,unsigned int length,unsigned int cpu,void **out,unsigned int *out_size,char *error,unsigned int error_size);	ECX,EDX,stack4,stack8,stack12,stack16,stack20

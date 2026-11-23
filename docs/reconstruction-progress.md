@@ -1023,3 +1023,13 @@ a register; reusing its former stack field after the sector read corrupted the
 handle. Differential admission preserves the partition metadata, handle,
 capacity and callback sequence. The VM now reads its boot disk and reaches
 PolynyaFS admission, which still rejects the mount with invalid argument.
+
+IA32 allocation-entry validation now implements the sentinel switch in C;
+3,864 reference cases match. Isolated runtime mounting matches 26 callback
+operations, resulting disk bytes, mounted state and workspace canaries. The VM
+now mounts its system volume. The IA32 PFZ Mach-O wrapper matches 28 output,
+error, allocation-failure and canary cases. The Mach-O selector retains its
+native ECX/EDX input and length; complete Stage4 and WinterShell metadata
+admission matches the reference descriptor bytes and output canaries. VM
+module initialization, shell startup and later desktop behavior are still
+being recovered.
