@@ -2333,12 +2333,14 @@ uint128 recovered_10001ebc(double param_1)
 }
 
 
-/* Reviewed instruction-equivalent C. Pooka's Free Software License. */
+/* Recovered working notes; Pooka's Free Software License.
+ * Address: 0x10001ecc
+ */
 
-ulong recovered_10001ecc(double param_1)
+longlong recovered_10001ecc(double value)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   uint uVar2;
@@ -2348,13 +2350,13 @@ ulong recovered_10001ecc(double param_1)
   double dVar6;
   double dVar7;
 
-  if (param_1 == 0.0) {
+  if (value == 0.0) {
     return 0;
   }
   uVar4 = 0;
-  dVar6 = -param_1;
-  if (0.0 <= param_1) {
-    dVar6 = param_1;
+  dVar6 = -value;
+  if (0.0 <= value) {
+    dVar6 = value;
   }
   uVar5 = 0x3f;
   dVar7 = 9.223372036854776e+18;
@@ -2373,35 +2375,37 @@ ulong recovered_10001ecc(double param_1)
     uVar5 = (ulong)uVar2;
   } while (-1 < (int)uVar2);
   uVar5 = -uVar4;
-  if (0.0 <= param_1) {
+  if (0.0 <= value) {
     uVar5 = uVar4;
   }
   return uVar5;
 }
 
 
-/* Reviewed instruction-equivalent C. Pooka's Free Software License. */
+/* Recovered working notes; Pooka's Free Software License.
+ * Address: 0x10001f2c
+ */
 
-ulong recovered_10001f2c(double param_1)
+ulonglong recovered_10001f2c(double value)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
 
   ulong uVar1;
   uint uVar2;
   bool bVar3;
-  ulong uVar4;
+  ulonglong uVar4;
   ulong uVar5;
   double dVar6;
 
   uVar4 = 0;
-  if (0.0 < param_1) {
+  if (0.0 < value) {
     uVar5 = 0x3f;
     dVar6 = 9.223372036854776e+18;
     do {
-      bVar3 = dVar6 <= param_1;
+      bVar3 = dVar6 <= value;
       if (bVar3) {
-        param_1 = param_1 - dVar6;
+        value = value - dVar6;
       }
       uVar1 = 0;
       if (bVar3) {
@@ -2417,49 +2421,55 @@ ulong recovered_10001f2c(double param_1)
 }
 
 
-/* Reviewed instruction-equivalent C. Pooka's Free Software License. */
+/* Recovered working notes; Pooka's Free Software License.
+ * Address: 0x10001f7c
+ */
 
-void recovered_10001f7c(ulong param_1)
+double recovered_10001f7c(ulonglong value)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
 
-  for (; param_1 != 0; param_1 = param_1 >> 1) {
+  double dVar1;
+  double dVar2;
+
+  dVar2 = 1.0;
+  dVar1 = 0.0;
+  for (; value != 0; value = value >> 1) {
+    if ((value & 1) != 0) {
+      dVar1 = dVar1 + dVar2;
+    }
+    dVar2 = dVar2 + dVar2;
   }
-  return;
+  return dVar1;
 }
 
 
-/* Reviewed instruction-equivalent C. Pooka's Free Software License. */
+/* Recovered working notes; Pooka's Free Software License.
+ * Address: 0x10001fa4
+ */
 
-uint128 recovered_10001fa4(long param_1)
+double recovered_10001fa4(longlong value)
 
 {
-  unsigned char frame[64] = {0};
+  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
 
-  uint128 auVar1;
-  uint128 auVar2;
-  double dVar3;
-  double extraout_d0 = 0;
-  double dVar4;
+  double dVar1;
+  double dVar2;
 
-  if (param_1 < 0) {
-    recovered_10001f7c(-param_1);
-    PF_PART8(auVar2, 8) = 0;
-    PF_PART8(auVar2, 0) = -extraout_d0;
-    return auVar2;
+  if (value < 0) {
+    dVar2 = recovered_10001f7c(-value);
+    return -dVar2;
   }
-  dVar4 = 1.0;
-  dVar3 = 0.0;
-  for (; param_1 != 0; param_1 = (ulong)param_1 >> 1) {
-    if ((param_1 & 1U) != 0) {
-      dVar3 = dVar3 + dVar4;
+  dVar2 = 1.0;
+  dVar1 = 0.0;
+  for (; value != 0; value = (ulong)value >> 1) {
+    if ((value & 1U) != 0) {
+      dVar1 = dVar1 + dVar2;
     }
-    dVar4 = dVar4 + dVar4;
+    dVar2 = dVar2 + dVar2;
   }
-  PF_PART8(auVar1, 8) = 0;
-  PF_PART8(auVar1, 0) = dVar3;
-  return auVar1;
+  return dVar1;
 }
 
 

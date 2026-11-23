@@ -1246,3 +1246,12 @@ only UEFI device read/write/flush operations and timer polling matches 93
 device operations and succeeds in both kernels. This narrows the unresolved
 boot failure to an earlier state or operation; it does not establish live
 firmware compatibility.
+
+The console-window numeric and math ABI checks pass 46 and 63 cases per CPU.
+ARM64 needed typed scalar returns for signed/unsigned 64-bit conversions;
+older aggregate-return bodies lost the sign of the minimum signed integer.
+The same correction and explicit exponential/time return types repair
+TundraWindow's ARM64 numeric/math checks, including NaN propagation. Its
+window queries, 56 system-font cases and context checks continue to pass.
+The console vector helper keeps the full-width bound operation while its
+separate 64-bit reduction retains its original lane count.

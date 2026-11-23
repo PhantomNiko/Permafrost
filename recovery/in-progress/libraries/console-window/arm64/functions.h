@@ -11,7 +11,7 @@ typedef struct { uint64_t words[3]; } pf_blob24;
 static inline void WaitForEvent(void) { __asm__ volatile("wfe"); }
 __attribute__((noreturn)) static inline uintptr_t SoftwareBreakpoint(unsigned n,uintptr_t pc) { (void)n;(void)pc;__builtin_trap(); }
 static inline uint64_t NEON_sqadd(uint64_t a,uint64_t b,unsigned lane) {
- uint128 result=0;
+ uint64_t result=0;
  for(unsigned i=0;i<2;++i) {
   int64_t x=(int32_t)(a>>(32*i)),y=(int32_t)(b>>(32*i)),z=x+y;
   if(z>2147483647)z=2147483647;if(z<(-2147483647-1))z=(-2147483647-1);
@@ -21,7 +21,7 @@ static inline uint64_t NEON_sqadd(uint64_t a,uint64_t b,unsigned lane) {
 static inline uint64_t NEON_ucvtf(uint64_t a) { return pf_double_bits((double)a); }
 static inline uint64_t NEON_umaxv(uint64_t a,unsigned lane) {
  uint64_t mask=lane==8?~0ULL:((1ULL<<(lane*8))-1),result=0;
- for(unsigned i=0;i<16/lane;++i){uint64_t v=(a>>(i*lane*8))&mask;if(v>result)result=v;}return result;
+ for(unsigned i=0;i<8/lane;++i){uint64_t v=(a>>(i*lane*8))&mask;if(v>result)result=v;}return result;
 }
 static inline uint128 NEON_fmov(uint64_t bits,unsigned lane) { (void)lane;return ((uint128)bits<<64)|bits; }
 
@@ -398,10 +398,10 @@ uint128 recovered_10001dd8(double param_1);
 void recovered_10001e2c(double param_1);
 uint128 recovered_10001e70(double param_1);
 uint128 recovered_10001ebc(double param_1);
-ulong recovered_10001ecc(double param_1);
-ulong recovered_10001f2c(double param_1);
-void recovered_10001f7c(ulong param_1);
-uint128 recovered_10001fa4(long param_1);
+longlong recovered_10001ecc(double value);
+ulonglong recovered_10001f2c(double value);
+double recovered_10001f7c(ulonglong value);
+double recovered_10001fa4(longlong value);
 float recovered_10001fc8(float param_1,float param_2);
 float recovered_10001ffc(int *in_x0,float param_2);
 float recovered_10002014(uint in_w0,float param_2);
