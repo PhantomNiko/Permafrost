@@ -198765,15 +198765,12 @@ recovered_404d393c(undefined2 *param_1,undefined2 *param_2,undefined2 *param_3,u
     uVar86 = DAT_4066f2f8;
     uVar40 = DAT_4066f2e0;
     iVar39 = DAT_4066f2f0;
-    auVar37 = Ram4066f2d0;
-    auVar94 = VectorCompareEqual(auVar37,0,4);
-    PF_PART8(auVar95, 0) = VectorCopyNarrow(auVar94,4);
+    /* Native q8 load and eight allocation null checks, lowered to scalar C. */
+    auVar37 = *(volatile uint128 *)(uintptr_t)0x4066f2d0U;
     DAT_4066f2f4 = pvVar82;
-    PF_PART8(auVar94, 8) = PF_PART8(in_q9, 8) & 0xffff0000ffff0000 | (ulonglong)uVar86 & 0xffff;
-    PF_PART8(auVar94, 0) = PF_PART8(in_q9, 0) & 0xffff0000ffff0000 | (ulonglong)uVar40 & 0xffff;
-    auVar94 = VectorCompareEqual(auVar94,0,4);
-    PF_PART8(auVar95, 8) = VectorCopyNarrow(auVar94,4);
-    uVar93 = VectorCopyNarrow(auVar95,2);
+    uVar93 = (Ram4066f2d0 == 0 || DAT_4066f2d4 == 0 || DAT_4066f2d8 == 0 ||
+              DAT_4066f2dc == 0 || DAT_4066f2e0 == 0 || DAT_4066f2e4 == 0 ||
+              DAT_4066f2f8 == 0 || DAT_4066f2ec == 0) ? 1 : 0;
     if (((((((((uVar93 & 1) == 0 && (uVar93 & 0x100) == 0) && (uVar93 & 0x10000) == 0) &&
             (uVar93 & 0x1000000) == 0) && (uVar93 & 0x100000000) == 0) &&
           (uVar93 & 0x10000000000) == 0) && (uVar93 & 0x1000000000000) == 0) &&

@@ -904,3 +904,12 @@ The x64 provider receives global-lookup and value-release operands. A separate
 1,500-operation allocator comparison preserves payloads and complete heap state;
 the live startup script failure still needs investigation. These component
 results do not establish complete VM equivalence or authorize a release tag.
+
+ARM32's initial PFS allocation guard now uses the native four-pointer load and
+eight pointer null checks as scalar C. The decompiler had reduced the wide
+global load to one word and retained undefined halves of an incoming SIMD
+register, reporting successful allocations as exhaustion. All 1,024 combinations
+of ten allocation results match the original allocation sizes and admission
+branch. The VM progresses to a later null callback exception, still under
+investigation. The x64 allocator comparison is now reproducible with synthetic
+guest state and covers 1,500 operations without requiring a VM capture.
