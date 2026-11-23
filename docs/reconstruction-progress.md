@@ -1289,3 +1289,10 @@ A disk-backed test creates three nested directories in both kernels; resulting
 disk bytes and heap guards match with the clock fixed. Physical I/O and
 allocation counts differ. The updated ARM64 VM no longer reports the ledger
 directory-allocation error. Broader storage and release parity remain gates.
+
+The candidate 1.1 SDK exposes the recovered theme roles and scrollbar model,
+layout and point-mapping calls. Native/source checks cover 75 colour indices,
+72 guarded layouts and 720 point mappings per CPU. C callers compiled with
+the SDK execute against both implementations on all four target CPUs, checking
+aggregate argument passing and the 16-, 84- and 188-byte public structures.
+These declarations support desktop recovery; the full SDK remains unfinished.
