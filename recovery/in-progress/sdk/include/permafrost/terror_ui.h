@@ -227,6 +227,8 @@ void terror_ui_reload_colours(void);
 void terror_ui_scrollbars_layout(TerrorUIRect rect,
  const TerrorUIScrollbarModel *vertical,const TerrorUIScrollbarModel *horizontal,
  TerrorUIScrollbarsLayout *outLayout);
+void terror_ui_scrollbar_draw(TerrorUIWindow *window,
+ const TerrorUIScrollbarLayout *layout,uint32_t offset);
 int32_t terror_ui_scrollbar_value_from_point(const TerrorUIScrollbarLayout *layout,
  const TerrorUIScrollbarModel *model,int32_t coordinate,int32_t grabOffset);
 

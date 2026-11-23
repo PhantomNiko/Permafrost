@@ -122,3 +122,7 @@ coordinates when a window exceeds the display height. Ten native placement
 records cover both paths. The repaired VM displays the diagnostics window.
 Three failed-window paths per CPU also compare native cleanup and window IDs;
 the IA32, x64 and ARM32 close forwarders now retain their native arguments.
+
+The SDK exposes the recovered scrollbar drawing entry point. Thirty-six native
+raster comparisons per CPU cover both orientations, clipping, coordinate
+offsets, row padding and buffer guards.
