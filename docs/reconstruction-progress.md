@@ -1209,3 +1209,17 @@ mapped glyph ID retains its native 16-bit width. Native/source checks match
 and Unicode text, plus size-cache rotation, destruction and heap guards.
 The C BIOS candidate now boots the C kernel into its graphical background;
 complete IA32 desktop and input integration remain unresolved.
+
+TundraWindow 1.1 compiles from recovered C on all four CPUs. Creation, title,
+dimensions and query-record service checks match the reference. The new system
+font selector passes 56 comparisons per CPU, covering missing variables,
+integer/boolean/string conversion, empty and bounded paths, and float sizes.
+The new window layout and heap initialization supersede old replacements;
+ARM32 literal pools and ARM64 outlined bodies are recovered explicitly. Full
+window interactions and VM integration remain outstanding.
+
+The disk-backed x64 PFS admission test matches 196 physical disk operations,
+386 allocation events, resulting disk bytes and allocation guards. Synthetic
+legacy-directory and context-preservation probes also match. The live x64
+volume-selection failure remains unresolved; its replay needs the separate
+RAM region containing the volume inventory.

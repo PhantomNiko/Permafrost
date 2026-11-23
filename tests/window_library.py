@@ -28,6 +28,8 @@ def exercise(path,api_base=None):
         slot=(address-0x10100)//16
         if slot==0:
             title,width,height=arguments(3)
+            # WMAP dimensions are uint32_t on every architecture.
+            width&=0xffffffff;height&=0xffffffff
             text=bytes(cpu.mem_read(title,64)).split(b'\0',1)[0]
             events.append(('create',text,width,height));result=17
         elif slot==3:
