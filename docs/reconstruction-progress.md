@@ -1273,3 +1273,19 @@ Five synthetic native/source rescan cases cover disk IDs 0x80, 0x81, 0xff and
 0x40, changed identities, preserved selections and mounted-volume metadata.
 Active-volume reselection with captured reference inventory also matches 415
 disk operations and 758 allocation events. Full release parity is outstanding.
+
+The x64, ARM32 and ARM64 diagnostic VMs now launch the source UI guest and
+deliver its color-change callback while using the recovered C TundraWindow
+and PermafrostWindow libraries. The window host and remaining applications
+are still reference inputs in these comparisons.
+
+ARM64 directory preflight now preserves the enumeration visitor's fourth
+argument. A one-argument declaration had tested the null callback context
+instead of the stop pointer and returned an invalid-argument error. The PFS
+writer also returns its boolean result explicitly. Thirty-six direct
+native/source callback checks cover visitor argument positions, writable
+checks, range bounds, allocation failures and physical read/write outcomes.
+A disk-backed test creates three nested directories in both kernels; resulting
+disk bytes and heap guards match with the clock fixed. Physical I/O and
+allocation counts differ. The updated ARM64 VM no longer reports the ledger
+directory-allocation error. Broader storage and release parity remain gates.

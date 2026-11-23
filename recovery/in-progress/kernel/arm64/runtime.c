@@ -142453,7 +142453,7 @@ uint recovered_824739f8(byte *param_1,ulong param_2,void *param_3,ulong param_4)
  * Address: 0x82473c48
  */
 
-void recovered_82473c48(byte *param_1,ulong param_2,void *param_3,ulong param_4)
+uint32_t recovered_82473c48(byte *param_1,ulong param_2,void *param_3,ulong param_4)
 
 {
   unsigned char pf_stack_frame[128] __attribute__((aligned(16))) = {0};
@@ -142468,22 +142468,22 @@ void recovered_82473c48(byte *param_1,ulong param_2,void *param_3,ulong param_4)
   uStack_48 = 0;
   uStack_40 = 0;
   if (param_1 == (byte *)0x0) {
-    return;
+    return 0;
   }
   if (param_3 == (void *)0x0 && param_4 != 0) {
-    return;
+    return 0;
   }
   uVar3 = recovered_8245ad3c((uint)*param_1);
   if ((int)uVar3 == 0) {
-    return;
+    return 0;
   }
   uVar4 = recovered_82473d44((long)param_1,param_2,param_4,&uStack_34,&uStack_40,(long *)&uStack_48)
   ;
   if (param_4 == 0) {
-    return;
+    return (uint32_t)((int)uVar4 != 0);
   }
   if ((int)uVar4 == 0) {
-    return;
+    return 0;
   }
   if ((uStack_40 == 0) && (uStack_48 == param_4)) {
     uVar4 = recovered_82473de8((ulong)*param_1,(ulong)uStack_34,param_3,param_4);
@@ -142492,12 +142492,12 @@ void recovered_82473c48(byte *param_1,ulong param_2,void *param_3,ulong param_4)
   else {
     buffer = recovered_82400f54(uStack_48);
     if (buffer == (void *)0x0) {
-      return;
+      return 0;
     }
     uVar2 = recovered_8245a8e0((uint)*param_1,uStack_34,buffer,uStack_48);
     if (uVar2 == 0) {
       recovered_82400f58(buffer);
-      return;
+      return 0;
     }
     recovered_82400f60((void *)((long)buffer + uStack_40),param_3,param_4);
     uVar4 = recovered_82473de8((ulong)*param_1,(ulong)uStack_34,buffer,uStack_48);
@@ -142507,7 +142507,7 @@ void recovered_82473c48(byte *param_1,ulong param_2,void *param_3,ulong param_4)
   if (iVar1 != 0) {
     DAT_82709288 = 0;
   }
-  return;
+  return (uint32_t)(iVar1 != 0);
 }
 
 #undef DAT_82709288
@@ -145144,12 +145144,10 @@ ulong recovered_82475d58(long param_1,int *param_2)
  * Address: 0x82475db8
  */
 
-bool recovered_82475db8(long in_x3)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  return in_x3 == 0;
+/* Directory enumeration passes the stop flag as its fourth argument.
+ * Pooka's Free Software License. */
+int recovered_82475db8(void *context,void *location,void *entry,void *stop){
+ (void)context;(void)location;(void)entry;return stop==0;
 }
 
 
