@@ -54,6 +54,366 @@
         "                    uStack_3c = param_10[uVar13 * 6 + 3];\n                    iVar6 =": "                    uStack_3c = param_10[uVar13 * 6 + 3];\n                    /* Native stores the continuation sentinel through its saved stack pointer. */\n                    local_38 = -6; local_34 = 0xffffffffU;\n                    iVar6 =",
         "              local_40 = *puVar9;\n              iVar6 =": "              local_40 = *puVar9;\n              /* Native links the next extent, or ends this chain. */\n              local_38 = uVar13 < uVar8 ? (int)param_10[uVar13 * 6 + 2] : -1;\n              local_34 = uVar13 < uVar8 ? param_10[uVar13 * 6 + 3] : 0xffffffffU;\n              iVar6 ="
       },
+      "4048d058": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "40495f94": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4049cf80": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404a8d34": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "40495e90": {
+        "recovered_4048ad30(in_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4049c6ac": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "40493b60": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404979b8": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404a323c": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404b7d68": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404a9264": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404ac230": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4048e594": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4049e4e0": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "40493fa0": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404b6d68": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404a9034": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404a4324": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4049ce58": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4049fab4": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404ac730": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404aca30": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4050402c": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4049426c": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404a0168": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4048b4d4": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404a82a0": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404a57a4": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404a266c": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4049f6b0": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404a4f24": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404a4470": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404aaa54": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4049fbb4": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404ab9bc": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404ac394": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404ab208": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4049ce24": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404a8dec": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4048e2e0": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404a8a48": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "40497874": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404a8c7c": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4049e828": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4049d090": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404b61f4": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4049cee0": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404a6c5c": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404abbac": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404ab868": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404aa3bc": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404abe58": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "40497754": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404a8f7c": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404ae224": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "40493cf8": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "40493af8": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404a07b4": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4049e3b8": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4048b348": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404aa93c": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404a786c": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4049a770": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404b5510": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4048ebb0": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404b4110": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404ab368": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4049769c": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404a451c": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4048ef40": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "405226d8": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404a2700": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404aa708": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404b5f44": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "40493e0c": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404a90fc": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4049f94c": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4048b14c": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4049cab0": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404b589c": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4049a39c": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4049ca50": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "40494004": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "40495c98": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404941b0": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4048ab3c": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4048cd0c": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404a5c5c": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404a8ebc": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404a9dcc": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404aae80": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4048be28": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "40497774": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404a019c": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "40499964": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4048c8ac": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404aa0c8": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404a6758": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4048fea0": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404aa828": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404aa4a4": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4048b740": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4049cbd8": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4049545c": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4049da00": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404a9410": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4049d0f4": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404aad74": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4049e344": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404ac0f0": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4049e450": {
+        "recovered_4048ad30(in_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "4049f8c0": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "40493ec0": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "40495bcc": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404b431c": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404abcc0": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404b66b8": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404a4f44": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404961ac": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
+      "404a8088": {
+        "recovered_4048ad30(unaff_lr)": "recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0))"
+      },
       "4047dc40": {
         "(**(code **)(*piVar2 + 0x10))": "((double (*)(void *))*(uintptr_t *)(*piVar2 + 0x10))",
         "(**(code **)(*(int *)font->backend + 0x14))": "((double (*)(void *))*(uintptr_t *)(*(int *)font->backend + 0x14))",

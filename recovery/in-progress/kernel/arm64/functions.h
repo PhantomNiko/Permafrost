@@ -4,6 +4,7 @@
 #include "support.h"
 void pf_kernel_entry(void);
 #include "arm64-recovery.h"
+#include "efi_video110.h"
 typedef struct pf_ws_value110 { unsigned long words[8]; } pf_ws_value110;
 #include "cpu.h"
 void recovered_82400014(void);

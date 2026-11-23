@@ -138732,7 +138732,7 @@ undefined8 recovered_2094940(void)
   undefined8 uVar5;
   int iVar6;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   uVar4 = recovered_200ab60();
   if (0x1f < uVar4) {
     return 0;
@@ -139022,7 +139022,7 @@ ulong recovered_2094de0(undefined1 *param_1,int param_2)
   int iVar6;
   ulong count;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   if (param_2 == 0 || param_1 == (undefined1 *)0x0) {
     return 0;
   }
@@ -139113,7 +139113,7 @@ char recovered_2094fa0(void)
   long lVar4;
   int iVar5;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   while( true ) {
     iVar5 = __atomic_exchange_n(&(DAT_025ebb48),1,__ATOMIC_SEQ_CST);
     if (iVar5 == 0) break;
@@ -139191,7 +139191,7 @@ undefined8 recovered_20950c0(void *param_1)
   long lVar8;
   int iVar9;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   while( true ) {
     iVar9 = __atomic_exchange_n(&(DAT_025ebb48),1,__ATOMIC_SEQ_CST);
     if (iVar9 == 0) break;
@@ -139323,7 +139323,7 @@ undefined8 recovered_20952e0(void)
   long lVar10;
   long lVar11;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   pvVar8 = recovered_2095700(&local_48,(uchar *)0x0);
   iVar4 = local_38;
   if (pvVar8 != (void *)0x0) {
@@ -139673,7 +139673,7 @@ uint recovered_2095870(uint backgroundRgb,uint foregroundRgb,uint textModeAttrib
       iVar8 = *(int *)(lVar1 + 0x30);
     }
   }
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   while( true ) {
     iVar2 = __atomic_exchange_n(&(DAT_025ebb68),1,__ATOMIC_SEQ_CST);
     if (iVar2 == 0) break;
@@ -140179,7 +140179,7 @@ uint recovered_2096050(uint ch)
 
   bVar6 = (byte)ch;
   uStack_18 = in_RAX;
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   uStack_18 = (ulong)CONCAT16(bVar6,(undefined6)uStack_18);
   lVar12 = (long)&uStack_18 + 6;
   puVar11 = (undefined *)0x1;
@@ -140428,7 +140428,7 @@ uint recovered_20963b0(char *text)
   int iVar11;
   char *pcVar12;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   local_19 = '\0';
   pcVar12 = &DAT_02127e20;
   if (text == (char *)0x0) {
@@ -141518,7 +141518,7 @@ uint recovered_2097570(void)
   int iVar4;
   undefined *in_RSI;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   uVar3 = recovered_200ab60();
   iVar4 = 0;
   if (uVar3 < 0x20) {
@@ -141693,7 +141693,7 @@ uint recovered_2097740(void)
   ulong uVar10;
   char *pcVar11;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   uVar8 = recovered_200ab60();
   if (uVar8 < 0x20) {
     (&DAT_025feb98)[(ulong)uVar8 * 0x2e] = uVar8;
@@ -141920,7 +141920,7 @@ uint recovered_2097c60(char *path,void *outInfo)
   ulong uVar3;
   uint uVar4;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   uVar4 = 0;
   if (outInfo != (void *)0x0 && path != (char *)0x0) {
     uVar4 = 0;
@@ -142152,7 +142152,7 @@ uint recovered_2097f60(char *path,void *data,uint size)
   char *pcVar4;
   uint uVar5;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   DAT_025ebdb0 = 0;
   uVar2 = recovered_2097d00(path,local_302c);
   if ((char)uVar2 == '\0') {
@@ -142905,7 +142905,7 @@ undefined8 recovered_2098c70(char *param_1)
   ulong uVar5;
   char *pcVar6;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   DAT_025ebdb0 = 0;
   pcVar6 = local_301c;
   uVar4 = recovered_2097d00(param_1,pcVar6);
@@ -145744,7 +145744,7 @@ uint recovered_209c1f0(char *outText,uint outTextSize)
   char cVar1;
   char *arg3;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   cVar1 = DAT_025ebdb0;
   arg3 = &DAT_025ebe30;
   if (cVar1 != '\0') {
@@ -145790,7 +145790,7 @@ undefined8 recovered_209c260(uint param_1,void *param_2,uint param_3,int param_4
   undefined8 uVar3;
   ulong uVar4;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   uVar3 = 0;
   if ((param_3 < 0x10001 && param_1 < 5) && (param_1 != 0 && param_2 != (void *)0x0 || param_3 == 0)
      ) {
@@ -145873,7 +145873,7 @@ bool recovered_209c3c0(void *param_1,uint param_2,int param_3,uint128 *param_4)
   bool bVar5;
   ulong count;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   while( true ) {
     iVar4 = __atomic_exchange_n(&(DAT_025ebeb0),1,__ATOMIC_SEQ_CST);
     if (iVar4 == 0) break;
@@ -145936,7 +145936,7 @@ undefined8 recovered_209c490(uint128 *param_1)
   int iVar3;
   undefined8 uVar4;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   if (param_1 == (uint128 *)0x0) {
     uVar4 = 0;
   }
@@ -145989,7 +145989,7 @@ bool recovered_209c510(int param_1)
   uint128 auVar1;
   int iVar2;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   while( true ) {
     iVar2 = __atomic_exchange_n(&(DAT_025ebeb0),1,__ATOMIC_SEQ_CST);
     if (iVar2 == 0) break;
@@ -146028,7 +146028,7 @@ uint recovered_209c5b0(char *text,uint textSize)
   undefined8 uVar1;
   uint uVar2;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   if (text == (char *)0x0 && textSize != 0) {
     return 0;
   }
@@ -146070,7 +146070,7 @@ uint recovered_209c610(char *outText,uint outTextSize)
   int iVar5;
   ulong uVar6;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   if (outTextSize == 0 || outText == (char *)0x0) {
     return 0;
   }
@@ -146177,7 +146177,7 @@ uint recovered_209c790(void)
   uint uVar2;
   uint uVar3;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   while( true ) {
     iVar1 = __atomic_exchange_n(&(DAT_025ebeb0),1,__ATOMIC_SEQ_CST);
     if (iVar1 == 0) break;
@@ -146228,7 +146228,7 @@ uint recovered_209c810(char *path)
   undefined8 uVar2;
   ulong uVar3;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   uVar2 = recovered_2097d00(path,local_301c);
   uVar1 = 0;
   if ((char)uVar2 != '\0') {
@@ -147087,7 +147087,7 @@ uint recovered_209d7a0(char *path,void *outImage)
   uint uVar7;
   long *memory;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   uVar7 = 0;
   if (((outImage != (void *)0x0) && (recovered_2002570(outImage,0,0x18), path != (char *)0x0)) &&
      (uVar3 = recovered_2097d00(path,local_3038), (char)uVar3 != '\0')) {
@@ -147472,7 +147472,7 @@ uint recovered_209de70(char *path,void *rgbaPixels,uint width,uint height,uint s
   uint uVar3;
 
   local_34 = format;
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   uVar2 = recovered_2097d00(path,local_3134);
   uVar3 = 0;
   if ((char)uVar2 != '\0') {
@@ -147527,7 +147527,7 @@ uint recovered_209df40(char *path,uint outputChannels,void *outPcm)
   uint uVar7;
   char *pcVar8;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   uVar7 = 0;
   if (outPcm != (void *)0x0) {
     recovered_2002570(outPcm,0,0x1c);
@@ -147644,7 +147644,7 @@ void * recovered_209e0f0(char *path,float fontSize)
   char *pcVar8;
 
   local_14 = fontSize;
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   if (path == (char *)0x0) {
     return (void *)0x0;
   }
@@ -147716,7 +147716,7 @@ undefined8 recovered_209e1d0(byte *param_1)
   if (param_1 != (byte *)0x0) {
     text = param_1;
   }
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   local_19 = '\0';
   uVar4 = recovered_200ab60();
   if (uVar4 < 0x20) {
@@ -147818,7 +147818,7 @@ undefined1 recovered_209e380(byte *param_1,uint param_2,byte *param_3,int param_
   uint uVar2;
   ulong uVar3;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   local_29 = '\0';
   uVar2 = recovered_209e410((char *)param_1,(ulong)param_2,(char *)param_3,(uint)(param_4 != 0),
                             &local_29);
@@ -148687,7 +148687,7 @@ undefined1 recovered_209f4e0(byte *param_1,uint param_2,byte *param_3,uint param
   uint uVar2;
   ulong uVar3;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   local_29 = '\0';
   uVar2 = recovered_209e410((char *)param_1,(ulong)param_2,(char *)param_3,param_4,&local_29);
   uVar1 = (undefined1)uVar2;
@@ -148719,7 +148719,7 @@ void * recovered_209f580(ulong size)
 
   ulong *puVar1;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   puVar1 = recovered_20ca770(size,(ulong *)0xffffffffffffffff);
   return puVar1;
 }
@@ -148745,7 +148745,7 @@ void recovered_209f5b0(void *ptr)
   long *plVar3;
   long *plVar4;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   if (ptr != (void *)0x0) {
     while( true ) {
       iVar2 = __atomic_exchange_n(&(DAT_025fbf10),1,__ATOMIC_SEQ_CST);
@@ -148806,7 +148806,7 @@ void * recovered_209f660(void *ptr,ulong size)
   undefined8 *puVar5;
   ulong size_00;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   size_00 = size + (size == 0);
   if (ptr == (void *)0x0) {
     puVar2 = recovered_20ca770(size,(ulong *)0xffffffffffffffff);
@@ -148916,7 +148916,7 @@ uint recovered_209f780(char *path,void *entries,uint entryCapacity,uint *outEntr
   ulong uVar12;
   char cVar13;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   local_68 = (void *)0x0;
   uStack_60 = 0;
   local_58 = 0;
@@ -151041,7 +151041,7 @@ uint recovered_20a14c0(char *param_1,long param_2,undefined4 param_3,undefined8 
   local_88 = 0;
   local_34 = 0;
   local_58 = param_1;
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   recovered_2002570(&local_80,0,0x20);
   local_50 = (char *)CONCAT44(PF_PART4(local_50, 4),param_5);
   if (param_6 != (uint *)0x0) {
@@ -151561,7 +151561,7 @@ int recovered_20a1e00(void)
   int iVar2;
 
   local_14 = -1;
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   iVar2 = -1;
   uVar1 = recovered_20a1e50(-1,&local_14);
   if ((char)uVar1 != '\0') {
@@ -151850,7 +151850,7 @@ uint recovered_20a21e0(void *entries,uint entryCapacity,uint *outEntryCount)
 
   local_48 = entries;
   local_3c = entryCapacity;
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   local_38 = -1;
   if (outEntryCount != (uint *)0x0) {
     *outEntryCount = 0;
@@ -153511,7 +153511,7 @@ recovered_20a3f30(long param_1,uint param_2,long param_3,uint param_4,uint *para
   local_68 = param_3;
   local_50 = param_2;
   local_4c = param_4;
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   if (param_5 != (uint *)0x0) {
     *param_5 = 0;
   }
@@ -153703,7 +153703,7 @@ uint recovered_20a4310(int deviceId)
   ulong uVar2;
 
   local_14 = -1;
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   uVar2 = recovered_20a1e50(-1,&local_14);
   uVar1 = 0;
   if ((char)uVar2 != '\0') {
@@ -153743,7 +153743,7 @@ uint recovered_20a4360(int deviceId,char *path,void *outInfo)
   ulong uVar3;
   char *pcVar4;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   local_24 = -1;
   DAT_025ebdb0 = 0;
   DAT_025ebe30 = 0;
@@ -153794,7 +153794,7 @@ void recovered_20a4470(int param_1,char *param_2,uint *param_3)
   unsigned char pf_stack_frame[72] __attribute__((aligned(16))) = {0};
 
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   recovered_20a44b0(param_1,param_2,1,param_3);
   return;
 }
@@ -153917,7 +153917,7 @@ void recovered_20a4670(int param_1,char *param_2,uint *param_3)
   unsigned char pf_stack_frame[72] __attribute__((aligned(16))) = {0};
 
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   recovered_20a44b0(param_1,param_2,2,param_3);
   return;
 }
@@ -153938,7 +153938,7 @@ uint recovered_20a46b0(int deviceId,char *path,void *entries,uint entryCapacity,
   uint uVar1;
   ulong uVar2;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   local_34 = -1;
   uVar2 = recovered_20a1e50(deviceId,&local_34);
   uVar1 = 0;
@@ -153970,7 +153970,7 @@ byte recovered_20a4730(int param_1,char *param_2,long param_3,undefined4 param_4
   byte bVar3;
 
   local_34 = -1;
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   uVar2 = recovered_20a1e50(param_1,&local_34);
   bVar3 = 0;
   if ((char)uVar2 != '\0') {
@@ -154015,7 +154015,7 @@ uint recovered_20a47c0(int deviceId,char *path,void *data,uint size)
   char *arg3;
   uint uVar4;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   local_2c = -1;
   DAT_025ebdb0 = 0;
   uVar2 = recovered_20a1e50(deviceId,&local_2c);
@@ -154077,7 +154077,7 @@ uint recovered_20a48b0(int deviceId,char *path)
   ulong uVar2;
   ulong uVar3;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   local_1c = -1;
   uVar2 = recovered_20a1e50(deviceId,&local_1c);
   uVar1 = 0;
@@ -154107,7 +154107,7 @@ uint recovered_20a4910(int deviceId,char *oldPath,char *newPath)
   ulong uVar2;
   ulong uVar3;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   local_24 = -1;
   uVar2 = recovered_20a1e50(deviceId,&local_24);
   uVar1 = 0;
@@ -154580,7 +154580,7 @@ uint recovered_20a5120(int deviceId,char *path)
   char *pcVar4;
   uint uVar5;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   local_1c = -1;
   DAT_025ebdb0 = 0;
   DAT_025ebe30 = 0;
@@ -155133,7 +155133,7 @@ uint recovered_20a5a20(int deviceId,char *path,void *outImage)
   uint uVar1;
   ulong uVar2;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   local_24 = -1;
   uVar2 = recovered_20a1e50(deviceId,&local_24);
   uVar1 = 0;
@@ -155163,7 +155163,7 @@ uint recovered_20a5a90(int deviceId,char *path,void *rgbaPixels,uint width,uint 
   uint uVar1;
   ulong uVar2;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   local_34 = -1;
   uVar2 = recovered_20a1e50(deviceId,&local_34);
   uVar1 = 0;
@@ -155192,7 +155192,7 @@ void * recovered_20a5b20(int deviceId,char *path,float fontSize)
   ulong uVar1;
   long *plVar2;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   local_1c = -1;
   uVar1 = recovered_20a1e50(deviceId,&local_1c);
   if ((char)uVar1 != '\0') {
@@ -155231,7 +155231,7 @@ uint recovered_20a5b90(int deviceId,char *path,uint launchMode)
   ulong uVar3;
   char *pcVar4;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   if ((launchMode & 0x7fffffff) != 5) {
     local_1a8[0] = -1;
     uVar3 = recovered_20a1e50(deviceId,local_1a8);
@@ -155497,7 +155497,7 @@ uint recovered_20a5f40(char *path,uint launchMode)
   ulong uVar22;
   ulong *puVar23;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   uVar16 = launchMode & 0x7fffffff;
   if (path == (char *)0x0) {
     puVar23 = (ulong *)0x0;
@@ -156142,7 +156142,7 @@ uint recovered_20a6c30(char *oldPath,char *newPath)
   char cVar6;
   ulong uVar7;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   local_2c = -1;
   local_30 = -1;
   local_3c = -1;
@@ -156259,7 +156259,7 @@ uint recovered_20a6e30(char *path)
   ulong uVar2;
   uint uVar3;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   uVar3 = 0;
   if (path != (char *)0x0) {
     uVar1 = recovered_2097d00(path,local_301c);
@@ -156311,7 +156311,7 @@ uint recovered_20a6eb0(void *function,void *context,char *name)
   char *pcVar2;
   char *arg4;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   uVar1 = recovered_200ab60();
   arg2 = 0;
   if (uVar1 < 0x20) {
@@ -156384,7 +156384,7 @@ uint recovered_20a7060(void *function,void *context,char *name,uint priority)
   char *pcVar2;
   char *arg4;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   uVar1 = recovered_200ab60();
   arg2 = 0;
   if (uVar1 < 0x20) {
@@ -156456,7 +156456,7 @@ uint recovered_20a7150(uint priority,uint threadCount)
   long lVar9;
   long lVar10;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   uVar4 = recovered_200ab60();
   if (uVar4 < 0x20) {
     (&DAT_025feb98)[(ulong)uVar4 * 0x2e] = uVar4;
@@ -156766,7 +156766,7 @@ uint recovered_20a7570(void)
   uint uVar2;
   uint uVar3;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   uVar1 = DAT_02132f80;
   uVar3 = 0x40;
   if (uVar1 < 0x40) {
@@ -156798,7 +156798,7 @@ uint recovered_20a75a0(void *outInfo)
   ulong uVar2;
   undefined8 uVar3;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   cVar1 = DAT_025fbec2;
   if (cVar1 == '\0') {
     uVar2 = recovered_20a2520();
@@ -157213,7 +157213,7 @@ uint recovered_20a7a40(void *devices,uint deviceCapacity,uint *outDeviceCount)
   void *arg3;
   long lVar5;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   DAT_025fbed8 = 1;
   recovered_20a7bc0();
   if (outDeviceCount != (uint *)0x0) {
@@ -158606,7 +158606,7 @@ int recovered_20a94f0(void)
 
   int iVar1;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   while( true ) {
     iVar1 = __atomic_exchange_n(&(DAT_025fbee8),1,__ATOMIC_SEQ_CST);
     if (iVar1 == 0) break;
@@ -158806,7 +158806,7 @@ undefined8 recovered_20a9550(int param_1,uint128 *param_2)
   uint128 auVar14;
   uint128 auVar15;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   while( true ) {
     iVar8 = __atomic_exchange_n(&(DAT_025fbef8),1,__ATOMIC_SEQ_CST);
     if (iVar8 == 0) break;
@@ -159267,7 +159267,7 @@ undefined8 recovered_20a9f30(uint param_1,uint *param_2)
   if (*param_2 < 0x38) {
     return 0;
   }
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   if (param_1 != 0) {
     if (param_1 < 3) {
       return 0;
@@ -160016,7 +160016,7 @@ uint recovered_20aac70(void *outInfo)
   unsigned char pf_stack_frame[72] __attribute__((aligned(16))) = {0};
 
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   if (outInfo != (void *)0x0) {
     recovered_20aaca0(outInfo);
   }
@@ -160134,7 +160134,7 @@ uint recovered_20aad50(uint epochSecondsLow,uint epochSecondsHigh)
   int iVar1;
   ulong uVar2;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   local_18 = 0;
   Ram000000000261f0f0 = CONCAT44(epochSecondsHigh,epochSecondsLow);
   iVar1 = recovered_2010490();
@@ -160288,7 +160288,7 @@ uint recovered_20aadd0(void *processes,uint processCapacity,uint *outProcessCoun
   int iVar18;
 
   local_60 = outProcessCount;
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   while( true ) {
     iVar12 = __atomic_exchange_n(&(DAT_025ebb58),1,__ATOMIC_SEQ_CST);
     if (iVar12 == 0) break;
@@ -160683,7 +160683,7 @@ uint recovered_20ab610(uint processId)
 
   undefined8 uVar1;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   uVar1 = recovered_20970c0(processId);
   return (uint)uVar1 & 0xff;
 }
@@ -160730,7 +160730,7 @@ uint recovered_20ab640(void *outStats)
   int iVar12;
   uint uVar13;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   if (outStats == (void *)0x0) {
     uVar7 = 0;
   }
@@ -161298,7 +161298,7 @@ uint recovered_20abdb0(int deviceId,void *outStats)
   ulong uVar13;
 
   local_3c = -1;
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   if (outStats == (void *)0x0) {
     return 0;
   }
@@ -161635,7 +161635,7 @@ undefined4 recovered_20ac230(int param_1,void *param_2,uint param_3)
   uint128 auVar14;
   uint128 auVar15;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   if (param_3 < 8 || param_2 == (void *)0x0) {
     return 0;
   }
@@ -162224,7 +162224,7 @@ undefined8 recovered_20acc20(ulong param_1,uint param_2,uint *param_3)
   long lVar17;
   undefined8 uVar18;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   if (param_3 != (uint *)0x0) {
     *param_3 = 0;
   }
@@ -162546,7 +162546,7 @@ uint recovered_20ad170(int param_1,uint param_2,int param_3,void *param_4,uint p
   long lVar9;
   long lVar10;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   if (param_4 == (void *)0x0) {
     return 0;
   }
@@ -163336,7 +163336,7 @@ ulong recovered_20adcc0(int param_1,uint param_2,int param_3,void *param_4,uint 
   uint uVar10;
   long lVar11;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   if (param_4 == (void *)0x0) {
     return 0;
   }
@@ -163887,7 +163887,7 @@ uint recovered_20ae490(void *outInfo)
   uint uVar5;
   int iVar6;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   if (outInfo == (void *)0x0) {
     uVar5 = 0;
   }
@@ -163995,7 +163995,7 @@ uint recovered_20ae620(void *buffer,uint capacity,uint *outFrameBytes)
   ulong uVar8;
 
   local_34 = 0;
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   if (outFrameBytes != (uint *)0x0) {
     *outFrameBytes = 0;
   }
@@ -164335,7 +164335,7 @@ uint recovered_20aec10(void *pf_argument_frame,uint frameBytes)
   ulong uVar8;
   long *plVar9;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   uVar7 = 0;
   recovered_2002570(local_38,0,0x10);
   if (0xfffff80c < frameBytes - 0x801 && pf_argument_frame != (void *)0x0) {
@@ -164430,7 +164430,7 @@ undefined8 recovered_20aed80(void)
   code *UNRECOVERED_JUMPTABLE;
   undefined8 uVar3;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   while( true ) {
     iVar1 = __atomic_exchange_n(&(DAT_025fbf38),1,__ATOMIC_SEQ_CST);
     if (iVar1 == 0) break;
@@ -164476,7 +164476,7 @@ undefined8 recovered_20aedf0(void)
   code *UNRECOVERED_JUMPTABLE;
   undefined8 uVar3;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   while( true ) {
     iVar1 = __atomic_exchange_n(&(DAT_025fbf38),1,__ATOMIC_SEQ_CST);
     if (iVar1 == 0) break;
@@ -164522,7 +164522,7 @@ undefined8 recovered_20aee60(undefined4 param_1,long param_2)
   code *UNRECOVERED_JUMPTABLE;
   undefined8 uVar3;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   if (param_2 != 0) {
     while( true ) {
       iVar1 = __atomic_exchange_n(&(DAT_025fbf38),1,__ATOMIC_SEQ_CST);
@@ -164570,7 +164570,7 @@ undefined8 recovered_20aeee0(undefined4 param_1)
   code *UNRECOVERED_JUMPTABLE;
   undefined8 uVar3;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   while( true ) {
     iVar1 = __atomic_exchange_n(&(DAT_025fbf38),1,__ATOMIC_SEQ_CST);
     if (iVar1 == 0) break;
@@ -164616,7 +164616,7 @@ undefined8 recovered_20aef70(void)
   code *UNRECOVERED_JUMPTABLE;
   undefined8 uVar3;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   while( true ) {
     iVar1 = __atomic_exchange_n(&(DAT_025fbf38),1,__ATOMIC_SEQ_CST);
     if (iVar1 == 0) break;
@@ -164662,7 +164662,7 @@ undefined8 recovered_20aefe0(long param_1)
   code *UNRECOVERED_JUMPTABLE;
   undefined8 uVar3;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   if (param_1 != 0) {
     while( true ) {
       iVar1 = __atomic_exchange_n(&(DAT_025fbf38),1,__ATOMIC_SEQ_CST);
@@ -164713,7 +164713,7 @@ uint recovered_20af060(void *outInfo)
   char cVar2;
   uint uVar3;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   if (outInfo == (void *)0x0) {
     uVar3 = 0;
   }
@@ -164783,7 +164783,7 @@ uint recovered_20af190(void *commands,uint commandCount)
   ulong uVar4;
   int *piVar5;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   uVar3 = 0;
   if (commandCount != 0 && commands != (void *)0x0) {
     recovered_2002570(&local_1d0,0,0x1a0);
@@ -164892,7 +164892,7 @@ uint recovered_20af300(char *title,uint width,uint height)
   ulong uVar20;
   ulong uVar21;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   uVar5 = recovered_200ab60();
   iVar19 = 0;
   if (uVar5 < 0x20) {
@@ -165336,7 +165336,7 @@ uint recovered_20afae0(uint id,char *title,void *rgbaPixels,uint width,uint heig
   int iVar1;
   undefined8 uVar2;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   while( true ) {
     iVar1 = __atomic_exchange_n(&(DAT_025fbf0c),1,__ATOMIC_SEQ_CST);
     if (iVar1 == 0) break;
@@ -165509,7 +165509,7 @@ undefined8 recovered_20afd90(int param_1,long param_2,uint *param_3)
   uint uVar14;
   byte *pbVar15;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   uVar5 = 0;
   if (param_3 != (uint *)0x0 && param_2 != 0) {
     uVar8 = *param_3;
@@ -165622,7 +165622,7 @@ uint recovered_20b0020(uint id)
   long lVar3;
   char *pcVar4;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   while( true ) {
     iVar1 = __atomic_exchange_n(&(DAT_025fbf0c),1,__ATOMIC_SEQ_CST);
     if (iVar1 == 0) break;
@@ -165682,7 +165682,7 @@ uint recovered_20b00d0(void *windows,uint windowCapacity,uint *outWindowCount)
   long lVar7;
   bool bVar8;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   while( true ) {
     iVar1 = __atomic_exchange_n(&(DAT_025fbf0c),1,__ATOMIC_SEQ_CST);
     if (iVar1 == 0) break;
@@ -165802,7 +165802,7 @@ uint recovered_20b0310(uint id,int x,int y,uint flagMask,uint flagValues)
   int *piVar4;
   long lVar5;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   while( true ) {
     iVar1 = __atomic_exchange_n(&(DAT_025fbf0c),1,__ATOMIC_SEQ_CST);
     if (iVar1 == 0) break;
@@ -165857,7 +165857,7 @@ uint recovered_20b03f0(uint id,uint transparency,uint shadowIntensity)
   uint *puVar4;
   long lVar5;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   while( true ) {
     iVar1 = __atomic_exchange_n(&(DAT_025fbf0c),1,__ATOMIC_SEQ_CST);
     if (iVar1 == 0) break;
@@ -165919,7 +165919,7 @@ uint recovered_20b04c0(uint id,uint mode,uint effectRange)
   uint *puVar5;
   long lVar6;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   uVar4 = 0xffffffff;
   if (0xfffffffa < mode - 4) {
     uVar4 = mode;
@@ -165990,7 +165990,7 @@ uint recovered_20b0590(uint id,uint width,uint height)
   ulong uVar12;
   ulong uVar13;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   while( true ) {
     iVar2 = __atomic_exchange_n(&(DAT_025fbf0c),1,__ATOMIC_SEQ_CST);
     if (iVar2 == 0) break;
@@ -166155,7 +166155,7 @@ uint recovered_20b0820(uint id,void *outWindow)
   undefined8 in_R8;
   undefined8 in_R9;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   if (outWindow == (void *)0x0) {
     uVar2 = 0;
   }
@@ -166222,7 +166222,7 @@ recovered_20b08c0(int param_1,void *param_2,uint param_3,uint *param_4,undefined
   ulong uVar8;
   undefined8 uVar9;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   uVar9 = 0;
   if (((param_4 != (uint *)0x0) && (uVar7 = *param_4, 0x287 < uVar7)) &&
      (uVar1 = param_4[1], uVar1 - 1 < 3)) {
@@ -166379,7 +166379,7 @@ uint recovered_20b0be0(uint id,char *title,void *rgbaPixels,uint width,uint heig
   uVar8 = CONCAT44(in_register_0000008c,stride);
   uVar7 = CONCAT44(in_register_00000084,height);
   uVar4 = CONCAT44(in_register_0000000c,width);
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   uVar5 = 1;
   while( true ) {
     iVar1 = __atomic_exchange_n(&(DAT_025fbf0c),1,__ATOMIC_SEQ_CST);
@@ -166461,7 +166461,7 @@ undefined8 recovered_20b0cf0(int param_1,byte *param_2)
   undefined8 uVar15;
   bool bVar16;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   while( true ) {
     iVar4 = __atomic_exchange_n(&(DAT_025fbf0c),1,__ATOMIC_SEQ_CST);
     if (iVar4 == 0) break;
@@ -166655,7 +166655,7 @@ uint recovered_20b1120(int param_1,void *param_2,uint param_3,undefined4 *param_
   uint uVar4;
   char *pcVar5;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   while( true ) {
     iVar1 = __atomic_exchange_n(&(DAT_025fbf0c),1,__ATOMIC_SEQ_CST);
     if (iVar1 == 0) break;
@@ -166723,7 +166723,7 @@ uint recovered_20b1220(uint id,char *fileMenu,char *editMenu,char *windowMenu)
   long lVar5;
   undefined8 *puVar6;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   while( true ) {
     iVar1 = __atomic_exchange_n(&(DAT_025fbf0c),1,__ATOMIC_SEQ_CST);
     if (iVar1 == 0) break;
@@ -166805,7 +166805,7 @@ uint recovered_20b13e0(uint id,uint menuKind,uint menuIndex)
   uint *puVar4;
   long lVar5;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   while( true ) {
     iVar1 = __atomic_exchange_n(&(DAT_025fbf0c),1,__ATOMIC_SEQ_CST);
     if (iVar1 == 0) break;
@@ -166863,7 +166863,7 @@ uint recovered_20b14a0(uint id,int x,int y,uint buttons,uint flags)
   uint uVar7;
   bool bVar8;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   while( true ) {
     iVar1 = __atomic_exchange_n(&(DAT_025fbf0c),1,__ATOMIC_SEQ_CST);
     if (iVar1 == 0) break;
@@ -166939,7 +166939,7 @@ uint recovered_20b15f0(uint id,void *outInfo)
   long lVar5;
   undefined4 *puVar6;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   if (outInfo == (void *)0x0) {
     uVar4 = 0;
   }
@@ -167076,7 +167076,7 @@ undefined8 recovered_20b17d0(int param_1,undefined8 *param_2)
   long lVar5;
   undefined4 *puVar6;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   if (param_2 == (undefined8 *)0x0) {
     uVar4 = 0;
   }
@@ -167160,7 +167160,7 @@ undefined8 recovered_20b18b0(int param_1,int param_2)
       iVar6 = *(int *)(lVar5 + 0x30);
     }
   }
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   while( true ) {
     iVar1 = __atomic_exchange_n(&(DAT_025fbf0c),1,__ATOMIC_SEQ_CST);
     if (iVar1 == 0) break;
@@ -167257,7 +167257,7 @@ undefined8 recovered_20b19b0(int param_1)
       iVar11 = *(int *)(lVar7 + 0x30);
     }
   }
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   if (iVar11 != 0) {
     while( true ) {
       iVar1 = __atomic_exchange_n(&(DAT_026001f0),1,__ATOMIC_SEQ_CST);
@@ -167408,7 +167408,7 @@ undefined8 recovered_20b1c30(long *param_1,byte *param_2,uint param_3,undefined8
   uint uVar15;
   uint uVar16;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   if (param_4 == (undefined8 *)0x0) {
     return 0;
   }
@@ -167606,7 +167606,7 @@ uint recovered_20b1f40(char *text,uint maxChars,uint scale,uint rgba,void *outIm
   ulong uVar33;
   ulong uVar34;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   if ((outImage != (void *)0x0) && (recovered_2002570(outImage,0,0x18), text != (char *)0x0)) {
     cVar3 = DAT_025fc430;
     if (cVar3 != '\x01') {
@@ -169078,7 +169078,7 @@ undefined8 recovered_20b3370(uint *param_1,uint *param_2)
   local_158 = 0;
   uStack_150 = 0;
   local_34 = 0;
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   if (param_2 == (uint *)0x0) {
     return 0;
   }
@@ -172485,7 +172485,7 @@ undefined8 recovered_20b8160(void)
   char *pcVar4;
   char *pcVar3;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   while( true ) {
     iVar2 = __atomic_exchange_n(&(DAT_026139e8),1,__ATOMIC_SEQ_CST);
     if (iVar2 == 0) break;
@@ -172698,7 +172698,7 @@ uint recovered_20b8320(char *server,void *outInfo,char *errorText,uint errorText
     *errorText = '\0';
   }
   local_d8[0] = '\0';
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   local_208[0] = 0;
   pcVar3 = recovered_2003a00((char *)text,&DAT_0212d407);
   src = (byte *)(pcVar3 + 3);
@@ -173561,7 +173561,7 @@ undefined8 recovered_20b9460(undefined4 param_1,ulong param_2,undefined1 param_3
       iVar7 = *(int *)(lVar1 + 0x30);
     }
   }
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   while( true ) {
     iVar2 = __atomic_exchange_n(&(DAT_025ebb6c),1,__ATOMIC_SEQ_CST);
     if (iVar2 == 0) break;
@@ -173712,7 +173712,7 @@ void recovered_20b96c0(void)
 
   int iVar1;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   while( true ) {
     iVar1 = __atomic_exchange_n(&(DAT_025ebb68),1,__ATOMIC_SEQ_CST);
     if (iVar1 == 0) break;
@@ -174031,7 +174031,7 @@ uint recovered_20b9b60(void *outInfo)
   uint uVar3;
   undefined8 uVar4;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   while( true ) {
     iVar1 = __atomic_exchange_n(&(DAT_025ebb68),1,__ATOMIC_SEQ_CST);
     if (iVar1 == 0) break;
@@ -174202,7 +174202,7 @@ uint recovered_20b9d70(uint x,uint y,uint width,uint height)
       iVar10 = *(int *)(lVar2 + 0x30);
     }
   }
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   while( true ) {
     iVar3 = __atomic_exchange_n(&(DAT_025ebb6c),1,__ATOMIC_SEQ_CST);
     if (iVar3 == 0) break;
@@ -174411,7 +174411,7 @@ undefined8 recovered_20ba140(uint *param_1)
   long lVar7;
   undefined8 uVar8;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   uVar8 = 0;
   if (param_1 != (uint *)0x0) {
     recovered_2002570(param_1,0,0x28);
@@ -174800,7 +174800,7 @@ undefined8 recovered_20ba630(undefined8 param_1,ulong param_2)
   int iVar9;
   void *pvVar10;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   while( true ) {
     iVar9 = __atomic_exchange_n(&(DAT_025ebb68),1,__ATOMIC_SEQ_CST);
     if (iVar9 == 0) break;
@@ -175978,7 +175978,7 @@ void recovered_20bb730(void)
   unsigned char pf_stack_frame[72] __attribute__((aligned(16))) = {0};
 
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   recovered_20b9460(0xaa,0x55ffff,0x1b);
   return;
 }
@@ -248780,7 +248780,7 @@ void recovered_2104880(int param_1,byte *param_2,uint param_3)
   uint uVar2;
   int *piVar3;
 
-  recovered_2094ab0(unaff_retaddr);
+  recovered_2094ab0(__builtin_return_address(0));
   if (param_1 == -1) {
     uVar2 = recovered_200ab60();
     piVar3 = &DAT_02132f78;

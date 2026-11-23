@@ -1094,3 +1094,9 @@ The repaired ARM32 VM retains a readable system volume, and its shell evaluates
 `1+1` as `2`. The post-boot directory tree validates after the ledger writes.
 Desktop artwork and integrated fonts still use fallbacks, so filesystem
 integrity alone does not establish graphics equivalence.
+
+Recovered public API boundaries on all four CPUs now pass the actual guest
+return address to the scheduler checkpoint. Native/source file, PNG, WAV and
+font entry comparisons agree on the caller address for every architecture.
+This removes uninitialized decompiler register values and synthetic stack
+contents from the API guard; desktop integration remains under investigation.

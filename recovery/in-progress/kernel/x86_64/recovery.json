@@ -53,7 +53,8 @@
     "source_replacements": {
       "2096660": {
         "joined_r0x02096922:\n    uVar6 = 0;\n  }": "    uVar6 = 0;\n  }",
-        "if (lVar9 == 0) goto joined_r0x02096922;": "if (lVar9 == 0) {uVar6=0;goto joined_r0x02096922;}"
+        "if (lVar9 == 0) goto joined_r0x02096922;": "if (lVar9 == 0) {uVar6=0;goto joined_r0x02096922;}",
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
       },
       "20bbc90": {
         "recovered_2005f40((char *)unaff_R13,0xf2,&DAT_02127e46);": "recovered_2005f40((char *)unaff_R13,0xf2,&DAT_02127e46,(char *)ppuVar23);",
@@ -107,6 +108,360 @@
       },
       "2088590": {
         "(**(code **)(*(long *)*param_1 + 8))();": "((void (*)(void *))*(uintptr_t *)(*(long *)*param_1+8))((void *)*param_1);"
+      },
+      "209f780": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "209c5b0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "209c610": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "2097c60": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "2095870": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20af060": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "209c3c0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20aedf0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "209c510": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "209f580": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20b96c0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20adcc0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20ba630": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20950c0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "209c1f0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20afae0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "2097570": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "2097f60": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20b0590": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20aec10": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20a6e30": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20ab610": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20a9550": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20b00d0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20b1c30": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20a47c0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20b1120": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20b0be0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20a7570": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20a7060": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20b17d0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20a5f40": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20a94f0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20aadd0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "2104880": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20b1220": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "209f660": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20b13e0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20a4310": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "209f4e0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20a6c30": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20b14a0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20aac70": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20ab640": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "209df40": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20abdb0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20af190": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "209e0f0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20b18b0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20a75a0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20a46b0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20afd90": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20b0020": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20b19b0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20b08c0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20b03f0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "209c490": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20b1f40": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20b0310": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20a6eb0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20b04c0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20a4910": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20acc20": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20ac230": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "209d7a0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "209c790": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "209de70": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20a48b0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20b15f0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20aad50": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20a5120": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20b0cf0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20a7150": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "209f5b0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20ae490": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20a4360": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20a4670": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "209e1d0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20a5b20": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20a4730": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20a9f30": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20a4470": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20a7a40": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20b0820": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20aed80": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20b3370": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20a5a20": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "2094fa0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "209c260": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "2097740": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20a5a90": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "209e380": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20aef70": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20a1e00": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "2094de0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20ae620": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20bb730": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20a5b90": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "2094940": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "2098c70": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20af300": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20b8320": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "2096050": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20aefe0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20b9b60": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "209c810": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20b9460": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20b8160": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20aee60": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20a3f30": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20952e0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20aeee0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20ba140": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20b9d70": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20a21e0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20a14c0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20963b0": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
+      },
+      "20ad170": {
+        "recovered_2094ab0(unaff_retaddr)": "recovered_2094ab0(__builtin_return_address(0))"
       }
     }
   }
