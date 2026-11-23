@@ -9507,12 +9507,14 @@ recovered_1000c2b8(int *param_1,int param_2,int param_3,int param_4,uint param_5
 {
   unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
 
-  int iVar1;
+  ulong size;
+  void *pvVar1;
   undefined4 uVar2;
   int iVar3;
+  int iVar4;
   uint unaff_r6;
-  uint uVar4;
-  int iVar5;
+  uint uVar5;
+  int iVar6;
 
   uVar2 = 0;
   if (param_1 != (int *)0x0) {
@@ -9521,39 +9523,40 @@ recovered_1000c2b8(int *param_1,int param_2,int param_3,int param_4,uint param_5
       unaff_r6 = *(uint *)(param_2 + 0x2c);
     }
     if ((param_2 != 0 && unaff_r6 != 0) && (-1 < param_3 && -1 < param_4)) {
-      uVar4 = param_5;
+      uVar5 = param_5;
       if (0 < (int)param_5) {
-        uVar4 = param_6;
+        uVar5 = param_6;
         unaff_r6 = param_6;
       }
-      if ((((0 < (int)uVar4) && (uVar4 = *(uint *)(param_2 + 4), param_3 + param_5 <= uVar4)) &&
+      if ((((0 < (int)uVar5) && (uVar5 = *(uint *)(param_2 + 4), param_3 + param_5 <= uVar5)) &&
           (param_4 + unaff_r6 <= *(uint *)(param_2 + 8))) &&
          (((uint)-(int)((ulonglong)unaff_r6 * (ulonglong)param_5 >> 0x20) <
            (uint)((uint)((ulonglong)unaff_r6 * (ulonglong)param_5) < 0x40000000) &&
-          (-(uVar4 >> 0x1e) < (uint)(uVar4 << 2 <= *(uint *)(param_2 + 0xc)))))) {
+          (-(uVar5 >> 0x1e) < (uint)(uVar5 << 2 <= *(uint *)(param_2 + 0xc)))))) {
         if (param_1[1] != unaff_r6 * (uintptr_t)(uintptr_t)param_5 * 4) {
-          iVar1 = recovered_1000c43c();
-          if (iVar1 == 0) {
+          size = unaff_r6 * (uintptr_t)(uintptr_t)param_5 * 4;
+          pvVar1 = recovered_1000c43c((void *)*param_1,size);
+          if (pvVar1 == (void *)0x0) {
             return 0;
           }
-          param_1[1] = unaff_r6 * (uintptr_t)(uintptr_t)param_5 * 4;
-          *param_1 = iVar1;
+          param_1[1] = size;
+          *param_1 = (int)pvVar1;
         }
         param_1[4] = param_5;
         param_1[5] = unaff_r6;
         param_1[3] = param_4;
         param_1[2] = param_3;
-        iVar1 = *(int *)(param_2 + 8);
-        iVar5 = *(int *)(param_2 + 0xc);
+        iVar3 = *(int *)(param_2 + 8);
+        iVar6 = *(int *)(param_2 + 0xc);
         param_1[6] = *(int *)(param_2 + 4);
-        iVar3 = 0;
-        param_1[7] = iVar1;
-        param_1[8] = iVar5;
+        iVar4 = 0;
+        param_1[7] = iVar3;
+        param_1[8] = iVar6;
         do {
-          recovered_100058f0((void *)(*param_1 + iVar3),
+          recovered_100058f0((void *)(*param_1 + iVar4),
                              (void *)(*(int *)(param_2 + 0xc) * param_4 + *(int *)(param_2 + 0x2c) +
                                      param_3 * 4),(uintptr_t)(uintptr_t)param_5 * 4);
-          iVar3 = iVar3 + (uintptr_t)(uintptr_t)param_5 * 4;
+          iVar4 = iVar4 + (uintptr_t)(uintptr_t)param_5 * 4;
           param_4 = param_4 + 1;
           unaff_r6 = unaff_r6 - 1;
         } while (unaff_r6 != 0);
@@ -9564,6 +9567,8 @@ recovered_1000c2b8(int *param_1,int param_2,int param_3,int param_4,uint param_5
   }
   return uVar2;
 }
+
+
 
 
 #undef DAT_40010800
@@ -9587,23 +9592,61 @@ recovered_1000c2b8(int *param_1,int param_2,int param_3,int param_4,uint param_5
  */
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+#undef DAT_40010800
+#define DAT_40010800 (*(uint8_t *)(0x40010800U))
+#undef DAT_40010804
+#define DAT_40010804 (*(uint8_t *)(0x40010804U))
+#undef DAT_40010808
+#define DAT_40010808 (*(uint8_t *)(0x40010808U))
+#undef Ram40010800
+#define Ram40010800 (*(uint32_t *)(0x40010800U))
+#undef Ram40010804
+#define Ram40010804 (*(uint32_t *)(0x40010804U))
+#undef Ram40010808
+#define Ram40010808 (*(uint32_t *)(0x40010808U))
+#undef UINT_40010854
+#define UINT_40010854 (*(uint *)(0x40010854U))
+/* Recovered working notes; Pooka's Free Software License.
+ * Address: 0x1000c43c
+ */
 
-undefined4 recovered_1000c43c(void)
+void * recovered_1000c43c(void *pointer,ulong size)
 
 {
   unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
 
-  undefined4 uVar1;
+  uint uVar1;
+  int iVar2;
+  code *UNRECOVERED_JUMPTABLE;
+  void *pvVar3;
+  bool bVar4;
 
-  if ((((_DAT_40010800 == 0x50414d57) && (_DAT_40010804 != 0)) && (0x57 < _DAT_40010808)) &&
-     (_DAT_40010854 != (code *)0x0)) {
+  iVar2 = Ram40010800;
+  if ((iVar2 == 0x50414d57) && (iVar2 = Ram40010804, iVar2 != 0)) {
+    uVar1 = Ram40010808;
+    bVar4 = 0xb < uVar1;
+    if (bVar4) {
+      uVar1 = Ram40010808;
+    }
+    if ((bVar4 && 0x57 < uVar1) &&
+       (UNRECOVERED_JUMPTABLE = (code *)UINT_40010854, UNRECOVERED_JUMPTABLE != (code *)0x0)) {
                     /* WARNING: Could not recover jumptable at 0x1000c48c. Too many branches */
                     /* WARNING: Treating indirect jump as call */
-    uVar1 = (*_DAT_40010854)();
-    return uVar1;
+      pvVar3 = (*UNRECOVERED_JUMPTABLE)(pointer,size);
+      return pvVar3;
+    }
   }
-  return 0;
+  return (void *)0x0;
 }
+
+#undef DAT_40010800
+#undef DAT_40010804
+#undef DAT_40010808
+#undef Ram40010800
+#undef Ram40010804
+#undef Ram40010808
+#undef UINT_40010854
+
 
 #undef DAT_40010800
 #undef DAT_40010804

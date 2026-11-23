@@ -199,7 +199,7 @@ byte * recovered_100094b0(uint param_1,long *param_2);
 void recovered_10009640(void);
 undefined4 recovered_10009750(uint param_1);
 undefined8 recovered_10009790(long *param_1,long param_2,ulong param_3,ulong param_4);
-undefined8 recovered_10009910(void);
+void * recovered_10009910(void *pointer,ulong size);
 undefined8 recovered_10009960(long *param_1,long param_2);
 void recovered_10009a40(undefined8 *param_1);
 int recovered_10009ab0(int *param_1,int param_2);

@@ -8060,7 +8060,9 @@ recovered_10008040(int *param_1,int param_2,uint param_3,uint param_4,uint param
 
   ulong count;
   uint uVar1;
-  int iVar2;
+  void *pvVar2;
+  int iVar3;
+  ulong size;
 
   if ((((param_1 == (int *)0x0) || (*(undefined1 *)(param_1 + 9) = 0, param_2 == 0)) ||
       (((int)param_6 < 1 || ((int)param_5 < 1 || (int)(param_3 | param_4) < 0)) ||
@@ -8071,22 +8073,23 @@ recovered_10008040(int *param_1,int param_2,uint param_3,uint param_4,uint param
   if (*(uint *)(param_2 + 8) < param_6 + param_4) {
     return 0;
   }
-  iVar2 = (int)((ulonglong)param_6 * (ulonglong)param_5 >> 0x20);
-  if (iVar2 != 0 ||
-      (uint)-iVar2 < (uint)(0x3fffffff < (uint)((ulonglong)param_6 * (ulonglong)param_5))) {
+  iVar3 = (int)((ulonglong)param_6 * (ulonglong)param_5 >> 0x20);
+  if (iVar3 != 0 ||
+      (uint)-iVar3 < (uint)(0x3fffffff < (uint)((ulonglong)param_6 * (ulonglong)param_5))) {
     return 0;
   }
   if (uVar1 >> 0x1e != 0 || -(uVar1 >> 0x1e) < (uint)(*(uint *)(param_2 + 0xc) < uVar1 << 2)) {
     return 0;
   }
   count = param_5 * 4;
-  if (count * param_6 != param_1[1]) {
-    iVar2 = recovered_100081b0();
-    if (iVar2 == 0) {
+  size = count * param_6;
+  if (size != param_1[1]) {
+    pvVar2 = recovered_100081b0((void *)*param_1,size);
+    if (pvVar2 == (void *)0x0) {
       return 0;
     }
-    *param_1 = iVar2;
-    param_1[1] = count * param_6;
+    *param_1 = (int)pvVar2;
+    param_1[1] = size;
   }
   param_1[2] = param_3;
   param_1[3] = param_4;
@@ -8095,18 +8098,20 @@ recovered_10008040(int *param_1,int param_2,uint param_3,uint param_4,uint param
   param_1[6] = *(int *)(param_2 + 4);
   param_1[7] = *(int *)(param_2 + 8);
   param_1[8] = *(int *)(param_2 + 0xc);
-  iVar2 = 0;
+  iVar3 = 0;
   do {
-    recovered_10002220((void *)(*param_1 + iVar2),
+    recovered_10002220((void *)(*param_1 + iVar3),
                        (void *)(*(int *)(param_2 + 0xc) * param_4 + *(int *)(param_2 + 0x2c) +
                                param_3 * 4),count);
     param_4 = param_4 + 1;
-    iVar2 = iVar2 + count;
+    iVar3 = iVar3 + count;
     param_6 = param_6 - 1;
   } while (param_6 != 0);
   *(undefined1 *)(param_1 + 9) = 1;
   return CONCAT31((int3)(count >> 8),1);
 }
+
+
 
 
 #undef DAT_00280800
@@ -8130,21 +8135,53 @@ recovered_10008040(int *param_1,int param_2,uint param_3,uint param_4,uint param
  */
 
 /* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+#undef DAT_00280800
+#define DAT_00280800 (*(uint8_t *)(0x280800U))
+#undef DAT_00280804
+#define DAT_00280804 (*(uint8_t *)(0x280804U))
+#undef DAT_00280808
+#define DAT_00280808 (*(uint8_t *)(0x280808U))
+#undef Ram00280800
+#define Ram00280800 (*(uint32_t *)(0x280800U))
+#undef Ram00280804
+#define Ram00280804 (*(uint32_t *)(0x280804U))
+#undef Ram00280808
+#define Ram00280808 (*(uint32_t *)(0x280808U))
+#undef UINT_00280854
+#define UINT_00280854 (*(uint *)(0x280854U))
+/* Recovered working notes; Pooka's Free Software License.
+ * Address: 0x100081b0
+ */
 
-undefined4 recovered_100081b0(void)
+void * recovered_100081b0(void *pointer,ulong size)
 
 {
   unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
 
-  undefined4 uVar1;
+  int iVar1;
+  uint uVar2;
+  code *pcVar3;
+  void *pvVar4;
 
-  if ((((_DAT_00280800 == 0x50414d57) && (_DAT_00280804 != 0)) && (0xb < _DAT_00280808)) &&
-     ((0x57 < _DAT_00280808 && (_DAT_00280854 != (code *)0x0)))) {
-    uVar1 = (*_DAT_00280854)();
-    return uVar1;
+  iVar1 = Ram00280800;
+  if ((((iVar1 == 0x50414d57) && (iVar1 = Ram00280804, iVar1 != 0)) &&
+      (uVar2 = Ram00280808, 0xb < uVar2)) &&
+     ((uVar2 = Ram00280808, 0x57 < uVar2 && (pcVar3 = (code *)UINT_00280854, pcVar3 != (code *)0x0))
+     )) {
+    pvVar4 = (*pcVar3)(pointer,size);
+    return pvVar4;
   }
-  return 0;
+  return (void *)0x0;
 }
+
+#undef DAT_00280800
+#undef DAT_00280804
+#undef DAT_00280808
+#undef Ram00280800
+#undef Ram00280804
+#undef Ram00280808
+#undef UINT_00280854
+
 
 #undef DAT_00280800
 #undef DAT_00280804
