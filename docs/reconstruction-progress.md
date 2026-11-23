@@ -986,3 +986,9 @@ operation packets, key masks, pointer output and adjacent canaries. The VM
 accepts `1+1` and records `2` in its console log. Rendering and command-dispatch
 status remain incomplete: the framebuffer still shows firmware output, and
 successful shell evaluation can be followed by a rejected-command message.
+
+The ARM32 capability dispatcher now returns the native provider status instead
+of discarding it. Its delayed consumer in shell routing retains that value
+across optional output handling. The recovered selector and route wrapper
+match 805 native cases covering capability masks, provider ordering, callback
+arguments, lock release and zero/nonzero status values.

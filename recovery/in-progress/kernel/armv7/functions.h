@@ -2135,7 +2135,7 @@ void recovered_40524910(void);
 bool recovered_4052498c(int param_1);
 undefined4 recovered_40524d10(int param_1);
 bool recovered_40525274(void);
-void recovered_40525368(uint param_1,int param_2,int *param_3);
+uint recovered_40525368(uint param_1,int param_2,int *param_3);
 void recovered_405254f0(void);
 void recovered_405262c4(void);
 void recovered_405262fc(void);

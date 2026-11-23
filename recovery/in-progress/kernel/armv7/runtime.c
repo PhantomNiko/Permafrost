@@ -180546,57 +180546,57 @@ uint recovered_404c1aa4(undefined4 param_1,undefined1 *param_2,int param_3,undef
   unsigned char pf_stack_frame[1152] __attribute__((aligned(16))) = {0};
 
   char cVar1;
-  uint extraout_r0 = 0;
-  int iVar2;
-  ulong length;
+  uint uVar2;
   int iVar3;
-  undefined1 *puVar4;
+  ulong length;
+  int iVar4;
+  undefined1 *puVar5;
+  char *pcVar7;
   char *pcVar6;
-  char *pcVar5;
 
   local_444[1] = 0x28;
   local_444[0] = 1;
-  puVar4 = param_2;
+  puVar5 = param_2;
   if (param_2 == (undefined1 *)0x0 || param_3 == 0) {
-    puVar4 = &DAT_40699960;
+    puVar5 = &DAT_40699960;
     param_3 = 0x2000;
   }
-  *puVar4 = 0;
-  local_42c = (uint)(puVar4 == param_2);
+  *puVar5 = 0;
+  local_42c = (uint)(puVar5 == param_2);
   local_424 = 0;
   local_428 = 0;
   local_420 = 0;
   local_444[2] = param_1;
-  local_438 = puVar4;
+  local_438 = puVar5;
   local_434 = param_3;
   local_430 = param_4;
-  recovered_40525368(0x40000,0x50001,local_444);
-  if ((puVar4 == &DAT_40699960) && (cVar1 = DAT_40699960, cVar1 != '\0')) {
+  uVar2 = recovered_40525368(0x40000,0x50001,local_444);
+  if ((puVar5 == &DAT_40699960) && (cVar1 = DAT_40699960, cVar1 != '\0')) {
     DataMemoryBarrier(0xb);
     do {
-      iVar2 = pf_arm_ldrex32(0x40683bac);
-      iVar3 = pf_arm_strex32(0x40683bac,1);
-    } while (iVar3 != 0);
+      iVar3 = pf_arm_ldrex32(0x40683bac);
+      iVar4 = pf_arm_strex32(0x40683bac,1);
+    } while (iVar4 != 0);
     DataMemoryBarrier(0xb);
-    while (iVar2 != 0) {
+    while (iVar3 != 0) {
       do {
-        iVar2 = DAT_40683bac;
-      } while (iVar2 != 0);
+        iVar3 = DAT_40683bac;
+      } while (iVar3 != 0);
       DataMemoryBarrier(0xb);
       do {
-        iVar2 = pf_arm_ldrex32(0x40683bac);
-        iVar3 = pf_arm_strex32(0x40683bac,1);
-      } while (iVar3 != 0);
+        iVar3 = pf_arm_ldrex32(0x40683bac);
+        iVar4 = pf_arm_strex32(0x40683bac,1);
+      } while (iVar4 != 0);
       DataMemoryBarrier(0xb);
     }
     DataMemoryBarrier(0xb);
     length = 0;
-    pcVar6 = &DAT_40699960;
+    pcVar7 = &DAT_40699960;
     while( true ) {
       do {
-        pcVar5 = pcVar6 + 1;
-        cVar1 = *pcVar6;
-        pcVar6 = pcVar5;
+        pcVar6 = pcVar7 + 1;
+        cVar1 = *pcVar7;
+        pcVar7 = pcVar6;
       } while (cVar1 == '\r');
       if (cVar1 == '\0') break;
       if (cVar1 == '\n') {
@@ -180612,7 +180612,7 @@ uint recovered_404c1aa4(undefined4 param_1,undefined1 *param_2,int param_3,undef
     DataMemoryBarrier(0xb);
     DAT_40683bac = 0;
   }
-  return extraout_r0;
+  return uVar2;
 }
 
 #undef DAT_40683bac
@@ -276346,14 +276346,14 @@ bool recovered_40525274(void)
  * Address: 0x40525368
  */
 
-void recovered_40525368(uint param_1,int param_2,int *param_3)
+uint recovered_40525368(uint param_1,int param_2,int *param_3)
 
 {
   unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
 
-  uint uVar1;
-  int iVar2;
-  char *pcVar3;
+  int iVar1;
+  char *pcVar2;
+  uint uVar3;
   int iVar4;
   uint uVar5;
 
@@ -276361,51 +276361,51 @@ void recovered_40525368(uint param_1,int param_2,int *param_3)
   while( true ) {
     DataMemoryBarrier(0xb);
     do {
-      iVar2 = pf_arm_ldrex32(0x40682728);
+      iVar1 = pf_arm_ldrex32(0x40682728);
       iVar4 = pf_arm_strex32(0x40682728,1);
     } while (iVar4 != 0);
-    while (DataMemoryBarrier(0xb), iVar2 != 0) {
+    while (DataMemoryBarrier(0xb), iVar1 != 0) {
       do {
-        iVar2 = DAT_40682728;
-      } while (iVar2 != 0);
+        iVar1 = DAT_40682728;
+      } while (iVar1 != 0);
       DataMemoryBarrier(0xb);
       do {
-        iVar2 = pf_arm_ldrex32(0x40682728);
+        iVar1 = pf_arm_ldrex32(0x40682728);
         iVar4 = pf_arm_strex32(0x40682728,1);
       } while (iVar4 != 0);
     }
     DataMemoryBarrier(0xb);
-    uVar1 = DAT_40688af8;
+    uVar3 = DAT_40688af8;
     DataMemoryBarrier(0xb);
     DAT_40682728 = 0;
-    if (uVar1 <= uVar5) break;
+    if (uVar3 <= uVar5) break;
     DataMemoryBarrier(0xb);
     do {
-      iVar2 = pf_arm_ldrex32(0x40682728);
+      iVar1 = pf_arm_ldrex32(0x40682728);
       iVar4 = pf_arm_strex32(0x40682728,1);
     } while (iVar4 != 0);
-    while (DataMemoryBarrier(0xb), iVar2 != 0) {
+    while (DataMemoryBarrier(0xb), iVar1 != 0) {
       do {
-        iVar2 = DAT_40682728;
-      } while (iVar2 != 0);
+        iVar1 = DAT_40682728;
+      } while (iVar1 != 0);
       DataMemoryBarrier(0xb);
       do {
-        iVar2 = pf_arm_ldrex32(0x40682728);
+        iVar1 = pf_arm_ldrex32(0x40682728);
         iVar4 = pf_arm_strex32(0x40682728,1);
       } while (iVar4 != 0);
     }
     DataMemoryBarrier(0xb);
-    uVar1 = DAT_40688af8;
-    if (uVar5 < uVar1) {
-      iVar2 = DAT_40688afc;
-      pcVar3 = *(char **)(iVar2 + uVar5 * 4);
+    uVar3 = DAT_40688af8;
+    if (uVar5 < uVar3) {
+      iVar1 = DAT_40688afc;
+      pcVar2 = *(char **)(iVar1 + uVar5 * 4);
       DataMemoryBarrier(0xb);
       DAT_40682728 = 0;
-      if ((((pcVar3 != (char *)0x0) && (*pcVar3 == '\x01' && (param_1 & 0xffff) == 0)) &&
-          (*(int *)(pcVar3 + 4) != 0)) &&
-         (((*(uint *)(pcVar3 + 0x4c) & param_1) == param_1 &&
-          (iVar2 = recovered_404f0388(pcVar3,0x10,param_2,param_3), iVar2 != 0)))) {
-        return;
+      if ((((pcVar2 != (char *)0x0) && (*pcVar2 == '\x01' && (param_1 & 0xffff) == 0)) &&
+          (*(int *)(pcVar2 + 4) != 0)) &&
+         (((*(uint *)(pcVar2 + 0x4c) & param_1) == param_1 &&
+          (uVar3 = recovered_404f0388(pcVar2,0x10,param_2,param_3), uVar3 != 0)))) {
+        return uVar3;
       }
       uVar5 = uVar5 + 1;
     }
@@ -276415,7 +276415,7 @@ void recovered_40525368(uint param_1,int param_2,int *param_3)
       DAT_40682728 = 0;
     }
   }
-  return;
+  return 0;
 }
 
 #undef DAT_40682728

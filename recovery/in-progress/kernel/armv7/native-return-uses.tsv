@@ -18,3 +18,4 @@
 4050be44	4	_driver_loaded_reserve	[[4, 1079032628, 1079032632, "cmp r0, #0"]]
 404d9568	4	_fs_polynyafs_io_flush	Native status preserved across callback lock release
 40450078	4	_pfs_writer_allocation_write_callback	Native direct writer status return
+40525368	4	_kernel_module_dispatch_capability_first	Delayed r0 use at 404c1b50 after metadata/output branch; native call at 404c1b34.
