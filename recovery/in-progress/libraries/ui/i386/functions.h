@@ -526,7 +526,7 @@ undefined4 recovered_1000aab0(int *param_1,uint param_2);
 undefined4 recovered_1000ab60(int *param_1,uint param_2);
 undefined4 recovered_1000ac10(int *param_1,int param_2);
 undefined4 recovered_1000ac80(int *param_1,int param_2);
-undefined4 recovered_1000acf0(int *param_1,undefined4 param_2);
+uint recovered_1000acf0(int *param_1,uint param_2);
 undefined4
 recovered_1000ad60(undefined4 param_1,undefined4 param_2,undefined4 param_3,undefined4 param_4,
                   undefined4 param_5);
@@ -582,7 +582,7 @@ recovered_1000c800(int param_1,int param_2,uint param_3,uint param_4,uint param_
 void recovered_1000c9c0(int *in_ECX,int *in_EDX,int param_3,int param_4,int param_5,int param_6);
 undefined4 recovered_1000d870(int *param_1,int param_2,undefined4 param_3);
 undefined4 recovered_1000da30(undefined4 *param_1);
-undefined8 recovered_1000dc70(undefined *in_ECX,undefined4 in_EDX);
+undefined8 recovered_1000dc70(undefined *in_ECX,uint in_EDX);
 void recovered_1000ddf0(int *in_ECX,int in_EDX_00,int param_3,int param_4,int param_5,int param_6,
                        char param_7);
 void recovered_1000e0d0(int *in_ECX,int in_EDX,int param_3,int param_4,int param_5,int param_6,

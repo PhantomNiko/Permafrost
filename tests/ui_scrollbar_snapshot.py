@@ -32,14 +32,28 @@ def exercise(path, api_base):
         arguments = (list(struct.unpack('<2Q', struct.pack('<4i', *rect)))
                      if lib.wide else [v & 0xffffffff for v in rect])
         captured = lib.call('_terror_ui_scrollbar_capture', snapshot, window, *arguments)
+        x, y, w, h = rect
+        valid = x >= 0 and y >= 0 and w > 0 and h > 0 and x + w <= width and y + h <= height
+        assert bool(captured) == valid
         raw = bytes(cpu.mem_read(snapshot, snapshot_size))
         backing = int.from_bytes(raw[:word], 'little')
         size = int.from_bytes(raw[word:2 * word], 'little')
         data = bytes(cpu.mem_read(backing, size)) if backing and size else b''
+        if valid:
+            expected = b''.join(original[row * stride + x * 4:row * stride + (x + w) * 4]
+                                for row in range(y, y + h))
+            assert size == w * h * 4 and data == expected
         # Allocation addresses belong to each emulator, not the contract.
         results.append((captured, bytes(word) + raw[word:], data))
         cpu.mem_write(pixels, b'\x5a' * len(original))
         restored = lib.call('_terror_ui_scrollbar_restore', snapshot, window)
+        assert bool(restored) == valid
+        expected_pixels = bytearray(b'\x5a' * len(original))
+        if valid:
+            for row in range(y, y + h):
+                start, end = row * stride + x * 4, row * stride + (x + w) * 4
+                expected_pixels[start:end] = original[start:end]
+        assert bytes(cpu.mem_read(pixels, len(original))) == expected_pixels
         results.append((restored, bytes(cpu.mem_read(pixels, len(original)))))
         assert bytes(cpu.mem_read(snapshot - 16, 16)) == b'\xa5' * 16
         assert bytes(cpu.mem_read(snapshot + snapshot_size, 16)) == b'\xa5' * 16

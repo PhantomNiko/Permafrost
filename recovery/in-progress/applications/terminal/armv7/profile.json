@@ -1,0 +1,11 @@
+{
+  "module": "Cancer",
+  "architecture": "armv7",
+  "version": "1.1",
+  "entry": "main",
+  "sources": [
+    "runtime.c",
+    "state.c",
+    "entry.c"
+  ]
+}

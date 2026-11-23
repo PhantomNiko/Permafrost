@@ -5,6 +5,7 @@ The output remains a low-level translation with address-based identifiers.
 It requires review and execution tests; this tool does not certify correctness.
 """
 import argparse
+import ast
 import json
 from pathlib import Path
 import re
@@ -299,6 +300,20 @@ def atomic_views(source, exclusive_expected=None):
             target,value=store.groups()
             return '(void)__atomic_exchange_n(&('+target+'),'+value+',__ATOMIC_SEQ_CST);'
         statements=[line.strip()for line in body.split(';')if line.strip()]
+        # One native exchange can appear as adjacent byte stores when the
+        # enclosing application record has only a char-pointer type.
+        byte_stores=[re.fullmatch(r"(\w+)\[(0x[0-9a-f]+|[0-9]+)\]\s*=\s*('(?:\\x[0-9a-fA-F]{2}|\\[0-7]{1,3}|\\.|[^'\\])'|0x[0-9a-f]+|[0-9]+)",line)
+                     for line in statements]
+        if len(byte_stores) in (2,4,8) and all(byte_stores):
+            base=byte_stores[0][1];offset=int(byte_stores[0][2],0)
+            if all(store[1]==base and int(store[2],0)==offset+i
+                   for i,store in enumerate(byte_stores)):
+                values=[ord(ast.literal_eval(store[3])) if store[3].startswith("'")
+                        else int(store[3],0) for store in byte_stores]
+                if all(0<=value<256 for value in values):
+                    width=len(values);value=sum(byte<<(i*8) for i,byte in enumerate(values))
+                    return ('(void)__atomic_exchange_n((uint%d_t *)((unsigned char *)%s + 0x%x),0x%xULL,__ATOMIC_SEQ_CST);'
+                            % (width*8,base,offset,value))
         writes=[(index,match)for index,line in enumerate(statements)
                 if(match:=re.fullmatch(r'(_?DAT_[0-9a-f]+|Ram[0-9a-f]+)\s*=\s*(.+)',line))]
         if len(writes)==1:

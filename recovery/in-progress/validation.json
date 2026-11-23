@@ -54,12 +54,34 @@
     "desktop_arm_background_native_guarded_rasters": 11,
     "desktop_owned_file_native_cases_per_cpu": 13,
     "arm64_script_setting_native_cases": 75,
-    "ia32_ttf_native_guarded_rasters": 4
+    "ia32_ttf_native_guarded_rasters": 4,
+    "terminal_c_build": [
+      "i386",
+      "x86_64",
+      "armv7",
+      "arm64"
+    ],
+    "pigeon_c_build": [
+      "i386",
+      "x86_64",
+      "armv7",
+      "arm64"
+    ],
+    "terminal_native_render_and_service_scenarios_per_cpu": 4,
+    "terminal_extended_output_and_pointer_services": [
+      "i386",
+      "x86_64",
+      "armv7",
+      "arm64"
+    ],
+    "ui_scrollbar_guarded_snapshot_cases_per_cpu": 7,
+    "terminal_x64_native_vector_comparisons": 1806
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",
   "kernel_compilation": "All four candidate C kernels link; full VM parity remains incomplete.",
   "sdk": "Candidate 1.1 headers compile and pass isolated C/C++ wire-service checks on all four CPUs; bundle not promoted.",
   "normal_build": "1.0; migration to 1.1 remains in progress",
   "efi_mode": "retained firmware services; cooperative scheduling",
-  "desktop_vm": "Source desktop reaches and launches the source UI guest on all four CPUs; ARM64 colour-change callback verified. BIOS shell input and broader compatibility remain unresolved."
+  "desktop_vm": "Source desktop reaches and launches the source UI guest on all four CPUs; ARM64 colour-change callback verified. BIOS shell input and broader compatibility remain unresolved.",
+  "terminal_vm": "Source x64 terminal opens; command evaluation emits output outside its window. Native terminal on the source kernel reproduces this defect. ARM32 launch and remaining VM compatibility checks are incomplete."
 }

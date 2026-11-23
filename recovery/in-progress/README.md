@@ -78,3 +78,18 @@ The candidate SDK header exposes the 608-byte 1.1 wire table, retaining its
 five unassigned slots and the original fixed-width service addresses. The
 reviewed owned-file and script-run wrappers pass C and C++ argument, result
 and unavailable-service checks on every CPU. The SDK bundle is not promoted.
+
+The Cancer terminal now has C source checkpoints for every CPU. Native/source
+comparisons cover empty startup, wide windows, command workers, worker failure,
+custom menus, partial presentation, extended pointer state and terminal output
+draining. The recovered x64 lane shifts pass 1,806 comparisons against SSE2.
+Scrollbar snapshots pass seven guarded capture/restore cases per CPU, including
+resizing and release. The candidate SDK declares the matching snapshot layout.
+Pigeon shares the Cancer implementation: its native code and initialized runtime
+sections are identical; ARM64 differs only in a name in the link-edit segment.
+Both applications build from the checked-in C sources on every CPU.
+
+VM checks still expose kernel and integration defects. The x64 terminal evaluates
+a command but emits the result outside its window; the native terminal reproduces
+this on the candidate kernel. ARM32 terminal launch needs further work. These
+checkpoints do not establish full VM parity or finish the 1.1 application inventory.

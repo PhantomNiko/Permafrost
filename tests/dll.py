@@ -15,7 +15,7 @@ from unicorn.arm64_const import *
 
 
 class DLL:
-    def __init__(self,path,instruction_limit=20000000,poison_allocations=False,poison_stack=False,api_base=None,load_base=0x2800000,cpu_model=None):
+    def __init__(self,path,instruction_limit=20000000,poison_allocations=False,poison_stack=False,api_base=None,load_base=0x2800000,cpu_model=None,allocator_base=0x10000):
         self.instruction_limit=instruction_limit
         self.poison_stack=poison_stack
         binary=Path(path).read_bytes();metadata,memory=native_inspect(binary);dynamic=inspect(binary)
@@ -85,7 +85,7 @@ class DLL:
                 cpu.mem_write(result,bytes(cpu.mem_read(old,min(self.allocs[old],count))))
                 del self.allocs[old]
             cpu.reg_write(self.result,result)
-        for slot,address,hook in ((0x4c,0x10000,malloc),(0x50,0x10010,free),(0x54,0x10020,realloc)):
+        for slot,address,hook in ((0x4c,allocator_base,malloc),(0x50,allocator_base+16,free),(0x54,allocator_base+32,realloc)):
             for entry in tables:self.cpu.mem_write(entry+slot,struct.pack('<I',address))
             self.cpu.mem_write(address,b'\xc3'if not arm else struct.pack('<I',0xe12fff1e if self.cpu_type==12 else 0xd65f03c0))
             self.cpu.hook_add(UC_HOOK_CODE,hook,begin=address,end=address)

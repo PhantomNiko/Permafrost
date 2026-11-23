@@ -16,7 +16,7 @@ from unicorn.x86_const import *
 SOURCE='''#if defined(__i386__) || defined(__x86_64__)
 #define WM_BAREMETAL_PROGRAM_API_PHYSICAL 0x280800u
 #endif
-#include <permafrost/native_api.h>
+#include <permafrost/terror_ui.h>
 #include <stddef.h>
 #ifdef __cplusplus
 #define ASSERT static_assert
@@ -26,6 +26,8 @@ extern "C" {
 #endif
 ASSERT(WM_BAREMETAL_PROGRAM_API_VERSION==1100000,"version");
 ASSERT(sizeof(WmBaremetalProgramApi)==608,"table");
+ASSERT(sizeof(TerrorUIScrollbarSnapshot)==(sizeof(void*)==8?48:40),"snapshot layout");
+ASSERT(offsetof(TerrorUIScrollbarSnapshot,valid)==(sizeof(void*)==8?44:36),"snapshot validity");
 ASSERT(offsetof(WmBaremetalProgramApi,wlanScanFn)==0x1b0,"WLAN");
 ASSERT(offsetof(WmBaremetalProgramApi,wsGetVariableFn)==0x204,"script value");
 ASSERT(offsetof(WmBaremetalProgramApi,readFileOnDeviceFn)==0x21c,"owned file");

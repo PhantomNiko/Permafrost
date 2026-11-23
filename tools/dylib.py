@@ -41,9 +41,10 @@ def inspect(binary):
     if length > len(binary) - header or count > 4096:
         raise ValueError('invalid Mach-O command table')
     result = dict(cpu=cpu, subtype=subtype, width=8 if wide else 4, flags=flags,
-                  commands=[], segments=[], sections=[], exports=[], imports=[], dependencies=[], stubs=[])
+                  commands=[], segments=[], sections=[], exports=[], imports=[], dependencies=[], stubs=[], pointers=[])
     position, table, indirect = header, None, None
     stub_sections = []
+    pointer_sections = []
     for _ in range(count):
         if position + 8 > header + length:
             raise ValueError('truncated Mach-O command')
@@ -73,6 +74,11 @@ def inspect(binary):
                     if not stub_stride or n % stub_stride:
                         raise ValueError('invalid symbol stub section')
                     stub_sections.append((a, n, first, stub_stride))
+                elif section_flags & 0xff in (6, 7):
+                    pointer_stride = 8 if segment_wide else 4
+                    if n % pointer_stride:
+                        raise ValueError('invalid symbol pointer section')
+                    pointer_sections.append((a, n, first, pointer_stride))
         elif command in (0x22, 0x80000022):
             if size != 48:
                 raise ValueError('invalid dyld info command')
@@ -122,7 +128,7 @@ def inspect(binary):
             position, count = indirect
             if position + count * 4 > len(binary):
                 raise ValueError('invalid indirect symbol table')
-            for address, length, first, stride in stub_sections:
+            for address, length, first, stride in stub_sections + pointer_sections:
                 if first + length // stride > count:
                     raise ValueError('symbol stub exceeds indirect table')
                 for index in range(length // stride):
@@ -131,7 +137,8 @@ def inspect(binary):
                         continue
                     if symbol >= len(symbol_names):
                         raise ValueError('invalid indirect symbol index')
-                    result['stubs'].append(dict(name=symbol_names[symbol], address=address + index * stride))
+                    target = 'stubs' if (address, length, first, stride) in stub_sections else 'pointers'
+                    result[target].append(dict(name=symbol_names[symbol], address=address + index * stride))
     return result
 
 

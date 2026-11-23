@@ -30,6 +30,7 @@ DAT_4055cc40 = VALUE;'''
 } while(status != 0);'''
     arm64_increment = 'bool success;char status;\n' + atomic_views(arm64)
     pointer_store=atomic_views('LOCK(); *(uint32_t *)(*indirect + 4) = 1; UNLOCK();')+'\n'+atomic_views('LOCK(); words[0] = 8; UNLOCK();')
+    byte_store=atomic_views("LOCK(); bytes[4]='\\x01'; bytes[5]='\\0'; bytes[6]='\\0'; bytes[7]='\\0'; UNLOCK();")
     pointer_cas=atomic_views('''LOCK();success = DAT_4055cc40 == 0;
 if(success){DAT_4055cc40=1;}else{old_pointer=(uint32_t *)(uintptr_t)DAT_4055cc40;}UNLOCK();''')
     code = '''#include <stdint.h>
@@ -50,6 +51,10 @@ static void *worker(void *argument) {
 int main(void) {
  uint32_t old;
  uint32_t words[2]={7,9};uintptr_t base=(uintptr_t)words,*indirect=&base;
+ unsigned char bytes[12] __attribute__((aligned(8)))={0};
+ bytes[3]=0xa5;bytes[8]=0xa5;
+ BYTE_STORE
+ if(*(uint32_t *)(bytes+4)!=1 || bytes[3]!=0xa5 || bytes[8]!=0xa5)return 7;
  POINTER_STORE
  if(words[0]!=8 || words[1]!=1)return 4;
  bool success;uint32_t *old_pointer=0;
@@ -67,7 +72,7 @@ int main(void) {
  uint64_t sum=sums[0]+sums[1]+sums[2]+sums[3];
  return DAT_4055cc40!=40001 || sum!=40000ULL*40001/2;
 }
-'''.replace('EXCHANGE', exchange).replace('POINTER_STORE',pointer_store).replace('POINTER_CAS',pointer_cas)
+'''.replace('EXCHANGE', exchange).replace('POINTER_STORE',pointer_store).replace('POINTER_CAS',pointer_cas).replace('BYTE_STORE',byte_store)
     with tempfile.TemporaryDirectory(prefix='permafrost-atomics-') as directory:
         root=Path(directory)
         for update in (increment,arm64_increment):

@@ -646,7 +646,7 @@ recovered_100112a4(int param_1,int *param_2,byte *param_3,uint param_4,uint para
 void recovered_1001144c(int *param_1,int *param_2,byte *param_3,int param_4,int param_5,int param_6);
 undefined4 recovered_10012818(int *param_1,int *param_2,undefined4 param_3,int param_4);
 uint recovered_10012a3c(int *param_1);
-void recovered_10012c78(uint *param_1,undefined *param_2,undefined4 param_3);
+void recovered_10012c78(uint *param_1,undefined *param_2,uint param_3);
 void recovered_10012e10(int *param_1,int param_2,int param_3,int param_4,int param_5,int param_6,
                        int param_7);
 void recovered_1001311c(int *param_1,int param_2,int param_3,int param_4,int param_5,int param_6,

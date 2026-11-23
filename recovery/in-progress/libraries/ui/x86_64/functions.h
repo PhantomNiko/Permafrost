@@ -289,7 +289,7 @@ recovered_1000e410(long param_1,int *param_2,long param_3,ulong param_4,undefine
 void recovered_1000e5f0(long *param_1,int *param_2,long param_3,undefined8 param_4);
 undefined8 recovered_1000f950(int *param_1,int *param_2,undefined8 param_3);
 undefined8 recovered_1000fb90(undefined8 *param_1);
-ulong recovered_1000fdc0(undefined *param_1,undefined4 param_2);
+ulong recovered_1000fdc0(undefined *param_1,uint param_2);
 void recovered_1000ff50(long *param_1,long param_2,undefined8 param_3,undefined8 param_4,int param_5
                        );
 void recovered_10010240(long *param_1,ulong param_2,ulong param_3,long param_4,int param_5,

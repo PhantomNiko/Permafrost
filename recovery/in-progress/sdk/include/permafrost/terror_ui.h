@@ -119,6 +119,16 @@ typedef struct TerrorUIRect {
 	int32_t height;
 } TerrorUIRect;
 
+typedef struct TerrorUIScrollbarSnapshot {
+	void* pixels;
+	uintptr_t pixelsSize;
+	TerrorUIRect rect;
+	uint32_t windowWidth;
+	uint32_t windowHeight;
+	uint32_t stride;
+	bool valid;
+} TerrorUIScrollbarSnapshot;
+
 /* Theme roles use the matching TundraColours variable names. */
 typedef enum TerrorUIColourRole {
 	TERROR_UI_COLOUR_WINDOW_BACKGROUND = 0,
@@ -328,6 +338,10 @@ uint32_t terror_ui_window_present_buffer(TerrorUIWindow* window);
 uint32_t terror_ui_window_resize_buffer(TerrorUIWindow* window, uint32_t width, uint32_t height);
 uint32_t terror_ui_window_sync_buffer(TerrorUIWindow* window, const WmBaremetalProgramAppWindowInfo* info);
 uint32_t terror_ui_window_query(TerrorUIWindow* window, WmBaremetalProgramAppWindowInfo* outInfo);
+void terror_ui_window_begin_frame(TerrorUIWindow* window);
+uint32_t terror_ui_window_present_rect(TerrorUIWindow* window, TerrorUIRect rect);
+uint32_t terror_ui_window_set_custom_menus(TerrorUIWindow* window, const void* menus);
+uint32_t terror_ui_window_pointer_state_ex(TerrorUIWindow* window, void* outInfo);
 bool terror_ui_window_should_close(TerrorUIWindow* window);
 uint32_t terror_ui_window_close(TerrorUIWindow* window);
 uint32_t terror_ui_window_set_menus(
@@ -386,6 +400,10 @@ TerrorUIView terror_ui_view_alignment(TerrorUIView view, uint32_t alignment);
 TerrorUISize terror_ui_view_measure(const TerrorUIView* view, TerrorUISize available);
 uint32_t terror_ui_input_poll(TerrorUIWindow* window, TerrorUIInput* input);
 uint32_t terror_ui_window_render_view(TerrorUIWindow* window, const TerrorUIView* view, const TerrorUIInput* input);
+uint32_t terror_ui_view_draw(TerrorUIWindow* window, const TerrorUIView* view, TerrorUIRect rect, const TerrorUIInput* input);
+bool terror_ui_scrollbar_capture(void* snapshot, TerrorUIWindow* window, TerrorUIRect rect);
+bool terror_ui_scrollbar_restore(void* snapshot, TerrorUIWindow* window);
+void terror_ui_scrollbar_release(void* snapshot);
 
 #ifdef __cplusplus
 }
