@@ -15,11 +15,13 @@ public class VolatileRanges extends GhidraScript {
             if(block==null || first.compareTo(end)>=0)throw new Exception("Invalid state range");
             if(!block.getStart().equals(first))memory.split(block,first);
             block=memory.getBlock(first);
-            if(block.contains(end))memory.split(block,end);
-            block=memory.getBlock(first);
-            if(!block.getEnd().equals(end.subtract(1)))throw new Exception("Range crosses memory blocks");
-            block.setVolatile(true);
-            println("Volatile state: "+first+" through "+block.getEnd());
+            block=memory.getBlock(end.subtract(1));
+            if(block==null)throw new Exception("Unmapped state interval end");
+            if(block.getEnd().compareTo(end)>=0)memory.split(block,end);
+            for(var part:memory.getBlocks())
+                if(part.getStart().compareTo(first)>=0 && part.getEnd().compareTo(end)<0)
+                    part.setVolatile(true);
+            println("Volatile state: "+first+" through "+end.subtract(1));
         }
     }
 }

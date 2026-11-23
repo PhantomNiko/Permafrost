@@ -14,6 +14,15 @@ typedef pf_u80 unkuint10;
 typedef unsigned _BitInt(40) pf_u40;
 typedef signed _BitInt(40) pf_i40;
 typedef pf_i40 int5;
+typedef pf_u40 uint5;
+typedef pf_u72 unkbyte9;
+#define ZEXT112(v) ((pf_u96)(uint8_t)(v))
+#define SUB137(v,o) ((uint64_t)(((pf_u104)(v)>>((o)*8))&0xffffffffffffffULL))
+#define SUB148(v,o) ((uint64_t)((pf_u112)(v)>>((o)*8)))
+#define SUB167(v,o) ((uint64_t)(((uint128)(v)>>((o)*8))&0xffffffffffffffULL))
+#define CONCAT82(a,b) (((pf_u80)(uint64_t)(a)<<16)|(uint16_t)(b))
+#define CONCAT32(a,b) ((((uint64_t)(a)&0xffffffU)<<16)|(uint16_t)(b))
+#define CONCAT33(a,b) ((((uint64_t)(a)&0xffffffU)<<24)|((uint32_t)(b)&0xffffffU))
 #define ZEXT716(value) ((uint128)((uint64_t)(value)&0xffffffffffffffULL))
 #define PF_PACKED_VIEW(n,bits) struct pf_packed_##n {uint128 payload:bits;} __attribute__((packed))
 PF_PACKED_VIEW(9,72);

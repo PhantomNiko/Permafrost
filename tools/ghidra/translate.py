@@ -23,6 +23,10 @@ def system_register_views(source, registers):
     """Lower architectural register storage to explicit hardware accessors."""
     if not registers:
         return source
+    for name in registers:
+        declaration,_=stack_declaration(source,name)
+        if declaration:
+            source=source[:declaration.start()]+source[declaration.end():]
     names='|'.join(re.escape(name) for name in registers)
     quoted=re.compile(r'("(?:\\.|[^"\\])*"|\'(?:\\.|[^\'\\])*\'|//[^\n]*|/\*.*?\*/)',re.S)
     def code(text):
@@ -41,6 +45,44 @@ def system_register_views(source, registers):
     return ''.join(part if i%2 else code(part) for i,part in enumerate(quoted.split(source)))
 
 
+def register_input_views(source, registers):
+    """Initialize architectural inputs without changing later register reuse.
+
+    Ghidra can merge a hardware-register read with a subsequently reused
+    general register. Rewriting every assignment as a hardware write would
+    invent control-register writes absent from the original instructions.
+    """
+    for name, accessor in registers.items():
+        declaration, typename=stack_declaration(source,name)
+        if declaration:
+            remaining=source[:declaration.start()]+source[declaration.end():]
+            if re.search(r'\b'+re.escape(name)+r'\s*=(?!=)',remaining):
+                source=source[:declaration.start()]+declaration[0].rstrip('\n;')+' = ('+typename+')'+accessor+'();\n'+source[declaration.end():]
+            else:
+                # Keep conditional reads conditional: XGETBV and FPU state
+                # instructions can fault before their feature/TS checks.
+                source=re.sub(r'\b'+re.escape(name)+r'\b','(('+typename+')'+accessor+'())',remaining)
+    return source
+
+
+def descriptor_register_views(source):
+    """Retain the upper descriptor-base bytes missing from scalar userop results."""
+    pattern=re.compile(r'(\w+)\s*=\s*(GlobalDescriptorTableRegister|InterruptDescriptorTableRegister)\(\);')
+    for number,match in reversed(list(enumerate(pattern.finditer(source)))):
+        variable,operation=match.groups()
+        following=source[match.end():]
+        part=re.search(r'(uStack_([0-9a-f]+))\s*=\s*\(undefined([26])\)\(\((?:ulong|uint)\)'+re.escape(variable)+r'\s*>>\s*0x10\);',following)
+        if not part:raise ValueError('unreviewed descriptor-register result packing')
+        offset,width=int(part[2],16),int(part[3])
+        neighbor='uStack_'+format(offset-width,'x')
+        if not re.search(r'\bundefined2\s+'+neighbor+r'\s*;',source):
+            raise ValueError('descriptor base has no upper-word storage')
+        temporary='pf_descriptor_'+str(number)
+        replacement='uint128 '+temporary+' = '+operation+'();\n  '+variable+' = '+temporary+';\n  '+neighbor+' = (uint16_t)('+temporary+' >> '+str(16+width*8)+');'
+        source=source[:match.start()]+replacement+source[match.end():]
+    return source
+
+
 def vector_constant_loads(source):
     # The decompiler prints a vector byte slice as pointer arithmetic on an
     # array-cast constant. It denotes bytes of the constant, not physical RAM.
@@ -56,9 +98,15 @@ def vector_constant_loads(source):
 
 
 def packed_vector_views(source):
-    source=re.sub(r'undefined1\s+(auVar\d+)\s*\[15\];',r'pf_u120 \1;',source)
-    source=re.sub(r'\(undefined1\s+\[15\]\)', '(pf_u120)',source)
-    names=re.findall(r'\b(?:uint128|undefined16|pf_u120)\s+(auVar\d+)\s*;',source)
+    # SSA arrays denote register bits. Physical stack arrays retain their
+    # byte storage: a _BitInt(96) object may occupy sixteen bytes in C.
+    types={2:'uint16_t',3:'uint32_t',4:'uint32_t',8:'uint64_t',
+           **{n:'pf_u'+str(n*8) for n in range(9,16)},16:'uint128'}
+    for width,typename in types.items():
+        source=re.sub(r'undefined1\s+((?:auVar\d+|in_XMM\d+))\s*\['+str(width)+r'\];',
+                      typename+r' \1;',source)
+        source=re.sub(r'\(undefined1\s+\['+str(width)+r'\]\)', '('+typename+')',source)
+    names=re.findall(r'\b(?:uint128|undefined16|pf_u\d+|uint\d+_t)\s+((?:auVar\d+|in_XMM\d+))\s*;',source)
     for name in set(names):
         source=re.sub(r'\b'+name+r'\[([^\]\n]+)\]',r'PF_PART1('+name+r',\1)',source)
     return source
@@ -170,16 +218,19 @@ def atomic_views(source, exclusive_expected=None):
         if address_setup and re.search(r'\*'+re.escape(address_setup[2])+r'\s*=',address_setup[3]):
             return address_setup[1]+'\n'+atomic_views('LOCK();'+address_setup[3]+'UNLOCK();')
         loaded_boolean=re.fullmatch(r'(\w+)\s*=\s*([^;]+);\s*'
-                                    r'(\w+)\s*=\s*(\w+)\s*==\s*\1;\s*'
+                                    r'(\w+)\s*=\s*([^;]+?)\s*==\s*([^;]+?);\s*'
                                     r'if\s*\(\3\)\s*\{\s*\2\s*=\s*([^;]+);\s*\}'
-                                    r'\s*else\s*\{\s*\4\s*=\s*\1;\s*\}',body)
+                                    r'(?:\s*else\s*\{\s*(\w+)\s*=\s*\1;\s*\})?',body)
         if loaded_boolean:
-            old,target,success,expected,value=loaded_boolean.groups()
+            old,target,success,left,right,value,failure=loaded_boolean.groups()
+            if left.strip()==old:expected=right
+            elif right.strip()==old:expected=left
+            else:raise ValueError('loaded atomic comparison does not use its observed value')
             return ('{ __typeof__('+target+') pf_atomic_expected = '+expected+';\n'+
                     success+' = __atomic_compare_exchange_n(&('+target+'),&pf_atomic_expected,'+
                     value+',0,__ATOMIC_SEQ_CST,__ATOMIC_SEQ_CST);\n'+
                     old+' = pf_atomic_expected;\n'+
-                    'if (!'+success+') '+expected+' = '+old+';\n}')
+                    ('if (!'+success+') '+failure+' = '+old+';\n' if failure else '')+'}')
         loaded_compare=re.fullmatch(r'(\w+)\s*=\s*([^;]+);\s*'
                                     r'if\s*\(\1\s*==\s*([^;]+?)\)\s*'
                                     r'\{\s*\2\s*=\s*([^;]+);\s*\}'
@@ -237,7 +288,7 @@ def atomic_views(source, exclusive_expected=None):
             return '__atomic_fetch_'+operation+'(&('+target+'),'+value+',__ATOMIC_SEQ_CST);'
         statements=[line.strip()for line in body.split(';')if line.strip()]
         writes=[(index,match)for index,line in enumerate(statements)
-                if(match:=re.fullmatch(r'(_?DAT_[0-9a-f]+)\s*=\s*(.+)',line))]
+                if(match:=re.fullmatch(r'(_?DAT_[0-9a-f]+|Ram[0-9a-f]+)\s*=\s*(.+)',line))]
         if len(writes)==1:
             index,write=writes[0];target,value=write.groups()
             old_names=[match[1]for line in statements[:index]
@@ -275,6 +326,34 @@ def atomic_views(source, exclusive_expected=None):
         return atomic_views('LOCK();'+prelude+target+'='+value+';UNLOCK();')
     source=re.sub(r'do\s*\{([^{}]*?)\b(\w+)\s*=\s*\(bool\)\s*hasExclusiveAccess\((0x[0-9a-f]+)\);\s*\}\s*while\s*\(!\2\);\s*(_?DAT_[0-9a-f]+)\s*=\s*([^;]+);',exclusive_global,source)
     source=re.sub(r'do\s*\{([^{}]*?)\b(\w+)\s*=\s*\(bool\)\s*hasExclusiveAccess\((\w+)\);\s*\}\s*while\s*\(!\2\);\s*\*\3\s*=\s*([^;]+);',exclusive,source)
+    conditional_exclusive=re.compile(r'(\w+)\s*=\s*\(bool\)\s*hasExclusiveAccess\((0x[0-9a-f]+|\w+)\);\s*if\s*\(\1\)\s*\{\s*(_?DAT_[0-9a-f]+|\*\w+)\s*=\s*([^;]+);')
+    while (operation:=conditional_exclusive.search(source)):
+        flag,address,target,value=operation.groups()
+        if target.startswith('*'):
+            if target[1:]!=address:raise ValueError('exclusive pointer and conditional store disagree')
+        elif int(address,16)!=int(target.split('_')[-1],16):
+            raise ValueError('exclusive address and conditional store disagree')
+        loads=list(re.finditer(r'\b(\w+)\s*=\s*(?:\([A-Za-z_][A-Za-z_0-9\s*]*\)\s*)*'+re.escape(target)+r'\s*;',source[:operation.start()]))
+        if not loads:raise ValueError('conditional exclusive store has no preceding load')
+        expected=loads[-1][1]
+        replacement=('{ __typeof__('+target+') pf_exclusive_expected = '+expected+';\n'+
+                     flag+' = __atomic_compare_exchange_n(&('+target+'),&pf_exclusive_expected,'+
+                     value+',0,__ATOMIC_ACQ_REL,__ATOMIC_RELAXED);\n}\nif ('+flag+') {')
+        source=source[:operation.start()]+replacement+source[operation.end():]
+    inverse_exclusive=re.compile(r'(\w+)\s*=\s*\(bool\)\s*hasExclusiveAccess\((0x[0-9a-f]+|\w+)\);\s*if\s*\(!\1\)\s*goto\s+(\w+);\s*(_?DAT_[0-9a-f]+|\*\w+)\s*=\s*([^;]+);')
+    while (operation:=inverse_exclusive.search(source)):
+        flag,address,label,target,value=operation.groups()
+        if target.startswith('*'):
+            if target[1:]!=address:raise ValueError('exclusive pointer and inverse store disagree')
+        elif int(address,16)!=int(target.split('_')[-1],16):
+            raise ValueError('exclusive address and inverse store disagree')
+        guard=re.search(r'\b'+re.escape(label)+r':\s*(\w+)\s*=\s*'+re.escape(target)+r';\s*if\s*\(\1\s*!=\s*([01])\)\s*goto\s+\w+;\s*goto\s+\w+;',source)
+        if not guard:raise ValueError('inverse exclusive store has no reviewed retry guard')
+        expected=guard[2]
+        replacement=('{ __typeof__('+target+') pf_exclusive_expected = '+expected+';\n'+
+                     flag+' = __atomic_compare_exchange_n(&('+target+'),&pf_exclusive_expected,'+
+                     value+',0,__ATOMIC_ACQ_REL,__ATOMIC_RELAXED);\n}\nif (!'+flag+') goto '+label+';')
+        source=source[:operation.start()]+replacement+source[operation.end():]
     if 'hasExclusiveAccess('in source:raise ValueError('unreviewed exclusive-memory operation')
     source=re.sub(r'\bLOCK\(\);(.*?)\bUNLOCK\(\);',replace,source,flags=re.S)
     return re.sub(r'\bLOAcquire\(\);(.*?)\bLORelease\(\);',replace,source,flags=re.S)
@@ -465,6 +544,29 @@ def rewrite_array_words(source, precise=False):
     return s
 
 
+def exact_array_stores(source):
+    """Write decompiler array values without widening physical stack storage."""
+    arrays=dict(re.findall(r'^  undefined1 (\w+) \[(\d+)\];',source,re.M))
+    # Register SSA values are handled separately; these are real byte arrays.
+    for name,count in arrays.items():
+        width=int(count)
+        if not 1<=width<=16 or re.fullmatch(r'(?:auVar\d+|in_XMM\d+)',name):continue
+        def store(match):
+            value=match[1].strip()
+            if value in arrays and int(arrays[value])>=width:
+                value='PF_PART%d(%s,0)'%(width,value)
+            return 'PF_PART%d(%s,0) = %s;'%(width,name,value)
+        source=re.sub(r'\b'+re.escape(name)+r'\s*=(?!=)\s*([^;]+);',store,source)
+    # An explicit array dereference on an assignment copies N bytes. C arrays
+    # are not assignable; use a bytewise copy, preserving overlap via a temp.
+    pattern=r'\*\(undefined1\s*\(\*\)\s*\[(\d+)\]\)\(([^;]+?)\)\s*=\s*(\w+)\s*;'
+    def indirect(match):
+        width=int(match[1]);value=match[3]
+        if value not in arrays or int(arrays[value])<width:return match[0]
+        return '{ unsigned char pf_copy[%d]; __builtin_memcpy(pf_copy,%s,%d); __builtin_memcpy((%s),pf_copy,%d); }'%(width,value,width,match[2],width)
+    return re.sub(pattern,indirect,source)
+
+
 def rewrite_array_values(source, metadata):
     views={(row[1],int(row[2])):int(row[3]) for row in metadata
            if row[0]=='Q' and row[1]!='-'}
@@ -595,12 +697,16 @@ def main():
             return text.replace('PF_MODEL_U64','unsigned long long').replace('PF_MODEL_I64','long long')
         sources={a:windows_types(s) for a,s in sources.items()}
     sources={a:system_register_views(vector_constant_loads(s),current.get('system_registers',{}))for a,s in sources.items()}
+    if current.get('register_inputs'):
+        sources={a:register_input_views(s,current['register_inputs'])for a,s in sources.items()}
+    if current.get('descriptor_register_views'):
+        sources={a:descriptor_register_views(s)for a,s in sources.items()}
     if WIDE or current.get("integer_vector_128"):
         for address,source in sources.items():
             rows=[line.split('\t') for line in (args.notes/(address+'.tsv')).read_text().splitlines()]
             precise=any(row[0]=='Q' for row in rows)
             sources[address]=rewrite_array_words(rewrite_integer_vectors(
-                rewrite_array_values(source,rows)),precise=precise)
+                exact_array_stores(rewrite_array_values(source,rows))),precise=precise)
     else:
         for address,source in sources.items():
             rows=[line.split('\t') for line in (args.notes/(address+'.tsv')).read_text().splitlines()]
@@ -956,13 +1062,14 @@ def main():
         if address == '20f7c7' and source.count('LAB_0020f81e:') > 1:
             point=source.rfind('LAB_0020f81e:')
             source=source[:point]+source[point:].replace('LAB_0020f81e:', '', 1)
-        if WIDE:source=packed_vector_views(source)
+        if WIDE or current.get('integer_vector_128'):source=packed_vector_views(source)
         if current.get('atomic_views'):
             try:source=atomic_views(source,current.get('exclusive_expected',{}).get(address))
             except ValueError as error:raise ValueError(address+': '+str(error)) from error
         opening = source.index('\n{') + 2
-        source = source[:opening] + '\n  unsigned char frame[%d] __attribute__((aligned(16))) = {0};\n' % (frame_size + 32) + source[opening:]
-        (args.out / (address + '.c')).write_text('\n'.join(line.rstrip() for line in ('\n'.join(preamble + macros) + '\n' + source).splitlines()).rstrip() + '\n')
+        source = source[:opening] + '\n  unsigned char pf_stack_frame[%d] __attribute__((aligned(16))) = {0};\n' % (frame_size + 32) + source[opening:]
+        generated=re.sub(r'\bframe\b','pf_stack_frame','\n'.join(preamble + macros))
+        (args.out / (address + '.c')).write_text('\n'.join(line.rstrip() for line in (generated + '\n' + source).splitlines()).rstrip() + '\n')
     for name, content in manual.items():
         (args.out / (name + '.c')).write_text(rewrite_void_results(content,current.get('void_result_calls',[]),name))
 
