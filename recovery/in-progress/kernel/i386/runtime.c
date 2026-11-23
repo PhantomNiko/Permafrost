@@ -201709,7 +201709,7 @@ LAB_020d9f8f:
                         if (param_5 != (undefined4 *)0x0) {
                           *param_5 = local_258;
                         }
-                        uVar2 = recovered_20df6f0(param_8,param_9,param_10,param_11);
+                        uVar2 = recovered_20df6f0((int)local_280,param_8,param_9,param_10,param_11);
                         bVar1 = false;
                         if ((char)uVar2 != '\0') {
                           *param_6 = pvVar7;
@@ -206770,7 +206770,7 @@ override_prt_20df66d_9b0a0a95:
  * Address: 0x20df6f0
  */
 
-undefined4 recovered_20df6f0(undefined4 *in_EDX,uint *param_2,char *param_3,ulong param_4)
+undefined4 recovered_20df6f0(int in_ECX,undefined4 *in_EDX,uint *param_2,char *param_3,ulong param_4)
 
 {
   unsigned char pf_stack_frame[112] __attribute__((aligned(16))) = {0};
@@ -206778,7 +206778,7 @@ undefined4 recovered_20df6f0(undefined4 *in_EDX,uint *param_2,char *param_3,ulon
   int iVar1;
   undefined4 uVar2;
   void *memory;
-  int in_ECX;
+
 
   local_20 = 0;
   local_1c = 0;
@@ -208012,7 +208012,7 @@ LAB_020e144f:
                 bVar7 = (byte)uVar11 & 0x1f;
                 uVar12 = (uint)uVar8 << ((byte)uVar11 & 0x1f);
                 uVar2 = uVar12;
-                uVar9 = 0 << bVar7 | (uint)(uVar8 >> 0x20 - bVar7);
+                uVar9 = 0 << bVar7 | (uint)((ulonglong)uVar8 >> (0x20 - bVar7));
                 if ((uVar11 & 0x20) != 0) {
                   uVar2 = 0;
                   uVar9 = uVar12;
@@ -208232,7 +208232,7 @@ LAB_020e150f:
                 bVar7 = (byte)uVar9 & 0x1f;
                 uVar5 = (uint)uVar8 << ((byte)uVar9 & 0x1f);
                 uVar11 = uVar5;
-                uVar13 = 0 << bVar7 | (uint)(uVar8 >> 0x20 - bVar7);
+                uVar13 = 0 << bVar7 | (uint)((ulonglong)uVar8 >> (0x20 - bVar7));
                 if ((uVar9 & 0x20) != 0) {
                   uVar11 = 0;
                   uVar13 = uVar5;
@@ -208275,7 +208275,7 @@ LAB_020e148f:
                 bVar7 = (byte)uVar11 & 0x1f;
                 uVar12 = (uint)uVar8 << ((byte)uVar11 & 0x1f);
                 uVar5 = uVar12;
-                uVar9 = 0 << bVar7 | (uint)(uVar8 >> 0x20 - bVar7);
+                uVar9 = 0 << bVar7 | (uint)((ulonglong)uVar8 >> (0x20 - bVar7));
                 if ((uVar11 & 0x20) != 0) {
                   uVar5 = 0;
                   uVar9 = uVar12;
@@ -208335,7 +208335,7 @@ LAB_020e14aa:
                   bVar7 = (byte)local_18 & 0x1f;
                   uVar11 = uVar2 << ((byte)local_18 & 0x1f);
                   uVar9 = uVar11;
-                  uVar10 = 0 << bVar7 | (uint)(byte)((byte)uVar2 >> 0x20 - bVar7);
+                  uVar10 = 0 << bVar7 | (uint)((ulonglong)(byte)uVar2 >> (0x20 - bVar7));
                   if ((local_18 & 0x20) != 0) {
                     uVar9 = 0;
                     uVar10 = uVar11;
@@ -208391,7 +208391,7 @@ LAB_020e14aa:
                 bVar7 = (byte)uVar5 & 0x1f;
                 uVar12 = (uint)uVar8 << ((byte)uVar5 & 0x1f);
                 uVar2 = uVar12;
-                uVar11 = 0 << bVar7 | (uint)(uVar8 >> 0x20 - bVar7);
+                uVar11 = 0 << bVar7 | (uint)((ulonglong)uVar8 >> (0x20 - bVar7));
                 if ((uVar5 & 0x20) != 0) {
                   uVar2 = 0;
                   uVar11 = uVar12;
@@ -208422,7 +208422,7 @@ LAB_020e14aa:
                   bVar7 = (byte)uVar11 & 0x1f;
                   uVar12 = (uint)uVar8 << ((byte)uVar11 & 0x1f);
                   uVar2 = uVar12;
-                  uVar9 = 0 << bVar7 | (uint)(uVar8 >> 0x20 - bVar7);
+                  uVar9 = 0 << bVar7 | (uint)((ulonglong)uVar8 >> (0x20 - bVar7));
                   if ((uVar11 & 0x20) != 0) {
                     uVar2 = 0;
                     uVar9 = uVar12;
@@ -208592,7 +208592,7 @@ undefined4 recovered_20e1600(int in_ECX,uint in_EDX,uint *param_3,uint *param_4)
       bVar1 = (byte)uVar5 & 0x1f;
       uVar6 = uVar2 << ((byte)uVar5 & 0x1f);
       uVar7 = uVar6;
-      uVar2 = 0 << bVar1 | uVar2 >> 0x20 - bVar1;
+      uVar2 = 0 << bVar1 | (uint)((ulonglong)uVar2 >> (0x20 - bVar1));
       if ((uVar5 & 0x20) != 0) {
         uVar7 = 0;
         uVar2 = uVar6;

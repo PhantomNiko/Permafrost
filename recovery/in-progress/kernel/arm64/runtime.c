@@ -80756,7 +80756,7 @@ void recovered_82443a18(void *font)
       lVar1 = lVar1 + -0x68;
     } while (lVar1 != 0);
     if (*(long **)font != (long *)0x0) {
-      (**(code **)(**(long **)font + 8))();
+      ((void (*)(void *))*(uintptr_t *)(**(uintptr_t **)font+8))(*(void **)font);
     }
   }
   recovered_82400f58(font);

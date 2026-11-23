@@ -1744,7 +1744,7 @@ undefined4 recovered_20dea10(int in_ECX,char *in_EDX,ulong param_3);
 undefined4 recovered_20df380(int in_ECX,uint in_EDX,uint param_3,int *param_4);
 undefined4
 recovered_20df4b0(int in_ECX,int in_EDX,uint param_3,uint *param_4,char *param_5,ulong param_6);
-undefined4 recovered_20df6f0(undefined4 *in_EDX,uint *param_2,char *param_3,ulong param_4);
+undefined4 recovered_20df6f0(int in_ECX,undefined4 *in_EDX,uint *param_2,char *param_3,ulong param_4);
 undefined4
 recovered_20df8f0(char *in_ECX,undefined1 *in_EDX,byte param_3,char *param_4,ulong param_5);
 bool recovered_20e0160(char *in_ECX,char *in_EDX);

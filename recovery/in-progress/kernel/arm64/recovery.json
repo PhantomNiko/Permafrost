@@ -480,6 +480,9 @@
         "pStack_160.x = (double)CONCAT71(pStack_160.x._1_7_,1);": "pStack_160.x = pf_bits_double(CONCAT71(pStack_160.x._1_7_,1));",
         "pStack_140.x = (double)CONCAT71(pStack_140.x._1_7_,1);": "pStack_140.x = pf_bits_double(CONCAT71(pStack_140.x._1_7_,1));",
         "dStack_b0 != (double)": "pf_double_bits(dStack_b0) != "
+      },
+      "82443a18": {
+        "(**(code **)(**(long **)font + 8))();": "((void (*)(void *))*(uintptr_t *)(**(uintptr_t **)font+8))(*(void **)font);"
       }
     },
     "exclusive_expected": {

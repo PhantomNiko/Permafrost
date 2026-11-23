@@ -43,7 +43,14 @@ def main():
         CONCAT13(0xef,rgb)!=0xef563412 || CONCAT11(0x56,CONCAT11(0x78,rgb))!=0x5612;
 }
 ''')
-    source+='int main(void){return '+'|'.join('probe_%d()'%width for width in [2,3,9,10,11,12,13,14,15,16])+'|shuffle()|concatenate();}\n'
+    source+='''int signed_concatenate(void){
+ _Static_assert(sizeof(CONCAT11(0,0))==2,"CONCAT11 result width");
+ for(unsigned high=0;high<256;high++)for(unsigned low=0;low<256;low++)
+  if(CONCAT11((int8_t)high,(int8_t)low)!=((high<<8)|low))return 1;
+ return 0;
+}
+'''
+    source+='int main(void){return '+'|'.join('probe_%d()'%width for width in [2,3,9,10,11,12,13,14,15,16])+'|shuffle()|concatenate()|signed_concatenate();}\n'
     root=Path(__file__).resolve().parents[1]
     with tempfile.TemporaryDirectory(prefix='permafrost-packed-')as directory:
         path=Path(directory);(path/'probe.c').write_text(source)

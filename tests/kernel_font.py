@@ -56,6 +56,10 @@ class FontKernel:
   bitmap=self.library.call('__Z18wm_ttf_font_renderPvPKciiid',handle,0x3001000,*colors,*((bits&0xffffffff,bits>>32)if self.arm32 else()),result_bits=32 if self.arm32 else 64);self.verify();assert bitmap
   width,height,pointer=struct.unpack('<III'if self.arm32 else'<IIQ',bytes(self.cpu.mem_read(bitmap,12 if self.arm32 else 16)));assert width*height<1024*1024
   return width,height,bytes(self.cpu.mem_read(pointer,width*height*4))
+ def resize(self,handle,size):
+  bits=floating(self.library,size)
+  self.library.call('__Z18wm_ttf_font_resizePvf',handle,*((bits,)if self.arm32 else()))
+  self.verify()
  def metrics(self,handle,text):
   self.cpu.mem_write(0x3001000,text+b'\0');self.cpu.mem_write(0x3002000,b'\xa5'*64)
   status=self.library.call('__Z19wm_ttf_font_metricsPvPKcP16WmTtfTextMetrics',handle,0x3001000,0x3002010)
@@ -81,6 +85,15 @@ def main():
      assert results[0]==results[1],('font raster',count,size,text,colors,opacity,[r[:2]for r in results])
      count+=1
    for lib,handle in zip(libraries,handles):lib.library.call('__Z16wm_ttf_font_freePv',handle);lib.verify()
- print('Kernel TrueType: %d native/source RGBA rasters and %d metric records, cache reuse and heap canaries match.'%(count,count//2))
+ # Rotate through more sizes than the font's cache slots, then tear down the
+ # populated handle. This exercises the same lifetime as a desktop session.
+ libraries=[FontKernel(reference),FontKernel(source,m,names)]
+ handles=[lib.load(fonts[-1],12)for lib in libraries]
+ for size in [12,16,20,24,40,16]:
+  for lib,handle in zip(libraries,handles):lib.resize(handle,size)
+  results=[lib.render(handle,b'ABCD',(21,82,173),192)for lib,handle in zip(libraries,handles)]
+  assert results[0]==results[1],('font cache rotation',size)
+ for lib,handle in zip(libraries,handles):lib.library.call('__Z16wm_ttf_font_freePv',handle);lib.verify()
+ print('Kernel TrueType: %d native/source RGBA rasters and %d metric records, cache rotation, teardown and heap canaries match.'%(count,count//2))
 
 if __name__=='__main__':main()

@@ -1148,3 +1148,17 @@ including the bundled font, multiline text and Unicode, with cache and heap
 canaries. The ARM64 VM now displays desktop artwork, icons and readable
 TrueType text. A storage allocation diagnostic still overlays the desktop;
 writing, shell integration and remaining source recovery are unfinished.
+
+IA32 bind decoding retains the high half of ULEB values, and application
+dependency-range collection retains its context register. Fifty-eight binding
+streams, 64 rebases and 18 ownership/failure cases match the reference. The
+shared two-byte concatenation helper now truncates its result to 16 bits; all
+65,536 signed-byte pairs pass, including the ULEB byte pair that exposed the
+error. The IA32 VM loads its startup applications; graphics remains pending.
+
+ARM64 font destruction now supplies the backend receiver. The VM exits the
+desktop without the previous null-receiver exception. Repeated font-size cache
+rotation and teardown pass alongside native/source raster and metrics checks
+on ARM32, ARM64 and x86-64. Allocation extent tests now cover both ARM CPUs,
+with 154 native/source cases each. ARM64 console behavior and directory
+allocation diagnostics remain unresolved.

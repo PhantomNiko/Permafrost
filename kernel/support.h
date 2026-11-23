@@ -89,7 +89,7 @@ typedef uintptr_t __attribute__((ms_abi)) code();
 typedef uintptr_t code();
 #endif
 __attribute__((noreturn)) static inline uintptr_t halt_baddata(void) {__builtin_trap();}
-#define CONCAT11(a,b) (((uint16_t)(a)<<8)|(uint8_t)(b))
+#define CONCAT11(a,b) ((uint16_t)(((uint16_t)(a)<<8)|(uint8_t)(b)))
 #define CONCAT12(a,b) (((uint32_t)(a)<<16)|(uint16_t)(b))
 #define CONCAT13(a,b) (((uint32_t)(a)<<24)|((uint32_t)(b)&0xffffffU))
 #define CONCAT21(a,b) (((uint32_t)(a)<<8)|(uint8_t)(b))
