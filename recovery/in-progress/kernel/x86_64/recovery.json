@@ -1,0 +1,23 @@
+{
+  "version": "1.1",
+  "base": 33554432,
+  "text_start": 33554432,
+  "text_end": 34753989,
+  "state_end": 40038400,
+  "translation": {
+    "pointer_bytes": 8,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "declarations": [
+      "#include \"support.h\"",
+      "void pf_kernel_entry(void);"
+    ],
+    "volatile_ranges": [
+      [
+        34753989,
+        40038400
+      ]
+    ],
+    "atomic_views": true
+  }
+}

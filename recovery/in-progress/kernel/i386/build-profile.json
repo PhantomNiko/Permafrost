@@ -1,0 +1,16 @@
+{
+  "version": "1.1",
+  "architecture": "i386",
+  "source": "recovery/in-progress/kernel/i386",
+  "base": 33554432,
+  "entry": 33554452,
+  "text_start": 33554432,
+  "text_end": 34662808,
+  "state_end": 38416384,
+  "core_base": 38797312,
+  "main": "recovered_20ab9f0",
+  "set_loader_context": "recovered_2005250",
+  "inline_constants": {},
+  "upstream_display_version": "1.1",
+  "image_source": "libraries/png/i386"
+}

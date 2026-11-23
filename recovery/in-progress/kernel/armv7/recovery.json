@@ -1,0 +1,26 @@
+{
+  "version": "1.1",
+  "base": 1077936128,
+  "text_start": 1077936128,
+  "text_end": 1079141272,
+  "state_end": 1080672256,
+  "translation": {
+    "pointer_bytes": 4,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "declarations": [
+      "#include \"support.h\"",
+      "void pf_kernel_entry(void);"
+    ],
+    "volatile_ranges": [
+      [
+        1079141272,
+        1080672256
+      ]
+    ],
+    "atomic_views": true,
+    "integer_vector_128": true,
+    "stack_register": "register0x00000054",
+    "system_registers": {}
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "version": "1.1",
+  "base": 2185232384,
+  "text_start": 2185232384,
+  "text_end": 2185866604,
+  "state_end": 2188623872,
+  "translation": {
+    "pointer_bytes": 8,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "declarations": [
+      "#include \"support.h\"",
+      "void pf_kernel_entry(void);",
+      "#include \"arm64-recovery.h\""
+    ],
+    "volatile_ranges": [
+      [
+        2185866604,
+        2188623872
+      ]
+    ],
+    "atomic_views": true,
+    "integer_vector_128": true,
+    "stack_register": "register0x00000008",
+    "system_registers": {
+      "mair_el1": "rw",
+      "tcr_el1": "rw",
+      "ttbr0_el1": "rw",
+      "ttbr1_el1": "rw",
+      "sctlr_el1": "rw",
+      "mair_el2": "rw",
+      "tcr_el2": "rw",
+      "ttbr0_el2": "rw",
+      "sctlr_el2": "rw",
+      "daif": "rw",
+      "elr_el1": "rw",
+      "spsr_el1": "rw",
+      "vbar_el1": "rw",
+      "vbar_el2": "rw",
+      "mdscr_el1": "rw",
+      "dbgwcr0_el1": "rw",
+      "dbgwvr0_el1": "rw",
+      "par_el1": "rw",
+      "cntv_tval_el0": "rw",
+      "cntv_ctl_el0": "rw",
+      "cntfrq_el0": "rw",
+      "icc_sre_el1": "rw",
+      "icc_pmr_el1": "rw",
+      "icc_igrpen1_el1": "rw",
+      "mpidr_el1": "ro",
+      "midr_el1": "ro",
+      "ctr_el0": "ro",
+      "currentel": "ro",
+      "cntvct_el0": "ro",
+      "esr_el1": "ro",
+      "far_el1": "ro",
+      "icc_iar1_el1": "ro",
+      "oslar_el1": "wo"
+    },
+    "exclusive_expected": {
+      "8240c7b8": [
+        {
+          "target": "DAT_826f51e0",
+          "value": "1",
+          "expected": "0"
+        },
+        {
+          "target": "DAT_826f51e0",
+          "value": "0",
+          "expected": "1"
+        },
+        {
+          "target": "DAT_826f51e0",
+          "value": "0",
+          "expected": "1"
+        }
+      ],
+      "8240d7d4": [
+        {
+          "target": "DAT_826f51e0",
+          "value": "1",
+          "expected": "0"
+        },
+        {
+          "target": "DAT_826f51e0",
+          "value": "0",
+          "expected": "1"
+        },
+        {
+          "target": "DAT_826f51e0",
+          "value": "0",
+          "expected": "1"
+        }
+      ],
+      "8241b0f0": [
+        {
+          "target": "DAT_826f51e0",
+          "value": "0",
+          "expected": "1"
+        },
+        {
+          "target": "DAT_826f51e0",
+          "value": "1",
+          "expected": "0"
+        },
+        {
+          "target": "DAT_826f51e0",
+          "value": "0",
+          "expected": "1"
+        },
+        {
+          "target": "DAT_826f51e0",
+          "value": "0",
+          "expected": "1"
+        },
+        {
+          "target": "DAT_826f51e0",
+          "value": "1",
+          "expected": "0"
+        },
+        {
+          "target": "DAT_826f51e0",
+          "value": "0",
+          "expected": "1"
+        },
+        {
+          "target": "DAT_826f51e0",
+          "value": "0",
+          "expected": "1"
+        }
+      ]
+    }
+  }
+}

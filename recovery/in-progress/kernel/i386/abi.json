@@ -1,0 +1,7378 @@
+{
+  "2000014": {
+    "symbol": "recovered_2000014",
+    "original": "_lua_probe_binary_entry"
+  },
+  "2000033": {
+    "symbol": "recovered_2000033",
+    "original": "_wm_probe_write_disk_sectors"
+  },
+  "2000098": {
+    "symbol": "recovered_2000098",
+    "original": "_lua_probe_binary_end"
+  },
+  "20000a0": {
+    "symbol": "recovered_20000a0",
+    "original": "_wm_probe_heap_reset"
+  },
+  "2000100": {
+    "symbol": "recovered_2000100",
+    "original": "_wm_probe_heap_init_locked"
+  },
+  "2000300": {
+    "symbol": "recovered_2000300",
+    "original": "_wm_probe_heap_add_regions"
+  },
+  "2000370": {
+    "symbol": "recovered_2000370",
+    "original": "_wm_probe_heap_add_regions_locked"
+  },
+  "2000590": {
+    "symbol": "recovered_2000590",
+    "original": "_wm_probe_heap_add_region"
+  },
+  "2000600": {
+    "symbol": "recovered_2000600",
+    "original": "_wm_probe_heap_free_bytes"
+  },
+  "2000670": {
+    "symbol": "recovered_2000670",
+    "original": "_wm_probe_heap_free_bytes64"
+  },
+  "20006f0": {
+    "symbol": "recovered_20006f0",
+    "original": "_wm_probe_heap_total_bytes"
+  },
+  "2000760": {
+    "symbol": "recovered_2000760",
+    "original": "_wm_probe_heap_total_bytes64"
+  },
+  "20007d0": {
+    "symbol": "recovered_20007d0",
+    "original": "_wm_probe_heap_alloc"
+  },
+  "2000830": {
+    "symbol": "recovered_2000830",
+    "original": "_wm_probe_heap_alloc_bounded_locked"
+  },
+  "2000a40": {
+    "symbol": "recovered_2000a40",
+    "original": "_wm_probe_heap_alloc_below"
+  },
+  "2000aa0": {
+    "symbol": "recovered_2000aa0",
+    "original": "_wm_probe_heap_alloc_range"
+  },
+  "2000b00": {
+    "symbol": "recovered_2000b00",
+    "original": "_wm_probe_heap_free"
+  },
+  "2000b50": {
+    "symbol": "recovered_2000b50",
+    "original": "_wm_probe_heap_free_locked"
+  },
+  "2000c60": {
+    "symbol": "recovered_2000c60",
+    "original": "_wm_probe_heap_realloc"
+  },
+  "2000f90": {
+    "symbol": "recovered_2000f90",
+    "original": "___ashldi3"
+  },
+  "2000fe0": {
+    "symbol": "recovered_2000fe0",
+    "original": "___lshrdi3"
+  },
+  "2001030": {
+    "symbol": "recovered_2001030",
+    "original": "___ashrdi3"
+  },
+  "2001070": {
+    "symbol": "recovered_2001070",
+    "original": "___udivdi3"
+  },
+  "2001160": {
+    "symbol": "recovered_2001160",
+    "original": "___umoddi3"
+  },
+  "20011d0": {
+    "symbol": "recovered_20011d0",
+    "original": "___divdi3"
+  },
+  "2001320": {
+    "symbol": "recovered_2001320",
+    "original": "___moddi3"
+  },
+  "20013f0": {
+    "symbol": "recovered_20013f0",
+    "original": "_abort"
+  },
+  "2001410": {
+    "symbol": "recovered_2001410",
+    "original": "_abs"
+  },
+  "2001430": {
+    "symbol": "recovered_2001430",
+    "original": "_malloc"
+  },
+  "2001490": {
+    "symbol": "recovered_2001490",
+    "original": "_free"
+  },
+  "20014e0": {
+    "symbol": "recovered_20014e0",
+    "original": "_realloc"
+  },
+  "2001500": {
+    "symbol": "recovered_2001500",
+    "original": "_memcpy"
+  },
+  "20015c0": {
+    "symbol": "recovered_20015c0",
+    "original": "_memmove"
+  },
+  "2001790": {
+    "symbol": "recovered_2001790",
+    "original": "_memset"
+  },
+  "2001840": {
+    "symbol": "recovered_2001840",
+    "original": "_bzero"
+  },
+  "20018e0": {
+    "symbol": "recovered_20018e0",
+    "original": "___bzero"
+  },
+  "2001980": {
+    "symbol": "recovered_2001980",
+    "original": "_memchr"
+  },
+  "20019c0": {
+    "symbol": "recovered_20019c0",
+    "original": "_memcmp"
+  },
+  "2001af0": {
+    "symbol": "recovered_2001af0",
+    "original": "_wm_probe_memory_compare_word_bytes"
+  },
+  "2001b40": {
+    "symbol": "recovered_2001b40",
+    "original": "_islower"
+  },
+  "2001b60": {
+    "symbol": "recovered_2001b60",
+    "original": "_isupper"
+  },
+  "2001b80": {
+    "symbol": "recovered_2001b80",
+    "original": "_isalpha"
+  },
+  "2001ba0": {
+    "symbol": "recovered_2001ba0",
+    "original": "_isalnum"
+  },
+  "2001bd0": {
+    "symbol": "recovered_2001bd0",
+    "original": "_isblank"
+  },
+  "2001bf0": {
+    "symbol": "recovered_2001bf0",
+    "original": "_isprint"
+  },
+  "2001c10": {
+    "symbol": "recovered_2001c10",
+    "original": "_tolower"
+  },
+  "2001c30": {
+    "symbol": "recovered_2001c30",
+    "original": "_toupper"
+  },
+  "2001c50": {
+    "symbol": "recovered_2001c50",
+    "original": "_strlen"
+  },
+  "2001c90": {
+    "symbol": "recovered_2001c90",
+    "original": "_strcmp"
+  },
+  "2001cd0": {
+    "symbol": "recovered_2001cd0",
+    "original": "_strcoll"
+  },
+  "2001d10": {
+    "symbol": "recovered_2001d10",
+    "original": "_strcpy"
+  },
+  "2001d40": {
+    "symbol": "recovered_2001d40",
+    "original": "_strdup"
+  },
+  "2001ea0": {
+    "symbol": "recovered_2001ea0",
+    "original": "_strchr"
+  },
+  "2001ee0": {
+    "symbol": "recovered_2001ee0",
+    "original": "_strspn"
+  },
+  "2001f40": {
+    "symbol": "recovered_2001f40",
+    "original": "_strcspn"
+  },
+  "2001fa0": {
+    "symbol": "recovered_2001fa0",
+    "original": "_strpbrk"
+  },
+  "2001ff0": {
+    "symbol": "recovered_2001ff0",
+    "original": "_strstr"
+  },
+  "2002040": {
+    "symbol": "recovered_2002040",
+    "original": "_setlocale"
+  },
+  "2002050": {
+    "symbol": "recovered_2002050",
+    "original": "_localeconv"
+  },
+  "2002060": {
+    "symbol": "recovered_2002060",
+    "original": "_time"
+  },
+  "2002080": {
+    "symbol": "recovered_2002080",
+    "original": "_ldexp"
+  },
+  "20020c0": {
+    "symbol": "recovered_20020c0",
+    "original": "_frexp"
+  },
+  "2002180": {
+    "symbol": "recovered_2002180",
+    "original": "_fmod"
+  },
+  "20021e0": {
+    "symbol": "recovered_20021e0",
+    "original": "_pow"
+  },
+  "2002270": {
+    "symbol": "recovered_2002270",
+    "original": "_floor"
+  },
+  "20022c0": {
+    "symbol": "recovered_20022c0",
+    "original": "_ceil"
+  },
+  "2002320": {
+    "symbol": "recovered_2002320",
+    "original": "_sqrt"
+  },
+  "2002410": {
+    "symbol": "recovered_2002410",
+    "original": "_log"
+  },
+  "2002520": {
+    "symbol": "recovered_2002520",
+    "original": "_llround"
+  },
+  "2002570": {
+    "symbol": "recovered_2002570",
+    "original": "_sin"
+  },
+  "2002600": {
+    "symbol": "recovered_2002600",
+    "original": "_cos"
+  },
+  "2002690": {
+    "symbol": "recovered_2002690",
+    "original": "_fabs"
+  },
+  "20026b0": {
+    "symbol": "recovered_20026b0",
+    "original": "___fixdfdi"
+  },
+  "2002760": {
+    "symbol": "recovered_2002760",
+    "original": "___fixunsdfdi"
+  },
+  "20027f0": {
+    "symbol": "recovered_20027f0",
+    "original": "___floatundidf"
+  },
+  "2002860": {
+    "symbol": "recovered_2002860",
+    "original": "___floatdidf"
+  },
+  "2002920": {
+    "symbol": "recovered_2002920",
+    "original": "_fmodf"
+  },
+  "2002990": {
+    "symbol": "recovered_2002990",
+    "original": "_frexpf"
+  },
+  "2002a70": {
+    "symbol": "recovered_2002a70",
+    "original": "_ldexpf"
+  },
+  "2002ac0": {
+    "symbol": "recovered_2002ac0",
+    "original": "_powf"
+  },
+  "2002b60": {
+    "symbol": "recovered_2002b60",
+    "original": "_floorf"
+  },
+  "2002bc0": {
+    "symbol": "recovered_2002bc0",
+    "original": "_ceilf"
+  },
+  "2002c30": {
+    "symbol": "recovered_2002c30",
+    "original": "_trunc"
+  },
+  "2002ca0": {
+    "symbol": "recovered_2002ca0",
+    "original": "_truncf"
+  },
+  "2002d10": {
+    "symbol": "recovered_2002d10",
+    "original": "_sqrtf"
+  },
+  "2002d30": {
+    "symbol": "recovered_2002d30",
+    "original": "_logf"
+  },
+  "2002e50": {
+    "symbol": "recovered_2002e50",
+    "original": "_lround"
+  },
+  "2002ea0": {
+    "symbol": "recovered_2002ea0",
+    "original": "_sinf"
+  },
+  "2002f30": {
+    "symbol": "recovered_2002f30",
+    "original": "_cosf"
+  },
+  "2002fc0": {
+    "symbol": "recovered_2002fc0",
+    "original": "_fabsf"
+  },
+  "2002fe0": {
+    "symbol": "recovered_2002fe0",
+    "original": "_strtol"
+  },
+  "2003130": {
+    "symbol": "recovered_2003130",
+    "original": "_strtoul"
+  },
+  "2003280": {
+    "symbol": "recovered_2003280",
+    "original": "_strtod"
+  },
+  "2003430": {
+    "symbol": "recovered_2003430",
+    "original": "_strtof"
+  },
+  "2003460": {
+    "symbol": "recovered_2003460",
+    "original": "_vsnprintf"
+  },
+  "2003fc0": {
+    "symbol": "recovered_2003fc0",
+    "original": "_snprintf"
+  },
+  "2003ff0": {
+    "symbol": "recovered_2003ff0",
+    "original": "_wm_probe_heap_append_region_excluding_application"
+  },
+  "2004180": {
+    "symbol": "recovered_2004180",
+    "original": "_wm_probe_heap_split_prefix"
+  },
+  "20041e0": {
+    "symbol": "recovered_20041e0",
+    "original": "_wm_probe_heap_split"
+  },
+  "2004240": {
+    "symbol": "recovered_2004240",
+    "original": "_wm_platform_seeded_cpu_name"
+  },
+  "2004570": {
+    "symbol": "recovered_2004570",
+    "original": "_wm_platform_ci20_otg_role"
+  },
+  "20045d0": {
+    "symbol": "recovered_20045d0",
+    "original": "_wm_platform_efi_power_snapshot"
+  },
+  "2004810": {
+    "symbol": "recovered_2004810",
+    "original": "_wm_platform_efi_bluetooth_snapshot"
+  },
+  "2004b20": {
+    "symbol": "recovered_2004b20",
+    "original": "_wm_platform_uefi_kernel_active"
+  },
+  "2004b70": {
+    "symbol": "recovered_2004b70",
+    "original": "_wm_platform_pooka_firmware_active"
+  },
+  "2004ba0": {
+    "symbol": "recovered_2004ba0",
+    "original": "_wm_platform_firmware_origin"
+  },
+  "2004bb0": {
+    "symbol": "recovered_2004bb0",
+    "original": "_wm_platform_firmware_services_retained_by_policy"
+  },
+  "2004c20": {
+    "symbol": "recovered_2004c20",
+    "original": "_wm_platform_firmware_root"
+  },
+  "2004cb0": {
+    "symbol": "recovered_2004cb0",
+    "original": "_wm_platform_firmware_child"
+  },
+  "2004d40": {
+    "symbol": "recovered_2004d40",
+    "original": "_wm_platform_firmware_peer"
+  },
+  "2004dd0": {
+    "symbol": "recovered_2004dd0",
+    "original": "_wm_platform_firmware_parent"
+  },
+  "2004e60": {
+    "symbol": "recovered_2004e60",
+    "original": "_wm_platform_firmware_find_node"
+  },
+  "2004ef0": {
+    "symbol": "recovered_2004ef0",
+    "original": "_wm_platform_firmware_get_property"
+  },
+  "2004fc0": {
+    "symbol": "recovered_2004fc0",
+    "original": "_platform_pooka_getprop"
+  },
+  "2005090": {
+    "symbol": "recovered_2005090",
+    "original": "_wm_platform_firmware_node_path"
+  },
+  "2005160": {
+    "symbol": "recovered_2005160",
+    "original": "_wm_platform_configure_storage_tuning"
+  },
+  "2005210": {
+    "symbol": "recovered_2005210",
+    "original": "_wm_platform_query_storage_tuning"
+  },
+  "2005250": {
+    "symbol": "recovered_2005250",
+    "original": "_wm_platform_set_loader_context"
+  },
+  "2005370": {
+    "symbol": "recovered_2005370",
+    "original": "_wm_platform_set_preload_handoff"
+  },
+  "2005b10": {
+    "symbol": "recovered_2005b10",
+    "original": "_wm_platform_io_port_read"
+  },
+  "2005b60": {
+    "symbol": "recovered_2005b60",
+    "original": "_wm_platform_io_port_write"
+  },
+  "2005ba0": {
+    "symbol": "recovered_2005ba0",
+    "original": "_wm_platform_read_rtc_time"
+  },
+  "2005fd0": {
+    "symbol": "recovered_2005fd0",
+    "original": "_wm_platform_begin_exclusive_native_driver_handoff"
+  },
+  "2006060": {
+    "symbol": "recovered_2006060",
+    "original": "_wm_platform_retire_firmware_fallbacks"
+  },
+  "2006080": {
+    "symbol": "recovered_2006080",
+    "original": "_wm_platform_ram_window_is_mapped"
+  },
+  "2006090": {
+    "symbol": "recovered_2006090",
+    "original": "_wm_platform_embedded_system_font"
+  },
+  "20061d0": {
+    "symbol": "recovered_20061d0",
+    "original": "_wm_platform_acpi_device_list"
+  },
+  "20065f0": {
+    "symbol": "recovered_20065f0",
+    "original": "_wm_platform_pci_config_read"
+  },
+  "20068b0": {
+    "symbol": "recovered_20068b0",
+    "original": "_wm_platform_pci_config_write"
+  },
+  "2006b40": {
+    "symbol": "recovered_2006b40",
+    "original": "_wm_platform_present_framebuffer"
+  },
+  "2006b70": {
+    "symbol": "recovered_2006b70",
+    "original": "_wm_platform_hardware_barrier"
+  },
+  "2006b90": {
+    "symbol": "recovered_2006b90",
+    "original": "_wm_platform_mmio_map"
+  },
+  "2006bd0": {
+    "symbol": "recovered_2006bd0",
+    "original": "_platform_runtime_map_mmio_window64"
+  },
+  "2006e30": {
+    "symbol": "recovered_2006e30",
+    "original": "_wm_platform_mmio_map_address"
+  },
+  "2006ea0": {
+    "symbol": "recovered_2006ea0",
+    "original": "_wm_platform_x86_publish_synchronised_tsc"
+  },
+  "20070e0": {
+    "symbol": "recovered_20070e0",
+    "original": "_platform_x86_tsc_frequency_cpuid"
+  },
+  "20072e0": {
+    "symbol": "recovered_20072e0",
+    "original": "_platform_x86_tsc_frequency_calibrate"
+  },
+  "2007a90": {
+    "symbol": "recovered_2007a90",
+    "original": "_platform_x86_clock_initialise"
+  },
+  "20085b0": {
+    "symbol": "recovered_20085b0",
+    "original": "wm_platform_intel_rendezvous_dispatch"
+  },
+  "20086d0": {
+    "symbol": "recovered_20086d0",
+    "original": "_platform_intel_current_apic_id"
+  },
+  "20087e0": {
+    "symbol": "recovered_20087e0",
+    "original": "_platform_intel_apic_rendezvous_isr_active"
+  },
+  "2008830": {
+    "symbol": "recovered_2008830",
+    "original": "_wm_intel_interrupt_target_transition_tokens"
+  },
+  "2008880": {
+    "symbol": "recovered_2008880",
+    "original": "_platform_intel_apic_eoi"
+  },
+  "20088c0": {
+    "symbol": "recovered_20088c0",
+    "original": "_platform_intel_memory_rendezvous_local_enter"
+  },
+  "2008940": {
+    "symbol": "recovered_2008940",
+    "original": "_platform_smp_pause"
+  },
+  "2008950": {
+    "symbol": "recovered_2008950",
+    "original": "_platform_intel_memory_rendezvous_local_flush"
+  },
+  "20089b0": {
+    "symbol": "recovered_20089b0",
+    "original": "_platform_intel_memory_rendezvous_local_restore"
+  },
+  "20089d0": {
+    "symbol": "recovered_20089d0",
+    "original": "_wm_intel_interrupt_target_token"
+  },
+  "2008a00": {
+    "symbol": "recovered_2008a00",
+    "original": "_platform_intel_memory_rendezvous_fail_stop"
+  },
+  "2008a20": {
+    "symbol": "recovered_2008a20",
+    "original": "wm_platform_intel_interrupt_drain_dispatch"
+  },
+  "2008a40": {
+    "symbol": "recovered_2008a40",
+    "original": "_platform_intel_apic_reserved_drain_active"
+  },
+  "2008a80": {
+    "symbol": "recovered_2008a80",
+    "original": "wm_platform_intel_spurious_dispatch"
+  },
+  "2008aa0": {
+    "symbol": "recovered_2008aa0",
+    "original": "_platform_intel_apic_isr_vector_active"
+  },
+  "2008ae0": {
+    "symbol": "recovered_2008ae0",
+    "original": "wm_platform_intel_preemption_dispatch"
+  },
+  "2008bf0": {
+    "symbol": "recovered_2008bf0",
+    "original": "_wm_platform_smp_current_cpu_index"
+  },
+  "2008c80": {
+    "symbol": "recovered_2008c80",
+    "original": "_platform_intel_wrmsr"
+  },
+  "2008ca0": {
+    "symbol": "recovered_2008ca0",
+    "original": "_platform_intel_apic_mask_lvt"
+  },
+  "2008d50": {
+    "symbol": "recovered_2008d50",
+    "original": "_wm_intel_interrupt_next_deadline"
+  },
+  "2008e50": {
+    "symbol": "recovered_2008e50",
+    "original": "_platform_intel_tsc_read_serialised"
+  },
+  "2008e70": {
+    "symbol": "recovered_2008e70",
+    "original": "wm_platform_intel_preemption_entry"
+  },
+  "2008f70": {
+    "symbol": "recovered_2008f70",
+    "original": "wm_platform_intel_rendezvous_entry"
+  },
+  "2008f90": {
+    "symbol": "recovered_2008f90",
+    "original": "wm_platform_intel_interrupt_drain_entry"
+  },
+  "2008fb0": {
+    "symbol": "recovered_2008fb0",
+    "original": "wm_platform_intel_spurious_entry"
+  },
+  "2008fd0": {
+    "symbol": "recovered_2008fd0",
+    "original": "_wm_platform_intel_smp_entry"
+  },
+  "20093f0": {
+    "symbol": "recovered_20093f0",
+    "original": "_platform_intel_current_invariant_tsc"
+  },
+  "20094a0": {
+    "symbol": "recovered_20094a0",
+    "original": "_wm_platform_smp_bootstrap"
+  },
+  "2009f50": {
+    "symbol": "recovered_2009f50",
+    "original": "_wm_platform_smp_set_worker"
+  },
+  "2009f70": {
+    "symbol": "recovered_2009f70",
+    "original": "_wm_platform_smp_discover_cpu_count"
+  },
+  "2009fa0": {
+    "symbol": "recovered_2009fa0",
+    "original": "_platform_intel_smp_discover_cpus"
+  },
+  "200a720": {
+    "symbol": "recovered_200a720",
+    "original": "_wm_platform_smp_discovered_cpu_count"
+  },
+  "200a740": {
+    "symbol": "recovered_200a740",
+    "original": "_wm_platform_smp_online_cpu_count"
+  },
+  "200a760": {
+    "symbol": "recovered_200a760",
+    "original": "_wm_platform_smp_start_admission_status"
+  },
+  "200a7e0": {
+    "symbol": "recovered_200a7e0",
+    "original": "_wm_platform_smp_preemption_ready_cpu_count"
+  },
+  "200a820": {
+    "symbol": "recovered_200a820",
+    "original": "_wm_platform_smp_preemption_reported_cpu_count"
+  },
+  "200a860": {
+    "symbol": "recovered_200a860",
+    "original": "_wm_platform_smp_set_preemption_ready"
+  },
+  "200a890": {
+    "symbol": "recovered_200a890",
+    "original": "_wm_platform_smp_preemption_admission_status"
+  },
+  "200a980": {
+    "symbol": "recovered_200a980",
+    "original": "_wm_platform_smp_admission_status_name"
+  },
+  "200a9a0": {
+    "symbol": "recovered_200a9a0",
+    "original": "_wm_platform_powerpc_preemption_contract"
+  },
+  "200a9d0": {
+    "symbol": "recovered_200a9d0",
+    "original": "_wm_platform_smp_checkpoint"
+  },
+  "200a9e0": {
+    "symbol": "recovered_200a9e0",
+    "original": "_wm_platform_smp_idle"
+  },
+  "200a9f0": {
+    "symbol": "recovered_200a9f0",
+    "original": "_wm_platform_smp_signal"
+  },
+  "200aa00": {
+    "symbol": "recovered_200aa00",
+    "original": "_wm_platform_preemption_requires_firmware_retirement"
+  },
+  "200aa10": {
+    "symbol": "recovered_200aa10",
+    "original": "_wm_platform_preemption_start"
+  },
+  "200b4e0": {
+    "symbol": "recovered_200b4e0",
+    "original": "_wm_platform_preemption_dispatch_begin"
+  },
+  "200b4f0": {
+    "symbol": "recovered_200b4f0",
+    "original": "_wm_platform_preemption_dispatch_end"
+  },
+  "200b500": {
+    "symbol": "recovered_200b500",
+    "original": "_wm_platform_preemption_prepare_interrupt_continuation"
+  },
+  "200b510": {
+    "symbol": "recovered_200b510",
+    "original": "_wm_platform_mmio_read_address"
+  },
+  "200b570": {
+    "symbol": "recovered_200b570",
+    "original": "_wm_platform_mmio_write_address"
+  },
+  "200b5b0": {
+    "symbol": "recovered_200b5b0",
+    "original": "_wm_platform_mmio_read"
+  },
+  "200b610": {
+    "symbol": "recovered_200b610",
+    "original": "_wm_platform_mmio_write"
+  },
+  "200b650": {
+    "symbol": "recovered_200b650",
+    "original": "_wm_platform_startup"
+  },
+  "200cd00": {
+    "symbol": "recovered_200cd00",
+    "original": "_platform_configure_boot_cpu_features"
+  },
+  "200d100": {
+    "symbol": "recovered_200d100",
+    "original": "_platform_pooka_probe_framebuffer"
+  },
+  "200d240": {
+    "symbol": "recovered_200d240",
+    "original": "_wm_platform_halt_forever"
+  },
+  "200d260": {
+    "symbol": "recovered_200d260",
+    "original": "_platform_pooka_open_boot_disk"
+  },
+  "200d530": {
+    "symbol": "recovered_200d530",
+    "original": "_platform_efi_drive_capacity"
+  },
+  "200d5d0": {
+    "symbol": "recovered_200d5d0",
+    "original": "_platform_efi_framebuffer_active"
+  },
+  "200d770": {
+    "symbol": "recovered_200d770",
+    "original": "_platform_efi_prepare_framebuffer_mapping"
+  },
+  "200dc10": {
+    "symbol": "recovered_200dc10",
+    "original": "_wm_platform_runtime_state"
+  },
+  "200dc20": {
+    "symbol": "recovered_200dc20",
+    "original": "_platform_retire_firmware_fallbacks_internal"
+  },
+  "200dde0": {
+    "symbol": "recovered_200dde0",
+    "original": "_wm_platform_firmware_fallbacks_retired"
+  },
+  "200de00": {
+    "symbol": "recovered_200de00",
+    "original": "_wm_platform_firmware_usb_dma_unfenced"
+  },
+  "200de20": {
+    "symbol": "recovered_200de20",
+    "original": "_wm_platform_firmware_usb_retirement_safe"
+  },
+  "200de50": {
+    "symbol": "recovered_200de50",
+    "original": "_wm_platform_ticks"
+  },
+  "200ded0": {
+    "symbol": "recovered_200ded0",
+    "original": "_platform_arch_monotonic_ticks"
+  },
+  "200e3c0": {
+    "symbol": "recovered_200e3c0",
+    "original": "_wm_platform_text_columns"
+  },
+  "200e430": {
+    "symbol": "recovered_200e430",
+    "original": "_wm_platform_text_rows"
+  },
+  "200e4a0": {
+    "symbol": "recovered_200e4a0",
+    "original": "_wm_platform_text_clear"
+  },
+  "200e7e0": {
+    "symbol": "recovered_200e7e0",
+    "original": "_platform_pooka_fill_rect"
+  },
+  "200e8e0": {
+    "symbol": "recovered_200e8e0",
+    "original": "_platform_pooka_write_clear_sequence"
+  },
+  "200ea10": {
+    "symbol": "recovered_200ea10",
+    "original": "_platform_efi_fill_rect"
+  },
+  "200edf0": {
+    "symbol": "recovered_200edf0",
+    "original": "_wm_platform_text_write_at"
+  },
+  "200fa20": {
+    "symbol": "recovered_200fa20",
+    "original": "_platform_pooka_mirror_text"
+  },
+  "200fb50": {
+    "symbol": "recovered_200fb50",
+    "original": "_wm_platform_text_enable_cursor"
+  },
+  "200fc40": {
+    "symbol": "recovered_200fc40",
+    "original": "_wm_platform_text_set_cursor"
+  },
+  "200fec0": {
+    "symbol": "recovered_200fec0",
+    "original": "_wm_platform_enter_text_mode"
+  },
+  "200ff40": {
+    "symbol": "recovered_200ff40",
+    "original": "_wm_platform_text_load_font_plane"
+  },
+  "2010060": {
+    "symbol": "recovered_2010060",
+    "original": "_wm_platform_dma_address"
+  },
+  "20100c0": {
+    "symbol": "recovered_20100c0",
+    "original": "_platform_qemu_dma_address64_for_requester"
+  },
+  "2010300": {
+    "symbol": "recovered_2010300",
+    "original": "_wm_platform_dma_sync"
+  },
+  "2010310": {
+    "symbol": "recovered_2010310",
+    "original": "_wm_platform_dma_invalidate"
+  },
+  "2010330": {
+    "symbol": "recovered_2010330",
+    "original": "_wm_platform_dma_cache_line_bytes"
+  },
+  "2010340": {
+    "symbol": "recovered_2010340",
+    "original": "_wm_platform_usb_serial_devices"
+  },
+  "2010490": {
+    "symbol": "recovered_2010490",
+    "original": "_wm_platform_usb_serial_io"
+  },
+  "20104f0": {
+    "symbol": "recovered_20104f0",
+    "original": "_platform_xhci_serial_io_unlocked"
+  },
+  "2010730": {
+    "symbol": "recovered_2010730",
+    "original": "_wm_platform_picofrost_devices"
+  },
+  "2010ae0": {
+    "symbol": "recovered_2010ae0",
+    "original": "_platform_qemu_xhci_poll_root_port_changes"
+  },
+  "2011270": {
+    "symbol": "recovered_2011270",
+    "original": "_platform_picosync_packet_step"
+  },
+  "2011a90": {
+    "symbol": "recovered_2011a90",
+    "original": "_pf_identity_handle"
+  },
+  "2011bf0": {
+    "symbol": "recovered_2011bf0",
+    "original": "_wm_platform_picosync_diagnostic"
+  },
+  "2011ff0": {
+    "symbol": "recovered_2011ff0",
+    "original": "_wm_platform_picofrost_poll_on_device"
+  },
+  "20121f0": {
+    "symbol": "recovered_20121f0",
+    "original": "_wm_platform_picofrost_control_on_device_yielding"
+  },
+  "2012670": {
+    "symbol": "recovered_2012670",
+    "original": "_wm_platform_picofrost_control_on_device"
+  },
+  "20126b0": {
+    "symbol": "recovered_20126b0",
+    "original": "_wm_platform_picofrost_control"
+  },
+  "2012720": {
+    "symbol": "recovered_2012720",
+    "original": "_wm_platform_native_storage_boot_stage"
+  },
+  "2012730": {
+    "symbol": "recovered_2012730",
+    "original": "_wm_platform_native_storage_boot_complete"
+  },
+  "2012740": {
+    "symbol": "recovered_2012740",
+    "original": "_wm_platform_poll_key_ax"
+  },
+  "2012b20": {
+    "symbol": "recovered_2012b20",
+    "original": "_platform_efi_poll_key_ax"
+  },
+  "2012e00": {
+    "symbol": "recovered_2012e00",
+    "original": "_platform_qemu_pointer_probe"
+  },
+  "2014640": {
+    "symbol": "recovered_2014640",
+    "original": "_platform_qemu_xhci_keyboard_poll_key_ax"
+  },
+  "20148a0": {
+    "symbol": "recovered_20148a0",
+    "original": "_platform_qemu_uhci_keyboard_poll_key_ax"
+  },
+  "2014eb0": {
+    "symbol": "recovered_2014eb0",
+    "original": "_platform_qemu_ohci_keyboard_poll_key_ax"
+  },
+  "2014f90": {
+    "symbol": "recovered_2014f90",
+    "original": "_platform_pooka_poll_input_char"
+  },
+  "20150d0": {
+    "symbol": "recovered_20150d0",
+    "original": "_platform_ascii_to_bios_scan"
+  },
+  "2015180": {
+    "symbol": "recovered_2015180",
+    "original": "_wm_platform_native_boot_storage_ready"
+  },
+  "2016600": {
+    "symbol": "recovered_2016600",
+    "original": "_platform_qemu_xhci_pointer_state"
+  },
+  "2016b60": {
+    "symbol": "recovered_2016b60",
+    "original": "_platform_qemu_uhci_storage_probe"
+  },
+  "2017810": {
+    "symbol": "recovered_2017810",
+    "original": "_wm_platform_native_storage_diagnostic"
+  },
+  "2017950": {
+    "symbol": "recovered_2017950",
+    "original": "_wm_platform_native_storage_source"
+  },
+  "2017990": {
+    "symbol": "recovered_2017990",
+    "original": "_wm_platform_native_storage_handles_drive"
+  },
+  "20179d0": {
+    "symbol": "recovered_20179d0",
+    "original": "_wm_platform_use_native_boot_storage_drive"
+  },
+  "2017ae0": {
+    "symbol": "recovered_2017ae0",
+    "original": "_platform_xhci_select_storage_drive"
+  },
+  "2017be0": {
+    "symbol": "recovered_2017be0",
+    "original": "_wm_platform_native_storage_generation"
+  },
+  "2017bf0": {
+    "symbol": "recovered_2017bf0",
+    "original": "_wm_platform_native_storage_media"
+  },
+  "2017c80": {
+    "symbol": "recovered_2017c80",
+    "original": "_wm_platform_native_storage_devices"
+  },
+  "2017f20": {
+    "symbol": "recovered_2017f20",
+    "original": "_wm_platform_native_storage_port"
+  },
+  "2017f90": {
+    "symbol": "recovered_2017f90",
+    "original": "_wm_platform_use_native_boot_storage"
+  },
+  "2018270": {
+    "symbol": "recovered_2018270",
+    "original": "_wm_platform_read_native_storage"
+  },
+  "20182c0": {
+    "symbol": "recovered_20182c0",
+    "original": "_platform_native_boot_storage_read"
+  },
+  "2018730": {
+    "symbol": "recovered_2018730",
+    "original": "_wm_platform_write_native_storage"
+  },
+  "2018780": {
+    "symbol": "recovered_2018780",
+    "original": "_platform_native_boot_storage_write"
+  },
+  "20188e0": {
+    "symbol": "recovered_20188e0",
+    "original": "_wm_platform_flush_native_storage"
+  },
+  "2018920": {
+    "symbol": "recovered_2018920",
+    "original": "_platform_native_boot_storage_flush"
+  },
+  "2018ba0": {
+    "symbol": "recovered_2018ba0",
+    "original": "_wm_platform_query_drive_capacity"
+  },
+  "2018f60": {
+    "symbol": "recovered_2018f60",
+    "original": "_platform_pooka_ensure_storage_devices"
+  },
+  "2019030": {
+    "symbol": "recovered_2019030",
+    "original": "_wm_platform_read_drive_bytes"
+  },
+  "2019760": {
+    "symbol": "recovered_2019760",
+    "original": "_platform_efi_read_disk_image_bytes"
+  },
+  "2019a00": {
+    "symbol": "recovered_2019a00",
+    "original": "_platform_qemu_virtio_block_read_drive"
+  },
+  "2019b90": {
+    "symbol": "recovered_2019b90",
+    "original": "_platform_efi_io_buffer_physical"
+  },
+  "2019be0": {
+    "symbol": "recovered_2019be0",
+    "original": "_platform_storage_read_transfer_sectors"
+  },
+  "2019c60": {
+    "symbol": "recovered_2019c60",
+    "original": "_platform_storage_cache_hit"
+  },
+  "2019d10": {
+    "symbol": "recovered_2019d10",
+    "original": "_platform_storage_should_read_ahead"
+  },
+  "2019d70": {
+    "symbol": "recovered_2019d70",
+    "original": "_platform_efi_read_blocks"
+  },
+  "2019fd0": {
+    "symbol": "recovered_2019fd0",
+    "original": "_platform_storage_cache_store"
+  },
+  "201a090": {
+    "symbol": "recovered_201a090",
+    "original": "_wm_platform_write_drive_bytes"
+  },
+  "201a430": {
+    "symbol": "recovered_201a430",
+    "original": "_platform_qemu_virtio_block_write_drive"
+  },
+  "201a520": {
+    "symbol": "recovered_201a520",
+    "original": "_platform_storage_write_transfer_sectors"
+  },
+  "201a5a0": {
+    "symbol": "recovered_201a5a0",
+    "original": "_platform_efi_write_blocks"
+  },
+  "201a800": {
+    "symbol": "recovered_201a800",
+    "original": "_platform_efi_write_disk_image_bytes"
+  },
+  "201aab0": {
+    "symbol": "recovered_201aab0",
+    "original": "_platform_efi_flush_blocks"
+  },
+  "201ac10": {
+    "symbol": "recovered_201ac10",
+    "original": "_wm_platform_drive_is_writable"
+  },
+  "201af20": {
+    "symbol": "recovered_201af20",
+    "original": "_platform_efi_block_io"
+  },
+  "201afb0": {
+    "symbol": "recovered_201afb0",
+    "original": "_wm_platform_flush_drive"
+  },
+  "201b0f0": {
+    "symbol": "recovered_201b0f0",
+    "original": "_wm_platform_flush_storage"
+  },
+  "201b110": {
+    "symbol": "recovered_201b110",
+    "original": "_wm_platform_wait_microseconds"
+  },
+  "201b4f0": {
+    "symbol": "recovered_201b4f0",
+    "original": "_platform_x86_wait_microseconds"
+  },
+  "201c090": {
+    "symbol": "recovered_201c090",
+    "original": "_platform_efi_firmware_thunk_command"
+  },
+  "201c0e0": {
+    "symbol": "recovered_201c0e0",
+    "original": "_platform_efi_firmware_thunk_call"
+  },
+  "201c150": {
+    "symbol": "recovered_201c150",
+    "original": "_wm_platform_aarch64_apps_supported"
+  },
+  "201c1a0": {
+    "symbol": "recovered_201c1a0",
+    "original": "_wm_platform_set_graphics_mode_request"
+  },
+  "201c1e0": {
+    "symbol": "recovered_201c1e0",
+    "original": "_wm_platform_framebuffer_bpp_supported"
+  },
+  "201c200": {
+    "symbol": "recovered_201c200",
+    "original": "_wm_platform_framebuffer_bytes_per_pixel"
+  },
+  "201c220": {
+    "symbol": "recovered_201c220",
+    "original": "_wm_platform_framebuffer_ready"
+  },
+  "201c2d0": {
+    "symbol": "recovered_201c2d0",
+    "original": "_wm_platform_pointer_state"
+  },
+  "201c6a0": {
+    "symbol": "recovered_201c6a0",
+    "original": "_platform_efi_pointer_state"
+  },
+  "201d0a0": {
+    "symbol": "recovered_201d0a0",
+    "original": "_wm_platform_qemu_pointer_state"
+  },
+  "201dad0": {
+    "symbol": "recovered_201dad0",
+    "original": "_platform_pooka_pointer_state"
+  },
+  "201ded0": {
+    "symbol": "recovered_201ded0",
+    "original": "_platform_qemu_pointer_backend_waiting_for_input"
+  },
+  "201dfc0": {
+    "symbol": "recovered_201dfc0",
+    "original": "_platform_efi_has_pointer_devices"
+  },
+  "201e020": {
+    "symbol": "recovered_201e020",
+    "original": "_platform_qemu_vdagent_state"
+  },
+  "201e360": {
+    "symbol": "recovered_201e360",
+    "original": "_platform_qemu_ohci_pointer_state"
+  },
+  "201e6b0": {
+    "symbol": "recovered_201e6b0",
+    "original": "_platform_qemu_uhci_pointer_state"
+  },
+  "201ee00": {
+    "symbol": "recovered_201ee00",
+    "original": "_wm_platform_native_pointer_ready"
+  },
+  "201f1a0": {
+    "symbol": "recovered_201f1a0",
+    "original": "_platform_qemu_xhci_verify_hid_transports"
+  },
+  "201f5d0": {
+    "symbol": "recovered_201f5d0",
+    "original": "_wm_platform_native_keyboard_ready"
+  },
+  "201f7b0": {
+    "symbol": "recovered_201f7b0",
+    "original": "_wm_platform_qemu_pointer_backend_counts"
+  },
+  "201f820": {
+    "symbol": "recovered_201f820",
+    "original": "_wm_platform_set_smp_fallback_hook"
+  },
+  "201f840": {
+    "symbol": "recovered_201f840",
+    "original": "_wm_platform_set_boot_progress_hook"
+  },
+  "201f860": {
+    "symbol": "recovered_201f860",
+    "original": "_wm_platform_native_xhci_start_failure"
+  },
+  "201f8a0": {
+    "symbol": "recovered_201f8a0",
+    "original": "_wm_platform_native_usb_diagnostic"
+  },
+  "201fe30": {
+    "symbol": "recovered_201fe30",
+    "original": "_wm_platform_qemu_usb_probe_counts"
+  },
+  "201feb0": {
+    "symbol": "recovered_201feb0",
+    "original": "_wm_platform_qemu_usb_controller_type_counts"
+  },
+  "201ff90": {
+    "symbol": "recovered_201ff90",
+    "original": "_wm_platform_qemu_dma_debug_counts"
+  },
+  "2020020": {
+    "symbol": "recovered_2020020",
+    "original": "_wm_platform_qemu_virtio_debug_state"
+  },
+  "2020080": {
+    "symbol": "recovered_2020080",
+    "original": "_wm_platform_qemu_vdagent_debug_state"
+  },
+  "2020150": {
+    "symbol": "recovered_2020150",
+    "original": "_wm_platform_qemu_ohci_debug_state"
+  },
+  "2020200": {
+    "symbol": "recovered_2020200",
+    "original": "_wm_platform_qemu_uhci_debug_state"
+  },
+  "20202b0": {
+    "symbol": "recovered_20202b0",
+    "original": "_wm_platform_qemu_xhci_debug_state"
+  },
+  "2020420": {
+    "symbol": "recovered_2020420",
+    "original": "_wm_platform_pointer_protocol_counts"
+  },
+  "2020590": {
+    "symbol": "recovered_2020590",
+    "original": "_wm_platform_efi_pointer_debug_state"
+  },
+  "20205d0": {
+    "symbol": "recovered_20205d0",
+    "original": "_wm_platform_enter_wxga_graphics_mode"
+  },
+  "2021190": {
+    "symbol": "recovered_2021190",
+    "original": "_wm_platform_framebuffer"
+  },
+  "20211a0": {
+    "symbol": "recovered_20211a0",
+    "original": "_wm_platform_serial_init"
+  },
+  "20218f0": {
+    "symbol": "recovered_20218f0",
+    "original": "_wm_platform_native_serial_ready"
+  },
+  "20219a0": {
+    "symbol": "recovered_20219a0",
+    "original": "_wm_platform_x1e80100_identity"
+  },
+  "20219b0": {
+    "symbol": "recovered_20219b0",
+    "original": "_wm_platform_x1e80100_identity_reason"
+  },
+  "20219c0": {
+    "symbol": "recovered_20219c0",
+    "original": "_wm_platform_x1e80100_usb_collection_diagnostic"
+  },
+  "20219f0": {
+    "symbol": "recovered_20219f0",
+    "original": "_wm_platform_x1e80100_enable_cpu_provider"
+  },
+  "2021a00": {
+    "symbol": "recovered_2021a00",
+    "original": "_wm_platform_mips_ci20_enable_cpu_provider"
+  },
+  "2021a10": {
+    "symbol": "recovered_2021a10",
+    "original": "_wm_platform_serial_putc"
+  },
+  "2021bc0": {
+    "symbol": "recovered_2021bc0",
+    "original": "_wm_platform_serial_write"
+  },
+  "2021c00": {
+    "symbol": "recovered_2021c00",
+    "original": "_wm_platform_serial_write_n"
+  },
+  "2021c40": {
+    "symbol": "recovered_2021c40",
+    "original": "_wm_platform_serial_poll_char"
+  },
+  "2021d50": {
+    "symbol": "recovered_2021d50",
+    "original": "_wm_platform_cpuid_available"
+  },
+  "2021d80": {
+    "symbol": "recovered_2021d80",
+    "original": "_wm_platform_cpuid_query"
+  },
+  "2021dd0": {
+    "symbol": "recovered_2021dd0",
+    "original": "_wm_platform_cpu_features"
+  },
+  "2021e20": {
+    "symbol": "recovered_2021e20",
+    "original": "_wm_platform_msr_read"
+  },
+  "2021e80": {
+    "symbol": "recovered_2021e80",
+    "original": "_platform_cpu_msr_allowed"
+  },
+  "2022050": {
+    "symbol": "recovered_2022050",
+    "original": "_wm_platform_msr_write"
+  },
+  "2022090": {
+    "symbol": "recovered_2022090",
+    "original": "_wm_platform_monotonic_microseconds"
+  },
+  "2022350": {
+    "symbol": "recovered_2022350",
+    "original": "_wm_platform_configure_framebuffer_cache"
+  },
+  "2022360": {
+    "symbol": "recovered_2022360",
+    "original": "_wm_platform_heap_free_bytes"
+  },
+  "2022380": {
+    "symbol": "recovered_2022380",
+    "original": "_wm_platform_heap_free_bytes64"
+  },
+  "20223a0": {
+    "symbol": "recovered_20223a0",
+    "original": "_wm_platform_heap_total_bytes"
+  },
+  "2022430": {
+    "symbol": "recovered_2022430",
+    "original": "_wm_platform_heap_total_bytes64"
+  },
+  "20224d0": {
+    "symbol": "recovered_20224d0",
+    "original": "_wm_platform_api"
+  },
+  "20224e0": {
+    "symbol": "recovered_20224e0",
+    "original": "_wm_efi_battery_snapshot_success_flags"
+  },
+  "20225e0": {
+    "symbol": "recovered_20225e0",
+    "original": "_wm_efi_bluetooth_address_zero"
+  },
+  "2022620": {
+    "symbol": "recovered_2022620",
+    "original": "_wm_efi_bluetooth_snapshot_flags"
+  },
+  "2022740": {
+    "symbol": "recovered_2022740",
+    "original": "_platform_pooka_try_input_path"
+  },
+  "2022880": {
+    "symbol": "recovered_2022880",
+    "original": "_platform_pooka_scan_input_packages"
+  },
+  "20232c0": {
+    "symbol": "recovered_20232c0",
+    "original": "_platform_pooka_try_pointer_path"
+  },
+  "2023510": {
+    "symbol": "recovered_2023510",
+    "original": "_platform_pooka_scan_pointer_packages"
+  },
+  "2024050": {
+    "symbol": "recovered_2024050",
+    "original": "_platform_find_acpi_table_guarded"
+  },
+  "2024260": {
+    "symbol": "recovered_2024260",
+    "original": "_platform_intel_copied_acpi_table"
+  },
+  "20243b0": {
+    "symbol": "recovered_20243b0",
+    "original": "_platform_efi_acpi_rsdp"
+  },
+  "20246a0": {
+    "symbol": "recovered_20246a0",
+    "original": "_platform_aml_scan_body"
+  },
+  "2024b80": {
+    "symbol": "recovered_2024b80",
+    "original": "_platform_aml_name_string"
+  },
+  "2024ce0": {
+    "symbol": "recovered_2024ce0",
+    "original": "_platform_aml_read_id_value"
+  },
+  "2024e00": {
+    "symbol": "recovered_2024e00",
+    "original": "_platform_pci_ecam_address"
+  },
+  "2024f70": {
+    "symbol": "recovered_2024f70",
+    "original": "_platform_x86_pci_ecam_linear_address"
+  },
+  "20252c0": {
+    "symbol": "recovered_20252c0",
+    "original": "_platform_pci_ecam_initialise"
+  },
+  "2025570": {
+    "symbol": "recovered_2025570",
+    "original": "_wm_loongarch64_pci_cfg1_physical"
+  },
+  "2025660": {
+    "symbol": "recovered_2025660",
+    "original": "_wm_intel_ecam_config_physical"
+  },
+  "2025730": {
+    "symbol": "recovered_2025730",
+    "original": "_platform_x86_maximum_physical_address"
+  },
+  "2025810": {
+    "symbol": "recovered_2025810",
+    "original": "_platform_runtime_map_pages_with_flags64"
+  },
+  "2025f60": {
+    "symbol": "recovered_2025f60",
+    "original": "_platform_x86_runtime_dynamic_window_contains"
+  },
+  "2026070": {
+    "symbol": "recovered_2026070",
+    "original": "_platform_x86_page_table_lock"
+  },
+  "20260b0": {
+    "symbol": "recovered_20260b0",
+    "original": "_platform_intel_memory_rendezvous_begin"
+  },
+  "20263c0": {
+    "symbol": "recovered_20263c0",
+    "original": "_platform_x86_identity_alias_entry"
+  },
+  "20264b0": {
+    "symbol": "recovered_20264b0",
+    "original": "_platform_intel_memory_rendezvous_release"
+  },
+  "20266c0": {
+    "symbol": "recovered_20266c0",
+    "original": "_platform_intel_apic_send_ipi"
+  },
+  "2026870": {
+    "symbol": "recovered_2026870",
+    "original": "_platform_intel_memory_rendezvous_abort"
+  },
+  "2026ab0": {
+    "symbol": "recovered_2026ab0",
+    "original": "_platform_intel_memory_rendezvous_wait_parked"
+  },
+  "2026ca0": {
+    "symbol": "recovered_2026ca0",
+    "original": "_platform_intel_shared_clock_ready"
+  },
+  "2026d80": {
+    "symbol": "recovered_2026d80",
+    "original": "_platform_intel_apic_register_write"
+  },
+  "2026dc0": {
+    "symbol": "recovered_2026dc0",
+    "original": "_platform_intel_timeout_begin"
+  },
+  "2027430": {
+    "symbol": "recovered_2027430",
+    "original": "_platform_intel_timeout_elapsed"
+  },
+  "20275c0": {
+    "symbol": "recovered_20275c0",
+    "original": "_platform_x86_clock_counter_snapshot"
+  },
+  "20276b0": {
+    "symbol": "recovered_20276b0",
+    "original": "_platform_x86_hpet_counter_at"
+  },
+  "20277a0": {
+    "symbol": "recovered_20277a0",
+    "original": "_platform_x86_pm_timer_read"
+  },
+  "2027850": {
+    "symbol": "recovered_2027850",
+    "original": "_platform_x86_pm_timer_prepare_locked"
+  },
+  "2027b20": {
+    "symbol": "recovered_2027b20",
+    "original": "_platform_x86_mmio_slot_lock"
+  },
+  "2027b60": {
+    "symbol": "recovered_2027b60",
+    "original": "_wm_x86_mmio_find_mapped_run"
+  },
+  "2027c60": {
+    "symbol": "recovered_2027c60",
+    "original": "_wm_x86_mmio_publish_run"
+  },
+  "2027d20": {
+    "symbol": "recovered_2027d20",
+    "original": "_platform_intel_apic_prepare_local"
+  },
+  "20280f0": {
+    "symbol": "recovered_20280f0",
+    "original": "_platform_intel_apic_prepare_amd_worker"
+  },
+  "2028310": {
+    "symbol": "recovered_2028310",
+    "original": "_platform_intel_apic_enable_local"
+  },
+  "20283b0": {
+    "symbol": "recovered_20283b0",
+    "original": "_platform_intel_capture_bsp_state"
+  },
+  "2028780": {
+    "symbol": "recovered_2028780",
+    "original": "_platform_intel_interrupt_sources_quiesce"
+  },
+  "20291d0": {
+    "symbol": "recovered_20291d0",
+    "original": "_platform_intel_apic_prepare_bsp"
+  },
+  "20296a0": {
+    "symbol": "recovered_20296a0",
+    "original": "_platform_intel_smp_bootstrap_failure_at"
+  },
+  "2029900": {
+    "symbol": "recovered_2029900",
+    "original": "_platform_intel_capture_xstate_ancillary"
+  },
+  "20299a0": {
+    "symbol": "recovered_20299a0",
+    "original": "_platform_intel_efer_msr_available"
+  },
+  "2029a80": {
+    "symbol": "recovered_2029a80",
+    "original": "_platform_intel_bsp_control_state_supported"
+  },
+  "2029cf0": {
+    "symbol": "recovered_2029cf0",
+    "original": "_platform_intel_efer_requirements"
+  },
+  "2029e50": {
+    "symbol": "recovered_2029e50",
+    "original": "_platform_intel_pci_interrupt_quiesce_function"
+  },
+  "202a180": {
+    "symbol": "recovered_202a180",
+    "original": "_platform_intel_pci_interrupt_read"
+  },
+  "202a2b0": {
+    "symbol": "recovered_202a2b0",
+    "original": "_platform_intel_pci_interrupt_write"
+  },
+  "202a340": {
+    "symbol": "recovered_202a340",
+    "original": "_platform_intel_install_current_preemption_gate"
+  },
+  "202a3f0": {
+    "symbol": "recovered_202a3f0",
+    "original": "_platform_intel_build_sipi_trampoline"
+  },
+  "202dc20": {
+    "symbol": "recovered_202dc20",
+    "original": "_platform_intel_trampoline_emit32"
+  },
+  "202dcd0": {
+    "symbol": "recovered_202dcd0",
+    "original": "_platform_intel_trampoline_emit_register_equal_check"
+  },
+  "202dde0": {
+    "symbol": "recovered_202dde0",
+    "original": "_platform_intel_trampoline_emit_jcc32"
+  },
+  "202dec0": {
+    "symbol": "recovered_202dec0",
+    "original": "_platform_intel_trampoline_emit_mov_eax"
+  },
+  "202df70": {
+    "symbol": "recovered_202df70",
+    "original": "_platform_intel_trampoline_emit_cpuid_mask_check"
+  },
+  "202e1e0": {
+    "symbol": "recovered_202e1e0",
+    "original": "_platform_intel_trampoline_emit_cpuid_any_check"
+  },
+  "202e2f0": {
+    "symbol": "recovered_202e2f0",
+    "original": "_platform_intel_trampoline_emit_cpuid_forbidden_check"
+  },
+  "202e400": {
+    "symbol": "recovered_202e400",
+    "original": "_platform_intel_trampoline_emit_wrmsr"
+  },
+  "202e620": {
+    "symbol": "recovered_202e620",
+    "original": "_platform_intel_smp_add_cpu"
+  },
+  "202e6b0": {
+    "symbol": "recovered_202e6b0",
+    "original": "_platform_pooka_instance_to_package"
+  },
+  "202e740": {
+    "symbol": "recovered_202e740",
+    "original": "_platform_pooka_set_framebuffer_from_package"
+  },
+  "202ec40": {
+    "symbol": "recovered_202ec40",
+    "original": "_platform_pooka_scan_framebuffer"
+  },
+  "202ed90": {
+    "symbol": "recovered_202ed90",
+    "original": "_platform_pooka_assigned_framebuffer_address"
+  },
+  "202f480": {
+    "symbol": "recovered_202f480",
+    "original": "_platform_pooka_memory_bytes_from_node"
+  },
+  "202f5f0": {
+    "symbol": "recovered_202f5f0",
+    "original": "_platform_pooka_memory_ranges_from_node"
+  },
+  "202f800": {
+    "symbol": "recovered_202f800",
+    "original": "_platform_pooka_try_disk_path"
+  },
+  "2030070": {
+    "symbol": "recovered_2030070",
+    "original": "_platform_pooka_scan_disk_packages"
+  },
+  "20302a0": {
+    "symbol": "recovered_20302a0",
+    "original": "_platform_pooka_register_disk"
+  },
+  "2030470": {
+    "symbol": "recovered_2030470",
+    "original": "_platform_pooka_capacity_from_property"
+  },
+  "2030560": {
+    "symbol": "recovered_2030560",
+    "original": "_platform_pooka_parse_wbpt_container"
+  },
+  "2030680": {
+    "symbol": "recovered_2030680",
+    "original": "_platform_pooka_package_looks_like_disk"
+  },
+  "2030850": {
+    "symbol": "recovered_2030850",
+    "original": "_platform_efi_drive_index"
+  },
+  "20308d0": {
+    "symbol": "recovered_20308d0",
+    "original": "_platform_framebuffer_fill_rows"
+  },
+  "2030a40": {
+    "symbol": "recovered_2030a40",
+    "original": "_platform_qemu_xhci_read_event"
+  },
+  "2030c90": {
+    "symbol": "recovered_2030c90",
+    "original": "_platform_qemu_xhci_cache_hid_transfer_event"
+  },
+  "20311f0": {
+    "symbol": "recovered_20311f0",
+    "original": "_platform_xhci_serial_submit"
+  },
+  "2031410": {
+    "symbol": "recovered_2031410",
+    "original": "_platform_qemu_xhci_dma_span"
+  },
+  "20315b0": {
+    "symbol": "recovered_20315b0",
+    "original": "_platform_qemu_xhci_poison_runtime"
+  },
+  "2031720": {
+    "symbol": "recovered_2031720",
+    "original": "_platform_decode_usb_keyboard_report"
+  },
+  "2031b80": {
+    "symbol": "recovered_2031b80",
+    "original": "_platform_qemu_xhci_submit_keyboard_interrupt_trb"
+  },
+  "2031d20": {
+    "symbol": "recovered_2031d20",
+    "original": "_platform_qemu_xhci_enqueue_trb"
+  },
+  "2031f60": {
+    "symbol": "recovered_2031f60",
+    "original": "_platform_qemu_xhci_runtime_live"
+  },
+  "2031ff0": {
+    "symbol": "recovered_2031ff0",
+    "original": "_platform_qemu_xhci_root_port_has_device"
+  },
+  "20320d0": {
+    "symbol": "recovered_20320d0",
+    "original": "_platform_qemu_xhci_enumerate_controller"
+  },
+  "2034570": {
+    "symbol": "recovered_2034570",
+    "original": "_platform_qemu_xhci_acknowledge_hub_port_changes"
+  },
+  "20346b0": {
+    "symbol": "recovered_20346b0",
+    "original": "_platform_qemu_xhci_detach_port"
+  },
+  "2034d80": {
+    "symbol": "recovered_2034d80",
+    "original": "_platform_qemu_xhci_control_transfer"
+  },
+  "2035570": {
+    "symbol": "recovered_2035570",
+    "original": "_platform_qemu_xhci_recover_control_endpoint"
+  },
+  "2035830": {
+    "symbol": "recovered_2035830",
+    "original": "_platform_qemu_xhci_command"
+  },
+  "2035a00": {
+    "symbol": "recovered_2035a00",
+    "original": "_platform_qemu_xhci_prepare_ring"
+  },
+  "2035bb0": {
+    "symbol": "recovered_2035bb0",
+    "original": "_platform_qemu_xhci_disable_slot"
+  },
+  "2035c20": {
+    "symbol": "recovered_2035c20",
+    "original": "_platform_xhci_enumerate_picofrost"
+  },
+  "2036280": {
+    "symbol": "recovered_2036280",
+    "original": "_platform_qemu_xhci_enumerate_hub_storage"
+  },
+  "2036910": {
+    "symbol": "recovered_2036910",
+    "original": "_platform_qemu_xhci_enumerate_hub_inputs"
+  },
+  "20374a0": {
+    "symbol": "recovered_20374a0",
+    "original": "_platform_qemu_xhci_reset_port"
+  },
+  "20376d0": {
+    "symbol": "recovered_20376d0",
+    "original": "_platform_qemu_xhci_address_device"
+  },
+  "2037e30": {
+    "symbol": "recovered_2037e30",
+    "original": "_platform_qemu_xhci_initialise_ep0_packet_size"
+  },
+  "2038250": {
+    "symbol": "recovered_2038250",
+    "original": "_platform_qemu_xhci_find_pointer_endpoint"
+  },
+  "2038530": {
+    "symbol": "recovered_2038530",
+    "original": "_platform_qemu_xhci_configure_interrupt_endpoint"
+  },
+  "2038b30": {
+    "symbol": "recovered_2038b30",
+    "original": "_platform_qemu_xhci_note_start_failure"
+  },
+  "2038b90": {
+    "symbol": "recovered_2038b90",
+    "original": "_platform_qemu_usb_enable_pci_decode_for_takeover"
+  },
+  "2038c60": {
+    "symbol": "recovered_2038c60",
+    "original": "_wm_xhci_register_spans_valid"
+  },
+  "2038d20": {
+    "symbol": "recovered_2038d20",
+    "original": "_platform_qemu_xhci_find_legacy_capability"
+  },
+  "2038dd0": {
+    "symbol": "recovered_2038dd0",
+    "original": "_platform_qemu_xhci_preflight_dma"
+  },
+  "2039bc0": {
+    "symbol": "recovered_2039bc0",
+    "original": "_platform_qemu_xhci_claim_legacy_ownership"
+  },
+  "2039d60": {
+    "symbol": "recovered_2039d60",
+    "original": "_platform_qemu_xhci_halt_operational"
+  },
+  "2039e00": {
+    "symbol": "recovered_2039e00",
+    "original": "_platform_qemu_usb_enable_pci_bus_master_after_fence"
+  },
+  "2039f60": {
+    "symbol": "recovered_2039f60",
+    "original": "_platform_qemu_xhci_latch_irreversible_handoff"
+  },
+  "2039fb0": {
+    "symbol": "recovered_2039fb0",
+    "original": "_platform_qemu_xhci_reset_halted"
+  },
+  "203a0c0": {
+    "symbol": "recovered_203a0c0",
+    "original": "_platform_qemu_xhci_snapshot_root_ports"
+  },
+  "203a220": {
+    "symbol": "recovered_203a220",
+    "original": "_platform_qemu_usb_restore_pci_command"
+  },
+  "203a2e0": {
+    "symbol": "recovered_203a2e0",
+    "original": "_platform_qemu_xhci_restore_pre_reset_firmware_state"
+  },
+  "203a470": {
+    "symbol": "recovered_203a470",
+    "original": "_platform_qemu_xhci_release_reclaimable_runtime"
+  },
+  "203a4f0": {
+    "symbol": "recovered_203a4f0",
+    "original": "_platform_xhci_storage_select_free"
+  },
+  "203a570": {
+    "symbol": "recovered_203a570",
+    "original": "_platform_qemu_xhci_find_storage_endpoints"
+  },
+  "203ade0": {
+    "symbol": "recovered_203ade0",
+    "original": "_platform_qemu_xhci_configure_storage_endpoints"
+  },
+  "203b290": {
+    "symbol": "recovered_203b290",
+    "original": "_platform_qemu_xhci_storage_initialise_unit"
+  },
+  "203b850": {
+    "symbol": "recovered_203b850",
+    "original": "_platform_qemu_xhci_build_slot_context"
+  },
+  "203b8e0": {
+    "symbol": "recovered_203b8e0",
+    "original": "_platform_qemu_xhci_build_endpoint_context"
+  },
+  "203b9a0": {
+    "symbol": "recovered_203b9a0",
+    "original": "_platform_qemu_xhci_storage_wait_ready"
+  },
+  "203bb10": {
+    "symbol": "recovered_203bb10",
+    "original": "_platform_qemu_xhci_storage_command"
+  },
+  "203c3a0": {
+    "symbol": "recovered_203c3a0",
+    "original": "_platform_qemu_xhci_storage_request_sense"
+  },
+  "203c4d0": {
+    "symbol": "recovered_203c4d0",
+    "original": "_platform_qemu_xhci_storage_bulk_transfer"
+  },
+  "203c8f0": {
+    "symbol": "recovered_203c8f0",
+    "original": "_platform_qemu_xhci_wait_transfer"
+  },
+  "203cbc0": {
+    "symbol": "recovered_203cbc0",
+    "original": "_platform_qemu_xhci_storage_restart_halted_endpoint"
+  },
+  "203cd90": {
+    "symbol": "recovered_203cd90",
+    "original": "_platform_qemu_xhci_storage_scsi_command"
+  },
+  "203cf00": {
+    "symbol": "recovered_203cf00",
+    "original": "_platform_qemu_xhci_config_descriptor_has_class"
+  },
+  "203cf60": {
+    "symbol": "recovered_203cf60",
+    "original": "_platform_qemu_xhci_enumerate_hub_children"
+  },
+  "203d9b0": {
+    "symbol": "recovered_203d9b0",
+    "original": "_platform_qemu_xhci_find_keyboard_endpoint"
+  },
+  "203dc60": {
+    "symbol": "recovered_203dc60",
+    "original": "_platform_qemu_xhci_set_hub_depth"
+  },
+  "203dca0": {
+    "symbol": "recovered_203dca0",
+    "original": "_platform_xhci_probe_serial"
+  },
+  "203e6d0": {
+    "symbol": "recovered_203e6d0",
+    "original": "_picosync_frame_crc"
+  },
+  "203e7b0": {
+    "symbol": "recovered_203e7b0",
+    "original": "_platform_efi_call_text_input_read_key_ax"
+  },
+  "203e880": {
+    "symbol": "recovered_203e880",
+    "original": "_platform_qemu_pci_read_device"
+  },
+  "203eaa0": {
+    "symbol": "recovered_203eaa0",
+    "original": "_platform_qemu_pci_map_mmio_bar"
+  },
+  "203eb60": {
+    "symbol": "recovered_203eb60",
+    "original": "_wm_pci_memory_bar_bytes"
+  },
+  "203ebe0": {
+    "symbol": "recovered_203ebe0",
+    "original": "_platform_qemu_uhci_wait_td"
+  },
+  "203ed00": {
+    "symbol": "recovered_203ed00",
+    "original": "_platform_qemu_uhci_quiesce_schedule"
+  },
+  "203edf0": {
+    "symbol": "recovered_203edf0",
+    "original": "_platform_qemu_uhci_restore_idle_schedule"
+  },
+  "203ef10": {
+    "symbol": "recovered_203ef10",
+    "original": "_platform_qemu_uhci_all_pci_decode_ready"
+  },
+  "203efb0": {
+    "symbol": "recovered_203efb0",
+    "original": "_platform_qemu_uhci_claim_schedule"
+  },
+  "203f0b0": {
+    "symbol": "recovered_203f0b0",
+    "original": "_platform_qemu_uhci_disable_legacy"
+  },
+  "203f1b0": {
+    "symbol": "recovered_203f1b0",
+    "original": "_platform_qemu_uhci_stop_and_fence"
+  },
+  "203f2b0": {
+    "symbol": "recovered_203f2b0",
+    "original": "_platform_qemu_uhci_invalidate_shared_state"
+  },
+  "203f340": {
+    "symbol": "recovered_203f340",
+    "original": "_platform_qemu_dma_address32"
+  },
+  "203f3c0": {
+    "symbol": "recovered_203f3c0",
+    "original": "_platform_qemu_uhci_control_transfer"
+  },
+  "203fad0": {
+    "symbol": "recovered_203fad0",
+    "original": "_platform_qemu_uhci_write_td"
+  },
+  "203fb40": {
+    "symbol": "recovered_203fb40",
+    "original": "_platform_qemu_uhci_write_qh"
+  },
+  "203fbc0": {
+    "symbol": "recovered_203fbc0",
+    "original": "_platform_qemu_uhci_install_qh_schedule"
+  },
+  "203fc20": {
+    "symbol": "recovered_203fc20",
+    "original": "_platform_qemu_ohci_submit_keyboard_interrupt_td"
+  },
+  "203ff70": {
+    "symbol": "recovered_203ff70",
+    "original": "_platform_qemu_ohci_install_interrupt_schedule"
+  },
+  "20400c0": {
+    "symbol": "recovered_20400c0",
+    "original": "_platform_qemu_xhci_submit_interrupt_trb"
+  },
+  "2040270": {
+    "symbol": "recovered_2040270",
+    "original": "_platform_qemu_xhci_current_state"
+  },
+  "2040300": {
+    "symbol": "recovered_2040300",
+    "original": "_platform_qemu_xhci_decode_report"
+  },
+  "20405c0": {
+    "symbol": "recovered_20405c0",
+    "original": "_platform_qemu_uhci_config_descriptor_has_class"
+  },
+  "2040620": {
+    "symbol": "recovered_2040620",
+    "original": "_platform_qemu_uhci_activate_storage_device"
+  },
+  "2040ab0": {
+    "symbol": "recovered_2040ab0",
+    "original": "_platform_qemu_uhci_storage_command"
+  },
+  "2040d00": {
+    "symbol": "recovered_2040d00",
+    "original": "_platform_qemu_uhci_storage_command_once"
+  },
+  "20410a0": {
+    "symbol": "recovered_20410a0",
+    "original": "_platform_qemu_uhci_bulk_transfer"
+  },
+  "2041640": {
+    "symbol": "recovered_2041640",
+    "original": "_platform_qemu_xhci_select_storage_runtime"
+  },
+  "2041900": {
+    "symbol": "recovered_2041900",
+    "original": "_platform_qemu_ehci_preflight"
+  },
+  "2041b20": {
+    "symbol": "recovered_2041b20",
+    "original": "_platform_qemu_ehci_find_legacy_capability"
+  },
+  "2041c20": {
+    "symbol": "recovered_2041c20",
+    "original": "_platform_native_storage_transport_for_drive"
+  },
+  "2041d00": {
+    "symbol": "recovered_2041d00",
+    "original": "_platform_native_storage_cache_hit"
+  },
+  "2041df0": {
+    "symbol": "recovered_2041df0",
+    "original": "_platform_qemu_xhci_storage_transfer_blocks"
+  },
+  "20420c0": {
+    "symbol": "recovered_20420c0",
+    "original": "_platform_qemu_uhci_storage_transfer_blocks"
+  },
+  "20422a0": {
+    "symbol": "recovered_20422a0",
+    "original": "_platform_pooka_scan_storage_packages"
+  },
+  "20425d0": {
+    "symbol": "recovered_20425d0",
+    "original": "_platform_pooka_probe_disk_capacity"
+  },
+  "2042ab0": {
+    "symbol": "recovered_2042ab0",
+    "original": "_platform_pooka_transfer_disk_bytes"
+  },
+  "2042ce0": {
+    "symbol": "recovered_2042ce0",
+    "original": "_platform_qemu_virtio_block_init"
+  },
+  "2042fe0": {
+    "symbol": "recovered_2042fe0",
+    "original": "_platform_qemu_virtio_block_transfer_once"
+  },
+  "20434b0": {
+    "symbol": "recovered_20434b0",
+    "original": "_platform_qemu_virtio_block_prepare_queue"
+  },
+  "20435c0": {
+    "symbol": "recovered_20435c0",
+    "original": "_platform_efi_drive_media_id"
+  },
+  "2043640": {
+    "symbol": "recovered_2043640",
+    "original": "_platform_efi_read_absolute_pointer_state"
+  },
+  "2043980": {
+    "symbol": "recovered_2043980",
+    "original": "_platform_usb_decode_pointer_report"
+  },
+  "2043b10": {
+    "symbol": "recovered_2043b10",
+    "original": "_platform_qemu_virtio_input_prepare_queue"
+  },
+  "2043d30": {
+    "symbol": "recovered_2043d30",
+    "original": "_platform_qemu_virtio_input_prepare_status_queue"
+  },
+  "2043e50": {
+    "symbol": "recovered_2043e50",
+    "original": "_platform_qemu_virtio_serial_poll_rx"
+  },
+  "2044080": {
+    "symbol": "recovered_2044080",
+    "original": "_platform_qemu_virtio_serial_handle_control"
+  },
+  "2044280": {
+    "symbol": "recovered_2044280",
+    "original": "_platform_qemu_vdagent_send_capabilities"
+  },
+  "20443b0": {
+    "symbol": "recovered_20443b0",
+    "original": "_platform_qemu_vdagent_apply_message"
+  },
+  "20444e0": {
+    "symbol": "recovered_20444e0",
+    "original": "_platform_qemu_virtio_serial_prepare_queue"
+  },
+  "2044890": {
+    "symbol": "recovered_2044890",
+    "original": "_platform_qemu_virtio_serial_send_control"
+  },
+  "20448e0": {
+    "symbol": "recovered_20448e0",
+    "original": "_platform_qemu_virtio_serial_send"
+  },
+  "2044ab0": {
+    "symbol": "recovered_2044ab0",
+    "original": "_platform_qemu_vdagent_apply_agent_message"
+  },
+  "2044d60": {
+    "symbol": "recovered_2044d60",
+    "original": "_platform_qemu_ohci_submit_interrupt_td"
+  },
+  "20450c0": {
+    "symbol": "recovered_20450c0",
+    "original": "_platform_qemu_ohci_current_state"
+  },
+  "2045140": {
+    "symbol": "recovered_2045140",
+    "original": "_platform_qemu_uhci_current_state"
+  },
+  "20451c0": {
+    "symbol": "recovered_20451c0",
+    "original": "_platform_qemu_uhci_decode_report"
+  },
+  "2045340": {
+    "symbol": "recovered_2045340",
+    "original": "_platform_efi_capture_graphics_output_mode"
+  },
+  "20455c0": {
+    "symbol": "recovered_20455c0",
+    "original": "_wm_intel_spcr_read_le64"
+  },
+  "20455d0": {
+    "symbol": "recovered_20455d0",
+    "original": "_pfs_read_le16"
+  },
+  "20455e0": {
+    "symbol": "recovered_20455e0",
+    "original": "_pfs_read_le32"
+  },
+  "20455f0": {
+    "symbol": "recovered_20455f0",
+    "original": "_pfs_read_le64"
+  },
+  "2045610": {
+    "symbol": "recovered_2045610",
+    "original": "_pfs_write_le16"
+  },
+  "2045630": {
+    "symbol": "recovered_2045630",
+    "original": "_pfs_write_le32"
+  },
+  "2045650": {
+    "symbol": "recovered_2045650",
+    "original": "_pfs_write_le64"
+  },
+  "2045670": {
+    "symbol": "recovered_2045670",
+    "original": "_pfs_crc32c"
+  },
+  "2045750": {
+    "symbol": "recovered_2045750",
+    "original": "_pfs_status_name"
+  },
+  "2045770": {
+    "symbol": "recovered_2045770",
+    "original": "_pfs_crypto_validate_header"
+  },
+  "2045e00": {
+    "symbol": "recovered_2045e00",
+    "original": "_pfs_utf8_decode"
+  },
+  "2045f30": {
+    "symbol": "recovered_2045f30",
+    "original": "_pfs_header_validate"
+  },
+  "2046210": {
+    "symbol": "recovered_2046210",
+    "original": "_pfs_name_validate"
+  },
+  "2046390": {
+    "symbol": "recovered_2046390",
+    "original": "_pfs_header_encode"
+  },
+  "2046680": {
+    "symbol": "recovered_2046680",
+    "original": "_pfs_header_decode"
+  },
+  "20469f0": {
+    "symbol": "recovered_20469f0",
+    "original": "_pfs_member_backup_offset"
+  },
+  "2046a50": {
+    "symbol": "recovered_2046a50",
+    "original": "_pfs_write_header_pair"
+  },
+  "2046bb0": {
+    "symbol": "recovered_2046bb0",
+    "original": "_pfs_locate_member"
+  },
+  "20470c0": {
+    "symbol": "recovered_20470c0",
+    "original": "_pfs_locate_candidate"
+  },
+  "20472b0": {
+    "symbol": "recovered_20472b0",
+    "original": "_pfs_allocation_entry_encode"
+  },
+  "20472e0": {
+    "symbol": "recovered_20472e0",
+    "original": "_pfs_allocation_entry_decode"
+  },
+  "2047310": {
+    "symbol": "recovered_2047310",
+    "original": "_pfs_allocation_entry_validate"
+  },
+  "2047410": {
+    "symbol": "recovered_2047410",
+    "original": "_pfs_allocation_table_block_initialise"
+  },
+  "20474f0": {
+    "symbol": "recovered_20474f0",
+    "original": "_pfs_allocation_table_block_validate"
+  },
+  "2047550": {
+    "symbol": "recovered_2047550",
+    "original": "_pfs_collect_extents"
+  },
+  "2047a30": {
+    "symbol": "recovered_2047a30",
+    "original": "_pfs_allocate_run"
+  },
+  "2048040": {
+    "symbol": "recovered_2048040",
+    "original": "_pfs_release_run"
+  },
+  "20480e0": {
+    "symbol": "recovered_20480e0",
+    "original": "_pfs_allocate_chain"
+  },
+  "20485b0": {
+    "symbol": "recovered_20485b0",
+    "original": "_pfs_symlink_target_validate"
+  },
+  "20485f0": {
+    "symbol": "recovered_20485f0",
+    "original": "_pfs_local_path_validate"
+  },
+  "2048700": {
+    "symbol": "recovered_2048700",
+    "original": "_pfs_external_reference_encode"
+  },
+  "2048740": {
+    "symbol": "recovered_2048740",
+    "original": "_pfs_external_reference_encode_parts"
+  },
+  "2048a80": {
+    "symbol": "recovered_2048a80",
+    "original": "_pfs_external_reference_decode"
+  },
+  "2048d00": {
+    "symbol": "recovered_2048d00",
+    "original": "_pfs_external_reference_append_suffix"
+  },
+  "2048d60": {
+    "symbol": "recovered_2048d60",
+    "original": "_pfs_name_compare"
+  },
+  "20491b0": {
+    "symbol": "recovered_20491b0",
+    "original": "_pfs_directory_entry_encode"
+  },
+  "2049340": {
+    "symbol": "recovered_2049340",
+    "original": "_pfs_directory_entry_decode"
+  },
+  "2049640": {
+    "symbol": "recovered_2049640",
+    "original": "_pfs_resolve_symbolic_links"
+  },
+  "2049800": {
+    "symbol": "recovered_2049800",
+    "original": "_pfs_delete_cascade"
+  },
+  "2049b20": {
+    "symbol": "recovered_2049b20",
+    "original": "_pfs_cascade_add"
+  },
+  "2049c00": {
+    "symbol": "recovered_2049c00",
+    "original": "_pfs_assemble_volume"
+  },
+  "204a2c0": {
+    "symbol": "recovered_204a2c0",
+    "original": "_pfs_translate_block"
+  },
+  "204a440": {
+    "symbol": "recovered_204a440",
+    "original": "_pfs_plain_volume_read_block"
+  },
+  "204a5f0": {
+    "symbol": "recovered_204a5f0",
+    "original": "_pfs_plain_volume_write_block"
+  },
+  "204a790": {
+    "symbol": "recovered_204a790",
+    "original": "_pfs_prepare_plain_slave"
+  },
+  "204a8f0": {
+    "symbol": "recovered_204a8f0",
+    "original": "_pfs_format_member_prepared"
+  },
+  "204b0c0": {
+    "symbol": "recovered_204b0c0",
+    "original": "_pfs_format_prepare_crypto"
+  },
+  "204b1b0": {
+    "symbol": "recovered_204b1b0",
+    "original": "_pfs_format_mark_table_entry"
+  },
+  "204b230": {
+    "symbol": "recovered_204b230",
+    "original": "_pfs_format_write_data_block"
+  },
+  "204b390": {
+    "symbol": "recovered_204b390",
+    "original": "_pfs_format_member"
+  },
+  "204b3c0": {
+    "symbol": "recovered_204b3c0",
+    "original": "_pfs_reader_initialise_plain"
+  },
+  "204b470": {
+    "symbol": "recovered_204b470",
+    "original": "_pfs_reader_read_allocation_entry"
+  },
+  "204b660": {
+    "symbol": "recovered_204b660",
+    "original": "_pfs_reader_locate_allocation_table_block"
+  },
+  "204bbe0": {
+    "symbol": "recovered_204bbe0",
+    "original": "_pfs_reader_enumerate_directory"
+  },
+  "204bd90": {
+    "symbol": "recovered_204bd90",
+    "original": "_pfs_reader_collect_directory_extents"
+  },
+  "204c200": {
+    "symbol": "recovered_204c200",
+    "original": "_pfs_reader_find_directory_entry"
+  },
+  "204c2b0": {
+    "symbol": "recovered_204c2b0",
+    "original": "_pfs_reader_find_visitor"
+  },
+  "204c350": {
+    "symbol": "recovered_204c350",
+    "original": "_pfs_reader_lookup_path"
+  },
+  "204c660": {
+    "symbol": "recovered_204c660",
+    "original": "_pfs_reader_extract_file"
+  },
+  "204c8a0": {
+    "symbol": "recovered_204c8a0",
+    "original": "_pfs_reader_allocation_read_callback"
+  },
+  "204c8d0": {
+    "symbol": "recovered_204c8d0",
+    "original": "_pfs_writer_initialise_plain"
+  },
+  "204c9b0": {
+    "symbol": "recovered_204c9b0",
+    "original": "_pfs_writer_write_allocation_entry"
+  },
+  "204cc40": {
+    "symbol": "recovered_204cc40",
+    "original": "_pfs_writer_create_entry"
+  },
+  "204d220": {
+    "symbol": "recovered_204d220",
+    "original": "_pfs_writer_find_directory_slot"
+  },
+  "204d6f0": {
+    "symbol": "recovered_204d6f0",
+    "original": "_pfs_writer_allocation_read_callback"
+  },
+  "204d720": {
+    "symbol": "recovered_204d720",
+    "original": "_pfs_writer_allocation_write_callback"
+  },
+  "204d750": {
+    "symbol": "recovered_204d750",
+    "original": "_pfs_writer_update_directory_entry"
+  },
+  "204d800": {
+    "symbol": "recovered_204d800",
+    "original": "_pfs_writer_delete_leaf"
+  },
+  "204db00": {
+    "symbol": "recovered_204db00",
+    "original": "_pfs_writer_release_entry_content"
+  },
+  "204dc60": {
+    "symbol": "recovered_204dc60",
+    "original": "_pfs_writer_replace_entry"
+  },
+  "204de00": {
+    "symbol": "recovered_204de00",
+    "original": "_pfs_crypto_mount_member"
+  },
+  "204e120": {
+    "symbol": "recovered_204e120",
+    "original": "_pfs_crypto_unmount_member"
+  },
+  "204e3f0": {
+    "symbol": "recovered_204e3f0",
+    "original": "_pfs_crypto_transform_block"
+  },
+  "204e510": {
+    "symbol": "recovered_204e510",
+    "original": "_pfs_builtin_crypto_secure_erase"
+  },
+  "204e540": {
+    "symbol": "recovered_204e540",
+    "original": "_pfs_builtin_crypto_sha256"
+  },
+  "204e660": {
+    "symbol": "recovered_204e660",
+    "original": "_pfs_sha256_finalise"
+  },
+  "204e760": {
+    "symbol": "recovered_204e760",
+    "original": "_pfs_builtin_crypto_hmac_sha256"
+  },
+  "204e850": {
+    "symbol": "recovered_204e850",
+    "original": "_pfs_hmac_sha256_initialise"
+  },
+  "204efd0": {
+    "symbol": "recovered_204efd0",
+    "original": "_pfs_hmac_sha256_finalise"
+  },
+  "204f170": {
+    "symbol": "recovered_204f170",
+    "original": "_pfs_builtin_crypto_hkdf_sha256"
+  },
+  "204f700": {
+    "symbol": "recovered_204f700",
+    "original": "_pfs_builtin_crypto_argon2id_32"
+  },
+  "20504a0": {
+    "symbol": "recovered_20504a0",
+    "original": "_pfs_blake2b_update"
+  },
+  "2050630": {
+    "symbol": "recovered_2050630",
+    "original": "_pfs_blake2b_finalise"
+  },
+  "2050700": {
+    "symbol": "recovered_2050700",
+    "original": "_pfs_argon2_long_hash"
+  },
+  "2050c30": {
+    "symbol": "recovered_2050c30",
+    "original": "_pfs_builtin_crypto_aes256_encrypt_block"
+  },
+  "2050ca0": {
+    "symbol": "recovered_2050ca0",
+    "original": "_pfs_aes256_initialise"
+  },
+  "2050dc0": {
+    "symbol": "recovered_2050dc0",
+    "original": "_pfs_aes256_encrypt"
+  },
+  "2051600": {
+    "symbol": "recovered_2051600",
+    "original": "_pfs_builtin_crypto_aes256_decrypt_block"
+  },
+  "2051670": {
+    "symbol": "recovered_2051670",
+    "original": "_pfs_aes256_decrypt"
+  },
+  "2051d20": {
+    "symbol": "recovered_2051d20",
+    "original": "_pfs_builtin_crypto_aes256_key_wrap"
+  },
+  "2052070": {
+    "symbol": "recovered_2052070",
+    "original": "_pfs_builtin_crypto_aes256_key_unwrap"
+  },
+  "2052470": {
+    "symbol": "recovered_2052470",
+    "original": "_pfs_builtin_crypto_aes256_xts_encrypt"
+  },
+  "20524a0": {
+    "symbol": "recovered_20524a0",
+    "original": "_pfs_aes256_xts_transform"
+  },
+  "2052ac0": {
+    "symbol": "recovered_2052ac0",
+    "original": "_pfs_builtin_crypto_aes256_xts_decrypt"
+  },
+  "2052af0": {
+    "symbol": "recovered_2052af0",
+    "original": "_pfs_builtin_crypto_verify_vault_password"
+  },
+  "2052db0": {
+    "symbol": "recovered_2052db0",
+    "original": "_pfs_crypto_vault_parameters_valid"
+  },
+  "2052ed0": {
+    "symbol": "recovered_2052ed0",
+    "original": "_pfs_crypto_derive_password"
+  },
+  "2052fd0": {
+    "symbol": "recovered_2052fd0",
+    "original": "_pfs_crypto_password_verifier"
+  },
+  "2053160": {
+    "symbol": "recovered_2053160",
+    "original": "_pfs_builtin_crypto_initialise"
+  },
+  "20531c0": {
+    "symbol": "recovered_20531c0",
+    "original": "_pfs_builtin_crypto_finalise"
+  },
+  "2053230": {
+    "symbol": "recovered_2053230",
+    "original": "_pfs_builtin_crypto_provider"
+  },
+  "20532a0": {
+    "symbol": "recovered_20532a0",
+    "original": "_pfs_crypto_provider_unlock"
+  },
+  "2053540": {
+    "symbol": "recovered_2053540",
+    "original": "_pfs_crypto_provider_encrypt"
+  },
+  "20535a0": {
+    "symbol": "recovered_20535a0",
+    "original": "_pfs_crypto_provider_decrypt"
+  },
+  "2053600": {
+    "symbol": "recovered_2053600",
+    "original": "_pfs_crypto_provider_rebuild_vault"
+  },
+  "2053eb0": {
+    "symbol": "recovered_2053eb0",
+    "original": "_pfs_crypto_provider_erase"
+  },
+  "2053ee0": {
+    "symbol": "recovered_2053ee0",
+    "original": "_pfs_builtin_crypto_create_encrypted_member"
+  },
+  "2054c70": {
+    "symbol": "recovered_2054c70",
+    "original": "_pfs_sha256_compress"
+  },
+  "2054e80": {
+    "symbol": "recovered_2054e80",
+    "original": "_pfs_blake2b_compress"
+  },
+  "20557b0": {
+    "symbol": "recovered_20557b0",
+    "original": "_pfs_blake2b_hash"
+  },
+  "20558e0": {
+    "symbol": "recovered_20558e0",
+    "original": "_pfs_argon2_fill_block"
+  },
+  "2055d40": {
+    "symbol": "recovered_2055d40",
+    "original": "_pfs_argon2_round"
+  },
+  "20565f0": {
+    "symbol": "recovered_20565f0",
+    "original": "_pfs_crypto_unlock_seed"
+  },
+  "2056a80": {
+    "symbol": "recovered_2056a80",
+    "original": "_pfs_recovery_bundle_initialise"
+  },
+  "2056be0": {
+    "symbol": "recovered_2056be0",
+    "original": "_pfs_recovery_bundle_upsert"
+  },
+  "2056d40": {
+    "symbol": "recovered_2056d40",
+    "original": "_pfs_recovery_bundle_validate"
+  },
+  "2056ec0": {
+    "symbol": "recovered_2056ec0",
+    "original": "_pfs_recovery_material_valid"
+  },
+  "2056f80": {
+    "symbol": "recovered_2056f80",
+    "original": "_pfs_recovery_bundle_encoded_size"
+  },
+  "2056fc0": {
+    "symbol": "recovered_2056fc0",
+    "original": "_pfs_recovery_bundle_encode"
+  },
+  "2057420": {
+    "symbol": "recovered_2057420",
+    "original": "_pfs_recovery_bundle_decode"
+  },
+  "20578b0": {
+    "symbol": "recovered_20578b0",
+    "original": "_pfs_recovery_fixed_name_validate"
+  },
+  "2057930": {
+    "symbol": "recovered_2057930",
+    "original": "_pfs_recovery_encoded_material_valid"
+  },
+  "20579f0": {
+    "symbol": "recovered_20579f0",
+    "original": "_pfs_recovery_record_decode"
+  },
+  "2057ac0": {
+    "symbol": "recovered_2057ac0",
+    "original": "_pfs_recovery_bundle_lookup"
+  },
+  "2057b50": {
+    "symbol": "recovered_2057b50",
+    "original": "_pfs_recovery_bundle_lookup_member"
+  },
+  "2057da0": {
+    "symbol": "recovered_2057da0",
+    "original": "_pfs_runtime_parse_external_target"
+  },
+  "2057e30": {
+    "symbol": "recovered_2057e30",
+    "original": "_pfs_runtime_mount"
+  },
+  "20581c0": {
+    "symbol": "recovered_20581c0",
+    "original": "_pfs_runtime_reconcile_header_pair"
+  },
+  "2058310": {
+    "symbol": "recovered_2058310",
+    "original": "_pfs_runtime_promote_volume_size"
+  },
+  "2058420": {
+    "symbol": "recovered_2058420",
+    "original": "_pfs_runtime_validate_system_allocations"
+  },
+  "20584d0": {
+    "symbol": "recovered_20584d0",
+    "original": "_pfs_runtime_plain_write_block"
+  },
+  "2058520": {
+    "symbol": "recovered_2058520",
+    "original": "_pfs_runtime_write_mount_headers"
+  },
+  "20585a0": {
+    "symbol": "recovered_20585a0",
+    "original": "_pfs_runtime_flush_members"
+  },
+  "2058620": {
+    "symbol": "recovered_2058620",
+    "original": "_pfs_runtime_mount_crypto"
+  },
+  "2059010": {
+    "symbol": "recovered_2059010",
+    "original": "_pfs_runtime_fail_crypto_mount"
+  },
+  "20590d0": {
+    "symbol": "recovered_20590d0",
+    "original": "_pfs_runtime_promote_volume_size_crypto"
+  },
+  "2059280": {
+    "symbol": "recovered_2059280",
+    "original": "_pfs_runtime_original_member"
+  },
+  "2059370": {
+    "symbol": "recovered_2059370",
+    "original": "_pfs_runtime_write_lifecycle_material_pair"
+  },
+  "2059720": {
+    "symbol": "recovered_2059720",
+    "original": "_pfs_runtime_flush"
+  },
+  "20597a0": {
+    "symbol": "recovered_20597a0",
+    "original": "_pfs_runtime_unmount"
+  },
+  "205a240": {
+    "symbol": "recovered_205a240",
+    "original": "_pfs_runtime_retry_mount_rollback"
+  },
+  "205a660": {
+    "symbol": "recovered_205a660",
+    "original": "_pfs_runtime_prepare_unmount_member"
+  },
+  "205a750": {
+    "symbol": "recovered_205a750",
+    "original": "_pfs_runtime_discard_crypto_states"
+  },
+  "205a7f0": {
+    "symbol": "recovered_205a7f0",
+    "original": "_pfs_runtime_is_read_only"
+  },
+  "205a820": {
+    "symbol": "recovered_205a820",
+    "original": "_pfs_runtime_entry_is_read_only"
+  },
+  "205a850": {
+    "symbol": "recovered_205a850",
+    "original": "_pfs_runtime_resolve"
+  },
+  "205a930": {
+    "symbol": "recovered_205a930",
+    "original": "_pfs_runtime_normalise_path"
+  },
+  "205ab60": {
+    "symbol": "recovered_205ab60",
+    "original": "_pfs_runtime_resolve_normalised"
+  },
+  "205b240": {
+    "symbol": "recovered_205b240",
+    "original": "_pfs_runtime_read"
+  },
+  "205b330": {
+    "symbol": "recovered_205b330",
+    "original": "_pfs_runtime_enumerate"
+  },
+  "205b410": {
+    "symbol": "recovered_205b410",
+    "original": "_pfs_runtime_create"
+  },
+  "205b580": {
+    "symbol": "recovered_205b580",
+    "original": "_pfs_runtime_lookup_parent"
+  },
+  "205b700": {
+    "symbol": "recovered_205b700",
+    "original": "_pfs_runtime_fill_create_options"
+  },
+  "205b780": {
+    "symbol": "recovered_205b780",
+    "original": "_pfs_runtime_finish_mutation"
+  },
+  "205b870": {
+    "symbol": "recovered_205b870",
+    "original": "_pfs_runtime_mkdir"
+  },
+  "205b8e0": {
+    "symbol": "recovered_205b8e0",
+    "original": "_pfs_runtime_replace"
+  },
+  "205ba50": {
+    "symbol": "recovered_205ba50",
+    "original": "_pfs_runtime_recover_unclean_plain"
+  },
+  "205bd70": {
+    "symbol": "recovered_205bd70",
+    "original": "_pfs_runtime_consistency_scan_directory"
+  },
+  "205c360": {
+    "symbol": "recovered_205c360",
+    "original": "_pfs_runtime_consistency_scan_allocations"
+  },
+  "205c550": {
+    "symbol": "recovered_205c550",
+    "original": "_pfs_runtime_consistency_validate_links"
+  },
+  "205d270": {
+    "symbol": "recovered_205d270",
+    "original": "_pfs_runtime_rename"
+  },
+  "205d520": {
+    "symbol": "recovered_205d520",
+    "original": "_pfs_runtime_lookup_direct"
+  },
+  "205d6b0": {
+    "symbol": "recovered_205d6b0",
+    "original": "_pfs_runtime_path_is_within"
+  },
+  "205d830": {
+    "symbol": "recovered_205d830",
+    "original": "_pfs_runtime_find_directory_slot"
+  },
+  "205dab0": {
+    "symbol": "recovered_205dab0",
+    "original": "_pfs_runtime_delete"
+  },
+  "205dcc0": {
+    "symbol": "recovered_205dcc0",
+    "original": "_pfs_runtime_add_delete_object"
+  },
+  "205df10": {
+    "symbol": "recovered_205df10",
+    "original": "_pfs_runtime_delete_child_count"
+  },
+  "205e060": {
+    "symbol": "recovered_205e060",
+    "original": "_pfs_runtime_delete_child"
+  },
+  "205e270": {
+    "symbol": "recovered_205e270",
+    "original": "_pfs_runtime_delete_owning_target"
+  },
+  "205e620": {
+    "symbol": "recovered_205e620",
+    "original": "_pfs_runtime_delete_remove"
+  },
+  "205e7b0": {
+    "symbol": "recovered_205e7b0",
+    "original": "_pfs_runtime_header_copy_matches"
+  },
+  "205ead0": {
+    "symbol": "recovered_205ead0",
+    "original": "_pfs_runtime_crypto_read_block"
+  },
+  "205ebf0": {
+    "symbol": "recovered_205ebf0",
+    "original": "_pfs_runtime_crypto_write_block"
+  },
+  "205eda0": {
+    "symbol": "recovered_205eda0",
+    "original": "_pfs_runtime_crypto_state_for_member"
+  },
+  "205ee20": {
+    "symbol": "recovered_205ee20",
+    "original": "_pfs_runtime_combine_link_path"
+  },
+  "205ef90": {
+    "symbol": "recovered_205ef90",
+    "original": "_pfs_runtime_collect_directory_extents"
+  },
+  "205f3f0": {
+    "symbol": "recovered_205f3f0",
+    "original": "_pfs_runtime_consistency_read_allocation"
+  },
+  "205f440": {
+    "symbol": "recovered_205f440",
+    "original": "_pfs_runtime_count_visitor"
+  },
+  "205f480": {
+    "symbol": "recovered_205f480",
+    "original": "_pfs_runtime_nth_child_visitor"
+  },
+  "205f510": {
+    "symbol": "recovered_205f510",
+    "original": "_pfs_runtime_allocation_read"
+  },
+  "205f540": {
+    "symbol": "recovered_205f540",
+    "original": "_pfs_runtime_allocation_write"
+  },
+  "205f570": {
+    "symbol": "recovered_205f570",
+    "original": "_pfs_expand_status_name"
+  },
+  "205f590": {
+    "symbol": "recovered_205f590",
+    "original": "_pfs_expand_inspect_volume"
+  },
+  "205fc10": {
+    "symbol": "recovered_205fc10",
+    "original": "_pfs_expand_candidate_prepare"
+  },
+  "205fd60": {
+    "symbol": "recovered_205fd60",
+    "original": "_pfs_expand_header_name_matches"
+  },
+  "205fdf0": {
+    "symbol": "recovered_205fdf0",
+    "original": "_pfs_expand_required_member_from_candidate"
+  },
+  "205fe90": {
+    "symbol": "recovered_205fe90",
+    "original": "_pfs_expand_sort_required_members"
+  },
+  "205ff80": {
+    "symbol": "recovered_205ff80",
+    "original": "_pfs_expand_plan_with_reader"
+  },
+  "20620e0": {
+    "symbol": "recovered_20620e0",
+    "original": "_pfs_expand_select_free_interval"
+  },
+  "20624e0": {
+    "symbol": "recovered_20624e0",
+    "original": "_pfs_expand_copy_partition_name"
+  },
+  "2062570": {
+    "symbol": "recovered_2062570",
+    "original": "_pfs_expand_prepare_format_plan"
+  },
+  "2062a30": {
+    "symbol": "recovered_2062a30",
+    "original": "_pfs_expand_plan_allocation_table"
+  },
+  "2062f60": {
+    "symbol": "recovered_2062f60",
+    "original": "_pfs_expand_plan"
+  },
+  "2062f90": {
+    "symbol": "recovered_2062f90",
+    "original": "_pfs_expand_apply_prepared"
+  },
+  "2063610": {
+    "symbol": "recovered_2063610",
+    "original": "_pfs_expand_preflight_existing_headers"
+  },
+  "2063a10": {
+    "symbol": "recovered_2063a10",
+    "original": "_pfs_expand_validate_table_snapshot"
+  },
+  "20648d0": {
+    "symbol": "recovered_20648d0",
+    "original": "_pfs_expand_validate_extension_blocks"
+  },
+  "2064c70": {
+    "symbol": "recovered_2064c70",
+    "original": "_pfs_expand_apply_allocation_table"
+  },
+  "2065030": {
+    "symbol": "recovered_2065030",
+    "original": "_pfs_expand_publish_partition"
+  },
+  "2065c10": {
+    "symbol": "recovered_2065c10",
+    "original": "_pfs_expand_update_existing_headers"
+  },
+  "2065f90": {
+    "symbol": "recovered_2065f90",
+    "original": "_pfs_expand_apply"
+  },
+  "2065fc0": {
+    "symbol": "recovered_2065fc0",
+    "original": "_pfs_expand_partition_read"
+  },
+  "20660b0": {
+    "symbol": "recovered_20660b0",
+    "original": "_pfs_expand_partition_write"
+  },
+  "20661a0": {
+    "symbol": "recovered_20661a0",
+    "original": "_pfs_expand_partition_flush"
+  },
+  "20661d0": {
+    "symbol": "recovered_20661d0",
+    "original": "_pfs_expand_disk_read_bytes"
+  },
+  "2066390": {
+    "symbol": "recovered_2066390",
+    "original": "_pfs_expand_disk_write_bytes"
+  },
+  "2066580": {
+    "symbol": "recovered_2066580",
+    "original": "_pfs_expand_prepare_blank_gpt"
+  },
+  "20668c0": {
+    "symbol": "recovered_20668c0",
+    "original": "_pfs_expand_prepare_blank_plyt"
+  },
+  "2066a50": {
+    "symbol": "recovered_2066a50",
+    "original": "_pfs_expand_read_gpt_header"
+  },
+  "2066ee0": {
+    "symbol": "recovered_2066ee0",
+    "original": "_pfs_expand_gpt_array_crc"
+  },
+  "2067110": {
+    "symbol": "recovered_2067110",
+    "original": "_pfs_expand_crc32"
+  },
+  "20671e0": {
+    "symbol": "recovered_20671e0",
+    "original": "_pfs_expand_mbr_can_be_protective"
+  },
+  "20672c0": {
+    "symbol": "recovered_20672c0",
+    "original": "_pfs_expand_range_is_zero"
+  },
+  "2067420": {
+    "symbol": "recovered_2067420",
+    "original": "_pfs_expand_read_gpt_entry"
+  },
+  "20674c0": {
+    "symbol": "recovered_20674c0",
+    "original": "_pfs_expand_sort_ranges"
+  },
+  "20675a0": {
+    "symbol": "recovered_20675a0",
+    "original": "_pfs_expand_mbr_is_blank"
+  },
+  "2067650": {
+    "symbol": "recovered_2067650",
+    "original": "_pfs_expand_plyt_metadata_is_blank"
+  },
+  "20676d0": {
+    "symbol": "recovered_20676d0",
+    "original": "_pfs_expand_candidate_is_required"
+  },
+  "2067860": {
+    "symbol": "recovered_2067860",
+    "original": "_pfs_expand_zero_sectors"
+  },
+  "20678f0": {
+    "symbol": "recovered_20678f0",
+    "original": "_pfs_expand_write_gpt_entry"
+  },
+  "20679a0": {
+    "symbol": "recovered_20679a0",
+    "original": "_pfs_expand_write_new_gpt_header"
+  },
+  "2067b90": {
+    "symbol": "recovered_2067b90",
+    "original": "_pfs_expand_write_relocated_backup_header"
+  },
+  "2067d60": {
+    "symbol": "recovered_2067d60",
+    "original": "_pfs_expand_update_gpt_header"
+  },
+  "2067f00": {
+    "symbol": "recovered_2067f00",
+    "original": "_pfs_expand_write_protective_mbr"
+  },
+  "20681a0": {
+    "symbol": "recovered_20681a0",
+    "original": "_wm_lua_write"
+  },
+  "2068330": {
+    "symbol": "recovered_2068330",
+    "original": "_wm_lua_writeline"
+  },
+  "20683c0": {
+    "symbol": "recovered_20683c0",
+    "original": "_wm_lua_flush_output"
+  },
+  "2068440": {
+    "symbol": "recovered_2068440",
+    "original": "_wm_lua_write_errorf"
+  },
+  "20684a0": {
+    "symbol": "recovered_20684a0",
+    "original": "_wm_lua_show_banner"
+  },
+  "20684f0": {
+    "symbol": "recovered_20684f0",
+    "original": "_wm_lua_show_help"
+  },
+  "2068540": {
+    "symbol": "recovered_2068540",
+    "original": "_wm_lua_readline"
+  },
+  "2068630": {
+    "symbol": "recovered_2068630",
+    "original": "_wmfs_mount_image"
+  },
+  "2068640": {
+    "symbol": "recovered_2068640",
+    "original": "_wmfs_unmount"
+  },
+  "2068650": {
+    "symbol": "recovered_2068650",
+    "original": "_wmfs_is_mounted"
+  },
+  "2068660": {
+    "symbol": "recovered_2068660",
+    "original": "_wmfs_fopen"
+  },
+  "20689f0": {
+    "symbol": "recovered_20689f0",
+    "original": "_wmfs_freopen"
+  },
+  "2068ae0": {
+    "symbol": "recovered_2068ae0",
+    "original": "_wmfs_fclose"
+  },
+  "2068bb0": {
+    "symbol": "recovered_2068bb0",
+    "original": "_wmfs_fread"
+  },
+  "2068cc0": {
+    "symbol": "recovered_2068cc0",
+    "original": "_wmfs_getc"
+  },
+  "2068e70": {
+    "symbol": "recovered_2068e70",
+    "original": "_wmfs_fwrite"
+  },
+  "2068fe0": {
+    "symbol": "recovered_2068fe0",
+    "original": "_wmfs_fseek"
+  },
+  "2069070": {
+    "symbol": "recovered_2069070",
+    "original": "_wmfs_ftell"
+  },
+  "20690a0": {
+    "symbol": "recovered_20690a0",
+    "original": "_wmfs_fflush"
+  },
+  "2069150": {
+    "symbol": "recovered_2069150",
+    "original": "_wmfs_feof"
+  },
+  "2069170": {
+    "symbol": "recovered_2069170",
+    "original": "_wmfs_ferror"
+  },
+  "2069190": {
+    "symbol": "recovered_2069190",
+    "original": "_wmfs_clearerr"
+  },
+  "20691c0": {
+    "symbol": "recovered_20691c0",
+    "original": "_wmfs_ungetc"
+  },
+  "2069200": {
+    "symbol": "recovered_2069200",
+    "original": "_wmfs_remove"
+  },
+  "2069280": {
+    "symbol": "recovered_2069280",
+    "original": "_wmfs_rename"
+  },
+  "20693f0": {
+    "symbol": "recovered_20693f0",
+    "original": "_wmfs_read_entire_file"
+  },
+  "20694d0": {
+    "symbol": "recovered_20694d0",
+    "original": "_wmfs_write_entire_file"
+  },
+  "2069550": {
+    "symbol": "recovered_2069550",
+    "original": "_wmfs_register_virtual_file"
+  },
+  "2069560": {
+    "symbol": "recovered_2069560",
+    "original": "_wmfs_clear_virtual_files"
+  },
+  "2069570": {
+    "symbol": "recovered_2069570",
+    "original": "_wmfs_image_data"
+  },
+  "2069580": {
+    "symbol": "recovered_2069580",
+    "original": "_wmfs_image_size"
+  },
+  "2069590": {
+    "symbol": "recovered_2069590",
+    "original": "_wmfs_export_image"
+  },
+  "20695a0": {
+    "symbol": "recovered_20695a0",
+    "original": "_strncmp"
+  },
+  "20695f0": {
+    "symbol": "recovered_20695f0",
+    "original": "_strerror"
+  },
+  "2069650": {
+    "symbol": "recovered_2069650",
+    "original": "_getenv"
+  },
+  "2069660": {
+    "symbol": "recovered_2069660",
+    "original": "_system"
+  },
+  "2069670": {
+    "symbol": "recovered_2069670",
+    "original": "_clock"
+  },
+  "2069690": {
+    "symbol": "recovered_2069690",
+    "original": "_winterboot_sjlj_jump"
+  },
+  "20696a0": {
+    "symbol": "recovered_20696a0",
+    "original": "_setjmp"
+  },
+  "20696f0": {
+    "symbol": "recovered_20696f0",
+    "original": "_longjmp"
+  },
+  "2069730": {
+    "symbol": "recovered_2069730",
+    "original": "__ZSt9terminatev"
+  },
+  "20697a0": {
+    "symbol": "recovered_20697a0",
+    "original": "___gxx_personality_sj0"
+  },
+  "20697b0": {
+    "symbol": "recovered_20697b0",
+    "original": "___clang_call_terminate"
+  },
+  "20697d0": {
+    "symbol": "recovered_20697d0",
+    "original": "___cxa_begin_catch"
+  },
+  "2069810": {
+    "symbol": "recovered_2069810",
+    "original": "__Znwm"
+  },
+  "2069840": {
+    "symbol": "recovered_2069840",
+    "original": "__Znam"
+  },
+  "2069870": {
+    "symbol": "recovered_2069870",
+    "original": "__ZdlPv"
+  },
+  "2069900": {
+    "symbol": "recovered_2069900",
+    "original": "__ZdaPv"
+  },
+  "2069990": {
+    "symbol": "recovered_2069990",
+    "original": "__ZdlPvm"
+  },
+  "2069a20": {
+    "symbol": "recovered_2069a20",
+    "original": "__ZdaPvm"
+  },
+  "2069ab0": {
+    "symbol": "recovered_2069ab0",
+    "original": "___cxa_atexit"
+  },
+  "2069ac0": {
+    "symbol": "recovered_2069ac0",
+    "original": "___cxa_guard_acquire"
+  },
+  "2069ae0": {
+    "symbol": "recovered_2069ae0",
+    "original": "___cxa_guard_release"
+  },
+  "2069af0": {
+    "symbol": "recovered_2069af0",
+    "original": "___cxa_guard_abort"
+  },
+  "2069b00": {
+    "symbol": "recovered_2069b00",
+    "original": "___cxa_allocate_exception"
+  },
+  "2069ba0": {
+    "symbol": "recovered_2069ba0",
+    "original": "___cxa_free_exception"
+  },
+  "2069c00": {
+    "symbol": "recovered_2069c00",
+    "original": "__ZL25header_from_transfer_wordPv"
+  },
+  "2069c40": {
+    "symbol": "recovered_2069c40",
+    "original": "__ZL18object_from_headerP21WinterExceptionHeader"
+  },
+  "2069c50": {
+    "symbol": "recovered_2069c50",
+    "original": "___cxa_end_catch"
+  },
+  "2069ce0": {
+    "symbol": "recovered_2069ce0",
+    "original": "___cxa_throw"
+  },
+  "2069d20": {
+    "symbol": "recovered_2069d20",
+    "original": "__ZL15raise_exceptionP21WinterExceptionHeader"
+  },
+  "2069da0": {
+    "symbol": "recovered_2069da0",
+    "original": "___cxa_rethrow"
+  },
+  "2069de0": {
+    "symbol": "recovered_2069de0",
+    "original": "__Unwind_SjLj_Register"
+  },
+  "2069e00": {
+    "symbol": "recovered_2069e00",
+    "original": "__Unwind_SjLj_Unregister"
+  },
+  "2069e40": {
+    "symbol": "recovered_2069e40",
+    "original": "__Unwind_SjLj_RaiseException"
+  },
+  "2069e60": {
+    "symbol": "recovered_2069e60",
+    "original": "__Unwind_SjLj_ForcedUnwind"
+  },
+  "2069e70": {
+    "symbol": "recovered_2069e70",
+    "original": "__Unwind_SjLj_Resume"
+  },
+  "2069ed0": {
+    "symbol": "recovered_2069ed0",
+    "original": "__ZL15continue_unwindP21WinterExceptionHeader"
+  },
+  "2069f70": {
+    "symbol": "recovered_2069f70",
+    "original": "__Unwind_SjLj_Resume_or_Rethrow"
+  },
+  "2069f90": {
+    "symbol": "recovered_2069f90",
+    "original": "___gxx_personality_v0"
+  },
+  "2069fa0": {
+    "symbol": "recovered_2069fa0",
+    "original": "__Unwind_Resume"
+  },
+  "2069fb0": {
+    "symbol": "recovered_2069fb0",
+    "original": "___dynamic_cast"
+  },
+  "206a080": {
+    "symbol": "recovered_206a080",
+    "original": "___cxa_pure_virtual"
+  },
+  "206a0a0": {
+    "symbol": "recovered_206a0a0",
+    "original": "__tlv_bootstrap"
+  },
+  "206a0b0": {
+    "symbol": "recovered_206a0b0",
+    "original": "_isdigit"
+  },
+  "206a0d0": {
+    "symbol": "recovered_206a0d0",
+    "original": "_isspace"
+  },
+  "206a110": {
+    "symbol": "recovered_206a110",
+    "original": "_isxdigit"
+  },
+  "206a140": {
+    "symbol": "recovered_206a140",
+    "original": "_wm_math_isfinite"
+  },
+  "206a160": {
+    "symbol": "recovered_206a160",
+    "original": "_wm_math_isfinitef"
+  },
+  "206a180": {
+    "symbol": "recovered_206a180",
+    "original": "_wm_math_isfinitel"
+  },
+  "206a1c0": {
+    "symbol": "recovered_206a1c0",
+    "original": "_isfinite"
+  },
+  "206a1e0": {
+    "symbol": "recovered_206a1e0",
+    "original": "_exp"
+  },
+  "206a2d0": {
+    "symbol": "recovered_206a2d0",
+    "original": "_expf"
+  },
+  "206a3c0": {
+    "symbol": "recovered_206a3c0",
+    "original": "_expl"
+  },
+  "206a4b0": {
+    "symbol": "recovered_206a4b0",
+    "original": "_difftime"
+  },
+  "206a4e0": {
+    "symbol": "recovered_206a4e0",
+    "original": "_round"
+  },
+  "206a530": {
+    "symbol": "recovered_206a530",
+    "original": "_strtoull"
+  },
+  "206a670": {
+    "symbol": "recovered_206a670",
+    "original": "_strtoll"
+  },
+  "206a690": {
+    "symbol": "recovered_206a690",
+    "original": "__ZL15inspect_contextP17WinterSjLjContextPKvR13WinterHandler"
+  },
+  "206aa10": {
+    "symbol": "recovered_206aa10",
+    "original": "__ZL20read_encoded_pointerhPPKh"
+  },
+  "206ab30": {
+    "symbol": "recovered_206ab30",
+    "original": "__ZN2wm3png13detect_formatEPKhm"
+  },
+  "206abd0": {
+    "symbol": "recovered_206abd0",
+    "original": "__ZN2wm3png12_GLOBAL__N_114looks_like_tgaEPKhm"
+  },
+  "206ad50": {
+    "symbol": "recovered_206ad50",
+    "original": "__ZN2wm3png11load_memoryEPKhmRNS0_5ImageE"
+  },
+  "206d320": {
+    "symbol": "recovered_206d320",
+    "original": "__ZN2wm3png12_GLOBAL__N_120decode_apng_squashedERKNS1_9ParsedPngERKNS1_12DecodeTablesERNS_6vectorIhEE"
+  },
+  "206d740": {
+    "symbol": "recovered_206d740",
+    "original": "__ZN2wm3png12_GLOBAL__N_116decode_png_frameERKNS1_6HeaderERKNS_6vectorINS1_8ByteSpanEEERKNS1_12DecodeTablesERNS5_IhEE"
+  },
+  "206eda0": {
+    "symbol": "recovered_206eda0",
+    "original": "__ZN2wm3png12_GLOBAL__N_19ParsedPngD1Ev"
+  },
+  "206ee30": {
+    "symbol": "recovered_206ee30",
+    "original": "__ZN2wm3png9load_fileEPKcRNS0_5ImageE"
+  },
+  "206f0c0": {
+    "symbol": "recovered_206f0c0",
+    "original": "__ZN2wm3png19save_png_rgba8_fileEPKcPKhii"
+  },
+  "206fd50": {
+    "symbol": "recovered_206fd50",
+    "original": "__ZN2wm3png12_GLOBAL__N_111write_chunkEP8WMFSFilePKcPKhm"
+  },
+  "206fe10": {
+    "symbol": "recovered_206fe10",
+    "original": "__ZN2wm3png15save_rgba8_fileEPKcPKhii"
+  },
+  "206fe40": {
+    "symbol": "recovered_206fe40",
+    "original": "__ZN2wm3png19save_bmp_rgba8_fileEPKcPKhii"
+  },
+  "20701f0": {
+    "symbol": "recovered_20701f0",
+    "original": "__ZN2wm3png19save_tga_rgba8_fileEPKcPKhii"
+  },
+  "20704a0": {
+    "symbol": "recovered_20704a0",
+    "original": "__ZN2wm3png19save_xcf_rgba8_fileEPKcPKhii"
+  },
+  "2071e90": {
+    "symbol": "recovered_2071e90",
+    "original": "_winter_png_load_file"
+  },
+  "2072040": {
+    "symbol": "recovered_2072040",
+    "original": "_winter_png_free_image"
+  },
+  "2072080": {
+    "symbol": "recovered_2072080",
+    "original": "__ZN2wm6vectorIhE6assignEmRKh"
+  },
+  "2072110": {
+    "symbol": "recovered_2072110",
+    "original": "__ZN2wm6vectorIhEC1Em"
+  },
+  "20721a0": {
+    "symbol": "recovered_20721a0",
+    "original": "__ZN2wm3png12_GLOBAL__N_119scale_masked_sampleEjj"
+  },
+  "2072230": {
+    "symbol": "recovered_2072230",
+    "original": "__ZZN2wm3png12_GLOBAL__N_115load_tga_memoryEPKhmRNS0_5ImageEENK3$_0clES3_"
+  },
+  "2072460": {
+    "symbol": "recovered_2072460",
+    "original": "__ZN2wm3png12_GLOBAL__N_126xcf_parse_image_propertiesEPKhmRyRNS1_12XcfImageInfoE"
+  },
+  "2072680": {
+    "symbol": "recovered_2072680",
+    "original": "__ZN2wm3png12_GLOBAL__N_116xcf_take_pointerEPKhmRyjS4_"
+  },
+  "20726f0": {
+    "symbol": "recovered_20726f0",
+    "original": "__ZN2wm6vectorIyE9push_backERKy"
+  },
+  "2072790": {
+    "symbol": "recovered_2072790",
+    "original": "__ZN2wm6vectorIhEC1EmRKh"
+  },
+  "2072820": {
+    "symbol": "recovered_2072820",
+    "original": "__ZN2wm3png12_GLOBAL__N_115xcf_parse_layerEPKhmRKNS1_12XcfImageInfoEyRNS1_12XcfLayerInfoE"
+  },
+  "2072c00": {
+    "symbol": "recovered_2072c00",
+    "original": "__ZN2wm3png12_GLOBAL__N_123xcf_decode_layer_pixelsEPKhmRKNS1_12XcfImageInfoERKNS1_12XcfLayerInfoERNS_6vectorIhEE"
+  },
+  "2073570": {
+    "symbol": "recovered_2073570",
+    "original": "__ZN2wm3png12_GLOBAL__N_116alpha_over_pixelEPhPKh"
+  },
+  "2073680": {
+    "symbol": "recovered_2073680",
+    "original": "__ZN2wm6vectorIyEC1Em"
+  },
+  "2073720": {
+    "symbol": "recovered_2073720",
+    "original": "__ZN2wm3png12_GLOBAL__N_119xcf_decode_rle_tileEPKhmjjRNS_6vectorIhEE"
+  },
+  "2073a50": {
+    "symbol": "recovered_2073a50",
+    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater13inflate_bytesEPKhmRNS_6vectorIhEE"
+  },
+  "2073b90": {
+    "symbol": "recovered_2073b90",
+    "original": "__ZN2wm6vectorIhE6insertIPKhvEEPhS4_T_S6_"
+  },
+  "2073cb0": {
+    "symbol": "recovered_2073cb0",
+    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater19inflate_zlib_streamERKNS_6vectorIhEERS4_m"
+  },
+  "2075340": {
+    "symbol": "recovered_2075340",
+    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater9BitReader9read_bitsEjRj"
+  },
+  "2075430": {
+    "symbol": "recovered_2075430",
+    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater23decode_compressed_blockERNS2_9BitReaderERKNS2_12HuffmanTableES7_RNS_6vectorIhEEm"
+  },
+  "2075a70": {
+    "symbol": "recovered_2075a70",
+    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater12HuffmanTableD1Ev"
+  },
+  "2075aa0": {
+    "symbol": "recovered_2075aa0",
+    "original": "__ZZN2wm3png12_GLOBAL__N_18Inflater19fixed_literal_tableEvENKUlvE_clEv"
+  },
+  "2075db0": {
+    "symbol": "recovered_2075db0",
+    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater19build_huffman_tableERKNS_6vectorIjEERNS2_12HuffmanTableEb"
+  },
+  "20761e0": {
+    "symbol": "recovered_20761e0",
+    "original": "__ZZN2wm3png12_GLOBAL__N_18Inflater20fixed_distance_tableEvENKUlvE_clEv"
+  },
+  "2076450": {
+    "symbol": "recovered_2076450",
+    "original": "__ZN2wm6vectorIjE6insertIPjvEES3_PKjT_S6_"
+  },
+  "2076580": {
+    "symbol": "recovered_2076580",
+    "original": "__ZN2wm3png12_GLOBAL__N_112crc32_updateEjPKhm"
+  },
+  "20766a0": {
+    "symbol": "recovered_20766a0",
+    "original": "__ZN2wm6vectorINS_3png12_GLOBAL__N_19ParsedPng5FrameEE9push_backERKS4_"
+  },
+  "20768c0": {
+    "symbol": "recovered_20768c0",
+    "original": "__ZN2wm6vectorINS_3png12_GLOBAL__N_18ByteSpanEE9push_backERKS3_"
+  },
+  "2076960": {
+    "symbol": "recovered_2076960",
+    "original": "__ZN2wm6vectorINS_3png12_GLOBAL__N_18ByteSpanEE9push_backEOS3_"
+  },
+  "2076a00": {
+    "symbol": "recovered_2076a00",
+    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater5startERKNS_6vectorINS1_8ByteSpanEEEm"
+  },
+  "2076b60": {
+    "symbol": "recovered_2076b60",
+    "original": "__ZN2wm3png12_GLOBAL__N_115unfilter_row_toEjPhPKhS4_mm"
+  },
+  "2076dd0": {
+    "symbol": "recovered_2076dd0",
+    "original": "__Z23wm_ttf_font_load_memoryPKvmf"
+  },
+  "2077420": {
+    "symbol": "recovered_2077420",
+    "original": "__Z16wm_ttf_font_loadPKcf"
+  },
+  "20776a0": {
+    "symbol": "recovered_20776a0",
+    "original": "__Z18wm_ttf_font_resizePvf"
+  },
+  "20776d0": {
+    "symbol": "recovered_20776d0",
+    "original": "__Z19wm_ttf_font_metricsPvPKcP16WmTtfTextMetrics"
+  },
+  "2077d70": {
+    "symbol": "recovered_2077d70",
+    "original": "__ZN12_GLOBAL__N_112cached_glyphEPNS_10FontHandleEj"
+  },
+  "20782f0": {
+    "symbol": "recovered_20782f0",
+    "original": "__ZN12_GLOBAL__N_111decode_utf8EPKc"
+  },
+  "2078720": {
+    "symbol": "recovered_2078720",
+    "original": "__ZN12_GLOBAL__N_115font_size_cacheEPNS_10FontHandleE"
+  },
+  "2078850": {
+    "symbol": "recovered_2078850",
+    "original": "__ZN2wm13unordered_mapIjN12_GLOBAL__N_111GlyphBitmapENS_4hashIjEENS_8equal_toIjEEE7reserveEm"
+  },
+  "20789c0": {
+    "symbol": "recovered_20789c0",
+    "original": "__ZN12_GLOBAL__N_117trim_glyph_cachesEPNS_10FontHandleE"
+  },
+  "2078b40": {
+    "symbol": "recovered_2078b40",
+    "original": "__Z18wm_ttf_font_renderPvPKciiid"
+  },
+  "20797e0": {
+    "symbol": "recovered_20797e0",
+    "original": "__ZN12_GLOBAL__N_111layout_lineEPNS_10FontHandleERKN2wm6vectorIjEE"
+  },
+  "2079e40": {
+    "symbol": "recovered_2079e40",
+    "original": "__ZN2wm6vectorIN12_GLOBAL__N_110LineLayoutEED1Ev"
+  },
+  "2079ea0": {
+    "symbol": "recovered_2079ea0",
+    "original": "__ZN2wm6vectorINS0_IjEEED1Ev"
+  },
+  "2079f00": {
+    "symbol": "recovered_2079f00",
+    "original": "__Z16wm_ttf_font_freePv"
+  },
+  "207a110": {
+    "symbol": "recovered_207a110",
+    "original": "__ZN12_GLOBAL__N_115TrueTypeBackendD1Ev"
+  },
+  "207a1f0": {
+    "symbol": "recovered_207a1f0",
+    "original": "__ZN12_GLOBAL__N_115TrueTypeBackendD0Ev"
+  },
+  "207a2e0": {
+    "symbol": "recovered_207a2e0",
+    "original": "__ZN12_GLOBAL__N_115TrueTypeBackend4loadERKN2wm6vectorIhEE"
+  },
+  "207aad0": {
+    "symbol": "recovered_207aad0",
+    "original": "__ZN12_GLOBAL__N_115TrueTypeBackend9rasteriseEjd"
+  },
+  "207b030": {
+    "symbol": "recovered_207b030",
+    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend12units_per_emEv"
+  },
+  "207b050": {
+    "symbol": "recovered_207b050",
+    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend6ascentEv"
+  },
+  "207b070": {
+    "symbol": "recovered_207b070",
+    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend7descentEv"
+  },
+  "207b0a0": {
+    "symbol": "recovered_207b0a0",
+    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend8line_gapEv"
+  },
+  "207b0d0": {
+    "symbol": "recovered_207b0d0",
+    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend15metric_roundingEv"
+  },
+  "207b0e0": {
+    "symbol": "recovered_207b0e0",
+    "original": "__ZNK12_GLOBAL__N_115TrueTypeBackend12assign_tableEjRNS_11TableRecordE"
+  },
+  "207b1c0": {
+    "symbol": "recovered_207b1c0",
+    "original": "__ZN12_GLOBAL__N_115TrueTypeBackend9load_locaEv"
+  },
+  "207b450": {
+    "symbol": "recovered_207b450",
+    "original": "__ZN12_GLOBAL__N_115TrueTypeBackend9load_cmapEv"
+  },
+  "207b890": {
+    "symbol": "recovered_207b890",
+    "original": "__ZN12_GLOBAL__N_115TrueTypeBackend20append_glyph_outlineEtRKNS_15AffineTransformERNS_14OutlineBuilderEi"
+  },
+  "207cd60": {
+    "symbol": "recovered_207cd60",
+    "original": "__ZN12_GLOBAL__N_117rasterise_outlineERKNS_14OutlineBuilderEd"
+  },
+  "207d4a0": {
+    "symbol": "recovered_207d4a0",
+    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEEixERKj"
+  },
+  "207d6c0": {
+    "symbol": "recovered_207d6c0",
+    "original": "__ZN2wm13unordered_mapIjtNS_4hashIjEENS_8equal_toIjEEE6rehashEm"
+  },
+  "207d890": {
+    "symbol": "recovered_207d890",
+    "original": "__ZN2wm6vectorIsEC1Em"
+  },
+  "207d930": {
+    "symbol": "recovered_207d930",
+    "original": "__ZN2wm6vectorIN12_GLOBAL__N_15PointEE6insertEPKS2_RS4_"
+  },
+  "207da40": {
+    "symbol": "recovered_207da40",
+    "original": "__ZN2wm6vectorIbE6insertEPKbOb"
+  },
+  "207db00": {
+    "symbol": "recovered_207db00",
+    "original": "__ZN12_GLOBAL__N_114OutlineBuilder7move_toERKNS_5PointE"
+  },
+  "207ddf0": {
+    "symbol": "recovered_207ddf0",
+    "original": "__ZN12_GLOBAL__N_114OutlineBuilder7line_toERKNS_5PointE"
+  },
+  "207e000": {
+    "symbol": "recovered_207e000",
+    "original": "__ZN12_GLOBAL__N_114OutlineBuilder13close_contourEv"
+  },
+  "207e190": {
+    "symbol": "recovered_207e190",
+    "original": "__ZN12_GLOBAL__N_127flatten_quadratic_recursiveERNS_14OutlineBuilderERKNS_5PointES4_S4_i"
+  },
+  "207e290": {
+    "symbol": "recovered_207e290",
+    "original": "__ZN12_GLOBAL__N_112Type1BackendD1Ev"
+  },
+  "207e3b0": {
+    "symbol": "recovered_207e3b0",
+    "original": "__ZN12_GLOBAL__N_112Type1BackendD0Ev"
+  },
+  "207e3e0": {
+    "symbol": "recovered_207e3e0",
+    "original": "__ZN12_GLOBAL__N_112Type1Backend4loadERKN2wm6vectorIhEE"
+  },
+  "207fdd0": {
+    "symbol": "recovered_207fdd0",
+    "original": "__ZN12_GLOBAL__N_112Type1Backend9rasteriseEjd"
+  },
+  "20806b0": {
+    "symbol": "recovered_20806b0",
+    "original": "__ZNK12_GLOBAL__N_112Type1Backend12units_per_emEv"
+  },
+  "20806c0": {
+    "symbol": "recovered_20806c0",
+    "original": "__ZNK12_GLOBAL__N_112Type1Backend6ascentEv"
+  },
+  "20806d0": {
+    "symbol": "recovered_20806d0",
+    "original": "__ZNK12_GLOBAL__N_112Type1Backend7descentEv"
+  },
+  "20806e0": {
+    "symbol": "recovered_20806e0",
+    "original": "__ZNK12_GLOBAL__N_112Type1Backend8line_gapEv"
+  },
+  "20806f0": {
+    "symbol": "recovered_20806f0",
+    "original": "__ZNK12_GLOBAL__N_112Type1Backend15metric_roundingEv"
+  },
+  "2080700": {
+    "symbol": "recovered_2080700",
+    "original": "__ZN2wm6stringD1Ev"
+  },
+  "2080720": {
+    "symbol": "recovered_2080720",
+    "original": "__ZN2wm6string6assignEPKcm"
+  },
+  "2080890": {
+    "symbol": "recovered_2080890",
+    "original": "__ZN2wm6vectorINS0_IhEEE6resizeEm"
+  },
+  "20809d0": {
+    "symbol": "recovered_20809d0",
+    "original": "__ZN12_GLOBAL__N_112Type1Backend18decrypt_charstringERKN2wm6vectorIhEEi"
+  },
+  "2080c20": {
+    "symbol": "recovered_2080c20",
+    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEEixERKS1_"
+  },
+  "2080f70": {
+    "symbol": "recovered_2080f70",
+    "original": "__ZN2wm13unordered_mapINS_6stringENS_6vectorIhEENS_4hashIS1_EENS_8equal_toIS1_EEE6rehashEm"
+  },
+  "2081140": {
+    "symbol": "recovered_2081140",
+    "original": "__ZN2wm6vectorINS_4pairINS_6stringENS0_IhEEEEE7reserveEm"
+  },
+  "2081240": {
+    "symbol": "recovered_2081240",
+    "original": "__ZN12_GLOBAL__N_112Type1Backend16Type1Interpreter7executeERKN2wm6vectorIhEEi"
+  },
+  "20817d0": {
+    "symbol": "recovered_20817d0",
+    "original": "__ZN2wm13unordered_mapIjN12_GLOBAL__N_111GlyphBitmapENS_4hashIjEENS_8equal_toIjEEE6rehashEm"
+  },
+  "20819a0": {
+    "symbol": "recovered_20819a0",
+    "original": "_wm_media_png_decode_memory"
+  },
+  "2081ea0": {
+    "symbol": "recovered_2081ea0",
+    "original": "_wm_media_image_save_file"
+  },
+  "2082150": {
+    "symbol": "recovered_2082150",
+    "original": "_wm_media_wav_decode_memory"
+  },
+  "2082400": {
+    "symbol": "recovered_2082400",
+    "original": "_wm_media_ttf_load_memory"
+  },
+  "20824b0": {
+    "symbol": "recovered_20824b0",
+    "original": "_wm_media_ttf_resize"
+  },
+  "2082560": {
+    "symbol": "recovered_2082560",
+    "original": "_wm_media_ttf_render"
+  },
+  "2082880": {
+    "symbol": "recovered_2082880",
+    "original": "_wm_media_ttf_metrics"
+  },
+  "2082a20": {
+    "symbol": "recovered_2082a20",
+    "original": "_wm_media_ttf_free"
+  },
+  "2082ac0": {
+    "symbol": "recovered_2082ac0",
+    "original": "__ZN12_GLOBAL__N_122copyRgbaToProgramImageEPKhjjmP27WmBaremetalProgramImageInfo"
+  },
+  "2082b80": {
+    "symbol": "recovered_2082b80",
+    "original": "__ZN6winter3wav6decodeEPKvmPNS0_11DecodedFileERKNS0_13DecodeOptionsE"
+  },
+  "2083390": {
+    "symbol": "recovered_2083390",
+    "original": "__ZN2wm6vectorIsE6resizeEm"
+  },
+  "2083420": {
+    "symbol": "recovered_2083420",
+    "original": "__ZN6winter3wav6detail17readSampleAsFloatEPKhtt"
+  },
+  "2083570": {
+    "symbol": "recovered_2083570",
+    "original": "_wm_kernel_assign_winterscript_function"
+  },
+  "20835a0": {
+    "symbol": "recovered_20835a0",
+    "original": "_wm_kernel_program_ws_get_variable"
+  },
+  "2083750": {
+    "symbol": "recovered_2083750",
+    "original": "_wm_kernel_program_ws_run_file"
+  },
+  "2083780": {
+    "symbol": "recovered_2083780",
+    "original": "_wm_kernel_program_ws_run_file_on_device"
+  },
+  "20837b0": {
+    "symbol": "recovered_20837b0",
+    "original": "_wm_kernel_scheduler_preempt_interrupt"
+  },
+  "20838f0": {
+    "symbol": "recovered_20838f0",
+    "original": "_wm_kernel_program_terminal_open"
+  },
+  "2083a40": {
+    "symbol": "recovered_2083a40",
+    "original": "_scheduler_api_entry_checkpoint"
+  },
+  "2083b80": {
+    "symbol": "recovered_2083b80",
+    "original": "_kernel_heap_malloc"
+  },
+  "2083be0": {
+    "symbol": "recovered_2083be0",
+    "original": "_native_terminal_channel_release"
+  },
+  "2083cc0": {
+    "symbol": "recovered_2083cc0",
+    "original": "_kernel_heap_free"
+  },
+  "2083d20": {
+    "symbol": "recovered_2083d20",
+    "original": "_wm_kernel_program_terminal_drain"
+  },
+  "2083ec0": {
+    "symbol": "recovered_2083ec0",
+    "original": "_wm_kernel_program_terminal_input_state"
+  },
+  "2083fd0": {
+    "symbol": "recovered_2083fd0",
+    "original": "_wm_kernel_program_terminal_submit"
+  },
+  "20841c0": {
+    "symbol": "recovered_20841c0",
+    "original": "_wm_kernel_program_terminal_cancel"
+  },
+  "20845c0": {
+    "symbol": "recovered_20845c0",
+    "original": "_native_terminal_acquire_current_channel"
+  },
+  "20846c0": {
+    "symbol": "recovered_20846c0",
+    "original": "_native_terminal_channel_clear_input"
+  },
+  "2084700": {
+    "symbol": "recovered_2084700",
+    "original": "_wm_kernel_program_clear"
+  },
+  "2084aa0": {
+    "symbol": "recovered_2084aa0",
+    "original": "_app_console_render_unlocked"
+  },
+  "2084ec0": {
+    "symbol": "recovered_2084ec0",
+    "original": "_wm_kernel_program_putc"
+  },
+  "2085130": {
+    "symbol": "recovered_2085130",
+    "original": "_native_terminal_write"
+  },
+  "2085210": {
+    "symbol": "recovered_2085210",
+    "original": "_wm_kernel_program_write"
+  },
+  "20854c0": {
+    "symbol": "recovered_20854c0",
+    "original": "_wm_kernel_program_poll_key_ax"
+  },
+  "2085b20": {
+    "symbol": "recovered_2085b20",
+    "original": "_kernel_app_window_current_task_accepts_global_input"
+  },
+  "2085c20": {
+    "symbol": "recovered_2085c20",
+    "original": "_kernel_driver_poll_key_ax"
+  },
+  "2085e30": {
+    "symbol": "recovered_2085e30",
+    "original": "_scheduler_terminate_process_by_id"
+  },
+  "2086230": {
+    "symbol": "recovered_2086230",
+    "original": "_kernel_app_windows_release_owner"
+  },
+  "20862f0": {
+    "symbol": "recovered_20862f0",
+    "original": "_wm_kernel_program_end"
+  },
+  "2086400": {
+    "symbol": "recovered_2086400",
+    "original": "_render_ui"
+  },
+  "20864d0": {
+    "symbol": "recovered_20864d0",
+    "original": "_wm_kernel_program_shutdown"
+  },
+  "20867e0": {
+    "symbol": "recovered_20867e0",
+    "original": "_program_filesystem_gate_end_shutdown"
+  },
+  "20868c0": {
+    "symbol": "recovered_20868c0",
+    "original": "_console_logf"
+  },
+  "20869a0": {
+    "symbol": "recovered_20869a0",
+    "original": "_wm_kernel_program_stat_file"
+  },
+  "2086a50": {
+    "symbol": "recovered_2086a50",
+    "original": "_program_begin_user_path"
+  },
+  "2086b60": {
+    "symbol": "recovered_2086b60",
+    "original": "_program_end_device_call"
+  },
+  "2086c80": {
+    "symbol": "recovered_2086c80",
+    "original": "_wm_kernel_program_write_file"
+  },
+  "2086d60": {
+    "symbol": "recovered_2086d60",
+    "original": "_fs_write_file"
+  },
+  "2087910": {
+    "symbol": "recovered_2087910",
+    "original": "_wm_kernel_program_flush_path"
+  },
+  "2087a40": {
+    "symbol": "recovered_2087a40",
+    "original": "_fs_flush"
+  },
+  "208a610": {
+    "symbol": "recovered_208a610",
+    "original": "_wm_kernel_program_last_error"
+  },
+  "208a680": {
+    "symbol": "recovered_208a680",
+    "original": "_wm_kernel_program_clipboard_write"
+  },
+  "208a7e0": {
+    "symbol": "recovered_208a7e0",
+    "original": "_wm_kernel_program_clipboard_read"
+  },
+  "208a8d0": {
+    "symbol": "recovered_208a8d0",
+    "original": "_wm_kernel_program_clipboard_info"
+  },
+  "208a980": {
+    "symbol": "recovered_208a980",
+    "original": "_wm_kernel_program_clipboard_clear"
+  },
+  "208aa40": {
+    "symbol": "recovered_208aa40",
+    "original": "_wm_kernel_program_clipboard_write_text"
+  },
+  "208aaa0": {
+    "symbol": "recovered_208aaa0",
+    "original": "_wm_kernel_program_clipboard_read_text"
+  },
+  "208ac30": {
+    "symbol": "recovered_208ac30",
+    "original": "_wm_kernel_program_clipboard_text_size"
+  },
+  "208acc0": {
+    "symbol": "recovered_208acc0",
+    "original": "_wm_kernel_program_delete_file"
+  },
+  "208ad30": {
+    "symbol": "recovered_208ad30",
+    "original": "_fs_delete_file"
+  },
+  "208bc00": {
+    "symbol": "recovered_208bc00",
+    "original": "_wm_kernel_program_png_decode_file"
+  },
+  "208bd60": {
+    "symbol": "recovered_208bd60",
+    "original": "_program_query_current_filesystem"
+  },
+  "208c140": {
+    "symbol": "recovered_208c140",
+    "original": "_program_heap_free"
+  },
+  "208c200": {
+    "symbol": "recovered_208c200",
+    "original": "_wm_kernel_program_image_save_file"
+  },
+  "208c2b0": {
+    "symbol": "recovered_208c2b0",
+    "original": "_wm_kernel_program_wav_decode_file"
+  },
+  "208c3a0": {
+    "symbol": "recovered_208c3a0",
+    "original": "_fs_read_file"
+  },
+  "208c440": {
+    "symbol": "recovered_208c440",
+    "original": "_wm_kernel_program_ttf_load_file"
+  },
+  "208c520": {
+    "symbol": "recovered_208c520",
+    "original": "_wm_kernel_host_log"
+  },
+  "208c6a0": {
+    "symbol": "recovered_208c6a0",
+    "original": "_serial_write"
+  },
+  "208c6c0": {
+    "symbol": "recovered_208c6c0",
+    "original": "_wm_kernel_host_readline"
+  },
+  "208c750": {
+    "symbol": "recovered_208c750",
+    "original": "_native_terminal_readline"
+  },
+  "208caa0": {
+    "symbol": "recovered_208caa0",
+    "original": "_read_line_internal"
+  },
+  "208d8a0": {
+    "symbol": "recovered_208d8a0",
+    "original": "_wm_kernel_host_readline_ex"
+  },
+  "208d940": {
+    "symbol": "recovered_208d940",
+    "original": "_wm_kernel_program_malloc"
+  },
+  "208d970": {
+    "symbol": "recovered_208d970",
+    "original": "_wm_kernel_program_free"
+  },
+  "208da30": {
+    "symbol": "recovered_208da30",
+    "original": "_wm_kernel_program_realloc"
+  },
+  "208db40": {
+    "symbol": "recovered_208db40",
+    "original": "_wm_kernel_program_list_directory"
+  },
+  "208e0c0": {
+    "symbol": "recovered_208e0c0",
+    "original": "_program_resolve_external_reference"
+  },
+  "208e570": {
+    "symbol": "recovered_208e570",
+    "original": "_storage_target_device_by_id"
+  },
+  "208eba0": {
+    "symbol": "recovered_208eba0",
+    "original": "_storage_restore_previous_target_state"
+  },
+  "208ebe0": {
+    "symbol": "recovered_208ebe0",
+    "original": "_program_directory_catalogue_path"
+  },
+  "208ee90": {
+    "symbol": "recovered_208ee90",
+    "original": "_program_hardware_virtual_list"
+  },
+  "208f180": {
+    "symbol": "recovered_208f180",
+    "original": "_fs_path_relative_to_directory"
+  },
+  "208f270": {
+    "symbol": "recovered_208f270",
+    "original": "_wm_program_directory_name_note"
+  },
+  "208f470": {
+    "symbol": "recovered_208f470",
+    "original": "_fs_make_immediate_child_path"
+  },
+  "208f570": {
+    "symbol": "recovered_208f570",
+    "original": "_program_fill_directory_entry"
+  },
+  "208f6f0": {
+    "symbol": "recovered_208f6f0",
+    "original": "_wm_kernel_program_list_directory_ex"
+  },
+  "208fbc0": {
+    "symbol": "recovered_208fbc0",
+    "original": "_program_hardware_virtual_list_extended"
+  },
+  "208fd80": {
+    "symbol": "recovered_208fd80",
+    "original": "_program_note_extended_directory_entry"
+  },
+  "208ff90": {
+    "symbol": "recovered_208ff90",
+    "original": "_wm_kernel_program_current_device_id"
+  },
+  "208fff0": {
+    "symbol": "recovered_208fff0",
+    "original": "_program_begin_device_call"
+  },
+  "20902f0": {
+    "symbol": "recovered_20902f0",
+    "original": "_wm_kernel_program_list_devices"
+  },
+  "20905d0": {
+    "symbol": "recovered_20905d0",
+    "original": "_storage_scan_devices"
+  },
+  "2091e90": {
+    "symbol": "recovered_2091e90",
+    "original": "_storage_format_device_name"
+  },
+  "2091f70": {
+    "symbol": "recovered_2091f70",
+    "original": "_storage_fs_name"
+  },
+  "2091fa0": {
+    "symbol": "recovered_2091fa0",
+    "original": "_wm_kernel_program_list_devices_ex"
+  },
+  "2092300": {
+    "symbol": "recovered_2092300",
+    "original": "_wm_kernel_program_target_device"
+  },
+  "2092370": {
+    "symbol": "recovered_2092370",
+    "original": "_wm_kernel_program_stat_file_on_device"
+  },
+  "2092480": {
+    "symbol": "recovered_2092480",
+    "original": "_wm_kernel_program_file_info_on_device"
+  },
+  "20924c0": {
+    "symbol": "recovered_20924c0",
+    "original": "_program_query_file_on_device"
+  },
+  "2092680": {
+    "symbol": "recovered_2092680",
+    "original": "_wm_kernel_program_read_file_on_device"
+  },
+  "20926c0": {
+    "symbol": "recovered_20926c0",
+    "original": "_wm_kernel_program_list_directory_on_device"
+  },
+  "2092740": {
+    "symbol": "recovered_2092740",
+    "original": "_wm_kernel_program_list_directory_on_device_ex"
+  },
+  "20927c0": {
+    "symbol": "recovered_20927c0",
+    "original": "_wm_kernel_program_write_file_on_device"
+  },
+  "20928a0": {
+    "symbol": "recovered_20928a0",
+    "original": "_wm_kernel_program_delete_file_on_device"
+  },
+  "2092910": {
+    "symbol": "recovered_2092910",
+    "original": "_wm_kernel_program_rename_file_on_device"
+  },
+  "2092980": {
+    "symbol": "recovered_2092980",
+    "original": "_fs_rename_path"
+  },
+  "2093140": {
+    "symbol": "recovered_2093140",
+    "original": "_wm_kernel_program_create_directory_on_device"
+  },
+  "2093260": {
+    "symbol": "recovered_2093260",
+    "original": "_fs_normalise_path_checked"
+  },
+  "2093460": {
+    "symbol": "recovered_2093460",
+    "original": "_fs_create_directory_path"
+  },
+  "2093900": {
+    "symbol": "recovered_2093900",
+    "original": "_wm_kernel_program_png_decode_file_on_device"
+  },
+  "2093970": {
+    "symbol": "recovered_2093970",
+    "original": "_wm_kernel_program_image_save_file_on_device"
+  },
+  "20939f0": {
+    "symbol": "recovered_20939f0",
+    "original": "_wm_kernel_program_ttf_load_file_on_device"
+  },
+  "2093a80": {
+    "symbol": "recovered_2093a80",
+    "original": "_wm_kernel_program_launch_file_on_device"
+  },
+  "2093ba0": {
+    "symbol": "recovered_2093ba0",
+    "original": "_wm_device_path_match_prefix"
+  },
+  "2093d70": {
+    "symbol": "recovered_2093d70",
+    "original": "_wm_kernel_program_launch_file"
+  },
+  "2094860": {
+    "symbol": "recovered_2094860",
+    "original": "_kernel_program_command_file_error"
+  },
+  "20949c0": {
+    "symbol": "recovered_20949c0",
+    "original": "_wm_kernel_program_rename_file"
+  },
+  "2094bc0": {
+    "symbol": "recovered_2094bc0",
+    "original": "_wm_kernel_program_create_directory"
+  },
+  "2094c50": {
+    "symbol": "recovered_2094c50",
+    "original": "_wm_kernel_program_thread_create"
+  },
+  "2094d00": {
+    "symbol": "recovered_2094d00",
+    "original": "_scheduler_debug_tracef"
+  },
+  "2094d50": {
+    "symbol": "recovered_2094d50",
+    "original": "_wm_kernel_program_thread_create_ex"
+  },
+  "2094e10": {
+    "symbol": "recovered_2094e10",
+    "original": "_wm_kernel_program_process_request_scheduling"
+  },
+  "2094fb0": {
+    "symbol": "recovered_2094fb0",
+    "original": "_wm_kernel_program_thread_yield"
+  },
+  "2094ff0": {
+    "symbol": "recovered_2094ff0",
+    "original": "_kernel_picofrost_service"
+  },
+  "20950b0": {
+    "symbol": "recovered_20950b0",
+    "original": "_scheduler_task_yield_common"
+  },
+  "20951d0": {
+    "symbol": "recovered_20951d0",
+    "original": "_wm_kernel_program_wait_microseconds"
+  },
+  "2095290": {
+    "symbol": "recovered_2095290",
+    "original": "_wm_kernel_program_hardware_threads"
+  },
+  "20952d0": {
+    "symbol": "recovered_20952d0",
+    "original": "_wm_kernel_program_hardware_info"
+  },
+  "2095310": {
+    "symbol": "recovered_2095310",
+    "original": "_winter_swap_refresh_slow_ram"
+  },
+  "2095520": {
+    "symbol": "recovered_2095520",
+    "original": "_kernel_program_hardware_info_internal"
+  },
+  "2095870": {
+    "symbol": "recovered_2095870",
+    "original": "_wm_kernel_program_hardware_device_list"
+  },
+  "20959e0": {
+    "symbol": "recovered_20959e0",
+    "original": "_driver_build_device_tree"
+  },
+  "2097170": {
+    "symbol": "recovered_2097170",
+    "original": "_driver_device_record"
+  },
+  "20971e0": {
+    "symbol": "recovered_20971e0",
+    "original": "_wm_kernel_program_platform_service_count"
+  },
+  "2097250": {
+    "symbol": "recovered_2097250",
+    "original": "_wm_kernel_program_platform_service_state"
+  },
+  "2097b10": {
+    "symbol": "recovered_2097b10",
+    "original": "_power_policy_update"
+  },
+  "2097b70": {
+    "symbol": "recovered_2097b70",
+    "original": "_wm_kernel_program_platform_service_control"
+  },
+  "2097da0": {
+    "symbol": "recovered_2097da0",
+    "original": "_power_policy_update_serialised"
+  },
+  "20988c0": {
+    "symbol": "recovered_20988c0",
+    "original": "_wm_kernel_program_time_info"
+  },
+  "2098900": {
+    "symbol": "recovered_2098900",
+    "original": "_kernel_time_fill_info"
+  },
+  "20989c0": {
+    "symbol": "recovered_20989c0",
+    "original": "_wm_kernel_program_time_set"
+  },
+  "2098a50": {
+    "symbol": "recovered_2098a50",
+    "original": "_wm_kernel_program_process_list"
+  },
+  "20991b0": {
+    "symbol": "recovered_20991b0",
+    "original": "_runtime_total_initialised_ram_bytes"
+  },
+  "20991d0": {
+    "symbol": "recovered_20991d0",
+    "original": "_wm_kernel_program_process_terminate"
+  },
+  "2099200": {
+    "symbol": "recovered_2099200",
+    "original": "_wm_kernel_program_system_stats"
+  },
+  "20993e0": {
+    "symbol": "recovered_20993e0",
+    "original": "_filesystem_transaction_begin"
+  },
+  "2099400": {
+    "symbol": "recovered_2099400",
+    "original": "_fs_free_bytes"
+  },
+  "20998a0": {
+    "symbol": "recovered_20998a0",
+    "original": "_fs_total_bytes"
+  },
+  "20999a0": {
+    "symbol": "recovered_20999a0",
+    "original": "_filesystem_transaction_end"
+  },
+  "20999c0": {
+    "symbol": "recovered_20999c0",
+    "original": "_wm_kernel_program_device_stats"
+  },
+  "2099d80": {
+    "symbol": "recovered_2099d80",
+    "original": "_storage_find_device_by_id"
+  },
+  "2099e10": {
+    "symbol": "recovered_2099e10",
+    "original": "_wm_kernel_program_device_stats_ex"
+  },
+  "209a740": {
+    "symbol": "recovered_209a740",
+    "original": "_storage_build_partition_geometry"
+  },
+  "209aa40": {
+    "symbol": "recovered_209aa40",
+    "original": "_wm_kernel_program_list_all_devices"
+  },
+  "209aae0": {
+    "symbol": "recovered_209aae0",
+    "original": "_program_filesystem_gate_begin_call"
+  },
+  "209ad60": {
+    "symbol": "recovered_209ad60",
+    "original": "_program_filesystem_gate_end_call"
+  },
+  "209ae60": {
+    "symbol": "recovered_209ae60",
+    "original": "_wm_kernel_program_device_read"
+  },
+  "209af70": {
+    "symbol": "recovered_209af70",
+    "original": "_load_drive_bytes"
+  },
+  "209b8d0": {
+    "symbol": "recovered_209b8d0",
+    "original": "_wm_kernel_program_device_write"
+  },
+  "209ba40": {
+    "symbol": "recovered_209ba40",
+    "original": "_storage_drive_is_writable"
+  },
+  "209bd50": {
+    "symbol": "recovered_209bd50",
+    "original": "_write_drive_bytes"
+  },
+  "209bd80": {
+    "symbol": "recovered_209bd80",
+    "original": "_storage_invalidate_range"
+  },
+  "209bfa0": {
+    "symbol": "recovered_209bfa0",
+    "original": "_wm_kernel_program_network_info"
+  },
+  "209c160": {
+    "symbol": "recovered_209c160",
+    "original": "_wm_kernel_program_network_receive"
+  },
+  "209c330": {
+    "symbol": "recovered_209c330",
+    "original": "_kernel_module_provider_callback_begin"
+  },
+  "209c560": {
+    "symbol": "recovered_209c560",
+    "original": "_kernel_module_provider_callback_end"
+  },
+  "209c750": {
+    "symbol": "recovered_209c750",
+    "original": "_wm_kernel_program_network_send"
+  },
+  "209c8d0": {
+    "symbol": "recovered_209c8d0",
+    "original": "_wm_kernel_program_wlan_scan"
+  },
+  "209c950": {
+    "symbol": "recovered_209c950",
+    "original": "_wm_kernel_program_wlan_network_count"
+  },
+  "209c9d0": {
+    "symbol": "recovered_209c9d0",
+    "original": "_wm_kernel_program_wlan_network_info"
+  },
+  "209ca50": {
+    "symbol": "recovered_209ca50",
+    "original": "_wm_kernel_program_wlan_associate"
+  },
+  "209cae0": {
+    "symbol": "recovered_209cae0",
+    "original": "_wm_kernel_program_wlan_disconnect"
+  },
+  "209cb60": {
+    "symbol": "recovered_209cb60",
+    "original": "_wm_kernel_program_wlan_status"
+  },
+  "209cbd0": {
+    "symbol": "recovered_209cbd0",
+    "original": "_wm_kernel_program_gpu_info"
+  },
+  "209cd10": {
+    "symbol": "recovered_209cd10",
+    "original": "_wm_kernel_program_gpu_submit"
+  },
+  "209ce70": {
+    "symbol": "recovered_209ce70",
+    "original": "_wm_kernel_program_app_window_create"
+  },
+  "209d4a0": {
+    "symbol": "recovered_209d4a0",
+    "original": "_kernel_app_window_copy_title_locked"
+  },
+  "209d5f0": {
+    "symbol": "recovered_209d5f0",
+    "original": "_kernel_app_window_release_locked"
+  },
+  "209d720": {
+    "symbol": "recovered_209d720",
+    "original": "_wm_kernel_program_app_window_update"
+  },
+  "209d7c0": {
+    "symbol": "recovered_209d7c0",
+    "original": "_kernel_app_window_update_locked"
+  },
+  "209d9a0": {
+    "symbol": "recovered_209d9a0",
+    "original": "_wm_kernel_program_app_window_update_rect"
+  },
+  "209dc90": {
+    "symbol": "recovered_209dc90",
+    "original": "_wm_kernel_program_app_window_destroy"
+  },
+  "209dd40": {
+    "symbol": "recovered_209dd40",
+    "original": "_wm_kernel_program_app_window_list"
+  },
+  "209de20": {
+    "symbol": "recovered_209de20",
+    "original": "_kernel_app_window_fill_info_locked"
+  },
+  "209df70": {
+    "symbol": "recovered_209df70",
+    "original": "_wm_kernel_program_app_window_configure"
+  },
+  "209e040": {
+    "symbol": "recovered_209e040",
+    "original": "_wm_kernel_program_app_window_set_appearance"
+  },
+  "209e110": {
+    "symbol": "recovered_209e110",
+    "original": "_wm_kernel_program_app_window_set_mode"
+  },
+  "209e1e0": {
+    "symbol": "recovered_209e1e0",
+    "original": "_wm_kernel_program_app_window_set_content_size"
+  },
+  "209e590": {
+    "symbol": "recovered_209e590",
+    "original": "_wm_kernel_program_app_window_query"
+  },
+  "209e650": {
+    "symbol": "recovered_209e650",
+    "original": "_wm_kernel_program_app_window_snapshot"
+  },
+  "209e9b0": {
+    "symbol": "recovered_209e9b0",
+    "original": "_wm_kernel_program_app_window_update_query"
+  },
+  "209eab0": {
+    "symbol": "recovered_209eab0",
+    "original": "_wm_kernel_program_app_window_set_custom_menus"
+  },
+  "209eee0": {
+    "symbol": "recovered_209eee0",
+    "original": "_wm_kernel_program_app_window_copy_custom_menus"
+  },
+  "209efc0": {
+    "symbol": "recovered_209efc0",
+    "original": "_wm_kernel_program_app_window_set_menus"
+  },
+  "209f160": {
+    "symbol": "recovered_209f160",
+    "original": "_wm_kernel_program_app_window_menu_command"
+  },
+  "209f230": {
+    "symbol": "recovered_209f230",
+    "original": "_wm_kernel_program_app_window_pointer_event"
+  },
+  "209f390": {
+    "symbol": "recovered_209f390",
+    "original": "_wm_kernel_program_app_window_pointer_state"
+  },
+  "209f490": {
+    "symbol": "recovered_209f490",
+    "original": "_wm_kernel_program_app_window_pointer_event_ex"
+  },
+  "209f570": {
+    "symbol": "recovered_209f570",
+    "original": "_wm_kernel_program_app_window_pointer_state_ex"
+  },
+  "209f690": {
+    "symbol": "recovered_209f690",
+    "original": "_wm_kernel_program_app_window_pointer_capture"
+  },
+  "209f780": {
+    "symbol": "recovered_209f780",
+    "original": "_wm_kernel_program_system_hotkey_poll"
+  },
+  "209f9f0": {
+    "symbol": "recovered_209f9f0",
+    "original": "_wm_kernel_program_font_text_metrics"
+  },
+  "209fd40": {
+    "symbol": "recovered_209fd40",
+    "original": "_wm_kernel_program_font_render_text"
+  },
+  "20a02b0": {
+    "symbol": "recovered_20a02b0",
+    "original": "_kernel_module_unload"
+  },
+  "20a0620": {
+    "symbol": "recovered_20a0620",
+    "original": "_kernel_module_fini_begin"
+  },
+  "20a0760": {
+    "symbol": "recovered_20a0760",
+    "original": "_kernel_module_fini_end"
+  },
+  "20a0830": {
+    "symbol": "recovered_20a0830",
+    "original": "_kernel_module_purge_owned_providers"
+  },
+  "20a0f40": {
+    "symbol": "recovered_20a0f40",
+    "original": "_kernel_module_remove_services"
+  },
+  "20a1100": {
+    "symbol": "recovered_20a1100",
+    "original": "_wm_kernel_expand_disk_ex"
+  },
+  "20a29b0": {
+    "symbol": "recovered_20a29b0",
+    "original": "_kernel_pfs_expand_request_signature"
+  },
+  "20a3100": {
+    "symbol": "recovered_20a3100",
+    "original": "_kernel_pfs_expand_u64"
+  },
+  "20a3110": {
+    "symbol": "recovered_20a3110",
+    "original": "_storage_find_whole_disk_device"
+  },
+  "20a3160": {
+    "symbol": "recovered_20a3160",
+    "original": "_storage_device_is_whole_disk"
+  },
+  "20a3190": {
+    "symbol": "recovered_20a3190",
+    "original": "_kernel_pfs_expand_workspace_allocate"
+  },
+  "20a3460": {
+    "symbol": "recovered_20a3460",
+    "original": "_kernel_pfs_expand_disk_for_drive"
+  },
+  "20a3800": {
+    "symbol": "recovered_20a3800",
+    "original": "_kernel_time_current_epoch_seconds"
+  },
+  "20a3890": {
+    "symbol": "recovered_20a3890",
+    "original": "_storage_fill_random_guid"
+  },
+  "20a3930": {
+    "symbol": "recovered_20a3930",
+    "original": "_storage_epoly_overlaps"
+  },
+  "20a3a00": {
+    "symbol": "recovered_20a3a00",
+    "original": "_kernel_pfs_expand_mode_erases_credentials"
+  },
+  "20a3a20": {
+    "symbol": "recovered_20a3a20",
+    "original": "_kernel_pfs_expand_mode_requires_user_password"
+  },
+  "20a3a40": {
+    "symbol": "recovered_20a3a40",
+    "original": "_kernel_pfs_expand_plan_token"
+  },
+  "20a6de0": {
+    "symbol": "recovered_20a6de0",
+    "original": "_fs_polynyafs_recovery_path"
+  },
+  "20a6ea0": {
+    "symbol": "recovered_20a6ea0",
+    "original": "_fs_polynyafs_allocate_crypto_storage"
+  },
+  "20a71e0": {
+    "symbol": "recovered_20a71e0",
+    "original": "_fs_polynyafs_prepare_volume_identity"
+  },
+  "20a74d0": {
+    "symbol": "recovered_20a74d0",
+    "original": "_kernel_pfs_expand_prepare_crypto"
+  },
+  "20a7a90": {
+    "symbol": "recovered_20a7a90",
+    "original": "_kernel_entropy_provider_state"
+  },
+  "20a7b10": {
+    "symbol": "recovered_20a7b10",
+    "original": "_kernel_pfs_expand_save_recovery_bundle"
+  },
+  "20a7f50": {
+    "symbol": "recovered_20a7f50",
+    "original": "_fs_polynyafs_clear_pending_preparation"
+  },
+  "20a8090": {
+    "symbol": "recovered_20a8090",
+    "original": "_kernel_pfs_expand_reload_mounted_volume"
+  },
+  "20a8140": {
+    "symbol": "recovered_20a8140",
+    "original": "_kernel_pfs_expand_workspace_release"
+  },
+  "20a8230": {
+    "symbol": "recovered_20a8230",
+    "original": "_wm_kernel_expand_disk"
+  },
+  "20a8300": {
+    "symbol": "recovered_20a8300",
+    "original": "_console_log"
+  },
+  "20a83d0": {
+    "symbol": "recovered_20a83d0",
+    "original": "_wm_kernel_program_time_sync_network"
+  },
+  "20a8950": {
+    "symbol": "recovered_20a8950",
+    "original": "_winter_network_extract_host"
+  },
+  "20a8a00": {
+    "symbol": "recovered_20a8a00",
+    "original": "_winter_network_ensure_configured"
+  },
+  "20a8e40": {
+    "symbol": "recovered_20a8e40",
+    "original": "_winter_network_parse_ipv4_literal"
+  },
+  "20a8fe0": {
+    "symbol": "recovered_20a8fe0",
+    "original": "_winter_network_dns_lookup"
+  },
+  "20a9420": {
+    "symbol": "recovered_20a9420",
+    "original": "_wm_kernel_set_theme"
+  },
+  "20a9620": {
+    "symbol": "recovered_20a9620",
+    "original": "_display_set_theme"
+  },
+  "20a9680": {
+    "symbol": "recovered_20a9680",
+    "original": "_wm_kernel_enter_graphics_mode"
+  },
+  "20a9730": {
+    "symbol": "recovered_20a9730",
+    "original": "_kernel_enter_graphics_mode_internal"
+  },
+  "20a9b40": {
+    "symbol": "recovered_20a9b40",
+    "original": "_wm_kernel_program_framebuffer_info"
+  },
+  "20a9c10": {
+    "symbol": "recovered_20a9c10",
+    "original": "_graphics_framebuffer_ready"
+  },
+  "20a9c90": {
+    "symbol": "recovered_20a9c90",
+    "original": "_kernel_program_framebuffer_info_internal"
+  },
+  "20a9d80": {
+    "symbol": "recovered_20a9d80",
+    "original": "_wm_kernel_program_present_framebuffer"
+  },
+  "20a9f10": {
+    "symbol": "recovered_20a9f10",
+    "original": "_driver_framebuffer_present"
+  },
+  "20aa190": {
+    "symbol": "recovered_20aa190",
+    "original": "_wm_kernel_program_pointer_state_ex"
+  },
+  "20aa370": {
+    "symbol": "recovered_20aa370",
+    "original": "_kernel_driver_pointer_state"
+  },
+  "20aa630": {
+    "symbol": "recovered_20aa630",
+    "original": "_scheduler_preempt_checkpoint"
+  },
+  "20aa690": {
+    "symbol": "recovered_20aa690",
+    "original": "_wm_kernel_program_pointer_state"
+  },
+  "20aa700": {
+    "symbol": "recovered_20aa700",
+    "original": "_wm_kernel_enter_text_mode"
+  },
+  "20aaa20": {
+    "symbol": "recovered_20aaa20",
+    "original": "_graphics_framebuffer_bpp_supported"
+  },
+  "20aaa40": {
+    "symbol": "recovered_20aaa40",
+    "original": "_textmode_sync_font"
+  },
+  "20aac60": {
+    "symbol": "recovered_20aac60",
+    "original": "_render_ui_host_contents_unlocked"
+  },
+  "20ab4f0": {
+    "symbol": "recovered_20ab4f0",
+    "original": "_wm_kernel_set_night_mode"
+  },
+  "20ab520": {
+    "symbol": "recovered_20ab520",
+    "original": "_wm_kernel_program_execute_command_line"
+  },
+  "20ab9f0": {
+    "symbol": "recovered_20ab9f0",
+    "original": "_wm_winterboot_main"
+  },
+  "20b17e0": {
+    "symbol": "recovered_20b17e0",
+    "original": "_scheduler_smp_worker"
+  },
+  "20b1980": {
+    "symbol": "recovered_20b1980",
+    "original": "_storage_mount_polynya_system_volume"
+  },
+  "20b1d80": {
+    "symbol": "recovered_20b1d80",
+    "original": "_fs_load_from_disk"
+  },
+  "20b1f40": {
+    "symbol": "recovered_20b1f40",
+    "original": "_storage_capture_boot_signature"
+  },
+  "20b21b0": {
+    "symbol": "recovered_20b21b0",
+    "original": "_boot_progress_from_platform"
+  },
+  "20b21e0": {
+    "symbol": "recovered_20b21e0",
+    "original": "_driver_load_bootstrap_storage_kexts"
+  },
+  "20b24a0": {
+    "symbol": "recovered_20b24a0",
+    "original": "_boot_progress"
+  },
+  "20b2590": {
+    "symbol": "recovered_20b2590",
+    "original": "_storage_activate_native_boot_transport"
+  },
+  "20b27d0": {
+    "symbol": "recovered_20b27d0",
+    "original": "_storage_log_native_usb_boot_failure"
+  },
+  "20b2f20": {
+    "symbol": "recovered_20b2f20",
+    "original": "_storage_target_identity_from_device"
+  },
+  "20b30a0": {
+    "symbol": "recovered_20b30a0",
+    "original": "_storage_mount_drivers_partition"
+  },
+  "20b3200": {
+    "symbol": "recovered_20b3200",
+    "original": "_scheduler_admit_real_preemption"
+  },
+  "20b34e0": {
+    "symbol": "recovered_20b34e0",
+    "original": "_scheduler_admit_cooperative_fallback"
+  },
+  "20b3640": {
+    "symbol": "recovered_20b3640",
+    "original": "_storage_current_target_is_fat_user_device"
+  },
+  "20b3760": {
+    "symbol": "recovered_20b3760",
+    "original": "_read_line"
+  },
+  "20b3790": {
+    "symbol": "recovered_20b3790",
+    "original": "_trim_in_place"
+  },
+  "20b3820": {
+    "symbol": "recovered_20b3820",
+    "original": "_command_line_is_system_report_command"
+  },
+  "20b3a00": {
+    "symbol": "recovered_20b3a00",
+    "original": "_system_report_console_log"
+  },
+  "20b3c90": {
+    "symbol": "recovered_20b3c90",
+    "original": "_path_ends_with_ignore_case"
+  },
+  "20b3d30": {
+    "symbol": "recovered_20b3d30",
+    "original": "_command_line_is_host_app_command"
+  },
+  "20b41d0": {
+    "symbol": "recovered_20b41d0",
+    "original": "_kernel_module_route_line_for_prompt"
+  },
+  "20b4330": {
+    "symbol": "recovered_20b4330",
+    "original": "_try_run_macho_command_line"
+  },
+  "20b4360": {
+    "symbol": "recovered_20b4360",
+    "original": "_surface_fill_rect"
+  },
+  "20b4440": {
+    "symbol": "recovered_20b4440",
+    "original": "_present_surface"
+  },
+  "20b50a0": {
+    "symbol": "recovered_20b50a0",
+    "original": "_textmode_prepare_grids"
+  },
+  "20b5160": {
+    "symbol": "recovered_20b5160",
+    "original": "_textmode_present_grid"
+  },
+  "20b5350": {
+    "symbol": "recovered_20b5350",
+    "original": "_surface_fill_words"
+  },
+  "20b5460": {
+    "symbol": "recovered_20b5460",
+    "original": "_draw_text_n"
+  },
+  "20b5750": {
+    "symbol": "recovered_20b5750",
+    "original": "_graphics_framebuffer_bytes_per_pixel"
+  },
+  "20b5770": {
+    "symbol": "recovered_20b5770",
+    "original": "_graphics_can_present_xrgb8888_direct"
+  },
+  "20b57e0": {
+    "symbol": "recovered_20b57e0",
+    "original": "_present_surface_xrgb8888_direct"
+  },
+  "20b5860": {
+    "symbol": "recovered_20b5860",
+    "original": "_write_truecolour_pixel"
+  },
+  "20b58a0": {
+    "symbol": "recovered_20b58a0",
+    "original": "_runtime_convert_rgba_to_xrgb8888"
+  },
+  "20b5bf0": {
+    "symbol": "recovered_20b5bf0",
+    "original": "_pack_truecolour"
+  },
+  "20b5f40": {
+    "symbol": "recovered_20b5f40",
+    "original": "_textmode_cache_resize"
+  },
+  "20b6020": {
+    "symbol": "recovered_20b6020",
+    "original": "_native_terminal_write_channel"
+  },
+  "20b6170": {
+    "symbol": "recovered_20b6170",
+    "original": "_app_console_newline"
+  },
+  "20b6230": {
+    "symbol": "recovered_20b6230",
+    "original": "_storage_provider_transaction_cancel"
+  },
+  "20b6340": {
+    "symbol": "recovered_20b6340",
+    "original": "_storage_provider_transaction_commit"
+  },
+  "20b64d0": {
+    "symbol": "recovered_20b64d0",
+    "original": "_storage_provider_transaction_prepare_mode"
+  },
+  "20b6a40": {
+    "symbol": "recovered_20b6a40",
+    "original": "_kernel_module_record"
+  },
+  "20b6ab0": {
+    "symbol": "recovered_20b6ab0",
+    "original": "_kernel_module_subsystem_acquire_mode"
+  },
+  "20b6c20": {
+    "symbol": "recovered_20b6c20",
+    "original": "_storage_provider_transaction_release_reservations"
+  },
+  "20b6d20": {
+    "symbol": "recovered_20b6d20",
+    "original": "_kernel_heap_realloc"
+  },
+  "20b6d80": {
+    "symbol": "recovered_20b6d80",
+    "original": "_kernel_module_subsystem_release"
+  },
+  "20b6e30": {
+    "symbol": "recovered_20b6e30",
+    "original": "_fs_polynyafs_unmount"
+  },
+  "20b7110": {
+    "symbol": "recovered_20b7110",
+    "original": "_storage_filesystem_cache_invalidate"
+  },
+  "20b7230": {
+    "symbol": "recovered_20b7230",
+    "original": "_fs_release_state"
+  },
+  "20b7410": {
+    "symbol": "recovered_20b7410",
+    "original": "_storage_provider_transaction_end"
+  },
+  "20b7500": {
+    "symbol": "recovered_20b7500",
+    "original": "_storage_provider_transaction_finish_context"
+  },
+  "20b75d0": {
+    "symbol": "recovered_20b75d0",
+    "original": "_fs_find_file"
+  },
+  "20b78b0": {
+    "symbol": "recovered_20b78b0",
+    "original": "_fs_copy_file_data_for_program"
+  },
+  "20b7a20": {
+    "symbol": "recovered_20b7a20",
+    "original": "_fs_ensure_file_data_loaded"
+  },
+  "20b7d30": {
+    "symbol": "recovered_20b7d30",
+    "original": "_kernel_heap_malloc_range"
+  },
+  "20b7da0": {
+    "symbol": "recovered_20b7da0",
+    "original": "_fs_path_existing_kind"
+  },
+  "20b7f10": {
+    "symbol": "recovered_20b7f10",
+    "original": "_program_hardware_virtual_decode_path"
+  },
+  "20b81c0": {
+    "symbol": "recovered_20b81c0",
+    "original": "_program_hardware_virtual_tree_directory_exists"
+  },
+  "20b8310": {
+    "symbol": "recovered_20b8310",
+    "original": "_fs_find_file_normalised"
+  },
+  "20b8420": {
+    "symbol": "recovered_20b8420",
+    "original": "_driver_device_tree_find"
+  },
+  "20b87d0": {
+    "symbol": "recovered_20b87d0",
+    "original": "_driver_device_tree_path_is_descendant"
+  },
+  "20b8860": {
+    "symbol": "recovered_20b8860",
+    "original": "_fs_polynyafs_normalise_presentation"
+  },
+  "20b8cd0": {
+    "symbol": "recovered_20b8cd0",
+    "original": "_wm_storage_path_normalise"
+  },
+  "20b8ee0": {
+    "symbol": "recovered_20b8ee0",
+    "original": "_fs_polynyafs_decode_presentation_path"
+  },
+  "20b9120": {
+    "symbol": "recovered_20b9120",
+    "original": "_fs_polynyafs_runtime_resolve"
+  },
+  "20b91b0": {
+    "symbol": "recovered_20b91b0",
+    "original": "_fs_polynyafs_grow_operation_workspace"
+  },
+  "20b93b0": {
+    "symbol": "recovered_20b93b0",
+    "original": "_fs_read_polynyafs_file_data"
+  },
+  "20b9560": {
+    "symbol": "recovered_20b9560",
+    "original": "_fs_polynyafs_operation_error"
+  },
+  "20b9600": {
+    "symbol": "recovered_20b9600",
+    "original": "_fs_polynyafs_runtime_read"
+  },
+  "20b9690": {
+    "symbol": "recovered_20b9690",
+    "original": "_program_heap_malloc_bounded"
+  },
+  "20b9780": {
+    "symbol": "recovered_20b9780",
+    "original": "_scheduler_current_process_owner_id"
+  },
+  "20b97d0": {
+    "symbol": "recovered_20b97d0",
+    "original": "_kernel_picofrost_file_read_bytes"
+  },
+  "20b99c0": {
+    "symbol": "recovered_20b99c0",
+    "original": "_fs_load_fat_file_data"
+  },
+  "20b9c50": {
+    "symbol": "recovered_20b9c50",
+    "original": "_fs_load_exfat_file_data"
+  },
+  "20b9eb0": {
+    "symbol": "recovered_20b9eb0",
+    "original": "_fs_load_polynyafs_file_data"
+  },
+  "20b9f10": {
+    "symbol": "recovered_20b9f10",
+    "original": "_pf_file_request"
+  },
+  "20ba060": {
+    "symbol": "recovered_20ba060",
+    "original": "_kernel_pf_file_exchange"
+  },
+  "20ba0a0": {
+    "symbol": "recovered_20ba0a0",
+    "original": "_kernel_picofrost_exchange_on_device"
+  },
+  "20ba0e0": {
+    "symbol": "recovered_20ba0e0",
+    "original": "_kernel_picofrost_exchange_for_device"
+  },
+  "20ba730": {
+    "symbol": "recovered_20ba730",
+    "original": "_kernel_picofrost_reverse"
+  },
+  "20ba770": {
+    "symbol": "recovered_20ba770",
+    "original": "_pf_crc32"
+  },
+  "20ba840": {
+    "symbol": "recovered_20ba840",
+    "original": "_kernel_picofrost_control_wait"
+  },
+  "20ba860": {
+    "symbol": "recovered_20ba860",
+    "original": "_kernel_picofrost_reverse_with_status"
+  },
+  "20bb4e0": {
+    "symbol": "recovered_20bb4e0",
+    "original": "_kernel_picofrost_input_poll"
+  },
+  "20bb910": {
+    "symbol": "recovered_20bb910",
+    "original": "_filesystem_transaction_try_begin"
+  },
+  "20bbae0": {
+    "symbol": "recovered_20bbae0",
+    "original": "_storage_companion_address"
+  },
+  "20bbb50": {
+    "symbol": "recovered_20bbb50",
+    "original": "_pf_file_serve"
+  },
+  "20bbec0": {
+    "symbol": "recovered_20bbec0",
+    "original": "_kernel_pf_file_action"
+  },
+  "20bc7d0": {
+    "symbol": "recovered_20bc7d0",
+    "original": "_storage_mount_device_by_id"
+  },
+  "20bc970": {
+    "symbol": "recovered_20bc970",
+    "original": "_fs_read_file_range"
+  },
+  "20bcb90": {
+    "symbol": "recovered_20bcb90",
+    "original": "_fs_copy_file_range_from_loaded"
+  },
+  "20bcc40": {
+    "symbol": "recovered_20bcc40",
+    "original": "_fs_read_fat_file_range"
+  },
+  "20bd100": {
+    "symbol": "recovered_20bd100",
+    "original": "_fs_read_polynyafs_file_range"
+  },
+  "20bd2b0": {
+    "symbol": "recovered_20bd2b0",
+    "original": "_fs_ensure_fat_incremental_ready"
+  },
+  "20bd4a0": {
+    "symbol": "recovered_20bd4a0",
+    "original": "_fat_entry_get"
+  },
+  "20bd520": {
+    "symbol": "recovered_20bd520",
+    "original": "_fs_fat_incremental_ready"
+  },
+  "20bd5b0": {
+    "symbol": "recovered_20bd5b0",
+    "original": "_read_le32"
+  },
+  "20bd5c0": {
+    "symbol": "recovered_20bd5c0",
+    "original": "_storage_detect_volume_filesystem"
+  },
+  "20bd9b0": {
+    "symbol": "recovered_20bd9b0",
+    "original": "_wmfs32_superblock_geometry_is_valid"
+  },
+  "20bdb80": {
+    "symbol": "recovered_20bdb80",
+    "original": "_wmfs64_superblock_from_bytes"
+  },
+  "20bdc20": {
+    "symbol": "recovered_20bdc20",
+    "original": "_fat_detect_type_from_boot_sector"
+  },
+  "20bdf50": {
+    "symbol": "recovered_20bdf50",
+    "original": "_exfat_detect_boot_sector"
+  },
+  "20be120": {
+    "symbol": "recovered_20be120",
+    "original": "_read_le64"
+  },
+  "20be130": {
+    "symbol": "recovered_20be130",
+    "original": "_kernel_pf_hardware_string"
+  },
+  "20be1c0": {
+    "symbol": "recovered_20be1c0",
+    "original": "_cpu_info_available"
+  },
+  "20be1f0": {
+    "symbol": "recovered_20be1f0",
+    "original": "_cpu_brand_string"
+  },
+  "20be450": {
+    "symbol": "recovered_20be450",
+    "original": "_runtime_worker_kitty_counts"
+  },
+  "20be4c0": {
+    "symbol": "recovered_20be4c0",
+    "original": "_kernel_pf_hardware_integer"
+  },
+  "20be520": {
+    "symbol": "recovered_20be520",
+    "original": "_format_compact_bytes"
+  },
+  "20be5e0": {
+    "symbol": "recovered_20be5e0",
+    "original": "_runtime_total_detected_ram_bytes"
+  },
+  "20be660": {
+    "symbol": "recovered_20be660",
+    "original": "_cpu_query_cache_info"
+  },
+  "20be7d0": {
+    "symbol": "recovered_20be7d0",
+    "original": "_kernel_pf_hardware_field"
+  },
+  "20be890": {
+    "symbol": "recovered_20be890",
+    "original": "_kernel_pf_hardware_number"
+  },
+  "20be8e0": {
+    "symbol": "recovered_20be8e0",
+    "original": "_cpu_query_deterministic_cache_leaf"
+  },
+  "20beb00": {
+    "symbol": "recovered_20beb00",
+    "original": "_kernel_picofrost_input_character"
+  },
+  "20bebf0": {
+    "symbol": "recovered_20bebf0",
+    "original": "_wmfs_load_file_from_drive"
+  },
+  "20bedc0": {
+    "symbol": "recovered_20bedc0",
+    "original": "_fat_load_file_data"
+  },
+  "20bf050": {
+    "symbol": "recovered_20bf050",
+    "original": "_exfat_load_cluster_chain_bytes"
+  },
+  "20bf250": {
+    "symbol": "recovered_20bf250",
+    "original": "_starts_with"
+  },
+  "20bf2b0": {
+    "symbol": "recovered_20bf2b0",
+    "original": "_storage_flush_drive_unlocked"
+  },
+  "20bf6e0": {
+    "symbol": "recovered_20bf6e0",
+    "original": "_storage_find_luks_map_by_drive"
+  },
+  "20bf7c0": {
+    "symbol": "recovered_20bf7c0",
+    "original": "_storage_find_kext_provider_by_drive"
+  },
+  "20bf8d0": {
+    "symbol": "recovered_20bf8d0",
+    "original": "_storage_invoke_kext_provider_flush"
+  },
+  "20bf940": {
+    "symbol": "recovered_20bf940",
+    "original": "_storage_drive_is_ramdisk"
+  },
+  "20bf960": {
+    "symbol": "recovered_20bf960",
+    "original": "_storage_find_mapped_kext_provider_by_firmware_drive"
+  },
+  "20bfc10": {
+    "symbol": "recovered_20bfc10",
+    "original": "_fs_materialize_all_file_data"
+  },
+  "20bfc80": {
+    "symbol": "recovered_20bfc80",
+    "original": "_wmfs64_recommended_sectors_per_cluster"
+  },
+  "20bfd30": {
+    "symbol": "recovered_20bfd30",
+    "original": "_wmfs64_write_contiguous_cluster_range"
+  },
+  "20bfe70": {
+    "symbol": "recovered_20bfe70",
+    "original": "_fat_build_tree"
+  },
+  "20c0190": {
+    "symbol": "recovered_20c0190",
+    "original": "_exfat_directory_entry_count_for_node"
+  },
+  "20c0280": {
+    "symbol": "recovered_20c0280",
+    "original": "_exfat_write_directory_contents"
+  },
+  "20c06e0": {
+    "symbol": "recovered_20c06e0",
+    "original": "_storage_next_random"
+  },
+  "20c0730": {
+    "symbol": "recovered_20c0730",
+    "original": "_fat_tree_add_node"
+  },
+  "20c0940": {
+    "symbol": "recovered_20c0940",
+    "original": "_kernel_entropy_read"
+  },
+  "20c0a60": {
+    "symbol": "recovered_20c0a60",
+    "original": "_fat_assign_short_names"
+  },
+  "20c0fc0": {
+    "symbol": "recovered_20c0fc0",
+    "original": "_fat_directory_entry_count_checked"
+  },
+  "20c10b0": {
+    "symbol": "recovered_20c10b0",
+    "original": "_fat_entry_set"
+  },
+  "20c1150": {
+    "symbol": "recovered_20c1150",
+    "original": "_fat_fill_directory_short_name"
+  },
+  "20c11a0": {
+    "symbol": "recovered_20c11a0",
+    "original": "_fat_write_directory_item"
+  },
+  "20c1580": {
+    "symbol": "recovered_20c1580",
+    "original": "_fat_short_name_to_path"
+  },
+  "20c1700": {
+    "symbol": "recovered_20c1700",
+    "original": "_ascii_upper"
+  },
+  "20c1730": {
+    "symbol": "recovered_20c1730",
+    "original": "_fat_is_valid_short_char"
+  },
+  "20c1770": {
+    "symbol": "recovered_20c1770",
+    "original": "_ascii_lower"
+  },
+  "20c17a0": {
+    "symbol": "recovered_20c17a0",
+    "original": "_scheduler_ready_set_remove_locked"
+  },
+  "20c1a40": {
+    "symbol": "recovered_20c1a40",
+    "original": "_kernel_picofrost_file_mutate"
+  },
+  "20c2120": {
+    "symbol": "recovered_20c2120",
+    "original": "_fs_reserve_file_capacity"
+  },
+  "20c2220": {
+    "symbol": "recovered_20c2220",
+    "original": "_fs_insert_file_index"
+  },
+  "20c2380": {
+    "symbol": "recovered_20c2380",
+    "original": "_fat_free_cluster_count"
+  },
+  "20c2500": {
+    "symbol": "recovered_20c2500",
+    "original": "_fs_rebuild_file_index"
+  },
+  "20c26b0": {
+    "symbol": "recovered_20c26b0",
+    "original": "_fat_allocate_chain"
+  },
+  "20c2900": {
+    "symbol": "recovered_20c2900",
+    "original": "_fat_write_chain_bytes"
+  },
+  "20c2c00": {
+    "symbol": "recovered_20c2c00",
+    "original": "_fat_free_chain"
+  },
+  "20c2db0": {
+    "symbol": "recovered_20c2db0",
+    "original": "_fs_flush_fat_incremental_metadata"
+  },
+  "20c39d0": {
+    "symbol": "recovered_20c39d0",
+    "original": "_fat_sync_table_to_disk"
+  },
+  "20c3ce0": {
+    "symbol": "recovered_20c3ce0",
+    "original": "_wmfs64_write_file_entry"
+  },
+  "20c3dd0": {
+    "symbol": "recovered_20c3dd0",
+    "original": "_fs_load_device"
+  },
+  "20c45b0": {
+    "symbol": "recovered_20c45b0",
+    "original": "_fs_load_polynyafs_volume"
+  },
+  "20c6250": {
+    "symbol": "recovered_20c6250",
+    "original": "_fs_load_fat_volume"
+  },
+  "20c68d0": {
+    "symbol": "recovered_20c68d0",
+    "original": "_kernel_picofrost_catalogue_directory"
+  },
+  "20c6c80": {
+    "symbol": "recovered_20c6c80",
+    "original": "_fs_load_wmfs64_volume"
+  },
+  "20c7280": {
+    "symbol": "recovered_20c7280",
+    "original": "_fs_load_wmfs32_volume"
+  },
+  "20c78b0": {
+    "symbol": "recovered_20c78b0",
+    "original": "_wmfs_count_file_clusters_from_fat"
+  },
+  "20c79b0": {
+    "symbol": "recovered_20c79b0",
+    "original": "_fs_append_loaded_entry"
+  },
+  "20c7ca0": {
+    "symbol": "recovered_20c7ca0",
+    "original": "_exfat_load_directory_from_buffer"
+  },
+  "20c80b0": {
+    "symbol": "recovered_20c80b0",
+    "original": "_fs_polynyafs_reserve_member_capacity"
+  },
+  "20c8890": {
+    "symbol": "recovered_20c8890",
+    "original": "_fs_polynyafs_report_member_gaps"
+  },
+  "20c8a10": {
+    "symbol": "recovered_20c8a10",
+    "original": "_fs_polynyafs_recover_unclean_plain"
+  },
+  "20c8c20": {
+    "symbol": "recovered_20c8c20",
+    "original": "_fs_rebuild_polynyafs_catalogue"
+  },
+  "20c9340": {
+    "symbol": "recovered_20c9340",
+    "original": "_fs_polynyafs_add_candidate"
+  },
+  "20c94d0": {
+    "symbol": "recovered_20c94d0",
+    "original": "_fs_polynyafs_cache_automatic_credential"
+  },
+  "20c9620": {
+    "symbol": "recovered_20c9620",
+    "original": "_fs_polynyafs_find_credential"
+  },
+  "20c96b0": {
+    "symbol": "recovered_20c96b0",
+    "original": "_storage_boot_fallback_load_type"
+  },
+  "20c9710": {
+    "symbol": "recovered_20c9710",
+    "original": "_fs_polynyafs_device_is_active_candidate"
+  },
+  "20c9780": {
+    "symbol": "recovered_20c9780",
+    "original": "_fs_polynyafs_io_read"
+  },
+  "20c9d30": {
+    "symbol": "recovered_20c9d30",
+    "original": "_fs_polynyafs_io_write"
+  },
+  "20c9ec0": {
+    "symbol": "recovered_20c9ec0",
+    "original": "_fs_polynyafs_io_flush"
+  },
+  "20c9f30": {
+    "symbol": "recovered_20c9f30",
+    "original": "_fs_polynyafs_read_cache_store"
+  },
+  "20ca310": {
+    "symbol": "recovered_20ca310",
+    "original": "_write_drive_bytes_internal"
+  },
+  "20cada0": {
+    "symbol": "recovered_20cada0",
+    "original": "_luks2_xts_crypt_sectors"
+  },
+  "20cb870": {
+    "symbol": "recovered_20cb870",
+    "original": "_luks2_aes_key_expand"
+  },
+  "20cb9c0": {
+    "symbol": "recovered_20cb9c0",
+    "original": "_luks2_aes_encrypt_block"
+  },
+  "20cc050": {
+    "symbol": "recovered_20cc050",
+    "original": "_storage_write_kext_provider_bytes_internal"
+  },
+  "20cc1f0": {
+    "symbol": "recovered_20cc1f0",
+    "original": "_storage_invoke_kext_provider_write"
+  },
+  "20cc270": {
+    "symbol": "recovered_20cc270",
+    "original": "_storage_invoke_kext_provider_read"
+  },
+  "20cc2f0": {
+    "symbol": "recovered_20cc2f0",
+    "original": "_fs_polynyafs_catalogue_enumerate"
+  },
+  "20cc3f0": {
+    "symbol": "recovered_20cc3f0",
+    "original": "_fs_polynyafs_catalogue_transaction_commit"
+  },
+  "20cc510": {
+    "symbol": "recovered_20cc510",
+    "original": "_fs_polynyafs_catalogue_visitor"
+  },
+  "20cc700": {
+    "symbol": "recovered_20cc700",
+    "original": "_ext_load_directory_inode"
+  },
+  "20cca30": {
+    "symbol": "recovered_20cca30",
+    "original": "_ext_read_inode"
+  },
+  "20ccc30": {
+    "symbol": "recovered_20ccc30",
+    "original": "_ext_load_inode_data"
+  },
+  "20cceb0": {
+    "symbol": "recovered_20cceb0",
+    "original": "_ext_read_block"
+  },
+  "20ccf10": {
+    "symbol": "recovered_20ccf10",
+    "original": "_ext_load_extent_node"
+  },
+  "20cd130": {
+    "symbol": "recovered_20cd130",
+    "original": "_ext_copy_block_to_data"
+  },
+  "20cd220": {
+    "symbol": "recovered_20cd220",
+    "original": "_fat_load_cluster_chain_bytes"
+  },
+  "20cd590": {
+    "symbol": "recovered_20cd590",
+    "original": "_fat_load_directory_from_buffer"
+  },
+  "20cd850": {
+    "symbol": "recovered_20cd850",
+    "original": "_fat_prepend_lfn_fragment"
+  },
+  "20cdae0": {
+    "symbol": "recovered_20cdae0",
+    "original": "_fs_polynyafs_preflight_parent_directory"
+  },
+  "20cdbe0": {
+    "symbol": "recovered_20cdbe0",
+    "original": "_fs_polynyafs_preflight_allocation"
+  },
+  "20cdf10": {
+    "symbol": "recovered_20cdf10",
+    "original": "_fs_polynyafs_catalogue_replace_regular_file"
+  },
+  "20ce1a0": {
+    "symbol": "recovered_20ce1a0",
+    "original": "_fs_polynyafs_catalogue_insert_regular_file"
+  },
+  "20ce4d0": {
+    "symbol": "recovered_20ce4d0",
+    "original": "_fs_polynyafs_preflight_noop_visitor"
+  },
+  "20ce4f0": {
+    "symbol": "recovered_20ce4f0",
+    "original": "_fs_polynyafs_encode_raw_path"
+  },
+  "20ce6c0": {
+    "symbol": "recovered_20ce6c0",
+    "original": "_fs_polynyafs_catalogue_collect_regular_file_aliases"
+  },
+  "20ce900": {
+    "symbol": "recovered_20ce900",
+    "original": "_fs_polynyafs_catalogue_invalidate_regular_file_aliases"
+  },
+  "20ce9a0": {
+    "symbol": "recovered_20ce9a0",
+    "original": "_fs_ensure_file_index_capacity"
+  },
+  "20cece0": {
+    "symbol": "recovered_20cece0",
+    "original": "_fat_table_entry_set"
+  },
+  "20cee10": {
+    "symbol": "recovered_20cee10",
+    "original": "_fat_dirty_mark_sector"
+  },
+  "20ceee0": {
+    "symbol": "recovered_20ceee0",
+    "original": "_fat_chain_count"
+  },
+  "20cf080": {
+    "symbol": "recovered_20cf080",
+    "original": "_equals_ignore_case"
+  },
+  "20cf100": {
+    "symbol": "recovered_20cf100",
+    "original": "_wmfs64_resize_chain"
+  },
+  "20cf620": {
+    "symbol": "recovered_20cf620",
+    "original": "_wmfs64_write_chain_bytes"
+  },
+  "20cf790": {
+    "symbol": "recovered_20cf790",
+    "original": "_wmfs64_sync_single_directory_entry_and_metadata"
+  },
+  "20cf9c0": {
+    "symbol": "recovered_20cf9c0",
+    "original": "_wmfs64_sync_directory_and_metadata"
+  },
+  "20cfba0": {
+    "symbol": "recovered_20cfba0",
+    "original": "_wmfs64_free_chain"
+  },
+  "20cfc60": {
+    "symbol": "recovered_20cfc60",
+    "original": "_wmfs64_write_metadata"
+  },
+  "20cfe30": {
+    "symbol": "recovered_20cfe30",
+    "original": "_fat_delete_directory_entry_for_path"
+  },
+  "20d02e0": {
+    "symbol": "recovered_20d02e0",
+    "original": "_driver_device_tree_path_is_immediate_child"
+  },
+  "20d0390": {
+    "symbol": "recovered_20d0390",
+    "original": "_storage_find_device_by_target_identity"
+  },
+  "20d0630": {
+    "symbol": "recovered_20d0630",
+    "original": "_scheduler_capture_device_binding"
+  },
+  "20d07a0": {
+    "symbol": "recovered_20d07a0",
+    "original": "_wm_storage_target_identity_match_rank"
+  },
+  "20d0880": {
+    "symbol": "recovered_20d0880",
+    "original": "_fs_path_parents_allow_directory"
+  },
+  "20d0940": {
+    "symbol": "recovered_20d0940",
+    "original": "_storage_device_address"
+  },
+  "20d0d60": {
+    "symbol": "recovered_20d0d60",
+    "original": "_wm_device_path_format_with_separator"
+  },
+  "20d0f50": {
+    "symbol": "recovered_20d0f50",
+    "original": "_command_line_programme_launch_parts"
+  },
+  "20d10d0": {
+    "symbol": "recovered_20d10d0",
+    "original": "_console_log_count"
+  },
+  "20d1130": {
+    "symbol": "recovered_20d1130",
+    "original": "_try_run_macho_command_line_internal"
+  },
+  "20d1d50": {
+    "symbol": "recovered_20d1d50",
+    "original": "_command_output_append_log_range"
+  },
+  "20d1ef0": {
+    "symbol": "recovered_20d1ef0",
+    "original": "_char_is_space"
+  },
+  "20d1f10": {
+    "symbol": "recovered_20d1f10",
+    "original": "_resolve_command_app_alias_path"
+  },
+  "20d2030": {
+    "symbol": "recovered_20d2030",
+    "original": "_app_bundle_launch_flags"
+  },
+  "20d2d00": {
+    "symbol": "recovered_20d2d00",
+    "original": "_resolve_app_bundle_executable_path"
+  },
+  "20d3550": {
+    "symbol": "recovered_20d3550",
+    "original": "_scheduler_copy_selected_macho_file_slice"
+  },
+  "20d3c20": {
+    "symbol": "recovered_20d3c20",
+    "original": "_scheduler_command_completion_begin"
+  },
+  "20d3d80": {
+    "symbol": "recovered_20d3d80",
+    "original": "_scheduler_create_process_from_macho_with_completion"
+  },
+  "20d53a0": {
+    "symbol": "recovered_20d53a0",
+    "original": "_scheduler_command_completion_wait"
+  },
+  "20d5430": {
+    "symbol": "recovered_20d5430",
+    "original": "_scheduler_task_id_has_module_launch_flag"
+  },
+  "20d5510": {
+    "symbol": "recovered_20d5510",
+    "original": "_scheduler_source_path_is_tundra"
+  },
+  "20d5810": {
+    "symbol": "recovered_20d5810",
+    "original": "_command_path_is_binary_programme"
+  },
+  "20d5910": {
+    "symbol": "recovered_20d5910",
+    "original": "_scheduler_run_task_to_completion"
+  },
+  "20d5ae0": {
+    "symbol": "recovered_20d5ae0",
+    "original": "_scheduler_run_space_burst"
+  },
+  "20d6af0": {
+    "symbol": "recovered_20d6af0",
+    "original": "_scheduler_command_completion_cancel"
+  },
+  "20d6b60": {
+    "symbol": "recovered_20d6b60",
+    "original": "_app_bundle_read_file_current_or_boot"
+  },
+  "20d6d00": {
+    "symbol": "recovered_20d6d00",
+    "original": "_fs_resolve_existing_path_ignore_case"
+  },
+  "20d6ff0": {
+    "symbol": "recovered_20d6ff0",
+    "original": "_storage_copy_boot_fallback_file"
+  },
+  "20d7480": {
+    "symbol": "recovered_20d7480",
+    "original": "_bitmap_font_unload"
+  },
+  "20d7510": {
+    "symbol": "recovered_20d7510",
+    "original": "_wm_application_bundle_plist_boolean"
+  },
+  "20d78c0": {
+    "symbol": "recovered_20d78c0",
+    "original": "_app_bundle_try_executable_directory"
+  },
+  "20d7cb0": {
+    "symbol": "recovered_20d7cb0",
+    "original": "_macho_prepare_selected_image"
+  },
+  "20d8080": {
+    "symbol": "recovered_20d8080",
+    "original": "_read_be64"
+  },
+  "20d80a0": {
+    "symbol": "recovered_20d80a0",
+    "original": "_macho_decode_file"
+  },
+  "20d8540": {
+    "symbol": "recovered_20d8540",
+    "original": "_macho_select_expected_image"
+  },
+  "20d87c0": {
+    "symbol": "recovered_20d87c0",
+    "original": "_macho_select_image_by_cpu_order"
+  },
+  "20d8a80": {
+    "symbol": "recovered_20d8a80",
+    "original": "_scheduler_grow_records_locked"
+  },
+  "20d8ef0": {
+    "symbol": "recovered_20d8ef0",
+    "original": "_macho_calculate_image_mapping_size"
+  },
+  "20d90d0": {
+    "symbol": "recovered_20d90d0",
+    "original": "_scheduler_release_address_space"
+  },
+  "20d92f0": {
+    "symbol": "recovered_20d92f0",
+    "original": "_scheduler_default_priority_for_app"
+  },
+  "20d9470": {
+    "symbol": "recovered_20d9470",
+    "original": "_scheduler_save_address_space_from_memory"
+  },
+  "20d9650": {
+    "symbol": "recovered_20d9650",
+    "original": "_scheduler_save_dirty_resident_space"
+  },
+  "20d96c0": {
+    "symbol": "recovered_20d96c0",
+    "original": "_elf_load_executable_segments"
+  },
+  "20d99f0": {
+    "symbol": "recovered_20d99f0",
+    "original": "_macho_load_and_link_image"
+  },
+  "20d9fb0": {
+    "symbol": "recovered_20d9fb0",
+    "original": "_scheduler_restore_address_space_to_memory"
+  },
+  "20da340": {
+    "symbol": "recovered_20da340",
+    "original": "_native_terminal_inherit_channel"
+  },
+  "20da3d0": {
+    "symbol": "recovered_20da3d0",
+    "original": "_scheduler_fill_saved_guards"
+  },
+  "20da4d0": {
+    "symbol": "recovered_20da4d0",
+    "original": "_scheduler_write_staging_guard"
+  },
+  "20da560": {
+    "symbol": "recovered_20da560",
+    "original": "_scheduler_create_task_with_reserved_stack"
+  },
+  "20dad20": {
+    "symbol": "recovered_20dad20",
+    "original": "_scheduler_process_entry"
+  },
+  "20dad90": {
+    "symbol": "recovered_20dad90",
+    "original": "_macho_parse_image_commands"
+  },
+  "20dbba0": {
+    "symbol": "recovered_20dbba0",
+    "original": "_macho_image_mapping_span"
+  },
+  "20dbd10": {
+    "symbol": "recovered_20dbd10",
+    "original": "_macho_release_image_metadata"
+  },
+  "20dbd70": {
+    "symbol": "recovered_20dbd70",
+    "original": "_macho_read64_ordered"
+  },
+  "20dbd90": {
+    "symbol": "recovered_20dbd90",
+    "original": "_macho_parse_dylib_name_command"
+  },
+  "20dbdf0": {
+    "symbol": "recovered_20dbdf0",
+    "original": "_macho_entry_from_fileoff"
+  },
+  "20dbeb0": {
+    "symbol": "recovered_20dbeb0",
+    "original": "_scheduler_release_programme_arguments"
+  },
+  "20dbfa0": {
+    "symbol": "recovered_20dbfa0",
+    "original": "_scheduler_saved_guards_intact"
+  },
+  "20dc080": {
+    "symbol": "recovered_20dc080",
+    "original": "_scheduler_note_address_space_fault"
+  },
+  "20dc0f0": {
+    "symbol": "recovered_20dc0f0",
+    "original": "_contains_ignore_case"
+  },
+  "20dc190": {
+    "symbol": "recovered_20dc190",
+    "original": "_scheduler_finish_address_space"
+  },
+  "20dc620": {
+    "symbol": "recovered_20dc620",
+    "original": "_scheduler_request_task_termination_locked"
+  },
+  "20dc6d0": {
+    "symbol": "recovered_20dc6d0",
+    "original": "_scheduler_reap_zombie_tasks_locked"
+  },
+  "20dc7c0": {
+    "symbol": "recovered_20dc7c0",
+    "original": "_scheduler_request_address_space_termination_locked"
+  },
+  "20dc880": {
+    "symbol": "recovered_20dc880",
+    "original": "_scheduler_release_task"
+  },
+  "20dd4c0": {
+    "symbol": "recovered_20dd4c0",
+    "original": "_kernel_module_dispatch_context_revoke"
+  },
+  "20dd610": {
+    "symbol": "recovered_20dd610",
+    "original": "_kernel_module_provider_callback_context_revoke"
+  },
+  "20dd760": {
+    "symbol": "recovered_20dd760",
+    "original": "_scheduler_fini_context"
+  },
+  "20dd7e0": {
+    "symbol": "recovered_20dd7e0",
+    "original": "_kernel_module_worker_note_task_released"
+  },
+  "20dd8c0": {
+    "symbol": "recovered_20dd8c0",
+    "original": "_kernel_module_dispatch_capability_all"
+  },
+  "20dd9e0": {
+    "symbol": "recovered_20dd9e0",
+    "original": "_kernel_module_service_capacity"
+  },
+  "20dda40": {
+    "symbol": "recovered_20dda40",
+    "original": "_kernel_module_service_record"
+  },
+  "20ddab0": {
+    "symbol": "recovered_20ddab0",
+    "original": "_kernel_module_dispatch_service_call"
+  },
+  "20ddcd0": {
+    "symbol": "recovered_20ddcd0",
+    "original": "_kernel_module_dispatch_begin"
+  },
+  "20de000": {
+    "symbol": "recovered_20de000",
+    "original": "_kernel_module_publish_command_status"
+  },
+  "20de0a0": {
+    "symbol": "recovered_20de0a0",
+    "original": "_kernel_module_dispatch_end"
+  },
+  "20de290": {
+    "symbol": "recovered_20de290",
+    "original": "_kernel_module_dispatch_service_valid"
+  },
+  "20de540": {
+    "symbol": "recovered_20de540",
+    "original": "_macho_load_image_segments"
+  },
+  "20de8d0": {
+    "symbol": "recovered_20de8d0",
+    "original": "_macho_load_dependencies"
+  },
+  "20dea10": {
+    "symbol": "recovered_20dea10",
+    "original": "_macho_apply_fixups"
+  },
+  "20df380": {
+    "symbol": "recovered_20df380",
+    "original": "_macho_image_vmaddr_to_loaded"
+  },
+  "20df4b0": {
+    "symbol": "recovered_20df4b0",
+    "original": "_macho_collect_main_executable_ranges"
+  },
+  "20df6f0": {
+    "symbol": "recovered_20df6f0",
+    "original": "_macho_collect_application_dependency_ranges"
+  },
+  "20df8f0": {
+    "symbol": "recovered_20df8f0",
+    "original": "_macho_load_dylib_named"
+  },
+  "20e0160": {
+    "symbol": "recovered_20e0160",
+    "original": "_macho_name_ends_with_ignore_case"
+  },
+  "20e0200": {
+    "symbol": "recovered_20e0200",
+    "original": "_macho_find_loaded_dylib"
+  },
+  "20e0350": {
+    "symbol": "recovered_20e0350",
+    "original": "_macho_reserve_dylib_catalogue"
+  },
+  "20e03d0": {
+    "symbol": "recovered_20e03d0",
+    "original": "_macho_cpu_type_uses_fixed_kext_mapping"
+  },
+  "20e0440": {
+    "symbol": "recovered_20e0440",
+    "original": "_macho_allocate_fixed_kext_base"
+  },
+  "20e0520": {
+    "symbol": "recovered_20e0520",
+    "original": "_macho_dependency_name_is_kernel_component"
+  },
+  "20e0620": {
+    "symbol": "recovered_20e0620",
+    "original": "_macho_mark_kernel_component_dependency_closure"
+  },
+  "20e0950": {
+    "symbol": "recovered_20e0950",
+    "original": "_macho_apply_bind_stream"
+  },
+  "20e1600": {
+    "symbol": "recovered_20e1600",
+    "original": "_macho_read_uleb128"
+  },
+  "20e16d0": {
+    "symbol": "recovered_20e16d0",
+    "original": "_macho_apply_rebase_at"
+  },
+  "20e1870": {
+    "symbol": "recovered_20e1870",
+    "original": "_macho_resolve_symbol"
+  },
+  "20e1a00": {
+    "symbol": "recovered_20e1a00",
+    "original": "_macho_write_bound_value"
+  },
+  "20e1c40": {
+    "symbol": "recovered_20e1c40",
+    "original": "_macho_dyld_stub_binder_unavailable"
+  },
+  "20e1d40": {
+    "symbol": "recovered_20e1d40",
+    "original": "_macho_lookup_symbol_in_image"
+  },
+  "20e1f60": {
+    "symbol": "recovered_20e1f60",
+    "original": "_macho_walk_application_dependency_closure"
+  },
+  "20e2310": {
+    "symbol": "recovered_20e2310",
+    "original": "_macho_queue_application_dependencies"
+  },
+  "20e2560": {
+    "symbol": "recovered_20e2560",
+    "original": "_macho_loaded_image_is_kernel_component"
+  },
+  "20e2790": {
+    "symbol": "recovered_20e2790",
+    "original": "_driver_loaded_record"
+  },
+  "20e2800": {
+    "symbol": "recovered_20e2800",
+    "original": "_starts_with_ignore_case"
+  },
+  "20e2880": {
+    "symbol": "recovered_20e2880",
+    "original": "_scheduler_kernel_account_stop"
+  },
+  "20e2940": {
+    "symbol": "recovered_20e2940",
+    "original": "_scheduler_complete_dispatched_task"
+  },
+  "20e2c30": {
+    "symbol": "recovered_20e2c30",
+    "original": "_scheduler_resume_task_on_cpu"
+  },
+  "20e2fe0": {
+    "symbol": "recovered_20e2fe0",
+    "original": "_scheduler_task_bootstrap"
+  },
+  "20e30a0": {
+    "symbol": "recovered_20e30a0",
+    "original": "_scheduler_stack_top"
+  },
+  "20e30e0": {
+    "symbol": "recovered_20e30e0",
+    "original": "_scheduler_queue_macho_path_ex"
+  },
+  "20e3a40": {
+    "symbol": "recovered_20e3a40",
+    "original": "_runtime_total_unmapped_detected_ram_bytes"
+  },
+  "20e3ae0": {
+    "symbol": "recovered_20e3ae0",
+    "original": "_kernel_time_read_rtc_epoch_seconds"
+  },
+  "20e3d50": {
+    "symbol": "recovered_20e3d50",
+    "original": "_fs_polynyafs_query_space"
+  },
+  "20e40c0": {
+    "symbol": "recovered_20e40c0",
+    "original": "_storage_read_kext_provider_bytes"
+  },
+  "20e4260": {
+    "symbol": "recovered_20e4260",
+    "original": "_storage_read_physical_drive_bytes"
+  },
+  "20e45d0": {
+    "symbol": "recovered_20e45d0",
+    "original": "_storage_ranges_overlap"
+  },
+  "20e4620": {
+    "symbol": "recovered_20e4620",
+    "original": "_query_drive_capacity"
+  },
+  "20e4960": {
+    "symbol": "recovered_20e4960",
+    "original": "_storage_clear_mapped_kext_provider_by_firmware_drive"
+  },
+  "20e4b00": {
+    "symbol": "recovered_20e4b00",
+    "original": "_storage_add_scanned_drive"
+  },
+  "20e5570": {
+    "symbol": "recovered_20e5570",
+    "original": "_storage_add_device"
+  },
+  "20e5740": {
+    "symbol": "recovered_20e5740",
+    "original": "_storage_read_partition_table"
+  },
+  "20e6690": {
+    "symbol": "recovered_20e6690",
+    "original": "_storage_set_default_device_name"
+  },
+  "20e6ac0": {
+    "symbol": "recovered_20e6ac0",
+    "original": "_storage_copy_device_name_bytes"
+  },
+  "20e6b30": {
+    "symbol": "recovered_20e6b30",
+    "original": "_storage_capture_volume_guid"
+  },
+  "20e6f10": {
+    "symbol": "recovered_20e6f10",
+    "original": "_char_is_hex"
+  },
+  "20e6f50": {
+    "symbol": "recovered_20e6f50",
+    "original": "_hex_digit_value"
+  },
+  "20e6f80": {
+    "symbol": "recovered_20e6f80",
+    "original": "_char_is_digit"
+  },
+  "20e6fa0": {
+    "symbol": "recovered_20e6fa0",
+    "original": "_storage_parse_polyt_header"
+  },
+  "20e7040": {
+    "symbol": "recovered_20e7040",
+    "original": "_storage_read_gpt_partition_table"
+  },
+  "20e7390": {
+    "symbol": "recovered_20e7390",
+    "original": "_storage_parse_wbpt_header"
+  },
+  "20e7420": {
+    "symbol": "recovered_20e7420",
+    "original": "_storage_add_nested_wbpt_partitions"
+  },
+  "20e78f0": {
+    "symbol": "recovered_20e78f0",
+    "original": "_storage_copy_device_name"
+  },
+  "20e7950": {
+    "symbol": "recovered_20e7950",
+    "original": "_storage_parse_gpt_header"
+  },
+  "20e7b70": {
+    "symbol": "recovered_20e7b70",
+    "original": "_storage_copy_gpt_device_name"
+  },
+  "20e7c00": {
+    "symbol": "recovered_20e7c00",
+    "original": "_storage_epoly_hardware_id"
+  },
+  "20e7f20": {
+    "symbol": "recovered_20e7f20",
+    "original": "_storage_epoly_probe"
+  },
+  "20e88b0": {
+    "symbol": "recovered_20e88b0",
+    "original": "_storage_epoly_publish"
+  },
+  "20e8ac0": {
+    "symbol": "recovered_20e8ac0",
+    "original": "_storage_epoly_scan_tail"
+  },
+  "20e8c90": {
+    "symbol": "recovered_20e8c90",
+    "original": "_storage_epoly_pfs_read"
+  },
+  "20e8d00": {
+    "symbol": "recovered_20e8d00",
+    "original": "_storage_add_bootstrap_record"
+  },
+  "20e8ea0": {
+    "symbol": "recovered_20e8ea0",
+    "original": "_storage_build_address"
+  },
+  "20e9630": {
+    "symbol": "recovered_20e9630",
+    "original": "_storage_partition_table_name"
+  },
+  "20e9660": {
+    "symbol": "recovered_20e9660",
+    "original": "_storage_epoly_collect"
+  },
+  "20e9880": {
+    "symbol": "recovered_20e9880",
+    "original": "_storage_epoly_save"
+  },
+  "20e9bf0": {
+    "symbol": "recovered_20e9bf0",
+    "original": "_storage_epoly_append"
+  },
+  "20e9c60": {
+    "symbol": "recovered_20e9c60",
+    "original": "_storage_epoly_checksum"
+  },
+  "20e9d50": {
+    "symbol": "recovered_20e9d50",
+    "original": "_storage_partition_minimum_sectors"
+  },
+  "20ea240": {
+    "symbol": "recovered_20ea240",
+    "original": "_storage_cache_current_filesystem"
+  },
+  "20ea5c0": {
+    "symbol": "recovered_20ea5c0",
+    "original": "_wmfs_capacity_cluster_count_for_total_sectors"
+  },
+  "20ea780": {
+    "symbol": "recovered_20ea780",
+    "original": "_kernel_module_provider_service_valid"
+  },
+  "20ea970": {
+    "symbol": "recovered_20ea970",
+    "original": "_kernel_module_provider_callback_context"
+  },
+  "20eaaa0": {
+    "symbol": "recovered_20eaaa0",
+    "original": "_driver_device_tree_upsert"
+  },
+  "20eabf0": {
+    "symbol": "recovered_20eabf0",
+    "original": "_driver_format_device_tree_prompt"
+  },
+  "20eac70": {
+    "symbol": "recovered_20eac70",
+    "original": "_driver_device_reserve_locked"
+  },
+  "20eada0": {
+    "symbol": "recovered_20eada0",
+    "original": "_driver_device_tree_refresh_status"
+  },
+  "20eb9e0": {
+    "symbol": "recovered_20eb9e0",
+    "original": "_driver_build_firmware_tree_from"
+  },
+  "20ebb90": {
+    "symbol": "recovered_20ebb90",
+    "original": "_wm_kernel_kext_firmware_node_info"
+  },
+  "20ebee0": {
+    "symbol": "recovered_20ebee0",
+    "original": "_driver_read_pci_function"
+  },
+  "20ec220": {
+    "symbol": "recovered_20ec220",
+    "original": "_driver_path_to_device_tree_path"
+  },
+  "20ec5b0": {
+    "symbol": "recovered_20ec5b0",
+    "original": "_kernel_pfs_expand_allocate_zero"
+  },
+  "20ec600": {
+    "symbol": "recovered_20ec600",
+    "original": "_kernel_pfs_expand_read_sectors"
+  },
+  "20ec680": {
+    "symbol": "recovered_20ec680",
+    "original": "_kernel_pfs_expand_write_sectors"
+  },
+  "20ec710": {
+    "symbol": "recovered_20ec710",
+    "original": "_kernel_pfs_expand_flush"
+  },
+  "20ec730": {
+    "symbol": "recovered_20ec730",
+    "original": "_kernel_time_initialise"
+  },
+  "20ec840": {
+    "symbol": "recovered_20ec840",
+    "original": "_fs_polynyafs_crypto_allocate"
+  },
+  "20ec8e0": {
+    "symbol": "recovered_20ec8e0",
+    "original": "_fs_polynyafs_crypto_release"
+  },
+  "20ec9b0": {
+    "symbol": "recovered_20ec9b0",
+    "original": "_fs_polynyafs_crypto_random"
+  },
+  "20eca80": {
+    "symbol": "recovered_20eca80",
+    "original": "_fs_polynyafs_crypto_credentials"
+  },
+  "20ecd50": {
+    "symbol": "recovered_20ecd50",
+    "original": "_fs_reset_focused_directory"
+  },
+  "20ecd70": {
+    "symbol": "recovered_20ecd70",
+    "original": "_console_push_line_internal"
+  },
+  "20ecf40": {
+    "symbol": "recovered_20ecf40",
+    "original": "_winter_network_send_dhcp_message"
+  },
+  "20ed100": {
+    "symbol": "recovered_20ed100",
+    "original": "_winter_network_wait_dhcp_packet"
+  },
+  "20ed650": {
+    "symbol": "recovered_20ed650",
+    "original": "_winter_network_dhcp_format_timeout"
+  },
+  "20ed6f0": {
+    "symbol": "recovered_20ed6f0",
+    "original": "_winter_network_ipv4_text"
+  },
+  "20ed750": {
+    "symbol": "recovered_20ed750",
+    "original": "_winter_network_send_udp"
+  },
+  "20ed880": {
+    "symbol": "recovered_20ed880",
+    "original": "_winter_network_write_ipv4_header"
+  },
+  "20ed990": {
+    "symbol": "recovered_20ed990",
+    "original": "_winter_network_receive_frame"
+  },
+  "20eda80": {
+    "symbol": "recovered_20eda80",
+    "original": "_winter_network_resolve_mac"
+  },
+  "20edde0": {
+    "symbol": "recovered_20edde0",
+    "original": "_winter_network_parse_dns_response"
+  },
+  "20ee010": {
+    "symbol": "recovered_20ee010",
+    "original": "_display_fill_theme_surfaces"
+  },
+  "20ee0d0": {
+    "symbol": "recovered_20ee0d0",
+    "original": "_graphics_enter_wxga_mode"
+  },
+  "20ee0f0": {
+    "symbol": "recovered_20ee0f0",
+    "original": "_display_resize_surfaces"
+  },
+  "20ee230": {
+    "symbol": "recovered_20ee230",
+    "original": "_graphics_rebuild_canvas_mapping"
+  },
+  "20ee3d0": {
+    "symbol": "recovered_20ee3d0",
+    "original": "_graphics_fill_canvas_present"
+  },
+  "20ee760": {
+    "symbol": "recovered_20ee760",
+    "original": "_surface_allocate"
+  },
+  "20ee880": {
+    "symbol": "recovered_20ee880",
+    "original": "_current_prompt_text"
+  },
+  "20eea30": {
+    "symbol": "recovered_20eea30",
+    "original": "_build_visual_layout"
+  },
+  "20ef540": {
+    "symbol": "recovered_20ef540",
+    "original": "_visual_layout_append_wrapped_n"
+  },
+  "20ef690": {
+    "symbol": "recovered_20ef690",
+    "original": "_visual_layout_append_prompt"
+  },
+  "20ef900": {
+    "symbol": "recovered_20ef900",
+    "original": "_render_ui_if_not_autorun"
+  },
+  "20ef920": {
+    "symbol": "recovered_20ef920",
+    "original": "_wm_kernel_program_device_address"
+  },
+  "20ef990": {
+    "symbol": "recovered_20ef990",
+    "original": "_wm_kernel_kext_register_device_node"
+  },
+  "20efcc0": {
+    "symbol": "recovered_20efcc0",
+    "original": "_wm_kernel_kext_configure_runtime"
+  },
+  "20efd40": {
+    "symbol": "recovered_20efd40",
+    "original": "_wm_kernel_kext_configure_storage"
+  },
+  "20efdd0": {
+    "symbol": "recovered_20efdd0",
+    "original": "_wm_kernel_kext_configure_driver_graphics"
+  },
+  "20f0110": {
+    "symbol": "recovered_20f0110",
+    "original": "_wm_kernel_kext_register_pointer_provider"
+  },
+  "20f0390": {
+    "symbol": "recovered_20f0390",
+    "original": "_wm_kernel_kext_kernel_log"
+  },
+  "20f0460": {
+    "symbol": "recovered_20f0460",
+    "original": "_wm_kernel_kext_ticks"
+  },
+  "20f0480": {
+    "symbol": "recovered_20f0480",
+    "original": "_wm_kernel_kext_wait_microseconds"
+  },
+  "20f04a0": {
+    "symbol": "recovered_20f04a0",
+    "original": "_wm_kernel_kext_alloc"
+  },
+  "20f04c0": {
+    "symbol": "recovered_20f04c0",
+    "original": "_wm_kernel_kext_free"
+  },
+  "20f04e0": {
+    "symbol": "recovered_20f04e0",
+    "original": "_wm_kernel_kext_hardware_info"
+  },
+  "20f0630": {
+    "symbol": "recovered_20f0630",
+    "original": "_wm_kernel_kext_framebuffer_info"
+  },
+  "20f07a0": {
+    "symbol": "recovered_20f07a0",
+    "original": "_wm_kernel_kext_io_port_read"
+  },
+  "20f07d0": {
+    "symbol": "recovered_20f07d0",
+    "original": "_wm_kernel_kext_io_port_write"
+  },
+  "20f0800": {
+    "symbol": "recovered_20f0800",
+    "original": "_wm_kernel_kext_pci_config_read"
+  },
+  "20f0840": {
+    "symbol": "recovered_20f0840",
+    "original": "_wm_kernel_kext_pci_config_write"
+  },
+  "20f0880": {
+    "symbol": "recovered_20f0880",
+    "original": "_wm_kernel_kext_mmio_map"
+  },
+  "20f08b0": {
+    "symbol": "recovered_20f08b0",
+    "original": "_wm_kernel_kext_mmio_read"
+  },
+  "20f08e0": {
+    "symbol": "recovered_20f08e0",
+    "original": "_wm_kernel_kext_mmio_write"
+  },
+  "20f0910": {
+    "symbol": "recovered_20f0910",
+    "original": "_wm_kernel_kext_mmio_map_address"
+  },
+  "20f0940": {
+    "symbol": "recovered_20f0940",
+    "original": "_wm_kernel_kext_mmio_read_address"
+  },
+  "20f0970": {
+    "symbol": "recovered_20f0970",
+    "original": "_wm_kernel_kext_mmio_write_address"
+  },
+  "20f09a0": {
+    "symbol": "recovered_20f09a0",
+    "original": "_wm_kernel_kext_dma_address"
+  },
+  "20f09d0": {
+    "symbol": "recovered_20f09d0",
+    "original": "_wm_kernel_kext_dma_sync"
+  },
+  "20f09f0": {
+    "symbol": "recovered_20f09f0",
+    "original": "_wm_kernel_kext_hardware_barrier"
+  },
+  "20f0a10": {
+    "symbol": "recovered_20f0a10",
+    "original": "_wm_kernel_kext_cpuid"
+  },
+  "20f0a70": {
+    "symbol": "recovered_20f0a70",
+    "original": "_wm_kernel_kext_register_keyboard_provider"
+  },
+  "20f0cf0": {
+    "symbol": "recovered_20f0cf0",
+    "original": "_wm_kernel_kext_msr_read"
+  },
+  "20f0d30": {
+    "symbol": "recovered_20f0d30",
+    "original": "_wm_kernel_kext_msr_write"
+  },
+  "20f0d70": {
+    "symbol": "recovered_20f0d70",
+    "original": "_wm_kernel_kext_configure_framebuffer_cache"
+  },
+  "20f0db0": {
+    "symbol": "recovered_20f0db0",
+    "original": "_wm_kernel_kext_register_gpu_provider"
+  },
+  "20f1060": {
+    "symbol": "recovered_20f1060",
+    "original": "_wm_kernel_kext_register_network_provider"
+  },
+  "20f13d0": {
+    "symbol": "recovered_20f13d0",
+    "original": "_wm_kernel_kext_register_framebuffer_present"
+  },
+  "20f1670": {
+    "symbol": "recovered_20f1670",
+    "original": "_wm_kernel_kext_register_storage_provider"
+  },
+  "20f2560": {
+    "symbol": "recovered_20f2560",
+    "original": "_wm_kernel_kext_commit_driver_graphics"
+  },
+  "20f2a90": {
+    "symbol": "recovered_20f2a90",
+    "original": "_wm_kernel_kext_abort_driver_graphics"
+  },
+  "20f2b60": {
+    "symbol": "recovered_20f2b60",
+    "original": "_wm_kernel_kext_register_wlan_provider"
+  },
+  "20f2ed0": {
+    "symbol": "recovered_20f2ed0",
+    "original": "_wm_kernel_kext_register_audio_provider"
+  },
+  "20f3090": {
+    "symbol": "recovered_20f3090",
+    "original": "_wm_kernel_kext_register_entropy_provider"
+  },
+  "20f31f0": {
+    "symbol": "recovered_20f31f0",
+    "original": "_wm_kernel_kext_register_cpu_provider"
+  },
+  "20f3340": {
+    "symbol": "recovered_20f3340",
+    "original": "_wm_kernel_kext_register_platform_service"
+  },
+  "20f3510": {
+    "symbol": "recovered_20f3510",
+    "original": "_wm_kernel_kext_power_snapshot"
+  },
+  "20f35e0": {
+    "symbol": "recovered_20f35e0",
+    "original": "_wm_kernel_kext_bluetooth_snapshot"
+  },
+  "20f3710": {
+    "symbol": "recovered_20f3710",
+    "original": "_wm_kernel_kext_alloc_low32"
+  },
+  "20f3770": {
+    "symbol": "recovered_20f3770",
+    "original": "_driver_registered_device_tree_upsert"
+  },
+  "20f38c0": {
+    "symbol": "recovered_20f38c0",
+    "original": "_driver_registered_device_reserve_locked"
+  },
+  "20f39f0": {
+    "symbol": "recovered_20f39f0",
+    "original": "_driver_framebuffer_presenter_active"
+  },
+  "20f3a50": {
+    "symbol": "recovered_20f3a50",
+    "original": "_kernel_module_provider_ownership_capture"
+  },
+  "20f3b50": {
+    "symbol": "recovered_20f3b50",
+    "original": "_kernel_module_dispatch_current"
+  },
+  "20f3c30": {
+    "symbol": "recovered_20f3c30",
+    "original": "_storage_publish_kext_provider_replacement"
+  },
+  "20f3f80": {
+    "symbol": "recovered_20f3f80",
+    "original": "_storage_recompute_firmware_drive_mappings"
+  },
+  "20f4670": {
+    "symbol": "recovered_20f4670",
+    "original": "_storage_boot_signature_sample_matches"
+  },
+  "20f47c0": {
+    "symbol": "recovered_20f47c0",
+    "original": "_kernel_request_graphics_mode"
+  },
+  "20f4820": {
+    "symbol": "recovered_20f4820",
+    "original": "_platform_service_reserve_locked"
+  },
+  "20f48a0": {
+    "symbol": "recovered_20f48a0",
+    "original": "_bitmap_font_load_asset_bytes_with_ownership"
+  },
+  "20f4a90": {
+    "symbol": "recovered_20f4a90",
+    "original": "_bitmap_font_prepare_metrics"
+  },
+  "20f4c70": {
+    "symbol": "recovered_20f4c70",
+    "original": "_driver_loaded_reserve_locked"
+  },
+  "20f4da0": {
+    "symbol": "recovered_20f4da0",
+    "original": "_driver_store_path_components"
+  },
+  "20f5050": {
+    "symbol": "recovered_20f5050",
+    "original": "_driver_kext_name_matches_host_arch"
+  },
+  "20f5290": {
+    "symbol": "recovered_20f5290",
+    "original": "_driver_kext_file_matches_host_binary"
+  },
+  "20f5360": {
+    "symbol": "recovered_20f5360",
+    "original": "_driver_load_kext"
+  },
+  "20f55c0": {
+    "symbol": "recovered_20f55c0",
+    "original": "_driver_normalise_absolute_path"
+  },
+  "20f57c0": {
+    "symbol": "recovered_20f57c0",
+    "original": "_driver_find_loaded_index_by_path"
+  },
+  "20f59a0": {
+    "symbol": "recovered_20f59a0",
+    "original": "_driver_register_loaded_image"
+  },
+  "20f6100": {
+    "symbol": "recovered_20f6100",
+    "original": "_driver_loaded_reserve"
+  },
+  "20f6160": {
+    "symbol": "recovered_20f6160",
+    "original": "_driver_find_exported_symbol"
+  },
+  "20f61e0": {
+    "symbol": "recovered_20f61e0",
+    "original": "_driver_descriptor_requires_x1e80100_identity"
+  },
+  "20f6310": {
+    "symbol": "recovered_20f6310",
+    "original": "_storage_discard_pending_kext_provider_registration"
+  },
+  "20f63a0": {
+    "symbol": "recovered_20f63a0",
+    "original": "_platform_service_registration_mark"
+  },
+  "20f6430": {
+    "symbol": "recovered_20f6430",
+    "original": "_platform_service_registration_rollback"
+  },
+  "20f64b0": {
+    "symbol": "recovered_20f64b0",
+    "original": "_platform_service_registration_prepare"
+  },
+  "20f6580": {
+    "symbol": "recovered_20f6580",
+    "original": "_storage_commit_pending_kext_provider_registration"
+  },
+  "20f6690": {
+    "symbol": "recovered_20f6690",
+    "original": "_platform_service_registration_publish"
+  },
+  "20f6760": {
+    "symbol": "recovered_20f6760",
+    "original": "_driver_log_loaded_image"
+  },
+  "20f67b0": {
+    "symbol": "recovered_20f67b0",
+    "original": "_storage_native_boot_candidate_matches"
+  },
+  "20f68a0": {
+    "symbol": "recovered_20f68a0",
+    "original": "_storage_epoly_load"
+  },
+  "20f6b90": {
+    "symbol": "recovered_20f6b90",
+    "original": "_kernel_shell_query_interface"
+  },
+  "20f6c50": {
+    "symbol": "recovered_20f6c50",
+    "original": "_wm_kernel_kmod_log"
+  },
+  "20f6d20": {
+    "symbol": "recovered_20f6d20",
+    "original": "_wm_kernel_kmod_register_service"
+  },
+  "20f70b0": {
+    "symbol": "recovered_20f70b0",
+    "original": "_wm_kernel_kmod_unregister_service"
+  },
+  "20f7290": {
+    "symbol": "recovered_20f7290",
+    "original": "_wm_kernel_kmod_dispatch_host"
+  },
+  "20f7600": {
+    "symbol": "recovered_20f7600",
+    "original": "_wm_kernel_kmod_current_cpu_index"
+  },
+  "20f7620": {
+    "symbol": "recovered_20f7620",
+    "original": "_kernel_module_fini_current"
+  },
+  "20f7770": {
+    "symbol": "recovered_20f7770",
+    "original": "_kernel_picofrost_exchange"
+  },
+  "20f77a0": {
+    "symbol": "recovered_20f77a0",
+    "original": "_bitmap_font_load_file"
+  },
+  "20f7a10": {
+    "symbol": "recovered_20f7a10",
+    "original": "_char_is_alpha"
+  },
+  "20f7a30": {
+    "symbol": "recovered_20f7a30",
+    "original": "_clear_framebuffer_bytes"
+  },
+  "20f7b00": {
+    "symbol": "recovered_20f7b00",
+    "original": "_command_log_range_has_winterscript_error"
+  },
+  "20f7bd0": {
+    "symbol": "recovered_20f7bd0",
+    "original": "_console_push_line_n"
+  },
+  "20f7c50": {
+    "symbol": "recovered_20f7c50",
+    "original": "_console_reset_display"
+  },
+  "20f7cd0": {
+    "symbol": "recovered_20f7cd0",
+    "original": "_decode_string_token"
+  },
+  "20f7fb0": {
+    "symbol": "recovered_20f7fb0",
+    "original": "_driver_device_tree_resolve_path"
+  },
+  "20f8250": {
+    "symbol": "recovered_20f8250",
+    "original": "_driver_format_driver_prompt"
+  },
+  "20f8470": {
+    "symbol": "recovered_20f8470",
+    "original": "_driver_format_kapi_version"
+  },
+  "20f8520": {
+    "symbol": "recovered_20f8520",
+    "original": "_driver_load_auto"
+  },
+  "20f8ce0": {
+    "symbol": "recovered_20f8ce0",
+    "original": "_driver_load_package"
+  },
+  "20f9a70": {
+    "symbol": "recovered_20f9a70",
+    "original": "_driver_provider_counts"
+  },
+  "20f9ae0": {
+    "symbol": "recovered_20f9ae0",
+    "original": "_dump_memory_block"
+  },
+  "20f9c60": {
+    "symbol": "recovered_20f9c60",
+    "original": "_fs_data_looks_text"
+  },
+  "20f9cc0": {
+    "symbol": "recovered_20f9cc0",
+    "original": "_fs_format_directory_prompt"
+  },
+  "20f9d00": {
+    "symbol": "recovered_20f9d00",
+    "original": "_fs_format_user_path_display"
+  },
+  "20f9f90": {
+    "symbol": "recovered_20f9f90",
+    "original": "_fs_list_directory"
+  },
+  "20fa460": {
+    "symbol": "recovered_20fa460",
+    "original": "_fs_resolve_user_path"
+  },
+  "20fabe0": {
+    "symbol": "recovered_20fabe0",
+    "original": "_fs_split_user_path"
+  },
+  "20fac90": {
+    "symbol": "recovered_20fac90",
+    "original": "_graphics_canvas_active"
+  },
+  "20facd0": {
+    "symbol": "recovered_20facd0",
+    "original": "_graphics_canvas_colour_depth_supported"
+  },
+  "20facf0": {
+    "symbol": "recovered_20facf0",
+    "original": "_graphics_draw_canvas_line_present"
+  },
+  "20fae10": {
+    "symbol": "recovered_20fae10",
+    "original": "_graphics_present_canvas_pixel"
+  },
+  "20fb1d0": {
+    "symbol": "recovered_20fb1d0",
+    "original": "_kernel_enter_graphics_mode_preserve_presentation_lock"
+  },
+  "20fb3c0": {
+    "symbol": "recovered_20fb3c0",
+    "original": "_kernel_time_format_utc"
+  },
+  "20fb740": {
+    "symbol": "recovered_20fb740",
+    "original": "_parse_uint32_token"
+  },
+  "20fb930": {
+    "symbol": "recovered_20fb930",
+    "original": "_read_input_instant"
+  },
+  "20fba80": {
+    "symbol": "recovered_20fba80",
+    "original": "_sleep_ms"
+  },
+  "20fbad0": {
+    "symbol": "recovered_20fbad0",
+    "original": "_storage_clone_partition_to_file_by_id"
+  },
+  "20fbc00": {
+    "symbol": "recovered_20fbc00",
+    "original": "_storage_clone_partition_to_offset_by_id"
+  },
+  "20fbee0": {
+    "symbol": "recovered_20fbee0",
+    "original": "_storage_convert_partition_table_by_id"
+  },
+  "20fcd00": {
+    "symbol": "recovered_20fcd00",
+    "original": "_storage_crc32"
+  },
+  "20fcdd0": {
+    "symbol": "recovered_20fcdd0",
+    "original": "_storage_create_partition_by_id"
+  },
+  "20fd480": {
+    "symbol": "recovered_20fd480",
+    "original": "_storage_create_partition_table_by_id"
+  },
+  "20fe0e0": {
+    "symbol": "recovered_20fe0e0",
+    "original": "_storage_decode_device_name_text"
+  },
+  "20fe2a0": {
+    "symbol": "recovered_20fe2a0",
+    "original": "_storage_defragment_device_by_id"
+  },
+  "20feab0": {
+    "symbol": "recovered_20feab0",
+    "original": "_storage_delete_partition_by_id"
+  },
+  "20ff940": {
+    "symbol": "recovered_20ff940",
+    "original": "_storage_fs_type_from_text"
+  },
+  "21000a0": {
+    "symbol": "recovered_21000a0",
+    "original": "_storage_log_device_list"
+  },
+  "2100590": {
+    "symbol": "recovered_2100590",
+    "original": "_storage_luks2_close_by_id"
+  },
+  "2100780": {
+    "symbol": "recovered_2100780",
+    "original": "_storage_luks2_create_by_id"
+  },
+  "2100f00": {
+    "symbol": "recovered_2100f00",
+    "original": "_storage_luks2_open_by_id"
+  },
+  "2101da0": {
+    "symbol": "recovered_2101da0",
+    "original": "_storage_move_partition_by_id"
+  },
+  "2102100": {
+    "symbol": "recovered_2102100",
+    "original": "_storage_partition_table_type_from_text"
+  },
+  "21025e0": {
+    "symbol": "recovered_21025e0",
+    "original": "_storage_query_mounted_device_space_by_id"
+  },
+  "2102a10": {
+    "symbol": "recovered_2102a10",
+    "original": "_storage_resize_partition_by_id"
+  },
+  "2102db0": {
+    "symbol": "recovered_2102db0",
+    "original": "_storage_unmount_device_by_id"
+  },
+  "2102ec0": {
+    "symbol": "recovered_2102ec0",
+    "original": "_storage_wipe_device_by_id"
+  },
+  "21031f0": {
+    "symbol": "recovered_21031f0",
+    "original": "_storage_write_wbpt_name_by_id"
+  },
+  "2103490": {
+    "symbol": "recovered_2103490",
+    "original": "_surface_put_pixel"
+  },
+  "2103500": {
+    "symbol": "recovered_2103500",
+    "original": "_tokenise_args"
+  },
+  "21036e0": {
+    "symbol": "recovered_21036e0",
+    "original": "_winter_network_ping_once"
+  },
+  "2103b80": {
+    "symbol": "recovered_2103b80",
+    "original": "_kernel_picofrost_devices"
+  },
+  "2103c20": {
+    "symbol": "recovered_2103c20",
+    "original": "_kernel_picofrost_diagnostic"
+  },
+  "2103c70": {
+    "symbol": "recovered_2103c70",
+    "original": "_driver_device_map_looks_like_qemu"
+  },
+  "2103d10": {
+    "symbol": "recovered_2103d10",
+    "original": "_driver_auto_driver_file_matches"
+  },
+  "2104240": {
+    "symbol": "recovered_2104240",
+    "original": "_storage_restore_target_snapshot"
+  },
+  "21046d0": {
+    "symbol": "recovered_21046d0",
+    "original": "_driver_device_map_contains"
+  },
+  "2104990": {
+    "symbol": "recovered_2104990",
+    "original": "_driver_firmware_root_contains"
+  },
+  "2104c10": {
+    "symbol": "recovered_2104c10",
+    "original": "_driver_device_map_contains_pci_vendor"
+  },
+  "2104cc0": {
+    "symbol": "recovered_2104cc0",
+    "original": "_driver_device_map_node_is_hardware_probe"
+  },
+  "2104db0": {
+    "symbol": "recovered_2104db0",
+    "original": "_driver_current_filesystem_package_has_relative_driver"
+  },
+  "2105080": {
+    "symbol": "recovered_2105080",
+    "original": "_driver_device_map_contains_pci_class"
+  },
+  "2105140": {
+    "symbol": "recovered_2105140",
+    "original": "_storage_copy_drive_sectors"
+  },
+  "21052c0": {
+    "symbol": "recovered_21052c0",
+    "original": "_storage_create_error"
+  },
+  "2105300": {
+    "symbol": "recovered_2105300",
+    "original": "_storage_build_empty_polyt_sector"
+  },
+  "21053c0": {
+    "symbol": "recovered_21053c0",
+    "original": "_storage_gpt_header_crc_is_valid"
+  },
+  "21054d0": {
+    "symbol": "recovered_21054d0",
+    "original": "_storage_kind_is_wintershim"
+  },
+  "2105600": {
+    "symbol": "recovered_2105600",
+    "original": "_storage_write_mbr_entry"
+  },
+  "2105680": {
+    "symbol": "recovered_2105680",
+    "original": "_storage_mbr_partition_type_for_conversion"
+  },
+  "2105710": {
+    "symbol": "recovered_2105710",
+    "original": "_storage_kind_is_prep"
+  },
+  "21058f0": {
+    "symbol": "recovered_21058f0",
+    "original": "_storage_wbpt_partition_type_for_conversion"
+  },
+  "2105960": {
+    "symbol": "recovered_2105960",
+    "original": "_storage_kind_is_efi"
+  },
+  "2105b10": {
+    "symbol": "recovered_2105b10",
+    "original": "_storage_kind_is_hfs"
+  },
+  "2105e10": {
+    "symbol": "recovered_2105e10",
+    "original": "_storage_kind_is_winterswap"
+  },
+  "2105ff0": {
+    "symbol": "recovered_2105ff0",
+    "original": "_storage_kind_is_polynyafs"
+  },
+  "21062b0": {
+    "symbol": "recovered_21062b0",
+    "original": "_storage_kind_is_stage1"
+  },
+  "2106460": {
+    "symbol": "recovered_2106460",
+    "original": "_storage_mbr_partition_type_from_text"
+  },
+  "2106680": {
+    "symbol": "recovered_2106680",
+    "original": "_storage_wbpt_partition_type_from_text"
+  },
+  "2106b00": {
+    "symbol": "recovered_2106b00",
+    "original": "_storage_create_mbr_partition"
+  },
+  "2106f60": {
+    "symbol": "recovered_2106f60",
+    "original": "_storage_create_gpt_partition"
+  },
+  "2107440": {
+    "symbol": "recovered_2107440",
+    "original": "_storage_create_wbpt_partition"
+  },
+  "21077e0": {
+    "symbol": "recovered_21077e0",
+    "original": "_storage_create_apm_partition"
+  },
+  "2107d60": {
+    "symbol": "recovered_2107d60",
+    "original": "_storage_create_polyt_partition"
+  },
+  "2108390": {
+    "symbol": "recovered_2108390",
+    "original": "_storage_write_winterswap_header"
+  },
+  "2108440": {
+    "symbol": "recovered_2108440",
+    "original": "_storage_rollback_created_partition"
+  },
+  "2108500": {
+    "symbol": "recovered_2108500",
+    "original": "_storage_gpt_partition_type_guid_from_text"
+  },
+  "21087e0": {
+    "symbol": "recovered_21087e0",
+    "original": "_storage_partition_name_from_kind"
+  },
+  "21088b0": {
+    "symbol": "recovered_21088b0",
+    "original": "_storage_write_utf16le_name"
+  },
+  "2108920": {
+    "symbol": "recovered_2108920",
+    "original": "_storage_copy_wbpt_name"
+  },
+  "2108970": {
+    "symbol": "recovered_2108970",
+    "original": "_storage_write_apm_entry"
+  },
+  "2108a50": {
+    "symbol": "recovered_2108a50",
+    "original": "_storage_invalidate_partition_table_writes"
+  },
+  "2108b90": {
+    "symbol": "recovered_2108b90",
+    "original": "_storage_restore_device_states"
+  },
+  "2108d30": {
+    "symbol": "recovered_2108d30",
+    "original": "_storage_delete_table_write"
+  },
+  "2108da0": {
+    "symbol": "recovered_2108da0",
+    "original": "_luks2_pbkdf2_sha256"
+  },
+  "2108f60": {
+    "symbol": "recovered_2108f60",
+    "original": "_luks2_build_json"
+  },
+  "2109270": {
+    "symbol": "recovered_2109270",
+    "original": "_luks2_build_metadata"
+  },
+  "2109430": {
+    "symbol": "recovered_2109430",
+    "original": "_luks2_hmac_sha256"
+  },
+  "2109690": {
+    "symbol": "recovered_2109690",
+    "original": "_luks2_sha256_update"
+  },
+  "2109920": {
+    "symbol": "recovered_2109920",
+    "original": "_luks2_sha256_final"
+  },
+  "21099f0": {
+    "symbol": "recovered_21099f0",
+    "original": "_luks2_metadata_checksum"
+  },
+  "2109ad0": {
+    "symbol": "recovered_2109ad0",
+    "original": "_luks2_read_metadata_at"
+  },
+  "2109d30": {
+    "symbol": "recovered_2109d30",
+    "original": "_luks2_json_read_value_from"
+  },
+  "2109e50": {
+    "symbol": "recovered_2109e50",
+    "original": "_luks2_json_read_lba_from"
+  },
+  "2109f70": {
+    "symbol": "recovered_2109f70",
+    "original": "_luks2_json_read_u32_from"
+  },
+  "210a060": {
+    "symbol": "recovered_210a060",
+    "original": "_luks2_base64_decode_exact"
+  },
+  "210a350": {
+    "symbol": "recovered_210a350",
+    "original": "_storage_update_partition_geometry"
+  },
+  "210a540": {
+    "symbol": "recovered_210a540",
+    "original": "_storage_update_wbpt_partition_entry"
+  },
+  "210a700": {
+    "symbol": "recovered_210a700",
+    "original": "_storage_update_mbr_partition_entry"
+  },
+  "210a800": {
+    "symbol": "recovered_210a800",
+    "original": "_storage_update_gpt_partition_entry"
+  },
+  "210aab0": {
+    "symbol": "recovered_210aab0",
+    "original": "_storage_update_apm_partition_entry"
+  },
+  "210ac10": {
+    "symbol": "recovered_210ac10",
+    "original": "_storage_update_polyt_partition_entry"
+  },
+  "210ae20": {
+    "symbol": "recovered_210ae20",
+    "original": "_fat_query_space"
+  },
+  "210b020": {
+    "symbol": "recovered_210b020",
+    "original": "_exfat_query_space"
+  },
+  "210b130": {
+    "symbol": "recovered_210b130",
+    "original": "_storage_prepare_blank_state"
+  },
+  "210b470": {
+    "symbol": "recovered_210b470",
+    "original": "_monitor_write"
+  },
+  "210b5d0": {
+    "symbol": "recovered_210b5d0",
+    "original": "_monitor_read_file"
+  },
+  "210b6c0": {
+    "symbol": "recovered_210b6c0",
+    "original": "_monitor_write_file"
+  },
+  "210b6e0": {
+    "symbol": "recovered_210b6e0",
+    "original": "_monitor_load_module"
+  },
+  "210b7e0": {
+    "symbol": "recovered_210b7e0",
+    "original": "_monitor_load_extension"
+  },
+  "210b890": {
+    "symbol": "recovered_210b890",
+    "original": "_monitor_run"
+  },
+  "210ba40": {
+    "symbol": "recovered_210ba40",
+    "original": "_monitor_call"
+  },
+  "210bc70": {
+    "symbol": "recovered_210bc70",
+    "original": "_monitor_show"
+  },
+  "210bf60": {
+    "symbol": "recovered_210bf60",
+    "original": "_kernel_module_probe"
+  },
+  "210c190": {
+    "symbol": "recovered_210c190",
+    "original": "_kernel_module_load"
+  },
+  "210cab0": {
+    "symbol": "recovered_210cab0",
+    "original": "_kernel_module_descriptor_discoverable"
+  },
+  "210cb60": {
+    "symbol": "recovered_210cb60",
+    "original": "_kernel_module_reserve"
+  },
+  "210ccd0": {
+    "symbol": "recovered_210ccd0",
+    "original": "_kernel_module_shell_contract_valid"
+  },
+  "210cdd0": {
+    "symbol": "recovered_210cdd0",
+    "original": "_kernel_shell_bind_exports"
+  },
+  "210d090": {
+    "symbol": "recovered_210d090",
+    "original": "_kernel_module_service_reserve"
+  },
+  "210d200": {
+    "symbol": "recovered_210d200",
+    "original": "_kernel_module_provider_callback_current"
+  },
+  "210d2c0": {
+    "symbol": "recovered_210d2c0",
+    "original": "_kernel_module_host_launch_process"
+  },
+  "210d3b0": {
+    "symbol": "recovered_210d3b0",
+    "original": "_kernel_module_host_claim_command_focus"
+  },
+  "210d550": {
+    "symbol": "recovered_210d550",
+    "original": "_kernel_module_host_preempt_checkpoint"
+  },
+  "210d590": {
+    "symbol": "recovered_210d590",
+    "original": "_storage_device_is_user_data"
+  },
+  "210d900": {
+    "symbol": "recovered_210d900",
+    "original": "_smp_fallback_confirm"
+  },
+  "210dd50": {
+    "symbol": "recovered_210dd50",
+    "original": "_storage_make_current_filesystem_resident"
+  },
+  "210de10": {
+    "symbol": "recovered_210de10",
+    "original": "_kernel_module_dispatch_capability_first"
+  },
+  "210df20": {
+    "symbol": "recovered_210df20",
+    "original": "_kernel_picofrost_service_worker"
+  },
+  "210e8c0": {
+    "symbol": "recovered_210e8c0",
+    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater19inflate_zlib_streamERKNS_6vectorIhEERS4_m.cold.1"
+  },
+  "210e900": {
+    "symbol": "recovered_210e900",
+    "original": "__ZN2wm3png12_GLOBAL__N_18Inflater19inflate_zlib_streamERKNS_6vectorIhEERS4_m.cold.2"
+  },
+  "210e940": {
+    "symbol": "recovered_210e940",
+    "original": "__ZN12_GLOBAL__N_112Type1Backend9rasteriseEjd.cold.1"
+  }
+}
