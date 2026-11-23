@@ -67,7 +67,20 @@ byte *address_bits(double *pointer){return (byte *)*pointer;}
   return PF_PART16(local_16,0)!=(input^mask);
 }
 ''')
-    source+='''int main(void){uint32_t value=7;double pointer=pf_bits_double(0x123456789abcdef0ULL);if((uintptr_t)address_bits(&pointer)!=0x123456789abcdef0ULL)return 9;return array_expression() || kinds() || split_counts()!=136 || stack_probe() || parameter_probe(3)!=0x12345600 || multiply(&value)!=28 || bits((void *)0x1000)!=0x4000;}\n'''
+    # Ghidra's register array becomes a scalar after memory stores are lowered.
+    # Its value must never be mistaken for the address of the copied bytes.
+    register_copy=exact_array_stores('''int register_copy(void){
+  undefined1 auVar1 [16];
+  uint128 target=0;
+  PF_PART8(auVar1,0)=0x407f400000000000ULL;
+  PF_PART8(auVar1,8)=0x4085e00000000000ULL;
+  *(undefined1 (*) [16])(&target) = auVar1;
+  return (uint64_t)target!=0x407f400000000000ULL ||
+         (uint64_t)(target>>64)!=0x4085e00000000000ULL;
+}
+''').replace('undefined1 auVar1 [16]','uint128 auVar1')
+    source+=register_copy
+    source+='''int main(void){uint32_t value=7;double pointer=pf_bits_double(0x123456789abcdef0ULL);if((uintptr_t)address_bits(&pointer)!=0x123456789abcdef0ULL)return 9;return register_copy() || array_expression() || kinds() || split_counts()!=136 || stack_probe() || parameter_probe(3)!=0x12345600 || multiply(&value)!=28 || bits((void *)0x1000)!=0x4000;}\n'''
     root=Path(__file__).resolve().parents[1]
     with tempfile.TemporaryDirectory(prefix='permafrost-aggregate-')as directory:
         out=Path(directory);(out/'probe.c').write_text(source)

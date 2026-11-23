@@ -588,7 +588,9 @@ def exact_array_stores(source):
     def indirect(match):
         width=int(match[1]);value=match[3]
         if value not in arrays or int(arrays[value])<width:return match[0]
-        return '{ unsigned char pf_copy[%d]; __builtin_memcpy(pf_copy,%s,%d); __builtin_memcpy((%s),pf_copy,%d); }'%(width,value,width,match[2],width)
+        # Register arrays may subsequently become uint128 scalars. Taking the
+        # object's address works for either representation and preserves bits.
+        return '{ unsigned char pf_copy[%d]; __builtin_memcpy(pf_copy,&(%s),%d); __builtin_memcpy((%s),pf_copy,%d); }'%(width,value,width,match[2],width)
     return re.sub(pattern,indirect,source)
 
 
