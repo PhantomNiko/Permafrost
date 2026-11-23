@@ -1,0 +1,18 @@
+4047dc40	4047dcf4	double F(void *backend);	pf_darwin_varargs3
+4047dc40	4047dd14	double F(void *backend);	pf_darwin_varargs3
+4047dc40	4047dd30	int F(void *backend);	pf_darwin_varargs3
+4047dc40	4047dd80	double F(void *backend);	pf_darwin_varargs3
+4047dc40	4047dd9c	int F(void *backend);	pf_darwin_varargs3
+4047dc40	4047ddec	double F(void *backend);	pf_darwin_varargs3
+4047dc40	4047de08	double F(void *backend);	pf_darwin_varargs3
+4047dc40	4047de24	double F(void *backend);	pf_darwin_varargs3
+4047dc40	4047de44	int F(void *backend);	pf_darwin_varargs3
+4047e298	4047e404	double F(void *backend);	pf_darwin_varargs3
+4047fec0	4047ffac	double F(void *backend);	pf_darwin_varargs3
+4047fec0	4047ffd0	double F(void *backend);	pf_darwin_varargs3
+4047fec0	4047fff4	int F(void *backend);	pf_darwin_varargs3
+4047fec0	4048007c	double F(void *backend);	pf_darwin_varargs3
+4047fec0	404800a0	double F(void *backend);	pf_darwin_varargs3
+4047fec0	404800c4	double F(void *backend);	pf_darwin_varargs3
+4047fec0	404800e8	int F(void *backend);	pf_darwin_varargs3
+4047e298	4047e458	void *F(void *out,void *backend,unsigned int glyph,double scale);	pf_darwin_varargs3

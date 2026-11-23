@@ -1033,3 +1033,14 @@ native ECX/EDX input and length; complete Stage4 and WinterShell metadata
 admission matches the reference descriptor bytes and output canaries. VM
 module initialization, shell startup and later desktop behavior are still
 being recovered.
+
+ARM32 font handles and caches now retain their native float-size and integer
+pointer/count fields. Reviewed soft-float virtual-call signatures, contour
+construction, bounded component decoding, curve subdivision, glyph coverage
+and multiline RGBA composition build from C. Implied contour midpoints are
+computed before the affine transform, preserving pixel-boundary rounding.
+The font comparison matches 144 native/source RGBA renders and 72 metric
+records, including the bundled Garamond font and composite Unicode glyphs,
+with cache reuse and allocation canaries. Floor and ceiling match 3,620 native
+representations. Desktop integration remains under VM validation; these
+component comparisons do not establish complete graphics or release parity.

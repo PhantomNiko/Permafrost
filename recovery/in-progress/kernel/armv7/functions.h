@@ -3,6 +3,13 @@
 #include "support.h"
 #include "support.h"
 void pf_kernel_entry(void);
+#include "efi_video110.h"
+typedef struct pf_glyph { int left,top,width,height;double advance;unsigned char *pixels;unsigned long count,capacity; } pf_glyph;
+typedef struct pf_glyph_position { void *glyph;int x,y; } pf_glyph_position;
+typedef struct pf_layout { int left,top,right,bottom;pf_glyph_position *data;unsigned long count,capacity; } pf_layout;
+typedef struct pf_u32_vector { unsigned int *data;unsigned long count,capacity; } pf_u32_vector;
+typedef struct pf_font_cache110 { float size;unsigned int age_low,age_high,pixels;void *entries;unsigned int count,capacity;void *buckets;unsigned int bucket_count,bucket_capacity;void *next;unsigned int next_count,next_capacity,reserved; } pf_font_cache110;
+typedef struct pf_font_handle110 { void *backend;float size;unsigned int age_low,age_high;pf_font_cache110 caches[4]; } pf_font_handle110;
 #include "armv7-recovery.h"
 #include "cpu.h"
 #include "coprocessors.h"
@@ -1049,24 +1056,24 @@ bool recovered_4047cc5c(int *param_1,undefined4 *param_2,uint param_3);
 undefined4
 recovered_4047ce3c(undefined4 param_1,undefined8 *param_2,uint128 *param_3,
                   uint128 *param_4,uint param_5,uint param_6);
-int * recovered_4047d380(byte *param_1,int *param_2,float param_3);
-int * recovered_4047d914(char *param_1,float param_2);
-void recovered_4047dc10(int *param_1,float param_2,int param_3);
-uint recovered_4047dc40(int *param_1,byte *param_2,int *param_3);
-float * recovered_4047e298(undefined4 *param_1,uint param_2);
+pf_font_handle110 * recovered_4047d380(void *data,ulong length,float size);
+pf_font_handle110 * recovered_4047d914(char *path,float size);
+void recovered_4047dc10(pf_font_handle110 *font,float size);
+uint recovered_4047dc40(pf_font_handle110 *font,uchar *text,int *metrics);
+pf_glyph * recovered_4047e298(pf_font_handle110 *font,uint glyph);
 void recovered_4047e894(undefined4 *param_1,byte *param_2);
-float * recovered_4047ee04(int param_1);
+pf_font_cache110 * recovered_4047ee04(pf_font_handle110 *font);
 void recovered_4047ef58(int *param_1,uint param_2);
 void recovered_4047f0f8(int param_1);
-undefined4 * recovered_4047f2b8(int *param_1,uint *param_2,undefined4 param_3,undefined4 param_4);
-void recovered_4047fec0(int *param_1,int *param_2,undefined4 *param_3);
+void *recovered_4047f2b8(pf_font_handle110 *font,char *text,int red,int green,int blue,double opacity);
+pf_layout * recovered_4047fec0(pf_layout *out,pf_font_handle110 *font,pf_u32_vector *text);
 int * recovered_4048057c(int *param_1);
 int * recovered_404805e0(int *param_1);
 void recovered_40480644(int *param_1);
 undefined4 * recovered_404807f8(undefined4 *param_1);
 void recovered_4048088c(undefined4 *param_1);
 bool recovered_40480924(int param_1,int *param_2);
-void recovered_40481328(int *param_1,int param_2,uint param_3,undefined4 param_4,undefined4 param_5);
+pf_glyph * recovered_40481328(pf_glyph *out,void *backend,uint glyph,double scale);
 undefined8 recovered_4048185c(int param_1);
 undefined8 recovered_40481870(int param_1);
 undefined8 recovered_40481884(int param_1);
@@ -1075,18 +1082,17 @@ undefined4 recovered_404818b4(void);
 bool recovered_404818bc(int param_1,uint param_2,uint *param_3);
 bool recovered_404819a0(int param_1);
 bool recovered_40481ce8(int param_1);
-undefined4
-recovered_404820c0(int param_1,uint param_2,double *param_3,undefined4 param_4,int param_5);
-void recovered_40483600(int *param_1,int *param_2);
+uint recovered_404820c0(void *backend,uint glyph,double *matrix,long *outline,uint depth);
+pf_glyph *recovered_40483600(double advance,int *destination,long *outline);
 int * recovered_40483abc(int *param_1,byte *param_2);
 void recovered_40483dd4(int *param_1,uint param_2);
 undefined4 * recovered_40484054(undefined4 *param_1,uint param_2);
 void recovered_4048416c(int *param_1,int param_2,undefined8 *param_3);
 void recovered_40484258(int *param_1,int param_2,undefined1 *param_3);
-void recovered_404843ac(int *param_1,double *param_2);
-void recovered_40484660(int *param_1,double *param_2);
-void recovered_40484890(int *param_1);
-void recovered_404849b8(int *param_1,double *param_2,double *param_3,double *param_4,int param_5);
+void recovered_404843ac(long *outline,double *point);
+void recovered_40484660(long *outline,double *point);
+void recovered_40484890(long *outline);
+void recovered_404849b8(long *outline,double *first,double *control,double *last,int depth);
 undefined4 * recovered_40484ac8(undefined4 *param_1);
 void recovered_40484bbc(undefined4 *param_1);
 byte * recovered_40484bd0(int param_1,byte *param_2);
@@ -1113,8 +1119,8 @@ undefined4 recovered_40489210(void *param_1,undefined1 *param_2,uint param_3,und
 int * recovered_404894cc(byte *param_1,int *param_2,float param_3);
 void recovered_404895bc(int *param_1,float param_2);
 undefined4
-recovered_40489698(int *param_1,uint *param_2,undefined4 param_3,undefined4 param_4,
-                  undefined4 param_5,undefined4 param_6,undefined4 *param_7);
+recovered_40489698(int *param_1,uint *param_2,int param_3,int param_4,int param_5,undefined4 param_6
+                  ,undefined4 *param_7);
 undefined4 recovered_404899c8(int *param_1,byte *param_2,int *param_3);
 void recovered_40489b14(int *param_1);
 undefined4

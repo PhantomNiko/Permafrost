@@ -1,0 +1,15 @@
+4047e298	pf_glyph *recovered_4047e298(pf_font_handle110 *font,unsigned int glyph);			pf_darwin_varargs3
+4047fec0	pf_layout *recovered_4047fec0(pf_layout *out,pf_font_handle110 *font,pf_u32_vector *text);			pf_darwin_varargs3
+40481328	pf_glyph *recovered_40481328(pf_glyph *out,void *backend,unsigned int glyph,double scale);			pf_darwin_varargs3
+4047ee04	pf_font_cache110 *recovered_4047ee04(pf_font_handle110 *font);			pf_darwin_varargs3
+4047d380	pf_font_handle110 *recovered_4047d380(void *data,unsigned long length,float size);			pf_darwin_varargs3
+4047d914	pf_font_handle110 *recovered_4047d914(const char *path,float size);			pf_darwin_varargs3
+4047dc10	void recovered_4047dc10(pf_font_handle110 *font,float size);			pf_darwin_varargs3
+4047dc40	unsigned int recovered_4047dc40(pf_font_handle110 *font,const unsigned char *text,int *metrics);			pf_darwin_varargs3
+40483600	pf_glyph *recovered_40483600(double advance,int *destination,long *outline);			__stdcall
+404820c0	unsigned int recovered_404820c0(void *backend,unsigned int glyph,double *transform,long *outline,unsigned int depth);
+404843ac	void recovered_404843ac(long *outline,double *point);
+40484660	void recovered_40484660(long *outline,double *point);
+40484890	void recovered_40484890(long *outline);
+404849b8	void recovered_404849b8(long *outline,double *first,double *control,double *last,int depth);
+4047f2b8	void *recovered_4047f2b8(pf_font_handle110 *font,const char *text,int red,int green,int blue,double opacity);			pf_darwin_varargs3

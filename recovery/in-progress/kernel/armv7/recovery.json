@@ -11,12 +11,18 @@
     "declarations": [
       "#include \"support.h\"",
       "void pf_kernel_entry(void);",
+      "#include \"efi_video110.h\"",
+      "typedef struct pf_glyph { int left,top,width,height;double advance;unsigned char *pixels;unsigned long count,capacity; } pf_glyph;",
+      "typedef struct pf_glyph_position { void *glyph;int x,y; } pf_glyph_position;",
+      "typedef struct pf_layout { int left,top,right,bottom;pf_glyph_position *data;unsigned long count,capacity; } pf_layout;",
+      "typedef struct pf_u32_vector { unsigned int *data;unsigned long count,capacity; } pf_u32_vector;",
+      "typedef struct pf_font_cache110 { float size;unsigned int age_low,age_high,pixels;void *entries;unsigned int count,capacity;void *buckets;unsigned int bucket_count,bucket_capacity;void *next;unsigned int next_count,next_capacity,reserved; } pf_font_cache110;",
+      "typedef struct pf_font_handle110 { void *backend;float size;unsigned int age_low,age_high;pf_font_cache110 caches[4]; } pf_font_handle110;",
       "#include \"armv7-recovery.h\"",
       "#include \"cpu.h\"",
       "#include \"coprocessors.h\"",
       "#include \"arm_exclusive.h\"",
-      "#include \"neon.h\"",
-      "#include \"efi_video110.h\""
+      "#include \"neon.h\""
     ],
     "volatile_ranges": [
       [
@@ -29,6 +35,9 @@
     "stack_register": "register0x00000054",
     "system_registers": {},
     "source_replacements": {
+      "40406a48": {
+        "  cVar1 = DAT_40535004;": "  pf_efi110_remember_context(param_1);\n  cVar1 = DAT_40535004;"
+      },
       "4044f1d8": {
         "  uVar8 = param_4[2];\n  uVar7 = param_4[3];\n  if (-(uVar7 + (0xfffffff9 < uVar8)) < (uint)(uVar8 + 6 < 7)) {\n                    /* WARNING: Could not recover jumptable at 0x4044f264. Too many branches */\n                    /* WARNING: Treating indirect jump as call */\n    iVar6 = (*(code *)(&PTR_LAB_4044f268)[uVar8 + 6])();\n    return iVar6;\n  }\n  uVar9 = uVar7 + (0xffffefff < uVar8);\n  if (uVar9 == 0 && (0xffb < uVar8 + 0x1000) <= uVar9) {\n    return 10;\n  }\n  if (uVar4 < uVar7 || uVar7 - uVar4 < (uint)((uint)param_1[2] <= uVar8)) {\n    return 10;\n  }\n  if (uVar8 == param_2 && uVar7 == param_3) {\n    return 10;\n  }\n": "  /* Native sentinel switch shares allocation-entry validation with the reader. */\n  iVar6 = recovered_40449298(param_2,param_3,param_1[2],param_1[3],(int)param_4);\n  if(iVar6 != 0)return iVar6;\n"
       },
@@ -41,12 +50,32 @@
       "40411c90": {
         "uVar5 = (*pcVar4)();": "uVar5 = ((unsigned (*)(void *))pcVar4)(puVar3);"
       },
+      "4047dc40": {
+        "(**(code **)(*piVar2 + 0x10))": "((double (*)(void *))*(uintptr_t *)(*piVar2 + 0x10))",
+        "(**(code **)(*(int *)font->backend + 0x14))": "((double (*)(void *))*(uintptr_t *)(*(int *)font->backend + 0x14))",
+        "(**(code **)(*(int *)font->backend + 0x20))": "((int (*)(void *))*(uintptr_t *)(*(int *)font->backend + 0x20))",
+        "(**(code **)(iVar8 + 0x18))": "((double (*)(void *))*(uintptr_t *)(iVar8 + 0x18))",
+        "(**(code **)(iVar8 + 0x14))": "((double (*)(void *))*(uintptr_t *)(iVar8 + 0x14))",
+        "(**(code **)(*(int *)font->backend + 0x18))": "((double (*)(void *))*(uintptr_t *)(*(int *)font->backend + 0x18))",
+        "(**(code **)(*(int *)font->backend + 0x1c))": "((double (*)(void *))*(uintptr_t *)(*(int *)font->backend + 0x1c))"
+      },
+      "4047e298": {
+        "(**(code **)(*(int *)font->backend + 0x10))": "((double (*)(void *))*(uintptr_t *)(*(int *)font->backend + 0x10))",
+        "(**(code **)(*(int *)font->backend + 0xc))": "((void *(*)(void *,void *,uint,double))*(uintptr_t *)(*(int *)font->backend + 0xc))"
+      },
+      "4047fec0": {
+        "(**(code **)(*piVar4 + 0x10))": "((double (*)(void *))*(uintptr_t *)(*piVar4 + 0x10))",
+        "(**(code **)(*(int *)local_b4->backend + 0x14))": "((double (*)(void *))*(uintptr_t *)(*(int *)local_b4->backend + 0x14))",
+        "(**(code **)(*(int *)local_b4->backend + 0x20))": "((int (*)(void *))*(uintptr_t *)(*(int *)local_b4->backend + 0x20))",
+        "(**(code **)(*(int *)local_b4->backend + 0x18))": "((double (*)(void *))*(uintptr_t *)(*(int *)local_b4->backend + 0x18))",
+        "(**(code **)(*(int *)local_b4->backend + 0x1c))": "((double (*)(void *))*(uintptr_t *)(*(int *)local_b4->backend + 0x1c))"
+      },
+      "40480644": {
+        "(**(code **)(*(int *)*param_1 + 4))();": "((void (*)(void *))*(uintptr_t *)(*(int *)*param_1+4))((void *)*param_1);"
+      },
       "404d393c": {
         "    auVar37 = Ram4066f2d0;\n    auVar94 = VectorCompareEqual(auVar37,0,4);\n    PF_PART8(auVar95, 0) = VectorCopyNarrow(auVar94,4);\n    DAT_4066f2f4 = pvVar82;\n    PF_PART8(auVar94, 8) = PF_PART8(in_q9, 8) & 0xffff0000ffff0000 | (ulonglong)uVar86 & 0xffff;\n    PF_PART8(auVar94, 0) = PF_PART8(in_q9, 0) & 0xffff0000ffff0000 | (ulonglong)uVar40 & 0xffff;\n    auVar94 = VectorCompareEqual(auVar94,0,4);\n    PF_PART8(auVar95, 8) = VectorCopyNarrow(auVar94,4);\n    uVar93 = VectorCopyNarrow(auVar95,2);\n": "    /* Native q8 load and eight allocation null checks, lowered to scalar C. */\n    auVar37 = *(volatile uint128 *)(uintptr_t)0x4066f2d0U;\n    DAT_4066f2f4 = pvVar82;\n    uVar93 = (Ram4066f2d0 == 0 || DAT_4066f2d4 == 0 || DAT_4066f2d8 == 0 ||\n              DAT_4066f2dc == 0 || DAT_4066f2e0 == 0 || DAT_4066f2e4 == 0 ||\n              DAT_4066f2f8 == 0 || DAT_4066f2ec == 0) ? 1 : 0;\n",
         "    auVar37 = Ram4066f2d0;\n    auVar94 = VectorCompareEqual(auVar37,0,4);\n    auVar95._0_8_ = VectorCopyNarrow(auVar94,4);\n    DAT_4066f2f4 = pvVar82;\n    auVar94._8_8_ = in_q9._8_8_ & 0xffff0000ffff0000 | (ulonglong)uVar86 & 0xffff;\n    auVar94._0_8_ = in_q9._0_8_ & 0xffff0000ffff0000 | (ulonglong)uVar40 & 0xffff;\n    auVar94 = VectorCompareEqual(auVar94,0,4);\n    auVar95._8_8_ = VectorCopyNarrow(auVar94,4);\n    uVar93 = VectorCopyNarrow(auVar95,2);\n": "    /* Native q8 load and eight allocation null checks, lowered to scalar C. */\n    auVar37 = *(volatile uint128 *)(uintptr_t)0x4066f2d0U;\n    DAT_4066f2f4 = pvVar82;\n    uVar93 = (Ram4066f2d0 == 0 || DAT_4066f2d4 == 0 || DAT_4066f2d8 == 0 ||\n              DAT_4066f2dc == 0 || DAT_4066f2e0 == 0 || DAT_4066f2e4 == 0 ||\n              DAT_4066f2f8 == 0 || DAT_4066f2ec == 0) ? 1 : 0;\n"
-      },
-      "40406a48": {
-        "  cVar1 = DAT_40535004;": "  pf_efi110_remember_context(param_1);\n  cVar1 = DAT_40535004;"
       }
     }
   }
