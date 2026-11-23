@@ -31,7 +31,7 @@ def build_kernel(source, output):
         raise ValueError('expected an ARM kernel profile')
     output.mkdir(parents=True, exist_ok=True)
     objects = []
-    includes = [str(source), 'sdk/include', 'kernel']
+    includes = [str(source), 'sdk/include', 'kernel', 'firmware']
     from image_module import make_image_module
     image_module = make_image_module(output, arch, profile.get('image_source'), profile['version'])
     for name, path, defines in (

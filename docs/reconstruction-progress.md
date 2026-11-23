@@ -962,3 +962,20 @@ negative fractions and the reference's 32-bit conversion boundary behavior.
 Startup provider calls now forward program buffers, lengths and release
 arguments. Remaining application recovery and full VM compatibility still gate
 the 1.1 images, SDK and tag.
+
+The ARM64 recovered kernel now boots Tundra with reference application modules
+and responds to pointer-driven menu opening and desktop exit. Its startup
+provider preserves the AArch64 hidden result pointer for WinterScript values
+and forwards the script-buffer length. Command classification matches 52
+native cases. Both ARM context implementations now preserve native callee-saved
+register buffers, floating controls, thread pointers and scope-transfer frames;
+zero, positive and negative nonlocal returns match the reference.
+
+ARM32 module admission now uses the shared C PFZ decoder. Both ARM PFZ wrappers
+match 28 native output/error/allocation cases each; complete Stage4 and
+WinterShell metadata admission matches the ARM32 reference with allocation and
+output canaries. The ARM32 build preserves 2,876 referenced literal-pool bytes
+in 136 ranges, including the module API header formerly overwritten with zeros.
+Multiline constant-vector slices no longer become low-memory reads, and the
+ARM32 startup provider receives both script data and length. ARM32 VM boot and
+ARM shell/scheduler compatibility remain under investigation.

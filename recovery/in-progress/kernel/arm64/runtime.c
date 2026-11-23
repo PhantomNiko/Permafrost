@@ -72662,104 +72662,24 @@ bool recovered_8243afc4(int param_1)
 #undef _DAT_82010804
 #undef _DAT_82010808
 
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x8243b090
- */
-
-void recovered_8243b090(long param_1)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-                    /* WARNING: Could not recover jumptable at 0x8243b0a0. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  (**(code **)(param_1 + 0x48))();
-  return;
+/* Native register context transfer and floating/thread state.
+ * Pooka's Free Software License. */
+__attribute__((naked,noreturn)) void recovered_8243b090(void *context){
+ __asm__ volatile("ldr x16, [x0, #0x50]\nmov sp, x16\nldr x29, [x0, #0x40]\nldr x16, [x0, #0x48]\nbr x16");
 }
 
 
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x8243b0a4
- */
-
-undefined8 recovered_8243b0a4(undefined8 *param_1)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  undefined8 uVar1;
-  undefined8 uVar2;
-  undefined8 unaff_x19;
-  undefined8 unaff_x20;
-  undefined8 unaff_x21;
-  undefined8 unaff_x22;
-  undefined8 unaff_x23;
-  undefined8 unaff_x24;
-  undefined8 unaff_x25;
-  undefined8 unaff_x26;
-  undefined8 unaff_x27;
-  undefined8 unaff_x28;
-  undefined8 unaff_x29;
-  undefined8 unaff_x30;
-  undefined8 unaff_d8;
-  undefined8 unaff_d9;
-  undefined8 unaff_d10;
-  undefined8 unaff_d11;
-  undefined8 unaff_d12;
-  undefined8 unaff_d13;
-  undefined8 unaff_d14;
-  undefined8 unaff_d15;
-
-  *param_1 = unaff_x19;
-  param_1[1] = unaff_x20;
-  param_1[2] = unaff_x21;
-  param_1[3] = unaff_x22;
-  param_1[4] = unaff_x23;
-  param_1[5] = unaff_x24;
-  param_1[6] = unaff_x25;
-  param_1[7] = unaff_x26;
-  param_1[8] = unaff_x27;
-  param_1[9] = unaff_x28;
-  param_1[10] = unaff_x29;
-  param_1[0xb] = unaff_x30;
-  param_1[0xc] = (uintptr_t)(pf_stack_frame + 32);
-  param_1[0xd] = unaff_d8;
-  param_1[0xe] = unaff_d9;
-  param_1[0xf] = unaff_d10;
-  param_1[0x10] = unaff_d11;
-  param_1[0x11] = unaff_d12;
-  param_1[0x12] = unaff_d13;
-  param_1[0x13] = unaff_d14;
-  param_1[0x14] = unaff_d15;
-  uVar1 = pf_read_tpidr_el0();
-  uVar2 = pf_read_tpidrro_el0();
-  param_1[0x15] = uVar1;
-  param_1[0x16] = uVar2;
-  uVar1 = pf_read_fpcr();
-  uVar2 = pf_read_fpsr();
-  *(int *)(param_1 + 0x17) = (int)uVar1;
-  *(int *)((long)param_1 + 0xbc) = (int)uVar2;
-  return 0;
+/* Native register context transfer and floating/thread state.
+ * Pooka's Free Software License. */
+__attribute__((naked,returns_twice)) int recovered_8243b0a4(void *context){
+ __asm__ volatile("stp x19, x20, [x0]\nstp x21, x22, [x0, #0x10]\nstp x23, x24, [x0, #0x20]\nstp x25, x26, [x0, #0x30]\nstp x27, x28, [x0, #0x40]\nstp x29, x30, [x0, #0x50]\nmov x8, sp\nstr x8, [x0, #0x60]\nstp d8, d9, [x0, #0x68]\nstp d10, d11, [x0, #0x78]\nstp d12, d13, [x0, #0x88]\nstp d14, d15, [x0, #0x98]\nmrs x8, tpidr_el0\nmrs x9, tpidrro_el0\nstr x8, [x0, #0xa8]\nstr x9, [x0, #0xb0]\nmrs x8, fpcr\nmrs x9, fpsr\nstr w8, [x0, #0xb8]\nstr w9, [x0, #0xbc]\nmov w0, #0\nret");
 }
 
 
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x8243b100
- */
-
-int recovered_8243b100(long param_1,int param_2)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  if (param_2 == 0) {
-    param_2 = 1;
-  }
-  pf_write_tpidr_el0(*(undefined8 *)(param_1 + 0xa8));
-  pf_write_tpidrro_el0(*(undefined8 *)(param_1 + 0xb0));
-  pf_write_fpcr((ulong)*(uint *)(param_1 + 0xb8));
-  pf_write_fpsr((ulong)*(uint *)(param_1 + 0xbc));
-  return param_2;
+/* Native register context transfer and floating/thread state.
+ * Pooka's Free Software License. */
+__attribute__((naked,noreturn)) int recovered_8243b100(long context,int value){
+ __asm__ volatile("cbnz w1,1f\nmov w1, #1\n1:\nldp x19, x20, [x0]\nldp x21, x22, [x0, #0x10]\nldp x23, x24, [x0, #0x20]\nldp x25, x26, [x0, #0x30]\nldp x27, x28, [x0, #0x40]\nldp x29, x30, [x0, #0x50]\nldr x8, [x0, #0x60]\nmov sp, x8\nldp d8, d9, [x0, #0x68]\nldp d10, d11, [x0, #0x78]\nldp d12, d13, [x0, #0x88]\nldp d14, d15, [x0, #0x98]\nldr x8, [x0, #0xa8]\nldr x9, [x0, #0xb0]\nmsr tpidr_el0, x8\nmsr tpidrro_el0, x9\nldr w8, [x0, #0xb8]\nldr w9, [x0, #0xbc]\nmsr fpcr, x8\nmsr fpsr, x9\nmov w0, w1\nret");
 }
 
 

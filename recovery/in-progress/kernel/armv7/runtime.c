@@ -3721,7 +3721,7 @@ double recovered_40403608(double left,double right)
   }
   uVar1 = VectorFloatToSigned(pf_bits_double(CONCAT44(in_r1,in_r0)) / pf_bits_double(CONCAT44(in_r3,in_r2)),3);
   VectorSignedToFloat(uVar1,(byte)((in_fpscr & 0xfffffff) >> 0x16) & 3);
-  return pf_bits_double(CONCAT44((int)((ulonglong)left >> 0x20),uVar1));
+  return pf_bits_double(CONCAT44((int)(pf_double_bits(left) >> 0x20),uVar1));
 }
 
 
@@ -3742,7 +3742,7 @@ double recovered_40403640(double left,double right)
   uint uVar3;
   double dVar4;
 
-  uVar3 = (uint)((ulonglong)left >> 0x20);
+  uVar3 = (uint)(pf_double_bits(left) >> 0x20);
   uVar2 = VectorFloatToSigned(CONCAT44(in_r3,in_r2),3);
   dVar4 = (double)VectorSignedToFloat(uVar2,(byte)(in_fpscr >> 0x16) & 3);
   if (dVar4 != pf_bits_double(CONCAT44(in_r3,in_r2))) {
@@ -3779,7 +3779,7 @@ double recovered_404036c0(double value)
   iVar1 = VectorFloatToSigned(CONCAT44(in_r1,in_r0),3);
   VectorSignedToFloat(iVar1,(byte)(in_fpscr >> 0x16) & 3);
   VectorSignedToFloat(iVar1 + -1,(byte)((in_fpscr & 0xfffffff) >> 0x16) & 3);
-  return pf_bits_double(CONCAT44((int)((ulonglong)value >> 0x20),iVar1 + -1));
+  return pf_bits_double(CONCAT44((int)(pf_double_bits(value) >> 0x20),iVar1 + -1));
 }
 
 
@@ -3800,7 +3800,7 @@ double recovered_404036f0(double value)
   iVar1 = VectorFloatToSigned(CONCAT44(in_r1,in_r0),3);
   VectorSignedToFloat(iVar1,(byte)(in_fpscr >> 0x16) & 3);
   VectorSignedToFloat(iVar1 + -1,(byte)((in_fpscr & 0xfffffff) >> 0x16) & 3);
-  return pf_bits_double(CONCAT44((int)((ulonglong)value >> 0x20),iVar1 + -1));
+  return pf_bits_double(CONCAT44((int)(pf_double_bits(value) >> 0x20),iVar1 + -1));
 }
 
 
@@ -3867,7 +3867,7 @@ double recovered_40403780(double value)
     iVar2 = iVar2 + -1;
   }
   VectorSignedToFloat(iVar2,(byte)(uVar3 >> 0x16) & 3);
-  return pf_bits_double(CONCAT44((int)((ulonglong)value >> 0x20),iVar2));
+  return pf_bits_double(CONCAT44((int)(pf_double_bits(value) >> 0x20),iVar2));
 }
 
 #undef DAT_404038b0
@@ -4424,7 +4424,7 @@ double recovered_40403ef8(double value)
   iVar1 = VectorFloatToSigned(CONCAT44(in_r1,in_r0),3);
   VectorSignedToFloat(iVar1,(byte)(in_fpscr >> 0x16) & 3);
   VectorSignedToFloat(iVar1 + -1,(byte)((in_fpscr & 0xfffffff) >> 0x16) & 3);
-  return pf_bits_double(CONCAT44((int)((ulonglong)value >> 0x20),iVar1 + -1));
+  return pf_bits_double(CONCAT44((int)(pf_double_bits(value) >> 0x20),iVar1 + -1));
 }
 
 
@@ -74203,17 +74203,11 @@ void recovered_4045004c(undefined4 *param_1,uint param_2,uint param_3,undefined4
 }
 
 
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x40450078
- */
-
 /* Native allocation-writer callback preserves the callee status.
  * Pooka's Free Software License. */
-
 uint32_t recovered_40450078(undefined4 *context,uint low,uint high,undefined4 *entry){
  return recovered_4044f1d8((undefined4 *)(uintptr_t)context[0],low,high,entry,(void *)(uintptr_t)context[1]);
 }
-
 
 
 #define abStack_21c (*(byte (*)[540])(pf_stack_frame + 20))
@@ -99845,93 +99839,24 @@ void recovered_4046ddd0(void)
 
 #undef DAT_4065c798
 
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x4046dde8
- */
-
-void recovered_4046dde8(int param_1)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-                    /* WARNING: Could not recover jumptable at 0x4046ddf4. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  (**(code **)(param_1 + 0x24))();
-  return;
+/* Native register context transfer and floating/thread state.
+ * Pooka's Free Software License. */
+__attribute__((naked,noreturn)) void recovered_4046dde8(void *context){
+ __asm__ volatile("ldr sp, [r0, #0x28]\nldr r7, [r0, #0x20]\nldr ip, [r0, #0x24]\nbx ip");
 }
 
 
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x4046ddf8
- */
-
-undefined4 recovered_4046ddf8(undefined4 *param_1)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  undefined4 uVar1;
-  undefined4 unaff_r4;
-  undefined4 unaff_r5;
-  undefined4 unaff_r6;
-  undefined4 unaff_r7;
-  undefined4 unaff_r8;
-  undefined4 unaff_r9;
-  undefined4 unaff_r10;
-  undefined4 unaff_r11;
-  undefined4 unaff_lr;
-  undefined4 in_fpscr;
-  undefined8 unaff_d8;
-  undefined8 unaff_d9;
-  undefined8 unaff_d10;
-  undefined8 unaff_d11;
-  undefined8 unaff_d12;
-  undefined8 unaff_d13;
-  undefined8 unaff_d14;
-  undefined8 unaff_d15;
-
-  *param_1 = unaff_r4;
-  param_1[1] = unaff_r5;
-  param_1[2] = unaff_r6;
-  param_1[3] = unaff_r7;
-  param_1[4] = unaff_r8;
-  param_1[5] = unaff_r9;
-  param_1[6] = unaff_r10;
-  param_1[7] = unaff_r11;
-  param_1[8] = (uintptr_t)(pf_stack_frame + 32);
-  param_1[9] = unaff_lr;
-  *(undefined8 *)(param_1 + 10) = unaff_d8;
-  *(undefined8 *)(param_1 + 0xc) = unaff_d9;
-  *(undefined8 *)(param_1 + 0xe) = unaff_d10;
-  *(undefined8 *)(param_1 + 0x10) = unaff_d11;
-  *(undefined8 *)(param_1 + 0x12) = unaff_d12;
-  *(undefined8 *)(param_1 + 0x14) = unaff_d13;
-  *(undefined8 *)(param_1 + 0x16) = unaff_d14;
-  *(undefined8 *)(param_1 + 0x18) = unaff_d15;
-  param_1[0x1a] = in_fpscr;
-  uVar1 = coproc_movefrom_User_RW_Thread_and_Process_ID();
-  param_1[0x1b] = uVar1;
-  uVar1 = coproc_movefrom_User_R_Thread_and_Process_ID();
-  param_1[0x1c] = uVar1;
-  return 0;
+/* Native register context transfer and floating/thread state.
+ * Pooka's Free Software License. */
+__attribute__((naked,returns_twice)) int recovered_4046ddf8(void *context){
+ __asm__ volatile("stm r0, {r4, r5, r6, r7, r8, sb, sl, fp}\nstr sp, [r0, #0x20]\nstr lr, [r0, #0x24]\nvstr d8, [r0, #0x28]\nvstr d9, [r0, #0x30]\nvstr d10, [r0, #0x38]\nvstr d11, [r0, #0x40]\nvstr d12, [r0, #0x48]\nvstr d13, [r0, #0x50]\nvstr d14, [r0, #0x58]\nvstr d15, [r0, #0x60]\nvmrs r2, fpscr\nstr r2, [r0, #0x68]\nmrc p15, #0, r2, c13, c0, #2\nstr r2, [r0, #0x6c]\nmrc p15, #0, r2, c13, c0, #3\nstr r2, [r0, #0x70]\nmovs r0, #0\nbx lr");
 }
 
 
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x4046de48
- */
-
-int recovered_4046de48(int param_1,int param_2)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  if (param_2 == 0) {
-    param_2 = 1;
-  }
-  coproc_moveto_User_RW_Thread_and_Process_ID(*(undefined4 *)(param_1 + 0x6c));
-  coproc_moveto_User_R_Thread_and_Process_ID(*(undefined4 *)(param_1 + 0x70));
-  return param_2;
+/* Native register context transfer and floating/thread state.
+ * Pooka's Free Software License. */
+__attribute__((naked,noreturn)) int recovered_4046de48(int context,int value){
+ __asm__ volatile("cmp r1, #0\nmoveq r1, #1\nvldr d8, [r0, #0x28]\nvldr d9, [r0, #0x30]\nvldr d10, [r0, #0x38]\nvldr d11, [r0, #0x40]\nvldr d12, [r0, #0x48]\nvldr d13, [r0, #0x50]\nvldr d14, [r0, #0x58]\nvldr d15, [r0, #0x60]\nldr r2, [r0, #0x68]\nvmsr fpscr, r2\nldr r2, [r0, #0x6c]\nmcr p15, #0, r2, c13, c0, #2\nldr r2, [r0, #0x70]\nmcr p15, #0, r2, c13, c0, #3\nldm r0, {r4, r5, r6, r7, r8, sb, sl, fp}\nldr sp, [r0, #0x20]\nldr lr, [r0, #0x24]\nmov r0, r1\nbx lr");
 }
 
 
@@ -175172,7 +175097,7 @@ LAB_404bc044:
               if (*(int *)(iVar28 + 0x3008) != 0) {
                 iVar14 = DAT_4065cc70;
                 if ((iVar14 == 0) ||
-                   (iVar14 = (**(code **)(iVar14 + 0x14))(*(undefined4 *)(iVar28 + 0x3004)),
+                   (iVar14 = ((unsigned char (*)(const void *,unsigned))*(uintptr_t *)(iVar14+0x14))(*(void **)(iVar28+0x3004),*(unsigned *)(iVar28+0x3008)),
                    iVar14 == 0)) {
                   DataMemoryBarrier(0xb);
                   do {
@@ -203530,15 +203455,8 @@ recovered_404d93a4(byte *param_1,uint param_2,uint param_3,undefined *param_4,un
 
 #undef DAT_4066f690
 
-#undef DAT_40682b70
-#define DAT_40682b70 (*(uint32_t volatile *)(0x40682b70U))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x404d9568
- */
-
 /* Native PFS flush callback returns the storage status after releasing its lock.
  * Pooka's Free Software License. */
-
 uint32_t recovered_404d9568(byte *context){
  if(!context)return 0;
  volatile unsigned *lock=(volatile unsigned *)(uintptr_t)0x40682b70U;
@@ -203547,8 +203465,6 @@ uint32_t recovered_404d9568(byte *context){
  __atomic_store_n(lock,0,__ATOMIC_RELEASE);return status;
 }
 
-
-#undef DAT_40682b70
 
 #undef DAT_4066f2e4
 #define DAT_4066f2e4 (*(uint32_t volatile *)(0x4066f2e4U))
@@ -217293,265 +217209,40 @@ undefined8 recovered_404e8298(uint *param_1)
 }
 
 
-#undef DAT_404e8700
-#define DAT_404e8700 (*(uint64_t *)(0x404e8700U))
-#undef DAT_404e8708
-#define DAT_404e8708 (*(uint64_t *)(0x404e8708U))
-#undef DAT_404e8710
-#define DAT_404e8710 (*(uint64_t *)(0x404e8710U))
-#undef DAT_404e8718
-#define DAT_404e8718 (*(uint64_t *)(0x404e8718U))
-#undef DAT_40526e93
-#define DAT_40526e93 (*(uint8_t volatile *)(0x40526e93U))
-#undef str_40529e75
-#define str_40529e75 (*(char volatile (*)[1])(0x40529e75U))
-#undef str_40529e90
-#define str_40529e90 (*(char volatile (*)[1])(0x40529e90U))
-#undef str_40529eab
-#define str_40529eab (*(char volatile (*)[1])(0x40529eabU))
-#undef str_40529ed4
-#define str_40529ed4 (*(char volatile (*)[1])(0x40529ed4U))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x404e82b0
- */
-
-undefined4
-recovered_404e82b0(char *param_1,uint param_2,undefined4 *param_3,uint *param_4,char *param_5,
-                  ulong param_6)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  uint128 auVar1;
-  char cVar2;
-  byte bVar3;
-  byte bVar4;
-  ushort uVar5;
-  ulong uVar6;
-  int *memory;
-  ulong extraout_r1;
-  ulong extraout_r1_00;
-  uint uVar7;
-  uint uVar8;
-  int iVar9;
-  uint uVar10;
-  int iVar11;
-  char *arg3;
-  uint uVar12;
-  uint uVar13;
-  uint uVar14;
-  uint uVar15;
-  uint size;
-  uint uVar16;
-  uint uVar17;
-  uint uVar18;
-  bool bVar19;
-  bool bVar20;
-  ulonglong uVar21;
-  uint128 auVar22;
-  uint128 auVar23;
-  uint128 auVar24;
-  uint128 auVar25;
-  uint128 auVar26;
-
-  if (param_3 == (undefined4 *)0x0 || param_4 == (uint *)0x0) {
-    if (param_5 == (char *)0x0 || param_6 == 0) {
-      return 0;
+/* Recovered PFZ1 Mach-O allocation, token, checksum and output semantics.
+ * Pooka's Free Software License. */
+#define PF_PFZ_MAXIMUM_SIZE UINT32_MAX
+#include "pfz.c"
+#undef PF_PFZ_MAXIMUM_SIZE
+uint recovered_404e82b0(char *input,uint input_size,undefined4 *output,
+                           uint *output_size,char *error,ulong error_size){
+ const char *message="invalid PFZ1 Mach-O output";
+ if(output && output_size){
+  *output=0;*output_size=0;message="invalid PFZ1 Mach-O header";
+  const uint8_t *bytes=(const uint8_t *)input;
+  if(bytes && input_size>=16 && bytes[0]=='P' && bytes[1]=='F' && bytes[2]=='Z' && bytes[3]=='1'){
+   uint32_t size=little32(bytes+4);
+   if(size && little32(bytes+8)==input_size-16){
+    void *memory=recovered_40401d40(size);
+    message="out of memory while decoding PFZ1 Mach-O";
+    if(memory){
+     size_t written=0;int status=pf_pfz_unpack(bytes,input_size,memory,size,&written);
+     uint32_t magic=size>=4?little32(memory):0;
+     if(status==PF_PFZ_OK && written==size &&
+        (magic==0xbebafecaU || magic==0xbfbafecaU || magic==0xcefaedfeU ||
+         magic==0xfeedfaceU || magic==0xfeedfacfU || magic==0xcffaedfeU)){
+      *output=(uintptr_t)memory;*output_size=size;return 1;
+     }
+     recovered_40401dc0(memory);message="invalid PFZ1 Mach-O stream or checksum";
     }
-    arg3 = str_40529e75;
+   }
   }
-  else {
-    *param_4 = 0;
-    *param_3 = 0;
-    if (((param_1 != (char *)0x0) && (3 < param_2)) && (*param_1 == 'P')) {
-      cVar2 = param_1[1];
-      bVar19 = cVar2 == 'F';
-      if (bVar19) {
-        cVar2 = param_1[2];
-      }
-      if (((bVar19 && cVar2 == 'Z') && (0xf < param_2)) &&
-         ((param_1[3] == '1' &&
-          ((size = *(uint *)(param_1 + 4), size != 0 &&
-           (uVar18 = *(uint *)(param_1 + 8), uVar18 == param_2 - 0x10)))))) {
-        memory = recovered_40401d40(size);
-        if (memory == (int *)0x0) {
-          uVar6 = extraout_r1;
-          if (param_5 != (char *)0x0) {
-            uVar6 = param_6;
-          }
-          param_6 = uVar6;
-          if (param_5 == (char *)0x0 || param_6 == 0) {
-            return 0;
-          }
-          arg3 = str_40529eab;
-          goto override_prt_404e8358_945f3014;
-        }
-        if ((*param_1 == 'P') && (param_1[1] == 'F')) {
-          cVar2 = param_1[2];
-          bVar19 = cVar2 == 'Z';
-          if (bVar19) {
-            cVar2 = param_1[3];
-          }
-          if (((bVar19 && cVar2 == '1') && (uVar7 = *(uint *)(param_1 + 4), uVar7 - 1 < size)) &&
-             (*(uint *)(param_1 + 8) == uVar18)) {
-            uVar16 = 0xffffffff;
-            uVar10 = 0;
-            uVar13 = 0x10;
-            do {
-              if (param_2 <= uVar13) goto LAB_404e83e8;
-              bVar3 = param_1[uVar13];
-              uVar13 = uVar13 + 1;
-              uVar15 = 0;
-              do {
-                if (uVar7 == uVar10) {
-                  uVar10 = uVar7;
-                  if (bVar3 >> (uVar15 & 0xff) != 0) goto LAB_404e83e8;
-                  goto LAB_404e8650;
-                }
-                if ((bVar3 >> (uVar15 & 0xff) & 1) == 0) {
-                  bVar20 = param_2 - uVar13 == 2;
-                  bVar19 = false;
-                  uVar12 = param_2;
-                  uVar17 = (uint)bVar3;
-                  if (1 < param_2 - uVar13) {
-                    uVar12 = (uint)(byte)*(ushort *)(param_1 + uVar13);
-                    uVar5 = *(ushort *)(param_1 + uVar13);
-                    uVar18 = (uint)uVar5;
-                    uVar17 = (uint)(uVar5 >> 4);
-                    bVar19 = uVar17 <= uVar10;
-                    bVar20 = uVar10 == uVar17;
-                    uVar17 = uVar13;
-                  }
-                  if ((!bVar19 || bVar20) || (uVar12 = (uVar12 & 0xf) + 3, uVar7 - uVar10 < uVar12))
-                  goto LAB_404e83e8;
-                  uVar18 = (int)memory - (uVar18 >> 4);
-                  uVar13 = uVar17 + 2;
-                  do {
-                    bVar4 = *(byte *)(uVar18 + uVar10 + -1);
-                    PF_PART8(auVar24, 8) = DAT_404e8708;
-                    PF_PART8(auVar24, 0) = DAT_404e8700;
-                    uVar16 = uVar16 ^ bVar4;
-                    *(byte *)((int)memory + uVar10) = bVar4;
-                    PF_PART8(auVar23, 8) = CONCAT44(uVar16,uVar16);
-                    PF_PART8(auVar23, 0) = CONCAT44(uVar16,uVar16);
-                    auVar23 = PFVectorTest(auVar23,auVar24,4,0x10);
-                    PF_PART8(auVar26, 8) = DAT_404e8718;
-                    PF_PART8(auVar26, 0) = DAT_404e8710;
-                    uVar10 = uVar10 + 1;
-                    uVar21 = SUB168(auVar23 & auVar26,0) ^ SUB168(auVar23 & auVar26,8);
-                    uVar8 = (uint)uVar21 ^ (uint)(uVar21 >> 0x20);
-                    uVar17 = uVar16 >> 1 ^ 0xedb88320;
-                    if ((uVar16 & 1) == 0) {
-                      uVar17 = uVar16 >> 1;
-                    }
-                    if ((uVar17 & 0x20) != 0) {
-                      uVar8 = uVar8 ^ 0x76dc4190;
-                    }
-                    uVar14 = uVar17 >> 1 ^ 0xedb88320;
-                    if ((uVar16 & 2) == 0) {
-                      uVar14 = uVar17 >> 1;
-                    }
-                    uVar16 = uVar14 >> 6 ^ 0xedb88320;
-                    if ((uVar14 & 0x20) == 0) {
-                      uVar16 = uVar14 >> 6;
-                    }
-                    uVar16 = uVar8 ^ uVar16;
-                    uVar12 = uVar12 - 1;
-                  } while (uVar12 != 0);
-                }
-                else {
-                  if (param_2 <= uVar13) goto LAB_404e83e8;
-                  PF_PART8(auVar22, 8) = DAT_404e8708;
-                  PF_PART8(auVar22, 0) = DAT_404e8700;
-                  uVar16 = uVar16 ^ (byte)param_1[uVar13];
-                  PF_PART8(auVar1, 8) = CONCAT44(uVar16,uVar16);
-                  PF_PART8(auVar1, 0) = CONCAT44(uVar16,uVar16);
-                  auVar23 = PFVectorTest(auVar1,auVar22,4,0x10);
-                  PF_PART8(auVar25, 8) = DAT_404e8718;
-                  PF_PART8(auVar25, 0) = DAT_404e8710;
-                  *(char *)((int)memory + uVar10) = param_1[uVar13];
-                  uVar10 = uVar10 + 1;
-                  uVar21 = SUB168(auVar23 & auVar25,0) ^ SUB168(auVar23 & auVar25,8);
-                  uVar17 = (uint)uVar21 ^ (uint)(uVar21 >> 0x20);
-                  uVar12 = uVar16 >> 1 ^ 0xedb88320;
-                  if ((uVar16 & 1) == 0) {
-                    uVar12 = uVar16 >> 1;
-                  }
-                  if ((uVar12 & 0x20) != 0) {
-                    uVar17 = uVar17 ^ 0x76dc4190;
-                  }
-                  uVar8 = uVar12 >> 1 ^ 0xedb88320;
-                  uVar13 = uVar13 + 1;
-                  if ((uVar16 & 2) == 0) {
-                    uVar8 = uVar12 >> 1;
-                  }
-                  uVar16 = uVar8 >> 6 ^ 0xedb88320;
-                  if ((uVar8 & 0x20) == 0) {
-                    uVar16 = uVar8 >> 6;
-                  }
-                  uVar16 = uVar17 ^ uVar16;
-                }
-                uVar15 = uVar15 + 1;
-              } while (uVar15 != 8);
-            } while (uVar10 < uVar7);
-LAB_404e8650:
-            if (((uVar13 == param_2) && ((*(uint *)(param_1 + 0xc) ^ uVar16) == 0xffffffff)) &&
-               ((3 < size && (uVar10 == size)))) {
-              iVar9 = *memory;
-              if (iVar9 < -0x30051202) {
-                iVar11 = -0x41450136;
-                if (iVar9 != -0x41450136) {
-                  iVar11 = -0x40450136;
-                }
-                if (iVar9 == -0x41450136 || iVar9 == iVar11) goto LAB_404e86dc;
-                iVar11 = -0x31051202;
-              }
-              else {
-                if (iVar9 + 0x1120532U < 2) goto LAB_404e86dc;
-                iVar11 = -0x30051202;
-              }
-              if (iVar9 == iVar11) {
-LAB_404e86dc:
-                *param_4 = size;
-                *param_3 = memory;
-                return 1;
-              }
-            }
-          }
-        }
-LAB_404e83e8:
-        recovered_40401dc0(memory);
-        uVar6 = extraout_r1_00;
-        if (param_5 != (char *)0x0) {
-          uVar6 = param_6;
-        }
-        param_6 = uVar6;
-        if (param_5 == (char *)0x0 || param_6 == 0) {
-          return 0;
-        }
-        arg3 = str_40529ed4;
-        goto override_prt_404e8358_945f3014;
-      }
-    }
-    if (param_5 == (char *)0x0 || param_6 == 0) {
-      return 0;
-    }
-    arg3 = str_40529e90;
-  }
-override_prt_404e8358_945f3014:
-  recovered_40405548(param_5,param_6,&DAT_40526e93,arg3);
-  return 0;
+ }
+ if(error && error_size)recovered_40405548(error,error_size,"%s",message);
+ return 0;
 }
 
-#undef DAT_404e8700
-#undef DAT_404e8708
-#undef DAT_404e8710
-#undef DAT_404e8718
-#undef DAT_40526e93
-#undef str_40529e75
-#undef str_40529e90
-#undef str_40529eab
-#undef str_40529ed4
+#undef PF_PFZ_MAXIMUM_SIZE
 
 #undef DAT_40526e93
 #define DAT_40526e93 (*(uint8_t volatile *)(0x40526e93U))
@@ -275059,12 +274750,9 @@ LAB_40523418:
                                     iVar4 = recovered_404f0268();
                                     if (iVar4 != 0) {
                                       uVar18 = 0;
-                                      uVar19 = *(undefined4 *)
-                                                ((uint128)0x0 + (uint128)0x4);
-                                      uVar20 = *(undefined4 *)
-                                                ((uint128)0x0 + (uint128)0x8);
-                                      uVar21 = *(undefined4 *)
-                                                ((uint128)0x0 + (uint128)0xc);
+                                      uVar19 = *(undefined4 *)(((union { uint64_t alignment; byte bytes[16]; }){.bytes={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}}).bytes + 4);
+                                      uVar20 = *(undefined4 *)(((union { uint64_t alignment; byte bytes[16]; }){.bytes={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}}).bytes + 8);
+                                      uVar21 = *(undefined4 *)(((union { uint64_t alignment; byte bytes[16]; }){.bytes={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}}).bytes + 12);
                                       uVar17 = 0;
                                       do {
                                         pbVar10 = (byte *)recovered_404f02e8(uVar17);
