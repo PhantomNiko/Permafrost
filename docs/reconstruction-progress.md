@@ -1201,3 +1201,11 @@ variable-output pointer. First-use and explicit-reload comparisons match the
 reference on all four CPUs. The x64 VM delivers pointer-driven application
 launch, but the integration fixture still produces an empty window; this does
 not yet establish application or desktop parity.
+
+IA32 TrueType uses recovered font/cache types, explicit metric virtual-call
+signatures and the same verified C contour/raster algorithms as ARM32. The
+mapped glyph ID retains its native 16-bit width. Native/source checks match
+162 RGBA rasters and 81 metrics across generated fixtures, the release font
+and Unicode text, plus size-cache rotation, destruction and heap guards.
+The C BIOS candidate now boots the C kernel into its graphical background;
+complete IA32 desktop and input integration remain unresolved.

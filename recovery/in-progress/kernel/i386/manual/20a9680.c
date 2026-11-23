@@ -1,5 +1,7 @@
 /* Recovered graphics entry; Pooka's Free Software License. */
 #include "functions.h"
+#define DAT_02464afc (*(volatile int *)(uintptr_t)0x2464afc)
+#define DAT_02464b00 (*(volatile int *)(uintptr_t)0x2464b00)
 unsigned int recovered_20a9680(void)
 
 {

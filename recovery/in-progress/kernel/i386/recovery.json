@@ -11,7 +11,13 @@
     "declarations": [
       "#include \"support.h\"",
       "void pf_kernel_entry(void);",
-      "#include \"x86_cpu.h\""
+      "#include \"x86_cpu.h\"",
+      "typedef struct pf_glyph { int left,top,width,height;double advance;unsigned char *pixels;unsigned long count,capacity; } pf_glyph;",
+      "typedef struct pf_glyph_position { void *glyph;int x,y; } pf_glyph_position;",
+      "typedef struct pf_layout { int left,top,right,bottom;pf_glyph_position *data;unsigned long count,capacity; } pf_layout;",
+      "typedef struct pf_u32_vector { unsigned int *data;unsigned long count,capacity; } pf_u32_vector;",
+      "typedef struct pf_font_cache110 { float size;unsigned int age_low,age_high,pixels;void *entries;unsigned int count,capacity;void *buckets;unsigned int bucket_count,bucket_capacity;void *next;unsigned int next_count,next_capacity,reserved; } pf_font_cache110;",
+      "typedef struct pf_font_handle110 { void *backend;float size;unsigned int age_low,age_high;pf_font_cache110 caches[4]; } pf_font_handle110;"
     ],
     "volatile_ranges": [
       [
@@ -370,10 +376,7 @@
         "recovered_2083a40(unaff_retaddr)": "recovered_2083a40(__builtin_return_address(0))"
       },
       "20a9680": {
-        "recovered_2083a40(unaff_retaddr)": "recovered_2083a40(__builtin_return_address(0))",
-        "void recovered_20a9680(void)": "unsigned int recovered_20a9680(void)",
-        "  recovered_20a9730();": "  unsigned int result = recovered_20a9730();",
-        "  return;": "  return result;"
+        "recovered_2083a40(unaff_retaddr)": "recovered_2083a40(__builtin_return_address(0))"
       },
       "20ef920": {
         "recovered_2083a40(unaff_retaddr)": "recovered_2083a40(__builtin_return_address(0))"
@@ -455,6 +458,23 @@
       },
       "2005370": {
         "local_54 = local_50;": "local_54 = local_64;"
+      },
+      "207fdd0": {
+        "recovered_207cd60(param_1,(int *)&local_90,local_20);": "recovered_207cd60(local_20,param_1,(long *)&local_90);"
+      },
+      "20776d0": {
+        "(**(code **)(*backend + 0x10))(backend)": "((double (*)(void *))*(uintptr_t *)(*backend + 0x10))(backend)",
+        "(**(code **)(*(int *)font->backend + 0x14))(font->backend)": "((double (*)(void *))*(uintptr_t *)(*(int *)font->backend + 0x14))(font->backend)",
+        "(**(code **)(*(int *)font->backend + 0x20))()": "((int (*)(void *))*(uintptr_t *)(*(int *)font->backend + 0x20))(font->backend)",
+        "(**(code **)(*(int *)font->backend + 0x18))(font->backend)": "((double (*)(void *))*(uintptr_t *)(*(int *)font->backend + 0x18))(font->backend)",
+        "(**(code **)(*(int *)font->backend + 0x1c))(font->backend)": "((double (*)(void *))*(uintptr_t *)(*(int *)font->backend + 0x1c))(font->backend)"
+      },
+      "20797e0": {
+        "(**(code **)(*piVar10 + 0x10))(piVar10)": "((double (*)(void *))*(uintptr_t *)(*piVar10 + 0x10))(piVar10)",
+        "(**(code **)(*(int *)font->backend + 0x14))(font->backend)": "((double (*)(void *))*(uintptr_t *)(*(int *)font->backend + 0x14))(font->backend)",
+        "(**(code **)(*(int *)font->backend + 0x20))()": "((int (*)(void *))*(uintptr_t *)(*(int *)font->backend + 0x20))(font->backend)",
+        "(**(code **)(*(int *)font->backend + 0x18))(font->backend)": "((double (*)(void *))*(uintptr_t *)(*(int *)font->backend + 0x18))(font->backend)",
+        "(**(code **)(*(int *)font->backend + 0x1c))(font->backend)": "((double (*)(void *))*(uintptr_t *)(*(int *)font->backend + 0x1c))(font->backend)"
       }
     }
   }

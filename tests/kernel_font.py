@@ -9,18 +9,18 @@ from kernel_scalars import Kernel
 from native import inspect
 from ttf_library import fixture,floating
 from unicorn import UC_HOOK_CODE
-from unicorn.x86_const import UC_X86_REG_RSP,UC_X86_REG_RIP,UC_X86_REG_RAX,UC_X86_REG_RDI,UC_X86_REG_RSI
+from unicorn.x86_const import UC_X86_REG_RSP,UC_X86_REG_RIP,UC_X86_REG_RAX,UC_X86_REG_RDI,UC_X86_REG_RSI,UC_X86_REG_ESP,UC_X86_REG_EIP,UC_X86_REG_EAX
 from unicorn.arm_const import UC_ARM_REG_R0,UC_ARM_REG_R1,UC_ARM_REG_PC,UC_ARM_REG_LR
 from unicorn.arm64_const import UC_ARM64_REG_X0,UC_ARM64_REG_X1,UC_ARM64_REG_PC,UC_ARM64_REG_LR
 
 class FontKernel:
  def __init__(self,binary,mapping=None,names=None):
-  metadata,_=inspect(binary);assert metadata['cpu']in(12,0x1000007,0x100000c)
-  self.arm32=metadata['cpu']==12;self.arm64=metadata['cpu']==0x100000c;self.arm=self.arm32 or self.arm64
+  metadata,_=inspect(binary);assert metadata['cpu']in(7,12,0x1000007,0x100000c)
+  self.i386=metadata['cpu']==7;self.narrow=metadata['cpu']in(7,12);self.arm32=metadata['cpu']==12;self.arm64=metadata['cpu']==0x100000c;self.arm=self.arm32 or self.arm64
   names=names or {name:address for address,name in metadata['symbols']}
   def address(name):return names[name] if mapping is None else mapping[('_'if self.arm else'')+'recovered_%x'%names[name]]
   exports={name:address(name) for name in ['__Z23wm_ttf_font_load_memoryPKvmf','__Z18wm_ttf_font_renderPvPKciiid','__Z16wm_ttf_font_freePv','__Z19wm_ttf_font_metricsPvPKcP16WmTtfTextMetrics','__Z18wm_ttf_font_resizePvf']}
-  self.library=Kernel(binary,dict(exports,_ws_errorf=0x4fe0000));self.library.instruction_limit=1000000000 if self.arm else 100000000
+  self.library=Kernel(binary,dict(exports,_ws_errorf=0x4fe0000));self.library.instruction_limit=1000000000
   self.cpu=self.library.cpu;self.arena=0x3800000;self.allocations={}
   self.argument0=UC_ARM_REG_R0 if self.arm32 else UC_ARM64_REG_X0 if self.arm64 else UC_X86_REG_RDI
   self.argument1=UC_ARM_REG_R1 if self.arm32 else UC_ARM64_REG_X1 if self.arm64 else UC_X86_REG_RSI
@@ -29,36 +29,39 @@ class FontKernel:
  def leave(self,value=0):
   if self.arm:
    c=self.cpu;c.reg_write(UC_ARM64_REG_PC if self.arm64 else UC_ARM_REG_PC,c.reg_read(UC_ARM64_REG_LR if self.arm64 else UC_ARM_REG_LR));c.reg_write(self.argument0,value);return
-  c=self.cpu;sp=c.reg_read(UC_X86_REG_RSP);c.reg_write(UC_X86_REG_RIP,int.from_bytes(c.mem_read(sp,8),'little'));c.reg_write(UC_X86_REG_RSP,sp+8);c.reg_write(UC_X86_REG_RAX,value)
+  c=self.cpu;word=4 if self.i386 else 8;spreg=UC_X86_REG_ESP if self.i386 else UC_X86_REG_RSP;sp=c.reg_read(spreg);c.reg_write(UC_X86_REG_EIP if self.i386 else UC_X86_REG_RIP,int.from_bytes(c.mem_read(sp,word),'little'));c.reg_write(spreg,sp+word);c.reg_write(UC_X86_REG_EAX if self.i386 else UC_X86_REG_RAX,value)
+ def argument(self,index):
+  if self.i386:return int.from_bytes(self.cpu.mem_read(self.cpu.reg_read(UC_X86_REG_ESP)+4+index*4,4),'little')
+  return self.cpu.reg_read(self.argument0 if index==0 else self.argument1)
  def verify(self):
   for pointer,length in self.allocations.items():assert bytes(self.cpu.mem_read(pointer+length,32))==b'\xa5'*32,('allocation canary',hex(pointer),length)
  def allocate(self,length):
   pointer=self.arena;self.arena=(pointer+max(length,1)+47)&-16
   assert self.arena<0x4f00000,('allocation size',length)
   self.cpu.mem_write(pointer,bytes(length)+b'\xa5'*32);self.allocations[pointer]=length;return pointer
- def malloc(self,c,pc,size,user):self.verify();self.leave(self.allocate(c.reg_read(self.argument0)))
+ def malloc(self,c,pc,size,user):self.verify();self.leave(self.allocate(self.argument(0)))
  def free(self,c,pc,size,user):
-  self.verify();pointer=c.reg_read(self.argument0)
+  self.verify();pointer=self.argument(0)
   if pointer:assert pointer in self.allocations,('invalid free',hex(pointer));del self.allocations[pointer]
   self.leave()
  def realloc(self,c,pc,size,user):
-  self.verify();pointer,length=c.reg_read(self.argument0),c.reg_read(self.argument1);result=self.allocate(length)
+  self.verify();pointer,length=self.argument(0),self.argument(1);result=self.allocate(length)
   if pointer:
    assert pointer in self.allocations,('invalid realloc',hex(pointer))
    c.mem_write(result,bytes(c.mem_read(pointer,min(self.allocations.pop(pointer),length))))
   self.leave(result)
  def load(self,font,size):
   self.cpu.mem_write(0x3000000,font);bits=floating(self.library,size)
-  handle=self.library.call('__Z23wm_ttf_font_load_memoryPKvmf',0x3000000,len(font),*((bits,)if self.arm32 else()),result_bits=32 if self.arm32 else 64);assert handle
+  handle=self.library.call('__Z23wm_ttf_font_load_memoryPKvmf',0x3000000,len(font),*((bits,)if self.narrow else()),result_bits=32 if self.narrow else 64);assert handle
   self.verify();return handle
  def render(self,handle,text,colors,opacity):
   self.cpu.mem_write(0x3001000,text+b'\0');bits=floating(self.library,opacity,True)
-  bitmap=self.library.call('__Z18wm_ttf_font_renderPvPKciiid',handle,0x3001000,*colors,*((bits&0xffffffff,bits>>32)if self.arm32 else()),result_bits=32 if self.arm32 else 64);self.verify();assert bitmap
-  width,height,pointer=struct.unpack('<III'if self.arm32 else'<IIQ',bytes(self.cpu.mem_read(bitmap,12 if self.arm32 else 16)));assert width*height<1024*1024
+  bitmap=self.library.call('__Z18wm_ttf_font_renderPvPKciiid',handle,0x3001000,*colors,*((bits&0xffffffff,bits>>32)if self.narrow else()),result_bits=32 if self.narrow else 64);self.verify();assert bitmap
+  width,height,pointer=struct.unpack('<III'if self.narrow else'<IIQ',bytes(self.cpu.mem_read(bitmap,12 if self.narrow else 16)));assert width*height<1024*1024
   return width,height,bytes(self.cpu.mem_read(pointer,width*height*4))
  def resize(self,handle,size):
   bits=floating(self.library,size)
-  self.library.call('__Z18wm_ttf_font_resizePvf',handle,*((bits,)if self.arm32 else()))
+  self.library.call('__Z18wm_ttf_font_resizePvf',handle,*((bits,)if self.narrow else()))
   self.verify()
  def metrics(self,handle,text):
   self.cpu.mem_write(0x3001000,text+b'\0');self.cpu.mem_write(0x3002000,b'\xa5'*64)
