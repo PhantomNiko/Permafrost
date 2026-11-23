@@ -417,6 +417,18 @@
       "20ab9f0": {
         "pcVar2 = *(code **)(iVar33 + 0x54);\n        puVar31[-5] = 0x20aedbe;\n        cVar5 = (*pcVar2)();": "pcVar2 = *(code **)(iVar33 + 0x54);\n        puVar31[-5] = 0x20aedbe;\n        cVar5 = ((unsigned char (*)(const char *,void *))pcVar2)(str_0211acc3,&local_7f8);",
         "pcVar2 = *(code **)(iVar33 + 0x58);\n          puVar31[-5] = 0x20aedf7;\n          (*pcVar2)();": "pcVar2 = *(code **)(iVar33 + 0x58);\n          puVar31[-5] = 0x20aedf7;\n          ((void (*)(void *))pcVar2)(&local_7f8);"
+      },
+      "20d8ef0": {
+        "recovered_20d8ef0(uint param_1,": "recovered_20d8ef0(uint *in_ECX,uint in_EDX,uint param_1,",
+        "  uint *in_ECX;\n  uint in_EDX;": ""
+      },
+      "20d3d80": {
+        "recovered_20d8ef0(7,0,": "recovered_20d8ef0(local_104,local_108,7,0,",
+        "recovered_20d99f0(7,0,": "recovered_20d99f0((uint *)local_128,local_124,7,0,"
+      },
+      "20d99f0": {
+        "recovered_20d99f0(uint param_1,": "recovered_20d99f0(uint *in_ECX,uint in_EDX,uint param_1,",
+        "  uint *in_ECX;\n  uint in_EDX;": ""
       }
     }
   }

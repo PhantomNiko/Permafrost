@@ -1006,7 +1006,7 @@ undefined4 recovered_206a690(int in_ECX,byte *in_EDX,undefined2 *param_3);
 byte * recovered_206aa10(uint in_ECX,int *in_EDX);
 int recovered_206ab30(char *param_1,uint param_2);
 undefined4 recovered_206abd0(byte *in_ECX,uint in_EDX);
-uint recovered_206ad50(byte *param_1,uint *param_2,uint *param_3);
+unsigned char recovered_206ad50(const void *data,uintptr_t size,void *image);
 uint recovered_206d320(uint *in_ECX,int *in_EDX,int *param_3);
 uint recovered_206d740(uint *in_ECX,int *param_2,int *param_3);
 void recovered_206eda0(int in_ECX);
@@ -1687,7 +1687,7 @@ recovered_20d87c0(uint *in_ECX,uint in_EDX,uint param_3,uint param_4,uint param_
                  void *param_7,undefined4 *param_8,uint *param_9,char *param_10,ulong param_11);
 undefined4 recovered_20d8a80(void);
 undefined4
-recovered_20d8ef0(uint param_1,byte param_2,int *param_3,int param_4,undefined1 *param_5,
+recovered_20d8ef0(uint *in_ECX,uint in_EDX,uint param_1,byte param_2,int *param_3,int param_4,undefined1 *param_5,
                  char *param_6,ulong param_7);
 void recovered_20d90d0(char *in_ECX);
 undefined1 recovered_20d92f0(char *in_ECX,char *in_EDX);
@@ -1697,7 +1697,7 @@ undefined4
 recovered_20d96c0(int in_ECX,uint *in_EDX,uint *param_3,ulong *param_4,int param_5,uint param_6,
                  uint *param_7,char *param_8,ulong param_9);
 undefined4
-recovered_20d99f0(uint param_1,byte param_2,uint param_3,uint *param_4,undefined4 *param_5,
+recovered_20d99f0(uint *in_ECX,uint in_EDX,uint param_1,byte param_2,uint param_3,uint *param_4,undefined4 *param_5,
                  undefined4 *param_6,uint *param_7,undefined4 *param_8,uint *param_9,char *param_10,
                  ulong param_11);
 undefined4 recovered_20d9fb0(char *in_ECX);

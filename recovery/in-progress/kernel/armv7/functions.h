@@ -1010,7 +1010,7 @@ undefined4 recovered_4046ee38(int param_1,undefined4 *param_2,undefined2 *param_
 undefined4 * recovered_4046f1e4(uint param_1,undefined4 *param_2);
 undefined1 recovered_4046f370(byte *param_1,uint param_2);
 bool recovered_4046f454(byte *param_1,uint param_2);
-uint recovered_4046f5fc(uint *param_1,uint *******param_2,uint *param_3);
+unsigned char recovered_4046f5fc(const void *data,uintptr_t size,void *image);
 undefined4 recovered_40471994(uint *param_1,int *param_2,uint *param_3);
 bool recovered_40471e50(uint *param_1,undefined4 *param_2,int *param_3,int *param_4);
 int recovered_40473a44(int param_1);

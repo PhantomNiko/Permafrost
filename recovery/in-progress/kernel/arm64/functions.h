@@ -1165,7 +1165,7 @@ ulong recovered_8243bd40(byte *param_1,long param_2);
 ulong recovered_8243bd68(undefined8 *param_1);
 undefined4 recovered_8243bde8(byte *param_1,ulong param_2);
 bool recovered_8243be9c(byte *param_1,ulong param_2);
-bool recovered_8243c004(byte *param_1,uint *******param_2,uint *param_3);
+unsigned char recovered_8243c004(const void *data,uintptr_t size,void *image);
 undefined8 * recovered_8243e1b4(undefined8 *param_1,undefined8 *param_2);
 bool recovered_8243e1e0(uint *param_1,long *param_2,long *param_3,long *param_4);
 long * recovered_8243edf4(long *param_1,long *param_2);

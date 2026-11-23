@@ -1024,7 +1024,7 @@ undefined8 recovered_20732a0(long param_1,byte *param_2,undefined2 *param_3);
 ulonglong recovered_2073640(uint param_1,long *param_2);
 int recovered_20737d0(byte *param_1,ulong param_2);
 undefined8 recovered_2073880(byte *param_1,ulong param_2);
-ulong recovered_20739e0(uint *param_1,uint *param_2,uint *param_3);
+unsigned char recovered_20739e0(const void *data,uintptr_t size,void *image);
 ulong recovered_2076200(uint *param_1,byte *param_2,long *param_3);
 ulong recovered_2076770(uint *param_1,long *param_2,byte *param_3,long *param_4);
 void recovered_20786b0(long param_1);

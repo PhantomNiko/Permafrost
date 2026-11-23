@@ -1121,3 +1121,15 @@ preserve the BIOS timer vector in the next VM run, which reaches the startup
 script and shell instead of the firmware invalid-opcode loop. Startup then
 reports an unexpected Mach-O architecture; application loading and remaining
 graphics compatibility still gate release.
+
+Kernel image decoding now shares the recovered release-matched library C
+implementation on all four architectures. BMP, PNG, TGA and XCF fixtures have
+identical native/source decoded pixels on each CPU. The ARM32 VM now displays
+the holly background, desktop and dock icons, translucent menus and TrueType
+text. ARM64 reaches a TrueType backend call with an invalid receiver, exposing
+a separate font virtual-call ABI problem that remains under recovery.
+
+IA32 executable probing and loading explicitly retain their incoming image
+buffer and length rather than using uninitialized ECX/EDX decompiler locals.
+Thirty-six native/source boundary cases preserve image, size, architecture,
+flags and zeroed parse context. Integrated startup is being checked again.

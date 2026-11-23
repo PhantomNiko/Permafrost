@@ -61,6 +61,7 @@ def main():
     for name in ('reference','kernel','reference-library','profile','map'):
         parser.add_argument('--'+name,type=Path,required=True)
     parser.add_argument('--abi',type=Path)
+    parser.add_argument('--api-base',type=lambda value:int(value,0))
     parser.add_argument('--formats',nargs='+',choices=FORMATS,default=FORMATS)
     parser.add_argument('--image',type=Path,action='append',default=[],help='additional real image to compare')
     args=parser.parse_args()
@@ -74,12 +75,16 @@ def main():
         addresses={name:symbols.get(profile['functions'].get(f'{address:x}',''),
                                    symbols.get('_'+profile['functions'].get(f'{address:x}','')))
                    for name,address in native.items()}
+    # Later kernels delegate WinterScript to a module; codec comparisons do
+    # not need that module's error callback.
+    native.setdefault('_ws_errorf',0x4fe0000)
+    addresses.setdefault('_ws_errorf',0x4fe0000)
     reference=Kernel(raw,native,True)
     # Public C++ codec entry points retain cdecl, unlike private i386 VM routines.
     reference.native=False
     source=Kernel(args.kernel.read_bytes(),addresses)
     isolated_codec_heap(source,symbols)
-    samples=[(name,encoded)for name,(encoded,_)in exercise(args.reference_library,args.formats).items()]
+    samples=[(name,encoded)for name,(encoded,_)in exercise(args.reference_library,args.formats,api_base=args.api_base).items()]
     samples.extend((path.name,path.read_bytes())for path in args.image)
     for format,encoded in samples:
         results=[]
