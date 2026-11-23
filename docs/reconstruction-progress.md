@@ -1107,3 +1107,17 @@ configuration. Each architecture passes 96 native/source provider-present,
 provider-absent, path, device and return-value cases. ARM64 startup also supplies
 the original startup-script path at its direct call. Integrated configuration
 and desktop rendering are being checked separately.
+
+ARM32 Tundra now reads its configured font and renders readable TrueType text
+in the desktop VM. The media wrapper's unsigned-opacity conversion no longer
+combines a floating high word with an unrelated stack slot. Fifteen complete
+native/source media rasters, descriptors and output guards match; the fixture
+uses the full source image so initialized virtual tables are present.
+
+An IA32 debugger watchpoint locates timer-vector corruption in WinterShell's
+value destructor. The kernel startup call omitted the value pointer, causing
+the module to clear low memory. Restored variable-get and release arguments
+preserve the BIOS timer vector in the next VM run, which reaches the startup
+script and shell instead of the firmware invalid-opcode loop. Startup then
+reports an unexpected Mach-O architecture; application loading and remaining
+graphics compatibility still gate release.

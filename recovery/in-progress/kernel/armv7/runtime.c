@@ -124880,7 +124880,7 @@ recovered_40489698(int *param_1,uint *param_2,int param_3,int param_4,int param_
   local_90 = 1;
   uVar8 = pf_double_bits((double)VectorUnsignedToFloat(param_6,(byte)(in_fpscr >> 0x16) & 3));
   puVar3 = recovered_4047f2b8((pf_font_handle110 *)param_1,(char *)param_2,param_3,param_4,param_5,
-                              pf_bits_double(CONCAT44(in_stack_ffffff3c,(int)((ulonglong)uVar8 >> 0x20))));
+                              (double)(uint)param_6);
   if (puVar3 == (uint *)0x0) {
     uVar6 = 0;
   }

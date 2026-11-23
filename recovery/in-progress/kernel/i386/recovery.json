@@ -413,6 +413,10 @@
       },
       "2083d20": {
         "recovered_2083a40(unaff_retaddr)": "recovered_2083a40(__builtin_return_address(0))"
+      },
+      "20ab9f0": {
+        "pcVar2 = *(code **)(iVar33 + 0x54);\n        puVar31[-5] = 0x20aedbe;\n        cVar5 = (*pcVar2)();": "pcVar2 = *(code **)(iVar33 + 0x54);\n        puVar31[-5] = 0x20aedbe;\n        cVar5 = ((unsigned char (*)(const char *,void *))pcVar2)(str_0211acc3,&local_7f8);",
+        "pcVar2 = *(code **)(iVar33 + 0x58);\n          puVar31[-5] = 0x20aedf7;\n          (*pcVar2)();": "pcVar2 = *(code **)(iVar33 + 0x58);\n          puVar31[-5] = 0x20aedf7;\n          ((void (*)(void *))pcVar2)(&local_7f8);"
       }
     }
   }

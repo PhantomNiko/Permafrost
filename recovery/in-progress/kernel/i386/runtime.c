@@ -161306,7 +161306,7 @@ LAB_020ae9d8:
         puVar31[-4] = str_0211acc3;
         pcVar2 = *(code **)(iVar33 + 0x54);
         puVar31[-5] = 0x20aedbe;
-        cVar5 = (*pcVar2)();
+        cVar5 = ((unsigned char (*)(const char *,void *))pcVar2)(str_0211acc3,&local_7f8);
         if (cVar5 != '\0') {
           DAT_0249417c = (puVar31[0x8a] & 0xfffffffb) == 1 && puVar31[0x8b] != 0;
         }
@@ -161315,7 +161315,7 @@ LAB_020ae9d8:
           puVar31[-4] = &local_7f8;
           pcVar2 = *(code **)(iVar33 + 0x58);
           puVar31[-5] = 0x20aedf7;
-          (*pcVar2)();
+          ((void (*)(void *))pcVar2)(&local_7f8);
         }
       }
       puVar31[-1] = 0x20aedff;
