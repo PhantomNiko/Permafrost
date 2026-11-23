@@ -1,0 +1,84 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268436672,
+  "text_end": 268544812,
+  "state_end": 268570624,
+  "translation": {
+    "pointer_bytes": 8,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 268544812,
+    "state_end": 268570624,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"x86_cpu.h\""
+    ],
+    "system_registers": {
+      "MXCSR": "rw"
+    },
+    "source_replacements": {
+      "10016970": {
+        "0x1001c3b0": "((uintptr_t)pf_module_state+0x1884U)",
+        "0x1001c348": "((uintptr_t)pf_module_state+0x181cU)"
+      },
+      "1000e520": {
+        "0x1001b1e5": "((uintptr_t)pf_module_state+0x6b9U)"
+      },
+      "1000fff0": {
+        "0x1001b1a3": "((uintptr_t)pf_module_state+0x677U)"
+      },
+      "1000e840": {
+        "0x1001b1ab": "((uintptr_t)pf_module_state+0x67fU)",
+        "0x1001b1a6": "((uintptr_t)pf_module_state+0x67aU)",
+        "0x1001adb0": "((uintptr_t)pf_module_state+0x284U)",
+        "0x1001b1db": "((uintptr_t)pf_module_state+0x6afU)",
+        "0x1001b1a3": "((uintptr_t)pf_module_state+0x677U)"
+      },
+      "10006ab0": {
+        "0x1001b0ec": "((uintptr_t)pf_module_state+0x5c0U)",
+        "0x1001b0d1": "((uintptr_t)pf_module_state+0x5a5U)"
+      },
+      "10006af0": {
+        "0x1001b0ec": "((uintptr_t)pf_module_state+0x5c0U)",
+        "0x1001b0ef": "((uintptr_t)pf_module_state+0x5c3U)"
+      },
+      "100095a0": {
+        "0x1001adb0": "((uintptr_t)pf_module_state+0x284U)",
+        "0x1001b199": "((uintptr_t)pf_module_state+0x66dU)"
+      },
+      "10009650": {
+        "0x1001b1b0": "((uintptr_t)pf_module_state+0x684U)"
+      },
+      "100104e0": {
+        "0x1001b050": "((uintptr_t)pf_module_state+0x524U)",
+        "0x1001b1a3": "((uintptr_t)pf_module_state+0x677U)"
+      },
+      "100097b0": {
+        "0x1001b1c2": "((uintptr_t)pf_module_state+0x696U)",
+        "0x1001adb0": "((uintptr_t)pf_module_state+0x284U)",
+        "0x1001b1c7": "((uintptr_t)pf_module_state+0x69bU)",
+        "0x1001b1d1": "((uintptr_t)pf_module_state+0x6a5U)",
+        "0x1001b1d6": "((uintptr_t)pf_module_state+0x6aaU)",
+        "0x1001b199": "((uintptr_t)pf_module_state+0x66dU)",
+        "0x1001b1ab": "((uintptr_t)pf_module_state+0x67fU)",
+        "0x1001b1e0": "((uintptr_t)pf_module_state+0x6b4U)",
+        "0x1001b1a6": "((uintptr_t)pf_module_state+0x67aU)",
+        "0x1001b1cc": "((uintptr_t)pf_module_state+0x6a0U)",
+        "0x1001b1db": "((uintptr_t)pf_module_state+0x6afU)"
+      },
+      "100108c0": {
+        "0x1001b1a3": "((uintptr_t)pf_module_state+0x677U)"
+      },
+      "100196f0": {
+        "0x1001c41c": "((uintptr_t)pf_module_state+0x18f0U)",
+        "0x1001c418": "((uintptr_t)pf_module_state+0x18ecU)",
+        "0x1001c420": "((uintptr_t)pf_module_state+0x18f4U)"
+      }
+    }
+  }
+}

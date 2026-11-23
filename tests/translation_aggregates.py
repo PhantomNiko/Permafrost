@@ -38,8 +38,9 @@ uint32_t parameter_probe(byte param_7)
  return *pointer * 4;
 }
 uintptr_t bits(uint32_t *pointer){return pointer * 4;}
+byte *address_bits(double *pointer){return (byte *)*pointer;}
 ''')
-    source+='''int main(void){uint32_t value=7;return stack_probe() || parameter_probe(3)!=0x12345600 || multiply(&value)!=28 || bits((void *)0x1000)!=0x4000;}\n'''
+    source+='''int main(void){uint32_t value=7;double pointer=pf_bits_double(0x123456789abcdef0ULL);if((uintptr_t)address_bits(&pointer)!=0x123456789abcdef0ULL)return 9;return stack_probe() || parameter_probe(3)!=0x12345600 || multiply(&value)!=28 || bits((void *)0x1000)!=0x4000;}\n'''
     root=Path(__file__).resolve().parents[1]
     with tempfile.TemporaryDirectory(prefix='permafrost-aggregate-')as directory:
         out=Path(directory);(out/'probe.c').write_text(source)

@@ -11,7 +11,8 @@
     "declarations": [
       "#include \"support.h\"",
       "void pf_kernel_entry(void);",
-      "#include \"arm64-recovery.h\""
+      "#include \"arm64-recovery.h\"",
+      "#include \"cpu.h\""
     ],
     "volatile_ranges": [
       [
@@ -55,7 +56,22 @@
       "esr_el1": "ro",
       "far_el1": "ro",
       "icc_iar1_el1": "ro",
-      "oslar_el1": "wo"
+      "oslar_el1": "wo",
+      "cpacr_el1": "rw",
+      "hcr_el2": "rw",
+      "cptr_el2": "rw",
+      "cnthctl_el2": "rw",
+      "cntvoff_el2": "rw",
+      "sp_el1": "rw",
+      "elr_el2": "rw",
+      "spsr_el2": "rw",
+      "tpidr_el0": "rw",
+      "tpidrro_el0": "rw",
+      "fpcr": "rw",
+      "fpsr": "rw",
+      "esr_el2": "rw",
+      "far_el2": "rw",
+      "id_aa64pfr0_el1": "ro"
     },
     "exclusive_expected": {
       "8240c7b8": [

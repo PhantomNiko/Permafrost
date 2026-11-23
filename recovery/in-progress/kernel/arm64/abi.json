@@ -4599,6 +4599,10 @@
     "symbol": "recovered_82445958",
     "original": "__ZN2wm6vectorIN12_GLOBAL__N_15PointEE9push_backERKS2_"
   },
+  "824459a8": {
+    "symbol": "recovered_824459a8",
+    "original": "__ZN12_GLOBAL__N_18midpointERKNS_5PointES2_"
+  },
   "824459c4": {
     "symbol": "recovered_824459c4",
     "original": "__ZN12_GLOBAL__N_114OutlineBuilder7move_toERKNS_5PointE"

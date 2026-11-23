@@ -20,12 +20,24 @@ unresolved. These checks still use the original kernel and applications.
 
 The kernel folders contain candidate C, initialized data, ABI metadata and
 manual replacements. `recovery.json` records translation settings and reviewed
-exclusive-store expectations. i386, x64 and ARM64 translations are present but
-do not yet compile as complete kernels. Missing architectural operations,
-register inputs, vector results and calling conventions still require repair
-and comparison with the original. ARM64 analysis expands machine-outliner
-blocks before decompilation. ARM32 recovery remains partial because generic
-decompilation loses some exclusive-memory operations and spin-loop retry paths.
+exclusive-store expectations. Complete C translations for all four architectures compile to
+objects; the x64 kernel also links with the recovered 1.1 image codec. Its first
+VM test exposed a firmware text-output ABI defect, now repaired and compared
+with the original for every byte value. Startup advances to framebuffer
+initialization but still halts during storage initialization. The captured-state
+comparison isolates a missing command pointer in the firmware flush path;
+the correction is undergoing mount and VM verification. ARM64 timer, peripheral
+and spurious IRQ comparisons preserve integer, SIMD and system state; geometry
+aggregate returns match 260 finite and exceptional input pairs.
+ARM64 analysis expands machine-outliner blocks before decompilation. ARM32
+exclusive operations now use explicit hardware primitives and retain native
+retry paths; primitive and native/source heap-lock comparisons pass.
+
+The x64 image codec builds from 234 recovered C functions. Fourteen native/source
+PNG decode cases pass. Encoder and file-I/O recovery remains in progress. The
+1.1 codec exports BMP, PNG, TGA and XCF writers; its exports do not include the
+older REI and JPEG writers. The source-kernel VM is still a differential test
+with reference application payloads.
 
 These files do not establish VM equivalence. Promotion, complete source builds
 for the kernel and all installed modules/applications, portable SDK validation,

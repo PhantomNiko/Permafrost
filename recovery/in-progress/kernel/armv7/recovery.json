@@ -10,7 +10,12 @@
     "pointer_spills": true,
     "declarations": [
       "#include \"support.h\"",
-      "void pf_kernel_entry(void);"
+      "void pf_kernel_entry(void);",
+      "#include \"armv7-recovery.h\"",
+      "#include \"cpu.h\"",
+      "#include \"coprocessors.h\"",
+      "#include \"arm_exclusive.h\"",
+      "#include \"neon.h\""
     ],
     "volatile_ranges": [
       [

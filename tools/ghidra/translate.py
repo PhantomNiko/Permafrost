@@ -468,6 +468,8 @@ def rewrite_scalar_storage(source, pointer_types=()):
     floating_variables=re.findall(r'\b(float|double)\s+(\w+)\b(?!\s*\()',source)
     for typename,name in list(re.findall(r'\b(float|double)\s*\*\s*(\w+)\b',source))+list(pointer_types):
         bits='pf_float_bits' if typename=='float' else 'pf_double_bits'
+        source=re.sub(r'\(([^()\n]+\*)\)\s*\*'+re.escape(name)+r'\b',
+                      lambda m:'('+m[1]+')(uintptr_t)'+bits+'(*'+name+')',source)
         source=re.sub(r'\(([^()\n]+\*)\)\s*('+re.escape(name)+r'\[[^]\n]+\])',
                       lambda m:'('+m[1]+')(uintptr_t)'+bits+'('+m[2]+')',source)
     integer_pointers=set(re.findall(r'\b(?:uint|int|undefined4|uint32_t|int32_t)\s*\*\s*(\w+)',source))

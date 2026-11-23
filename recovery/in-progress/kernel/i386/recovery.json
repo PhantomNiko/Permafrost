@@ -10,7 +10,8 @@
     "pointer_spills": true,
     "declarations": [
       "#include \"support.h\"",
-      "void pf_kernel_entry(void);"
+      "void pf_kernel_entry(void);",
+      "#include \"x86_cpu.h\""
     ],
     "volatile_ranges": [
       [
@@ -18,6 +19,26 @@
         38416384
       ]
     ],
-    "atomic_views": true
+    "atomic_views": true,
+    "register_inputs": {
+      "in_CR0": "pf_read_cr0",
+      "in_CR3": "pf_read_cr3",
+      "in_CR4": "pf_read_cr4",
+      "in_CS": "pf_read_cs",
+      "in_XCR0": "pf_read_xcr0",
+      "in_FPUControlWord": "pf_fpu_control"
+    },
+    "system_registers": {
+      "MXCSR": "rw",
+      "in_IF": "rw",
+      "in_ID": "rw"
+    },
+    "descriptor_register_views": true,
+    "integer_vector_128": true,
+    "source_replacements": {
+      "20854c0": {
+        "joined_r0x02085771:\n  uVar7 = 0;\njoined_r0x02085771:": "  uVar7 = 0;\njoined_r0x02085771:"
+      }
+    }
   }
 }

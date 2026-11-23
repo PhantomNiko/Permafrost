@@ -1,6 +1,5 @@
 /* Permafrost recovered SIMD semantics; Pooka's Free Software License. */
 typedef struct { uint64_t words[3]; } pf_blob24;
-typedef uint64_t uint5;
 #define PF_PART16(value,offset) (*(uint128 *)((uint8_t *)&(value)+(offset)))
 static inline void WaitForEvent(void) { __asm__ volatile("wfe"); }
 __attribute__((noreturn)) static inline uintptr_t SoftwareBreakpoint(unsigned n,uintptr_t pc) { (void)n;(void)pc;__builtin_trap(); }

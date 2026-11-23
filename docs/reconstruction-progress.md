@@ -798,3 +798,34 @@ to `2` in the shell. ARM64 opens the desktop menu, but the subsequent automated
 selection/input check remains unresolved; reaching the desktop is not treated
 as proof of complete input compatibility. This remains a differential test
 with original OS payloads, not validation of a complete source-built image.
+
+### 1.1 architectural and kernel compilation work
+
+The recovery tools now preserve volatile shared-memory reads, ARM exclusive
+instructions and encoded CP15 selectors. ARM32 tests execute byte, halfword,
+word and doubleword exclusive operations, cleared reservations and retries.
+The recovered heap-lock path matches the original under free and contended
+locks. Paired control-register transfers and SMC/HVC argument/result registers
+also pass isolated CPU checks.
+
+Register-view tests cover conditional reads, scratch-register reuse, interrupt
+flag writes and complete descriptor-table bases. Aggregate metadata records the
+width of each access, preserving neighboring bytes when a stack field has more
+than one view. SIMD tests cover narrow packed values, byte shuffles and pointer
+arithmetic for sixteen- and thirty-two-byte arrays.
+
+Complete x64 and ARM32 kernel translations compile to objects. The x64 kernel
+links with the recovered 1.1 codec. A retained-firmware VM run exposed a UEFI
+text-output ABI error; the repaired boundary matches native UTF-16 output for
+all 256 byte values, including CR/LF handling. Startup now reaches framebuffer
+initialization and halts during storage initialization. This is not VM parity.
+The x64 interrupt-boundary comparison preserves general registers, all sixteen
+XMM registers, MXCSR, stack position and CR0.TS on the FXSAVE path. ARM64 keyboard
+character-to-key mapping matches the original for all 256 byte values.
+
+The x64 codec builds from 234 recovered C functions and passes fourteen
+native/source PNG decoding cases. Broader encoder checks remain incomplete.
+The 1.1 reference exposes BMP, PNG, TGA and XCF writers, with no REI or JPEG
+writer exports. Reference allocator callbacks use the 1.1 x64 service table at
+guest address `0x280800`; the test harness can now select this explicitly.
+The completed 1.0 tag remains unchanged; no 1.1 tag has been created.
