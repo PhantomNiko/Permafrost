@@ -10,7 +10,7 @@ from dll import DLL
 from unicorn import x86_const as x86, arm_const as arm, arm64_const as arm64
 
 
-def exercise(path, value):
+def exercise(path, value, layout="1.0"):
     lib = DLL(path)
     if lib.cpu_type == 7:
         registers = [x86.UC_X86_REG_EBX, x86.UC_X86_REG_ESI, x86.UC_X86_REG_EDI, x86.UC_X86_REG_EBP]
@@ -25,6 +25,7 @@ def exercise(path, value):
         registers = [getattr(arm64, 'UC_ARM64_REG_X%d' % index) for index in range(19, 30)]
         registers += [getattr(arm64, 'UC_ARM64_REG_D%d' % index) for index in range(8, 16)]
         size = 168
+    if layout=="1.1":size={7:32,0x1000007:72,12:116,0x100000c:192}[lib.cpu_type]
     expected = []
     for index, register in enumerate(registers):
         pattern = 0x330000 + index * 16
@@ -43,7 +44,7 @@ def exercise(path, value):
     return saved
 
 
-def unwind(path):
+def unwind(path,layout="1.0"):
     lib = DLL(path)
     width = 8 if lib.wide else 4
     if lib.cpu_type == 7:
@@ -55,7 +56,7 @@ def unwind(path):
     else:
         frame, stack = arm64.UC_ARM64_REG_X29, arm64.UC_ARM64_REG_SP
     context, expected_frame, expected_stack = 0x3000000, 0x12345678, 0x4fd0000
-    lib.cpu.mem_write(context + width * 8, struct.pack('<QQQ' if lib.wide else '<III',
+    lib.cpu.mem_write(context + (48 if layout=="1.1" and lib.cpu_type==0x1000007 else width*8), struct.pack('<QQQ' if lib.wide else '<III',
                                                      expected_frame, lib.stop, expected_stack))
     lib.call('_winterboot_sjlj_jump', context)
     result = lib.cpu.reg_read(frame), lib.cpu.reg_read(stack)
@@ -67,10 +68,11 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('reference', type=Path)
     parser.add_argument('source', type=Path)
+    parser.add_argument('--layout',choices=('1.0','1.1'),default='1.0')
     args = parser.parse_args()
     for value in (0, 7, -1):
-        assert exercise(args.reference, value) == exercise(args.source, value), 'native/source context bytes differ'
-    assert unwind(args.reference) == unwind(args.source)
+        assert exercise(args.reference, value,args.layout) == exercise(args.source, value,args.layout), 'native/source context bytes differ'
+    assert unwind(args.reference,args.layout) == unwind(args.source,args.layout)
     print('Context ABI: native saved buffers, register restoration and scope unwinding match.')
 
 

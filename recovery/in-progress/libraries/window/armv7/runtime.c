@@ -7680,19 +7680,10 @@ void recovered_10007e08(void)
 
 #undef DAT_100102bc
 
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x10007e30
- */
-
-void recovered_10007e30(int param_1)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-                    /* WARNING: Could not recover jumptable at 0x10007e3c. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  (**(code **)(param_1 + 0x24))();
-  return;
+/* Native register context transfer and floating/thread state.
+ * Pooka's Free Software License. */
+__attribute__((naked,noreturn)) void recovered_10007e30(void *context,...){
+ __asm__ volatile("ldr sp, [r0, #0x28]\nldr r7, [r0, #0x20]\nldr ip, [r0, #0x24]\nbx ip");
 }
 
 

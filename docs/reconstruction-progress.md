@@ -1223,3 +1223,10 @@ The disk-backed x64 PFS admission test matches 196 physical disk operations,
 legacy-directory and context-preservation probes also match. The live x64
 volume-selection failure remains unresolved; its replay needs the separate
 RAM region containing the volume inventory.
+
+TundraWindow and TerrorUI now restore the saved stack and frame before scope
+unwinding, using the release's native register layout. In particular, the x64
+scope record moved from offsets 64/72/80 to 48/56/64. Saved-context, nonlocal
+return and scope-transfer comparisons pass for both libraries on all four CPUs.
+The tests include the larger 1.1 floating/thread-state buffers. Complete C++
+exception handling remains a separate integration check.

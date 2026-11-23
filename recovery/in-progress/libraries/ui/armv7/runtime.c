@@ -7679,7 +7679,12 @@ void recovered_1000aa98(void)
 #undef DAT_10014290
 
 /* Native scope-unwind register ABI; Pooka's Free Software License. */
-__attribute__((naked,noreturn)) void recovered_1000aac0(void *context){__asm__ volatile("ldr sp,[r0,#40]\nldr r7,[r0,#32]\nldr ip,[r0,#36]\nbx ip");}
+/* Native register context transfer and floating/thread state.
+ * Pooka's Free Software License. */
+__attribute__((naked,noreturn)) void recovered_1000aac0(void *context,...){
+ __asm__ volatile("ldr sp, [r0, #0x28]\nldr r7, [r0, #0x20]\nldr ip, [r0, #0x24]\nbx ip");
+}
+
 
 
 /* Native register context transfer and floating/thread state.

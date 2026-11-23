@@ -409,7 +409,7 @@ void recovered_10006880(void);
 longlong recovered_100068a0(longdouble param_1);
 uint recovered_100068c0(byte *param_1,double *param_2);
 uint recovered_10006910(byte *param_1,double param_2);
-__attribute__((naked,noreturn)) void recovered_10006970(void *context);
+__attribute__((naked,noreturn)) void recovered_10006970(void *context,...);
 __attribute__((naked,returns_twice)) int recovered_10006980(void *context);
 __attribute__((naked,noreturn)) void recovered_100069d0(void *context,int value);
 void recovered_10006a10(void);

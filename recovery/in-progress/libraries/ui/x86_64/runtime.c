@@ -8463,16 +8463,11 @@ ulong recovered_10007e70(undefined8 param_1,undefined8 param_2,undefined8 param_
  * Address: 0x10007f30
  */
 
-void recovered_10007f30(long param_1)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-                    /* WARNING: Could not recover jumptable at 0x10007f38. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  (**(code **)(param_1 + 0x38))();
-  return;
+/* Native scope transfer; Pooka's Free Software License. */
+__attribute__((naked,noreturn)) void recovered_10007f30(void *context,...){
+ __asm__ volatile("movq 64(%rdi),%rsp\nmovq 48(%rdi),%rbp\njmp *56(%rdi)");
 }
+
 
 
 /* Native nonlocal task context and floating control state.

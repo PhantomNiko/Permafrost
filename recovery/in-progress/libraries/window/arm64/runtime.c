@@ -5339,17 +5339,10 @@ bool recovered_10003e94(int param_1)
 #undef _DAT_82010804
 #undef _DAT_82010808
 
-/* Reviewed instruction-equivalent C. Pooka's Free Software License. */
-
-void recovered_10003f60(long param_1)
-
-{
-  unsigned char frame[64] = {0};
-
-                    /* WARNING: Could not recover jumptable at 0x10002e88. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  (**(code **)(param_1 + 0x48))();
-  return;
+/* Native register context transfer and floating/thread state.
+ * Pooka's Free Software License. */
+__attribute__((naked,noreturn)) void recovered_10003f60(void *context,...){
+ __asm__ volatile("ldr x16, [x0, #0x50]\nmov sp, x16\nldr x29, [x0, #0x40]\nldr x16, [x0, #0x48]\nbr x16");
 }
 
 

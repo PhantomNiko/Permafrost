@@ -5371,7 +5371,12 @@ bool recovered_10003e44(int param_1)
 #undef _DAT_82010808
 
 /* Native scope-unwind register ABI; Pooka's Free Software License. */
-__attribute__((naked,noreturn)) void recovered_10003f10(void *context){__asm__ volatile("ldr x16,[x0,#80]\nmov sp,x16\nldr x29,[x0,#64]\nldr x16,[x0,#72]\nbr x16");}
+/* Native register context transfer and floating/thread state.
+ * Pooka's Free Software License. */
+__attribute__((naked,noreturn)) void recovered_10003f10(void *context,...){
+ __asm__ volatile("ldr x16, [x0, #0x50]\nmov sp, x16\nldr x29, [x0, #0x40]\nldr x16, [x0, #0x48]\nbr x16");
+}
+
 
 
 /* Native register context transfer and floating/thread state.

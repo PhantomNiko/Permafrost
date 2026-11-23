@@ -6291,7 +6291,12 @@ uint recovered_10006910(byte *param_1,double param_2)
 #undef local_21c
 
 /* Native scope-unwind register ABI; Pooka's Free Software License. */
-__attribute__((naked,noreturn)) void recovered_10006970(void *context){__asm__ volatile("movl 4(%esp),%eax\nmovl 40(%eax),%esp\nmovl 32(%eax),%ebp\nmovl 36(%eax),%edx\njmpl *%edx");}
+/* Native IA32 exception-scope stack, frame and program-counter transfer.
+ * Pooka's Free Software License. */
+__attribute__((naked,noreturn)) void recovered_10006970(void *context,...){
+ __asm__ volatile("movl 4(%esp),%eax\nmovl 40(%eax),%esp\nmovl 32(%eax),%ebp\njmpl *36(%eax)");
+}
+
 
 
 /* Native IA32 nonlocal context and floating-point control state.

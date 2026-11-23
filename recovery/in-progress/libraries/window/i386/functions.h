@@ -345,7 +345,7 @@ void recovered_10006830(void);
 longlong recovered_10006850(longdouble param_1);
 void recovered_10006870(char *param_1,double *param_2);
 void recovered_100068c0(char *param_1,double param_2);
-void recovered_10006920(int param_1);
+__attribute__((naked,noreturn)) void recovered_10006920(void *context,...);
 __attribute__((naked,returns_twice)) int recovered_10006930(void *context);
 __attribute__((naked,noreturn)) void recovered_10006980(void *context,int value);
 void recovered_100069c0(void);

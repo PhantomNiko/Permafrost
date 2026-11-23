@@ -6251,17 +6251,10 @@ void recovered_100068c0(char *param_1,double param_2)
 
 #undef local_21c
 
-/* Reviewed instruction-equivalent C. Pooka's Free Software License. */
-
-void recovered_10006920(int param_1)
-
-{
-  unsigned char frame[64] = {0};
-
-                    /* WARNING: Could not recover jumptable at 0x100043dd. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  (**(code **)(param_1 + 0x24))();
-  return;
+/* Native IA32 exception-scope stack, frame and program-counter transfer.
+ * Pooka's Free Software License. */
+__attribute__((naked,noreturn)) void recovered_10006920(void *context,...){
+ __asm__ volatile("movl 4(%esp),%eax\nmovl 40(%eax),%esp\nmovl 32(%eax),%ebp\njmpl *36(%eax)");
 }
 
 

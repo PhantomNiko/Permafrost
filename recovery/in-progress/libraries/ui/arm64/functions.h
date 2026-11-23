@@ -479,7 +479,7 @@ undefined8 recovered_10003e28(void);
 undefined8 recovered_10003e2c(void);
 void recovered_10003e30(void);
 bool recovered_10003e44(int param_1);
-__attribute__((naked,noreturn)) void recovered_10003f10(void *context);
+__attribute__((naked,noreturn)) void recovered_10003f10(void *context,...);
 __attribute__((naked,returns_twice)) int recovered_10003f24(void *context);
 __attribute__((naked,noreturn)) int recovered_10003f80(long context,int value);
 void recovered_10003fe4(void);

@@ -8472,17 +8472,9 @@ ulong recovered_10007ec0(undefined8 param_1,undefined8 param_2,undefined8 param_
 #undef local_20
 #undef local_18
 
-/* Reviewed instruction-equivalent C. Pooka's Free Software License. */
-
-void recovered_10007f80(long param_1,undefined8 param_2)
-
-{
-  unsigned char frame[64] = {0};
-
-                    /* WARNING: Could not recover jumptable at 0x10004fcc. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  (**(code **)(param_1 + 0x48))(param_1,param_2,*(code **)(param_1 + 0x48));
-  return;
+/* Native scope transfer; Pooka's Free Software License. */
+__attribute__((naked,noreturn)) void recovered_10007f80(void *context,...){
+ __asm__ volatile("movq 64(%rdi),%rsp\nmovq 48(%rdi),%rbp\njmp *56(%rdi)");
 }
 
 

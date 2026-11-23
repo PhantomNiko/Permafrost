@@ -143,7 +143,7 @@ ulong recovered_10007e70(undefined8 param_1,undefined8 param_2,undefined8 param_
                         ,undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8
                         ,byte *param_9,undefined8 param_10,undefined8 param_11,undefined8 param_12,
                         undefined8 param_13,undefined8 param_14,undefined1 param_15);
-void recovered_10007f30(long param_1);
+void recovered_10007f30(void *context,...);
 __attribute__((naked,returns_twice)) int recovered_10007f40(void *context);
 __attribute__((naked,noreturn)) void recovered_10007f80(void *context,int value);
 void recovered_10007fc0(void);

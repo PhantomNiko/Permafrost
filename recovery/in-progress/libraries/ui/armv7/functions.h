@@ -472,7 +472,7 @@ char * recovered_1000a988(undefined4 param_1);
 undefined4 recovered_1000aa88(void);
 undefined4 recovered_1000aa90(void);
 void recovered_1000aa98(void);
-__attribute__((naked,noreturn)) void recovered_1000aac0(void *context);
+__attribute__((naked,noreturn)) void recovered_1000aac0(void *context,...);
 __attribute__((naked,returns_twice)) int recovered_1000aad0(void *context);
 __attribute__((naked,noreturn)) int recovered_1000ab20(int context,int value);
 void recovered_1000ab78(void);

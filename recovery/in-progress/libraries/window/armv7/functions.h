@@ -458,7 +458,7 @@ char * recovered_10007cf8(int param_1);
 undefined4 recovered_10007df8(void);
 undefined4 recovered_10007e00(void);
 void recovered_10007e08(void);
-void recovered_10007e30(int param_1);
+__attribute__((naked,noreturn)) void recovered_10007e30(void *context,...);
 __attribute__((naked,returns_twice)) int recovered_10007e40(void *context);
 __attribute__((naked,noreturn)) int recovered_10007e90(int context,int value);
 void recovered_10007ee8(void);
