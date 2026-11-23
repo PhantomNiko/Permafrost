@@ -10,6 +10,9 @@ CPUS = {'i386': 7, 'x86_64': 0x1000007, 'armv7': 12, 'arm64': 0x100000c}
 
 
 def slices(binary):
+    from pfz import MAGIC, unpack
+    if binary[:4] == MAGIC:
+        binary = unpack(binary)
     if binary[:4] != b'\xca\xfe\xba\xbe':
         return {struct.unpack_from('<I', binary, 4)[0]: binary}
     count = struct.unpack_from('>I', binary, 4)[0]
@@ -20,11 +23,15 @@ def slices(binary):
         cpu, subtype, offset, size, alignment = struct.unpack_from('>5I', binary, 8 + index * 20)
         if offset + size > len(binary) or cpu in result:
             raise ValueError('invalid universal slice')
-        result[cpu] = binary[offset:offset + size]
+        part = binary[offset:offset + size]
+        result[cpu] = unpack(part) if part[:4] == MAGIC else part
     return result
 
 
 def inspect(binary):
+    from pfz import MAGIC, unpack
+    if binary[:4] == MAGIC:
+        binary = unpack(binary)
     magic, cpu, subtype, kind, count, size, flags = struct.unpack_from('<7I', binary)
     wide = magic == 0xfeedfacf
     if magic not in (0xfeedface, 0xfeedfacf) or cpu not in CPUS.values():

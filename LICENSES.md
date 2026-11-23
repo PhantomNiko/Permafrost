@@ -13,3 +13,7 @@ The current release uses in-house firmware and Lua. It does not link OpenBIOS
 or upstream Lua. Earlier milestones retain their notices and source dependencies
 in Git history; the recovery license does not replace their terms. See
 `DEPENDENCIES.md` for external source checkouts and component scope.
+
+The 1.1 reference includes `Fonts/EBGaramond08-Regular.ttf`. That third-party
+font remains under the SIL Open Font License, with its original notice retained
+in `licenses/EBGaramond08-OFL.txt`; it is excluded from the recovery license.

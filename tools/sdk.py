@@ -13,7 +13,7 @@ def build_sdk(output=Path('build'),products=None):
     (root/'bin').mkdir(parents=True);(root/'Documentation').mkdir()
     shutil.copytree('sdk/include',root/'usr/include',ignore=shutil.ignore_patterns('.DS_Store','__pycache__','*.pyc'))
     shutil.copytree('sdk/runtime',root/'usr/src/runtime');shutil.copytree('sdk/examples',root/'Examples')
-    for source,target in [('tayga_cc.py','pf-cc'),('tayga_cc.py','pf-tayga-cc'),('sdk_runtime.py','pf-build-runtime'),('wmfs.py','pf-wmfs'),('darwin.py','darwin.py'),('native.py','native.py'),('macho.py','macho.py'),('dylib.py','dylib.py'),('fat.py','fat.py'),('gpt.py','gpt.py')]:
+    for source,target in [('tayga_cc.py','pf-cc'),('tayga_cc.py','pf-tayga-cc'),('sdk_runtime.py','pf-build-runtime'),('wmfs.py','pf-wmfs'),('darwin.py','darwin.py'),('native.py','native.py'),('macho.py','macho.py'),('dylib.py','dylib.py'),('fat.py','fat.py'),('gpt.py','gpt.py'),('pfz.py','pfz.py'),('pfz.py','pf-pfz'),('pfs.py','pf-pfs')]:
         p=root/'bin'/target;shutil.copyfile(Path('tools')/source,p);p.chmod(0o755 if target.startswith('pf-')else 0o644)
     libraries=sorted(d.name for d in Path('libraries').iterdir()if d.is_dir())
     for arch in ARCHITECTURES:

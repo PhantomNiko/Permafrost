@@ -711,3 +711,26 @@ SDK check passes. The final source scan includes decoded state arrays and finds
 no host paths or account name. `docs/release.md` documents validation scope and
 `recovery/release-1.0.json` records artifact hashes. Permafrost 1.0 is ready for
 its milestone tag; 1.1 is next. No embedded Mach source recovery was attempted.
+
+
+## 1.1 recovery started
+
+The 1.1r344 Beta reference uses an MBR with an LPSM bootstrap partition and a
+FAT32 EFI partition. Its system files live in PolynyaFS 0.3 instead of the
+previous WBPT volumes. The recovered Python reader validates CRC32C volume
+headers and directory records, follows allocation extents, and preserves mount
+links as distinct metadata. Both volume headers and all 285 live directory
+records match the native Stage3 validators. The filesystem contains 185 files.
+
+PFZ1 wraps individual architecture slices with a CRC32 header and an LZ-style
+4096-byte dictionary. The new codec verifies reference slice checksums; packets
+produced by the source encoder pass the native streaming decoder for literals,
+overlapping matches, window-boundary distances and incompressible data. The
+native inspection tools now decode these wrappers before reading Mach-O data.
+
+The new image contains Zastruga, Sleet, Amur and PicoFrost. Their recovery must
+live in the corresponding sibling repositories and become linked build inputs.
+The new Garamond font retains its supplied OFL notice. Embedded Mach remains
+excluded from source recovery. The 1.0 tag is complete; 1.1 has not been built,
+VM-validated or tagged, and the existing builder has not yet been relabeled as
+1.1. Kernel decompilation and the remaining component inventory are in progress.
