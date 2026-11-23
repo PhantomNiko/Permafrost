@@ -18909,7 +18909,7 @@ uint recovered_40411c90(void)
       if (pcVar4 != (code *)0x0 && puVar3 != (undefined4 *)0x0) {
         puVar3[1] = 0;
         *puVar3 = 1;
-        uVar5 = (*pcVar4)();
+        uVar5 = ((unsigned (*)(void *))pcVar4)(puVar3);
         return uVar5 & 0xffff;
       }
     }
@@ -30274,7 +30274,7 @@ uint recovered_4041e11c(uint *param_1)
           if (pcVar12 != (code *)0x0 && puVar15 != (undefined4 *)0x0) {
             puVar15[1] = 0;
             *puVar15 = 7;
-            iVar4 = (*pcVar12)();
+            iVar4 = ((unsigned (*)(void *))pcVar12)(puVar15);
             uVar23 = (uint)(iVar4 != 0);
           }
         }

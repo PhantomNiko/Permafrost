@@ -979,3 +979,10 @@ in 136 ranges, including the module API header formerly overwritten with zeros.
 Multiline constant-vector slices no longer become low-memory reads, and the
 ARM32 startup provider receives both script data and length. ARM32 VM boot and
 ARM shell/scheduler compatibility remain under investigation.
+
+ARM32 retained-firmware keyboard and pointer calls now pass their request
+packet explicitly. Fourteen native/source cases match callback arguments,
+operation packets, key masks, pointer output and adjacent canaries. The VM
+accepts `1+1` and records `2` in its console log. Rendering and command-dispatch
+status remain incomplete: the framebuffer still shows firmware output, and
+successful shell evaluation can be followed by a rejected-command message.

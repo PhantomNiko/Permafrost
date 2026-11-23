@@ -37,6 +37,12 @@
       },
       "404b8380": {
         "(**(code **)(iVar14 + 0x14))(*(undefined4 *)(iVar28 + 0x3004))": "((unsigned char (*)(const void *,unsigned))*(uintptr_t *)(iVar14+0x14))(*(void **)(iVar28+0x3004),*(unsigned *)(iVar28+0x3008))"
+      },
+      "4041e11c": {
+        "iVar4 = (*pcVar12)();": "iVar4 = ((unsigned (*)(void *))pcVar12)(puVar15);"
+      },
+      "40411c90": {
+        "uVar5 = (*pcVar4)();": "uVar5 = ((unsigned (*)(void *))pcVar4)(puVar3);"
       }
     }
   }
