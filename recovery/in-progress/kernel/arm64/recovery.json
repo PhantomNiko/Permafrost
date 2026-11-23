@@ -82,7 +82,8 @@
       "8246226c": {
         "uStack_270._4_1_ == cVar17": "uStack_270._4_1_ == (byte)cVar17",
         "(**(code **)(lVar40 + 0x78))(&uStack_270);": "{pf_ws_value110 value=((pf_ws_value110 (*)(void))*(uintptr_t *)(lVar40+0x78))();recovered_82400f60(&uStack_270,&value,sizeof(value));}",
-        "(**(code **)(lVar40 + 0x20))(uStack_270)": "((unsigned char (*)(const void *,uintptr_t))*(uintptr_t *)(lVar40+0x20))(uStack_270,(uintptr_t)pvStack_860)"
+        "(**(code **)(lVar40 + 0x20))(uStack_270)": "((unsigned char (*)(const void *,uintptr_t))*(uintptr_t *)(lVar40+0x20))(uStack_270,(uintptr_t)pvStack_860)",
+        "recovered_8244a180()": "recovered_8244a180(str_8249c99c)"
       },
       "8247ba70": {
         "      recovered_8247bd68(": "      return recovered_8247bd68(",

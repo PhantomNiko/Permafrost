@@ -125911,56 +125911,19 @@ LAB_4048a95c:
 #undef str_405303cf
 #undef str_405303e3
 
-#undef DAT_4065cc70
-#define DAT_4065cc70 (*(uint32_t volatile *)(0x4065cc70U))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x4048a990
- */
-
-uint recovered_4048a990(undefined4 param_1)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  int iVar1;
-  uint uVar2;
-
-  iVar1 = DAT_4065cc70;
-  if (iVar1 == 0) {
-    return 0;
-  }
-                    /* WARNING: Could not recover jumptable at 0x4048a9ac. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  uVar2 = (**(code **)(iVar1 + 0x34))();
-  return uVar2;
+/* Native WinterScript provider tail call; Pooka's Free Software License. */
+unsigned char recovered_4048a990(const char *path){
+ uintptr_t provider=*(volatile uintptr_t *)(uintptr_t)0x4065cc70U;
+ return provider?((unsigned char (*)(const char *))*(uintptr_t *)(provider+0x34))(path):0;
 }
 
-#undef DAT_4065cc70
 
-#undef DAT_4065cc70
-#define DAT_4065cc70 (*(uint32_t volatile *)(0x4065cc70U))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x4048a9b0
- */
-
-void recovered_4048a9b0(undefined4 param_1)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  int iVar1;
-
-  iVar1 = DAT_4065cc70;
-  if (iVar1 == 0) {
-    return;
-  }
-                    /* WARNING: Could not recover jumptable at 0x4048a9cc. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  (**(code **)(iVar1 + 0x38))(param_1);
-  return;
+/* Native WinterScript provider tail call; Pooka's Free Software License. */
+unsigned char recovered_4048a9b0(unsigned device,const char *path){
+ uintptr_t provider=*(volatile uintptr_t *)(uintptr_t)0x4065cc70U;
+ return provider?((unsigned char (*)(unsigned,const char *))*(uintptr_t *)(provider+0x38))(device,path):0;
 }
 
-#undef DAT_4065cc70
 
 #undef DAT_4066f9c8
 #define DAT_4066f9c8 (*(uint8_t volatile *)(0x4066f9c8U))

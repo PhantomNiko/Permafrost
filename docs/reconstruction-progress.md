@@ -1100,3 +1100,10 @@ return address to the scheduler checkpoint. Native/source file, PNG, WAV and
 font entry comparisons agree on the caller address for every architecture.
 This removes uninitialized decompiler register values and synthetic stack
 contents from the API guard; desktop integration remains under investigation.
+
+ARM32 and ARM64 WinterScript file execution now preserves native provider
+arguments and status results, including device-scoped execution used by Tundra
+configuration. Each architecture passes 96 native/source provider-present,
+provider-absent, path, device and return-value cases. ARM64 startup also supplies
+the original startup-script path at its direct call. Integrated configuration
+and desktop rendering are being checked separately.

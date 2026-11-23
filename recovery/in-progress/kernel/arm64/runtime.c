@@ -89779,57 +89779,19 @@ undefined8 recovered_8244a018(byte *param_1,undefined4 *param_2)
 #undef str_824a7102
 #undef str_824a7116
 
-#undef DAT_827382b8
-#define DAT_827382b8 (*(uint64_t volatile *)(0x827382b8U))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x8244a180
- */
-
-undefined8 recovered_8244a180(void)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  long lVar1;
-  undefined8 uVar2;
-
-  lVar1 = DAT_827382b8;
-  if (lVar1 == 0) {
-    return 0;
-  }
-                    /* WARNING: Could not recover jumptable at 0x8244a190. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  uVar2 = (**(code **)(lVar1 + 0x60))();
-  return uVar2;
+/* Native WinterScript provider tail call; Pooka's Free Software License. */
+unsigned char recovered_8244a180(const char *path){
+ uintptr_t provider=*(volatile uintptr_t *)(uintptr_t)0x827382b8U;
+ return provider?((unsigned char (*)(const char *))*(uintptr_t *)(provider+0x60))(path):0;
 }
 
-#undef DAT_827382b8
 
-#undef DAT_827382b8
-#define DAT_827382b8 (*(uint64_t volatile *)(0x827382b8U))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x8244a198
- */
-
-undefined8 recovered_8244a198(void)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  long lVar1;
-  undefined8 uVar2;
-
-  lVar1 = DAT_827382b8;
-  if (lVar1 == 0) {
-    return 0;
-  }
-                    /* WARNING: Could not recover jumptable at 0x8244a1a8. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  uVar2 = (**(code **)(lVar1 + 0x68))();
-  return uVar2;
+/* Native WinterScript provider tail call; Pooka's Free Software License. */
+unsigned char recovered_8244a198(unsigned device,const char *path){
+ uintptr_t provider=*(volatile uintptr_t *)(uintptr_t)0x827382b8U;
+ return provider?((unsigned char (*)(unsigned,const char *))*(uintptr_t *)(provider+0x68))(device,path):0;
 }
 
-#undef DAT_827382b8
 
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x8244a1b0
@@ -121244,6 +121206,8 @@ LAB_82462214:
 #define str_8249c7d3 (*(char volatile (*)[1])(0x8249c7d3U))
 #undef str_8249c98a
 #define str_8249c98a (*(char volatile (*)[1])(0x8249c98aU))
+#undef str_8249c99c
+#define str_8249c99c (*(char volatile (*)[1])(0x8249c99cU))
 #undef str_8249c9e1
 #define str_8249c9e1 (*(char volatile (*)[1])(0x8249c9e1U))
 #undef str_8249e822
@@ -122477,7 +122441,7 @@ LAB_82463b60:
       else {
         {pf_ws_value110 value=((pf_ws_value110 (*)(void))*(uintptr_t *)(lVar40+0x78))();recovered_82400f60(&uStack_270,&value,sizeof(value));}
       }
-      uVar23 = recovered_8244a180();
+      uVar23 = recovered_8244a180(str_8249c99c);
       if (((int)uVar23 != 0) && (lVar40 = DAT_827382b8, lVar40 != 0)) {
         iVar18 = (**(code **)(lVar40 + 0xa0))(str_824a6b0b,&uStack_270);
         if (iVar18 != 0) {
@@ -123756,6 +123720,7 @@ LAB_82464c30:
 #undef _DAT_82010a5c
 #undef str_8249c7d3
 #undef str_8249c98a
+#undef str_8249c99c
 #undef str_8249c9e1
 #undef str_8249e822
 #undef str_8249e859
