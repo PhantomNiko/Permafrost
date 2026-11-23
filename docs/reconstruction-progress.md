@@ -1133,3 +1133,8 @@ IA32 executable probing and loading explicitly retain their incoming image
 buffer and length rather than using uninitialized ECX/EDX decompiler locals.
 Thirty-six native/source boundary cases preserve image, size, architecture,
 flags and zeroed parse context. Integrated startup is being checked again.
+
+IA32 dependency loading now preserves its incoming architecture register
+through recursive library loads. The previous code forwarded a stale string
+pointer as a CPU type. Forty-eight native/source cases compare dependency
+names, architecture, policy and required/optional success behavior.

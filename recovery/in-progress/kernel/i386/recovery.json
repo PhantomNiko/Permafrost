@@ -428,7 +428,15 @@
       },
       "20d99f0": {
         "recovered_20d99f0(uint param_1,": "recovered_20d99f0(uint *in_ECX,uint in_EDX,uint param_1,",
-        "  uint *in_ECX;\n  uint in_EDX;": ""
+        "  uint *in_ECX;\n  uint in_EDX;": "",
+        "recovered_20de8d0((int)local_280,param_2,": "recovered_20de8d0((int)local_280,(undefined1 *)(uintptr_t)param_1,param_2,"
+      },
+      "20de8d0": {
+        "recovered_20de8d0(int in_ECX,byte param_2,": "recovered_20de8d0(int in_ECX,undefined1 *in_EDX,byte param_2,",
+        "  undefined1 *in_EDX;": ""
+      },
+      "20df8f0": {
+        "recovered_20de8d0((int)puVar7,param_3,": "recovered_20de8d0((int)puVar7,local_1d0,param_3,"
       }
     }
   }

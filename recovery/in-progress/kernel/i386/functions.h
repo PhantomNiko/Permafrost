@@ -1739,7 +1739,7 @@ void recovered_20de000(int in_ECX,int *in_EDX);
 void recovered_20de0a0(uint *in_ECX_00);
 bool recovered_20de290(int *in_ECX);
 undefined4 recovered_20de540(int in_ECX,undefined4 in_EDX,uint param_3,char *param_4,ulong param_5);
-undefined4 recovered_20de8d0(int in_ECX,byte param_2,char *param_3,ulong param_4);
+undefined4 recovered_20de8d0(int in_ECX,undefined1 *in_EDX,byte param_2,char *param_3,ulong param_4);
 undefined4 recovered_20dea10(int in_ECX,char *in_EDX,ulong param_3);
 undefined4 recovered_20df380(int in_ECX,uint in_EDX,uint param_3,int *param_4);
 undefined4

@@ -201673,7 +201673,7 @@ override_prt_20d9de2_9b0a0a95:
             }
           }
           else {
-            uVar2 = recovered_20de8d0((int)local_280,param_2,param_10,param_11);
+            uVar2 = recovered_20de8d0((int)local_280,(undefined1 *)(uintptr_t)param_1,param_2,param_10,param_11);
             if ((char)uVar2 == '\0') {
               if ((param_11 != 0 && param_10 != (char *)0x0) && (*param_10 == '\0')) {
                 pcVar8 = str_0211597f;
@@ -206006,7 +206006,7 @@ LAB_020de872:
  * Address: 0x20de8d0
  */
 
-undefined4 recovered_20de8d0(int in_ECX,byte param_2,char *param_3,ulong param_4)
+undefined4 recovered_20de8d0(int in_ECX,undefined1 *in_EDX,byte param_2,char *param_3,ulong param_4)
 
 {
   unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
@@ -206018,7 +206018,7 @@ undefined4 recovered_20de8d0(int in_ECX,byte param_2,char *param_3,ulong param_4
   int iVar4;
   int iVar5;
   undefined4 uVar6;
-  undefined1 *in_EDX;
+
   char *in_ECX_00;
   char *pcVar7;
   uint uVar8;
@@ -207216,7 +207216,7 @@ LAB_020e0013:
         iVar8 = DAT_02490180;
         DAT_0249017c = uVar4 + 1;
         *(uint **)(iVar8 + uVar4 * 4) = puVar7;
-        uVar9 = recovered_20de8d0((int)puVar7,param_3,param_4,param_5);
+        uVar9 = recovered_20de8d0((int)puVar7,local_1d0,param_3,param_4,param_5);
         if ((char)uVar9 == '\0') {
           return 0;
         }
