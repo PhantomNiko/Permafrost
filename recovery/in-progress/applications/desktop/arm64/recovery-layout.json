@@ -272,7 +272,8 @@
         "DAT_10023540": "terror_ui_window_set_content_size",
         "0x10023885": "((uintptr_t)pf_module_state + 0x519U)",
         "0x10023878": "((uintptr_t)pf_module_state + 0x50cU)",
-        "0xfefe7fffU": "0xfefe7fffULL"
+        "0xfefe7fffU": "0xfefe7fffULL",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "10004320": {
         "FUN_1002336c": "memcmp",
@@ -1839,7 +1840,8 @@
         "recovered_10023540": "terror_ui_window_set_content_size",
         "DAT_10023540": "terror_ui_window_set_content_size",
         "0x10032e58": "((uintptr_t)pf_module_state + 0xfaecU)",
-        "0x10032ed4": "((uintptr_t)pf_module_state + 0xfb68U)"
+        "0x10032ed4": "((uintptr_t)pf_module_state + 0xfb68U)",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "10004e0c": {
         "do {\n    cVar1 = '\\x01';\n    bVar2 = (bool)ExclusiveMonitorPass(0x100494c0,0x10);\n    if (bVar2) {\n      cVar1 = ExclusiveMonitorsStatus();\n    }\n  } while (cVar1 != '\\0');\n  if (_DAT_100494c0 == 2)": "if (__atomic_fetch_or(&_DAT_100494c0,0,__ATOMIC_ACQ_REL) == 2)",
@@ -2190,7 +2192,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "100051fc": {
         "FUN_1002336c": "memcmp",
@@ -3401,7 +3404,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "10005850": {
         "do {\n        cVar2 = '\\x01';\n        bVar5 = (bool)ExclusiveMonitorPass(puVar1,0x10);\n        if (bVar5) {\n          *puVar1 = 1;\n          cVar2 = ExclusiveMonitorsStatus();\n        }\n      } while (cVar2 != '\\0');": "(void)__atomic_exchange_n(&*puVar1,1,__ATOMIC_ACQ_REL);",
@@ -4104,7 +4108,8 @@
         "recovered_10023540": "terror_ui_window_set_content_size",
         "DAT_10023540": "terror_ui_window_set_content_size",
         "0x10025b97": "((uintptr_t)pf_module_state + 0x282bU)",
-        "0x10025b95": "((uintptr_t)pf_module_state + 0x2829U)"
+        "0x10025b95": "((uintptr_t)pf_module_state + 0x2829U)",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "100080f4": {
         "FUN_1002336c": "memcmp",
@@ -5834,7 +5839,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "100086b4": {
         "FUN_1002336c": "memcmp",
@@ -7566,7 +7572,8 @@
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
         "DAT_10023540": "terror_ui_window_set_content_size",
-        "0x10039ac0": "((uintptr_t)pf_module_state + 0x16754U)"
+        "0x10039ac0": "((uintptr_t)pf_module_state + 0x16754U)",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "10008dc4": {
         "FUN_1002336c": "memcmp",
@@ -7739,7 +7746,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "10008ed0": {
         "FUN_1002336c": "memcmp",
@@ -9642,7 +9650,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "100094a4": {
         "FUN_1002336c": "memcmp",
@@ -16574,7 +16583,9 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "-1 < local_58": "-1 < (int64_t)local_58",
+        "local_58 < 0": "(int64_t)local_58 < 0"
       },
       "1000ac18": {
         "FUN_1002336c": "memcmp",
@@ -22290,7 +22301,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "1000c850": {
         "FUN_1002336c": "memcmp",
@@ -24905,7 +24917,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "1000d944": {
         "FUN_1002336c": "memcmp",
@@ -25078,7 +25091,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "1000da2c": {
         "FUN_1002336c": "memcmp",
@@ -25251,7 +25265,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "1000dca4": {
         "FUN_1002336c": "memcmp",
@@ -25599,7 +25614,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "1000e4d0": {
         "FUN_1002336c": "memcmp",
@@ -25772,7 +25788,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "1000e594": {
         "FUN_1002336c": "memcmp",
@@ -26294,7 +26311,8 @@
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
         "DAT_10023540": "terror_ui_window_set_content_size",
-        "0x10056852": "((uintptr_t)pf_module_state + 0x334e6U)"
+        "0x10056852": "((uintptr_t)pf_module_state + 0x334e6U)",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "1000ea88": {
         "FUN_1002336c": "memcmp",
@@ -26640,7 +26658,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "1000ebd8": {
         "FUN_1002336c": "memcmp",
@@ -26986,7 +27005,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "1000ed1c": {
         "FUN_1002336c": "memcmp",
@@ -27332,7 +27352,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "1000ed70": {
         "FUN_1002336c": "memcmp",
@@ -27851,7 +27872,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "1000ef0c": {
         "FUN_1002336c": "memcmp",
@@ -28024,7 +28046,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "1000ef9c": {
         "FUN_1002336c": "memcmp",
@@ -29062,7 +29085,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "1000f57c": {
         "FUN_1002336c": "memcmp",
@@ -29235,7 +29259,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "1000f6e8": {
         "FUN_1002336c": "memcmp",
@@ -33044,7 +33069,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "10010908": {
         "FUN_1002336c": "memcmp",
@@ -33217,7 +33243,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "10010ab8": {
         "FUN_1002336c": "memcmp",
@@ -33563,7 +33590,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "10010b44": {
         "FUN_1002336c": "memcmp",
@@ -33736,7 +33764,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "10010c70": {
         "FUN_1002336c": "memcmp",
@@ -34082,7 +34111,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "100124b0": {
         "FUN_1002336c": "memcmp",
@@ -34255,7 +34285,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "1001267c": {
         "FUN_1002336c": "memcmp",
@@ -35120,7 +35151,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "10013148": {
         "FUN_1002336c": "memcmp",
@@ -35466,7 +35498,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "10013338": {
         "FUN_1002336c": "memcmp",
@@ -35639,7 +35672,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "100133f4": {
         "FUN_1002336c": "memcmp",
@@ -38756,7 +38790,8 @@
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
         "DAT_10023540": "terror_ui_window_set_content_size",
-        "0x100477e0": "((uintptr_t)pf_module_state + 0x24474U)"
+        "0x100477e0": "((uintptr_t)pf_module_state + 0x24474U)",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "10014698": {
         "FUN_1002336c": "memcmp",
@@ -45511,7 +45546,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "1001597c": {
         "FUN_1002336c": "memcmp",
@@ -45857,7 +45893,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "10015a14": {
         "FUN_1002336c": "memcmp",
@@ -46030,7 +46067,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "10015adc": {
         "FUN_1002336c": "memcmp",
@@ -46376,7 +46414,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "10015c34": {
         "FUN_1002336c": "memcmp",
@@ -46549,7 +46588,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "10015f04": {
         "FUN_1002336c": "memcmp",
@@ -47068,7 +47108,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "10015fe0": {
         "FUN_1002336c": "memcmp",
@@ -47241,7 +47282,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "10016328": {
         "FUN_1002336c": "memcmp",
@@ -47414,7 +47456,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "100164bc": {
         "FUN_1002336c": "memcmp",
@@ -47587,7 +47630,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "100164f8": {
         "FUN_1002336c": "memcmp",
@@ -47760,7 +47804,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "1001655c": {
         "FUN_1002336c": "memcmp",
@@ -48453,7 +48498,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "10016b7c": {
         "FUN_1002336c": "memcmp",
@@ -53820,7 +53866,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "100184f8": {
         "FUN_1002336c": "memcmp",
@@ -55553,7 +55600,8 @@
         "recovered_10023540": "terror_ui_window_set_content_size",
         "DAT_10023540": "terror_ui_window_set_content_size",
         "0x1004457d": "((uintptr_t)pf_module_state + 0x21211U)",
-        "0x1004157c": "((uintptr_t)pf_module_state + 0x1e210U)"
+        "0x1004157c": "((uintptr_t)pf_module_state + 0x1e210U)",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "1001998c": {
         "FUN_1002336c": "memcmp",
@@ -55729,7 +55777,8 @@
         "DAT_10023540": "terror_ui_window_set_content_size",
         "0x100253f3": "((uintptr_t)pf_module_state + 0x2087U)",
         "0x1004b548": "((uintptr_t)pf_module_state + 0x281dcU)",
-        "0x10024a51": "((uintptr_t)pf_module_state + 0x16e5U)"
+        "0x10024a51": "((uintptr_t)pf_module_state + 0x16e5U)",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "1001a820": {
         "FUN_1002336c": "memcmp",
@@ -55904,7 +55953,8 @@
         "recovered_10023540": "terror_ui_window_set_content_size",
         "DAT_10023540": "terror_ui_window_set_content_size",
         "0x1004b4bd": "((uintptr_t)pf_module_state + 0x28151U)",
-        "0x1004b4e5": "((uintptr_t)pf_module_state + 0x28179U)"
+        "0x1004b4e5": "((uintptr_t)pf_module_state + 0x28179U)",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "1001abd0": {
         "FUN_1002336c": "memcmp",
@@ -73742,7 +73792,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "10021674": {
         "FUN_1002336c": "memcmp",
@@ -73915,7 +73966,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "1002172c": {
         "FUN_1002336c": "memcmp",
@@ -74088,7 +74140,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "100217f0": {
         "FUN_1002336c": "memcmp",
@@ -74607,7 +74660,8 @@
         "FUN_10023540": "terror_ui_window_set_content_size",
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
-        "DAT_10023540": "terror_ui_window_set_content_size"
+        "DAT_10023540": "terror_ui_window_set_content_size",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "10021960": {
         "FUN_1002336c": "memcmp",
@@ -75127,7 +75181,8 @@
         "thunk_FUN_10023540": "terror_ui_window_set_content_size",
         "recovered_10023540": "terror_ui_window_set_content_size",
         "DAT_10023540": "terror_ui_window_set_content_size",
-        "0x10056852": "((uintptr_t)pf_module_state + 0x334e6U)"
+        "0x10056852": "((uintptr_t)pf_module_state + 0x334e6U)",
+        "DAT_1002f0a8": "_DAT_1002f0a8"
       },
       "10021c3c": {
         "FUN_1002336c": "memcmp",

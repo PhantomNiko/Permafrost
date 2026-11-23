@@ -1223,7 +1223,7 @@ uint recovered_4049ca50(int deviceId);
 uint recovered_4049cab0(int deviceId,char *path,void *outInfo);
 void recovered_4049cbd8(uint param_1,char *param_2,uint *param_3);
 undefined4 recovered_4049cc0c(uint param_1,char *param_2,int param_3,uint *param_4);
-void recovered_4049ce24(uint param_1,char *param_2,uint *param_3);
+uint recovered_4049ce24(uint param_1,char *param_2,uint *param_3);
 uint recovered_4049ce58(int deviceId,char *path,void *entries,uint entryCapacity,uint *outEntryCount
                        );
 uint recovered_4049cee0(uint param_1,char *param_2,ulong param_3,undefined4 param_4,

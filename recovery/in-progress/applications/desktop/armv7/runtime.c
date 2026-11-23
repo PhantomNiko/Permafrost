@@ -19515,7 +19515,7 @@ bool recovered_1001859c(byte *param_1,byte *param_2)
 #undef UINT_400108c8
 #define UINT_400108c8 (*(uint *)(0x400108c8U))
 #undef _DAT_40010a1c
-#define _DAT_40010a1c (*(code * *)(0x40010a1cU))
+#define _DAT_40010a1c (*(uint8_t * *)(0x40010a1cU))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x100186a0
  */
@@ -19549,7 +19549,7 @@ undefined4 recovered_100186a0(int param_1,char *param_2,uint *param_3)
     if ((bVar6 && 0x21f < uVar3) && (_DAT_40010a1c != (code *)0x0)) {
                     /* WARNING: Could not recover jumptable at 0x10018790. Too many branches */
                     /* WARNING: Treating indirect jump as call */
-      uVar4 = (*_DAT_40010a1c)(param_1);
+      uVar4 = ((uint (*)(int, char *, uint *))(uintptr_t)_DAT_40010a1c)(param_1,param_2,param_3);
       return uVar4;
     }
   }

@@ -141431,7 +141431,7 @@ undefined4 recovered_4049cc0c(uint param_1,char *param_2,int param_3,uint *param
  * Address: 0x4049ce24
  */
 
-void recovered_4049ce24(uint param_1,char *param_2,uint *param_3)
+uint recovered_4049ce24(uint param_1,char *param_2,uint *param_3)
 
 {
   unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
@@ -141439,8 +141439,7 @@ void recovered_4049ce24(uint param_1,char *param_2,uint *param_3)
   uint unaff_lr;
 
   recovered_4048ad30((uint)(uintptr_t)__builtin_return_address(0));
-  recovered_4049cc0c(param_1,param_2,2,param_3);
-  return;
+  return recovered_4049cc0c(param_1,param_2,2,param_3);
 }
 
 

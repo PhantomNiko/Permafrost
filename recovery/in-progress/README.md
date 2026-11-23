@@ -60,6 +60,9 @@ The desktop candidate now has C source checkpoints for every CPU. Its typed
 native/source fixtures on all four CPUs. ARM32 wallpaper scaling preserves full
 32-bit image dimensions, including heights above 255; nine guarded crop and
 scaling rasters match. The x64 desktop launches and interacts with the source
-UI guest in the VM. ARM32 application launch, ARM64 presentation and BIOS input
+UI guest in the VM. ARM32 now starts and launches the source UI guest after restoring the owned-file
+service arguments and result. ARM64 full-width geometry, theme roles and signed
+script-setting conversion pass direct comparisons; the VM renders the source
+UI guest and its colour-change callback. Broader input, time and BIOS checks
 still need compatibility work. These desktop sources do not complete recovery
 of the other installed applications.

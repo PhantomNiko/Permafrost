@@ -147,7 +147,7 @@ void recovered_10004718(undefined8 param_1);
 void recovered_10004750(char *param_1,undefined8 param_2);
 ulong recovered_10004984(void);
 ulong recovered_10004abc(int param_1,undefined1 *param_2,undefined8 param_3,byte param_4);
-uint recovered_10004be8(void);
+uint recovered_10004be8(uint role);
 ulong recovered_10004c0c(char *param_1,int param_2,byte param_3);
 void recovered_10004d84(void);
 void recovered_10004e0c(uint param_1);
