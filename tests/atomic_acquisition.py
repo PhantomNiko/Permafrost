@@ -125,6 +125,32 @@ static void increment(void) {
   } while (status);
 }
 """
+I386_PATTERN = r"""
+static int swap_i386(unsigned *observed,unsigned desired) {
+  unsigned expected=*observed;
+  unsigned previous;
+  bool success;
+  LOCK();
+  previous = DAT_1000;
+  success = expected == previous;
+  if (success) {
+    DAT_1000 = desired;
+  }
+  else {
+    expected = previous;
+  }
+  UNLOCK();
+  *observed=expected;
+  return success;
+}
+"""
+FENCE_PATTERN = r"""
+static void touch_unchanged(void) {
+  LOCK();
+  DAT_2000 = DAT_2000;
+  UNLOCK();
+}
+"""
 SOURCE = r'''
 #include <assert.h>
 #include <pthread.h>
@@ -140,8 +166,14 @@ ACQUIRE
 static void *worker(void *unused) {
   (void)unused;
   for (unsigned i=0;i<10000;i++) {
+    touch_unchanged();
     increment();
-    while (!(i&1 ? acquire() : acquire_x86(0))) sched_yield();
+    for (;;) {
+      unsigned expected=0;
+      int success=i%3==0 ? acquire() : i%3==1 ? acquire_x86(0) : swap_i386(&expected,2);
+      if(success)break;
+      sched_yield();
+    }
     assert(active==0);
     active++;
     total++;
@@ -158,6 +190,9 @@ int main(void) {
   assert(total==80000 && DAT_2000==80000 && !active && !DAT_1000);
   DAT_1000=3;
   assert(!acquire() && !acquire_x86(0) && DAT_1000==3);
+  unsigned observed=0;
+  assert(!swap_i386(&observed,9) && observed==3 && DAT_1000==3);
+  assert(swap_i386(&observed,3) && observed==3 && DAT_1000==3);
   assert(replace_zero(9)==3 && DAT_1000==3);
   DAT_1000=0;
   assert(replace_zero(9)==0 && DAT_1000==9);
@@ -178,7 +213,7 @@ def main():
     reviewed = [{'target': 'DAT_1000', 'value': '0', 'expected': '1'}]
     translated = ''.join(atomic_views(pattern) for pattern in [PATTERN, X86_PATTERN,
         OLD_VALUE_PATTERN, CONDITIONAL_PATTERN, PUBLICATION_PATTERN, REFERENCE_PATTERN,
-        INCREMENT_PATTERN])
+        INCREMENT_PATTERN, I386_PATTERN, FENCE_PATTERN])
     translated += atomic_views(REVIEWED_PATTERN, reviewed)
     for annotations in [[], reviewed * 2, [dict(reviewed[0], value='2')]]:
         try:

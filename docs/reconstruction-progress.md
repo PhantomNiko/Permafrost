@@ -774,3 +774,27 @@ establishes the new image format's boot compatibility; it does not constitute
 a source-built release. The original BIOS desktop requires more than ninety
 seconds in the current emulation configuration. These test images, original
 payloads, VM disks and screenshots remain outside the tracked source tree.
+
+The candidate C EFI loader now links for all four CPUs and uses the new C
+filesystem and compression modules to load the supplied kernel. Its x64,
+ARM32 and ARM64 differential VMs reach the desktop at 1280 by 800. The x64
+legacy WFE bridge requests the native kernel's firmware-retention policy;
+that mode uses firmware drivers and cooperative scheduling. Pointer input
+opens the desktop menu, and leaving Tundra and typing `1+1` in WinterShell
+prints `2`. Retiring EFI services without the native processor/bootstrap
+handoff instead halts the kernel, so that is not a completed native handoff.
+
+The in-progress kernel checkpoint preserves 1,844 i386, 1,854 x64 and 2,338
+ARM64 translated functions, initialized data, ABI metadata and translation
+settings. ARM32 remains partial. These candidates still fail full compilation
+and require architectural operations, register/aggregate ABI corrections and
+atomic retry-path recovery. The normal build and SDK remain at the completed
+1.0 implementation until the 1.1 source migration is actually ready. No 1.1
+release artifacts or milestone tag have been produced.
+
+The retained-service policy is also required by the ARM legacy bridge. With
+that flag, ARM32 responds to pointer-driven desktop exit and evaluates `1+1`
+to `2` in the shell. ARM64 opens the desktop menu, but the subsequent automated
+selection/input check remains unresolved; reaching the desktop is not treated
+as proof of complete input compatibility. This remains a differential test
+with original OS payloads, not validation of a complete source-built image.

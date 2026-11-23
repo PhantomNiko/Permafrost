@@ -1,0 +1,13 @@
+{
+  "version": "1.1",
+  "reference": "WinterBoot-1.1r344-Beta.img",
+  "sha256": "0e4c2a3ccbb87b2fbce4b8e1d689b576b53e9c4122440277091c51585073c9d1",
+  "architectures": [
+    "i386",
+    "x86_64",
+    "armv7",
+    "arm64"
+  ],
+  "status": "in-progress",
+  "embedded_mach": "excluded"
+}

@@ -1,0 +1,10 @@
+{
+  "sources": [
+    "firmware/pfs.c",
+    "firmware/pfz.c"
+  ],
+  "include": [
+    "firmware/uefi/common",
+    "firmware"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "version": "1.1",
+  "complete": false,
+  "tagged": false,
+  "embedded_mach_recovery": false,
+  "checks": {
+    "pfz_c_decoder": [
+      "i386",
+      "x86_64",
+      "armv7",
+      "arm64"
+    ],
+    "pfs_c_reader": [
+      "i386",
+      "x86_64",
+      "armv7",
+      "arm64"
+    ],
+    "pfs_writer_native_metadata_records": 309,
+    "source_volume_native_boot": [
+      "i386",
+      "x86_64",
+      "armv7",
+      "arm64"
+    ],
+    "efi_c_build": [
+      "i386",
+      "x86_64",
+      "armv7",
+      "arm64"
+    ],
+    "efi_c_native_kernel_desktop": [
+      "x86_64",
+      "armv7",
+      "arm64"
+    ],
+    "efi_c_native_kernel_shell_input": [
+      "x86_64",
+      "armv7"
+    ],
+    "arm64_efi_input": "menu opens; subsequent selection/input check unresolved"
+  },
+  "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",
+  "kernel_compilation": "incomplete",
+  "sdk": "not promoted",
+  "normal_build": "1.0; migration to 1.1 remains in progress",
+  "efi_mode": "retained firmware services; cooperative scheduling"
+}

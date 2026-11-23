@@ -18,6 +18,11 @@ def build_loader(output, architecture, source=None):
     root=Path(source) if source is not None else Path('firmware/uefi/common')
     sources=[root/'loader.c',Path('kernel/runtime.c'),Path('kernel/compiler.c')]
     includes=[str(root),'sdk/include']
+    manifest=root/'build.json'
+    if manifest.exists():
+        configuration=json.loads(manifest.read_text())
+        sources += [Path(path) for path in configuration.get('sources',[])]
+        includes += configuration.get('include',[])
     objects=[];data_start=None
     if architecture in ('i386','x86_64'):
         from cc import compile_object

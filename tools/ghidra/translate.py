@@ -163,9 +163,23 @@ def atomic_views(source, exclusive_expected=None):
     def replace(match):
         body=match[1].strip()
         if not body:return '__atomic_thread_fence(__ATOMIC_SEQ_CST);'
+        unchanged=re.fullmatch(r'([^;=]+?)\s*=\s*\1\s*;',body)
+        if unchanged:
+            return '(void)__atomic_fetch_or(&('+unchanged[1]+'),0,__ATOMIC_SEQ_CST);'
         address_setup=re.fullmatch(r'((\w+)\s*=\s*\([A-Za-z_][A-Za-z_0-9\s]*\*+\s*\)[^;]+;)\s*(.*)',body,re.S)
         if address_setup and re.search(r'\*'+re.escape(address_setup[2])+r'\s*=',address_setup[3]):
             return address_setup[1]+'\n'+atomic_views('LOCK();'+address_setup[3]+'UNLOCK();')
+        loaded_boolean=re.fullmatch(r'(\w+)\s*=\s*([^;]+);\s*'
+                                    r'(\w+)\s*=\s*(\w+)\s*==\s*\1;\s*'
+                                    r'if\s*\(\3\)\s*\{\s*\2\s*=\s*([^;]+);\s*\}'
+                                    r'\s*else\s*\{\s*\4\s*=\s*\1;\s*\}',body)
+        if loaded_boolean:
+            old,target,success,expected,value=loaded_boolean.groups()
+            return ('{ __typeof__('+target+') pf_atomic_expected = '+expected+';\n'+
+                    success+' = __atomic_compare_exchange_n(&('+target+'),&pf_atomic_expected,'+
+                    value+',0,__ATOMIC_SEQ_CST,__ATOMIC_SEQ_CST);\n'+
+                    old+' = pf_atomic_expected;\n'+
+                    'if (!'+success+') '+expected+' = '+old+';\n}')
         loaded_compare=re.fullmatch(r'(\w+)\s*=\s*([^;]+);\s*'
                                     r'if\s*\(\1\s*==\s*([^;]+?)\)\s*'
                                     r'\{\s*\2\s*=\s*([^;]+);\s*\}'
