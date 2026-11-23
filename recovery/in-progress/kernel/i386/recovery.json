@@ -477,5 +477,19 @@
         "(**(code **)(*(int *)font->backend + 0x1c))(font->backend)": "((double (*)(void *))*(uintptr_t *)(*(int *)font->backend + 0x1c))(font->backend)"
       }
     }
+  },
+  "reviewed_shell_line_abi": {
+    "function": "20b41d0",
+    "parameters": [
+      "line:ECX",
+      "output:EDX",
+      "capacity:stack4",
+      "isPath:stack8"
+    ],
+    "request_line_offset": 8,
+    "callers": [
+      "20ab520",
+      "20ab9f0"
+    ]
   }
 }

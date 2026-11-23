@@ -101,7 +101,15 @@
     ],
     "desktop_arm64_initial_and_menu_placement_records": 10,
     "ui_failed_window_lifecycle_paths_per_cpu": 3,
-    "ui_scrollbar_guarded_draw_rasters_per_cpu": 36
+    "ui_scrollbar_guarded_draw_rasters_per_cpu": 36,
+    "ia32_shell_request_native_cases": 90,
+    "activity_monitor_c_build": [
+      "i386",
+      "x86_64",
+      "armv7",
+      "arm64"
+    ],
+    "activity_monitor_native_ui_scenarios_per_cpu": 7
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",
   "kernel_compilation": "All four candidate C kernels link; full VM parity remains incomplete.",

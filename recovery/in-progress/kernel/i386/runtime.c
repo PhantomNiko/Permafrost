@@ -155190,7 +155190,7 @@ LAB_020ab828:
     DAT_02464aec = 0;
   }
   uVar8 = recovered_20b3d30(text);
-  iVar7 = recovered_20b41d0(outText,outTextSize,(byte)uVar8);
+  iVar7 = recovered_20b41d0(text,outText,outTextSize,(byte)uVar8);
   if (iVar7 == 0) {
     if ((byte)uVar8 == 0) {
       while( true ) {
@@ -159598,7 +159598,7 @@ LAB_020b1072:
             puVar31[-3] = 1;
             puVar31[-4] = 0;
             puVar31[-5] = 0x20b1183;
-            iVar33 = recovered_20b41d0((undefined1 *)0x0,puVar31[-4],*(byte *)(puVar31 + -3));
+            iVar33 = recovered_20b41d0((char *)(puVar31 + 0x18a),(void *)0x0,puVar31[-4],*(byte *)(puVar31 + -3));
             if (iVar33 != 0) {
               if (iVar33 == 1) goto LAB_020b1687;
               goto LAB_020b1679;
@@ -160453,7 +160453,7 @@ LAB_020b0b60:
           puVar31[-3] = uVar8 & 0xff;
           puVar31[-4] = 0;
           puVar31[-5] = 0x20b0b7b;
-          iVar33 = recovered_20b41d0((undefined1 *)0x0,puVar31[-4],*(byte *)(puVar31 + -3));
+          iVar33 = recovered_20b41d0(pcVar37,(void *)0x0,puVar31[-4],*(byte *)(puVar31 + -3));
           if (iVar33 == 0) {
             if ((char)uVar8 != '\0') goto LAB_020b0b8a;
             while( true ) {
@@ -160546,7 +160546,7 @@ LAB_020b0b60:
           puVar31[-3] = 1;
           puVar31[-4] = 0;
           puVar31[-5] = 0x20b0c81;
-          iVar33 = recovered_20b41d0((undefined1 *)0x0,puVar31[-4],*(byte *)(puVar31 + -3));
+          iVar33 = recovered_20b41d0(pcVar37,(void *)0x0,puVar31[-4],*(byte *)(puVar31 + -3));
           if (iVar33 != 0) goto LAB_020b0965;
 LAB_020b0b8a:
           *(undefined1 *)(puVar31 + 0x8a) = 0;
@@ -160783,7 +160783,7 @@ LAB_020b0722:
     puVar31[-3] = 0;
     puVar31[-4] = 0;
     puVar31[-5] = 0x20b07d9;
-    recovered_20b41d0((undefined1 *)0x0,puVar31[-4],*(byte *)(puVar31 + -3));
+    recovered_20b41d0((char *)&DAT_02477620,(void *)0x0,puVar31[-4],*(byte *)(puVar31 + -3));
   }
   cVar5 = DAT_024a0fbd;
   if (cVar5 == '\x01') goto code_r0x020b07e9;
@@ -164554,8 +164554,29 @@ LAB_020b4120:
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x20b41d0
  */
+#undef DAT_020ecd70
+#define DAT_020ecd70 (*(uint *)(0x20ecd70U))
+#undef DAT_0210de10
+#define DAT_0210de10 (*(uint *)(0x210de10U))
+#undef DAT_0248b224
+#define DAT_0248b224 (*(uint32_t volatile *)(0x248b224U))
+#undef DAT_024a0fcc
+#define DAT_024a0fcc (*(uint8_t volatile *)(0x24a0fccU))
+#define local_418 (*(undefined4 *)(pf_stack_frame + 56))
+#define local_414 (*(char (*)[1044])(pf_stack_frame + 60))
+#define local_43c (*(int (*)[271])(pf_stack_frame + 20))
+#define local_434 (*(char * *)(pf_stack_frame + 28))
+#define local_430 (*(undefined1 * *)(pf_stack_frame + 32))
+#define local_42c (*(uint *)(pf_stack_frame + 36))
+#define local_428 (*(uint *)(pf_stack_frame + 40))
+#define local_424 (*(uint *)(pf_stack_frame + 44))
+#define local_420 (*(undefined4 *)(pf_stack_frame + 48))
+#define local_41c (*(undefined4 *)(pf_stack_frame + 52))
+/* Recovered working notes; Pooka's Free Software License.
+ * Address: 0x20b41d0
+ */
 
-int recovered_20b41d0(undefined1 *in_EDX,int param_2,byte param_3)
+int recovered_20b41d0(char *line,void *output,uint capacity,uchar isPath)
 
 {
   unsigned char pf_stack_frame[1136] __attribute__((aligned(16))) = {0};
@@ -164574,16 +164595,17 @@ int recovered_20b41d0(undefined1 *in_EDX,int param_2,byte param_3)
   local_43c[0] = 1;
   local_43c[1] = 0x28;
   local_42c = 0x2000;
-  if (param_2 != 0 && in_EDX != (undefined1 *)0x0) {
-    local_42c = param_2;
+  if (capacity != 0 && output != (void *)0x0) {
+    local_42c = capacity;
   }
   puVar6 = &DAT_024a0fcc;
-  if (param_2 != 0 && in_EDX != (undefined1 *)0x0) {
-    puVar6 = in_EDX;
+  if (capacity != 0 && output != (void *)0x0) {
+    puVar6 = output;
   }
   *puVar6 = 0;
-  local_428 = (uint)param_3;
-  local_424 = (uint)(puVar6 == in_EDX);
+  local_428 = (uint)isPath;
+  local_424 = (uint)(puVar6 == output);
+  local_434 = line;
   local_430 = puVar6;
   iVar3 = recovered_210de10(0x40000,0x50001,local_43c);
   if ((puVar6 == &DAT_024a0fcc) && (cVar1 = DAT_024a0fcc, cVar1 != '\0')) {
@@ -164619,6 +164641,22 @@ int recovered_20b41d0(undefined1 *in_EDX,int param_2,byte param_3)
   }
   return iVar3;
 }
+
+#undef DAT_020ecd70
+#undef DAT_0210de10
+#undef DAT_0248b224
+#undef DAT_024a0fcc
+#undef local_418
+#undef local_414
+#undef local_43c
+#undef local_434
+#undef local_430
+#undef local_42c
+#undef local_428
+#undef local_424
+#undef local_420
+#undef local_41c
+
 
 #undef DAT_0248b224
 #undef DAT_024a0fcc

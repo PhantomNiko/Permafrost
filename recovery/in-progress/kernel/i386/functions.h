@@ -1406,7 +1406,7 @@ bool recovered_20b3820(undefined1 *in_ECX);
 void recovered_20b3a00(void);
 bool recovered_20b3c90(char *in_ECX,char *in_EDX);
 undefined4 recovered_20b3d30(char *in_ECX);
-int recovered_20b41d0(undefined1 *in_EDX,int param_2,byte param_3);
+int recovered_20b41d0(char *line,void *output,uint capacity,uchar isPath);
 void recovered_20b4330(void);
 void recovered_20b4360(int in_ECX,int in_EDX,uint param_3,int param_4,int param_5,undefined1 param_6
                       ,undefined1 param_7,undefined1 param_8);

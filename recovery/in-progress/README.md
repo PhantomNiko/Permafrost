@@ -126,3 +126,11 @@ the IA32, x64 and ARM32 close forwarders now retain their native arguments.
 The SDK exposes the recovered scrollbar drawing entry point. Thirty-six native
 raster comparisons per CPU cover both orientations, clipping, coordinate
 offsets, row padding and buffer guards.
+
+Activity Monitor builds from its recovered C checkpoint on all four CPUs. Seven
+native comparisons per CPU cover populated and unavailable process data, text
+alpha and the five graph tabs. VM integration checks are still in progress.
+
+The IA32 shell request now retains its command pointer from the native ECX
+argument. Ninety native request/output/status comparisons pass. The BIOS VM
+still rejects the command, so additional provider integration remains open.
