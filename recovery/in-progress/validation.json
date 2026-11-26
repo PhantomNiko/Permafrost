@@ -116,7 +116,19 @@
   "sdk": "Candidate 1.1 headers compile and pass isolated C/C++ wire-service checks on all four CPUs; bundle not promoted.",
   "normal_build": "1.0; migration to 1.1 remains in progress",
   "efi_mode": "retained firmware services; cooperative scheduling",
-  "desktop_vm": "Source desktop reaches and launches the source UI guest on all four CPUs; ARM64 colour-change callback verified. BIOS shell input and broader compatibility remain unresolved.",
-  "terminal_vm": "Source terminals accept 1+1 and display 2 inside their windows on x64, ARM32 and ARM64. BIOS IA32 accepts keyboard input but reports that no shell accepted the command. Broader compatibility remains incomplete.",
-  "diagnostics_vm": "x64 and ARM64 source diagnostics render live service/hardware data. ARM64 oversized-window placement is repaired. Broader VM parity remains incomplete. The reference provides no ARM32 diagnostics slice."
+  "desktop_vm": "Source desktop reaches and launches the source UI guest on all four CPUs; ARM64 colour-change callback verified. Broader compatibility, including script-variable menu queries, remains unresolved.",
+  "terminal_vm": "Source terminals accept 1+1 and display 2 inside their windows on all four CPUs, including a clean C kernel BIOS IA32 build. Broader compatibility remains incomplete.",
+  "diagnostics_vm": "x64 and ARM64 source diagnostics render live service/hardware data. ARM64 oversized-window placement is repaired. Broader VM parity remains incomplete. The reference provides no ARM32 diagnostics slice.",
+  "activity_monitor_vm": "x64 and ARM64 source applications display live process rows and graphs; broader VM parity remains incomplete.",
+  "ttf_native_checks": {
+    "architectures": [
+      "i386",
+      "x86_64",
+      "armv7",
+      "arm64"
+    ],
+    "generated_font_rasters_per_cpu": 12,
+    "invalid_font_alpha_missing_glyph_cases_per_cpu": 39,
+    "resized_metrics_records_per_cpu": 140
+  }
 }

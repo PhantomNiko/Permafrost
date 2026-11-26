@@ -71,8 +71,7 @@ IA32 desktop text drawing now retains its native ECX/EDX coordinates through
 image blitting. Four guarded TrueType call/clipping comparisons pass and VM
 menu and desktop labels are visible. The extended owned-file service passes
 argument, result and guard comparisons on every CPU; the IA32, x64 and ARM32
-kernel wrappers explicitly return the native result. BIOS shell input remains
-unresolved despite matching direct routing replays.
+kernel wrappers explicitly return the native result. The later IA32 command-pointer repair below resolves the BIOS calculation check.
 
 The candidate SDK header exposes the 608-byte 1.1 wire table, retaining its
 five unassigned slots and the original fixed-width service addresses. The
@@ -89,9 +88,8 @@ Pigeon shares the Cancer implementation: its native code and initialized runtime
 sections are identical; ARM64 differs only in a name in the link-edit segment.
 Both applications build from the checked-in C sources on every CPU.
 
-Terminal VM checks now accept and display a calculation on x64, ARM32 and
-ARM64. BIOS keyboard input reaches the terminal, but its shell route rejects
-the command. Full VM parity and the 1.1 source inventory remain incomplete.
+Terminal VM checks now accept and display a calculation on all four CPUs.
+Full VM parity and the 1.1 source inventory remain incomplete.
 
 The cube candidate is common C source for all four CPUs. The 1.1 theme colours,
 frame lifecycle and timeout arguments pass native comparisons: eleven lifecycle
@@ -101,9 +99,8 @@ modes, sixteen timeout cases and twelve CPU raster cases per CPU. Historical
 The x64 desktop now preserves full-width dirty rectangles. Ten guarded native
 client rasters cover full and partial presentation, including coordinates above
 255. The x64 VM terminal retains its command and result after this repair.
-ARM32 and ARM64 terminals also accept and display a calculation. BIOS IA32
-accepts the keyboard command, but its shell routing still rejects it. VM parity
-and the remaining source inventory are not complete.
+ARM32 and ARM64 terminals also accept and display a calculation. The BIOS IA32 calculation also passes after the command-pointer repair. VM
+parity and the remaining source inventory are not complete.
 
 Diagnostics has recovered C checkpoints for IA32, x64 and ARM64, matching the
 reference slice coverage. Nine native comparisons per CPU cover fallback UI,
@@ -129,8 +126,16 @@ offsets, row padding and buffer guards.
 
 Activity Monitor builds from its recovered C checkpoint on all four CPUs. Seven
 native comparisons per CPU cover populated and unavailable process data, text
-alpha and the five graph tabs. VM integration checks are still in progress.
+alpha and the five graph tabs. The x64 and ARM64 VMs display live process
+rows and graphs. Broader VM integration checks are still in progress.
 
 The IA32 shell request now retains its command pointer from the native ECX
-argument. Ninety native request/output/status comparisons pass. The BIOS VM
-still rejects the command, so additional provider integration remains open.
+argument. Ninety native request/output/status comparisons pass. A clean C
+kernel build evaluates `1+1` to `2` in the BIOS terminal. Script-variable
+queries still produce stray PicoFrost menu rows; broader integration remains open.
+
+The font library carries forward the recovered C backend after native 1.1
+checks, with the new metrics export implemented in common C. Every CPU passes
+twelve generated-font rasters, thirty-nine invalid-font/alpha/missing-glyph
+cases, and 140 resize and text-metrics records. These isolated comparisons do
+not establish complete release compatibility.
