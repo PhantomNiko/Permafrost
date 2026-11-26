@@ -324,3 +324,7 @@ undefined8 recovered_10032bd1(uint param_1,uint param_2,uint param_3);
 undefined8 recovered_10032c0c(uint param_1,uint param_2,uint param_3);
 
 /* Original analysis identifiers for manual recovery units. */
+
+/* Darwin aggregate return preserves the provider hidden-result stack ABI. */
+typedef struct { unsigned int words[9]; } pf_ws_native_value110;
+pf_ws_native_value110 pf_native_null110(void);

@@ -39429,3 +39429,6 @@ undefined8 recovered_10032c0c(uint param_1,uint param_2,uint param_3)
 /* Freestanding compiler clearing helper; Pooka's Free Software License. */
 void __bzero(void *memory,unsigned long size){volatile unsigned char *bytes=memory;while(size--)*bytes++=0;}
 void bzero(void *memory,unsigned long size){__bzero(memory,size); }
+
+/* Provider boundary: C aggregate return supplies the native hidden result. */
+pf_ws_native_value110 pf_native_null110(void){pf_ws_native_value110 value;recovered_1000092a((unsigned int *)&value);return value;}

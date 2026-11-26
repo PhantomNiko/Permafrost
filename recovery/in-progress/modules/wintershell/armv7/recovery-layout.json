@@ -7360,7 +7360,7 @@
   },
   "validation": {
     "reference": "WinterShell 1.1 ARM32",
-    "command_workflows": 28,
+    "command_workflows": 36,
     "multiline_file_workflows": 2,
     "lexer_cases": 331,
     "ownership": "strict free, null result bounds, launch vectors, local and decay frames",

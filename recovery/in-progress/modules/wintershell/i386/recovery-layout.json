@@ -550,5 +550,11 @@
       "0x327af"
     ],
     "reason": "Native forwards push_n boolean; retain its result in multiline collection and bytecode string interning."
+  },
+  "reviewed_provider_null_result": {
+    "native": "0x92a",
+    "source": "pf_native_null110",
+    "bytes": 36,
+    "reason": "The native provider callback pops its hidden aggregate-result pointer. A C struct return preserves that ABI while internal recovered calls retain explicit output pointers."
   }
 }

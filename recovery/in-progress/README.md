@@ -254,3 +254,7 @@ IA32 WinterShell now also passes two multiline files and strict constructor,
 launch-vector and local/decay-frame ownership checks. Its token insertion
 forwards the reference boolean result in C. All four module suites include 36
 statement workflows; the full release VM gates remain open.
+
+All four diagnostic VMs reach Sleet with the C kernel and C WinterShell/Stage4
+modules, including the IA32 BIOS/PS2 run. These are integration checkpoints,
+not source-only release images; other native payloads remain in the diagnostics.

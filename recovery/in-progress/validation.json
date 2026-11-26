@@ -146,7 +146,29 @@
     ],
     "x64_ws_variable_capture_provider_records": 160,
     "x64_kernel_menu_storage_query_records": 45,
-    "x64_wintershell_kernel_host_statement_workflows": 7
+    "x64_wintershell_kernel_host_statement_workflows": 7,
+    "wintershell_c_modules": [
+      "i386",
+      "x86_64",
+      "armv7",
+      "arm64"
+    ],
+    "wintershell_statement_workflows_per_cpu": 36,
+    "wintershell_multiline_file_workflows_per_cpu": 2,
+    "wintershell_lexer_cases_per_cpu": 331,
+    "wintershell_owned_vector_frame_checks": [
+      "i386",
+      "x86_64",
+      "armv7",
+      "arm64"
+    ],
+    "stage4_c_modules": [
+      "i386",
+      "x86_64",
+      "armv7",
+      "arm64"
+    ],
+    "stage4_monitor_workflows_per_cpu": 68
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",
   "kernel_compilation": "All four candidate C kernels link; full VM parity remains incomplete.",
@@ -171,9 +193,11 @@
   "hex_editor_vm": "C checkpoint opens in the x64, ARM32 and ARM64 VMs. A native-kernel x64 control reproduces the glyph rendering; C-kernel menu and window-chrome differences remain unresolved.",
   "component_checkpoints": {
     "Amur": {
-      "commit": "db67272",
+      "commit": "fc368ce",
       "source_hosts": [
+        "i386",
         "x86_64",
+        "armv7",
         "arm64"
       ],
       "native_workflows_per_host": 10,
@@ -183,16 +207,21 @@
         "armv7",
         "arm64"
       ],
-      "scope": "constant-return fixture; broader compiler parity incomplete"
+      "scope": "Cross-target execution of four accepted arithmetic programs and reference rejection of division; broader compiler parity incomplete",
+      "expression_workflows_per_host": 20
     },
     "Sleet": {
-      "commit": "d6f7089",
+      "commit": "736e134",
       "source_architectures": [
-        "x86_64"
+        "i386",
+        "x86_64",
+        "armv7",
+        "arm64"
       ],
       "native_http_cases": 113,
       "native_fallback_ui_service_calls": 69,
       "scope": "fallback UI and chunked HTTP; broader client parity incomplete"
     }
-  }
+  },
+  "module_integration_vm": "C kernels, C WinterShell and C Stage4 reach the source Sleet window on all four CPUs in diagnostic images. Other reference payloads remain; full release parity remains incomplete."
 }

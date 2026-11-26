@@ -47,6 +47,8 @@ def exercise(path):
  lib.exports=dict(mod.exports);descriptor=lib.call('_winterboot_kmod_descriptor',result_bits=32);status=lib.call('_winterboot_kmod_init',0x3007000,descriptor,result_bits=32);assert status==1,(path,status)
  symbols={n:mod.base+a-mm['base']for a,n in mm['symbols']+mm['data_symbols']};lib.exports['get']=mod.base+0xcc3 if path==reference else symbols['_recovered_10000cc3'];results=[]
  rm,_=inspect(reference.read_bytes());rn={n:a-rm['base']for a,n in rm['symbols']}
+ from module_value_abi import check_ia32_null_provider
+ check_ia32_null_provider(lib,mod,mm,symbols,reference,path!=reference)
  # Constructors and owned vectors retain the reference result and ownership ABI.
  def entry(name):
   offset=rn[name];return mod.base+offset if path==reference else symbols['_recovered_%x'%(0x10000000+offset)]

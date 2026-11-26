@@ -282,7 +282,8 @@
     "0x32bae": "recovered_10032bae",
     "0x32bb6": "recovered_10032bb6",
     "0x32bd1": "recovered_10032bd1",
-    "0x32c0c": "recovered_10032c0c"
+    "0x32c0c": "recovered_10032c0c",
+    "0xf000092a": "pf_native_null110"
   },
   "exports": [
     {
@@ -466,7 +467,7 @@
       "width": 4,
       "target": {
         "kind": "function",
-        "address": "0x92a"
+        "address": "0xf000092a"
       },
       "tag": 0
     },
@@ -3959,6 +3960,14 @@
       "name": "_winterboot_kmod_manifest",
       "offset": 65,
       "weak": false
+    }
+  ],
+  "callback_result_records": [
+    {
+      "native": "0x92a",
+      "source": "0xf000092a",
+      "words": 9,
+      "abi": "Darwin IA32 hidden result, callee pops pointer"
     }
   ]
 }
