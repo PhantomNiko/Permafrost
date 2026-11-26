@@ -139,3 +139,10 @@ checks, with the new metrics export implemented in common C. Every CPU passes
 twelve generated-font rasters, thirty-nine invalid-font/alpha/missing-glyph
 cases, and 140 resize and text-metrics records. These isolated comparisons do
 not establish complete release compatibility.
+
+Hex Editor has reviewed C checkpoints on all four CPUs. Six native workflows
+per CPU cover fallback UI, text alpha and resizing, byte editing, file loading,
+actual file saves and extended clipboard round trips. ARM byte rendering now
+retains unsigned printable-range checks. The ARM64 ordinary save path uses its
+native shared tail helper; IA32 retains file-path register arguments. These
+application comparisons do not establish release-wide VM parity.

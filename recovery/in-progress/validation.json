@@ -109,7 +109,14 @@
       "armv7",
       "arm64"
     ],
-    "activity_monitor_native_ui_scenarios_per_cpu": 7
+    "activity_monitor_native_ui_scenarios_per_cpu": 7,
+    "hex_editor_c_build": [
+      "i386",
+      "x86_64",
+      "armv7",
+      "arm64"
+    ],
+    "hex_editor_native_workflows_per_cpu": 6
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",
   "kernel_compilation": "All four candidate C kernels link; full VM parity remains incomplete.",

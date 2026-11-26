@@ -105,3 +105,7 @@
 0x1d8	unsigned int service(void);
 0x1dc	unsigned int service(unsigned int index,void *state);
 0x1e0	unsigned int service(unsigned int index,void *request);
+0x220	int service(int device,char *path,unsigned int capacity);
+0x250	unsigned int service(unsigned int type,const void *data,unsigned int size,int device,unsigned int flags);
+0x254	unsigned int service(void *data,unsigned int capacity,unsigned int flags,void *info);
+0x258	unsigned int service(void *info);
