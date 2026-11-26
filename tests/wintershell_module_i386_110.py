@@ -49,6 +49,12 @@ def exercise(path):
  rm,_=inspect(reference.read_bytes());rn={n:a-rm['base']for a,n in rm['symbols']}
  from module_value_abi import check_ia32_null_provider
  check_ia32_null_provider(lib,mod,mm,symbols,reference,path!=reference)
+ # The boot script calls drivers through pcall and assigns both results.
+ def boot_available(c,a,z,u):leave(1)
+ def load_package(c,a,z,u):
+  events.append(('driver-package',arg(2)));cpu.mem_write(arg(0),struct.pack('<I',3));cpu.mem_write(arg(1),b'\0');leave(1)
+ for slot,callback in [(0x98,boot_available),(0x80,load_package)]:
+  address=int.from_bytes(cpu.mem_read(host+slot,4),'little');cpu.hook_add(UC_HOOK_CODE,callback,begin=address,end=address)
  # Constructors and owned vectors retain the reference result and ownership ABI.
  def entry(name):
   offset=rn[name];return mod.base+offset if path==reference else symbols['_recovered_%x'%(0x10000000+offset)]
@@ -83,9 +89,9 @@ def exercise(path):
    cpu.mem_write(0x3002000,name+b'\0');cpu.mem_write(0x3003000,bytes(64));got=lib.call('get',0x3002000,0x3003000,result_bits=32);value=bytes(cpu.mem_read(0x3003000,64));pointer=int.from_bytes(value[12:16],'little')if got else 0;record.append((got,value[:12],text(pointer)if pointer else b''))
   assert record[0][0]==1 and int.from_bytes(record[0][1][4:8],'little')==0xF6F6F6,(path,record)
   results.append((data,status,events.copy(),record))
- for command in [b'driverOk = true',b'driverOk',b'TundraAutoTime=true',b'TundraAutoTime',b'graphicsOk = false',b'graphicsOk',b'colours={WindowBackground=$F6F6F6}',b'colours.WindowBackground',b'foo = 42', b'foo', b'bar = "snow"', b'bar', b'1+1', b'1 + 1', b'9-4', b'3*7', b'18/3', b'19//3', b'19%3', b'2^5', b'-7', b'1+2*3', b'(1+2)*3', b'9 > 4', b'4 == 4', b'4 != 5', b'"snow" + "fall"', b'foo = foo + 3', b'foo', b'desktop = {title="Sleet", menu="Document|Clipboard|View"}', b'desktop.title', b'desktop.title = "Permafrost"', b'desktop.title', b'{1,2,3}', b'1/0', b'unknown_variable']:
+ for command in [b'a,b=1,2',b'a',b'b',b'driverOk, driverErr = pcall(drivers, "package", "auto")',b'driverOk',b'driverErr',b'driverOk = true',b'driverOk',b'TundraAutoTime=true',b'TundraAutoTime',b'graphicsOk = false',b'graphicsOk',b'colours={WindowBackground=$F6F6F6}',b'colours.WindowBackground',b'foo = 42', b'foo', b'bar = "snow"', b'bar', b'1+1', b'1 + 1', b'9-4', b'3*7', b'18/3', b'19//3', b'19%3', b'2^5', b'-7', b'1+2*3', b'(1+2)*3', b'9 > 4', b'4 == 4', b'4 != 5', b'"snow" + "fall"', b'foo = foo + 3', b'foo', b'desktop = {title="Sleet", menu="Document|Clipboard|View"}', b'desktop.title', b'desktop.title = "Permafrost"', b'desktop.title', b'{1,2,3}', b'1/0', b'unknown_variable']:
   events.clear();cpu.mem_write(0x3000000,command+b'\0');request=bytearray(40);struct.pack_into('<III',request,0,1,40,0x3000000);cpu.mem_write(0x3001000,bytes(request));result=lib.call('_winterboot_kmod_dispatch',16,0x50001,0x3001000,result_bits=32);record=[]
-  for name in [b'foo',b'bar',b'desktop.title',b'desktop.menu',b'driverOk',b'TundraAutoTime',b'graphicsOk',b'colours.WindowBackground']:
+  for name in [b'a',b'b',b'driverErr',b'foo',b'bar',b'desktop.title',b'desktop.menu',b'driverOk',b'TundraAutoTime',b'graphicsOk',b'colours.WindowBackground']:
    cpu.mem_write(0x3002000,name+b'\0');cpu.mem_write(0x3003000,b'\xa5'*64);got=lib.call('get',0x3002000,0x3003000,result_bits=32);data=bytes(cpu.mem_read(0x3003000,64));ptr=int.from_bytes(data[12:16],'little')if got else 0;record.append((name,got,data[:12],text(ptr)if ptr else b''))
   results.append((command,result,events.copy(),record))
  lib.exports['tokenize']=mod.base+0x84c2 if path==reference else symbols['_recovered_100084c2']
@@ -96,4 +102,4 @@ def exercise(path):
   count,capacity,items=struct.unpack('<III',bytes(cpu.mem_read(0x3001000,12)));assert count<100
   words=[text(int.from_bytes(cpu.mem_read(items+i*4,4),'little'))for i in range(count)];tokens.append((case,ok,words))
  return results,tokens
-n=exercise(reference);s=exercise(source);assert n==s,[(x,y)for rows,other in zip(n,s)for x,y in zip(rows,other)if x!=y];print('IA32 WinterShell: %d dispatch workflows and %d lexer cases match.'%(len(n[0]),len(n[1])))
+n=exercise(reference);s=exercise(source);assert n==s,[(x,y)for rows,other in zip(n,s)for x,y in zip(rows,other)if x!=y];print('IA32 WinterShell: 42 commands, two files, provider/ownership checks and %d lexer cases match.'%len(n[1]))

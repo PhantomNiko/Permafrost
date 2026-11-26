@@ -590,12 +590,36 @@ def rewrite_array_words(source, precise=False):
     for name,size in re.findall(r'^  undefined1 (\w+) \[(4|8|16)\];',s,re.M):
         if not re.search(r'\b'+name+r'\s*=',s):continue
         typ={'4':'uint32_t','8':'uint64_t','16':'uint128'}[size]
-        s=re.sub(r'\b'+name+r'(?=\s*=(?!=))', '(*('+typ+' *)(void *)'+name+')',s)
+        s=re.sub(r'(^[ \t]*)'+re.escape(name)+r'(?=\s*=(?!=))',
+                 lambda match:match[1]+'(*('+typ+' *)(void *)'+name+')',s,flags=re.M)
         if not precise and (size=='8' or re.fullmatch(r'auVar\d+',name)):
             s=re.sub(r'\((?:ulong|long|ulonglong|longlong|undefined8)\)'+name+r'\b(?!\s*\._)', '(*('+typ+' *)(void *)'+name+')',s)
     s=re.sub(r'\(undefined1\s+\[(4|8)\]\)',lambda m:'('+('uint32_t'if m[1]=='4'else'uint64_t')+')',s)
     s=re.sub(r'\(undefined1\s*\(\*\)\s*\[16\]\)','(uint128 *)',s)
     return s
+
+
+def array_value_comparisons(source):
+    """An explicit array-valued comparison reads bits, not a C address."""
+    arrays = dict(re.findall(r'\bundefined1\s+(\w+)\s*\[(\d+)\]', source))
+    for name, count in arrays.items():
+        escaped = re.escape(name)
+        cast = r'\(undefined1\s+\[(\d+)\]\)'
+        scalars = {1: 'uint8_t', 2: 'uint16_t', 4: 'uint32_t', 8: 'uint64_t', 16: 'uint128'}
+        def left(match):
+            width = int(match[3])
+            if width > int(count) or width not in (1, 2, 4, 8, 16):
+                raise ValueError('unsupported array comparison width')
+            return 'PF_PART%d(%s,0)%s(%s)' % (width, name, match[1], scalars[width])
+        source = re.sub(r'\b' + escaped + r'\b(\s*(?:==|!=)\s*)(' + cast + r')', left, source)
+        def right(match):
+            width = int(match[2])
+            if width > int(count) or width not in (1, 2, 4, 8, 16):
+                raise ValueError('unsupported array comparison width')
+            prefix = re.sub(cast, '(' + scalars[width] + ')', match[1], count=1)
+            return prefix + 'PF_PART%d(%s,0)' % (width, name)
+        source = re.sub(r'(' + cast + r'\s*(?:0x[0-9a-fA-F]+|\d+)\s*(?:==|!=)\s*)\b' + escaped + r'\b', right, source)
+    return source
 
 
 def exact_array_stores(source):
@@ -606,7 +630,7 @@ def exact_array_stores(source):
         width=int(count)
         if not 1<=width<=16 or re.fullmatch(r'(?:auVar\d+|in_XMM\d+)',name):continue
         def store(match):
-            value=match[1].strip()
+            value=match[2].strip()
             if value in arrays and int(arrays[value])>=width:
                 value='PF_PART%d(%s,0)'%(width,value)
             dereference=re.match(r'^\*\(undefined1\s*\(\*\)\s*\[(\d+)\]\)',value)
@@ -617,8 +641,10 @@ def exact_array_stores(source):
                 # can be an XOR or another rvalue whose address cannot be taken.
                 value=('*('+scalar+' *)'+value[dereference.end():] if scalar else
                        'PF_PART%d(%s,0)'%(size,value))
-            return 'PF_PART%d(%s,0) = %s;'%(width,name,value)
-        source=re.sub(r'\b'+re.escape(name)+r'\s*=(?!=)\s*([^;]+);',store,source)
+            return match[1]+'PF_PART%d(%s,0) = %s;'%(width,name,value)
+        # A casted pointer dereference such as *(uint64_t *)storage=value
+        # writes through the array address; storage is not its scalar lvalue.
+        source=re.sub(r'(^[ \t]*)'+re.escape(name)+r'\s*=(?!=)\s*([^;]+);',store,source,flags=re.M)
     # An explicit array dereference on an assignment copies N bytes. C arrays
     # are not assignable; use a bytewise copy, preserving overlap via a temp.
     pattern=r'\*\(undefined1\s*\(\*\)\s*\[(\d+)\]\)\(([^;]+?)\)\s*=\s*(\w+)\s*;'
@@ -909,12 +935,12 @@ def main():
         for address,source in sources.items():
             rows=[line.split('\t') for line in (args.notes/(address+'.tsv')).read_text().splitlines()]
             precise=any(row[0]=='Q' for row in rows)
-            sources[address]=rewrite_array_words(rewrite_integer_vectors(
-                exact_array_stores(rewrite_array_values(source,rows))),precise=precise)
+            source = array_value_comparisons(exact_array_stores(rewrite_array_values(source, rows)))
+            sources[address] = rewrite_array_words(rewrite_integer_vectors(source), precise=precise)
     else:
         for address,source in sources.items():
             rows=[line.split('\t') for line in (args.notes/(address+'.tsv')).read_text().splitlines()]
-            sources[address]=rewrite_array_values(source,rows)
+            sources[address]=array_value_comparisons(rewrite_array_values(source,rows))
     for stale in args.out.glob('*.c'):
         if stale.stem not in sources and stale.stem not in manual:stale.unlink()
     # Signature corrections must also reach declarations shared by callers.

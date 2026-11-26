@@ -270,3 +270,15 @@ requested units, so dependency functions remain code references.
 
 The x64 and ARM64 C-kernel/module diagnostics also accept keyboard `1+1` and
 display `2` in the C terminal. Further CPU runs and broader VM checks continue.
+
+ARM32 also accepts `1+1` and displays `2` in the C terminal with both C
+modules. The integrated IA32 keyboard run is still being checked. Its startup
+fixture exposed eleven unadjusted call/pop PIC data anchors and lost builtin
+boolean results. Restoring those contracts matches 42 commands, including a
+protected driver-package call with two assigned results, plus the existing file,
+ownership and lexer checks.
+
+Array-valued null comparisons now read the recorded bits instead of a C array
+address. Executable checks cover zero, nonzero and high-bit values on both word
+sizes and retain pointer-based array stores. Packed-vector regression checks
+also pass. These are recovery-tool repairs; full release parity is pending.

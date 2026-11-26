@@ -171,8 +171,11 @@
     "stage4_monitor_workflows_per_cpu": 68,
     "c_module_terminal_keyboard_evaluation": [
       "x86_64",
+      "armv7",
       "arm64"
-    ]
+    ],
+    "wintershell_i386_statement_workflows": 42,
+    "wintershell_i386_protected_driver_calls": "Native/source driver-package callback and two-result assignment match in a controlled boot-service fixture."
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",
   "kernel_compilation": "All four candidate C kernels link; full VM parity remains incomplete.",

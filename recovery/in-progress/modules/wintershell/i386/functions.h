@@ -134,8 +134,7 @@ undefined4 recovered_10011d3a(int *in_ECX);
 undefined4 recovered_10011d5f(int in_ECX);
 bool recovered_10011d93(uint *in_ECX,uint *in_EDX);
 void recovered_10011eb8(undefined4 *in_ECX,int in_EDX);
-void recovered_10011ee4(uint *in_ECX,undefined ************in_EDX,uint *param_3,
-                       undefined *******param_4,uint *param_5);
+uchar recovered_10011ee4(void *context,char *name,void *arguments,uint count,void *result);
 undefined4 recovered_1001df90(void);
 undefined4 recovered_1001e04b(int in_EDX);
 void recovered_1001e091(void);
@@ -157,7 +156,7 @@ uchar recovered_1001e83c(int *in_ECX,char *in_EDX_00,int param_3,uint param_4,un
 undefined4
 recovered_1001ef29(int *in_ECX,char *in_EDX,int *param_3,uint param_4,undefined4 *param_5);
 undefined4 recovered_100213cc(int *in_ECX,char *in_EDX,int *param_3,int param_4);
-void recovered_100214f6(int *in_ECX,char *in_EDX,int param_3,uint param_4,int *param_5);
+uchar recovered_100214f6(void *context,char *name,void *arguments,uint count,void *result);
 byte recovered_10023b7c(int *in_ECX_00,char *in_EDX,int *param_3,uint param_4,
                        undefined4 *in_stack_0000000c);
 undefined4

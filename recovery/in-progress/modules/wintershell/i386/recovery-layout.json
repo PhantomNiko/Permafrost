@@ -556,5 +556,78 @@
     "source": "pf_native_null110",
     "bytes": 36,
     "reason": "The native provider callback pops its hidden aggregate-result pointer. A C struct return preserves that ABI while internal recovered calls retain explicit output pointers."
+  },
+  "reviewed_pic_anchors": {
+    "reason": "Native call-next/pop captures a PIC data anchor. Map that anchor into the source state coordinate system so saved copies and later offset accesses remain valid.",
+    "assignments": [
+      {
+        "variable": "local_1c",
+        "native_pc": "0x10008f84",
+        "source_state_bias": -171203
+      },
+      {
+        "variable": "uVar3",
+        "native_pc": "0x1000c641",
+        "source_state_bias": -157190
+      },
+      {
+        "variable": "uVar3",
+        "native_pc": "0x1000c74e",
+        "source_state_bias": -156921
+      },
+      {
+        "variable": "uVar3",
+        "native_pc": "0x1000d371",
+        "source_state_bias": -153814
+      },
+      {
+        "variable": "local_24",
+        "native_pc": "0x1001e2bc",
+        "source_state_bias": -84363
+      },
+      {
+        "variable": "iVar22",
+        "native_pc": "0x10028e41",
+        "source_state_bias": -40454
+      },
+      {
+        "variable": "local_34",
+        "native_pc": "0x1002b1ef",
+        "source_state_bias": -31320
+      },
+      {
+        "variable": "iVar7",
+        "native_pc": "0x1002d10d",
+        "source_state_bias": -23354
+      },
+      {
+        "variable": "local_18",
+        "native_pc": "0x1002d10d",
+        "source_state_bias": -23354
+      },
+      {
+        "variable": "iVar4",
+        "native_pc": "0x1002dd9f",
+        "source_state_bias": -20136
+      },
+      {
+        "variable": "local_28",
+        "native_pc": "0x1002e1af",
+        "source_state_bias": -19096
+      }
+    ]
+  },
+  "reviewed_builtin_results": {
+    "entries": [
+      "10011ee4",
+      "100214f6"
+    ],
+    "result": "AL boolean",
+    "callers": [
+      "10010aa0",
+      "100214f6",
+      "10011ee4"
+    ],
+    "reason": "Retain the boolean return before argument cleanup, including nested protected calls and multiple assignment."
   }
 }

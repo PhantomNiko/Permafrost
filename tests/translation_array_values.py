@@ -27,6 +27,24 @@ int recovered_1000(unsigned value)
 }
 ''')
         (notes/'1000.tsv').write_text('Q\t-\t0\t0\nQ\tstorage\t3\t4\n')
+        (notes/'2000.c').write_text('''
+int recovered_2000(unsigned long long value)
+{
+  undefined1 slot [8];
+  *(ulonglong *)slot=value;
+  return slot != (undefined1 [8])0;
+}
+''')
+        (notes/'2000.tsv').write_text('Q\t-\t0\t0\n')
+        (notes/'3000.c').write_text('''
+int recovered_3000(unsigned long long value)
+{
+  undefined1 slot [8];
+  *(ulonglong *)slot=value;
+  return (undefined1 [8])0 == slot;
+}
+''')
+        (notes/'3000.tsv').write_text('Q\t-\t0\t0\n')
         for width in (4,8):
             layout=root/'layout.json';layout.write_text(json.dumps({'translation':{'pointer_bytes':width}}))
             units=root/('units'+str(width));runtime=root/'runtime.c';header=root/'functions.h'
@@ -35,7 +53,7 @@ int recovered_1000(unsigned value)
             merge(units,runtime,header)
             with runtime.open('a')as stream:stream.write('''
 int main(void){
- return recovered_1000(42)!=42||recovered_1000(0x80000001U)!=(int)0x80000001U;
+ return recovered_2000(0)!=0||recovered_2000(1)!=1||recovered_2000(1ULL<<63)!=1||recovered_3000(0)!=1||recovered_3000(1)!=0||recovered_1000(42)!=42||recovered_1000(0x80000001U)!=(int)0x80000001U;
 }
 ''')
             executable=root/'check'
