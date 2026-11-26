@@ -277,7 +277,8 @@
     "0x24534": "recovered_10024534",
     "0x245bc": "recovered_100245bc",
     "0x26aac": "recovered_10026aac",
-    "0x26acc": "recovered_10026acc"
+    "0x26acc": "recovered_10026acc",
+    "0xf00006e0": "pf_native_null110"
   },
   "exports": [
     {
@@ -461,7 +462,7 @@
       "width": 8,
       "target": {
         "kind": "function",
-        "address": "0x6e0"
+        "address": "0xf00006e0"
       },
       "tag": 0
     },
@@ -3955,5 +3956,13 @@
       "offset": 184,
       "weak": false
     }
-  ]
+  ],
+  "callback_result_records": {
+    "0xf00006e0": {
+      "original": "0x6e0",
+      "bytes": 64,
+      "abi": "arm64-indirect-result",
+      "source": "C aggregate return"
+    }
+  }
 }

@@ -57,6 +57,12 @@ def exercise(path,module_file=None):
  else:
   lib.exports['descriptor']=mod.exports['_winterboot_kmod_descriptor'];descriptor=lib.call('descriptor',result_bits=64);lib.exports['initialize']=mod.exports['_winterboot_kmod_init']
  assert lib.call('initialize',0x3008000,descriptor,result_bits=32)==1,(module_file,events)
+ # Read the actual provider callback slot; preserve its native result ABI.
+ state=symbols['_pf_module_state']if source_module else mod.base+0x26ae0
+ lib.exports['native_null']=int.from_bytes(cpu.mem_read(state+0x9598,8),'little')
+ cpu.mem_write(0x3006000,b'\xa5'*64);cpu.reg_write(UC_ARM64_REG_X8,0x3006000);cpu.reg_write(UC_ARM64_REG_X0,0)
+ lib.call('native_null',result_bits=64)
+ value=bytes(cpu.mem_read(0x3006000,64));assert value[:12]==bytes(12)and value[16:]==bytes(48),(module_file,value)
  lib.exports['execute']=symbols['_recovered_100025b8']if source_module else mod.base+0x25b8;lib.exports['get']=symbols['_recovered_10000a1c']if source_module else mod.base+0xa1c;results=[]
  for command in [b'foo = 42', b'foo', b'bar = "snow"', b'bar', b'1+1', b'1 + 1', b'9-4', b'3*7', b'18/3', b'19//3', b'19%3', b'2^5', b'-7', b'1+2*3', b'(1+2)*3', b'9 > 4', b'4 == 4', b'4 != 5', b'"snow" + "fall"', b'foo = foo + 3', b'foo', b'desktop = {title="Sleet", menu="Document|Clipboard|View"}', b'desktop.title', b'desktop.title = "Permafrost"', b'desktop.title', b'{1,2,3}', b'1/0', b'unknown_variable']:
   cpu.mem_write(0x3000000,command+b'\0');events.clear()

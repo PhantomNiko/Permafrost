@@ -304,3 +304,7 @@ void recovered_10026aac(long param_1,long param_2,long param_3);
 void recovered_10026acc(undefined1 *param_1,long param_2);
 
 /* Original analysis identifiers for manual recovery units. */
+
+/* Native provider value result; Pooka's Free Software License. */
+typedef struct pf_ws_native_value110 { unsigned long long words[8]; } pf_ws_native_value110;
+pf_ws_native_value110 pf_native_null110(void);

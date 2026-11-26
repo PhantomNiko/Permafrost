@@ -35,3 +35,10 @@ analysis and become ordinary output pointers in C. Variadic error and value
 formatting preserve native argument types and floating-point callback returns.
 `tests/wintershell_module_arm64_110.py` accepts a kernel and two module files.
 ARM32 and broader module behavior remain in progress.
+
+The ARM64 provider's null-value callback returns a native aggregate from C.
+Internal constructors keep their explicit output pointer, while the exported
+provider slot uses the compiler's aggregate-return ABI. Its differential test
+reads and calls the actual relocated provider slot, retaining the native result
+register contract. Integration with the C kernel still encounters a startup
+invalid free and remains a release gate.

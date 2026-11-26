@@ -48679,3 +48679,6 @@ void recovered_10026acc(undefined1 *param_1,long param_2)
 /* Freestanding compiler clearing helper; Pooka's Free Software License. */
 void __bzero(void *memory,unsigned long size){volatile unsigned char *bytes=memory;while(size--)*bytes++=0;}
 void bzero(void *memory,unsigned long size){__bzero(memory,size); }
+
+/* Native provider calls return an aggregate through the ARM64 result register. */
+pf_ws_native_value110 pf_native_null110(void){pf_ws_native_value110 value;recovered_100006e0(&value);return value;}
