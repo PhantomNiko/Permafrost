@@ -1,0 +1,71 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268436504,
+  "text_end": 268444535,
+  "state_end": 268473376,
+  "translation": {
+    "pointer_bytes": 8,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 268444535,
+    "state_end": 268473376,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];"
+    ],
+    "source_replacements": {
+      "10000440": {
+        "              piVar11 = local_2388;\n              puVar14 = auStack_2498;\n              for (lVar9 = 0x22; lVar9 != 0; lVar9 = lVar9 + -1) {\n                *puVar14 = *(undefined8 *)piVar11;\n                piVar11 = piVar11 + ((ulong)bVar15 * -2 + 1) * 2;\n                puVar14 = puVar14 + (ulong)bVar15 * -2 + 1;\n              }\n              recovered_100018b0();": "              recovered_100018b0((const byte *)local_2388);",
+        "0x1000245b": "((uintptr_t)pf_module_state+0xe4U)",
+        "0x10002460": "((uintptr_t)pf_module_state+0xe9U)",
+        "0x10002502": "((uintptr_t)pf_module_state+0x18bU)",
+        "0x1000247e": "((uintptr_t)pf_module_state+0x107U)",
+        "0x10002465": "((uintptr_t)pf_module_state+0xeeU)",
+        "0x1000246f": "((uintptr_t)pf_module_state+0xf8U)",
+        "0x10002474": "((uintptr_t)pf_module_state+0xfdU)",
+        "0x1000253d": "((uintptr_t)pf_module_state+0x1c6U)",
+        "0x100024f1": "((uintptr_t)pf_module_state+0x17aU)",
+        "0x10002458": "((uintptr_t)pf_module_state+0xe1U)",
+        "0x1000242b": "((uintptr_t)pf_module_state+0xb4U)",
+        "0x1000255b": "((uintptr_t)pf_module_state+0x1e4U)",
+        "0x10002595": "((uintptr_t)pf_module_state+0x21eU)",
+        "0x1000246a": "((uintptr_t)pf_module_state+0xf3U)",
+        "0x10002479": "((uintptr_t)pf_module_state+0x102U)",
+        "0x10002579": "((uintptr_t)pf_module_state+0x202U)",
+        "local_2380 = local_38, iVar4 != 0": "iVar4 != 0",
+        "recovered_10002361((long)local_2388,0x110);": "recovered_10002361((long)local_2388,0x110);\n              local_2380 = local_38;"
+      },
+      "1000118d": {
+        "        piVar7 = local_178;\n        puVar8 = auStack_288;\n        for (lVar5 = 0x22; lVar5 != 0; lVar5 = lVar5 + -1) {\n          *puVar8 = *(undefined8 *)piVar7;\n          piVar7 = piVar7 + (ulong)bVar11 * -4 + 2;\n          puVar8 = puVar8 + (ulong)bVar11 * -2 + 1;\n        }\n        recovered_100018b0();": "        recovered_100018b0((const byte *)local_178);",
+        "0x10002819": "((uintptr_t)pf_module_state+0x4a2U)",
+        "0x1000280e": "((uintptr_t)pf_module_state+0x497U)",
+        "0x10002813": "((uintptr_t)pf_module_state+0x49cU)"
+      },
+      "10001b45": {
+        "          piVar17 = piVar21;\n          puVar19 = auStack_d28;\n          for (lVar9 = 0x22; lVar9 != 0; lVar9 = lVar9 + -1) {\n            *puVar19 = *(undefined8 *)piVar17;\n            piVar17 = piVar17 + ((ulong)bVar23 * -2 + 1) * 2;\n            puVar19 = puVar19 + (ulong)bVar23 * -2 + 1;\n          }\n          recovered_100018b0();": "          recovered_100018b0((const byte *)piVar21);",
+        "0x10002819": "((uintptr_t)pf_module_state+0x4a2U)",
+        "0x1000247e": "((uintptr_t)pf_module_state+0x107U)",
+        "0x10002951": "((uintptr_t)pf_module_state+0x5daU)",
+        "0x1000280e": "((uintptr_t)pf_module_state+0x497U)",
+        "0x10002813": "((uintptr_t)pf_module_state+0x49cU)",
+        "0x1000295a": "((uintptr_t)pf_module_state+0x5e3U)",
+        "0x100029e0": "((uintptr_t)pf_module_state+0x669U)",
+        "0x100029e5": "((uintptr_t)pf_module_state+0x66eU)",
+        "0x10002955": "((uintptr_t)pf_module_state+0x5deU)",
+        "0x10002595": "((uintptr_t)pf_module_state+0x21eU)",
+        "0x10002479": "((uintptr_t)pf_module_state+0x102U)",
+        "0x10002579": "((uintptr_t)pf_module_state+0x202U)"
+      },
+      "10000d72": {
+        "0x1000277a": "((uintptr_t)pf_module_state+0x403U)",
+        "0x10002777": "((uintptr_t)pf_module_state+0x400U)",
+        "0x10002771": "((uintptr_t)pf_module_state+0x3faU)",
+        "0x1000278d": "((uintptr_t)pf_module_state+0x416U)"
+      }
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "module": "Stage4",
+  "architecture": "x86_64",
+  "version": "1.1",
+  "install_name": "/Kernel/Modules/Stage4.kmod",
+  "functions": {
+    "0x418": "recovered_10000418",
+    "0x425": "recovered_10000425",
+    "0x432": "recovered_10000432",
+    "0x440": "recovered_10000440",
+    "0xbac": "recovered_10000bac",
+    "0xbc4": "recovered_10000bc4",
+    "0xc95": "recovered_10000c95",
+    "0xcbc": "recovered_10000cbc",
+    "0xcef": "recovered_10000cef",
+    "0xd03": "recovered_10000d03",
+    "0xd52": "recovered_10000d52",
+    "0xd72": "recovered_10000d72",
+    "0x10ff": "recovered_100010ff",
+    "0x118d": "recovered_1000118d",
+    "0x1430": "recovered_10001430",
+    "0x14c9": "recovered_100014c9",
+    "0x14f1": "recovered_100014f1",
+    "0x18b0": "recovered_100018b0",
+    "0x199f": "recovered_1000199f",
+    "0x1a84": "recovered_10001a84",
+    "0x1ab3": "recovered_10001ab3",
+    "0x1acb": "recovered_10001acb",
+    "0x1b12": "recovered_10001b12",
+    "0x1b45": "recovered_10001b45",
+    "0x2344": "recovered_10002344",
+    "0x2361": "recovered_10002361"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kmod_descriptor",
+      "address": 1048,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kmod_state",
+      "address": 1061,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kmod_authorise",
+      "address": 1074,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kmod_dispatch",
+      "address": 1088,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kmod_init",
+      "address": 3012,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kmod_fini",
+      "address": 3260,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kmod_manifest",
+      "address": 9080,
+      "section": 2,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 3225,
+      "width": 8,
+      "target": {
+        "kind": "function",
+        "address": "0x440"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 3233,
+      "width": 8,
+      "target": {
+        "kind": "function",
+        "address": "0x425"
+      },
+      "tag": 0
+    }
+  ],
+  "data_exports": [
+    {
+      "name": "_winterboot_kmod_manifest",
+      "offset": 1,
+      "weak": false
+    }
+  ]
+}

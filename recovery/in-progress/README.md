@@ -196,7 +196,15 @@ reference module against a reference kernel host. Repairs retain the native
 public three-argument boundary, boolean string-builder results, integer prefix
 contents, operator grouping and floating-point host call types. Boolean and
 float-literal fixtures, remaining architectures and C-kernel VM integration
-remain gates. Source-built Sleet renders in x64 and ARM64 diagnostic VMs; an
-ARM32 reference-kernel control also renders it, while the C-kernel ARM32 guest
-logs its first frame without displaying the window. Other reference payloads
-remain in these diagnostic images. No release parity or tag is claimed.
+remain gates. Source-built Sleet renders in diagnostic VMs on all four CPUs. The IA32
+BIOS run uses relative PS/2 input. ARM32 live window records confirm the
+1040-by-680 surface and menu strings before its delayed first visible frame;
+the reference-kernel control renders earlier. Other reference payloads remain
+in these images. Launch timing and release parity remain gates; no tag is claimed.
+
+The x64 Stage4 module also builds from recovered C. Initialization and 52
+monitor command workflows match the reference, including actual stored-variable
+output, conditional/loop execution, save/load and interface return values.
+Private aggregate printing is expressed through C object pointers; public
+module dispatch remains unchanged. Other CPUs and kernel integration remain
+in progress.
