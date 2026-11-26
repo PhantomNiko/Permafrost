@@ -13,6 +13,8 @@ import java.util.*;
 public class HostCalls extends GhidraScript {
     private long global;
     private long poolStart, poolEnd;
+    private int decompileTimeout=60;
+    private Set<Long> selected=new HashSet<>();
     private boolean host(Varnode node,int depth) {
         if(node==null || depth>16)return false;
         if(node.getAddress().isMemoryAddress() && node.getOffset()==global)return true;
@@ -47,7 +49,7 @@ public class HostCalls extends GhidraScript {
         return null;
     }
  private Set<Long> constants(Varnode node,int depth) {
-  if(node.isConstant())return Set.of(node.getOffset());
+  Long scalar=constant(node,depth);if(scalar!=null)return Set.of(scalar);
   if(depth==0 || node.getDef()==null)return null;
   PcodeOp op=node.getDef();
   if(op.getOpcode()==PcodeOp.COPY || op.getOpcode()==PcodeOp.CAST)
@@ -169,7 +171,11 @@ public class HostCalls extends GhidraScript {
         var formats=new HashMap<Long,Integer>();
         // Optional arguments: host-slot:zero-based-format-index.
         for(int i=2;i<args.length;i++){
-            if(args[i].startsWith("pool=")) {
+            if(args[i].startsWith("timeout=")) {
+                decompileTimeout=Integer.parseInt(args[i].substring(8));
+                if(decompileTimeout<1)throw new IllegalArgumentException("Invalid decompiler timeout");
+            }else if(args[i].startsWith("function="))selected.add(Long.decode(args[i].substring(9)));
+            else if(args[i].startsWith("pool=")) {
                 var range=args[i].substring(5).split(":");poolStart=Long.decode(range[0]);poolEnd=Long.decode(range[1]);
                 if(poolEnd<=poolStart || (global>=poolStart && global<poolEnd))throw new IllegalArgumentException("Literal pool range includes runtime host state");
             }else {var model=args[i].split(":");formats.put(Long.decode(model[0]),Integer.parseInt(model[1]));}
@@ -177,7 +183,7 @@ public class HostCalls extends GhidraScript {
         var decompiler=new DecompInterface();decompiler.openProgram(currentProgram);int count=0,formatted=0;
         var functions=currentProgram.getFunctionManager().getFunctions(true);
         while(functions.hasNext()) {
-            var function=functions.next();var result=decompiler.decompileFunction(function,60,monitor);if(!result.decompileCompleted())continue;
+            var function=functions.next();if(!selected.isEmpty() && !selected.contains(function.getEntryPoint().getOffset()))continue;var result=decompiler.decompileFunction(function,decompileTimeout,monitor);if(!result.decompileCompleted())continue;
             var operations=result.getHighFunction().getPcodeOps();
             while(operations.hasNext()) {
                 var operation=operations.next();if(operation.getOpcode()!=PcodeOp.CALLIND)continue;

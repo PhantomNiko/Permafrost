@@ -169,7 +169,7 @@ code happened to retain register arguments, so this source repair alone does
 not establish the cause of the remaining VM menu mismatch. Direct x64 variable
 queries also match 160 capture-ownership, CPU-slot and provider records.
 
-Component work stays in sibling repositories. Amur checkpoint `dcad4bd` builds
+Component work stays in sibling repositories. Amur checkpoint `fc368ce` builds
 IA32, x64, ARM32 and ARM64 compiler hosts from C and matches ten native workflows per host,
 including byte-identical constant-return compilation for all four CPUs. Sleet
 checkpoint `736e134` builds its client from C on all four CPUs and matches fallback UI pixels,
@@ -212,3 +212,14 @@ in progress.
 
 The extended monitor matrix also covers signed floor division and modulo,
 larger integer values, monitor views, command repeat and missing input files.
+
+Amur additionally passes twenty expression workflows per compiler host, including
+execution of the emitted programs on every target CPU. Constant folding differs
+for some expressions: runtime arithmetic produces the same tested results. The
+comparison also retains the reference rejection of integer division in that
+fixture. Broader language and compiler VM integration remain gates.
+
+Private host analysis can resolve constant format pointers through bounded
+ARM32 literal pools and can target selected functions with a longer decompiler
+timeout. Current ARM32 WinterShell analysis resolves 106 constant-format calls;
+its large builtin dispatcher and C checkpoint remain in progress.
