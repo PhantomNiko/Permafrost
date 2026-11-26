@@ -169,12 +169,12 @@ code happened to retain register arguments, so this source repair alone does
 not establish the cause of the remaining VM menu mismatch. Direct x64 variable
 queries also match 160 capture-ownership, CPU-slot and provider records.
 
-Component work stays in sibling repositories. Amur checkpoint `3148d64` builds
-IA32, x64 and ARM64 compiler hosts from C and matches ten native workflows per host,
+Component work stays in sibling repositories. Amur checkpoint `dcad4bd` builds
+IA32, x64, ARM32 and ARM64 compiler hosts from C and matches ten native workflows per host,
 including byte-identical constant-return compilation for all four CPUs. Sleet
 checkpoint `736e134` builds its client from C on all four CPUs and matches fallback UI pixels,
 69 service calls and 113 guarded HTTP decoding cases. Those limited checkpoints
-are not full component releases. ARM32 compiler host recovery, broader language and
+are not full component releases. Broader compiler language and
 network coverage, remaining components and release VM parity are still pending.
 
 The x64 kernel menu store and complete window-query wire records match 45
@@ -190,8 +190,9 @@ casted loads through a host-table global and recovers call-site signatures
 without changing the fixed-width public WMAP table. The current WinterShell
 analysis resolves 1,596 such calls; its source recovery remains in progress.
 
-The x64 WinterShell module now has its own C checkpoint. Twenty-eight statement
-workflows, 331 direct lexer cases and seven public dispatch records match the
+The IA32 and x64 WinterShell modules now have C checkpoints. Twenty-eight statement
+workflows and 331 direct lexer cases per CPU match the reference; seven additional
+x64 public dispatch records match the
 reference module against a reference kernel host. Repairs retain the native
 public three-argument boundary, boolean string-builder results, integer prefix
 contents, operator grouping and floating-point host call types. Boolean and
