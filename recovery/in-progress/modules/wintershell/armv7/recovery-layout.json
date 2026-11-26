@@ -493,7 +493,7 @@
         "iVar11 + 0x1002cb80": "((uintptr_t)pf_module_state+0x4a648U)",
         "iVar11 + 0x1002cf2c": "((uintptr_t)pf_module_state+0x4a648U)",
         "iVar11 + 0x1002cf9c": "((uintptr_t)pf_module_state+0x4a648U)",
-        "iVar11 + 0x1002b958": "((uintptr_t)pf_module_state+0x496b0U)",
+        "iVar11 + 0x1002b958": "((uintptr_t)pf_module_state+0x4a648U)",
         "iVar11 + 0x1002c8f0": "((uintptr_t)pf_module_state+0x4a648U)",
         "(int)&DAT_1002cec8 + DAT_1002d238": "((uintptr_t)pf_module_state+0x67caU)",
         "(int)&DAT_1002d094 + DAT_1002d1e0": "((uintptr_t)pf_module_state+0x67fcU)",
@@ -935,7 +935,7 @@
         "iVar3 + 0x1002192c": "((uintptr_t)pf_module_state+0x4a648U)",
         "iVar3 + 0x100217bc": "((uintptr_t)pf_module_state+0x4a648U)",
         "iVar3 + 0x10021474": "((uintptr_t)pf_module_state+0x4a648U)",
-        "iVar3 + 0x10021424": "((uintptr_t)pf_module_state+0x4a5f8U)",
+        "iVar3 + 0x10021424": "((uintptr_t)pf_module_state+0x4a648U)",
         "(**(code **)(*(int *)(iVar3 + 0x100215ac) + 0x198))": "(*(int (**)(char *,unsigned long,const char *,...))(*(int *)(iVar3 + 0x100215ac) + 0x198))",
         "(**(code **)(*(int *)(((uintptr_t)pf_module_state+0x4a648U)) + 0x198))": "(*(int (**)(char *,unsigned long,const char *,...))(*(int *)(((uintptr_t)pf_module_state+0x4a648U)) + 0x198))"
       },
@@ -1012,7 +1012,7 @@
         "DAT_10032cec + 0x10032b80": "((uintptr_t)pf_module_state+0x4a63cU)",
         "DAT_10032cd8 + 0x1003281c": "((uintptr_t)pf_module_state+0x4a648U)",
         "DAT_10032cdc + 0x10032820": "((uintptr_t)pf_module_state+0x45f24U)",
-        "iVar6 + 0x100326c8": "((uintptr_t)pf_module_state+0x4a3f4U)",
+        "iVar6 + 0x100326c8": "((uintptr_t)pf_module_state+0x4a648U)",
         "iVar14 + 0x100326e0": "((uintptr_t)pf_module_state+0x46728U)",
         "iVar14 + 0x100326e4": "((uintptr_t)pf_module_state+0x4672cU)",
         "iVar6 + 0x1003294c": "((uintptr_t)pf_module_state+0x4a678U)",
@@ -3162,7 +3162,7 @@
         "(int)&DAT_1001d074 + DAT_1001dfec": "((uintptr_t)pf_module_state+0x4a63cU)",
         "(int)&DAT_1001d0d4 + DAT_1001dff4": "((uintptr_t)pf_module_state+0x176dU)",
         "(int)&DAT_1001b290 + DAT_1001c278": "((uintptr_t)pf_module_state+0x6966U)",
-        "iVar8 + 0x10014080": "((uintptr_t)pf_module_state+0x475e8U)",
+        "iVar8 + 0x10014080": "((uintptr_t)pf_module_state+0x4a648U)",
         "iVar8 + 0x10014fcc": "((uintptr_t)pf_module_state+0x4a648U)",
         "iVar8 + 0x10014a08": "((uintptr_t)pf_module_state+0x4a648U)",
         "iVar8 + 0x10015c34": "((uintptr_t)pf_module_state+0x4a648U)",
@@ -3192,7 +3192,7 @@
         "iVar8 + 0x1001c8a0": "((uintptr_t)pf_module_state+0x4a648U)",
         "iVar8 + 0x1001cc60": "((uintptr_t)pf_module_state+0x4a648U)",
         "iVar8 + 0x1001cfd8": "((uintptr_t)pf_module_state+0x4a648U)",
-        "iVar8 + 0x1001ce00": "((uintptr_t)pf_module_state+0x4a470U)",
+        "iVar8 + 0x1001ce00": "((uintptr_t)pf_module_state+0x4a648U)",
         "iVar8 + 0x1001ce50": "((uintptr_t)pf_module_state+0x4a648U)",
         "iVar8 + 0x1001d530": "((uintptr_t)pf_module_state+0x4a670U)",
         "iVar8 + 0x1001dbcc": "((uintptr_t)pf_module_state+0x4a648U)",
@@ -3309,7 +3309,7 @@
         "iVar5 + 0x100127ac": "((uintptr_t)pf_module_state+0x4a648U)",
         "iVar4 + 0x10012a50": "((uintptr_t)pf_module_state+0x4a648U)",
         "iVar5 + 0x10013210": "((uintptr_t)pf_module_state+0x4a648U)",
-        "iVar5 + 0x10012f50": "((uintptr_t)pf_module_state+0x4a388U)",
+        "iVar5 + 0x10012f50": "((uintptr_t)pf_module_state+0x4a648U)",
         "iVar5 + 0x10012c80": "((uintptr_t)pf_module_state+0x4a628U)",
         "iVar5 + 0x10012c7c": "((uintptr_t)pf_module_state+0x4a624U)",
         "iVar5 + 0x10012c78": "((uintptr_t)pf_module_state+0x4a620U)",
@@ -3898,7 +3898,7 @@
         "(int)&DAT_1002b7f4 + DAT_1002b8d4": "((uintptr_t)pf_module_state+0x5a7bU)",
         "(int)&DAT_1002afd4 + DAT_1002b87c": "((uintptr_t)pf_module_state+0x5878U)",
         "(int)&DAT_1002b348 + DAT_1002b850": "((uintptr_t)pf_module_state+0x5782U)",
-        "iVar8 + 0x10029a2c": "((uintptr_t)pf_module_state+0x4a05cU)",
+        "iVar8 + 0x10029a2c": "((uintptr_t)pf_module_state+0x4a648U)",
         "iVar8 + 0x1002a018": "((uintptr_t)pf_module_state+0x4a648U)"
       },
       "10000fe4": {
@@ -3985,7 +3985,7 @@
         "DAT_100038d4 + 0x100037e8": "((uintptr_t)pf_module_state+0x8f4bU)",
         "DAT_10003890 + 0x100037fc": "((uintptr_t)pf_module_state+0x8f54U)",
         "iVar3 + 0x10002530": "((uintptr_t)pf_module_state+0x4a648U)",
-        "iVar3 + 0x10002628": "((uintptr_t)pf_module_state+0x4a244U)",
+        "iVar3 + 0x10002628": "((uintptr_t)pf_module_state+0x4a648U)",
         "iVar3 + 0x100029a8": "((uintptr_t)pf_module_state+0x4a648U)",
         "iVar3 + 0x10002a2c": "((uintptr_t)pf_module_state+0x4a648U)",
         "iVar3 + 0x10003284": "((uintptr_t)pf_module_state+0x4a648U)",
@@ -7303,6 +7303,60 @@
       "10009c38": "6dd70200",
       "10009c1c": "bfd10200"
     }
+  },
+  "reviewed_host_literal_folds": {
+    "host_global": "0x10081310",
+    "reason": "Cached literal registers are reused in separate branches; choose the host global proved by its PC anchor instead of the last textual assignment.",
+    "corrected": [
+      [
+        "1002b91c",
+        "iVar11 + 0x1002b958",
+        "((uintptr_t)pf_module_state+0x496b0U)",
+        "((uintptr_t)pf_module_state+0x4a648U)"
+      ],
+      [
+        "10021250",
+        "iVar3 + 0x10021424",
+        "((uintptr_t)pf_module_state+0x4a5f8U)",
+        "((uintptr_t)pf_module_state+0x4a648U)"
+      ],
+      [
+        "10032690",
+        "iVar6 + 0x100326c8",
+        "((uintptr_t)pf_module_state+0x4a3f4U)",
+        "((uintptr_t)pf_module_state+0x4a648U)"
+      ],
+      [
+        "10013f1c",
+        "iVar8 + 0x10014080",
+        "((uintptr_t)pf_module_state+0x475e8U)",
+        "((uintptr_t)pf_module_state+0x4a648U)"
+      ],
+      [
+        "10013f1c",
+        "iVar8 + 0x1001ce00",
+        "((uintptr_t)pf_module_state+0x4a470U)",
+        "((uintptr_t)pf_module_state+0x4a648U)"
+      ],
+      [
+        "100126e8",
+        "iVar5 + 0x10012f50",
+        "((uintptr_t)pf_module_state+0x4a388U)",
+        "((uintptr_t)pf_module_state+0x4a648U)"
+      ],
+      [
+        "100299ec",
+        "iVar8 + 0x10029a2c",
+        "((uintptr_t)pf_module_state+0x4a05cU)",
+        "((uintptr_t)pf_module_state+0x4a648U)"
+      ],
+      [
+        "100024f0",
+        "iVar3 + 0x10002628",
+        "((uintptr_t)pf_module_state+0x4a244U)",
+        "((uintptr_t)pf_module_state+0x4a648U)"
+      ]
+    ]
   },
   "validation": {
     "reference": "WinterShell 1.1 ARM32",

@@ -87,12 +87,12 @@ def exercise(path,module_file=None):
   if function=='10023070':allocs.pop(frame)
   assert set(allocs)==baseline,(module_file,function,'ownership mismatch')
  lib.exports['execute']=symbols['_recovered_100025b8']if source_module else mod.base+0x25b8;lib.exports['get']=symbols['_recovered_10000a1c']if source_module else mod.base+0xa1c;results=[]
- for command in [b'foo = 42', b'foo', b'bar = "snow"', b'bar', b'1+1', b'1 + 1', b'9-4', b'3*7', b'18/3', b'19//3', b'19%3', b'2^5', b'-7', b'1+2*3', b'(1+2)*3', b'9 > 4', b'4 == 4', b'4 != 5', b'"snow" + "fall"', b'foo = foo + 3', b'foo', b'desktop = {title="Sleet", menu="Document|Clipboard|View"}', b'desktop.title', b'desktop.title = "Permafrost"', b'desktop.title', b'{1,2,3}', b'1/0', b'unknown_variable']:
+ for command in [b'driverOk = true',b'driverOk',b'TundraAutoTime=true',b'TundraAutoTime',b'graphicsOk = false',b'graphicsOk',b'colours={WindowBackground=$F6F6F6}',b'colours.WindowBackground',b'foo = 42', b'foo', b'bar = "snow"', b'bar', b'1+1', b'1 + 1', b'9-4', b'3*7', b'18/3', b'19//3', b'19%3', b'2^5', b'-7', b'1+2*3', b'(1+2)*3', b'9 > 4', b'4 == 4', b'4 != 5', b'"snow" + "fall"', b'foo = foo + 3', b'foo', b'desktop = {title="Sleet", menu="Document|Clipboard|View"}', b'desktop.title', b'desktop.title = "Permafrost"', b'desktop.title', b'{1,2,3}', b'1/0', b'unknown_variable']:
   cpu.mem_write(0x3000000,command+b'\0');events.clear()
   request=bytearray(72);struct.pack_into('<IIQ',request,0,1,72,0x3000000);cpu.mem_write(0x3004000,bytes(request));lib.exports['dispatch']=mod.exports['_winterboot_kmod_dispatch'];result=lib.call('dispatch',16,0x50001,0x3004000,result_bits=32)
 
   record=[]
-  for name in [b'foo',b'bar',b'desktop.title',b'desktop.menu']:
+  for name in [b'foo',b'bar',b'desktop.title',b'desktop.menu',b'driverOk',b'TundraAutoTime',b'graphicsOk',b'colours.WindowBackground']:
    cpu.mem_write(0x3001000,name+b'\0');cpu.mem_write(0x3002000,b'\xa5'*64);value=lib.call('get',0x3001000,0x3002000,result_bits=32);data=bytes(cpu.mem_read(0x3002000,64));ptr=int.from_bytes(data[16:24],'little')if value else 0;record.append((name,value,data[:16],text(ptr)if ptr else b''))
   results.append((command,result,list(events),record))
  # File loading covers line collection, nested values and hexadecimal prefixes.
@@ -116,4 +116,4 @@ def exercise(path,module_file=None):
   count,capacity,items=struct.unpack('<QQQ',bytes(cpu.mem_read(0x3001000,24)));assert count<100
   words=[text(int.from_bytes(cpu.mem_read(items+i*8,8),'little'))for i in range(count)];tokens.append((case,ok,words))
  return results,tokens
-n=exercise(native);s=exercise(native,args.source);assert n==s,[(x,y)for rows,other in zip(n,s)for x,y in zip(rows,other)if x!=y];print('ARM64 WinterShell: 28 dispatch workflows, two file workflows, provider ownership and %d lexer cases match.'%len(n[1]))
+n=exercise(native);s=exercise(native,args.source);assert n==s,[(x,y)for rows,other in zip(n,s)for x,y in zip(rows,other)if x!=y];print('ARM64 WinterShell: 36 dispatch workflows, two file workflows, provider ownership and %d lexer cases match.'%len(n[1]))

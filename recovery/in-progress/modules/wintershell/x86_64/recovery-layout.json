@@ -575,5 +575,24 @@
         "(float)local_40": "pf_bits_float((uint32_t)local_40)"
       }
     }
+  },
+  "reviewed_scoped_assignment_result": {
+    "entry": "0x8da2",
+    "result": "unsigned char",
+    "callers": [
+      "10004f0f",
+      "1000b191",
+      "1002e5e9"
+    ],
+    "reason": "Native tail branches forward the assignment boolean. Capture it before cleanup calls instead of reading an unbound AL temporary."
+  },
+  "reviewed_token_insertion": {
+    "entry": "0xbfc4",
+    "result": "unsigned char",
+    "callers": [
+      "0x85f5",
+      "0x2fcb4"
+    ],
+    "reason": "Native forwards push_n boolean; preserve it in multiline collection and string interning."
   }
 }

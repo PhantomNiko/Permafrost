@@ -41,7 +41,8 @@ def exercise(path,module_file=None):
   old,n=arg(0),arg(1);ptr=allocate(n)
   if old:cpu.mem_write(ptr,bytes(cpu.mem_read(old,min(n,allocs[old]))));allocs.pop(old)
   leave(ptr)
- def free(c,a,z,u):allocs.pop(arg(0),None);leave(0)
+ def free(c,a,z,u):
+  pointer=arg(0);assert pointer==0 or pointer in allocs,('invalid free',hex(pointer));allocs.pop(pointer,None);leave(0)
  def zero(c,a,z,u):leave(0)
  def log(c,a,z,u):events.append(('log',text(arg(0))));leave(0)
  def push(c,a,z,u):events.append(('push',bytes(cpu.mem_read(arg(0),arg(1)))));leave(0)
@@ -61,12 +62,53 @@ def exercise(path,module_file=None):
  else:descriptor=mod.base+0x39230;lib.exports['initialize']=mod.base+0x3b4d
  assert lib.call('initialize',0x3008000,descriptor,result_bits=32)==1
  lib.exports['execute']=symbols['_recovered_10002c21']if source_module else mod.base+0x2c21;lib.exports['get']=symbols['_recovered_10000b07']if source_module else mod.base+0xb07;results=[]
- for command in [b'foo = 42', b'foo', b'bar = "snow"', b'bar', b'1+1', b'1 + 1', b'9-4', b'3*7', b'18/3', b'19//3', b'19%3', b'2^5', b'-7', b'1+2*3', b'(1+2)*3', b'9 > 4', b'4 == 4', b'4 != 5', b'"snow" + "fall"', b'foo = foo + 3', b'foo', b'desktop = {title="Sleet", menu="Document|Clipboard|View"}', b'desktop.title', b'desktop.title = "Permafrost"', b'desktop.title', b'{1,2,3}', b'1/0', b'unknown_variable']:
+ # Owned launch, local and decay frame vectors must release every allocation.
+ rm,_=inspect(module.read_bytes());rn={n:a-rm['base']for a,n in rm['symbols']}
+ def entry(name):
+  offset=rn[name];return mod.base+offset if not source_module else symbols['_recovered_%x'%(0x10000000+offset)]
+ lib.exports['release_launch']=entry('_ws_launch_arguments_free')
+ # Empty and populated vectors exercise the final backing-array release.
+ for values in [[],[b'Config',b'Tundra']]:
+  items=allocate(8*len(values))if values else 0
+  for i,value in enumerate(values):
+   pointer=allocate(len(value)+1);cpu.mem_write(pointer,value+b'\0');cpu.mem_write(items+i*8,struct.pack('<Q',pointer))
+  cpu.mem_write(0x3006000,struct.pack('<QQ',len(values),items));lib.call('release_launch',0x3006000,result_bits=64)
+  assert bytes(cpu.mem_read(0x3006000,16))==bytes(16)
+ # Owned scope and frame data must release their backing arrays exactly once.
+ def owned(value):
+  pointer=allocate(len(value)+1);cpu.mem_write(pointer,value+b'\0');return pointer
+ for function in ['1002daf9','1002dc0d','1002e4bc']:
+  baseline=set(allocs);cpu.mem_write(0x3006000,bytes(512))
+  if function=='1002daf9':
+   items=allocate(80);cpu.mem_write(items,bytes(80));cpu.mem_write(items,struct.pack('<Q',owned(b'Config')));cpu.mem_write(items+8,struct.pack('<I',3));cpu.mem_write(items+24,struct.pack('<Q',owned(b'Tundra')));cpu.mem_write(0x3006000,struct.pack('<QQQ',items,1,1))
+  else:
+   frame=allocate(168)if function=='1002e4bc'else 0x3006000;cpu.mem_write(frame,bytes(168));cpu.mem_write(frame+56,struct.pack('<Q',owned(b'Config')));items=allocate(8);cpu.mem_write(items,struct.pack('<Q',owned(b'Tundra')));cpu.mem_write(frame+80,struct.pack('<QQ',items,1))
+   if function=='1002e4bc':cpu.mem_write(0x3006000+64,struct.pack('<QQ',frame,1))
+  lib.exports['cleanup']=symbols['_recovered_'+function]if source_module else mod.base+int(function,16)-0x10000000
+  lib.call('cleanup',0x3006000,result_bits=64)
+  if function=='1002e4bc':allocs.pop(frame)
+  assert set(allocs)==baseline,(module_file,function,'ownership mismatch')
+ # File loading covers line collection, nested values and hexadecimal prefixes.
+ script=[b'colours = {\n WindowBackground=$F6F6F6,\n Text=$202020,\n}\nTundraAutoTime=true\n',b'desktop = {\n title="Sleet",\n menu="Document|Clipboard|View",\n}\n']
+ current=[b'']
+ def read_file(c,a,z,u):
+  data=current[0];pointer=allocate(len(data)+1);cpu.mem_write(pointer,data+b'\0');cpu.mem_write(arg(1),struct.pack('<Q',pointer));cpu.mem_write(arg(2),struct.pack('<Q',len(data)));leave(1)
+ target=int.from_bytes(cpu.mem_read(0x2132620+0x198,8),'little');cpu.hook_add(UC_HOOK_CODE,read_file,begin=target,end=target)
+ lib.exports['load_file']=entry('_wm_kernel_program_ws_run_file_impl')
+ for data in script:
+  current[0]=data;cpu.mem_write(0x3000000,b'theme.wsh\0');events.clear();status=lib.call('load_file',*([0]*8+[0x3000000]if source_module else[0x3000000]),result_bits=8);assert status==1,(module_file,events)
+  record=[]
+  for name in [b'colours.WindowBackground',b'colours.Text',b'TundraAutoTime',b'desktop.title',b'desktop.menu']:
+   cpu.mem_write(0x3002000,name+b'\0');cpu.mem_write(0x3003000,bytes(64));got=lib.call('get',0x3002000,0x3003000,result_bits=32);value=bytes(cpu.mem_read(0x3003000,64));pointer=int.from_bytes(value[16:24],'little')if got else 0;record.append((got,value[:12],text(pointer)if pointer else b''))
+  assert record[0][0]==1 and int.from_bytes(record[0][1][4:8],'little')==0xF6F6F6,(module_file,record)
+  results.append((data,status,events.copy(),record))
+ for command in [b'driverOk = true',b'driverOk',b'TundraAutoTime=true',b'TundraAutoTime',b'graphicsOk = false',b'graphicsOk',b'colours={WindowBackground=$F6F6F6}',b'colours.WindowBackground',b'foo = 42', b'foo', b'bar = "snow"', b'bar', b'1+1', b'1 + 1', b'9-4', b'3*7', b'18/3', b'19//3', b'19%3', b'2^5', b'-7', b'1+2*3', b'(1+2)*3', b'9 > 4', b'4 == 4', b'4 != 5', b'"snow" + "fall"', b'foo = foo + 3', b'foo', b'desktop = {title="Sleet", menu="Document|Clipboard|View"}', b'desktop.title', b'desktop.title = "Permafrost"', b'desktop.title', b'{1,2,3}', b'1/0', b'unknown_variable']:
   cpu.mem_write(0x3000000,command+b'\0');events.clear()
-  try:lib.call('execute',*([0]*8+[0x3000000]if source_module else[0x3000000]),result_bits=8);result=0
+  try:
+   request=bytearray(72);struct.pack_into('<IIQ',request,0,1,72,0x3000000);cpu.mem_write(0x3004000,bytes(request));lib.exports['dispatch']=mod.exports['_winterboot_kmod_dispatch'];result=lib.call('dispatch',16,0x50001,0x3004000,result_bits=32)
   except Exception:print('events',events,'pc',hex(cpu.reg_read(lib.pc)),flush=True);raise
   record=[]
-  for name in [b'foo',b'bar',b'desktop.title',b'desktop.menu']:
+  for name in [b'foo',b'bar',b'desktop.title',b'desktop.menu',b'driverOk',b'TundraAutoTime',b'graphicsOk',b'colours.WindowBackground']:
    cpu.mem_write(0x3001000,name+b'\0');cpu.mem_write(0x3002000,b'\xa5'*64);value=lib.call('get',0x3001000,0x3002000,result_bits=32);data=bytes(cpu.mem_read(0x3002000,64));ptr=int.from_bytes(data[16:24],'little')if value else 0;record.append((name,value,data[:16],text(ptr)if ptr else b''))
   results.append((command,result,list(events),record))
  # Direct lexer checks cover every adjacent punctuation pair, whitespace,

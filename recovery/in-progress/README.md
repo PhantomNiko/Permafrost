@@ -237,3 +237,15 @@ and formatting use typed C host callbacks; integer remainder is recovered in C.
 The file fixture starts before deliberate error cases so existing reference
 console errors cannot contaminate its success result. Integrated VM validation
 and broader language coverage remain release gates.
+
+The ARM32 C-kernel diagnostic now starts the desktop and Sleet with C WinterShell
+and Stage4. Eight cached PC-relative host expressions were corrected after a
+driver-package loading fault; the reference host global is selected from its
+proved literal/PC pair rather than a temporary reused in another branch.
+
+Expanded WinterShell checks cover boolean and theme assignments on every CPU.
+The x64 suite now uses public dispatch for statements and also verifies owned
+frames and multiline files. Scoped assignment and token insertion forward their
+native boolean results in C, eliminating false allocation errors. The x64 suite
+passes 36 commands, two files, 331 lexer cases and seven dispatch boundary cases.
+VM integration checks and the remaining source inventory are still in progress.
