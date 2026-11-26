@@ -176,3 +176,16 @@ checkpoint `d6f7089` builds its x64 client from C and matches fallback UI pixels
 69 service calls and 113 guarded HTTP decoding cases. Those limited checkpoints
 are not full component releases. IA32/ARM32 compiler hosts, broader language and
 network coverage, remaining components and release VM parity are still pending.
+
+The x64 kernel menu store and complete window-query wire records match 45
+native cases, including title/menu strings, multiple windows, truncation and
+guards. An initialized reference WinterShell module also runs seven statement
+workflows against native and C kernel host services with matching assignments,
+nested values and console output. Both compatibility entries and direct C host
+callback targets are intercepted in that differential fixture. These checks
+narrow, but do not resolve, the remaining live desktop integration differences.
+
+Private module host callbacks now have a separate analysis helper. It follows
+casted loads through a host-table global and recovers call-site signatures
+without changing the fixed-width public WMAP table. The current WinterShell
+analysis resolves 1,596 such calls; its source recovery remains in progress.

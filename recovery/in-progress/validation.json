@@ -144,7 +144,9 @@
       "armv7",
       "arm64"
     ],
-    "x64_ws_variable_capture_provider_records": 160
+    "x64_ws_variable_capture_provider_records": 160,
+    "x64_kernel_menu_storage_query_records": 45,
+    "x64_wintershell_kernel_host_statement_workflows": 7
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",
   "kernel_compilation": "All four candidate C kernels link; full VM parity remains incomplete.",
