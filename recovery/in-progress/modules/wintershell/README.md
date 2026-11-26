@@ -40,5 +40,9 @@ The ARM64 provider's null-value callback returns a native aggregate from C.
 Internal constructors keep their explicit output pointer, while the exported
 provider slot uses the compiler's aggregate-return ABI. Its differential test
 reads and calls the actual relocated provider slot, retaining the native result
-register contract. Integration with the C kernel still encounters a startup
-invalid free and remains a release gate.
+register contract. Launch, scope and frame cleanup retain explicit backing-array releases;
+the tests reject invalid frees and compare native ownership. The ARM64 VM now
+reaches the Sleet window and event loop with C WinterShell, C Stage4 and the C
+kernel. Multiline theme loading additionally retains token insertion success
+and passes two script-file comparisons. A refreshed VM check and broader
+lifecycle behavior remain release gates.

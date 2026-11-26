@@ -770,5 +770,12 @@
       }
     },
     "stack_register": "register0x00000008"
-  }
+  },
+  "reviewed_cleanup_arguments": {
+    "100226dc": "(void *)(uintptr_t)param_1[0]",
+    "1002280c": "*(void **)(param_1+0x14)",
+    "10023070": "*(void **)(puVar1+0x14)",
+    "10023708": "arguments[1] backing array"
+  },
+  "reviewed_token_insertion": "10009358 returns insertion success; 10006640 and 10024368 consume the result"
 }

@@ -86,7 +86,7 @@ ulonglong recovered_100087e4(char *param_1,uint *param_2);
 ulong recovered_10008868(int **param_1,ulong *param_2,uchar *param_3);
 ulong recovered_100091e8(int **param_1,long *param_2,ulong *param_3);
 ulonglong recovered_10009288(long *param_1,uchar *param_2,ulong param_3);
-void recovered_10009358(long *param_1,char *param_2);
+uchar recovered_10009358(long *param_1,char *param_2);
 ulonglong recovered_10009390(long param_1,uint *param_2);
 ulonglong recovered_100093e4(long param_1,ulong param_2);
 ulong recovered_1000945c(long param_1,ulong param_2);

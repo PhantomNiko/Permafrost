@@ -223,3 +223,10 @@ Private host analysis can resolve constant format pointers through bounded
 ARM32 literal pools and can target selected functions with a longer decompiler
 timeout. Current ARM32 WinterShell analysis resolves 106 constant-format calls;
 its large builtin dispatcher and C checkpoint remain in progress.
+
+ARM64 WinterShell provider cleanup now matches native ownership for launch
+arguments, scopes and frames. A C aggregate-return wrapper preserves the
+provider null-value ABI. The C-kernel diagnostic with C WinterShell and Stage4
+reaches Sleet's window and event loop; other reference payloads remain. Multiline
+expression collection also retains token insertion results and passes two
+controlled theme-file workflows. These checks do not establish release parity.
