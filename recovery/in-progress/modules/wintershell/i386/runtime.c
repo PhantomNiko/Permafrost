@@ -7123,7 +7123,7 @@ uint recovered_100088e3(int in_ECX,uint in_EDX,uint param_3,uint param_4,undefin
       }
       for (; uVar8 < local_2c[0]; uVar8 = uVar8 + 1) {
         in_EDX_00 = *(char **)(local_2c[2] + uVar8 * 4);
-        recovered_1000c475(param_5,in_EDX_00);
+        extraout_AL = recovered_1000c475(param_5,in_EDX_00);
         if (extraout_AL == '\0') {
           recovered_1000880c(local_2c);
           uVar10 = 0x4e;
@@ -10466,7 +10466,7 @@ undefined4 recovered_1000c3c4(int *in_ECX_00,undefined1 *in_EDX,ulong in_stack_0
  * Address: 0x1000c475
  */
 
-void recovered_1000c475(int *in_ECX,char *in_EDX)
+uchar recovered_1000c475(int *in_ECX,char *in_EDX)
 
 {
   unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
@@ -10477,8 +10477,7 @@ void recovered_1000c475(int *in_ECX,char *in_EDX)
     in_EDX = &DAT_10032da1;
   }
   in_stack_00000004 = (**(code **)(DAT_1003d00c + 0x248))(in_EDX);
-  recovered_1000c3c4(in_ECX,in_EDX,in_stack_00000004);
-  return;
+  return (uchar)recovered_1000c3c4(in_ECX,in_EDX,in_stack_00000004);
 }
 
 #undef DAT_10032da1
@@ -39015,7 +39014,7 @@ uint recovered_100327af(int in_ECX_00,char *in_EDX_00,uint *param_3)
                         (*(char **)(*(int *)(in_ECX_00 + 0xc) + uVar2 * 4),in_EDX);
       if (iVar1 == 0) goto LAB_10032828;
     }
-    recovered_1000c475((int *)in_ECX,in_EDX);
+    extraout_AL = recovered_1000c475((int *)in_ECX,in_EDX);
     if (extraout_AL == '\0') {
       uVar2 = 0;
     }

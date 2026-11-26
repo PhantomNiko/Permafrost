@@ -89,7 +89,7 @@ undefined4 recovered_1000b62f(char *in_ECX,undefined4 *in_EDX);
 uint recovered_1000b6b6(int *in_ECX,uint *in_EDX,undefined1 *param_3);
 undefined4 recovered_1000c307(int *in_ECX,int *in_EDX,undefined4 *param_3);
 undefined4 recovered_1000c3c4(int *in_ECX_00,undefined1 *in_EDX,ulong in_stack_00000004);
-void recovered_1000c475(int *in_ECX,char *in_EDX);
+uchar recovered_1000c475(int *in_ECX,char *in_EDX);
 undefined4 recovered_1000c4b7(int in_ECX,undefined4 *in_EDX);
 undefined4 recovered_1000c4fd(int in_ECX,uint in_EDX);
 undefined4 recovered_1000c58d(int in_ECX,uint in_EDX);

@@ -249,3 +249,8 @@ frames and multiline files. Scoped assignment and token insertion forward their
 native boolean results in C, eliminating false allocation errors. The x64 suite
 passes 36 commands, two files, 331 lexer cases and seven dispatch boundary cases.
 VM integration checks and the remaining source inventory are still in progress.
+
+IA32 WinterShell now also passes two multiline files and strict constructor,
+launch-vector and local/decay-frame ownership checks. Its token insertion
+forwards the reference boolean result in C. All four module suites include 36
+statement workflows; the full release VM gates remain open.

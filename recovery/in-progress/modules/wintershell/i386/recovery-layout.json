@@ -541,5 +541,14 @@
         "(**(code **)(DAT_1003d00c + 0x3c))": "(*(void (**)(const char *,...))(DAT_1003d00c + 0x3c))"
       }
     }
+  },
+  "reviewed_token_insertion": {
+    "entry": "0xc475",
+    "result": "unsigned char",
+    "callers": [
+      "0x88e3",
+      "0x327af"
+    ],
+    "reason": "Native forwards push_n boolean; retain its result in multiline collection and bytecode string interning."
   }
 }
