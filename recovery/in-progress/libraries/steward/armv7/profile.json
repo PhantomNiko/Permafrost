@@ -1,0 +1,1508 @@
+{
+  "module": "Steward",
+  "architecture": "armv7",
+  "version": "1.1",
+  "install_name": "/lib/Steward.dylib",
+  "functions": {
+    "0x3038": "recovered_10003038",
+    "0x3088": "recovered_10003088",
+    "0x30c0": "recovered_100030c0",
+    "0x3130": "recovered_10003130",
+    "0x319c": "recovered_1000319c",
+    "0x31ac": "recovered_100031ac",
+    "0x31bc": "recovered_100031bc",
+    "0x31d8": "recovered_100031d8",
+    "0x31f8": "recovered_100031f8",
+    "0x3284": "recovered_10003284",
+    "0x3504": "recovered_10003504",
+    "0x3580": "recovered_10003580",
+    "0x37c8": "recovered_100037c8",
+    "0x3860": "recovered_10003860",
+    "0x3910": "recovered_10003910",
+    "0x39cc": "recovered_100039cc",
+    "0x3a74": "recovered_10003a74",
+    "0x3b24": "recovered_10003b24",
+    "0x3ba8": "recovered_10003ba8",
+    "0x3e00": "recovered_10003e00",
+    "0x3e88": "recovered_10003e88",
+    "0x3f18": "recovered_10003f18",
+    "0x3f94": "recovered_10003f94",
+    "0x4100": "recovered_10004100",
+    "0x46a0": "recovered_100046a0",
+    "0x46f4": "recovered_100046f4",
+    "0x4748": "recovered_10004748",
+    "0x4794": "recovered_10004794",
+    "0x4878": "recovered_10004878",
+    "0x48f8": "recovered_100048f8",
+    "0x4a10": "recovered_10004a10",
+    "0x4acc": "recovered_10004acc",
+    "0x4ad4": "recovered_10004ad4",
+    "0x4ae0": "recovered_10004ae0",
+    "0x4b34": "recovered_10004b34",
+    "0x4b84": "recovered_10004b84",
+    "0x4bd8": "recovered_10004bd8",
+    "0x4e5c": "recovered_10004e5c",
+    "0x5368": "recovered_10005368",
+    "0x5568": "recovered_10005568",
+    "0x5764": "recovered_10005764",
+    "0x5960": "recovered_10005960",
+    "0x5994": "recovered_10005994",
+    "0x5b8c": "recovered_10005b8c",
+    "0x5bdc": "recovered_10005bdc",
+    "0x5bf0": "recovered_10005bf0",
+    "0x5c04": "recovered_10005c04",
+    "0x5c1c": "recovered_10005c1c",
+    "0x5c48": "recovered_10005c48",
+    "0x5c68": "recovered_10005c68",
+    "0x5c7c": "recovered_10005c7c",
+    "0x5c8c": "recovered_10005c8c",
+    "0x5c9c": "recovered_10005c9c",
+    "0x5cc4": "recovered_10005cc4",
+    "0x5d08": "recovered_10005d08",
+    "0x5d4c": "recovered_10005d4c",
+    "0x5d68": "recovered_10005d68",
+    "0x607c": "recovered_1000607c",
+    "0x60b0": "recovered_100060b0",
+    "0x6114": "recovered_10006114",
+    "0x617c": "recovered_1000617c",
+    "0x61dc": "recovered_100061dc",
+    "0x6240": "recovered_10006240",
+    "0x6250": "recovered_10006250",
+    "0x6260": "recovered_10006260",
+    "0x6310": "recovered_10006310",
+    "0x6354": "recovered_10006354",
+    "0x640c": "recovered_1000640c",
+    "0x6444": "recovered_10006444",
+    "0x64c4": "recovered_100064c4",
+    "0x64f4": "recovered_100064f4",
+    "0x6538": "recovered_10006538",
+    "0x6580": "recovered_10006580",
+    "0x66c0": "recovered_100066c0",
+    "0x66f0": "recovered_100066f0",
+    "0x67b0": "recovered_100067b0",
+    "0x6860": "recovered_10006860",
+    "0x6880": "recovered_10006880",
+    "0x6940": "recovered_10006940",
+    "0x69c8": "recovered_100069c8",
+    "0x6a10": "recovered_10006a10",
+    "0x6aa0": "recovered_10006aa0",
+    "0x6ae4": "recovered_10006ae4",
+    "0x6ba0": "recovered_10006ba0",
+    "0x6bec": "recovered_10006bec",
+    "0x6c74": "recovered_10006c74",
+    "0x6cac": "recovered_10006cac",
+    "0x6cf8": "recovered_10006cf8",
+    "0x6d4c": "recovered_10006d4c",
+    "0x6da8": "recovered_10006da8",
+    "0x6e00": "recovered_10006e00",
+    "0x6f44": "recovered_10006f44",
+    "0x6f78": "recovered_10006f78",
+    "0x7040": "recovered_10007040",
+    "0x70f8": "recovered_100070f8",
+    "0x7114": "recovered_10007114",
+    "0x7268": "recovered_10007268",
+    "0x73c8": "recovered_100073c8",
+    "0x759c": "recovered_1000759c",
+    "0x75b8": "recovered_100075b8",
+    "0x8380": "recovered_10008380",
+    "0x83b0": "recovered_100083b0",
+    "0x85b0": "recovered_100085b0",
+    "0x8634": "recovered_10008634",
+    "0x8694": "recovered_10008694",
+    "0x8878": "recovered_10008878",
+    "0x8938": "recovered_10008938",
+    "0x89f4": "recovered_100089f4",
+    "0x8a4c": "recovered_10008a4c",
+    "0x8a98": "recovered_10008a98",
+    "0x8ae4": "recovered_10008ae4",
+    "0x8c38": "recovered_10008c38",
+    "0x8c40": "recovered_10008c40",
+    "0x8c44": "recovered_10008c44",
+    "0x8c4c": "recovered_10008c4c",
+    "0x8fd0": "recovered_10008fd0",
+    "0x90d0": "recovered_100090d0",
+    "0x91c8": "recovered_100091c8",
+    "0x92f4": "recovered_100092f4",
+    "0x94f4": "recovered_100094f4",
+    "0x966c": "recovered_1000966c",
+    "0x971c": "recovered_1000971c",
+    "0x9744": "recovered_10009744",
+    "0x981c": "recovered_1000981c",
+    "0x982c": "recovered_1000982c",
+    "0x983c": "recovered_1000983c",
+    "0x9858": "recovered_10009858",
+    "0x987c": "recovered_1000987c",
+    "0x990c": "recovered_1000990c",
+    "0x9a80": "recovered_10009a80",
+    "0x9b80": "recovered_10009b80",
+    "0x9c08": "recovered_10009c08",
+    "0x9c10": "recovered_10009c10",
+    "0x9c14": "recovered_10009c14",
+    "0x9c1c": "recovered_10009c1c",
+    "0x9c24": "recovered_10009c24",
+    "0x9c2c": "recovered_10009c2c",
+    "0x9c70": "recovered_10009c70",
+    "0x9d70": "recovered_10009d70",
+    "0x9d78": "recovered_10009d78",
+    "0x9d80": "recovered_10009d80",
+    "0x9da8": "recovered_10009da8",
+    "0x9db8": "recovered_10009db8",
+    "0x9e08": "recovered_10009e08",
+    "0x9e60": "recovered_10009e60",
+    "0x9eec": "recovered_10009eec",
+    "0x9ef4": "recovered_10009ef4",
+    "0x9f04": "recovered_10009f04",
+    "0x9f44": "recovered_10009f44",
+    "0x9f70": "recovered_10009f70",
+    "0x9f9c": "recovered_10009f9c",
+    "0xa064": "recovered_1000a064",
+    "0xa12c": "recovered_1000a12c",
+    "0xa1f4": "recovered_1000a1f4",
+    "0xa2bc": "recovered_1000a2bc",
+    "0xa2c4": "recovered_1000a2c4",
+    "0xa2d4": "recovered_1000a2d4",
+    "0xa2e4": "recovered_1000a2e4",
+    "0xa2e8": "recovered_1000a2e8",
+    "0xa3f4": "recovered_1000a3f4",
+    "0xa458": "recovered_1000a458",
+    "0xa494": "recovered_1000a494",
+    "0xa54c": "recovered_1000a54c",
+    "0xa574": "recovered_1000a574",
+    "0xa608": "recovered_1000a608",
+    "0xa640": "recovered_1000a640",
+    "0xa664": "recovered_1000a664",
+    "0xa6ac": "recovered_1000a6ac",
+    "0xa6b8": "recovered_1000a6b8",
+    "0xa6c4": "recovered_1000a6c4",
+    "0xa734": "recovered_1000a734",
+    "0xa7f4": "recovered_1000a7f4",
+    "0xa800": "recovered_1000a800",
+    "0xa808": "recovered_1000a808",
+    "0xa814": "recovered_1000a814",
+    "0xa908": "recovered_1000a908",
+    "0xa90c": "recovered_1000a90c",
+    "0xa914": "recovered_1000a914",
+    "0xa928": "recovered_1000a928",
+    "0xa968": "recovered_1000a968",
+    "0xa994": "recovered_1000a994",
+    "0xa9b0": "recovered_1000a9b0",
+    "0xa9cc": "recovered_1000a9cc",
+    "0xa9e8": "recovered_1000a9e8",
+    "0xaa08": "recovered_1000aa08",
+    "0xaaf0": "recovered_1000aaf0",
+    "0xabf0": "recovered_1000abf0",
+    "0xacd8": "recovered_1000acd8",
+    "0xacf4": "recovered_1000acf4",
+    "0xad4c": "recovered_1000ad4c",
+    "0xaec4": "recovered_1000aec4",
+    "0xaec8": "recovered_1000aec8",
+    "0xb27c": "recovered_1000b27c",
+    "0xb40c": "recovered_1000b40c",
+    "0xb4c0": "recovered_1000b4c0",
+    "0xb754": "recovered_1000b754",
+    "0xb8ac": "recovered_1000b8ac",
+    "0xbba4": "recovered_1000bba4",
+    "0xbd9c": "recovered_1000bd9c"
+  },
+  "exports": [
+    {
+      "name": "__Unwind_Resume",
+      "address": 43016,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "__Unwind_SjLj_ForcedUnwind",
+      "address": 42680,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "__Unwind_SjLj_RaiseException",
+      "address": 42668,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "__Unwind_SjLj_Register",
+      "address": 42560,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "__Unwind_SjLj_Resume",
+      "address": 42692,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "__Unwind_SjLj_Resume_or_Rethrow",
+      "address": 42996,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "__Unwind_SjLj_Unregister",
+      "address": 42596,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "__ZSt7nothrow",
+      "address": 49092,
+      "section": 5,
+      "weak": false
+    },
+    {
+      "name": "__ZSt9terminatev",
+      "address": 40544,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "__ZTVN10__cxxabiv117__class_type_infoE",
+      "address": 49224,
+      "section": 9,
+      "weak": false
+    },
+    {
+      "name": "__ZTVN10__cxxabiv120__si_class_type_infoE",
+      "address": 49240,
+      "section": 9,
+      "weak": false
+    },
+    {
+      "name": "__ZTVN10__cxxabiv121__vmi_class_type_infoE",
+      "address": 49256,
+      "section": 9,
+      "weak": false
+    },
+    {
+      "name": "__ZdaPv",
+      "address": 41060,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "__ZdaPvm",
+      "address": 41460,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "__ZdlPv",
+      "address": 40860,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "__ZdlPvm",
+      "address": 41260,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "__Znam",
+      "address": 40816,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "__Znwm",
+      "address": 40772,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___ashldi3",
+      "address": 18080,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___ashrdi3",
+      "address": 18248,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___bzero",
+      "address": 22372,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___cxa_allocate_exception",
+      "address": 41704,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___cxa_atexit",
+      "address": 41660,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___cxa_begin_catch",
+      "address": 40708,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___cxa_end_catch",
+      "address": 42132,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___cxa_free_exception",
+      "address": 41972,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___cxa_guard_abort",
+      "address": 41700,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___cxa_guard_acquire",
+      "address": 41668,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___cxa_guard_release",
+      "address": 41684,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___cxa_pure_virtual",
+      "address": 43272,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___cxa_rethrow",
+      "address": 42504,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___cxa_throw",
+      "address": 42316,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___divdi3",
+      "address": 18680,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___divsi3",
+      "address": 12480,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___dynamic_cast",
+      "address": 43028,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___fixdfdi",
+      "address": 26752,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___fixsfdi",
+      "address": 12716,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixunsdfdi",
+      "address": 26944,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___fixunssfdi",
+      "address": 12700,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatdidf",
+      "address": 27152,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___floatdisf",
+      "address": 12760,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatundidf",
+      "address": 27080,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___floatundisf",
+      "address": 12732,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___gxx_personality_sj0",
+      "address": 40684,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___gxx_personality_v0",
+      "address": 43008,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___lshrdi3",
+      "address": 18164,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___moddi3",
+      "address": 18960,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___modsi3",
+      "address": 12592,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___udivdi3",
+      "address": 18324,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___udivsi3",
+      "address": 12344,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___umoddi3",
+      "address": 18552,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___umodsi3",
+      "address": 12424,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "__tlv_bootstrap",
+      "address": 43276,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_abort",
+      "address": 19148,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_abs",
+      "address": 19156,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_bzero",
+      "address": 21864,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_ceil",
+      "address": 25844,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_ceilf",
+      "address": 27820,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_clock",
+      "address": 40320,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_cos",
+      "address": 26544,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_cosf",
+      "address": 28736,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_difftime",
+      "address": 44248,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_exp",
+      "address": 43528,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_expf",
+      "address": 43760,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_expl",
+      "address": 44016,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_fabs",
+      "address": 26720,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_fabsf",
+      "address": 28920,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_floor",
+      "address": 25796,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_floorf",
+      "address": 27764,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_fmod",
+      "address": 25612,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_fmodf",
+      "address": 27296,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_free",
+      "address": 19252,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_frexp",
+      "address": 25428,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_frexpf",
+      "address": 27364,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_getenv",
+      "address": 40304,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_isalnum",
+      "address": 23580,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_isalpha",
+      "address": 23556,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_isblank",
+      "address": 23624,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_isdigit",
+      "address": 43284,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_isfinite",
+      "address": 43496,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_islower",
+      "address": 23516,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_isprint",
+      "address": 23656,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_isspace",
+      "address": 43304,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_isupper",
+      "address": 23536,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_isxdigit",
+      "address": 43368,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_ldexp",
+      "address": 25360,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_ldexpf",
+      "address": 27552,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_llround",
+      "address": 26304,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_localeconv",
+      "address": 25168,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_log",
+      "address": 25984,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_logf",
+      "address": 28160,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_longjmp",
+      "address": 40456,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_lround",
+      "address": 28484,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_malloc",
+      "address": 19168,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_memchr",
+      "address": 22880,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_memcmp",
+      "address": 22932,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_memcpy",
+      "address": 19416,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_memmove",
+      "address": 20060,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_memset",
+      "address": 21352,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_pow",
+      "address": 25668,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_powf",
+      "address": 27628,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_realloc",
+      "address": 19332,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_round",
+      "address": 44276,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_setjmp",
+      "address": 40376,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_setlocale",
+      "address": 25152,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_sin",
+      "address": 26352,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_sinf",
+      "address": 28536,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_snprintf",
+      "address": 33664,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_sqrt",
+      "address": 25912,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_sqrtf",
+      "address": 28072,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_stderr",
+      "address": 49220,
+      "section": 9,
+      "weak": false
+    },
+    {
+      "name": "_stdin",
+      "address": 49212,
+      "section": 9,
+      "weak": false
+    },
+    {
+      "name": "_stdout",
+      "address": 49216,
+      "section": 9,
+      "weak": false
+    },
+    {
+      "name": "_steward_console_write_line",
+      "address": 46092,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_steward_csv_get_variable",
+      "address": 47276,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_steward_shell_get_string",
+      "address": 46932,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_steward_shell_set_string",
+      "address": 46272,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strchr",
+      "address": 24700,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strcmp",
+      "address": 23748,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strcoll",
+      "address": 23816,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strcpy",
+      "address": 23884,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strcspn",
+      "address": 24852,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strdup",
+      "address": 23912,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strerror",
+      "address": 40048,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strlen",
+      "address": 23708,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strncmp",
+      "address": 39980,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strpbrk",
+      "address": 24956,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strspn",
+      "address": 24752,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strstr",
+      "address": 25052,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strtod",
+      "address": 29640,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strtof",
+      "address": 30108,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strtol",
+      "address": 28948,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strtoll",
+      "address": 44740,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strtoul",
+      "address": 29288,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strtoull",
+      "address": 44364,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_system",
+      "address": 40312,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_time",
+      "address": 25184,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_tolower",
+      "address": 23676,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_toupper",
+      "address": 23692,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_trunc",
+      "address": 27896,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_truncf",
+      "address": 27980,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_vsnprintf",
+      "address": 30136,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_sjlj_jump",
+      "address": 40360,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_errno",
+      "address": 49208,
+      "section": 9,
+      "weak": false
+    },
+    {
+      "name": "_wm_lua_flush_output",
+      "address": 35128,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_lua_readline",
+      "address": 35556,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_lua_show_banner",
+      "address": 35404,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_lua_show_help",
+      "address": 35480,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_lua_write",
+      "address": 34452,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_lua_write_errorf",
+      "address": 35316,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_lua_writeline",
+      "address": 34936,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_math_isfinite",
+      "address": 43412,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_math_isfinitef",
+      "address": 43440,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_math_isfinitel",
+      "address": 43468,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_probe_heap_add_region",
+      "address": 14280,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_probe_heap_add_regions",
+      "address": 13572,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_probe_heap_alloc",
+      "address": 15140,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_probe_heap_alloc_below",
+      "address": 15872,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_probe_heap_alloc_range",
+      "address": 16008,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_probe_heap_free",
+      "address": 16152,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_probe_heap_free_bytes",
+      "address": 14432,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_probe_heap_free_bytes64",
+      "address": 14608,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_probe_heap_realloc",
+      "address": 16640,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_probe_heap_reset",
+      "address": 12792,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_probe_heap_total_bytes",
+      "address": 14796,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_probe_heap_total_bytes64",
+      "address": 14964,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_clear_virtual_files",
+      "address": 39952,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_clearerr",
+      "address": 38972,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_export_image",
+      "address": 39972,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_fclose",
+      "address": 37072,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_feof",
+      "address": 38940,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_ferror",
+      "address": 38956,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_fflush",
+      "address": 38724,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_fopen",
+      "address": 35916,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_fread",
+      "address": 37320,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_freopen",
+      "address": 36816,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_fseek",
+      "address": 38508,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_ftell",
+      "address": 38684,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_fwrite",
+      "address": 38132,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_getc",
+      "address": 37620,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_image_data",
+      "address": 39956,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_image_size",
+      "address": 39964,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_is_mounted",
+      "address": 35908,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_mount_image",
+      "address": 35896,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_read_entire_file",
+      "address": 39552,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_register_virtual_file",
+      "address": 39944,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_remove",
+      "address": 39036,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_rename",
+      "address": 39180,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_ungetc",
+      "address": 39000,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_unmount",
+      "address": 35904,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_write_entire_file",
+      "address": 39808,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 428,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3038"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 436,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 44
+      },
+      "tag": 1
+    },
+    {
+      "offset": 440,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 46
+      },
+      "tag": 1
+    },
+    {
+      "offset": 444,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 46
+      },
+      "tag": 1
+    },
+    {
+      "offset": 448,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 46
+      },
+      "tag": 1
+    },
+    {
+      "offset": 452,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 46
+      },
+      "tag": 1
+    },
+    {
+      "offset": 456,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 44
+      },
+      "tag": 1
+    },
+    {
+      "offset": 460,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 46
+      },
+      "tag": 1
+    },
+    {
+      "offset": 464,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 46
+      },
+      "tag": 1
+    },
+    {
+      "offset": 468,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 46
+      },
+      "tag": 1
+    },
+    {
+      "offset": 472,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 46
+      },
+      "tag": 1
+    },
+    {
+      "offset": 16816,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 484
+      },
+      "tag": 0
+    }
+  ],
+  "data_exports": [
+    {
+      "name": "__ZSt7nothrow",
+      "offset": 368,
+      "weak": false
+    },
+    {
+      "name": "__ZTVN10__cxxabiv117__class_type_infoE",
+      "offset": 500,
+      "weak": false
+    },
+    {
+      "name": "__ZTVN10__cxxabiv120__si_class_type_infoE",
+      "offset": 516,
+      "weak": false
+    },
+    {
+      "name": "__ZTVN10__cxxabiv121__vmi_class_type_infoE",
+      "offset": 532,
+      "weak": false
+    },
+    {
+      "name": "_stderr",
+      "offset": 496,
+      "weak": false
+    },
+    {
+      "name": "_stdin",
+      "offset": 488,
+      "weak": false
+    },
+    {
+      "name": "_stdout",
+      "offset": 492,
+      "weak": false
+    },
+    {
+      "name": "_wm_errno",
+      "offset": 484,
+      "weak": false
+    }
+  ],
+  "recovery_note": "Recovered 1.1 C implementation with native public API and register-context comparisons; broader release runtime coverage remains incomplete."
+}

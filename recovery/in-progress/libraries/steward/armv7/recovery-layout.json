@@ -1,0 +1,81 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268447800,
+  "text_end": 268484180,
+  "state_end": 268533760,
+  "translation": {
+    "pointer_bytes": 4,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 268484180,
+    "state_end": 268533760,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"armv7-recovery.h\"",
+      "#include \"cpu.h\"",
+      "#include \"arm_exclusive.h\"",
+      "#include \"coprocessors.h\"",
+      "#include \"neon.h\"",
+      "static inline __attribute__((always_inline)) uintptr_t pf_current_sp(void){uintptr_t value;__asm__ volatile(\"mov %0,sp\":\"=r\"(value));return value;}"
+    ],
+    "source_replacements": {
+      "10003a74": {
+        "0x1000c080": "((uintptr_t)pf_module_state+0x22cU)"
+      },
+      "10008694": {
+        "0x1000c08c": "((uintptr_t)pf_module_state+0x238U)"
+      },
+      "10003b24": {
+        "0x1000c080": "((uintptr_t)pf_module_state+0x22cU)"
+      },
+      "10003910": {
+        "0x1000c080": "((uintptr_t)pf_module_state+0x22cU)"
+      },
+      "100039cc": {
+        "0x1000c080": "((uintptr_t)pf_module_state+0x22cU)"
+      },
+      "10003f18": {
+        "0x1000c080": "((uintptr_t)pf_module_state+0x22cU)"
+      },
+      "100037c8": {
+        "0x1000c080": "((uintptr_t)pf_module_state+0x22cU)"
+      },
+      "100031f8": {
+        "0x1000c080": "((uintptr_t)pf_module_state+0x22cU)"
+      },
+      "10004100": {
+        "0x1000c080": "((uintptr_t)pf_module_state+0x22cU)"
+      },
+      "10008a98": {
+        "0x1000bec7": "((uintptr_t)pf_module_state+0x73U)",
+        "0x1000bec4": "((uintptr_t)pf_module_state+0x70U)"
+      },
+      "10003e88": {
+        "0x1000c080": "((uintptr_t)pf_module_state+0x22cU)"
+      },
+      "10003860": {
+        "0x1000c080": "((uintptr_t)pf_module_state+0x22cU)"
+      },
+      "1000b40c": {
+        "0x1000bf71": "((uintptr_t)pf_module_state+0x11dU)"
+      },
+      "10003e00": {
+        "0x1000c080": "((uintptr_t)pf_module_state+0x22cU)"
+      },
+      "10003504": {
+        "0x1000c080": "((uintptr_t)pf_module_state+0x22cU)"
+      },
+      "10008a4c": {
+        "0x1000bec4": "((uintptr_t)pf_module_state+0x70U)",
+        "0x1000bea9": "((uintptr_t)pf_module_state+0x55U)"
+      }
+    },
+    "stack_register": "register0x00000054",
+    "system_registers": {}
+  }
+}

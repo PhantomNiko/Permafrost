@@ -153,3 +153,11 @@ actual menu saves and clipboard round trips. The x64 and ARM32 window-spec
 copies retain all fields; ARM64 preserves unsigned text-range tests and status
 message arguments. The source checkpoints reproduce the tested binaries.
 Release-wide VM compatibility remains incomplete.
+
+Steward builds from recovered C on all four CPUs. Each CPU passes 484 native
+console, shell-variable, CSV and guarded-output cases, plus saved-register and
+nonlocal-context comparisons. The candidate SDK exposes the recovered C
+interface, and C/C++ callers link on every CPU. The reference's bundled headers
+confirm unsigned-integer results for the console and shell operations. A
+symbol-bounded analysis helper restores an ARM32 entry removed by speculative
+flow analysis. These checks do not complete release-wide VM compatibility.

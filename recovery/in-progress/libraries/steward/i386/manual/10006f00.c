@@ -1,0 +1,3 @@
+/* Native context boundary; Pooka's Free Software License. */
+#include "functions.h"
+__attribute__((naked,noreturn)) void recovered_10006f00(void *context,int value){__asm__ volatile("movl 4(%esp), %edx\nmovl 8(%esp), %eax\ntestl %eax, %eax\njne Lpf_context_10006f11\nmovl $1, %eax\nLpf_context_10006f11:\ncmpl $-1, 0x18(%edx)\nje Lpf_context_10006f1b\nldmxcsr 0x18(%edx)\nLpf_context_10006f1b:\nfldcw 0x1c(%edx)\nmovl (%edx), %ebx\nmovl 4(%edx), %esi\nmovl 8(%edx), %edi\nmovl 0xc(%edx), %ebp\nmovl 0x10(%edx), %esp\njmpl *0x14(%edx)\nud2 \nnop \nnop \nnop \nnop \nnop \nnop \nnop \nnop \nnop \nnop \nnop \nnop \nnop \nnop \nnop ");}

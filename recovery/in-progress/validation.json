@@ -123,7 +123,20 @@
       "armv7",
       "arm64"
     ],
-    "text_editor_native_workflows_per_cpu": 5
+    "text_editor_native_workflows_per_cpu": 5,
+    "steward_native_contract_cases_per_cpu": 484,
+    "steward_native_context_abi": [
+      "i386",
+      "x86_64",
+      "armv7",
+      "arm64"
+    ],
+    "steward_sdk_c_cpp_link_architectures": [
+      "i386",
+      "x86_64",
+      "armv7",
+      "arm64"
+    ]
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",
   "kernel_compilation": "All four candidate C kernels link; full VM parity remains incomplete.",

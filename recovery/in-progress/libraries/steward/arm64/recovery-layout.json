@@ -1,0 +1,47 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268436920,
+  "text_end": 268456876,
+  "state_end": 268517376,
+  "translation": {
+    "pointer_bytes": 8,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 268456876,
+    "state_end": 268517376,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"arm64-recovery.h\"",
+      "#include \"cpu.h\"",
+      "static inline __attribute__((always_inline)) uintptr_t pf_current_sp(void){uintptr_t value;__asm__ volatile(\"mov %0,sp\":\"=r\"(value));return value;}"
+    ],
+    "source_replacements": {
+      "10004490": {
+        "0x1000c0b0": "((uintptr_t)pf_module_state+0x6d04U)"
+      },
+      "100031d4": {
+        "0x10005508": "((uintptr_t)pf_module_state+0x15cU)"
+      },
+      "10003184": {
+        "0x10005508": "((uintptr_t)pf_module_state+0x15cU)"
+      },
+      "100005e4": {},
+      "100024f0": {
+        "0x100054b9": "((uintptr_t)pf_module_state+0x10dU)",
+        "0x100054e7": "((uintptr_t)pf_module_state+0x13bU)"
+      }
+    },
+    "stack_register": "register0x00000008",
+    "system_registers": {
+      "tpidr_el0": "rw",
+      "tpidrro_el0": "rw",
+      "fpcr": "rw",
+      "fpsr": "rw"
+    }
+  }
+}
