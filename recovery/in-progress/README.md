@@ -190,7 +190,7 @@ casted loads through a host-table global and recovers call-site signatures
 without changing the fixed-width public WMAP table. The current WinterShell
 analysis resolves 1,596 such calls; its source recovery remains in progress.
 
-The IA32 and x64 WinterShell modules now have C checkpoints. Twenty-eight statement
+The IA32, x64 and ARM64 WinterShell modules now have C checkpoints. Twenty-eight statement
 workflows and 331 direct lexer cases per CPU match the reference; seven additional
 x64 public dispatch records match the
 reference module against a reference kernel host. Repairs retain the native

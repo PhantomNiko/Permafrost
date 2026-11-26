@@ -1,6 +1,6 @@
 # Permafrost 1.1 WinterShell module recovery
 
-The IA32 and x64 checkpoints build from C and initialized, non-executable module data:
+The IA32, x64 and ARM64 checkpoints build from C and initialized, non-executable module data:
 
 ```sh
 python3 tools/library_native.py recovery/in-progress/modules/wintershell/x86_64 build/wintershell-110/x86_64
@@ -28,3 +28,10 @@ contracts preserve variable setters, root lookups and value formatting. Typed
 floating-point callbacks retain power-function results. Constant host format
 strings restore variadic arguments; callback pointer casts omit parameter names
 to avoid collisions with recovered stack macros.
+
+ARM64 matches 28 public dispatch workflows and 331 lexer cases. Explicit
+aggregate result contracts retain the native indirect-result register during
+analysis and become ordinary output pointers in C. Variadic error and value
+formatting preserve native argument types and floating-point callback returns.
+`tests/wintershell_module_arm64_110.py` accepts a kernel and two module files.
+ARM32 and broader module behavior remain in progress.
