@@ -1444,7 +1444,7 @@ uint128 recovered_82449634(uint3 *param_1,int param_2,int param_3);
 int recovered_82449754(double param_1);
 long * recovered_824497b0(long *param_1,long *param_2);
 long * recovered_824497e8(long *param_1,long *param_2);
-undefined8 recovered_8244a000(void);
+unsigned char recovered_8244a000(const char *name,uintptr_t function);
 undefined8 recovered_8244a018(byte *param_1,undefined4 *param_2);
 unsigned char recovered_8244a180(const char *path);
 unsigned char recovered_8244a198(unsigned device,const char *path);

@@ -136,7 +136,15 @@
       "x86_64",
       "armv7",
       "arm64"
-    ]
+    ],
+    "ws_registration_native_provider_records_per_cpu": 36,
+    "ws_registration_architectures": [
+      "i386",
+      "x86_64",
+      "armv7",
+      "arm64"
+    ],
+    "x64_ws_variable_capture_provider_records": 160
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",
   "kernel_compilation": "All four candidate C kernels link; full VM parity remains incomplete.",
@@ -158,5 +166,31 @@
     "invalid_font_alpha_missing_glyph_cases_per_cpu": 39,
     "resized_metrics_records_per_cpu": 140
   },
-  "hex_editor_vm": "C checkpoint opens in the x64, ARM32 and ARM64 VMs. A native-kernel x64 control reproduces the glyph rendering; C-kernel menu and window-chrome differences remain unresolved."
+  "hex_editor_vm": "C checkpoint opens in the x64, ARM32 and ARM64 VMs. A native-kernel x64 control reproduces the glyph rendering; C-kernel menu and window-chrome differences remain unresolved.",
+  "component_checkpoints": {
+    "Amur": {
+      "commit": "db67272",
+      "source_hosts": [
+        "x86_64",
+        "arm64"
+      ],
+      "native_workflows_per_host": 10,
+      "cross_compilation_targets": [
+        "i386",
+        "x86_64",
+        "armv7",
+        "arm64"
+      ],
+      "scope": "constant-return fixture; broader compiler parity incomplete"
+    },
+    "Sleet": {
+      "commit": "d6f7089",
+      "source_architectures": [
+        "x86_64"
+      ],
+      "native_http_cases": 113,
+      "native_fallback_ui_service_calls": 69,
+      "scope": "fallback UI and chunked HTTP; broader client parity incomplete"
+    }
+  }
 }

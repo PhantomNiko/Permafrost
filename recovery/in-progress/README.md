@@ -161,3 +161,18 @@ interface, and C/C++ callers link on every CPU. The reference's bundled headers
 confirm unsigned-integer results for the console and shell operations. A
 symbol-bounded analysis helper restores an ARM32 entry removed by speculative
 flow analysis. These checks do not complete release-wide VM compatibility.
+
+WinterScript native-function registration now carries both arguments explicitly
+through the x64, ARM32 and ARM64 provider forwarders. Thirty-six native callback
+argument/result records pass per CPU, including IA32. The previous x64 machine
+code happened to retain register arguments, so this source repair alone does
+not establish the cause of the remaining VM menu mismatch. Direct x64 variable
+queries also match 160 capture-ownership, CPU-slot and provider records.
+
+Component work stays in sibling repositories. Amur checkpoint `db67272` builds
+x64 and ARM64 compiler hosts from C and matches ten native workflows per host,
+including byte-identical constant-return compilation for all four CPUs. Sleet
+checkpoint `d6f7089` builds its x64 client from C and matches fallback UI pixels,
+69 service calls and 113 guarded HTTP decoding cases. Those limited checkpoints
+are not full component releases. IA32/ARM32 compiler hosts, broader language and
+network coverage, remaining components and release VM parity are still pending.

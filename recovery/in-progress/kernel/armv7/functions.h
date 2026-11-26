@@ -1128,7 +1128,7 @@ recovered_40489be8(void *param_1,uint param_2,uint param_3,ulong param_4,undefin
 undefined4 recovered_40489cb8(void *param_1,undefined1 *param_2,int *param_3,uint *param_4);
 void recovered_4048a488(int *param_1,uint param_2);
 double recovered_4048a5b8(uint *param_1,int param_2,int param_3);
-void recovered_4048a730(undefined4 param_1);
+unsigned char recovered_4048a730(const char *name,uintptr_t function);
 undefined4 recovered_4048a750(char *param_1,undefined4 *param_2);
 unsigned char recovered_4048a990(const char *path);
 unsigned char recovered_4048a9b0(unsigned device,const char *path);

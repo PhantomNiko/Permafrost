@@ -136683,22 +136683,11 @@ double recovered_2094450(uint3 *param_1,int param_2,ushort param_3)
  * Address: 0x20945c0
  */
 
-undefined8 recovered_20945c0(void)
-
-{
-  unsigned char pf_stack_frame[72] __attribute__((aligned(16))) = {0};
-
-  long lVar1;
-  undefined8 uVar2;
-
-  lVar1 = DAT_025ebb40;
-  if (lVar1 == 0) {
-    return 0;
-  }
-                    /* WARNING: Could not recover jumptable at 0x020945d5. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  uVar2 = (**(code **)(lVar1 + 0x50))();
-  return uVar2;
+/* Native WinterScript function registration forwarder.
+ * Pooka's Free Software License. */
+unsigned char recovered_20945c0(const char *name,uintptr_t function){
+ uintptr_t provider=*(volatile uintptr_t *)(uintptr_t)0x25ebb40U;
+ return provider?((unsigned char (*)(const char *,uintptr_t))*(uintptr_t *)(provider+0x50U))(name,function):0;
 }
 
 #undef DAT_025ebb40

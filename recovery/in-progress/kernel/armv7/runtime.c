@@ -124151,21 +124151,11 @@ switchD_4048a5f0_default:
  * Address: 0x4048a730
  */
 
-void recovered_4048a730(undefined4 param_1)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  int iVar1;
-
-  iVar1 = DAT_4065cc70;
-  if (iVar1 == 0) {
-    return;
-  }
-                    /* WARNING: Could not recover jumptable at 0x4048a74c. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-  (**(code **)(iVar1 + 0x2c))(param_1);
-  return;
+/* Native WinterScript function registration forwarder.
+ * Pooka's Free Software License. */
+unsigned char recovered_4048a730(const char *name,uintptr_t function){
+ uintptr_t provider=*(volatile uintptr_t *)(uintptr_t)0x4065cc70U;
+ return provider?((unsigned char (*)(const char *,uintptr_t))*(uintptr_t *)(provider+0x2cU))(name,function):0;
 }
 
 #undef DAT_4065cc70

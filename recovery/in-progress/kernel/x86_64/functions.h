@@ -1138,7 +1138,7 @@ ulong recovered_2093940(void *param_1,uint param_2,uint param_3,ulong param_4,un
 undefined8 recovered_2093a00(void *param_1,ulong param_2,void **param_3,uint3 *param_4);
 double recovered_2094240(long *param_1,ulong param_2);
 double recovered_2094450(uint3 *param_1,int param_2,ushort param_3);
-undefined8 recovered_20945c0(void);
+unsigned char recovered_20945c0(const char *name,uintptr_t function);
 undefined8 recovered_20945e0(char *param_1,ulong *param_2);
 unsigned char recovered_20947a0(const char *path);
 unsigned char recovered_20947c0(unsigned device,const char *path);
