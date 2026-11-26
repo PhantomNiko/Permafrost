@@ -12,6 +12,7 @@ import java.util.*;
 
 public class HostCalls extends GhidraScript {
     private long global;
+    private long poolStart, poolEnd;
     private boolean host(Varnode node,int depth) {
         if(node==null || depth>16)return false;
         if(node.getAddress().isMemoryAddress() && node.getOffset()==global)return true;
@@ -19,7 +20,8 @@ public class HostCalls extends GhidraScript {
         int op=def.getOpcode();
         if(op==PcodeOp.LOAD) {
             var address=def.getInput(1);
-            return (address.isConstant() || address.getAddress().isMemoryAddress()) && address.getOffset()==global;
+            Long resolved=constant(address,24);
+            return resolved!=null && resolved==global;
         }
         if(op==PcodeOp.COPY || op==PcodeOp.CAST || op==PcodeOp.INT_ZEXT)
             return host(def.getInput(0),depth+1);
@@ -68,13 +70,22 @@ public class HostCalls extends GhidraScript {
  }
  private Long constant(Varnode node,int depth) {
   if(node.isConstant())return node.getOffset();
+  if(node.getAddress().isMemoryAddress() && node.getOffset()>=poolStart && node.getOffset()+node.getSize()<=poolEnd) {
+   try {if(node.getSize()==4)return Integer.toUnsignedLong(getInt(toAddr(node.getOffset())));}catch(Exception ignored){}
+  }
   if(depth==0 || node.getDef()==null)return null;
   PcodeOp op=node.getDef();
   if(op.getOpcode()==PcodeOp.COPY || op.getOpcode()==PcodeOp.CAST)
    return constant(op.getInput(0),depth-1);
+  if(op.getOpcode()==PcodeOp.LOAD) {
+   Long address=constant(op.getInput(1),depth-1);
+   if(address!=null && address>=poolStart && address+node.getSize()<=poolEnd)try {
+    if(node.getSize()==4)return Integer.toUnsignedLong(getInt(toAddr(address)));
+   }catch(Exception ignored){}
+  }
   if(op.getOpcode()==PcodeOp.PTRSUB || op.getOpcode()==PcodeOp.INT_ADD) {
    Long a=constant(op.getInput(0),depth-1),b=constant(op.getInput(1),depth-1);
-   if(a!=null && b!=null)return a+b;
+   if(a!=null && b!=null)return currentProgram.getDefaultPointerSize()==4?(a+b)&0xffffffffL:a+b;
   }
   return null;
  }
@@ -157,7 +168,12 @@ public class HostCalls extends GhidraScript {
         }
         var formats=new HashMap<Long,Integer>();
         // Optional arguments: host-slot:zero-based-format-index.
-        for(int i=2;i<args.length;i++){var model=args[i].split(":");formats.put(Long.decode(model[0]),Integer.parseInt(model[1]));}
+        for(int i=2;i<args.length;i++){
+            if(args[i].startsWith("pool=")) {
+                var range=args[i].substring(5).split(":");poolStart=Long.decode(range[0]);poolEnd=Long.decode(range[1]);
+                if(poolEnd<=poolStart || (global>=poolStart && global<poolEnd))throw new IllegalArgumentException("Literal pool range includes runtime host state");
+            }else {var model=args[i].split(":");formats.put(Long.decode(model[0]),Integer.parseInt(model[1]));}
+        }
         var decompiler=new DecompInterface();decompiler.openProgram(currentProgram);int count=0,formatted=0;
         var functions=currentProgram.getFunctionManager().getFunctions(true);
         while(functions.hasNext()) {

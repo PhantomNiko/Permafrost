@@ -34,7 +34,7 @@ def exercise(path):
   elif slot in [20,24]:events.append(('remove'if slot==20 else'size',path));leave(1 if slot==20 else len(files.get(path,b'')))
   elif slot==28:events.append(('mkdir',path,arg(1)));leave(1)
   elif slot==32:
-   count=arg(1);values=struct.unpack('<'+'Q'*count,bytes(cpu.mem_read(arg(2),8*count))) if count else();events.append(('call',path,values));cpu.mem_write(arg(3),struct.pack('<Q',57));leave(1)
+   count=arg(1);values=struct.unpack('<'+'i'*count,bytes(cpu.mem_read(arg(2),4*count))) if count else();events.append(('call',path,values));cpu.mem_write(arg(3),struct.pack('<Q',57));leave(1)
  context=bytearray(40);struct.pack_into('<III',context,0,0x444f4d4b,1100000,40);struct.pack_into('<I',context,36,0x19000);struct.pack_into('<I',context,20,0x19010);cpu.mem_write(0x3007000,bytes(context));monitor=bytearray(40);struct.pack_into('<II',monitor,0,1,40)
  for slot in range(8,40,4):
   target=0x18000+slot*16;struct.pack_into('<I',monitor,slot,target);cpu.hook_add(UC_HOOK_CODE,service,begin=target,end=target)
@@ -49,4 +49,5 @@ p=argparse.ArgumentParser(description=__doc__);p.add_argument('reference',type=P
 n=exercise(args.reference);s=exercise(args.source);assert n==s,[(x,y)for x,y in zip(n,s)if x!=y]
 assert (b'EXEC',1,[('log',b'42'),('log',b'\r\n')]) in n,'no actual stored variable execution'
 assert any(row[0]==b'call ticks 1 2'and ('log',b'57')in row[2]for row in n[1:]),'no actual interface result'
+assert any(row[0]==b'call ticks 1 2'and ('call',b'ticks',(1,2))in row[2]for row in n[1:]),'invalid native-width call arguments'
 print('Stage4: initialization and %d native/source command workflows match.'%(len(n)-1))
