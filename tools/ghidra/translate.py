@@ -171,11 +171,12 @@ def atomic_views(source, exclusive_expected=None):
     reviewed = iter(exclusive_expected) if exclusive_expected is not None else None
     # STXR produces the status and the conditional store in one instruction;
     # Ghidra can emit those two p-code effects in either order.
+    target_pattern = r'(?:_?(?:DAT|UINT|INT|ULONG|LONG|USHORT|SHORT|BYTE|CHAR)_[0-9a-f]+|\*\w+)'
     source = re.sub(r'(ExclusiveMonitorPass\([^;]+;\s*if\s*\(\w+\)\s*\{\s*)'
                     r'(\w+\s*=\s*ExclusiveMonitorsStatus\(\);)\s*'
-                    r'((_?DAT_[0-9a-f]+|\*\w+)\s*=\s*[^;]+;)',
+                    r'(('+target_pattern+r')\s*=\s*[^;]+;)',
                     r'\1\3\n\2', source)
-    monitor_pattern=re.compile(r'(\w+)\s*=\s*\(bool\)\s*ExclusiveMonitorPass\(([^,]+),0x10\);\s*if\s*\(\1\)\s*\{\s*(_?DAT_[0-9a-f]+|\*\w+)\s*=\s*([^;]+);\s*(\w+)\s*=\s*ExclusiveMonitorsStatus\(\);\s*\}')
+    monitor_pattern=re.compile(r'(\w+)\s*=\s*\(bool\)\s*ExclusiveMonitorPass\(([^,]+),0x10\);\s*if\s*\(\1\)\s*\{\s*('+target_pattern+r')\s*=\s*([^;]+);\s*(\w+)\s*=\s*ExclusiveMonitorsStatus\(\);\s*\}')
     while (monitor:=monitor_pattern.search(source)):
         success,address,target,value,status=monitor.groups()
         if target.startswith('*'):
@@ -191,7 +192,7 @@ def atomic_views(source, exclusive_expected=None):
             expected = item['expected']
         elif loads:
             expected=loads[-1][1]
-        elif re.fullmatch(re.escape(target)+r'\s*[+|&^]\s*[^;]+', value.strip()):
+        elif re.fullmatch(re.escape(target)+r'\s*[+|&^-]\s*[^;]+', value.strip()):
             # Folded exclusive read-modify-write. Both the comparison and the
             # new value must use the same observed word, even under contention.
             expected='__atomic_load_n(&('+target+'),__ATOMIC_RELAXED)'

@@ -29,6 +29,18 @@ DAT_4055cc40 = VALUE;'''
  }
 } while(status != 0);'''
     arm64_increment = 'bool success;char status;\n' + atomic_views(arm64)
+    typed_arm64 = arm64.replace('DAT_4055cc40','UINT_4055cc40').replace('  UINT_4055cc40 = old + 1;\n  status = ExclusiveMonitorsStatus();','  status = ExclusiveMonitorsStatus();\n  UINT_4055cc40 = old + 1;')
+    typed_increment = 'bool success;char status;\n' + atomic_views(typed_arm64)
+    folded_pattern = '''do {
+ status=1;
+ success=(bool)ExclusiveMonitorPass(0x4055cc40,0x10);
+ if(success) {
+  status=ExclusiveMonitorsStatus();
+  DAT_4055cc40=DAT_4055cc40 - 1;
+ }
+} while(status!=0);'''
+    folded_decrement = '{bool success;char status;'+atomic_views(folded_pattern)+'}'
+    folded_increment = '{bool success;char status;'+atomic_views(folded_pattern.replace('- 1','+ 1'))+'}'
     pointer_store=atomic_views('LOCK(); *(uint32_t *)(*indirect + 4) = 1; UNLOCK();')+'\n'+atomic_views('LOCK(); words[0] = 8; UNLOCK();')
     byte_store=atomic_views("LOCK(); bytes[4]='\\x01'; bytes[5]='\\0'; bytes[6]='\\0'; bytes[7]='\\0'; UNLOCK();")
     pointer_cas=atomic_views('''LOCK();success = DAT_4055cc40 == 0;
@@ -66,17 +78,23 @@ int main(void) {
  DAT_4055cc40=3;
  EXCHANGE
  if(old!=3 || DAT_4055cc40!=1)return 1;
+ DAT_4055cc40=0;
+ FOLDED_DECREMENT
+ if(DAT_4055cc40!=UINT32_MAX)return 8;
+ FOLDED_INCREMENT
+ if(DAT_4055cc40!=0)return 9;
+ DAT_4055cc40=1;
  pthread_t threads[4];
  for(uintptr_t i=0;i<4;i++)if(pthread_create(&threads[i],0,worker,(void *)i))return 2;
  for(unsigned i=0;i<4;i++)if(pthread_join(threads[i],0))return 3;
  uint64_t sum=sums[0]+sums[1]+sums[2]+sums[3];
  return DAT_4055cc40!=40001 || sum!=40000ULL*40001/2;
 }
-'''.replace('EXCHANGE', exchange).replace('POINTER_STORE',pointer_store).replace('POINTER_CAS',pointer_cas).replace('BYTE_STORE',byte_store)
+'''.replace('FOLDED_DECREMENT',folded_decrement).replace('FOLDED_INCREMENT',folded_increment).replace('EXCHANGE', exchange).replace('POINTER_STORE',pointer_store).replace('POINTER_CAS',pointer_cas).replace('BYTE_STORE',byte_store)
     with tempfile.TemporaryDirectory(prefix='permafrost-atomics-') as directory:
         root=Path(directory)
-        for update in (increment,arm64_increment):
-            (root/'probe.c').write_text(code.replace('INCREMENT',update))
+        for update,name in ((increment,'DAT_4055cc40'),(arm64_increment,'DAT_4055cc40'),(typed_increment,'UINT_4055cc40')):
+            (root/'probe.c').write_text(code.replace('INCREMENT',update).replace('DAT_4055cc40',name))
             subprocess.run(['clang','-std=c11','-O2','-pthread','-Wall','-Wextra','-Werror',
                             str(root/'probe.c'),'-o',str(root/'probe')],check=True)
             subprocess.run([str(root/'probe')],check=True)

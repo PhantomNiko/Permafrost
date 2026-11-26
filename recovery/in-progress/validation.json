@@ -170,6 +170,7 @@
     ],
     "stage4_monitor_workflows_per_cpu": 68,
     "c_module_terminal_keyboard_evaluation": [
+      "i386",
       "x86_64",
       "armv7",
       "arm64"
@@ -240,5 +241,5 @@
       "scope": "Branch-free capture payload and vtable targets; full startup, rendering, exception handling and other architectures remain incomplete."
     }
   },
-  "module_integration_vm": "C kernels, C WinterShell and C Stage4 reach the source Sleet window on all four CPUs in diagnostic images. Other reference payloads remain; full release parity remains incomplete."
+  "module_integration_vm": "C kernel, C WinterShell and C Stage4 reach the desktop and source terminal on all four CPUs; typed 1+1 displays 2. Other reference payloads remain; full release parity remains incomplete."
 }

@@ -282,3 +282,11 @@ Array-valued null comparisons now read the recorded bits instead of a C array
 address. Executable checks cover zero, nonzero and high-bit values on both word
 sizes and retain pointer-based array stores. Packed-vector regression checks
 also pass. These are recovery-tool repairs; full release parity is pending.
+
+The updated IA32 BIOS integration also accepts typed `1+1` and displays `2`.
+This completes the four-CPU terminal input checkpoint with C kernel and both
+C modules. The release source inventory and complete VM parity remain open.
+
+ARM64 analysis can retain independently typed scalar fields in merged globals.
+Typed atomic counters preserve both increment and decrement, including unsigned
+wraparound and concurrent updates; the acquisition regression also passes.
