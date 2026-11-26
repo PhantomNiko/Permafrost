@@ -1,6 +1,6 @@
 # Permafrost 1.1 Stage4 module recovery
 
-The x64 and ARM64 checkpoints build from C and initialized non-executable data:
+The IA32, x64 and ARM64 checkpoints build from C and initialized non-executable data:
 
 ```sh
 python3 tools/library_native.py recovery/in-progress/modules/stage4/x86_64 build/stage4-110/x86_64
@@ -16,6 +16,11 @@ Private value formatting uses an explicit object pointer in C; the native
 aggregate argument copies are removed at its three internal callers. The
 public module ABI is preserved. Line-boundary returns and interface result
 initialization retain the native ordering. ARM64 also retains an explicit two-pointer parser cursor and implements the
-reviewed native floor division/modulo jump-table branches in C. IA32, ARM32, full
+reviewed native floor division/modulo jump-table branches in C. ARM32, full
 lifecycle and integration with the kernel remain in progress. These checks
 do not establish release-wide VM parity. Pooka's Free Software License applies.
+
+The IA32 checkpoint also matches initialization and 52 monitor command workflows.
+Its private aggregate printer uses an object pointer, and its arithmetic helpers
+use explicit 64-bit C contracts with freestanding division and shift support.
+`tests/stage4_module_i386_110.py` compares the two IA32 module files.

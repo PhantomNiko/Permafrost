@@ -1,0 +1,32 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268440180,
+  "text_end": 268450069,
+  "state_end": 268480512,
+  "translation": {
+    "pointer_bytes": 4,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 268450069,
+    "state_end": 268480512,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];"
+    ],
+    "source_replacements": {
+      "100012b3": {
+        "piVar7 = &local_2014;\n                  piVar9 = aiStackY_2660 + 0x80;\n                  for (iVar5 = 0x43; iVar5 != 0; iVar5 = iVar5 + -1) {\n                    *piVar9 = *piVar7;\n                    piVar7 = piVar7 + (uint)bVar10 * -2 + 1;\n                    piVar9 = piVar9 + (uint)bVar10 * -2 + 1;\n                  }\n                  recovered_100029b8();": "recovered_100029b8((const unsigned char *)&local_2014);"
+      },
+      "10002151": {
+        "puVar5 = local_120;\n        puVar7 = auStackY_460 + 0x80;\n        for (iVar4 = 0x43; iVar4 != 0; iVar4 = iVar4 + -1) {\n          *puVar7 = *puVar5;\n          puVar5 = puVar5 + (uint)bVar9 * -2 + 1;\n          puVar7 = puVar7 + (uint)bVar9 * -2 + 1;\n        }\n        recovered_100029b8();": "recovered_100029b8((const unsigned char *)local_120);"
+      },
+      "10002c79": {
+        "piVar17 = piVar16;\n          piVar19 = aiStackY_cf0;\n          for (iVar15 = 0x43; iVar15 != 0; iVar15 = iVar15 + -1) {\n            *piVar19 = *piVar17;\n            piVar17 = piVar17 + (uint)bVar21 * -2 + 1;\n            piVar19 = piVar19 + (uint)bVar21 * -2 + 1;\n          }\n          recovered_100029b8();": "recovered_100029b8((const unsigned char *)piVar16);"
+      }
+    }
+  }
+}
