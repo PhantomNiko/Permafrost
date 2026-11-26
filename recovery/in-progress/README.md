@@ -146,3 +146,10 @@ actual file saves and extended clipboard round trips. ARM byte rendering now
 retains unsigned printable-range checks. The ARM64 ordinary save path uses its
 native shared tail helper; IA32 retains file-path register arguments. These
 application comparisons do not establish release-wide VM parity.
+
+Text Editor has C checkpoints for every CPU. Five native workflows per CPU
+cover empty documents, multiline keyboard input, binary-to-text file filtering,
+actual menu saves and clipboard round trips. The x64 and ARM32 window-spec
+copies retain all fields; ARM64 preserves unsigned text-range tests and status
+message arguments. The source checkpoints reproduce the tested binaries.
+Release-wide VM compatibility remains incomplete.

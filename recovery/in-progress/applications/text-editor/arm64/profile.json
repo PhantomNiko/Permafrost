@@ -1,0 +1,12 @@
+{
+  "module": "TextEditor",
+  "architecture": "arm64",
+  "version": "1.1",
+  "sources": [
+    "runtime.c",
+    "state.c",
+    "entry.c"
+  ],
+  "reference_path": "Applications/TextEditor.app/Contents/Permafrost/TextEditor",
+  "recovery_note": "C checkpoint checked against native UI, file and clipboard workflows; release-wide VM parity remains incomplete."
+}

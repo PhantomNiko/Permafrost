@@ -116,7 +116,14 @@
       "armv7",
       "arm64"
     ],
-    "hex_editor_native_workflows_per_cpu": 6
+    "hex_editor_native_workflows_per_cpu": 6,
+    "text_editor_c_build": [
+      "i386",
+      "x86_64",
+      "armv7",
+      "arm64"
+    ],
+    "text_editor_native_workflows_per_cpu": 5
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",
   "kernel_compilation": "All four candidate C kernels link; full VM parity remains incomplete.",
@@ -137,5 +144,6 @@
     "generated_font_rasters_per_cpu": 12,
     "invalid_font_alpha_missing_glyph_cases_per_cpu": 39,
     "resized_metrics_records_per_cpu": 140
-  }
+  },
+  "hex_editor_vm": "C checkpoint opens in the x64, ARM32 and ARM64 VMs. A native-kernel x64 control reproduces the glyph rendering; C-kernel menu and window-chrome differences remain unresolved."
 }
