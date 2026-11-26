@@ -1,4 +1,4 @@
-"""Compare x64 Stage4 module behavior against controlled monitor services.
+"""Compare LP64 Stage4 module behavior against controlled monitor services.
 Pooka's Free Software License. This does not establish complete VM parity.
 """
 from pathlib import Path
@@ -7,6 +7,7 @@ sys.path[:0]=[str(Path(__file__).resolve().parent),str(Path(__file__).resolve().
 from native import inspect
 from unicorn import UC_HOOK_CODE
 from unicorn.x86_const import *
+from unicorn.arm64_const import *
 def exercise(path):
  lib=DLL(path,load_base=0x1000000,instruction_limit=10000000);cpu=lib.cpu;events=[];files={b'input.stage4':b'print 7*6\n'}
  def text(p):
@@ -16,9 +17,12 @@ def exercise(path):
    if not c:return bytes(data)
    data.append(c)
   raise AssertionError('unbounded text')
- def arg(i):return cpu.reg_read([UC_X86_REG_RDI,UC_X86_REG_RSI,UC_X86_REG_RDX,UC_X86_REG_RCX][i])
+ def arg(i):return cpu.reg_read(([UC_ARM64_REG_X0,UC_ARM64_REG_X1,UC_ARM64_REG_X2,UC_ARM64_REG_X3]if lib.cpu_type==0x100000c else[UC_X86_REG_RDI,UC_X86_REG_RSI,UC_X86_REG_RDX,UC_X86_REG_RCX])[i])
  def leave(value):
-  sp=cpu.reg_read(UC_X86_REG_RSP);ret=int.from_bytes(cpu.mem_read(sp,8),'little');cpu.reg_write(UC_X86_REG_RSP,sp+8);cpu.reg_write(lib.result,value);cpu.reg_write(lib.pc,ret)
+  if lib.cpu_type==0x100000c:ret=cpu.reg_read(UC_ARM64_REG_X30)
+  else:
+   sp=cpu.reg_read(UC_X86_REG_RSP);ret=int.from_bytes(cpu.mem_read(sp,8),'little');cpu.reg_write(UC_X86_REG_RSP,sp+8)
+  cpu.reg_write(lib.result,value);cpu.reg_write(lib.pc,ret)
  def lookup(c,a,z,u):events.append(('lookup',text(arg(0)),arg(1),arg(2)));leave(0x3008000)
  def register(c,a,z,u):events.append(('register',text(arg(0)),arg(1),arg(2)));leave(1)
  def service(c,a,z,u):

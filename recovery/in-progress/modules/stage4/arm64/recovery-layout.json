@@ -1,0 +1,44 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268436520,
+  "text_end": 268444632,
+  "state_end": 268503232,
+  "translation": {
+    "pointer_bytes": 8,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 268444632,
+    "state_end": 268503232,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];"
+    ],
+    "stack_register": "register0x00000008",
+    "source_replacements": {
+      "10000aa8": {
+        "0x100024bb": "((uintptr_t)pf_module_state+0xe3U)",
+        "0x10004000": "((uintptr_t)pf_module_state+0x1c28U)"
+      },
+      "10000cdc": {
+        "0x100027ef": "((uintptr_t)pf_module_state+0x417U)"
+      },
+      "10000be4": {
+        "0x100024bb": "((uintptr_t)pf_module_state+0xe3U)"
+      },
+      "10001ae0": {
+        "0x10009ef8": "((uintptr_t)pf_module_state+0x7b20U)"
+      },
+      "10001428": {
+        "      if (uVar5 < 0xb) {\n                    /* WARNING: Could not recover jumptable at 0x10001648. Too many branches */\n                    /* WARNING: Treating indirect jump as call */\n        (*(code *)((ulong)(byte)(&DAT_100023e3)[uVar5] * 4 + 0x100014c8))();\n        return;\n      }": "      /* The two native jump-table entries implement floor division/modulo. */\n      if (uVar5 == 0) {\n        int64_t remainder = lVar10 % lStack_170;\n        if (remainder != 0 && (remainder ^ lStack_170) < 0) remainder += lStack_170;\n        *(int64_t *)((byte *)out + 8) = remainder;\n      } else {\n        int64_t quotient = lVar10 / lStack_170;\n        if (lVar10 % lStack_170 != 0 && (lVar10 ^ lStack_170) < 0) --quotient;\n        *(int64_t *)((byte *)out + 8) = quotient;\n      }"
+      },
+      "1000044c": {
+        "uStack_2398 = uStack_3a0, iVar3 != 0": "iVar3 != 0",
+        "recovered_100023c4((undefined1 *)aiStack_23a0,0x110);": "recovered_100023c4((undefined1 *)aiStack_23a0,0x110);\n              uStack_2398 = uStack_3a0;"
+      }
+    }
+  }
+}

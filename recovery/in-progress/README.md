@@ -202,8 +202,8 @@ BIOS run uses relative PS/2 input. ARM32 live window records confirm the
 the reference-kernel control renders earlier. Other reference payloads remain
 in these images. Launch timing and release parity remain gates; no tag is claimed.
 
-The x64 Stage4 module also builds from recovered C. Initialization and 52
-monitor command workflows match the reference, including actual stored-variable
+The x64 and ARM64 Stage4 modules also build from recovered C. Initialization and 52
+monitor command workflows per CPU match the reference, including actual stored-variable
 output, conditional/loop execution, save/load and interface return values.
 Private aggregate printing is expressed through C object pointers; public
 module dispatch remains unchanged. Other CPUs and kernel integration remain
