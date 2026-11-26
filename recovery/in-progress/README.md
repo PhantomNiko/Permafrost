@@ -190,13 +190,13 @@ casted loads through a host-table global and recovers call-site signatures
 without changing the fixed-width public WMAP table. The current WinterShell
 analysis resolves 1,596 such calls; its source recovery remains in progress.
 
-The IA32, x64 and ARM64 WinterShell modules now have C checkpoints. Twenty-eight statement
+The WinterShell modules for all four CPUs now have C checkpoints. Twenty-eight statement
 workflows and 331 direct lexer cases per CPU match the reference; seven additional
 x64 public dispatch records match the
 reference module against a reference kernel host. Repairs retain the native
 public three-argument boundary, boolean string-builder results, integer prefix
 contents, operator grouping and floating-point host call types. Boolean and
-float-literal fixtures, remaining architectures and C-kernel VM integration
+float-literal fixtures and full C-kernel VM integration
 remain gates. Source-built Sleet renders in diagnostic VMs on all four CPUs. The IA32
 BIOS run uses relative PS/2 input. ARM32 live window records confirm the
 1040-by-680 surface and menu strings before its delayed first visible frame;
@@ -222,7 +222,7 @@ fixture. Broader language and compiler VM integration remain gates.
 Private host analysis can resolve constant format pointers through bounded
 ARM32 literal pools and can target selected functions with a longer decompiler
 timeout. Current ARM32 WinterShell analysis resolves 106 constant-format calls;
-its large builtin dispatcher and C checkpoint remain in progress.
+its large builtin dispatcher is included in the ARM32 C checkpoint.
 
 ARM64 WinterShell provider cleanup now matches native ownership for launch
 arguments, scopes and frames. A C aggregate-return wrapper preserves the
@@ -230,3 +230,10 @@ provider null-value ABI. The C-kernel diagnostic with C WinterShell and Stage4
 reaches Sleet's window and event loop; other reference payloads remain. Multiline
 expression collection also retains token insertion results and passes two
 controlled theme-file workflows. These checks do not establish release parity.
+
+ARM32 WinterShell additionally matches two multiline theme-file workflows and
+strict constructor, launch-vector and frame ownership checks. Float arithmetic
+and formatting use typed C host callbacks; integer remainder is recovered in C.
+The file fixture starts before deliberate error cases so existing reference
+console errors cannot contaminate its success result. Integrated VM validation
+and broader language coverage remain release gates.
