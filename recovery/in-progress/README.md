@@ -258,3 +258,15 @@ statement workflows; the full release VM gates remain open.
 All four diagnostic VMs reach Sleet with the C kernel and C WinterShell/Stage4
 modules, including the IA32 BIOS/PS2 run. These are integration checkpoints,
 not source-only release images; other native payloads remain in the diagnostics.
+
+Zastruga Engine checkpoint `82d2ca6` builds 3,058 recovered x64 functions from C
+in its sibling repository. Its guarded fixture matches 138 captured-object
+payloads and all associated vtable targets. Clone pointer results and explicit
+object receivers are preserved. Full startup, exception handling, rendering and
+the other CPUs remain recovery gates. A bounded switch-analysis helper exposes
+reviewed signed relative targets without copying executable code into C data.
+Selected translation retains the full declaration map while updating only
+requested units, so dependency functions remain code references.
+
+The x64 and ARM64 C-kernel/module diagnostics also accept keyboard `1+1` and
+display `2` in the C terminal. Further CPU runs and broader VM checks continue.

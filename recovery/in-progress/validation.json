@@ -168,7 +168,11 @@
       "armv7",
       "arm64"
     ],
-    "stage4_monitor_workflows_per_cpu": 68
+    "stage4_monitor_workflows_per_cpu": 68,
+    "c_module_terminal_keyboard_evaluation": [
+      "x86_64",
+      "arm64"
+    ]
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",
   "kernel_compilation": "All four candidate C kernels link; full VM parity remains incomplete.",
@@ -221,6 +225,16 @@
       "native_http_cases": 113,
       "native_fallback_ui_service_calls": 69,
       "scope": "fallback UI and chunked HTTP; broader client parity incomplete"
+    },
+    "Zastruga Engine": {
+      "commit": "82d2ca6",
+      "source_architectures": [
+        "x86_64"
+      ],
+      "compiled_functions": 3058,
+      "clone_pointer_contracts": 254,
+      "captured_object_cases": 138,
+      "scope": "Branch-free capture payload and vtable targets; full startup, rendering, exception handling and other architectures remain incomplete."
     }
   },
   "module_integration_vm": "C kernels, C WinterShell and C Stage4 reach the source Sleet window on all four CPUs in diagnostic images. Other reference payloads remain; full release parity remains incomplete."

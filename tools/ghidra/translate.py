@@ -865,6 +865,7 @@ def main():
     parser.add_argument('--notes', type=Path, default=Path('build/decompiled'))
     parser.add_argument('--out', type=Path, default=Path('build/c-rewrite'))
     parser.add_argument('--manual', type=Path, default=None)
+    parser.add_argument('--select', type=Path, help='Emit only these hexadecimal entries while retaining the complete declaration map')
     args = parser.parse_args()
     layout = json.loads(args.layout.read_text())
     current = layout.get('translation', {})
@@ -875,6 +876,10 @@ def main():
     args.out.mkdir(parents=True, exist_ok=True)
     sources = {p.stem: rename_identifier(p.read_text(),'frame','pf_argument_frame')
                for p in sorted(args.notes.glob('*.c')) if p.stem != 'recovered'}
+    selected = ({format(int(line.strip(), 16), 'x') for line in args.select.read_text().splitlines()
+                 if line.strip()} if args.select else None)
+    if selected is not None and not selected <= sources.keys() | manual.keys():
+        raise ValueError('selected entry has no source or manual unit')
     function_addresses={int(a,16) for a in sources.keys() | manual.keys()}
     def data_labels(text):
         labels=set(re.findall(r'(?m)^\s*(recovered_[0-9a-f]+):',text))
@@ -950,6 +955,8 @@ def main():
     (args.out / 'functions.h').write_text('\n'.join(header) + '\n')
     for address, source in sources.items():
         if address in manual:
+            continue
+        if selected is not None and address not in selected:
             continue
         if current.get('float_slot_views'):
             # Merged variant storage can have a float declaration while its
@@ -1287,6 +1294,8 @@ def main():
         generated=re.sub(r'\bframe\b','pf_stack_frame','\n'.join(preamble + macros))
         (args.out / (address + '.c')).write_text('\n'.join(line.rstrip() for line in (generated + '\n' + source).splitlines()).rstrip() + '\n')
     for name, content in manual.items():
+        if selected is not None and name not in selected:
+            continue
         content=call_argument_defaults(content,current.get('call_argument_defaults',{}),name)
         (args.out / (name + '.c')).write_text(rewrite_void_results(content,current.get('void_result_calls',[]),name))
 
