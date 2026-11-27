@@ -475,12 +475,15 @@ def rewrite_pointer_float_views(source,pointer_names,wide=False):
 def scalar_cast_operand_end(source, start):
     """Keep nested scalar casts attached to their operand."""
     while source[start].isspace():start+=1
-    if source[start] in '+-!~':return scalar_cast_operand_end(source,start+1)
+    if source[start] in '+-!~*&':return scalar_cast_operand_end(source,start+1)
     if source[start]=='(':
         end=start+1;depth=1
         while depth:
             depth+=(source[end]=='(')-(source[end]==')');end+=1
-        if re.fullmatch(r'(?:float|double|longdouble|float10|long double)',source[start+1:end-1].strip()):
+        if re.fullmatch(r'(?:(?:unsigned|signed)(?:\s+(?:char|short|int|long)(?:\s+long)?)?|'
+                        r'void|char|byte|uchar|ushort|bool|code|short|int|long|long long|long double|float|double|longdouble|'
+                        r'float10|u?int\d*_t|uintptr_t|u?int|u?long(?:long)?|undefined\d*)\s*\**',
+                        source[start+1:end-1].strip()):
             return scalar_cast_operand_end(source,end)
         return end
     atom=re.match(r'\w+',source[start:])
@@ -523,6 +526,34 @@ def rewrite_float_pointer_expressions(source, floating_names=()):
         if floating:
             source=(source[:match.start()]+'('+match[1]+')(uintptr_t)pf_float_bits((float)'+
                     expression+')'+source[end:])
+    return source
+
+
+def rewrite_float_slot_views(source, pointer_slots=False):
+    """Read integer branches of mixed four-byte arrays as representation bits."""
+    arrays=set(re.findall(r'^  float (\w+)\s*\[\d+\];',source,re.M))
+    pointers=set(re.findall(r'\bfloat\s*\*\s*(\w+)\b',source)) if pointer_slots else set()
+    floats=set(re.findall(r'^  float (\w+);',source,re.M))
+    words=set(re.findall(r'\b(?:int|uint|undefined4)\s*\*+\s*(\w+)\b',source))
+    for name in sorted(arrays|pointers):
+        source=re.sub(r'\((int|uint|char|uchar|byte|short|ushort)\)('+name+r'\[[^]\n]+\])',
+                      r'(\1)pf_float_bits(\2)',source)
+        if name in pointers:
+            source=re.sub(r'\((int|uint|char|uchar|byte|short|ushort)\)(\*'+name+r'\b)',
+                          r'(\1)pf_float_bits(\2)',source)
+        pattern=r'('+name+r'\[[^]\n]+\]) = \(float\)'
+        for match in reversed(list(re.finditer(pattern,source))):
+            start=match.end()
+            if re.match(r'(?:\d+\.\d*|\.\d+|\d+[eE][+-]?\d+)',source[start:]):continue
+            end=scalar_cast_operand_end(source,start)
+            expression=source[start:end]
+            if re.search(r'\bfVar\d+\b',expression):continue
+            source=(source[:match.start()]+match[1]+' = pf_bits_float((uint32_t)'+
+                    expression+')'+source[end:])
+    for name in words:
+        source=re.sub(r'\(float\)('+name+r'\[[^]\n]+\])',r'pf_bits_float((uint32_t)\1)',source)
+        for value in floats:
+            source=re.sub(r'('+name+r'\[[^]\n]+\]) = '+value+r';',r'\1 = pf_float_bits('+value+');',source)
     return source
 
 
@@ -1073,21 +1104,10 @@ def main():
         if current.get('float_slot_views'):
             # Merged variant storage can have a float declaration while its
             # integer and pointer branches access the same four raw bytes.
-            arrays=re.findall(r'^  float (\w+)\s*\[\d+\];',source,re.M)
-            floats=set(re.findall(r'^  float (\w+);',source,re.M))
-            words=set(re.findall(r'\b(?:int|uint|undefined4)\s*\*+\s*(\w+)\b',source))
-            for name in arrays:
-                source=re.sub(r'\((int|uint|char|uchar|byte|short|ushort)\)('+name+r'\[[^]\n]+\])',
-                              r'(\1)pf_float_bits(\2)',source)
-                def stored_integer(match):
-                    expression=match[2]
-                    if re.search(r'\bfVar\d+\b',expression):return match[0]
-                    return match[1]+' = pf_bits_float((uint32_t)('+expression+'));'
-                source=re.sub(r'('+name+r'\[[^]\n]+\]) = \(float\)([^;]+);',stored_integer,source)
-            for name in words:
-                source=re.sub(r'\(float\)('+name+r'\[[^]\n]+\])',r'pf_bits_float((uint32_t)\1)',source)
-                for value in floats:
-                    source=re.sub(r'('+name+r'\[[^]\n]+\]) = '+value+r';',r'\1 = pf_float_bits('+value+');',source)
+            # Pointer-indexed slots require a reviewed function entry: other
+            # float pointers can have genuine numeric conversion semantics.
+            pointer_slots=current.get('float_pointer_slot_views',[])
+            source=rewrite_float_slot_views(source,address in pointer_slots)
         if current.get('scalar_storage_views'):
             for name in re.findall(r'^  undefined8 (\w+);',source,re.M):
                 for callee, kind in floating.items():

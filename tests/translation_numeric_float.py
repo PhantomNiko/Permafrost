@@ -8,7 +8,7 @@ import subprocess
 import sys
 import tempfile
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools/ghidra'))
-from translate import rewrite_scalar_storage,rewrite_pointer_float_views,rewrite_float_pointer_expressions
+from translate import rewrite_scalar_storage,rewrite_pointer_float_views,rewrite_float_pointer_expressions,rewrite_float_slot_views
 
 
 def main():
@@ -73,8 +73,47 @@ void *integer_index(int *indexed_base,float floating_index) { return (void *)(in
 '''
     functions=rewrite_float_pointer_expressions(rewrite_scalar_storage(functions))
     functions=rewrite_pointer_float_views(functions,{'raw','addressed'},False)
+    functions+=rewrite_float_slot_views('''
+uint mixed_pointer_slots(float *slots,uint offset) {
+ slots[1] = (float)((uint)*slots+offset);
+ return (uint)slots[1];
+}
+float numeric_pointer_slot(float *slots) { return slots[2]+0.25f; }
+uint comma_pointer_slot(float *slots,uint offset) {
+ if((slots[1] = (float)((uint)*slots+offset), (uint)slots[1]!=0))
+  return (uint)slots[1];
+ return 0;
+}
+uint copy_word_slot(float *slots,uint *word) {
+ slots[1] = (float)*word;
+ return (uint)slots[1];
+}
+uint converted_word_slot(float *slots,float number) {
+ slots[1] = (float)(int)number;
+ slots[2] = (float)1.5;
+ return (uint)slots[1];
+}
+uint byte_word_slot(float *slots,void *word) {
+ slots[1] = (float)(uint)*(byte *)word;
+ return (uint)slots[1];
+}
+''', pointer_slots=True)
+    functions+=rewrite_float_slot_views('''
+uint numeric_cast_pointer(float *slots) { return (uint)slots[2]; }
+''')
     source='#include "support.h"\n'+rewrite_pointer_float_views(functions,{'records'},True)+'''
 int main(void) {
+ float mixed_slots[3]={pf_bits_float(0x03100000),0.0f,1.5f};
+ if(mixed_pointer_slots(mixed_slots,4)!=0x03100004 ||
+    pf_float_bits(mixed_slots[1])!=0x03100004 ||
+    numeric_pointer_slot(mixed_slots)!=1.75f)return 26;
+ if(comma_pointer_slot(mixed_slots,8)!=0x03100008)return 27;
+ uint raw_word=0x03500000;
+ if(copy_word_slot(mixed_slots,&raw_word)!=raw_word)return 28;
+ if(converted_word_slot(mixed_slots,7.5f)!=7 || mixed_slots[2]!=1.5f)return 29;
+ if(numeric_cast_pointer(mixed_slots)!=1)return 30;
+ byte raw_byte=127;
+ if(byte_word_slot(mixed_slots,&raw_byte)!=127)return 31;
  if((uintptr_t)product_slot(1.5f,3)!=pf_float_bits(4.5f))return 16;
  if((uintptr_t)quotient_slot(-1.5f,2.0f)!=pf_float_bits(-0.75f))return 17;
  if(pointer_parameter((void *)(uintptr_t)0x3fc00000)!=1.5f)return 18;
