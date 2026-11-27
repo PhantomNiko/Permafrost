@@ -98,6 +98,12 @@ uint byte_word_slot(float *slots,void *word) {
  return (uint)slots[1];
 }
 uint typed_word_slot(void *word) { return (uint)*(float *)word; }
+uint joined_word_slot(float *slot,uint index) {
+  float fVar1;
+ fVar1 = slot[0];
+ slot[1] = (float)(pf_float_bits(fVar1)+index*12);
+ return (uint)slot[1];
+}
 uint dereference_word_slot(float *slot,uint word) {
  *slot = (float)word;
  return (uint)*slot;
@@ -121,6 +127,7 @@ int main(void) {
  if(byte_word_slot(mixed_slots,&raw_byte)!=127)return 31;
  if(typed_word_slot(&raw_word)!=raw_word)return 32;
  if(dereference_word_slot(mixed_slots,0x03500000)!=0x03500000)return 33;
+ if(joined_word_slot(mixed_slots,2)!=0x03500018)return 34;
  if((uintptr_t)product_slot(1.5f,3)!=pf_float_bits(4.5f))return 16;
  if((uintptr_t)quotient_slot(-1.5f,2.0f)!=pf_float_bits(-0.75f))return 17;
  if(pointer_parameter((void *)(uintptr_t)0x3fc00000)!=1.5f)return 18;

@@ -549,7 +549,7 @@ def rewrite_float_slot_views(source, pointer_slots=False):
             if re.match(r'(?:\d+\.\d*|\.\d+|\d+[eE][+-]?\d+)',source[start:]):continue
             end=scalar_cast_operand_end(source,start)
             expression=source[start:end]
-            if re.search(r'\bfVar\d+\b',expression):continue
+            if re.search(r'\bfVar\d+\b',re.sub(r'pf_float_bits\([^()]*\)','',expression)):continue
             source=(source[:match.start()]+match[1]+' = pf_bits_float((uint32_t)'+
                     expression+')'+source[end:])
     for name in words:
