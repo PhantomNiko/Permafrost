@@ -877,6 +877,21 @@ def rewrite_vector_pointers(source,width,typename):
     return source
 
 
+def rewrite_register_words(source):
+    """Lower eight-byte register arrays while keeping physical arrays intact."""
+    pointers=re.findall(r'undefined1\s*\(\*\s*(\w+)\)\s*\[8\]',source)
+    for name in pointers:
+        source=re.sub(r'\(double\)\s*'+re.escape(name)+r'\[([^]\n]+)\]',
+                      lambda m:'pf_bits_double('+name+'['+m[1]+'])',source)
+    source=rewrite_vector_pointers(source,8,'uint64_t')
+    names=re.findall(r'undefined1\s+((?:auVar\d+|in_XMM\d+))\s*\[8\];',source)
+    for name in names:
+        source=re.sub(r'undefined1\s+'+re.escape(name)+r'\s*\[8\];','uint64_t '+name+';',source)
+        source=re.sub(r'\b'+re.escape(name)+r'\[([^]\n]+)\]',
+                      lambda m:'PF_PART1('+name+','+m[1]+')',source)
+    return source
+
+
 def rewrite_integer_vectors(source):
     """Retain byte access when vector SSA values become C integers."""
     source=re.sub(r'\(\*\(undefined1\s*\(\*\)\s*\[(?:16|32)\]\)([^()]+)\)\[([^]\n]+)\]',
@@ -994,6 +1009,7 @@ def main():
             rows=[line.split('\t') for line in (args.notes/(address+'.tsv')).read_text().splitlines()]
             precise=any(row[0]=='Q' for row in rows)
             source = array_value_comparisons(exact_array_stores(rewrite_array_values(source, rows)))
+            if current.get('integer_vector_64'):source=rewrite_register_words(source)
             sources[address] = rewrite_array_words(rewrite_integer_vectors(source), precise=precise)
     else:
         for address,source in sources.items():
