@@ -892,6 +892,15 @@ def rewrite_register_words(source):
     return source
 
 
+def source_replacements(configuration, address):
+    pairs = configuration.get('source_replacements', {}).get(address, {})
+    if isinstance(pairs, str):
+        pairs = configuration['source_replacement_groups'][pairs]
+    if not isinstance(pairs, dict):
+        raise ValueError('invalid source replacement group for ' + address)
+    return pairs
+
+
 def rewrite_integer_vectors(source):
     """Retain byte access when vector SSA values become C integers."""
     source=re.sub(r'\(\*\(undefined1\s*\(\*\)\s*\[(?:16|32)\]\)([^()]+)\)\[([^]\n]+)\]',
@@ -1020,7 +1029,7 @@ def main():
     # Signature corrections must also reach declarations shared by callers.
     for address, source in sources.items():
         source=re.sub(r'\bin\b(?!\s*\()', 'pf_input',source)
-        for original, replacement in current.get('source_replacements', {}).get(address, {}).items():
+        for original, replacement in source_replacements(current, address).items():
             if re.fullmatch(r'0x[0-9a-f]+',original):
                 source=re.sub(r'\b'+original+r'\b',lambda _:replacement,source)
             else:

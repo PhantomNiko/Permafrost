@@ -384,3 +384,9 @@ the native raster arguments explicitly. Full page layout and VM interaction
 remain pending.
 
 Fresh Lua C backends are now saved for all four architectures. i386 matches the same 13 core, 20 standard-library, 12 heap and 117 allocator-forwarding cases. Its recovery restores private register arguments, bounded conversion/parser branches, native callback arguments and immutable PC-relative data references. Complete VM callback and error-path compatibility remain release gates.
+
+Recovery layouts can share identical ordered replacement tables through named
+`source_replacement_groups`. The compaction tool preserves every function's
+replacement sequence exactly; the four browser layouts shrink from about
+133 MB to 25 MB without changing generated code or requiring reference binaries
+for normal source builds.
