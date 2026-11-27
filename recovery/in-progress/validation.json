@@ -181,6 +181,15 @@
       "native_source_cases": 204,
       "startup_script_read_vm": true,
       "scope": "Volume-name preservation, optional outputs and lookup arguments. Engine startup advances to a separate Type1 font virtual-call failure."
+    },
+    "kernel_type1_x86_64": {
+      "decimal_parse_cases": 35,
+      "operand_decode_cases": 246,
+      "font_rgba_cases": 144,
+      "font_metric_cases": 72,
+      "cache_rotation_teardown_heap_guards": true,
+      "c_kernel_c_engine_scene_vm": true,
+      "scope": "Complete animated startup scene in the x64 diagnostic VM; other reference payloads remain."
     }
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",
@@ -236,7 +245,7 @@
       "scope": "fallback UI and chunked HTTP; broader client parity incomplete"
     },
     "Zastruga Engine": {
-      "commit": "bd71b04",
+      "commit": "a0d3e30",
       "source_architectures": [
         "i386",
         "x86_64",
@@ -246,7 +255,7 @@
       "compiled_functions": 3058,
       "clone_pointer_contracts": 254,
       "captured_object_cases": 138,
-      "scope": "Buildable C checkpoints for all four architectures. Basic interpreter entry matches on all four. X64 reference-kernel diagnostic renders the complete animated scene. Broader non-x64 float workflows, source-kernel Type1 fonts, full application, exception and input compatibility remain incomplete.",
+      "scope": "Buildable C checkpoints for all four architectures. Each passes 27 extended interpreter workflows. X64 C kernel and C engine draw the complete animated scene. ARM application startup, exception, graphics/input compatibility and broader release recovery remain incomplete.",
       "bounded_switch_tables": 6,
       "deleting_destructor_ownership": true,
       "program_copy_workflows": 5,
@@ -260,7 +269,8 @@
         "captured_object_cases": 248,
         "deleting_destructor_ownership": true,
         "interpreter_entry_workflows": 3,
-        "string_token_cases": 106
+        "string_token_cases": 106,
+        "extended_interpreter_workflows": 27
       },
       "interpreter_operator_workflows": 16,
       "tuple_ownership_workflows": 4,
@@ -273,7 +283,8 @@
         "typed_inline_literals": 382,
         "data_pointer_fixups": 2879,
         "interpreter_entry_workflows": 3,
-        "node_payload_workflows": 6
+        "node_payload_workflows": 6,
+        "extended_interpreter_workflows": 27
       },
       "call_frame_float_loop_workflows": 15,
       "image_record_pixel_workflows": 6,
@@ -288,7 +299,8 @@
         "node_payload_workflows": 6,
         "operator_code_cases": 27,
         "bounded_pic_tables": 377,
-        "data_pointer_fixups": 2907
+        "data_pointer_fixups": 2907,
+        "extended_interpreter_workflows": 27
       }
     }
   },

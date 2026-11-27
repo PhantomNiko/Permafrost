@@ -1108,12 +1108,12 @@ void recovered_208da10(long *outline,double *first,double *control,double *last,
 void recovered_208db00(undefined8 *param_1);
 void recovered_208dc20(undefined8 *param_1);
 ulong recovered_208dc40(long param_1,byte *param_2);
-int * recovered_208ffe0(char *param_1,int *param_2,undefined1 *param_3,uint param_4);
-undefined8 recovered_20909a0(long param_1);
-undefined8 recovered_20909b0(long param_1);
-undefined8 recovered_20909c0(long param_1);
-undefined8 recovered_20909d0(void);
-undefined8 recovered_20909e0(void);
+int * recovered_208ffe0(double scale,int *out,uchar *backend,uint glyph);
+double recovered_20909a0(void *backend);
+double recovered_20909b0(void *backend);
+double recovered_20909c0(void *backend);
+double recovered_20909d0(void *backend);
+int recovered_20909e0(void *backend);
 void recovered_20909f0(undefined8 *param_1);
 double recovered_2090a00(long *param_1,long param_2,ulong param_3);
 double recovered_2090cb0(long *param_1,ulong param_2);

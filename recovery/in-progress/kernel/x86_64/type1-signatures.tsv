@@ -1,0 +1,6 @@
+208ffe0	int *recovered_208ffe0(double scale, int *out, unsigned char *backend, unsigned int glyph);	XMM0,RDI,RSI,RDX	RAX
+20909a0	double recovered_20909a0(void *backend);	RDI	XMM0
+20909b0	double recovered_20909b0(void *backend);	RDI	XMM0
+20909c0	double recovered_20909c0(void *backend);	RDI	XMM0
+20909d0	double recovered_20909d0(void *backend);	RDI	XMM0
+20909e0	int recovered_20909e0(void *backend);	RDI	EAX

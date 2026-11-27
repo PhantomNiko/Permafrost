@@ -293,8 +293,16 @@ wraparound and concurrent updates; the acquisition regression also passes.
 
 The engine now has C build checkpoints for all four CPUs. Basic interpreter
 entry comparisons pass on each CPU; x64 with the reference kernel renders the
-complete animated No Game scene. Broader float scripts on the other CPUs remain
-under recovery. The x64 C kernel preserves device volume names during validation:
+complete animated No Game scene. All four C engine builds now pass 27 extended interpreter workflows. The x64 C kernel preserves device volume names during validation:
 204 parser/lookup/output cases pass and the startup script opens in QEMU.
-The combined C kernel and C engine next fail in the Type1 font backend; full
-release VM parity remains incomplete.
+The x64 Type1 font virtual ABI and floating context views now match 144 font
+rasters and 72 metric records. The combined C kernel and C engine draw the
+complete animated startup scene. ARM application startup and full release VM
+parity remain incomplete.
+
+The decimal parser preserves native double constants, sign bits and byte
+whitespace comparisons; 35 values and end-pointer cases match. Type1 operand
+decoding matches 246 native encodings. Font cache rotation, teardown and heap
+guards pass alongside the Type1 and TrueType pixel comparisons. The optional
+`tests/kernel_font.py --type1-image` fixture reads the reference font directly
+from the supplied image, without retaining a bundled font copy.

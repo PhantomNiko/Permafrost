@@ -484,5 +484,34 @@
       "[Firmware\\1\\1]\\file",
       "[boot\\1\\1]/file"
     ]
+  },
+  "reviewed_type1_virtual_contracts": [
+    "208ffe0\tint *recovered_208ffe0(double scale, int *out, unsigned char *backend, unsigned int glyph);\tXMM0,RDI,RSI,RDX\tRAX",
+    "20909a0\tdouble recovered_20909a0(void *backend);\tRDI\tXMM0",
+    "20909b0\tdouble recovered_20909b0(void *backend);\tRDI\tXMM0",
+    "20909c0\tdouble recovered_20909c0(void *backend);\tRDI\tXMM0",
+    "20909d0\tdouble recovered_20909d0(void *backend);\tRDI\tXMM0",
+    "20909e0\tint recovered_20909e0(void *backend);\tRDI\tEAX"
+  ],
+  "reviewed_strtod_bit_views": {
+    "function": "2004df0",
+    "constants": [
+      "02124e58",
+      "02124de8",
+      "02124de0"
+    ],
+    "reason": "Native scalar constants and sign XOR use the IEEE double encoding; preserve those views while retaining native parsing and exponent behavior."
+  },
+  "reviewed_type1_context_float_fields": {
+    "function": "2091c40",
+    "slots": [
+      "1",
+      "0x11",
+      "0x12",
+      "0x13",
+      "0x14",
+      "0x15"
+    ],
+    "reason": "Native Type1 scale, coordinates and advance occupy double fields in the context. Preserve their IEEE bits when accessing the recovered integer pointer view."
   }
 }

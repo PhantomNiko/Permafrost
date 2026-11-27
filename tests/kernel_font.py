@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compare kernel TrueType rendering, cache reuse, colors and heap boundaries.
+"""Compare kernel font rendering, cache reuse, colors and heap boundaries.
 
 Pooka's Free Software License. Generated fixtures contain no external font data.
 """
@@ -71,12 +71,18 @@ class FontKernel:
   return status,bytes(self.cpu.mem_read(0x3002010,32))
 
 def main():
- p=argparse.ArgumentParser(description=__doc__);p.add_argument('reference',type=Path);p.add_argument('source',type=Path);p.add_argument('--map',required=True,type=Path);p.add_argument('--font',type=Path);p.add_argument('--text',action='append',default=[])
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('reference',type=Path);p.add_argument('source',type=Path);p.add_argument('--map',required=True,type=Path);p.add_argument('--font',type=Path);p.add_argument('--type1-image',type=Path);p.add_argument('--text',action='append',default=[])
  a=p.parse_args();reference=a.reference.read_bytes();source=a.source.read_bytes();m=json.loads(a.map.read_text());metadata,_=inspect(reference)
  # Source kernels retain original symbol addresses in their compatibility table.
  names={n:x for x,n in metadata['symbols']}
  count=0
  fonts=[fixture(False),fixture(True)]+([a.font.read_bytes()] if a.font else [])
+ if a.type1_image:
+  from pfs import Image
+  image=Image(a.type1_image.read_bytes())
+  entries=dict(image.entries())
+  entry=entries['Applications/Zastruga.app/Contents/Resources/package/fonts/runetest.ps']
+  fonts.append(image.read(entry.first,entry.size))
  for font in fonts:
   for size in [12,24,40]:
    libraries=[FontKernel(reference),FontKernel(source,m,names)];handles=[lib.load(font,size)for lib in libraries]
@@ -97,6 +103,6 @@ def main():
   results=[lib.render(handle,b'ABCD',(21,82,173),192)for lib,handle in zip(libraries,handles)]
   assert results[0]==results[1],('font cache rotation',size)
  for lib,handle in zip(libraries,handles):lib.library.call('__Z16wm_ttf_font_freePv',handle);lib.verify()
- print('Kernel TrueType: %d native/source RGBA rasters and %d metric records, cache rotation, teardown and heap canaries match.'%(count,count//2))
+ print('Kernel fonts: %d native/source RGBA rasters and %d metric records, cache rotation, teardown and heap canaries match.'%(count,count//2))
 
 if __name__=='__main__':main()

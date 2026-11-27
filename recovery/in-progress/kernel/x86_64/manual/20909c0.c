@@ -1,11 +1,13 @@
-/* Reused after matching normalized native instructions and named data references. */
-/* Reviewed instruction-equivalent C. Pooka's Free Software License. */
+/* Recovered Type1 virtual ABI; Pooka's Free Software License. */
 #include "functions.h"
+/* Recovered working notes; Pooka's Free Software License.
+ * Address: 0x20909c0
+ */
 
-undefined8 recovered_20909c0(long param_1)
+double recovered_20909c0(void *backend)
 
 {
-  unsigned char frame[64] __attribute__((aligned(16))) = {0};
+  unsigned char pf_stack_frame[72] __attribute__((aligned(16))) = {0};
 
-  return *(undefined8 *)(param_1 + 0x18);
+  return *(double *)((long)backend + 0x18);
 }
