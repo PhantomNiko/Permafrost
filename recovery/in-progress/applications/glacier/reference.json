@@ -1,0 +1,37 @@
+{
+  "version": "1.1",
+  "reference_path": "Applications/Glacier.app/Contents/Permafrost/Glacier",
+  "architectures": {
+    "i386": {
+      "reference_sha256": "229bf4887e49e0468189c5830ccc8ccb047972dbe43e3c2f292f394e9242f1d2",
+      "http_url_cases": 11,
+      "percent_decoding_cases": 0,
+      "source_build": true
+    },
+    "x86_64": {
+      "reference_sha256": "1459cf7a77413452afea64722a53e453b0f7ea1d9f3e86aa455db4803f284b0f",
+      "http_url_cases": 11,
+      "percent_decoding_cases": 0,
+      "source_build": true,
+      "native_sse_cases": 2048
+    },
+    "armv7": {
+      "reference_sha256": "42755c29754f9def0ee5bd36cd8342143e97f03c47d7669f39f00f774b5a18f5",
+      "http_url_cases": 11,
+      "percent_decoding_cases": 0,
+      "source_build": true
+    },
+    "arm64": {
+      "reference_sha256": "efaf3aa91cc8b130b3438d7181df39170270bc927863521814a8486baf62dd34",
+      "http_url_cases": 11,
+      "percent_decoding_cases": 8,
+      "source_build": true
+    }
+  },
+  "pending": [
+    "native/source rendering workflows",
+    "browser scripting and encrypted navigation in a VM",
+    "release-wide source builds, images and SDK"
+  ],
+  "status": "partial source checkpoint; VM functional parity is incomplete"
+}

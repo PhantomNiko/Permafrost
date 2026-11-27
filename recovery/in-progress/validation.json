@@ -278,7 +278,20 @@
       "standard_library_cases": 20,
       "heap_workflows": 12,
       "allocator_forwarding_cases": 117,
-      "release_vm_parity": false
+      "release_vm_parity": false,
+      "arm32_numeric_value_abi_cases": 18
+    },
+    "glacier_source_recovery": {
+      "architectures": [
+        "i386",
+        "x86_64",
+        "armv7",
+        "arm64"
+      ],
+      "http_url_cases_per_architecture": 11,
+      "arm64_percent_decoding_cases": 8,
+      "release_vm_parity": false,
+      "native_sse_cases": 2048
     }
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",

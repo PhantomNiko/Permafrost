@@ -21,7 +21,9 @@ def build_application(source,output,libraries,headers=None):
             raise ValueError('application source must name a C or C++ file in its directory')
         obj=output/(path.stem+'.o')
         compile_object(path,obj,arch,[source,headers,'sdk/include','kernel'],pic=True,
-                       extra_flags=['-w','-Wno-int-conversion','-fbracket-depth=2048'])
+                       extra_flags=['-w','-Wno-int-conversion',
+                                    '-Wno-incompatible-function-pointer-types',
+                                    '-fbracket-depth=2048'])
         objects.append(obj)
     return link_dynamic_executable(objects,output/profile['module'],arch,libraries,
                                    entry=profile.get('entry','main'))

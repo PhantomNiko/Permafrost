@@ -11823,6 +11823,12 @@ static const unsigned char pf_literal_1000c75c_DAT_1000c8e4[] __attribute__((ali
 double recovered_1000c75c(void *value)
 
 {
+  unsigned char *pf_value=(unsigned char *)value;
+  uint32_t pf_kind;__builtin_memcpy(&pf_kind,pf_value+20,4);
+  if(pf_value[0]==1&&pf_kind==1){uint32_t lo,hi;__builtin_memcpy(&lo,pf_value+8,4);__builtin_memcpy(&hi,pf_value+12,4);return recovered_10005cd0(lo,hi);}
+  if(pf_value[0]==2&&pf_kind==2){double number;__builtin_memcpy(&number,pf_value+8,8);return number;}
+  if(pf_value[0]==3&&pf_kind==3)return pf_value[8]?1.0:0.0;
+
   unsigned char pf_stack_frame[208] __attribute__((aligned(16))) = {0};
 
   code *pcVar1;

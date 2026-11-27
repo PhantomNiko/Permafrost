@@ -1,0 +1,12 @@
+{
+  "module": "Glacier",
+  "architecture": "armv7",
+  "version": "1.1",
+  "sources": [
+    "runtime.c",
+    "state.c",
+    "entry.c"
+  ],
+  "reference_path": "Applications/Glacier.app/Contents/Permafrost/Glacier",
+  "recovery_note": "C source checkpoint with native URL parser comparisons; rendering and full VM behavior remain unverified."
+}

@@ -363,3 +363,15 @@ this is a component checkpoint and does not promote the release build target.
 The fresh x86-64 Lua C backend now passes the same 13 core execution, 20 standard-library, 12 heap and 117 allocator-forwarding cases as ARM64. Recovered floating storage views preserve boxed integer payloads, numeric results and comparison dispatch. The 32-bit runtimes and release-wide VM parity remain incomplete.
 
 The fresh ARM32 Lua C backend also matches 13 core execution fixtures, 20 standard-library cases, 12 heap workflows and 117 allocator-forwarding cases. Source recovery distinguishes C++ floating returns from runtime soft-float helpers and restores callback stack arguments. i386 recovery, exported numeric helper ABI review and complete VM error-path compatibility remain open.
+
+Glacier now compiles from recovered C on i386, x86-64, ARM32 and ARM64, using
+the recovered TerrorUI and TLS libraries. Each backend matches 11 native HTTP
+URL cases across the complete output buffer; ARM64 also matches eight separate
+percent-decoder cases. The other reference builds inline that decoder. Browser
+rendering, scripting and encrypted navigation remain VM compatibility gates.
+
+The saved Glacier checkpoints rebuild through the source-only application builder
+on all four CPUs. Its x86-64 packed shifts, unsigned saturated subtraction and
+minimum-double helpers match 2,048 SSE2 instruction comparisons, including NaNs
+and signed zeros. ARM32 Lua additionally matches 18 public numeric constructor
+and floating-getter ABI cases. Complete guest rendering and VM parity remain open.
