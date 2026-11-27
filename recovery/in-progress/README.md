@@ -442,3 +442,10 @@ bounded compiler/interpreter variant dispatch, integer payload bits, x87
 division guards and explicit callback invocation arguments. Rwby now has C
 checkpoints on all four architectures; full external callback/exception ABI
 compatibility and booted VM integration remain release gates.
+
+The ARM32 standalone WinterScript backend now builds from C and matches all 18
+execution fixtures, 32 scalar conversion cases, 12 heap workflows and 117
+allocator forwarding cases. Recovery restores operator and parser node-index
+returns, decimal conversion words, the parser's hard-float S0 argument, and
+scalar payload bit views. The i386 backend, complete exception/callback
+compatibility and booted VM integration remain unfinished.
