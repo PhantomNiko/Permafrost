@@ -245,7 +245,7 @@
       "scope": "fallback UI and chunked HTTP; broader client parity incomplete"
     },
     "Zastruga Engine": {
-      "commit": "9f6e6c9",
+      "commit": "20c4a59",
       "source_architectures": [
         "i386",
         "x86_64",
@@ -255,7 +255,7 @@
       "compiled_functions": 3058,
       "clone_pointer_contracts": 254,
       "captured_object_cases": 138,
-      "scope": "Buildable C checkpoints for all four architectures. Each matches 27 extended interpreter workflows and 42 guarded compound arithmetic cases. X64 C kernel and C engine draw the complete animated scene. ARM64 pointer callback startup no longer jumps to zero; native ARM64 engine renders the reference scene in the control VM. ARM32 registration ownership, ARM graphics/input compatibility and broader release recovery remain incomplete.",
+      "scope": "Buildable C checkpoints for all four architectures, with 27 extended interpreter workflows and 42 guarded compound arithmetic cases per CPU. X64 C kernel and C engine draw the complete animated scene. ARM32 callable registration ownership matches the reference. Font and window service contracts recovered for all targets; full ARM and i386 application behavior, remaining source recovery and release parity remain incomplete.",
       "bounded_switch_tables": 6,
       "deleting_destructor_ownership": true,
       "program_copy_workflows": 5,
@@ -304,7 +304,20 @@
         "extended_interpreter_workflows": 27
       },
       "scalar_compound_guarded_cases_per_architecture": 42,
-      "extended_interpreter_workflows_per_architecture": 27
+      "extended_interpreter_workflows_per_architecture": 27,
+      "graphics_contracts": {
+        "architectures": [
+          "i386",
+          "armv7",
+          "arm64"
+        ],
+        "font_workflows_per_architecture": 14,
+        "window_workflows_per_architecture": 63,
+        "arm_framebuffer_cases_per_architecture": 33,
+        "arm64_regex_literal_bytes": 256,
+        "repeated_substitution_workflows_per_architecture": 14,
+        "i386_png_backend_cases": 4
+      }
     }
   },
   "module_integration_vm": "C kernel, C WinterShell and C Stage4 reach the desktop and source terminal on all four CPUs; typed 1+1 displays 2. Other reference payloads remain; full release parity remains incomplete."

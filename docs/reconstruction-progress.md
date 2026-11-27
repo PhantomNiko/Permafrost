@@ -1321,3 +1321,14 @@ follows thunks before inspecting their parameter types, and C translation
 preserves discarded atomic exchanges through pointer and array lvalues.
 Other desktop CPUs, keyboard routing, remaining applications and complete
 VM parity are still in progress. No 1.1 release tag has been created.
+
+The linked engine checkpoint now preserves font service signatures and window
+forwarders on the three remaining CPUs. Native/source checks match 14 font
+workflows and 63 window workflows per target. ARM64 framebuffer validation
+retains its 64-bit format mask, matching 33 cases on both ARM targets. ARM32
+pattern-cache guards retain their PC-relative stores, ARM64 regex literal
+escaping matches 256 bytes, and repeated substitution matches 14 workflows per
+CPU. I386 PNG backend callbacks preserve their output record and ownership.
+ARM32 callable registration also matches the native live allocation count.
+Diagnostic ARM and i386 application VM work continues; these checks do not
+establish full 1.1 parity, and the ordinary build target is still 1.0.
