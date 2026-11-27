@@ -245,7 +245,7 @@
       "scope": "fallback UI and chunked HTTP; broader client parity incomplete"
     },
     "Zastruga Engine": {
-      "commit": "20c4a59",
+      "commit": "c9d6434",
       "source_architectures": [
         "i386",
         "x86_64",
@@ -255,7 +255,7 @@
       "compiled_functions": 3058,
       "clone_pointer_contracts": 254,
       "captured_object_cases": 138,
-      "scope": "Buildable C checkpoints for all four architectures, with 27 extended interpreter workflows and 42 guarded compound arithmetic cases per CPU. X64 C kernel and C engine draw the complete animated scene. ARM32 callable registration ownership matches the reference. Font and window service contracts recovered for all targets; full ARM and i386 application behavior, remaining source recovery and release parity remain incomplete.",
+      "scope": "All four C checkpoints retain 27 extended interpreter workflows. X64 C kernel and C engine draw the complete animated scene. ARM64 C engine draws the scene in a native-kernel control. ARM32 C engine draws mountain layers and title after numeric ABI and executable-address repairs; motion and broader graphics remain under test. I386 process-list output buffers and path calls are recovered; parser startup remains under repair. Full release source recovery and VM parity remain incomplete.",
       "bounded_switch_tables": 6,
       "deleting_destructor_ownership": true,
       "program_copy_workflows": 5,
@@ -271,7 +271,10 @@
         "interpreter_entry_workflows": 3,
         "string_token_cases": 106,
         "extended_interpreter_workflows": 27,
-        "pointer_callable_guarded_forwarding_cases": 4
+        "pointer_callable_guarded_forwarding_cases": 4,
+        "conditional_execution_workflows": 28,
+        "compiled_branch_bytecode_cases": 2,
+        "native_kernel_vm": "Complete No Game scene with C engine; complete source-kernel integration pending."
       },
       "interpreter_operator_workflows": 16,
       "tuple_ownership_workflows": 4,
@@ -285,7 +288,10 @@
         "data_pointer_fixups": 2879,
         "interpreter_entry_workflows": 3,
         "node_payload_workflows": 6,
-        "extended_interpreter_workflows": 27
+        "extended_interpreter_workflows": 27,
+        "numeric_argument_cases": 23,
+        "spawn_argument_cases": 3,
+        "executable_discovery_cases": 5
       },
       "call_frame_float_loop_workflows": 15,
       "image_record_pixel_workflows": 6,
@@ -301,7 +307,8 @@
         "operator_code_cases": 27,
         "bounded_pic_tables": 377,
         "data_pointer_fixups": 2907,
-        "extended_interpreter_workflows": 27
+        "extended_interpreter_workflows": 27,
+        "executable_discovery_cases": 5
       },
       "scalar_compound_guarded_cases_per_architecture": 42,
       "extended_interpreter_workflows_per_architecture": 27,

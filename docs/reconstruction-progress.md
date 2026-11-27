@@ -1332,3 +1332,15 @@ CPU. I386 PNG backend callbacks preserve their output record and ownership.
 ARM32 callable registration also matches the native live allocation count.
 Diagnostic ARM and i386 application VM work continues; these checks do not
 establish full 1.1 parity, and the ordinary build target is still 1.0.
+
+ARM64 engine compilation preserves the native 12-byte conditional-branch
+record stride. Serialized branch bytecode matches two programs; 28 conditional
+function, loop and integer/float payload workflows match. The ARM64 C engine
+now draws the complete No Game scene with the native kernel in the control VM.
+The 32-bit engine source checkpoints retain complete numeric binding results,
+owned path returns and process/device callback output buffers. Five guarded
+executable-discovery workflows match on both CPUs. ARM32 additionally matches
+23 numeric conversions and three spawn workflows, and its diagnostic now draws
+the mountain layers and title. Both saved 32-bit builds retain 27 extended
+interpreter workflows. Remaining animation, IA32 parser startup and full
+source-kernel/application integration remain gates before any 1.1 tag.
