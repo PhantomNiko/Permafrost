@@ -457,6 +457,11 @@ def rewrite_byte_ranges(source):
 
 
 def rewrite_pointer_float_views(source,pointer_names,wide=False):
+    if not wide:
+        source=re.sub(r'\(float\)\s*(&\w+(?:\[[^]\n]+\])?)',
+                      r'pf_bits_float((uintptr_t)\1)',source)
+        source=re.sub(r'\(float\)\s*(\([^()\n]+\*\)\s*\w+(?:\[[^]\n]+\])?)',
+                      r'pf_bits_float((uintptr_t)\1)',source)
     for name in sorted(pointer_names,key=len,reverse=True):
         suffix=r'(?:\[[^]\n]+\])?)(?![\w\[]|->|\.)'
         source=re.sub(r'\(float\)('+re.escape(name)+suffix,
@@ -464,6 +469,45 @@ def rewrite_pointer_float_views(source,pointer_names,wide=False):
         if wide:
             source=re.sub(r'\(double\)('+re.escape(name)+suffix,
                           r'pf_bits_double((uintptr_t)\1)',source)
+    return source
+
+
+def rewrite_float_pointer_expressions(source, floating_names=()):
+    """Preserve four-byte floating expressions in pointer-typed spill views."""
+    names=set(floating_names)|set(re.findall(r'\bfloat\s+(\w+)\b(?!\s*\()',source))
+    pattern=r'\(([A-Za-z_]\w*(?:\s+[A-Za-z_]\w*)*\s*\*+)\)\s*(?=\()'
+    for match in reversed(list(re.finditer(pattern,source))):
+        start=match.end();end=start+1;depth=1
+        while depth:
+            depth+=(source[end]=='(')-(source[end]==')');end+=1
+        expression=source[start:end]
+        inner=expression[1:-1].lstrip()
+        if inner in ('float','double'):
+            # This parenthesis is a cast, followed by its operand, rather
+            # than a complete parenthesized expression.
+            atom=re.match(r'\s*(\w+)\s*',source[end:])
+            if not atom:continue
+            operand=end+atom.end()
+            if operand<len(source) and source[operand]=='(':
+                depth=1;operand+=1
+                while depth:
+                    depth+=(source[operand]=='(')-(source[operand]==')');operand+=1
+            end=operand;expression=source[start:end]
+        # Explicit integer conversions and pointer arithmetic retain their
+        # ordinary C meaning. Floating arguments alone do not make a call's
+        # return value floating.
+        if re.match(r'\((?:u?int|u?long(?:long)?|u?int\d+_t|uintptr_t)\)',inner):continue
+        if re.match(r'\([^()]+\*\)',inner) or inner.startswith('&'):continue
+        call=re.match(r'(\w+)\s*\(',inner)
+        if call and call[1] not in ('pf_bits_float','VectorSignedToFloat','VectorUnsignedToFloat'):continue
+        root=expression.lstrip('(').lstrip()
+        floating=(inner in ('float','double') or inner.startswith('(float)') or
+                  root.startswith('pf_bits_float(') or
+                  re.match(r'^\*\s*\(float\s*\*\)',inner) or
+                  any(re.match(re.escape(name)+r'\b',root)for name in names))
+        if floating:
+            source=(source[:match.start()]+'('+match[1]+')(uintptr_t)pf_float_bits((float)'+
+                    expression+')'+source[end:])
     return source
 
 
@@ -1115,6 +1159,9 @@ def main():
             else:expression=lvalue(typename,location,volatile)
             preamble += ['#undef ' + name, '#define %s %s' % (name,expression)]
         pointer_names = {row[1] for row in metadata if row[0] in ('G', 'L') and row[3].startswith(('P:', 'A:'))}
+        parameters=re.search(r'\b(?:recovered_|FUN_)[0-9a-f]+\s*\((.*?)\)\s*\n\s*\{',source,re.S)
+        if parameters:
+            pointer_names.update(re.findall(r'\b[A-Za-z_]\w*\s*\*+\s*(\w+)\b',parameters[1]))
         pointer_names.update(re.findall(r'^  [\w ]+\*+\s*(\w+)(?:\s*\[.*?\])?;', source, re.M))
         if WIDE and current.get('scalar_storage_views'):
             carriers=set(re.findall(r'^  (?:undefined8|ulong|uint64_t) (\w+);',source,re.M))
@@ -1264,6 +1311,10 @@ def main():
                 kind=re.fullmatch(r'(?:P:|A:\d+:)(float:4|double:8)',row[3])
                 if kind:pointer_types.append((kind[1].split(':')[0],row[1]))
             source=rewrite_scalar_storage(source,pointer_types)
+            if not WIDE:
+                float_slots=[row[1] for row in metadata
+                             if row[0] in ('G','L') and row[3]=='float:4']
+                source=rewrite_float_pointer_expressions(source,float_slots)
             for name in re.findall(r'\bcode\s*\*\s*(\w+)\b',source):
                 source=re.sub(r'\b'+re.escape(name)+r'\[',
                               '((uint8_t *)(uintptr_t)'+name+')[',source)

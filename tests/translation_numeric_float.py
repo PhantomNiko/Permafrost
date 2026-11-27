@@ -8,7 +8,7 @@ import subprocess
 import sys
 import tempfile
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools/ghidra'))
-from translate import rewrite_scalar_storage,rewrite_pointer_float_views
+from translate import rewrite_scalar_storage,rewrite_pointer_float_views,rewrite_float_pointer_expressions
 
 
 def main():
@@ -59,9 +59,29 @@ uint upper_word(double upper_value) { return (ulong)upper_value >> 0x20; }
 double joined_words(double joined_value) {
  return (double)(((ulonglong)joined_value & 0xffffffff00000000) + ((ulonglong)joined_value & 0xffffffff));
 }
+void *product_slot(float factor,int index) { return (void *)(factor*(float)index); }
+void *quotient_slot(float numerator,float denominator) { return (void *)(numerator/denominator); }
+float pointer_parameter(void *raw) { return (float)raw; }
+float captured_address(int *addressed) { return (float)&addressed[1]; }
+float casted_parameter(uintptr_t word) { return (float)(uint128 *)word; }
+void *pointer_arithmetic(int *base) { return (void *)(base+2); }
+void *integer_pointer(float numeric_pointer_value) { return (void *)((int)numeric_pointer_value); }
+void *cast_expression(unsigned long long encoded) { return (void *)(float)pf_bits_double(encoded); }
+void *integer_index(int *indexed_base,float floating_index) { return (void *)(indexed_base+(int)floating_index); }
 '''
-    source='#include "support.h"\n'+rewrite_pointer_float_views(rewrite_scalar_storage(functions),{'records'},True)+'''
+    functions=rewrite_float_pointer_expressions(rewrite_scalar_storage(functions))
+    functions=rewrite_pointer_float_views(functions,{'raw','addressed'},False)
+    source='#include "support.h"\n'+rewrite_pointer_float_views(functions,{'records'},True)+'''
 int main(void) {
+ if((uintptr_t)product_slot(1.5f,3)!=pf_float_bits(4.5f))return 16;
+ if((uintptr_t)quotient_slot(-1.5f,2.0f)!=pf_float_bits(-0.75f))return 17;
+ if(pointer_parameter((void *)(uintptr_t)0x3fc00000)!=1.5f)return 18;
+ int addressed[4];
+ if(pf_float_bits(captured_address(addressed))!=(uint32_t)(uintptr_t)&addressed[1])return 19;
+ if(casted_parameter(0x3fc00000)!=1.5f)return 20;
+ if(pointer_arithmetic(addressed)!=addressed+2 || (uintptr_t)integer_pointer(7.5f)!=7)return 21;
+ if((uintptr_t)cast_expression(pf_double_bits(2.5))!=pf_float_bits(2.5f))return 22;
+ if(integer_index(addressed,2.5f)!=addressed+2)return 23;
  if(stack_view()!=3.5f || integer_conversion(7)!=7.0f)return 4;
  if((uintptr_t)float_pointer(pf_bits_float(0x240000))!=0x240000)return 5;
  if((uintptr_t)double_pointer(pf_bits_double(0x12345678))!=0x12345678)return 6;

@@ -231,7 +231,7 @@
       "scope": "fallback UI and chunked HTTP; broader client parity incomplete"
     },
     "Zastruga Engine": {
-      "commit": "69d3db1",
+      "commit": "354e154",
       "source_architectures": [
         "x86_64",
         "arm64"
@@ -248,7 +248,10 @@
         "scalar_math_cases": 160,
         "native_neon_cases": 4352,
         "scalar_math_contracts": 41,
-        "static_linker_thunks": 12
+        "static_linker_thunks": 12,
+        "clone_pointer_contracts": 254,
+        "captured_object_cases": 248,
+        "deleting_destructor_ownership": true
       }
     }
   },
