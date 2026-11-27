@@ -321,6 +321,13 @@
       "heap_workflows": 12,
       "allocator_forwarding_cases": 117,
       "release_vm_parity": false
+    },
+    "lua_command_source_recovery": {
+      "architectures": [
+        "x86_64"
+      ],
+      "guarded_argument_cases": 8,
+      "release_vm_parity": false
     }
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",

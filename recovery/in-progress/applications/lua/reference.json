@@ -1,0 +1,18 @@
+{
+  "version": "1.1",
+  "reference_path": "Binary/lua",
+  "architectures": {
+    "x86_64": {
+      "reference_sha256": "4240a1add99cee0f9278ff8acc5c01b03ba62d9f3a63cdfc85908f1c5671a616",
+      "source_build": true,
+      "guarded_argument_cases": 8
+    }
+  },
+  "status": "partial source checkpoint; full VM parity remains incomplete",
+  "pending": [
+    "remaining architecture backends",
+    "script file and REPL execution",
+    "exception compatibility",
+    "booted VM integration"
+  ]
+}

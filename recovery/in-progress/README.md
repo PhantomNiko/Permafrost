@@ -449,3 +449,9 @@ allocator forwarding cases. Recovery restores operator and parser node-index
 returns, decimal conversion words, the parser's hard-float S0 argument, and
 scalar payload bit views. The i386 backend, complete exception/callback
 compatibility and booted VM integration remain unfinished.
+
+The x64 Lua command wrapper now builds from recovered C and links the recovered
+Lua library. Eight native/source cases cover argument guards, case-insensitive
+flags, repeated-flag precedence, unknown arguments and a long option value.
+Script-file execution, the REPL, other architectures and VM integration remain
+unverified; this checkpoint does not establish release compatibility.
