@@ -190,6 +190,20 @@
       "cache_rotation_teardown_heap_guards": true,
       "c_kernel_c_engine_scene_vm": true,
       "scope": "Complete animated startup scene in the x64 diagnostic VM; other reference payloads remain."
+    },
+    "kernel_type1_all_architectures": {
+      "architectures": [
+        "i386",
+        "x86_64",
+        "armv7",
+        "arm64"
+      ],
+      "font_rgba_cases_per_cpu": 144,
+      "font_metric_cases_per_cpu": 72,
+      "wide_operand_decode_cases_per_cpu": 246,
+      "i386_decimal_parse_cases": 35,
+      "armv7_media_type1_cases": 15,
+      "scope": "Memory font loading, metrics, raster pixels, cache rotation, release and heap guards. Complete VM/file-service integration remains under recovery."
     }
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",

@@ -1344,3 +1344,14 @@ executable-discovery workflows match on both CPUs. ARM32 additionally matches
 the mountain layers and title. Both saved 32-bit builds retain 27 extended
 interpreter workflows. Remaining animation, IA32 parser startup and full
 source-kernel/application integration remain gates before any 1.1 tag.
+
+The source kernels now match the engine's actual Type1 font on all four CPUs.
+ARM64 Type1 loading preserves integer buffer lengths, byte offsets and search
+sentinels while retaining double FontBBox fields. Its virtual metrics return
+doubles, its rasterizer returns the glyph aggregate, and interpreter scale,
+coordinates and advance retain IEEE double bits. The 246 operand encodings
+and 144 raster/72 metric matrix pass, including cache rotation and guards.
+I386 decimal parsing loads float constants by their IEEE representation and
+retains the native unsigned whitespace comparison; 35 x87/end-pointer cases
+and the same full font matrix pass. ARM32 also passes the full matrix.
+File-service integration and complete application VM behavior remain gates.

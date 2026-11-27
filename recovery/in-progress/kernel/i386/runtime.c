@@ -3988,7 +3988,7 @@ longdouble recovered_2003280(byte *param_1,undefined4 *param_2)
   pbVar4 = param_1;
   while( true ) {
     bVar5 = *pbVar4;
-    if ((4 < bVar5 - 9) && (bVar5 != 0x20)) break;
+    if ((4 < (uint)(bVar5 - 9U)) && (bVar5 != 0x20)) break;
     pbVar4 = pbVar4 + 1;
   }
   pbVar4 = pbVar4 + ((bVar5 - 0x2b & 0xfd) == 0);
@@ -3998,7 +3998,7 @@ longdouble recovered_2003280(byte *param_1,undefined4 *param_2)
   if (bVar5 < 10) {
     lVar10 = (longdouble)0;
     do {
-      fVar2 = (float)Ram0210e9f0;
+      fVar2 = pf_bits_float(Ram0210e9f0);
       lVar10 = lVar10 * (longdouble)fVar2 + (longdouble)(int)((uVar3 >> 8) - 0x30);
       pbVar6 = pbVar4 + 1;
       uVar3 = (uint)CONCAT11(*pbVar6,(char)uVar3);
@@ -4012,7 +4012,7 @@ longdouble recovered_2003280(byte *param_1,undefined4 *param_2)
     if ((byte)(*pbVar6 - 0x30U) < 10) {
       lVar11 = (longdouble)0;
       lVar12 = (longdouble)1;
-      fVar2 = (float)Ram0210e9f0;
+      fVar2 = pf_bits_float(Ram0210e9f0);
       do {
         lVar11 = lVar11 * (longdouble)fVar2 + (longdouble)(int)((uVar3 >> 8) - 0x30);
         lVar12 = lVar12 * (longdouble)fVar2;
@@ -4062,7 +4062,7 @@ LAB_02003353:
         if (iVar8 < 1) {
           if (iVar8 < 0) {
             do {
-              fVar2 = (float)Ram0210e9a0;
+              fVar2 = pf_bits_float(Ram0210e9a0);
               lVar11 = lVar11 * (longdouble)fVar2;
               iVar8 = iVar8 + 1;
             } while (iVar8 != 0);

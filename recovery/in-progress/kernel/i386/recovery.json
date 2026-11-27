@@ -491,5 +491,14 @@
       "20ab520",
       "20ab9f0"
     ]
+  },
+  "reviewed_strtod_float_constants": {
+    "function": "2003280",
+    "constants": [
+      "0210e9f0",
+      "0210e9a0"
+    ],
+    "reason": "Native x87 decimal parsing loads IEEE float constants from memory. Preserve their bit representation instead of converting the stored integer words to float.",
+    "whitespace": "Native LEA/CMP at 20032a7/20032aa uses a 32-bit unsigned subtraction. Preserve wrapping so NUL and bytes below TAB stop the scan."
   }
 }

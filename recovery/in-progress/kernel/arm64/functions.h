@@ -1345,12 +1345,12 @@ void recovered_82446020(long *outline,double *first,double *control,double *last
 undefined8 * recovered_82446138(undefined8 *param_1);
 void recovered_82446180(undefined8 *param_1);
 bool recovered_82446194(long param_1,long *param_2);
-void recovered_82446a70(int *param_1,undefined8 param_2,long param_3,uint param_4);
-uint128 recovered_82446e60(long param_1);
-uint128 recovered_82446e68(long param_1);
-uint128 recovered_82446e70(long param_1);
-uint128 recovered_82446e78(void);
-undefined8 recovered_82446e80(void);
+pf_glyph recovered_82446a70(void *backend,uint glyph,double scale);
+double recovered_82446e60(void *backend);
+double recovered_82446e68(void *backend);
+double recovered_82446e70(void *backend);
+double recovered_82446e78(void *backend);
+int recovered_82446e80(void *backend);
 void recovered_82446e88(undefined8 *param_1);
 long * recovered_82446ea8(long *param_1);
 void recovered_82446ed4(long *param_1);

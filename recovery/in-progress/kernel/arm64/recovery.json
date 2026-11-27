@@ -469,7 +469,9 @@
         "  return;": "  return pf_result110;"
       },
       "82446a70": {
-        "recovered_82445338(param_1,uStack_a0,&lStack_120);": "recovered_82445338((pf_glyph *)param_1,&lStack_120,pf_bits_double(uStack_a0));"
+        "recovered_82445338(param_1,uStack_a0,&lStack_120);": "recovered_82445338((pf_glyph *)param_1,&lStack_120,pf_bits_double(uStack_a0));",
+        "void recovered_82446a70(pf_glyph *__return_storage_ptr__,void *backend,uint glyph,double scale)\n\n{": "pf_glyph recovered_82446a70(void *backend,uint glyph,double scale)\n{\n pf_glyph pf_result110;pf_glyph *__return_storage_ptr__=&pf_result110;",
+        "return;": "return pf_result110;"
       },
       "82444a58": {
         "(long)local_b8": "(long)pf_double_bits(local_b8)",
@@ -487,6 +489,19 @@
       "824664fc": {
         "recovered_824026e8(acStack_269,0x200,&DAT_8249dac6);": "recovered_824026e8(acStack_269,0x200,&DAT_8249dac6,&DAT_82739c30);",
         "recovered_824026e8(param_1,param_2,&DAT_8249dac6);": "recovered_824026e8(param_1,param_2,&DAT_8249dac6,acStack_269);"
+      },
+      "82447d7c": {
+        "(double)param_1[1]": "pf_bits_double(param_1[1])",
+        "(double)param_1[0x11]": "pf_bits_double(param_1[0x11])",
+        "(double)param_1[0x12]": "pf_bits_double(param_1[0x12])",
+        "param_1[0x15] = (long)(*(double *)(lVar8 + -0x10) * pf_bits_double(param_1[1]));": "param_1[0x15] = pf_double_bits((*(double *)(lVar8 + -0x10) * pf_bits_double(param_1[1])));",
+        "param_1[0x12] = (long)(*(double *)(lVar8 + -8) + pf_bits_double(param_1[0x12]));": "param_1[0x12] = pf_double_bits((*(double *)(lVar8 + -8) + pf_bits_double(param_1[0x12])));",
+        "param_1[0x11] = (long)(dVar12 + pf_bits_double(param_1[0x11]));": "param_1[0x11] = pf_double_bits((dVar12 + pf_bits_double(param_1[0x11])));",
+        "param_1[0x11] =\n                   (long)(*(double *)(param_1[2] + param_1[3] * 8 + -8) + pf_bits_double(param_1[0x11]));": "param_1[0x11] = pf_double_bits((*(double *)(param_1[2] + param_1[3] * 8 + -8) + pf_bits_double(param_1[0x11])));",
+        "param_1[0x12] =\n                 (long)(*(double *)(param_1[2] + param_1[3] * 8 + -8) + pf_bits_double(param_1[0x12]));": "param_1[0x12] = pf_double_bits((*(double *)(param_1[2] + param_1[3] * 8 + -8) + pf_bits_double(param_1[0x12])));",
+        "param_1[0x15] = (long)(dVar12 * pf_bits_double(param_1[1]));": "param_1[0x15] = pf_double_bits((dVar12 * pf_bits_double(param_1[1])));",
+        "param_1[0x11] = (long)(*(double *)(lVar8 + -0x10) + pf_bits_double(param_1[0x11]));": "param_1[0x11] = pf_double_bits((*(double *)(lVar8 + -0x10) + pf_bits_double(param_1[0x11])));",
+        "param_1[0x12] = (long)dVar12;": "param_1[0x12] = pf_double_bits(dVar12);"
       }
     },
     "exclusive_expected": {
@@ -562,5 +577,44 @@
         }
       ]
     }
+  },
+  "reviewed_type1_loader_scalar_views": {
+    "function": "82446194",
+    "integer_views": [
+      "dVar2",
+      "dVar7",
+      "dVar14",
+      "dVar15",
+      "dVar20",
+      "dStack_100",
+      "dStack_80",
+      "dStack_a8",
+      "dStack_c0"
+    ],
+    "double_fields": [
+      "backend+0x10",
+      "backend+0x18"
+    ],
+    "reason": "Native PFB/PFA vector lengths, byte offsets and search sentinels use integer words. Preserve double views only while copying FontBBox metrics; integer lengths stored in shared double slots otherwise converted to zero."
+  },
+  "reviewed_type1_virtual_contracts": [
+    "82446a70\tpf_glyph recovered_82446a70(void *backend,unsigned int glyph,double scale);",
+    "82446e60\tdouble recovered_82446e60(void *backend);",
+    "82446e68\tdouble recovered_82446e68(void *backend);",
+    "82446e70\tdouble recovered_82446e70(void *backend);",
+    "82446e78\tdouble recovered_82446e78(void *backend);",
+    "82446e80\tint recovered_82446e80(void *backend);"
+  ],
+  "reviewed_type1_context_float_fields": {
+    "function": "82447d7c",
+    "slots": [
+      "1",
+      "0x11",
+      "0x12",
+      "0x13",
+      "0x14",
+      "0x15"
+    ],
+    "reason": "Native scale, current/start coordinates and glyph advance occupy IEEE double fields. Preserve those bits through the integer pointer view instead of numeric casts."
   }
 }

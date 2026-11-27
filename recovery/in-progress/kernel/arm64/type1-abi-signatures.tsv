@@ -1,0 +1,6 @@
+82446a70	pf_glyph recovered_82446a70(void *backend,unsigned int glyph,double scale);
+82446e60	double recovered_82446e60(void *backend);
+82446e68	double recovered_82446e68(void *backend);
+82446e70	double recovered_82446e70(void *backend);
+82446e78	double recovered_82446e78(void *backend);
+82446e80	int recovered_82446e80(void *backend);
