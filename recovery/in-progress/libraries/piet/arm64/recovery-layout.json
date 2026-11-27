@@ -1,0 +1,190 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268437320,
+  "text_end": 268470184,
+  "state_end": 268566528,
+  "translation": {
+    "pointer_bytes": 8,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 268470184,
+    "state_end": 268566528,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"arm64-recovery.h\"",
+      "#include \"cpu.h\"",
+      "static inline __attribute__((always_inline)) uintptr_t pf_current_sp(void){uintptr_t value;__asm__ volatile(\"mov %0,sp\":\"=r\"(value));return value;}"
+    ],
+    "stack_register": "register0x00000008",
+    "system_registers": {
+      "tpidr_el0": "rw",
+      "tpidrro_el0": "rw",
+      "fpcr": "rw",
+      "fpsr": "rw"
+    },
+    "source_replacements": {
+      "100074fc": {
+        "0x100087a8": "((uintptr_t)pf_module_state+0x0U)"
+      },
+      "10002680": {
+        "0x100092f7": "((uintptr_t)pf_module_state+0xb4fU)",
+        "0x10009325": "((uintptr_t)pf_module_state+0xb7dU)"
+      },
+      "10000774": {}
+    }
+  },
+  "reviewed_heap_contracts": {
+    "_wm_probe_heap_alloc": {
+      "address": "0x10000dec",
+      "declaration": "void *allocate(unsigned long size);"
+    },
+    "_wm_probe_heap_reset": {
+      "address": "0x10000748",
+      "declaration": "void reset_heap(void);"
+    },
+    "_wm_probe_heap_free_bytes": {
+      "address": "0x10000ca4",
+      "declaration": "unsigned int free_bytes(void);"
+    },
+    "_wm_probe_heap_total_bytes": {
+      "address": "0x10000d58",
+      "declaration": "unsigned int total_bytes(void);"
+    },
+    "_wm_probe_heap_free_bytes64": {
+      "address": "0x10000d04",
+      "declaration": "unsigned long long free_bytes64(void);"
+    },
+    "_wm_probe_heap_total_bytes64": {
+      "address": "0x10000da8",
+      "declaration": "unsigned long long total_bytes64(void);"
+    },
+    "_wm_probe_heap_add_region": {
+      "address": "0x10000c68",
+      "declaration": "bool add_region(unsigned long address,unsigned long size);"
+    },
+    "_wm_probe_heap_add_regions": {
+      "address": "0x10000a30",
+      "declaration": "bool add_regions(unsigned long *addresses,unsigned long *sizes,unsigned long count);"
+    },
+    "_wm_probe_heap_alloc_below": {
+      "address": "0x10000fd4",
+      "declaration": "void *alloc_below(unsigned long size,unsigned long limit);"
+    },
+    "_wm_probe_heap_alloc_range": {
+      "address": "0x1000100c",
+      "declaration": "void *alloc_range(unsigned long size,unsigned long first,unsigned long last);"
+    },
+    "_wm_probe_heap_free": {
+      "address": "0x10001050",
+      "declaration": "void release(void *pointer);"
+    },
+    "_wm_probe_heap_realloc": {
+      "address": "0x100010ec",
+      "declaration": "void *resize(void *pointer,unsigned long size);"
+    },
+    "_strcspn": {
+      "address": "0x10001b54",
+      "declaration": "unsigned long reject_span(char *text,char *reject);"
+    },
+    "_wm_probe_heap_segment_preflight": {
+      "address": "0x10002e78",
+      "declaration": "bool region_preflight(unsigned long address,unsigned long size,unsigned char *added);"
+    }
+  },
+  "reviewed_allocator_forwarding": {
+    "slots": [
+      "0x4c",
+      "0x50",
+      "0x54"
+    ],
+    "reason": "Native allocator tail calls preserve byte-count and pointer arguments through the WMAP wire table. Explicit call contracts retain those arguments in C."
+  },
+  "reviewed_virtual_contracts": {
+    "clone_return": "owned holder pointer",
+    "invoke_arguments": [
+      "holder",
+      "engine",
+      "values"
+    ],
+    "signatures": [
+      "10007420\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "10007490\tvoid *clone_holder(void *owner);",
+      "100074fc\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "10007554\tvoid *clone_holder(void *owner);",
+      "1000757c\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "100075b0\tvoid *clone_holder(void *owner);",
+      "100075d8\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "10007614\tvoid *clone_holder(void *owner);",
+      "1000763c\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "10007684\tvoid *clone_holder(void *owner);",
+      "100076ac\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000770c\tvoid *clone_holder(void *owner);",
+      "10007734\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "100077a0\tvoid *clone_holder(void *owner);",
+      "10007838\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000786c\tvoid *clone_holder(void *owner);",
+      "10007944\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "10007b00\tvoid *clone_holder(void *owner);",
+      "10007bd4\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "10007c04\tvoid *clone_holder(void *owner);",
+      "10007c2c\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "10007c44\tvoid *clone_holder(void *owner);",
+      "10007c6c\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "10007d08\tvoid *clone_holder(void *owner);",
+      "10007e98\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "10007f1c\tvoid *clone_holder(void *owner);",
+      "10007f44\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "10007f78\tvoid *clone_holder(void *owner);",
+      "10007fa0\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "10007fd8\tvoid *clone_holder(void *owner);",
+      "10008000\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "10008034\tvoid *clone_holder(void *owner);",
+      "1000805c\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "10008094\tvoid *clone_holder(void *owner);",
+      "100080bc\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "100080f0\tvoid *clone_holder(void *owner);",
+      "10008118\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "10008150\tvoid *clone_holder(void *owner);",
+      "10008178\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "100081e4\tvoid *clone_holder(void *owner);",
+      "1000820c\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000826c\tvoid *clone_holder(void *owner);",
+      "10008294\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "10008328\tvoid *clone_holder(void *owner);"
+    ]
+  },
+  "reviewed_holder_dispatch": [
+    "10005134\t10020854\t8\tvoid destroy_holder(void *owner);",
+    "10005134\t10020880\t8\tvoid destroy_holder(void *owner);",
+    "10005134\t100208ac\t8\tvoid destroy_holder(void *owner);",
+    "10005134\t100208d8\t8\tvoid destroy_holder(void *owner);",
+    "10005134\t10020904\t8\tvoid destroy_holder(void *owner);",
+    "10005134\t10020930\t8\tvoid destroy_holder(void *owner);",
+    "10005134\t1002095c\t8\tvoid destroy_holder(void *owner);",
+    "10005134\t10020988\t8\tvoid destroy_holder(void *owner);",
+    "10005134\t100209b4\t8\tvoid destroy_holder(void *owner);",
+    "10005134\t100209e0\t8\tvoid destroy_holder(void *owner);",
+    "10005134\t10020a0c\t8\tvoid destroy_holder(void *owner);",
+    "10005134\t10020a44\t8\tvoid destroy_holder(void *owner);",
+    "10005134\t10020a70\t8\tvoid destroy_holder(void *owner);",
+    "10005134\t10020aa8\t8\tvoid destroy_holder(void *owner);",
+    "10005134\t10020ae0\t8\tvoid destroy_holder(void *owner);",
+    "10005134\t10020b18\t8\tvoid destroy_holder(void *owner);",
+    "10005134\t10020b50\t8\tvoid destroy_holder(void *owner);",
+    "10005134\t10020b88\t8\tvoid destroy_holder(void *owner);",
+    "10005134\t10020bc0\t8\tvoid destroy_holder(void *owner);",
+    "10005134\t10020bf8\t8\tvoid destroy_holder(void *owner);",
+    "10005134\t10020c30\t8\tvoid destroy_holder(void *owner);",
+    "10005134\t10020c68\t8\tvoid destroy_holder(void *owner);",
+    "10005bbc\t10005fd4\t16\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+    "10006558\t10006584\t8\tvoid destroy_holder(void *owner);",
+    "10006edc\t10006f04\t24\tvoid *clone_holder(void *owner);",
+    "10006edc\t10006f28\t8\tvoid destroy_holder(void *owner);",
+    "10007018\t10007038\t8\tvoid destroy_holder(void *owner);"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "version": "1.1",
+  "reference_image": "WinterBoot-1.1r344-Beta.img",
+  "reference_path": "Library/Native/WinterTLS.dylib",
+  "architectures": {
+    "i386": {
+      "sha256": "3989b528fe0c738f1c610fdcf7094593f095585b48b3cf2b3cfcc48ba295ed2c",
+      "native_functions": 335
+    },
+    "x86_64": {
+      "sha256": "9799bee1df181a0e11052876170b85c3cc0d169318f15bf380f7cd65bb5a403a",
+      "native_functions": 335
+    },
+    "armv7": {
+      "sha256": "b0b8a6903f9c6ce2ff1cae97af056b36581a88d570abedc8c51887465e0832fc",
+      "native_functions": 340
+    },
+    "arm64": {
+      "sha256": "98f577207a7fb21666bc055c8ff0bf70bb5d2da417b979a7aacb756414f4f9a0",
+      "native_functions": 493
+    }
+  },
+  "checks": {
+    "value_variable_engine_state_cases_per_cpu": 115,
+    "heap_workflows_per_cpu": 12,
+    "allocator_forwarding_cases_per_cpu": 117,
+    "console_output": "requires release VM checks; imported printf uses a host oracle in direct state comparisons"
+  },
+  "status": "source checkpoint; release-wide VM parity remains incomplete"
+}

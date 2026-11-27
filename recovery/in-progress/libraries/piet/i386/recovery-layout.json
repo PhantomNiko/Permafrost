@@ -1,0 +1,314 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268437536,
+  "text_end": 268493590,
+  "state_end": 268537856,
+  "translation": {
+    "pointer_bytes": 4,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 268493590,
+    "state_end": 268537856,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#define PF_NATIVE_X87 1",
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"x86_cpu.h\"",
+      "static const int32_t pf_piet_step_table_0[4]={718,714,428,709};",
+      "static const int32_t pf_piet_step_table_1[4]={633,629,308,624};",
+      "static const int32_t pf_piet_step_table_2[4]={3024,3020,555,3015};",
+      "static const int32_t pf_piet_step_table_3[4]={801,797,614,792};",
+      "static const int32_t pf_piet_step_table_4[4]={1048,1809,1039,1804};",
+      "static const int32_t pf_piet_step_table_5[4]={1871,1867,1851,1862};"
+    ],
+    "system_registers": {
+      "MXCSR": "rw"
+    },
+    "source_replacements": {
+      "100081f0": {
+        "local_1ac + 0x6ecc": "((uintptr_t)pf_module_state+0xdbaU)",
+        "local_1ac + 0x7010": "((uintptr_t)pf_module_state+0xefeU)",
+        "local_1ac + 0x6e10": "((uintptr_t)pf_module_state+0xcfeU)",
+        "local_1ac + 0x6e3c": "((uintptr_t)pf_module_state+0xd2aU)",
+        "local_1ac + 0x6f14": "((uintptr_t)pf_module_state+0xe02U)",
+        "local_1ac + 0x6f38": "((uintptr_t)pf_module_state+0xe26U)",
+        "local_1ac + 0x7058": "((uintptr_t)pf_module_state+0xf46U)",
+        "local_1ac + 0x710c": "((uintptr_t)pf_module_state+0xffaU)",
+        "local_1ac + 0x6e60": "((uintptr_t)pf_module_state+0xd4eU)",
+        "local_1ac + 0x6f80": "((uintptr_t)pf_module_state+0xe6eU)",
+        "local_1ac + 0x70c4": "((uintptr_t)pf_module_state+0xfb2U)",
+        "local_1ac + 0x6fc8": "((uintptr_t)pf_module_state+0xeb6U)",
+        "local_1ac + 0x707c": "((uintptr_t)pf_module_state+0xf6aU)",
+        "local_1ac + 0x6fa4": "((uintptr_t)pf_module_state+0xe92U)",
+        "local_1ac + 0x70a0": "((uintptr_t)pf_module_state+0xf8eU)",
+        "local_1ac + 0x6e84": "((uintptr_t)pf_module_state+0xd72U)",
+        "local_1ac + 0x7034": "((uintptr_t)pf_module_state+0xf22U)",
+        "local_1ac + 0x6fec": "((uintptr_t)pf_module_state+0xedaU)",
+        "local_1ac + 0x6f5c": "((uintptr_t)pf_module_state+0xe4aU)",
+        "local_1ac + 0x6ef0": "((uintptr_t)pf_module_state+0xddeU)",
+        "local_1ac + 0x6ea8": "((uintptr_t)pf_module_state+0xd96U)",
+        "local_1ac + 0x70e8": "((uintptr_t)pf_module_state+0xfd6U)"
+      },
+      "10009ac0": {
+        "local_9c + 0xd5c +": "(uintptr_t)pf_piet_step_table_0 +",
+        "local_9c + 0xd6c +": "(uintptr_t)pf_piet_step_table_1 +",
+        "local_9c + 0xd7c +": "(uintptr_t)pf_piet_step_table_2 +",
+        "local_9c + 0xd8c +": "(uintptr_t)pf_piet_step_table_3 +",
+        "local_9c + 0xd9c +": "(uintptr_t)pf_piet_step_table_4 +",
+        "local_9c + 0xdac +": "(uintptr_t)pf_piet_step_table_5 +"
+      }
+    }
+  },
+  "reviewed_heap_contracts": {
+    "_wm_probe_heap_alloc": {
+      "address": "0x10000fc0",
+      "declaration": "void *allocate(unsigned long size);"
+    },
+    "_wm_probe_heap_reset": {
+      "address": "0x10000820",
+      "declaration": "void reset_heap(void);"
+    },
+    "_wm_probe_heap_free_bytes": {
+      "address": "0x10000dd0",
+      "declaration": "unsigned int free_bytes(void);"
+    },
+    "_wm_probe_heap_total_bytes": {
+      "address": "0x10000ed0",
+      "declaration": "unsigned int total_bytes(void);"
+    },
+    "_wm_probe_heap_free_bytes64": {
+      "address": "0x10000e50",
+      "declaration": "unsigned long long free_bytes64(void);"
+    },
+    "_wm_probe_heap_total_bytes64": {
+      "address": "0x10000f40",
+      "declaration": "unsigned long long total_bytes64(void);"
+    },
+    "_wm_probe_heap_add_region": {
+      "address": "0x10000d50",
+      "declaration": "bool add_region(unsigned long address,unsigned long size);"
+    },
+    "_wm_probe_heap_add_regions": {
+      "address": "0x10000aa0",
+      "declaration": "bool add_regions(unsigned long *addresses,unsigned long *sizes,unsigned long count);"
+    },
+    "_wm_probe_heap_alloc_below": {
+      "address": "0x10001260",
+      "declaration": "void *alloc_below(unsigned long size,unsigned long limit);"
+    },
+    "_wm_probe_heap_alloc_range": {
+      "address": "0x100012d0",
+      "declaration": "void *alloc_range(unsigned long size,unsigned long first,unsigned long last);"
+    },
+    "_wm_probe_heap_free": {
+      "address": "0x10001340",
+      "declaration": "void release(void *pointer);"
+    },
+    "_wm_probe_heap_realloc": {
+      "address": "0x100014d0",
+      "declaration": "void *resize(void *pointer,unsigned long size);"
+    },
+    "_strcspn": {
+      "address": "0x10002820",
+      "declaration": "unsigned long reject_span(char *text,char *reject);"
+    }
+  },
+  "reviewed_heap_private_contracts": {
+    "_wm_probe_heap_add_regions_locked": {
+      "address": "0x10000b10",
+      "declaration": "bool add_locked(unsigned long *addresses,unsigned long *sizes,unsigned long count);",
+      "storage": "ECX,EDX,stack4",
+      "result": "EAX"
+    },
+    "_wm_probe_heap_append_region_excluding_application": {
+      "address": "0x10004be0",
+      "declaration": "void append_region(unsigned long address,unsigned long size,void *tail);",
+      "storage": "ECX,EDX,stack4",
+      "result": ""
+    },
+    "_wm_probe_heap_alloc_bounded_locked": {
+      "address": "0x10001030",
+      "declaration": "void *allocate_locked(unsigned long size,unsigned long first,unsigned long last);",
+      "storage": "ECX,EDX,stack4",
+      "result": "EAX"
+    },
+    "_wm_probe_heap_split_prefix": {
+      "address": "0x10004d80",
+      "declaration": "void *split_prefix(void *chunk,unsigned long first);",
+      "storage": "ECX,EDX",
+      "result": "EAX"
+    },
+    "_wm_probe_heap_split": {
+      "address": "0x10004de0",
+      "declaration": "bool split_chunk(void *chunk,unsigned long size);",
+      "storage": "ECX,EDX",
+      "result": "EAX"
+    },
+    "_wm_probe_heap_free_locked": {
+      "address": "0x100013b0",
+      "declaration": "void free_locked(void *pointer);",
+      "storage": "ECX",
+      "result": ""
+    }
+  },
+  "reviewed_x87_exponential_argument": "Native expl loads a ten-byte argument from a twelve-byte i386 stack slot and returns through the full ST0 register.",
+  "reviewed_allocator_forwarding": {
+    "slots": [
+      "0x4c",
+      "0x50",
+      "0x54"
+    ],
+    "reason": "Native allocator tail calls preserve byte-count and pointer arguments through the WMAP wire table. Explicit call contracts retain those arguments in C."
+  },
+  "reviewed_virtual_contracts": {
+    "clone_return": "owned holder pointer",
+    "invoke_arguments": [
+      "holder",
+      "engine",
+      "values"
+    ],
+    "signatures": [
+      "1000bbd0\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000bd70\tvoid *clone_holder(void *owner);",
+      "1000bdd0\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000be40\tvoid *clone_holder(void *owner);",
+      "1000bea0\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000bf90\tvoid *clone_holder(void *owner);",
+      "1000bff0\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000c080\tvoid *clone_holder(void *owner);",
+      "1000c0e0\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000c290\tvoid *clone_holder(void *owner);",
+      "1000c2f0\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000c420\tvoid *clone_holder(void *owner);",
+      "1000c480\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000c660\tvoid *clone_holder(void *owner);",
+      "1000c6c0\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000c7f0\tvoid *clone_holder(void *owner);",
+      "1000c850\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000cc40\tvoid *clone_holder(void *owner);",
+      "1000cca0\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000cd20\tvoid *clone_holder(void *owner);",
+      "1000cd80\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000ce10\tvoid *clone_holder(void *owner);",
+      "1000ce70\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000d130\tvoid *clone_holder(void *owner);",
+      "1000d330\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000d570\tvoid *clone_holder(void *owner);",
+      "1000d5d0\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000d670\tvoid *clone_holder(void *owner);",
+      "1000d6d0\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000d7b0\tvoid *clone_holder(void *owner);",
+      "1000d810\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000d8b0\tvoid *clone_holder(void *owner);",
+      "1000d910\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000d9f0\tvoid *clone_holder(void *owner);",
+      "1000da50\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000db10\tvoid *clone_holder(void *owner);",
+      "1000db70\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000dc60\tvoid *clone_holder(void *owner);",
+      "1000dcc0\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000dd80\tvoid *clone_holder(void *owner);",
+      "1000dde0\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000dee0\tvoid *clone_holder(void *owner);",
+      "1000df40\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000e040\tvoid *clone_holder(void *owner);"
+    ]
+  },
+  "reviewed_pic_constant_spans": {
+    "expressions": 22,
+    "reason": "Recover state addresses computed from immutable native PIC anchors, including builtin virtual tables."
+  },
+  "reviewed_holder_dispatch": [
+    "100081f0\t1000827c\t4\tvoid destroy_holder(void *owner);",
+    "100081f0\t1000832f\t4\tvoid destroy_holder(void *owner);",
+    "100081f0\t100083f0\t4\tvoid destroy_holder(void *owner);",
+    "100081f0\t100084b1\t4\tvoid destroy_holder(void *owner);",
+    "100081f0\t10008572\t4\tvoid destroy_holder(void *owner);",
+    "100081f0\t10008633\t4\tvoid destroy_holder(void *owner);",
+    "100081f0\t100086f4\t4\tvoid destroy_holder(void *owner);",
+    "100081f0\t100087b5\t4\tvoid destroy_holder(void *owner);",
+    "100081f0\t1000887d\t4\tvoid destroy_holder(void *owner);",
+    "100081f0\t10008945\t4\tvoid destroy_holder(void *owner);",
+    "100081f0\t10008a08\t4\tvoid destroy_holder(void *owner);",
+    "100081f0\t10008ac9\t4\tvoid destroy_holder(void *owner);",
+    "100081f0\t10008b8c\t4\tvoid destroy_holder(void *owner);",
+    "100081f0\t10008c4f\t4\tvoid destroy_holder(void *owner);",
+    "100081f0\t10008d09\t4\tvoid destroy_holder(void *owner);",
+    "100081f0\t10008dc3\t4\tvoid destroy_holder(void *owner);",
+    "100081f0\t10008e7d\t4\tvoid destroy_holder(void *owner);",
+    "100081f0\t10008f37\t4\tvoid destroy_holder(void *owner);",
+    "100081f0\t10008ff1\t4\tvoid destroy_holder(void *owner);",
+    "100081f0\t100090ab\t4\tvoid destroy_holder(void *owner);",
+    "100081f0\t10009165\t4\tvoid destroy_holder(void *owner);",
+    "100081f0\t1000921f\t4\tvoid destroy_holder(void *owner);",
+    "100081f0\t100092d9\t4\tvoid destroy_holder(void *owner);",
+    "10009980\t100099cb\t4\tvoid destroy_holder(void *owner);",
+    "10009ac0\t1000a624\t8\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+    "1000aab0\t1000ab60\t12\tvoid *clone_holder(void *owner);",
+    "1000aab0\t1000ab72\t4\tvoid destroy_holder(void *owner);",
+    "1000ab80\t1000abe4\t4\tvoid destroy_holder(void *owner);",
+    "1000ace0\t1000ad9d\t4\tvoid destroy_holder(void *owner);",
+    "1000ace0\t1000add4\t4\tvoid destroy_holder(void *owner);",
+    "1000ae50\t1000aea7\t4\tvoid destroy_holder(void *owner);"
+  ],
+  "reviewed_step_dispatch_tables": [
+    {
+      "address": "0x1000a830",
+      "offsets": [
+        718,
+        714,
+        428,
+        709
+      ]
+    },
+    {
+      "address": "0x1000a840",
+      "offsets": [
+        633,
+        629,
+        308,
+        624
+      ]
+    },
+    {
+      "address": "0x1000a850",
+      "offsets": [
+        3024,
+        3020,
+        555,
+        3015
+      ]
+    },
+    {
+      "address": "0x1000a860",
+      "offsets": [
+        801,
+        797,
+        614,
+        792
+      ]
+    },
+    {
+      "address": "0x1000a870",
+      "offsets": [
+        1048,
+        1809,
+        1039,
+        1804
+      ]
+    },
+    {
+      "address": "0x1000a880",
+      "offsets": [
+        1871,
+        1867,
+        1851,
+        1862
+      ]
+    }
+  ]
+}

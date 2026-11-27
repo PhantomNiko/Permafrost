@@ -1,0 +1,398 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268437808,
+  "text_end": 268497724,
+  "state_end": 268582912,
+  "translation": {
+    "pointer_bytes": 4,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 268497724,
+    "state_end": 268582912,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"armv7-recovery.h\"",
+      "#include \"cpu.h\"",
+      "#include \"arm_exclusive.h\"",
+      "#include \"coprocessors.h\"",
+      "#include \"neon.h\"",
+      "static inline __attribute__((always_inline)) uintptr_t pf_current_sp(void){uintptr_t value;__asm__ volatile(\"mov %0,sp\":\"=r\"(value));return value;}"
+    ],
+    "stack_register": "register0x00000054",
+    "system_registers": {},
+    "source_replacements": {
+      "100012c4": {
+        "0x10010084": "((uintptr_t)pf_module_state+0xd48U)"
+      },
+      "100010c0": {
+        "0x10010084": "((uintptr_t)pf_module_state+0xd48U)"
+      },
+      "10000af0": {
+        "0x10010084": "((uintptr_t)pf_module_state+0xd48U)"
+      },
+      "1000cd48": {
+        "0x1000f465": "((uintptr_t)pf_module_state+0x129U)",
+        "0x1000fffc": "((uintptr_t)pf_module_state+0xcc0U)"
+      },
+      "10000dfc": {
+        "0x10010084": "((uintptr_t)pf_module_state+0xd48U)"
+      },
+      "1000141c": {
+        "0x10010084": "((uintptr_t)pf_module_state+0xd48U)"
+      },
+      "100019f8": {
+        "0x10010084": "((uintptr_t)pf_module_state+0xd48U)"
+      },
+      "10001208": {
+        "0x10010084": "((uintptr_t)pf_module_state+0xd48U)"
+      },
+      "100016f8": {
+        "0x10010084": "((uintptr_t)pf_module_state+0xd48U)"
+      },
+      "10001158": {
+        "0x10010084": "((uintptr_t)pf_module_state+0xd48U)"
+      },
+      "1000136c": {
+        "0x10010084": "((uintptr_t)pf_module_state+0xd48U)"
+      },
+      "10001780": {
+        "0x10010084": "((uintptr_t)pf_module_state+0xd48U)"
+      },
+      "10001810": {
+        "0x10010084": "((uintptr_t)pf_module_state+0xd48U)"
+      }
+    },
+    "literal_data": {
+      "10004568": "00000000",
+      "10007954": "a47b0000",
+      "10007958": "3c000000",
+      "1000d1dc": "10250000",
+      "1000d1e0": "24010000",
+      "1000a560": "4c5f0000",
+      "1000a564": "d80c0000",
+      "10004838": "000080ff",
+      "10004830": "ef39fafe422ee63f",
+      "10009520": "0000000000000000",
+      "10009528": "0100000001000000",
+      "10009530": "ac600000",
+      "10009534": "a8000000",
+      "1000b7b8": "ac4a0000",
+      "1000b7bc": "5c0c0000",
+      "1000acfc": "20000000",
+      "1000b114": "24000000",
+      "10004230": "000000000000e043",
+      "10004494": "00000000",
+      "10004130": "182d4454fb210940",
+      "10004138": "182d4454fb2119c0",
+      "10004140": "182d4454fb2109c0",
+      "10004148": "182d4454fb211940",
+      "10004150": "00000000008086c0",
+      "1000c260": "d4330000",
+      "1000c264": "90000000",
+      "10007ae4": "347a0000",
+      "10007ae8": "3c000000",
+      "10003fa8": "000000000000f0ff",
+      "10003fb0": "ef39fafe422ee63f",
+      "10008e44": "3c670000",
+      "10008e48": "70000000",
+      "100077dc": "ec7c0000",
+      "100077e0": "1c000000",
+      "10004908": "182d4454fb210940",
+      "10004910": "182d4454fb2119c0",
+      "10004918": "182d4454fb2109c0",
+      "10004920": "182d4454fb211940",
+      "10004928": "0000000000005e40",
+      "10004930": "0000000000b0b3c0",
+      "100049c8": "182d4454fb210940",
+      "100049d0": "182d4454fb2119c0",
+      "100049d8": "182d4454fb2109c0",
+      "100049e0": "182d4454fb211940",
+      "100049e8": "00000000008086c0",
+      "10007a1c": "ec7a0000",
+      "10007a20": "3c000000",
+      "10007bac": "7c790000",
+      "10007bb0": "3c000000",
+      "100084d8": "ef39fafe422e8640",
+      "100084d0": "000000000000f07f",
+      "100084e0": "51302dd5104987c0",
+      "1000c10c": "30350000",
+      "1000c110": "9c000000",
+      "1000e118": "c0160000",
+      "1000e11c": "c8010000",
+      "100083d8": "ef39fafe422e8640",
+      "100083d0": "000000000000f07f",
+      "100083e0": "51302dd5104987c0",
+      "10004078": "182d4454fb210940",
+      "10004080": "182d4454fb2119c0",
+      "10004088": "182d4454fb2109c0",
+      "10004090": "182d4454fb211940",
+      "10004098": "0000000000005e40",
+      "100040a0": "0000000000b0b3c0",
+      "1000cd10": "e8290000",
+      "1000cd14": "3c010000",
+      "1000e5cc": "ac110000",
+      "1000e5d0": "68010000",
+      "1000c608": "a4300000",
+      "1000c60c": "f4000000",
+      "1000c378": "90320000",
+      "1000c37c": "5c000000",
+      "100046f4": "00000000",
+      "1000d5c8": "84210000",
+      "1000d5cc": "68010000",
+      "1000dcc4": "c81d0000",
+      "1000dcc8": "90040000",
+      "1000bd8c": "fc380000",
+      "1000bd90": "d4000000",
+      "1000d380": "1c230000",
+      "1000d384": "d0000000",
+      "100043d8": "00000000",
+      "100085c0": "ef39fafe422e8640",
+      "100085b8": "000000000000f07f",
+      "100085c8": "51302dd5104987c0",
+      "100042b8": "000000000000e043"
+    }
+  },
+  "reviewed_heap_contracts": {
+    "_wm_probe_heap_alloc": {
+      "address": "0x1000141c",
+      "declaration": "void *allocate(unsigned long size);"
+    },
+    "_wm_probe_heap_reset": {
+      "address": "0x10000af0",
+      "declaration": "void reset_heap(void);"
+    },
+    "_wm_probe_heap_free_bytes": {
+      "address": "0x10001158",
+      "declaration": "unsigned int free_bytes(void);"
+    },
+    "_wm_probe_heap_total_bytes": {
+      "address": "0x100012c4",
+      "declaration": "unsigned int total_bytes(void);"
+    },
+    "_wm_probe_heap_free_bytes64": {
+      "address": "0x10001208",
+      "declaration": "unsigned long long free_bytes64(void);"
+    },
+    "_wm_probe_heap_total_bytes64": {
+      "address": "0x1000136c",
+      "declaration": "unsigned long long total_bytes64(void);"
+    },
+    "_wm_probe_heap_add_region": {
+      "address": "0x100010c0",
+      "declaration": "bool add_region(unsigned long address,unsigned long size);"
+    },
+    "_wm_probe_heap_add_regions": {
+      "address": "0x10000dfc",
+      "declaration": "bool add_regions(unsigned long *addresses,unsigned long *sizes,unsigned long count);"
+    },
+    "_wm_probe_heap_alloc_below": {
+      "address": "0x100016f8",
+      "declaration": "void *alloc_below(unsigned long size,unsigned long limit);"
+    },
+    "_wm_probe_heap_alloc_range": {
+      "address": "0x10001780",
+      "declaration": "void *alloc_range(unsigned long size,unsigned long first,unsigned long last);"
+    },
+    "_wm_probe_heap_free": {
+      "address": "0x10001810",
+      "declaration": "void release(void *pointer);"
+    },
+    "_wm_probe_heap_realloc": {
+      "address": "0x100019f8",
+      "declaration": "void *resize(void *pointer,unsigned long size);"
+    },
+    "_strcspn": {
+      "address": "0x10003a0c",
+      "declaration": "unsigned long reject_span(char *text,char *reject);"
+    }
+  },
+  "reviewed_allocator_forwarding": {
+    "slots": [
+      "0x4c",
+      "0x50",
+      "0x54"
+    ],
+    "reason": "Native allocator tail calls preserve byte-count and pointer arguments through the WMAP wire table. Explicit call contracts retain those arguments in C."
+  },
+  "reviewed_virtual_contracts": {
+    "clone_return": "owned holder pointer",
+    "invoke_arguments": [
+      "holder",
+      "engine",
+      "values"
+    ],
+    "signatures": [
+      "1000cb38\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000cd18\tvoid *clone_holder(void *owner);",
+      "1000cd48\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000cdd0\tvoid *clone_holder(void *owner);",
+      "1000ce00\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000cefc\tvoid *clone_holder(void *owner);",
+      "1000cf2c\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000cfe8\tvoid *clone_holder(void *owner);",
+      "1000d018\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000d1e4\tvoid *clone_holder(void *owner);",
+      "1000d214\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000d388\tvoid *clone_holder(void *owner);",
+      "1000d3b8\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000d5d0\tvoid *clone_holder(void *owner);",
+      "1000d600\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000d74c\tvoid *clone_holder(void *owner);",
+      "1000d77c\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000dccc\tvoid *clone_holder(void *owner);",
+      "1000dcfc\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000dd80\tvoid *clone_holder(void *owner);",
+      "1000ddb0\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000de48\tvoid *clone_holder(void *owner);",
+      "1000de78\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000e120\tvoid *clone_holder(void *owner);",
+      "1000e3a8\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000e5d4\tvoid *clone_holder(void *owner);",
+      "1000e604\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000e6d4\tvoid *clone_holder(void *owner);",
+      "1000e704\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000e810\tvoid *clone_holder(void *owner);",
+      "1000e840\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000e910\tvoid *clone_holder(void *owner);",
+      "1000e940\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000ea4c\tvoid *clone_holder(void *owner);",
+      "1000ea7c\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000eb50\tvoid *clone_holder(void *owner);",
+      "1000eb80\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000ec90\tvoid *clone_holder(void *owner);",
+      "1000ecc0\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000eda8\tvoid *clone_holder(void *owner);",
+      "1000edd8\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000ef00\tvoid *clone_holder(void *owner);",
+      "1000ef30\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+      "1000f07c\tvoid *clone_holder(void *owner);"
+    ]
+  },
+  "reviewed_inline_constants": {
+    "0x10003fa8": 8,
+    "0x10003fb0": 8,
+    "0x10004078": 8,
+    "0x10004080": 8,
+    "0x10004088": 8,
+    "0x10004090": 8,
+    "0x10004098": 8,
+    "0x100040a0": 8,
+    "0x10004130": 8,
+    "0x10004138": 8,
+    "0x10004140": 8,
+    "0x10004148": 8,
+    "0x10004150": 8,
+    "0x10004230": 8,
+    "0x100042b8": 8,
+    "0x100043d8": 4,
+    "0x10004494": 4,
+    "0x10004568": 4,
+    "0x100046f4": 4,
+    "0x10004830": 8,
+    "0x10004838": 4,
+    "0x10004908": 8,
+    "0x10004910": 8,
+    "0x10004918": 8,
+    "0x10004920": 8,
+    "0x10004928": 8,
+    "0x10004930": 8,
+    "0x100049c8": 8,
+    "0x100049d0": 8,
+    "0x100049d8": 8,
+    "0x100049e0": 8,
+    "0x100049e8": 8,
+    "0x100077dc": 4,
+    "0x100077e0": 4,
+    "0x10007954": 4,
+    "0x10007958": 4,
+    "0x10007a1c": 4,
+    "0x10007a20": 4,
+    "0x10007ae4": 4,
+    "0x10007ae8": 4,
+    "0x10007bac": 4,
+    "0x10007bb0": 4,
+    "0x100083d0": 8,
+    "0x100083d8": 8,
+    "0x100083e0": 8,
+    "0x100084d0": 8,
+    "0x100084d8": 8,
+    "0x100084e0": 8,
+    "0x100085b8": 8,
+    "0x100085c0": 8,
+    "0x100085c8": 8,
+    "0x10008e44": 4,
+    "0x10008e48": 4,
+    "0x10009520": 8,
+    "0x10009528": 8,
+    "0x10009530": 4,
+    "0x10009534": 4,
+    "0x1000a560": 4,
+    "0x1000a564": 4,
+    "0x1000acfc": 4,
+    "0x1000b114": 4,
+    "0x1000b7b8": 4,
+    "0x1000b7bc": 4,
+    "0x1000bd8c": 4,
+    "0x1000bd90": 4,
+    "0x1000c10c": 4,
+    "0x1000c110": 4,
+    "0x1000c260": 4,
+    "0x1000c264": 4,
+    "0x1000c378": 4,
+    "0x1000c37c": 4,
+    "0x1000c608": 4,
+    "0x1000c60c": 4,
+    "0x1000cd10": 4,
+    "0x1000cd14": 4,
+    "0x1000d1dc": 4,
+    "0x1000d1e0": 4,
+    "0x1000d380": 4,
+    "0x1000d384": 4,
+    "0x1000d5c8": 4,
+    "0x1000d5cc": 4,
+    "0x1000dcc4": 4,
+    "0x1000dcc8": 4,
+    "0x1000e118": 4,
+    "0x1000e11c": 4,
+    "0x1000e5cc": 4,
+    "0x1000e5d0": 4
+  },
+  "reviewed_holder_dispatch": [
+    "10009538\t100095f0\t4\tvoid destroy_holder(void *owner);",
+    "10009538\t10009678\t4\tvoid destroy_holder(void *owner);",
+    "10009538\t10009704\t4\tvoid destroy_holder(void *owner);",
+    "10009538\t10009790\t4\tvoid destroy_holder(void *owner);",
+    "10009538\t1000981c\t4\tvoid destroy_holder(void *owner);",
+    "10009538\t100098a4\t4\tvoid destroy_holder(void *owner);",
+    "10009538\t10009930\t4\tvoid destroy_holder(void *owner);",
+    "10009538\t100099bc\t4\tvoid destroy_holder(void *owner);",
+    "10009538\t10009a54\t4\tvoid destroy_holder(void *owner);",
+    "10009538\t10009ae8\t4\tvoid destroy_holder(void *owner);",
+    "10009538\t10009b78\t4\tvoid destroy_holder(void *owner);",
+    "10009538\t10009c04\t4\tvoid destroy_holder(void *owner);",
+    "10009538\t10009c94\t4\tvoid destroy_holder(void *owner);",
+    "10009538\t10009d24\t4\tvoid destroy_holder(void *owner);",
+    "10009538\t10009db4\t4\tvoid destroy_holder(void *owner);",
+    "10009538\t10009e44\t4\tvoid destroy_holder(void *owner);",
+    "10009538\t10009ed4\t4\tvoid destroy_holder(void *owner);",
+    "10009538\t10009f64\t4\tvoid destroy_holder(void *owner);",
+    "10009538\t10009ff4\t4\tvoid destroy_holder(void *owner);",
+    "10009538\t1000a084\t4\tvoid destroy_holder(void *owner);",
+    "10009538\t1000a114\t4\tvoid destroy_holder(void *owner);",
+    "10009538\t1000a1a4\t4\tvoid destroy_holder(void *owner);",
+    "10009538\t1000a234\t4\tvoid destroy_holder(void *owner);",
+    "1000a8e0\t1000a948\t4\tvoid destroy_holder(void *owner);",
+    "1000aa34\t1000b60c\t8\tvoid invoke_holder(void *owner,void *engine,void *arguments);",
+    "1000b960\t1000ba60\t12\tvoid *clone_holder(void *owner);",
+    "1000b960\t1000ba88\t4\tvoid destroy_holder(void *owner);",
+    "1000ba94\t1000bb04\t4\tvoid destroy_holder(void *owner);",
+    "1000bbe4\t1000bcb8\t4\tvoid destroy_holder(void *owner);",
+    "1000bbe4\t1000bcf8\t4\tvoid destroy_holder(void *owner);",
+    "1000bd94\t1000bddc\t4\tvoid destroy_holder(void *owner);"
+  ]
+}

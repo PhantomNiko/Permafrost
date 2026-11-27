@@ -1,0 +1,19 @@
+10000fc0	void *allocate(unsigned long size);
+10000820	void reset_heap(void);
+10000dd0	unsigned int free_bytes(void);
+10000ed0	unsigned int total_bytes(void);
+10000e50	unsigned long long free_bytes64(void);
+10000f40	unsigned long long total_bytes64(void);
+10000d50	bool add_region(unsigned long address,unsigned long size);
+10000aa0	bool add_regions(unsigned long *addresses,unsigned long *sizes,unsigned long count);
+10001260	void *alloc_below(unsigned long size,unsigned long limit);
+100012d0	void *alloc_range(unsigned long size,unsigned long first,unsigned long last);
+10001340	void release(void *pointer);
+100014d0	void *resize(void *pointer,unsigned long size);
+10002820	unsigned long reject_span(char *text,char *reject);
+10000b10	bool add_locked(unsigned long *addresses,unsigned long *sizes,unsigned long count);	ECX,EDX,stack4	EAX
+10004be0	void append_region(unsigned long address,unsigned long size,void *tail);	ECX,EDX,stack4	
+10001030	void *allocate_locked(unsigned long size,unsigned long first,unsigned long last);	ECX,EDX,stack4	EAX
+10004d80	void *split_prefix(void *chunk,unsigned long first);	ECX,EDX	EAX
+10004de0	bool split_chunk(void *chunk,unsigned long size);	ECX,EDX	EAX
+100013b0	void free_locked(void *pointer);	ECX	
