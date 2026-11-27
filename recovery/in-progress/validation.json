@@ -270,6 +270,7 @@
     },
     "lua_source_recovery": {
       "architectures": [
+        "armv7",
         "x86_64",
         "arm64"
       ],

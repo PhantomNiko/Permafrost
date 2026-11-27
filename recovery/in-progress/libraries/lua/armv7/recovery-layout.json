@@ -1,0 +1,3555 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268444408,
+  "text_end": 268816840,
+  "state_end": 269041664,
+  "translation": {
+    "pointer_bytes": 4,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 268816840,
+    "state_end": 269041664,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"armv7-recovery.h\"",
+      "#include \"cpu.h\"",
+      "#include \"arm_exclusive.h\"",
+      "#include \"coprocessors.h\"",
+      "#include \"neon.h\"",
+      "static inline __attribute__((always_inline)) uintptr_t pf_current_sp(void){uintptr_t value;__asm__ volatile(\"mov %0,sp\":\"=r\"(value));return value;}"
+    ],
+    "stack_register": "register0x00000054",
+    "system_registers": {},
+    "source_replacements": {
+      "10040750": {
+        "0x1005df21": "((uintptr_t)pf_module_state+0xd59U)"
+      },
+      "100521dc": {
+        "0x1005e4f1": "((uintptr_t)pf_module_state+0x1329U)",
+        "0x1005e4fd": "((uintptr_t)pf_module_state+0x1335U)",
+        "0x1005e54a": "((uintptr_t)pf_module_state+0x1382U)",
+        "0x1005e52b": "((uintptr_t)pf_module_state+0x1363U)"
+      },
+      "10039a30": {
+        "0x1005dcc6": "((uintptr_t)pf_module_state+0xafeU)",
+        "0x1005dcef": "((uintptr_t)pf_module_state+0xb27U)",
+        "0x1005dcf8": "((uintptr_t)pf_module_state+0xb30U)",
+        "0x1005dce5": "((uintptr_t)pf_module_state+0xb1dU)"
+      },
+      "10059be0": {
+        "0x1005e6f6": "((uintptr_t)pf_module_state+0x152eU)",
+        "(double)(((ulonglong)dVar5 & 0xffffffff00000000) + ((ulonglong)dVar5 & 0xffffffff))": "dVar5"
+      },
+      "10038a20": {
+        "0x1005de00": "((uintptr_t)pf_module_state+0xc38U)",
+        "0x1005d2e5": "((uintptr_t)pf_module_state+0x11dU)"
+      },
+      "1004fa00": {
+        "0x1005e40d": "((uintptr_t)pf_module_state+0x1245U)"
+      },
+      "1004e574": {
+        "0x1005e368": "((uintptr_t)pf_module_state+0x11a0U)"
+      },
+      "1005b6e4": {
+        "0x1005e7ad": "((uintptr_t)pf_module_state+0x15e5U)",
+        "0x1005df43": "((uintptr_t)pf_module_state+0xd7bU)",
+        "\n    (**(code **)(*owner + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)owner + 8)))(owner);"
+      },
+      "10058e24": {
+        "0x1005dd32": "((uintptr_t)pf_module_state+0xb6aU)"
+      },
+      "10059720": {
+        "0x1005e6e3": "((uintptr_t)pf_module_state+0x151bU)",
+        "(double)(((ulonglong)dVar3 & 0xffffffff00000000) + ((ulonglong)dVar3 & 0xffffffff))": "dVar3",
+        "(double)(((ulonglong)dVar5 & 0xffffffff00000000) + ((ulonglong)dVar5 & 0xffffffff))": "dVar5"
+      },
+      "10012f18": {
+        "0x1005d929": "((uintptr_t)pf_module_state+0x761U)",
+        "0x1005d94b": "((uintptr_t)pf_module_state+0x783U)",
+        "0x1005d97c": "((uintptr_t)pf_module_state+0x7b4U)"
+      },
+      "1003ed58": {
+        "0x1005de20": "((uintptr_t)pf_module_state+0xc58U)",
+        "0x1005dc5c": "((uintptr_t)pf_module_state+0xa94U)"
+      },
+      "10002b20": {
+        "0x10064090": "((uintptr_t)pf_module_state+0x6ec8U)"
+      },
+      "1004fdb0": {
+        "0x1005e425": "((uintptr_t)pf_module_state+0x125dU)",
+        "0x1005e419": "((uintptr_t)pf_module_state+0x1251U)"
+      },
+      "1000fab0": {
+        "0x1005d418": "((uintptr_t)pf_module_state+0x250U)",
+        "0x1005d41c": "((uintptr_t)pf_module_state+0x254U)",
+        "0x1005d422": "((uintptr_t)pf_module_state+0x25aU)",
+        "0x1005d416": "((uintptr_t)pf_module_state+0x24eU)",
+        "0x1005d1f7": "((uintptr_t)pf_module_state+0x2fU)",
+        "0x1005d426": "((uintptr_t)pf_module_state+0x25eU)",
+        "0x1005d300": "((uintptr_t)pf_module_state+0x138U)",
+        "0x1005d2f9": "((uintptr_t)pf_module_state+0x131U)",
+        "0x1005d434": "((uintptr_t)pf_module_state+0x26cU)",
+        "0x1005d4a5": "((uintptr_t)pf_module_state+0x2ddU)",
+        "0x1005d2f4": "((uintptr_t)pf_module_state+0x12cU)",
+        "0x1005d1f5": "((uintptr_t)pf_module_state+0x2dU)",
+        "0x1005d428": "((uintptr_t)pf_module_state+0x260U)",
+        "0x1005d450": "((uintptr_t)pf_module_state+0x288U)",
+        "0x1005d420": "((uintptr_t)pf_module_state+0x258U)",
+        "0x1005d48a": "((uintptr_t)pf_module_state+0x2c2U)",
+        "0x1005d467": "((uintptr_t)pf_module_state+0x29fU)",
+        "0x1005d41e": "((uintptr_t)pf_module_state+0x256U)",
+        "0x1005d42a": "((uintptr_t)pf_module_state+0x262U)",
+        "0x1005d424": "((uintptr_t)pf_module_state+0x25cU)",
+        "0x1005d41a": "((uintptr_t)pf_module_state+0x252U)",
+        "0x1005d443": "((uintptr_t)pf_module_state+0x27bU)",
+        "0x1005d2fb": "((uintptr_t)pf_module_state+0x133U)",
+        "0x1005d42c": "((uintptr_t)pf_module_state+0x264U)",
+        "\n              (*(code *)(*pppiVar3)[2])();": "\n              ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)pppiVar3 + 8)))(pppiVar3);",
+        "\n              (*(code *)(*pppiVar2)[2])();": "\n              ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)pppiVar2 + 8)))(pppiVar2);"
+      },
+      "10050168": {
+        "0x1005e45b": "((uintptr_t)pf_module_state+0x1293U)",
+        "0x1005e450": "((uintptr_t)pf_module_state+0x1288U)"
+      },
+      "10041440": {
+        "0x1005dfb3": "((uintptr_t)pf_module_state+0xdebU)",
+        "0x1005e0c7": "((uintptr_t)pf_module_state+0xeffU)",
+        "0x1005dfe7": "((uintptr_t)pf_module_state+0xe1fU)",
+        "0x1005e087": "((uintptr_t)pf_module_state+0xebfU)",
+        "0x1005dfdb": "((uintptr_t)pf_module_state+0xe13U)",
+        "0x1005e051": "((uintptr_t)pf_module_state+0xe89U)",
+        "0x1005e124": "((uintptr_t)pf_module_state+0xf5cU)",
+        "0x1005e020": "((uintptr_t)pf_module_state+0xe58U)",
+        "0x1005e0e1": "((uintptr_t)pf_module_state+0xf19U)",
+        "0x1005e0f3": "((uintptr_t)pf_module_state+0xf2bU)",
+        "0x1005e0cc": "((uintptr_t)pf_module_state+0xf04U)",
+        "0x1005dfe0": "((uintptr_t)pf_module_state+0xe18U)",
+        "0x1005ddd2": "((uintptr_t)pf_module_state+0xc0aU)",
+        "0x1005dff9": "((uintptr_t)pf_module_state+0xe31U)",
+        "0x1005e0e5": "((uintptr_t)pf_module_state+0xf1dU)",
+        "0x1005e119": "((uintptr_t)pf_module_state+0xf51U)",
+        "0x1005dfee": "((uintptr_t)pf_module_state+0xe26U)",
+        "0x1005dfc8": "((uintptr_t)pf_module_state+0xe00U)",
+        "0x1005e0d9": "((uintptr_t)pf_module_state+0xf11U)",
+        "0x1005dfab": "((uintptr_t)pf_module_state+0xde3U)",
+        "0x1005e0b9": "((uintptr_t)pf_module_state+0xef1U)",
+        "0x1005e11f": "((uintptr_t)pf_module_state+0xf57U)",
+        "0x1005dfd4": "((uintptr_t)pf_module_state+0xe0cU)",
+        "0x1005dfce": "((uintptr_t)pf_module_state+0xe06U)",
+        "0x1005e043": "((uintptr_t)pf_module_state+0xe7bU)",
+        "0x1005e005": "((uintptr_t)pf_module_state+0xe3dU)",
+        "0x1005dfa2": "((uintptr_t)pf_module_state+0xddaU)",
+        "0x1005e12d": "((uintptr_t)pf_module_state+0xf65U)",
+        "0x1005e065": "((uintptr_t)pf_module_state+0xe9dU)",
+        "0x1005df85": "((uintptr_t)pf_module_state+0xdbdU)",
+        "0x1005dfff": "((uintptr_t)pf_module_state+0xe37U)",
+        "0x1005e0c1": "((uintptr_t)pf_module_state+0xef9U)",
+        "0x1005e09a": "((uintptr_t)pf_module_state+0xed2U)",
+        "0x1005ddcb": "((uintptr_t)pf_module_state+0xc03U)",
+        "0x1005e095": "((uintptr_t)pf_module_state+0xecdU)",
+        "0x1005e031": "((uintptr_t)pf_module_state+0xe69U)",
+        "0x1005dfbc": "((uintptr_t)pf_module_state+0xdf4U)",
+        "0x1005e014": "((uintptr_t)pf_module_state+0xe4cU)",
+        "0x1005df9c": "((uintptr_t)pf_module_state+0xdd4U)",
+        "0x1005e102": "((uintptr_t)pf_module_state+0xf3aU)",
+        "0x1005e0ed": "((uintptr_t)pf_module_state+0xf25U)",
+        "0x1005e10c": "((uintptr_t)pf_module_state+0xf44U)",
+        "0x1005e0ac": "((uintptr_t)pf_module_state+0xee4U)",
+        "0x1005e080": "((uintptr_t)pf_module_state+0xeb8U)",
+        "0x1005e0bd": "((uintptr_t)pf_module_state+0xef5U)",
+        "0x1005e009": "((uintptr_t)pf_module_state+0xe41U)",
+        "0x1005dc8b": "((uintptr_t)pf_module_state+0xac3U)",
+        "0x1005e0a6": "((uintptr_t)pf_module_state+0xedeU)",
+        "0x1005e074": "((uintptr_t)pf_module_state+0xeacU)",
+        "0x1005e079": "((uintptr_t)pf_module_state+0xeb1U)",
+        "0x1005dff5": "((uintptr_t)pf_module_state+0xe2dU)",
+        "0x1005e0f7": "((uintptr_t)pf_module_state+0xf2fU)",
+        "0x1005e109": "((uintptr_t)pf_module_state+0xf41U)",
+        "0x1005e06e": "((uintptr_t)pf_module_state+0xea6U)",
+        "0x1005e111": "((uintptr_t)pf_module_state+0xf49U)",
+        "0x1005d2b6": "((uintptr_t)pf_module_state+0xeeU)",
+        "0x1005e0d0": "((uintptr_t)pf_module_state+0xf08U)",
+        "0x1005e13a": "((uintptr_t)pf_module_state+0xf72U)",
+        "0x1005e02c": "((uintptr_t)pf_module_state+0xe64U)",
+        "0x1005dfc1": "((uintptr_t)pf_module_state+0xdf9U)",
+        "0x1005e035": "((uintptr_t)pf_module_state+0xe6dU)",
+        "0x1005e08e": "((uintptr_t)pf_module_state+0xec6U)",
+        "0x1005e0e9": "((uintptr_t)pf_module_state+0xf21U)",
+        "0x1005dbf3": "((uintptr_t)pf_module_state+0xa2bU)",
+        "0x1005e05a": "((uintptr_t)pf_module_state+0xe92U)",
+        "0x1005e0d5": "((uintptr_t)pf_module_state+0xf0dU)",
+        "0x1005e116": "((uintptr_t)pf_module_state+0xf4eU)",
+        "0x1005e01b": "((uintptr_t)pf_module_state+0xe53U)",
+        "0x1005e027": "((uintptr_t)pf_module_state+0xe5fU)",
+        "0x1005de00": "((uintptr_t)pf_module_state+0xc38U)",
+        "0x1005e04a": "((uintptr_t)pf_module_state+0xe82U)",
+        "0x1005e00e": "((uintptr_t)pf_module_state+0xe46U)",
+        "0x1005e135": "((uintptr_t)pf_module_state+0xf6dU)",
+        "0x1005df8e": "((uintptr_t)pf_module_state+0xdc6U)",
+        "0x1005e09f": "((uintptr_t)pf_module_state+0xed7U)",
+        "0x1005e0b2": "((uintptr_t)pf_module_state+0xeeaU)",
+        "0x1005e0dd": "((uintptr_t)pf_module_state+0xf15U)",
+        "0x1005e03d": "((uintptr_t)pf_module_state+0xe75U)",
+        "\n    (**(code **)(*local_270 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_270 + 8)))(local_270);",
+        "\n    (**(code **)(*local_26c + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_26c + 8)))(local_26c);",
+        "\n    (**(code **)(*local_268 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_268 + 8)))(local_268);",
+        "\n    (**(code **)(*local_264 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_264 + 8)))(local_264);",
+        "\n    (**(code **)(*local_260 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_260 + 8)))(local_260);",
+        "\n    (**(code **)(*local_144 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_144 + 8)))(local_144);",
+        "\n    (**(code **)(*local_ac + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_ac + 8)))(local_ac);"
+      },
+      "100202b0": {
+        "0x1005d849": "((uintptr_t)pf_module_state+0x681U)",
+        "0x1005d536": "((uintptr_t)pf_module_state+0x36eU)",
+        "0x1005d727": "((uintptr_t)pf_module_state+0x55fU)",
+        "0x1005d7b2": "((uintptr_t)pf_module_state+0x5eaU)",
+        "0x1005d4ec": "((uintptr_t)pf_module_state+0x324U)",
+        "0x1005d820": "((uintptr_t)pf_module_state+0x658U)",
+        "0x1005d8f8": "((uintptr_t)pf_module_state+0x730U)",
+        "0x1005d74b": "((uintptr_t)pf_module_state+0x583U)",
+        "0x1005d8c0": "((uintptr_t)pf_module_state+0x6f8U)",
+        "0x1005d787": "((uintptr_t)pf_module_state+0x5bfU)",
+        "0x1005d76b": "((uintptr_t)pf_module_state+0x5a3U)",
+        "0x1005d7fe": "((uintptr_t)pf_module_state+0x636U)",
+        "0x1005d8dd": "((uintptr_t)pf_module_state+0x715U)",
+        "0x1005d7d8": "((uintptr_t)pf_module_state+0x610U)",
+        "0x1005d50f": "((uintptr_t)pf_module_state+0x347U)",
+        "\n          (**(code **)(*local_b0 + 8))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_b0 + 8)))(local_b0);",
+        "\n            (**(code **)(*local_b0 + 8))();": "\n            ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_b0 + 8)))(local_b0);",
+        "\n          (*(code *)(*local_b8)[2])();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_b8 + 8)))(local_b8);",
+        "\n            (*(code *)(*local_b8)[2])();": "\n            ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_b8 + 8)))(local_b8);",
+        "\n          (*(code *)(*local_d0)[2])();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_d0 + 8)))(local_d0);",
+        "\n              (*(code *)(*pppppppiVar8)[2])();": "\n              ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)pppppppiVar8 + 8)))(pppppppiVar8);",
+        "\n      (*(code *)(*local_ec)[2])();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_ec + 8)))(local_ec);",
+        "\n          (*(code *)(*pppppppiVar8)[2])();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)pppppppiVar8 + 8)))(pppppppiVar8);",
+        "\n            (*(code *)(*pppppppiVar8)[2])();": "\n            ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)pppppppiVar8 + 8)))(pppppppiVar8);",
+        "\n      (*(code *)(*local_c8)[2])();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_c8 + 8)))(local_c8);",
+        "\n            (*(code *)(*local_ec)[2])();": "\n            ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_ec + 8)))(local_ec);",
+        "\n                  (*(code *)(*pppppppiVar8)[2])();": "\n                  ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)pppppppiVar8 + 8)))(pppppppiVar8);",
+        "\n                (*(code *)(*pppppppiVar8)[2])();": "\n                ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)pppppppiVar8 + 8)))(pppppppiVar8);",
+        "\n                    (*(code *)(*pppppppiVar8)[2])();": "\n                    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)pppppppiVar8 + 8)))(pppppppiVar8);",
+        "\n        (*(code *)(*pppppppiVar8)[2])();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)pppppppiVar8 + 8)))(pppppppiVar8);",
+        "\n          (*(code *)(*local_ec)[2])();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_ec + 8)))(local_ec);"
+      },
+      "10002d34": {
+        "0x10064090": "((uintptr_t)pf_module_state+0x6ec8U)"
+      },
+      "1000c8e8": {
+        "0x1005d32c": "((uintptr_t)pf_module_state+0x164U)"
+      },
+      "10034de0": {
+        "0x1005d317": "((uintptr_t)pf_module_state+0x14fU)",
+        "(double)(((ulonglong)dVar9 & 0xffffffff00000000) + ((ulonglong)dVar9 & 0xffffffff))": "dVar9"
+      },
+      "10035ed0": {
+        "0x1005db5e": "((uintptr_t)pf_module_state+0x996U)",
+        "0x1005d2e5": "((uintptr_t)pf_module_state+0x11dU)",
+        "0x1005db87": "((uintptr_t)pf_module_state+0x9bfU)",
+        "0x1005db66": "((uintptr_t)pf_module_state+0x99eU)",
+        "0x1005db71": "((uintptr_t)pf_module_state+0x9a9U)",
+        "0x1005db7c": "((uintptr_t)pf_module_state+0x9b4U)"
+      },
+      "10050ecc": {
+        "0x1005e4b2": "((uintptr_t)pf_module_state+0x12eaU)"
+      },
+      "10002de4": {
+        "0x10064090": "((uintptr_t)pf_module_state+0x6ec8U)"
+      },
+      "10002bd0": {
+        "0x10064090": "((uintptr_t)pf_module_state+0x6ec8U)"
+      },
+      "10002c8c": {
+        "0x10064090": "((uintptr_t)pf_module_state+0x6ec8U)"
+      },
+      "1001458c": {
+        "0x1005d2fd": "((uintptr_t)pf_module_state+0x135U)",
+        "0x1005d41e": "((uintptr_t)pf_module_state+0x256U)"
+      },
+      "1000d034": {
+        "0x1005d380": "((uintptr_t)pf_module_state+0x1b8U)"
+      },
+      "1001bed4": {
+        "0x1005d2fd": "((uintptr_t)pf_module_state+0x135U)",
+        "0x1005d41e": "((uintptr_t)pf_module_state+0x256U)"
+      },
+      "10059260": {
+        "0x1005e6ce": "((uintptr_t)pf_module_state+0x1506U)",
+        "(double)(((ulonglong)dVar3 & 0xffffffff00000000) + ((ulonglong)dVar3 & 0xffffffff))": "dVar3",
+        "(double)(((ulonglong)dVar5 & 0xffffffff00000000) + ((ulonglong)dVar5 & 0xffffffff))": "dVar5"
+      },
+      "1003f0d8": {
+        "0x1005de33": "((uintptr_t)pf_module_state+0xc6bU)",
+        "\n          (**(code **)(*local_1a8 + 8))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_1a8 + 8)))(local_1a8);",
+        "\n          (**(code **)(*piVar11 + 8))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar11 + 8)))(piVar11);",
+        "\n        (**(code **)(*local_1c8 + 8))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_1c8 + 8)))(local_1c8);",
+        "\n          (**(code **)(*piVar10 + 8))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar10 + 8)))(piVar10);",
+        "(local_204,*(int **)(pcVar11 + 0x10),*param_2,local_1e8);": "(local_204,*(int **)(pcVar11 + 0x10),*param_2,local_1e8,param_5,local_b8[3]);"
+      },
+      "1003c730": {
+        "0x1005da2f": "((uintptr_t)pf_module_state+0x867U)",
+        "0x1005db0a": "((uintptr_t)pf_module_state+0x942U)",
+        "0x1005da59": "((uintptr_t)pf_module_state+0x891U)",
+        "0x1005dab0": "((uintptr_t)pf_module_state+0x8e8U)",
+        "0x1005dade": "((uintptr_t)pf_module_state+0x916U)",
+        "0x1005da14": "((uintptr_t)pf_module_state+0x84cU)",
+        "0x1005da76": "((uintptr_t)pf_module_state+0x8aeU)",
+        "0x1005dacd": "((uintptr_t)pf_module_state+0x905U)",
+        "0x1005db3b": "((uintptr_t)pf_module_state+0x973U)",
+        "0x1005dafb": "((uintptr_t)pf_module_state+0x933U)",
+        "0x1005da93": "((uintptr_t)pf_module_state+0x8cbU)",
+        "0x1005db47": "((uintptr_t)pf_module_state+0x97fU)",
+        "\n    (**(code **)(*piVar16 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar16 + 8)))(piVar16);",
+        "\n    (**(code **)(*local_1d8 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_1d8 + 8)))(local_1d8);",
+        "(double)(((ulonglong)dVar21 & 0xffffffff00000000) + ((ulonglong)dVar21 & 0xffffffff))": "dVar21"
+      },
+      "10034324": {
+        "0x1005d317": "((uintptr_t)pf_module_state+0x14fU)",
+        "(double)(((ulonglong)dVar3 & 0xffffffff00000000) + ((ulonglong)dVar3 & 0xffffffff))": "dVar3"
+      },
+      "1003afc4": {
+        "0x1005dc9c": "((uintptr_t)pf_module_state+0xad4U)",
+        "0x1005dd4e": "((uintptr_t)pf_module_state+0xb86U)",
+        "0x1005dd74": "((uintptr_t)pf_module_state+0xbacU)",
+        "\n    (**(code **)(*owner + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)owner + 8)))(owner);",
+        "\n    (**(code **)(*local_b0 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_b0 + 8)))(local_b0);"
+      },
+      "100473b4": {
+        "0x1005e153": "((uintptr_t)pf_module_state+0xf8bU)",
+        "\n        (**(code **)(*local_bc + 8))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_bc + 8)))(local_bc);",
+        "\n    (**(code **)(*local_bc + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_bc + 8)))(local_bc);"
+      },
+      "1000ca20": {
+        "0x1005d341": "((uintptr_t)pf_module_state+0x179U)"
+      },
+      "100375d8": {
+        "0x1005dc28": "((uintptr_t)pf_module_state+0xa60U)",
+        "0x1005dcb1": "((uintptr_t)pf_module_state+0xae9U)",
+        "0x1005dbf3": "((uintptr_t)pf_module_state+0xa2bU)",
+        "0x1005dbc2": "((uintptr_t)pf_module_state+0x9faU)",
+        "0x1005dc81": "((uintptr_t)pf_module_state+0xab9U)",
+        "0x1005dcbc": "((uintptr_t)pf_module_state+0xaf4U)",
+        "0x1005dc48": "((uintptr_t)pf_module_state+0xa80U)",
+        "0x1005dc9c": "((uintptr_t)pf_module_state+0xad4U)",
+        "0x1005dca7": "((uintptr_t)pf_module_state+0xadfU)",
+        "0x1005dc63": "((uintptr_t)pf_module_state+0xa9bU)",
+        "0x1005dc91": "((uintptr_t)pf_module_state+0xac9U)",
+        "0x1005dbfa": "((uintptr_t)pf_module_state+0xa32U)",
+        "0x1005dc5c": "((uintptr_t)pf_module_state+0xa94U)"
+      },
+      "1003a2d8": {
+        "0x1005d317": "((uintptr_t)pf_module_state+0x14fU)"
+      },
+      "100507b4": {
+        "0x1005e489": "((uintptr_t)pf_module_state+0x12c1U)"
+      },
+      "10058b90": {
+        "0x1005e6bc": "((uintptr_t)pf_module_state+0x14f4U)",
+        "(double)(((ulonglong)dVar6 & 0xffffffff00000000) + ((ulonglong)dVar6 & 0xffffffff))": "dVar6"
+      },
+      "1005704c": {
+        "0x1005e67f": "((uintptr_t)pf_module_state+0x14b7U)",
+        "\n    (**(code **)(*owner + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)owner + 8)))(owner);"
+      },
+      "10038d94": {
+        "0x1005dc81": "((uintptr_t)pf_module_state+0xab9U)",
+        "\n    (**(code **)(*local_2b4 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_2b4 + 8)))(local_2b4);",
+        "\n    (**(code **)(*local_2ac + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_2ac + 8)))(local_2ac);"
+      },
+      "1003a038": {
+        "0x1005dd32": "((uintptr_t)pf_module_state+0xb6aU)"
+      },
+      "10003148": {
+        "0x10064090": "((uintptr_t)pf_module_state+0x6ec8U)"
+      },
+      "10027bb0": {
+        "0x1005d70a": "((uintptr_t)pf_module_state+0x542U)",
+        "0x1005d6ec": "((uintptr_t)pf_module_state+0x524U)",
+        "\n              (**(code **)(*piVar3 + 8))();": "\n              ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar3 + 8)))(piVar3);",
+        "\n            (**(code **)(*piVar2 + 8))();": "\n            ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar2 + 8)))(piVar2);"
+      },
+      "100356b8": {
+        "0x1005d317": "((uintptr_t)pf_module_state+0x14fU)",
+        "(double)(((ulonglong)dVar19 & 0xffffffff00000000) + ((ulonglong)dVar19 & 0xffffffff))": "dVar19",
+        "(double)(((ulonglong)dVar20 & 0xffffffff00000000) + ((ulonglong)dVar20 & 0xffffffff))": "dVar20",
+        "(double)(((ulonglong)dVar22 & 0xffffffff00000000) + ((ulonglong)dVar22 & 0xffffffff))": "dVar22"
+      },
+      "10022a80": {
+        "0x1005d891": "((uintptr_t)pf_module_state+0x6c9U)",
+        "0x1005d88c": "((uintptr_t)pf_module_state+0x6c4U)",
+        "0x1005d59a": "((uintptr_t)pf_module_state+0x3d2U)",
+        "0x1005d8a8": "((uintptr_t)pf_module_state+0x6e0U)",
+        "0x1005d558": "((uintptr_t)pf_module_state+0x390U)",
+        "0x1005d86f": "((uintptr_t)pf_module_state+0x6a7U)",
+        "\n        (**(code **)(*local_148 + 8))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_148 + 8)))(local_148);",
+        "\n    (**(code **)(*ppuVar3 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)ppuVar3 + 8)))(ppuVar3);",
+        "\n      (**(code **)(*local_128 + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_128 + 8)))(local_128);",
+        "\n      (**(code **)(*local_130 + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_130 + 8)))(local_130);",
+        "\n      (**(code **)(*piVar4 + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar4 + 8)))(piVar4);",
+        "\n      (**(code **)(*local_f4 + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_f4 + 8)))(local_f4);",
+        "\n      (**(code **)(*local_fc + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_fc + 8)))(local_fc);",
+        "\n    (**(code **)(*ppuVar2 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)ppuVar2 + 8)))(ppuVar2);",
+        "\n      (**(code **)(*piVar3 + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar3 + 8)))(piVar3);"
+      },
+      "10033224": {
+        "0x1005dbc2": "((uintptr_t)pf_module_state+0x9faU)",
+        "0x1005de55": "((uintptr_t)pf_module_state+0xc8dU)",
+        "0x1005dc5c": "((uintptr_t)pf_module_state+0xa94U)"
+      },
+      "1001bcac": {
+        "0x1005d469": "((uintptr_t)pf_module_state+0x2a1U)"
+      },
+      "1002c170": {
+        "0x1005d90f": "((uintptr_t)pf_module_state+0x747U)"
+      },
+      "10035a58": {
+        "0x1005d317": "((uintptr_t)pf_module_state+0x14fU)",
+        "(double)(((ulonglong)dVar11 & 0xffffffff00000000) + ((ulonglong)dVar11 & 0xffffffff))": "dVar11"
+      },
+      "10053a30": {
+        "0x1005e622": "((uintptr_t)pf_module_state+0x145aU)",
+        "\n    (**(code **)(*local_b8 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_b8 + 8)))(local_b8);"
+      },
+      "1003c148": {
+        "0x1005ddd9": "((uintptr_t)pf_module_state+0xc11U)",
+        "0x1005ddbe": "((uintptr_t)pf_module_state+0xbf6U)",
+        "\n    (**(code **)(*local_ac + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_ac + 8)))(local_ac);"
+      },
+      "100024b8": {
+        "0x10064090": "((uintptr_t)pf_module_state+0x6ec8U)"
+      },
+      "1003a44c": {
+        "0x1005dd4e": "((uintptr_t)pf_module_state+0xb86U)",
+        "0x1005dd5f": "((uintptr_t)pf_module_state+0xb97U)",
+        "0x1005dc91": "((uintptr_t)pf_module_state+0xac9U)",
+        "\n    (**(code **)(*owner + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)owner + 8)))(owner);",
+        "\n    (**(code **)(*local_b0 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_b0 + 8)))(local_b0);"
+      },
+      "10046b00": {
+        "0x1005d2b6": "((uintptr_t)pf_module_state+0xeeU)"
+      },
+      "1005cb84": {
+        "0x1005e7cf": "((uintptr_t)pf_module_state+0x1607U)"
+      },
+      "1000cc8c": {
+        "0x1005d357": "((uintptr_t)pf_module_state+0x18fU)"
+      },
+      "100405e8": {
+        "0x1005df0b": "((uintptr_t)pf_module_state+0xd43U)"
+      },
+      "10052b60": {
+        "0x1005e5d4": "((uintptr_t)pf_module_state+0x140cU)",
+        "0x1005e5a7": "((uintptr_t)pf_module_state+0x13dfU)",
+        "0x1005e577": "((uintptr_t)pf_module_state+0x13afU)",
+        "0x1005e569": "((uintptr_t)pf_module_state+0x13a1U)"
+      },
+      "10049a8c": {
+        "0x1005e28e": "((uintptr_t)pf_module_state+0x10c6U)"
+      },
+      "10050c88": {
+        "0x1005e4a4": "((uintptr_t)pf_module_state+0x12dcU)"
+      },
+      "10051104": {
+        "0x1005e4c2": "((uintptr_t)pf_module_state+0x12faU)"
+      },
+      "1002df18": {
+        "0x1005d9d9": "((uintptr_t)pf_module_state+0x811U)",
+        "0x1005d991": "((uintptr_t)pf_module_state+0x7c9U)",
+        "0x1005d9b9": "((uintptr_t)pf_module_state+0x7f1U)",
+        "0x1005d9fe": "((uintptr_t)pf_module_state+0x836U)",
+        "\n          (**(code **)(*piVar13 + 8))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar13 + 8)))(piVar13);",
+        "\n          (**(code **)(*local_338 + 8))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_338 + 8)))(local_338);",
+        "\n      (**(code **)(*piVar13 + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar13 + 8)))(piVar13);",
+        "\n            (**(code **)(*local_338 + 8))();": "\n            ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_338 + 8)))(local_338);",
+        "\n        (**(code **)(*local_338 + 8))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_338 + 8)))(local_338);",
+        "\n                (**(code **)(*local_338 + 8))();": "\n                ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_338 + 8)))(local_338);",
+        "\n              (**(code **)(*local_338 + 8))();": "\n              ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_338 + 8)))(local_338);",
+        "(double)(((ulonglong)dVar32 & 0xffffffff00000000) + ((ulonglong)dVar32 & 0xffffffff))": "dVar32"
+      },
+      "10049570": {
+        "0x1005e276": "((uintptr_t)pf_module_state+0x10aeU)"
+      },
+      "10047bf4": {
+        "0x1005e180": "((uintptr_t)pf_module_state+0xfb8U)",
+        "0x1005e195": "((uintptr_t)pf_module_state+0xfcdU)",
+        "\n    (**(code **)(*local_124 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_124 + 8)))(local_124);"
+      },
+      "10015094": {
+        "0x1005dea7": "((uintptr_t)pf_module_state+0xcdfU)",
+        "0x1005dec2": "((uintptr_t)pf_module_state+0xcfaU)",
+        "0x1005df0b": "((uintptr_t)pf_module_state+0xd43U)",
+        "0x1005dee4": "((uintptr_t)pf_module_state+0xd1cU)"
+      },
+      "1000c544": {
+        "0x1005d317": "((uintptr_t)pf_module_state+0x14fU)"
+      },
+      "1001564c": {
+        "0x1005df6f": "((uintptr_t)pf_module_state+0xda7U)",
+        "0x1005df43": "((uintptr_t)pf_module_state+0xd7bU)",
+        "0x1005d981": "((uintptr_t)pf_module_state+0x7b9U)",
+        "0x1005df59": "((uintptr_t)pf_module_state+0xd91U)"
+      },
+      "10048a14": {
+        "0x1005e1eb": "((uintptr_t)pf_module_state+0x1023U)",
+        "0x1005e1c6": "((uintptr_t)pf_module_state+0xffeU)"
+      },
+      "1005a308": {
+        "0x1005e711": "((uintptr_t)pf_module_state+0x1549U)",
+        "(double)(((ulonglong)dVar5 & 0xffffffff00000000) + ((ulonglong)dVar5 & 0xffffffff))": "dVar5"
+      },
+      "100515e0": {
+        "0x1005e4e4": "((uintptr_t)pf_module_state+0x131cU)",
+        "\n    (**(code **)(*local_174 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_174 + 8)))(local_174);"
+      },
+      "100162b8": {
+        "0x1005d3cc": "((uintptr_t)pf_module_state+0x204U)"
+      },
+      "100478f4": {
+        "0x1005e169": "((uintptr_t)pf_module_state+0xfa1U)",
+        "\n        (**(code **)(*local_bc + 8))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_bc + 8)))(local_bc);",
+        "\n    (**(code **)(*local_bc + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_bc + 8)))(local_bc);"
+      },
+      "10050534": {
+        "0x1005e47a": "((uintptr_t)pf_module_state+0x12b2U)"
+      },
+      "10058228": {
+        "0x1005e6a3": "((uintptr_t)pf_module_state+0x14dbU)",
+        "\n    (**(code **)(*local_9c + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_9c + 8)))(local_9c);"
+      },
+      "1004ee5c": {
+        "0x1005e374": "((uintptr_t)pf_module_state+0x11acU)",
+        "0x1005e382": "((uintptr_t)pf_module_state+0x11baU)",
+        "0x1005e3f2": "((uintptr_t)pf_module_state+0x122aU)",
+        "0x1005e39c": "((uintptr_t)pf_module_state+0x11d4U)",
+        "0x1005e3b4": "((uintptr_t)pf_module_state+0x11ecU)",
+        "0x1005e3d4": "((uintptr_t)pf_module_state+0x120cU)"
+      },
+      "10056694": {
+        "0x1005e670": "((uintptr_t)pf_module_state+0x14a8U)",
+        "\n    (**(code **)(*local_108 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_108 + 8)))(local_108);"
+      },
+      "1005b238": {
+        "0x1005e783": "((uintptr_t)pf_module_state+0x15bbU)",
+        "0x1005e78f": "((uintptr_t)pf_module_state+0x15c7U)"
+      },
+      "1003bd68": {
+        "0x1005dda3": "((uintptr_t)pf_module_state+0xbdbU)"
+      },
+      "10025974": {
+        "0x1005d5b9": "((uintptr_t)pf_module_state+0x3f1U)",
+        "0x1005d625": "((uintptr_t)pf_module_state+0x45dU)",
+        "0x1005d558": "((uintptr_t)pf_module_state+0x390U)",
+        "0x1005d649": "((uintptr_t)pf_module_state+0x481U)",
+        "0x1005d576": "((uintptr_t)pf_module_state+0x3aeU)",
+        "0x1005d5eb": "((uintptr_t)pf_module_state+0x423U)",
+        "0x1005d608": "((uintptr_t)pf_module_state+0x440U)",
+        "0x1005d59a": "((uintptr_t)pf_module_state+0x3d2U)",
+        "0x1005d5d7": "((uintptr_t)pf_module_state+0x40fU)",
+        "\n          (**(code **)(*local_b0 + 8))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_b0 + 8)))(local_b0);",
+        "\n            (**(code **)(*local_b8 + 8))();": "\n            ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_b8 + 8)))(local_b8);",
+        "\n            (**(code **)(*local_b0 + 8))();": "\n            ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_b0 + 8)))(local_b0);",
+        "\n              (**(code **)(*piVar19 + 8))();": "\n              ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar19 + 8)))(piVar19);",
+        "\n        (**(code **)(*piVar19 + 8))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar19 + 8)))(piVar19);",
+        "\n        (**(code **)(*piVar7 + 8))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar7 + 8)))(piVar7);",
+        "\n        (**(code **)(*local_ec + 8))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_ec + 8)))(local_ec);",
+        "\n              (**(code **)(*piVar9 + 8))();": "\n              ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar9 + 8)))(piVar9);",
+        "\n    (**(code **)(*piVar19 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar19 + 8)))(piVar19);",
+        "\n              (**(code **)(*local_b8 + 8))();": "\n              ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_b8 + 8)))(local_b8);"
+      },
+      "100579e8": {
+        "0x1005e697": "((uintptr_t)pf_module_state+0x14cfU)",
+        "\n    (**(code **)(*owner + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)owner + 8)))(owner);",
+        "\n    (**(code **)(*local_cc + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_cc + 8)))(local_cc);"
+      },
+      "1005cd38": {
+        "0x1005e7db": "((uintptr_t)pf_module_state+0x1613U)"
+      },
+      "10028ab0": {
+        "0x1005d68f": "((uintptr_t)pf_module_state+0x4c7U)",
+        "0x1005d6a7": "((uintptr_t)pf_module_state+0x4dfU)",
+        "0x1005d6c9": "((uintptr_t)pf_module_state+0x501U)",
+        "0x1005d66e": "((uintptr_t)pf_module_state+0x4a6U)",
+        "\n                (**(code **)(*piVar4 + 8))();": "\n                ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar4 + 8)))(piVar4);",
+        "\n          (**(code **)(*piVar3 + 8))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar3 + 8)))(piVar3);"
+      },
+      "1000cdc4": {
+        "0x1005d36d": "((uintptr_t)pf_module_state+0x1a5U)"
+      },
+      "1005bebc": {
+        "0x1005d969": "((uintptr_t)pf_module_state+0x7a1U)",
+        "0x1005d962": "((uintptr_t)pf_module_state+0x79aU)",
+        "0x1005d977": "((uintptr_t)pf_module_state+0x7afU)"
+      },
+      "10048e10": {
+        "0x1005dfe7": "((uintptr_t)pf_module_state+0xe1fU)",
+        "0x1005e205": "((uintptr_t)pf_module_state+0x103dU)"
+      },
+      "1004c0b0": {
+        "0x1005e310": "((uintptr_t)pf_module_state+0x1148U)"
+      },
+      "1004d1fc": {
+        "0x1005e35a": "((uintptr_t)pf_module_state+0x1192U)",
+        "\n    (**(code **)(*piVar13 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar13 + 8)))(piVar13);"
+      },
+      "100031d8": {
+        "0x10064090": "((uintptr_t)pf_module_state+0x6ec8U)"
+      },
+      "10051364": {
+        "0x1005e4d4": "((uintptr_t)pf_module_state+0x130cU)"
+      },
+      "10035378": {
+        "0x1005d317": "((uintptr_t)pf_module_state+0x14fU)",
+        "(double)(((ulonglong)dVar9 & 0xffffffff00000000) + ((ulonglong)dVar9 & 0xffffffff))": "dVar9",
+        "(double)(((ulonglong)dVar10 & 0xffffffff00000000) + ((ulonglong)dVar10 & 0xffffffff))": "dVar10",
+        "(double)(((ulonglong)dVar12 & 0xffffffff00000000) + ((ulonglong)dVar12 & 0xffffffff))": "dVar12"
+      },
+      "10053344": {
+        "0x1005e5f5": "((uintptr_t)pf_module_state+0x142dU)",
+        "0x1005e602": "((uintptr_t)pf_module_state+0x143aU)",
+        "\n    (**(code **)(*local_b8 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_b8 + 8)))(local_b8);"
+      },
+      "1004b1c4": {
+        "0x1005e30d": "((uintptr_t)pf_module_state+0x1145U)",
+        "0x1005d2f4": "((uintptr_t)pf_module_state+0x12cU)",
+        "0x1005e30a": "((uintptr_t)pf_module_state+0x1142U)"
+      },
+      "10035038": {
+        "0x1005d317": "((uintptr_t)pf_module_state+0x14fU)",
+        "(double)(((ulonglong)dVar9 & 0xffffffff00000000) + ((ulonglong)dVar9 & 0xffffffff))": "dVar9",
+        "(double)(((ulonglong)dVar10 & 0xffffffff00000000) + ((ulonglong)dVar10 & 0xffffffff))": "dVar10",
+        "(double)(((ulonglong)dVar12 & 0xffffffff00000000) + ((ulonglong)dVar12 & 0xffffffff))": "dVar12"
+      },
+      "1004cc00": {
+        "0x1005e34d": "((uintptr_t)pf_module_state+0x1185U)"
+      },
+      "1000b8d4": {
+        "0x1005d2f6": "((uintptr_t)pf_module_state+0x12eU)",
+        "0x1005d2f4": "((uintptr_t)pf_module_state+0x12cU)",
+        "0x1005d2e5": "((uintptr_t)pf_module_state+0x11dU)",
+        "0x1005d30c": "((uintptr_t)pf_module_state+0x144U)",
+        "0x1005d2fd": "((uintptr_t)pf_module_state+0x135U)",
+        "0x1005d300": "((uintptr_t)pf_module_state+0x138U)",
+        "0x1005d2f9": "((uintptr_t)pf_module_state+0x131U)",
+        "0x1005d2fb": "((uintptr_t)pf_module_state+0x133U)"
+      },
+      "10059980": {
+        "0x1005e6ec": "((uintptr_t)pf_module_state+0x1524U)",
+        "(double)(((ulonglong)dVar5 & 0xffffffff00000000) + ((ulonglong)dVar5 & 0xffffffff))": "dVar5"
+      },
+      "1003bed8": {
+        "0x1005dcb1": "((uintptr_t)pf_module_state+0xae9U)",
+        "\n    (**(code **)(*local_9c + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_9c + 8)))(local_9c);"
+      },
+      "1000cb54": {
+        "0x1005d357": "((uintptr_t)pf_module_state+0x18fU)"
+      },
+      "100316e0": {
+        "0x1005da2f": "((uintptr_t)pf_module_state+0x867U)",
+        "0x1005db0a": "((uintptr_t)pf_module_state+0x942U)",
+        "0x1005da59": "((uintptr_t)pf_module_state+0x891U)",
+        "0x1005dab0": "((uintptr_t)pf_module_state+0x8e8U)",
+        "0x1005dade": "((uintptr_t)pf_module_state+0x916U)",
+        "0x1005da14": "((uintptr_t)pf_module_state+0x84cU)",
+        "0x1005da76": "((uintptr_t)pf_module_state+0x8aeU)",
+        "0x1005dacd": "((uintptr_t)pf_module_state+0x905U)",
+        "0x1005db3b": "((uintptr_t)pf_module_state+0x973U)",
+        "0x1005dafb": "((uintptr_t)pf_module_state+0x933U)",
+        "0x1005da93": "((uintptr_t)pf_module_state+0x8cbU)",
+        "0x1005db47": "((uintptr_t)pf_module_state+0x97fU)",
+        "\n    (**(code **)(*piVar16 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar16 + 8)))(piVar16);",
+        "\n      (**(code **)(*piVar16 + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar16 + 8)))(piVar16);",
+        "(double)(((ulonglong)dVar23 & 0xffffffff00000000) + ((ulonglong)dVar23 & 0xffffffff))": "dVar23"
+      },
+      "10058550": {
+        "0x1005e6af": "((uintptr_t)pf_module_state+0x14e7U)",
+        "\n    (**(code **)(*local_c0 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_c0 + 8)))(local_c0);",
+        "\n    (**(code **)(*local_b8 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_b8 + 8)))(local_b8);"
+      },
+      "1000c75c": {
+        "0x1005d317": "((uintptr_t)pf_module_state+0x14fU)"
+      },
+      "10039e04": {
+        "0x1005dcfe": "((uintptr_t)pf_module_state+0xb36U)",
+        "0x1005dd10": "((uintptr_t)pf_module_state+0xb48U)"
+      },
+      "100033c0": {
+        "0x10064090": "((uintptr_t)pf_module_state+0x6ec8U)"
+      },
+      "1005b0f4": {
+        "0x1005e773": "((uintptr_t)pf_module_state+0x15abU)"
+      },
+      "10058fc0": {
+        "0x1005e6c5": "((uintptr_t)pf_module_state+0x14fdU)",
+        "(double)(((ulonglong)dVar6 & 0xffffffff00000000) + ((ulonglong)dVar6 & 0xffffffff))": "dVar6"
+      },
+      "100594c0": {
+        "0x1005e6d9": "((uintptr_t)pf_module_state+0x1511U)",
+        "(double)(((ulonglong)dVar5 & 0xffffffff00000000) + ((ulonglong)dVar5 & 0xffffffff))": "dVar5"
+      },
+      "10002a88": {
+        "0x10064090": "((uintptr_t)pf_module_state+0x6ec8U)"
+      },
+      "100141f0": {
+        "0x1005d2fd": "((uintptr_t)pf_module_state+0x135U)",
+        "0x1005d41e": "((uintptr_t)pf_module_state+0x256U)"
+      },
+      "10046828": {
+        "0x1005e141": "((uintptr_t)pf_module_state+0xf79U)"
+      },
+      "10036ed0": {
+        "0x1005db8a": "((uintptr_t)pf_module_state+0x9c2U)",
+        "(double)(((ulonglong)dVar14 & 0xffffffff00000000) + ((ulonglong)dVar14 & 0xffffffff))": "dVar14",
+        "(double)(((ulonglong)dVar15 & 0xffffffff00000000) + ((ulonglong)dVar15 & 0xffffffff))": "dVar15"
+      },
+      "10054e00": {
+        "0x1005e63c": "((uintptr_t)pf_module_state+0x1474U)",
+        "0x1005e647": "((uintptr_t)pf_module_state+0x147fU)",
+        "\n    (**(code **)(*local_15c + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_15c + 8)))(local_15c);",
+        "\n    (**(code **)(*local_148 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_148 + 8)))(local_148);"
+      },
+      "1005a0a0": {
+        "0x1005e708": "((uintptr_t)pf_module_state+0x1540U)",
+        "(double)(((ulonglong)dVar5 & 0xffffffff00000000) + ((ulonglong)dVar5 & 0xffffffff))": "dVar5"
+      },
+      "1004a13c": {
+        "0x1005e2a6": "((uintptr_t)pf_module_state+0x10deU)"
+      },
+      "100027c4": {
+        "0x10064090": "((uintptr_t)pf_module_state+0x6ec8U)"
+      },
+      "100030c0": {
+        "0x10064090": "((uintptr_t)pf_module_state+0x6ec8U)"
+      },
+      "1003b498": {
+        "0x1005dd85": "((uintptr_t)pf_module_state+0xbbdU)",
+        "0x1005dd4e": "((uintptr_t)pf_module_state+0xb86U)",
+        "0x1005dd81": "((uintptr_t)pf_module_state+0xbb9U)",
+        "0x1005dca7": "((uintptr_t)pf_module_state+0xadfU)",
+        "0x1005dd97": "((uintptr_t)pf_module_state+0xbcfU)",
+        "\n    (**(code **)(*owner + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)owner + 8)))(owner);",
+        "\n    (**(code **)(*local_b4 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_b4 + 8)))(local_b4);"
+      },
+      "1005a7d0": {
+        "0x1005e723": "((uintptr_t)pf_module_state+0x155bU)",
+        "(double)(((ulonglong)dVar3 & 0xffffffff00000000) + ((ulonglong)dVar3 & 0xffffffff))": "dVar3",
+        "(double)(((ulonglong)dVar5 & 0xffffffff00000000) + ((ulonglong)dVar5 & 0xffffffff))": "dVar5"
+      },
+      "10049e0c": {
+        "0x1005e29b": "((uintptr_t)pf_module_state+0x10d3U)"
+      },
+      "100490d8": {
+        "0x1005e235": "((uintptr_t)pf_module_state+0x106dU)"
+      },
+      "10057564": {
+        "0x1005e68a": "((uintptr_t)pf_module_state+0x14c2U)",
+        "\n    (**(code **)(*owner + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)owner + 8)))(owner);"
+      },
+      "1005aa20": {
+        "0x1005e737": "((uintptr_t)pf_module_state+0x156fU)",
+        "0x1005e72c": "((uintptr_t)pf_module_state+0x1564U)",
+        "(double)(((ulonglong)dVar6 & 0xffffffff00000000) + ((ulonglong)dVar6 & 0xffffffff))": "dVar6"
+      },
+      "1005ad30": {
+        "0x1005e76a": "((uintptr_t)pf_module_state+0x15a2U)",
+        "(double)(((ulonglong)dVar6 & 0xffffffff00000000) + ((ulonglong)dVar6 & 0xffffffff))": "dVar6",
+        "(double)(((ulonglong)dVar7 & 0xffffffff00000000) + ((ulonglong)dVar7 & 0xffffffff))": "dVar7"
+      },
+      "1004970c": {
+        "0x1005e281": "((uintptr_t)pf_module_state+0x10b9U)"
+      },
+      "1000cefc": {
+        "0x1005d36d": "((uintptr_t)pf_module_state+0x1a5U)"
+      },
+      "1001c924": {
+        "0x1005d4d0": "((uintptr_t)pf_module_state+0x308U)",
+        "\n              (**(code **)(*local_a0 + 8))();": "\n              ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_a0 + 8)))(local_a0);"
+      },
+      "100546c4": {
+        "0x1005e62f": "((uintptr_t)pf_module_state+0x1467U)",
+        "\n    (**(code **)(*local_b8 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_b8 + 8)))(local_b8);"
+      },
+      "1000e7f4": {
+        "0x1005d3d1": "((uintptr_t)pf_module_state+0x209U)",
+        "0x1005d3fa": "((uintptr_t)pf_module_state+0x232U)"
+      },
+      "10050a48": {
+        "0x1005e496": "((uintptr_t)pf_module_state+0x12ceU)"
+      },
+      "10059e40": {
+        "0x1005e6ff": "((uintptr_t)pf_module_state+0x1537U)",
+        "(double)(((ulonglong)dVar5 & 0xffffffff00000000) + ((ulonglong)dVar5 & 0xffffffff))": "dVar5"
+      },
+      "10033b28": {
+        "0x1005de6f": "((uintptr_t)pf_module_state+0xca7U)",
+        "\n      (**(code **)(*piVar5 + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar5 + 8)))(piVar5);",
+        "\n      (**(code **)(*piVar6 + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar6 + 8)))(piVar6);",
+        "\n      (**(code **)(*piVar4 + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar4 + 8)))(piVar4);"
+      },
+      "1005a560": {
+        "0x1005e71a": "((uintptr_t)pf_module_state+0x1552U)",
+        "(double)(((ulonglong)dVar5 & 0xffffffff00000000) + ((ulonglong)dVar5 & 0xffffffff))": "dVar5"
+      },
+      "10049268": {
+        "0x1005e246": "((uintptr_t)pf_module_state+0x107eU)",
+        "0x1005dfee": "((uintptr_t)pf_module_state+0xe26U)"
+      },
+      "10056a9c": {
+        "0x1005e672": "((uintptr_t)pf_module_state+0x14aaU)",
+        "\n    (**(code **)(*local_bc + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_bc + 8)))(local_bc);"
+      },
+      "100461b8": {
+        "0x1005dfb3": "((uintptr_t)pf_module_state+0xdebU)",
+        "(double)(((ulonglong)dVar11 & 0xffffffff00000000) + ((ulonglong)dVar11 & 0xffffffff))": "dVar11",
+        "(double)(((ulonglong)dVar13 & 0xffffffff00000000) + ((ulonglong)dVar13 & 0xffffffff))": "dVar13"
+      },
+      "1005cef0": {
+        "0x1005e7e6": "((uintptr_t)pf_module_state+0x161eU)"
+      },
+      "10014ab0": {
+        "0x1005d981": "((uintptr_t)pf_module_state+0x7b9U)",
+        "0x1005d398": "((uintptr_t)pf_module_state+0x1d0U)"
+      },
+      "1002b1c8": {
+        "\n          (**(code **)(*piVar1 + 8))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar1 + 8)))(piVar1);"
+      },
+      "100252c8": {
+        "\n        (**(code **)(*piVar3 + 8))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar3 + 8)))(piVar3);",
+        "\n        (**(code **)(*local_c8 + 8))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_c8 + 8)))(local_c8);",
+        "bVar1 - 0x11 < 3": "(uint)(bVar1 - 0x11) < 3",
+        "*(byte *)(iVar6 + iVar8 * 0x18) - 0x11 < 3": "(uint)(*(byte *)(iVar6 + iVar8 * 0x18) - 0x11) < 3"
+      },
+      "1003a1b4": {},
+      "1002abbc": {
+        "\n          (**(code **)(*piVar1 + 8))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar1 + 8)))(piVar1);",
+        "\n      (**(code **)(*piVar1 + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar1 + 8)))(piVar1);"
+      },
+      "10029bec": {
+        "\n      (**(code **)(*piVar1 + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar1 + 8)))(piVar1);"
+      },
+      "1001e748": {},
+      "100189f0": {},
+      "10024294": {
+        "\n          (**(code **)(*piVar1 + 8))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar1 + 8)))(piVar1);"
+      },
+      "1002b56c": {
+        "\n        (**(code **)(*piVar1 + 8))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar1 + 8)))(piVar1);"
+      },
+      "10024cb8": {
+        "\n      (**(code **)(*piVar4 + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar4 + 8)))(piVar4);",
+        "\n      (**(code **)(*local_b0 + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_b0 + 8)))(local_b0);",
+        "\n      (**(code **)(*piVar5 + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar5 + 8)))(piVar5);",
+        "\n      (**(code **)(*local_d8 + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_d8 + 8)))(local_d8);",
+        "1 < bVar1 - 0xf": "1 < (byte)(bVar1 - 0xf)"
+      },
+      "10045658": {
+        "\n    (**(code **)(*local_bc + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_bc + 8)))(local_bc);"
+      },
+      "1002cc94": {
+        "\n        (**(code **)(*local_a0 + 8))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_a0 + 8)))(local_a0);"
+      },
+      "100248e8": {
+        "\n        (**(code **)(*piVar3 + 8))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar3 + 8)))(piVar3);",
+        "\n        (**(code **)(*local_c8 + 8))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_c8 + 8)))(local_c8);",
+        "bVar1 - 0x16 < 6": "(uint)(bVar1 - 0x16) < 6",
+        "*(byte *)(iVar6 + iVar8 * 0x18) - 0x16 < 6": "(uint)(*(byte *)(iVar6 + iVar8 * 0x18) - 0x16) < 6"
+      },
+      "1002bf58": {
+        "\n          (**(code **)(*piVar1 + 8))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar1 + 8)))(piVar1);"
+      },
+      "100244ac": {
+        "\n      (**(code **)(*piVar2 + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar2 + 8)))(piVar2);"
+      },
+      "10017154": {},
+      "1001b718": {
+        "\n      (**(code **)(*piVar1 + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar1 + 8)))(piVar1);"
+      },
+      "100476c4": {
+        "\n        (**(code **)(*piVar1 + 8))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar1 + 8)))(piVar1);"
+      },
+      "1002dd3c": {
+        "\n      (**(code **)(*piVar2 + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar2 + 8)))(piVar2);"
+      },
+      "10029f9c": {
+        "\n          (**(code **)(*piVar3 + 8))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar3 + 8)))(piVar3);",
+        "\n      (**(code **)(*piVar3 + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar3 + 8)))(piVar3);"
+      },
+      "1001dda4": {
+        "\n    (**(code **)(*local_a8 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_a8 + 8)))(local_a8);",
+        "\n    (**(code **)(*local_b0 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_b0 + 8)))(local_b0);"
+      },
+      "10028070": {
+        "\n          (**(code **)(*piVar1 + 8))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar1 + 8)))(piVar1);"
+      },
+      "100278e0": {
+        "\n    (**(code **)(*local_a0 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_a0 + 8)))(local_a0);"
+      },
+      "1001e624": {},
+      "10029a8c": {
+        "\n      (**(code **)(*piVar1 + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar1 + 8)))(piVar1);"
+      },
+      "100237ec": {
+        "\n      (**(code **)(*piVar2 + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar2 + 8)))(piVar2);"
+      },
+      "1002a970": {
+        "\n          (**(code **)(*piVar1 + 8))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar1 + 8)))(piVar1);",
+        "\n      (**(code **)(*piVar1 + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar1 + 8)))(piVar1);"
+      },
+      "1002b79c": {
+        "\n      (**(code **)(*piVar2 + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar2 + 8)))(piVar2);"
+      },
+      "1005c748": {
+        "\n        (**(code **)(*piVar1 + 8))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar1 + 8)))(piVar1);"
+      },
+      "1001f440": {},
+      "1002bae0": {},
+      "1001f8d0": {},
+      "10016d28": {},
+      "10023a7c": {},
+      "1001f688": {},
+      "100178f8": {},
+      "10038b6c": {},
+      "10018718": {
+        "\n      (**(code **)(*piVar1 + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar1 + 8)))(piVar1);"
+      },
+      "1002bc20": {},
+      "1001b8dc": {
+        "\n          (**(code **)(*piVar1 + 8))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar1 + 8)))(piVar1);"
+      },
+      "1002c744": {},
+      "10025698": {
+        "\n      (**(code **)(*local_bc + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_bc + 8)))(local_bc);"
+      },
+      "1001ed14": {},
+      "1001f1a4": {},
+      "10012d98": {
+        "\n          (**(code **)(*piVar1 + 8))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar1 + 8)))(piVar1);"
+      },
+      "1000d578": {
+        "\n    (**(code **)(*local_10c + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_10c + 8)))(local_10c);"
+      },
+      "10027634": {},
+      "10029d88": {
+        "\n      (**(code **)(*piVar1 + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar1 + 8)))(piVar1);"
+      },
+      "100458e4": {
+        "\n    (**(code **)(*local_e4 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_e4 + 8)))(local_e4);"
+      },
+      "1001f564": {},
+      "1001db88": {
+        "\n            (**(code **)(*piVar2 + 8))();": "\n            ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar2 + 8)))(piVar2);"
+      },
+      "1001f9f4": {},
+      "10016e80": {
+        "\n      (**(code **)(*piVar2 + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar2 + 8)))(piVar2);"
+      },
+      "10018c38": {},
+      "10013b88": {},
+      "1000d45c": {},
+      "1000f770": {
+        "\n          (**(code **)(*piVar1 + 8))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar1 + 8)))(piVar1);"
+      },
+      "1001ee38": {},
+      "1002018c": {},
+      "10015e40": {},
+      "1001fb18": {},
+      "1002974c": {
+        "\n          (**(code **)(*piVar1 + 8))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar1 + 8)))(piVar1);"
+      },
+      "1001f7ac": {},
+      "1002776c": {},
+      "1001f080": {},
+      "1002b35c": {
+        "\n          (**(code **)(*piVar1 + 8))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar1 + 8)))(piVar1);"
+      },
+      "100294a8": {
+        "\n      (**(code **)(*piVar2 + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar2 + 8)))(piVar2);"
+      },
+      "1001b5c4": {
+        "\n        (**(code **)(*piVar1 + 8))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar1 + 8)))(piVar1);"
+      },
+      "1002a790": {
+        "\n      (**(code **)(*piVar2 + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar2 + 8)))(piVar2);"
+      },
+      "1002aedc": {
+        "\n          (**(code **)(*piVar1 + 8))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar1 + 8)))(piVar1);"
+      },
+      "10017030": {},
+      "1001ef5c": {},
+      "1002c87c": {},
+      "1001e980": {},
+      "100240a8": {
+        "\n          (**(code **)(*piVar1 + 8))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar1 + 8)))(piVar1);",
+        "\n      (**(code **)(*piVar1 + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar1 + 8)))(piVar1);"
+      },
+      "10027eb8": {
+        "\n            (**(code **)(*piVar2 + 8))();": "\n            ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar2 + 8)))(piVar2);"
+      },
+      "1002a5ec": {
+        "\n      (**(code **)(*piVar2 + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)piVar2 + 8)))(piVar2);"
+      },
+      "10018b14": {},
+      "1005ad00": {},
+      "10057010": {},
+      "1002a20c": {},
+      "1000956c": {},
+      "100478ec": {},
+      "10059e34": {},
+      "10058224": {},
+      "10013458": {},
+      "1004caec": {},
+      "1000a178": {},
+      "1001b888": {},
+      "1002cf90": {},
+      "10008290": {},
+      "10008eec": {},
+      "1000a728": {},
+      "1002d3e0": {},
+      "10052b58": {},
+      "10016e50": {},
+      "1003a444": {},
+      "10058b8c": {},
+      "1000ae38": {},
+      "10008adc": {},
+      "10009c18": {},
+      "100482c8": {},
+      "10007b38": {},
+      "10006528": {},
+      "10008390": {},
+      "100093dc": {},
+      "1004cbf8": {},
+      "10038170": {},
+      "1000c258": {},
+      "10009968": {},
+      "10009594": {},
+      "10029718": {},
+      "1002473c": {},
+      "1002b52c": {},
+      "10009ab8": {},
+      "1005b234": {},
+      "10038d8c": {},
+      "100057f8": {},
+      "1005a300": {},
+      "1002447c": {},
+      "100172c0": {},
+      "10056a98": {},
+      "10047378": {},
+      "10008b3c": {},
+      "1000600c": {},
+      "1005b230": {},
+      "1002b17c": {},
+      "1000533c": {},
+      "10015f9c": {},
+      "100090c8": {},
+      "10009cb8": {},
+      "1000995c": {},
+      "1002b4f8": {},
+      "100528fc": {},
+      "1004e570": {},
+      "1000d39c": {},
+      "1002d2e4": {},
+      "10003da0": {},
+      "1003fe5c": {},
+      "1005b6e0": {},
+      "10006238": {},
+      "1004ee20": {},
+      "100596e0": {},
+      "10018034": {},
+      "10041210": {},
+      "10016e54": {},
+      "10059ba0": {},
+      "10003cd0": {},
+      "10009bb8": {},
+      "10049708": {},
+      "10048e08": {},
+      "1005c534": {},
+      "10058220": {},
+      "10020010": {},
+      "10049a84": {},
+      "100476bc": {},
+      "1005135c": {},
+      "10048294": {},
+      "10046c68": {},
+      "10059220": {},
+      "10002840": {},
+      "10015f8c": {},
+      "10049e08": {},
+      "10045c18": {},
+      "1003abf4": {},
+      "10053a2c": {},
+      "10017db4": {},
+      "1003afc0": {},
+      "10005f6c": {},
+      "10004f84": {},
+      "10059bd4": {},
+      "10009708": {},
+      "100290ac": {},
+      "10004edc": {},
+      "10004f08": {},
+      "100521ac": {},
+      "1000b580": {},
+      "1002b194": {},
+      "1001a750": {},
+      "10017f50": {},
+      "10029d58": {},
+      "100579e0": {},
+      "1000d3d0": {},
+      "10023ba0": {},
+      "1003bd34": {},
+      "100510fc": {},
+      "10006068": {},
+      "1002a228": {},
+      "1001a4b4": {},
+      "1005333c": {},
+      "10058b60": {},
+      "1004a138": {},
+      "10014f9c": {},
+      "1003bed4": {},
+      "10007f0c": {},
+      "10029f6c": {},
+      "100408d0": {},
+      "1005cd30": {},
+      "1004098c": {},
+      "1003bed0": {},
+      "10007d0c": {},
+      "10058520": {},
+      "1005c898": {},
+      "1000c72c": {},
+      "1002bd6c": {},
+      "1005a098": {},
+      "10009c7c": {},
+      "1005cd34": {},
+      "1002943c": {},
+      "100515d8": {},
+      "1001c5d0": {},
+      "10005fb8": {},
+      "1000aacc": {},
+      "10015e30": {},
+      "1001bb64": {},
+      "100579e4": {},
+      "100091ac": {},
+      "10053308": {},
+      "1002b190": {},
+      "1000b1ac": {},
+      "100039b4": {},
+      "10005784": {
+        "(double)(((ulonglong)value & 0xffffffff00000000) + ((ulonglong)value & 0xffffffff))": "value"
+      },
+      "1001a610": {},
+      "10008edc": {},
+      "1000a738": {},
+      "100278ac": {},
+      "1000a808": {},
+      "1002c9bc": {},
+      "10008aec": {},
+      "1001fed8": {},
+      "1004956c": {},
+      "10004828": {},
+      "10008b18": {},
+      "10005eac": {},
+      "10045c2c": {},
+      "10019564": {},
+      "10009584": {},
+      "10003d8c": {},
+      "10004fc8": {},
+      "1002c13c": {},
+      "1002b53c": {},
+      "1000b2b8": {},
+      "1002a93c": {},
+      "10046afc": {},
+      "10008ec8": {},
+      "10059940": {},
+      "10004f3c": {},
+      "10057044": {},
+      "1000543c": {},
+      "1002aea8": {},
+      "1000973c": {},
+      "10005e60": {},
+      "10007f04": {},
+      "10029f64": {},
+      "1001eaa4": {},
+      "1005c9e8": {},
+      "1000247c": {},
+      "100399fc": {},
+      "1003fbb0": {},
+      "1003c118": {},
+      "1004e1dc": {},
+      "10059480": {},
+      "10016e4c": {},
+      "1005ca18": {},
+      "1001696c": {},
+      "10008ed0": {},
+      "1005b0ec": {},
+      "1005cd08": {},
+      "10046004": {},
+      "10015f7c": {},
+      "10046820": {},
+      "1001903c": {},
+      "1001a0d8": {},
+      "1002dcac": {},
+      "100291a4": {},
+      "1005b548": {},
+      "1004a100": {},
+      "1002919c": {},
+      "1000a6c0": {},
+      "10046188": {},
+      "10050ec4": {},
+      "100539f4": {},
+      "100055d0": {},
+      "1001927c": {},
+      "1005a2fc": {},
+      "10005cd0": {},
+      "1001c784": {},
+      "10009220": {},
+      "10038d90": {},
+      "10024460": {},
+      "10004c20": {},
+      "1005b0b8": {},
+      "10049dd0": {},
+      "1002ab88": {},
+      "10029474": {},
+      "10005840": {},
+      "1003b494": {},
+      "10004a24": {},
+      "1002b530": {},
+      "10005d60": {},
+      "10005a70": {},
+      "1005755c": {},
+      "10034484": {},
+      "100579b8": {},
+      "100022f8": {},
+      "1004a7b4": {},
+      "1002b534": {},
+      "1004f728": {},
+      "1003b490": {},
+      "1003a9ec": {},
+      "10029470": {},
+      "1004d1f8": {},
+      "1005b6dc": {},
+      "1004f9f8": {},
+      "10009fa4": {
+        "(double)(((ulonglong)dVar2 & 0xffffffff00000000) + ((ulonglong)dVar2 & 0xffffffff))": "dVar2",
+        "(double)(((ulonglong)value & 0xffffffff00000000) + ((ulonglong)value & 0xffffffff))": "value"
+      },
+      "1002bd9c": {},
+      "10009da0": {},
+      "1004e56c": {},
+      "10059978": {},
+      "10008ed4": {},
+      "10046000": {},
+      "10047688": {},
+      "1002c9f0": {},
+      "10009ea0": {},
+      "10059258": {},
+      "1005a7cc": {},
+      "1004f75c": {},
+      "1002dd08": {},
+      "10007cb4": {},
+      "100291a0": {},
+      "100507b0": {},
+      "10005da4": {},
+      "10046824": {},
+      "1003ace8": {},
+      "10045c60": {},
+      "1005ad28": {},
+      "10007f00": {},
+      "1000ad10": {},
+      "10008f30": {},
+      "10003bb8": {},
+      "10009120": {},
+      "100473b0": {},
+      "10006688": {},
+      "10009574": {},
+      "100476c0": {},
+      "1002d9e8": {},
+      "10034c84": {},
+      "1005b57c": {},
+      "1002bd64": {},
+      "1003afbc": {},
+      "10007870": {},
+      "10024474": {},
+      "10047bf0": {},
+      "1001bb08": {},
+      "10006204": {},
+      "100461b4": {},
+      "1001aacc": {},
+      "1002c124": {},
+      "1000b898": {},
+      "10035d90": {},
+      "10009030": {},
+      "10050a40": {},
+      "1005c118": {},
+      "10049260": {},
+      "100291d4": {},
+      "10003d94": {},
+      "10045e64": {},
+      "1000db08": {},
+      "1000d408": {},
+      "10003a08": {},
+      "10008ee4": {},
+      "1000d3ec": {},
+      "1001730c": {},
+      "100094a4": {},
+      "1002d1ec": {},
+      "1005ceec": {},
+      "10004e9c": {},
+      "100521d4": {},
+      "1000b0d0": {},
+      "1000a89c": {},
+      "10054df8": {},
+      "10040990": {},
+      "10048dd4": {},
+      "1001b0ac": {},
+      "10017278": {},
+      "100581f8": {},
+      "1005cb7c": {},
+      "10051100": {},
+      "100490a4": {},
+      "1004ee58": {},
+      "10007640": {},
+      "10005f34": {},
+      "10009914": {},
+      "10005370": {},
+      "10058fb8": {},
+      "100594b8": {},
+      "1000dc3c": {},
+      "10009c60": {},
+      "100496d0": {},
+      "10040994": {},
+      "10046ac4": {},
+      "10005520": {},
+      "10040338": {},
+      "1005aa1c": {},
+      "1000246c": {},
+      "1005c53c": {},
+      "10006300": {},
+      "1000a798": {},
+      "1000c2a4": {},
+      "100098f0": {},
+      "1000c6d0": {},
+      "10049534": {},
+      "10002348": {},
+      "100096a4": {},
+      "10015f6c": {},
+      "1001c1c8": {},
+      "10019ef8": {},
+      "100053d4": {},
+      "1001563c": {},
+      "1000a7b0": {},
+      "10028f9c": {},
+      "100060c0": {},
+      "100059b0": {},
+      "1002db84": {},
+      "1000a7f4": {},
+      "10002380": {},
+      "10049264": {},
+      "1004fda8": {},
+      "10058548": {},
+      "1000a8e4": {},
+      "1002c9c0": {},
+      "1005cb80": {},
+      "100515b0": {},
+      "10009aa4": {},
+      "10059718": {},
+      "1000549c": {},
+      "10045e60": {},
+      "100461b0": {},
+      "10015fac": {},
+      "10005b20": {},
+      "10050a44": {},
+      "1005a55c": {},
+      "10029964": {},
+      "1005854c": {},
+      "1004fdac": {},
+      "10009824": {},
+      "1000a764": {},
+      "1000b454": {},
+      "1000b288": {},
+      "1000d268": {},
+      "1000a7e0": {},
+      "10017b6c": {},
+      "1002b4f4": {},
+      "10009ab0": {},
+      "1001a9d8": {},
+      "100063d4": {},
+      "100099e4": {},
+      "1005a558": {},
+      "10056658": {},
+      "10058fbc": {},
+      "1001dd40": {},
+      "10049a88": {},
+      "1004ad64": {},
+      "100057b4": {},
+      "10056690": {},
+      "1005aa18": {},
+      "10049704": {},
+      "1000d368": {},
+      "1005c538": {},
+      "1004c7f4": {},
+      "1000aa20": {},
+      "10051334": {},
+      "1005c70c": {},
+      "10041094": {},
+      "10019efc": {},
+      "10050164": {},
+      "10007670": {},
+      "10050530": {},
+      "10008a04": {},
+      "10009040": {},
+      "1005a2c8": {},
+      "100478f0": {},
+      "10050160": {},
+      "1000a174": {},
+      "1005cee8": {},
+      "1000245c": {},
+      "10041090": {},
+      "10005510": {},
+      "1000d168": {},
+      "100510d4": {},
+      "10015f5c": {},
+      "10046c34": {},
+      "10054dfc": {},
+      "10007da4": {},
+      "10059e38": {},
+      "1000c3f0": {},
+      "1000a6e4": {},
+      "10003b38": {},
+      "100281f0": {},
+      "10004eb0": {},
+      "1003ef10": {},
+      "1004c598": {},
+      "10056a94": {},
+      "10048a10": {},
+      "10050e9c": {},
+      "10016a7c": {},
+      "10046c70": {},
+      "100404ec": {},
+      "10052924": {},
+      "10009598": {},
+      "10009f88": {},
+      "10008488": {},
+      "10009c98": {},
+      "10029714": {},
+      "1003a448": {},
+      "10005614": {},
+      "1002a220": {},
+      "10005704": {},
+      "10016d08": {},
+      "1005a7c8": {},
+      "1002dd0c": {},
+      "10029d50": {},
+      "1002b934": {},
+      "1002ab70": {},
+      "10009744": {},
+      "10005c00": {},
+      "10036c18": {
+        "(double)(((ulonglong)dVar10 & 0xffffffff00000000) + ((ulonglong)dVar10 & 0xffffffff))": "dVar10"
+      },
+      "10029934": {},
+      "1005ad2c": {},
+      "10007954": {},
+      "10004c54": {},
+      "10005500": {},
+      "1005c4fc": {},
+      "10002e68": {},
+      "100087b4": {},
+      "10033f14": {},
+      "100288a0": {},
+      "10018d5c": {},
+      "100278b0": {},
+      "1005c894": {},
+      "1005a094": {},
+      "10040e6c": {},
+      "10057048": {},
+      "10045c10": {},
+      "10019dd8": {},
+      "1002aea4": {},
+      "100091f4": {},
+      "1005b1fc": {},
+      "10009ac4": {},
+      "1001ba5c": {},
+      "10009974": {},
+      "10053340": {},
+      "1004f9fc": {},
+      "10029640": {},
+      "10018228": {},
+      "1000e3e8": {},
+      "10008d40": {},
+      "10028550": {},
+      "10051360": {},
+      "1005c30c": {},
+      "10059bd8": {},
+      "10049a50": {},
+      "10049e04": {},
+      "10045c14": {},
+      "1000acd4": {},
+      "1002ab8c": {},
+      "100078f4": {},
+      "100546bc": {},
+      "10004ec4": {},
+      "1005c890": {},
+      "1004a134": {},
+      "100091b4": {},
+      "10009bc4": {},
+      "1000ada4": {},
+      "100085b4": {},
+      "10028fc0": {},
+      "1002c140": {},
+      "10005c88": {},
+      "100184cc": {},
+      "1002a940": {},
+      "10029f50": {},
+      "10009c44": {},
+      "1002a224": {},
+      "10005b40": {},
+      "1002b198": {},
+      "10029930": {},
+      "10009314": {},
+      "10029d54": {},
+      "1003b468": {},
+      "10008e40": {},
+      "10045fcc": {},
+      "10003960": {},
+      "10014eb0": {},
+      "1002c9b8": {},
+      "10059974": {},
+      "10049568": {},
+      "10057560": {},
+      "1004d1f4": {},
+      "10002544": {},
+      "1002b538": {},
+      "10040024": {},
+      "1004c3e8": {},
+      "1002c138": {},
+      "1002a938": {},
+      "1001f2c8": {},
+      "10046af8": {},
+      "1001e86c": {},
+      "1000a748": {},
+      "1000b738": {},
+      "1003aa20": {},
+      "10005980": {},
+      "10050c58": {},
+      "1002aeac": {},
+      "1000e4c0": {},
+      "1000a780": {},
+      "10009ffc": {},
+      "100507ac": {},
+      "1002bd68": {},
+      "10016170": {},
+      "10005028": {},
+      "1005668c": {},
+      "10050a18": {},
+      "1001b344": {},
+      "10018930": {},
+      "10009068": {},
+      "100515dc": {},
+      "1000a978": {},
+      "10023f40": {},
+      "1000a7c8": {},
+      "1005052c": {},
+      "100373a0": {
+        "(double)(((ulonglong)dVar8 & 0xffffffff00000000) + ((ulonglong)dVar8 & 0xffffffff))": "dVar8"
+      },
+      "1001ab9c": {},
+      "10033738": {},
+      "10004f4c": {},
+      "1005ca10": {},
+      "100473ac": {},
+      "1005a530": {},
+      "10059254": {},
+      "100278a8": {},
+      "1000b2e8": {},
+      "1004108c": {},
+      "1001c2f4": {},
+      "10007bf8": {},
+      "1005cb54": {},
+      "1001488c": {},
+      "1005ca14": {},
+      "100063b8": {},
+      "10003a54": {},
+      "10046008": {
+        "(double)(((ulonglong)dVar3 & 0xffffffff00000000) + ((ulonglong)dVar3 & 0xffffffff))": "dVar3"
+      },
+      "1002940c": {},
+      "100504f8": {},
+      "10019144": {},
+      "10019510": {},
+      "10019f00": {},
+      "10006878": {},
+      "100023f0": {},
+      "10014098": {},
+      "1004fd74": {},
+      "10004628": {},
+      "1000a708": {},
+      "10029f68": {},
+      "1004e144": {},
+      "1005b0f0": {},
+      "1003c588": {},
+      "10008afc": {},
+      "10029478": {},
+      "1002ab84": {},
+      "10054dc4": {},
+      "10046c6c": {},
+      "1002a258": {},
+      "10048a0c": {},
+      "1002ae90": {},
+      "1000f68c": {},
+      "100056cc": {},
+      "10053a28": {},
+      "1000a9cc": {},
+      "10003e44": {},
+      "100467ec": {},
+      "10004e4c": {},
+      "1005a060": {},
+      "10009bd8": {},
+      "10050ec8": {},
+      "1000892c": {},
+      "1000500c": {},
+      "1000411c": {},
+      "1000a52c": {},
+      "1002dd10": {},
+      "1005c500": {},
+      "10046648": {},
+      "1005be88": {},
+      "10013468": {},
+      "10056a60": {},
+      "10017fd0": {},
+      "10040ae4": {},
+      "10003254": {},
+      "10029918": {},
+      "1005d028": {},
+      "10009bbc": {},
+      "10048e0c": {},
+      "100489b8": {},
+      "100089dc": {},
+      "1001af60": {},
+      "100594b4": {},
+      "100097fc": {},
+      "10050c84": {},
+      "1000a718": {},
+      "1005a9f0": {},
+      "1004e110": {},
+      "1001fc3c": {},
+      "10009038": {},
+      "10045e5c": {},
+      "1003c140": {},
+      "1002d0f4": {},
+      "10008bcc": {},
+      "10007d58": {},
+      "10018000": {},
+      "1002b4fc": {},
+      "1003c5b0": {},
+      "1005c740": {},
+      "10002498": {
+        "(double)(((ulonglong)dVar1 & 0xffffffff00000000) + ((ulonglong)dVar1 & 0xffffffff))": "dVar1"
+      },
+      "10046680": {},
+      "10059714": {},
+      "100098b8": {},
+      "1005c400": {},
+      "1005d05c": {},
+      "10058b88": {},
+      "10016cd4": {},
+      "1005c744": {},
+      "10046684": {},
+      "1004cbfc": {},
+      "1001c6f0": {},
+      "1002971c": {},
+      "1005012c": {},
+      "1004a780": {},
+      "1002d604": {},
+      "10047bec": {},
+      "1000aa58": {},
+      "10058df0": {},
+      "1003ae64": {},
+      "10004f28": {},
+      "10024478": {},
+      "10017f34": {},
+      "1003c144": {},
+      "1005ceb4": {},
+      "10050784": {},
+      "1000aa90": {},
+      "10003df4": {},
+      "1004667c": {},
+      "1004ee54": {},
+      "10047bb8": {},
+      "100546c0": {},
+      "10009078": {},
+      "1000af84": {},
+      "10050c80": {},
+      "1005a7a0": {},
+      "1000924c": {},
+      "1005c504": {},
+      "10003e98": {},
+      "1004d1c0": {},
+      "100521d8": {},
+      "1000685c": {
+        "(double)(((ulonglong)dVar1 & 0xffffffff00000000) + ((ulonglong)dVar1 & 0xffffffff))": "dVar1"
+      },
+      "10004f5c": {},
+      "10057534": {},
+      "1002992c": {},
+      "10007ef8": {},
+      "100296a8": {},
+      "10054688": {},
+      "1005c210": {},
+      "10052b5c": {},
+      "1004b168": {},
+      "10059e00": {}
+    },
+    "void_result_calls": [
+      "10009068"
+    ],
+    "literal_data": {
+      "10040748": "bcf60100",
+      "1004074c": "c0000000",
+      "10059938": "cc6e0000",
+      "1005993c": "fc000000",
+      "10059920": "000000000000e043",
+      "10059928": "000000000000e0c3",
+      "10059930": "000000000000b03c",
+      "1000930c": "70550500",
+      "10009310": "3c000000",
+      "1004828c": "84840100",
+      "10048290": "e8040000",
+      "10009564": "48530500",
+      "10009568": "3c000000",
+      "100278a0": "187b0300",
+      "100278a4": "98000000",
+      "10033b20": "ccbf0200",
+      "10033b24": "80020000",
+      "1000cc84": "441d0500",
+      "1000cc88": "98000000",
+      "10039dfc": "f85e0200",
+      "10039e00": "c0020000",
+      "10034c7c": "14b30200",
+      "10034c80": "24060000",
+      "1002d5fc": "e8200300",
+      "1002d600": "1c010000",
+      "1004d1b8": "9c350100",
+      "1004d1bc": "18040000",
+      "10058fb0": "e0770000",
+      "10058fb4": "d0000000",
+      "1005c110": "40480000",
+      "1005c114": "50010000",
+      "1000b578": "c4330500",
+      "1000b57c": "9c000000",
+      "1001c5c8": "6c2b0400",
+      "1001c5cc": "34020000",
+      "100539ec": "98d00000",
+      "100539f0": "2c050000",
+      "100404e4": "54f90100",
+      "100404e8": "24010000",
+      "1003c110": "283b0200",
+      "1003c114": "1c010000",
+      "100596d8": "1c710000",
+      "100596dc": "fc000000",
+      "100596c0": "000000000000e043",
+      "100596c8": "000000000000e0c3",
+      "100596d0": "000000000000b03c",
+      "10027ba8": "ac790300",
+      "10027bac": "cc010000",
+      "1000cef4": "e41a0500",
+      "1000cef8": "98000000",
+      "100093d4": "b8540500",
+      "100093d8": "3c000000",
+      "1000f684": "70010500",
+      "1000f688": "d00c0000",
+      "100581f0": "688b0000",
+      "100581f4": "98060000",
+      "100248e0": "30aa0300",
+      "100248e4": "e8000000",
+      "10046640": "e89d0100",
+      "10046644": "28030000",
+      "10046628": "000000000000e043",
+      "10046630": "000000000000e0c3",
+      "10046638": "000000000000b03c",
+      "1004952c": "646e0100",
+      "10049530": "7c010000",
+      "10027eb0": "d4760300",
+      "10027eb4": "e4010000",
+      "1001c2ec": "502c0400",
+      "1001c2f0": "40000000",
+      "1002db7c": "381b0300",
+      "1002db80": "f0000000",
+      "1002b4ec": "b8400300",
+      "1002b4f0": "f4000000",
+      "1001becc": "7c310400",
+      "1001bed0": "40010000",
+      "1002a5e4": "50510300",
+      "1002a5e8": "ac020000",
+      "10005970": "000000000000f0ff",
+      "10005978": "ef39fafe422ee63f",
+      "1001a4ac": "e84c0400",
+      "1001a4b0": "40030000",
+      "1000cb4c": "701e0500",
+      "1000cb50": "94000000",
+      "1001af58": "4c420400",
+      "1001af5c": "10030000",
+      "1001b880": "04370400",
+      "1001b884": "d8000000",
+      "1005752c": "c4940000",
+      "10057530": "64030000",
+      "1004e564": "7c200100",
+      "1004e568": "f0020000",
+      "10018220": "e86c0400",
+      "10018224": "5c010000",
+      "10045e54": "3ca30100",
+      "10045e58": "4c010000",
+      "1000b0c8": "74380500",
+      "1000b0cc": "94000000",
+      "1002cf88": "28280300",
+      "1002cf8c": "48020000",
+      "10035370": "b4a70200",
+      "10035374": "68020000",
+      "10035358": "000000000000e043",
+      "10035360": "000000000000e0c3",
+      "10035368": "000000000000b03c",
+      "1001dd38": "48130400",
+      "1001dd3c": "28010000",
+      "10018d54": "50610400",
+      "10018d58": "94000000",
+      "1002d2dc": "f4220300",
+      "1002d2e0": "68000000",
+      "100375c0": "000000000000e043",
+      "100375c8": "000000000000e0c3",
+      "100375d0": "000000000000b03c",
+      "10036c10": "54990200",
+      "10036c14": "0c0c0000",
+      "100478e4": "b0890100",
+      "100478e8": "84010000",
+      "100510cc": "40f40000",
+      "100510d0": "f0000000",
+      "10035ec8": "389a0200",
+      "10035ecc": "4c000000",
+      "10024458": "bcae0300",
+      "1002445c": "28010000",
+      "1004b160": "e8530100",
+      "1004b164": "e0020000",
+      "1002c11c": "0c350300",
+      "1002c120": "28010000",
+      "10050124": "1c050100",
+      "10050128": "50020000",
+      "1002428c": "acb00300",
+      "10024290": "54010000",
+      "1001e61c": "38110400",
+      "1001e620": "ec060000",
+      "10015f54": "048e0400",
+      "10015f58": "5c000000",
+      "1004ad5c": "e0590100",
+      "1004ad60": "9c040000",
+      "1002a204": "f0530300",
+      "1002a208": "b4010000",
+      "1000e4b8": "4c050500",
+      "1000e4bc": "48000000",
+      "1003447c": "70b40200",
+      "10034480": "c0000000",
+      "10045fc4": "08a10100",
+      "10045fc8": "5c000000",
+      "1002b92c": "ac3c0300",
+      "1002b930": "00010000",
+      "10058de8": "207a0000",
+      "10058dec": "48010000",
+      "10058dd0": "000000000000e043",
+      "10058dd8": "000000000000e0c3",
+      "10058de0": "000000000000b03c",
+      "10058518": "44830000",
+      "1005851c": "bc010000",
+      "1000d160": "84180500",
+      "1000d164": "94000000",
+      "10014884": "a0a50400",
+      "10014888": "e4010000",
+      "100252c0": "e8a40300",
+      "100252c4": "a8040000",
+      "1000db00": "00130500",
+      "1000db04": "38030000",
+      "100202a8": "78ee0300",
+      "100202ac": "94000000",
+      "1005d020": "bc380000",
+      "1005d024": "68000000",
+      "10059218": "08760000",
+      "1005921c": "48010000",
+      "10059200": "000000000000e043",
+      "10059208": "000000000000e0c3",
+      "10059210": "000000000000b03c",
+      "1000d260": "54170500",
+      "1000d264": "54000000",
+      "10028aa8": "486a0300",
+      "10028aac": "30010000",
+      "100178f0": "9c790400",
+      "100178f4": "00050000",
+      "1001ea9c": "b4050400",
+      "1001eaa0": "94000000",
+      "10017f2c": "5c6f0400",
+      "10017f30": "bc000000",
+      "1001b710": "48380400",
+      "1001b714": "c4000000",
+      "100414f8": "90e80100",
+      "100414fc": "3c350000",
+      "10018c30": "64620400",
+      "10018c34": "94000000",
+      "10038d84": "246d0200",
+      "10038d88": "0c010000",
+      "10012f10": "ecbc0400",
+      "10012f14": "f0000000",
+      "1002ae88": "24480300",
+      "1002ae8c": "18020000",
+      "100489b0": "ec7d0100",
+      "100489b4": "08060000",
+      "1004c3e0": "4c410100",
+      "1004c3e4": "78020000",
+      "1000b730": "8c320500",
+      "1000b734": "f4000000",
+      "10035a50": "44a10200",
+      "10035a54": "c8020000",
+      "10035a38": "000000000000e043",
+      "10035a40": "000000000000e0c3",
+      "10035a48": "000000000000b03c",
+      "10018b0c": "78630400",
+      "10018b10": "94000000",
+      "1000c53c": "6c240500",
+      "1000c540": "90000000",
+      "10029194": "80620300",
+      "10029198": "4c000000",
+      "1000c3e8": "80250500",
+      "1000c3ec": "64000000",
+      "10016e44": "507f0400",
+      "10016e48": "94000000",
+      "1001f55c": "54fb0300",
+      "1001f560": "94000000",
+      "1000accc": "0c3d0500",
+      "1000acd0": "28010000",
+      "1001f078": "08000400",
+      "1001f07c": "94000000",
+      "1000f768": "18f30400",
+      "1000f76c": "54000000",
+      "1004a778": "dc5f0100",
+      "1004a77c": "a8040000",
+      "1000d570": "6c140500",
+      "1000d574": "5c000000",
+      "10029d48": "80570300",
+      "10029d4c": "b8000000",
+      "1004a0f8": "00630100",
+      "1004a0fc": "d8010000",
+      "10005a40": "182d4454fb210940",
+      "10005a48": "182d4454fb2119c0",
+      "10005a50": "182d4454fb2109c0",
+      "10005a58": "182d4454fb211940",
+      "10005a60": "0000000000005e40",
+      "10005a68": "0000000000b0b3c0",
+      "1005c704": "1c420000",
+      "1005c708": "e4000000",
+      "10040adc": "30f30100",
+      "10040ae0": "c0000000",
+      "10006200": "000080ff",
+      "100061f8": "ef39fafe422ee63f",
+      "10017b64": "f8730400",
+      "10017b68": "40010000",
+      "10038168": "70820200",
+      "1003816c": "34090000",
+      "1001d940": "48250400",
+      "1001d964": "40100000",
+      "1003a43c": "9c560200",
+      "1003a440": "cc000000",
+      "100521a4": "54ed0000",
+      "100521a8": "50090000",
+      "1003c580": "cc380200",
+      "1003c584": "c4020000",
+      "10041208": "50ec0100",
+      "1004120c": "ec000000",
+      "1003a1ac": "1c590200",
+      "1003a1b0": "b8000000",
+      "10024cb0": "90a80300",
+      "10024cb4": "ac020000",
+      "1005c208": "20460000",
+      "1005c20c": "68000000",
+      "1002b174": "0c450300",
+      "1002b178": "e4010000",
+      "1005a9e8": "8c5e0000",
+      "1005a9ec": "fc000000",
+      "1005a9d0": "000000000000e043",
+      "1005a9d8": "000000000000e0c3",
+      "1005a9e0": "000000000000b03c",
+      "10047bb0": "70870100",
+      "10047bb4": "c4010000",
+      "1002c73c": "18330300",
+      "1002c740": "c8040000",
+      "10018710": "74680400",
+      "10018714": "b8010000",
+      "1002d3d8": "0c220300",
+      "1002d3dc": "6c000000",
+      "10018928": "3c660400",
+      "1001892c": "70010000",
+      "1003b460": "cc490200",
+      "1003b464": "08030000",
+      "10057008": "549a0000",
+      "1005700c": "fc030000",
+      "1000cdbc": "141c0500",
+      "1000cdc0": "98000000",
+      "100060bc": "00000000",
+      "10005bf8": "000000000000e043",
+      "1001fb10": "f0f50300",
+      "1001fb14": "94000000",
+      "1004e108": "742f0100",
+      "1004e10c": "f00b0000",
+      "1001b5bc": "b43a0400",
+      "1001b5c0": "ec010000",
+      "1000d360": "5c160500",
+      "1000d364": "54000000",
+      "10028890": "9a9999999999b93f",
+      "10028898": "7c14ae47e17a843f",
+      "10019dd0": "2c580400",
+      "10019dd4": "ac070000",
+      "1005c9d8": "0000000000408f40",
+      "1005c9e0": "d03e0000",
+      "1005c9e4": "5c000000",
+      "1005b540": "8c540000",
+      "1005b544": "f4010000",
+      "1005b538": "000000000000f03b",
+      "10025690": "ec9e0300",
+      "10025694": "ac020000",
+      "10047680": "888c0100",
+      "10047684": "d4010000",
+      "1005ceac": "303a0000",
+      "1005ceb0": "54000000",
+      "10029be4": "d0580300",
+      "10029be8": "b4000000",
+      "10040e64": "d0f10100",
+      "10040e68": "4c020000",
+      "1001f19c": "f4fe0300",
+      "1001f1a0": "94000000",
+      "1002596c": "3c9b0300",
+      "10025970": "e8010000",
+      "1005a508": "f8c1631adca54c40",
+      "1005a528": "30630000",
+      "1005a52c": "f8000000",
+      "1005a510": "000000000000e043",
+      "1005a518": "000000000000e0c3",
+      "1005a520": "000000000000b03c",
+      "100212f4": "54ed0300",
+      "100212f8": "b8220000",
+      "1001e864": "dc070400",
+      "1001e868": "94000000",
+      "1003abec": "4c4f0200",
+      "1003abf0": "b8000000",
+      "1004c0a8": "f04f0100",
+      "1004c0ac": "6c0d0000",
+      "1002d1e4": "dc230300",
+      "1002d1e8": "68000000",
+      "1002c874": "482d0300",
+      "1002c878": "94000000",
+      "100326fc": "78df0200",
+      "10032700": "b8160000",
+      "10032bc0": "000000000000b03c",
+      "1005b0b0": "64590000",
+      "1005b0b4": "5c020000",
+      "1005b098": "000000000000e043",
+      "1005b0a0": "000000000000e0c3",
+      "1005b0a8": "000000000000b03c",
+      "10053300": "30d80000",
+      "10053304": "f4050000",
+      "10014f94": "ec9c0400",
+      "10014f98": "54000000",
+      "100504f0": "38010100",
+      "100504f4": "0c020000",
+      "10037398": "6c890200",
+      "1003739c": "20040000",
+      "10017dac": "9c710400",
+      "10017db0": "b4010000",
+      "1001ba54": "50350400",
+      "1001ba58": "f0000000",
+      "1001e740": "f0080400",
+      "1001e744": "94000000",
+      "1002d9e0": "481e0300",
+      "1002d9e4": "40020000",
+      "10046c2c": "ec940100",
+      "10046c30": "74000000",
+      "1003fe54": "84000200",
+      "1003fe58": "f8010000",
+      "10009e90": "ef39fafe422e8640",
+      "10009e88": "000000000000f07f",
+      "10009e98": "51302dd5104987c0",
+      "100237e4": "14c60300",
+      "100237e8": "ec0a0000",
+      "10013b80": "48b60400",
+      "10013b84": "30060000",
+      "10040330": "4cfc0100",
+      "10040334": "78020000",
+      "10017270": "547b0400",
+      "10017274": "94000000",
+      "10017028": "087e0400",
+      "1001702c": "18010000",
+      "100579b0": "cc8f0000",
+      "100579b4": "d0020000",
+      "100399f4": "046b0200",
+      "100399f8": "cc090000",
+      "1003a2d0": "b0570200",
+      "1003a2d4": "94000000",
+      "1002dca4": "c0190300",
+      "1002dca8": "98000000",
+      "100496c8": "706b0100",
+      "100496cc": "54000000",
+      "10014584": "eca80400",
+      "10014588": "58020000",
+      "10014aa8": "a8a20400",
+      "10014aac": "10010000",
+      "10023f38": "84b50300",
+      "10023f3c": "b0020000",
+      "1005be80": "d84f0000",
+      "1005be84": "ac050000",
+      "1003f0d0": "bc0c0200",
+      "1003f0d4": "1c010000",
+      "1001f7a4": "2cf90300",
+      "1001f7a8": "94000000",
+      "1000dc34": "e40d0500",
+      "1000dc38": "74000000",
+      "100141e8": "a8aa0400",
+      "100141ec": "bc000000",
+      "10010b20": "d8ee0400",
+      "10010b24": "642c0000",
+      "10029638": "a85e0300",
+      "1002963c": "00010000",
+      "10005da0": "00000000",
+      "1002ab68": "604a0300",
+      "1002ab6c": "54010000",
+      "1004ee18": "8c1c0100",
+      "1004ee1c": "e8060000",
+      "1001c1c0": "682f0400",
+      "1001c1c4": "cc010000",
+      "10035d88": "ac9d0200",
+      "10035d8c": "5c020000",
+      "10035d70": "000000000000e043",
+      "10035d78": "000000000000e0c3",
+      "10035d80": "000000000000b03c",
+      "1005d1c0": "88370000",
+      "1005d1c4": "dc000000",
+      "1000b44c": "18350500",
+      "1000b450": "b4000000",
+      "10059b98": "7c6c0000",
+      "10059b9c": "fc000000",
+      "10059b80": "000000000000e043",
+      "10059b88": "000000000000e0c3",
+      "10059b90": "000000000000b03c",
+      "100290a4": "5c630300",
+      "100290a8": "48000000",
+      "10033730": "f0c40200",
+      "10033734": "a4030000",
+      "10049258": "2c700100",
+      "1004925c": "c4000000",
+      "1002a930": "304c0300",
+      "1002a934": "fc000000",
+      "10006390": "182d4454fb210940",
+      "10006398": "182d4454fb2119c0",
+      "100063a0": "182d4454fb2109c0",
+      "100063a8": "182d4454fb211940",
+      "100063b0": "00000000008086c0",
+      "100405e0": "b0f70100",
+      "100405e4": "6c000000",
+      "10045c08": "40a60100",
+      "10045c0c": "d8010000",
+      "100408c8": "48f50100",
+      "100408cc": "c4000000",
+      "1001fc34": "dcf40300",
+      "1001fc38": "94000000",
+      "10036ec8": "000000000000b03c",
+      "10028068": "1c740300",
+      "1002806c": "28010000",
+      "10050a10": "38fb0000",
+      "10050a14": "60010000",
+      "100467e4": "28990100",
+      "100467e8": "5c000000",
+      "10047370": "5c930100",
+      "10047374": "ec050000",
+      "10038a18": "e0760200",
+      "10038a1c": "80060000",
+      "1005c3f8": "4c440000",
+      "1005c3fc": "64000000",
+      "1001714c": "687c0400",
+      "10017150": "94000000",
+      "10054dbc": "78bd0000",
+      "10054dc0": "18050000",
+      "1000c250": "702f0500",
+      "1000c254": "18080000",
+      "10005e5c": "00000000",
+      "1003fba8": "f40a0200",
+      "1003fbac": "ac070000",
+      "1005a2a0": "399d52a246df913f",
+      "1005a2c0": "88650000",
+      "1005a2c4": "f8000000",
+      "1005a2a8": "000000000000e043",
+      "1005a2b0": "000000000000e0c3",
+      "1005a2b8": "000000000000b03c",
+      "10005c80": "000000000000e043",
+      "1001ef54": "1c010400",
+      "1001ef58": "94000000",
+      "10056a58": "209e0000",
+      "10056a5c": "4c020000",
+      "1005132c": "08f20000",
+      "10051330": "14010000",
+      "10016964": "a8890400",
+      "10016968": "c8050000",
+      "100165c8": "000000000000f07f",
+      "100165d0": "000000000000f0ff",
+      "100165d8": "0000000080842e41",
+      "10014ea8": "90a00400",
+      "10014eac": "84020000",
+      "1003bd2c": "1c450200",
+      "1003bd30": "84060000",
+      "10041084": "50ee0100",
+      "10041088": "58010000",
+      "10028548": "ec700300",
+      "1002854c": "90020000",
+      "100458dc": "b0a80100",
+      "100458e0": "48010000",
+      "10009d90": "ef39fafe422e8640",
+      "10009d88": "000000000000f07f",
+      "10009d98": "51302dd5104987c0",
+      "1003a9e4": "e0540200",
+      "1003a9e8": "cc030000",
+      "10014090": "40af0400",
+      "10014094": "80030000",
+      "10041438": "8cea0100",
+      "1004143c": "30010000",
+      "1005a798": "c8600000",
+      "1005a79c": "f8000000",
+      "1005a780": "000000000000e043",
+      "1005a788": "000000000000e0c3",
+      "1005a790": "000000000000b03c",
+      "1002b794": "c43e0300",
+      "1002b798": "90010000",
+      "10023b98": "c0b60300",
+      "10023b9c": "94000000",
+      "10034dd4": "60ab0200",
+      "10034dd8": "bc000000",
+      "10005af8": "182d4454fb210940",
+      "10005b00": "182d4454fb2119c0",
+      "10005b08": "182d4454fb2109c0",
+      "10005b10": "182d4454fb211940",
+      "10005b18": "00000000008086c0",
+      "1002c9b0": "202c0300",
+      "1002c9b4": "98000000",
+      "10059df8": "2c6a0000",
+      "10059dfc": "fc000000",
+      "10059de0": "000000000000e043",
+      "10059de8": "000000000000e0c3",
+      "10059df0": "000000000000b03c",
+      "1000e3e0": "cc0c0500",
+      "1000e3e4": "58060000",
+      "10049a48": "e4690100",
+      "10049a4c": "10020000",
+      "100062d0": "182d4454fb210940",
+      "100062d8": "182d4454fb2119c0",
+      "100062e0": "182d4454fb2109c0",
+      "100062e8": "182d4454fb211940",
+      "100062f0": "0000000000005e40",
+      "100062f8": "0000000000b0b3c0",
+      "10019ef0": "dc4f0400",
+      "10019ef4": "90000000",
+      "1005acf8": "245c0000",
+      "1005acfc": "78010000",
+      "1005ace0": "000000000000e043",
+      "1005ace8": "000000000000e0c3",
+      "1005acf0": "000000000000b03c",
+      "1005cd00": "cc3b0000",
+      "1005cd04": "58000000",
+      "10049dc8": "7c660100",
+      "10049dcc": "10020000",
+      "10013450": "6cbb0400",
+      "10013454": "e4020000",
+      "1001f9ec": "04f70300",
+      "1001f9f0": "94000000",
+      "1001ee30": "30020400",
+      "1001ee34": "94000000",
+      "1000c8e0": "24210500",
+      "1000c8e4": "ec000000",
+      "100281e8": "74720300",
+      "100281ec": "f0000000",
+      "1005cb4c": "783d0000",
+      "1005cb50": "54000000",
+      "1002df0c": "10180300",
+      "1002df10": "40010000",
+      "10035030": "0caa0200",
+      "10035034": "9c010000",
+      "10035018": "000000000000e0c3",
+      "10035020": "000000000000e043",
+      "10035028": "000000000000b03c",
+      "1000e7ec": "84040500",
+      "1000e7f0": "0c020000",
+      "10009f78": "ef39fafe422e8640",
+      "10009f70": "000000000000f07f",
+      "10009f80": "51302dd5104987c0",
+      "1004001c": "00fe0100",
+      "10040020": "08010000",
+      "1003431c": "6cb80200",
+      "10034320": "4c030000",
+      "1001f2c0": "e0fd0300",
+      "1001f2c4": "94000000",
+      "1000949c": "00540500",
+      "100094a0": "3c000000",
+      "1002b354": "3c420300",
+      "1002b358": "f0000000",
+      "100091a4": "a8560500",
+      "100091a8": "1c000000",
+      "1000faa8": "34f20400",
+      "1000faac": "58020000",
+      "1003ef08": "540e0200",
+      "1003ef0c": "d8000000",
+      "10033f0c": "ecbb0200",
+      "10033f10": "a4020000",
+      "1000ca18": "a01f0500",
+      "1000ca1c": "98000000",
+      "10046abc": "a8970100",
+      "10046ac0": "90010000",
+      "1003d76c": "44330200",
+      "1003d770": "581e0000",
+      "1003e360": "000000000000b03c",
+      "10023a74": "24b90300",
+      "10023a78": "a4010000",
+      "1001a9d0": "88460400",
+      "1001a9d4": "f4010000",
+      "1000b890": "e0300500",
+      "1000b894": "b4000000",
+      "1001a0d0": "bc4e0400",
+      "1001a0d4": "40010000",
+      "1000af7c": "b8390500",
+      "1000af80": "94000000",
+      "10026938": "78980300",
+      "1002693c": "34190000",
+      "1003afb4": "704b0200",
+      "1003afb8": "bc000000",
+      "100162ac": "e08a0400",
+      "100162b0": "b4000000",
+      "1002a788": "c44d0300",
+      "1002a78c": "f8000000",
+      "10029f48": "f4550300",
+      "10029f4c": "14010000",
+      "10046178": "0000000000408f40",
+      "10046180": "589f0100",
+      "10046184": "54000000",
+      "10058b58": "40800000",
+      "10058b5c": "90040000",
+      "1004f720": "d0130100",
+      "1004f724": "c4060000",
+      "1003ace0": "c84d0200",
+      "1003ace4": "60000000",
+      "1004f9f0": "740b0100",
+      "1004f9f4": "f4010000",
+      "1004fd6c": "90080100",
+      "1004fd70": "6c020000",
+      "10005f30": "00000000",
+      "1005c304": "38450000",
+      "1005c308": "6c000000",
+      "1005077c": "b0fd0000",
+      "10050780": "4c010000",
+      "10028f94": "c0670300",
+      "10028f98": "34030000",
+      "1005c888": "44400000",
+      "1005c88c": "b8000000",
+      "1003bec8": "d43c0200",
+      "1003becc": "a4000000",
+      "1002bc18": "64390300",
+      "1002bc1c": "9c000000",
+      "1001f680": "40fa0300",
+      "1001f684": "94000000",
+      "100515a8": "b8ef0000",
+      "100515ac": "30010000",
+      "10048dcc": "98760100",
+      "10048dd0": "8c020000",
+      "1001f8c8": "18f80300",
+      "1001f8cc": "94000000",
+      "100184c4": "086b0400",
+      "100184c8": "f0010000",
+      "10059478": "6c730000",
+      "1005947c": "fc000000",
+      "10059460": "000000000000e043",
+      "10059468": "000000000000e0c3",
+      "10059470": "000000000000b03c",
+      "1003a030": "485b0200",
+      "1003a034": "28010000",
+      "10050e94": "84f60000",
+      "10050e98": "10010000",
+      "1002ef3c": "3c160300",
+      "1002ef40": "501f0000",
+      "1002f850": "000000000000b03c",
+      "100312b0": "000000000000e043",
+      "100312b8": "000000000000e0c3",
+      "100312c0": "000000000000b03c",
+      "100316d0": "000000000000e043",
+      "100316d8": "000000000000e0c3",
+      "100316c8": "000000000000b03c",
+      "1005c4f4": "68430000",
+      "1005c4f8": "6c000000",
+      "10054680": "d0c90000",
+      "10054684": "f4090000",
+      "1004909c": "98720100",
+      "100490a0": "48010000",
+      "1000d02c": "b4190500",
+      "1000d030": "98000000",
+      "10024734": "b0ac0300",
+      "10024738": "a4010000",
+      "10050c50": "b4f80000",
+      "10050c54": "0c010000",
+      "10027764": "407c0300",
+      "10027768": "94000000",
+      "1000c6c8": "34230500",
+      "1000c6cc": "ec000000",
+      "10015e28": "64950400",
+      "10015e2c": "c4040000",
+      "1005a058": "dc670000",
+      "1005a05c": "fc000000",
+      "1005a040": "000000000000e043",
+      "1005a048": "000000000000e0c3",
+      "1005a050": "000000000000b03c",
+      "10029910": "005c0300",
+      "10029914": "28010000",
+      "10015634": "309b0400",
+      "10015638": "88020000",
+      "100356b0": "7ca40200",
+      "100356b4": "68020000",
+      "10035698": "000000000000e043",
+      "100356a0": "000000000000e0c3",
+      "100356a8": "000000000000b03c",
+      "1002bd5c": "34380300",
+      "1002bd60": "a0000000",
+      "10055e64": "60b60000",
+      "10055e68": "4c150000",
+      "1001508c": "149c0400",
+      "10015090": "68000000",
+      "100528f4": "9ce10000",
+      "100528f8": "84050000"
+    }
+  },
+  "reviewed_restored_entries": [
+    "1000973c\tvoid *object_from_header(void *header);"
+  ],
+  "reviewed_heap_contracts": {
+    "_wm_probe_heap_alloc": {
+      "address": "0x10002de4",
+      "declaration": "void *allocate(unsigned long size);"
+    },
+    "_wm_probe_heap_reset": {
+      "address": "0x100024b8",
+      "declaration": "void reset_heap(void);"
+    },
+    "_wm_probe_heap_free_bytes": {
+      "address": "0x10002b20",
+      "declaration": "unsigned int free_bytes(void);"
+    },
+    "_wm_probe_heap_total_bytes": {
+      "address": "0x10002c8c",
+      "declaration": "unsigned int total_bytes(void);"
+    },
+    "_wm_probe_heap_free_bytes64": {
+      "address": "0x10002bd0",
+      "declaration": "unsigned long long free_bytes64(void);"
+    },
+    "_wm_probe_heap_total_bytes64": {
+      "address": "0x10002d34",
+      "declaration": "unsigned long long total_bytes64(void);"
+    },
+    "_wm_probe_heap_add_region": {
+      "address": "0x10002a88",
+      "declaration": "bool add_region(unsigned long address,unsigned long size);"
+    },
+    "_wm_probe_heap_add_regions": {
+      "address": "0x100027c4",
+      "declaration": "bool add_regions(unsigned long *addresses,unsigned long *sizes,unsigned long count);"
+    },
+    "_wm_probe_heap_alloc_below": {
+      "address": "0x100030c0",
+      "declaration": "void *alloc_below(unsigned long size,unsigned long limit);"
+    },
+    "_wm_probe_heap_alloc_range": {
+      "address": "0x10003148",
+      "declaration": "void *alloc_range(unsigned long size,unsigned long first,unsigned long last);"
+    },
+    "_wm_probe_heap_free": {
+      "address": "0x100031d8",
+      "declaration": "void release(void *pointer);"
+    },
+    "_wm_probe_heap_realloc": {
+      "address": "0x100033c0",
+      "declaration": "void *resize(void *pointer,unsigned long size);"
+    },
+    "_strcspn": {
+      "address": "0x100053d4",
+      "declaration": "unsigned long reject_span(char *text,char *reject);"
+    }
+  },
+  "reviewed_context_jump_return": "The native context transfer does not return; discard the decompiler-only result without manufacturing a returned pointer.",
+  "reviewed_value_contracts": {
+    "signatures": [
+      "100057b4\tdouble ceil_number(double value);\tr1:r0\tr1,r0",
+      "100057f8\tdouble sqrt_number(double value);\tr1:r0\tr1,r0",
+      "10005704\tdouble power_number(double left,double right);\tr1:r0,r3:r2\tr1,r0",
+      "10058e24\tdouble require_number(char *name,void *values,unsigned int count,unsigned int index,unsigned int line);\tr0,r1,r2,r3,stack0\td0",
+      "10005784\tdouble floor_number(double value);\tr1:r0\tr1,r0",
+      "10009fa4\tdouble round_number(double value);\tr1:r0\tr1,r0",
+      "10005b20\tdouble absolute_number(double value);\tr1:r0\tr1,r0",
+      "10005cd0\tdouble integer_float(unsigned int low,unsigned int high);\tr0,r1\tr1,r0",
+      "10006688\tdouble parse_decimal(char *text,char **end);\tr0,r1\tr1,r0",
+      "10034324\tdouble internal_float(void *value);\tr0\td0",
+      "1000c75c\tdouble public_float(void *value);\tr0\td0",
+      "10009c98\tbool finite_number(double value);\tr1:r0\tr0",
+      "10009c44\tbool finite_wrapper(double value);\tr1:r0\tr0"
+    ],
+    "reason": "Recover native value returns and full precision arguments before propagating them to callers."
+  },
+  "reviewed_virtual_owner_calls": {
+    "sites": [
+      [
+        "1002b1c8",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "100252c8",
+        "piVar3",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "100252c8",
+        "local_c8",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1002abbc",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1002abbc",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1002abbc",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1002abbc",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10029bec",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1005b6e4",
+        "owner",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10024294",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10041440",
+        "local_270",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10041440",
+        "local_26c",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10041440",
+        "local_268",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10041440",
+        "local_264",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10041440",
+        "local_260",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10041440",
+        "local_144",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10041440",
+        "local_ac",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "100202b0",
+        "local_b0",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "100202b0",
+        "local_b0",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "100202b0",
+        "local_b0",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1002b56c",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1002b56c",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10024cb8",
+        "piVar4",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10024cb8",
+        "local_b0",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10024cb8",
+        "piVar5",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10024cb8",
+        "local_d8",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10045658",
+        "local_bc",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1002cc94",
+        "local_a0",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "100248e8",
+        "piVar3",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "100248e8",
+        "local_c8",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1003f0d8",
+        "local_1a8",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1003f0d8",
+        "piVar10",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1003f0d8",
+        "local_1c8",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1002bf58",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "100244ac",
+        "piVar2",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1003c730",
+        "piVar16",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1003c730",
+        "local_1d8",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1003afc4",
+        "owner",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1003afc4",
+        "local_b0",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "100473b4",
+        "local_bc",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1001b718",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1001b718",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "100476c4",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1002dd3c",
+        "piVar2",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10029f9c",
+        "piVar3",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10029f9c",
+        "piVar3",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1001dda4",
+        "local_a8",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1001dda4",
+        "local_a8",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1001dda4",
+        "local_b0",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1001dda4",
+        "local_a8",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1001dda4",
+        "local_a8",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1001dda4",
+        "local_b0",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1001dda4",
+        "local_a8",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1005704c",
+        "owner",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10038d94",
+        "local_2b4",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10038d94",
+        "local_2ac",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10028070",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10027bb0",
+        "piVar2",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "100278e0",
+        "local_a0",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10029a8c",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "100237ec",
+        "piVar2",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10022a80",
+        "local_148",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10022a80",
+        "ppuVar2",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10022a80",
+        "local_128",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10022a80",
+        "local_130",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10022a80",
+        "piVar3",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10022a80",
+        "local_f4",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10022a80",
+        "local_fc",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1002a970",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1002a970",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10053a30",
+        "local_b8",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1003c148",
+        "local_ac",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1003a44c",
+        "owner",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1003a44c",
+        "local_b0",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1002b79c",
+        "piVar2",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1005c748",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1002df18",
+        "piVar13",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1002df18",
+        "local_338",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1002df18",
+        "local_338",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1002df18",
+        "piVar13",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1002df18",
+        "local_338",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1002df18",
+        "local_338",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1002df18",
+        "local_338",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1002df18",
+        "local_338",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1002df18",
+        "local_338",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1002df18",
+        "local_338",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10047bf4",
+        "local_124",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10018718",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10018718",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10018718",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10018718",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1001b8dc",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10025698",
+        "local_bc",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "100515e0",
+        "local_174",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "100478f4",
+        "local_bc",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10058228",
+        "local_9c",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10056694",
+        "local_108",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10012d98",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1000d578",
+        "local_10c",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10029d88",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10029d88",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10025974",
+        "local_b0",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10025974",
+        "local_b8",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10025974",
+        "local_b0",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10025974",
+        "local_b0",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10025974",
+        "piVar19",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10025974",
+        "piVar19",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10025974",
+        "piVar7",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10025974",
+        "local_ec",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10025974",
+        "piVar9",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10025974",
+        "piVar19",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10025974",
+        "piVar19",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "100458e4",
+        "local_e4",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "100579e8",
+        "owner",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "100579e8",
+        "local_cc",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10028ab0",
+        "piVar3",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1001db88",
+        "piVar2",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1004d1fc",
+        "piVar13",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10053344",
+        "local_b8",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10016e80",
+        "piVar2",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1003bed8",
+        "local_9c",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "100316e0",
+        "piVar16",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "100316e0",
+        "piVar16",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1000f770",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10058550",
+        "local_c0",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10058550",
+        "local_b8",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1002974c",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10054e00",
+        "local_15c",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10054e00",
+        "local_148",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1003b498",
+        "owner",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1003b498",
+        "local_b4",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10057564",
+        "owner",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1002b35c",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "100294a8",
+        "piVar2",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1001b5c4",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1002a790",
+        "piVar2",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1002aedc",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1002aedc",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1001c924",
+        "local_a0",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "100546c4",
+        "local_b8",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10033b28",
+        "piVar4",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10033b28",
+        "piVar5",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "100240a8",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "100240a8",
+        "piVar1",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10027eb8",
+        "piVar2",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1002a5ec",
+        "piVar2",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "10056a9c",
+        "local_bc",
+        8,
+        "reference-count zero release"
+      ],
+      [
+        "1000fab0",
+        "pppiVar2",
+        8,
+        "indexed destructor/release"
+      ],
+      [
+        "100202b0",
+        "local_b8",
+        8,
+        "indexed destructor/release"
+      ],
+      [
+        "100202b0",
+        "local_b8",
+        8,
+        "indexed destructor/release"
+      ],
+      [
+        "100202b0",
+        "local_d0",
+        8,
+        "indexed destructor/release"
+      ],
+      [
+        "100202b0",
+        "pppppppiVar8",
+        8,
+        "indexed destructor/release"
+      ],
+      [
+        "100202b0",
+        "local_ec",
+        8,
+        "indexed destructor/release"
+      ],
+      [
+        "100202b0",
+        "pppppppiVar8",
+        8,
+        "indexed destructor/release"
+      ],
+      [
+        "100202b0",
+        "pppppppiVar8",
+        8,
+        "indexed destructor/release"
+      ],
+      [
+        "100202b0",
+        "pppppppiVar8",
+        8,
+        "indexed destructor/release"
+      ],
+      [
+        "100202b0",
+        "pppppppiVar8",
+        8,
+        "indexed destructor/release"
+      ],
+      [
+        "100202b0",
+        "pppppppiVar8",
+        8,
+        "indexed destructor/release"
+      ],
+      [
+        "100202b0",
+        "pppppppiVar8",
+        8,
+        "indexed destructor/release"
+      ],
+      [
+        "100202b0",
+        "local_c8",
+        8,
+        "indexed destructor/release"
+      ],
+      [
+        "100202b0",
+        "pppppppiVar8",
+        8,
+        "indexed destructor/release"
+      ],
+      [
+        "100202b0",
+        "local_ec",
+        8,
+        "indexed destructor/release"
+      ],
+      [
+        "100202b0",
+        "pppppppiVar8",
+        8,
+        "indexed destructor/release"
+      ],
+      [
+        "100202b0",
+        "pppppppiVar8",
+        8,
+        "indexed destructor/release"
+      ],
+      [
+        "100202b0",
+        "local_b8",
+        8,
+        "indexed destructor/release"
+      ],
+      [
+        "100202b0",
+        "pppppppiVar8",
+        8,
+        "indexed destructor/release"
+      ],
+      [
+        "100202b0",
+        "pppppppiVar8",
+        8,
+        "indexed destructor/release"
+      ],
+      [
+        "100202b0",
+        "pppppppiVar8",
+        8,
+        "indexed destructor/release"
+      ],
+      [
+        "100202b0",
+        "pppppppiVar8",
+        8,
+        "indexed destructor/release"
+      ]
+    ],
+    "basis": "Deleting destructor slot and reference-count guarded control-block release preserve the native owner argument."
+  },
+  "reviewed_parser_byte_ranges": {
+    "entries": [
+      "10024cb8",
+      "100252c8"
+    ],
+    "basis": "Keep the unsigned byte-range checks that distinguish additive and multiplicative token classes."
+  },
+  "reviewed_parser_unsigned_ranges": {
+    "functions": [
+      "100248e8",
+      "100252c8"
+    ],
+    "basis": "ARM SUB followed by unsigned CMP/BHI at entry and loop back."
+  },
+  "reviewed_callback_stack_arguments": {
+    "native_call": "1003f19c",
+    "arguments": [
+      "output",
+      "holder",
+      "runtime",
+      "values",
+      "count",
+      "line"
+    ],
+    "basis": "BLX r5 forwards count at SP and source line at SP+4."
+  },
+  "reviewed_allocator_forwarding": {
+    "slots": [
+      "0x4c",
+      "0x50",
+      "0x54"
+    ],
+    "reason": "Native allocator tail calls preserve byte-count and pointer arguments through the WMAP wire table. Explicit call contracts retain those arguments in C."
+  }
+}

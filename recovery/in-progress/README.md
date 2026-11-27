@@ -361,3 +361,5 @@ three Lua backends and complete VM error-path compatibility remain unfinished;
 this is a component checkpoint and does not promote the release build target.
 
 The fresh x86-64 Lua C backend now passes the same 13 core execution, 20 standard-library, 12 heap and 117 allocator-forwarding cases as ARM64. Recovered floating storage views preserve boxed integer payloads, numeric results and comparison dispatch. The 32-bit runtimes and release-wide VM parity remain incomplete.
+
+The fresh ARM32 Lua C backend also matches 13 core execution fixtures, 20 standard-library cases, 12 heap workflows and 117 allocator-forwarding cases. Source recovery distinguishes C++ floating returns from runtime soft-float helpers and restores callback stack arguments. i386 recovery, exported numeric helper ABI review and complete VM error-path compatibility remain open.
