@@ -56,6 +56,24 @@ unsigned int recovered_2000(unsigned int value)
         subprocess.run(['clang', '-std=c11', '-I', str(repository / 'kernel'),
                         str(root / 'runtime.c'), '-o', str(executable)], check=True)
         subprocess.run([str(executable)], check=True)
+        configuration=json.loads(layout.read_text())
+        configuration['translation']['pointer_bytes']=4
+        configuration['translation']['declarations'].append('#define PF_NATIVE_X87 1')
+        layout.write_text(json.dumps(configuration))
+        units32=root/'units32'
+        subprocess.run([sys.executable,str(repository/'tools/ghidra/translate.py'),
+                        '--layout',str(layout),'--notes',str(notes),
+                        '--manual',str(manual),'--out',str(units32)],check=True)
+        probe=units32/'x87.c'
+        probe.write_text('''#include "functions.h"
+_Static_assert(sizeof(longdouble)==sizeof(long double),"native x87 width");
+_Static_assert(_Alignof(longdouble)==_Alignof(long double),"native x87 alignment");
+longdouble x87_argument(longdouble value) { return value; }
+''')
+        sys.path.insert(0,str(repository/'tools'))
+        from darwin import compile_object
+        compile_object(probe,root/'x87.o','i386',
+                       [units32,repository/'kernel',repository/'sdk/include'])
     print('Reused unit: declaration, direct call and inline body passed.')
 
 

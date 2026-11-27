@@ -1012,7 +1012,10 @@ def main():
         sources[address]=source
     floating={name:typ for text in sources.values() for typ,name in
               re.findall(r'\b(float|float10|double)\s+(?:__\w+\s+)?((?:recovered_|FUN_)[0-9a-f]+)\(',text)}
-    header = ['/* Permafrost recovered source; Pooka\'s Free Software License. */', '#pragma once', '#include "support.h"']
+    header = ['/* Permafrost recovered source; Pooka\'s Free Software License. */', '#pragma once']
+    if '#define PF_NATIVE_X87 1' in current.get('declarations',[]):
+        header.append('#define PF_NATIVE_X87 1')
+    header.append('#include "support.h"')
     if current.get('float_slot_views'):
         header += ['#undef CONCAT44', '#define CONCAT44(a,b) (((uint64_t)PF_RAW32(a)<<32)|PF_RAW32(b))']
     service_types=sorted(set(re.findall(r'\bservice(?:_conflict\d+)?\b', '\n'.join(sources.values()))))
