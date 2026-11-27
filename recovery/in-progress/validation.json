@@ -203,7 +203,7 @@
       "wide_operand_decode_cases_per_cpu": 246,
       "i386_decimal_parse_cases": 35,
       "armv7_media_type1_cases": 15,
-      "scope": "Memory font loading, metrics, raster pixels, cache rotation, release and heap guards. Complete VM/file-service integration remains under recovery."
+      "scope": "Memory font loading, metrics, raster pixels, cache rotation, release and heap guards pass. X64 and ARM64 combined C-kernel/C-engine diagnostic VMs render the animated scene. ARM32 title rendering reaches the visible framebuffer; full release VM parity remains incomplete."
     }
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",
@@ -259,7 +259,7 @@
       "scope": "fallback UI and chunked HTTP; broader client parity incomplete"
     },
     "Zastruga Engine": {
-      "commit": "c9d6434",
+      "commit": "58ae462",
       "source_architectures": [
         "i386",
         "x86_64",
@@ -269,7 +269,7 @@
       "compiled_functions": 3058,
       "clone_pointer_contracts": 254,
       "captured_object_cases": 138,
-      "scope": "All four C checkpoints retain 27 extended interpreter workflows. X64 C kernel and C engine draw the complete animated scene. ARM64 C engine draws the scene in a native-kernel control. ARM32 C engine draws mountain layers and title after numeric ABI and executable-address repairs; motion and broader graphics remain under test. I386 process-list output buffers and path calls are recovered; parser startup remains under repair. Full release source recovery and VM parity remain incomplete.",
+      "scope": "All four C checkpoints retain the extended interpreter workflows. X64 and ARM64 C kernels and C engines draw the complete animated startup scene in diagnostic VMs. ARM32 C kernel and C engine draw the title and mountain layers; sustained particle animation remains under test. I386 file reads, numeric arguments and image ownership match native cases; the black graphics window remains under recovery. Full release source recovery and VM parity remain incomplete.",
       "bounded_switch_tables": 6,
       "deleting_destructor_ownership": true,
       "program_copy_workflows": 5,
@@ -288,7 +288,8 @@
         "pointer_callable_guarded_forwarding_cases": 4,
         "conditional_execution_workflows": 28,
         "compiled_branch_bytecode_cases": 2,
-        "native_kernel_vm": "Complete No Game scene with C engine; complete source-kernel integration pending."
+        "native_kernel_vm": "Complete No Game scene with C engine; complete source-kernel integration pending.",
+        "c_kernel_vm": "Complete animated No Game scene with C kernel and C engine; other reference payloads remain in this diagnostic image."
       },
       "interpreter_operator_workflows": 16,
       "tuple_ownership_workflows": 4,
@@ -305,7 +306,9 @@
         "extended_interpreter_workflows": 27,
         "numeric_argument_cases": 23,
         "spawn_argument_cases": 3,
-        "executable_discovery_cases": 5
+        "executable_discovery_cases": 5,
+        "particle_spawn_workflows": 3,
+        "c_kernel_vm": "Title font load, bitmap wrapping, framebuffer blit and visible title/mountain layers verified. Sustained particle motion remains under test."
       },
       "call_frame_float_loop_workflows": 15,
       "image_record_pixel_workflows": 6,
@@ -322,7 +325,11 @@
         "bounded_pic_tables": 377,
         "data_pointer_fixups": 2907,
         "extended_interpreter_workflows": 27,
-        "executable_discovery_cases": 5
+        "executable_discovery_cases": 5,
+        "file_byte_workflows": 4,
+        "numeric_argument_cases": 23,
+        "image_record_pixel_workflows": 6,
+        "unary_table_workflows": 5
       },
       "scalar_compound_guarded_cases_per_architecture": 42,
       "extended_interpreter_workflows_per_architecture": 27,

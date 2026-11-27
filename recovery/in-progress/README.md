@@ -306,3 +306,19 @@ decoding matches 246 native encodings. Font cache rotation, teardown and heap
 guards pass alongside the Type1 and TrueType pixel comparisons. The optional
 `tests/kernel_font.py --type1-image` fixture reads the reference font directly
 from the supplied image, without retaining a bundled font copy.
+
+The Type1 font matrix now passes 144 RGBA and 72 metric comparisons on every
+CPU. ARM64 retains raw integer loader records, hidden glyph output and double
+interpreter fields. IA32 decimal parsing preserves floating constants and byte
+whitespace checks. The combined ARM64 C kernel and C engine now draw the complete
+animated startup scene, alongside the existing x64 result. ARM32 font loading,
+bitmap wrapping and title blitting reach the visible framebuffer; sustained
+particle motion remains under test. These are diagnostic images with other
+reference payloads, not complete source-only releases.
+
+Engine checkpoint `58ae462` also restores IA32 file-stat outputs, numeric integer
+arguments and owned-image registration. Four file sizes, 23 numeric arguments
+and six image/pixel cases match the reference. ARM32 closure-cache initialization
+is typed C data and matches three particle-table workflows. The IA32 black
+graphics window, remaining payload inventory and complete VM equivalence remain
+release gates. The normal builder is still awaiting the completed 1.1 migration.
