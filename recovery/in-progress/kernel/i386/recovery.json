@@ -500,5 +500,9 @@
     ],
     "reason": "Native x87 decimal parsing loads IEEE float constants from memory. Preserve their bit representation instead of converting the stored integer words to float.",
     "whitespace": "Native LEA/CMP at 20032a7/20032aa uses a 32-bit unsigned subtraction. Preserve wrapping so NUL and bytes below TAB stop the scan."
+  },
+  "reviewed_device_prefix_scan": {
+    "function": "2093ba0",
+    "reason": "Native validation scans a byte register while retaining the copied device label for storage_device_address. Keep the label intact instead of overwriting its first byte during iteration."
   }
 }

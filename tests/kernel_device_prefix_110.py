@@ -8,6 +8,7 @@ from pathlib import Path
 from kernel_scalars import Kernel
 from unicorn import UC_HOOK_CODE
 from unicorn.x86_const import UC_X86_REG_RDI,UC_X86_REG_RSI,UC_X86_REG_RDX,UC_X86_REG_RAX,UC_X86_REG_RSP,UC_X86_REG_RIP
+from unicorn.x86_const import UC_X86_REG_EAX,UC_X86_REG_ESP,UC_X86_REG_EIP
 
 CASES=[b'',b'plain',b'[Firmware\\1\\1]\\file',b'[boot\\1\\1]/file',
        b'[disk\\0]file',b'[a\\b]',b'[a\\b\\c\\d\\e\\f]',
@@ -15,12 +16,21 @@ CASES=[b'',b'plain',b'[Firmware\\1\\1]\\file',b'[boot\\1\\1]/file',
        b'[a b\\c]',b'[a-1_B\\C2]',b'[a\\b',b'[[a\\b]]file',
        b'['+b'x'*129+b']file']
 
-def exercise(path,mapping=None):
+def exercise(path,mapping=None,arch='x86_64'):
+ entries=[('parse',0x20a5cc0),('lookup',0x20e1fa0)]if arch=='x86_64'else [('parse',0x2093ba0),('lookup',0x20d0940)]
  addresses={name:mapping['recovered_%x'%address] if mapping else address
-            for name,address in [('parse',0x20a5cc0),('lookup',0x20e1fa0)]}
+            for name,address in entries}
  addresses['_ws_errorf']=0x4fe0000
- lib=Kernel(path.read_bytes(),addresses);cpu=lib.cpu;events=[];reply=[3]
+ lib=Kernel(path.read_bytes(),addresses,native=arch=='i386'and mapping is None);cpu=lib.cpu;events=[];reply=[3]
  def lookup(c,address,size,user):
+  if arch=='i386':
+   sp=c.reg_read(UC_X86_REG_ESP)
+   device,pointer,capacity=struct.unpack('<III',c.mem_read(sp+4,12))
+   events.append((device,bytes(c.mem_read(pointer,160)).split(b'\0')[0],capacity))
+   c.reg_write(UC_X86_REG_EAX,reply[0]&0xffffffff)
+   target=int.from_bytes(c.mem_read(sp,4),'little')
+   c.reg_write(UC_X86_REG_ESP,sp+4);c.reg_write(UC_X86_REG_EIP,target)
+   return
   pointer=c.reg_read(UC_X86_REG_RSI)
   events.append((c.reg_read(UC_X86_REG_RDI)&0xffffffff,
                  bytes(c.mem_read(pointer,160)).split(b'\0')[0],
@@ -47,8 +57,9 @@ def exercise(path,mapping=None):
 if __name__=='__main__':
  parser=argparse.ArgumentParser(description=__doc__)
  parser.add_argument('reference',type=Path);parser.add_argument('source',type=Path)
- parser.add_argument('--map',type=Path,required=True);args=parser.parse_args()
- native=exercise(args.reference);source=exercise(args.source,json.loads(args.map.read_text()))
+ parser.add_argument('--map',type=Path,required=True)
+ parser.add_argument('--arch',choices=['x86_64','i386'],default='x86_64');args=parser.parse_args()
+ native=exercise(args.reference,arch=args.arch);source=exercise(args.source,json.loads(args.map.read_text()),args.arch)
  differences=[(i,a,b)for i,(a,b)in enumerate(zip(native,source))if a!=b]
  assert not differences,differences[:5]
  assert any(row[2]==[(0xfffffffe,b'Firmware\\1\\1',128)]for row in native)

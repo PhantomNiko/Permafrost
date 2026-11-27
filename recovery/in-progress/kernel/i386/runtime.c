@@ -133519,6 +133519,7 @@ undefined4 recovered_2093ba0(char *in_ECX,int *in_EDX,undefined4 *param_3)
       cVar4 = local_114[iVar2 + 0x81];
     }
     if ((cVar4 == '\0') && (local_114[0x80] != '\0')) {
+      char volume_character = local_114[0x80];
       uVar3 = 1;
       iVar2 = 0;
       iVar7 = -0x7f;
@@ -133528,7 +133529,7 @@ LAB_02093cf6:
           iVar7 = 0x7fffffff;
           goto LAB_02093d3c;
         }
-        if (local_114[0x80] == '\\') {
+        if (volume_character == '\\') {
           if (iVar2 != 0) {
             uVar3 = uVar3 + 1;
             iVar2 = 0;
@@ -133536,15 +133537,15 @@ LAB_02093cf6:
           }
           goto LAB_02093cf6;
         }
-        if (((9 < (byte)(local_114[0x80] - 0x30U)) &&
-            (uVar5 = CONCAT11(local_114[0x80],local_114[0x80]) & 0xdfff, cVar4 = (char)uVar5,
+        if (((9 < (byte)(volume_character - 0x30U)) &&
+            (uVar5 = CONCAT11(volume_character,volume_character) & 0xdfff, cVar4 = (char)uVar5,
             0x19 < (byte)((char)(uVar5 >> 8) + 0xbfU))) && ((cVar4 != '_' && (cVar4 != '-'))))
         goto LAB_02093cf6;
         iVar2 = iVar2 + 1;
 LAB_02093cae:
-        local_114[0x80] = local_114[iVar7 + 0x100];
+        volume_character = local_114[iVar7 + 0x100];
         iVar7 = iVar7 + 1;
-      } while (local_114[0x80] != '\0');
+      } while (volume_character != '\0');
       iVar7 = 0x7fffffff;
       if (1 < uVar3 && iVar2 != 0) {
         iVar2 = recovered_20d0940(-2,(byte *)(local_114 + 0x80),0x80);
