@@ -541,7 +541,9 @@ def rewrite_float_slot_views(source, pointer_slots=False):
         if name in pointers:
             source=re.sub(r'\((int|uint|char|uchar|byte|short|ushort)\)(\*'+name+r'\b)',
                           r'(\1)pf_float_bits(\2)',source)
-        pattern=r'('+name+r'\[[^]\n]+\]) = \(float\)'
+        target=name+r'\[[^]\n]+\]'
+        if name in pointers:target=r'(?:'+target+r'|\*'+name+r'\b)'
+        pattern=r'('+target+r') = \(float\)'
         for match in reversed(list(re.finditer(pattern,source))):
             start=match.end()
             if re.match(r'(?:\d+\.\d*|\.\d+|\d+[eE][+-]?\d+)',source[start:]):continue
