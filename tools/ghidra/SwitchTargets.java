@@ -38,6 +38,11 @@ public class SwitchTargets extends GhidraScript {
    }
    if(instruction==null)throw new Exception("Missing native switch instruction at "+Long.toHexString(site));
    instruction.setFlowOverride(FlowOverride.NONE);
+   // A previous speculative table may have added destinations decoded from
+   // data bytes. Replace those edges with the reviewed bounded targets.
+   for(var reference:instruction.getReferencesFrom())
+    if(reference.getReferenceType().isFlow())
+     currentProgram.getReferenceManager().delete(reference);
    for(var address:targets)instruction.addOperandReference(0,address,RefType.COMPUTED_JUMP,SourceType.USER_DEFINED);
    clearListing(toAddr(table),toAddr(table+count*4L-1));createData(toAddr(table),new ArrayDataType(IntegerDataType.dataType,count,4));
    CreateFunctionCmd.fixupFunctionBody(currentProgram,owner,monitor);

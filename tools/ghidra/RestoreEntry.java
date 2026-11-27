@@ -20,6 +20,11 @@ public class RestoreEntry extends GhidraScript {
             body.delete(bounds);
             function.setBody(body);
         }
+        if(getScriptArgs().length>2) {
+            if(!getScriptArgs()[2].equals("clear"))
+                throw new IllegalArgumentException("Unknown bounded recovery option");
+            clearListing(first,last);
+        }
         disassemble(first);
         var function = getFunctionAt(first);
         if (function == null)
