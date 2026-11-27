@@ -37,6 +37,14 @@ public class Export extends GhidraScript {
             function.setReturn(hint,new VariableStorage(currentProgram,
                 currentProgram.getRegister(arm?"x1":"RDX"),
                 currentProgram.getRegister(arm?"x0":"RAX")),SourceType.USER_DEFINED);
+        } else if(currentProgram.getDefaultPointerSize()==4 &&
+                  currentProgram.getRegister("EAX")!=null && hint.getLength()==4 &&
+                  !(hint instanceof AbstractFloatDataType) && function.hasCustomVariableStorage() &&
+                  function.getReturn().getVariableStorage().isVoidStorage()) {
+            // A private i386 convention can retain ECX/EDX parameters while
+            // its previously discarded result has explicit VOID storage.
+            function.setReturn(hint,new VariableStorage(currentProgram,currentProgram.getRegister("EAX")),
+                SourceType.USER_DEFINED);
         } else function.setReturnType(hint,SourceType.USER_DEFINED);
     }
     private void signature(long address, String declaration, String storage, String returnStorage) throws Exception {
@@ -78,10 +86,13 @@ public class Export extends GhidraScript {
         }
         if(returnStorage!=null) {
             var pieces=new ArrayList<ghidra.program.model.pcode.Varnode>();
-            for(String returnRegister:returnStorage.split(",")) {
+            var returnRegisters=returnStorage.split(",");
+            for(String returnRegister:returnRegisters) {
                 var register=currentProgram.getRegister(returnRegister);
                 if(register==null)throw new Exception("Unknown return register "+returnRegister);
-                pieces.add(new ghidra.program.model.pcode.Varnode(register.getAddress(),register.getMinimumByteSize()));
+                int width=register.getMinimumByteSize(),valueWidth=type.getReturnType().getLength();
+                if(returnRegisters.length==1 && valueWidth>0 && valueWidth<width)width=valueWidth;
+                pieces.add(new ghidra.program.model.pcode.Varnode(register.getAddress(),width));
             }
             function.setCustomVariableStorage(true);
             function.setReturn(type.getReturnType(),new VariableStorage(currentProgram,
