@@ -128180,7 +128180,7 @@ void recovered_1006f7dc(long param_1,undefined8 param_2,undefined8 param_3,uint 
           uVar8 = DAT_100ac11c;
         }
         uVar14 = 0;
-        if (-1 < PF_PART8(auVar18, 0)) {
+        if (-1 < (int64_t)PF_PART8(auVar18, 0)) {
           uVar14 = uVar8;
         }
         uVar12 = uVar12 + iVar13;

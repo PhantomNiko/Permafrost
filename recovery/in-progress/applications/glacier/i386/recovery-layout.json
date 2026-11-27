@@ -458098,7 +458098,8 @@
   "reviewed_code_typed_byte_stores": 11,
   "reviewed_value_contracts": {
     "signatures": [
-      "1007b010\tunsigned int parse_url(char *url,void *output,char *error,unsigned int capacity);\tECX,EDX,stack4,stack8"
+      "100fc800\tvoid fill_rectangle(void *application,unsigned int x,unsigned int y,int width,int height,unsigned int colour);\tECX,EDX,stack4,stack8,stack12,stack16",
+      "100fcf60\tvoid blend_pixel(void *application,unsigned int x,unsigned int y,unsigned int red,unsigned int green,unsigned int blue,unsigned int alpha);\tECX,EDX,stack4,stack8,stack12,stack16,stack20"
     ],
     "reason": "Recover native value returns and full precision arguments before propagating them to callers."
   }

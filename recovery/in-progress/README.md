@@ -375,3 +375,10 @@ on all four CPUs. Its x86-64 packed shifts, unsigned saturated subtraction and
 minimum-double helpers match 2,048 SSE2 instruction comparisons, including NaNs
 and signed zeros. ARM32 Lua additionally matches 18 public numeric constructor
 and floating-getter ABI cases. Complete guest rendering and VM parity remain open.
+
+Browser framebuffer checks now match 240 pixel-blending and 260 rectangle-fill
+cases per architecture. These cover transparent and opaque colors, offscreen
+bounds, zero and negative extents, and clip rectangles. The ARM64 fix preserves
+the signed packed-coordinate comparison for translucent fills; i386 now passes
+the native raster arguments explicitly. Full page layout and VM interaction
+remain pending.

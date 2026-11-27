@@ -282860,7 +282860,8 @@
         "FUN_10076ecc": "winter_tls_read",
         "DAT_10076ecc": "winter_tls_read",
         "FUN_10076ed8": "winter_tls_write",
-        "DAT_10076ed8": "winter_tls_write"
+        "DAT_10076ed8": "winter_tls_write",
+        "-1 < auVar18._0_8_": "-1 < (int64_t)auVar18._0_8_"
       },
       "10024f54": {
         "thunk_recovered_10076d4c": "bzero",
@@ -1216369,5 +1216370,9 @@
   "reviewed_lazy_imports": {
     "count": 34,
     "basis": "Initial lazy symbol pointers map each native binder helper to its corresponding typed source import."
+  },
+  "reviewed_rectangle_signed_coordinate": {
+    "function": "1006f7dc",
+    "basis": "The packed xy register uses the signed high y lane for the lower framebuffer row bound; retain the native signed comparison after integer-vector lowering."
   }
 }

@@ -291,7 +291,9 @@
       "http_url_cases_per_architecture": 11,
       "arm64_percent_decoding_cases": 8,
       "release_vm_parity": false,
-      "native_sse_cases": 2048
+      "native_sse_cases": 2048,
+      "pixel_cases_per_architecture": 240,
+      "rectangle_cases_per_architecture": 260
     }
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",
