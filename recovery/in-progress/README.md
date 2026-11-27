@@ -382,3 +382,5 @@ bounds, zero and negative extents, and clip rectangles. The ARM64 fix preserves
 the signed packed-coordinate comparison for translucent fills; i386 now passes
 the native raster arguments explicitly. Full page layout and VM interaction
 remain pending.
+
+Fresh Lua C backends are now saved for all four architectures. i386 matches the same 13 core, 20 standard-library, 12 heap and 117 allocator-forwarding cases. Its recovery restores private register arguments, bounded conversion/parser branches, native callback arguments and immutable PC-relative data references. Complete VM callback and error-path compatibility remain release gates.
