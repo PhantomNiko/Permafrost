@@ -322,3 +322,14 @@ and six image/pixel cases match the reference. ARM32 closure-cache initializatio
 is typed C data and matches three particle-table workflows. The IA32 black
 graphics window, remaining payload inventory and complete VM equivalence remain
 release gates. The normal builder is still awaiting the completed 1.1 migration.
+
+Engine checkpoint `fe8b8fc` now draws the complete animated startup scene with
+the C kernel on all four CPUs. ARM32 table arithmetic retains raw integer
+payloads, matching 66 guarded operations and three particle-update workflows.
+IA32 preserves native x87 storage and image field types; 160 scalar-math,
+23 numeric-argument, 12 blit and 28 conditional workflows match. Its C kernel
+also preserves volume labels during prefix validation, matching 204 guarded
+lookup/output cases. Sustained scene runs show title text, scrolling mountain
+layers and drifting particles. Other reference payloads remain in these
+diagnostic images. Remaining libraries, payload recovery, release packaging and
+complete source-only VM compatibility still gate the 1.1 tag.
