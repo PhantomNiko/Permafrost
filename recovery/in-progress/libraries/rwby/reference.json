@@ -10,10 +10,19 @@
       "serialized_bytecode_cases": 20,
       "heap_workflows": 12,
       "allocator_forwarding_cases": 117
+    },
+    "x86_64": {
+      "sha256": "ea3d7b50833adc610265742c063de45dfe92bb4895ac5776a71bc6993b339a2c",
+      "recovered_functions": 791,
+      "core_execution_cases": 20,
+      "serialized_bytecode_cases": 20,
+      "heap_workflows": 12,
+      "allocator_forwarding_cases": 117,
+      "utf8_length_cases": 238
     }
   },
   "pending": [
-    "remaining three Rwby source backends",
+    "i386 and ARM32 runtime recovery",
     "full callback and exception compatibility",
     "booted VM application integration",
     "release-wide images and SDK"

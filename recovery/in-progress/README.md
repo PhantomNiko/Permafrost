@@ -405,3 +405,11 @@ execution fixtures, 20 serialized-bytecode comparisons, 12 heap workflows and
 match under poisoned memory. Recovery restores map/string owner returns and
 the unsigned token range used by indexed assignment. Other architectures,
 full callback/exception behavior and booted VM integration remain unfinished.
+
+The fresh x64 Rwby backend builds from recovered C and matches all 20 core
+execution fixtures, 20 serialized-bytecode comparisons, 12 heap workflows and
+117 allocator-forwarding checks. Recovery restores instruction/argument byte
+offsets, floating storage and the finite-classifier register contract. Its
+UTF-8 callback matches 238 native boundary and malformed-byte cases. The two
+remaining architectures, full callback/exception behavior and booted VM
+integration remain unfinished.
