@@ -475,5 +475,14 @@
         "pcVar22[-0x70]": "(byte)pcVar22[-0x70]"
       }
     }
+  },
+  "reviewed_device_prefix_scan": {
+    "function": "20a5cc0",
+    "reason": "The native validation loop advances a byte register without modifying the copied volume label. Keep the name intact for the device lookup service.",
+    "native_lookup": "20e1fa0",
+    "examples": [
+      "[Firmware\\1\\1]\\file",
+      "[boot\\1\\1]/file"
+    ]
   }
 }

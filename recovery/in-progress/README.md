@@ -290,3 +290,11 @@ C modules. The release source inventory and complete VM parity remain open.
 ARM64 analysis can retain independently typed scalar fields in merged globals.
 Typed atomic counters preserve both increment and decrement, including unsigned
 wraparound and concurrent updates; the acquisition regression also passes.
+
+The engine now has C build checkpoints for all four CPUs. Basic interpreter
+entry comparisons pass on each CPU; x64 with the reference kernel renders the
+complete animated No Game scene. Broader float scripts on the other CPUs remain
+under recovery. The x64 C kernel preserves device volume names during validation:
+204 parser/lookup/output cases pass and the startup script opens in QEMU.
+The combined C kernel and C engine next fail in the Type1 font backend; full
+release VM parity remains incomplete.
