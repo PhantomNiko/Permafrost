@@ -18,7 +18,8 @@ def exercise(reference, source, arch='x86_64'):
               for count in [1, 7, 8, 9, 15, 16, 17, 31, 32, 33, 63, 64, 65]]
     cases += [bytes(rng.randrange(256) for _ in range(count)) for count in range(130)]
     api, entry = {'x86_64': (0x280800, 0x488c0),
-                  'armv7': (0x40010800, 0x41eb0)}[arch]
+                  'armv7': (0x40010800, 0x41eb0),
+                  'i386': (0x280800, 0x41cc0)}[arch]
     libs = [DLL(reference, api_base=api), DLL(source, api_base=api)]
     mapping = json.loads((source.parent / 'source-map.json').read_text())
     for index, lib in enumerate(libs):
@@ -50,6 +51,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('reference', type=Path)
     parser.add_argument('source', type=Path)
-    parser.add_argument('--arch', choices=('x86_64', 'armv7'), default='x86_64')
+    parser.add_argument('--arch', choices=('x86_64', 'armv7', 'i386'), default='x86_64')
     args = parser.parse_args()
     exercise(args.reference, args.source, args.arch)

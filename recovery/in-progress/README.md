@@ -434,3 +434,11 @@ Recovery restores bounded variant dispatch, preserves release-owner arguments,
 keeps the operator classifier's full enum return, and passes float literal bits
 through the optimized parser helper ABI. ARM32/i386 recovery, complete exception
 and callback compatibility, and booted VM integration remain release gates.
+
+The i386 Rwby backend now builds from C and matches 20 execution fixtures,
+20 exact bytecode comparisons, 238 UTF-8 cases, 12 heap workflows and 117
+allocator forwarding checks. Recovery restores private register arguments,
+bounded compiler/interpreter variant dispatch, integer payload bits, x87
+division guards and explicit callback invocation arguments. Rwby now has C
+checkpoints on all four architectures; full external callback/exception ABI
+compatibility and booted VM integration remain release gates.
