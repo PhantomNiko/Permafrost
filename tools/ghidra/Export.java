@@ -38,12 +38,14 @@ public class Export extends GhidraScript {
                 currentProgram.getRegister(arm?"x1":"RDX"),
                 currentProgram.getRegister(arm?"x0":"RAX")),SourceType.USER_DEFINED);
         } else if(currentProgram.getDefaultPointerSize()==4 &&
-                  currentProgram.getRegister("EAX")!=null && hint.getLength()==4 &&
+                  (currentProgram.getRegister("EAX")!=null || currentProgram.getRegister("r0")!=null) && hint.getLength()==4 &&
                   !(hint instanceof AbstractFloatDataType) && function.hasCustomVariableStorage() &&
                   function.getReturn().getVariableStorage().isVoidStorage()) {
-            // A private i386 convention can retain ECX/EDX parameters while
-            // its previously discarded result has explicit VOID storage.
-            function.setReturn(hint,new VariableStorage(currentProgram,currentProgram.getRegister("EAX")),
+            // Private 32-bit conventions retain their parameter storage while
+            // a previously discarded integer result has explicit VOID storage.
+            var resultRegister=currentProgram.getRegister("EAX");
+            if(resultRegister==null)resultRegister=currentProgram.getRegister("r0");
+            function.setReturn(hint,new VariableStorage(currentProgram,resultRegister),
                 SourceType.USER_DEFINED);
         } else function.setReturnType(hint,SourceType.USER_DEFINED);
     }
