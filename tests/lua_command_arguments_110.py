@@ -12,11 +12,11 @@ from native import inspect
 
 def exercise(reference, source, library, output):
     cases = [
-        ['interactive=false'], ['interactive=0'], ['INTERACTIVE=FALSE'],
-        ['unknown=value', 'interactive=false'],
-        ['interactive=true', 'interactive=false'],
-        ['interactive=false', 'unknown=' + 'x' * 1024],
-        ['', 'interactive=false'], ['=ignored', 'interactive=false'],
+        ['Monitor=false'], ['Monitor=0'], ['MONITOR=FALSE'],
+        ['unknown=value', 'Monitor=false'],
+        ['Monitor=true', 'Monitor=false'],
+        ['Monitor=false', 'unknown=' + 'x' * 1024],
+        ['', 'Monitor=false'], ['=ignored', 'Monitor=false'],
     ]
     for index, arguments in enumerate(cases):
         results = []

@@ -480,3 +480,9 @@ The i386 Lua formatter now preserves the native signed 64-bit numeric
 conversion before unsigned compensation, fixing the observed 2.5 to 3.500000
 mismatch. The rebuilt source library retains its 13 execution and 20 standard
 library comparisons and matches five guarded command result workflows.
+
+Lua command result adapters now cover i386's aggregate callee cleanup as well
+as ARM64's X8 convention. Both match five guarded native result workflows.
+All four saved commands also match four missing-file/empty-script workflows.
+The option tests now use the reference's actual Monitor option; interactive
+startup, positive file execution and complete exception behavior remain gates.

@@ -5,28 +5,33 @@
     "x86_64": {
       "reference_sha256": "4240a1add99cee0f9278ff8acc5c01b03ba62d9f3a63cdfc85908f1c5671a616",
       "source_build": true,
-      "guarded_argument_cases": 8
+      "guarded_argument_cases": 8,
+      "missing_file_workflows": 4
     },
     "i386": {
       "reference_sha256": "342f3c72717e197f2119c00145c0ce468d208886bec6375ae3e1f9fc19686a58",
       "source_build": true,
-      "guarded_argument_cases": 8
+      "guarded_argument_cases": 8,
+      "guarded_result_workflows": 5,
+      "missing_file_workflows": 4
     },
     "armv7": {
       "reference_sha256": "9ef7b626063faa28cbd788234f02401ae5b1473aa69b2e26de70890de6422a72",
       "source_build": true,
-      "guarded_argument_cases": 8
+      "guarded_argument_cases": 8,
+      "missing_file_workflows": 4
     },
     "arm64": {
       "reference_sha256": "782a237f329ec5df81579bbe73d2a5ea6fe5218b0f62f6053d5d836f8d95d3a9",
       "source_build": true,
       "guarded_argument_cases": 8,
-      "guarded_result_workflows": 5
+      "guarded_result_workflows": 5,
+      "missing_file_workflows": 4
     }
   },
   "status": "partial source checkpoint; full VM parity remains incomplete",
   "pending": [
-    "script file and REPL execution",
+    "positive script-file and Monitor/REPL execution",
     "exception compatibility",
     "booted VM integration"
   ]

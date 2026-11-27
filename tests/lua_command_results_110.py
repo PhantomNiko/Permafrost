@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check ARM64 Lua command result adapters against native library calls.
+"""Check Lua command result adapters against native library calls.
 
 Executes the real Lua libraries and guards both aggregate outputs.
 Pooka's Free Software License.
@@ -15,7 +15,11 @@ from unicorn.arm64_const import UC_ARM64_REG_X8
 
 def exercise(reference, source, native_library, library, output):
     metadata, _ = inspect(reference.read_bytes())
-    assert metadata['cpu'] == 0x100000c
+    assert metadata['cpu'] in (7, 0x100000c)
+    wide = metadata['cpu'] == 0x100000c
+    result_size = 80 if wide else 52
+    string_size = 24 if wide else 12
+    word = 'Q' if wide else 'I'
     diagnostic = bytearray(reference.read_bytes())
     struct.pack_into('<I', diagnostic, 12, 6)
     stubs = dynamic(diagnostic)['stubs']
@@ -37,6 +41,8 @@ def exercise(reference, source, native_library, library, output):
         for which, provider in enumerate([native_library, library]):
             lib = load(reference, source, output, provider)[which]
             lib.instruction_limit = 5000000
+            if not wide:
+                lib.cpu.mem_write(0x280800, bytes(lib.cpu.mem_read(0x6800, 412)))
             pm, _ = inspect(provider.read_bytes())
             lib.exports.update({e['name']: 0x1000000 + e['address'] - pm['base']
                                 for e in dynamic(provider.read_bytes())['exports']})
@@ -54,17 +60,18 @@ def exercise(reference, source, native_library, library, output):
                     (0x3110100, b'[command-fixture]', 0x3120100),
                     (0x3110200, b'answer', 0x3120200)]:
                 lib.cpu.mem_write(storage, raw + b'\0')
-                lib.cpu.mem_write(address, struct.pack('<3Q', storage, len(raw), len(raw)))
+                lib.cpu.mem_write(address, struct.pack('<3' + word, storage, len(raw), len(raw)))
             result = 0x3130008
-            lib.cpu.mem_write(result - 8, b'BEFORE!!' + b'\x5a' * 80 + b'AFTER!!!')
+            lib.cpu.mem_write(result - 8, b'BEFORE!!' + b'\x5a' * result_size + b'AFTER!!!')
             if which:
                 lib.call('bridge_script', result, vm, 0x3110000, 0x3110100)
             else:
-                lib.cpu.reg_write(UC_ARM64_REG_X8, result)
+                if wide:
+                    lib.cpu.reg_write(UC_ARM64_REG_X8, result)
                 lib.call('__ZN6winter3lua5LuaVM15runScriptStringERKN2wm6stringES5_',
-                         vm, 0x3110000, 0x3110100)
+                         *([vm, 0x3110000, 0x3110100] if wide else [result, vm, 0x3110000, 0x3110100]))
             assert bytes(lib.cpu.mem_read(result - 8, 8)) == b'BEFORE!!'
-            assert bytes(lib.cpu.mem_read(result + 80, 8)) == b'AFTER!!!'
+            assert bytes(lib.cpu.mem_read(result + result_size, 8)) == b'AFTER!!!'
             assert bytes(lib.cpu.mem_read(result, 1)) == b'\1'
             value = 0x3150000
             lib.call('__ZN6winter3lua8LuaValueC1Ev', value)
@@ -74,22 +81,23 @@ def exercise(reference, source, native_library, library, output):
             if integer >= 1 << 63:
                 integer -= 1 << 64
             string = 0x3140008
-            lib.cpu.mem_write(string - 8, b'BEFORE!!' + b'\x5a' * 24 + b'AFTER!!!')
+            lib.cpu.mem_write(string - 8, b'BEFORE!!' + b'\x5a' * string_size + b'AFTER!!!')
             if which:
                 lib.call('bridge_string', string, value)
             else:
-                lib.cpu.reg_write(UC_ARM64_REG_X8, string)
-                lib.call('__ZNK6winter3lua8LuaValue8toStringEv', value)
-            pointer, length, _ = struct.unpack('<3Q', lib.cpu.mem_read(string, 24))
+                if wide:
+                    lib.cpu.reg_write(UC_ARM64_REG_X8, string)
+                lib.call('__ZNK6winter3lua8LuaValue8toStringEv', *([value] if wide else [string, value]))
+            pointer, length, _ = struct.unpack('<3' + word, lib.cpu.mem_read(string, string_size))
             text = bytes(lib.cpu.mem_read(pointer, length))
             assert bytes(lib.cpu.mem_read(string - 8, 8)) == b'BEFORE!!'
-            assert bytes(lib.cpu.mem_read(string + 24, 8)) == b'AFTER!!!'
+            assert bytes(lib.cpu.mem_read(string + string_size, 8)) == b'AFTER!!!'
             answers.append((integer, text))
             lib.call('_free', pointer)
             lib.call('__ZN6winter3lua5LuaVMD1Ev', vm)
         assert answers == [(expected, expected_text)] * 2, (case, answers)
-        print('Lua ARM64 command result case passed:', case, flush=True)
-    print('Lua ARM64: five native/source script and string result workflows passed.')
+        print('Lua command result case passed:', case, flush=True)
+    print('Lua command: five native/source script and string result workflows passed.')
 
 
 if __name__ == '__main__':

@@ -332,7 +332,12 @@
       ],
       "guarded_argument_cases": 8,
       "release_vm_parity": false,
-      "arm64_result_workflows": 5
+      "result_workflow_architectures": [
+        "i386",
+        "arm64"
+      ],
+      "result_workflows_per_architecture": 5,
+      "missing_file_workflows_per_architecture": 4
     }
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",

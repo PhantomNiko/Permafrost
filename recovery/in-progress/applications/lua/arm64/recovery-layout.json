@@ -165,7 +165,9 @@
         "0x10001d36": "((uintptr_t)pf_module_state + 0x3aeU)"
       },
       "10001910": "shared_1bd8b1038529da7a",
-      "10001070": "shared_1bd8b1038529da7a"
+      "10001070": "shared_1bd8b1038529da7a",
+      "100015f8": "shared_1bd8b1038529da7a",
+      "10001590": "shared_1bd8b1038529da7a"
     },
     "source_replacement_groups": {
       "shared_1bd8b1038529da7a": {
