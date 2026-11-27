@@ -231,7 +231,7 @@
       "scope": "fallback UI and chunked HTTP; broader client parity incomplete"
     },
     "Zastruga Engine": {
-      "commit": "b4f643b",
+      "commit": "e8b1775",
       "source_architectures": [
         "x86_64",
         "arm64",
@@ -240,7 +240,7 @@
       "compiled_functions": 3058,
       "clone_pointer_contracts": 254,
       "captured_object_cases": 138,
-      "scope": "Buildable C checkpoints for x64, ARM64 and ARM32. Captured-object ownership, x64 interpreter and tuple workflows, plus ARM scalar math and ARM64 SIMD checks, pass. X64 source engine opens a graphics window with the reference kernel, but frame parity remains incomplete. Full application, exception, input and i386 compatibility remain incomplete.",
+      "scope": "Buildable C checkpoints for x64, ARM64 and ARM32. Captured-object ownership, x64 interpreter, call-frame, numeric-loop, tuple, image-pixel and font-service workflows, plus ARM scalar math and ARM64 SIMD checks, pass. X64 diagnostic startup draws the animated scene; coordinate and ridge-layer parity remain incomplete. Full application, exception, input and i386 compatibility remain incomplete.",
       "bounded_switch_tables": 6,
       "deleting_destructor_ownership": true,
       "program_copy_workflows": 5,
@@ -264,7 +264,12 @@
         "scalar_math_contracts": 41,
         "typed_inline_literals": 382,
         "data_pointer_fixups": 2879
-      }
+      },
+      "call_frame_float_loop_workflows": 15,
+      "image_record_pixel_workflows": 6,
+      "window_api_tail_contracts": 21,
+      "spawn_window_workflows": 3,
+      "font_service_workflows": 14
     }
   },
   "module_integration_vm": "C kernel, C WinterShell and C Stage4 reach the desktop and source terminal on all four CPUs; typed 1+1 displays 2. Other reference payloads remain; full release parity remains incomplete."

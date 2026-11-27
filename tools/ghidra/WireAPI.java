@@ -9,6 +9,7 @@ import ghidra.program.model.pcode.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class WireAPI extends GhidraScript {
     private FunctionDefinitionDataType service(Varnode node,
@@ -67,10 +68,15 @@ public class WireAPI extends GhidraScript {
             createData(address,UnsignedIntegerDataType.dataType);
             slots.put(address.getOffset(),type);
         }
+        var selected=new HashSet<Long>();
+        if(args.length>2)for(String row:Files.readAllLines(Path.of(args[2])))
+            if(!row.isBlank())selected.add(Long.parseLong(row.trim(),16));
         var decompiler=new DecompInterface();decompiler.openProgram(currentProgram);
         int count=0;var functions=currentProgram.getFunctionManager().getFunctions(true);
         while(functions.hasNext()) {
-            var function=functions.next();var result=decompiler.decompileFunction(function,60,monitor);
+            var function=functions.next();
+            if(args.length>2 && !selected.contains(function.getEntryPoint().getOffset()))continue;
+            var result=decompiler.decompileFunction(function,60,monitor);
             if(!result.decompileCompleted())continue;
             var operations=result.getHighFunction().getPcodeOps();
             while(operations.hasNext()) {
