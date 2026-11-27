@@ -231,17 +231,25 @@
       "scope": "fallback UI and chunked HTTP; broader client parity incomplete"
     },
     "Zastruga Engine": {
-      "commit": "813523f",
+      "commit": "69d3db1",
       "source_architectures": [
-        "x86_64"
+        "x86_64",
+        "arm64"
       ],
       "compiled_functions": 3058,
       "clone_pointer_contracts": 254,
       "captured_object_cases": 138,
-      "scope": "Five program copy workflows and 138 captured-object payload, vtable and deleting-destructor cases match the reference. Full startup, rendering, exception handling and other architectures remain incomplete.",
+      "scope": "Buildable C checkpoints for x64 and ARM64. X64 program copies and captured-object ownership, plus ARM64 scalar math and native SIMD checks, pass. Full startup, rendering, exception handling and the two 32-bit engines remain incomplete.",
       "bounded_switch_tables": 6,
       "deleting_destructor_ownership": true,
-      "program_copy_workflows": 5
+      "program_copy_workflows": 5,
+      "arm64": {
+        "compiled_functions": 3060,
+        "scalar_math_cases": 160,
+        "native_neon_cases": 4352,
+        "scalar_math_contracts": 41,
+        "static_linker_thunks": 12
+      }
     }
   },
   "module_integration_vm": "C kernel, C WinterShell and C Stage4 reach the desktop and source terminal on all four CPUs; typed 1+1 displays 2. Other reference payloads remain; full release parity remains incomplete."
