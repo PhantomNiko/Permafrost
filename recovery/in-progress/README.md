@@ -455,3 +455,10 @@ Lua library. Eight native/source cases cover argument guards, case-insensitive
 flags, repeated-flag precedence, unknown arguments and a long option value.
 Script-file execution, the REPL, other architectures and VM integration remain
 unverified; this checkpoint does not establish release compatibility.
+
+Lua command argument parsing now has recovered C checkpoints on all four
+architectures. Each backend matches eight guarded native argument cases. ARM32
+restores PC-relative literal views; ARM64 restores hidden-result register
+contracts and the string-find/allocation return values. Script-file execution,
+REPL behavior, full import ABI compatibility and booted VM integration remain
+unverified and are required before release promotion.

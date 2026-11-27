@@ -1,0 +1,12 @@
+{
+  "module": "lua",
+  "architecture": "i386",
+  "version": "1.1",
+  "sources": [
+    "runtime.c",
+    "state.c",
+    "entry.c"
+  ],
+  "reference_path": "Binary/lua",
+  "recovery_note": "Recovered C argument-parsing checkpoint. Script-file execution, REPL, exception and booted VM integration remain unverified."
+}

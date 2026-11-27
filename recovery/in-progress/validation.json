@@ -324,7 +324,10 @@
     },
     "lua_command_source_recovery": {
       "architectures": [
-        "x86_64"
+        "x86_64",
+        "i386",
+        "armv7",
+        "arm64"
       ],
       "guarded_argument_cases": 8,
       "release_vm_parity": false

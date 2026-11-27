@@ -23,14 +23,15 @@ def exercise(reference, source, library, output):
         for which, lib in enumerate(load(reference, source, output, library)):
             path = source if which else reference
             meta, _ = inspect(path.read_bytes())
-            assert meta['cpu'] == 0x1000007, 'This fixture exercises x64 command arguments.'
+            assert meta['cpu'] in (7, 0x1000007, 12, 0x100000c)
             symbols = {n: a for a, n in meta['symbols']}
             name = '_main' if which else '_winterboot_lua_entry'
             # Diagnostic containers retain executable symbol addresses and
             # acquire a zero-based segment covering the original low gap.
             lib.exports[name] = lib.base + symbols[name]
             lib.instruction_limit = 5000000
-            lib.cpu.mem_write(0x280800, bytes(lib.cpu.mem_read(0x6800, 412)))
+            if lib.cpu_type in (7, 0x1000007):
+                lib.cpu.mem_write(0x280800, bytes(lib.cpu.mem_read(0x6800, 412)))
             if which:
                 lib.exports['initialize'] = lib.base + symbols['_pf_app_initialize']
                 lib.call('initialize')
@@ -42,7 +43,7 @@ def exercise(reference, source, library, output):
                 lib.cpu.mem_write(pointer, raw)
                 pointers.append(pointer + 8)
                 guarded.append((pointer, raw))
-            argv = struct.pack('<' + 'Q' * (len(pointers) + 1), *pointers, 0)
+            argv = struct.pack('<' + ('Q' if lib.wide else 'I') * (len(pointers) + 1), *pointers, 0)
             lib.cpu.mem_write(0x3120000, b'ARGVHEAD' + argv + b'ARGVTAIL')
             result = lib.call(name, len(pointers), 0x3120008, result_bits=32)
             assert bytes(lib.cpu.mem_read(0x3120000, len(argv) + 16)) == b'ARGVHEAD' + argv + b'ARGVTAIL'
@@ -51,7 +52,7 @@ def exercise(reference, source, library, output):
             results.append(result)
         assert results == [1, 1], (index, arguments, results)
         print('Lua command argument case %d passed.' % index, flush=True)
-    print('Lua x64 command: %d native/source guarded argument cases passed.' % len(cases))
+    print('Lua command: %d native/source guarded argument cases passed.' % len(cases))
 
 
 if __name__ == '__main__':
