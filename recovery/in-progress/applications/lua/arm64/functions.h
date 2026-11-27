@@ -5,18 +5,12 @@
 extern unsigned char pf_module_state[];
 ulonglong _Unwind_Resume(void);
 #define recovered_10001988 _Unwind_Resume
-void _ZN6winter3lua5LuaVM13runScriptFileERKN2wm6stringE(undefined1 *param_1,undefined8 *param_2,undefined8 *param_3);
-#define recovered_10001994 _ZN6winter3lua5LuaVM13runScriptFileERKN2wm6stringE
-void _ZN6winter3lua5LuaVM15runScriptStringERKN2wm6stringES5_(undefined1 *param_1,undefined8 *param_2,undefined8 *in_x1,undefined8 *in_x2);
-#define recovered_100019a0 _ZN6winter3lua5LuaVM15runScriptStringERKN2wm6stringES5_
 undefined8 * _ZN6winter3lua5LuaVMC1Ev(undefined8 *param_1);
 #define recovered_100019ac _ZN6winter3lua5LuaVMC1Ev
 void * _ZN6winter3lua5LuaVMD1Ev(void *owner);
 #define recovered_100019b8 _ZN6winter3lua5LuaVMD1Ev
 void _ZN6winter3lua8LuaValueC1Ev(undefined1 *param_1);
 #define recovered_100019c4 _ZN6winter3lua8LuaValueC1Ev
-long * _ZNK6winter3lua8LuaValue8toStringEv(long *param_1,undefined1 *param_2);
-#define recovered_100019d0 _ZNK6winter3lua8LuaValue8toStringEv
 void _ZSt9terminatev(void);
 #define recovered_100019dc _ZSt9terminatev
 void _ZdlPv(void *owner);
@@ -39,6 +33,17 @@ void wm_lua_write(char *param_1,long param_2);
 #define recovered_10001a48 wm_lua_write
 void wm_lua_writeline(void);
 #define recovered_10001a54 wm_lua_writeline
+typedef struct { uint32_t words[6]; } pf_native_result_24;
+typedef struct { uint32_t words[20]; } pf_native_result_80;
+extern pf_native_result_80 _ZN6winter3lua5LuaVM13runScriptFileERKN2wm6stringE(void *p0,void *p1);
+static void pf_command_result_10001994(void *out,void *p0,void *p1){ pf_native_result_80 value=_ZN6winter3lua5LuaVM13runScriptFileERKN2wm6stringE(p0,p1);__builtin_memcpy(out,&value,sizeof(value));}
+#define recovered_10001994 pf_command_result_10001994
+extern pf_native_result_80 _ZN6winter3lua5LuaVM15runScriptStringERKN2wm6stringES5_(void *p0,void *p1,void *p2);
+static void pf_command_result_100019a0(void *out,void *p0,void *p1,void *p2){ pf_native_result_80 value=_ZN6winter3lua5LuaVM15runScriptStringERKN2wm6stringES5_(p0,p1,p2);__builtin_memcpy(out,&value,sizeof(value));}
+#define recovered_100019a0 pf_command_result_100019a0
+extern pf_native_result_24 _ZNK6winter3lua8LuaValue8toStringEv(void *p0);
+static void pf_command_result_100019d0(void *out,void *p0){ pf_native_result_24 value=_ZNK6winter3lua8LuaValue8toStringEv(p0);__builtin_memcpy(out,&value,sizeof(value));}
+#define recovered_100019d0 pf_command_result_100019d0
 extern uint8_t pf_module_state[];
 char recovered_100006d0(int param_1,long param_2);
 void recovered_10000cf0(char *param_1);

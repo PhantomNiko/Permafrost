@@ -112,13 +112,13 @@ char recovered_100006d0(int param_1,long param_2)
     wm_lua_show_banner();
     wm_lua_show_help();
     recovered_10000e9c(alStack_10d0,((uintptr_t)pf_module_state + 0x3b1U));
-    _ZN6winter3lua5LuaVM13runScriptFileERKN2wm6stringE((undefined1 *)&local_1068,&uStack_1190,alStack_10d0);
+    pf_command_result_10001994((undefined1 *)&local_1068,&uStack_1190,alStack_10d0);
     recovered_10001938();
     if ((char)local_1068 == '\x01') {
       recovered_10000d14(str_10001d43);
       recovered_10000cf0(str_10001d39);
       if (local_1060[0] != '\0') {
-        _ZNK6winter3lua8LuaValue8toStringEv(alStack_10d0,local_1060);
+        pf_command_result_100019d0(alStack_10d0,local_1060);
         recovered_1000121c(alStack_10d0);
         recovered_10001938();
       }
@@ -140,7 +140,7 @@ char recovered_100006d0(int param_1,long param_2)
     cVar7 = '\x01';
   }
   else {
-    _ZN6winter3lua5LuaVM13runScriptFileERKN2wm6stringE((undefined1 *)&local_1068,&uStack_1190,&local_1188);
+    pf_command_result_10001994((undefined1 *)&local_1068,&uStack_1190,&local_1188);
     pcVar2 = (char *)0x0;
     if ((char)local_1068 == '\0') {
       pcVar2 = str_10001da9;
@@ -183,7 +183,7 @@ LAB_10000a48:
     if (local_1078 == 0) {
 LAB_10000af8:
       recovered_10000e9c((long *)local_1138,((uintptr_t)pf_module_state + 0x443U));
-      _ZN6winter3lua5LuaVM15runScriptStringERKN2wm6stringES5_((undefined1 *)alStack_1120,&uStack_1190,&local_1080,local_1138);
+      pf_command_result_100019a0((undefined1 *)alStack_1120,&uStack_1190,&local_1080,local_1138);
       recovered_1000196c();
       recovered_10001954();
       owner = local_1138[0];
@@ -197,7 +197,7 @@ LAB_10000af8:
       recovered_10000d6c(local_1150,&local_1080,1,0xffffffffffffffff);
       recovered_100015fc((long *)local_1138,str_10001dc3,local_1150);
       recovered_10000e9c((long *)local_1168,((uintptr_t)pf_module_state + 0x443U));
-      _ZN6winter3lua5LuaVM15runScriptStringERKN2wm6stringES5_((undefined1 *)alStack_1120,&uStack_1190,local_1138,local_1168);
+      pf_command_result_100019a0((undefined1 *)alStack_1120,&uStack_1190,local_1138,local_1168);
       recovered_1000196c();
       recovered_10001954();
       _ZdlPv(local_1168[0]);
@@ -865,7 +865,7 @@ void recovered_1000127c(char *param_1,char *param_2)
     if (param_1[8] == '\0') {
       return;
     }
-    _ZNK6winter3lua8LuaValue8toStringEv(alStack_38,param_1 + 8);
+    pf_command_result_100019d0(alStack_38,param_1 + 8);
     recovered_1000121c(alStack_38);
   }
   else {

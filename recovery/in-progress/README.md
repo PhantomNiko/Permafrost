@@ -462,3 +462,9 @@ restores PC-relative literal views; ARM64 restores hidden-result register
 contracts and the string-find/allocation return values. Script-file execution,
 REPL behavior, full import ABI compatibility and booted VM integration remain
 unverified and are required before release promotion.
+
+The ARM64 Lua command uses C aggregate-return adapters for the native X8
+result convention. Five workflows compare script execution and numeric string
+conversion with the native Lua library, guarding all 80 result bytes and all
+24 string bytes. Top-level Lua returns still expose an exception-handling gap;
+that gap and full command/VM behavior remain release blockers.
