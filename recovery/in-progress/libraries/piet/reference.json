@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "reference_image": "WinterBoot-1.1r344-Beta.img",
-  "reference_path": "Library/Native/WinterTLS.dylib",
+  "reference_path": "Library/Native/WinterPiet.dylib",
   "architectures": {
     "i386": {
       "sha256": "3989b528fe0c738f1c610fdcf7094593f095585b48b3cf2b3cfcc48ba295ed2c",

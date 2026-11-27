@@ -352,3 +352,10 @@ ARM32 retains inline data and its integer-print boundary. Direct state tests use
 host oracles for imported stdio/division; complete console behavior remains a
 VM release check. The 1.1 string parameter namespace changes on IA32 and x64
 are represented by their native exported names.
+
+The fresh ARM64 Lua recovery now builds from C and matches 13 core execution
+fixtures, 20 standard-library comparisons, 12 heap workflows and 117 allocator
+forwarding cases. It preserves the native structor returns, local-environment
+lookup, floating argument registers and iterator register selection. The other
+three Lua backends and complete VM error-path compatibility remain unfinished;
+this is a component checkpoint and does not promote the release build target.

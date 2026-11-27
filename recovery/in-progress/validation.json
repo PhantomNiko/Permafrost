@@ -267,6 +267,16 @@
       "allocator_forwarding_cases_per_architecture": 117,
       "console_output": "pending VM checks; imported stdio uses host boundary oracles in state comparisons",
       "release_vm_parity": false
+    },
+    "lua_source_recovery": {
+      "architectures": [
+        "arm64"
+      ],
+      "core_execution_cases": 13,
+      "standard_library_cases": 20,
+      "heap_workflows": 12,
+      "allocator_forwarding_cases": 117,
+      "release_vm_parity": false
     }
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",
