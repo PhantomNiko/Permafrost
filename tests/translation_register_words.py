@@ -31,6 +31,9 @@ double floating_view(void *input,unsigned index) {
   pointer=input;
   return (double)pointer[index];
 }
+void byte_store(void *output,unsigned offset,unsigned value) {
+  (*(undefined1 (*) [8])((uintptr_t)output+offset))[3]=value;
+}
 int main(void) {
   uint64_t input[8],output[8]={0};
   for(unsigned round=0;round<512;round++) {
@@ -40,6 +43,9 @@ int main(void) {
   }
   double values[3]={-17.25,0.0,12345.5};
   for(unsigned i=0;i<3;i++)if(floating_view(values,i)!=values[i])return 2;
+  unsigned char bytes[32]={0};
+  byte_store(bytes,8,0xab);
+  for(unsigned i=0;i<32;i++)if(bytes[i]!=(i==11?0xab:0))return 3;
   return 0;
 }
 '''

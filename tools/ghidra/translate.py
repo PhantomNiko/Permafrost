@@ -836,7 +836,7 @@ def rewrite_vector_pointers(source,width,typename):
         while depth and end<len(source):
             depth+=(source[end]=='(')-(source[end]==')');end+=1
         if depth:raise ValueError('unclosed array pointer expression')
-        if re.match(r'\s*[+-]',source[end:]):
+        if re.match(r'\s*[+-]|\s*\)\s*\[',source[end:]):
             source=source[:match.start()]+'(uint8_t *)('+source[match.end():end]+source[end:]
     pointers=re.findall(r'undefined1\s*\(\*\s*(\w+)\)\s*\['+str(width)+r'\]',source)
     byte_pointers=re.findall(r'\b(?:undefined1|uint8_t|char|byte)\s*\*\s*(\w+)\b',source)

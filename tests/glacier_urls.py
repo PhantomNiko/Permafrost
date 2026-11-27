@@ -18,6 +18,9 @@ def exercise(reference,source,library,folder):
         if index:
             lib.exports['initialize']=lib.base+symbols['_pf_app_initialize'];lib.call('initialize')
         for name in ['_glacier_parse_http_url','_glacier_url_decode_path_in_place']:
+            if name not in native:
+                assert name == '_glacier_url_decode_path_in_place', name
+                continue
             address=native[name]
             if index:address=symbols['_recovered_%x'%(address-original['base']+0x10000000)]
             lib.exports[name]=lib.base+address
@@ -25,16 +28,18 @@ def exercise(reference,source,library,folder):
     for value in [b'',b'http://example.test/',b'https://example.test/a?q=1',b'HTTP://EXAMPLE.TEST/a',b'https://example.test:8443/path',b'ftp://example.test/',b'http://',b'http://host:bad/',b'http://host:65536/',b'https://host',b'http://host/#fragment']:
         results=[]
         for index,lib in enumerate(libs):
-            lib.cpu.mem_write(0x2e0000,value+b'\0');lib.cpu.mem_write(0x2e1000,b'\xa5'*0x144);lib.cpu.mem_write(0x2e2000,bytes(128))
+            lib.cpu.mem_write(0x2e0000,value+b'\0');lib.cpu.mem_write(0x2e1000,b'\xa5'*0x1000);lib.cpu.mem_write(0x2e2000,bytes(128))
             if index==0 and lib.cpu_type==7:
                 lib.cpu.reg_write(UC_X86_REG_ECX,0x2e0000)
                 lib.cpu.reg_write(UC_X86_REG_EDX,0x2e1000)
                 result=lib.call('_glacier_parse_http_url',0x2e2000,128,result_bits=8)
             else:
                 result=lib.call('_glacier_parse_http_url',0x2e0000,0x2e1000,0x2e2000,128,result_bits=8)
-            results.append((result,bytes(lib.cpu.mem_read(0x2e1000,0x144)),bytes(lib.cpu.mem_read(0x2e2000,128))))
+            results.append((result,bytes(lib.cpu.mem_read(0x2e1000,0x1000)),bytes(lib.cpu.mem_read(0x2e2000,128))))
         assert results[0]==results[1],('HTTP URL parser differs',value,results);count+=1
-    for value in [b'',b'/plain/path',b'/a%20b',b'%2Ftmp%2Ffile',b'%zz%2',b'%00tail',b'plus+sign',b'%e2%98%83']:
+    # Some releases inline the decoder and retain only the HTTP parser symbol.
+    decoding = [b'',b'/plain/path',b'/a%20b',b'%2Ftmp%2Ffile',b'%zz%2',b'%00tail',b'plus+sign',b'%e2%98%83'] if '_glacier_url_decode_path_in_place' in native else []
+    for value in decoding:
         results=[]
         for index,lib in enumerate(libs):
             lib.cpu.mem_write(0x2e0000,value+b'\0'+bytes(32))
