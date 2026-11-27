@@ -45,7 +45,17 @@ def load(original, source, folder, library, cpu_model=None):
                 # Fixed jump tables can branch into the original text view.
                 end = next(a for k, a, n in reference['sections'] if k == '__text')
             lib.cpu.mem_write(end, original_memory[end-reference['base']:])
-        for item in dynamic(diagnostic.read_bytes())['stubs']:
+        imports = dynamic(diagnostic.read_bytes())
+        # Source initializers can take an import's address through its GOT,
+        # rather than calling its stub. Model both forms of loader binding.
+        for item in imports['pointers']:
+            if item['name'] not in ui.exports:
+                continue
+            pointer = struct.pack('<Q' if lib.wide else '<I', ui.exports[item['name']])
+            lib.cpu.mem_write(lib.base + item['address'], pointer)
+            if index == 0 and reference['base']:
+                lib.cpu.mem_write(item['address'], pointer)
+        for item in imports['stubs']:
             if item['name'] not in ui.exports:
                 continue
             target = ui.exports[item['name']]
