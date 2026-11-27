@@ -343,3 +343,12 @@ WAV decoding, encoding and file callback checks. Each library also matches
 12 heap workflows and 117 allocator forwarding/boundary cases per CPU. These
 component checks do not establish complete release VM parity. Piet, the remaining
 language runtimes, firmware, image assembly and final SDK validation continue.
+
+Piet now compiles from C on all four CPUs and matches 115 native/source value,
+variable and engine-state comparisons per CPU, plus the heap and allocator
+matrices above. The recovered holder interface preserves virtual destructor,
+clone and invocation operands. IA32 direction tables use typed C constants;
+ARM32 retains inline data and its integer-print boundary. Direct state tests use
+host oracles for imported stdio/division; complete console behavior remains a
+VM release check. The 1.1 string parameter namespace changes on IA32 and x64
+are represented by their native exported names.

@@ -254,6 +254,19 @@
       "heap_workflows_per_architecture": 12,
       "allocator_forwarding_cases_per_architecture": 117,
       "release_vm_parity": false
+    },
+    "piet_library_source": {
+      "architectures": [
+        "i386",
+        "x86_64",
+        "armv7",
+        "arm64"
+      ],
+      "value_variable_engine_state_cases_per_architecture": 115,
+      "heap_workflows_per_architecture": 12,
+      "allocator_forwarding_cases_per_architecture": 117,
+      "console_output": "pending VM checks; imported stdio uses host boundary oracles in state comparisons",
+      "release_vm_parity": false
     }
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",
