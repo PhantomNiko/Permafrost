@@ -10,10 +10,18 @@
       "standard_library_cases": 20,
       "heap_workflows": 12,
       "allocator_forwarding_cases": 117
+    },
+    "x86_64": {
+      "sha256": "0b6677bbba1a66c4c18c739aba4b5349850122b44cfc0d6cf61f0497cce7ba68",
+      "native_functions": 1858,
+      "core_execution_cases": 13,
+      "standard_library_cases": 20,
+      "heap_workflows": 12,
+      "allocator_forwarding_cases": 117
     }
   },
   "pending": [
-    "i386, x86_64 and ARM32 runtime recovery",
+    "i386 and ARM32 runtime recovery",
     "VM application integration and error-path compatibility",
     "release-wide source builds, images and SDK"
   ],

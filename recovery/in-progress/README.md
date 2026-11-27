@@ -359,3 +359,5 @@ forwarding cases. It preserves the native structor returns, local-environment
 lookup, floating argument registers and iterator register selection. The other
 three Lua backends and complete VM error-path compatibility remain unfinished;
 this is a component checkpoint and does not promote the release build target.
+
+The fresh x86-64 Lua C backend now passes the same 13 core execution, 20 standard-library, 12 heap and 117 allocator-forwarding cases as ARM64. Recovered floating storage views preserve boxed integer payloads, numeric results and comparison dispatch. The 32-bit runtimes and release-wide VM parity remain incomplete.
