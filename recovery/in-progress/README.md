@@ -427,3 +427,10 @@ execution fixtures, 20 serialized-bytecode comparisons, 12 heap workflows and
 match under poisoned memory. Recovery restores map/string owner returns and
 the unsigned token range used by indexed assignment. Its UTF-8 length callback matches 238 native boundary and malformed-byte cases.
 The remaining i386 architecture, full callback/exception behavior and booted VM integration remain unfinished.
+
+The x64 standalone WinterScript backend now builds from recovered C and matches
+18 execution fixtures, 12 heap workflows and 117 allocator forwarding cases.
+Recovery restores bounded variant dispatch, preserves release-owner arguments,
+keeps the operator classifier's full enum return, and passes float literal bits
+through the optimized parser helper ABI. ARM32/i386 recovery, complete exception
+and callback compatibility, and booted VM integration remain release gates.

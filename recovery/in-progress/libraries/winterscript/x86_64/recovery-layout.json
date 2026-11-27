@@ -1,0 +1,1669 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268436912,
+  "text_end": 269262263,
+  "state_end": 269459456,
+  "translation": {
+    "pointer_bytes": 8,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 269262263,
+    "state_end": 269459456,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"x86_cpu.h\""
+    ],
+    "source_replacements": {
+      "1007b560": {
+        "0x100ccd40": "((uintptr_t)pf_module_state+0x2f89U)"
+      },
+      "1009cd10": {
+        "0x100ce3d2": "((uintptr_t)pf_module_state+0x461bU)",
+        "0x100ce3ea": "((uintptr_t)pf_module_state+0x4633U)"
+      },
+      "100c3250": {
+        "0x100cea76": "((uintptr_t)pf_module_state+0x4cbfU)",
+        "\n        (**(code **)(*local_d8 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_d8 + 0x10)))(local_d8);"
+      },
+      "10009690": {
+        "0x100cc068": "((uintptr_t)pf_module_state+0x22b1U)",
+        "0x100cc160": "((uintptr_t)pf_module_state+0x23a9U)",
+        "0x100cbf0b": "((uintptr_t)pf_module_state+0x2154U)",
+        "0x100cc0fa": "((uintptr_t)pf_module_state+0x2343U)",
+        "0x100cc0a6": "((uintptr_t)pf_module_state+0x22efU)",
+        "0x100cbedf": "((uintptr_t)pf_module_state+0x2128U)",
+        "0x100cc0cf": "((uintptr_t)pf_module_state+0x2318U)",
+        "0x100cbe8f": "((uintptr_t)pf_module_state+0x20d8U)",
+        "0x100cbf74": "((uintptr_t)pf_module_state+0x21bdU)",
+        "0x100cc0c6": "((uintptr_t)pf_module_state+0x230fU)",
+        "0x100cbfca": "((uintptr_t)pf_module_state+0x2213U)",
+        "0x100cc04d": "((uintptr_t)pf_module_state+0x2296U)",
+        "0x100cc090": "((uintptr_t)pf_module_state+0x22d9U)",
+        "0x100cc042": "((uintptr_t)pf_module_state+0x228bU)",
+        "0x100cbf85": "((uintptr_t)pf_module_state+0x21ceU)",
+        "0x100cc075": "((uintptr_t)pf_module_state+0x22beU)",
+        "0x100cc0b1": "((uintptr_t)pf_module_state+0x22faU)",
+        "0x100cc034": "((uintptr_t)pf_module_state+0x227dU)",
+        "0x100cbfd0": "((uintptr_t)pf_module_state+0x2219U)",
+        "0x100cbe7f": "((uintptr_t)pf_module_state+0x20c8U)",
+        "0x100cc0e0": "((uintptr_t)pf_module_state+0x2329U)",
+        "0x100cc16e": "((uintptr_t)pf_module_state+0x23b7U)",
+        "0x100cc07c": "((uintptr_t)pf_module_state+0x22c5U)",
+        "0x100cbebd": "((uintptr_t)pf_module_state+0x2106U)",
+        "0x100cc003": "((uintptr_t)pf_module_state+0x224cU)",
+        "0x100cc09b": "((uintptr_t)pf_module_state+0x22e4U)",
+        "0x100cc143": "((uintptr_t)pf_module_state+0x238cU)",
+        "0x100cbe66": "((uintptr_t)pf_module_state+0x20afU)",
+        "0x100cbea9": "((uintptr_t)pf_module_state+0x20f2U)",
+        "0x100cbfbd": "((uintptr_t)pf_module_state+0x2206U)",
+        "0x100cbfe1": "((uintptr_t)pf_module_state+0x222aU)",
+        "0x100cbf1f": "((uintptr_t)pf_module_state+0x2168U)",
+        "0x100cc089": "((uintptr_t)pf_module_state+0x22d2U)",
+        "0x100cbe76": "((uintptr_t)pf_module_state+0x20bfU)",
+        "0x100cc017": "((uintptr_t)pf_module_state+0x2260U)",
+        "0x100cc049": "((uintptr_t)pf_module_state+0x2292U)",
+        "0x100cbe95": "((uintptr_t)pf_module_state+0x20deU)",
+        "0x100cbfd6": "((uintptr_t)pf_module_state+0x221fU)",
+        "0x100cbf3a": "((uintptr_t)pf_module_state+0x2183U)",
+        "0x100cbf4d": "((uintptr_t)pf_module_state+0x2196U)",
+        "0x100cc130": "((uintptr_t)pf_module_state+0x2379U)",
+        "0x100cbec2": "((uintptr_t)pf_module_state+0x210bU)",
+        "0x100cc054": "((uintptr_t)pf_module_state+0x229dU)",
+        "0x100cc02f": "((uintptr_t)pf_module_state+0x2278U)",
+        "0x100cc061": "((uintptr_t)pf_module_state+0x22aaU)",
+        "0x100cc0d3": "((uintptr_t)pf_module_state+0x231cU)",
+        "0x100cc0dc": "((uintptr_t)pf_module_state+0x2325U)",
+        "0x100cbe27": "((uintptr_t)pf_module_state+0x2070U)",
+        "0x100cc173": "((uintptr_t)pf_module_state+0x23bcU)",
+        "0x100cbf1a": "((uintptr_t)pf_module_state+0x2163U)",
+        "0x100cbef8": "((uintptr_t)pf_module_state+0x2141U)",
+        "0x100cbf36": "((uintptr_t)pf_module_state+0x217fU)",
+        "0x100cbff6": "((uintptr_t)pf_module_state+0x223fU)",
+        "0x100cc0a0": "((uintptr_t)pf_module_state+0x22e9U)",
+        "0x100cbfe5": "((uintptr_t)pf_module_state+0x222eU)",
+        "0x100cc14c": "((uintptr_t)pf_module_state+0x2395U)",
+        "0x100cc0f6": "((uintptr_t)pf_module_state+0x233fU)",
+        "0x100cbd68": "((uintptr_t)pf_module_state+0x1fb1U)",
+        "0x100cbfa6": "((uintptr_t)pf_module_state+0x21efU)",
+        "0x100cbf3e": "((uintptr_t)pf_module_state+0x2187U)",
+        "0x100cc0e9": "((uintptr_t)pf_module_state+0x2332U)",
+        "0x100cbeb7": "((uintptr_t)pf_module_state+0x2100U)",
+        "0x100cbe5c": "((uintptr_t)pf_module_state+0x20a5U)",
+        "0x100cbed3": "((uintptr_t)pf_module_state+0x211cU)",
+        "0x100cc15d": "((uintptr_t)pf_module_state+0x23a6U)",
+        "0x100cbe56": "((uintptr_t)pf_module_state+0x209fU)",
+        "0x100cbe8b": "((uintptr_t)pf_module_state+0x20d4U)",
+        "0x100cc121": "((uintptr_t)pf_module_state+0x236aU)",
+        "0x100cc166": "((uintptr_t)pf_module_state+0x23afU)",
+        "0x100cc13b": "((uintptr_t)pf_module_state+0x2384U)",
+        "0x100cc13e": "((uintptr_t)pf_module_state+0x2387U)",
+        "0x100cc12b": "((uintptr_t)pf_module_state+0x2374U)",
+        "0x100cc107": "((uintptr_t)pf_module_state+0x2350U)",
+        "0x100cc0ed": "((uintptr_t)pf_module_state+0x2336U)",
+        "0x100cbf25": "((uintptr_t)pf_module_state+0x216eU)",
+        "0x100cbf04": "((uintptr_t)pf_module_state+0x214dU)",
+        "0x100cbfa0": "((uintptr_t)pf_module_state+0x21e9U)",
+        "0x100cbf29": "((uintptr_t)pf_module_state+0x2172U)",
+        "0x100cbe6d": "((uintptr_t)pf_module_state+0x20b6U)",
+        "0x100cc179": "((uintptr_t)pf_module_state+0x23c2U)",
+        "0x100cc114": "((uintptr_t)pf_module_state+0x235dU)",
+        "0x100cc0b7": "((uintptr_t)pf_module_state+0x2300U)",
+        "0x100cc11d": "((uintptr_t)pf_module_state+0x2366U)",
+        "0x100cbeff": "((uintptr_t)pf_module_state+0x2148U)",
+        "0x100cc0c1": "((uintptr_t)pf_module_state+0x230aU)",
+        "0x100cbff1": "((uintptr_t)pf_module_state+0x223aU)",
+        "0x100cc110": "((uintptr_t)pf_module_state+0x2359U)",
+        "0x100cbeb0": "((uintptr_t)pf_module_state+0x20f9U)",
+        "0x100cc103": "((uintptr_t)pf_module_state+0x234cU)",
+        "0x100cc009": "((uintptr_t)pf_module_state+0x2252U)",
+        "0x100cbeeb": "((uintptr_t)pf_module_state+0x2134U)",
+        "0x100cc153": "((uintptr_t)pf_module_state+0x239cU)",
+        "0x100cbfb2": "((uintptr_t)pf_module_state+0x21fbU)",
+        "0x100cc02a": "((uintptr_t)pf_module_state+0x2273U)",
+        "0x100cbf79": "((uintptr_t)pf_module_state+0x21c2U)",
+        "0x100cbea4": "((uintptr_t)pf_module_state+0x20edU)",
+        "0x100cbe84": "((uintptr_t)pf_module_state+0x20cdU)",
+        "0x100cbf2e": "((uintptr_t)pf_module_state+0x2177U)",
+        "0x100cc158": "((uintptr_t)pf_module_state+0x23a1U)",
+        "0x100cbf65": "((uintptr_t)pf_module_state+0x21aeU)",
+        "0x100cbef2": "((uintptr_t)pf_module_state+0x213bU)",
+        "0x100cbecb": "((uintptr_t)pf_module_state+0x2114U)",
+        "0x100cbe9b": "((uintptr_t)pf_module_state+0x20e4U)",
+        "0x100cc16b": "((uintptr_t)pf_module_state+0x23b4U)",
+        "0x100cbf92": "((uintptr_t)pf_module_state+0x21dbU)",
+        "0x100cc01e": "((uintptr_t)pf_module_state+0x2267U)"
+      },
+      "10091c90": {
+        "0x100cdc12": "((uintptr_t)pf_module_state+0x3e5bU)"
+      },
+      "10080a20": {
+        "0x100cd09e": "((uintptr_t)pf_module_state+0x32e7U)",
+        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
+      },
+      "10079b60": {
+        "0x100cdfb3": "((uintptr_t)pf_module_state+0x41fcU)"
+      },
+      "100b4b10": {
+        "0x100cc8a0": "((uintptr_t)pf_module_state+0x2ae9U)"
+      },
+      "100827c0": {
+        "0x100cc2f7": "((uintptr_t)pf_module_state+0x2540U)",
+        "0x100cc2d3": "((uintptr_t)pf_module_state+0x251cU)"
+      },
+      "10086680": {
+        "0x100cc925": "((uintptr_t)pf_module_state+0x2b6eU)"
+      },
+      "10023ee0": {
+        "0x100cda9c": "((uintptr_t)pf_module_state+0x3ce5U)",
+        "0x100cda6a": "((uintptr_t)pf_module_state+0x3cb3U)",
+        "0x100cc04d": "((uintptr_t)pf_module_state+0x2296U)",
+        "\n      (**(code **)(*local_b8 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_b8 + 0x10)))(local_b8);",
+        "\n            (**(code **)(*local_a8 + 0x10))();": "\n            ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_a8 + 0x10)))(local_a8);",
+        "\n          (**(code **)(*local_110 + 0x10))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_110 + 0x10)))(local_110);",
+        "\n          (**(code **)(*local_188 + 0x10))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_188 + 0x10)))(local_188);",
+        "\n          (**(code **)(*local_100 + 0x10))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_100 + 0x10)))(local_100);",
+        "\n          (**(code **)(*local_a8 + 0x10))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_a8 + 0x10)))(local_a8);"
+      },
+      "10081360": {
+        "0x100cd1bd": "((uintptr_t)pf_module_state+0x3406U)",
+        "0x100cd1e7": "((uintptr_t)pf_module_state+0x3430U)",
+        "0x100cd183": "((uintptr_t)pf_module_state+0x33ccU)",
+        "\n    (**(code **)(*local_38 + 0x10))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_38 + 0x10)))(local_38);"
+      },
+      "10019b70": {
+        "0x100cdbf5": "((uintptr_t)pf_module_state+0x3e3eU)"
+      },
+      "10082c40": {
+        "0x100cbe27": "((uintptr_t)pf_module_state+0x2070U)"
+      },
+      "1008da50": {
+        "0x100cdb16": "((uintptr_t)pf_module_state+0x3d5fU)",
+        "\n        (**(code **)(*local_40 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_40 + 0x10)))(local_40);"
+      },
+      "100141d0": {
+        "0x100cc181": "((uintptr_t)pf_module_state+0x23caU)"
+      },
+      "1009ca50": {
+        "0x100cc58c": "((uintptr_t)pf_module_state+0x27d5U)"
+      },
+      "10078ce0": {
+        "0x100ccc2c": "((uintptr_t)pf_module_state+0x2e75U)",
+        "0x100ccbf8": "((uintptr_t)pf_module_state+0x2e41U)",
+        "0x100ccc38": "((uintptr_t)pf_module_state+0x2e81U)"
+      },
+      "1005c9f0": {
+        "0x100cd46f": "((uintptr_t)pf_module_state+0x36b8U)"
+      },
+      "1007c8b0": {
+        "0x100cc1b6": "((uintptr_t)pf_module_state+0x23ffU)"
+      },
+      "10016200": {
+        "0x100cc1b6": "((uintptr_t)pf_module_state+0x23ffU)"
+      },
+      "10040540": {
+        "0x100cc50c": "((uintptr_t)pf_module_state+0x2755U)",
+        "0x100cbd01": "((uintptr_t)pf_module_state+0x1f4aU)",
+        "\n      (*(code *)(*local_128)[2])();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_128 + 16)))(local_128);"
+      },
+      "10021870": {
+        "0x100cc5d0": "((uintptr_t)pf_module_state+0x2819U)"
+      },
+      "10074620": {
+        "0x100cdf07": "((uintptr_t)pf_module_state+0x4150U)",
+        "0x100cdee3": "((uintptr_t)pf_module_state+0x412cU)"
+      },
+      "1001db80": {
+        "0x100cc19a": "((uintptr_t)pf_module_state+0x23e3U)"
+      },
+      "1009bc40": {
+        "0x100ccbd0": "((uintptr_t)pf_module_state+0x2e19U)"
+      },
+      "10058370": {
+        "0x100cd33e": "((uintptr_t)pf_module_state+0x3587U)"
+      },
+      "1003a3c0": {
+        "0x100cc34c": "((uintptr_t)pf_module_state+0x2595U)",
+        "0x100cc553": "((uintptr_t)pf_module_state+0x279cU)"
+      },
+      "1001a5b0": {
+        "0x100cc1dc": "((uintptr_t)pf_module_state+0x2425U)"
+      },
+      "1009b440": {
+        "0x100cdf26": "((uintptr_t)pf_module_state+0x416fU)"
+      },
+      "100328f0": {
+        "0x100ce3d2": "((uintptr_t)pf_module_state+0x461bU)",
+        "0x100ce3ea": "((uintptr_t)pf_module_state+0x4633U)"
+      },
+      "100b1aa0": {
+        "0x100cc1b6": "((uintptr_t)pf_module_state+0x23ffU)"
+      },
+      "100b28e0": {
+        "0x100ce817": "((uintptr_t)pf_module_state+0x4a60U)"
+      },
+      "10087260": {
+        "0x100cd7e2": "((uintptr_t)pf_module_state+0x3a2bU)"
+      },
+      "1007c380": {
+        "0x100ccddd": "((uintptr_t)pf_module_state+0x3026U)",
+        "\n        (**(code **)(*plVar3 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar3 + 0x10)))(plVar3);"
+      },
+      "10087940": {
+        "0x100cd857": "((uintptr_t)pf_module_state+0x3aa0U)"
+      },
+      "10096780": {
+        "0x100cdc12": "((uintptr_t)pf_module_state+0x3e5bU)",
+        "0x100cde97": "((uintptr_t)pf_module_state+0x40e0U)",
+        "0x100cdc45": "((uintptr_t)pf_module_state+0x3e8eU)",
+        "0x100cdc91": "((uintptr_t)pf_module_state+0x3edaU)",
+        "0x100cde7b": "((uintptr_t)pf_module_state+0x40c4U)",
+        "0x100cc34e": "((uintptr_t)pf_module_state+0x2597U)",
+        "0x100cde51": "((uintptr_t)pf_module_state+0x409aU)"
+      },
+      "10086130": {
+        "0x100cc8a0": "((uintptr_t)pf_module_state+0x2ae9U)"
+      },
+      "100b3050": {
+        "0x100ce8fa": "((uintptr_t)pf_module_state+0x4b43U)",
+        "0x100ce896": "((uintptr_t)pf_module_state+0x4adfU)",
+        "0x100ce8cc": "((uintptr_t)pf_module_state+0x4b15U)",
+        "\n              (**(code **)(*local_50 + 0x10))();": "\n              ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_50 + 0x10)))(local_50);"
+      },
+      "10014390": {
+        "0x100cc181": "((uintptr_t)pf_module_state+0x23caU)"
+      },
+      "100855b0": {
+        "0x100cd66d": "((uintptr_t)pf_module_state+0x38b6U)"
+      },
+      "1005d620": {
+        "0x100cd4bf": "((uintptr_t)pf_module_state+0x3708U)"
+      },
+      "10086ba0": {
+        "0x100cc9a9": "((uintptr_t)pf_module_state+0x2bf2U)"
+      },
+      "100a7fd0": {
+        "0x100ce28c": "((uintptr_t)pf_module_state+0x44d5U)"
+      },
+      "100b2dc0": {
+        "0x100ce862": "((uintptr_t)pf_module_state+0x4aabU)",
+        "0x100ce832": "((uintptr_t)pf_module_state+0x4a7bU)",
+        "\n          (**(code **)(*local_48 + 0x10))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_48 + 0x10)))(local_48);"
+      },
+      "100b36c0": {
+        "0x100ce9ae": "((uintptr_t)pf_module_state+0x4bf7U)",
+        "0x100ce96f": "((uintptr_t)pf_module_state+0x4bb8U)"
+      },
+      "1005c380": {
+        "0x100cd41f": "((uintptr_t)pf_module_state+0x3668U)",
+        "0x100cd3b5": "((uintptr_t)pf_module_state+0x35feU)",
+        "0x100cd3ec": "((uintptr_t)pf_module_state+0x3635U)"
+      },
+      "10088a00": {
+        "0x100cd9eb": "((uintptr_t)pf_module_state+0x3c34U)"
+      },
+      "10087730": {
+        "0x100cca31": "((uintptr_t)pf_module_state+0x2c7aU)"
+      },
+      "10079f90": {
+        "0x100ccd34": "((uintptr_t)pf_module_state+0x2f7dU)",
+        "0x100ccd3a": "((uintptr_t)pf_module_state+0x2f83U)",
+        "0x100ccd2f": "((uintptr_t)pf_module_state+0x2f78U)",
+        "\n          (**(code **)(*plVar3 + 0x10))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar3 + 0x10)))(plVar3);",
+        "\n    (**(code **)(*local_48 + 0x10))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_48 + 0x10)))(local_48);"
+      },
+      "1009ad90": {
+        "0x100ce7b1": "((uintptr_t)pf_module_state+0x49faU)"
+      },
+      "100c5010": {
+        "0x100ceab2": "((uintptr_t)pf_module_state+0x4cfbU)",
+        "0x100ceb21": "((uintptr_t)pf_module_state+0x4d6aU)",
+        "0x100ceae4": "((uintptr_t)pf_module_state+0x4d2dU)",
+        "0x100ceaee": "((uintptr_t)pf_module_state+0x4d37U)",
+        "\n        (**(code **)(*plVar17 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar17 + 0x10)))(plVar17);",
+        "\n        (**(code **)(*local_110 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_110 + 0x10)))(local_110);"
+      },
+      "10066200": {
+        "0x100cd732": "((uintptr_t)pf_module_state+0x397bU)",
+        "\n        (**(code **)(*local_48 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_48 + 0x10)))(local_48);",
+        "\n        (**(code **)(*local_d0 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_d0 + 0x10)))(local_d0);",
+        "\n        (**(code **)(*plVar98 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar98 + 0x10)))(plVar98);",
+        "\n        (**(code **)(*plStack_198 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_198 + 0x10)))(plStack_198);"
+      },
+      "10084500": {
+        "0x100cd439": "((uintptr_t)pf_module_state+0x3682U)"
+      },
+      "10012330": {
+        "0x100cc526": "((uintptr_t)pf_module_state+0x276fU)"
+      },
+      "1005e260": {
+        "0x100cd503": "((uintptr_t)pf_module_state+0x374cU)"
+      },
+      "1002ca20": {
+        "0x100cc4ad": "((uintptr_t)pf_module_state+0x26f6U)",
+        "0x100cdd64": "((uintptr_t)pf_module_state+0x3fadU)",
+        "0x100cc34c": "((uintptr_t)pf_module_state+0x2595U)",
+        "0x100cc50c": "((uintptr_t)pf_module_state+0x2755U)",
+        "0x100cc349": "((uintptr_t)pf_module_state+0x2592U)",
+        "0x100cdd9f": "((uintptr_t)pf_module_state+0x3fe8U)",
+        "0x100cdde5": "((uintptr_t)pf_module_state+0x402eU)",
+        "0x100cd389": "((uintptr_t)pf_module_state+0x35d2U)",
+        "0x100cc4cf": "((uintptr_t)pf_module_state+0x2718U)",
+        "0x100cc181": "((uintptr_t)pf_module_state+0x23caU)",
+        "0x100cc36b": "((uintptr_t)pf_module_state+0x25b4U)",
+        "0x100cc487": "((uintptr_t)pf_module_state+0x26d0U)",
+        "0x100cc45b": "((uintptr_t)pf_module_state+0x26a4U)",
+        "0x100cdd80": "((uintptr_t)pf_module_state+0x3fc9U)",
+        "0x100cc4a1": "((uintptr_t)pf_module_state+0x26eaU)",
+        "0x100cc3bf": "((uintptr_t)pf_module_state+0x2608U)",
+        "0x100cc434": "((uintptr_t)pf_module_state+0x267dU)",
+        "0x100cd35e": "((uintptr_t)pf_module_state+0x35a7U)",
+        "0x100cddc1": "((uintptr_t)pf_module_state+0x400aU)",
+        "0x100cc34e": "((uintptr_t)pf_module_state+0x2597U)",
+        "0x100cc4a7": "((uintptr_t)pf_module_state+0x26f0U)",
+        "0x100cc3e4": "((uintptr_t)pf_module_state+0x262dU)",
+        "0x100cdd42": "((uintptr_t)pf_module_state+0x3f8bU)",
+        "0x100cdd1f": "((uintptr_t)pf_module_state+0x3f68U)",
+        "0x100ce3b0": "((uintptr_t)pf_module_state+0x45f9U)",
+        "0x100cc391": "((uintptr_t)pf_module_state+0x25daU)",
+        "0x100ce3f5": "((uintptr_t)pf_module_state+0x463eU)",
+        "0x100cc407": "((uintptr_t)pf_module_state+0x2650U)",
+        "\n                    (*(code *)(*ppppuVar68)[2])();": "\n                    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)ppppuVar68 + 16)))(ppppuVar68);",
+        "\n                    (*(code *)(*local_58)[2])();": "\n                    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_58 + 16)))(local_58);",
+        "\n                  (*(code *)(*ppppuVar68)[2])();": "\n                  ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)ppppuVar68 + 16)))(ppppuVar68);",
+        "\n                  (*(code *)(*local_58)[2])();": "\n                  ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_58 + 16)))(local_58);",
+        "\n          (*(code *)(*local_240)[2])();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_240 + 16)))(local_240);"
+      },
+      "100b2b10": {
+        "0x100cc5d0": "((uintptr_t)pf_module_state+0x2819U)",
+        "0x100cc763": "((uintptr_t)pf_module_state+0x29acU)"
+      },
+      "100ab6c0": {
+        "0x100ce42a": "((uintptr_t)pf_module_state+0x4673U)"
+      },
+      "10071b50": {
+        "0x100ccb0f": "((uintptr_t)pf_module_state+0x2d58U)",
+        "0x100ccaf1": "((uintptr_t)pf_module_state+0x2d3aU)"
+      },
+      "100873d0": {
+        "0x100cd803": "((uintptr_t)pf_module_state+0x3a4cU)"
+      },
+      "10028c70": {
+        "0x100cd9eb": "((uintptr_t)pf_module_state+0x3c34U)",
+        "0x100cd9a5": "((uintptr_t)pf_module_state+0x3beeU)",
+        "0x100cd92d": "((uintptr_t)pf_module_state+0x3b76U)",
+        "0x100cd97d": "((uintptr_t)pf_module_state+0x3bc6U)",
+        "0x100cd8b5": "((uintptr_t)pf_module_state+0x3afeU)",
+        "0x100cd955": "((uintptr_t)pf_module_state+0x3b9eU)",
+        "0x100cd905": "((uintptr_t)pf_module_state+0x3b4eU)",
+        "0x100cd9cd": "((uintptr_t)pf_module_state+0x3c16U)",
+        "0x100cd8dd": "((uintptr_t)pf_module_state+0x3b26U)",
+        "0x100cc19a": "((uintptr_t)pf_module_state+0x23e3U)"
+      },
+      "100b4990": {
+        "0x100cc873": "((uintptr_t)pf_module_state+0x2abcU)"
+      },
+      "10022380": {
+        "0x100ce33f": "((uintptr_t)pf_module_state+0x4588U)",
+        "0x100ce345": "((uintptr_t)pf_module_state+0x458eU)",
+        "0x100ce363": "((uintptr_t)pf_module_state+0x45acU)",
+        "0x100ce311": "((uintptr_t)pf_module_state+0x455aU)",
+        "0x100ce335": "((uintptr_t)pf_module_state+0x457eU)"
+      },
+      "100a7b30": {
+        "0x100ce23e": "((uintptr_t)pf_module_state+0x4487U)"
+      },
+      "10068560": {
+        "0x100cdc66": "((uintptr_t)pf_module_state+0x3eafU)",
+        "0x100cdd64": "((uintptr_t)pf_module_state+0x3fadU)",
+        "0x100cdd9f": "((uintptr_t)pf_module_state+0x3fe8U)",
+        "0x100cdcaf": "((uintptr_t)pf_module_state+0x3ef8U)",
+        "0x100cdde5": "((uintptr_t)pf_module_state+0x402eU)",
+        "0x100cc1dc": "((uintptr_t)pf_module_state+0x2425U)",
+        "0x100cdcf8": "((uintptr_t)pf_module_state+0x3f41U)",
+        "0x100cd389": "((uintptr_t)pf_module_state+0x35d2U)",
+        "0x100cc405": "((uintptr_t)pf_module_state+0x264eU)",
+        "0x100cdc91": "((uintptr_t)pf_module_state+0x3edaU)",
+        "0x100cc36b": "((uintptr_t)pf_module_state+0x25b4U)",
+        "0x100cc487": "((uintptr_t)pf_module_state+0x26d0U)",
+        "0x100cdd80": "((uintptr_t)pf_module_state+0x3fc9U)",
+        "0x100cdce0": "((uintptr_t)pf_module_state+0x3f29U)",
+        "0x100cc3bf": "((uintptr_t)pf_module_state+0x2608U)",
+        "0x100cc568": "((uintptr_t)pf_module_state+0x27b1U)",
+        "0x100cc434": "((uintptr_t)pf_module_state+0x267dU)",
+        "0x100cd35e": "((uintptr_t)pf_module_state+0x35a7U)",
+        "0x100cbef8": "((uintptr_t)pf_module_state+0x2141U)",
+        "0x100cddc1": "((uintptr_t)pf_module_state+0x400aU)",
+        "0x100cc3e4": "((uintptr_t)pf_module_state+0x262dU)",
+        "0x100cdd42": "((uintptr_t)pf_module_state+0x3f8bU)",
+        "0x100cdd1f": "((uintptr_t)pf_module_state+0x3f68U)",
+        "0x100cc45b": "((uintptr_t)pf_module_state+0x26a4U)",
+        "0x100cc391": "((uintptr_t)pf_module_state+0x25daU)",
+        "0x100cbef2": "((uintptr_t)pf_module_state+0x213bU)",
+        "0x100cc3e2": "((uintptr_t)pf_module_state+0x262bU)",
+        "0x100cc407": "((uintptr_t)pf_module_state+0x2650U)",
+        "undefined8 local_38;": "ulong *****local_38;"
+      },
+      "10022d80": {
+        "0x100cc2d3": "((uintptr_t)pf_module_state+0x251cU)",
+        "0x100cc2f7": "((uintptr_t)pf_module_state+0x2540U)",
+        "0x100cc2b2": "((uintptr_t)pf_module_state+0x24fbU)"
+      },
+      "1004ed90": {
+        "0x100cc553": "((uintptr_t)pf_module_state+0x279cU)"
+      },
+      "100a81f0": {
+        "0x100ce2eb": "((uintptr_t)pf_module_state+0x4534U)",
+        "0x100ce300": "((uintptr_t)pf_module_state+0x4549U)",
+        "0x100ce309": "((uintptr_t)pf_module_state+0x4552U)"
+      },
+      "100b3340": {
+        "0x100ce92a": "((uintptr_t)pf_module_state+0x4b73U)"
+      },
+      "1008aea0": {
+        "0x100cc309": "((uintptr_t)pf_module_state+0x2552U)"
+      },
+      "10091f70": {
+        "0x100cdc45": "((uintptr_t)pf_module_state+0x3e8eU)"
+      },
+      "100870d0": {
+        "0x100cd7ad": "((uintptr_t)pf_module_state+0x39f6U)"
+      },
+      "100b3fc0": {
+        "0x100cc833": "((uintptr_t)pf_module_state+0x2a7cU)"
+      },
+      "100b1da0": {
+        "0x100cc833": "((uintptr_t)pf_module_state+0x2a7cU)"
+      },
+      "10086940": {
+        "0x100cc953": "((uintptr_t)pf_module_state+0x2b9cU)"
+      },
+      "1005f4f0": {
+        "0x100cd540": "((uintptr_t)pf_module_state+0x3789U)"
+      },
+      "10086a70": {
+        "0x100cc97e": "((uintptr_t)pf_module_state+0x2bc7U)"
+      },
+      "10086260": {
+        "0x100cc8cc": "((uintptr_t)pf_module_state+0x2b15U)"
+      },
+      "10087520": {
+        "0x100cd823": "((uintptr_t)pf_module_state+0x3a6cU)"
+      },
+      "10059080": {
+        "0x100cc67c": "((uintptr_t)pf_module_state+0x28c5U)",
+        "\n      (**(code **)(*plVar7 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar7 + 0x10)))(plVar7);",
+        "\n      (**(code **)(*local_130 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_130 + 0x10)))(local_130);"
+      },
+      "10086cd0": {
+        "0x100cc9d4": "((uintptr_t)pf_module_state+0x2c1dU)",
+        "0x100cc252": "((uintptr_t)pf_module_state+0x249bU)",
+        "0x100cc22c": "((uintptr_t)pf_module_state+0x2475U)"
+      },
+      "100c98a0": {
+        "0x100cec1f": "((uintptr_t)pf_module_state+0x4e68U)"
+      },
+      "100a6dc0": {
+        "0x100ca080": "((uintptr_t)pf_module_state+0x2c9U)"
+      },
+      "10016680": {
+        "0x100cc97e": "((uintptr_t)pf_module_state+0x2bc7U)",
+        "0x100cca05": "((uintptr_t)pf_module_state+0x2c4eU)",
+        "0x100cc7f0": "((uintptr_t)pf_module_state+0x2a39U)",
+        "0x100cc2f7": "((uintptr_t)pf_module_state+0x2540U)",
+        "0x100cc22c": "((uintptr_t)pf_module_state+0x2475U)",
+        "0x100cc1b6": "((uintptr_t)pf_module_state+0x23ffU)",
+        "0x100cca31": "((uintptr_t)pf_module_state+0x2c7aU)",
+        "0x100cc9a9": "((uintptr_t)pf_module_state+0x2bf2U)",
+        "0x100cc8cc": "((uintptr_t)pf_module_state+0x2b15U)",
+        "0x100cc9d4": "((uintptr_t)pf_module_state+0x2c1dU)",
+        "0x100cc6a6": "((uintptr_t)pf_module_state+0x28efU)",
+        "0x100cc2d3": "((uintptr_t)pf_module_state+0x251cU)",
+        "0x100cc6d3": "((uintptr_t)pf_module_state+0x291cU)",
+        "0x100cc7ba": "((uintptr_t)pf_module_state+0x2a03U)",
+        "0x100cc953": "((uintptr_t)pf_module_state+0x2b9cU)",
+        "0x100cc64e": "((uintptr_t)pf_module_state+0x2897U)",
+        "0x100cc8f7": "((uintptr_t)pf_module_state+0x2b40U)",
+        "0x100cc252": "((uintptr_t)pf_module_state+0x249bU)",
+        "0x100cc287": "((uintptr_t)pf_module_state+0x24d0U)",
+        "0x100cc5d0": "((uintptr_t)pf_module_state+0x2819U)",
+        "0x100cc620": "((uintptr_t)pf_module_state+0x2869U)",
+        "0x100cc67c": "((uintptr_t)pf_module_state+0x28c5U)",
+        "0x100cc786": "((uintptr_t)pf_module_state+0x29cfU)",
+        "0x100cc925": "((uintptr_t)pf_module_state+0x2b6eU)",
+        "0x100cc732": "((uintptr_t)pf_module_state+0x297bU)",
+        "0x100cc8a0": "((uintptr_t)pf_module_state+0x2ae9U)",
+        "0x100cbe27": "((uintptr_t)pf_module_state+0x2070U)",
+        "0x100cc873": "((uintptr_t)pf_module_state+0x2abcU)",
+        "0x100cc701": "((uintptr_t)pf_module_state+0x294aU)",
+        "0x100cc763": "((uintptr_t)pf_module_state+0x29acU)",
+        "0x100cc833": "((uintptr_t)pf_module_state+0x2a7cU)"
+      },
+      "100a8b30": {
+        "0x100ce2cb": "((uintptr_t)pf_module_state+0x4514U)",
+        "0x100ce2a7": "((uintptr_t)pf_module_state+0x44f0U)",
+        "0x100ce2b7": "((uintptr_t)pf_module_state+0x4500U)",
+        "0x100cce8b": "((uintptr_t)pf_module_state+0x30d4U)"
+      },
+      "10006be0": {
+        "0x100cbdac": "((uintptr_t)pf_module_state+0x1ff5U)",
+        "0x100cbda9": "((uintptr_t)pf_module_state+0x1ff2U)"
+      },
+      "10087b50": {
+        "0x100cd899": "((uintptr_t)pf_module_state+0x3ae2U)"
+      },
+      "100c9ae0": {
+        "0x100cc34c": "((uintptr_t)pf_module_state+0x2595U)"
+      },
+      "100676a0": {
+        "0x100cd775": "((uintptr_t)pf_module_state+0x39beU)",
+        "\n        (**(code **)(*local_38 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_38 + 0x10)))(local_38);",
+        "\n        (**(code **)(*local_e0 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_e0 + 0x10)))(local_e0);"
+      },
+      "10089f20": {
+        "0x100cdbf5": "((uintptr_t)pf_module_state+0x3e3eU)",
+        "0x100ce6a4": "((uintptr_t)pf_module_state+0x48edU)",
+        "0x100ce6e6": "((uintptr_t)pf_module_state+0x492fU)",
+        "0x100ce642": "((uintptr_t)pf_module_state+0x488bU)",
+        "0x100ce625": "((uintptr_t)pf_module_state+0x486eU)",
+        "0x100ce6c1": "((uintptr_t)pf_module_state+0x490aU)",
+        "0x100ce687": "((uintptr_t)pf_module_state+0x48d0U)",
+        "0x100ce667": "((uintptr_t)pf_module_state+0x48b0U)"
+      },
+      "100726f0": {
+        "0x100ccb2c": "((uintptr_t)pf_module_state+0x2d75U)",
+        "0x100ccb0f": "((uintptr_t)pf_module_state+0x2d58U)",
+        "0x100ccb59": "((uintptr_t)pf_module_state+0x2da2U)",
+        "\n            (**(code **)(*local_1e8 + 0x10))();": "\n            ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_1e8 + 0x10)))(local_1e8);",
+        "\n            (**(code **)(*plVar18 + 0x10))();": "\n            ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar18 + 0x10)))(plVar18);",
+        "\n          (**(code **)(*plVar18 + 0x10))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar18 + 0x10)))(plVar18);",
+        "\n          (**(code **)(*local_d8 + 0x10))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_d8 + 0x10)))(local_d8);",
+        "\n        (**(code **)(*local_d8 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_d8 + 0x10)))(local_d8);",
+        "\n      (**(code **)(*local_1e8 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_1e8 + 0x10)))(local_1e8);",
+        "\n          (*(code *)(*pplVar1)[2])();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)pplVar1 + 16)))(pplVar1);",
+        "\n            (*(code *)(*pplVar12)[2])();": "\n            ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)pplVar12 + 16)))(pplVar12);"
+      },
+      "10006ba0": {
+        "0x100cbd8e": "((uintptr_t)pf_module_state+0x1fd7U)",
+        "0x100cbda9": "((uintptr_t)pf_module_state+0x1ff2U)"
+      },
+      "10052cf0": {
+        "0x100cc58c": "((uintptr_t)pf_module_state+0x27d5U)"
+      },
+      "10089d60": {
+        "0x100cdbf5": "((uintptr_t)pf_module_state+0x3e3eU)"
+      },
+      "10032ef0": {
+        "0x100cbd68": "((uintptr_t)pf_module_state+0x1fb1U)",
+        "0x100cc384": "((uintptr_t)pf_module_state+0x25cdU)",
+        "0x100cde34": "((uintptr_t)pf_module_state+0x407dU)",
+        "0x100cc38f": "((uintptr_t)pf_module_state+0x25d8U)",
+        "0x100cc405": "((uintptr_t)pf_module_state+0x264eU)",
+        "0x100cde10": "((uintptr_t)pf_module_state+0x4059U)",
+        "0x100cc3bd": "((uintptr_t)pf_module_state+0x2606U)",
+        "0x100cc3e2": "((uintptr_t)pf_module_state+0x262bU)"
+      },
+      "10051320": {
+        "0x100cc58c": "((uintptr_t)pf_module_state+0x27d5U)"
+      },
+      "1009d660": {
+        "0x100cdd64": "((uintptr_t)pf_module_state+0x3fadU)",
+        "0x100cc34c": "((uintptr_t)pf_module_state+0x2595U)",
+        "0x100ceb4a": "((uintptr_t)pf_module_state+0x4d93U)",
+        "0x100cc181": "((uintptr_t)pf_module_state+0x23caU)",
+        "0x100cc487": "((uintptr_t)pf_module_state+0x26d0U)",
+        "0x100cdce0": "((uintptr_t)pf_module_state+0x3f29U)",
+        "0x100cc4a1": "((uintptr_t)pf_module_state+0x26eaU)",
+        "0x100cc553": "((uintptr_t)pf_module_state+0x279cU)",
+        "0x100ceba4": "((uintptr_t)pf_module_state+0x4dedU)",
+        "0x100ce7f6": "((uintptr_t)pf_module_state+0x4a3fU)",
+        "0x100cec02": "((uintptr_t)pf_module_state+0x4e4bU)",
+        "0x100cebd3": "((uintptr_t)pf_module_state+0x4e1cU)",
+        "0x100ceb76": "((uintptr_t)pf_module_state+0x4dbfU)",
+        "0x100cc4a7": "((uintptr_t)pf_module_state+0x26f0U)",
+        "0x100cdd42": "((uintptr_t)pf_module_state+0x3f8bU)",
+        "0x100cdd1f": "((uintptr_t)pf_module_state+0x3f68U)"
+      },
+      "10025700": {
+        "0x100cc50c": "((uintptr_t)pf_module_state+0x2755U)",
+        "0x100cc1dc": "((uintptr_t)pf_module_state+0x2425U)",
+        "0x100ccabf": "((uintptr_t)pf_module_state+0x2d08U)",
+        "0x100cca63": "((uintptr_t)pf_module_state+0x2cacU)",
+        "0x100cca93": "((uintptr_t)pf_module_state+0x2cdcU)",
+        "undefined8 local_38;": "ulong *****local_38;"
+      },
+      "100aced0": {
+        "0x100ce6f6": "((uintptr_t)pf_module_state+0x493fU)",
+        "0x100ce70f": "((uintptr_t)pf_module_state+0x4958U)"
+      },
+      "10086000": {
+        "0x100cc873": "((uintptr_t)pf_module_state+0x2abcU)"
+      },
+      "1009be90": {
+        "0x100ce19c": "((uintptr_t)pf_module_state+0x43e5U)"
+      },
+      "1007d410": {
+        "0x100ce556": "((uintptr_t)pf_module_state+0x479fU)",
+        "0x100ce44b": "((uintptr_t)pf_module_state+0x4694U)",
+        "0x100ce42c": "((uintptr_t)pf_module_state+0x4675U)",
+        "0x100ce553": "((uintptr_t)pf_module_state+0x479cU)",
+        "0x100ce42a": "((uintptr_t)pf_module_state+0x4673U)"
+      },
+      "100863c0": {
+        "0x100cc8f7": "((uintptr_t)pf_module_state+0x2b40U)"
+      },
+      "100643b0": {
+        "0x100cd6b9": "((uintptr_t)pf_module_state+0x3902U)",
+        "undefined8 uStack_178;": "long *uStack_178;",
+        "\n    (**(code **)(*local_40 + 0x10))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_40 + 0x10)))(local_40);",
+        "\n    (**(code **)(*local_e0 + 0x10))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_e0 + 0x10)))(local_e0);"
+      },
+      "1001e6b0": {
+        "0x100cc22c": "((uintptr_t)pf_module_state+0x2475U)",
+        "0x100cc1b6": "((uintptr_t)pf_module_state+0x23ffU)",
+        "0x100cc207": "((uintptr_t)pf_module_state+0x2450U)",
+        "0x100cc200": "((uintptr_t)pf_module_state+0x2449U)",
+        "0x100cc252": "((uintptr_t)pf_module_state+0x249bU)",
+        "0x100cc287": "((uintptr_t)pf_module_state+0x24d0U)",
+        "0x100cc19a": "((uintptr_t)pf_module_state+0x23e3U)"
+      },
+      "10065000": {
+        "0x100cd6f9": "((uintptr_t)pf_module_state+0x3942U)",
+        "\n    (**(code **)(*local_48 + 0x10))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_48 + 0x10)))(local_48);"
+      },
+      "10086f40": {
+        "0x100cca05": "((uintptr_t)pf_module_state+0x2c4eU)",
+        "0x100cc287": "((uintptr_t)pf_module_state+0x24d0U)"
+      },
+      "100286f0": {
+        "0x100cda39": "((uintptr_t)pf_module_state+0x3c82U)",
+        "0x100cda29": "((uintptr_t)pf_module_state+0x3c72U)"
+      },
+      "100a8660": {
+        "0x100ce300": "((uintptr_t)pf_module_state+0x4549U)",
+        "0x100ce309": "((uintptr_t)pf_module_state+0x4552U)"
+      },
+      "100c7fc0": {
+        "0x100cc58c": "((uintptr_t)pf_module_state+0x27d5U)"
+      },
+      "10091e10": {
+        "0x100cdc2d": "((uintptr_t)pf_module_state+0x3e76U)"
+      },
+      "1005fa30": {
+        "0x100cd619": "((uintptr_t)pf_module_state+0x3862U)",
+        "0x100ce5eb": "((uintptr_t)pf_module_state+0x4834U)",
+        "0x100cd5b2": "((uintptr_t)pf_module_state+0x37fbU)",
+        "0x100cd643": "((uintptr_t)pf_module_state+0x388cU)",
+        "0x100cd56e": "((uintptr_t)pf_module_state+0x37b7U)",
+        "0x100cd5e0": "((uintptr_t)pf_module_state+0x3829U)",
+        "0x100ce5fc": "((uintptr_t)pf_module_state+0x4845U)",
+        "0x100ce5b1": "((uintptr_t)pf_module_state+0x47faU)"
+      },
+      "10054960": {
+        "0x100cc5bb": "((uintptr_t)pf_module_state+0x2804U)",
+        "0x100cc5c8": "((uintptr_t)pf_module_state+0x2811U)"
+      },
+      "10018ef0": {
+        "0x100cc1dc": "((uintptr_t)pf_module_state+0x2425U)"
+      },
+      "100b4f60": {
+        "0x100cc97e": "((uintptr_t)pf_module_state+0x2bc7U)"
+      },
+      "10080640": {
+        "0x100cc833": "((uintptr_t)pf_module_state+0x2a7cU)"
+      },
+      "100b4de0": {
+        "0x100cc953": "((uintptr_t)pf_module_state+0x2b9cU)"
+      },
+      "1007cdc0": {
+        "0x100cc620": "((uintptr_t)pf_module_state+0x2869U)"
+      },
+      "10080110": {
+        "0x100ce55d": "((uintptr_t)pf_module_state+0x47a6U)",
+        "0x100ce58c": "((uintptr_t)pf_module_state+0x47d5U)"
+      },
+      "100ad3d0": {
+        "0x100ce73b": "((uintptr_t)pf_module_state+0x4984U)"
+      },
+      "10080ff0": {
+        "0x100cd120": "((uintptr_t)pf_module_state+0x3369U)",
+        "0x100cd14d": "((uintptr_t)pf_module_state+0x3396U)",
+        "\n    (**(code **)(*local_38 + 0x10))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_38 + 0x10)))(local_38);",
+        "\n    (**(code **)(*local_58 + 0x10))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_58 + 0x10)))(local_58);"
+      },
+      "100a2da0": {
+        "0x100cd4bb": "((uintptr_t)pf_module_state+0x3704U)",
+        "0x100cd503": "((uintptr_t)pf_module_state+0x374cU)",
+        "0x100cd540": "((uintptr_t)pf_module_state+0x3789U)"
+      },
+      "100bc430": {
+        "0x100cea4d": "((uintptr_t)pf_module_state+0x4c96U)",
+        "0x100ce6a4": "((uintptr_t)pf_module_state+0x48edU)",
+        "0x100ce70f": "((uintptr_t)pf_module_state+0x4958U)",
+        "0x100ce6f6": "((uintptr_t)pf_module_state+0x493fU)",
+        "0x100ce6e6": "((uintptr_t)pf_module_state+0x492fU)",
+        "0x100ce625": "((uintptr_t)pf_module_state+0x486eU)",
+        "0x100ce642": "((uintptr_t)pf_module_state+0x488bU)",
+        "0x100cea5f": "((uintptr_t)pf_module_state+0x4ca8U)",
+        "0x100ce6c1": "((uintptr_t)pf_module_state+0x490aU)",
+        "0x100ce667": "((uintptr_t)pf_module_state+0x48b0U)",
+        "0x100ce687": "((uintptr_t)pf_module_state+0x48d0U)",
+        "0x100cdbf5": "((uintptr_t)pf_module_state+0x3e3eU)",
+        "undefined8 uStack_f0;": "long *uStack_f0;"
+      },
+      "10081dc0": {
+        "0x100cd2ab": "((uintptr_t)pf_module_state+0x34f4U)",
+        "\n      (**(code **)(*local_f8 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_f8 + 0x10)))(local_f8);"
+      },
+      "1009ab40": {
+        "0x100cdeb8": "((uintptr_t)pf_module_state+0x4101U)"
+      },
+      "10084780": {
+        "0x100cc7f0": "((uintptr_t)pf_module_state+0x2a39U)"
+      },
+      "100411d0": {
+        "0x100cdd64": "((uintptr_t)pf_module_state+0x3fadU)",
+        "0x100cc34c": "((uintptr_t)pf_module_state+0x2595U)",
+        "0x100cdd9f": "((uintptr_t)pf_module_state+0x3fe8U)",
+        "0x100ce04f": "((uintptr_t)pf_module_state+0x4298U)",
+        "0x100cc3bf": "((uintptr_t)pf_module_state+0x2608U)",
+        "0x100ce113": "((uintptr_t)pf_module_state+0x435cU)",
+        "0x100ce16b": "((uintptr_t)pf_module_state+0x43b4U)",
+        "0x100cd35e": "((uintptr_t)pf_module_state+0x35a7U)",
+        "0x100cc4a7": "((uintptr_t)pf_module_state+0x26f0U)",
+        "0x100cdce0": "((uintptr_t)pf_module_state+0x3f29U)",
+        "0x100cc4a1": "((uintptr_t)pf_module_state+0x26eaU)",
+        "0x100cc553": "((uintptr_t)pf_module_state+0x279cU)",
+        "0x100cddc1": "((uintptr_t)pf_module_state+0x400aU)",
+        "0x100cc3e4": "((uintptr_t)pf_module_state+0x262dU)",
+        "0x100ce074": "((uintptr_t)pf_module_state+0x42bdU)",
+        "0x100ce01e": "((uintptr_t)pf_module_state+0x4267U)",
+        "0x100cdde5": "((uintptr_t)pf_module_state+0x402eU)",
+        "0x100ce144": "((uintptr_t)pf_module_state+0x438dU)",
+        "0x100cc45b": "((uintptr_t)pf_module_state+0x26a4U)",
+        "0x100cdd80": "((uintptr_t)pf_module_state+0x3fc9U)",
+        "0x100cdfdb": "((uintptr_t)pf_module_state+0x4224U)",
+        "0x100cc568": "((uintptr_t)pf_module_state+0x27b1U)",
+        "0x100cc434": "((uintptr_t)pf_module_state+0x267dU)",
+        "0x100cdff8": "((uintptr_t)pf_module_state+0x4241U)",
+        "0x100ce09b": "((uintptr_t)pf_module_state+0x42e4U)",
+        "0x100ce0eb": "((uintptr_t)pf_module_state+0x4334U)",
+        "0x100cdd42": "((uintptr_t)pf_module_state+0x3f8bU)",
+        "0x100cdd1f": "((uintptr_t)pf_module_state+0x3f68U)",
+        "0x100cc391": "((uintptr_t)pf_module_state+0x25daU)",
+        "0x100cd389": "((uintptr_t)pf_module_state+0x35d2U)",
+        "0x100cc181": "((uintptr_t)pf_module_state+0x23caU)",
+        "0x100cc36b": "((uintptr_t)pf_module_state+0x25b4U)",
+        "0x100cc487": "((uintptr_t)pf_module_state+0x26d0U)",
+        "0x100ce7f6": "((uintptr_t)pf_module_state+0x4a3fU)",
+        "0x100ce0c3": "((uintptr_t)pf_module_state+0x430cU)",
+        "0x100cc407": "((uintptr_t)pf_module_state+0x2650U)"
+      },
+      "1007ca10": {
+        "0x100ccf2a": "((uintptr_t)pf_module_state+0x3173U)",
+        "0x100ccec3": "((uintptr_t)pf_module_state+0x310cU)",
+        "0x100ccf4e": "((uintptr_t)pf_module_state+0x3197U)",
+        "0x100ccef5": "((uintptr_t)pf_module_state+0x313eU)",
+        "0x100cce8d": "((uintptr_t)pf_module_state+0x30d6U)"
+      },
+      "1005afa0": {
+        "0x100cd389": "((uintptr_t)pf_module_state+0x35d2U)",
+        "0x100cc6d3": "((uintptr_t)pf_module_state+0x291cU)",
+        "\n        (**(code **)(*local_140 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_140 + 0x10)))(local_140);"
+      },
+      "10015040": {
+        "0x100cc181": "((uintptr_t)pf_module_state+0x23caU)"
+      },
+      "10019d40": {
+        "0x100cce45": "((uintptr_t)pf_module_state+0x308eU)",
+        "0x100cce23": "((uintptr_t)pf_module_state+0x306cU)",
+        "0x100cce40": "((uintptr_t)pf_module_state+0x3089U)",
+        "0x100cce47": "((uintptr_t)pf_module_state+0x3090U)",
+        "0x100cce21": "((uintptr_t)pf_module_state+0x306aU)",
+        "0x100cce31": "((uintptr_t)pf_module_state+0x307aU)",
+        "0x100cce42": "((uintptr_t)pf_module_state+0x308bU)",
+        "0x100cce0c": "((uintptr_t)pf_module_state+0x3055U)"
+      },
+      "10077ae0": {
+        "0x100ccba8": "((uintptr_t)pf_module_state+0x2df1U)",
+        "0x100ccbd0": "((uintptr_t)pf_module_state+0x2e19U)",
+        "0x100ccb77": "((uintptr_t)pf_module_state+0x2dc0U)"
+      },
+      "10059ac0": {
+        "0x100cc6a6": "((uintptr_t)pf_module_state+0x28efU)",
+        "0x100cd35e": "((uintptr_t)pf_module_state+0x35a7U)",
+        "\n      (**(code **)(*local_118 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_118 + 0x10)))(local_118);",
+        "\n      (**(code **)(*local_170 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_170 + 0x10)))(local_170);"
+      },
+      "1005be50": {
+        "0x100cda40": "((uintptr_t)pf_module_state+0x3c89U)"
+      },
+      "100b4120": {
+        "0x100ce9fe": "((uintptr_t)pf_module_state+0x4c47U)",
+        "0x100cea2b": "((uintptr_t)pf_module_state+0x4c74U)"
+      },
+      "10084280": {
+        "0x100cc7ba": "((uintptr_t)pf_module_state+0x2a03U)"
+      },
+      "1007c700": {
+        "0x100cce21": "((uintptr_t)pf_module_state+0x306aU)",
+        "0x100cce8b": "((uintptr_t)pf_module_state+0x30d4U)"
+      },
+      "100233b0": {
+        "0x100ce38b": "((uintptr_t)pf_module_state+0x45d4U)",
+        "0x100cc38f": "((uintptr_t)pf_module_state+0x25d8U)",
+        "0x100ce389": "((uintptr_t)pf_module_state+0x45d2U)",
+        "0x100ce379": "((uintptr_t)pf_module_state+0x45c2U)",
+        "0x100ce377": "((uintptr_t)pf_module_state+0x45c0U)",
+        "0x100ce38e": "((uintptr_t)pf_module_state+0x45d7U)",
+        "0x100cc38d": "((uintptr_t)pf_module_state+0x25d6U)"
+      },
+      "100958b0": {
+        "0x100ce19c": "((uintptr_t)pf_module_state+0x43e5U)",
+        "0x100cc50c": "((uintptr_t)pf_module_state+0x2755U)",
+        "undefined8 local_38;": "ulong *****local_38;",
+        "\n            (**(code **)(*local_e8 + 0x10))();": "\n            ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_e8 + 0x10)))(local_e8);"
+      },
+      "1001b970": {
+        "0x100cc309": "((uintptr_t)pf_module_state+0x2552U)",
+        "0x100cc32c": "((uintptr_t)pf_module_state+0x2575U)",
+        "0x100cc19a": "((uintptr_t)pf_module_state+0x23e3U)"
+      },
+      "10080c50": {
+        "0x100cd0b8": "((uintptr_t)pf_module_state+0x3301U)",
+        "0x100cd0df": "((uintptr_t)pf_module_state+0x3328U)",
+        "0x100cd105": "((uintptr_t)pf_module_state+0x334eU)"
+      },
+      "100b50e0": {
+        "0x100cc9a9": "((uintptr_t)pf_module_state+0x2bf2U)"
+      },
+      "10015210": {
+        "0x100cc181": "((uintptr_t)pf_module_state+0x23caU)"
+      },
+      "10038b50": {
+        "0x100cdb50": "((uintptr_t)pf_module_state+0x3d99U)",
+        "0x100cdbdb": "((uintptr_t)pf_module_state+0x3e24U)",
+        "0x100cda9c": "((uintptr_t)pf_module_state+0x3ce5U)",
+        "0x100cdb6c": "((uintptr_t)pf_module_state+0x3db5U)",
+        "0x100cdb9e": "((uintptr_t)pf_module_state+0x3de7U)",
+        "0x100cdae4": "((uintptr_t)pf_module_state+0x3d2dU)",
+        "0x100cdafd": "((uintptr_t)pf_module_state+0x3d46U)",
+        "0x100cdb16": "((uintptr_t)pf_module_state+0x3d5fU)",
+        "0x100cdac9": "((uintptr_t)pf_module_state+0x3d12U)",
+        "\n    (**(code **)(*local_48 + 0x10))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_48 + 0x10)))(local_48);",
+        "\n    (**(code **)(*local_38 + 0x10))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_38 + 0x10)))(local_38);"
+      },
+      "100147f0": {
+        "0x100cc19a": "((uintptr_t)pf_module_state+0x23e3U)"
+      },
+      "100818d0": {
+        "0x100cd229": "((uintptr_t)pf_module_state+0x3472U)",
+        "0x100cd266": "((uintptr_t)pf_module_state+0x34afU)",
+        "\n    (**(code **)(*local_60 + 0x10))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_60 + 0x10)))(local_60);"
+      },
+      "10058250": {
+        "0x100cc5fa": "((uintptr_t)pf_module_state+0x2843U)"
+      },
+      "1004fee0": {
+        "0x100cc568": "((uintptr_t)pf_module_state+0x27b1U)"
+      },
+      "10079140": {
+        "0x100cdf51": "((uintptr_t)pf_module_state+0x419aU)",
+        "0x100cdf8e": "((uintptr_t)pf_module_state+0x41d7U)",
+        "0x100cdf72": "((uintptr_t)pf_module_state+0x41bbU)"
+      },
+      "1008cd80": {
+        "0x100cc19a": "((uintptr_t)pf_module_state+0x23e3U)"
+      },
+      "100b5730": {
+        "0x100cd803": "((uintptr_t)pf_module_state+0x3a4cU)"
+      },
+      "10077840": {
+        "0x100ccb5c": "((uintptr_t)pf_module_state+0x2da5U)"
+      },
+      "10061cd0": {
+        "0x100cbd68": "((uintptr_t)pf_module_state+0x1fb1U)",
+        "0x100cd00a": "((uintptr_t)pf_module_state+0x3253U)",
+        "0x100ccfbd": "((uintptr_t)pf_module_state+0x3206U)",
+        "0x100ccf79": "((uintptr_t)pf_module_state+0x31c2U)"
+      },
+      "10083330": {
+        "0x100cc701": "((uintptr_t)pf_module_state+0x294aU)",
+        "0x100cc732": "((uintptr_t)pf_module_state+0x297bU)",
+        "\n    (**(code **)(*local_38 + 0x10))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_38 + 0x10)))(local_38);"
+      },
+      "1008e430": {
+        "0x100cd4bb": "((uintptr_t)pf_module_state+0x3704U)",
+        "0x100cd41f": "((uintptr_t)pf_module_state+0x3668U)",
+        "0x100cc1dc": "((uintptr_t)pf_module_state+0x2425U)",
+        "0x100cd33e": "((uintptr_t)pf_module_state+0x3587U)",
+        "0x100cc732": "((uintptr_t)pf_module_state+0x297bU)",
+        "0x100cc701": "((uintptr_t)pf_module_state+0x294aU)",
+        "0x100ce765": "((uintptr_t)pf_module_state+0x49aeU)",
+        "0x100cd4bf": "((uintptr_t)pf_module_state+0x3708U)",
+        "0x100cd46f": "((uintptr_t)pf_module_state+0x36b8U)",
+        "\n        (**(code **)(*local_150 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_150 + 0x10)))(local_150);",
+        "\n        (**(code **)(*local_50 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_50 + 0x10)))(local_50);"
+      },
+      "10079dc0": {
+        "0x100ccc72": "((uintptr_t)pf_module_state+0x2ebbU)",
+        "0x100ccca4": "((uintptr_t)pf_module_state+0x2eedU)"
+      },
+      "1009b8b0": {
+        "0x100ce7d5": "((uintptr_t)pf_module_state+0x4a1eU)"
+      },
+      "10080750": {
+        "0x100cd054": "((uintptr_t)pf_module_state+0x329dU)"
+      },
+      "10082320": {
+        "0x100cd2d9": "((uintptr_t)pf_module_state+0x3522U)",
+        "0x100cd307": "((uintptr_t)pf_module_state+0x3550U)",
+        "\n        (**(code **)(*local_e0 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_e0 + 0x10)))(local_e0);"
+      },
+      "1007bcf0": {
+        "0x100ccd6d": "((uintptr_t)pf_module_state+0x2fb6U)",
+        "0x100ccdaf": "((uintptr_t)pf_module_state+0x2ff8U)"
+      },
+      "100b5570": {
+        "0x100cd7e2": "((uintptr_t)pf_module_state+0x3a2bU)"
+      },
+      "1007cf10": {
+        "0x100cc64e": "((uintptr_t)pf_module_state+0x2897U)"
+      },
+      "100397c0": {
+        "0x100cdb2c": "((uintptr_t)pf_module_state+0x3d75U)",
+        "0x100cdae4": "((uintptr_t)pf_module_state+0x3d2dU)",
+        "0x100cdafd": "((uintptr_t)pf_module_state+0x3d46U)",
+        "0x100cdb16": "((uintptr_t)pf_module_state+0x3d5fU)",
+        "0x100cdac9": "((uintptr_t)pf_module_state+0x3d12U)",
+        "\n        (**(code **)(*local_38 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_38 + 0x10)))(local_38);"
+      },
+      "10022200": {
+        "0x100ce285": "((uintptr_t)pf_module_state+0x44ceU)",
+        "0x100ce27b": "((uintptr_t)pf_module_state+0x44c4U)",
+        "0x100ce257": "((uintptr_t)pf_module_state+0x44a0U)"
+      },
+      "10089000": {
+        "undefined8 uStack_130;": "long *uStack_130;",
+        "\n      (**(code **)(*local_40 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_40 + 0x10)))(local_40);"
+      },
+      "10093710": {
+        "local_4d0 = local_4d0 << 0x40;": "local_4d0._0_16_ = local_4d0._0_16_ << 0x40;",
+        "PF_PART16(local_4d0,0) = local_4d0 << 0x40;": "PF_PART16(local_4d0,0) = PF_PART16(local_4d0,0) << 0x40;"
+      },
+      "100b5970": {
+        "\n      (**(code **)(*plVar2 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar2 + 0x10)))(plVar2);"
+      },
+      "10095440": {
+        "\n      (**(code **)(*local_c0 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_c0 + 0x10)))(local_c0);"
+      },
+      "100153d0": {
+        "\n    (**(code **)(*local_40 + 0x10))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_40 + 0x10)))(local_40);"
+      },
+      "1002c030": {
+        "\n        (**(code **)(*plVar1 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
+      },
+      "100b0a70": {
+        "\n          (**(code **)(*plVar1 + 0x10))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);",
+        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
+      },
+      "1002be60": {
+        "\n        (**(code **)(*local_48 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_48 + 0x10)))(local_48);",
+        "\n        (**(code **)(*plVar2 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar2 + 0x10)))(plVar2);"
+      },
+      "10013200": {
+        "\n          (**(code **)(*plVar1 + 0x10))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
+      },
+      "100a5ca0": {
+        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
+      },
+      "100b9a80": {
+        "\n        (**(code **)(*plVar1 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
+      },
+      "100a5e70": {
+        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
+      },
+      "10013340": {
+        "\n          (**(code **)(*plVar1 + 0x10))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
+      },
+      "100a4c60": {
+        "\n      (**(code **)(*local_50 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_50 + 0x10)))(local_50);"
+      },
+      "1008e080": {
+        "\n        (**(code **)(*local_40 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_40 + 0x10)))(local_40);"
+      },
+      "100a5f90": {
+        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
+      },
+      "100b61c0": {
+        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
+      },
+      "100a5b80": {
+        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
+      },
+      "100afcf0": {
+        "\n    (**(code **)(*local_48 + 0x10))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)local_48 + 0x10)))(local_48);"
+      },
+      "10029cb0": {
+        "\n      (*(code *)(*ppppuVar7)[2])();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)ppppuVar7 + 16)))(ppppuVar7);",
+        "\n        (*(code *)(*ppppuVar10)[2])();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)ppppuVar10 + 16)))(ppppuVar10);"
+      },
+      "100ad7f0": {
+        "recovered_100aeb20(local_b0,(long)param_1,uVar19)": "recovered_100aeb20(pf_float_bits(local_b0),(long)param_1,uVar19)"
+      }
+    },
+    "system_registers": {
+      "MXCSR": "rw"
+    },
+    "literal_data": {
+      "10013188": "e3fcffffebfcffffb9fcffffb9fcffffdafcfffff7fcffff",
+      "1004e0ec": "a7c0ffffb6c0ffff62c0ffff62c0ffff97c0ffffc9c0ffff"
+    },
+    "source_replacement_groups": {}
+  },
+  "reviewed_context_transfers": {
+    "entries": 3,
+    "basis": "Native instruction bodies match the reviewed same-release Lua context boundaries byte for byte through their transfer instruction."
+  },
+  "reviewed_pointer_spill_views": {
+    "basis": "Native eight-byte stack slots are used as VM field-array pointers and refcount-control pointers; preserve pointer indexing instead of the decompiler scalar declarations. SIMD lane shift reads the first 16 bytes of its stack region."
+  },
+  "reviewed_restored_entries": [],
+  "reviewed_virtual_owner_calls": {
+    "sites": [
+      [
+        "100c3250",
+        "local_d8",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10080a20",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10080a20",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100b5970",
+        "plVar2",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10023ee0",
+        "local_b8",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10023ee0",
+        "local_a8",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10023ee0",
+        "local_110",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10023ee0",
+        "local_188",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10023ee0",
+        "local_100",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10023ee0",
+        "local_a8",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10081360",
+        "local_38",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "1008da50",
+        "local_40",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10095440",
+        "local_c0",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100153d0",
+        "local_40",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "1002c030",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100b0a70",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100b0a70",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100b0a70",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100b0a70",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10089000",
+        "local_40",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "1007c380",
+        "plVar3",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "1007c380",
+        "plVar3",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "1007c380",
+        "plVar3",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100b3050",
+        "local_50",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "1002be60",
+        "local_48",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "1002be60",
+        "plVar2",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100b2dc0",
+        "local_48",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10079f90",
+        "plVar3",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10079f90",
+        "local_48",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100c5010",
+        "plVar17",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100c5010",
+        "local_110",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10066200",
+        "local_48",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10066200",
+        "local_d0",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10066200",
+        "plVar98",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10066200",
+        "plStack_198",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10059080",
+        "plVar7",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10059080",
+        "local_130",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10013200",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100a5ca0",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100676a0",
+        "local_38",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100676a0",
+        "local_e0",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100726f0",
+        "local_1e8",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100726f0",
+        "local_1e8",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100726f0",
+        "plVar18",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100726f0",
+        "plVar18",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100726f0",
+        "local_d8",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100726f0",
+        "local_d8",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100726f0",
+        "local_1e8",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100b9a80",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100b9a80",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100b9a80",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100a5e70",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100a5e70",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10013340",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100643b0",
+        "local_40",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100643b0",
+        "local_e0",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10065000",
+        "local_48",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100a4c60",
+        "local_50",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "1008e080",
+        "local_40",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10080ff0",
+        "local_38",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10080ff0",
+        "local_58",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10081dc0",
+        "local_f8",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100a5f90",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100a5f90",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "1005afa0",
+        "local_140",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10059ac0",
+        "local_118",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10059ac0",
+        "local_170",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100b61c0",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100a5b80",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100958b0",
+        "local_e8",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10038b50",
+        "local_48",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10038b50",
+        "local_38",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100818d0",
+        "local_60",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100afcf0",
+        "local_48",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10083330",
+        "local_38",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "1008e430",
+        "local_150",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "1008e430",
+        "local_50",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10082320",
+        "local_e0",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100397c0",
+        "local_38",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10040540",
+        "local_128",
+        16,
+        "indexed destructor/release"
+      ],
+      [
+        "1002ca20",
+        "ppppuVar68",
+        16,
+        "indexed destructor/release"
+      ],
+      [
+        "1002ca20",
+        "local_58",
+        16,
+        "indexed destructor/release"
+      ],
+      [
+        "1002ca20",
+        "ppppuVar68",
+        16,
+        "indexed destructor/release"
+      ],
+      [
+        "1002ca20",
+        "local_58",
+        16,
+        "indexed destructor/release"
+      ],
+      [
+        "1002ca20",
+        "local_240",
+        16,
+        "indexed destructor/release"
+      ],
+      [
+        "10029cb0",
+        "ppppuVar7",
+        16,
+        "indexed destructor/release"
+      ],
+      [
+        "10029cb0",
+        "ppppuVar10",
+        16,
+        "indexed destructor/release"
+      ],
+      [
+        "100726f0",
+        "pplVar1",
+        16,
+        "indexed destructor/release"
+      ],
+      [
+        "100726f0",
+        "pplVar12",
+        16,
+        "indexed destructor/release"
+      ]
+    ],
+    "basis": "Deleting destructor slot and reference-count guarded control-block release preserve the native owner argument."
+  },
+  "reviewed_heap_contracts": {
+    "_wm_probe_heap_alloc": {
+      "address": "0x10000e10",
+      "declaration": "void *allocate(unsigned long size);"
+    },
+    "_wm_probe_heap_reset": {
+      "address": "0x100005b0",
+      "declaration": "void reset_heap(void);"
+    },
+    "_wm_probe_heap_free_bytes": {
+      "address": "0x10000c10",
+      "declaration": "unsigned int free_bytes(void);"
+    },
+    "_wm_probe_heap_total_bytes": {
+      "address": "0x10000d00",
+      "declaration": "unsigned int total_bytes(void);"
+    },
+    "_wm_probe_heap_free_bytes64": {
+      "address": "0x10000c90",
+      "declaration": "unsigned long long free_bytes64(void);"
+    },
+    "_wm_probe_heap_total_bytes64": {
+      "address": "0x10000d90",
+      "declaration": "unsigned long long total_bytes64(void);"
+    },
+    "_wm_probe_heap_add_region": {
+      "address": "0x10000bb0",
+      "declaration": "bool add_region(unsigned long address,unsigned long size);"
+    },
+    "_wm_probe_heap_add_regions": {
+      "address": "0x10000920",
+      "declaration": "bool add_regions(unsigned long *addresses,unsigned long *sizes,unsigned long count);"
+    },
+    "_wm_probe_heap_alloc_below": {
+      "address": "0x10001070",
+      "declaration": "void *alloc_below(unsigned long size,unsigned long limit);"
+    },
+    "_wm_probe_heap_alloc_range": {
+      "address": "0x100010d0",
+      "declaration": "void *alloc_range(unsigned long size,unsigned long first,unsigned long last);"
+    },
+    "_wm_probe_heap_free": {
+      "address": "0x10001130",
+      "declaration": "void release(void *pointer);"
+    },
+    "_wm_probe_heap_realloc": {
+      "address": "0x100012a0",
+      "declaration": "void *resize(void *pointer,unsigned long size);"
+    },
+    "_strcspn": {
+      "address": "0x10003e40",
+      "declaration": "unsigned long reject_span(char *text,char *reject);"
+    }
+  }
+}

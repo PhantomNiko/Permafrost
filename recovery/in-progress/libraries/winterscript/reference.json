@@ -9,10 +9,17 @@
       "core_execution_cases": 18,
       "heap_workflows": 12,
       "allocator_forwarding_cases": 117
+    },
+    "x86_64": {
+      "sha256": "c3e63ec7eb90e0611a73711aebb329b38b6dd7ab74ca6ef71a0dd6e65f3a3a02",
+      "recovered_functions": 1050,
+      "core_execution_cases": 18,
+      "heap_workflows": 12,
+      "allocator_forwarding_cases": 117
     }
   },
   "pending": [
-    "remaining three WinterScript source backends",
+    "ARM32 and i386 runtime recovery",
     "full callback and exception compatibility",
     "booted VM application integration",
     "release-wide images and SDK"
