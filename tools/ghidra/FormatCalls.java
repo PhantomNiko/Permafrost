@@ -114,6 +114,11 @@ public class FormatCalls extends GhidraScript {
    while(operations.hasNext()) {
     PcodeOp op=operations.next();
     if(op.getOpcode()!=PcodeOp.CALL)continue;
+    // An inlined helper retains its original instruction address. Its
+    // override belongs to the helper; writing it under each caller can
+    // replace the helper's signature with an unusable cross-function label.
+    Function instructionOwner=getFunctionContaining(op.getSeqnum().getTarget());
+    if(instructionOwner!=null && instructionOwner!=caller)continue;
     int[] model=targets.get(op.getInput(0).getOffset());
     if(model==null || op.getNumInputs()<=model[1]+1)continue;
     var pointers=constants(op.getInput(model[1]+1),24);if(pointers==null || pointers.isEmpty())continue;

@@ -8,5 +8,5 @@
     "entry.c"
   ],
   "reference_path": "Applications/Glacier.app/Contents/Permafrost/Glacier",
-  "recovery_note": "C source checkpoint with native URL parser comparisons; rendering and full VM behavior remain unverified."
+  "recovery_note": "Recovered C checkpoint with native URL, framebuffer, image ownership and eight ARM64 HTML preparation/layout comparisons; full VM navigation and scripting remain release gates."
 }

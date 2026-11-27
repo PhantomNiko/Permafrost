@@ -390,3 +390,11 @@ Recovery layouts can share identical ordered replacement tables through named
 replacement sequence exactly; the four browser layouts shrink from about
 133 MB to 25 MB without changing generated code or requiring reference binaries
 for normal source builds.
+
+ARM64 Glacier now matches eight native HTML preparation/layout workflows:
+paragraphs, headings, inline emphasis, lists, Unicode/entities, inline styles,
+tables and form controls. Comparisons include text buffers, layout counters and
+ordering arrays. Image cleanup also covers null, empty, owned and repeated
+cleanup through imported function pointers. Recovery preserves boxed JavaScript
+returns, font cursor initialization and native variadic stack arguments. Full
+page rendering, navigation and scripting in a booted VM remain release gates.

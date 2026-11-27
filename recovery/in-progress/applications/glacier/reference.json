@@ -33,7 +33,9 @@
       "percent_decoding_cases": 8,
       "source_build": true,
       "pixel_blending_cases": 240,
-      "rectangle_fill_cases": 260
+      "rectangle_fill_cases": 260,
+      "html_preparation_layout_cases": 8,
+      "image_cleanup_cases": 4
     }
   },
   "pending": [

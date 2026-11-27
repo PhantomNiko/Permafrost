@@ -11,6 +11,8 @@ public class FormatOperands extends GhidraScript {
   var caller=getFunctionAt(toAddr(Long.decode(args[0])));
   var callee=getFunctionAt(toAddr(Long.decode(args[2])));
   int fixed=Integer.parseInt(args[3]),optional=Integer.parseInt(args[4]);
+  var instructionOwner=getFunctionContaining(toAddr(Long.decode(args[1])));
+  if(instructionOwner!=null && instructionOwner!=caller)return;
   if(currentProgram.getDefaultPointerSize()!=8 || caller==null || callee==null ||
      fixed<1 || optional<0 || optional>32 || callee.getParameterCount()<fixed)
    throw new IllegalArgumentException("Invalid reviewed format operands");

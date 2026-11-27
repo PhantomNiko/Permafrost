@@ -27,6 +27,7 @@ import ghidra.app.util.cparser.C.CParser;
 
 public class Export extends GhidraScript {
     private void hintedReturn(ghidra.program.model.listing.Function function, DataType hint) throws Exception {
+        if(function.isThunk())function.setThunkedFunction(null);
         if(currentProgram.getDefaultPointerSize()==8)function.setCustomVariableStorage(false);
         if(hint.getLength()==16 && currentProgram.getDefaultPointerSize()==8) {
             // Preserve a two-register integer result rather than inventing a
@@ -51,6 +52,10 @@ public class Export extends GhidraScript {
     }
     private void signature(long address, String declaration, String storage, String returnStorage) throws Exception {
         var function=getFunctionAt(toAddr(address));
+        // Lazy import helpers can all appear to thunk to the same binder.
+        // A reviewed entry signature belongs to that entry, rather than to
+        // every other import which happens to share its dispatch target.
+        if(function.isThunk())function.setThunkedFunction(null);
         String name=function.getName();
         int purge=function.getStackPurgeSize();
         if(storage!=null)declaration=declaration.replace("__thiscall","__cdecl").replace("__fastcall","__cdecl").replaceAll("__regparm[0-9]+","__cdecl");
