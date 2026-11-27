@@ -245,7 +245,7 @@
       "scope": "fallback UI and chunked HTTP; broader client parity incomplete"
     },
     "Zastruga Engine": {
-      "commit": "a0d3e30",
+      "commit": "9f6e6c9",
       "source_architectures": [
         "i386",
         "x86_64",
@@ -255,7 +255,7 @@
       "compiled_functions": 3058,
       "clone_pointer_contracts": 254,
       "captured_object_cases": 138,
-      "scope": "Buildable C checkpoints for all four architectures. Each passes 27 extended interpreter workflows. X64 C kernel and C engine draw the complete animated scene. ARM application startup, exception, graphics/input compatibility and broader release recovery remain incomplete.",
+      "scope": "Buildable C checkpoints for all four architectures. Each matches 27 extended interpreter workflows and 42 guarded compound arithmetic cases. X64 C kernel and C engine draw the complete animated scene. ARM64 pointer callback startup no longer jumps to zero; native ARM64 engine renders the reference scene in the control VM. ARM32 registration ownership, ARM graphics/input compatibility and broader release recovery remain incomplete.",
       "bounded_switch_tables": 6,
       "deleting_destructor_ownership": true,
       "program_copy_workflows": 5,
@@ -270,7 +270,8 @@
         "deleting_destructor_ownership": true,
         "interpreter_entry_workflows": 3,
         "string_token_cases": 106,
-        "extended_interpreter_workflows": 27
+        "extended_interpreter_workflows": 27,
+        "pointer_callable_guarded_forwarding_cases": 4
       },
       "interpreter_operator_workflows": 16,
       "tuple_ownership_workflows": 4,
@@ -301,7 +302,9 @@
         "bounded_pic_tables": 377,
         "data_pointer_fixups": 2907,
         "extended_interpreter_workflows": 27
-      }
+      },
+      "scalar_compound_guarded_cases_per_architecture": 42,
+      "extended_interpreter_workflows_per_architecture": 27
     }
   },
   "module_integration_vm": "C kernel, C WinterShell and C Stage4 reach the desktop and source terminal on all four CPUs; typed 1+1 displays 2. Other reference payloads remain; full release parity remains incomplete."
