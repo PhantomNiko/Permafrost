@@ -1,0 +1,21 @@
+{
+  "version": "1.1",
+  "reference_image": "WinterBoot-1.1r344-Beta.img",
+  "reference_path": "Library/Native/WinterScript.dylib",
+  "architectures": {
+    "arm64": {
+      "sha256": "4882337e6e9b4c587658cd3ab4b5049da8eaf7e6cf1e38a2591ce3cf65a59784",
+      "recovered_functions": 1582,
+      "core_execution_cases": 18,
+      "heap_workflows": 12,
+      "allocator_forwarding_cases": 117
+    }
+  },
+  "pending": [
+    "remaining three WinterScript source backends",
+    "full callback and exception compatibility",
+    "booted VM application integration",
+    "release-wide images and SDK"
+  ],
+  "status": "partial source checkpoint; VM functional parity remains incomplete"
+}

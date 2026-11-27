@@ -413,3 +413,10 @@ offsets, floating storage and the finite-classifier register contract. Its
 UTF-8 callback matches 238 native boundary and malformed-byte cases. The two
 remaining architectures, full callback/exception behavior and booted VM
 integration remain unfinished.
+
+The fresh ARM64 standalone WinterScript runtime builds from recovered C and
+matches 18 execution fixtures, 12 heap workflows and 117 allocator checks.
+Recovery restores structor/string-search returns, preserves the token-vector
+base while iterating, and reconnects outlined expression-cursor updates. The
+other three architectures, complete callback/exception behavior and booted VM
+integration remain release gates.

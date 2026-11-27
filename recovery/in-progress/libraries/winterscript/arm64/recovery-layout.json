@@ -1,0 +1,1367 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268437080,
+  "text_end": 268714312,
+  "state_end": 269058048,
+  "translation": {
+    "pointer_bytes": 8,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 268714312,
+    "state_end": 269058048,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"arm64-recovery.h\"",
+      "#include \"cpu.h\"",
+      "static inline __attribute__((always_inline)) uintptr_t pf_current_sp(void){uintptr_t value;__asm__ volatile(\"mov %0,sp\":\"=r\"(value));return value;}"
+    ],
+    "source_replacements": {
+      "1000d734": {
+        "0x100488db": "((uintptr_t)pf_module_state+0x4793U)",
+        "0x1004891a": "((uintptr_t)pf_module_state+0x47d2U)",
+        "0x10048910": "((uintptr_t)pf_module_state+0x47c8U)",
+        "0x1004893e": "((uintptr_t)pf_module_state+0x47f6U)",
+        "0x100488e4": "((uintptr_t)pf_module_state+0x479cU)",
+        "0x10048920": "((uintptr_t)pf_module_state+0x47d8U)",
+        "0x100488ec": "((uintptr_t)pf_module_state+0x47a4U)"
+      },
+      "1002802c": {
+        "0x10046e9c": "((uintptr_t)pf_module_state+0x2d54U)"
+      },
+      "1002ef70": {
+        "0x10048e3a": "((uintptr_t)pf_module_state+0x4cf2U)"
+      },
+      "100080ac": {
+        "0x10046670": "((uintptr_t)pf_module_state+0x2528U)"
+      },
+      "1001f2e8": {
+        "0x10047bff": "((uintptr_t)pf_module_state+0x3ab7U)"
+      },
+      "100282ac": {
+        "0x10047ce8": "((uintptr_t)pf_module_state+0x3ba0U)"
+      },
+      "10024f94": "shared_3bf7015cf4ef384c",
+      "10037c98": {
+        "0x10047722": "((uintptr_t)pf_module_state+0x35daU)",
+        "0x1004775f": "((uintptr_t)pf_module_state+0x3617U)"
+      },
+      "100104e8": {
+        "0x100469c2": "((uintptr_t)pf_module_state+0x287aU)",
+        "0x100482ab": "((uintptr_t)pf_module_state+0x4163U)",
+        "0x1004699a": "((uintptr_t)pf_module_state+0x2852U)",
+        "0x1004687e": "((uintptr_t)pf_module_state+0x2736U)",
+        "0x10047882": "((uintptr_t)pf_module_state+0x373aU)",
+        "0x100468d1": "((uintptr_t)pf_module_state+0x2789U)",
+        "0x10046994": "((uintptr_t)pf_module_state+0x284cU)",
+        "0x10047857": "((uintptr_t)pf_module_state+0x370fU)",
+        "0x100482a8": "((uintptr_t)pf_module_state+0x4160U)",
+        "0x100489d0": "((uintptr_t)pf_module_state+0x4888U)",
+        "0x1004824e": "((uintptr_t)pf_module_state+0x4106U)",
+        "0x100468f8": "((uintptr_t)pf_module_state+0x27b0U)",
+        "0x1004697a": "((uintptr_t)pf_module_state+0x2832U)",
+        "0x10046880": "((uintptr_t)pf_module_state+0x2738U)",
+        "0x1004694e": "((uintptr_t)pf_module_state+0x2806U)",
+        "0x10046838": "((uintptr_t)pf_module_state+0x26f0U)",
+        "0x100468ac": "((uintptr_t)pf_module_state+0x2764U)",
+        "0x10046873": "((uintptr_t)pf_module_state+0x272bU)",
+        "0x1004822b": "((uintptr_t)pf_module_state+0x40e3U)",
+        "0x1004685a": "((uintptr_t)pf_module_state+0x2712U)",
+        "0x100482f1": "((uintptr_t)pf_module_state+0x41a9U)",
+        "0x100469a0": "((uintptr_t)pf_module_state+0x2858U)",
+        "0x100482cd": "((uintptr_t)pf_module_state+0x4185U)",
+        "0x1004828c": "((uintptr_t)pf_module_state+0x4144U)",
+        "0x10046927": "((uintptr_t)pf_module_state+0x27dfU)",
+        "0x100468ae": "((uintptr_t)pf_module_state+0x2766U)",
+        "0x10048270": "((uintptr_t)pf_module_state+0x4128U)",
+        "0x1004683d": "((uintptr_t)pf_module_state+0x26f5U)",
+        "0x100468fa": "((uintptr_t)pf_module_state+0x27b2U)",
+        "0x100468d7": "((uintptr_t)pf_module_state+0x278fU)",
+        "0x100469ff": "((uintptr_t)pf_module_state+0x28b7U)"
+      },
+      "10028684": {
+        "0x10047d9f": "((uintptr_t)pf_module_state+0x3c57U)"
+      },
+      "10024f18": {
+        "0x100466a5": "((uintptr_t)pf_module_state+0x255dU)"
+      },
+      "1002ebe4": {
+        "0x10048e19": "((uintptr_t)pf_module_state+0x4cd1U)"
+      },
+      "10028190": {
+        "0x10046776": "((uintptr_t)pf_module_state+0x262eU)",
+        "0x10046ef8": "((uintptr_t)pf_module_state+0x2db0U)"
+      },
+      "10013f48": {
+        "0x1004683b": "((uintptr_t)pf_module_state+0x26f3U)",
+        "0x10046a46": "((uintptr_t)pf_module_state+0x28feU)"
+      },
+      "10037bf4": {
+        "0x100475fe": "((uintptr_t)pf_module_state+0x34b6U)",
+        "0x100475d8": "((uintptr_t)pf_module_state+0x3490U)",
+        "0x100475b1": "((uintptr_t)pf_module_state+0x3469U)"
+      },
+      "10037ab4": {
+        "0x100466a5": "((uintptr_t)pf_module_state+0x255dU)"
+      },
+      "1000f040": {
+        "0x10047f35": "((uintptr_t)pf_module_state+0x3dedU)",
+        "0x10047f45": "((uintptr_t)pf_module_state+0x3dfdU)"
+      },
+      "100389f0": {
+        "0x10047932": "((uintptr_t)pf_module_state+0x37eaU)"
+      },
+      "10038f8c": {
+        "0x1004722d": "((uintptr_t)pf_module_state+0x30e5U)",
+        "0x10047222": "((uintptr_t)pf_module_state+0x30daU)",
+        "0x10047220": "((uintptr_t)pf_module_state+0x30d8U)",
+        "0x10047227": "((uintptr_t)pf_module_state+0x30dfU)",
+        "0x100471f0": "((uintptr_t)pf_module_state+0x30a8U)"
+      },
+      "10038ca4": {
+        "0x10046d66": "((uintptr_t)pf_module_state+0x2c1eU)"
+      },
+      "10009aac": {
+        "0x1004733b": "((uintptr_t)pf_module_state+0x31f3U)",
+        "0x10047302": "((uintptr_t)pf_module_state+0x31baU)",
+        "0x10047338": "((uintptr_t)pf_module_state+0x31f0U)",
+        "0x10047336": "((uintptr_t)pf_module_state+0x31eeU)",
+        "0x10047327": "((uintptr_t)pf_module_state+0x31dfU)",
+        "0x10047319": "((uintptr_t)pf_module_state+0x31d1U)",
+        "0x10047317": "((uintptr_t)pf_module_state+0x31cfU)",
+        "0x1004733d": "((uintptr_t)pf_module_state+0x31f5U)"
+      },
+      "10037d04": {
+        "0x10047800": "((uintptr_t)pf_module_state+0x36b8U)",
+        "0x100477d2": "((uintptr_t)pf_module_state+0x368aU)"
+      },
+      "10038a24": {
+        "0x10046ce3": "((uintptr_t)pf_module_state+0x2b9bU)"
+      },
+      "10028484": {
+        "0x10046f24": "((uintptr_t)pf_module_state+0x2ddcU)"
+      },
+      "1001391c": {
+        "0x10047fd5": "((uintptr_t)pf_module_state+0x3e8dU)",
+        "0x10048022": "((uintptr_t)pf_module_state+0x3edaU)",
+        "0x10048078": "((uintptr_t)pf_module_state+0x3f30U)",
+        "0x100480aa": "((uintptr_t)pf_module_state+0x3f62U)",
+        "0x10047fa8": "((uintptr_t)pf_module_state+0x3e60U)",
+        "0x10047ff0": "((uintptr_t)pf_module_state+0x3ea8U)",
+        "0x100480e7": "((uintptr_t)pf_module_state+0x3f9fU)",
+        "0x10048009": "((uintptr_t)pf_module_state+0x3ec1U)",
+        "0x1004805c": "((uintptr_t)pf_module_state+0x3f14U)"
+      },
+      "10037e88": {
+        "0x1004709b": "((uintptr_t)pf_module_state+0x2f53U)",
+        "0x1004706a": "((uintptr_t)pf_module_state+0x2f22U)",
+        "0x100470c3": "((uintptr_t)pf_module_state+0x2f7bU)"
+      },
+      "10037ec0": {
+        "0x1004712b": "((uintptr_t)pf_module_state+0x2fe3U)",
+        "0x1004711f": "((uintptr_t)pf_module_state+0x2fd7U)",
+        "0x100470eb": "((uintptr_t)pf_module_state+0x2fa3U)"
+      },
+      "10027da8": {
+        "0x10046dbf": "((uintptr_t)pf_module_state+0x2c77U)"
+      },
+      "10023a20": {
+        "0x1004712b": "((uintptr_t)pf_module_state+0x2fe3U)",
+        "0x1004711f": "((uintptr_t)pf_module_state+0x2fd7U)",
+        "0x100470eb": "((uintptr_t)pf_module_state+0x2fa3U)"
+      },
+      "10027138": {
+        "0x10047932": "((uintptr_t)pf_module_state+0x37eaU)"
+      },
+      "10037e50": {
+        "0x1004704f": "((uintptr_t)pf_module_state+0x2f07U)"
+      },
+      "100122c8": {
+        "0x10046254": "((uintptr_t)pf_module_state+0x210cU)",
+        "0x1004687e": "((uintptr_t)pf_module_state+0x2736U)",
+        "0x100468d1": "((uintptr_t)pf_module_state+0x2789U)",
+        "0x1004836b": "((uintptr_t)pf_module_state+0x4223U)",
+        "0x10048347": "((uintptr_t)pf_module_state+0x41ffU)"
+      },
+      "10029e58": {
+        "0x10048d5c": "((uintptr_t)pf_module_state+0x4c14U)",
+        "0x100472fe": "((uintptr_t)pf_module_state+0x31b6U)",
+        "auStack_1a0 + 0x5a,*(void **)puVar6[2]": "&uVar10,*(void **)puVar6[2]"
+      },
+      "1002e09c": {
+        "0x100483ef": "((uintptr_t)pf_module_state+0x42a7U)"
+      },
+      "1001f0d8": {
+        "0x10047bbf": "((uintptr_t)pf_module_state+0x3a77U)"
+      },
+      "1003242c": {
+        "0x100488a6": "((uintptr_t)pf_module_state+0x475eU)",
+        "0x10048882": "((uintptr_t)pf_module_state+0x473aU)",
+        "0x10047381": "((uintptr_t)pf_module_state+0x3239U)",
+        "0x10048892": "((uintptr_t)pf_module_state+0x474aU)"
+      },
+      "10038de4": {
+        "0x10046e71": "((uintptr_t)pf_module_state+0x2d29U)"
+      },
+      "100086f8": {
+        "0x10046316": "((uintptr_t)pf_module_state+0x21ceU)",
+        "0x10048b9e": "((uintptr_t)pf_module_state+0x4a56U)",
+        "0x10046e9c": "((uintptr_t)pf_module_state+0x2d54U)",
+        "0x10046b99": "((uintptr_t)pf_module_state+0x2a51U)",
+        "0x10046741": "((uintptr_t)pf_module_state+0x25f9U)",
+        "0x100478ae": "((uintptr_t)pf_module_state+0x3766U)",
+        "0x10046ac3": "((uintptr_t)pf_module_state+0x297bU)",
+        "0x10047ae6": "((uintptr_t)pf_module_state+0x399eU)",
+        "0x10047bbf": "((uintptr_t)pf_module_state+0x3a77U)",
+        "0x10048be9": "((uintptr_t)pf_module_state+0x4aa1U)",
+        "0x10047a74": "((uintptr_t)pf_module_state+0x392cU)",
+        "0x10048bdd": "((uintptr_t)pf_module_state+0x4a95U)",
+        "0x10047500": "((uintptr_t)pf_module_state+0x33b8U)",
+        "0x10047b49": "((uintptr_t)pf_module_state+0x3a01U)",
+        "0x10047b1f": "((uintptr_t)pf_module_state+0x39d7U)",
+        "0x10046c25": "((uintptr_t)pf_module_state+0x2addU)",
+        "0x10046f24": "((uintptr_t)pf_module_state+0x2ddcU)",
+        "0x10046c79": "((uintptr_t)pf_module_state+0x2b31U)",
+        "0x100467e6": "((uintptr_t)pf_module_state+0x269eU)",
+        "0x10046ef8": "((uintptr_t)pf_module_state+0x2db0U)",
+        "0x1004746f": "((uintptr_t)pf_module_state+0x3327U)",
+        "0x10046b13": "((uintptr_t)pf_module_state+0x29cbU)",
+        "0x10046d66": "((uintptr_t)pf_module_state+0x2c1eU)",
+        "0x10046e18": "((uintptr_t)pf_module_state+0x2cd0U)",
+        "0x10047a09": "((uintptr_t)pf_module_state+0x38c1U)",
+        "0x10046cad": "((uintptr_t)pf_module_state+0x2b65U)",
+        "0x10046e46": "((uintptr_t)pf_module_state+0x2cfeU)",
+        "0x10047837": "((uintptr_t)pf_module_state+0x36efU)",
+        "0x10047c38": "((uintptr_t)pf_module_state+0x3af0U)",
+        "0x10046b41": "((uintptr_t)pf_module_state+0x29f9U)",
+        "0x100474b3": "((uintptr_t)pf_module_state+0x336bU)",
+        "0x10046e71": "((uintptr_t)pf_module_state+0x2d29U)",
+        "0x100478e5": "((uintptr_t)pf_module_state+0x379dU)",
+        "0x10047bff": "((uintptr_t)pf_module_state+0x3ab7U)",
+        "0x10047ab8": "((uintptr_t)pf_module_state+0x3970U)",
+        "0x10048bd8": "((uintptr_t)pf_module_state+0x4a90U)",
+        "0x10047a46": "((uintptr_t)pf_module_state+0x38feU)",
+        "0x10047918": "((uintptr_t)pf_module_state+0x37d0U)",
+        "0x100466a5": "((uintptr_t)pf_module_state+0x255dU)",
+        "0x10046776": "((uintptr_t)pf_module_state+0x262eU)",
+        "0x10046d93": "((uintptr_t)pf_module_state+0x2c4bU)",
+        "0x10046d26": "((uintptr_t)pf_module_state+0x2bdeU)",
+        "0x10047968": "((uintptr_t)pf_module_state+0x3820U)",
+        "0x10046dea": "((uintptr_t)pf_module_state+0x2ca2U)",
+        "0x10046bf4": "((uintptr_t)pf_module_state+0x2aacU)",
+        "0x10046c56": "((uintptr_t)pf_module_state+0x2b0eU)",
+        "0x10046254": "((uintptr_t)pf_module_state+0x210cU)",
+        "0x100479b8": "((uintptr_t)pf_module_state+0x3870U)",
+        "0x10046ec7": "((uintptr_t)pf_module_state+0x2d7fU)",
+        "0x10046b6f": "((uintptr_t)pf_module_state+0x2a27U)",
+        "0x10046dbf": "((uintptr_t)pf_module_state+0x2c77U)",
+        "0x10046bc6": "((uintptr_t)pf_module_state+0x2a7eU)",
+        "0x100467c2": "((uintptr_t)pf_module_state+0x267aU)",
+        "0x10047c7b": "((uintptr_t)pf_module_state+0x3b33U)",
+        "0x10046ce3": "((uintptr_t)pf_module_state+0x2b9bU)",
+        "0x1004671b": "((uintptr_t)pf_module_state+0x25d3U)",
+        "*uStack_b8 = 0;": "*(unsigned char *)(uintptr_t)uStack_b8 = 0;"
+      },
+      "1001d938": {
+        "0x100479b8": "((uintptr_t)pf_module_state+0x3870U)"
+      },
+      "1002ed64": {
+        "0x100470c3": "((uintptr_t)pf_module_state+0x2f7bU)"
+      },
+      "100249a8": {
+        "0x100472a5": "((uintptr_t)pf_module_state+0x315dU)",
+        "0x10047263": "((uintptr_t)pf_module_state+0x311bU)"
+      },
+      "1002ce7c": {
+        "0x100486d3": "((uintptr_t)pf_module_state+0x458bU)",
+        "0x100469ff": "((uintptr_t)pf_module_state+0x28b7U)"
+      },
+      "1000d174": {
+        "0x10046ac3": "((uintptr_t)pf_module_state+0x297bU)"
+      },
+      "10037bc0": "shared_40a70b0a5e35953e",
+      "10039034": {
+        "0x10047d29": "((uintptr_t)pf_module_state+0x3be1U)"
+      },
+      "1001a414": {
+        "0x10046a7f": "((uintptr_t)pf_module_state+0x2937U)"
+      },
+      "10023f8c": {
+        "0x10047222": "((uintptr_t)pf_module_state+0x30daU)",
+        "0x1004722d": "((uintptr_t)pf_module_state+0x30e5U)",
+        "0x10047220": "((uintptr_t)pf_module_state+0x30d8U)",
+        "0x10047227": "((uintptr_t)pf_module_state+0x30dfU)"
+      },
+      "10038c34": {
+        "0x10047c38": "((uintptr_t)pf_module_state+0x3af0U)"
+      },
+      "1000b648": {
+        "0x10048819": "((uintptr_t)pf_module_state+0x46d1U)"
+      },
+      "10038f24": {
+        "0x10046f24": "((uintptr_t)pf_module_state+0x2ddcU)"
+      },
+      "100278f8": {
+        "0x10047bbf": "((uintptr_t)pf_module_state+0x3a77U)"
+      },
+      "10004cb8": "shared_5bdd519c464b1abb",
+      "100277e8": {
+        "0x10047b73": "((uintptr_t)pf_module_state+0x3a2bU)"
+      },
+      "10038a8c": {
+        "0x100479b8": "((uintptr_t)pf_module_state+0x3870U)"
+      },
+      "100388c4": "shared_b6a2f540f975d58b",
+      "10027d4c": {
+        "0x10046d93": "((uintptr_t)pf_module_state+0x2c4bU)"
+      },
+      "10038258": {
+        "0x10048ea6": "((uintptr_t)pf_module_state+0x4d5eU)",
+        "0x10048e76": "((uintptr_t)pf_module_state+0x4d2eU)"
+      },
+      "1002e90c": {
+        "0x1004845d": "((uintptr_t)pf_module_state+0x4315U)"
+      },
+      "10027714": {
+        "0x10048be9": "((uintptr_t)pf_module_state+0x4aa1U)"
+      },
+      "1003436c": {
+        "0x10048a08": "((uintptr_t)pf_module_state+0x48c0U)"
+      },
+      "10027cf0": {
+        "0x10046d66": "((uintptr_t)pf_module_state+0x2c1eU)"
+      },
+      "10037da8": {
+        "0x10047837": "((uintptr_t)pf_module_state+0x36efU)"
+      },
+      "1001dc34": {
+        "0x10047a09": "((uintptr_t)pf_module_state+0x38c1U)"
+      },
+      "1001d024": {
+        "0x10046bc6": "((uintptr_t)pf_module_state+0x2a7eU)",
+        "0x10047857": "((uintptr_t)pf_module_state+0x370fU)",
+        "0x10047882": "((uintptr_t)pf_module_state+0x373aU)",
+        "0x10046b99": "((uintptr_t)pf_module_state+0x2a51U)"
+      },
+      "10007af0": {
+        "0x10046670": "((uintptr_t)pf_module_state+0x2528U)"
+      },
+      "1000e448": "shared_a143a0d912c38ffe",
+      "10038eec": {
+        "0x10047cb3": "((uintptr_t)pf_module_state+0x3b6bU)"
+      },
+      "1000e02c": {
+        "0x1004653c": "((uintptr_t)pf_module_state+0x23f4U)",
+        "0x10047fa8": "((uintptr_t)pf_module_state+0x3e60U)",
+        "0x10047f76": "((uintptr_t)pf_module_state+0x3e2eU)"
+      },
+      "10037ccc": {
+        "0x100477a4": "((uintptr_t)pf_module_state+0x365cU)"
+      },
+      "1002d1c8": {
+        "0x100483b2": "((uintptr_t)pf_module_state+0x426aU)",
+        "0x1004819d": "((uintptr_t)pf_module_state+0x4055U)",
+        "0x100483ce": "((uintptr_t)pf_module_state+0x4286U)",
+        "0x1004811e": "((uintptr_t)pf_module_state+0x3fd6U)",
+        "0x1004683d": "((uintptr_t)pf_module_state+0x26f5U)",
+        "0x10048151": "((uintptr_t)pf_module_state+0x4009U)",
+        "0x10048388": "((uintptr_t)pf_module_state+0x4240U)"
+      },
+      "1002a740": {
+        "0x10047918": "((uintptr_t)pf_module_state+0x37d0U)",
+        "0x10046c25": "((uintptr_t)pf_module_state+0x2addU)",
+        "0x10047968": "((uintptr_t)pf_module_state+0x3820U)",
+        "0x10047837": "((uintptr_t)pf_module_state+0x36efU)",
+        "0x10046bf4": "((uintptr_t)pf_module_state+0x2aacU)",
+        "0x100479b8": "((uintptr_t)pf_module_state+0x3870U)",
+        "0x10048d86": "((uintptr_t)pf_module_state+0x4c3eU)",
+        "0x100466cb": "((uintptr_t)pf_module_state+0x2583U)"
+      },
+      "10013c70": {
+        "0x10047fd5": "((uintptr_t)pf_module_state+0x3e8dU)",
+        "0x10048022": "((uintptr_t)pf_module_state+0x3edaU)",
+        "0x10047ff0": "((uintptr_t)pf_module_state+0x3ea8U)",
+        "0x10048038": "((uintptr_t)pf_module_state+0x3ef0U)",
+        "0x10048009": "((uintptr_t)pf_module_state+0x3ec1U)"
+      },
+      "1001d360": {
+        "0x100478e5": "((uintptr_t)pf_module_state+0x379dU)",
+        "0x10047918": "((uintptr_t)pf_module_state+0x37d0U)",
+        "0x100478ae": "((uintptr_t)pf_module_state+0x3766U)"
+      },
+      "1002978c": {
+        "0x100467f8": "((uintptr_t)pf_module_state+0x26b0U)"
+      },
+      "1002a5c4": {
+        "0x100472fe": "((uintptr_t)pf_module_state+0x31b6U)",
+        "0x10048d5c": "((uintptr_t)pf_module_state+0x4c14U)",
+        "(void *)((long)register0x00000008 + -0x38),\n                       *(void **)puVar5[2]": "&uVar6,*(void **)puVar5[2]"
+      },
+      "10030930": {
+        "0x10048782": "((uintptr_t)pf_module_state+0x463aU)",
+        "0x10046254": "((uintptr_t)pf_module_state+0x210cU)"
+      },
+      "10031f04": {
+        "0x10048819": "((uintptr_t)pf_module_state+0x46d1U)"
+      },
+      "1001cd58": {
+        "0x10047857": "((uintptr_t)pf_module_state+0x370fU)",
+        "0x10046b99": "((uintptr_t)pf_module_state+0x2a51U)"
+      },
+      "10038e18": {
+        "0x10046e9c": "((uintptr_t)pf_module_state+0x2d54U)"
+      },
+      "10038480": {
+        "0x10048f6e": "((uintptr_t)pf_module_state+0x4e26U)"
+      },
+      "1000da2c": {
+        "0x100467c2": "((uintptr_t)pf_module_state+0x267aU)",
+        "0x100467a1": "((uintptr_t)pf_module_state+0x2659U)",
+        "0x100467e6": "((uintptr_t)pf_module_state+0x269eU)"
+      },
+      "10038f58": {
+        "0x10047d5d": "((uintptr_t)pf_module_state+0x3c15U)"
+      },
+      "10037f68": {
+        "0x10046bc6": "((uintptr_t)pf_module_state+0x2a7eU)",
+        "0x10047857": "((uintptr_t)pf_module_state+0x370fU)",
+        "0x10047882": "((uintptr_t)pf_module_state+0x373aU)",
+        "0x10046b99": "((uintptr_t)pf_module_state+0x2a51U)"
+      },
+      "10025420": {
+        "0x10048b43": "((uintptr_t)pf_module_state+0x49fbU)",
+        "0x10048aef": "((uintptr_t)pf_module_state+0x49a7U)",
+        "0x10048aa0": "((uintptr_t)pf_module_state+0x4958U)",
+        "0x10048b1c": "((uintptr_t)pf_module_state+0x49d4U)",
+        "0x10048a08": "((uintptr_t)pf_module_state+0x48c0U)",
+        "0x10048a15": "((uintptr_t)pf_module_state+0x48cdU)",
+        "0x10048ab6": "((uintptr_t)pf_module_state+0x496eU)",
+        "0x10048aac": "((uintptr_t)pf_module_state+0x4964U)",
+        "0x10048a38": "((uintptr_t)pf_module_state+0x48f0U)",
+        "0x10048ae4": "((uintptr_t)pf_module_state+0x499cU)",
+        "0x10048b40": "((uintptr_t)pf_module_state+0x49f8U)",
+        "0x10048ac5": "((uintptr_t)pf_module_state+0x497dU)",
+        "0x10048a96": "((uintptr_t)pf_module_state+0x494eU)",
+        "0x10048b2c": "((uintptr_t)pf_module_state+0x49e4U)",
+        "0x10048afc": "((uintptr_t)pf_module_state+0x49b4U)",
+        "0x10048a6e": "((uintptr_t)pf_module_state+0x4926U)",
+        "0x10048a19": "((uintptr_t)pf_module_state+0x48d1U)",
+        "0x10048acb": "((uintptr_t)pf_module_state+0x4983U)",
+        "0x10048abb": "((uintptr_t)pf_module_state+0x4973U)",
+        "0x10048a7e": "((uintptr_t)pf_module_state+0x4936U)",
+        "0x10048aa5": "((uintptr_t)pf_module_state+0x495dU)"
+      },
+      "10015d18": {
+        "0x100469ff": "((uintptr_t)pf_module_state+0x28b7U)"
+      },
+      "10024734": {
+        "0x1004725d": "((uintptr_t)pf_module_state+0x3115U)",
+        "0x10047233": "((uintptr_t)pf_module_state+0x30ebU)"
+      },
+      "1002bc24": {
+        "0x10048151": "((uintptr_t)pf_module_state+0x4009U)"
+      },
+      "10037d38": {
+        "0x100467e6": "((uintptr_t)pf_module_state+0x269eU)",
+        "0x100467c2": "((uintptr_t)pf_module_state+0x267aU)"
+      },
+      "10022380": {
+        "0x1004704c": "((uintptr_t)pf_module_state+0x2f04U)",
+        "0x1004701f": "((uintptr_t)pf_module_state+0x2ed7U)",
+        "0x10047002": "((uintptr_t)pf_module_state+0x2ebaU)"
+      },
+      "10023eec": {
+        "0x10047165": "((uintptr_t)pf_module_state+0x301dU)",
+        "0x10047197": "((uintptr_t)pf_module_state+0x304fU)"
+      },
+      "100268a4": {
+        "0x100477a4": "((uintptr_t)pf_module_state+0x365cU)"
+      },
+      "10038fc8": {
+        "0x10047ce8": "((uintptr_t)pf_module_state+0x3ba0U)"
+      },
+      "1001d234": {
+        "0x10047f4c": "((uintptr_t)pf_module_state+0x3e04U)"
+      },
+      "1003ccb8": {
+        "0x10048969": "((uintptr_t)pf_module_state+0x4821U)",
+        "0x10048cc5": "((uintptr_t)pf_module_state+0x4b7dU)",
+        "0x100490a3": "((uintptr_t)pf_module_state+0x4f5bU)",
+        "0x10048d17": "((uintptr_t)pf_module_state+0x4bcfU)",
+        "0x10048ca8": "((uintptr_t)pf_module_state+0x4b60U)",
+        "0x10049091": "((uintptr_t)pf_module_state+0x4f49U)",
+        "0x1004687e": "((uintptr_t)pf_module_state+0x2736U)",
+        "0x100468d1": "((uintptr_t)pf_module_state+0x2789U)",
+        "0x1004731f": "((uintptr_t)pf_module_state+0x31d7U)",
+        "0x10048101": "((uintptr_t)pf_module_state+0x3fb9U)",
+        "0x10048c88": "((uintptr_t)pf_module_state+0x4b40U)",
+        "0x10048d07": "((uintptr_t)pf_module_state+0x4bbfU)",
+        "0x10048c46": "((uintptr_t)pf_module_state+0x4afeU)",
+        "0x10048d30": "((uintptr_t)pf_module_state+0x4be8U)",
+        "0x10048ce2": "((uintptr_t)pf_module_state+0x4b9aU)",
+        "0x10048c63": "((uintptr_t)pf_module_state+0x4b1bU)",
+        "0x100472fe": "((uintptr_t)pf_module_state+0x31b6U)"
+      },
+      "1003f054": {
+        "0x100490ba": "((uintptr_t)pf_module_state+0x4f72U)"
+      },
+      "10002590": {
+        "0x10046249": "((uintptr_t)pf_module_state+0x2101U)",
+        "0x10046277": "((uintptr_t)pf_module_state+0x212fU)"
+      },
+      "100269a4": {
+        "0x10047800": "((uintptr_t)pf_module_state+0x36b8U)",
+        "0x100477d2": "((uintptr_t)pf_module_state+0x368aU)"
+      },
+      "1000dc84": {
+        "0x10048954": "((uintptr_t)pf_module_state+0x480cU)",
+        "0x10048969": "((uintptr_t)pf_module_state+0x4821U)",
+        "0x10048964": "((uintptr_t)pf_module_state+0x481cU)",
+        "0x1004687c": "((uintptr_t)pf_module_state+0x2734U)",
+        "0x1004687e": "((uintptr_t)pf_module_state+0x2736U)",
+        "0x10048966": "((uintptr_t)pf_module_state+0x481eU)",
+        "0x10048952": "((uintptr_t)pf_module_state+0x480aU)"
+      },
+      "10019e58": {
+        "0x10046a5b": "((uintptr_t)pf_module_state+0x2913U)"
+      },
+      "1000bc64": "shared_aef723034933a862",
+      "10038b90": {
+        "0x10047b73": "((uintptr_t)pf_module_state+0x3a2bU)"
+      },
+      "100389bc": {
+        "0x10046cad": "((uintptr_t)pf_module_state+0x2b65U)"
+      },
+      "10038a58": {
+        "0x10047968": "((uintptr_t)pf_module_state+0x3820U)"
+      },
+      "10025170": {
+        "0x10046b13": "((uintptr_t)pf_module_state+0x29cbU)"
+      },
+      "10038e80": {
+        "0x10046ef8": "((uintptr_t)pf_module_state+0x2db0U)",
+        "0x10046776": "((uintptr_t)pf_module_state+0x262eU)"
+      },
+      "1001b2ac": {
+        "0x10048a05": "((uintptr_t)pf_module_state+0x48bdU)"
+      },
+      "10026750": {
+        "0x10047722": "((uintptr_t)pf_module_state+0x35daU)",
+        "0x1004775f": "((uintptr_t)pf_module_state+0x3617U)"
+      },
+      "10023b3c": {
+        "0x100484a9": "((uintptr_t)pf_module_state+0x4361U)",
+        "0x100484c5": "((uintptr_t)pf_module_state+0x437dU)",
+        "0x10048488": "((uintptr_t)pf_module_state+0x4340U)"
+      },
+      "10037fd8": {
+        "0x100478e5": "((uintptr_t)pf_module_state+0x379dU)",
+        "0x10047918": "((uintptr_t)pf_module_state+0x37d0U)",
+        "0x100478ae": "((uintptr_t)pf_module_state+0x3766U)"
+      },
+      "100251d4": {
+        "0x10046b41": "((uintptr_t)pf_module_state+0x29f9U)"
+      },
+      "10038c6c": {
+        "0x10047c7b": "((uintptr_t)pf_module_state+0x3b33U)"
+      },
+      "1003807c": {
+        "0x10048e5b": "((uintptr_t)pf_module_state+0x4d13U)"
+      },
+      "1002809c": {
+        "0x10046741": "((uintptr_t)pf_module_state+0x25f9U)",
+        "0x10046ec7": "((uintptr_t)pf_module_state+0x2d7fU)",
+        "0x1004671b": "((uintptr_t)pf_module_state+0x25d3U)"
+      },
+      "1002a5f4": {
+        "0x10047fd5": "((uintptr_t)pf_module_state+0x3e8dU)",
+        "0x10048022": "((uintptr_t)pf_module_state+0x3edaU)",
+        "0x10048078": "((uintptr_t)pf_module_state+0x3f30U)",
+        "0x100480aa": "((uintptr_t)pf_module_state+0x3f62U)",
+        "0x10047fa8": "((uintptr_t)pf_module_state+0x3e60U)",
+        "0x100480e7": "((uintptr_t)pf_module_state+0x3f9fU)",
+        "0x10047ff0": "((uintptr_t)pf_module_state+0x3ea8U)",
+        "0x10048009": "((uintptr_t)pf_module_state+0x3ec1U)",
+        "0x1004805c": "((uintptr_t)pf_module_state+0x3f14U)"
+      },
+      "1001984c": {
+        "0x10046a46": "((uintptr_t)pf_module_state+0x28feU)"
+      },
+      "1001caac": {
+        "0x10046b6f": "((uintptr_t)pf_module_state+0x2a27U)"
+      },
+      "1000b720": {
+        "0x10046689": "((uintptr_t)pf_module_state+0x2541U)"
+      },
+      "10037c28": {
+        "0x10047619": "((uintptr_t)pf_module_state+0x34d1U)",
+        "0x10047646": "((uintptr_t)pf_module_state+0x34feU)"
+      },
+      "10026454": {
+        "0x10047619": "((uintptr_t)pf_module_state+0x34d1U)",
+        "0x10047646": "((uintptr_t)pf_module_state+0x34feU)"
+      },
+      "1000a860": {
+        "0x1004681b": "((uintptr_t)pf_module_state+0x26d3U)",
+        "0x100467f8": "((uintptr_t)pf_module_state+0x26b0U)",
+        "0x10046689": "((uintptr_t)pf_module_state+0x2541U)"
+      },
+      "100322a4": {
+        "0x100488db": "((uintptr_t)pf_module_state+0x4793U)",
+        "0x100488e4": "((uintptr_t)pf_module_state+0x479cU)"
+      },
+      "10037b58": {
+        "0x10046b41": "((uintptr_t)pf_module_state+0x29f9U)"
+      },
+      "10025e88": {
+        "0x10048969": "((uintptr_t)pf_module_state+0x4821U)",
+        "0x1004687c": "((uintptr_t)pf_module_state+0x2734U)",
+        "0x10048952": "((uintptr_t)pf_module_state+0x480aU)",
+        "0x1004687e": "((uintptr_t)pf_module_state+0x2736U)",
+        "0x10048b4a": "((uintptr_t)pf_module_state+0x4a02U)",
+        "0x10048964": "((uintptr_t)pf_module_state+0x481cU)",
+        "0x10048b79": "((uintptr_t)pf_module_state+0x4a31U)",
+        "0x10048966": "((uintptr_t)pf_module_state+0x481eU)",
+        "0x10048954": "((uintptr_t)pf_module_state+0x480cU)"
+      },
+      "10038bfc": {
+        "0x10047bff": "((uintptr_t)pf_module_state+0x3ab7U)"
+      },
+      "1001d5b4": {
+        "0x10047968": "((uintptr_t)pf_module_state+0x3820U)"
+      },
+      "10007cd0": {
+        "0x10046689": "((uintptr_t)pf_module_state+0x2541U)"
+      },
+      "1001e934": {
+        "0x100474b3": "((uintptr_t)pf_module_state+0x336bU)",
+        "0x10046254": "((uintptr_t)pf_module_state+0x210cU)",
+        "0x1004746f": "((uintptr_t)pf_module_state+0x3327U)",
+        "0x10047500": "((uintptr_t)pf_module_state+0x33b8U)"
+      },
+      "10012014": {
+        "0x100489c5": "((uintptr_t)pf_module_state+0x487dU)",
+        "0x100489ad": "((uintptr_t)pf_module_state+0x4865U)"
+      },
+      "10038e4c": {
+        "0x10046741": "((uintptr_t)pf_module_state+0x25f9U)",
+        "0x10046ec7": "((uintptr_t)pf_module_state+0x2d7fU)",
+        "0x1004671b": "((uintptr_t)pf_module_state+0x25d3U)"
+      },
+      "10030764": {
+        "0x100486ed": "((uintptr_t)pf_module_state+0x45a5U)",
+        "0x10046254": "((uintptr_t)pf_module_state+0x210cU)"
+      },
+      "1002f008": {
+        "0x10046a7f": "((uintptr_t)pf_module_state+0x2937U)"
+      },
+      "100291c0": {
+        "0x10048969": "((uintptr_t)pf_module_state+0x4821U)",
+        "0x10048cc5": "((uintptr_t)pf_module_state+0x4b7dU)",
+        "0x10048ca8": "((uintptr_t)pf_module_state+0x4b60U)",
+        "0x1004687e": "((uintptr_t)pf_module_state+0x2736U)",
+        "0x100468d1": "((uintptr_t)pf_module_state+0x2789U)",
+        "0x1004731f": "((uintptr_t)pf_module_state+0x31d7U)",
+        "0x10048101": "((uintptr_t)pf_module_state+0x3fb9U)",
+        "0x10048c88": "((uintptr_t)pf_module_state+0x4b40U)",
+        "0x10048d07": "((uintptr_t)pf_module_state+0x4bbfU)",
+        "0x10048c46": "((uintptr_t)pf_module_state+0x4afeU)",
+        "0x10048ce2": "((uintptr_t)pf_module_state+0x4b9aU)",
+        "0x10048c63": "((uintptr_t)pf_module_state+0x4b1bU)",
+        "0x100472fe": "((uintptr_t)pf_module_state+0x31b6U)"
+      },
+      "100388f8": {
+        "0x1004906f": "((uintptr_t)pf_module_state+0x4f27U)",
+        "0x10049042": "((uintptr_t)pf_module_state+0x4efaU)"
+      },
+      "100260d4": "shared_b6a2f540f975d58b",
+      "10026134": "shared_40a70b0a5e35953e",
+      "10011f9c": {
+        "0x1004898b": "((uintptr_t)pf_module_state+0x4843U)"
+      },
+      "10028210": {
+        "0x10047cb3": "((uintptr_t)pf_module_state+0x3b6bU)"
+      },
+      "10027530": {
+        "0x10047a09": "((uintptr_t)pf_module_state+0x38c1U)"
+      },
+      "1002bb10": {
+        "0x1004811e": "((uintptr_t)pf_module_state+0x3fd6U)"
+      },
+      "10038d78": {
+        "0x10046e18": "((uintptr_t)pf_module_state+0x2cd0U)"
+      },
+      "10026270": {
+        "0x10047597": "((uintptr_t)pf_module_state+0x344fU)"
+      },
+      "1000d64c": {
+        "0x100488db": "((uintptr_t)pf_module_state+0x4793U)",
+        "0x10048860": "((uintptr_t)pf_module_state+0x4718U)",
+        "0x100488e4": "((uintptr_t)pf_module_state+0x479cU)",
+        "0x10048832": "((uintptr_t)pf_module_state+0x46eaU)",
+        "0x10048856": "((uintptr_t)pf_module_state+0x470eU)"
+      },
+      "1002ee0c": {
+        "0x100486d3": "((uintptr_t)pf_module_state+0x458bU)"
+      },
+      "10037aec": "shared_3bf7015cf4ef384c",
+      "1002bbb4": {
+        "0x10048139": "((uintptr_t)pf_module_state+0x3ff1U)"
+      },
+      "1000f280": {
+        "0x10047e5b": "((uintptr_t)pf_module_state+0x3d13U)",
+        "0x10047ef1": "((uintptr_t)pf_module_state+0x3da9U)",
+        "0x10047e33": "((uintptr_t)pf_module_state+0x3cebU)",
+        "0x10047eab": "((uintptr_t)pf_module_state+0x3d63U)",
+        "0x10046689": "((uintptr_t)pf_module_state+0x2541U)",
+        "0x10047e0b": "((uintptr_t)pf_module_state+0x3cc3U)",
+        "0x10047dbb": "((uintptr_t)pf_module_state+0x3c73U)",
+        "0x10047ed3": "((uintptr_t)pf_module_state+0x3d8bU)",
+        "0x10047de3": "((uintptr_t)pf_module_state+0x3c9bU)",
+        "0x10047e83": "((uintptr_t)pf_module_state+0x3d3bU)"
+      },
+      "1003855c": {
+        "0x10048ff2": "((uintptr_t)pf_module_state+0x4eaaU)",
+        "0x10048fb3": "((uintptr_t)pf_module_state+0x4e6bU)"
+      },
+      "1004076c": {
+        "0x10049263": "((uintptr_t)pf_module_state+0x511bU)"
+      },
+      "10038b5c": "shared_4a2091999bcd712c",
+      "100350a8": {
+        "0x100472fe": "((uintptr_t)pf_module_state+0x31b6U)",
+        "0x10048d5c": "((uintptr_t)pf_module_state+0x4c14U)"
+      },
+      "10038d0c": {
+        "0x10046dbf": "((uintptr_t)pf_module_state+0x2c77U)"
+      },
+      "10000684": {},
+      "10026aa0": {
+        "0x100467c2": "((uintptr_t)pf_module_state+0x267aU)",
+        "0x100467e6": "((uintptr_t)pf_module_state+0x269eU)"
+      },
+      "10027904": {
+        "0x10047bff": "((uintptr_t)pf_module_state+0x3ab7U)"
+      },
+      "10009598": {
+        "0x100466cb": "((uintptr_t)pf_module_state+0x2583U)"
+      },
+      "10009a10": {
+        "0x100472fe": "((uintptr_t)pf_module_state+0x31b6U)",
+        "0x10048101": "((uintptr_t)pf_module_state+0x3fb9U)"
+      },
+      "10008004": {
+        "0x10046670": "((uintptr_t)pf_module_state+0x2528U)"
+      },
+      "10009df0": {
+        "0x100466cb": "((uintptr_t)pf_module_state+0x2583U)"
+      },
+      "100273d4": {
+        "0x10047968": "((uintptr_t)pf_module_state+0x3820U)"
+      },
+      "100076e0": {
+        "0x100487f2": "((uintptr_t)pf_module_state+0x46aaU)"
+      },
+      "10038cd8": {
+        "0x10046d93": "((uintptr_t)pf_module_state+0x2c4bU)"
+      },
+      "10026b8c": {
+        "0x10046316": "((uintptr_t)pf_module_state+0x21ceU)"
+      },
+      "1001df50": {
+        "0x10047a46": "((uintptr_t)pf_module_state+0x38feU)"
+      },
+      "1002f158": {
+        "0x100489c5": "((uintptr_t)pf_module_state+0x487dU)",
+        "0x100489ad": "((uintptr_t)pf_module_state+0x4865U)"
+      },
+      "10030888": {
+        "0x10048744": "((uintptr_t)pf_module_state+0x45fcU)",
+        "0x10046254": "((uintptr_t)pf_module_state+0x210cU)"
+      },
+      "1001613c": "shared_7330fec23ecda0ea",
+      "10027fd0": {
+        "0x10046e71": "((uintptr_t)pf_module_state+0x2d29U)"
+      },
+      "1001fb64": {
+        "0x100482ab": "((uintptr_t)pf_module_state+0x4163U)",
+        "0x1004699a": "((uintptr_t)pf_module_state+0x2852U)",
+        "0x100481bb": "((uintptr_t)pf_module_state+0x4073U)",
+        "0x1004819d": "((uintptr_t)pf_module_state+0x4055U)",
+        "0x1004687e": "((uintptr_t)pf_module_state+0x2736U)",
+        "0x100468d1": "((uintptr_t)pf_module_state+0x2789U)",
+        "0x10047882": "((uintptr_t)pf_module_state+0x373aU)",
+        "0x10048199": "((uintptr_t)pf_module_state+0x4051U)",
+        "0x10047857": "((uintptr_t)pf_module_state+0x370fU)",
+        "0x100482a8": "((uintptr_t)pf_module_state+0x4160U)",
+        "0x1004824e": "((uintptr_t)pf_module_state+0x4106U)",
+        "0x100468f8": "((uintptr_t)pf_module_state+0x27b0U)",
+        "0x1004697a": "((uintptr_t)pf_module_state+0x2832U)",
+        "0x10046880": "((uintptr_t)pf_module_state+0x2738U)",
+        "0x1004694e": "((uintptr_t)pf_module_state+0x2806U)",
+        "0x100468ac": "((uintptr_t)pf_module_state+0x2764U)",
+        "0x100481ec": "((uintptr_t)pf_module_state+0x40a4U)",
+        "0x10048172": "((uintptr_t)pf_module_state+0x402aU)",
+        "0x10046873": "((uintptr_t)pf_module_state+0x272bU)",
+        "0x1004822b": "((uintptr_t)pf_module_state+0x40e3U)",
+        "0x1004685a": "((uintptr_t)pf_module_state+0x2712U)",
+        "0x100482f1": "((uintptr_t)pf_module_state+0x41a9U)",
+        "0x100482cd": "((uintptr_t)pf_module_state+0x4185U)",
+        "0x1004828c": "((uintptr_t)pf_module_state+0x4144U)",
+        "0x10048204": "((uintptr_t)pf_module_state+0x40bcU)",
+        "0x10046927": "((uintptr_t)pf_module_state+0x27dfU)",
+        "0x100468ae": "((uintptr_t)pf_module_state+0x2766U)",
+        "0x10046a5b": "((uintptr_t)pf_module_state+0x2913U)",
+        "0x10048270": "((uintptr_t)pf_module_state+0x4128U)",
+        "0x100468fa": "((uintptr_t)pf_module_state+0x27b2U)",
+        "0x100468d7": "((uintptr_t)pf_module_state+0x278fU)",
+        "0x100466cb": "((uintptr_t)pf_module_state+0x2583U)"
+      },
+      "10035468": {
+        "0x100461db": "((uintptr_t)pf_module_state+0x2093U)"
+      },
+      "10027f74": {
+        "0x10046e46": "((uintptr_t)pf_module_state+0x2cfeU)"
+      },
+      "10027e30": {
+        "0x10046dea": "((uintptr_t)pf_module_state+0x2ca2U)"
+      },
+      "10027ce4": {
+        "0x10047c7b": "((uintptr_t)pf_module_state+0x3b33U)"
+      },
+      "10037ef8": {
+        "0x10047165": "((uintptr_t)pf_module_state+0x301dU)",
+        "0x10047197": "((uintptr_t)pf_module_state+0x304fU)"
+      },
+      "1003835c": {
+        "0x10048f10": "((uintptr_t)pf_module_state+0x4dc8U)",
+        "0x10048f3e": "((uintptr_t)pf_module_state+0x4df6U)",
+        "0x10048eda": "((uintptr_t)pf_module_state+0x4d92U)"
+      },
+      "10027ed0": {
+        "0x10046e18": "((uintptr_t)pf_module_state+0x2cd0U)"
+      },
+      "1001f8f0": {
+        "0x10047c7b": "((uintptr_t)pf_module_state+0x3b33U)"
+      },
+      "100380fc": {
+        "0x10046c56": "((uintptr_t)pf_module_state+0x2b0eU)",
+        "0x10046ac3": "((uintptr_t)pf_module_state+0x297bU)"
+      },
+      "10037e18": {
+        "0x1004704c": "((uintptr_t)pf_module_state+0x2f04U)",
+        "0x1004701f": "((uintptr_t)pf_module_state+0x2ed7U)",
+        "0x10047002": "((uintptr_t)pf_module_state+0x2ebaU)"
+      },
+      "10027524": {
+        "0x100479b8": "((uintptr_t)pf_module_state+0x3870U)"
+      },
+      "10026570": {
+        "0x100476b6": "((uintptr_t)pf_module_state+0x356eU)",
+        "0x1004767c": "((uintptr_t)pf_module_state+0x3534U)",
+        "0x100476e0": "((uintptr_t)pf_module_state+0x3598U)"
+      },
+      "100279a8": {
+        "0x10047c38": "((uintptr_t)pf_module_state+0x3af0U)"
+      },
+      "1001b5f4": {
+        "0x10046aae": "((uintptr_t)pf_module_state+0x2966U)",
+        "0x10046abb": "((uintptr_t)pf_module_state+0x2973U)"
+      },
+      "10023e44": {
+        "0x100484ea": "((uintptr_t)pf_module_state+0x43a2U)"
+      },
+      "10038db0": {
+        "0x10046e46": "((uintptr_t)pf_module_state+0x2cfeU)"
+      },
+      "10038ac0": {
+        "0x10047a09": "((uintptr_t)pf_module_state+0x38c1U)"
+      },
+      "10026d2c": {
+        "0x10046c25": "((uintptr_t)pf_module_state+0x2addU)",
+        "0x10046bf4": "((uintptr_t)pf_module_state+0x2aacU)"
+      },
+      "1001c700": {
+        "0x10046fb2": "((uintptr_t)pf_module_state+0x2e6aU)",
+        "0x10046aed": "((uintptr_t)pf_module_state+0x29a5U)",
+        "0x10046f56": "((uintptr_t)pf_module_state+0x2e0eU)",
+        "0x100466cb": "((uintptr_t)pf_module_state+0x2583U)",
+        "0x100469ff": "((uintptr_t)pf_module_state+0x28b7U)",
+        "0x10046f86": "((uintptr_t)pf_module_state+0x2e3eU)"
+      },
+      "10027084": {
+        "0x10046cad": "((uintptr_t)pf_module_state+0x2b65U)"
+      },
+      "10039000": {
+        "0x10047d09": "((uintptr_t)pf_module_state+0x3bc1U)"
+      },
+      "10007284": {
+        "0x10046a19": "((uintptr_t)pf_module_state+0x28d1U)"
+      },
+      "10024cfc": {
+        "0x100472d3": "((uintptr_t)pf_module_state+0x318bU)"
+      },
+      "1000752c": "shared_5bdd519c464b1abb",
+      "10037b8c": "shared_b6a2f540f975d58b",
+      "10038bc4": {
+        "0x10047bbf": "((uintptr_t)pf_module_state+0x3a77U)"
+      },
+      "10037de0": {
+        "0x10046b6f": "((uintptr_t)pf_module_state+0x2a27U)"
+      },
+      "10038eb4": "shared_3bf7015cf4ef384c",
+      "1002834c": {
+        "0x10047d09": "((uintptr_t)pf_module_state+0x3bc1U)"
+      },
+      "1001e0cc": "shared_4a2091999bcd712c",
+      "10028c1c": {
+        "0x10048860": "((uintptr_t)pf_module_state+0x4718U)",
+        "0x10048910": "((uintptr_t)pf_module_state+0x47c8U)",
+        "0x10048920": "((uintptr_t)pf_module_state+0x47d8U)",
+        "0x10048856": "((uintptr_t)pf_module_state+0x470eU)",
+        "0x10047dbb": "((uintptr_t)pf_module_state+0x3c73U)",
+        "0x10047de3": "((uintptr_t)pf_module_state+0x3c9bU)",
+        "0x10047e33": "((uintptr_t)pf_module_state+0x3cebU)",
+        "0x10047e0b": "((uintptr_t)pf_module_state+0x3cc3U)",
+        "0x1004891a": "((uintptr_t)pf_module_state+0x47d2U)",
+        "0x10046689": "((uintptr_t)pf_module_state+0x2541U)",
+        "0x10048832": "((uintptr_t)pf_module_state+0x46eaU)",
+        "0x10047ed3": "((uintptr_t)pf_module_state+0x3d8bU)",
+        "0x10047e5b": "((uintptr_t)pf_module_state+0x3d13U)",
+        "0x100488db": "((uintptr_t)pf_module_state+0x4793U)",
+        "0x10047ef1": "((uintptr_t)pf_module_state+0x3da9U)",
+        "0x10047eab": "((uintptr_t)pf_module_state+0x3d63U)",
+        "0x1004893e": "((uintptr_t)pf_module_state+0x47f6U)",
+        "0x100488e4": "((uintptr_t)pf_module_state+0x479cU)",
+        "0x100488ec": "((uintptr_t)pf_module_state+0x47a4U)",
+        "0x10047e83": "((uintptr_t)pf_module_state+0x3d3bU)"
+      },
+      "100085bc": {
+        "0x100466a5": "((uintptr_t)pf_module_state+0x255dU)"
+      },
+      "10022ac0": {
+        "0x1004841a": "((uintptr_t)pf_module_state+0x42d2U)",
+        "0x1004843e": "((uintptr_t)pf_module_state+0x42f6U)"
+      },
+      "10034f54": {
+        "0x10048d17": "((uintptr_t)pf_module_state+0x4bcfU)",
+        "0x10048d30": "((uintptr_t)pf_module_state+0x4be8U)",
+        "0x1004687e": "((uintptr_t)pf_module_state+0x2736U)",
+        "0x100468d1": "((uintptr_t)pf_module_state+0x2789U)"
+      },
+      "10026bdc": {
+        "0x10047837": "((uintptr_t)pf_module_state+0x36efU)"
+      },
+      "10007a58": {
+        "0x10046670": "((uintptr_t)pf_module_state+0x2528U)"
+      },
+      "1001fb58": "shared_7330fec23ecda0ea",
+      "10037fa0": {
+        "0x10046c25": "((uintptr_t)pf_module_state+0x2addU)",
+        "0x10046bf4": "((uintptr_t)pf_module_state+0x2aacU)"
+      },
+      "100098c8": "shared_aef723034933a862",
+      "10023398": {
+        "0x1004704f": "((uintptr_t)pf_module_state+0x2f07U)"
+      },
+      "10032128": {
+        "0x100488db": "((uintptr_t)pf_module_state+0x4793U)",
+        "0x100488e4": "((uintptr_t)pf_module_state+0x479cU)",
+        "0x100488c6": "((uintptr_t)pf_module_state+0x477eU)"
+      },
+      "1002753c": {
+        "0x10047a46": "((uintptr_t)pf_module_state+0x38feU)"
+      },
+      "10037c60": {
+        "0x100476b6": "((uintptr_t)pf_module_state+0x356eU)",
+        "0x1004767c": "((uintptr_t)pf_module_state+0x3534U)",
+        "0x100476e0": "((uintptr_t)pf_module_state+0x3598U)"
+      },
+      "10037b24": {
+        "0x10046b13": "((uintptr_t)pf_module_state+0x29cbU)"
+      },
+      "10026308": {
+        "0x100475fe": "((uintptr_t)pf_module_state+0x34b6U)",
+        "0x100475d8": "((uintptr_t)pf_module_state+0x3490U)",
+        "0x100475b1": "((uintptr_t)pf_module_state+0x3469U)"
+      },
+      "100271ec": {
+        "0x10046ce3": "((uintptr_t)pf_module_state+0x2b9bU)"
+      },
+      "1003fe2c": {
+        "0x10046a7f": "((uintptr_t)pf_module_state+0x2937U)"
+      },
+      "1002f4e0": {
+        "0x1004697a": "((uintptr_t)pf_module_state+0x2832U)",
+        "0x1004699a": "((uintptr_t)pf_module_state+0x2852U)",
+        "0x100491e8": "((uintptr_t)pf_module_state+0x50a0U)",
+        "0x100491ba": "((uintptr_t)pf_module_state+0x5072U)",
+        "0x1004918e": "((uintptr_t)pf_module_state+0x5046U)",
+        "0x10048270": "((uintptr_t)pf_module_state+0x4128U)",
+        "0x10046994": "((uintptr_t)pf_module_state+0x284cU)",
+        "0x1004683b": "((uintptr_t)pf_module_state+0x26f3U)",
+        "0x100481ec": "((uintptr_t)pf_module_state+0x40a4U)",
+        "0x10049246": "((uintptr_t)pf_module_state+0x50feU)",
+        "0x10046a46": "((uintptr_t)pf_module_state+0x28feU)",
+        "0x1004824e": "((uintptr_t)pf_module_state+0x4106U)",
+        "0x100468f8": "((uintptr_t)pf_module_state+0x27b0U)",
+        "0x10049217": "((uintptr_t)pf_module_state+0x50cfU)",
+        "0x1004822b": "((uintptr_t)pf_module_state+0x40e3U)"
+      },
+      "100234c4": {
+        "0x1004709b": "((uintptr_t)pf_module_state+0x2f53U)",
+        "0x1004706a": "((uintptr_t)pf_module_state+0x2f22U)",
+        "0x100470c3": "((uintptr_t)pf_module_state+0x2f7bU)"
+      },
+      "100283bc": {
+        "0x10047d29": "((uintptr_t)pf_module_state+0x3be1U)"
+      },
+      "1001f53c": {
+        "0x10047c38": "((uintptr_t)pf_module_state+0x3af0U)"
+      },
+      "10027058": {
+        "0x100478e5": "((uintptr_t)pf_module_state+0x379dU)",
+        "0x10047918": "((uintptr_t)pf_module_state+0x37d0U)",
+        "0x100478ae": "((uintptr_t)pf_module_state+0x3766U)"
+      },
+      "1002a108": {
+        "0x10046689": "((uintptr_t)pf_module_state+0x2541U)"
+      },
+      "1001c6f4": "shared_a143a0d912c38ffe",
+      "1002e144": {
+        "0x10048df5": "((uintptr_t)pf_module_state+0x4cadU)"
+      },
+      "10022040": {
+        "0x10046fe4": "((uintptr_t)pf_module_state+0x2e9cU)",
+        "0x10047002": "((uintptr_t)pf_module_state+0x2ebaU)"
+      },
+      "100277dc": "shared_4a2091999bcd712c",
+      "1003f53c": {
+        "0x10049165": "((uintptr_t)pf_module_state+0x501dU)",
+        "0x10049132": "((uintptr_t)pf_module_state+0x4feaU)",
+        "0x10049128": "((uintptr_t)pf_module_state+0x4fe0U)",
+        "0x100490f6": "((uintptr_t)pf_module_state+0x4faeU)"
+      },
+      "10037f30": {
+        "0x10047857": "((uintptr_t)pf_module_state+0x370fU)",
+        "0x10046b99": "((uintptr_t)pf_module_state+0x2a51U)"
+      },
+      "10038044": {
+        "0x10047597": "((uintptr_t)pf_module_state+0x344fU)"
+      },
+      "1001aa70": {
+        "0x10046a7f": "((uintptr_t)pf_module_state+0x2937U)"
+      },
+      "1001c754": {
+        "0x10047837": "((uintptr_t)pf_module_state+0x36efU)"
+      },
+      "10029138": {
+        "0x100472fe": "((uintptr_t)pf_module_state+0x31b6U)",
+        "0x10048101": "((uintptr_t)pf_module_state+0x3fb9U)"
+      },
+      "10028538": {
+        "0x10047d5d": "((uintptr_t)pf_module_state+0x3c15U)"
+      },
+      "10038d40": {
+        "0x10046dea": "((uintptr_t)pf_module_state+0x2ca2U)"
+      },
+      "10037d70": {
+        "0x10046316": "((uintptr_t)pf_module_state+0x21ceU)"
+      },
+      "1001b2b4": {
+        "0x10048a05": "((uintptr_t)pf_module_state+0x48bdU)"
+      },
+      "10038af4": {
+        "0x10047a46": "((uintptr_t)pf_module_state+0x38feU)"
+      },
+      "10032068": {
+        "0x100488a6": "((uintptr_t)pf_module_state+0x475eU)",
+        "0x10048882": "((uintptr_t)pf_module_state+0x473aU)",
+        "0x10047381": "((uintptr_t)pf_module_state+0x3239U)",
+        "0x10048892": "((uintptr_t)pf_module_state+0x474aU)",
+        "0x10048867": "((uintptr_t)pf_module_state+0x471fU)"
+      },
+      "10034ba8": {
+        "if (param_2 == 0) {\nLAB_100b239c:\n    return true;": "if (param_2 == 0) {\n    return true;"
+      },
+      "1002cb40": {
+        "for (lVar3 = uStack_388 * 0x18;": "void *pf_token_cursor = pvStack_390;\n    for (lVar3 = uStack_388 * 0x18;",
+        "recovered_10007530(alStack_3e0,vm,pvStack_390);": "recovered_10007530(alStack_3e0,vm,pf_token_cursor);",
+        "pvStack_390 = (void *)((long)pvStack_390 + 0x18);": "pf_token_cursor = (void *)((long)pf_token_cursor + 0x18);"
+      }
+    },
+    "stack_register": "register0x00000008",
+    "source_replacement_groups": {
+      "shared_3bf7015cf4ef384c": {
+        "0x10047444": "((uintptr_t)pf_module_state+0x32fcU)",
+        "0x10047420": "((uintptr_t)pf_module_state+0x32d8U)",
+        "0x100473b9": "((uintptr_t)pf_module_state+0x3271U)",
+        "0x100473eb": "((uintptr_t)pf_module_state+0x32a3U)",
+        "0x10047383": "((uintptr_t)pf_module_state+0x323bU)"
+      },
+      "shared_40a70b0a5e35953e": {
+        "0x1004754d": "((uintptr_t)pf_module_state+0x3405U)",
+        "0x10047573": "((uintptr_t)pf_module_state+0x342bU)",
+        "0x1004653c": "((uintptr_t)pf_module_state+0x23f4U)",
+        "0x10046873": "((uintptr_t)pf_module_state+0x272bU)",
+        "0x1004758f": "((uintptr_t)pf_module_state+0x3447U)",
+        "0x1004757e": "((uintptr_t)pf_module_state+0x3436U)",
+        "0x10047577": "((uintptr_t)pf_module_state+0x342fU)",
+        "0x1004658f": "((uintptr_t)pf_module_state+0x2447U)",
+        "0x10047586": "((uintptr_t)pf_module_state+0x343eU)"
+      },
+      "shared_5bdd519c464b1abb": {
+        "0x10046316": "((uintptr_t)pf_module_state+0x21ceU)",
+        "0x10046463": "((uintptr_t)pf_module_state+0x231bU)",
+        "0x10046345": "((uintptr_t)pf_module_state+0x21fdU)",
+        "0x10046557": "((uintptr_t)pf_module_state+0x240fU)",
+        "0x100463fa": "((uintptr_t)pf_module_state+0x22b2U)",
+        "0x10046384": "((uintptr_t)pf_module_state+0x223cU)",
+        "0x100465f6": "((uintptr_t)pf_module_state+0x24aeU)",
+        "0x100465cf": "((uintptr_t)pf_module_state+0x2487U)",
+        "0x10046564": "((uintptr_t)pf_module_state+0x241cU)",
+        "0x10046454": "((uintptr_t)pf_module_state+0x230cU)",
+        "0x10046543": "((uintptr_t)pf_module_state+0x23fbU)",
+        "0x100465e5": "((uintptr_t)pf_module_state+0x249dU)",
+        "0x100464d4": "((uintptr_t)pf_module_state+0x238cU)",
+        "0x1004651e": "((uintptr_t)pf_module_state+0x23d6U)",
+        "0x100465b0": "((uintptr_t)pf_module_state+0x2468U)",
+        "0x100465e9": "((uintptr_t)pf_module_state+0x24a1U)",
+        "0x10046355": "((uintptr_t)pf_module_state+0x220dU)",
+        "0x10046474": "((uintptr_t)pf_module_state+0x232cU)",
+        "0x100464f2": "((uintptr_t)pf_module_state+0x23aaU)",
+        "0x1004658a": "((uintptr_t)pf_module_state+0x2442U)",
+        "0x100465a0": "((uintptr_t)pf_module_state+0x2458U)",
+        "0x100465a6": "((uintptr_t)pf_module_state+0x245eU)",
+        "0x100463e7": "((uintptr_t)pf_module_state+0x229fU)",
+        "0x10046531": "((uintptr_t)pf_module_state+0x23e9U)",
+        "0x1004664f": "((uintptr_t)pf_module_state+0x2507U)",
+        "0x100463ba": "((uintptr_t)pf_module_state+0x2272U)",
+        "0x100465be": "((uintptr_t)pf_module_state+0x2476U)",
+        "0x10046550": "((uintptr_t)pf_module_state+0x2408U)",
+        "0x1004661a": "((uintptr_t)pf_module_state+0x24d2U)",
+        "0x10046655": "((uintptr_t)pf_module_state+0x250dU)",
+        "0x10046647": "((uintptr_t)pf_module_state+0x24ffU)",
+        "0x1004637e": "((uintptr_t)pf_module_state+0x2236U)",
+        "0x1004650d": "((uintptr_t)pf_module_state+0x23c5U)",
+        "0x1004665d": "((uintptr_t)pf_module_state+0x2515U)",
+        "0x10046468": "((uintptr_t)pf_module_state+0x2320U)",
+        "0x10046495": "((uintptr_t)pf_module_state+0x234dU)",
+        "0x100464bf": "((uintptr_t)pf_module_state+0x2377U)",
+        "0x1004657f": "((uintptr_t)pf_module_state+0x2437U)",
+        "0x100463e1": "((uintptr_t)pf_module_state+0x2299U)",
+        "0x100465dc": "((uintptr_t)pf_module_state+0x2494U)",
+        "0x1004658f": "((uintptr_t)pf_module_state+0x2447U)",
+        "0x100464d0": "((uintptr_t)pf_module_state+0x2388U)",
+        "0x100463f3": "((uintptr_t)pf_module_state+0x22abU)",
+        "0x100465f2": "((uintptr_t)pf_module_state+0x24aaU)",
+        "0x1004642d": "((uintptr_t)pf_module_state+0x22e5U)",
+        "0x1004660c": "((uintptr_t)pf_module_state+0x24c4U)",
+        "0x1004641d": "((uintptr_t)pf_module_state+0x22d5U)",
+        "0x100463c2": "((uintptr_t)pf_module_state+0x227aU)",
+        "0x100465c2": "((uintptr_t)pf_module_state+0x247aU)",
+        "0x10046632": "((uintptr_t)pf_module_state+0x24eaU)",
+        "0x100463ce": "((uintptr_t)pf_module_state+0x2286U)",
+        "0x1004662d": "((uintptr_t)pf_module_state+0x24e5U)",
+        "0x100465cb": "((uintptr_t)pf_module_state+0x2483U)",
+        "0x10046409": "((uintptr_t)pf_module_state+0x22c1U)",
+        "0x10046538": "((uintptr_t)pf_module_state+0x23f0U)",
+        "0x100465ff": "((uintptr_t)pf_module_state+0x24b7U)",
+        "0x100464e5": "((uintptr_t)pf_module_state+0x239dU)",
+        "0x1004663b": "((uintptr_t)pf_module_state+0x24f3U)",
+        "0x100465d8": "((uintptr_t)pf_module_state+0x2490U)",
+        "0x1004664c": "((uintptr_t)pf_module_state+0x2504U)",
+        "0x100464b9": "((uintptr_t)pf_module_state+0x2371U)",
+        "0x10046398": "((uintptr_t)pf_module_state+0x2250U)",
+        "0x10046365": "((uintptr_t)pf_module_state+0x221dU)",
+        "0x100464a1": "((uintptr_t)pf_module_state+0x2359U)",
+        "0x10046429": "((uintptr_t)pf_module_state+0x22e1U)",
+        "0x100463b1": "((uintptr_t)pf_module_state+0x2269U)",
+        "0x1004638a": "((uintptr_t)pf_module_state+0x2242U)",
+        "0x1004640e": "((uintptr_t)pf_module_state+0x22c6U)",
+        "0x1004656b": "((uintptr_t)pf_module_state+0x2423U)",
+        "0x1004639f": "((uintptr_t)pf_module_state+0x2257U)",
+        "0x10046595": "((uintptr_t)pf_module_state+0x244dU)",
+        "0x10046668": "((uintptr_t)pf_module_state+0x2520U)",
+        "0x100464f8": "((uintptr_t)pf_module_state+0x23b0U)",
+        "0x1004636e": "((uintptr_t)pf_module_state+0x2226U)",
+        "0x1004665a": "((uintptr_t)pf_module_state+0x2512U)",
+        "0x1004662a": "((uintptr_t)pf_module_state+0x24e2U)",
+        "0x1004643c": "((uintptr_t)pf_module_state+0x22f4U)",
+        "0x10046481": "((uintptr_t)pf_module_state+0x2339U)",
+        "0x1004648f": "((uintptr_t)pf_module_state+0x2347U)",
+        "0x1004661f": "((uintptr_t)pf_module_state+0x24d7U)",
+        "0x1004634b": "((uintptr_t)pf_module_state+0x2203U)",
+        "0x10046578": "((uintptr_t)pf_module_state+0x2430U)",
+        "0x10046254": "((uintptr_t)pf_module_state+0x210cU)",
+        "0x10046373": "((uintptr_t)pf_module_state+0x222bU)",
+        "0x10046662": "((uintptr_t)pf_module_state+0x251aU)",
+        "0x1004637a": "((uintptr_t)pf_module_state+0x2232U)",
+        "0x10046393": "((uintptr_t)pf_module_state+0x224bU)",
+        "0x100463a6": "((uintptr_t)pf_module_state+0x225eU)",
+        "0x100464e0": "((uintptr_t)pf_module_state+0x2398U)",
+        "0x100464ac": "((uintptr_t)pf_module_state+0x2364U)",
+        "0x10046519": "((uintptr_t)pf_module_state+0x23d1U)",
+        "0x10046425": "((uintptr_t)pf_module_state+0x22ddU)",
+        "0x100465b5": "((uintptr_t)pf_module_state+0x246dU)",
+        "0x10046642": "((uintptr_t)pf_module_state+0x24faU)",
+        "0x100463ac": "((uintptr_t)pf_module_state+0x2264U)",
+        "0x10046506": "((uintptr_t)pf_module_state+0x23beU)",
+        "0x100463ee": "((uintptr_t)pf_module_state+0x22a6U)",
+        "0x10046603": "((uintptr_t)pf_module_state+0x24bbU)",
+        "0x100464c5": "((uintptr_t)pf_module_state+0x237dU)",
+        "0x10046610": "((uintptr_t)pf_module_state+0x24c8U)",
+        "0x1004653c": "((uintptr_t)pf_module_state+0x23f4U)",
+        "0x10046418": "((uintptr_t)pf_module_state+0x22d0U)",
+        "0x1004635c": "((uintptr_t)pf_module_state+0x2214U)",
+        "0x100463da": "((uintptr_t)pf_module_state+0x2292U)",
+        "0x10046414": "((uintptr_t)pf_module_state+0x22ccU)",
+        "0x10046523": "((uintptr_t)pf_module_state+0x23dbU)"
+      },
+      "shared_b6a2f540f975d58b": {
+        "0x10047500": "((uintptr_t)pf_module_state+0x33b8U)",
+        "0x10046d26": "((uintptr_t)pf_module_state+0x2bdeU)",
+        "0x10046254": "((uintptr_t)pf_module_state+0x210cU)",
+        "0x1004746f": "((uintptr_t)pf_module_state+0x3327U)",
+        "0x100474b3": "((uintptr_t)pf_module_state+0x336bU)"
+      },
+      "shared_a143a0d912c38ffe": {
+        "0x10046fb2": "((uintptr_t)pf_module_state+0x2e6aU)",
+        "0x10046f56": "((uintptr_t)pf_module_state+0x2e0eU)",
+        "0x100466cb": "((uintptr_t)pf_module_state+0x2583U)",
+        "0x100469ff": "((uintptr_t)pf_module_state+0x28b7U)",
+        "0x10046f86": "((uintptr_t)pf_module_state+0x2e3eU)"
+      },
+      "shared_aef723034933a862": {
+        "0x10046776": "((uintptr_t)pf_module_state+0x262eU)",
+        "0x100466ef": "((uintptr_t)pf_module_state+0x25a7U)",
+        "0x100466a5": "((uintptr_t)pf_module_state+0x255dU)",
+        "0x10046741": "((uintptr_t)pf_module_state+0x25f9U)",
+        "0x10046689": "((uintptr_t)pf_module_state+0x2541U)",
+        "0x100466f6": "((uintptr_t)pf_module_state+0x25aeU)",
+        "0x1004671b": "((uintptr_t)pf_module_state+0x25d3U)"
+      },
+      "shared_4a2091999bcd712c": {
+        "0x10048bd8": "((uintptr_t)pf_module_state+0x4a90U)",
+        "0x10047a74": "((uintptr_t)pf_module_state+0x392cU)",
+        "0x10048bdd": "((uintptr_t)pf_module_state+0x4a95U)",
+        "0x10047b49": "((uintptr_t)pf_module_state+0x3a01U)",
+        "0x10047b1f": "((uintptr_t)pf_module_state+0x39d7U)",
+        "0x10048b9e": "((uintptr_t)pf_module_state+0x4a56U)",
+        "0x10047ae6": "((uintptr_t)pf_module_state+0x399eU)",
+        "0x10048be9": "((uintptr_t)pf_module_state+0x4aa1U)",
+        "0x10047ab8": "((uintptr_t)pf_module_state+0x3970U)"
+      },
+      "shared_7330fec23ecda0ea": {
+        "0x100482ab": "((uintptr_t)pf_module_state+0x4163U)",
+        "0x1004699a": "((uintptr_t)pf_module_state+0x2852U)",
+        "0x100485d2": "((uintptr_t)pf_module_state+0x448aU)",
+        "0x1004687e": "((uintptr_t)pf_module_state+0x2736U)",
+        "0x100468d1": "((uintptr_t)pf_module_state+0x2789U)",
+        "0x10047882": "((uintptr_t)pf_module_state+0x373aU)",
+        "0x100485ab": "((uintptr_t)pf_module_state+0x4463U)",
+        "0x10046994": "((uintptr_t)pf_module_state+0x284cU)",
+        "0x100482a8": "((uintptr_t)pf_module_state+0x4160U)",
+        "0x10047857": "((uintptr_t)pf_module_state+0x370fU)",
+        "0x10048555": "((uintptr_t)pf_module_state+0x440dU)",
+        "0x1004824e": "((uintptr_t)pf_module_state+0x4106U)",
+        "0x100468f8": "((uintptr_t)pf_module_state+0x27b0U)",
+        "0x1004697a": "((uintptr_t)pf_module_state+0x2832U)",
+        "0x10046880": "((uintptr_t)pf_module_state+0x2738U)",
+        "0x1004694e": "((uintptr_t)pf_module_state+0x2806U)",
+        "0x10048512": "((uintptr_t)pf_module_state+0x43caU)",
+        "0x10048622": "((uintptr_t)pf_module_state+0x44daU)",
+        "0x1004683b": "((uintptr_t)pf_module_state+0x26f3U)",
+        "0x100468ac": "((uintptr_t)pf_module_state+0x2764U)",
+        "0x1004867b": "((uintptr_t)pf_module_state+0x4533U)",
+        "0x100481ec": "((uintptr_t)pf_module_state+0x40a4U)",
+        "0x1004864a": "((uintptr_t)pf_module_state+0x4502U)",
+        "0x10046873": "((uintptr_t)pf_module_state+0x272bU)",
+        "0x1004822b": "((uintptr_t)pf_module_state+0x40e3U)",
+        "0x1004685a": "((uintptr_t)pf_module_state+0x2712U)",
+        "0x10047a09": "((uintptr_t)pf_module_state+0x38c1U)",
+        "0x100486a2": "((uintptr_t)pf_module_state+0x455aU)",
+        "0x100482f1": "((uintptr_t)pf_module_state+0x41a9U)",
+        "0x100482cd": "((uintptr_t)pf_module_state+0x4185U)",
+        "0x10046a46": "((uintptr_t)pf_module_state+0x28feU)",
+        "0x1004828c": "((uintptr_t)pf_module_state+0x4144U)",
+        "0x10048586": "((uintptr_t)pf_module_state+0x443eU)",
+        "0x10047a46": "((uintptr_t)pf_module_state+0x38feU)",
+        "0x1004852f": "((uintptr_t)pf_module_state+0x43e7U)",
+        "0x10046927": "((uintptr_t)pf_module_state+0x27dfU)",
+        "0x100468ae": "((uintptr_t)pf_module_state+0x2766U)",
+        "0x10046a5b": "((uintptr_t)pf_module_state+0x2913U)",
+        "0x10048270": "((uintptr_t)pf_module_state+0x4128U)",
+        "0x100485fa": "((uintptr_t)pf_module_state+0x44b2U)",
+        "0x100468fa": "((uintptr_t)pf_module_state+0x27b2U)",
+        "0x100468d7": "((uintptr_t)pf_module_state+0x278fU)"
+      }
+    }
+  },
+  "reviewed_context_transfers": {
+    "entries": 3,
+    "basis": "Native instruction bodies match the reviewed same-release Lua context boundaries byte for byte through their transfer instruction."
+  },
+  "reviewed_heap_contracts": {
+    "_wm_probe_heap_alloc": {
+      "address": "0x10000cfc",
+      "declaration": "void *allocate(unsigned long size);"
+    },
+    "_wm_probe_heap_reset": {
+      "address": "0x10000658",
+      "declaration": "void reset_heap(void);"
+    },
+    "_wm_probe_heap_free_bytes": {
+      "address": "0x10000bb4",
+      "declaration": "unsigned int free_bytes(void);"
+    },
+    "_wm_probe_heap_total_bytes": {
+      "address": "0x10000c68",
+      "declaration": "unsigned int total_bytes(void);"
+    },
+    "_wm_probe_heap_free_bytes64": {
+      "address": "0x10000c14",
+      "declaration": "unsigned long long free_bytes64(void);"
+    },
+    "_wm_probe_heap_total_bytes64": {
+      "address": "0x10000cb8",
+      "declaration": "unsigned long long total_bytes64(void);"
+    },
+    "_wm_probe_heap_add_region": {
+      "address": "0x10000b78",
+      "declaration": "bool add_region(unsigned long address,unsigned long size);"
+    },
+    "_wm_probe_heap_add_regions": {
+      "address": "0x10000940",
+      "declaration": "bool add_regions(unsigned long *addresses,unsigned long *sizes,unsigned long count);"
+    },
+    "_wm_probe_heap_alloc_below": {
+      "address": "0x10000ee4",
+      "declaration": "void *alloc_below(unsigned long size,unsigned long limit);"
+    },
+    "_wm_probe_heap_alloc_range": {
+      "address": "0x10000f1c",
+      "declaration": "void *alloc_range(unsigned long size,unsigned long first,unsigned long last);"
+    },
+    "_wm_probe_heap_free": {
+      "address": "0x10000f60",
+      "declaration": "void release(void *pointer);"
+    },
+    "_wm_probe_heap_realloc": {
+      "address": "0x10000ffc",
+      "declaration": "void *resize(void *pointer,unsigned long size);"
+    },
+    "_strcspn": {
+      "address": "0x10001a64",
+      "declaration": "unsigned long reject_span(char *text,char *reject);"
+    },
+    "_wm_probe_heap_segment_preflight": {
+      "address": "0x10002d88",
+      "declaration": "bool region_preflight(unsigned long address,unsigned long size,unsigned char *added);"
+    }
+  }
+}
