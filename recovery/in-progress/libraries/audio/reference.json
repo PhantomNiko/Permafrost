@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "reference_image": "WinterBoot-1.1r344-Beta.img",
-  "reference_path": "Library/Native/WinterTLS.dylib",
+  "reference_path": "Library/Native/WinterAudio.dylib",
   "architectures": {
     "i386": {
       "sha256": "7066f7bccaf4d44d1ac4eb3dea180d0365b14663e584b123c4923db663099b14",
