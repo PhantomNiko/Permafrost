@@ -420,3 +420,10 @@ Recovery restores structor/string-search returns, preserves the token-vector
 base while iterating, and reconnects outlined expression-cursor updates. The
 other three architectures, complete callback/exception behavior and booted VM
 integration remain release gates.
+
+The fresh ARM32 Rwby backend builds from recovered C and matches all 20 core
+execution fixtures, 20 serialized-bytecode comparisons, 12 heap workflows and
+117 allocator-forwarding checks. Constructor state and allocation counts also
+match under poisoned memory. Recovery restores map/string owner returns and
+the unsigned token range used by indexed assignment. Its UTF-8 length callback matches 238 native boundary and malformed-byte cases.
+The remaining i386 architecture, full callback/exception behavior and booted VM integration remain unfinished.

@@ -19,10 +19,19 @@
       "heap_workflows": 12,
       "allocator_forwarding_cases": 117,
       "utf8_length_cases": 238
+    },
+    "armv7": {
+      "sha256": "4dba087fab07ddb345943dc2d9e83f92f7df4980a9b63659496a9e92050d9908",
+      "recovered_functions": 796,
+      "core_execution_cases": 20,
+      "serialized_bytecode_cases": 20,
+      "heap_workflows": 12,
+      "allocator_forwarding_cases": 117,
+      "utf8_length_cases": 238
     }
   },
   "pending": [
-    "i386 and ARM32 runtime recovery",
+    "i386 runtime recovery",
     "full callback and exception compatibility",
     "booted VM application integration",
     "release-wide images and SDK"

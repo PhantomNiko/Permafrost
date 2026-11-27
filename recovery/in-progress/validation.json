@@ -301,7 +301,8 @@
     "rwby_source_recovery": {
       "architectures": [
         "arm64",
-        "x86_64"
+        "x86_64",
+        "armv7"
       ],
       "core_execution_cases": 20,
       "serialized_bytecode_cases": 20,
