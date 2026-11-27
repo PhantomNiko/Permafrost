@@ -313,9 +313,10 @@
     },
     "winterscript_source_recovery": {
       "architectures": [
-        "arm64",
+        "i386",
         "x86_64",
-        "armv7"
+        "armv7",
+        "arm64"
       ],
       "core_execution_cases": 18,
       "heap_workflows": 12,

@@ -468,3 +468,10 @@ result convention. Five workflows compare script execution and numeric string
 conversion with the native Lua library, guarding all 80 result bytes and all
 24 string bytes. Top-level Lua returns still expose an exception-handling gap;
 that gap and full command/VM behavior remain release blockers.
+
+The i386 standalone WinterScript backend now builds from recovered C and matches
+18 execution fixtures, 12 heap workflows and 117 allocator forwarding cases.
+Recovery restores parser node-index returns, raw stack-word views, bounded
+interpreter/result dispatch and native VM parameter spills. All four standalone
+runtime backends now have core execution checkpoints. Full callback/exception
+compatibility and booted VM behavior remain incomplete release gates.
