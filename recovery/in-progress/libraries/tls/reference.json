@@ -1,0 +1,31 @@
+{
+  "version": "1.1",
+  "reference_image": "WinterBoot-1.1r344-Beta.img",
+  "reference_path": "Library/Native/WinterTLS.dylib",
+  "architectures": {
+    "i386": {
+      "sha256": "478b03f7874b921548918627471ada1feadce128964909068f644c7d22ded2d4",
+      "native_functions": 213
+    },
+    "x86_64": {
+      "sha256": "3a94729f6312ebebf21c3cfec47cce7ad14e3230e684e6ce913dd252de623a15",
+      "native_functions": 213
+    },
+    "armv7": {
+      "sha256": "4268f09e43fa10ef3b0e1db6162a3681dda7f958a62f4c5b6692308f29eb9797",
+      "native_functions": 218
+    },
+    "arm64": {
+      "sha256": "6ae7187a3e159e778ae478861ff4f7dc924727ea59ed760f43c736102b069e7a",
+      "native_functions": 315
+    }
+  },
+  "checks": {
+    "primitive_cases_per_cpu": 85,
+    "state_cases_per_cpu": 27,
+    "heap_workflows_per_cpu": 12,
+    "allocator_forwarding_cases_per_cpu": 117,
+    "tls13_interoperability": "native/source handshake, certificate callbacks and verification outcomes, leaf digest, encrypted HTTP"
+  },
+  "status": "source checkpoint; release-wide VM parity remains incomplete"
+}

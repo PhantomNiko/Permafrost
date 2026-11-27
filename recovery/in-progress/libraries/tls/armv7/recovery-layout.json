@@ -1,0 +1,338 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268442048,
+  "text_end": 268499248,
+  "state_end": 268550144,
+  "translation": {
+    "pointer_bytes": 4,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 268499248,
+    "state_end": 268550144,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"armv7-recovery.h\"",
+      "#include \"cpu.h\"",
+      "#include \"arm_exclusive.h\"",
+      "#include \"coprocessors.h\"",
+      "#include \"neon.h\"",
+      "static inline __attribute__((always_inline)) uintptr_t pf_current_sp(void){uintptr_t value;__asm__ volatile(\"mov %0,sp\":\"=r\"(value));return value;}"
+    ],
+    "stack_register": "register0x00000054",
+    "system_registers": {},
+    "source_replacements": {
+      "10002810": {
+        "0x10010080": "((uintptr_t)pf_module_state+0x750U)"
+      },
+      "100024ac": {
+        "0x10010080": "((uintptr_t)pf_module_state+0x750U)"
+      },
+      "100021e8": {
+        "0x10010080": "((uintptr_t)pf_module_state+0x750U)"
+      },
+      "100023fc": {
+        "0x10010080": "((uintptr_t)pf_module_state+0x750U)"
+      },
+      "10001b80": {
+        "0x10010080": "((uintptr_t)pf_module_state+0x750U)"
+      },
+      "10002a88": {
+        "0x10010080": "((uintptr_t)pf_module_state+0x750U)"
+      },
+      "10002298": {
+        "0x10010080": "((uintptr_t)pf_module_state+0x750U)"
+      },
+      "10002788": {
+        "0x10010080": "((uintptr_t)pf_module_state+0x750U)"
+      },
+      "10002150": {
+        "0x10010080": "((uintptr_t)pf_module_state+0x750U)"
+      },
+      "10002354": {
+        "0x10010080": "((uintptr_t)pf_module_state+0x750U)"
+      },
+      "100028a0": {
+        "0x10010080": "((uintptr_t)pf_module_state+0x750U)"
+      },
+      "10001e8c": {
+        "0x10010080": "((uintptr_t)pf_module_state+0x750U)"
+      },
+      "1000dd94": {
+        "unique0x10000642 = auVar52;": "(void)auVar52;"
+      },
+      "1000db60": {
+        "      auVar6._4_12_ = in_q8._4_12_;\n      auVar6._0_4_ = *(undefined4 *)((int)output + 0xc);\n      auVar12 = VectorCopyLong(auVar6._0_8_,1,1);\n      auVar6 = VectorCopyLong(in_q8._12_8_,1,1);\n      auVar9._4_12_ = in_q9._4_12_;\n      auVar9._0_4_ = *(undefined4 *)output;\n      auVar14 = VectorCopyLong(auVar9._0_8_,1,1);\n      auVar8._4_4_ = in_q9._12_4_;\n      auVar8._0_4_ = *(undefined4 *)((int)output + 8);\n      auVar8._8_8_ = 0;\n      auVar15 = VectorCopyLong(in_q9._12_8_,1,1);\n      auVar10._4_12_ = SUB1612(auVar8 << 0x40,4);\n      auVar10._0_4_ = *(undefined4 *)((int)output + 0x10);\n      auVar8 = VectorCopyLong(auVar10._0_8_,1,1);\n      auVar13._4_12_ = auVar12._4_12_;\n      auVar13._0_4_ = *(undefined4 *)((int)output + 0x18);\n      auVar9 = VectorCopyLong(CONCAT44(auVar6._12_4_,*(undefined4 *)((int)output + 0x14)),1,1);\n      auVar10 = VectorCopyLong(auVar13._0_8_,1,1);\n      auVar11 = VectorCopyLong(CONCAT44(auVar6._12_4_,*(undefined4 *)((int)output + 0x1c)),1,1);\n      auVar7._8_8_ = SUB168((undefined1  [16])0x0,8);\n      auVar7._0_8_ = 0xff000000ff;\n      auVar8 = VectorCopyLong(auVar14._0_8_ ^ auVar6._0_8_ ^ auVar15._0_8_ ^ auVar12._0_8_ ^\n                              auVar8._0_8_ ^ auVar9._0_8_ ^ auVar10._0_8_ ^ auVar11._0_8_,2,1);\n      auVar11._8_8_ = DAT_1000dd88;\n      auVar11._0_8_ = DAT_1000dd80;\n      auVar7 = PFVectorShiftByLane(auVar8 & *(undefined1 (*) [16])(auVar7 << 0x40 | auVar7),auVar11,\n                                   4,1);\n      uVar5 = auVar7._0_8_ ^ CONCAT44(DAT_1000dd90,uVar4) ^ auVar7._8_8_;\n      uVar4 = (uint)uVar5 ^ (uint)(uVar5 >> 0x20);": "      /* Native NEON folds the eight little-endian entropy words by XOR. */\n      for (uint word = 0; word < 8; ++word) {\n        uint value;\n        __builtin_memcpy(&value, (unsigned char *)output + word * 4, 4);\n        uVar4 ^= value;\n      }"
+      },
+      "1000d2b4": {
+        ",local_7c,1)": ",PF_PART16(local_7c,0),1)"
+      },
+      "1000c230": {
+        "uVar5 = (uint)*pbVar3;": "uVar5 = (uint)*pbVar3;\n                  uVar8 = uVar5 + 7;"
+      }
+    },
+    "literal_data": {
+      "1000e9b0": "7f520e518c68059b",
+      "1000e9b8": "abd9831f19cde05b",
+      "1000e9c0": "67e6096a85ae67bb",
+      "1000e9c8": "72f36e3c3af54fa5",
+      "1000f920": "657870616e642033",
+      "1000f928": "322d62797465206b",
+      "1000dd80": "0000000008000000",
+      "1000dd88": "1000000018000000",
+      "1000dd90": "00000000",
+      "10005524": "00000000",
+      "10005348": "000000000000e043",
+      "100051c0": "182d4454fb210940",
+      "100051c8": "182d4454fb2119c0",
+      "100051d0": "182d4454fb2109c0",
+      "100051d8": "182d4454fb211940",
+      "100051e0": "00000000008086c0",
+      "10008c3c": "8c720000",
+      "10008c40": "3c000000",
+      "1000add0": "feff0000feff0000",
+      "1000add8": "feff0000feff0000",
+      "1000ade0": "daff0000feff0000",
+      "1000ade8": "feff0000feff0000",
+      "100058c8": "000080ff",
+      "100058c0": "ef39fafe422ee63f",
+      "10005468": "00000000",
+      "100055f8": "00000000",
+      "10005038": "000000000000f0ff",
+      "10005040": "ef39fafe422ee63f",
+      "10009650": "ef39fafe422e8640",
+      "10009648": "000000000000f07f",
+      "10009658": "51302dd5104987c0",
+      "10005a58": "182d4454fb210940",
+      "10005a60": "182d4454fb2119c0",
+      "10005a68": "182d4454fb2109c0",
+      "10005a70": "182d4454fb211940",
+      "10005a78": "00000000008086c0",
+      "100052c0": "000000000000e043",
+      "10008aac": "fc730000",
+      "10008ab0": "3c000000",
+      "10008b74": "44730000",
+      "10008b78": "3c000000",
+      "10009468": "ef39fafe422e8640",
+      "10009460": "000000000000f07f",
+      "10009470": "51302dd5104987c0",
+      "100089e4": "b4740000",
+      "100089e8": "3c000000",
+      "1000886c": "fc750000",
+      "10008870": "1c000000",
+      "10005784": "00000000",
+      "1000a530": "7f520e518c68059b",
+      "1000a538": "abd9831f19cde05b",
+      "1000a540": "67e6096a85ae67bb",
+      "1000a548": "72f36e3c3af54fa5",
+      "10005998": "182d4454fb210940",
+      "100059a0": "182d4454fb2119c0",
+      "100059a8": "182d4454fb2109c0",
+      "100059b0": "182d4454fb211940",
+      "100059b8": "0000000000005e40",
+      "100059c0": "0000000000b0b3c0",
+      "1000c170": "7f520e518c68059b",
+      "1000c178": "abd9831f19cde05b",
+      "1000c180": "67e6096a85ae67bb",
+      "1000c188": "72f36e3c3af54fa5",
+      "1000c830": "7f520e518c68059b",
+      "1000c838": "abd9831f19cde05b",
+      "1000c840": "67e6096a85ae67bb",
+      "1000c848": "72f36e3c3af54fa5",
+      "10009568": "ef39fafe422e8640",
+      "10009560": "000000000000f07f",
+      "10009570": "51302dd5104987c0",
+      "10005108": "182d4454fb210940",
+      "10005110": "182d4454fb2119c0",
+      "10005118": "182d4454fb2109c0",
+      "10005120": "182d4454fb211940",
+      "10005128": "0000000000005e40",
+      "10005130": "0000000000b0b3c0"
+    }
+  },
+  "reviewed_heap_contracts": {
+    "_wm_probe_heap_alloc": {
+      "address": "0x100024ac",
+      "declaration": "void *allocate(unsigned long size);"
+    },
+    "_wm_probe_heap_reset": {
+      "address": "0x10001b80",
+      "declaration": "void reset_heap(void);"
+    },
+    "_wm_probe_heap_free_bytes": {
+      "address": "0x100021e8",
+      "declaration": "unsigned int free_bytes(void);"
+    },
+    "_wm_probe_heap_total_bytes": {
+      "address": "0x10002354",
+      "declaration": "unsigned int total_bytes(void);"
+    },
+    "_wm_probe_heap_free_bytes64": {
+      "address": "0x10002298",
+      "declaration": "unsigned long long free_bytes64(void);"
+    },
+    "_wm_probe_heap_total_bytes64": {
+      "address": "0x100023fc",
+      "declaration": "unsigned long long total_bytes64(void);"
+    },
+    "_wm_probe_heap_add_region": {
+      "address": "0x10002150",
+      "declaration": "bool add_region(unsigned long address,unsigned long size);"
+    },
+    "_wm_probe_heap_add_regions": {
+      "address": "0x10001e8c",
+      "declaration": "bool add_regions(unsigned long *addresses,unsigned long *sizes,unsigned long count);"
+    },
+    "_wm_probe_heap_alloc_below": {
+      "address": "0x10002788",
+      "declaration": "void *alloc_below(unsigned long size,unsigned long limit);"
+    },
+    "_wm_probe_heap_alloc_range": {
+      "address": "0x10002810",
+      "declaration": "void *alloc_range(unsigned long size,unsigned long first,unsigned long last);"
+    },
+    "_wm_probe_heap_free": {
+      "address": "0x100028a0",
+      "declaration": "void release(void *pointer);"
+    },
+    "_wm_probe_heap_realloc": {
+      "address": "0x10002a88",
+      "declaration": "void *resize(void *pointer,unsigned long size);"
+    },
+    "_strcspn": {
+      "address": "0x10004a9c",
+      "declaration": "unsigned long reject_span(char *text,char *reject);"
+    }
+  },
+  "reviewed_field_vector_dead_store": "The decompiler emits a single assignment to an unused synthetic unique-space temporary; retain the source vector read without inventing an undeclared C variable.",
+  "reviewed_portable_primitive_carry": [
+    "_winter_tls_chacha20_poly1305_tag",
+    "_winter_tls_x25519"
+  ],
+  "reviewed_hmac_initial_words": {
+    "function": "1000e850",
+    "addresses": [
+      "1000e9b0",
+      "1000e9b8",
+      "1000e9c0",
+      "1000e9c8"
+    ],
+    "reason": "Retain the native SHA-256 initial-state words from inline literal data as typed C constants."
+  },
+  "reviewed_chacha_literal_words": {
+    "function": "1000f620",
+    "addresses": [
+      "1000f920",
+      "1000f928"
+    ],
+    "reason": "Retain the sixteen-byte ChaCha initial constant as typed data outside the native text addresses."
+  },
+  "reviewed_allocator_forwarding": {
+    "slots": [
+      "0x4c",
+      "0x50",
+      "0x54"
+    ],
+    "reason": "Native allocator tail calls preserve byte-count and pointer arguments through the WMAP wire table. Explicit call contracts retain those arguments in C."
+  },
+  "reviewed_entropy_vector_constants": {
+    "function": "1000db60",
+    "addresses": [
+      "1000dd80",
+      "1000dd88",
+      "1000dd90"
+    ],
+    "reason": "Retain the native entropy-fold lane shifts as typed C data."
+  },
+  "reviewed_entropy_lane_fold": {
+    "function": "1000db60",
+    "reason": "Recover the native NEON byte-widening and lane-shift reduction as an XOR of eight little-endian words; decompiler register slices crossed overwritten lanes."
+  },
+  "reviewed_protocol_inline_data": {
+    "addresses": {
+      "0x10005038": 8,
+      "0x10005040": 8,
+      "0x10005108": 8,
+      "0x10005110": 8,
+      "0x10005118": 8,
+      "0x10005120": 8,
+      "0x10005128": 8,
+      "0x10005130": 8,
+      "0x100051c0": 8,
+      "0x100051c8": 8,
+      "0x100051d0": 8,
+      "0x100051d8": 8,
+      "0x100051e0": 8,
+      "0x100052c0": 8,
+      "0x10005348": 8,
+      "0x10005468": 4,
+      "0x10005524": 4,
+      "0x100055f8": 4,
+      "0x10005784": 4,
+      "0x100058c0": 8,
+      "0x100058c8": 4,
+      "0x10005998": 8,
+      "0x100059a0": 8,
+      "0x100059a8": 8,
+      "0x100059b0": 8,
+      "0x100059b8": 8,
+      "0x100059c0": 8,
+      "0x10005a58": 8,
+      "0x10005a60": 8,
+      "0x10005a68": 8,
+      "0x10005a70": 8,
+      "0x10005a78": 8,
+      "0x1000886c": 4,
+      "0x10008870": 4,
+      "0x100089e4": 4,
+      "0x100089e8": 4,
+      "0x10008aac": 4,
+      "0x10008ab0": 4,
+      "0x10008b74": 4,
+      "0x10008b78": 4,
+      "0x10008c3c": 4,
+      "0x10008c40": 4,
+      "0x10009460": 8,
+      "0x10009468": 8,
+      "0x10009470": 8,
+      "0x10009560": 8,
+      "0x10009568": 8,
+      "0x10009570": 8,
+      "0x10009648": 8,
+      "0x10009650": 8,
+      "0x10009658": 8,
+      "0x1000a530": 8,
+      "0x1000a538": 8,
+      "0x1000a540": 8,
+      "0x1000a548": 8,
+      "0x1000add0": 8,
+      "0x1000add8": 8,
+      "0x1000ade0": 8,
+      "0x1000ade8": 8,
+      "0x1000c170": 8,
+      "0x1000c178": 8,
+      "0x1000c180": 8,
+      "0x1000c188": 8,
+      "0x1000c830": 8,
+      "0x1000c838": 8,
+      "0x1000c840": 8,
+      "0x1000c848": 8,
+      "0x1000dd80": 8,
+      "0x1000dd88": 8,
+      "0x1000dd90": 4,
+      "0x1000e9b0": 8,
+      "0x1000e9b8": 8,
+      "0x1000e9c0": 8,
+      "0x1000e9c8": 8,
+      "0x1000f920": 8,
+      "0x1000f928": 8
+    },
+    "reason": "Retain typed native inline data reads outside function entry points as C constants."
+  },
+  "reviewed_record_tag_vector_operand": "Compare the sixteen authentication bytes with the computed tag value, rather than the address of its stack array.",
+  "reviewed_certificate_length_cursor": "Retain the native certificate payload cursor on every nonzero three-byte certificate-length branch before hashing the leaf."
+}

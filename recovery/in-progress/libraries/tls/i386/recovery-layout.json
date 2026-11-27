@@ -1,0 +1,144 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268439424,
+  "text_end": 268490844,
+  "state_end": 268509184,
+  "translation": {
+    "pointer_bytes": 4,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 268490844,
+    "state_end": 268509184,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#define PF_NATIVE_X87 1",
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"x86_cpu.h\""
+    ],
+    "system_registers": {
+      "MXCSR": "rw"
+    },
+    "source_replacements": {}
+  },
+  "reviewed_heap_contracts": {
+    "_wm_probe_heap_alloc": {
+      "address": "0x10001720",
+      "declaration": "void *allocate(unsigned long size);"
+    },
+    "_wm_probe_heap_reset": {
+      "address": "0x10000f80",
+      "declaration": "void reset_heap(void);"
+    },
+    "_wm_probe_heap_free_bytes": {
+      "address": "0x10001530",
+      "declaration": "unsigned int free_bytes(void);"
+    },
+    "_wm_probe_heap_total_bytes": {
+      "address": "0x10001630",
+      "declaration": "unsigned int total_bytes(void);"
+    },
+    "_wm_probe_heap_free_bytes64": {
+      "address": "0x100015b0",
+      "declaration": "unsigned long long free_bytes64(void);"
+    },
+    "_wm_probe_heap_total_bytes64": {
+      "address": "0x100016a0",
+      "declaration": "unsigned long long total_bytes64(void);"
+    },
+    "_wm_probe_heap_add_region": {
+      "address": "0x100014b0",
+      "declaration": "bool add_region(unsigned long address,unsigned long size);"
+    },
+    "_wm_probe_heap_add_regions": {
+      "address": "0x10001200",
+      "declaration": "bool add_regions(unsigned long *addresses,unsigned long *sizes,unsigned long count);"
+    },
+    "_wm_probe_heap_alloc_below": {
+      "address": "0x100019c0",
+      "declaration": "void *alloc_below(unsigned long size,unsigned long limit);"
+    },
+    "_wm_probe_heap_alloc_range": {
+      "address": "0x10001a30",
+      "declaration": "void *alloc_range(unsigned long size,unsigned long first,unsigned long last);"
+    },
+    "_wm_probe_heap_free": {
+      "address": "0x10001aa0",
+      "declaration": "void release(void *pointer);"
+    },
+    "_wm_probe_heap_realloc": {
+      "address": "0x10001c30",
+      "declaration": "void *resize(void *pointer,unsigned long size);"
+    },
+    "_strcspn": {
+      "address": "0x10002f80",
+      "declaration": "unsigned long reject_span(char *text,char *reject);"
+    }
+  },
+  "reviewed_heap_private_contracts": {
+    "_wm_probe_heap_add_regions_locked": {
+      "address": "0x10001270",
+      "declaration": "bool add_locked(unsigned long *addresses,unsigned long *sizes,unsigned long count);",
+      "storage": "ECX,EDX,stack4",
+      "result": "EAX"
+    },
+    "_wm_probe_heap_append_region_excluding_application": {
+      "address": "0x10005340",
+      "declaration": "void append_region(unsigned long address,unsigned long size,void *tail);",
+      "storage": "ECX,EDX,stack4",
+      "result": ""
+    },
+    "_wm_probe_heap_alloc_bounded_locked": {
+      "address": "0x10001790",
+      "declaration": "void *allocate_locked(unsigned long size,unsigned long first,unsigned long last);",
+      "storage": "ECX,EDX,stack4",
+      "result": "EAX"
+    },
+    "_wm_probe_heap_split_prefix": {
+      "address": "0x100054e0",
+      "declaration": "void *split_prefix(void *chunk,unsigned long first);",
+      "storage": "ECX,EDX",
+      "result": "EAX"
+    },
+    "_wm_probe_heap_split": {
+      "address": "0x10005540",
+      "declaration": "bool split_chunk(void *chunk,unsigned long size);",
+      "storage": "ECX,EDX",
+      "result": "EAX"
+    },
+    "_wm_probe_heap_free_locked": {
+      "address": "0x10001b10",
+      "declaration": "void free_locked(void *pointer);",
+      "storage": "ECX",
+      "result": ""
+    }
+  },
+  "reviewed_x87_exponential_argument": "Native expl loads a ten-byte argument from a twelve-byte i386 stack slot and returns through the full ST0 register.",
+  "reviewed_portable_primitive_carry": [
+    "_winter_tls_chacha20_poly1305_tag",
+    "_winter_tls_x25519"
+  ],
+  "reviewed_allocator_forwarding": {
+    "slots": [
+      "0x4c",
+      "0x50",
+      "0x54"
+    ],
+    "reason": "Native allocator tail calls preserve byte-count and pointer arguments through the WMAP wire table. Explicit call contracts retain those arguments in C."
+  },
+  "reviewed_protocol_register_arguments": {
+    "signatures": [
+      "10008cd0\tundefined4 protocol(char * in_ECX,uint in_EDX,void *param_1,char *param_2,ulong param_3);\tECX,EDX,stack4,stack8,stack12\tEAX",
+      "1000aa50\tundefined4 protocol(int in_ECX,void * in_EDX,void *param_1,void *param_2,char *param_3,ulong param_4);\tECX,EDX,stack4,stack8,stack12,stack16\tEAX",
+      "1000b5c0\tundefined4 protocol(undefined4 * in_ECX,void * in_EDX,undefined1 param_1,void *param_2,ulong param_3,char *param_4,ulong param_5);\tECX,EDX,stack4,stack8,stack12,stack16,stack20\tEAX",
+      "1000b980\tbyte protocol(undefined4 * in_ECX,void * in_EDX,byte *param_1,byte *param_2,uint param_3,uint *param_4,char *param_5, ulong param_6);\tECX,EDX,stack4,stack8,stack12,stack16,stack20,stack24\tEAX",
+      "1000c1c0\tvoid protocol(uint * in_ECX,uint in_EDX,int param_1);\tECX,EDX,stack4\t",
+      "1000c4c0\tvoid protocol(uint * in_ECX);\tECX\t",
+      "10008c80\tvoid program_free(void *pointer);\tECX\t"
+    ],
+    "reason": "Native i386 internal TLS helpers pass the leading operands through ECX and EDX. Preserve those register inputs and the remaining stack arguments in exported C."
+  }
+}

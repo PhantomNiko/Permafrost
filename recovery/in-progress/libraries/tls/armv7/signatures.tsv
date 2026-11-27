@@ -1,0 +1,40 @@
+100034bc	void recovered_100034bc(void *pointer);
+1000350c	void * recovered_1000350c(void *pointer,unsigned long size);
+10006d08	int recovered_10006d08(char *buffer,unsigned long capacity,char *format,...);
+10003468	void * recovered_10003468(unsigned long size);
+1000a550	void recovered_1000a550(void *context,void *data,unsigned long size);
+1000aab0	void recovered_1000aab0(void *output,void *scalar,void *point);
+1000c030	void recovered_1000c030(void *salt,void *input,void *output);
+1000e850	void recovered_1000e850(void *inner,void *outer,void *key);
+1000e9d0	void recovered_1000e9d0(void *context,void *output);
+1000f620	void recovered_1000f620(void *key,uint counter,void *nonce,void *output);
+1000431c	int recovered_1000431c(void *left,void *right,unsigned long count);
+10003560	void * recovered_10003560(void *destination,void *source,unsigned long count);
+100037e4	void * recovered_100037e4(void *destination,void *source,unsigned long count);
+10003cf0	void * recovered_10003cf0(void *destination,int value,unsigned long count);
+1000464c	int recovered_1000464c(char *left,char *right);
+10004624	unsigned long recovered_10004624(char *text);
+100085b4	int recovered_100085b4(char *left,char *right,unsigned long count);
+10009f00	int recovered_10009f00(void *context,char *error,unsigned long capacity);
+10009db0	void recovered_10009db0(void *context,void *io,char *hostname);
+1000db08	int recovered_1000db08(void *context,void *output);
+1000d188	int recovered_1000d188(void *context,void *data,unsigned long size,unsigned long *read,char *error,unsigned long capacity);
+1000cd90	int recovered_1000cd90(void *context,void *data,unsigned long size,char *error,unsigned long capacity);
+1000db60	void recovered_1000db60(void *context,void *output);
+1000eb08	void recovered_1000eb08(void *secret,char *label,void *context,unsigned long context_length,void *output,unsigned long output_length);
+1000c0d0	void recovered_1000c0d0(void *secret,char *label,void *hash,void *output);
+1000c190	void recovered_1000c190(void *output,void *secret);
+1000edb8	void recovered_1000edb8(void *key,void *nonce,void *associated,void *ciphertext,unsigned long size,void *output);
+1000350c	void * recovered_1000350c(void *pointer,unsigned long size);
+10006d08	int recovered_10006d08(char *buffer,unsigned long capacity,char *format,...);
+10003468	void * recovered_10003468(unsigned long size);
+100034bc	void recovered_100034bc(void *pointer);
+10005208	long long recovered_10005208(double value);	r1:r0	r1,r0	__stdcall_softfp
+100052c8	unsigned long long recovered_100052c8(double value);	r1:r0	r1,r0	__stdcall_softfp
+10005398	double recovered_10005398(long long value);	r1:r0	r1,r0	__stdcall_softfp
+10005350	double recovered_10005350(unsigned long long value);	r1:r0	r1,r0	__stdcall_softfp
+10009390	double recovered_10009390(double value);	r1:r0	r1,r0	__stdcall_softfp
+10009478	float recovered_10009478(float value);	r0	r0	__stdcall_softfp
+10009578	double recovered_10009578(double value);	r1:r0	r1,r0	__stdcall_softfp
+10009660	double recovered_10009660(long end,long start);	r0,r1	r1,r0	__stdcall_softfp
+1000a7f0	void recovered_1000a7f0(void *pointer);

@@ -1,0 +1,39 @@
+100024c0	void recovered_100024c0(void *pointer);
+10002510	void * recovered_10002510(void *pointer,unsigned long size);
+10005310	int recovered_10005310(char *buffer,unsigned long capacity,char *format,...);
+10002470	void * recovered_10002470(unsigned long size);
+100089d0	void recovered_100089d0(void *context,void *data,unsigned long size);	ECX,EDX,stack4
+10008eb0	void recovered_10008eb0(void *output,void *scalar,void *point);	ECX,EDX,stack4
+1000a8a0	void recovered_1000a8a0(void *salt,void *input,void *output);	ECX,EDX,stack4
+1000c720	void recovered_1000c720(void *inner,void *outer,void *key);	ECX,EDX,stack4
+1000c860	void recovered_1000c860(void *context,void *output);	ECX,EDX
+1000d4d0	void recovered_1000d4d0(void *key,uint counter,void *nonce,void *output);	ECX,EDX,stack4,stack8
+10002a20	int recovered_10002a20(void *left,void *right,unsigned long count);
+10002560	void * recovered_10002560(void *destination,void *source,unsigned long count);
+10002620	void * recovered_10002620(void *destination,void *source,unsigned long count);
+100027f0	void * recovered_100027f0(void *destination,int value,unsigned long count);
+10002cf0	int recovered_10002cf0(char *left,char *right);
+10002cb0	unsigned long recovered_10002cb0(char *text);
+10006a80	int recovered_10006a80(char *left,char *right,unsigned long count);
+10008360	int recovered_10008360(void *context,char *error,unsigned long capacity);
+10008240	void recovered_10008240(void *context,void *io,char *hostname);
+1000c060	int recovered_1000c060(void *context,void *output);
+1000b880	int recovered_1000b880(void *context,void *data,unsigned long size,unsigned long *read,char *error,unsigned long capacity);
+1000b540	int recovered_1000b540(void *context,void *data,unsigned long size,char *error,unsigned long capacity);
+1000c0b0	void recovered_1000c0b0(void *context,void *output);	ECX,EDX
+1000c940	void recovered_1000c940(void *secret,char *label,void *context,unsigned long context_length,void *output,unsigned long output_length);	ECX,EDX,stack4,stack8,stack12,stack16
+1000a930	void recovered_1000a930(void *secret,char *label,void *hash,void *output);	ECX,EDX,stack4,stack8
+1000a9d0	void recovered_1000a9d0(void *output,void *secret);	ECX,EDX
+1000cbf0	void recovered_1000cbf0(void *key,void *nonce,void *associated,void *ciphertext,unsigned long size,void *output);	ECX,EDX,stack4,stack8,stack12,stack16
+10005310	int recovered_10005310(char *buffer,unsigned long capacity,char *format,...);
+100024c0	void recovered_100024c0(void *pointer);
+10002510	void * recovered_10002510(void *pointer,unsigned long size);
+10002470	void * recovered_10002470(unsigned long size);
+100037c0	long long recovered_100037c0(double value);
+10003880	unsigned long long recovered_10003880(double value);
+10003980	double recovered_10003980(long long value);
+10003910	double recovered_10003910(unsigned long long value);
+10007870	double recovered_10007870(double value);
+10007960	float recovered_10007960(float value);
+10007a60	long double recovered_10007a60(long double value);
+10007b50	double recovered_10007b50(long end,long start);

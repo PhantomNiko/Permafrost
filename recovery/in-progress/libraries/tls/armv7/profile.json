@@ -1,0 +1,1537 @@
+{
+  "module": "WinterTLS",
+  "architecture": "armv7",
+  "version": "1.1",
+  "install_name": "/lib/WinterTLS.dylib",
+  "functions": {
+    "0x19c0": "recovered_100019c0",
+    "0x1a10": "recovered_10001a10",
+    "0x1a48": "recovered_10001a48",
+    "0x1ab8": "recovered_10001ab8",
+    "0x1b24": "recovered_10001b24",
+    "0x1b34": "recovered_10001b34",
+    "0x1b44": "recovered_10001b44",
+    "0x1b60": "recovered_10001b60",
+    "0x1b80": "recovered_10001b80",
+    "0x1c0c": "recovered_10001c0c",
+    "0x1e8c": "recovered_10001e8c",
+    "0x1f08": "recovered_10001f08",
+    "0x2150": "recovered_10002150",
+    "0x21e8": "recovered_100021e8",
+    "0x2298": "recovered_10002298",
+    "0x2354": "recovered_10002354",
+    "0x23fc": "recovered_100023fc",
+    "0x24ac": "recovered_100024ac",
+    "0x2530": "recovered_10002530",
+    "0x2788": "recovered_10002788",
+    "0x2810": "recovered_10002810",
+    "0x28a0": "recovered_100028a0",
+    "0x291c": "recovered_1000291c",
+    "0x2a88": "recovered_10002a88",
+    "0x3028": "recovered_10003028",
+    "0x307c": "recovered_1000307c",
+    "0x30d0": "recovered_100030d0",
+    "0x311c": "recovered_1000311c",
+    "0x3200": "recovered_10003200",
+    "0x3280": "recovered_10003280",
+    "0x3398": "recovered_10003398",
+    "0x3454": "recovered_10003454",
+    "0x345c": "recovered_1000345c",
+    "0x3468": "recovered_10003468",
+    "0x34bc": "recovered_100034bc",
+    "0x350c": "recovered_1000350c",
+    "0x3560": "recovered_10003560",
+    "0x37e4": "recovered_100037e4",
+    "0x3cf0": "recovered_10003cf0",
+    "0x3ef0": "recovered_10003ef0",
+    "0x40ec": "recovered_100040ec",
+    "0x42e8": "recovered_100042e8",
+    "0x431c": "recovered_1000431c",
+    "0x4514": "recovered_10004514",
+    "0x4564": "recovered_10004564",
+    "0x4578": "recovered_10004578",
+    "0x458c": "recovered_1000458c",
+    "0x45a4": "recovered_100045a4",
+    "0x45d0": "recovered_100045d0",
+    "0x45f0": "recovered_100045f0",
+    "0x4604": "recovered_10004604",
+    "0x4614": "recovered_10004614",
+    "0x4624": "recovered_10004624",
+    "0x464c": "recovered_1000464c",
+    "0x4690": "recovered_10004690",
+    "0x46d4": "recovered_100046d4",
+    "0x46f0": "recovered_100046f0",
+    "0x4a04": "recovered_10004a04",
+    "0x4a38": "recovered_10004a38",
+    "0x4a9c": "recovered_10004a9c",
+    "0x4b04": "recovered_10004b04",
+    "0x4b64": "recovered_10004b64",
+    "0x4bc8": "recovered_10004bc8",
+    "0x4bd8": "recovered_10004bd8",
+    "0x4be8": "recovered_10004be8",
+    "0x4c98": "recovered_10004c98",
+    "0x4cdc": "recovered_10004cdc",
+    "0x4d94": "recovered_10004d94",
+    "0x4dcc": "recovered_10004dcc",
+    "0x4e4c": "recovered_10004e4c",
+    "0x4e7c": "recovered_10004e7c",
+    "0x4ec0": "recovered_10004ec0",
+    "0x4f08": "recovered_10004f08",
+    "0x5048": "recovered_10005048",
+    "0x5078": "recovered_10005078",
+    "0x5138": "recovered_10005138",
+    "0x51e8": "recovered_100051e8",
+    "0x5208": "recovered_10005208",
+    "0x52c8": "recovered_100052c8",
+    "0x5350": "recovered_10005350",
+    "0x5398": "recovered_10005398",
+    "0x5428": "recovered_10005428",
+    "0x546c": "recovered_1000546c",
+    "0x5528": "recovered_10005528",
+    "0x5574": "recovered_10005574",
+    "0x55fc": "recovered_100055fc",
+    "0x5634": "recovered_10005634",
+    "0x5680": "recovered_10005680",
+    "0x56d4": "recovered_100056d4",
+    "0x5730": "recovered_10005730",
+    "0x5788": "recovered_10005788",
+    "0x58cc": "recovered_100058cc",
+    "0x5900": "recovered_10005900",
+    "0x59c8": "recovered_100059c8",
+    "0x5a80": "recovered_10005a80",
+    "0x5a9c": "recovered_10005a9c",
+    "0x5bf0": "recovered_10005bf0",
+    "0x5d50": "recovered_10005d50",
+    "0x5f24": "recovered_10005f24",
+    "0x5f40": "recovered_10005f40",
+    "0x6d08": "recovered_10006d08",
+    "0x6d38": "recovered_10006d38",
+    "0x6f38": "recovered_10006f38",
+    "0x6fbc": "recovered_10006fbc",
+    "0x701c": "recovered_1000701c",
+    "0x7200": "recovered_10007200",
+    "0x72c0": "recovered_100072c0",
+    "0x737c": "recovered_1000737c",
+    "0x73d4": "recovered_100073d4",
+    "0x7420": "recovered_10007420",
+    "0x746c": "recovered_1000746c",
+    "0x75c0": "recovered_100075c0",
+    "0x75c8": "recovered_100075c8",
+    "0x75cc": "recovered_100075cc",
+    "0x75d4": "recovered_100075d4",
+    "0x7958": "recovered_10007958",
+    "0x7a58": "recovered_10007a58",
+    "0x7b50": "recovered_10007b50",
+    "0x7c7c": "recovered_10007c7c",
+    "0x7e7c": "recovered_10007e7c",
+    "0x7ff4": "recovered_10007ff4",
+    "0x80a4": "recovered_100080a4",
+    "0x80cc": "recovered_100080cc",
+    "0x81a4": "recovered_100081a4",
+    "0x81b4": "recovered_100081b4",
+    "0x81c4": "recovered_100081c4",
+    "0x81e0": "recovered_100081e0",
+    "0x8204": "recovered_10008204",
+    "0x8294": "recovered_10008294",
+    "0x8408": "recovered_10008408",
+    "0x8508": "recovered_10008508",
+    "0x8590": "recovered_10008590",
+    "0x8598": "recovered_10008598",
+    "0x859c": "recovered_1000859c",
+    "0x85a4": "recovered_100085a4",
+    "0x85ac": "recovered_100085ac",
+    "0x85b4": "recovered_100085b4",
+    "0x85f8": "recovered_100085f8",
+    "0x86f8": "recovered_100086f8",
+    "0x8700": "recovered_10008700",
+    "0x8708": "recovered_10008708",
+    "0x8730": "recovered_10008730",
+    "0x8740": "recovered_10008740",
+    "0x8790": "recovered_10008790",
+    "0x87e8": "recovered_100087e8",
+    "0x8874": "recovered_10008874",
+    "0x887c": "recovered_1000887c",
+    "0x888c": "recovered_1000888c",
+    "0x88cc": "recovered_100088cc",
+    "0x88f8": "recovered_100088f8",
+    "0x8924": "recovered_10008924",
+    "0x89ec": "recovered_100089ec",
+    "0x8ab4": "recovered_10008ab4",
+    "0x8b7c": "recovered_10008b7c",
+    "0x8c44": "recovered_10008c44",
+    "0x8c4c": "recovered_10008c4c",
+    "0x8c5c": "recovered_10008c5c",
+    "0x8c6c": "recovered_10008c6c",
+    "0x8c70": "recovered_10008c70",
+    "0x8d7c": "recovered_10008d7c",
+    "0x8de0": "recovered_10008de0",
+    "0x8e1c": "recovered_10008e1c",
+    "0x8ed4": "recovered_10008ed4",
+    "0x8efc": "recovered_10008efc",
+    "0x8f90": "recovered_10008f90",
+    "0x8fc8": "recovered_10008fc8",
+    "0x8fec": "recovered_10008fec",
+    "0x9034": "recovered_10009034",
+    "0x9040": "recovered_10009040",
+    "0x904c": "recovered_1000904c",
+    "0x90bc": "recovered_100090bc",
+    "0x917c": "recovered_1000917c",
+    "0x9188": "recovered_10009188",
+    "0x9190": "recovered_10009190",
+    "0x919c": "recovered_1000919c",
+    "0x9290": "recovered_10009290",
+    "0x9294": "recovered_10009294",
+    "0x929c": "recovered_1000929c",
+    "0x92b0": "recovered_100092b0",
+    "0x92f0": "recovered_100092f0",
+    "0x931c": "recovered_1000931c",
+    "0x9338": "recovered_10009338",
+    "0x9354": "recovered_10009354",
+    "0x9370": "recovered_10009370",
+    "0x9390": "recovered_10009390",
+    "0x9478": "recovered_10009478",
+    "0x9578": "recovered_10009578",
+    "0x9660": "recovered_10009660",
+    "0x967c": "recovered_1000967c",
+    "0x96d4": "recovered_100096d4",
+    "0x984c": "recovered_1000984c",
+    "0x9850": "recovered_10009850",
+    "0x9c04": "recovered_10009c04",
+    "0x9da0": "recovered_10009da0",
+    "0x9db0": "recovered_10009db0",
+    "0x9f00": "recovered_10009f00",
+    "0xa550": "recovered_1000a550",
+    "0xa7f0": "recovered_1000a7f0",
+    "0xa840": "recovered_1000a840",
+    "0xaab0": "recovered_1000aab0",
+    "0xc030": "recovered_1000c030",
+    "0xc0d0": "recovered_1000c0d0",
+    "0xc190": "recovered_1000c190",
+    "0xc230": "recovered_1000c230",
+    "0xcd90": "recovered_1000cd90",
+    "0xce08": "recovered_1000ce08",
+    "0xd188": "recovered_1000d188",
+    "0xd2b4": "recovered_1000d2b4",
+    "0xdb08": "recovered_1000db08",
+    "0xdb60": "recovered_1000db60",
+    "0xdd94": "recovered_1000dd94",
+    "0xe528": "recovered_1000e528",
+    "0xe850": "recovered_1000e850",
+    "0xe9d0": "recovered_1000e9d0",
+    "0xeb08": "recovered_1000eb08",
+    "0xedb8": "recovered_1000edb8",
+    "0xf620": "recovered_1000f620"
+  },
+  "exports": [
+    {
+      "name": "__Unwind_Resume",
+      "address": 37264,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "__Unwind_SjLj_ForcedUnwind",
+      "address": 36928,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "__Unwind_SjLj_RaiseException",
+      "address": 36916,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "__Unwind_SjLj_Register",
+      "address": 36808,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "__Unwind_SjLj_Resume",
+      "address": 36940,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "__Unwind_SjLj_Resume_or_Rethrow",
+      "address": 37244,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "__Unwind_SjLj_Unregister",
+      "address": 36844,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "__ZSt7nothrow",
+      "address": 65116,
+      "section": 5,
+      "weak": false
+    },
+    {
+      "name": "__ZSt9terminatev",
+      "address": 34792,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "__ZTVN10__cxxabiv117__class_type_infoE",
+      "address": 65608,
+      "section": 9,
+      "weak": false
+    },
+    {
+      "name": "__ZTVN10__cxxabiv120__si_class_type_infoE",
+      "address": 65624,
+      "section": 9,
+      "weak": false
+    },
+    {
+      "name": "__ZTVN10__cxxabiv121__vmi_class_type_infoE",
+      "address": 65640,
+      "section": 9,
+      "weak": false
+    },
+    {
+      "name": "__ZdaPv",
+      "address": 35308,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "__ZdaPvm",
+      "address": 35708,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "__ZdlPv",
+      "address": 35108,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "__ZdlPvm",
+      "address": 35508,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "__Znam",
+      "address": 35064,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "__Znwm",
+      "address": 35020,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___ashldi3",
+      "address": 12328,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___ashrdi3",
+      "address": 12496,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___bzero",
+      "address": 16620,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___cxa_allocate_exception",
+      "address": 35952,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___cxa_atexit",
+      "address": 35908,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___cxa_begin_catch",
+      "address": 34956,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___cxa_end_catch",
+      "address": 36380,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___cxa_free_exception",
+      "address": 36220,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___cxa_guard_abort",
+      "address": 35948,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___cxa_guard_acquire",
+      "address": 35916,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___cxa_guard_release",
+      "address": 35932,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___cxa_pure_virtual",
+      "address": 37520,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___cxa_rethrow",
+      "address": 36752,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___cxa_throw",
+      "address": 36564,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___divdi3",
+      "address": 12928,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___divsi3",
+      "address": 6728,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___dynamic_cast",
+      "address": 37276,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___fixdfdi",
+      "address": 21000,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___fixsfdi",
+      "address": 6964,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixunsdfdi",
+      "address": 21192,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___fixunssfdi",
+      "address": 6948,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatdidf",
+      "address": 21400,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___floatdisf",
+      "address": 7008,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatundidf",
+      "address": 21328,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___floatundisf",
+      "address": 6980,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___gxx_personality_sj0",
+      "address": 34932,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___gxx_personality_v0",
+      "address": 37256,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___lshrdi3",
+      "address": 12412,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___moddi3",
+      "address": 13208,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___modsi3",
+      "address": 6840,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___udivdi3",
+      "address": 12572,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___udivsi3",
+      "address": 6592,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___umoddi3",
+      "address": 12800,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "___umodsi3",
+      "address": 6672,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "__tlv_bootstrap",
+      "address": 37524,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_abort",
+      "address": 13396,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_abs",
+      "address": 13404,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_bzero",
+      "address": 16112,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_ceil",
+      "address": 20092,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_ceilf",
+      "address": 22068,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_clock",
+      "address": 34568,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_cos",
+      "address": 20792,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_cosf",
+      "address": 22984,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_difftime",
+      "address": 38496,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_exp",
+      "address": 37776,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_expf",
+      "address": 38008,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_expl",
+      "address": 38264,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_fabs",
+      "address": 20968,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_fabsf",
+      "address": 23168,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_floor",
+      "address": 20044,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_floorf",
+      "address": 22012,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_fmod",
+      "address": 19860,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_fmodf",
+      "address": 21544,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_free",
+      "address": 13500,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_frexp",
+      "address": 19676,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_frexpf",
+      "address": 21612,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_getenv",
+      "address": 34552,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_isalnum",
+      "address": 17828,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_isalpha",
+      "address": 17804,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_isblank",
+      "address": 17872,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_isdigit",
+      "address": 37532,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_isfinite",
+      "address": 37744,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_islower",
+      "address": 17764,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_isprint",
+      "address": 17904,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_isspace",
+      "address": 37552,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_isupper",
+      "address": 17784,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_isxdigit",
+      "address": 37616,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_ldexp",
+      "address": 19608,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_ldexpf",
+      "address": 21800,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_llround",
+      "address": 20552,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_localeconv",
+      "address": 19416,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_log",
+      "address": 20232,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_logf",
+      "address": 22408,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_longjmp",
+      "address": 34704,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_lround",
+      "address": 22732,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_malloc",
+      "address": 13416,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_memchr",
+      "address": 17128,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_memcmp",
+      "address": 17180,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_memcpy",
+      "address": 13664,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_memmove",
+      "address": 14308,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_memset",
+      "address": 15600,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_pow",
+      "address": 19916,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_powf",
+      "address": 21876,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_realloc",
+      "address": 13580,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_round",
+      "address": 38524,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_setjmp",
+      "address": 34624,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_setlocale",
+      "address": 19400,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_sin",
+      "address": 20600,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_sinf",
+      "address": 22784,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_snprintf",
+      "address": 27912,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_sqrt",
+      "address": 20160,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_sqrtf",
+      "address": 22320,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_stderr",
+      "address": 65604,
+      "section": 9,
+      "weak": false
+    },
+    {
+      "name": "_stdin",
+      "address": 65596,
+      "section": 9,
+      "weak": false
+    },
+    {
+      "name": "_stdout",
+      "address": 65600,
+      "section": 9,
+      "weak": false
+    },
+    {
+      "name": "_strchr",
+      "address": 18948,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strcmp",
+      "address": 17996,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strcoll",
+      "address": 18064,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strcpy",
+      "address": 18132,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strcspn",
+      "address": 19100,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strdup",
+      "address": 18160,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strerror",
+      "address": 34296,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strlen",
+      "address": 17956,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strncmp",
+      "address": 34228,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strpbrk",
+      "address": 19204,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strspn",
+      "address": 19000,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strstr",
+      "address": 19300,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strtod",
+      "address": 23888,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strtof",
+      "address": 24356,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strtol",
+      "address": 23196,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strtoll",
+      "address": 38988,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strtoul",
+      "address": 23536,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_strtoull",
+      "address": 38612,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_system",
+      "address": 34560,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_time",
+      "address": 19432,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_tolower",
+      "address": 17924,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_toupper",
+      "address": 17940,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_trunc",
+      "address": 22144,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_truncf",
+      "address": 22228,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_vsnprintf",
+      "address": 24384,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winter_tls_client_handshake",
+      "address": 40704,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winter_tls_client_init",
+      "address": 40368,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winter_tls_leaf_sha256",
+      "address": 56072,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winter_tls_read",
+      "address": 53640,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winter_tls_version",
+      "address": 40352,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winter_tls_write",
+      "address": 52624,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_sjlj_jump",
+      "address": 34608,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_errno",
+      "address": 65592,
+      "section": 9,
+      "weak": false
+    },
+    {
+      "name": "_wm_lua_flush_output",
+      "address": 29376,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_lua_readline",
+      "address": 29804,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_lua_show_banner",
+      "address": 29652,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_lua_show_help",
+      "address": 29728,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_lua_write",
+      "address": 28700,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_lua_write_errorf",
+      "address": 29564,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_lua_writeline",
+      "address": 29184,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_math_isfinite",
+      "address": 37660,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_math_isfinitef",
+      "address": 37688,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_math_isfinitel",
+      "address": 37716,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_probe_heap_add_region",
+      "address": 8528,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_probe_heap_add_regions",
+      "address": 7820,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_probe_heap_alloc",
+      "address": 9388,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_probe_heap_alloc_below",
+      "address": 10120,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_probe_heap_alloc_range",
+      "address": 10256,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_probe_heap_free",
+      "address": 10400,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_probe_heap_free_bytes",
+      "address": 8680,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_probe_heap_free_bytes64",
+      "address": 8856,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_probe_heap_realloc",
+      "address": 10888,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_probe_heap_reset",
+      "address": 7040,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_probe_heap_total_bytes",
+      "address": 9044,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wm_probe_heap_total_bytes64",
+      "address": 9212,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_clear_virtual_files",
+      "address": 34200,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_clearerr",
+      "address": 33220,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_export_image",
+      "address": 34220,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_fclose",
+      "address": 31320,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_feof",
+      "address": 33188,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_ferror",
+      "address": 33204,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_fflush",
+      "address": 32972,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_fopen",
+      "address": 30164,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_fread",
+      "address": 31568,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_freopen",
+      "address": 31064,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_fseek",
+      "address": 32756,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_ftell",
+      "address": 32932,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_fwrite",
+      "address": 32380,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_getc",
+      "address": 31868,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_image_data",
+      "address": 34204,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_image_size",
+      "address": 34212,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_is_mounted",
+      "address": 30156,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_mount_image",
+      "address": 30144,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_read_entire_file",
+      "address": 33800,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_register_virtual_file",
+      "address": 34192,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_remove",
+      "address": 33284,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_rename",
+      "address": 33428,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_ungetc",
+      "address": 33248,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_unmount",
+      "address": 30152,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_wmfs_write_entire_file",
+      "address": 34056,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 1744,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x19c0"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 1752,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 44
+      },
+      "tag": 1
+    },
+    {
+      "offset": 1756,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 46
+      },
+      "tag": 1
+    },
+    {
+      "offset": 1760,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 46
+      },
+      "tag": 1
+    },
+    {
+      "offset": 1764,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 46
+      },
+      "tag": 1
+    },
+    {
+      "offset": 1768,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 46
+      },
+      "tag": 1
+    },
+    {
+      "offset": 1772,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 44
+      },
+      "tag": 1
+    },
+    {
+      "offset": 1776,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 46
+      },
+      "tag": 1
+    },
+    {
+      "offset": 1780,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 46
+      },
+      "tag": 1
+    },
+    {
+      "offset": 1784,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 46
+      },
+      "tag": 1
+    },
+    {
+      "offset": 1788,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 46
+      },
+      "tag": 1
+    },
+    {
+      "offset": 18132,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 1800
+      },
+      "tag": 0
+    }
+  ],
+  "data_exports": [
+    {
+      "name": "__ZSt7nothrow",
+      "offset": 1324,
+      "weak": false
+    },
+    {
+      "name": "__ZTVN10__cxxabiv117__class_type_infoE",
+      "offset": 1816,
+      "weak": false
+    },
+    {
+      "name": "__ZTVN10__cxxabiv120__si_class_type_infoE",
+      "offset": 1832,
+      "weak": false
+    },
+    {
+      "name": "__ZTVN10__cxxabiv121__vmi_class_type_infoE",
+      "offset": 1848,
+      "weak": false
+    },
+    {
+      "name": "_stderr",
+      "offset": 1812,
+      "weak": false
+    },
+    {
+      "name": "_stdin",
+      "offset": 1804,
+      "weak": false
+    },
+    {
+      "name": "_stdout",
+      "offset": 1808,
+      "weak": false
+    },
+    {
+      "name": "_wm_errno",
+      "offset": 1800,
+      "weak": false
+    }
+  ]
+}
