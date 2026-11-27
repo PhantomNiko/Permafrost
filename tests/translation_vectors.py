@@ -55,6 +55,12 @@ uint128 probe(unsigned byte_index,unsigned byte_value) {
  auVar1[byte_index]=(unsigned char)byte_value;
  return auVar1;
 }
+uint128 register_assignment(uint128 value) {
+  undefined1 in_XMM2 [16];
+ in_XMM2=value;
+ in_XMM2[5]=0x91;
+ return in_XMM2;
+}
 uintptr_t address(unsigned index) {
  undefined1 (*pointer) [16];
  pointer=(undefined1 (*) [16])(uintptr_t)0x1000;
@@ -121,6 +127,7 @@ uintptr_t cast_row_address(void *memory,unsigned offset){
 int main(void) {
  if(cast_row_address((void *)0x12340,7)!=0x12347)return 31;
  uint128 value=((uint128)0x12345678<<64)|0xabcdef;
+ if(register_assignment(value)!=((value & ~((uint128)255<<40)) | ((uint128)0x91<<40)))return 32;
  if(copy_word(0x123456789abcdef0ULL)!=0x123456789abcdef0ULL)return 4;
  if(copy_tag(0x89abcdefU)!=0x89abcdefU)return 13;
  if(register_pointer(0x12345678)!=0x12345678)return 5;

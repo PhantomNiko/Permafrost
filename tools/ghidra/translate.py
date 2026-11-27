@@ -883,8 +883,8 @@ def rewrite_integer_vectors(source):
                   r'((uint8_t *)(\1))[\2]',source)
     source=rewrite_vector_pointers(source,16,'uint128')
     source=rewrite_vector_pointers(source,32,'uint256')
-    names=re.findall(r'undefined1 (auVar\d+) \[16\];',source)
-    source=re.sub(r'undefined1 (auVar\d+) \[16\];',r'uint128 \1;',source)
+    names=re.findall(r'undefined1 ((?:auVar\d+|in_XMM\d+)) \[16\];',source)
+    source=re.sub(r'undefined1 ((?:auVar\d+|in_XMM\d+)) \[16\];',r'uint128 \1;',source)
     for name in names:
         source=re.sub(r'\b'+name+r'\s*\[',r'((uint8_t *)(void *)&'+name+')[',source)
     source=re.sub(r'undefined1\s+\[16\]\s+((?:recovered_|FUN_)[0-9a-f]+)',r'uint128 \1',source)
@@ -894,7 +894,7 @@ def rewrite_integer_vectors(source):
     widths={'byte':1,'uchar':1,'undefined1':1,'undefined2':2,
             'undefined4':4,'undefined8':8,'uint':4,'int':4,
             'uint32_t':4,'int32_t':4,'uint64_t':8,'int64_t':8}
-    vectors=re.findall(r'\buint128\s+(auVar\d+)\b',source)
+    vectors=re.findall(r'\buint128\s+((?:auVar\d+|in_XMM\d+))\b',source)
     for name in vectors:
         # Ghidra represents a duplicated 64-bit NEON operand by casting the
         # concatenated register value to an array. It does not read memory
