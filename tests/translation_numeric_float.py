@@ -97,6 +97,7 @@ uint byte_word_slot(float *slots,void *word) {
  slots[1] = (float)(uint)*(byte *)word;
  return (uint)slots[1];
 }
+uint typed_word_slot(void *word) { return (uint)*(float *)word; }
 ''', pointer_slots=True)
     functions+=rewrite_float_slot_views('''
 uint numeric_cast_pointer(float *slots) { return (uint)slots[2]; }
@@ -114,6 +115,7 @@ int main(void) {
  if(numeric_cast_pointer(mixed_slots)!=1)return 30;
  byte raw_byte=127;
  if(byte_word_slot(mixed_slots,&raw_byte)!=127)return 31;
+ if(typed_word_slot(&raw_word)!=raw_word)return 32;
  if((uintptr_t)product_slot(1.5f,3)!=pf_float_bits(4.5f))return 16;
  if((uintptr_t)quotient_slot(-1.5f,2.0f)!=pf_float_bits(-0.75f))return 17;
  if(pointer_parameter((void *)(uintptr_t)0x3fc00000)!=1.5f)return 18;

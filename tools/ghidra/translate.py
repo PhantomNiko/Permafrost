@@ -554,6 +554,11 @@ def rewrite_float_slot_views(source, pointer_slots=False):
         source=re.sub(r'\(float\)('+name+r'\[[^]\n]+\])',r'pf_bits_float((uint32_t)\1)',source)
         for value in floats:
             source=re.sub(r'('+name+r'\[[^]\n]+\]) = '+value+r';',r'\1 = pf_float_bits('+value+');',source)
+    if pointer_slots:
+        pattern=r'\((int|uint|char|uchar|byte|short|ushort)\)(?=\*\s*\(float\s*\*\))'
+        for match in reversed(list(re.finditer(pattern,source))):
+            start=match.end();end=scalar_cast_operand_end(source,start)
+            source=(source[:start]+'pf_float_bits('+source[start:end]+')'+source[end:])
     return source
 
 
