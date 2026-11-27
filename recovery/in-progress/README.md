@@ -475,3 +475,8 @@ Recovery restores parser node-index returns, raw stack-word views, bounded
 interpreter/result dispatch and native VM parameter spills. All four standalone
 runtime backends now have core execution checkpoints. Full callback/exception
 compatibility and booted VM behavior remain incomplete release gates.
+
+The i386 Lua formatter now preserves the native signed 64-bit numeric
+conversion before unsigned compensation, fixing the observed 2.5 to 3.500000
+mismatch. The rebuilt source library retains its 13 execution and 20 standard
+library comparisons and matches five guarded command result workflows.

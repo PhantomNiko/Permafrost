@@ -1599,7 +1599,8 @@
       "10051920": {},
       "10027c00": {},
       "10014a90": {
-        "local_d4 + 0x4be7b": "((uintptr_t)pf_module_state+0x38afU)"
+        "local_d4 + 0x4be7b": "((uintptr_t)pf_module_state+0x38afU)",
+        "(float)CONCAT44(uStack_8c,(uint)local_88)": "(double)(longlong)CONCAT44(uStack_8c,(uint)local_88)"
       },
       "10008470": {},
       "10026100": {},
@@ -5337,5 +5338,9 @@
   "reviewed_boxed_math_integers": {
     "expressions": 13,
     "basis": "Native FISTP integer payloads are followed by integer variant tags; retain the payload bits in floating-typed spill slots."
+  },
+  "reviewed_decimal_integer_conversion": {
+    "entry": "10014a90",
+    "basis": "Native FILD reads the signed 64-bit integer word before the unsigned compensation term; this is numeric conversion, not an IEEE low-word view."
   }
 }
