@@ -1,0 +1,1231 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268437000,
+  "text_end": 268555276,
+  "state_end": 268812288,
+  "translation": {
+    "pointer_bytes": 8,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 268555276,
+    "state_end": 268812288,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"arm64-recovery.h\"",
+      "#include \"cpu.h\"",
+      "static inline __attribute__((always_inline)) uintptr_t pf_current_sp(void){uintptr_t value;__asm__ volatile(\"mov %0,sp\":\"=r\"(value));return value;}"
+    ],
+    "source_replacements": {
+      "100188f4": {
+        "0x10020bff": "((uintptr_t)pf_module_state+0x37f3U)"
+      },
+      "1000f450": {
+        "0x1002042c": "((uintptr_t)pf_module_state+0x3020U)"
+      },
+      "1000f514": {
+        "0x1002042c": "((uintptr_t)pf_module_state+0x3020U)"
+      },
+      "1001c18c": {
+        "0x10020d8d": "((uintptr_t)pf_module_state+0x3981U)"
+      },
+      "1001c4a4": {
+        "0x10020da4": "((uintptr_t)pf_module_state+0x3998U)",
+        "0x100212a6": "((uintptr_t)pf_module_state+0x3e9aU)",
+        "0x100212c8": "((uintptr_t)pf_module_state+0x3ebcU)"
+      },
+      "1001aeb4": {
+        "0x1002126e": "((uintptr_t)pf_module_state+0x3e62U)",
+        "0x10020cf4": "((uintptr_t)pf_module_state+0x38e8U)"
+      },
+      "10019c8c": {
+        "0x10020ca7": "((uintptr_t)pf_module_state+0x389bU)"
+      },
+      "100171c4": {
+        "0x10021025": "((uintptr_t)pf_module_state+0x3c19U)",
+        "0x10020b7f": "((uintptr_t)pf_module_state+0x3773U)"
+      },
+      "10016500": {
+        "0x10020b2f": "((uintptr_t)pf_module_state+0x3723U)"
+      },
+      "1001b734": {
+        "0x10020d18": "((uintptr_t)pf_module_state+0x390cU)"
+      },
+      "10016250": {
+        "0x10020b15": "((uintptr_t)pf_module_state+0x3709U)"
+      },
+      "1001c724": {
+        "0x100212df": "((uintptr_t)pf_module_state+0x3ed3U)",
+        "0x10020daf": "((uintptr_t)pf_module_state+0x39a3U)",
+        "0x10021303": "((uintptr_t)pf_module_state+0x3ef7U)"
+      },
+      "1001a9d0": {
+        "0x100211eb": "((uintptr_t)pf_module_state+0x3ddfU)",
+        "0x10020cda": "((uintptr_t)pf_module_state+0x38ceU)"
+      },
+      "1001438c": {
+        "0x10020aaa": "((uintptr_t)pf_module_state+0x369eU)"
+      },
+      "100166c0": {
+        "0x10020b3b": "((uintptr_t)pf_module_state+0x372fU)"
+      },
+      "1000f860": {
+        "0x10020624": "((uintptr_t)pf_module_state+0x3218U)",
+        "0x100204d6": "((uintptr_t)pf_module_state+0x30caU)"
+      },
+      "10019ad0": {
+        "0x10020c9c": "((uintptr_t)pf_module_state+0x3890U)"
+      },
+      "10014e34": {
+        "0x10020ad3": "((uintptr_t)pf_module_state+0x36c7U)"
+      },
+      "10014624": {
+        "0x10020abf": "((uintptr_t)pf_module_state+0x36b3U)",
+        "0x10020e5b": "((uintptr_t)pf_module_state+0x3a4fU)"
+      },
+      "1000f8e4": {
+        "0x1002063d": "((uintptr_t)pf_module_state+0x3231U)"
+      },
+      "10005518": {
+        "0x1001fe7d": "((uintptr_t)pf_module_state+0x2a71U)"
+      },
+      "10015770": {
+        "0x10020f62": "((uintptr_t)pf_module_state+0x3b56U)",
+        "0x1001fea7": "((uintptr_t)pf_module_state+0x2a9bU)"
+      },
+      "10018854": {
+        "0x10020bf6": "((uintptr_t)pf_module_state+0x37eaU)"
+      },
+      "10017af0": {
+        "0x100208ad": "((uintptr_t)pf_module_state+0x34a1U)",
+        "0x1001ff88": "((uintptr_t)pf_module_state+0x2b7cU)",
+        "0x10020882": "((uintptr_t)pf_module_state+0x3476U)",
+        "0x1002085c": "((uintptr_t)pf_module_state+0x3450U)"
+      },
+      "1001838c": {
+        "0x1002116b": "((uintptr_t)pf_module_state+0x3d5fU)",
+        "0x10020bd4": "((uintptr_t)pf_module_state+0x37c8U)"
+      },
+      "1001c4d4": {
+        "0x10020da4": "((uintptr_t)pf_module_state+0x3998U)",
+        "0x100212a6": "((uintptr_t)pf_module_state+0x3e9aU)",
+        "0x100212c8": "((uintptr_t)pf_module_state+0x3ebcU)"
+      },
+      "1001b764": {
+        "0x10020d18": "((uintptr_t)pf_module_state+0x390cU)"
+      },
+      "10015030": "shared_3525e48c9674652a",
+      "10018a30": {
+        "0x10020c08": "((uintptr_t)pf_module_state+0x37fcU)"
+      },
+      "10017098": {
+        "0x10021001": "((uintptr_t)pf_module_state+0x3bf5U)",
+        "0x10020b73": "((uintptr_t)pf_module_state+0x3767U)"
+      },
+      "10017644": {
+        "0x10020b90": "((uintptr_t)pf_module_state+0x3784U)",
+        "0x10021066": "((uintptr_t)pf_module_state+0x3c5aU)"
+      },
+      "1001110c": {
+        "0x100208cf": "((uintptr_t)pf_module_state+0x34c3U)"
+      },
+      "100061fc": {
+        "0x10020a4d": "((uintptr_t)pf_module_state+0x3641U)"
+      },
+      "10018f60": {
+        "0x10020c3f": "((uintptr_t)pf_module_state+0x3833U)"
+      },
+      "1000547c": {
+        "0x1001fe7d": "((uintptr_t)pf_module_state+0x2a71U)"
+      },
+      "1001b8b4": {
+        "0x10020d25": "((uintptr_t)pf_module_state+0x3919U)"
+      },
+      "100166f0": {
+        "0x10020b3b": "((uintptr_t)pf_module_state+0x372fU)"
+      },
+      "10014ee4": {
+        "0x1001fe26": "((uintptr_t)pf_module_state+0x2a1aU)"
+      },
+      "1001a9a0": {
+        "0x100211eb": "((uintptr_t)pf_module_state+0x3ddfU)",
+        "0x10020cda": "((uintptr_t)pf_module_state+0x38ceU)"
+      },
+      "10019aa0": {
+        "0x10020c9c": "((uintptr_t)pf_module_state+0x3890U)"
+      },
+      "100180e0": {
+        "0x1002114f": "((uintptr_t)pf_module_state+0x3d43U)",
+        "0x10020bc9": "((uintptr_t)pf_module_state+0x37bdU)"
+      },
+      "10016fc4": {
+        "0x10020b69": "((uintptr_t)pf_module_state+0x375dU)"
+      },
+      "10014e64": {
+        "0x10020ad3": "((uintptr_t)pf_module_state+0x36c7U)"
+      },
+      "10016000": {
+        "0x10020b0b": "((uintptr_t)pf_module_state+0x36ffU)",
+        "0x10020fcd": "((uintptr_t)pf_module_state+0x3bc1U)"
+      },
+      "10014470": {
+        "0x10020ab2": "((uintptr_t)pf_module_state+0x36a6U)"
+      },
+      "10010e1c": {
+        "0x100204a6": "((uintptr_t)pf_module_state+0x309aU)",
+        "0x1001fe26": "((uintptr_t)pf_module_state+0x2a1aU)",
+        "0x100204bd": "((uintptr_t)pf_module_state+0x30b1U)",
+        "0x100208e8": "((uintptr_t)pf_module_state+0x34dcU)",
+        "0x100204b1": "((uintptr_t)pf_module_state+0x30a5U)"
+      },
+      "10015070": "shared_3525e48c9674652a",
+      "10016a50": {
+        "0x10020ff2": "((uintptr_t)pf_module_state+0x3be6U)",
+        "0x10020b54": "((uintptr_t)pf_module_state+0x3748U)"
+      },
+      "10005684": {
+        "0x1001febd": "((uintptr_t)pf_module_state+0x2ab1U)"
+      },
+      "1001b420": {
+        "0x10020d0b": "((uintptr_t)pf_module_state+0x38ffU)"
+      },
+      "1000f98c": {
+        "0x1002064d": "((uintptr_t)pf_module_state+0x3241U)"
+      },
+      "1001bb20": {
+        "0x10020d41": "((uintptr_t)pf_module_state+0x3935U)"
+      },
+      "1001bdd4": {
+        "0x10020d60": "((uintptr_t)pf_module_state+0x3954U)"
+      },
+      "1001ab28": {
+        "0x10021253": "((uintptr_t)pf_module_state+0x3e47U)",
+        "0x10020ce6": "((uintptr_t)pf_module_state+0x38daU)",
+        "0x10021216": "((uintptr_t)pf_module_state+0x3e0aU)",
+        "0x10021230": "((uintptr_t)pf_module_state+0x3e24U)"
+      },
+      "10013ee4": {
+        "0x10020dbd": "((uintptr_t)pf_module_state+0x39b1U)",
+        "0x10020aa6": "((uintptr_t)pf_module_state+0x369aU)"
+      },
+      "1001ba18": {
+        "0x10020d33": "((uintptr_t)pf_module_state+0x3927U)"
+      },
+      "100197ac": {
+        "0x10020c82": "((uintptr_t)pf_module_state+0x3876U)"
+      },
+      "10017068": {
+        "0x10021001": "((uintptr_t)pf_module_state+0x3bf5U)",
+        "0x10020b73": "((uintptr_t)pf_module_state+0x3767U)"
+      },
+      "1001a5e8": {
+        "0x10020cc0": "((uintptr_t)pf_module_state+0x38b4U)"
+      },
+      "10018b3c": {
+        "0x10020c11": "((uintptr_t)pf_module_state+0x3805U)"
+      },
+      "1001b9e8": {
+        "0x10020d33": "((uintptr_t)pf_module_state+0x3927U)"
+      },
+      "100172e8": {
+        "0x10021049": "((uintptr_t)pf_module_state+0x3c3dU)",
+        "0x10020b8b": "((uintptr_t)pf_module_state+0x377fU)"
+      },
+      "10015b6c": {
+        "0x10020f97": "((uintptr_t)pf_module_state+0x3b8bU)",
+        "0x10020aee": "((uintptr_t)pf_module_state+0x36e2U)"
+      },
+      "1001c2ac": {
+        "0x10021290": "((uintptr_t)pf_module_state+0x3e84U)",
+        "0x10020d9a": "((uintptr_t)pf_module_state+0x398eU)"
+      },
+      "10005064": "shared_a5abdf5440e82bd6",
+      "10018784": {
+        "0x10020bec": "((uintptr_t)pf_module_state+0x37e0U)"
+      },
+      "10014b08": {
+        "0x10020eb0": "((uintptr_t)pf_module_state+0x3aa4U)",
+        "0x10020ac9": "((uintptr_t)pf_module_state+0x36bdU)",
+        "0x10020ed8": "((uintptr_t)pf_module_state+0x3accU)"
+      },
+      "10018f90": {
+        "0x10020c3f": "((uintptr_t)pf_module_state+0x3833U)"
+      },
+      "10006350": "shared_a5abdf5440e82bd6",
+      "1000f74c": {
+        "0x1002042c": "((uintptr_t)pf_module_state+0x3020U)"
+      },
+      "10015e84": {
+        "0x10020b00": "((uintptr_t)pf_module_state+0x36f4U)"
+      },
+      "1001bf84": {
+        "0x10020d73": "((uintptr_t)pf_module_state+0x3967U)"
+      },
+      "1000fe5c": {
+        "0x1002072e": "((uintptr_t)pf_module_state+0x3322U)"
+      },
+      "10016e78": {
+        "0x10020b5f": "((uintptr_t)pf_module_state+0x3753U)"
+      },
+      "10019084": {
+        "0x10020c48": "((uintptr_t)pf_module_state+0x383cU)"
+      },
+      "1001a228": {
+        "0x10020cb3": "((uintptr_t)pf_module_state+0x38a7U)"
+      },
+      "10018c18": {
+        "0x10020c1a": "((uintptr_t)pf_module_state+0x380eU)"
+      },
+      "100197dc": {
+        "0x10020c82": "((uintptr_t)pf_module_state+0x3876U)"
+      },
+      "10006204": {
+        "0x10020a4d": "((uintptr_t)pf_module_state+0x3641U)"
+      },
+      "10010144": {
+        "0x10020750": "((uintptr_t)pf_module_state+0x3344U)"
+      },
+      "10015b3c": {
+        "0x10020f97": "((uintptr_t)pf_module_state+0x3b8bU)",
+        "0x10020aee": "((uintptr_t)pf_module_state+0x36e2U)"
+      },
+      "100063c0": {
+        "0x10020a4d": "((uintptr_t)pf_module_state+0x3641U)"
+      },
+      "1001922c": {
+        "0x10021189": "((uintptr_t)pf_module_state+0x3d7dU)",
+        "0x10020c5a": "((uintptr_t)pf_module_state+0x384eU)"
+      },
+      "10017ce8": {
+        "0x100210cd": "((uintptr_t)pf_module_state+0x3cc1U)",
+        "0x10020baf": "((uintptr_t)pf_module_state+0x37a3U)",
+        "0x100210eb": "((uintptr_t)pf_module_state+0x3cdfU)"
+      },
+      "100168c8": {
+        "0x10020b49": "((uintptr_t)pf_module_state+0x373dU)"
+      },
+      "100057a4": {
+        "0x1001fed3": "((uintptr_t)pf_module_state+0x2ac7U)"
+      },
+      "1001947c": {
+        "0x100211bc": "((uintptr_t)pf_module_state+0x3db0U)",
+        "0x10020c76": "((uintptr_t)pf_module_state+0x386aU)"
+      },
+      "1001584c": {
+        "0x10020f7d": "((uintptr_t)pf_module_state+0x3b71U)",
+        "0x10020ae8": "((uintptr_t)pf_module_state+0x36dcU)"
+      },
+      "10019358": {
+        "0x10020c65": "((uintptr_t)pf_module_state+0x3859U)"
+      },
+      "1001c2dc": {
+        "0x10021290": "((uintptr_t)pf_module_state+0x3e84U)",
+        "0x10020d9a": "((uintptr_t)pf_module_state+0x398eU)"
+      },
+      "10008804": {
+        "0x1001ffa4": "((uintptr_t)pf_module_state+0x2b98U)",
+        "0x1001ffba": "((uintptr_t)pf_module_state+0x2baeU)",
+        "0x1001ff96": "((uintptr_t)pf_module_state+0x2b8aU)",
+        "0x1001ff9a": "((uintptr_t)pf_module_state+0x2b8eU)",
+        "0x1001ff9e": "((uintptr_t)pf_module_state+0x2b92U)",
+        "0x1001ffa2": "((uintptr_t)pf_module_state+0x2b96U)",
+        "0x1001fe69": "((uintptr_t)pf_module_state+0x2a5dU)",
+        "0x1001fe64": "((uintptr_t)pf_module_state+0x2a58U)",
+        "0x1001fd64": "((uintptr_t)pf_module_state+0x2958U)",
+        "0x1001ffd6": "((uintptr_t)pf_module_state+0x2bcaU)",
+        "0x1001ffd3": "((uintptr_t)pf_module_state+0x2bc7U)",
+        "0x1002007a": "((uintptr_t)pf_module_state+0x2c6eU)",
+        "0x1001ffef": "((uintptr_t)pf_module_state+0x2be3U)",
+        "0x1002000d": "((uintptr_t)pf_module_state+0x2c01U)",
+        "0x10020028": "((uintptr_t)pf_module_state+0x2c1cU)",
+        "0x10020009": "((uintptr_t)pf_module_state+0x2bfdU)",
+        "0x10020083": "((uintptr_t)pf_module_state+0x2c77U)",
+        "0x1001fff2": "((uintptr_t)pf_module_state+0x2be6U)",
+        "0x1001ff92": "((uintptr_t)pf_module_state+0x2b86U)",
+        "0x100202f6": "((uintptr_t)pf_module_state+0x2eeaU)",
+        "0x1001ff9c": "((uintptr_t)pf_module_state+0x2b90U)",
+        "0x1001ffa0": "((uintptr_t)pf_module_state+0x2b94U)",
+        "0x1001ff98": "((uintptr_t)pf_module_state+0x2b8cU)",
+        "0x1001ff94": "((uintptr_t)pf_module_state+0x2b88U)"
+      },
+      "10005c24": {
+        "0x10020329": "((uintptr_t)pf_module_state+0x2f1dU)"
+      },
+      "100185ec": {
+        "0x10020be1": "((uintptr_t)pf_module_state+0x37d5U)"
+      },
+      "10018e84": {
+        "0x10020c35": "((uintptr_t)pf_module_state+0x3829U)"
+      },
+      "10005f30": {
+        "0x10020373": "((uintptr_t)pf_module_state+0x2f67U)"
+      },
+      "1000b764": {
+        "0x1002008a": "((uintptr_t)pf_module_state+0x2c7eU)"
+      },
+      "100063c4": {
+        "0x10020a4d": "((uintptr_t)pf_module_state+0x3641U)"
+      },
+      "1001994c": {
+        "0x10020c8f": "((uintptr_t)pf_module_state+0x3883U)"
+      },
+      "100056e4": {
+        "0x1001febd": "((uintptr_t)pf_module_state+0x2ab1U)"
+      },
+      "100065f4": {
+        "0x1001ff21": "((uintptr_t)pf_module_state+0x2b15U)",
+        "0x1001fd64": "((uintptr_t)pf_module_state+0x2958U)"
+      },
+      "1001912c": {
+        "0x10020c51": "((uintptr_t)pf_module_state+0x3845U)"
+      },
+      "1001b058": {
+        "0x10020cff": "((uintptr_t)pf_module_state+0x38f3U)"
+      },
+      "10015584": {
+        "0x10020ae3": "((uintptr_t)pf_module_state+0x36d7U)",
+        "0x10020f5b": "((uintptr_t)pf_module_state+0x3b4fU)"
+      },
+      "1001c080": {
+        "0x10020d84": "((uintptr_t)pf_module_state+0x3978U)"
+      },
+      "10005624": {
+        "0x1001fea7": "((uintptr_t)pf_module_state+0x2a9bU)"
+      },
+      "1000a330": {
+        "0x1002000b": "((uintptr_t)pf_module_state+0x2bffU)",
+        "0x1001fe6d": "((uintptr_t)pf_module_state+0x2a61U)"
+      },
+      "10015f1c": {
+        "0x1001febd": "((uintptr_t)pf_module_state+0x2ab1U)",
+        "0x10020fbb": "((uintptr_t)pf_module_state+0x3bafU)"
+      },
+      "10018be8": {
+        "0x10020c1a": "((uintptr_t)pf_module_state+0x380eU)"
+      },
+      "1000fc90": {
+        "0x100206c6": "((uintptr_t)pf_module_state+0x32baU)",
+        "0x100206ea": "((uintptr_t)pf_module_state+0x32deU)"
+      },
+      "1001861c": {
+        "0x10020be1": "((uintptr_t)pf_module_state+0x37d5U)"
+      },
+      "1001915c": {
+        "0x10020c51": "((uintptr_t)pf_module_state+0x3845U)"
+      },
+      "1001587c": {
+        "0x10020f7d": "((uintptr_t)pf_module_state+0x3b71U)",
+        "0x10020ae8": "((uintptr_t)pf_module_state+0x36dcU)"
+      },
+      "100179a8": {
+        "0x100210a7": "((uintptr_t)pf_module_state+0x3c9bU)",
+        "0x10020ba1": "((uintptr_t)pf_module_state+0x3795U)"
+      },
+      "10016f94": {
+        "0x10020b69": "((uintptr_t)pf_module_state+0x375dU)"
+      },
+      "10016a80": {
+        "0x10020ff2": "((uintptr_t)pf_module_state+0x3be6U)",
+        "0x10020b54": "((uintptr_t)pf_module_state+0x3748U)"
+      },
+      "1001b028": {
+        "0x10020cff": "((uintptr_t)pf_module_state+0x38f3U)"
+      },
+      "10014890": {
+        "0x10020e9a": "((uintptr_t)pf_module_state+0x3a8eU)"
+      },
+      "100191fc": {
+        "0x10021189": "((uintptr_t)pf_module_state+0x3d7dU)",
+        "0x10020c5a": "((uintptr_t)pf_module_state+0x384eU)"
+      },
+      "10016448": {
+        "0x10020b21": "((uintptr_t)pf_module_state+0x3715U)"
+      },
+      "1001997c": {
+        "0x10020c8f": "((uintptr_t)pf_module_state+0x3883U)"
+      },
+      "10018dd8": {
+        "0x10020c2c": "((uintptr_t)pf_module_state+0x3820U)"
+      },
+      "1001a1f8": {
+        "0x10020cb3": "((uintptr_t)pf_module_state+0x38a7U)"
+      },
+      "10017cb8": {
+        "0x100210cd": "((uintptr_t)pf_module_state+0x3cc1U)",
+        "0x10020baf": "((uintptr_t)pf_module_state+0x37a3U)",
+        "0x100210eb": "((uintptr_t)pf_module_state+0x3cdfU)"
+      },
+      "1000fd48": {
+        "0x1002071f": "((uintptr_t)pf_module_state+0x3313U)",
+        "0x100206fb": "((uintptr_t)pf_module_state+0x32efU)"
+      },
+      "1000f494": {
+        "0x10020442": "((uintptr_t)pf_module_state+0x3036U)"
+      },
+      "10015da8": {
+        "0x10020af8": "((uintptr_t)pf_module_state+0x36ecU)"
+      },
+      "10014768": {
+        "0x10020e7e": "((uintptr_t)pf_module_state+0x3a72U)",
+        "0x1001fe7d": "((uintptr_t)pf_module_state+0x2a71U)"
+      },
+      "100112e0": {
+        "0x1002090f": "((uintptr_t)pf_module_state+0x3503U)",
+        "0x10020009": "((uintptr_t)pf_module_state+0x2bfdU)",
+        "0x10020932": "((uintptr_t)pf_module_state+0x3526U)",
+        "0x100204f5": "((uintptr_t)pf_module_state+0x30e9U)",
+        "0x100204d6": "((uintptr_t)pf_module_state+0x30caU)"
+      },
+      "10017318": {
+        "0x10021049": "((uintptr_t)pf_module_state+0x3c3dU)",
+        "0x10020b8b": "((uintptr_t)pf_module_state+0x377fU)"
+      },
+      "100183bc": {
+        "0x1002116b": "((uintptr_t)pf_module_state+0x3d5fU)",
+        "0x10020bd4": "((uintptr_t)pf_module_state+0x37c8U)"
+      },
+      "1000e328": {
+        "0x10020952": "((uintptr_t)pf_module_state+0x3546U)",
+        "0x10020487": "((uintptr_t)pf_module_state+0x307bU)",
+        "0x100209ae": "((uintptr_t)pf_module_state+0x35a2U)",
+        "0x10020603": "((uintptr_t)pf_module_state+0x31f7U)",
+        "0x10020591": "((uintptr_t)pf_module_state+0x3185U)",
+        "0x100209e6": "((uintptr_t)pf_module_state+0x35daU)",
+        "0x100204bd": "((uintptr_t)pf_module_state+0x30b1U)",
+        "0x100205ab": "((uintptr_t)pf_module_state+0x319fU)",
+        "0x10020532": "((uintptr_t)pf_module_state+0x3126U)",
+        "0x1002054d": "((uintptr_t)pf_module_state+0x3141U)",
+        "0x10020998": "((uintptr_t)pf_module_state+0x358cU)",
+        "0x100205e3": "((uintptr_t)pf_module_state+0x31d7U)",
+        "0x100209c9": "((uintptr_t)pf_module_state+0x35bdU)",
+        "0x10020009": "((uintptr_t)pf_module_state+0x2bfdU)",
+        "0x10020a19": "((uintptr_t)pf_module_state+0x360dU)",
+        "0x10020464": "((uintptr_t)pf_module_state+0x3058U)",
+        "0x100204b1": "((uintptr_t)pf_module_state+0x30a5U)",
+        "0x10020516": "((uintptr_t)pf_module_state+0x310aU)",
+        "0x100204a6": "((uintptr_t)pf_module_state+0x309aU)",
+        "0x100205c4": "((uintptr_t)pf_module_state+0x31b8U)",
+        "0x1002096e": "((uintptr_t)pf_module_state+0x3562U)",
+        "0x100204f5": "((uintptr_t)pf_module_state+0x30e9U)",
+        "0x100204d6": "((uintptr_t)pf_module_state+0x30caU)",
+        "0x10020569": "((uintptr_t)pf_module_state+0x315dU)"
+      },
+      "10018b0c": {
+        "0x10020c11": "((uintptr_t)pf_module_state+0x3805U)"
+      },
+      "10014b38": {
+        "0x10020eb0": "((uintptr_t)pf_module_state+0x3aa4U)",
+        "0x10020ac9": "((uintptr_t)pf_module_state+0x36bdU)",
+        "0x10020ed8": "((uintptr_t)pf_module_state+0x3accU)"
+      },
+      "10016418": {
+        "0x10020b21": "((uintptr_t)pf_module_state+0x3715U)"
+      },
+      "10017978": {
+        "0x100210a7": "((uintptr_t)pf_module_state+0x3c9bU)",
+        "0x10020ba1": "((uintptr_t)pf_module_state+0x3795U)"
+      },
+      "1000aa74": {
+        "0x10020206": "((uintptr_t)pf_module_state+0x2dfaU)",
+        "0x100200b2": "((uintptr_t)pf_module_state+0x2ca6U)",
+        "0x1002014e": "((uintptr_t)pf_module_state+0x2d42U)",
+        "0x100201b5": "((uintptr_t)pf_module_state+0x2da9U)",
+        "0x10020114": "((uintptr_t)pf_module_state+0x2d08U)",
+        "0x100200d0": "((uintptr_t)pf_module_state+0x2cc4U)",
+        "0x100201d9": "((uintptr_t)pf_module_state+0x2dcdU)",
+        "0x10020188": "((uintptr_t)pf_module_state+0x2d7cU)",
+        "0x1002012c": "((uintptr_t)pf_module_state+0x2d20U)",
+        "0x10020171": "((uintptr_t)pf_module_state+0x2d65U)",
+        "0x100200f1": "((uintptr_t)pf_module_state+0x2ce5U)",
+        "bVar2 - 9 < 2": "(uint)(bVar2 - 9) < 2"
+      },
+      "10013eb4": {
+        "0x10020dbd": "((uintptr_t)pf_module_state+0x39b1U)",
+        "0x10020aa6": "((uintptr_t)pf_module_state+0x369aU)"
+      },
+      "1001ab58": {
+        "0x10021253": "((uintptr_t)pf_module_state+0x3e47U)",
+        "0x10020ce6": "((uintptr_t)pf_module_state+0x38daU)",
+        "0x10021216": "((uintptr_t)pf_module_state+0x3e0aU)",
+        "0x10021230": "((uintptr_t)pf_module_state+0x3e24U)"
+      },
+      "10005744": {
+        "0x1001fed3": "((uintptr_t)pf_module_state+0x2ac7U)"
+      },
+      "10018678": {
+        "0x10020e7e": "((uintptr_t)pf_module_state+0x3a72U)",
+        "0x1001fe7d": "((uintptr_t)pf_module_state+0x2a71U)"
+      },
+      "100194bc": {
+        "0x100211bc": "((uintptr_t)pf_module_state+0x3db0U)",
+        "0x10020c76": "((uintptr_t)pf_module_state+0x386aU)"
+      },
+      "1001a5b8": {
+        "0x10020cc0": "((uintptr_t)pf_module_state+0x38b4U)"
+      },
+      "10018da8": {
+        "0x10020c2c": "((uintptr_t)pf_module_state+0x3820U)"
+      },
+      "10019c5c": {
+        "0x10020ca7": "((uintptr_t)pf_module_state+0x389bU)"
+      },
+      "100055c0": {
+        "0x1001fe92": "((uintptr_t)pf_module_state+0x2a86U)"
+      },
+      "10015dd8": {
+        "0x10020af8": "((uintptr_t)pf_module_state+0x36ecU)"
+      },
+      "10010988": {
+        "0x1002000b": "((uintptr_t)pf_module_state+0x2bffU)",
+        "0x1001fe6d": "((uintptr_t)pf_module_state+0x2a61U)"
+      },
+      "1001435c": {
+        "0x10020aaa": "((uintptr_t)pf_module_state+0x369eU)"
+      },
+      "1001ae84": {
+        "0x1002126e": "((uintptr_t)pf_module_state+0x3e62U)",
+        "0x10020cf4": "((uintptr_t)pf_module_state+0x38e8U)"
+      },
+      "10017194": {
+        "0x10020b7f": "((uintptr_t)pf_module_state+0x3773U)",
+        "0x10021025": "((uintptr_t)pf_module_state+0x3c19U)"
+      },
+      "10016e48": {
+        "0x10020b5f": "((uintptr_t)pf_module_state+0x3753U)"
+      },
+      "1001c1bc": {
+        "0x10020d8d": "((uintptr_t)pf_module_state+0x3981U)"
+      },
+      "10011f8c": {
+        "0x10020aa6": "((uintptr_t)pf_module_state+0x369aU)",
+        "0x10020c35": "((uintptr_t)pf_module_state+0x3829U)",
+        "0x10020af8": "((uintptr_t)pf_module_state+0x36ecU)",
+        "0x10020c2c": "((uintptr_t)pf_module_state+0x3820U)",
+        "0x10020b15": "((uintptr_t)pf_module_state+0x3709U)",
+        "0x10020cb3": "((uintptr_t)pf_module_state+0x38a7U)",
+        "0x10020d0b": "((uintptr_t)pf_module_state+0x38ffU)",
+        "0x10020ba1": "((uintptr_t)pf_module_state+0x3795U)",
+        "0x10020bd4": "((uintptr_t)pf_module_state+0x37c8U)",
+        "0x10020abf": "((uintptr_t)pf_module_state+0x36b3U)",
+        "0x10020a9b": "((uintptr_t)pf_module_state+0x368fU)",
+        "0x10020bbc": "((uintptr_t)pf_module_state+0x37b0U)",
+        "0x1001fe26": "((uintptr_t)pf_module_state+0x2a1aU)",
+        "0x10020c82": "((uintptr_t)pf_module_state+0x3876U)",
+        "0x10020b73": "((uintptr_t)pf_module_state+0x3767U)",
+        "0x10020a84": "((uintptr_t)pf_module_state+0x3678U)",
+        "0x10020c48": "((uintptr_t)pf_module_state+0x383cU)",
+        "0x10020bf6": "((uintptr_t)pf_module_state+0x37eaU)",
+        "0x10020b0b": "((uintptr_t)pf_module_state+0x36ffU)",
+        "0x10020cce": "((uintptr_t)pf_module_state+0x38c2U)",
+        "0x10020c08": "((uintptr_t)pf_module_state+0x37fcU)",
+        "0x10020ab2": "((uintptr_t)pf_module_state+0x36a6U)",
+        "0x10020aa0": "((uintptr_t)pf_module_state+0x3694U)",
+        "0x10020be1": "((uintptr_t)pf_module_state+0x37d5U)",
+        "0x10020c11": "((uintptr_t)pf_module_state+0x3805U)",
+        "0x10020b00": "((uintptr_t)pf_module_state+0x36f4U)",
+        "0x10020c9c": "((uintptr_t)pf_module_state+0x3890U)",
+        "0x10020ae3": "((uintptr_t)pf_module_state+0x36d7U)",
+        "0x10020ce6": "((uintptr_t)pf_module_state+0x38daU)",
+        "0x10020c8f": "((uintptr_t)pf_module_state+0x3883U)",
+        "0x10020d9a": "((uintptr_t)pf_module_state+0x398eU)",
+        "0x10020bff": "((uintptr_t)pf_module_state+0x37f3U)",
+        "0x1001ff88": "((uintptr_t)pf_module_state+0x2b7cU)",
+        "0x10020c65": "((uintptr_t)pf_module_state+0x3859U)",
+        "0x10020d41": "((uintptr_t)pf_module_state+0x3935U)",
+        "0x10020ab7": "((uintptr_t)pf_module_state+0x36abU)",
+        "0x10020b8b": "((uintptr_t)pf_module_state+0x377fU)",
+        "0x10020d8d": "((uintptr_t)pf_module_state+0x3981U)",
+        "0x10020a6c": "((uintptr_t)pf_module_state+0x3660U)",
+        "0x10020b2f": "((uintptr_t)pf_module_state+0x3723U)",
+        "0x10020d73": "((uintptr_t)pf_module_state+0x3967U)",
+        "0x10020c1a": "((uintptr_t)pf_module_state+0x380eU)",
+        "0x10020c51": "((uintptr_t)pf_module_state+0x3845U)",
+        "0x10020bec": "((uintptr_t)pf_module_state+0x37e0U)",
+        "0x10020da4": "((uintptr_t)pf_module_state+0x3998U)",
+        "0x10020b49": "((uintptr_t)pf_module_state+0x373dU)",
+        "0x10020d18": "((uintptr_t)pf_module_state+0x390cU)",
+        "0x1001ff82": "((uintptr_t)pf_module_state+0x2b76U)",
+        "0x10020ae8": "((uintptr_t)pf_module_state+0x36dcU)",
+        "0x10020c3f": "((uintptr_t)pf_module_state+0x3833U)",
+        "0x10020d84": "((uintptr_t)pf_module_state+0x3978U)",
+        "0x10020b90": "((uintptr_t)pf_module_state+0x3784U)",
+        "0x10020cf4": "((uintptr_t)pf_module_state+0x38e8U)",
+        "0x10020bc9": "((uintptr_t)pf_module_state+0x37bdU)",
+        "0x10020aee": "((uintptr_t)pf_module_state+0x36e2U)",
+        "0x10020d60": "((uintptr_t)pf_module_state+0x3954U)",
+        "0x10020baf": "((uintptr_t)pf_module_state+0x37a3U)",
+        "0x10020b54": "((uintptr_t)pf_module_state+0x3748U)",
+        "0x10020cc0": "((uintptr_t)pf_module_state+0x38b4U)",
+        "0x10020b7f": "((uintptr_t)pf_module_state+0x3773U)",
+        "0x10020ca7": "((uintptr_t)pf_module_state+0x389bU)",
+        "0x10020b21": "((uintptr_t)pf_module_state+0x3715U)",
+        "0x10020aaa": "((uintptr_t)pf_module_state+0x369eU)",
+        "0x10020ac4": "((uintptr_t)pf_module_state+0x36b8U)",
+        "0x10020cda": "((uintptr_t)pf_module_state+0x38ceU)",
+        "0x10020b5f": "((uintptr_t)pf_module_state+0x3753U)",
+        "0x10020c5a": "((uintptr_t)pf_module_state+0x384eU)",
+        "0x10020b3b": "((uintptr_t)pf_module_state+0x372fU)",
+        "0x10020ad3": "((uintptr_t)pf_module_state+0x36c7U)",
+        "0x10020b69": "((uintptr_t)pf_module_state+0x375dU)",
+        "0x10020b97": "((uintptr_t)pf_module_state+0x378bU)",
+        "0x10020d50": "((uintptr_t)pf_module_state+0x3944U)",
+        "0x10020d33": "((uintptr_t)pf_module_state+0x3927U)",
+        "0x10020d25": "((uintptr_t)pf_module_state+0x3919U)",
+        "0x10020cff": "((uintptr_t)pf_module_state+0x38f3U)",
+        "0x10020daf": "((uintptr_t)pf_module_state+0x39a3U)",
+        "0x10020ac9": "((uintptr_t)pf_module_state+0x36bdU)",
+        "0x10020c23": "((uintptr_t)pf_module_state+0x3817U)",
+        "0x10020c76": "((uintptr_t)pf_module_state+0x386aU)"
+      },
+      "100102e4": {
+        "0x10020952": "((uintptr_t)pf_module_state+0x3546U)",
+        "0x10020487": "((uintptr_t)pf_module_state+0x307bU)",
+        "0x100209ae": "((uintptr_t)pf_module_state+0x35a2U)",
+        "0x1002085c": "((uintptr_t)pf_module_state+0x3450U)",
+        "0x10020603": "((uintptr_t)pf_module_state+0x31f7U)",
+        "0x10020591": "((uintptr_t)pf_module_state+0x3185U)",
+        "0x100208ad": "((uintptr_t)pf_module_state+0x34a1U)",
+        "0x100209e6": "((uintptr_t)pf_module_state+0x35daU)",
+        "0x100204bd": "((uintptr_t)pf_module_state+0x30b1U)",
+        "0x100205ab": "((uintptr_t)pf_module_state+0x319fU)",
+        "0x10020882": "((uintptr_t)pf_module_state+0x3476U)",
+        "0x10020532": "((uintptr_t)pf_module_state+0x3126U)",
+        "0x1002078e": "((uintptr_t)pf_module_state+0x3382U)",
+        "0x100207b5": "((uintptr_t)pf_module_state+0x33a9U)",
+        "0x1002054d": "((uintptr_t)pf_module_state+0x3141U)",
+        "0x10020998": "((uintptr_t)pf_module_state+0x358cU)",
+        "0x100205e3": "((uintptr_t)pf_module_state+0x31d7U)",
+        "0x100209c9": "((uintptr_t)pf_module_state+0x35bdU)",
+        "0x10020009": "((uintptr_t)pf_module_state+0x2bfdU)",
+        "0x10020a19": "((uintptr_t)pf_module_state+0x360dU)",
+        "0x100207fc": "((uintptr_t)pf_module_state+0x33f0U)",
+        "0x10020464": "((uintptr_t)pf_module_state+0x3058U)",
+        "0x100207ce": "((uintptr_t)pf_module_state+0x33c2U)",
+        "0x100204b1": "((uintptr_t)pf_module_state+0x30a5U)",
+        "0x10020516": "((uintptr_t)pf_module_state+0x310aU)",
+        "0x100204a6": "((uintptr_t)pf_module_state+0x309aU)",
+        "0x1001fe26": "((uintptr_t)pf_module_state+0x2a1aU)",
+        "0x100205c4": "((uintptr_t)pf_module_state+0x31b8U)",
+        "0x1002096e": "((uintptr_t)pf_module_state+0x3562U)",
+        "0x100208e8": "((uintptr_t)pf_module_state+0x34dcU)",
+        "0x100204f5": "((uintptr_t)pf_module_state+0x30e9U)",
+        "0x100204d6": "((uintptr_t)pf_module_state+0x30caU)",
+        "0x10020569": "((uintptr_t)pf_module_state+0x315dU)",
+        "0x1002082a": "((uintptr_t)pf_module_state+0x341eU)"
+      },
+      "1000c7e8": {
+        "0x100201b5": "((uintptr_t)pf_module_state+0x2da9U)",
+        "0x100202e2": "((uintptr_t)pf_module_state+0x2ed6U)",
+        "0x10020244": "((uintptr_t)pf_module_state+0x2e38U)",
+        "0x10020227": "((uintptr_t)pf_module_state+0x2e1bU)",
+        "0x1002027c": "((uintptr_t)pf_module_state+0x2e70U)",
+        "0x100202a3": "((uintptr_t)pf_module_state+0x2e97U)",
+        "0x1002025c": "((uintptr_t)pf_module_state+0x2e50U)",
+        "0x100202c1": "((uintptr_t)pf_module_state+0x2eb5U)"
+      },
+      "1001c0b0": {
+        "0x10020d84": "((uintptr_t)pf_module_state+0x3978U)"
+      },
+      "1000fb30": {
+        "0x1002067e": "((uintptr_t)pf_module_state+0x3272U)"
+      },
+      "100155b4": {
+        "0x10020ae3": "((uintptr_t)pf_module_state+0x36d7U)",
+        "0x10020f5b": "((uintptr_t)pf_module_state+0x3b4fU)"
+      },
+      "10017674": {
+        "0x10020b90": "((uintptr_t)pf_module_state+0x3784U)",
+        "0x10021066": "((uintptr_t)pf_module_state+0x3c5aU)"
+      },
+      "10018a00": {
+        "0x10020c08": "((uintptr_t)pf_module_state+0x37fcU)"
+      },
+      "10014544": {
+        "0x10020ab7": "((uintptr_t)pf_module_state+0x36abU)"
+      },
+      "10017800": {
+        "0x10021085": "((uintptr_t)pf_module_state+0x3c79U)",
+        "0x10020b97": "((uintptr_t)pf_module_state+0x378bU)"
+      },
+      "1000dec4": {
+        "0x100203c3": "((uintptr_t)pf_module_state+0x2fb7U)",
+        "0x10020390": "((uintptr_t)pf_module_state+0x2f84U)",
+        "0x100203ab": "((uintptr_t)pf_module_state+0x2f9fU)",
+        "0x100203e0": "((uintptr_t)pf_module_state+0x2fd4U)",
+        "0x10020408": "((uintptr_t)pf_module_state+0x2ffcU)",
+        "0x1002042c": "((uintptr_t)pf_module_state+0x3020U)",
+        "0x1002007a": "((uintptr_t)pf_module_state+0x2c6eU)"
+      },
+      "1001bb50": {
+        "0x10020d41": "((uintptr_t)pf_module_state+0x3935U)"
+      },
+      "10005f28": {
+        "0x10020373": "((uintptr_t)pf_module_state+0x2f67U)"
+      },
+      "10017f60": {
+        "0x1002112c": "((uintptr_t)pf_module_state+0x3d20U)",
+        "0x1002110e": "((uintptr_t)pf_module_state+0x3d02U)",
+        "0x10020bbc": "((uintptr_t)pf_module_state+0x37b0U)"
+      },
+      "100177d0": {
+        "0x10021085": "((uintptr_t)pf_module_state+0x3c79U)",
+        "0x10020b97": "((uintptr_t)pf_module_state+0x378bU)"
+      },
+      "10018eb4": {
+        "0x10020c35": "((uintptr_t)pf_module_state+0x3829U)"
+      },
+      "1000643c": {
+        "0x1001fefe": "((uintptr_t)pf_module_state+0x2af2U)",
+        "0x1001fd64": "((uintptr_t)pf_module_state+0x2958U)",
+        "0x1001fee6": "((uintptr_t)pf_module_state+0x2adaU)"
+      },
+      "100149d0": {
+        "0x10020ac4": "((uintptr_t)pf_module_state+0x36b8U)"
+      },
+      "100063b8": {
+        "0x10020373": "((uintptr_t)pf_module_state+0x2f67U)"
+      },
+      "10016030": {
+        "0x10020b0b": "((uintptr_t)pf_module_state+0x36ffU)",
+        "0x10020fcd": "((uintptr_t)pf_module_state+0x3bc1U)"
+      },
+      "10013fa8": {
+        "0x10020de1": "((uintptr_t)pf_module_state+0x39d5U)",
+        "0x10020e07": "((uintptr_t)pf_module_state+0x39fbU)",
+        "0x10020dfe": "((uintptr_t)pf_module_state+0x39f2U)",
+        "0x10020e25": "((uintptr_t)pf_module_state+0x3a19U)",
+        "0x10020e12": "((uintptr_t)pf_module_state+0x3a06U)",
+        "0x10020deb": "((uintptr_t)pf_module_state+0x39dfU)",
+        "0x10020e1c": "((uintptr_t)pf_module_state+0x3a10U)"
+      },
+      "10018110": {
+        "0x1002114f": "((uintptr_t)pf_module_state+0x3d43U)",
+        "0x10020bc9": "((uintptr_t)pf_module_state+0x37bdU)"
+      },
+      "10016898": {
+        "0x10020b49": "((uintptr_t)pf_module_state+0x373dU)"
+      },
+      "10014a00": {
+        "0x10020ac4": "((uintptr_t)pf_module_state+0x36b8U)"
+      },
+      "10014f14": {
+        "0x1001fe26": "((uintptr_t)pf_module_state+0x2a1aU)"
+      },
+      "10014440": {
+        "0x10020ab2": "((uintptr_t)pf_module_state+0x36a6U)"
+      },
+      "1001be04": {
+        "0x10020d60": "((uintptr_t)pf_module_state+0x3954U)"
+      },
+      "1001bcf0": {
+        "0x10020d50": "((uintptr_t)pf_module_state+0x3944U)"
+      },
+      "10018cc4": {
+        "0x10020c23": "((uintptr_t)pf_module_state+0x3817U)"
+      },
+      "10002540": {
+        "0x1001fd59": "((uintptr_t)pf_module_state+0x294dU)",
+        "0x1001fd87": "((uintptr_t)pf_module_state+0x297bU)"
+      },
+      "1001b8e4": {
+        "0x10020d25": "((uintptr_t)pf_module_state+0x3919U)"
+      },
+      "10005c1c": {
+        "0x10020329": "((uintptr_t)pf_module_state+0x2f1dU)"
+      },
+      "10016530": {
+        "0x10020b2f": "((uintptr_t)pf_module_state+0x3723U)"
+      },
+      "10017b20": {
+        "0x100208ad": "((uintptr_t)pf_module_state+0x34a1U)",
+        "0x1001ff88": "((uintptr_t)pf_module_state+0x2b7cU)",
+        "0x10020882": "((uintptr_t)pf_module_state+0x3476U)",
+        "0x1002085c": "((uintptr_t)pf_module_state+0x3450U)"
+      },
+      "10018924": {
+        "0x10020bff": "((uintptr_t)pf_module_state+0x37f3U)"
+      },
+      "10014514": {
+        "0x10020ab7": "((uintptr_t)pf_module_state+0x36abU)"
+      },
+      "10018824": {
+        "0x10020bf6": "((uintptr_t)pf_module_state+0x37eaU)"
+      },
+      "10006348": {
+        "0x10020a4d": "((uintptr_t)pf_module_state+0x3641U)"
+      },
+      "10015e54": {
+        "0x10020b00": "((uintptr_t)pf_module_state+0x36f4U)"
+      },
+      "1001bf54": {
+        "0x10020d73": "((uintptr_t)pf_module_state+0x3967U)"
+      },
+      "10019398": {
+        "0x10020c65": "((uintptr_t)pf_module_state+0x3859U)"
+      },
+      "10017f30": {
+        "0x1002112c": "((uintptr_t)pf_module_state+0x3d20U)",
+        "0x1002110e": "((uintptr_t)pf_module_state+0x3d02U)",
+        "0x10020bbc": "((uintptr_t)pf_module_state+0x37b0U)"
+      },
+      "10019054": {
+        "0x10020c48": "((uintptr_t)pf_module_state+0x383cU)"
+      },
+      "1001c6f4": {
+        "0x100212df": "((uintptr_t)pf_module_state+0x3ed3U)",
+        "0x10020daf": "((uintptr_t)pf_module_state+0x39a3U)",
+        "0x10021303": "((uintptr_t)pf_module_state+0x3ef7U)"
+      },
+      "100145f4": {
+        "0x10020abf": "((uintptr_t)pf_module_state+0x36b3U)",
+        "0x10020e5b": "((uintptr_t)pf_module_state+0x3a4fU)"
+      },
+      "10000634": {},
+      "1000db88": {
+        "0x10020361": "((uintptr_t)pf_module_state+0x2f55U)",
+        "0x10020369": "((uintptr_t)pf_module_state+0x2f5dU)",
+        "0x1002035a": "((uintptr_t)pf_module_state+0x2f4eU)",
+        "0x1002036e": "((uintptr_t)pf_module_state+0x2f62U)",
+        "0x1002036c": "((uintptr_t)pf_module_state+0x2f60U)",
+        "0x1002035d": "((uintptr_t)pf_module_state+0x2f51U)",
+        "0x10020367": "((uintptr_t)pf_module_state+0x2f5bU)",
+        "0x10020371": "((uintptr_t)pf_module_state+0x2f65U)"
+      },
+      "1000cf68": {
+        "0x1001fd0d": "((uintptr_t)pf_module_state+0x2901U)"
+      },
+      "1001a804": {
+        "0x10020cce": "((uintptr_t)pf_module_state+0x38c2U)"
+      },
+      "1000fbe0": {
+        "0x100206a2": "((uintptr_t)pf_module_state+0x3296U)"
+      },
+      "10016220": {
+        "0x10020b15": "((uintptr_t)pf_module_state+0x3709U)"
+      },
+      "10018754": {
+        "0x10020bec": "((uintptr_t)pf_module_state+0x37e0U)"
+      },
+      "1001b3f0": {
+        "0x10020d0b": "((uintptr_t)pf_module_state+0x38ffU)"
+      },
+      "1001bcc0": {
+        "0x10020d50": "((uintptr_t)pf_module_state+0x3944U)"
+      },
+      "10018cf4": {
+        "0x10020c23": "((uintptr_t)pf_module_state+0x3817U)"
+      },
+      "1001a7d4": {
+        "0x10020cce": "((uintptr_t)pf_module_state+0x38c2U)"
+      },
+      "10006b28": "shared_2c0515621c62d780",
+      "10011b38": {
+        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
+      },
+      "10006ba8": {
+        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
+      },
+      "10006b1c": "shared_2c0515621c62d780",
+      "10006b38": "shared_2c0515621c62d780",
+      "10011d54": {
+        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
+      },
+      "10007624": {
+        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
+      },
+      "10006b48": "shared_2c0515621c62d780",
+      "10006b80": "shared_b14de825e162ce70",
+      "10006b94": {
+        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);",
+        "\n        (**(code **)(*plVar1 + 8))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 8)))(plVar1);"
+      },
+      "10006b6c": "shared_b14de825e162ce70",
+      "10006b58": "shared_2c0515621c62d780"
+    },
+    "source_replacement_groups": {
+      "shared_3525e48c9674652a": {
+        "0x1001ff82": "((uintptr_t)pf_module_state+0x2b76U)",
+        "0x10020f36": "((uintptr_t)pf_module_state+0x3b2aU)",
+        "0x10020ef5": "((uintptr_t)pf_module_state+0x3ae9U)",
+        "0x10020edc": "((uintptr_t)pf_module_state+0x3ad0U)",
+        "0x10020f14": "((uintptr_t)pf_module_state+0x3b08U)"
+      },
+      "shared_a5abdf5440e82bd6": {
+        "0x1001fe66": "((uintptr_t)pf_module_state+0x2a5aU)",
+        "0x1001fe72": "((uintptr_t)pf_module_state+0x2a66U)",
+        "0x1001fe70": "((uintptr_t)pf_module_state+0x2a64U)",
+        "0x1001fe69": "((uintptr_t)pf_module_state+0x2a5dU)",
+        "0x1001fe6b": "((uintptr_t)pf_module_state+0x2a5fU)",
+        "0x1001fe64": "((uintptr_t)pf_module_state+0x2a58U)",
+        "0x1001fe6d": "((uintptr_t)pf_module_state+0x2a61U)"
+      },
+      "shared_2c0515621c62d780": {
+        "\n        (**(code **)(*plVar1 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);",
+        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
+      },
+      "shared_b14de825e162ce70": {
+        "\n        (**(code **)(*plVar1 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);",
+        "\n          (**(code **)(*plVar1 + 8))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 8)))(plVar1);",
+        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);",
+        "\n        (**(code **)(*plVar1 + 8))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 8)))(plVar1);"
+      }
+    }
+  },
+  "reviewed_context_transfers": {
+    "entries": 3,
+    "basis": "Native instruction bodies match the reviewed same-release Lua context boundaries byte for byte through their transfer instruction."
+  },
+  "reviewed_virtual_owner_calls": {
+    "sites": [
+      [
+        "10006b28",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10006b28",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10006b28",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10011b38",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10006ba8",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10006b1c",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10006b1c",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10006b1c",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10006b38",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10006b38",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10006b38",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10011d54",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10007624",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10006b48",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10006b48",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10006b48",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10006b80",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10006b80",
+        "plVar1",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10006b80",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10006b80",
+        "plVar1",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10006b94",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10006b94",
+        "plVar1",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10006b6c",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10006b6c",
+        "plVar1",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10006b6c",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10006b6c",
+        "plVar1",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10006b6c",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10006b6c",
+        "plVar1",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10006b58",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10006b58",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10006b58",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ]
+    ],
+    "basis": "Deleting destructor slot and reference-count guarded control-block release preserve the native owner argument."
+  },
+  "reviewed_heap_contracts": {
+    "_wm_probe_heap_alloc": {
+      "address": "0x10000cac",
+      "declaration": "void *allocate(unsigned long size);"
+    },
+    "_wm_probe_heap_reset": {
+      "address": "0x10000608",
+      "declaration": "void reset_heap(void);"
+    },
+    "_wm_probe_heap_free_bytes": {
+      "address": "0x10000b64",
+      "declaration": "unsigned int free_bytes(void);"
+    },
+    "_wm_probe_heap_total_bytes": {
+      "address": "0x10000c18",
+      "declaration": "unsigned int total_bytes(void);"
+    },
+    "_wm_probe_heap_free_bytes64": {
+      "address": "0x10000bc4",
+      "declaration": "unsigned long long free_bytes64(void);"
+    },
+    "_wm_probe_heap_total_bytes64": {
+      "address": "0x10000c68",
+      "declaration": "unsigned long long total_bytes64(void);"
+    },
+    "_wm_probe_heap_add_region": {
+      "address": "0x10000b28",
+      "declaration": "bool add_region(unsigned long address,unsigned long size);"
+    },
+    "_wm_probe_heap_add_regions": {
+      "address": "0x100008f0",
+      "declaration": "bool add_regions(unsigned long *addresses,unsigned long *sizes,unsigned long count);"
+    },
+    "_wm_probe_heap_alloc_below": {
+      "address": "0x10000e94",
+      "declaration": "void *alloc_below(unsigned long size,unsigned long limit);"
+    },
+    "_wm_probe_heap_alloc_range": {
+      "address": "0x10000ecc",
+      "declaration": "void *alloc_range(unsigned long size,unsigned long first,unsigned long last);"
+    },
+    "_wm_probe_heap_free": {
+      "address": "0x10000f10",
+      "declaration": "void release(void *pointer);"
+    },
+    "_wm_probe_heap_realloc": {
+      "address": "0x10000fac",
+      "declaration": "void *resize(void *pointer,unsigned long size);"
+    },
+    "_strcspn": {
+      "address": "0x10001a14",
+      "declaration": "unsigned long reject_span(char *text,char *reject);"
+    },
+    "_wm_probe_heap_segment_preflight": {
+      "address": "0x10002d38",
+      "declaration": "bool region_preflight(unsigned long address,unsigned long size,unsigned char *added);"
+    }
+  }
+}

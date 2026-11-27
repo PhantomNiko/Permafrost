@@ -1,0 +1,22 @@
+{
+  "version": "1.1",
+  "reference_image": "WinterBoot-1.1r344-Beta.img",
+  "reference_path": "Library/Native/WinterRwby.dylib",
+  "architectures": {
+    "arm64": {
+      "sha256": "10919637d5268fb0d50b80014f4fa304b2d4dbabbbf159e97ec2ea1a308ba385",
+      "recovered_functions": 1169,
+      "core_execution_cases": 20,
+      "serialized_bytecode_cases": 20,
+      "heap_workflows": 12,
+      "allocator_forwarding_cases": 117
+    }
+  },
+  "pending": [
+    "remaining three Rwby source backends",
+    "full callback and exception compatibility",
+    "booted VM application integration",
+    "release-wide images and SDK"
+  ],
+  "status": "partial source checkpoint; VM functional parity remains incomplete"
+}

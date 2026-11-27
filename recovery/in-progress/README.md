@@ -398,3 +398,10 @@ ordering arrays. Image cleanup also covers null, empty, owned and repeated
 cleanup through imported function pointers. Recovery preserves boxed JavaScript
 returns, font cursor initialization and native variadic stack arguments. Full
 page rendering, navigation and scripting in a booted VM remain release gates.
+
+The fresh ARM64 Rwby backend builds from recovered C and matches all 20 core
+execution fixtures, 20 serialized-bytecode comparisons, 12 heap workflows and
+117 allocator-forwarding checks. Constructor state and allocation counts also
+match under poisoned memory. Recovery restores map/string owner returns and
+the unsigned token range used by indexed assignment. Other architectures,
+full callback/exception behavior and booted VM integration remain unfinished.

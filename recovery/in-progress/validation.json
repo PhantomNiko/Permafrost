@@ -297,6 +297,16 @@
       "rectangle_cases_per_architecture": 260,
       "arm64_html_preparation_layout_cases": 8,
       "arm64_image_cleanup_cases": 4
+    },
+    "rwby_source_recovery": {
+      "architectures": [
+        "arm64"
+      ],
+      "core_execution_cases": 20,
+      "serialized_bytecode_cases": 20,
+      "heap_workflows": 12,
+      "allocator_forwarding_cases": 117,
+      "release_vm_parity": false
     }
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",
