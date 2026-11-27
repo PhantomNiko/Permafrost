@@ -1,0 +1,2 @@
+10007e00	long long round_extended(long double value);
+10008a00	bool finite_double(double value);

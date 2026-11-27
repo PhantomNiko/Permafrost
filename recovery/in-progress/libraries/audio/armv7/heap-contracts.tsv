@@ -1,0 +1,13 @@
+1000482c	void *allocate(unsigned long size);
+10003f00	void reset_heap(void);
+10004568	unsigned int free_bytes(void);
+100046d4	unsigned int total_bytes(void);
+10004618	unsigned long long free_bytes64(void);
+1000477c	unsigned long long total_bytes64(void);
+100044d0	bool add_region(unsigned long address,unsigned long size);
+1000420c	bool add_regions(unsigned long *addresses,unsigned long *sizes,unsigned long count);
+10004b08	void *alloc_below(unsigned long size,unsigned long limit);
+10004b90	void *alloc_range(unsigned long size,unsigned long first,unsigned long last);
+10004c20	void release(void *pointer);
+10004e08	void *resize(void *pointer,unsigned long size);
+10006e1c	unsigned long reject_span(char *text,char *reject);

@@ -1,0 +1,165 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268436784,
+  "text_end": 268479493,
+  "state_end": 268500992,
+  "translation": {
+    "pointer_bytes": 4,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 268479493,
+    "state_end": 268500992,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#define PF_NATIVE_X87 1",
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"x86_cpu.h\""
+    ],
+    "system_registers": {
+      "MXCSR": "rw"
+    },
+    "source_replacements": {
+      "10004ea0": {
+        "0x1000ad9e": "((uintptr_t)pf_module_state+0x199U)",
+        "0x1000adb9": "((uintptr_t)pf_module_state+0x1b4U)"
+      },
+      "10004ef0": {
+        "0x1000adb9": "((uintptr_t)pf_module_state+0x1b4U)",
+        "0x1000adbc": "((uintptr_t)pf_module_state+0x1b7U)"
+      },
+      "10008660": {
+        "local_70 + 0x2680": "((uintptr_t)pf_module_state+0xefU)",
+        "local_70 + 0x269c": "((uintptr_t)pf_module_state+0x10bU)"
+      },
+      "1000a080": {
+        "(int)local_60 + 0xddb": "((uintptr_t)pf_module_state+0x267U)",
+        "(int)local_60 + 0xddf": "((uintptr_t)pf_module_state+0x26bU)",
+        "(int)local_60 + 0xde5": "((uintptr_t)pf_module_state+0x271U)",
+        "(int)local_60 + 0xde9": "((uintptr_t)pf_module_state+0x275U)",
+        "local_60 + 0x6f0": "((uintptr_t)pf_module_state+0x26cU)",
+        "local_60 + 0x6f2": "((uintptr_t)pf_module_state+0x270U)",
+        "local_60 + 0x6f5": "((uintptr_t)pf_module_state+0x276U)",
+        "local_60 + 0x6f7": "((uintptr_t)pf_module_state+0x27aU)"
+      }
+    }
+  },
+  "reviewed_heap_contracts": {
+    "_wm_probe_heap_alloc": {
+      "address": "0x10000cd0",
+      "declaration": "void *allocate(unsigned long size);"
+    },
+    "_wm_probe_heap_reset": {
+      "address": "0x10000530",
+      "declaration": "void reset_heap(void);"
+    },
+    "_wm_probe_heap_free_bytes": {
+      "address": "0x10000ae0",
+      "declaration": "unsigned int free_bytes(void);"
+    },
+    "_wm_probe_heap_total_bytes": {
+      "address": "0x10000be0",
+      "declaration": "unsigned int total_bytes(void);"
+    },
+    "_wm_probe_heap_free_bytes64": {
+      "address": "0x10000b60",
+      "declaration": "unsigned long long free_bytes64(void);"
+    },
+    "_wm_probe_heap_total_bytes64": {
+      "address": "0x10000c50",
+      "declaration": "unsigned long long total_bytes64(void);"
+    },
+    "_wm_probe_heap_add_region": {
+      "address": "0x10000a60",
+      "declaration": "bool add_region(unsigned long address,unsigned long size);"
+    },
+    "_wm_probe_heap_add_regions": {
+      "address": "0x100007b0",
+      "declaration": "bool add_regions(unsigned long *addresses,unsigned long *sizes,unsigned long count);"
+    },
+    "_wm_probe_heap_alloc_below": {
+      "address": "0x10000f70",
+      "declaration": "void *alloc_below(unsigned long size,unsigned long limit);"
+    },
+    "_wm_probe_heap_alloc_range": {
+      "address": "0x10000fe0",
+      "declaration": "void *alloc_range(unsigned long size,unsigned long first,unsigned long last);"
+    },
+    "_wm_probe_heap_free": {
+      "address": "0x10001050",
+      "declaration": "void release(void *pointer);"
+    },
+    "_wm_probe_heap_realloc": {
+      "address": "0x100011e0",
+      "declaration": "void *resize(void *pointer,unsigned long size);"
+    },
+    "_strcspn": {
+      "address": "0x10002530",
+      "declaration": "unsigned long reject_span(char *text,char *reject);"
+    }
+  },
+  "reviewed_heap_private_contracts": {
+    "_wm_probe_heap_add_regions_locked": {
+      "address": "0x10000820",
+      "declaration": "bool add_locked(unsigned long *addresses,unsigned long *sizes,unsigned long count);",
+      "storage": "ECX,EDX,stack4",
+      "result": "EAX"
+    },
+    "_wm_probe_heap_append_region_excluding_application": {
+      "address": "0x100048f0",
+      "declaration": "void append_region(unsigned long address,unsigned long size,void *tail);",
+      "storage": "ECX,EDX,stack4",
+      "result": ""
+    },
+    "_wm_probe_heap_alloc_bounded_locked": {
+      "address": "0x10000d40",
+      "declaration": "void *allocate_locked(unsigned long size,unsigned long first,unsigned long last);",
+      "storage": "ECX,EDX,stack4",
+      "result": "EAX"
+    },
+    "_wm_probe_heap_split_prefix": {
+      "address": "0x10004a90",
+      "declaration": "void *split_prefix(void *chunk,unsigned long first);",
+      "storage": "ECX,EDX",
+      "result": "EAX"
+    },
+    "_wm_probe_heap_split": {
+      "address": "0x10004af0",
+      "declaration": "bool split_chunk(void *chunk,unsigned long size);",
+      "storage": "ECX,EDX",
+      "result": "EAX"
+    },
+    "_wm_probe_heap_free_locked": {
+      "address": "0x100010c0",
+      "declaration": "void free_locked(void *pointer);",
+      "storage": "ECX",
+      "result": ""
+    }
+  },
+  "reviewed_x87_exponential_argument": "Native expl loads a ten-byte argument from a twelve-byte i386 stack slot and returns through the full ST0 register.",
+  "reviewed_allocator_forwarding": {
+    "slots": [
+      "0x4c",
+      "0x50",
+      "0x54"
+    ],
+    "reason": "Native allocator tail calls preserve byte-count and pointer arguments through the WMAP wire table. Explicit call contracts retain those arguments in C."
+  },
+  "reviewed_trim_pic_constants": "Restore the saved i386 PIC anchor for trim conversion constants independently of stack-local reuse.",
+  "reviewed_value_contracts": {
+    "signatures": [
+      "10006190\tlong long round_extended(long double value);",
+      "100089d0\tvoid *resample(void *output,void *track,unsigned int count,double factor);\tECX,EDX,stack4,stack12\tEAX"
+    ],
+    "reason": "Recover native value returns and full precision arguments before propagating them to callers."
+  },
+  "reviewed_format_arguments": [
+    "10005070\t1000520b\t4\t%s",
+    "10005070\t10005290\t4\t%s"
+  ],
+  "reviewed_variadic_wrapper": "Forward the C variadic argument list to the recovered native formatter with the host-target ABI.",
+  "reviewed_wav_header_pic_anchor": "Restore the native i386 PIC anchor for the four WAV header spans independently of later sample-pointer reuse."
+}

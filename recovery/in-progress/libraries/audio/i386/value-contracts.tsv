@@ -1,0 +1,2 @@
+10006190	long long round_extended(long double value);
+100089d0	void *resample(void *output,void *track,unsigned int count,double factor);	ECX,EDX,stack4,stack12	EAX

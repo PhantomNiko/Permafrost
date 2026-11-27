@@ -1,0 +1,30 @@
+{
+  "version": "1.1",
+  "reference_image": "WinterBoot-1.1r344-Beta.img",
+  "reference_path": "Library/Native/WinterTLS.dylib",
+  "architectures": {
+    "i386": {
+      "sha256": "7066f7bccaf4d44d1ac4eb3dea180d0365b14663e584b123c4923db663099b14",
+      "native_functions": 222
+    },
+    "x86_64": {
+      "sha256": "54a34e4ca4a184a2fe7cf9d5adf43c8b1dc4f0e03846cd1d8de3083abc1b86ee",
+      "native_functions": 222
+    },
+    "armv7": {
+      "sha256": "7ae696cf203088ac06510c3149f85829cb30a3b4aa5c29b5d262555d09d4d50f",
+      "native_functions": 225
+    },
+    "arm64": {
+      "sha256": "b93179e8ffd4d0bb254924ad4de7a791465f2ec41e3a39f6288afaa16f4891d9",
+      "native_functions": 332
+    }
+  },
+  "checks": {
+    "audio_api_cases_per_cpu": 52,
+    "file_operations": "WAV decoding, malformed input, saving and cross-decoding",
+    "heap_workflows_per_cpu": 12,
+    "allocator_forwarding_cases_per_cpu": 117
+  },
+  "status": "source checkpoint; release-wide VM parity remains incomplete"
+}

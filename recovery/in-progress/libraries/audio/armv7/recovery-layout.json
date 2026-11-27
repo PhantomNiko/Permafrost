@@ -1,0 +1,360 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268451136,
+  "text_end": 268500280,
+  "state_end": 268550144,
+  "translation": {
+    "pointer_bytes": 4,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 268500280,
+    "state_end": 268550144,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"armv7-recovery.h\"",
+      "#include \"cpu.h\"",
+      "#include \"arm_exclusive.h\"",
+      "#include \"coprocessors.h\"",
+      "#include \"neon.h\"",
+      "static inline __attribute__((always_inline)) uintptr_t pf_current_sp(void){uintptr_t value;__asm__ volatile(\"mov %0,sp\":\"=r\"(value));return value;}"
+    ],
+    "stack_register": "register0x00000054",
+    "system_registers": {},
+    "source_replacements": {
+      "1000477c": {
+        "0x10010088": "((uintptr_t)pf_module_state+0x350U)"
+      },
+      "10004b08": {
+        "0x10010088": "((uintptr_t)pf_module_state+0x350U)"
+      },
+      "10004b90": {
+        "0x10010088": "((uintptr_t)pf_module_state+0x350U)"
+      },
+      "10004618": {
+        "0x10010088": "((uintptr_t)pf_module_state+0x350U)"
+      },
+      "10004e08": {
+        "0x10010088": "((uintptr_t)pf_module_state+0x350U)"
+      },
+      "1000939c": {
+        "0x10010094": "((uintptr_t)pf_module_state+0x35cU)"
+      },
+      "10004c20": {
+        "0x10010088": "((uintptr_t)pf_module_state+0x350U)"
+      },
+      "100097a0": {
+        "0x1000fdb7": "((uintptr_t)pf_module_state+0x7fU)",
+        "0x1000fdb4": "((uintptr_t)pf_module_state+0x7cU)"
+      },
+      "100046d4": {
+        "0x10010088": "((uintptr_t)pf_module_state+0x350U)"
+      },
+      "100044d0": {
+        "0x10010088": "((uintptr_t)pf_module_state+0x350U)"
+      },
+      "10009754": {
+        "0x1000fd99": "((uintptr_t)pf_module_state+0x61U)",
+        "0x1000fdb4": "((uintptr_t)pf_module_state+0x7cU)"
+      },
+      "1000c340": {
+        "0x1000fe7b": "((uintptr_t)pf_module_state+0x143U)",
+        "0x1000fe96": "((uintptr_t)pf_module_state+0x15eU)",
+        "0x1000fe8b": "((uintptr_t)pf_module_state+0x153U)",
+        "0x1000fe90": "((uintptr_t)pf_module_state+0x158U)",
+        "0x1000fe82": "((uintptr_t)pf_module_state+0x14aU)",
+        "0x1000fe87": "((uintptr_t)pf_module_state+0x14fU)",
+        "thunk_FUN_1000fd5c": "recovered_1000fd5c",
+        "(ulonglong)(dVar22 * DAT_1000cae8)": "pf_double_bits(dVar22 * DAT_1000cae8)"
+      },
+      "1000420c": {
+        "0x10010088": "((uintptr_t)pf_module_state+0x350U)"
+      },
+      "1000482c": {
+        "0x10010088": "((uintptr_t)pf_module_state+0x350U)"
+      },
+      "10003f00": {
+        "0x10010088": "((uintptr_t)pf_module_state+0x350U)"
+      },
+      "10004568": {
+        "0x10010088": "((uintptr_t)pf_module_state+0x350U)"
+      },
+      "1000ce30": {
+        "thunk_FUN_1000fd5c": "recovered_1000fd5c"
+      },
+      "1000d290": {
+        "thunk_FUN_1000fd5c": "recovered_1000fd5c"
+      },
+      "1000da00": {
+        "(0.0 <= dVar4)": "(0.0 < dVar4)"
+      }
+    },
+    "void_result_calls": [
+      "1000aab0"
+    ],
+    "literal_data": {
+      "100076c8": "000000000000e043",
+      "10007d18": "182d4454fb210940",
+      "10007d20": "182d4454fb2119c0",
+      "10007d28": "182d4454fb2109c0",
+      "10007d30": "182d4454fb211940",
+      "10007d38": "0000000000005e40",
+      "10007d40": "0000000000b0b3c0",
+      "10007c48": "000080ff",
+      "10007c40": "ef39fafe422ee63f",
+      "1000d270": "0000000000408f40",
+      "1000d278": "0000c0ffffffdf41",
+      "1000d280": "000000000000e0c0",
+      "1000d288": "00000000c0ffdf40",
+      "1000ae1c": "1c510000",
+      "1000ae20": "3c000000",
+      "1000d9f8": "88280000",
+      "1000d9fc": "b8020000",
+      "1000d9e8": "000000000000e0c0",
+      "1000d9f0": "00000000c0ffdf40",
+      "10007b04": "00000000",
+      "1000e800": "0c180000",
+      "1000e804": "68000000",
+      "1000ce28": "10330000",
+      "1000ce2c": "94010000",
+      "100073b8": "000000000000f0ff",
+      "100073c0": "ef39fafe422ee63f",
+      "1000aee4": "64500000",
+      "1000aee8": "3c000000",
+      "10007540": "182d4454fb210940",
+      "10007548": "182d4454fb2119c0",
+      "10007550": "182d4454fb2109c0",
+      "10007558": "182d4454fb211940",
+      "10007560": "00000000008086c0",
+      "1000afac": "ac4f0000",
+      "1000afb0": "3c000000",
+      "1000abec": "0c530000",
+      "1000abf0": "1c000000",
+      "1000df20": "90230000",
+      "1000df24": "f0020000",
+      "1000f3a4": "18110000",
+      "1000f3a8": "9c040000",
+      "10007640": "000000000000e043",
+      "1000d550": "3c2c0000",
+      "1000d554": "04020000",
+      "1000d540": "0000000000408f40",
+      "1000d548": "0000c0ffffffdf41",
+      "1000c338": "683d0000",
+      "1000c33c": "34010000",
+      "1000e708": "d41f0000",
+      "1000e70c": "ec060000",
+      "1000e6f8": "00000000c0ffdf40",
+      "1000e700": "000000000000e040",
+      "1000e8f8": "24170000",
+      "1000e8fc": "68000000",
+      "1000ad54": "d4510000",
+      "1000ad58": "3c000000",
+      "1000b9c0": "ef39fafe422e8640",
+      "1000b9b8": "000000000000f07f",
+      "1000b9c8": "51302dd5104987c0",
+      "100077e8": "00000000",
+      "1000ec58": "000000000000803f",
+      "1000ec48": "000000000000803e",
+      "1000ec40": "000000000000003e",
+      "1000ec50": "000000000000003f",
+      "10007978": "00000000",
+      "10007dd8": "182d4454fb210940",
+      "10007de0": "182d4454fb2119c0",
+      "10007de8": "182d4454fb2109c0",
+      "10007df0": "182d4454fb211940",
+      "10007df8": "00000000008086c0",
+      "1000b8d8": "ef39fafe422e8640",
+      "1000b8d0": "000000000000f07f",
+      "1000b8e0": "51302dd5104987c0",
+      "1000b7d8": "ef39fafe422e8640",
+      "1000b7d0": "000000000000f07f",
+      "1000b7e0": "51302dd5104987c0",
+      "10007488": "182d4454fb210940",
+      "10007490": "182d4454fb2119c0",
+      "10007498": "182d4454fb2109c0",
+      "100074a0": "182d4454fb211940",
+      "100074a8": "0000000000005e40",
+      "100074b0": "0000000000b0b3c0",
+      "1000cb00": "683b0000",
+      "1000cb04": "c0060000",
+      "1000cad0": "000000008088e540",
+      "1000cad8": "0000000000408f40",
+      "1000cae0": "0000c0ffffffdf41",
+      "1000caf0": "00000000c0ffdf40",
+      "1000caf8": "000000000000e0c0",
+      "1000cae8": "182d4454fb211940",
+      "100078a4": "00000000",
+      "1000f49c": "b40b0000",
+      "1000f4a0": "68000000"
+    }
+  },
+  "reviewed_external_rounding": "Resolve the imported llroundl boundary with the recovered local double rounding operation; ARM32 long double has double precision.",
+  "reviewed_heap_contracts": {
+    "_wm_probe_heap_alloc": {
+      "address": "0x1000482c",
+      "declaration": "void *allocate(unsigned long size);"
+    },
+    "_wm_probe_heap_reset": {
+      "address": "0x10003f00",
+      "declaration": "void reset_heap(void);"
+    },
+    "_wm_probe_heap_free_bytes": {
+      "address": "0x10004568",
+      "declaration": "unsigned int free_bytes(void);"
+    },
+    "_wm_probe_heap_total_bytes": {
+      "address": "0x100046d4",
+      "declaration": "unsigned int total_bytes(void);"
+    },
+    "_wm_probe_heap_free_bytes64": {
+      "address": "0x10004618",
+      "declaration": "unsigned long long free_bytes64(void);"
+    },
+    "_wm_probe_heap_total_bytes64": {
+      "address": "0x1000477c",
+      "declaration": "unsigned long long total_bytes64(void);"
+    },
+    "_wm_probe_heap_add_region": {
+      "address": "0x100044d0",
+      "declaration": "bool add_region(unsigned long address,unsigned long size);"
+    },
+    "_wm_probe_heap_add_regions": {
+      "address": "0x1000420c",
+      "declaration": "bool add_regions(unsigned long *addresses,unsigned long *sizes,unsigned long count);"
+    },
+    "_wm_probe_heap_alloc_below": {
+      "address": "0x10004b08",
+      "declaration": "void *alloc_below(unsigned long size,unsigned long limit);"
+    },
+    "_wm_probe_heap_alloc_range": {
+      "address": "0x10004b90",
+      "declaration": "void *alloc_range(unsigned long size,unsigned long first,unsigned long last);"
+    },
+    "_wm_probe_heap_free": {
+      "address": "0x10004c20",
+      "declaration": "void release(void *pointer);"
+    },
+    "_wm_probe_heap_realloc": {
+      "address": "0x10004e08",
+      "declaration": "void *resize(void *pointer,unsigned long size);"
+    },
+    "_strcspn": {
+      "address": "0x10006e1c",
+      "declaration": "unsigned long reject_span(char *text,char *reject);"
+    }
+  },
+  "reviewed_allocator_forwarding": {
+    "slots": [
+      "0x4c",
+      "0x50",
+      "0x54"
+    ],
+    "reason": "Native allocator tail calls preserve byte-count and pointer arguments through the WMAP wire table. Explicit call contracts retain those arguments in C."
+  },
+  "reviewed_inline_constants": {
+    "0x100073b8": 8,
+    "0x100073c0": 8,
+    "0x10007488": 8,
+    "0x10007490": 8,
+    "0x10007498": 8,
+    "0x100074a0": 8,
+    "0x100074a8": 8,
+    "0x100074b0": 8,
+    "0x10007540": 8,
+    "0x10007548": 8,
+    "0x10007550": 8,
+    "0x10007558": 8,
+    "0x10007560": 8,
+    "0x10007640": 8,
+    "0x100076c8": 8,
+    "0x100077e8": 4,
+    "0x100078a4": 4,
+    "0x10007978": 4,
+    "0x10007b04": 4,
+    "0x10007c40": 8,
+    "0x10007c48": 4,
+    "0x10007d18": 8,
+    "0x10007d20": 8,
+    "0x10007d28": 8,
+    "0x10007d30": 8,
+    "0x10007d38": 8,
+    "0x10007d40": 8,
+    "0x10007dd8": 8,
+    "0x10007de0": 8,
+    "0x10007de8": 8,
+    "0x10007df0": 8,
+    "0x10007df8": 8,
+    "0x1000abec": 4,
+    "0x1000abf0": 4,
+    "0x1000ad54": 4,
+    "0x1000ad58": 4,
+    "0x1000ae1c": 4,
+    "0x1000ae20": 4,
+    "0x1000aee4": 4,
+    "0x1000aee8": 4,
+    "0x1000afac": 4,
+    "0x1000afb0": 4,
+    "0x1000b7d0": 8,
+    "0x1000b7d8": 8,
+    "0x1000b7e0": 8,
+    "0x1000b8d0": 8,
+    "0x1000b8d8": 8,
+    "0x1000b8e0": 8,
+    "0x1000b9b8": 8,
+    "0x1000b9c0": 8,
+    "0x1000b9c8": 8,
+    "0x1000c338": 4,
+    "0x1000c33c": 4,
+    "0x1000cad0": 8,
+    "0x1000cad8": 8,
+    "0x1000cae0": 8,
+    "0x1000cae8": 8,
+    "0x1000caf0": 8,
+    "0x1000caf8": 8,
+    "0x1000cb00": 4,
+    "0x1000cb04": 4,
+    "0x1000ce28": 4,
+    "0x1000ce2c": 4,
+    "0x1000d270": 8,
+    "0x1000d278": 8,
+    "0x1000d280": 8,
+    "0x1000d288": 8,
+    "0x1000d540": 8,
+    "0x1000d548": 8,
+    "0x1000d550": 4,
+    "0x1000d554": 4,
+    "0x1000d9e8": 8,
+    "0x1000d9f0": 8,
+    "0x1000d9f8": 4,
+    "0x1000d9fc": 4,
+    "0x1000df20": 4,
+    "0x1000df24": 4,
+    "0x1000e6f8": 8,
+    "0x1000e700": 8,
+    "0x1000e708": 4,
+    "0x1000e70c": 4,
+    "0x1000e800": 4,
+    "0x1000e804": 4,
+    "0x1000e8f8": 4,
+    "0x1000e8fc": 4,
+    "0x1000ec40": 8,
+    "0x1000ec48": 8,
+    "0x1000ec50": 8,
+    "0x1000ec58": 8,
+    "0x1000f3a4": 4,
+    "0x1000f3a8": 4,
+    "0x1000f49c": 4,
+    "0x1000f4a0": 4
+  },
+  "reviewed_sine_argument_words": "Preserve the high word of the floating sine argument as raw double bits, including the product expression.",
+  "reviewed_speed_positive_guard": "Native VCMP/BLS rejects zero along with negative and unordered speed factors before any resampling.",
+  "reviewed_format_arguments": [
+    "10009954\t10009ad0\t4\t%s",
+    "10009954\t10009bb0\t4\t%s"
+  ],
+  "reviewed_variadic_wrapper": "Forward the C variadic argument list to the recovered native formatter with the host-target ABI."
+}

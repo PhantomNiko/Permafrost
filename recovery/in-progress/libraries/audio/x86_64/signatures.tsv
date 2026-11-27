@@ -1,0 +1,16 @@
+10000560	void recovered_10000560(void);
+10008630	ulonglong recovered_10008630(void);
+10008750	uchar recovered_10008750(void);
+10004f80	undefined8 recovered_10004f80(long param_1);
+10001c70	void * recovered_10001c70(unsigned long size);
+10001cc0	void recovered_10001cc0(void *pointer);
+10001d10	void * recovered_10001d10(void *pointer,unsigned long size);
+10008090	void * recovered_10008090(unsigned long size);
+100080c0	void * recovered_100080c0(unsigned long size);
+100080f0	void recovered_100080f0(void *pointer);
+10008190	void recovered_10008190(void *pointer);
+10004f80	long recovered_10004f80(double value);
+10004610	long long recovered_10004610(double value);
+10004280	double recovered_10004280(double value);
+100042b0	double recovered_100042b0(double value);
+100064d0	int recovered_100064d0(char *buffer,unsigned long capacity,char *format,...);

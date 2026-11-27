@@ -1,0 +1,2 @@
+10006770	char *allocate_string(unsigned long capacity);
+10001ec4	double reduce_angle(double value);

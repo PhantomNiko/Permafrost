@@ -1,0 +1,124 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268436832,
+  "text_end": 268491695,
+  "state_end": 268521472,
+  "translation": {
+    "pointer_bytes": 8,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 268491695,
+    "state_end": 268521472,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"x86_cpu.h\""
+    ],
+    "system_registers": {
+      "MXCSR": "rw"
+    },
+    "source_replacements": {
+      "10006b50": {
+        "0x1000de8e": "((uintptr_t)pf_module_state+0x2dfU)",
+        "0x1000dea9": "((uintptr_t)pf_module_state+0x2faU)"
+      },
+      "10006b90": {
+        "0x1000deac": "((uintptr_t)pf_module_state+0x2fdU)",
+        "0x1000dea9": "((uintptr_t)pf_module_state+0x2faU)"
+      },
+      "10009890": {
+        "&DAT_1000ddb0 + (ulong)(dVar3 < DAT_1000dbb0) * 8": "(uintptr_t)&DAT_1000ddb0 + (ulong)(dVar3 < DAT_1000dbb0) * 8",
+        "(undefined4)DAT_1000dd90": "PF_PART4(DAT_1000dd90,0)"
+      },
+      "1000a820": {
+        "(undefined4)DAT_1000dd90": "PF_PART4(DAT_1000dd90,0)"
+      },
+      "1000a000": {
+        "(undefined4)DAT_1000dd90": "PF_PART4(DAT_1000dd90,0)"
+      },
+      "1000aca0": {
+        "(undefined4)DAT_1000dd90": "PF_PART4(DAT_1000dd90,0)"
+      }
+    }
+  },
+  "reviewed_heap_contracts": {
+    "_wm_probe_heap_alloc": {
+      "address": "0x10000dc0",
+      "declaration": "void *allocate(unsigned long size);"
+    },
+    "_wm_probe_heap_reset": {
+      "address": "0x10000560",
+      "declaration": "void reset_heap(void);"
+    },
+    "_wm_probe_heap_free_bytes": {
+      "address": "0x10000bc0",
+      "declaration": "unsigned int free_bytes(void);"
+    },
+    "_wm_probe_heap_total_bytes": {
+      "address": "0x10000cb0",
+      "declaration": "unsigned int total_bytes(void);"
+    },
+    "_wm_probe_heap_free_bytes64": {
+      "address": "0x10000c40",
+      "declaration": "unsigned long long free_bytes64(void);"
+    },
+    "_wm_probe_heap_total_bytes64": {
+      "address": "0x10000d40",
+      "declaration": "unsigned long long total_bytes64(void);"
+    },
+    "_wm_probe_heap_add_region": {
+      "address": "0x10000b60",
+      "declaration": "bool add_region(unsigned long address,unsigned long size);"
+    },
+    "_wm_probe_heap_add_regions": {
+      "address": "0x100008d0",
+      "declaration": "bool add_regions(unsigned long *addresses,unsigned long *sizes,unsigned long count);"
+    },
+    "_wm_probe_heap_alloc_below": {
+      "address": "0x10001020",
+      "declaration": "void *alloc_below(unsigned long size,unsigned long limit);"
+    },
+    "_wm_probe_heap_alloc_range": {
+      "address": "0x10001080",
+      "declaration": "void *alloc_range(unsigned long size,unsigned long first,unsigned long last);"
+    },
+    "_wm_probe_heap_free": {
+      "address": "0x100010e0",
+      "declaration": "void release(void *pointer);"
+    },
+    "_wm_probe_heap_realloc": {
+      "address": "0x10001250",
+      "declaration": "void *resize(void *pointer,unsigned long size);"
+    },
+    "_strcspn": {
+      "address": "0x10003df0",
+      "declaration": "unsigned long reject_span(char *text,char *reject);"
+    }
+  },
+  "reviewed_allocator_forwarding": {
+    "slots": [
+      "0x4c",
+      "0x50",
+      "0x54"
+    ],
+    "reason": "Native allocator tail calls preserve byte-count and pointer arguments through the WMAP wire table. Explicit call contracts retain those arguments in C."
+  },
+  "reviewed_value_contracts": {
+    "signatures": [
+      "10007e00\tlong long round_extended(long double value);",
+      "10008a00\tbool finite_double(double value);"
+    ],
+    "reason": "Recover native value returns and full precision arguments before propagating them to callers."
+  },
+  "reviewed_waveform_constant_stride": "The native waveform lookup adds an eight-byte offset to a byte address. Preserve that byte stride when the constant acquires a double lvalue in C.",
+  "reviewed_unsigned_conversion_word": "Read the full native four-byte conversion lane from the untyped constant symbol before joining the double mantissa.",
+  "reviewed_format_arguments": [
+    "10006d20\t10006e75\t4\t%s",
+    "10006d20\t10007025\t4\t%s"
+  ],
+  "reviewed_variadic_wrapper": "Forward the C variadic argument list to the recovered native formatter with the host-target ABI."
+}
