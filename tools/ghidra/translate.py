@@ -531,15 +531,16 @@ def rewrite_float_pointer_expressions(source, floating_names=()):
 
 def rewrite_float_slot_views(source, pointer_slots=False):
     """Read integer branches of mixed four-byte arrays as representation bits."""
+    integer_casts='int|uint|char|uchar|byte|short|ushort'+('|long|ulong' if not WIDE else '')
     arrays=set(re.findall(r'^  float (\w+)\s*\[\d+\];',source,re.M))
     pointers=set(re.findall(r'\bfloat\s*\*\s*(\w+)\b',source)) if pointer_slots else set()
     floats=set(re.findall(r'^  float (\w+);',source,re.M))
     words=set(re.findall(r'\b(?:int|uint|undefined4)\s*\*+\s*(\w+)\b',source))
     for name in sorted(arrays|pointers):
-        source=re.sub(r'\((int|uint|char|uchar|byte|short|ushort)\)('+name+r'\[[^]\n]+\])',
+        source=re.sub(r'\(('+integer_casts+r')\)('+name+r'\[[^]\n]+\])',
                       r'(\1)pf_float_bits(\2)',source)
         if name in pointers:
-            source=re.sub(r'\((int|uint|char|uchar|byte|short|ushort)\)(\*'+name+r'\b)',
+            source=re.sub(r'\(('+integer_casts+r')\)(\*'+name+r'\b)',
                           r'(\1)pf_float_bits(\2)',source)
         target=name+r'\[[^]\n]+\]'
         if name in pointers:target=r'(?:'+target+r'|\*'+name+r'\b)'
@@ -557,7 +558,7 @@ def rewrite_float_slot_views(source, pointer_slots=False):
         for value in floats:
             source=re.sub(r'('+name+r'\[[^]\n]+\]) = '+value+r';',r'\1 = pf_float_bits('+value+');',source)
     if pointer_slots:
-        pattern=r'\((int|uint|char|uchar|byte|short|ushort)\)(?=\*\s*\(float\s*\*\))'
+        pattern=r'\(('+integer_casts+r')\)(?=\*\s*\(float\s*\*\))'
         for match in reversed(list(re.finditer(pattern,source))):
             start=match.end();end=scalar_cast_operand_end(source,start)
             source=(source[:start]+'pf_float_bits('+source[start:end]+')'+source[end:])

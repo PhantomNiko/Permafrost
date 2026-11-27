@@ -8,6 +8,7 @@ import subprocess
 import sys
 import tempfile
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools/ghidra'))
+import translate as translation
 from translate import rewrite_scalar_storage,rewrite_pointer_float_views,rewrite_float_pointer_expressions,rewrite_float_slot_views
 
 
@@ -98,6 +99,7 @@ uint byte_word_slot(float *slots,void *word) {
  return (uint)slots[1];
 }
 uint typed_word_slot(void *word) { return (uint)*(float *)word; }
+ulong long_word_slot(float *slot) { return (ulong)slot[0]; }
 uint joined_word_slot(float *slot,uint index) {
   float fVar1;
  fVar1 = slot[0];
@@ -112,6 +114,9 @@ uint dereference_word_slot(float *slot,uint word) {
     functions+=rewrite_float_slot_views('''
 uint numeric_cast_pointer(float *slots) { return (uint)slots[2]; }
 ''')
+    translation.WIDE=True
+    functions+=rewrite_float_slot_views('ulong wide_numeric_long(float *slots) { return (ulong)slots[2]; }',pointer_slots=True)
+    translation.WIDE=False
     source='#include "support.h"\n'+rewrite_pointer_float_views(functions,{'records'},True)+'''
 int main(void) {
  float mixed_slots[3]={pf_bits_float(0x03100000),0.0f,1.5f};
@@ -128,6 +133,8 @@ int main(void) {
  if(typed_word_slot(&raw_word)!=raw_word)return 32;
  if(dereference_word_slot(mixed_slots,0x03500000)!=0x03500000)return 33;
  if(joined_word_slot(mixed_slots,2)!=0x03500018)return 34;
+ if(long_word_slot(mixed_slots)!=0x03500000)return 35;
+ if(wide_numeric_long(mixed_slots)!=1)return 36;
  if((uintptr_t)product_slot(1.5f,3)!=pf_float_bits(4.5f))return 16;
  if((uintptr_t)quotient_slot(-1.5f,2.0f)!=pf_float_bits(-0.75f))return 17;
  if(pointer_parameter((void *)(uintptr_t)0x3fc00000)!=1.5f)return 18;
