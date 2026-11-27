@@ -231,7 +231,7 @@
       "scope": "fallback UI and chunked HTTP; broader client parity incomplete"
     },
     "Zastruga Engine": {
-      "commit": "354e154",
+      "commit": "cfc59d7",
       "source_architectures": [
         "x86_64",
         "arm64"
@@ -252,7 +252,8 @@
         "clone_pointer_contracts": 254,
         "captured_object_cases": 248,
         "deleting_destructor_ownership": true
-      }
+      },
+      "interpreter_operator_workflows": 12
     }
   },
   "module_integration_vm": "C kernel, C WinterShell and C Stage4 reach the desktop and source terminal on all four CPUs; typed 1+1 displays 2. Other reference payloads remain; full release parity remains incomplete."

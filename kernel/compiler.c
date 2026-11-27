@@ -210,4 +210,24 @@ double __floatundidf(uint64_t value) {
     return (double)(uint32_t)(value>>32)*4294967296.0+(double)(uint32_t)value;
 }
 
+float __floatundisf(uint64_t value) {
+    union { uint32_t bits; float number; } result;
+    if (!value) return 0.0f;
+    unsigned exponent=0;
+    for (uint64_t remaining=value; remaining>>1; remaining>>=1) ++exponent;
+    uint32_t significand;
+    if (exponent<=23) significand=(uint32_t)value<<(23-exponent);
+    else {
+        unsigned shift=exponent-23;
+        significand=(uint32_t)(value>>shift);
+        uint64_t rest=value&(((uint64_t)1<<shift)-1);
+        uint64_t halfway=(uint64_t)1<<(shift-1);
+        if (rest>halfway || (rest==halfway && (significand&1))) {
+            if (++significand==0x1000000) { significand>>=1; ++exponent; }
+        }
+    }
+    result.bits=((exponent+127)<<23)|(significand&0x7fffff);
+    return result.number;
+}
+
 #endif /* PF_COMPILER_WIDE_ONLY */
