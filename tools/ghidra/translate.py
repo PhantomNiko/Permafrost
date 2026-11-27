@@ -472,6 +472,28 @@ def rewrite_pointer_float_views(source,pointer_names,wide=False):
     return source
 
 
+def scalar_cast_operand_end(source, start):
+    """Keep nested scalar casts attached to their operand."""
+    while source[start].isspace():start+=1
+    if source[start] in '+-!~':return scalar_cast_operand_end(source,start+1)
+    if source[start]=='(':
+        end=start+1;depth=1
+        while depth:
+            depth+=(source[end]=='(')-(source[end]==')');end+=1
+        if re.fullmatch(r'(?:float|double|longdouble|float10|long double)',source[start+1:end-1].strip()):
+            return scalar_cast_operand_end(source,end)
+        return end
+    atom=re.match(r'\w+',source[start:])
+    if not atom:raise ValueError('expected scalar cast operand')
+    end=start+atom.end()
+    while end<len(source) and source[end].isspace():end+=1
+    if end<len(source) and source[end] in '([':
+        opening=source[end];closing=')'if opening=='('else']';depth=1;end+=1
+        while depth:
+            depth+=(source[end]==opening)-(source[end]==closing);end+=1
+    return end
+
+
 def rewrite_float_pointer_expressions(source, floating_names=()):
     """Preserve four-byte floating expressions in pointer-typed spill views."""
     names=set(floating_names)|set(re.findall(r'\bfloat\s+(\w+)\b(?!\s*\()',source))
@@ -482,17 +504,10 @@ def rewrite_float_pointer_expressions(source, floating_names=()):
             depth+=(source[end]=='(')-(source[end]==')');end+=1
         expression=source[start:end]
         inner=expression[1:-1].lstrip()
-        if inner in ('float','double'):
+        if inner in ('float','double','longdouble','float10','long double'):
             # This parenthesis is a cast, followed by its operand, rather
             # than a complete parenthesized expression.
-            atom=re.match(r'\s*(\w+)\s*',source[end:])
-            if not atom:continue
-            operand=end+atom.end()
-            if operand<len(source) and source[operand]=='(':
-                depth=1;operand+=1
-                while depth:
-                    depth+=(source[operand]=='(')-(source[operand]==')');operand+=1
-            end=operand;expression=source[start:end]
+            end=scalar_cast_operand_end(source,start);expression=source[start:end]
         # Explicit integer conversions and pointer arithmetic retain their
         # ordinary C meaning. Floating arguments alone do not make a call's
         # return value floating.
@@ -501,7 +516,7 @@ def rewrite_float_pointer_expressions(source, floating_names=()):
         call=re.match(r'(\w+)\s*\(',inner)
         if call and call[1] not in ('pf_bits_float','VectorSignedToFloat','VectorUnsignedToFloat'):continue
         root=expression.lstrip('(').lstrip()
-        floating=(inner in ('float','double') or inner.startswith('(float)') or
+        floating=(inner in ('float','double','longdouble','float10','long double') or inner.startswith('(float)') or
                   root.startswith('pf_bits_float(') or
                   re.match(r'^\*\s*\(float\s*\*\)',inner) or
                   any(re.match(re.escape(name)+r'\b',root)for name in names))
@@ -604,9 +619,7 @@ def rewrite_scalar_storage(source, pointer_types=()):
         start=match.end()
         if source[start]!='(':
             continue
-        depth=1;end=start+1
-        while depth:
-            depth+=(source[end]=='(')-(source[end]==')');end+=1
+        end=scalar_cast_operand_end(source,start)
         source=source[:match.start()]+'('+match[1]+')(uintptr_t)pf_float_bits((float)'+source[start:end]+')'+source[end:]
     source=re.sub(r'(?m)(^\s*|[=+,?:|&(]\s*|\([^()]+\*\)\s*)\*PF_PART4\((\w+), (\d+)\)',
                   r'\1*(uint32_t *)(uintptr_t)PF_PART4(\2, \3)',source)

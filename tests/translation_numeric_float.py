@@ -67,6 +67,8 @@ float casted_parameter(uintptr_t word) { return (float)(uint128 *)word; }
 void *pointer_arithmetic(int *base) { return (void *)(base+2); }
 void *integer_pointer(float numeric_pointer_value) { return (void *)((int)numeric_pointer_value); }
 void *cast_expression(unsigned long long encoded) { return (void *)(float)pf_bits_double(encoded); }
+void *extended_cast(long double extended_value) { return (void *)(float)(longdouble)extended_value; }
+void *nested_extended_cast(float nested_value) { return (void *)(float)(longdouble)(float10)nested_value; }
 void *integer_index(int *indexed_base,float floating_index) { return (void *)(indexed_base+(int)floating_index); }
 '''
     functions=rewrite_float_pointer_expressions(rewrite_scalar_storage(functions))
@@ -81,6 +83,8 @@ int main(void) {
  if(casted_parameter(0x3fc00000)!=1.5f)return 20;
  if(pointer_arithmetic(addressed)!=addressed+2 || (uintptr_t)integer_pointer(7.5f)!=7)return 21;
  if((uintptr_t)cast_expression(pf_double_bits(2.5))!=pf_float_bits(2.5f))return 22;
+ if((uintptr_t)extended_cast(2.5L)!=pf_float_bits(2.5f))return 24;
+ if((uintptr_t)nested_extended_cast(-1.25f)!=pf_float_bits(-1.25f))return 25;
  if(integer_index(addressed,2.5f)!=addressed+2)return 23;
  if(stack_view()!=3.5f || integer_conversion(7)!=7.0f)return 4;
  if((uintptr_t)float_pointer(pf_bits_float(0x240000))!=0x240000)return 5;

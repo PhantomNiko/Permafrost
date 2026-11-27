@@ -12,7 +12,7 @@ typedef signed char sbyte;
 typedef unsigned short ushort;
 typedef unsigned int uint;
 typedef unsigned long ulong;
-#if defined(__LP64__) && !defined(__ILP32__)
+#if (defined(__LP64__) && !defined(__ILP32__)) || defined(PF_NATIVE_X87)
 typedef long double longdouble;
 #else
 typedef double longdouble;
