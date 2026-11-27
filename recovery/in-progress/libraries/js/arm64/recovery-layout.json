@@ -1,0 +1,127 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268437000,
+  "text_end": 268464424,
+  "state_end": 268517376,
+  "translation": {
+    "pointer_bytes": 8,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 268464424,
+    "state_end": 268517376,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"arm64-recovery.h\"",
+      "#include \"cpu.h\"",
+      "static inline __attribute__((always_inline)) uintptr_t pf_current_sp(void){uintptr_t value;__asm__ volatile(\"mov %0,sp\":\"=r\"(value));return value;}"
+    ],
+    "stack_register": "register0x00000008",
+    "system_registers": {
+      "tpidr_el0": "rw",
+      "tpidrro_el0": "rw",
+      "fpcr": "rw",
+      "fpsr": "rw"
+    },
+    "source_replacements": {
+      "10003224": {
+        "0x10007293": "((uintptr_t)pf_module_state+0x16bU)"
+      },
+      "100031d4": {
+        "0x10007293": "((uintptr_t)pf_module_state+0x16bU)"
+      },
+      "10006678": {
+        "0x10007517": "((uintptr_t)pf_module_state+0x3efU)"
+      },
+      "100044e0": {
+        "0x1000c0b0": "((uintptr_t)pf_module_state+0x4f88U)"
+      },
+      "10006a00": {
+        "0x10007599": "((uintptr_t)pf_module_state+0x471U)"
+      },
+      "10006eb8": {
+        "0x100075fb": "((uintptr_t)pf_module_state+0x4d3U)",
+        "0x10007600": "((uintptr_t)pf_module_state+0x4d8U)",
+        "0x100075f5": "((uintptr_t)pf_module_state+0x4cdU)"
+      },
+      "10002540": {
+        "0x10007272": "((uintptr_t)pf_module_state+0x14aU)",
+        "0x10007244": "((uintptr_t)pf_module_state+0x11cU)"
+      },
+      "10000634": {},
+      "10005528": {
+        "0x100075d0": "((uintptr_t)pf_module_state+0x4a8U)"
+      }
+    }
+  },
+  "reviewed_heap_contracts": {
+    "_wm_probe_heap_alloc": {
+      "address": "0x10000cac",
+      "declaration": "void *allocate(unsigned long size);"
+    },
+    "_wm_probe_heap_reset": {
+      "address": "0x10000608",
+      "declaration": "void reset_heap(void);"
+    },
+    "_wm_probe_heap_free_bytes": {
+      "address": "0x10000b64",
+      "declaration": "unsigned int free_bytes(void);"
+    },
+    "_wm_probe_heap_total_bytes": {
+      "address": "0x10000c18",
+      "declaration": "unsigned int total_bytes(void);"
+    },
+    "_wm_probe_heap_free_bytes64": {
+      "address": "0x10000bc4",
+      "declaration": "unsigned long long free_bytes64(void);"
+    },
+    "_wm_probe_heap_total_bytes64": {
+      "address": "0x10000c68",
+      "declaration": "unsigned long long total_bytes64(void);"
+    },
+    "_wm_probe_heap_add_region": {
+      "address": "0x10000b28",
+      "declaration": "bool add_region(unsigned long address,unsigned long size);"
+    },
+    "_wm_probe_heap_add_regions": {
+      "address": "0x100008f0",
+      "declaration": "bool add_regions(unsigned long *addresses,unsigned long *sizes,unsigned long count);"
+    },
+    "_wm_probe_heap_alloc_below": {
+      "address": "0x10000e94",
+      "declaration": "void *alloc_below(unsigned long size,unsigned long limit);"
+    },
+    "_wm_probe_heap_alloc_range": {
+      "address": "0x10000ecc",
+      "declaration": "void *alloc_range(unsigned long size,unsigned long first,unsigned long last);"
+    },
+    "_wm_probe_heap_free": {
+      "address": "0x10000f10",
+      "declaration": "void release(void *pointer);"
+    },
+    "_wm_probe_heap_realloc": {
+      "address": "0x10000fac",
+      "declaration": "void *resize(void *pointer,unsigned long size);"
+    },
+    "_strcspn": {
+      "address": "0x10001a14",
+      "declaration": "unsigned long reject_span(char *text,char *reject);"
+    },
+    "_wm_probe_heap_segment_preflight": {
+      "address": "0x10002d38",
+      "declaration": "bool region_preflight(unsigned long address,unsigned long size,unsigned char *added);"
+    }
+  },
+  "reviewed_allocator_forwarding": {
+    "slots": [
+      "0x4c",
+      "0x50",
+      "0x54"
+    ],
+    "reason": "Native allocator tail calls preserve byte-count and pointer arguments through the WMAP wire table. Explicit call contracts retain those arguments in C."
+  }
+}

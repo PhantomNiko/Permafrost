@@ -1,0 +1,197 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268446576,
+  "text_end": 268499880,
+  "state_end": 268550144,
+  "translation": {
+    "pointer_bytes": 4,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 268499880,
+    "state_end": 268550144,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"armv7-recovery.h\"",
+      "#include \"cpu.h\"",
+      "#include \"arm_exclusive.h\"",
+      "#include \"coprocessors.h\"",
+      "#include \"neon.h\"",
+      "static inline __attribute__((always_inline)) uintptr_t pf_current_sp(void){uintptr_t value;__asm__ volatile(\"mov %0,sp\":\"=r\"(value));return value;}"
+    ],
+    "stack_register": "register0x00000054",
+    "system_registers": {},
+    "source_replacements": {
+      "1000c73c": {
+        "0x1000ff60": "((uintptr_t)pf_module_state+0x3b8U)"
+      },
+      "10002d30": {
+        "0x10010080": "((uintptr_t)pf_module_state+0x4d8U)"
+      },
+      "10008584": {
+        "0x1000fc18": "((uintptr_t)pf_module_state+0x70U)",
+        "0x1000fbfd": "((uintptr_t)pf_module_state+0x55U)"
+      },
+      "100039c0": {
+        "0x10010080": "((uintptr_t)pf_module_state+0x4d8U)"
+      },
+      "1000e5d4": {
+        "0x1000feba": "((uintptr_t)pf_module_state+0x312U)",
+        "0x1000fed8": "((uintptr_t)pf_module_state+0x330U)",
+        "0x1000fe6f": "((uintptr_t)pf_module_state+0x2c7U)",
+        "0x1000fec5": "((uintptr_t)pf_module_state+0x31dU)",
+        "0x1000fea3": "((uintptr_t)pf_module_state+0x2fbU)"
+      },
+      "1000cc6c": {
+        "0x1000fd1d": "((uintptr_t)pf_module_state+0x175U)",
+        "0x1000fd6f": "((uintptr_t)pf_module_state+0x1c7U)",
+        "0x1000fd4c": "((uintptr_t)pf_module_state+0x1a4U)",
+        "0x1000fcc9": "((uintptr_t)pf_module_state+0x121U)",
+        "0x1000fd16": "((uintptr_t)pf_module_state+0x16eU)",
+        "0x1000fcd9": "((uintptr_t)pf_module_state+0x131U)",
+        "0x1000fd56": "((uintptr_t)pf_module_state+0x1aeU)",
+        "0x1000fd65": "((uintptr_t)pf_module_state+0x1bdU)"
+      },
+      "1000ed18": {
+        "0x1000fe9c": "((uintptr_t)pf_module_state+0x2f4U)",
+        "0x1000feef": "((uintptr_t)pf_module_state+0x347U)"
+      },
+      "100035ac": {
+        "0x10010080": "((uintptr_t)pf_module_state+0x4d8U)"
+      },
+      "1000af54": {
+        "0x1000fdb1": "((uintptr_t)pf_module_state+0x209U)",
+        "0x1000fdcf": "((uintptr_t)pf_module_state+0x227U)",
+        "0x1000fddd": "((uintptr_t)pf_module_state+0x235U)",
+        "0x1000fcfa": "((uintptr_t)pf_module_state+0x152U)",
+        "0x1000fdba": "((uintptr_t)pf_module_state+0x212U)",
+        "0x1000fded": "((uintptr_t)pf_module_state+0x245U)",
+        "0x1000fcc9": "((uintptr_t)pf_module_state+0x121U)",
+        "0x1000fcd9": "((uintptr_t)pf_module_state+0x131U)"
+      },
+      "1000303c": {
+        "0x10010080": "((uintptr_t)pf_module_state+0x4d8U)"
+      },
+      "100085d0": {
+        "0x1000fc18": "((uintptr_t)pf_module_state+0x70U)",
+        "0x1000fc1b": "((uintptr_t)pf_module_state+0x73U)"
+      },
+      "10003448": {
+        "0x10010080": "((uintptr_t)pf_module_state+0x4d8U)"
+      },
+      "10003938": {
+        "0x10010080": "((uintptr_t)pf_module_state+0x4d8U)"
+      },
+      "10003c38": {
+        "0x10010080": "((uintptr_t)pf_module_state+0x4d8U)"
+      },
+      "1000365c": {
+        "0x10010080": "((uintptr_t)pf_module_state+0x4d8U)"
+      },
+      "10003a50": {
+        "0x10010080": "((uintptr_t)pf_module_state+0x4d8U)"
+      },
+      "10003300": {
+        "0x10010080": "((uintptr_t)pf_module_state+0x4d8U)"
+      },
+      "100081cc": {
+        "0x1001008c": "((uintptr_t)pf_module_state+0x4e4U)"
+      },
+      "1000bf4c": {
+        "0x1000ff51": "((uintptr_t)pf_module_state+0x3a9U)",
+        "0x1000ff23": "((uintptr_t)pf_module_state+0x37bU)",
+        "0x1000ff2e": "((uintptr_t)pf_module_state+0x386U)"
+      },
+      "1000c8dc": {
+        "0x1000fda4": "((uintptr_t)pf_module_state+0x1fcU)",
+        "0x1000fd98": "((uintptr_t)pf_module_state+0x1f0U)"
+      },
+      "10003504": {
+        "0x10010080": "((uintptr_t)pf_module_state+0x4d8U)"
+      },
+      "1000bca8": {
+        "0x1000fd56": "((uintptr_t)pf_module_state+0x1aeU)",
+        "0x1000ff0d": "((uintptr_t)pf_module_state+0x365U)"
+      },
+      "1000d2b4": {
+        "0x1000feba": "((uintptr_t)pf_module_state+0x312U)",
+        "0x1000fe52": "((uintptr_t)pf_module_state+0x2aaU)",
+        "0x1000fe87": "((uintptr_t)pf_module_state+0x2dfU)",
+        "0x1000fe9c": "((uintptr_t)pf_module_state+0x2f4U)",
+        "0x1000fe6f": "((uintptr_t)pf_module_state+0x2c7U)",
+        "0x1000fe65": "((uintptr_t)pf_module_state+0x2bdU)",
+        "0x1000fec5": "((uintptr_t)pf_module_state+0x31dU)",
+        "0x1000fea3": "((uintptr_t)pf_module_state+0x2fbU)"
+      },
+      "10003398": {
+        "0x10010080": "((uintptr_t)pf_module_state+0x4d8U)"
+      }
+    }
+  },
+  "reviewed_heap_contracts": {
+    "_wm_probe_heap_alloc": {
+      "address": "0x1000365c",
+      "declaration": "void *allocate(unsigned long size);"
+    },
+    "_wm_probe_heap_reset": {
+      "address": "0x10002d30",
+      "declaration": "void reset_heap(void);"
+    },
+    "_wm_probe_heap_free_bytes": {
+      "address": "0x10003398",
+      "declaration": "unsigned int free_bytes(void);"
+    },
+    "_wm_probe_heap_total_bytes": {
+      "address": "0x10003504",
+      "declaration": "unsigned int total_bytes(void);"
+    },
+    "_wm_probe_heap_free_bytes64": {
+      "address": "0x10003448",
+      "declaration": "unsigned long long free_bytes64(void);"
+    },
+    "_wm_probe_heap_total_bytes64": {
+      "address": "0x100035ac",
+      "declaration": "unsigned long long total_bytes64(void);"
+    },
+    "_wm_probe_heap_add_region": {
+      "address": "0x10003300",
+      "declaration": "bool add_region(unsigned long address,unsigned long size);"
+    },
+    "_wm_probe_heap_add_regions": {
+      "address": "0x1000303c",
+      "declaration": "bool add_regions(unsigned long *addresses,unsigned long *sizes,unsigned long count);"
+    },
+    "_wm_probe_heap_alloc_below": {
+      "address": "0x10003938",
+      "declaration": "void *alloc_below(unsigned long size,unsigned long limit);"
+    },
+    "_wm_probe_heap_alloc_range": {
+      "address": "0x100039c0",
+      "declaration": "void *alloc_range(unsigned long size,unsigned long first,unsigned long last);"
+    },
+    "_wm_probe_heap_free": {
+      "address": "0x10003a50",
+      "declaration": "void release(void *pointer);"
+    },
+    "_wm_probe_heap_realloc": {
+      "address": "0x10003c38",
+      "declaration": "void *resize(void *pointer,unsigned long size);"
+    },
+    "_strcspn": {
+      "address": "0x10005c4c",
+      "declaration": "unsigned long reject_span(char *text,char *reject);"
+    }
+  },
+  "reviewed_allocator_forwarding": {
+    "slots": [
+      "0x4c",
+      "0x50",
+      "0x54"
+    ],
+    "reason": "Native allocator tail calls preserve byte-count and pointer arguments through the WMAP wire table. Explicit call contracts retain those arguments in C."
+  }
+}

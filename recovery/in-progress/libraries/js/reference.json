@@ -1,0 +1,29 @@
+{
+  "version": "1.1",
+  "reference_image": "WinterBoot-1.1r344-Beta.img",
+  "reference_path": "Library/Native/WinterJS.dylib",
+  "architectures": {
+    "i386": {
+      "sha256": "1b21229df2d617e1f8c882c3b9d131c548631b2904e95e5b76d0c11e5e8c7a52",
+      "native_functions": 210
+    },
+    "x86_64": {
+      "sha256": "f2e2b8ec32232987597de387549bd4163533258f384e95da6a53496d2a1c63b9",
+      "native_functions": 210
+    },
+    "armv7": {
+      "sha256": "b93750c1be862db3c1d055f312450ea9b1371435fac602f2b4c2143f53d17b87",
+      "native_functions": 215
+    },
+    "arm64": {
+      "sha256": "d93ff48dd0995907f3c2df16808cd7fe2d73e53133259a4186cc0b0d44a0c327",
+      "native_functions": 300
+    }
+  },
+  "checks": {
+    "browser_execution_and_event_cases_per_cpu": 100,
+    "heap_workflows_per_cpu": 12,
+    "allocator_forwarding_cases_per_cpu": 117
+  },
+  "status": "source checkpoint; release-wide VM parity remains incomplete"
+}

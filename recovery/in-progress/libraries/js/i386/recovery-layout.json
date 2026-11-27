@@ -1,0 +1,197 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268438592,
+  "text_end": 268487389,
+  "state_end": 268505088,
+  "translation": {
+    "pointer_bytes": 4,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 268487389,
+    "state_end": 268505088,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#define PF_NATIVE_X87 1",
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"x86_cpu.h\""
+    ],
+    "system_registers": {
+      "MXCSR": "rw"
+    },
+    "source_replacements": {
+      "10009c70": {
+        "0x1000ccbd": "((uintptr_t)pf_module_state+0x1e0U)",
+        "0x1000cd4a": "((uintptr_t)pf_module_state+0x26dU)",
+        "0x1000cd0a": "((uintptr_t)pf_module_state+0x22dU)",
+        "0x1000cd11": "((uintptr_t)pf_module_state+0x234U)",
+        "0x1000cd59": "((uintptr_t)pf_module_state+0x27cU)",
+        "0x1000cccd": "((uintptr_t)pf_module_state+0x1f0U)",
+        "0x1000cd40": "((uintptr_t)pf_module_state+0x263U)",
+        "0x1000cd63": "((uintptr_t)pf_module_state+0x286U)"
+      },
+      "10008fd0": {
+        "0x1000cf17": "((uintptr_t)pf_module_state+0x43aU)",
+        "0x1000cf45": "((uintptr_t)pf_module_state+0x468U)",
+        "0x1000cf22": "((uintptr_t)pf_module_state+0x445U)"
+      },
+      "1000bda0": {
+        "0x1000cee3": "((uintptr_t)pf_module_state+0x406U)",
+        "0x1000ce90": "((uintptr_t)pf_module_state+0x3b3U)"
+      },
+      "10007f00": {
+        "0x1000ccbd": "((uintptr_t)pf_module_state+0x1e0U)",
+        "0x1000cdae": "((uintptr_t)pf_module_state+0x2d1U)",
+        "0x1000cdc3": "((uintptr_t)pf_module_state+0x2e6U)",
+        "0x1000cdd1": "((uintptr_t)pf_module_state+0x2f4U)",
+        "0x1000ccee": "((uintptr_t)pf_module_state+0x211U)",
+        "0x1000cda5": "((uintptr_t)pf_module_state+0x2c8U)",
+        "0x1000cccd": "((uintptr_t)pf_module_state+0x1f0U)",
+        "0x1000cde1": "((uintptr_t)pf_module_state+0x304U)"
+      },
+      "10009720": {
+        "0x1000cf54": "((uintptr_t)pf_module_state+0x477U)"
+      },
+      "100055b0": {
+        "0x1000cc0c": "((uintptr_t)pf_module_state+0x12fU)",
+        "0x1000cbf1": "((uintptr_t)pf_module_state+0x114U)"
+      },
+      "1000c2f0": {
+        "0x1000cf12": "((uintptr_t)pf_module_state+0x435U)"
+      },
+      "10008d00": {
+        "0x1000cd4a": "((uintptr_t)pf_module_state+0x26dU)",
+        "0x1000cf01": "((uintptr_t)pf_module_state+0x424U)"
+      },
+      "100098d0": {
+        "0x1000cd98": "((uintptr_t)pf_module_state+0x2bbU)",
+        "0x1000cd8c": "((uintptr_t)pf_module_state+0x2afU)"
+      },
+      "1000b640": {
+        "0x1000ceb9": "((uintptr_t)pf_module_state+0x3dcU)",
+        "0x1000ce97": "((uintptr_t)pf_module_state+0x3baU)",
+        "0x1000cecc": "((uintptr_t)pf_module_state+0x3efU)",
+        "0x1000ce63": "((uintptr_t)pf_module_state+0x386U)",
+        "0x1000ceae": "((uintptr_t)pf_module_state+0x3d1U)"
+      },
+      "10005600": {
+        "0x1000cc0f": "((uintptr_t)pf_module_state+0x132U)",
+        "0x1000cc0c": "((uintptr_t)pf_module_state+0x12fU)"
+      },
+      "1000a2e0": {
+        "0x1000ceb9": "((uintptr_t)pf_module_state+0x3dcU)",
+        "0x1000ce97": "((uintptr_t)pf_module_state+0x3baU)",
+        "0x1000ce46": "((uintptr_t)pf_module_state+0x369U)",
+        "0x1000ce63": "((uintptr_t)pf_module_state+0x386U)",
+        "0x1000ce7b": "((uintptr_t)pf_module_state+0x39eU)",
+        "0x1000ce59": "((uintptr_t)pf_module_state+0x37cU)",
+        "0x1000ceae": "((uintptr_t)pf_module_state+0x3d1U)",
+        "0x1000ce90": "((uintptr_t)pf_module_state+0x3b3U)"
+      }
+    }
+  },
+  "reviewed_heap_contracts": {
+    "_wm_probe_heap_alloc": {
+      "address": "0x100013e0",
+      "declaration": "void *allocate(unsigned long size);"
+    },
+    "_wm_probe_heap_reset": {
+      "address": "0x10000c40",
+      "declaration": "void reset_heap(void);"
+    },
+    "_wm_probe_heap_free_bytes": {
+      "address": "0x100011f0",
+      "declaration": "unsigned int free_bytes(void);"
+    },
+    "_wm_probe_heap_total_bytes": {
+      "address": "0x100012f0",
+      "declaration": "unsigned int total_bytes(void);"
+    },
+    "_wm_probe_heap_free_bytes64": {
+      "address": "0x10001270",
+      "declaration": "unsigned long long free_bytes64(void);"
+    },
+    "_wm_probe_heap_total_bytes64": {
+      "address": "0x10001360",
+      "declaration": "unsigned long long total_bytes64(void);"
+    },
+    "_wm_probe_heap_add_region": {
+      "address": "0x10001170",
+      "declaration": "bool add_region(unsigned long address,unsigned long size);"
+    },
+    "_wm_probe_heap_add_regions": {
+      "address": "0x10000ec0",
+      "declaration": "bool add_regions(unsigned long *addresses,unsigned long *sizes,unsigned long count);"
+    },
+    "_wm_probe_heap_alloc_below": {
+      "address": "0x10001680",
+      "declaration": "void *alloc_below(unsigned long size,unsigned long limit);"
+    },
+    "_wm_probe_heap_alloc_range": {
+      "address": "0x100016f0",
+      "declaration": "void *alloc_range(unsigned long size,unsigned long first,unsigned long last);"
+    },
+    "_wm_probe_heap_free": {
+      "address": "0x10001760",
+      "declaration": "void release(void *pointer);"
+    },
+    "_wm_probe_heap_realloc": {
+      "address": "0x100018f0",
+      "declaration": "void *resize(void *pointer,unsigned long size);"
+    },
+    "_strcspn": {
+      "address": "0x10002c40",
+      "declaration": "unsigned long reject_span(char *text,char *reject);"
+    }
+  },
+  "reviewed_x87_exponential_argument": "Native expl loads a ten-byte argument from a twelve-byte i386 stack slot and returns through the full ST0 register.",
+  "reviewed_heap_private_contracts": {
+    "_wm_probe_heap_add_regions_locked": {
+      "address": "0x10000f30",
+      "declaration": "bool add_locked(unsigned long *addresses,unsigned long *sizes,unsigned long count);",
+      "storage": "ECX,EDX,stack4",
+      "result": "EAX"
+    },
+    "_wm_probe_heap_append_region_excluding_application": {
+      "address": "0x10005000",
+      "declaration": "void append_region(unsigned long address,unsigned long size,void *tail);",
+      "storage": "ECX,EDX,stack4",
+      "result": ""
+    },
+    "_wm_probe_heap_alloc_bounded_locked": {
+      "address": "0x10001450",
+      "declaration": "void *allocate_locked(unsigned long size,unsigned long first,unsigned long last);",
+      "storage": "ECX,EDX,stack4",
+      "result": "EAX"
+    },
+    "_wm_probe_heap_split_prefix": {
+      "address": "0x100051a0",
+      "declaration": "void *split_prefix(void *chunk,unsigned long first);",
+      "storage": "ECX,EDX",
+      "result": "EAX"
+    },
+    "_wm_probe_heap_split": {
+      "address": "0x10005200",
+      "declaration": "bool split_chunk(void *chunk,unsigned long size);",
+      "storage": "ECX,EDX",
+      "result": "EAX"
+    },
+    "_wm_probe_heap_free_locked": {
+      "address": "0x100017d0",
+      "declaration": "void free_locked(void *pointer);",
+      "storage": "ECX",
+      "result": ""
+    }
+  },
+  "reviewed_allocator_forwarding": {
+    "slots": [
+      "0x4c",
+      "0x50",
+      "0x54"
+    ],
+    "reason": "Native allocator tail calls preserve byte-count and pointer arguments through the WMAP wire table. Explicit call contracts retain those arguments in C."
+  }
+}
