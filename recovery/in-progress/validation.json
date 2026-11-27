@@ -231,14 +231,17 @@
       "scope": "fallback UI and chunked HTTP; broader client parity incomplete"
     },
     "Zastruga Engine": {
-      "commit": "82d2ca6",
+      "commit": "813523f",
       "source_architectures": [
         "x86_64"
       ],
       "compiled_functions": 3058,
       "clone_pointer_contracts": 254,
       "captured_object_cases": 138,
-      "scope": "Branch-free capture payload and vtable targets; full startup, rendering, exception handling and other architectures remain incomplete."
+      "scope": "Five program copy workflows and 138 captured-object payload, vtable and deleting-destructor cases match the reference. Full startup, rendering, exception handling and other architectures remain incomplete.",
+      "bounded_switch_tables": 6,
+      "deleting_destructor_ownership": true,
+      "program_copy_workflows": 5
     }
   },
   "module_integration_vm": "C kernel, C WinterShell and C Stage4 reach the desktop and source terminal on all four CPUs; typed 1+1 displays 2. Other reference payloads remain; full release parity remains incomplete."
