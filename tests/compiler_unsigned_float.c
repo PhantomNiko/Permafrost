@@ -1,4 +1,4 @@
-/* Pooka's Free Software License. Unsigned integer conversion at IEEE rounding boundaries. */
+/* Pooka's Free Software License. Integer conversion at IEEE rounding boundaries. */
 #include <stdint.h>
 extern float __floatundisf(uint64_t);
 static int unsigned_float_rounding(void) {
@@ -23,4 +23,22 @@ static int unsigned_float_rounding(void) {
 }
 
 
-int main(void) { return unsigned_float_rounding()?42:73; }
+extern double __floatdidf(int64_t);
+static int signed_double_rounding(void) {
+ static const struct { int64_t value; uint64_t bits; } cases[]={
+ {0x0LL,0x0ULL},
+ {-0x1LL,0xbff0000000000000ULL},
+ {0x1LL,0x3ff0000000000000ULL},
+ {(-0x7fffffffffffffffLL-1),0xc3e0000000000000ULL},
+ {0x7fffffffffffffffLL,0x43e0000000000000ULL},
+ {-0x20000000000001LL,0xc340000000000000ULL},
+ {-0x20000000000003LL,0xc340000000000002ULL},
+ {0x20000000000003LL,0x4340000000000002ULL},
+ };
+ for(unsigned i=0;i<sizeof(cases)/sizeof(cases[0]);i++) {
+  union { double number; uint64_t bits; } converted={.number=__floatdidf(cases[i].value)};
+  if(converted.bits!=cases[i].bits)return 0;
+ }
+ return 1;
+}
+int main(void) { return unsigned_float_rounding() && signed_double_rounding()?42:73; }

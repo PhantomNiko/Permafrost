@@ -210,6 +210,12 @@ double __floatundidf(uint64_t value) {
     return (double)(uint32_t)(value>>32)*4294967296.0+(double)(uint32_t)value;
 }
 
+double __floatdidf(int64_t value) {
+    uint64_t magnitude=value<0?-(uint64_t)value:(uint64_t)value;
+    double number=__floatundidf(magnitude);
+    return value<0?-number:number;
+}
+
 float __floatundisf(uint64_t value) {
     union { uint32_t bits; float number; } result;
     if (!value) return 0.0f;
