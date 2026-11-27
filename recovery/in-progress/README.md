@@ -333,3 +333,13 @@ lookup/output cases. Sustained scene runs show title text, scrolling mountain
 layers and drifting particles. Other reference payloads remain in these
 diagnostic images. Remaining libraries, payload recovery, release packaging and
 complete source-only VM compatibility still gate the 1.1 tag.
+
+Browser scripting, TLS and audio now have complete C source checkpoints for all
+four CPUs. Browser execution, events and buffers match 100 cases per CPU. TLS
+matches 85 primitive and 27 initialization/entropy cases, then completes TLS 1.3
+handshakes, certificate verification outcomes and encrypted HTTP with an
+independent peer. Audio matches 52 generation, mixing and transform cases and
+WAV decoding, encoding and file callback checks. Each library also matches
+12 heap workflows and 117 allocator forwarding/boundary cases per CPU. These
+component checks do not establish complete release VM parity. Piet, the remaining
+language runtimes, firmware, image assembly and final SDK validation continue.

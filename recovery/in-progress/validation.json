@@ -215,7 +215,46 @@
       "x86_64",
       "armv7",
       "arm64"
-    ]
+    ],
+    "javascript_library_source": {
+      "architectures": [
+        "i386",
+        "x86_64",
+        "armv7",
+        "arm64"
+      ],
+      "api_cases_per_architecture": 100,
+      "heap_workflows_per_architecture": 12,
+      "allocator_forwarding_cases_per_architecture": 117,
+      "release_vm_parity": false
+    },
+    "tls_library_source": {
+      "architectures": [
+        "i386",
+        "x86_64",
+        "armv7",
+        "arm64"
+      ],
+      "primitive_cases_per_architecture": 85,
+      "state_cases_per_architecture": 27,
+      "heap_workflows_per_architecture": 12,
+      "allocator_forwarding_cases_per_architecture": 117,
+      "independent_peer": "TLS 1.3 handshake, verification outcomes, leaf certificate digest and encrypted HTTP",
+      "release_vm_parity": false
+    },
+    "audio_library_source": {
+      "architectures": [
+        "i386",
+        "x86_64",
+        "armv7",
+        "arm64"
+      ],
+      "api_cases_per_architecture": 52,
+      "file_operations": "WAV decoding, malformed input, encoding and cross-decoding",
+      "heap_workflows_per_architecture": 12,
+      "allocator_forwarding_cases_per_architecture": 117,
+      "release_vm_parity": false
+    }
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",
   "kernel_compilation": "All four candidate C kernels link; full VM parity remains incomplete.",
