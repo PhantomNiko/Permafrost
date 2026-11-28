@@ -8,7 +8,8 @@
       "recovered_functions": 1582,
       "core_execution_cases": 18,
       "heap_workflows": 12,
-      "allocator_forwarding_cases": 117
+      "allocator_forwarding_cases": 117,
+      "monitor_workflows": 6
     },
     "x86_64": {
       "sha256": "c3e63ec7eb90e0611a73711aebb329b38b6dd7ab74ca6ef71a0dd6e65f3a3a02",

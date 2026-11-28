@@ -294,7 +294,8 @@
         "0x10047222": "((uintptr_t)pf_module_state+0x30daU)",
         "0x1004722d": "((uintptr_t)pf_module_state+0x30e5U)",
         "0x10047220": "((uintptr_t)pf_module_state+0x30d8U)",
-        "0x10047227": "((uintptr_t)pf_module_state+0x30dfU)"
+        "0x10047227": "((uintptr_t)pf_module_state+0x30dfU)",
+        "\n      (**(code **)(*plStack_100 + 8))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_100 + 8)))(plStack_100);"
       },
       "10038c34": {
         "0x10047c38": "((uintptr_t)pf_module_state+0x3af0U)"
@@ -308,7 +309,153 @@
       "100278f8": {
         "0x10047bbf": "((uintptr_t)pf_module_state+0x3a77U)"
       },
-      "10004cb8": "shared_5bdd519c464b1abb",
+      "10004cb8": {
+        "0x10046316": "((uintptr_t)pf_module_state+0x21ceU)",
+        "0x10046463": "((uintptr_t)pf_module_state+0x231bU)",
+        "0x10046345": "((uintptr_t)pf_module_state+0x21fdU)",
+        "0x10046557": "((uintptr_t)pf_module_state+0x240fU)",
+        "0x100463fa": "((uintptr_t)pf_module_state+0x22b2U)",
+        "0x10046384": "((uintptr_t)pf_module_state+0x223cU)",
+        "0x100465f6": "((uintptr_t)pf_module_state+0x24aeU)",
+        "0x100465cf": "((uintptr_t)pf_module_state+0x2487U)",
+        "0x10046564": "((uintptr_t)pf_module_state+0x241cU)",
+        "0x10046454": "((uintptr_t)pf_module_state+0x230cU)",
+        "0x10046543": "((uintptr_t)pf_module_state+0x23fbU)",
+        "0x100465e5": "((uintptr_t)pf_module_state+0x249dU)",
+        "0x100464d4": "((uintptr_t)pf_module_state+0x238cU)",
+        "0x1004651e": "((uintptr_t)pf_module_state+0x23d6U)",
+        "0x100465b0": "((uintptr_t)pf_module_state+0x2468U)",
+        "0x100465e9": "((uintptr_t)pf_module_state+0x24a1U)",
+        "0x10046355": "((uintptr_t)pf_module_state+0x220dU)",
+        "0x10046474": "((uintptr_t)pf_module_state+0x232cU)",
+        "0x100464f2": "((uintptr_t)pf_module_state+0x23aaU)",
+        "0x1004658a": "((uintptr_t)pf_module_state+0x2442U)",
+        "0x100465a0": "((uintptr_t)pf_module_state+0x2458U)",
+        "0x100465a6": "((uintptr_t)pf_module_state+0x245eU)",
+        "0x100463e7": "((uintptr_t)pf_module_state+0x229fU)",
+        "0x10046531": "((uintptr_t)pf_module_state+0x23e9U)",
+        "0x1004664f": "((uintptr_t)pf_module_state+0x2507U)",
+        "0x100463ba": "((uintptr_t)pf_module_state+0x2272U)",
+        "0x100465be": "((uintptr_t)pf_module_state+0x2476U)",
+        "0x10046550": "((uintptr_t)pf_module_state+0x2408U)",
+        "0x1004661a": "((uintptr_t)pf_module_state+0x24d2U)",
+        "0x10046655": "((uintptr_t)pf_module_state+0x250dU)",
+        "0x10046647": "((uintptr_t)pf_module_state+0x24ffU)",
+        "0x1004637e": "((uintptr_t)pf_module_state+0x2236U)",
+        "0x1004650d": "((uintptr_t)pf_module_state+0x23c5U)",
+        "0x1004665d": "((uintptr_t)pf_module_state+0x2515U)",
+        "0x10046468": "((uintptr_t)pf_module_state+0x2320U)",
+        "0x10046495": "((uintptr_t)pf_module_state+0x234dU)",
+        "0x100464bf": "((uintptr_t)pf_module_state+0x2377U)",
+        "0x1004657f": "((uintptr_t)pf_module_state+0x2437U)",
+        "0x100463e1": "((uintptr_t)pf_module_state+0x2299U)",
+        "0x100465dc": "((uintptr_t)pf_module_state+0x2494U)",
+        "0x1004658f": "((uintptr_t)pf_module_state+0x2447U)",
+        "0x100464d0": "((uintptr_t)pf_module_state+0x2388U)",
+        "0x100463f3": "((uintptr_t)pf_module_state+0x22abU)",
+        "0x100465f2": "((uintptr_t)pf_module_state+0x24aaU)",
+        "0x1004642d": "((uintptr_t)pf_module_state+0x22e5U)",
+        "0x1004660c": "((uintptr_t)pf_module_state+0x24c4U)",
+        "0x1004641d": "((uintptr_t)pf_module_state+0x22d5U)",
+        "0x100463c2": "((uintptr_t)pf_module_state+0x227aU)",
+        "0x100465c2": "((uintptr_t)pf_module_state+0x247aU)",
+        "0x10046632": "((uintptr_t)pf_module_state+0x24eaU)",
+        "0x100463ce": "((uintptr_t)pf_module_state+0x2286U)",
+        "0x1004662d": "((uintptr_t)pf_module_state+0x24e5U)",
+        "0x100465cb": "((uintptr_t)pf_module_state+0x2483U)",
+        "0x10046409": "((uintptr_t)pf_module_state+0x22c1U)",
+        "0x10046538": "((uintptr_t)pf_module_state+0x23f0U)",
+        "0x100465ff": "((uintptr_t)pf_module_state+0x24b7U)",
+        "0x100464e5": "((uintptr_t)pf_module_state+0x239dU)",
+        "0x1004663b": "((uintptr_t)pf_module_state+0x24f3U)",
+        "0x100465d8": "((uintptr_t)pf_module_state+0x2490U)",
+        "0x1004664c": "((uintptr_t)pf_module_state+0x2504U)",
+        "0x100464b9": "((uintptr_t)pf_module_state+0x2371U)",
+        "0x10046398": "((uintptr_t)pf_module_state+0x2250U)",
+        "0x10046365": "((uintptr_t)pf_module_state+0x221dU)",
+        "0x100464a1": "((uintptr_t)pf_module_state+0x2359U)",
+        "0x10046429": "((uintptr_t)pf_module_state+0x22e1U)",
+        "0x100463b1": "((uintptr_t)pf_module_state+0x2269U)",
+        "0x1004638a": "((uintptr_t)pf_module_state+0x2242U)",
+        "0x1004640e": "((uintptr_t)pf_module_state+0x22c6U)",
+        "0x1004656b": "((uintptr_t)pf_module_state+0x2423U)",
+        "0x1004639f": "((uintptr_t)pf_module_state+0x2257U)",
+        "0x10046595": "((uintptr_t)pf_module_state+0x244dU)",
+        "0x10046668": "((uintptr_t)pf_module_state+0x2520U)",
+        "0x100464f8": "((uintptr_t)pf_module_state+0x23b0U)",
+        "0x1004636e": "((uintptr_t)pf_module_state+0x2226U)",
+        "0x1004665a": "((uintptr_t)pf_module_state+0x2512U)",
+        "0x1004662a": "((uintptr_t)pf_module_state+0x24e2U)",
+        "0x1004643c": "((uintptr_t)pf_module_state+0x22f4U)",
+        "0x10046481": "((uintptr_t)pf_module_state+0x2339U)",
+        "0x1004648f": "((uintptr_t)pf_module_state+0x2347U)",
+        "0x1004661f": "((uintptr_t)pf_module_state+0x24d7U)",
+        "0x1004634b": "((uintptr_t)pf_module_state+0x2203U)",
+        "0x10046578": "((uintptr_t)pf_module_state+0x2430U)",
+        "0x10046254": "((uintptr_t)pf_module_state+0x210cU)",
+        "0x10046373": "((uintptr_t)pf_module_state+0x222bU)",
+        "0x10046662": "((uintptr_t)pf_module_state+0x251aU)",
+        "0x1004637a": "((uintptr_t)pf_module_state+0x2232U)",
+        "0x10046393": "((uintptr_t)pf_module_state+0x224bU)",
+        "0x100463a6": "((uintptr_t)pf_module_state+0x225eU)",
+        "0x100464e0": "((uintptr_t)pf_module_state+0x2398U)",
+        "0x100464ac": "((uintptr_t)pf_module_state+0x2364U)",
+        "0x10046519": "((uintptr_t)pf_module_state+0x23d1U)",
+        "0x10046425": "((uintptr_t)pf_module_state+0x22ddU)",
+        "0x100465b5": "((uintptr_t)pf_module_state+0x246dU)",
+        "0x10046642": "((uintptr_t)pf_module_state+0x24faU)",
+        "0x100463ac": "((uintptr_t)pf_module_state+0x2264U)",
+        "0x10046506": "((uintptr_t)pf_module_state+0x23beU)",
+        "0x100463ee": "((uintptr_t)pf_module_state+0x22a6U)",
+        "0x10046603": "((uintptr_t)pf_module_state+0x24bbU)",
+        "0x100464c5": "((uintptr_t)pf_module_state+0x237dU)",
+        "0x10046610": "((uintptr_t)pf_module_state+0x24c8U)",
+        "0x1004653c": "((uintptr_t)pf_module_state+0x23f4U)",
+        "0x10046418": "((uintptr_t)pf_module_state+0x22d0U)",
+        "0x1004635c": "((uintptr_t)pf_module_state+0x2214U)",
+        "0x100463da": "((uintptr_t)pf_module_state+0x2292U)",
+        "0x10046414": "((uintptr_t)pf_module_state+0x22ccU)",
+        "0x10046523": "((uintptr_t)pf_module_state+0x23dbU)",
+        "\n    (**(code **)(*plStack_68 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_68 + 8)))(plStack_68);",
+        "\n    (**(code **)(*plStack_70 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_70 + 8)))(plStack_70);",
+        "\n    (**(code **)(*plStack_78 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_78 + 8)))(plStack_78);",
+        "\n    (**(code **)(*plStack_80 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_80 + 8)))(plStack_80);",
+        "\n    (**(code **)(*plStack_88 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_88 + 8)))(plStack_88);",
+        "\n    (**(code **)(*plStack_90 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_90 + 8)))(plStack_90);",
+        "\n    (**(code **)(*plStack_98 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_98 + 8)))(plStack_98);",
+        "\n    (**(code **)(*plStack_a0 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_a0 + 8)))(plStack_a0);",
+        "\n    (**(code **)(*plStack_a8 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_a8 + 8)))(plStack_a8);",
+        "\n    (**(code **)(*plStack_b0 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_b0 + 8)))(plStack_b0);",
+        "\n    (**(code **)(*plStack_b8 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_b8 + 8)))(plStack_b8);",
+        "\n    (**(code **)(*plStack_c0 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_c0 + 8)))(plStack_c0);",
+        "\n    (**(code **)(*plStack_c8 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_c8 + 8)))(plStack_c8);",
+        "\n    (**(code **)(*plStack_d0 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_d0 + 8)))(plStack_d0);",
+        "\n    (**(code **)(*plStack_d8 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_d8 + 8)))(plStack_d8);",
+        "\n    (**(code **)(*plStack_e0 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_e0 + 8)))(plStack_e0);",
+        "\n    (**(code **)(*plStack_e8 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_e8 + 8)))(plStack_e8);",
+        "\n    (**(code **)(*plStack_f0 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_f0 + 8)))(plStack_f0);",
+        "\n    (**(code **)(*plStack_f8 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_f8 + 8)))(plStack_f8);",
+        "\n    (**(code **)(*plStack_100 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_100 + 8)))(plStack_100);",
+        "\n    (**(code **)(*plStack_108 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_108 + 8)))(plStack_108);",
+        "\n    (**(code **)(*plStack_110 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_110 + 8)))(plStack_110);",
+        "\n    (**(code **)(*plStack_118 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_118 + 8)))(plStack_118);",
+        "\n    (**(code **)(*plStack_120 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_120 + 8)))(plStack_120);",
+        "\n    (**(code **)(*plStack_128 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_128 + 8)))(plStack_128);",
+        "\n    (**(code **)(*plStack_130 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_130 + 8)))(plStack_130);",
+        "\n    (**(code **)(*plStack_138 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_138 + 8)))(plStack_138);",
+        "\n    (**(code **)(*plStack_140 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_140 + 8)))(plStack_140);",
+        "\n    (**(code **)(*plStack_148 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_148 + 8)))(plStack_148);",
+        "\n    (**(code **)(*plStack_150 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_150 + 8)))(plStack_150);",
+        "\n    (**(code **)(*plStack_158 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_158 + 8)))(plStack_158);",
+        "\n    (**(code **)(*plStack_160 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_160 + 8)))(plStack_160);",
+        "\n    (**(code **)(*plStack_168 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_168 + 8)))(plStack_168);",
+        "\n    (**(code **)(*plStack_170 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_170 + 8)))(plStack_170);",
+        "\n    (**(code **)(*plStack_550 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_550 + 8)))(plStack_550);",
+        "\n    (**(code **)(*plStack_5d0 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_5d0 + 8)))(plStack_5d0);",
+        "\n    (**(code **)(*plStack_638 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_638 + 8)))(plStack_638);",
+        "\n    (**(code **)(*plStack_6d0 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_6d0 + 8)))(plStack_6d0);",
+        "\n    (**(code **)(*plStack_6f8 + 8))();": "\n    ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plStack_6f8 + 8)))(plStack_6f8);"
+      },
       "100277e8": {
         "0x10047b73": "((uintptr_t)pf_module_state+0x3a2bU)"
       },
@@ -905,7 +1052,114 @@
       "10024cfc": {
         "0x100472d3": "((uintptr_t)pf_module_state+0x318bU)"
       },
-      "1000752c": "shared_5bdd519c464b1abb",
+      "1000752c": {
+        "0x10046316": "((uintptr_t)pf_module_state+0x21ceU)",
+        "0x10046463": "((uintptr_t)pf_module_state+0x231bU)",
+        "0x10046345": "((uintptr_t)pf_module_state+0x21fdU)",
+        "0x10046557": "((uintptr_t)pf_module_state+0x240fU)",
+        "0x100463fa": "((uintptr_t)pf_module_state+0x22b2U)",
+        "0x10046384": "((uintptr_t)pf_module_state+0x223cU)",
+        "0x100465f6": "((uintptr_t)pf_module_state+0x24aeU)",
+        "0x100465cf": "((uintptr_t)pf_module_state+0x2487U)",
+        "0x10046564": "((uintptr_t)pf_module_state+0x241cU)",
+        "0x10046454": "((uintptr_t)pf_module_state+0x230cU)",
+        "0x10046543": "((uintptr_t)pf_module_state+0x23fbU)",
+        "0x100465e5": "((uintptr_t)pf_module_state+0x249dU)",
+        "0x100464d4": "((uintptr_t)pf_module_state+0x238cU)",
+        "0x1004651e": "((uintptr_t)pf_module_state+0x23d6U)",
+        "0x100465b0": "((uintptr_t)pf_module_state+0x2468U)",
+        "0x100465e9": "((uintptr_t)pf_module_state+0x24a1U)",
+        "0x10046355": "((uintptr_t)pf_module_state+0x220dU)",
+        "0x10046474": "((uintptr_t)pf_module_state+0x232cU)",
+        "0x100464f2": "((uintptr_t)pf_module_state+0x23aaU)",
+        "0x1004658a": "((uintptr_t)pf_module_state+0x2442U)",
+        "0x100465a0": "((uintptr_t)pf_module_state+0x2458U)",
+        "0x100465a6": "((uintptr_t)pf_module_state+0x245eU)",
+        "0x100463e7": "((uintptr_t)pf_module_state+0x229fU)",
+        "0x10046531": "((uintptr_t)pf_module_state+0x23e9U)",
+        "0x1004664f": "((uintptr_t)pf_module_state+0x2507U)",
+        "0x100463ba": "((uintptr_t)pf_module_state+0x2272U)",
+        "0x100465be": "((uintptr_t)pf_module_state+0x2476U)",
+        "0x10046550": "((uintptr_t)pf_module_state+0x2408U)",
+        "0x1004661a": "((uintptr_t)pf_module_state+0x24d2U)",
+        "0x10046655": "((uintptr_t)pf_module_state+0x250dU)",
+        "0x10046647": "((uintptr_t)pf_module_state+0x24ffU)",
+        "0x1004637e": "((uintptr_t)pf_module_state+0x2236U)",
+        "0x1004650d": "((uintptr_t)pf_module_state+0x23c5U)",
+        "0x1004665d": "((uintptr_t)pf_module_state+0x2515U)",
+        "0x10046468": "((uintptr_t)pf_module_state+0x2320U)",
+        "0x10046495": "((uintptr_t)pf_module_state+0x234dU)",
+        "0x100464bf": "((uintptr_t)pf_module_state+0x2377U)",
+        "0x1004657f": "((uintptr_t)pf_module_state+0x2437U)",
+        "0x100463e1": "((uintptr_t)pf_module_state+0x2299U)",
+        "0x100465dc": "((uintptr_t)pf_module_state+0x2494U)",
+        "0x1004658f": "((uintptr_t)pf_module_state+0x2447U)",
+        "0x100464d0": "((uintptr_t)pf_module_state+0x2388U)",
+        "0x100463f3": "((uintptr_t)pf_module_state+0x22abU)",
+        "0x100465f2": "((uintptr_t)pf_module_state+0x24aaU)",
+        "0x1004642d": "((uintptr_t)pf_module_state+0x22e5U)",
+        "0x1004660c": "((uintptr_t)pf_module_state+0x24c4U)",
+        "0x1004641d": "((uintptr_t)pf_module_state+0x22d5U)",
+        "0x100463c2": "((uintptr_t)pf_module_state+0x227aU)",
+        "0x100465c2": "((uintptr_t)pf_module_state+0x247aU)",
+        "0x10046632": "((uintptr_t)pf_module_state+0x24eaU)",
+        "0x100463ce": "((uintptr_t)pf_module_state+0x2286U)",
+        "0x1004662d": "((uintptr_t)pf_module_state+0x24e5U)",
+        "0x100465cb": "((uintptr_t)pf_module_state+0x2483U)",
+        "0x10046409": "((uintptr_t)pf_module_state+0x22c1U)",
+        "0x10046538": "((uintptr_t)pf_module_state+0x23f0U)",
+        "0x100465ff": "((uintptr_t)pf_module_state+0x24b7U)",
+        "0x100464e5": "((uintptr_t)pf_module_state+0x239dU)",
+        "0x1004663b": "((uintptr_t)pf_module_state+0x24f3U)",
+        "0x100465d8": "((uintptr_t)pf_module_state+0x2490U)",
+        "0x1004664c": "((uintptr_t)pf_module_state+0x2504U)",
+        "0x100464b9": "((uintptr_t)pf_module_state+0x2371U)",
+        "0x10046398": "((uintptr_t)pf_module_state+0x2250U)",
+        "0x10046365": "((uintptr_t)pf_module_state+0x221dU)",
+        "0x100464a1": "((uintptr_t)pf_module_state+0x2359U)",
+        "0x10046429": "((uintptr_t)pf_module_state+0x22e1U)",
+        "0x100463b1": "((uintptr_t)pf_module_state+0x2269U)",
+        "0x1004638a": "((uintptr_t)pf_module_state+0x2242U)",
+        "0x1004640e": "((uintptr_t)pf_module_state+0x22c6U)",
+        "0x1004656b": "((uintptr_t)pf_module_state+0x2423U)",
+        "0x1004639f": "((uintptr_t)pf_module_state+0x2257U)",
+        "0x10046595": "((uintptr_t)pf_module_state+0x244dU)",
+        "0x10046668": "((uintptr_t)pf_module_state+0x2520U)",
+        "0x100464f8": "((uintptr_t)pf_module_state+0x23b0U)",
+        "0x1004636e": "((uintptr_t)pf_module_state+0x2226U)",
+        "0x1004665a": "((uintptr_t)pf_module_state+0x2512U)",
+        "0x1004662a": "((uintptr_t)pf_module_state+0x24e2U)",
+        "0x1004643c": "((uintptr_t)pf_module_state+0x22f4U)",
+        "0x10046481": "((uintptr_t)pf_module_state+0x2339U)",
+        "0x1004648f": "((uintptr_t)pf_module_state+0x2347U)",
+        "0x1004661f": "((uintptr_t)pf_module_state+0x24d7U)",
+        "0x1004634b": "((uintptr_t)pf_module_state+0x2203U)",
+        "0x10046578": "((uintptr_t)pf_module_state+0x2430U)",
+        "0x10046254": "((uintptr_t)pf_module_state+0x210cU)",
+        "0x10046373": "((uintptr_t)pf_module_state+0x222bU)",
+        "0x10046662": "((uintptr_t)pf_module_state+0x251aU)",
+        "0x1004637a": "((uintptr_t)pf_module_state+0x2232U)",
+        "0x10046393": "((uintptr_t)pf_module_state+0x224bU)",
+        "0x100463a6": "((uintptr_t)pf_module_state+0x225eU)",
+        "0x100464e0": "((uintptr_t)pf_module_state+0x2398U)",
+        "0x100464ac": "((uintptr_t)pf_module_state+0x2364U)",
+        "0x10046519": "((uintptr_t)pf_module_state+0x23d1U)",
+        "0x10046425": "((uintptr_t)pf_module_state+0x22ddU)",
+        "0x100465b5": "((uintptr_t)pf_module_state+0x246dU)",
+        "0x10046642": "((uintptr_t)pf_module_state+0x24faU)",
+        "0x100463ac": "((uintptr_t)pf_module_state+0x2264U)",
+        "0x10046506": "((uintptr_t)pf_module_state+0x23beU)",
+        "0x100463ee": "((uintptr_t)pf_module_state+0x22a6U)",
+        "0x10046603": "((uintptr_t)pf_module_state+0x24bbU)",
+        "0x100464c5": "((uintptr_t)pf_module_state+0x237dU)",
+        "0x10046610": "((uintptr_t)pf_module_state+0x24c8U)",
+        "0x1004653c": "((uintptr_t)pf_module_state+0x23f4U)",
+        "0x10046418": "((uintptr_t)pf_module_state+0x22d0U)",
+        "0x1004635c": "((uintptr_t)pf_module_state+0x2214U)",
+        "0x100463da": "((uintptr_t)pf_module_state+0x2292U)",
+        "0x10046414": "((uintptr_t)pf_module_state+0x22ccU)",
+        "0x10046523": "((uintptr_t)pf_module_state+0x23dbU)"
+      },
       "10037b8c": "shared_b6a2f540f975d58b",
       "10038bc4": {
         "0x10047bbf": "((uintptr_t)pf_module_state+0x3a77U)"
@@ -1092,6 +1346,56 @@
         "for (lVar3 = uStack_388 * 0x18;": "void *pf_token_cursor = pvStack_390;\n    for (lVar3 = uStack_388 * 0x18;",
         "recovered_10007530(alStack_3e0,vm,pvStack_390);": "recovered_10007530(alStack_3e0,vm,pf_token_cursor);",
         "pvStack_390 = (void *)((long)pvStack_390 + 0x18);": "pf_token_cursor = (void *)((long)pf_token_cursor + 0x18);"
+      },
+      "10030f78": "shared_2c0515621c62d780",
+      "1003a700": {
+        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
+      },
+      "1003100c": {
+        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);",
+        "\n        (**(code **)(*plVar1 + 8))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 8)))(plVar1);"
+      },
+      "10037504": {
+        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
+      },
+      "10030fb0": "shared_b14de825e162ce70",
+      "10030fc0": "shared_b14de825e162ce70",
+      "10030f88": "shared_2c0515621c62d780",
+      "10039acc": {
+        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
+      },
+      "10030fd0": "shared_b14de825e162ce70",
+      "100154cc": {
+        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);",
+        "\n        (**(code **)(*plVar1 + 8))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 8)))(plVar1);"
+      },
+      "1003c0d8": {
+        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
+      },
+      "10031020": {
+        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
+      },
+      "1003756c": {
+        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
+      },
+      "1003c3a8": {
+        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
+      },
+      "10030f9c": "shared_2c0515621c62d780",
+      "10030fe4": "shared_b14de825e162ce70",
+      "10030f6c": "shared_2c0515621c62d780",
+      "10030ff8": "shared_b14de825e162ce70",
+      "1003c140": {
+        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
+      },
+      "100246d8": {
+        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
+      },
+      "1003c340": {
+        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
+      },
+      "10037914": {
+        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
       }
     },
     "stack_register": "register0x00000008",
@@ -1113,114 +1417,6 @@
         "0x10047577": "((uintptr_t)pf_module_state+0x342fU)",
         "0x1004658f": "((uintptr_t)pf_module_state+0x2447U)",
         "0x10047586": "((uintptr_t)pf_module_state+0x343eU)"
-      },
-      "shared_5bdd519c464b1abb": {
-        "0x10046316": "((uintptr_t)pf_module_state+0x21ceU)",
-        "0x10046463": "((uintptr_t)pf_module_state+0x231bU)",
-        "0x10046345": "((uintptr_t)pf_module_state+0x21fdU)",
-        "0x10046557": "((uintptr_t)pf_module_state+0x240fU)",
-        "0x100463fa": "((uintptr_t)pf_module_state+0x22b2U)",
-        "0x10046384": "((uintptr_t)pf_module_state+0x223cU)",
-        "0x100465f6": "((uintptr_t)pf_module_state+0x24aeU)",
-        "0x100465cf": "((uintptr_t)pf_module_state+0x2487U)",
-        "0x10046564": "((uintptr_t)pf_module_state+0x241cU)",
-        "0x10046454": "((uintptr_t)pf_module_state+0x230cU)",
-        "0x10046543": "((uintptr_t)pf_module_state+0x23fbU)",
-        "0x100465e5": "((uintptr_t)pf_module_state+0x249dU)",
-        "0x100464d4": "((uintptr_t)pf_module_state+0x238cU)",
-        "0x1004651e": "((uintptr_t)pf_module_state+0x23d6U)",
-        "0x100465b0": "((uintptr_t)pf_module_state+0x2468U)",
-        "0x100465e9": "((uintptr_t)pf_module_state+0x24a1U)",
-        "0x10046355": "((uintptr_t)pf_module_state+0x220dU)",
-        "0x10046474": "((uintptr_t)pf_module_state+0x232cU)",
-        "0x100464f2": "((uintptr_t)pf_module_state+0x23aaU)",
-        "0x1004658a": "((uintptr_t)pf_module_state+0x2442U)",
-        "0x100465a0": "((uintptr_t)pf_module_state+0x2458U)",
-        "0x100465a6": "((uintptr_t)pf_module_state+0x245eU)",
-        "0x100463e7": "((uintptr_t)pf_module_state+0x229fU)",
-        "0x10046531": "((uintptr_t)pf_module_state+0x23e9U)",
-        "0x1004664f": "((uintptr_t)pf_module_state+0x2507U)",
-        "0x100463ba": "((uintptr_t)pf_module_state+0x2272U)",
-        "0x100465be": "((uintptr_t)pf_module_state+0x2476U)",
-        "0x10046550": "((uintptr_t)pf_module_state+0x2408U)",
-        "0x1004661a": "((uintptr_t)pf_module_state+0x24d2U)",
-        "0x10046655": "((uintptr_t)pf_module_state+0x250dU)",
-        "0x10046647": "((uintptr_t)pf_module_state+0x24ffU)",
-        "0x1004637e": "((uintptr_t)pf_module_state+0x2236U)",
-        "0x1004650d": "((uintptr_t)pf_module_state+0x23c5U)",
-        "0x1004665d": "((uintptr_t)pf_module_state+0x2515U)",
-        "0x10046468": "((uintptr_t)pf_module_state+0x2320U)",
-        "0x10046495": "((uintptr_t)pf_module_state+0x234dU)",
-        "0x100464bf": "((uintptr_t)pf_module_state+0x2377U)",
-        "0x1004657f": "((uintptr_t)pf_module_state+0x2437U)",
-        "0x100463e1": "((uintptr_t)pf_module_state+0x2299U)",
-        "0x100465dc": "((uintptr_t)pf_module_state+0x2494U)",
-        "0x1004658f": "((uintptr_t)pf_module_state+0x2447U)",
-        "0x100464d0": "((uintptr_t)pf_module_state+0x2388U)",
-        "0x100463f3": "((uintptr_t)pf_module_state+0x22abU)",
-        "0x100465f2": "((uintptr_t)pf_module_state+0x24aaU)",
-        "0x1004642d": "((uintptr_t)pf_module_state+0x22e5U)",
-        "0x1004660c": "((uintptr_t)pf_module_state+0x24c4U)",
-        "0x1004641d": "((uintptr_t)pf_module_state+0x22d5U)",
-        "0x100463c2": "((uintptr_t)pf_module_state+0x227aU)",
-        "0x100465c2": "((uintptr_t)pf_module_state+0x247aU)",
-        "0x10046632": "((uintptr_t)pf_module_state+0x24eaU)",
-        "0x100463ce": "((uintptr_t)pf_module_state+0x2286U)",
-        "0x1004662d": "((uintptr_t)pf_module_state+0x24e5U)",
-        "0x100465cb": "((uintptr_t)pf_module_state+0x2483U)",
-        "0x10046409": "((uintptr_t)pf_module_state+0x22c1U)",
-        "0x10046538": "((uintptr_t)pf_module_state+0x23f0U)",
-        "0x100465ff": "((uintptr_t)pf_module_state+0x24b7U)",
-        "0x100464e5": "((uintptr_t)pf_module_state+0x239dU)",
-        "0x1004663b": "((uintptr_t)pf_module_state+0x24f3U)",
-        "0x100465d8": "((uintptr_t)pf_module_state+0x2490U)",
-        "0x1004664c": "((uintptr_t)pf_module_state+0x2504U)",
-        "0x100464b9": "((uintptr_t)pf_module_state+0x2371U)",
-        "0x10046398": "((uintptr_t)pf_module_state+0x2250U)",
-        "0x10046365": "((uintptr_t)pf_module_state+0x221dU)",
-        "0x100464a1": "((uintptr_t)pf_module_state+0x2359U)",
-        "0x10046429": "((uintptr_t)pf_module_state+0x22e1U)",
-        "0x100463b1": "((uintptr_t)pf_module_state+0x2269U)",
-        "0x1004638a": "((uintptr_t)pf_module_state+0x2242U)",
-        "0x1004640e": "((uintptr_t)pf_module_state+0x22c6U)",
-        "0x1004656b": "((uintptr_t)pf_module_state+0x2423U)",
-        "0x1004639f": "((uintptr_t)pf_module_state+0x2257U)",
-        "0x10046595": "((uintptr_t)pf_module_state+0x244dU)",
-        "0x10046668": "((uintptr_t)pf_module_state+0x2520U)",
-        "0x100464f8": "((uintptr_t)pf_module_state+0x23b0U)",
-        "0x1004636e": "((uintptr_t)pf_module_state+0x2226U)",
-        "0x1004665a": "((uintptr_t)pf_module_state+0x2512U)",
-        "0x1004662a": "((uintptr_t)pf_module_state+0x24e2U)",
-        "0x1004643c": "((uintptr_t)pf_module_state+0x22f4U)",
-        "0x10046481": "((uintptr_t)pf_module_state+0x2339U)",
-        "0x1004648f": "((uintptr_t)pf_module_state+0x2347U)",
-        "0x1004661f": "((uintptr_t)pf_module_state+0x24d7U)",
-        "0x1004634b": "((uintptr_t)pf_module_state+0x2203U)",
-        "0x10046578": "((uintptr_t)pf_module_state+0x2430U)",
-        "0x10046254": "((uintptr_t)pf_module_state+0x210cU)",
-        "0x10046373": "((uintptr_t)pf_module_state+0x222bU)",
-        "0x10046662": "((uintptr_t)pf_module_state+0x251aU)",
-        "0x1004637a": "((uintptr_t)pf_module_state+0x2232U)",
-        "0x10046393": "((uintptr_t)pf_module_state+0x224bU)",
-        "0x100463a6": "((uintptr_t)pf_module_state+0x225eU)",
-        "0x100464e0": "((uintptr_t)pf_module_state+0x2398U)",
-        "0x100464ac": "((uintptr_t)pf_module_state+0x2364U)",
-        "0x10046519": "((uintptr_t)pf_module_state+0x23d1U)",
-        "0x10046425": "((uintptr_t)pf_module_state+0x22ddU)",
-        "0x100465b5": "((uintptr_t)pf_module_state+0x246dU)",
-        "0x10046642": "((uintptr_t)pf_module_state+0x24faU)",
-        "0x100463ac": "((uintptr_t)pf_module_state+0x2264U)",
-        "0x10046506": "((uintptr_t)pf_module_state+0x23beU)",
-        "0x100463ee": "((uintptr_t)pf_module_state+0x22a6U)",
-        "0x10046603": "((uintptr_t)pf_module_state+0x24bbU)",
-        "0x100464c5": "((uintptr_t)pf_module_state+0x237dU)",
-        "0x10046610": "((uintptr_t)pf_module_state+0x24c8U)",
-        "0x1004653c": "((uintptr_t)pf_module_state+0x23f4U)",
-        "0x10046418": "((uintptr_t)pf_module_state+0x22d0U)",
-        "0x1004635c": "((uintptr_t)pf_module_state+0x2214U)",
-        "0x100463da": "((uintptr_t)pf_module_state+0x2292U)",
-        "0x10046414": "((uintptr_t)pf_module_state+0x22ccU)",
-        "0x10046523": "((uintptr_t)pf_module_state+0x23dbU)"
       },
       "shared_b6a2f540f975d58b": {
         "0x10047500": "((uintptr_t)pf_module_state+0x33b8U)",
@@ -1299,6 +1495,16 @@
         "0x100485fa": "((uintptr_t)pf_module_state+0x44b2U)",
         "0x100468fa": "((uintptr_t)pf_module_state+0x27b2U)",
         "0x100468d7": "((uintptr_t)pf_module_state+0x278fU)"
+      },
+      "shared_2c0515621c62d780": {
+        "\n        (**(code **)(*plVar1 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);",
+        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
+      },
+      "shared_b14de825e162ce70": {
+        "\n        (**(code **)(*plVar1 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);",
+        "\n          (**(code **)(*plVar1 + 8))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 8)))(plVar1);",
+        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);",
+        "\n        (**(code **)(*plVar1 + 8))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 8)))(plVar1);"
       }
     }
   },
@@ -1363,5 +1569,808 @@
       "address": "0x10002d88",
       "declaration": "bool region_preflight(unsigned long address,unsigned long size,unsigned char *added);"
     }
+  },
+  "reviewed_virtual_owner_calls": {
+    "sites": [
+      [
+        "10030f78",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030f78",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030f78",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030f78",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "1003a700",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "1003100c",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "1003100c",
+        "plVar1",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10023f8c",
+        "plStack_100",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10023f8c",
+        "plStack_100",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10023f8c",
+        "plStack_100",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10037504",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10004cb8",
+        "plStack_68",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_70",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_78",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_80",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_88",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_90",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_98",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_a0",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_a8",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_b0",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_b8",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_c0",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_c8",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_d0",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_d8",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_e0",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_e8",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_f0",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_f8",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_100",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_108",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_110",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_118",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_120",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_128",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_130",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_138",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_140",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_148",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_150",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_158",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_160",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_168",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_170",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_550",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_550",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_550",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_550",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_550",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_550",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_550",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_550",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_550",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_550",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_550",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_550",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_5d0",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_5d0",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_5d0",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_5d0",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_638",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_638",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_638",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_638",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_638",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_638",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_638",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_638",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_638",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_638",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_638",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_638",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_6d0",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_6d0",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10004cb8",
+        "plStack_6f8",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10030fb0",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030fb0",
+        "plVar1",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10030fb0",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030fb0",
+        "plVar1",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10030fb0",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030fb0",
+        "plVar1",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10030fb0",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030fb0",
+        "plVar1",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10030fc0",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030fc0",
+        "plVar1",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10030fc0",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030fc0",
+        "plVar1",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10030fc0",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030fc0",
+        "plVar1",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10030fc0",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030fc0",
+        "plVar1",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10030f88",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030f88",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030f88",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030f88",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10039acc",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030fd0",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030fd0",
+        "plVar1",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10030fd0",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030fd0",
+        "plVar1",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10030fd0",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030fd0",
+        "plVar1",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10030fd0",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030fd0",
+        "plVar1",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "100154cc",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100154cc",
+        "plVar1",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "1003c0d8",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10031020",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "1003756c",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "1003c3a8",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030f9c",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030f9c",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030f9c",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030f9c",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030fe4",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030fe4",
+        "plVar1",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10030fe4",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030fe4",
+        "plVar1",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10030fe4",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030fe4",
+        "plVar1",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10030f6c",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030f6c",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030f6c",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030f6c",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030ff8",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030ff8",
+        "plVar1",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "10030ff8",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10030ff8",
+        "plVar1",
+        8,
+        "deleting destructor"
+      ],
+      [
+        "1003c140",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "100246d8",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "1003c340",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ],
+      [
+        "10037914",
+        "plVar1",
+        16,
+        "reference-count zero release"
+      ]
+    ],
+    "basis": "Deleting destructor slot and reference-count guarded control-block release preserve the native owner argument."
   }
 }
