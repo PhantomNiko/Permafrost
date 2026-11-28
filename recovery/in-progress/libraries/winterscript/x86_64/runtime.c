@@ -88429,7 +88429,7 @@ ulong recovered_1007c670(undefined8 *param_1,long param_2,ulong param_3,ulong pa
 #define local_50 (*(long *)(pf_stack_frame + 144))
 #define local_48 (*(ulong *)(pf_stack_frame + 152))
 #define local_40 (*(long * *)(pf_stack_frame + 160))
-#define local_38 (*(uintptr_t * *)(pf_stack_frame + 168))
+#define local_38 (*(uint * *)(pf_stack_frame + 168))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x1007c700
  */

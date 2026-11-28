@@ -15,7 +15,8 @@
       "recovered_functions": 1050,
       "core_execution_cases": 18,
       "heap_workflows": 12,
-      "allocator_forwarding_cases": 117
+      "allocator_forwarding_cases": 117,
+      "print_monitor_workflows": 6
     },
     "armv7": {
       "sha256": "6cda441d42b71b4e41498eef3851dc5b0521fb09bd1aa2ca1edc7d8ec7bc31e9",

@@ -851,7 +851,8 @@
       },
       "1007c700": {
         "0x100cce21": "((uintptr_t)pf_module_state+0x306aU)",
-        "0x100cce8b": "((uintptr_t)pf_module_state+0x30d4U)"
+        "0x100cce8b": "((uintptr_t)pf_module_state+0x30d4U)",
+        "undefined8 local_38;": "uint *local_38;"
       },
       "100233b0": {
         "0x100ce38b": "((uintptr_t)pf_module_state+0x45d4U)",
@@ -1665,5 +1666,9 @@
       "address": "0x10003e40",
       "declaration": "unsigned long reject_span(char *text,char *reject);"
     }
+  },
+  "reviewed_print_result_pointer": {
+    "function": "1007c700",
+    "basis": "Native result stores are 32-bit type at +0, 32-bit payload at +8 and 64-bit variant index at +32. The recovered local uses uint pointer arithmetic."
   }
 }
