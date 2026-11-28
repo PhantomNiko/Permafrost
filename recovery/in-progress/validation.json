@@ -557,8 +557,12 @@
     "integrated_candidate_vm": {
       "i386": "desktop after uncompressed BIOS kernel correction; input validation pending",
       "x86_64": "desktop and Activity Monitor launch",
-      "armv7": "boot-time invalid free under investigation",
+      "armv7": "desktop and Activity Monitor launch after restoring device-buffer free arguments",
       "arm64": "desktop and Activity Monitor launch; graphics parity incomplete"
+    },
+    "activity_device_buffer_workflows": {
+      "armv7": 9,
+      "x86_64": 9
     }
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",

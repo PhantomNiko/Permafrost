@@ -66,7 +66,7 @@ long recovered_100005e0(void);
 void recovered_100010e0(long param_1);
 void recovered_10001300(long param_1);
 void recovered_10002680(long param_1);
-void recovered_10006c40(void);
+void recovered_10006c40(void *in_RDI);
 void recovered_10006c90(long param_1);
 void recovered_10006e50(long param_1);
 void recovered_10007110(long param_1);

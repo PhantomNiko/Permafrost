@@ -665,3 +665,9 @@ all four CPUs. Checks verify exact console output, C++ constructors and
 containers, allocation cleanup, and process termination. This CPU-emulation
 coverage is separate from booted guest execution. The uncompressed i386 kernel
 correction reaches the BIOS desktop in the integrated image.
+
+The ARM32 VM failure was narrowed to Activity Monitor device enumeration rather
+than boot. Its recovered free helper had lost its pointer argument. Restoring
+the helper and its two caller arguments opens the application in the integrated
+VM. The equivalent x64 helper is repaired too. Both CPUs pass nine native
+device-buffer reuse, growth, replacement, empty-result, and failure workflows.

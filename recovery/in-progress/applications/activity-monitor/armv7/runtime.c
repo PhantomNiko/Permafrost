@@ -4214,7 +4214,7 @@ LAB_100093e4:
  * Address: 0x10009630
  */
 
-void recovered_10009630(void)
+void recovered_10009630(void *in_r0)
 
 {
   unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
@@ -4222,7 +4222,6 @@ void recovered_10009630(void)
   uint uVar1;
   int iVar2;
   code *UNRECOVERED_JUMPTABLE;
-  void *in_r0;
   bool bVar3;
 
   iVar2 = Ram40010800;
@@ -4772,8 +4771,8 @@ LAB_10009d58:
     if ((((bVar5 && 0x1d3 < uVar3) && (pcVar1 = (code *)Ram400109d0, pcVar1 != (code *)0x0)) &&
         (iVar2 = (*pcVar1)(ptr_00,local_24,ptr,local_2c,&local_28,&local_30), iVar2 != 0)) &&
        ((local_28 <= local_24 && (local_30 <= local_2c)))) {
-      recovered_10009630();
-      recovered_10009630();
+      recovered_10009630(*(void **)(param_1 + 0x500));
+      recovered_10009630(*(void **)(param_1 + 0x504));
       *(void **)(param_1 + 0x504) = ptr;
       *(void **)(param_1 + 0x500) = ptr_00;
       *(uint *)(param_1 + 0x508) = local_24;

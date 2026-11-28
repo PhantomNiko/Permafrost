@@ -8228,5 +8228,15 @@
         "DAT_1000bc70": "terror_ui_yield_frames"
       }
     }
+  },
+  "reviewed_contracts": {
+    "10009630": {
+      "prototype": "void recovered_10009630(void *pointer)",
+      "native_argument": "r0",
+      "call_sites": {
+        "10009fb8": "old device buffer at context+0x500",
+        "10009fc0": "old string buffer at context+0x504"
+      }
+    }
   }
 }

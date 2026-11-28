@@ -3155,5 +3155,16 @@
         "thunk_FUN_10009394": "terror_ui_scrollbar_draw"
       }
     }
+  },
+  "reviewed_contracts": {
+    "10006c40": {
+      "prototype": "void recovered_10006c40(void *pointer)",
+      "native_argument": "rdi",
+      "caller": "100071c0",
+      "old_buffers": [
+        "context+0x518",
+        "context+0x520"
+      ]
+    }
   }
 }

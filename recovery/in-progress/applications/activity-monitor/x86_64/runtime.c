@@ -3988,14 +3988,13 @@ LAB_10006a09:
  * Address: 0x10006c40
  */
 
-void recovered_10006c40(void)
+void recovered_10006c40(void *in_RDI)
 
 {
   unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
 
   int iVar1;
   uint uVar2;
-  void *in_RDI;
 
   iVar1 = Ram0000000000280800;
   if ((((iVar1 == 0x50414d57) && (iVar1 = Ram0000000000280804, iVar1 != 0)) &&
@@ -4483,8 +4482,8 @@ LAB_10007337:
     if ((((code *)(ulong)uVar1 != (code *)0x0) &&
         (iVar2 = (*(code *)(ulong)uVar1)(ptr,local_2c,ptr_00,local_24,&local_28,&local_30),
         iVar2 != 0)) && ((local_28 <= local_2c && (local_30 <= local_24)))) {
-      recovered_10006c40();
-      recovered_10006c40();
+      recovered_10006c40(*(void **)(param_1 + 0x518));
+      recovered_10006c40(*(void **)(param_1 + 0x520));
       *(void **)(param_1 + 0x518) = ptr;
       *(void **)(param_1 + 0x520) = ptr_00;
       *(uint *)(param_1 + 0x528) = local_2c;

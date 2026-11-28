@@ -83,7 +83,7 @@ undefined4 recovered_10003a34(void);
 void recovered_100044e4(int param_1);
 void recovered_10004718(int param_1);
 void recovered_10005a3c(uint param_1);
-void recovered_10009630(void);
+void recovered_10009630(void *in_r0);
 void recovered_10009680(int param_1,undefined4 param_2,int param_3);
 void recovered_100098b0(int param_1,undefined4 param_2,int param_3);
 void recovered_10009bb4(int param_1);
