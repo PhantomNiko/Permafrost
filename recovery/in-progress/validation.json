@@ -405,6 +405,25 @@
         "remaining allocation and error paths",
         "booted VM integration"
       ]
+    },
+    "fontgen_command": {
+      "architectures": [
+        "i386",
+        "x86_64",
+        "armv7",
+        "arm64"
+      ],
+      "independent_c_source_build": true,
+      "interactive_workflows_per_architecture": 8,
+      "numeric_cases_per_architecture": 47,
+      "geometry_cases_per_architecture": 84,
+      "wbf_pixel_cases_per_architecture": 16,
+      "output_path_cases_per_architecture": 40,
+      "pending": [
+        "remaining allocation and service errors",
+        "booted PNG and filesystem integration",
+        "release-wide VM parity"
+      ]
     }
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",

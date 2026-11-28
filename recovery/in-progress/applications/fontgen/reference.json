@@ -1,0 +1,48 @@
+{
+  "version": "1.1",
+  "reference_path": "Binary/fontgen",
+  "architectures": {
+    "x86_64": {
+      "reference_sha256": "3326be576c22793f96c8d6a25cf3c62e5bfaabeae5bdb1456808a4aebc7e031a",
+      "source_build": true,
+      "interactive_workflows": 8,
+      "numeric_cases": 47,
+      "geometry_cases": 84,
+      "wbf_pixel_cases": 16,
+      "output_path_cases": 40
+    },
+    "i386": {
+      "reference_sha256": "94482e64dca6f222872083b8b8c56fde1c6435efeae0e2bd74b9541d1853632a",
+      "source_build": true,
+      "interactive_workflows": 8,
+      "numeric_cases": 47,
+      "geometry_cases": 84,
+      "wbf_pixel_cases": 16,
+      "output_path_cases": 40
+    },
+    "armv7": {
+      "reference_sha256": "df36b37c2bb95cb59acb99de1aa877c6c58165cdfea93d8e26884bacfa35eb2f",
+      "source_build": true,
+      "interactive_workflows": 8,
+      "numeric_cases": 47,
+      "geometry_cases": 84,
+      "wbf_pixel_cases": 16,
+      "output_path_cases": 40
+    },
+    "arm64": {
+      "reference_sha256": "777901ae4b437deb0f226e1ff75823cf0f7f519e56527969e4dde1c43517809c",
+      "source_build": true,
+      "interactive_workflows": 8,
+      "numeric_cases": 47,
+      "geometry_cases": 84,
+      "wbf_pixel_cases": 16,
+      "output_path_cases": 40
+    }
+  },
+  "pending": [
+    "remaining allocation and service errors",
+    "booted PNG and filesystem integration",
+    "release-wide VM parity"
+  ],
+  "status": "source checkpoint; full VM parity remains incomplete"
+}

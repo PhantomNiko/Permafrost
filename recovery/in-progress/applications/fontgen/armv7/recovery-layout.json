@@ -1,0 +1,554 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268439304,
+  "text_end": 268467056,
+  "state_end": 268517376,
+  "translation": {
+    "pointer_bytes": 4,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "state_base": 268467056,
+    "state_end": 268517376,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"cpu.h\"",
+      "#include \"arm_exclusive.h\"",
+      "#include \"armv7-recovery.h\"",
+      "#include \"neon.h\"",
+      "void __udivsi3(void);",
+      "#define recovered_10007ffc __udivsi3"
+    ],
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "source_replacements": {
+      "10002664": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10004bc8": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10001698": {
+        "0x10008044": "((uintptr_t)pf_module_state + 0x4d4U)",
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10004394": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10003fe4": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10007880": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10001000": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10006d0c": {
+        "DAT_1000737c": "(*(uint8_t *)(uint64_t[]){0x2000000001cULL})",
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3",
+        "0x10007f25": "((uintptr_t)pf_module_state + 0x3b5U)"
+      },
+      "10001450": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10004b7c": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "1000189c": {
+        "0x10008044": "((uintptr_t)pf_module_state + 0x4d4U)",
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "100040ac": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "100029b0": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10004680": {
+        "DAT_10004708": "pf_bits_double(0x400921fb54442d18ULL)",
+        "DAT_10004710": "pf_bits_double(0xc01921fb54442d18ULL)",
+        "DAT_10004718": "pf_bits_double(0xc00921fb54442d18ULL)",
+        "DAT_10004720": "pf_bits_double(0x401921fb54442d18ULL)",
+        "DAT_10004728": "pf_bits_double(0xc086800000000000ULL)",
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10004408": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10003ad4": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10007acc": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "1000546c": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10003634": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10004e48": {
+        "DAT_10004ee0": "pf_bits_double(0x400921fb54442d18ULL)",
+        "DAT_10004ee8": "pf_bits_double(0xc01921fb54442d18ULL)",
+        "DAT_10004ef0": "pf_bits_double(0xc00921fb54442d18ULL)",
+        "DAT_10004ef8": "pf_bits_double(0x401921fb54442d18ULL)",
+        "DAT_10004f00": "pf_bits_double(0x405e000000000000ULL)",
+        "DAT_10004f08": "pf_bits_double(0xc0b3b00000000000ULL)",
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "100042dc": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10007a28": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "1000782c": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "100078ec": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3",
+        "0x10007fe8": "((uintptr_t)pf_module_state + 0x478U)"
+      },
+      "10004590": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10004fc8": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10001154": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10002570": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10001de8": {
+        "0x10008044": "((uintptr_t)pf_module_state + 0x4d4U)",
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10002d2c": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10004130": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "100027c8": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10003b94": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10003aec": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10003b18": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10002748": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10004898": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10003b6c": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "100010a8": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10006504": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10004810": {
+        "DAT_10004890": "pf_bits_double(0x43e0000000000000ULL)",
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10003aac": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10003f80": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "100049b4": {
+        "DAT_10004a6c": "pf_bits_float(0x0U)",
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10001a78": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10006250": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10004730": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10002618": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10004fe4": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10004a70": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10004120": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10004cd0": {
+        "DAT_10004e10": "pf_bits_float(0xff800000U)",
+        "DAT_10004e08": "pf_bits_double(0x3fe62e42fefa39efULL)",
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "100041e0": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10004224": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "100045c0": {
+        "DAT_10004650": "pf_bits_double(0x400921fb54442d18ULL)",
+        "DAT_10004658": "pf_bits_double(0xc01921fb54442d18ULL)",
+        "DAT_10004660": "pf_bits_double(0xc00921fb54442d18ULL)",
+        "DAT_10004668": "pf_bits_double(0x401921fb54442d18ULL)",
+        "DAT_10004670": "pf_bits_double(0x405e000000000000ULL)",
+        "DAT_10004678": "pf_bits_double(0xc0b3b00000000000ULL)",
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10006ce0": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "1000107c": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10006564": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10004314": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10004e14": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10002aa8": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10004110": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10003b38": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10003438": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10000f90": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10003c38": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10000f58": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "100010c8": {
+        "0x10008044": "((uintptr_t)pf_module_state + 0x4d4U)",
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10004b44": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10004f10": {
+        "DAT_10004fa0": "pf_bits_double(0x400921fb54442d18ULL)",
+        "DAT_10004fa8": "pf_bits_double(0xc01921fb54442d18ULL)",
+        "DAT_10004fb0": "pf_bits_double(0xc00921fb54442d18ULL)",
+        "DAT_10004fb8": "pf_bits_double(0x401921fb54442d18ULL)",
+        "DAT_10004fc0": "pf_bits_double(0xc086800000000000ULL)",
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10003b4c": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10007774": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10003bd8": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10004970": {
+        "DAT_100049b0": "pf_bits_float(0x0U)",
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10004750": {
+        "DAT_10004808": "pf_bits_double(0x43e0000000000000ULL)",
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10003f4c": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10005298": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10003b5c": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10003c1c": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10004450": {
+        "DAT_10004580": "pf_bits_double(0xfff0000000000000ULL)",
+        "DAT_10004588": "pf_bits_double(0x3fe62e42fefa39efULL)",
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10007b20": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10005488": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10003238": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10000f08": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10001d58": {
+        "0x10008044": "((uintptr_t)pf_module_state + 0x4d4U)",
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "100043c4": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "100048e0": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "1000106c": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10003a5c": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10001730": {
+        "0x10008044": "((uintptr_t)pf_module_state + 0x4d4U)",
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10001e64": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10001944": {
+        "0x10008044": "((uintptr_t)pf_module_state + 0x4d4U)",
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10006480": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "100025c4": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10006a7c": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "1000404c": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10002a04": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10003864": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10001cd0": {
+        "0x10008044": "((uintptr_t)pf_module_state + 0x4d4U)",
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "100066dc": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10004abc": {
+        "DAT_10004b40": "pf_bits_float(0x0U)",
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10004c1c": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10004c78": {
+        "DAT_10004ccc": "pf_bits_float(0x0U)",
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10001fd0": {
+        "0x10008044": "((uintptr_t)pf_module_state + 0x4d4U)",
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10006b94": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "100019f4": {
+        "0x10008044": "((uintptr_t)pf_module_state + 0x4d4U)",
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10006280": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "100013d4": {
+        "0x10008044": "((uintptr_t)pf_module_state + 0x4d4U)",
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "1000299c": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "1000108c": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "100028e0": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "100029a4": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10002a54": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10003830": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10007a7c": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10005138": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "10003ac0": {
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      },
+      "100017e0": {
+        "0x10008044": "((uintptr_t)pf_module_state + 0x4d4U)",
+        "FUN_10007ffc": "__udivsi3",
+        "DAT_10007ffc": "__udivsi3"
+      }
+    },
+    "source_replacement_groups": {}
+  },
+  "reviewed_restored_entries": [],
+  "reviewed_format_arguments": [
+    "100078ec\t1000796c\t6\tfontgen: %s%s%s"
+  ],
+  "reviewed_variadic_wrapper": "Forward the C variadic argument list to the recovered native formatter with the host-target ABI."
+}

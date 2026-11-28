@@ -528,3 +528,11 @@ corrupt checksums and truncated formats. The separately callable codec also
 matches 37 guarded cases on i386, x64 and ARM32; ARM64's inlined codec is exercised
 through the command. Directory traversal, alternate filesystem services, remaining
 allocation failures and booted VM integration remain unverified.
+
+Fontgen now has independently built C command checkpoints on all four
+architectures. Native comparisons cover 47 numeric inputs, 84 geometry cases,
+16 pixel/buffer workflows, 40 guarded output-path cases and eight interactive
+workflows. Interactive tests compare WBF bytes and console output through
+controlled PNG and filesystem services, including cancellation, invalid input,
+decode failures and write failures. Complete service-error coverage and booted
+PNG/filesystem integration remain release gates.
