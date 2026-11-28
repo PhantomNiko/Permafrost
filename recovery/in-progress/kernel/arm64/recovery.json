@@ -508,6 +508,13 @@
       },
       "8240aa68": {
         "              uStack_f8 = (ulong)uStack_c8;\n              uStack_100 = CONCAT26(uStack_ca,CONCAT24(sStack_cc,uStack_d0));\n              uStack_f0 = (ulong)uStack_c0;\n              uStack_dc = uStack_ac;\n": "              /* Native LDP/STP Q copies the complete 44-byte PCI record,\n               * including subsystem identity and all six BARs. */\n              recovered_82400f60(&uStack_100,&uStack_d0,0x2c);\n"
+      },
+      "824195c0": {
+        "CONCAT13(cVar6,CONCAT12(cVar5,uVar3))": "((uint)uVar3)"
+      },
+      "82418e90": {
+        "CONCAT13(cVar4,CONCAT12(cVar3,uVar1))": "((uint)uVar1)",
+        "(param_3 - 1 & param_1)": "((uint32_t)((uint32_t)param_3 - 1U) & param_1)"
       }
     },
     "exclusive_expected": {
@@ -649,5 +656,14 @@
     "destination_stack_offset": "0x40",
     "bytes": 44,
     "contract": "Two adjacent 16-byte stores and the overlapping final 16-byte store preserve the complete PCI record."
+  },
+  "reviewed_dma_scalar_reduction_zeroing": {
+    "functions": [
+      "824195c0",
+      "82418e90"
+    ],
+    "basis": "AArch64 scalar UADDLV H0,V0.8B zeroes the remaining vector bits. The following FMOV W8,S0 sees only the reduction, not retained CNT bytes in bits 16..31.",
+    "failure": "64 KiB DMA boundaries were rejected because a retained upper count byte made popcount appear greater than one.",
+    "alignment_mask": "Native SUB W8,W2,#1 zero-extends its 32-bit mask before TST X8,X0, including zero and bit-31 alignment values."
   }
 }

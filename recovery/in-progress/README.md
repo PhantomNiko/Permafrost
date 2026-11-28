@@ -713,3 +713,10 @@ Single- and multifunction fixtures match native controller discovery. In the
 native-handoff VM this maps xHCI successfully with zero controller handoff
 failures. Initialization stops later at DMA step 10; that remaining failure
 still prevents promotion of the native boot path.
+
+ARM64 xHCI DMA validation now preserves scalar UADDLV zeroing and the native
+32-bit alignment mask. This fixes rejection of a valid 64 KiB boundary.
+Validators match 1,508 native alignment, crossing, zero, and overflow cases.
+The C native-handoff VM proceeds through USB retirement and reaches a 1280x800
+desktop. Timer preemption, RTC and input behavior remain incomplete; this is
+still an experimental boot path rather than a promoted release.

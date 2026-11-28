@@ -34460,8 +34460,8 @@ undefined4 recovered_82418e90(ulong param_1,uint param_2,int param_3,undefined4 
      uVar1 = NEON_uaddlv((ulong)CONCAT13(cVar4,CONCAT12(cVar3,CONCAT11(POPCOUNT((char)((uint)param_3
                                                                                       >> 8)),
                                                                        POPCOUNT((char)param_3)))),1)
-     , CONCAT13(cVar4,CONCAT12(cVar3,uVar1)) < 2)) {
-    if (((param_3 - 1 & param_1) == 0) && (param_1 <= -(ulong)param_2)) {
+     , ((uint)uVar1) < 2)) {
+    if ((((uint32_t)((uint32_t)param_3 - 1U) & param_1) == 0) && (param_1 <= -(ulong)param_2)) {
       if ((param_1 + param_2) - 1 >> 0x20 == 0) {
         param_4 = 1;
       }
@@ -34940,7 +34940,7 @@ bool recovered_824195c0(ulong param_1,uint param_2,uint param_3)
   cVar6 = POPCOUNT((char)(param_3 >> 0x18));
   uVar3 = NEON_uaddlv((ulong)CONCAT13(cVar6,CONCAT12(cVar5,CONCAT11(POPCOUNT((char)(param_3 >> 8)),
                                                                     POPCOUNT((char)param_3)))),1);
-  if ((param_3 < param_2 || 1 < CONCAT13(cVar6,CONCAT12(cVar5,uVar3))) ||
+  if ((param_3 < param_2 || 1 < ((uint)uVar3)) ||
      (-(ulong)param_2 < param_1)) {
     return false;
   }
