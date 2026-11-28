@@ -1,0 +1,62 @@
+{
+  "module": "DriverCpuX86",
+  "architecture": "i386",
+  "version": "1.1",
+  "install_name": "/Drivers/cpu~x86~host.kext",
+  "functions": {
+    "0xb1d": "recovered_10000b1d",
+    "0xb33": "recovered_10000b33",
+    "0xd77": "recovered_10000d77",
+    "0xd90": "recovered_10000d90",
+    "0xdaf": "recovered_10000daf",
+    "0xe12": "recovered_10000e12",
+    "0xe58": "recovered_10000e58",
+    "0xe79": "recovered_10000e79",
+    "0xebb": "recovered_10000ebb",
+    "0xeff": "recovered_10000eff"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 2845,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 2867,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 211,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 116
+      },
+      "tag": 0
+    },
+    {
+      "offset": 215,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 127
+      },
+      "tag": 0
+    },
+    {
+      "offset": 219,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 112
+      },
+      "tag": 0
+    }
+  ],
+  "data_exports": []
+}

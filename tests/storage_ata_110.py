@@ -98,6 +98,7 @@ if __name__ == '__main__':
             for sector, fail in [(0, -1), (0x1234567, -1), (0xfffffff, -1), (0x10000000, -1), (0, 0), (0, 2), (0, 10), (0, 50)]:
                 expected = run(args.reference, entry, sector, writing, mmio, fail)
                 actual = run(args.source, entry, sector, writing, mmio, fail)
+                if sector < 0x10000000 and fail < 0:assert expected[0] == 1, (sector, writing, mmio, expected[0])
                 assert expected == actual, (writing, mmio, sector, fail, [(i, (len(x), x[:16]) if i else x, (len(y), y[:16]) if i else y) for i, (x, y) in enumerate(zip(expected, actual)) if x != y])
                 count += 1
     print('ATA sector transfers:', count, 'native/source guarded data, register, and service-failure comparisons passed.')

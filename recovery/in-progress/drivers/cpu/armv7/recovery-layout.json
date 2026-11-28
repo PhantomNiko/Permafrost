@@ -1,0 +1,82 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268449064,
+  "text_end": 268451636,
+  "state_end": 268500992,
+  "translation": {
+    "pointer_bytes": 4,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 268451636,
+    "state_end": 268500992,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"cpu.h\"",
+      "#include \"arm_exclusive.h\"",
+      "#include \"armv7-recovery.h\"",
+      "#include \"neon.h\""
+    ],
+    "source_replacements": {
+      "10003e20": {},
+      "10003ed4": {},
+      "10003e8c": {},
+      "100039f0": {},
+      "100037a4": {},
+      "10003a58": {},
+      "10003e7c": {
+        "0x10003fe8": "((uintptr_t)pf_module_state+0xb4U)"
+      },
+      "10003e6c": {},
+      "10003cdc": {},
+      "10003b3c": {},
+      "100037dc": {},
+      "10003f18": {},
+      "100037c8": {},
+      "1000387c": {},
+      "10003980": {},
+      "10003538": {
+        "DAT_100037a0 + 0x10003734": "((uintptr_t)pf_module_state + 0x9bU)",
+        "DAT_1000379c + 0x10003720": "((uintptr_t)pf_module_state + 0x8cU)",
+        "DAT_10003798 + 0x100036d4": "((uintptr_t)pf_module_state + 0x28U)",
+        "DAT_10003794 + 0x100036b4": "((uintptr_t)pf_module_state + 0x24U)",
+        "DAT_10003790 + 0x10003694": "((uintptr_t)pf_module_state + 0x73U)",
+        "DAT_1000378c + 0x10003690": "((uintptr_t)pf_module_state + 0x5cU)",
+        "DAT_10003788 + 0x10003668": "((uintptr_t)pf_module_state + 0x59U)",
+        "DAT_10003784 + 0x10003634": "((uintptr_t)pf_module_state + 0x40U)",
+        "DAT_10003780 + 0x10003630": "((uintptr_t)pf_module_state + 0x29U)",
+        "DAT_1000377c + 0x100035bc": "((uintptr_t)pf_module_state + 0x24U)",
+        "DAT_10003778 + 0x100035a8": "((uintptr_t)pf_module_state + 0x28U)",
+        "DAT_10003774": "(*(uint32_t *)(uint32_t[]){0x54584b57ULL})",
+        "DAT_10003778": "(*(uint32_t *)(uint32_t[]){0x9b4ULL})",
+        "DAT_1000377c": "(*(uint32_t *)(uint32_t[]){0x99cULL})",
+        "DAT_10003780": "(*(uint32_t *)(uint32_t[]){0x92dULL})",
+        "DAT_10003784": "(*(uint32_t *)(uint32_t[]){0x940ULL})",
+        "DAT_10003788": "(*(uint32_t *)(uint32_t[]){0x925ULL})",
+        "DAT_1000378c": "(*(uint32_t *)(uint32_t[]){0x900ULL})",
+        "DAT_10003790": "(*(uint32_t *)(uint32_t[]){0x913ULL})",
+        "DAT_10003794": "(*(uint32_t *)(uint32_t[]){0x8a4ULL})",
+        "DAT_10003798": "(*(uint32_t *)(uint32_t[]){0x888ULL})",
+        "DAT_1000379c": "(*(uint32_t *)(uint32_t[]){0x8a0ULL})",
+        "DAT_100037a0": "(*(uint32_t *)(uint32_t[]){0x89bULL})"
+      },
+      "10003efc": {},
+      "10003948": {},
+      "10003bbc": {},
+      "10003528": {
+        "(int)&DAT_10003534 + DAT_10003534": "((uintptr_t)pf_module_state + 0x40d0U)",
+        "DAT_10003534": "(*(uint32_t *)(uint64_t[]){0xe92d40f000004ad0ULL})"
+      },
+      "100038f8": {},
+      "100038d0": {},
+      "10003d98": {
+        "DAT_10003e18": "pf_bits_double(0x43e0000000000000ULL)"
+      }
+    },
+    "source_replacement_groups": {}
+  }
+}

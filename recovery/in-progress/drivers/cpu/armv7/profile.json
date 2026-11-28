@@ -1,0 +1,216 @@
+{
+  "module": "DriverCpuArm32",
+  "architecture": "armv7",
+  "version": "1.1",
+  "install_name": "/Drivers/cpu~armv7~cortex-a15.kext",
+  "functions": {
+    "0x3528": "recovered_10003528",
+    "0x3538": "recovered_10003538",
+    "0x37a4": "recovered_100037a4",
+    "0x37c8": "recovered_100037c8",
+    "0x37dc": "recovered_100037dc",
+    "0x387c": "recovered_1000387c",
+    "0x38d0": "recovered_100038d0",
+    "0x38f8": "recovered_100038f8",
+    "0x3948": "recovered_10003948",
+    "0x3980": "recovered_10003980",
+    "0x39f0": "recovered_100039f0",
+    "0x3a58": "recovered_10003a58",
+    "0x3b3c": "recovered_10003b3c",
+    "0x3bbc": "recovered_10003bbc",
+    "0x3cdc": "recovered_10003cdc",
+    "0x3d98": "recovered_10003d98",
+    "0x3e20": "recovered_10003e20",
+    "0x3e6c": "recovered_10003e6c",
+    "0x3e7c": "recovered_10003e7c",
+    "0x3e8c": "recovered_10003e8c",
+    "0x3ed4": "recovered_10003ed4",
+    "0x3efc": "recovered_10003efc",
+    "0x3f18": "recovered_10003f18"
+  },
+  "exports": [
+    {
+      "name": "___divdi3",
+      "address": 15292,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___divsi3",
+      "address": 14720,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixdfdi",
+      "address": 15904,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixsfdi",
+      "address": 15996,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixunsdfdi",
+      "address": 15768,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixunssfdi",
+      "address": 15980,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatdidf",
+      "address": 16084,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatdisf",
+      "address": 16152,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatundidf",
+      "address": 16012,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatundisf",
+      "address": 16124,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___moddi3",
+      "address": 15580,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___modsi3",
+      "address": 14832,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___udivdi3",
+      "address": 14936,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___udivsi3",
+      "address": 14584,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___umoddi3",
+      "address": 15164,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___umodsi3",
+      "address": 14664,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 13608,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 13624,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 204,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3e20"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 208,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3d98"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 212,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3ed4"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 216,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3e8c"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 220,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x38f8"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 16600,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 164
+      },
+      "tag": 1
+    },
+    {
+      "offset": 16604,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 176
+      },
+      "tag": 0
+    },
+    {
+      "offset": 16608,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 154
+      },
+      "tag": 1
+    }
+  ],
+  "data_exports": []
+}

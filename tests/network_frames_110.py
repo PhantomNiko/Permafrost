@@ -99,6 +99,7 @@ if __name__ == '__main__':
         for size, header, capacity, fault in [(64, 10, 128, ''), (64, 12, 128, ''), (64, 10, 8, ''), (0, 10, 128, ''), (13, 10, 128, ''), (2048, 10, 2048, ''), (2049, 10, 2049, ''), (64, 10, 128, 'notify'), (64, 10, 128, 'id'), (64, 10, 128, 'length')]:
             expected = run(args.reference, m, args.architecture, sending, size, header, capacity, fault)
             actual = run(args.source, m, args.architecture, sending, size, header, capacity, fault)
+            if not fault and ((sending and 14 <= size <= 2048) or (not sending and 0 < size <= min(2048, capacity))):assert expected[0] == 1, (sending, size, expected[0])
             assert expected == actual, (sending, size, header, capacity, fault, [(i, x if i in [0, 3] else x.hex(), y if i in [0, 3] else y.hex()) for i, (x, y) in enumerate(zip(expected, actual)) if x != y])
             count += 1
     print('Virtio Ethernet:', count, 'native/source guarded frame, descriptor, DMA, and completion workflows passed.')

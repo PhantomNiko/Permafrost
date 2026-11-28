@@ -487,7 +487,15 @@
     ],
     "virtio_network_110_api_cases_per_cpu": 8,
     "virtio_network_110_pci_cases_per_cpu": 8,
-    "virtio_network_110_frame_cases_per_cpu": 20
+    "virtio_network_110_frame_cases_per_cpu": 20,
+    "cpu_host_110_c_build": [
+      "i386",
+      "x86_64",
+      "armv7",
+      "arm64"
+    ],
+    "cpu_host_110_api_cases_per_cpu": 8,
+    "cpu_host_110_registration_cases_per_cpu": 32
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",
   "kernel_compilation": "All four candidate C kernels link; full VM parity remains incomplete.",

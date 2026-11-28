@@ -1,0 +1,59 @@
+{
+  "module": "DriverCpuArm64",
+  "architecture": "arm64",
+  "version": "1.1",
+  "install_name": "/Drivers/cpu~arm64~qemu-virt.kext",
+  "functions": {
+    "0x3e0": "recovered_100003e0",
+    "0x3ec": "recovered_100003ec",
+    "0x5f0": "recovered_100005f0",
+    "0x608": "recovered_10000608",
+    "0x618": "recovered_10000618",
+    "0x6b4": "recovered_100006b4",
+    "0x714": "recovered_10000714"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 992,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 1004,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 14540,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 141
+      },
+      "tag": 0
+    },
+    {
+      "offset": 14548,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 152
+      },
+      "tag": 0
+    },
+    {
+      "offset": 14556,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 131
+      },
+      "tag": 0
+    }
+  ],
+  "data_exports": []
+}

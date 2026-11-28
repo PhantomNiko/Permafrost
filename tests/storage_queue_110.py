@@ -108,6 +108,7 @@ if __name__ == '__main__':
             for sectors, fault in [(1, ''), (16, ''), (0, ''), (17, ''), (1, 'dma'), (1, 'notify'), (1, 'id'), (1, 'length'), (1, 'status')]:
                 expected = run(args.reference, entry, operation, sectors, modern, fault)
                 actual = run(args.source, entry, operation, sectors, modern, fault)
+                if not fault and (operation == 4 or 1 <= sectors <= 16):assert expected[0] == 1, (operation, sectors, modern, expected[0])
                 differences = [(i, x if i < 3 else x.hex(), y if i < 3 else y.hex()) for i, (x, y) in enumerate(zip(expected, actual)) if x != y]
                 assert not differences, (operation, sectors, modern, fault, differences)
                 count += 1

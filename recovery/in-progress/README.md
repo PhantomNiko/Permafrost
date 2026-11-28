@@ -597,3 +597,10 @@ four CPUs. Each matches eight descriptor/API cases, eight PCI-record cases, and
 notifications, and malformed completion/error paths. Full PCI capability
 initialization, hardware DMA, network-provider integration, and booted protocol
 interoperability remain unverified.
+
+The x86, x64, Cortex-A15, and QEMU ARM64 CPU host drivers now build independently
+from recovered C. Each matches its descriptor and seven guarded API cases plus
+32 CPU-description and platform-registration workflows, including topology
+counts, brand text, and service failures. I386 string helpers retain their
+register arguments; ARM64 outlined text helpers are restored. Booted platform
+provider integration and release-wide VM parity remain incomplete.

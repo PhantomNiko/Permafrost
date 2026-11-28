@@ -1,0 +1,38 @@
+{
+  "version": "1.1",
+  "architectures": {
+    "i386": {
+      "reference_path": "Drivers/cpu~x86~host.kext",
+      "reference_sha256": "702dbc406d042f25664eeca0a31e3a66c5bae30c8a8d50e3cee062d803b99363",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "cpu_registration_workflows": 32
+    },
+    "x86_64": {
+      "reference_path": "Drivers/cpu~x64~host.kext",
+      "reference_sha256": "4efdc574a03704953ca5e301fb84fc7a7f4ea70a28d3f5e949b10638317937ad",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "cpu_registration_workflows": 32
+    },
+    "armv7": {
+      "reference_path": "Drivers/cpu~armv7~cortex-a15.kext",
+      "reference_sha256": "bdc37fd77951d0064409e582b463f958ece7c59dd1562bc91894639913c5c027",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "cpu_registration_workflows": 32
+    },
+    "arm64": {
+      "reference_path": "Drivers/cpu~arm64~qemu-virt.kext",
+      "reference_sha256": "2a66df4166fc79608b8e9a498c3a1b789c89ea923ea7ba76abef640da3f0b643",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "cpu_registration_workflows": 32
+    }
+  },
+  "status": "source checkpoint; booted platform-provider integration remains incomplete",
+  "pending": [
+    "booted CPU and platform-provider integration on all four architectures",
+    "release-wide VM parity"
+  ]
+}
