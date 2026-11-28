@@ -6,6 +6,12 @@
       "reference_sha256": "d90da219ff3950561b92bb63f23173cfa59edead24533e07ee9b19ca020553fe",
       "source_build": true,
       "console_workflows": 6
+    },
+    "arm64": {
+      "reference_sha256": "92012d59eabb466544900d19171a9b66aaf2bba6cf2869a3521d65048714b1a0",
+      "source_build": true,
+      "console_workflows": 6,
+      "result_workflows": 5
     }
   },
   "pending": [

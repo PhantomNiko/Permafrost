@@ -13,10 +13,23 @@ from unicorn.arm64_const import UC_ARM64_REG_X0, UC_ARM64_REG_X1, UC_ARM64_REG_X
 
 def run_command(reference, source, provider, which, output, arguments, input_lines=(), command="lua"):
     lib = load(reference, source, output, provider)[which]
-    meta, _ = inspect((source if which else reference).read_bytes())
+    meta, memory = inspect((source if which else reference).read_bytes())
     symbols = {n: a for a, n in meta['symbols']}
     name = '_main' if which else '_winterboot_' + command + '_entry'
     lib.exports[name] = lib.base + symbols[name]
+    if not which:
+        # Fixed-address command vtables have no dyld rebase entries. The
+        # diagnostic loader places code above the null page, so reconnect
+        # only words that name an actual owned function in native const data.
+        word = 8 if lib.wide else 4
+        owned = {address for address, _ in meta['symbols']}
+        for section, start, size in meta['sections']:
+            if section != '__const':
+                continue
+            for place in range((start + word - 1) & -word, start + size - word + 1, word):
+                target = int.from_bytes(memory[place - meta['base']:place - meta['base'] + word], 'little')
+                if target in owned:
+                    lib.cpu.mem_write(lib.base + place, (lib.base + target).to_bytes(word, 'little'))
     lib.instruction_limit = 5000000
     cpu = lib.cpu
     if lib.cpu_type in [7, 0x1000007]:
