@@ -17,6 +17,11 @@
       "reference_sha256": "c378e3a640a828d0a510b0239362a53fa42457587539d72cf2ce3ba7d35e9872",
       "source_build": true,
       "console_workflows": 6
+    },
+    "armv7": {
+      "reference_sha256": "ff507b22b7f1610c835cefeaafce4b95387c92244424920cad4b94295befa74f",
+      "source_build": true,
+      "console_workflows": 6
     }
   },
   "pending": [
