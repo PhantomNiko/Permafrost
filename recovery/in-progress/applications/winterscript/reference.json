@@ -6,6 +6,16 @@
       "reference_sha256": "bb34d6f696cf43e13849f2a1a0e55f86187a3cf702aed891555096fe2a698c6b",
       "source_build": true,
       "console_workflows": 6
+    },
+    "arm64": {
+      "reference_sha256": "8a1d6cf7247b898c856b881ab26fd8732f12a3e15d645a4b4a74f5bb312d5462",
+      "source_build": true,
+      "console_workflows": 6
+    },
+    "armv7": {
+      "reference_sha256": "9ad510cd7c4569f5bfe8834235343bdff04ce91a278ff42a7935982ebbc5a49c",
+      "source_build": true,
+      "console_workflows": 6
     }
   },
   "pending": [
