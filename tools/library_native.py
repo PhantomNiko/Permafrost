@@ -33,6 +33,10 @@ def build_library(source, output):
         raise ValueError('stack result entry adapters require i386')
     if not stack_entries.keys() <= functions.keys():
         raise ValueError('stack result entry adapter has no recovered implementation')
+    native_pointer_entries = {int(value, 16) for value in
+                              profile.get('native_result_function_pointers', [])}
+    if not native_pointer_entries <= result_entries | stack_entries.keys():
+        raise ValueError('native result function pointer has no ABI adapter')
     primary, aliases = {}, []
     for item in exports:
         address = item['address']
@@ -151,8 +155,15 @@ def build_library(source, output):
         target = relocation['target']
         if target['kind'] == 'function':
             address = int(target['address'], 16)
-            label = ('_' + functions[address] if address in result_entries or address in stack_entries else
-                     primary.get(address, '_' + functions[address]))
+            if address in native_pointer_entries:
+                # Reviewed callback interfaces retain the native hidden-result
+                # convention; ordinary internal C pointers use the backend.
+                entry = ('pf_arm64_result_%x' if arch == 'arm64' else
+                         'pf_i386_result_%x') % address
+                label = primary.get(address, '_' + entry)
+            else:
+                label = ('_' + functions[address] if address in result_entries or address in stack_entries else
+                         primary.get(address, '_' + functions[address]))
             value = symbols[label]
         elif target['kind'] == 'data':
             value = anchor + target['offset']

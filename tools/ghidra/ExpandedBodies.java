@@ -11,8 +11,11 @@ import java.util.ArrayList;
 public class ExpandedBodies extends GhidraScript {
  public void run()throws Exception {
   var seeds=new java.util.TreeSet<Long>();for(String s:Files.readAllLines(Path.of(getScriptArgs()[0])))if(!s.isBlank())seeds.add(Long.parseLong(s.trim(),16));
+  var imports=new HashSet<Long>();
+  if(getScriptArgs().length>3)for(String line:Files.readAllLines(Path.of(getScriptArgs()[3])))
+   if(!line.isBlank())imports.add(Long.parseLong(line.trim(),16));
   var remove=new ArrayList<ghidra.program.model.address.Address>();var functions=currentProgram.getFunctionManager().getFunctions(true);
-  while(functions.hasNext()){var f=functions.next();if(!seeds.contains(f.getEntryPoint().getOffset()))remove.add(f.getEntryPoint());}
+  while(functions.hasNext()){var f=functions.next();if(!seeds.contains(f.getEntryPoint().getOffset()) && !imports.contains(f.getEntryPoint().getOffset()))remove.add(f.getEntryPoint());}
   for(var address:remove)currentProgram.getFunctionManager().removeFunction(address);
   for(long entry:seeds){var f=getFunctionAt(toAddr(entry));if(f!=null)f.setBody(new AddressSet(toAddr(entry)));}
   for(long entry:seeds)if(getFunctionAt(toAddr(entry))==null)currentProgram.getFunctionManager().createFunction("recovered_"+Long.toHexString(entry),toAddr(entry),new AddressSet(toAddr(entry)),ghidra.program.model.symbol.SourceType.USER_DEFINED);

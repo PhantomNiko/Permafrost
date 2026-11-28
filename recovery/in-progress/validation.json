@@ -280,7 +280,12 @@
       "heap_workflows": 12,
       "allocator_forwarding_cases": 117,
       "release_vm_parity": false,
-      "arm32_numeric_value_abi_cases": 18
+      "arm32_numeric_value_abi_cases": 18,
+      "native_callback_abi_architectures": [
+        "i386",
+        "arm64"
+      ],
+      "native_callback_abi_cases": 7
     },
     "glacier_source_recovery": {
       "architectures": [
@@ -337,7 +342,14 @@
         "arm64"
       ],
       "result_workflows_per_architecture": 5,
-      "missing_file_workflows_per_architecture": 4
+      "missing_file_workflows_per_architecture": 4,
+      "monitor_workflow_architectures": [
+        "i386",
+        "x86_64",
+        "armv7",
+        "arm64"
+      ],
+      "monitor_workflows_per_architecture": 6
     }
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",

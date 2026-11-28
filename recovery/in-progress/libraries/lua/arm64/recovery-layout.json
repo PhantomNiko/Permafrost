@@ -18,7 +18,8 @@
       "extern unsigned char pf_module_state[];",
       "#include \"arm64-recovery.h\"",
       "#include \"cpu.h\"",
-      "static inline __attribute__((always_inline)) uintptr_t pf_current_sp(void){uintptr_t value;__asm__ volatile(\"mov %0,sp\":\"=r\"(value));return value;}"
+      "static inline __attribute__((always_inline)) uintptr_t pf_current_sp(void){uintptr_t value;__asm__ volatile(\"mov %0,sp\":\"=r\"(value));return value;}",
+      "typedef struct { uint64_t words[5]; } pf_lua_callback_value40;"
     ],
     "stack_register": "register0x00000008",
     "system_registers": {
@@ -52,20 +53,7 @@
       "10015fa4": {
         "0x100284af": "((uintptr_t)pf_module_state+0x461fU)"
       },
-      "100163b4": {
-        "0x1002811f": "((uintptr_t)pf_module_state+0x428fU)",
-        "0x100281eb": "((uintptr_t)pf_module_state+0x435bU)",
-        "0x10028237": "((uintptr_t)pf_module_state+0x43a7U)",
-        "0x10028183": "((uintptr_t)pf_module_state+0x42f3U)",
-        "0x100281fa": "((uintptr_t)pf_module_state+0x436aU)",
-        "0x10028104": "((uintptr_t)pf_module_state+0x4274U)",
-        "0x100281ce": "((uintptr_t)pf_module_state+0x433eU)",
-        "0x1002822b": "((uintptr_t)pf_module_state+0x439bU)",
-        "0x100281bd": "((uintptr_t)pf_module_state+0x432dU)",
-        "0x10028166": "((uintptr_t)pf_module_state+0x42d6U)",
-        "0x100281a0": "((uintptr_t)pf_module_state+0x4310U)",
-        "0x10028149": "((uintptr_t)pf_module_state+0x42b9U)"
-      },
+      "100163b4": "shared_1958b6f64fd2d246",
       "100202f4": {
         "0x10028d7c": "((uintptr_t)pf_module_state+0x4eecU)"
       },
@@ -199,20 +187,7 @@
         "0x10028074": "((uintptr_t)pf_module_state+0x41e4U)",
         "0x1002864f": "((uintptr_t)pf_module_state+0x47bfU)"
       },
-      "1001285c": {
-        "0x1002811f": "((uintptr_t)pf_module_state+0x428fU)",
-        "0x100281eb": "((uintptr_t)pf_module_state+0x435bU)",
-        "0x10028237": "((uintptr_t)pf_module_state+0x43a7U)",
-        "0x10028183": "((uintptr_t)pf_module_state+0x42f3U)",
-        "0x100281fa": "((uintptr_t)pf_module_state+0x436aU)",
-        "0x10028104": "((uintptr_t)pf_module_state+0x4274U)",
-        "0x100281ce": "((uintptr_t)pf_module_state+0x433eU)",
-        "0x1002822b": "((uintptr_t)pf_module_state+0x439bU)",
-        "0x100281bd": "((uintptr_t)pf_module_state+0x432dU)",
-        "0x10028166": "((uintptr_t)pf_module_state+0x42d6U)",
-        "0x100281a0": "((uintptr_t)pf_module_state+0x4310U)",
-        "0x10028149": "((uintptr_t)pf_module_state+0x42b9U)"
-      },
+      "1001285c": "shared_1958b6f64fd2d246",
       "1001bd70": {
         "0x1002898d": "((uintptr_t)pf_module_state+0x4afdU)"
       },
@@ -436,16 +411,7 @@
       "1001b2fc": {
         "0x10028875": "((uintptr_t)pf_module_state+0x49e5U)"
       },
-      "10008740": {
-        "0x100279bc": "((uintptr_t)pf_module_state+0x3b2cU)",
-        "0x100279ad": "((uintptr_t)pf_module_state+0x3b1dU)",
-        "0x100279a4": "((uintptr_t)pf_module_state+0x3b14U)",
-        "0x100279b2": "((uintptr_t)pf_module_state+0x3b22U)",
-        "0x100279ab": "((uintptr_t)pf_module_state+0x3b1bU)",
-        "0x100279b0": "((uintptr_t)pf_module_state+0x3b20U)",
-        "0x100279a9": "((uintptr_t)pf_module_state+0x3b19U)",
-        "0x100279a6": "((uintptr_t)pf_module_state+0x3b16U)"
-      },
+      "10008740": "shared_b8b8ce180d4560b2",
       "10015808": {
         "0x10028383": "((uintptr_t)pf_module_state+0x44f3U)"
       },
@@ -510,16 +476,7 @@
         "0x10028400": "((uintptr_t)pf_module_state+0x4570U)",
         "0x100283ce": "((uintptr_t)pf_module_state+0x453eU)"
       },
-      "100050c4": {
-        "0x100279bc": "((uintptr_t)pf_module_state+0x3b2cU)",
-        "0x100279ad": "((uintptr_t)pf_module_state+0x3b1dU)",
-        "0x100279a4": "((uintptr_t)pf_module_state+0x3b14U)",
-        "0x100279b2": "((uintptr_t)pf_module_state+0x3b22U)",
-        "0x100279ab": "((uintptr_t)pf_module_state+0x3b1bU)",
-        "0x100279b0": "((uintptr_t)pf_module_state+0x3b20U)",
-        "0x100279a9": "((uintptr_t)pf_module_state+0x3b19U)",
-        "0x100279a6": "((uintptr_t)pf_module_state+0x3b16U)"
-      },
+      "100050c4": "shared_b8b8ce180d4560b2",
       "10000684": {},
       "1001795c": {
         "0x10028617": "((uintptr_t)pf_module_state+0x4787U)",
@@ -530,17 +487,7 @@
         "0x100285b3": "((uintptr_t)pf_module_state+0x4723U)",
         "0x100285ce": "((uintptr_t)pf_module_state+0x473eU)"
       },
-      "1000ef68": {
-        "0x10027cc7": "((uintptr_t)pf_module_state+0x3e37U)",
-        "0x10027cf8": "((uintptr_t)pf_module_state+0x3e68U)",
-        "0x10027ca9": "((uintptr_t)pf_module_state+0x3e19U)",
-        "0x10027c66": "((uintptr_t)pf_module_state+0x3dd6U)",
-        "0x10027cdb": "((uintptr_t)pf_module_state+0x3e4bU)",
-        "0x10027c8a": "((uintptr_t)pf_module_state+0x3dfaU)",
-        "0x10027d39": "((uintptr_t)pf_module_state+0x3ea9U)",
-        "0x10027c48": "((uintptr_t)pf_module_state+0x3db8U)",
-        "0x10027d15": "((uintptr_t)pf_module_state+0x3e85U)"
-      },
+      "1000ef68": "shared_a2c3960376bc8dd9",
       "10010f60": {
         "0x10027fff": "((uintptr_t)pf_module_state+0x416fU)"
       },
@@ -683,17 +630,7 @@
       "100161a0": {
         "0x100284ca": "((uintptr_t)pf_module_state+0x463aU)"
       },
-      "1000ee44": {
-        "0x10027cc7": "((uintptr_t)pf_module_state+0x3e37U)",
-        "0x10027cf8": "((uintptr_t)pf_module_state+0x3e68U)",
-        "0x10027ca9": "((uintptr_t)pf_module_state+0x3e19U)",
-        "0x10027c66": "((uintptr_t)pf_module_state+0x3dd6U)",
-        "0x10027cdb": "((uintptr_t)pf_module_state+0x3e4bU)",
-        "0x10027c8a": "((uintptr_t)pf_module_state+0x3dfaU)",
-        "0x10027d39": "((uintptr_t)pf_module_state+0x3ea9U)",
-        "0x10027c48": "((uintptr_t)pf_module_state+0x3db8U)",
-        "0x10027d15": "((uintptr_t)pf_module_state+0x3e85U)"
-      },
+      "1000ee44": "shared_a2c3960376bc8dd9",
       "10020de4": {
         "0x10028de5": "((uintptr_t)pf_module_state+0x4f55U)"
       },
@@ -718,34 +655,17 @@
         "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);",
         "\n        (**(code **)(*plVar1 + 8))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 8)))(plVar1);"
       },
-      "1000b72c": {
-        "\n        (**(code **)(*plVar1 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);",
-        "\n          (**(code **)(*plVar1 + 8))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 8)))(plVar1);",
-        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);",
-        "\n        (**(code **)(*plVar1 + 8))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 8)))(plVar1);"
-      },
+      "1000b72c": "shared_b14de825e162ce70",
       "1000d124": {
         "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
       },
-      "1000b6f8": {
-        "\n        (**(code **)(*plVar1 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);",
-        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
-      },
-      "1000b718": {
-        "\n        (**(code **)(*plVar1 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);",
-        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
-      },
+      "1000b6f8": "shared_2c0515621c62d780",
+      "1000b718": "shared_2c0515621c62d780",
       "1000fc10": {
         "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
       },
-      "1000b708": {
-        "\n        (**(code **)(*plVar1 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);",
-        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
-      },
-      "1000b6dc": {
-        "\n        (**(code **)(*plVar1 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);",
-        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
-      },
+      "1000b708": "shared_2c0515621c62d780",
+      "1000b6dc": "shared_2c0515621c62d780",
       "10009eec": {
         "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
       },
@@ -798,12 +718,7 @@
         "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
       },
       "10005a40": {},
-      "1000b740": {
-        "\n        (**(code **)(*plVar1 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);",
-        "\n          (**(code **)(*plVar1 + 8))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 8)))(plVar1);",
-        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);",
-        "\n        (**(code **)(*plVar1 + 8))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 8)))(plVar1);"
-      },
+      "1000b740": "shared_b14de825e162ce70",
       "1000ca5c": {
         "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
       },
@@ -834,17 +749,64 @@
       "1000cd68": {
         "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
       },
-      "1000b6e8": {
-        "\n        (**(code **)(*plVar1 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);",
-        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
-      },
+      "1000b6e8": "shared_2c0515621c62d780",
       "1000cffc": {
         "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
+      },
+      "1000945c": {
+        "(**(code **)(**(long **)(param_2 + 0x10) + 0x10))\n            (&lStack_b8,*(long **)(param_2 + 0x10),param_3,&local_68);": "{ pf_lua_callback_value40 value = ((pf_lua_callback_value40 (*)(void *,void *,void *))(*(uintptr_t *)(**(long **)(param_2 + 0x10) + 0x10)))((void *)(*(long *)(param_2+0x10)),(void *)param_3,&local_68); __builtin_memcpy(&lStack_b8,&value,sizeof(value)); }"
       }
     },
     "void_result_calls": [
       "10003f60"
-    ]
+    ],
+    "source_replacement_groups": {
+      "shared_1958b6f64fd2d246": {
+        "0x1002811f": "((uintptr_t)pf_module_state+0x428fU)",
+        "0x100281eb": "((uintptr_t)pf_module_state+0x435bU)",
+        "0x10028237": "((uintptr_t)pf_module_state+0x43a7U)",
+        "0x10028183": "((uintptr_t)pf_module_state+0x42f3U)",
+        "0x100281fa": "((uintptr_t)pf_module_state+0x436aU)",
+        "0x10028104": "((uintptr_t)pf_module_state+0x4274U)",
+        "0x100281ce": "((uintptr_t)pf_module_state+0x433eU)",
+        "0x1002822b": "((uintptr_t)pf_module_state+0x439bU)",
+        "0x100281bd": "((uintptr_t)pf_module_state+0x432dU)",
+        "0x10028166": "((uintptr_t)pf_module_state+0x42d6U)",
+        "0x100281a0": "((uintptr_t)pf_module_state+0x4310U)",
+        "0x10028149": "((uintptr_t)pf_module_state+0x42b9U)"
+      },
+      "shared_b8b8ce180d4560b2": {
+        "0x100279bc": "((uintptr_t)pf_module_state+0x3b2cU)",
+        "0x100279ad": "((uintptr_t)pf_module_state+0x3b1dU)",
+        "0x100279a4": "((uintptr_t)pf_module_state+0x3b14U)",
+        "0x100279b2": "((uintptr_t)pf_module_state+0x3b22U)",
+        "0x100279ab": "((uintptr_t)pf_module_state+0x3b1bU)",
+        "0x100279b0": "((uintptr_t)pf_module_state+0x3b20U)",
+        "0x100279a9": "((uintptr_t)pf_module_state+0x3b19U)",
+        "0x100279a6": "((uintptr_t)pf_module_state+0x3b16U)"
+      },
+      "shared_a2c3960376bc8dd9": {
+        "0x10027cc7": "((uintptr_t)pf_module_state+0x3e37U)",
+        "0x10027cf8": "((uintptr_t)pf_module_state+0x3e68U)",
+        "0x10027ca9": "((uintptr_t)pf_module_state+0x3e19U)",
+        "0x10027c66": "((uintptr_t)pf_module_state+0x3dd6U)",
+        "0x10027cdb": "((uintptr_t)pf_module_state+0x3e4bU)",
+        "0x10027c8a": "((uintptr_t)pf_module_state+0x3dfaU)",
+        "0x10027d39": "((uintptr_t)pf_module_state+0x3ea9U)",
+        "0x10027c48": "((uintptr_t)pf_module_state+0x3db8U)",
+        "0x10027d15": "((uintptr_t)pf_module_state+0x3e85U)"
+      },
+      "shared_b14de825e162ce70": {
+        "\n        (**(code **)(*plVar1 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);",
+        "\n          (**(code **)(*plVar1 + 8))();": "\n          ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 8)))(plVar1);",
+        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);",
+        "\n        (**(code **)(*plVar1 + 8))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 8)))(plVar1);"
+      },
+      "shared_2c0515621c62d780": {
+        "\n        (**(code **)(*plVar1 + 0x10))();": "\n        ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);",
+        "\n      (**(code **)(*plVar1 + 0x10))();": "\n      ((void (*)(void *))(*(uintptr_t *)(*(uintptr_t *)plVar1 + 0x10)))(plVar1);"
+      }
+    }
   },
   "reviewed_equality_exit_label": "Keep the early mismatched-kind false return distinct from the final comparison-result exit.",
   "reviewed_heap_contracts": {
@@ -1310,5 +1272,12 @@
     "entry": "10011c88",
     "native_site": "10011ee0",
     "basis": "The inline iterator address is selected in x8 without writing the SmallValueStore vector pointer; keep that SSA selection outside physical stack storage."
+  },
+  "reviewed_native_callback_abi": {
+    "caller": "1000945c",
+    "callback": "1001a85c",
+    "result_bytes": 40,
+    "native_result_register": "x8",
+    "basis": "Native callback returns LuaValue through X8, with holder, engine and argument vector in X0-X2. C aggregate return and an X8 function-pointer adapter retain that ABI."
   }
 }

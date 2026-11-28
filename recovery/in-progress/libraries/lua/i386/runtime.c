@@ -17975,173 +17975,167 @@ void recovered_10015890(undefined4 *param_1)
 #define DAT_10062428 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x53b8U)))
 #undef PTR_recovered_10006ec0_1006404c
 #define PTR_recovered_10006ec0_1006404c (*(uint8_t * *)(((uintptr_t)pf_module_state + 0x6fdcU)))
-#define auStackY_174 (*(undefined1 (*)[372])(pf_stack_frame + 28))
-#define uStack_84 (*(undefined4 *)(pf_stack_frame + 268))
-#define auStack_1c (*(undefined1 (*)[28])(pf_stack_frame + 372))
-#define local_d8 (*(void * *)(pf_stack_frame + 184))
-#define local_d4 (*(int *)(pf_stack_frame + 188))
-#define local_d0 (*(int *)(pf_stack_frame + 192))
-#define local_cc (*(int (*)[51])(pf_stack_frame + 196))
-#define local_b0 (*(undefined * *)(pf_stack_frame + 224))
-#define local_ac (*(undefined * *)(pf_stack_frame + 228))
-#define local_a8 (*(undefined1 * *)(pf_stack_frame + 232))
-#define local_a4 (*(undefined4 *)(pf_stack_frame + 236))
-#define local_a0 (*(undefined1 * *)(pf_stack_frame + 240))
-#define local_94 (*(undefined1 (*)[148])(pf_stack_frame + 252))
-#define local_90 (*(undefined1 (*)[144])(pf_stack_frame + 256))
-#define local_8c (*(int *)(pf_stack_frame + 260))
-#define local_88 (*(int *)(pf_stack_frame + 264))
-#define local_80 (*(uint *)(pf_stack_frame + 272))
-#define local_7c (*(uint *)(pf_stack_frame + 276))
-#define local_6c (*(int *)(pf_stack_frame + 292))
-#define local_68 (*(int *)(pf_stack_frame + 296))
-#define local_4c (*(undefined4 *)(pf_stack_frame + 324))
-#define local_34 (*(undefined1 (*)[52])(pf_stack_frame + 348))
-#define local_2c (*(int (*)[11])(pf_stack_frame + 356))
-#define local_20 (*(undefined4 *)(pf_stack_frame + 368))
+#define uStack_84 (*(undefined4 *)(pf_stack_frame + 252))
+#define auStack_30 (*(undefined1 (*)[48])(pf_stack_frame + 336))
+#define aiStack_28 (*(int (*)[10])(pf_stack_frame + 344))
+#define uStack_1c (*(undefined4 *)(pf_stack_frame + 356))
+#define auStack_18 (*(undefined1 (*)[24])(pf_stack_frame + 360))
+#define local_d4 (*(void * *)(pf_stack_frame + 172))
+#define local_d0 (*(int *)(pf_stack_frame + 176))
+#define local_cc (*(int *)(pf_stack_frame + 180))
+#define local_c8 (*(undefined4 *)(pf_stack_frame + 184))
+#define local_c4 (*(undefined4 *)(pf_stack_frame + 188))
+#define local_b0 (*(undefined * *)(pf_stack_frame + 208))
+#define local_ac (*(undefined * *)(pf_stack_frame + 212))
+#define local_a8 (*(undefined1 * *)(pf_stack_frame + 216))
+#define local_a4 (*(undefined4 *)(pf_stack_frame + 220))
+#define local_a0 (*(undefined1 * *)(pf_stack_frame + 224))
+#define local_90 (*(undefined1 (*)[144])(pf_stack_frame + 240))
+#define local_88 (*(int *)(pf_stack_frame + 248))
+#define local_80 (*(undefined4 *)(pf_stack_frame + 256))
+#define local_7c (*(uint *)(pf_stack_frame + 260))
+#define local_6c (*(int *)(pf_stack_frame + 276))
+#define local_68 (*(int *)(pf_stack_frame + 280))
+#define local_4c (*(undefined4 *)(pf_stack_frame + 308))
+#define auStackY_170 (*(undefined1 (*)[368])(pf_stack_frame + 16))
 /* Recovered working notes; Pooka's Free Software License.
  * Address: 0x100158e0
  */
 
 undefined1 *
-recovered_100158e0(undefined1 *param_1,int param_2,undefined4 param_3,void *param_4,void *param_5,
+recovered_100158e0(undefined1 *param_1,int param_2,void *param_3,void *param_4,void *param_5,
                   undefined4 param_6)
 
 {
-  unsigned char pf_stack_frame[432] __attribute__((aligned(16))) = {0};
+  unsigned char pf_stack_frame[416] __attribute__((aligned(16))) = {0};
 
-  void *pvVar1;
+  int iVar1;
   uint uVar2;
   int iVar3;
-  int iVar4;
 
-  local_a8 = auStack_1c + 0x18;
-  local_a0 = auStackY_174 + 0x84;
+  local_a8 = auStack_18 + 0x14;
+  local_a0 = auStackY_170 + 0x80;
   local_68 = param_2;
   local_4c = param_6;
-  local_d4 = 0;
+  local_d4 = (void *)0x0;
   local_d0 = 0;
-  local_cc[0] = 0;
+  local_cc = 0;
   local_6c = 0x100158f4;
   local_b0 = PTR_recovered_10006ec0_1006404c;
   local_ac = &DAT_10062428;
   local_a4 = 0x325;
-  local_cc[2] = 1;
-  recovered_10007530(local_cc + 1);
-  local_d8 = param_5;
-  recovered_100161a0(&local_d4,(uint)param_5);
+  local_c4 = 1;
+  recovered_10007530(&local_c8);
+  recovered_100161a0((int *)&local_d4,(uint)param_5);
   if (param_5 != (void *)0x0) {
-    pvVar1 = (void *)((int)(uintptr_t)param_5 * 0x18);
+    iVar1 = (int)(uintptr_t)param_5 * 0x18;
     do {
-      local_d8 = pvVar1;
-      local_cc[2] = 3;
+      local_c4 = 3;
       recovered_1000c270(local_90,param_4);
-      if (local_d0 == local_cc[0]) {
+      if (local_d0 == local_cc) {
         uVar2 = local_d0 * 2;
         if (local_d0 == 0) {
           uVar2 = 4;
         }
-        local_cc[2] = 4;
-        recovered_100161a0(&local_d4,uVar2);
+        local_c4 = 4;
+        recovered_100161a0((int *)&local_d4,uVar2);
       }
-      iVar4 = local_d4 + local_d0 * 0x18;
-      *(undefined1 *)(local_d4 + local_d0 * 0x18) = local_90[0];
-      *(uint *)(local_d4 + 0x14 + local_d0 * 0x18) = local_7c;
+      *(undefined1 *)((int)local_d4 + local_d0 * 0x18) = local_90[0];
+      *(uint *)((int)local_d4 + local_d0 * 0x18 + 0x14) = local_7c;
       if (local_7c < 5) {
         switch((uintptr_t)(pf_lua_dispatch_10015f0c[local_7c] + local_6c)) {
         case 0x10015996:
-          *(ulonglong *)(iVar4 + 8) = CONCAT44(uStack_84,local_88);
+          *(ulonglong *)((int)local_d4 + local_d0 * 0x18 + 8) = CONCAT44(uStack_84,local_88);
           break;
         case 0x10015a33:
-          *(undefined4 *)(iVar4 + 0xc) = uStack_84;
-          *(int *)(iVar4 + 8) = local_88;
+          *(undefined4 *)((int)local_d4 + local_d0 * 0x18 + 0xc) = uStack_84;
+          *(int *)((int)local_d4 + local_d0 * 0x18 + 8) = local_88;
           break;
         case 0x10015a46:
-          *(int *)(iVar4 + 8) = local_88;
-          *(undefined4 *)(iVar4 + 0xc) = uStack_84;
-          *(uint *)(iVar4 + 0x10) = local_80;
+          *(int *)((int)local_d4 + local_d0 * 0x18 + 8) = local_88;
+          *(undefined4 *)((int)local_d4 + local_d0 * 0x18 + 0xc) = uStack_84;
+          *(undefined4 *)((int)local_d4 + local_d0 * 0x18 + 0x10) = local_80;
           local_88 = 0;
           uStack_84 = 0;
           local_80 = 0;
           goto LAB_10015aa8;
         case 0x10015a75:
-          *(undefined1 *)(iVar4 + 8) = (undefined1)local_88;
+          *(undefined1 *)((int)local_d4 + local_d0 * 0x18 + 8) = (undefined1)local_88;
         }
         local_d0 = local_d0 + 1;
       }
       else {
         if (local_7c - 5 < 3) {
-          *(int *)(iVar4 + 8) = local_88;
-          *(undefined4 *)(iVar4 + 0xc) = uStack_84;
+          *(int *)((int)local_d4 + local_d0 * 0x18 + 8) = local_88;
+          *(undefined4 *)((int)local_d4 + local_d0 * 0x18 + 0xc) = uStack_84;
           local_88 = 0;
           uStack_84 = 0;
         }
 LAB_10015aa8:
         local_d0 = local_d0 + 1;
-        local_cc[2] = 5;
+        local_c4 = 5;
         recovered_100192f0(local_7c,&local_88);
       }
       param_4 = (void *)((int)param_4 + 0x18);
-      pvVar1 = (void *)((int)local_d8 + -0x18);
-    } while ((void *)((int)local_d8 + -0x18) != (void *)0x0);
+      iVar1 = iVar1 + -0x18;
+    } while (iVar1 != 0);
   }
-  local_cc[2] = 2;
-  (**(code **)(**(int **)(local_68 + 8) + 8))();
-  local_cc[1] = 6;
-  recovered_1000b670(local_34,local_94);
-  local_cc[1] = 7;
-  recovered_10012e10(param_1,(int)local_34);
-  local_cc[1] = 8;
-  recovered_10016c40(local_20,local_2c);
-  if (3 < local_80) {
-    local_cc[1] = 9;
-    recovered_100192f0(local_80,&local_8c);
+  local_c4 = 2;
+  { pf_lua_callback_value24 value = ((pf_lua_callback_value24 (*)(void *,void *,void *))(*(uintptr_t *)(**(int **)(local_68 + 8) + 8)))((void *)(*(int *)(local_68+8)),(void *)param_3,&local_d4); __builtin_memcpy(local_90,&value,sizeof(value)); }
+  local_c4 = 6;
+  recovered_1000b670(auStack_30,local_90);
+  local_c4 = 7;
+  recovered_10012e10(param_1,(int)auStack_30);
+  local_c4 = 8;
+  recovered_10016c40(uStack_1c,aiStack_28);
+  if (3 < local_7c) {
+    local_c4 = 9;
+    recovered_100192f0(local_7c,&local_88);
   }
-  if (local_d4 != 0) {
-    iVar4 = local_d4 * 0x18 + -0x10;
-    iVar3 = local_d4;
+  if (local_d0 != 0) {
+    iVar1 = local_d0 * 0x18 + -0x10;
+    iVar3 = local_d0;
     do {
-      uVar2 = *(uint *)((int)local_d8 + iVar4 + 0xc);
+      uVar2 = *(uint *)((int)local_d4 + iVar1 + 0xc);
       if (3 < uVar2) {
-        local_cc[1] = 10;
-        recovered_100192f0(uVar2,(int *)((int)local_d8 + iVar4));
+        local_c4 = 10;
+        recovered_100192f0(uVar2,(int *)((int)local_d4 + iVar1));
       }
-      iVar4 = iVar4 + -0x18;
+      iVar1 = iVar1 + -0x18;
       iVar3 = iVar3 + -1;
     } while (iVar3 != 0);
   }
-  local_d4 = 0;
-  recovered_10006f90(local_d8);
-  recovered_10007560(local_cc);
+  local_d0 = 0;
+  recovered_10006f90(local_d4);
+  recovered_10007560(&local_c8);
   return param_1;
 }
 
 #undef DAT_10062428
 #undef PTR_recovered_10006ec0_1006404c
-#undef auStackY_174
 #undef uStack_84
-#undef auStack_1c
-#undef local_d8
+#undef auStack_30
+#undef aiStack_28
+#undef uStack_1c
+#undef auStack_18
 #undef local_d4
 #undef local_d0
 #undef local_cc
+#undef local_c8
+#undef local_c4
 #undef local_b0
 #undef local_ac
 #undef local_a8
 #undef local_a4
 #undef local_a0
-#undef local_94
 #undef local_90
-#undef local_8c
 #undef local_88
 #undef local_80
 #undef local_7c
 #undef local_6c
 #undef local_68
 #undef local_4c
-#undef local_34
-#undef local_2c
-#undef local_20
+#undef auStackY_170
 
 #undef DAT_10062470
 #define DAT_10062470 (*(uint8_t *)(((uintptr_t)pf_module_state + 0x5400U)))

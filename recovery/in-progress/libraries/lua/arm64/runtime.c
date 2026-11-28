@@ -13207,8 +13207,7 @@ void recovered_1000945c(undefined1 *param_1,long param_2,undefined8 param_3,long
     recovered_1000b768(auStack_88);
     param_4 = param_4 + 5;
   }
-  (**(code **)(**(long **)(param_2 + 0x10) + 0x10))
-            (&lStack_b8,*(long **)(param_2 + 0x10),param_3,&local_68);
+  { pf_lua_callback_value40 value = ((pf_lua_callback_value40 (*)(void *,void *,void *))(*(uintptr_t *)(**(long **)(param_2 + 0x10) + 0x10)))((void *)(*(long *)(param_2+0x10)),(void *)param_3,&local_68); __builtin_memcpy(&lStack_b8,&value,sizeof(value)); }
   recovered_10005c7c(&lStack_90,&lStack_b8);
   recovered_10007fd0(param_1,(undefined1 *)&lStack_90);
   recovered_10005ed4(&lStack_90);
@@ -46055,4 +46054,3 @@ void recovered_10022110(long *param_1,long param_2)
   recovered_100013f0(pointer);
   return;
 }
-

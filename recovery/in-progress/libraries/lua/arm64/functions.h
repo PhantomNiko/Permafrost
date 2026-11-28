@@ -6,6 +6,7 @@ extern unsigned char pf_module_state[];
 #include "arm64-recovery.h"
 #include "cpu.h"
 static inline __attribute__((always_inline)) uintptr_t pf_current_sp(void){uintptr_t value;__asm__ volatile("mov %0,sp":"=r"(value));return value;}
+typedef struct { uint64_t words[5]; } pf_lua_callback_value40;
 extern uint8_t pf_module_state[];
 void recovered_10000658(void);
 void recovered_10000684(void);

@@ -11816,6 +11816,10 @@
     "0x87a4",
     "0x87a8",
     "0x87ac",
-    "0x87b0"
+    "0x87b0",
+    "0x1a85c"
+  ],
+  "native_result_function_pointers": [
+    "0x1a85c"
   ]
 }

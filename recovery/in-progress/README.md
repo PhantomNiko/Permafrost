@@ -466,8 +466,9 @@ unverified and are required before release promotion.
 The ARM64 Lua command uses C aggregate-return adapters for the native X8
 result convention. Five workflows compare script execution and numeric string
 conversion with the native Lua library, guarding all 80 result bytes and all
-24 string bytes. Top-level Lua returns still expose an exception-handling gap;
-that gap and full command/VM behavior remain release blockers.
+24 string bytes. Exception-driven Lua returns need booted VM comparison: both native and source
+libraries fail those paths in isolated execution. Full command/VM behavior
+remains a release gate.
 
 The i386 standalone WinterScript backend now builds from recovered C and matches
 18 execution fixtures, 12 heap workflows and 117 allocator forwarding cases.
@@ -486,3 +487,20 @@ as ARM64's X8 convention. Both match five guarded native result workflows.
 All four saved commands also match four missing-file/empty-script workflows.
 The option tests now use the reference's actual Monitor option; interactive
 startup, positive file execution and complete exception behavior remain gates.
+
+Expanded ARM64 Lua command recovery retains reviewed import ABIs while restoring
+48 calls to nine compiler-outlined sequences inside their original callers.
+Six native/source Monitor workflows cover startup, help, input, variable
+assignment, printing 42, quit, and disabled/overridden Monitor options. Positive
+file execution, error paths and booted VM integration remain unverified.
+
+Lua callback pointers now retain native aggregate-result entry adapters on
+i386 and ARM64. Seven guarded native/source vtable calls on each architecture
+check nil, integer, float, boolean, string, multiple and empty arguments plus the
+hidden-result convention. Core execution and standard-library checks still
+pass. These callback entry checks do not establish complete plugin or VM parity.
+
+The six Monitor workflows now match native execution on all four architectures,
+including the i386 printing path after its callback arguments and result ABI
+were recovered. These are controlled kernel-service comparisons; complete
+booted VM parity and the remaining release components are still outstanding.

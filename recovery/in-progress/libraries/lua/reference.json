@@ -9,7 +9,8 @@
       "core_execution_cases": 13,
       "standard_library_cases": 20,
       "heap_workflows": 12,
-      "allocator_forwarding_cases": 117
+      "allocator_forwarding_cases": 117,
+      "native_callback_abi_cases": 7
     },
     "x86_64": {
       "sha256": "bf0aa8c05c8f4db1718152ac2927dd6f70edb5b180d4b9c09a7d9d4674444532",
@@ -35,7 +36,8 @@
       "standard_library_cases": 20,
       "heap_workflows": 12,
       "allocator_forwarding_cases": 117,
-      "command_result_workflows": 5
+      "command_result_workflows": 5,
+      "native_callback_abi_cases": 7
     }
   },
   "pending": [
