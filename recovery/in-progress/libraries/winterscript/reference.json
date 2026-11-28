@@ -32,7 +32,8 @@
       "recovered_functions": 1049,
       "core_execution_cases": 18,
       "heap_workflows": 12,
-      "allocator_forwarding_cases": 117
+      "allocator_forwarding_cases": 117,
+      "monitor_workflows": 6
     }
   },
   "pending": [

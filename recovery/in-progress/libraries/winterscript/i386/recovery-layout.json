@@ -3106,7 +3106,9 @@
         "local_f8 + *(int *)(local_f8 + 0x28b0 + local_fc * 4)": "0x100259b4U + pf_ws_callable_result_28b0[local_fc]",
         "puVar15[0x12] + *(int *)(puVar15[0x12] + 0x28e0 + uVar10 * 4)": "0x100259b4U + pf_ws_callable_result_28e0[uVar10]",
         "local_c8 = auStackY_1c4 + 0x84;": "local_c8 = auStackY_1c4 + 0x84;\n  *(uint32_t *)(auStackY_1c4+0xa8)=(uint32_t)(uintptr_t)vm;",
-        "auStackY_1c4 + 0x80": "auStackY_1c4 + 0x84"
+        "auStackY_1c4 + 0x80": "auStackY_1c4 + 0x84",
+        "local_f8 + *(int *)(local_f8 + 0x28e0 + local_fc * 4)": "0x100259b4U + pf_ws_callable_result_28e0[local_fc]",
+        "local_c8 = auStackY_1c0 + 0x80;": "local_c8 = auStackY_1c0 + 0x80;\n  *(uint32_t *)(auStackY_1c0+0xa4)=(uint32_t)(uintptr_t)vm;"
       },
       "100b1bc0": {},
       "100070e0": {},
@@ -4606,5 +4608,9 @@
       "0x54"
     ],
     "reason": "Native allocator tail calls preserve byte-count and pointer arguments through the WMAP wire table. Explicit call contracts retain those arguments in C."
+  },
+  "reviewed_callable_callback": {
+    "site": "10025c70",
+    "basis": "Native indirect callback takes output, holder and argument vector in three stack words and pops the hidden output word. Reviewed decompilation restores both the inputs and subsequent stack slot origins."
   }
 }
