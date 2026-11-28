@@ -147,15 +147,15 @@ uint recovered_10000475(void *api)
       local_70[1] = 0;
       local_70[2] = 0;
       local_70[3] = 0;
-      local_68 = 0x1000209c;
-      local_64 = 0x1000214a;
-      local_60 = 0x10002157;
+      local_68 = ((uintptr_t)&recovered_1000209c);
+      local_64 = ((uintptr_t)&recovered_1000214a);
+      local_60 = ((uintptr_t)&recovered_10002157);
       lVar6 = 0;
       if ((bVar7 & 1) == 0) {
         local_60 = 0;
       }
-      local_5c = 0x10002165;
-      local_58 = 0x100021d8;
+      local_5c = ((uintptr_t)&recovered_10002165);
+      local_58 = ((uintptr_t)&recovered_100021d8);
       local_54 = 0;
       local_50 = 0;
       local_4c = 0;

@@ -699,3 +699,10 @@ write, close, reopen, read, tell, seek, and line read. The payload and a native
 API result file persist. The recovered stdio retains its Tayga virtual paths.
 The BIOS diagnostic instead reports a WinterShell allocation failure before
 its result file appears; that run remains unresolved.
+
+State page offsets are now preserved for all 73 normal driver slices, with
+independent rebuilds and guarded API checks. Seven additional AHCI, NVMe,
+Realtek SD, and SDHCI slices now link their provider callbacks to C functions.
+A source audit finds no remaining original function-address literals in the
+normal driver implementations. Full hardware protocol validation remains a
+separate requirement.

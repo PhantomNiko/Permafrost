@@ -120,11 +120,11 @@ uint recovered_1000047d(void *api)
       local_68[1] = 0;
       local_68[2] = 0;
       local_68[3] = 0;
-      local_60 = 0x10001625;
-      local_5c = 0x1000167d;
-      local_58 = 0x1000168a;
-      local_54 = 0x10001698;
-      local_50 = 0x100016fa;
+      local_60 = ((uintptr_t)&recovered_10001625);
+      local_5c = ((uintptr_t)&recovered_1000167d);
+      local_58 = ((uintptr_t)&recovered_1000168a);
+      local_54 = ((uintptr_t)&recovered_10001698);
+      local_50 = ((uintptr_t)&recovered_100016fa);
       local_4c = 0;
       local_48 = 0;
       local_44 = 0;

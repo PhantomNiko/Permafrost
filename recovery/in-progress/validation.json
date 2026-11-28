@@ -592,7 +592,10 @@
       "armv7": "C main, constructor, fwrite/fclose/fread/ftell/fseek/fgets, persisted payload and native result file passed",
       "arm64": "C main, constructor, fwrite/fclose/fread/ftell/fseek/fgets, persisted payload and native result file passed",
       "i386": "WinterShell allocation failure before diagnostic result; unresolved"
-    }
+    },
+    "driver_source_state_page_offsets": 73,
+    "driver_guarded_api_after_layout_relink": 73,
+    "driver_native_callback_literal_audit": "No remaining original function-address literals in the 73 driver C implementations; seven additional storage slices repaired."
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",
   "kernel_compilation": "All four candidate C kernels link; full VM parity remains incomplete.",

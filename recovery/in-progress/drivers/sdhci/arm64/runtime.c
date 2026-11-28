@@ -119,11 +119,11 @@ uint recovered_1000048c(void *api)
       local_240[2] = 0;
       local_240[3] = 0;
       iStack_23c = DAT_10008004;
-      local_238 = 0x10001368;
-      uStack_234 = 0x100013ec;
-      local_230 = 0x100013f4;
-      uStack_22c = 0x100013fc;
-      local_228 = 0x10001470;
+      local_238 = ((uintptr_t)&recovered_10001368);
+      uStack_234 = ((uintptr_t)&recovered_100013ec);
+      local_230 = ((uintptr_t)&recovered_100013f4);
+      uStack_22c = ((uintptr_t)&recovered_100013fc);
+      local_228 = ((uintptr_t)&recovered_10001470);
       uStack_224 = 0;
       local_220 = 0;
       uStack_21c = 0;

@@ -139,14 +139,14 @@ uint recovered_10000484(void *api)
       local_250[1] = 0;
       local_250[2] = 0;
       local_250[3] = 0;
-      local_240 = 0x10001ab8;
+      local_240 = ((uintptr_t)&recovered_10001ab8);
       if ((bVar6 & 1) == 0) {
         local_240 = 0;
       }
-      local_248 = 0x10001a10;
-      uStack_244 = 0x10001ab0;
-      uStack_23c = 0x10001ac0;
-      local_238 = 0x10001b34;
+      local_248 = ((uintptr_t)&recovered_10001a10);
+      uStack_244 = ((uintptr_t)&recovered_10001ab0);
+      uStack_23c = ((uintptr_t)&recovered_10001ac0);
+      local_238 = ((uintptr_t)&recovered_10001b34);
       uStack_234 = 0;
       local_230 = 0;
       local_22c = 0;

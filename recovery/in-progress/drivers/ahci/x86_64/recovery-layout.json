@@ -30,7 +30,12 @@
       "100021ad": {},
       "10000475": {
         "0x10004060": "((uintptr_t)pf_module_state+0x16fdU)",
-        "0x10004010": "((uintptr_t)pf_module_state+0x16adU)"
+        "0x10004010": "((uintptr_t)pf_module_state+0x16adU)",
+        "0x100014e1": "((uintptr_t)&recovered_100014e1)",
+        "0x100014ee": "((uintptr_t)&recovered_100014ee)",
+        "0x100015d5": "((uintptr_t)&recovered_100015d5)",
+        "0x1000145a": "((uintptr_t)&recovered_1000145a)",
+        "0x100014fc": "((uintptr_t)&recovered_100014fc)"
       },
       "100014e1": {},
       "10000468": {},
@@ -67,5 +72,15 @@
       "10001bc5": {}
     },
     "source_replacement_groups": {}
+  },
+  "reviewed_storage_callback_addresses": {
+    "contract": "Provider callback records refer to their linked C implementations, retaining native low/high word packing.",
+    "addresses": [
+      "0x1000145a",
+      "0x100014e1",
+      "0x100014ee",
+      "0x100014fc",
+      "0x100015d5"
+    ]
   }
 }

@@ -144,11 +144,11 @@ LAB_1000060b:
     local_70[1] = 0;
     local_70[2] = 0;
     local_70[3] = 0;
-    local_68 = 0x100015d7;
-    local_64 = 0x10001663;
-    local_60 = 0x10001670;
-    local_5c = 0x1000167e;
-    local_58 = 0x1000176a;
+    local_68 = ((uintptr_t)&recovered_100015d7);
+    local_64 = ((uintptr_t)&recovered_10001663);
+    local_60 = ((uintptr_t)&recovered_10001670);
+    local_5c = ((uintptr_t)&recovered_1000167e);
+    local_58 = ((uintptr_t)&recovered_1000176a);
     local_54 = 0;
     local_50 = 0;
     local_4c = 0;

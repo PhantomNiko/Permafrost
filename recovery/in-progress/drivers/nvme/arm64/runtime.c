@@ -140,11 +140,11 @@ LAB_100005d8:
     local_250[2] = 0;
     local_250[3] = 0;
     iStack_24c = DAT_10008004;
-    local_248 = 0x10001250;
-    uStack_244 = 0x10001300;
-    local_240 = 0x10001308;
-    uStack_23c = 0x10001310;
-    local_238 = 0x100013f0;
+    local_248 = ((uintptr_t)&recovered_10001250);
+    uStack_244 = ((uintptr_t)&recovered_10001300);
+    local_240 = ((uintptr_t)&recovered_10001308);
+    uStack_23c = ((uintptr_t)&recovered_10001310);
+    local_238 = ((uintptr_t)&recovered_100013f0);
     uStack_234 = 0;
     local_230 = 0;
     uStack_22c = 0;
