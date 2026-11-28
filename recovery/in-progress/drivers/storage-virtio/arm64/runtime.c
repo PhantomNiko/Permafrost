@@ -90,7 +90,7 @@ uint recovered_10000434(void *api)
         local_7c = DAT_10008000;
         lVar3 = (ulong)DAT_10008000 + 1;
         piVar4 = &DAT_10009098;
-        uStack_6c = 0x100016bc;
+        uStack_6c = ((uintptr_t)&recovered_100016bc);
         do {
           lVar3 = lVar3 + -1;
           if (lVar3 == 0) goto LAB_10000584;
@@ -103,10 +103,10 @@ LAB_10000584:
         local_80[1] = 0;
         local_80[2] = 0;
         local_80[3] = 0;
-        local_78 = 0x1000176c;
-        uStack_74 = 0x10001810;
-        local_70 = 0x10001818;
-        local_68 = 0x10001820;
+        local_78 = ((uintptr_t)&recovered_1000176c);
+        uStack_74 = ((uintptr_t)&recovered_10001810);
+        local_70 = ((uintptr_t)&recovered_10001818);
+        local_68 = ((uintptr_t)&recovered_10001820);
         uStack_64 = 0;
         local_60 = 0;
         local_5c = 0;

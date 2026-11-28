@@ -671,3 +671,12 @@ than boot. Its recovered free helper had lost its pointer argument. Restoring
 the helper and its two caller arguments opens the application in the integrated
 VM. The equivalent x64 helper is repaired too. Both CPUs pass nine native
 device-buffer reuse, growth, replacement, empty-result, and failure workflows.
+
+Native hardware-path testing exposed source-linking defects in the virtio
+checkpoints. Twenty-four driver slices now preserve the original state page
+offset, keeping embedded DMA queues aligned after linking. ARM64 and x64 block
+registration also uses compiled callback addresses. Each passes four native
+registration/rollback workflows and 54 queue-transfer workflows. All 24 slices
+pass descriptor/API checks. The repaired ARM64 C graphics and block drivers
+initialize under the reference kernel in a VM; this control does not establish
+complete C-kernel parity.

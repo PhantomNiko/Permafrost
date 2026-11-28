@@ -563,7 +563,17 @@
     "activity_device_buffer_workflows": {
       "armv7": 9,
       "x86_64": 9
-    }
+    },
+    "virtio_source_state_page_offsets": 24,
+    "storage_registered_callback_workflows": {
+      "arm64": 4,
+      "x86_64": 4
+    },
+    "storage_queue_workflows_after_relink": {
+      "arm64": 54,
+      "x86_64": 54
+    },
+    "arm64_c_virtio_drivers_native_kernel_vm": "Graphics and block drivers initialize after preserving state page offsets and linking block callbacks; this control uses the reference kernel."
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",
   "kernel_compilation": "All four candidate C kernels link; full VM parity remains incomplete.",

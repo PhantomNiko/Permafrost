@@ -97,6 +97,19 @@ def build_library(source, output):
             data_aliases.append('.weak_definition '+label)
         data_aliases.append('.set %s,_pf_module_state+%d' % (label,item['offset']))
     state=(source/'state.c').read_text()
+    if 'state_address_bias' in profile:
+        # DMA rings retain their original page offsets after source linking.
+        # Merely aligning the array moves fields that were originally aligned.
+        bias = profile['state_address_bias']
+        if not isinstance(bias, int) or not 0 <= bias < 4096:
+            raise ValueError('invalid recovered state page bias')
+        declaration = 'unsigned char pf_module_state[]={'
+        if state.count(declaration) != 1 or 'aligned(16)' not in state:
+            raise ValueError('unsupported recovered state declaration')
+        state = state.replace('aligned(16)', 'aligned(4096)', 1)
+        state = state.replace(declaration, 'unsigned char pf_module_storage[]={'+
+                              '0,'*bias, 1)
+        state += '\n__asm__(' + json.dumps('.globl _pf_module_state\n.set _pf_module_state,_pf_module_storage+%d' % bias) + ');\n'
     if data_aliases:
         state+='\n__asm__('+json.dumps('\n'.join(data_aliases)) + ');\n'
     (output/'state.c').write_text(state)

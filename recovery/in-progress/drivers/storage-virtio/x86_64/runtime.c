@@ -100,7 +100,7 @@ uint recovered_10000425(void *api)
       if ((iVar7 != 0) && (DAT_10005000 != 0)) {
         recovered_10001c77((long)local_6c,0x30);
         local_68 = DAT_10005000;
-        local_58 = 0x10001c92;
+        local_58 = ((uintptr_t)&recovered_10001c92);
         lVar6 = 0;
         do {
           if ((ulong)DAT_10005000 * 0x7000 + 0x7000 == lVar6 + 0x7000) goto LAB_100005b9;
@@ -113,10 +113,10 @@ LAB_100005b9:
         local_6c[1] = 0;
         local_6c[2] = 0;
         local_6c[3] = 0;
-        local_64 = 0x10001d4a;
-        local_60 = 0x10001deb;
-        local_5c = 0x10001df8;
-        local_54 = 0x10001e06;
+        local_64 = ((uintptr_t)&recovered_10001d4a);
+        local_60 = ((uintptr_t)&recovered_10001deb);
+        local_5c = ((uintptr_t)&recovered_10001df8);
+        local_54 = ((uintptr_t)&recovered_10001e06);
         local_50 = 0;
         local_4c = 0;
         local_48 = 0;

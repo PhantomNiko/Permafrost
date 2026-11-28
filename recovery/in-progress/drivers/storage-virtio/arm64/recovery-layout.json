@@ -111,7 +111,13 @@
       "100027b4": {},
       "10002af0": {},
       "100028e0": {},
-      "10000434": {},
+      "10000434": {
+        "0x10001820": "((uintptr_t)&recovered_10001820)",
+        "0x1000176c": "((uintptr_t)&recovered_1000176c)",
+        "0x10001810": "((uintptr_t)&recovered_10001810)",
+        "0x10001818": "((uintptr_t)&recovered_10001818)",
+        "0x100016bc": "((uintptr_t)&recovered_100016bc)"
+      },
       "10001810": {
         "0x100090a0": "((uintptr_t)pf_module_state+0x59fcU)"
       },

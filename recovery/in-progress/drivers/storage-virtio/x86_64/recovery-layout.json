@@ -22,7 +22,13 @@
       "1000305e": {},
       "10002e4a": {},
       "10002a9c": {},
-      "10000425": {},
+      "10000425": {
+        "0x10001e06": "((uintptr_t)&recovered_10001e06)",
+        "0x10001d4a": "((uintptr_t)&recovered_10001d4a)",
+        "0x10001deb": "((uintptr_t)&recovered_10001deb)",
+        "0x10001c92": "((uintptr_t)&recovered_10001c92)",
+        "0x10001df8": "((uintptr_t)&recovered_10001df8)"
+      },
       "10003b4a": {},
       "10001c92": {},
       "10002d60": {},
