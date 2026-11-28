@@ -441,7 +441,17 @@
         "full configuration and key-file workflows",
         "booted VM integration"
       ]
-    }
+    },
+    "graphics_110_driver_c_build": [
+      "i386",
+      "x86_64",
+      "armv7",
+      "arm64"
+    ],
+    "graphics_110_api_cases_per_cpu": 8,
+    "graphics_110_pci_record_cases_per_cpu": 8,
+    "graphics_110_bar_mapping_cases_per_cpu": 50,
+    "graphics_110_arm64_transport_cases": 216
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",
   "kernel_compilation": "All four candidate C kernels link; full VM parity remains incomplete.",

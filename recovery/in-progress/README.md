@@ -554,3 +554,10 @@ constants remain numeric during relocation; the native test fixture restricts
 its vtable adjustment to the C++ VM commands. Saved PFZ1 and fontgen checks still
 pass on every CPU. Authenticated sessions, complete configuration/key-file
 handling and booted SSH integration remain release gates.
+
+The 1.1 virtio GPU driver now has independently built C checkpoints on all four
+architectures. Each matches the descriptor and seven guarded API cases, eight
+PCI record cases, and 50 BAR mapping workflows, including configuration rereads,
+64-bit BARs, unavailable mapping services, and untouched output guards. ARM64
+also matches 216 MMIO, DMA, barrier, and unavailable-service cases. Queue setup,
+GPU commands, presentation, and booted rendering remain incomplete.

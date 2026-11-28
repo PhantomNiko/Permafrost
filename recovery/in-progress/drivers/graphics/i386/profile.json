@@ -1,0 +1,101 @@
+{
+  "module": "DriverGraphics",
+  "architecture": "i386",
+  "version": "1.1",
+  "install_name": "/Drivers/graphics~virtio~gpu.kext",
+  "functions": {
+    "0x7e5": "recovered_100007e5",
+    "0x7fb": "recovered_100007fb",
+    "0x107e": "recovered_1000107e",
+    "0x1097": "recovered_10001097",
+    "0x2186": "recovered_10002186",
+    "0x22bb": "recovered_100022bb",
+    "0x22f2": "recovered_100022f2",
+    "0x263b": "recovered_1000263b",
+    "0x265a": "recovered_1000265a",
+    "0x26c1": "recovered_100026c1",
+    "0x2707": "recovered_10002707",
+    "0x2884": "recovered_10002884",
+    "0x28e8": "recovered_100028e8",
+    "0x2a66": "recovered_10002a66",
+    "0x2c21": "recovered_10002c21",
+    "0x2cd5": "recovered_10002cd5",
+    "0x2d80": "recovered_10002d80",
+    "0x2dcd": "recovered_10002dcd",
+    "0x2dee": "recovered_10002dee",
+    "0x2e3c": "recovered_10002e3c",
+    "0x2e63": "recovered_10002e63",
+    "0x2ec9": "recovered_10002ec9",
+    "0x2f13": "recovered_10002f13",
+    "0x2f4a": "recovered_10002f4a",
+    "0x2fda": "recovered_10002fda",
+    "0x3001": "recovered_10003001",
+    "0x3029": "recovered_10003029",
+    "0x305f": "recovered_1000305f",
+    "0x308a": "recovered_1000308a",
+    "0x30d6": "recovered_100030d6",
+    "0x3127": "recovered_10003127",
+    "0x3159": "recovered_10003159",
+    "0x31a8": "recovered_100031a8",
+    "0x31cf": "recovered_100031cf",
+    "0x321d": "recovered_1000321d",
+    "0x3246": "recovered_10003246",
+    "0x3595": "recovered_10003595",
+    "0x35c7": "recovered_100035c7",
+    "0x3602": "recovered_10003602",
+    "0x3630": "recovered_10003630",
+    "0x3682": "recovered_10003682",
+    "0x3ada": "recovered_10003ada",
+    "0x3c14": "recovered_10003c14",
+    "0x3c7c": "recovered_10003c7c",
+    "0x3c9b": "recovered_10003c9b",
+    "0x3cad": "recovered_10003cad",
+    "0x3ce8": "recovered_10003ce8",
+    "0x3d2a": "recovered_10003d2a",
+    "0x3d6e": "recovered_10003d6e"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 2021,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 2043,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 612,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 335
+      },
+      "tag": 0
+    },
+    {
+      "offset": 616,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 356
+      },
+      "tag": 0
+    },
+    {
+      "offset": 620,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 365
+      },
+      "tag": 0
+    }
+  ],
+  "data_exports": []
+}

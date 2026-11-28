@@ -1,0 +1,41 @@
+{
+  "version": "1.1",
+  "reference_path": "Drivers/graphics~virtio~gpu.kext",
+  "architectures": {
+    "i386": {
+      "reference_sha256": "92dc06f18689d57f1dccdc26360d56f2701159fcda1bfa8050bf28610c0c4fc5",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "pci_record_cases": 8,
+      "pci_bar_mapping_cases": 50
+    },
+    "x86_64": {
+      "reference_sha256": "2d3291ea0d68a6161420d2010f1324c81ac69b21b34af8b86d2b4fa423fa786c",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "pci_record_cases": 8,
+      "pci_bar_mapping_cases": 50
+    },
+    "armv7": {
+      "reference_sha256": "c7b8ae030502b760f1750925d99f9edd2c8ffcda5a770dc91a3617936283907e",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "pci_record_cases": 8,
+      "pci_bar_mapping_cases": 50
+    },
+    "arm64": {
+      "reference_sha256": "779e433002c3af9b9ff9c9ca3f052b6fdd25e2a4eaad139f5cfdf4a1fd623efb",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "pci_record_cases": 8,
+      "pci_bar_mapping_cases": 50,
+      "hardware_transport_cases": 216
+    }
+  },
+  "status": "source checkpoint; full GPU initialization, commands, and booted VM parity remain incomplete",
+  "pending": [
+    "virtio PCI capability discovery and queue setup",
+    "GPU command submission and framebuffer presentation",
+    "booted VM integration on all four architectures"
+  ]
+}

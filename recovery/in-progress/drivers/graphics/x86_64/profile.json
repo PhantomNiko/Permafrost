@@ -1,0 +1,98 @@
+{
+  "module": "DriverGraphics",
+  "architecture": "x86_64",
+  "version": "1.1",
+  "install_name": "/Drivers/graphics~virtio~gpu.kext",
+  "functions": {
+    "0x470": "recovered_10000470",
+    "0x47d": "recovered_1000047d",
+    "0xc61": "recovered_10000c61",
+    "0xc7c": "recovered_10000c7c",
+    "0x1b8c": "recovered_10001b8c",
+    "0x1cad": "recovered_10001cad",
+    "0x1cd8": "recovered_10001cd8",
+    "0x2022": "recovered_10002022",
+    "0x2036": "recovered_10002036",
+    "0x20ad": "recovered_100020ad",
+    "0x2101": "recovered_10002101",
+    "0x22b3": "recovered_100022b3",
+    "0x2300": "recovered_10002300",
+    "0x246a": "recovered_1000246a",
+    "0x261d": "recovered_1000261d",
+    "0x269c": "recovered_1000269c",
+    "0x2722": "recovered_10002722",
+    "0x275c": "recovered_1000275c",
+    "0x277c": "recovered_1000277c",
+    "0x27ce": "recovered_100027ce",
+    "0x27ec": "recovered_100027ec",
+    "0x285d": "recovered_1000285d",
+    "0x28b0": "recovered_100028b0",
+    "0x28dc": "recovered_100028dc",
+    "0x297f": "recovered_1000297f",
+    "0x299b": "recovered_1000299b",
+    "0x29bf": "recovered_100029bf",
+    "0x29ea": "recovered_100029ea",
+    "0x2a10": "recovered_10002a10",
+    "0x2a4c": "recovered_10002a4c",
+    "0x2a96": "recovered_10002a96",
+    "0x2ac1": "recovered_10002ac1",
+    "0x2b0c": "recovered_10002b0c",
+    "0x2b2a": "recovered_10002b2a",
+    "0x2b78": "recovered_10002b78",
+    "0x2b9c": "recovered_10002b9c",
+    "0x2efc": "recovered_10002efc",
+    "0x2f29": "recovered_10002f29",
+    "0x2f5d": "recovered_10002f5d",
+    "0x2f97": "recovered_10002f97",
+    "0x2ff4": "recovered_10002ff4",
+    "0x33e5": "recovered_100033e5",
+    "0x3525": "recovered_10003525",
+    "0x3583": "recovered_10003583",
+    "0x35a3": "recovered_100035a3",
+    "0x35b2": "recovered_100035b2"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 1136,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 1149,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 2597,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 317
+      },
+      "tag": 0
+    },
+    {
+      "offset": 2605,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 338
+      },
+      "tag": 0
+    },
+    {
+      "offset": 2613,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 347
+      },
+      "tag": 0
+    }
+  ],
+  "data_exports": []
+}
