@@ -577,3 +577,15 @@ pointer buttons, relative motion, and signed absolute-axis boundaries. Numeric
 button tables embedded in executable sections are represented as C constants.
 Callback integer returns and i386 register arguments are explicit. Hardware
 queue setup, DMA services, and booted keyboard/pointer integration remain gates.
+
+The 1.1 virtio storage driver now has independently built C checkpoints on all
+four architectures. Each matches eight API/descriptor cases, eight PCI-record
+cases, 50 BAR mappings, 32 ATA sector workflows, and 54 virtio queue workflows.
+ATA comparisons cover sector bytes, LBA limits, port/MMIO register operations,
+and service failures. Queue comparisons cover both DMA address outputs,
+descriptor bytes, reads, writes, flushes, and malformed completions. Native
+callbacks retain their complete arguments and integer returns. Diagnostic
+images replacing the GPU, input, and storage drivers reach the desktop and
+open Sleet on x64, ARM32, and ARM64; other reference payloads remain in these
+images. Full hardware initialization, provider/filesystem integration, and
+release-wide VM parity remain incomplete.

@@ -1,0 +1,48 @@
+{
+  "version": "1.1",
+  "reference_path": "Drivers/storage~virtio~pci.kext",
+  "architectures": {
+    "i386": {
+      "reference_sha256": "3ded4d922fced2b4795e81716519b0643a53d9fef37fb77b0d1d97d800c8bba9",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "pci_record_cases": 8,
+      "pci_bar_mapping_cases": 50,
+      "ata_sector_cases": 32,
+      "virtio_queue_cases": 54
+    },
+    "x86_64": {
+      "reference_sha256": "66cd2c056ca2da30a247b6823db5defbc5eba1f79190c77aa293fb20df2cb464",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "pci_record_cases": 8,
+      "pci_bar_mapping_cases": 50,
+      "ata_sector_cases": 32,
+      "virtio_queue_cases": 54
+    },
+    "armv7": {
+      "reference_sha256": "bbf39afb02b1391cc3a1d82b8523f3c292d291c5592e12b0803222801fd604e5",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "pci_record_cases": 8,
+      "pci_bar_mapping_cases": 50,
+      "ata_sector_cases": 32,
+      "virtio_queue_cases": 54
+    },
+    "arm64": {
+      "reference_sha256": "3cde196c1576b1c172f7ca1fb09e5608700edc24b450f9d573168f0c90a46b0a",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "pci_record_cases": 8,
+      "pci_bar_mapping_cases": 50,
+      "ata_sector_cases": 32,
+      "virtio_queue_cases": 54
+    }
+  },
+  "status": "source checkpoint; complete storage hardware initialization and booted VM parity remain incomplete",
+  "pending": [
+    "virtio PCI capability discovery and hardware initialization",
+    "ATA identify and provider integration",
+    "booted storage and filesystem integration on all four architectures"
+  ]
+}

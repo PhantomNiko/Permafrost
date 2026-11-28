@@ -1,0 +1,279 @@
+{
+  "module": "DriverStorageVirtio",
+  "architecture": "armv7",
+  "version": "1.1",
+  "install_name": "/Drivers/storage~virtio~pci.kext",
+  "functions": {
+    "0x39c8": "recovered_100039c8",
+    "0x39d8": "recovered_100039d8",
+    "0x3c94": "recovered_10003c94",
+    "0x5448": "recovered_10005448",
+    "0x54a0": "recovered_100054a0",
+    "0x54c4": "recovered_100054c4",
+    "0x55b0": "recovered_100055b0",
+    "0x5674": "recovered_10005674",
+    "0x5690": "recovered_10005690",
+    "0x56ac": "recovered_100056ac",
+    "0x57c0": "recovered_100057c0",
+    "0x57d4": "recovered_100057d4",
+    "0x5998": "recovered_10005998",
+    "0x5a0c": "recovered_10005a0c",
+    "0x5a4c": "recovered_10005a4c",
+    "0x5afc": "recovered_10005afc",
+    "0x5b50": "recovered_10005b50",
+    "0x5b70": "recovered_10005b70",
+    "0x5d24": "recovered_10005d24",
+    "0x5d9c": "recovered_10005d9c",
+    "0x5de4": "recovered_10005de4",
+    "0x5e20": "recovered_10005e20",
+    "0x5e38": "recovered_10005e38",
+    "0x5e80": "recovered_10005e80",
+    "0x5ecc": "recovered_10005ecc",
+    "0x5ee8": "recovered_10005ee8",
+    "0x5f34": "recovered_10005f34",
+    "0x6028": "recovered_10006028",
+    "0x61f0": "recovered_100061f0",
+    "0x6490": "recovered_10006490",
+    "0x6500": "recovered_10006500",
+    "0x6540": "recovered_10006540",
+    "0x6620": "recovered_10006620",
+    "0x6664": "recovered_10006664",
+    "0x66f4": "recovered_100066f4",
+    "0x675c": "recovered_1000675c",
+    "0x6820": "recovered_10006820",
+    "0x6870": "recovered_10006870",
+    "0x6918": "recovered_10006918",
+    "0x698c": "recovered_1000698c",
+    "0x6a2c": "recovered_10006a2c",
+    "0x6a44": "recovered_10006a44",
+    "0x6a94": "recovered_10006a94",
+    "0x6af8": "recovered_10006af8",
+    "0x6b50": "recovered_10006b50",
+    "0x6bb0": "recovered_10006bb0",
+    "0x6bd8": "recovered_10006bd8",
+    "0x6c3c": "recovered_10006c3c",
+    "0x6cfc": "recovered_10006cfc",
+    "0x6d14": "recovered_10006d14",
+    "0x6d80": "recovered_10006d80",
+    "0x6dbc": "recovered_10006dbc",
+    "0x6e1c": "recovered_10006e1c",
+    "0x6e50": "recovered_10006e50",
+    "0x7320": "recovered_10007320",
+    "0x7364": "recovered_10007364",
+    "0x737c": "recovered_1000737c",
+    "0x73d0": "recovered_100073d0",
+    "0x73f8": "recovered_100073f8",
+    "0x75f0": "recovered_100075f0",
+    "0x77b0": "recovered_100077b0",
+    "0x7858": "recovered_10007858",
+    "0x78a8": "recovered_100078a8",
+    "0x78e0": "recovered_100078e0",
+    "0x7950": "recovered_10007950",
+    "0x79b8": "recovered_100079b8",
+    "0x7a9c": "recovered_10007a9c",
+    "0x7b1c": "recovered_10007b1c",
+    "0x7c3c": "recovered_10007c3c",
+    "0x7cf8": "recovered_10007cf8",
+    "0x7d80": "recovered_10007d80",
+    "0x7dcc": "recovered_10007dcc",
+    "0x7ddc": "recovered_10007ddc",
+    "0x7dec": "recovered_10007dec",
+    "0x7e34": "recovered_10007e34",
+    "0x7e5c": "recovered_10007e5c",
+    "0x7e78": "recovered_10007e78"
+  },
+  "exports": [
+    {
+      "name": "___divdi3",
+      "address": 31516,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___divsi3",
+      "address": 30944,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixdfdi",
+      "address": 32128,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixsfdi",
+      "address": 32220,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixunsdfdi",
+      "address": 31992,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixunssfdi",
+      "address": 32204,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatdidf",
+      "address": 32308,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatdisf",
+      "address": 32376,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatundidf",
+      "address": 32236,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatundisf",
+      "address": 32348,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___moddi3",
+      "address": 31804,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___modsi3",
+      "address": 31056,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___udivdi3",
+      "address": 31160,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___udivsi3",
+      "address": 30808,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___umoddi3",
+      "address": 31388,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___umodsi3",
+      "address": 30888,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 14792,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 14808,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 364,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x7d80"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 368,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x7cf8"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 372,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x7e34"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 376,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x7dec"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 380,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x7858"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 384,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x78a8"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 49528,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 50
+      },
+      "tag": 1
+    },
+    {
+      "offset": 49532,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 76
+      },
+      "tag": 0
+    },
+    {
+      "offset": 49536,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 84
+      },
+      "tag": 0
+    }
+  ],
+  "data_exports": []
+}

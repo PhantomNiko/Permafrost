@@ -1,0 +1,113 @@
+{
+  "module": "DriverStorageVirtio",
+  "architecture": "arm64",
+  "version": "1.1",
+  "install_name": "/Drivers/storage~virtio~pci.kext",
+  "functions": {
+    "0x428": "recovered_10000428",
+    "0x434": "recovered_10000434",
+    "0x664": "recovered_10000664",
+    "0x1658": "recovered_10001658",
+    "0x16a4": "recovered_100016a4",
+    "0x16bc": "recovered_100016bc",
+    "0x176c": "recovered_1000176c",
+    "0x1810": "recovered_10001810",
+    "0x1818": "recovered_10001818",
+    "0x1820": "recovered_10001820",
+    "0x190c": "recovered_1000190c",
+    "0x191c": "recovered_1000191c",
+    "0x1a58": "recovered_10001a58",
+    "0x1aa4": "recovered_10001aa4",
+    "0x1ad8": "recovered_10001ad8",
+    "0x1b80": "recovered_10001b80",
+    "0x1bd8": "recovered_10001bd8",
+    "0x1bf8": "recovered_10001bf8",
+    "0x1d40": "recovered_10001d40",
+    "0x1da4": "recovered_10001da4",
+    "0x1de0": "recovered_10001de0",
+    "0x1e10": "recovered_10001e10",
+    "0x1e24": "recovered_10001e24",
+    "0x1e78": "recovered_10001e78",
+    "0x1ec0": "recovered_10001ec0",
+    "0x1ed8": "recovered_10001ed8",
+    "0x1f20": "recovered_10001f20",
+    "0x1ff8": "recovered_10001ff8",
+    "0x21ac": "recovered_100021ac",
+    "0x23ac": "recovered_100023ac",
+    "0x23f4": "recovered_100023f4",
+    "0x242c": "recovered_1000242c",
+    "0x24fc": "recovered_100024fc",
+    "0x2530": "recovered_10002530",
+    "0x25a0": "recovered_100025a0",
+    "0x25fc": "recovered_100025fc",
+    "0x2680": "recovered_10002680",
+    "0x26d0": "recovered_100026d0",
+    "0x2760": "recovered_10002760",
+    "0x27b4": "recovered_100027b4",
+    "0x2834": "recovered_10002834",
+    "0x2848": "recovered_10002848",
+    "0x2880": "recovered_10002880",
+    "0x28e0": "recovered_100028e0",
+    "0x291c": "recovered_1000291c",
+    "0x2964": "recovered_10002964",
+    "0x2980": "recovered_10002980",
+    "0x29e4": "recovered_100029e4",
+    "0x2a74": "recovered_10002a74",
+    "0x2a88": "recovered_10002a88",
+    "0x2af0": "recovered_10002af0",
+    "0x2b30": "recovered_10002b30",
+    "0x2ba8": "recovered_10002ba8",
+    "0x2bd0": "recovered_10002bd0",
+    "0x2f8c": "recovered_10002f8c",
+    "0x2fcc": "recovered_10002fcc",
+    "0x2fe8": "recovered_10002fe8",
+    "0x3048": "recovered_10003048",
+    "0x306c": "recovered_1000306c",
+    "0x3218": "recovered_10003218",
+    "0x336c": "recovered_1000336c"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 1064,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 1076,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 2404,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 15
+      },
+      "tag": 0
+    },
+    {
+      "offset": 2412,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 40
+      },
+      "tag": 0
+    },
+    {
+      "offset": 2420,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 48
+      },
+      "tag": 0
+    }
+  ],
+  "data_exports": []
+}

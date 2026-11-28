@@ -462,7 +462,23 @@
     "virtio_input_110_api_cases_per_cpu": 8,
     "virtio_input_110_pci_cases_per_cpu": 8,
     "virtio_input_110_axis_cases_per_cpu": 72,
-    "virtio_input_110_event_cases_per_cpu": 290
+    "virtio_input_110_event_cases_per_cpu": 290,
+    "virtio_storage_110_c_build": [
+      "i386",
+      "x86_64",
+      "armv7",
+      "arm64"
+    ],
+    "virtio_storage_110_api_cases_per_cpu": 8,
+    "virtio_storage_110_pci_cases_per_cpu": 8,
+    "virtio_storage_110_bar_cases_per_cpu": 50,
+    "virtio_storage_110_ata_cases_per_cpu": 32,
+    "virtio_storage_110_queue_cases_per_cpu": 54,
+    "recovered_driver_diagnostic_desktop_and_sleet": [
+      "x86_64",
+      "armv7",
+      "arm64"
+    ]
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",
   "kernel_compilation": "All four candidate C kernels link; full VM parity remains incomplete.",
