@@ -25,7 +25,9 @@
       "core_execution_cases": 18,
       "heap_workflows": 12,
       "allocator_forwarding_cases": 117,
-      "scalar_conversion_cases": 32
+      "scalar_conversion_cases": 32,
+      "unsigned_double_abi_cases": 561,
+      "numeric_string_console_workflows": 5
     },
     "i386": {
       "sha256": "edaaffa5f3cef4d869fb8d7b492c0958c6eeb60cde16a7f5cba55c561534d227",
@@ -33,7 +35,8 @@
       "core_execution_cases": 18,
       "heap_workflows": 12,
       "allocator_forwarding_cases": 117,
-      "monitor_workflows": 6
+      "monitor_workflows": 6,
+      "numeric_string_console_workflows": 5
     }
   },
   "pending": [

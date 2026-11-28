@@ -504,3 +504,12 @@ The six Monitor workflows now match native execution on all four architectures,
 including the i386 printing path after its callback arguments and result ABI
 were recovered. These are controlled kernel-service comparisons; complete
 booted VM parity and the remaining release components are still outstanding.
+
+Rwby and standalone WinterScript commands now have C source checkpoints for all
+four architectures. Each command matches six Monitor startup, help, input,
+execution and exit workflows, plus five decimal, negative, large-integer and
+string output workflows. Saved checkpoints build using C sources and declared
+library interfaces. ARM32 unsigned-to-double helpers additionally match 561
+native word-ABI cases, including the reference accumulation order. Positive
+script files, full exception/callback interoperability and booted VM parity
+remain release gates.

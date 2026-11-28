@@ -210,8 +210,8 @@ float recovered_10004104(undefined4 param_1,undefined4 param_2)
   undefined4 extraout_r0 = 0;
   undefined4 extraout_r1 = 0;
 
-  recovered_10007910(CONCAT44(param_2,param_1));
-  return (float)pf_bits_double(CONCAT44(extraout_r1,extraout_r0));
+  uint64_t pf_unsigned_conversion = recovered_10007910(CONCAT44(param_2,param_1));
+  return (float)pf_bits_double(pf_unsigned_conversion);
 }
 
 
@@ -4524,85 +4524,15 @@ longlong recovered_100077c8(double value)
 
 #undef DAT_10007880
 
-static const unsigned char pf_literal_10007888_DAT_10007908[] __attribute__((aligned(16)))={0x00,0x00,0x00,0x00,0x00,0x00,0xe0,0x43};
-#undef DAT_10007908
-#define DAT_10007908 (*(double *)((uintptr_t)pf_literal_10007888_DAT_10007908))
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x10007888
- */
+/* Pooka's Free Software License. Recovered ARM soft-float conversion. */
+ulonglong recovered_10007888(double value){if(value<=0.0)return 0;double remaining=value;uint64_t bits=0;double weight=9223372036854775808.0;for(int bit=63;bit>=0;--bit){if(weight<=remaining){bits|=UINT64_C(1)<<bit;remaining-=weight;}weight*=0.5;}return bits;}
 
-ulonglong recovered_10007888(double value)
 
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  undefined4 in_r0;
-  uint uVar1;
-  undefined4 in_r1;
-  uint uVar2;
-  uint uVar3;
-  uint uVar4;
-  uint uVar5;
-  bool bVar6;
-  double dVar7;
-  double dVar8;
-
-  dVar7 = pf_bits_double(CONCAT44(in_r1,in_r0));
-  uVar1 = 0;
-  uVar2 = 0;
-  if (dVar7 <= 0.0) {
-    return 0;
-  }
-  uVar3 = 0x3f;
-  dVar8 = pf_bits_double(0x43e0000000000000ULL);
-  do {
-    uVar4 = 1 << (uVar3 & 0xff);
-    uVar5 = uVar3 - 0x20;
-    if (-1 < (int)uVar5) {
-      uVar4 = 0;
-    }
-    if (dVar8 <= dVar7) {
-      uVar1 = uVar1 | uVar4;
-    }
-    uVar4 = 1 >> (0x20 - uVar3 & 0xff);
-    if (-1 < (int)uVar5) {
-      uVar4 = 1 << (uVar5 & 0xff);
-    }
-    if (dVar8 <= dVar7) {
-      uVar2 = uVar2 | uVar4;
-      dVar7 = dVar7 - dVar8;
-    }
-    bVar6 = uVar3 != 0;
-    uVar3 = uVar3 - 1;
-    dVar8 = dVar8 * 0.5;
-  } while (bVar6);
-  return CONCAT44(uVar2,uVar1);
-}
-
-#undef DAT_10007908
-
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x10007910
- */
-
-double recovered_10007910(ulonglong value)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  uint uVar1;
-  uint uVar2;
-  double in_d0;
-
-  if (value == 0) {
-    return in_d0;
-  }
-  do {
-    uVar1 = (uint)(value >> 0x21);
-    uVar2 = (uint)((byte)(value >> 0x20) & 1) << 0x1f | (uint)value >> 1;
-    value = CONCAT44(uVar1,uVar2);
-  } while (uVar2 != 0 || uVar1 != 0);
-  return in_d0;
+/* Pooka's Free Software License. Recovered ARM unsigned integer to binary64 helper. */
+uint64_t recovered_10007910(uint64_t value){
+ double sum=0.0,weight=1.0;
+ while(value){double next=sum+weight;if(value&1)sum=next;weight=weight+weight;value>>=1;}
+ return pf_double_bits(sum);
 }
 
 
@@ -20029,8 +19959,7 @@ LAB_10017370:
     local_124 = param_4;
     if (param_3[4] != 1) goto LAB_10017650;
     local_90 = 3;
-    recovered_10099518(&local_d8,SUB84((double)pf_bits_float((uintptr_t)param_3[1]),0),
-                       (int)((ulonglong)(double)pf_bits_float((uintptr_t)param_3[1]) >> 0x20));
+    { uint64_t pf_float_argument=pf_double_bits((double)(pf_bits_float((uint32_t)param_3[1]))); recovered_10099518(&local_d8, (uint32_t)pf_float_argument, (uint32_t)(pf_float_argument>>32)); }
     piVar18 = local_120;
     param_4 = local_124;
     recovered_1000aed4(local_10c);
@@ -29230,8 +29159,7 @@ LAB_10024c98:
   case 2:
     if (param_2[4] != 1) goto LAB_10024cf4;
     local_90 = 0xffffffff;
-    recovered_10099518(local_98,SUB84((double)pf_bits_float((uintptr_t)param_2[1]),0),
-                       (int)((ulonglong)(double)pf_bits_float((uintptr_t)param_2[1]) >> 0x20));
+    { uint64_t pf_float_argument=pf_double_bits((double)(pf_bits_float((uint32_t)param_2[1]))); recovered_10099518(local_98, (uint32_t)pf_float_argument, (uint32_t)(pf_float_argument>>32)); }
     goto LAB_10024cc8;
   case 3:
     if (param_2[4] != 2) goto LAB_10024cf4;
@@ -65759,8 +65687,7 @@ LAB_1005731c:
   case 2:
     if (*(int *)(argument0 + 0x10) != 1) goto switchD_100573cc_default;
     local_90 = 0xffffffff;
-    recovered_10099518(output,SUB84((double)*(float *)(argument0 + 4),0),
-                       (int)((ulonglong)(double)*(float *)(argument0 + 4) >> 0x20));
+    { uint64_t pf_float_argument=pf_double_bits((double)(*(float *)(argument0 + 4))); recovered_10099518(output, (uint32_t)pf_float_argument, (uint32_t)(pf_float_argument>>32)); }
     goto LAB_10057340;
   case 3:
     if (*(int *)(argument0 + 0x10) != 2) goto switchD_100573cc_default;
@@ -116035,8 +115962,9 @@ void recovered_10099518(int *param_1,undefined4 param_2,undefined4 param_3)
         recovered_1007ea98(local_98,((uintptr_t)pf_module_state+0x2500U),4);
         goto LAB_10099af4;
       }
+      value = bVar1 ? -dVar16 : dVar16;
       uVar18 = recovered_10007888(value);
-      dVar16 = recovered_10007910(uVar18);
+      dVar16 = (value - pf_bits_double(recovered_10007910(uVar18))) * 1000000.0 + 0.5;
       *local_98 = 0;
       local_98[1] = 0;
       local_98[2] = 0;

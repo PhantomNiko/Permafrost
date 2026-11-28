@@ -5,28 +5,31 @@
     "x86_64": {
       "reference_sha256": "bb34d6f696cf43e13849f2a1a0e55f86187a3cf702aed891555096fe2a698c6b",
       "source_build": true,
-      "console_workflows": 6
+      "console_workflows": 6,
+      "numeric_string_console_workflows": 5
     },
     "arm64": {
       "reference_sha256": "8a1d6cf7247b898c856b881ab26fd8732f12a3e15d645a4b4a74f5bb312d5462",
       "source_build": true,
-      "console_workflows": 6
+      "console_workflows": 6,
+      "numeric_string_console_workflows": 5
     },
     "armv7": {
       "reference_sha256": "9ad510cd7c4569f5bfe8834235343bdff04ce91a278ff42a7935982ebbc5a49c",
       "source_build": true,
-      "console_workflows": 6
+      "console_workflows": 6,
+      "numeric_string_console_workflows": 5
     },
     "i386": {
       "reference_sha256": "467203dd34e77e13e1d8044cfb947db8ec258ae4c67a4eacfccb9b8d9fc4e46b",
       "source_build": true,
-      "console_workflows": 6
+      "console_workflows": 6,
+      "numeric_string_console_workflows": 5
     }
   },
   "pending": [
-    "remaining architectures",
-    "script-file workflows",
-    "full exception compatibility",
+    "positive script-file workflows",
+    "full exception and callback ABI compatibility",
     "booted VM integration"
   ],
   "status": "partial source checkpoint; release VM parity remains incomplete"

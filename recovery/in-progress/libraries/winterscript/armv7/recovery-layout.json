@@ -587,7 +587,8 @@
         "0x100b8ac0": "((uintptr_t)pf_module_state+0x654U)",
         "0x100baaac": "((uintptr_t)pf_module_state+0x2640U)",
         "DAT_10024dec": "(*(uint32_t *)(uint32_t[]){0x9776cULL})",
-        "DAT_10024df0": "(*(uint32_t *)(uint32_t[]){0x800ULL})"
+        "DAT_10024df0": "(*(uint32_t *)(uint32_t[]){0x800ULL})",
+        "recovered_10099518(local_98,SUB84((double)(float)param_2[1],0),\n                       (int)((ulonglong)(double)(float)param_2[1] >> 0x20));": "{ uint64_t pf_float_argument=pf_double_bits((double)(pf_bits_float((uint32_t)param_2[1]))); recovered_10099518(local_98, (uint32_t)pf_float_argument, (uint32_t)(pf_float_argument>>32)); }"
       },
       "1009a280": {
         "DAT_1009a4ac + 0x1009a2d0": "((uintptr_t)pf_module_state + 0x57d0U)",
@@ -1091,7 +1092,9 @@
         "DAT_10099bc4": "(*(uint32_t *)(uint32_t[]){0x246bcULL})",
         "DAT_10099bc8": "(*(uint32_t *)(uint32_t[]){0x5c8ULL})",
         "DAT_10099828": "pf_bits_double(0x7ff0000000000000ULL)",
-        "DAT_10099830": "pf_bits_double(0xfff0000000000000ULL)"
+        "DAT_10099830": "pf_bits_double(0xfff0000000000000ULL)",
+        "uVar18 = recovered_10007888(value);": "value = bVar1 ? -dVar16 : dVar16;\n      uVar18 = recovered_10007888(value);",
+        "dVar16 = recovered_10007910(uVar18);": "dVar16 = (value - pf_bits_double(recovered_10007910(uVar18))) * 1000000.0 + 0.5;"
       },
       "10023f1c": {
         "DAT_10024484 + 0x10023f70": "((uintptr_t)pf_module_state + 0x37b8U)",
@@ -1341,7 +1344,8 @@
         "DAT_100573f0 + 0x100570bc": "((uintptr_t)pf_module_state + 0x44c8U)",
         "0x100ba173": "((uintptr_t)pf_module_state+0x1d07U)",
         "DAT_100573f0": "(*(uint32_t *)(uint32_t[]){0x65878ULL})",
-        "DAT_100573f4": "(*(uint32_t *)(uint32_t[]){0x2e4ULL})"
+        "DAT_100573f4": "(*(uint32_t *)(uint32_t[]){0x2e4ULL})",
+        "recovered_10099518(output,SUB84((double)*(float *)(argument0 + 4),0),\n                       (int)((ulonglong)(double)*(float *)(argument0 + 4) >> 0x20));": "{ uint64_t pf_float_argument=pf_double_bits((double)(*(float *)(argument0 + 4))); recovered_10099518(output, (uint32_t)pf_float_argument, (uint32_t)(pf_float_argument>>32)); }"
       },
       "1007d768": {
         "DAT_1007d978 + 0x1007d7b4": "((uintptr_t)pf_module_state + 0x5040U)",
@@ -2091,7 +2095,8 @@
         "DAT_10017448": "pf_bits_float(0x4f000000U)",
         "DAT_100174b4": "pf_bits_float(0xcf000000U)",
         "DAT_100174f8": "(*(uint32_t *)(uint32_t[]){0x0ULL})",
-        "DAT_100176bc": "(*(uint32_t *)(uint32_t[]){0x0ULL})"
+        "DAT_100176bc": "(*(uint32_t *)(uint32_t[]){0x0ULL})",
+        "recovered_10099518(&local_d8,SUB84((double)(float)param_3[1],0),\n                       (int)((ulonglong)(double)(float)param_3[1] >> 0x20));": "{ uint64_t pf_float_argument=pf_double_bits((double)(pf_bits_float((uint32_t)param_3[1]))); recovered_10099518(&local_d8, (uint32_t)pf_float_argument, (uint32_t)(pf_float_argument>>32)); }"
       },
       "1007ed94": {
         "DAT_1007f270 + 0x1007eddc": "((uintptr_t)pf_module_state + 0x5084U)",
@@ -3140,7 +3145,10 @@
       "100a36ac": {},
       "1000b740": {},
       "10053e00": {},
-      "10004104": {},
+      "10004104": {
+        "recovered_10007910(CONCAT44(param_2,param_1));": "uint64_t pf_unsigned_conversion = recovered_10007910(CONCAT44(param_2,param_1));",
+        "(double)CONCAT44(extraout_r1,extraout_r0)": "pf_bits_double(pf_unsigned_conversion)"
+      },
       "100617e4": {},
       "1007e4d8": {},
       "100a36e4": {
@@ -5348,5 +5356,13 @@
       "address": "0x1000705c",
       "declaration": "unsigned long reject_span(char *text,char *reject);"
     }
+  },
+  "reviewed_decimal_word_arguments": {
+    "functions": [
+      "1002448c",
+      "10016e88",
+      "10057070"
+    ],
+    "basis": "Native float-to-double promotion is followed by VMOV into the formatter integer word arguments. Ghidra SUB84 and integral casts are bit extraction, rather than numeric conversion."
   }
 }

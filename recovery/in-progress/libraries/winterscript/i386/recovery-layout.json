@@ -2759,7 +2759,8 @@
       "100ae7c0": {},
       "100a6d90": {},
       "100a3cb0": {
-        "local_d4 + 0x22414": "((uintptr_t)pf_module_state+0x1d8bU)"
+        "local_d4 + 0x22414": "((uintptr_t)pf_module_state+0x1d8bU)",
+        "(float)CONCAT44(uStack_8c,(uint)local_88)": "(double)(longlong)CONCAT44(uStack_8c,(uint)local_88)"
       },
       "100adec0": {},
       "100b5c10": {},
@@ -4612,5 +4613,9 @@
   "reviewed_callable_callback": {
     "site": "10025c70",
     "basis": "Native indirect callback takes output, holder and argument vector in three stack words and pops the hidden output word. Reviewed decompilation restores both the inputs and subsequent stack slot origins."
+  },
+  "reviewed_decimal_integer_conversion": {
+    "function": "100a3cb0",
+    "basis": "Native x87 FILD numerically loads the signed 64-bit integral decimal component before adding fractional digits."
   }
 }
