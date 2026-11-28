@@ -372,6 +372,17 @@
       "monitor_workflows_per_architecture": 6,
       "numeric_string_console_workflows_per_architecture": 5,
       "release_vm_parity": false
+    },
+    "wozmon_command_source_recovery": {
+      "architectures": [
+        "i386",
+        "x86_64",
+        "armv7",
+        "arm64"
+      ],
+      "guarded_parser_cases_per_architecture": 140,
+      "console_memory_guest_code_workflows_per_architecture": 9,
+      "release_vm_parity": false
     }
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",

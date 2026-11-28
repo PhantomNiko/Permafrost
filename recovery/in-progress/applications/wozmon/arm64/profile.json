@@ -1,0 +1,12 @@
+{
+  "module": "wozmon",
+  "architecture": "arm64",
+  "version": "1.1",
+  "sources": [
+    "runtime.c",
+    "state.c",
+    "entry.c"
+  ],
+  "reference_path": "Binary/wozmon",
+  "recovery_note": "Recovered C monitor checkpoint; full booted VM integration remains unverified."
+}

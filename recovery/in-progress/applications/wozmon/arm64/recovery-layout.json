@@ -1,0 +1,32 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268435456,
+  "text_end": 268437224,
+  "state_end": 268443648,
+  "translation": {
+    "pointer_bytes": 8,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "state_base": 268437224,
+    "state_end": 268443648,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "__attribute__((weak,noinline)) void bzero(void *memory, unsigned long length){unsigned char *p=memory;while(length--)*p++=0;}"
+    ],
+    "source_replacements": {
+      "10000488": {},
+      "10000000": {},
+      "100004f0": {},
+      "10000628": {},
+      "10000428": {},
+      "1000047c": {},
+      "10000474": {},
+      "100004d0": {},
+      "100003e0": {}
+    },
+    "source_replacement_groups": {}
+  }
+}

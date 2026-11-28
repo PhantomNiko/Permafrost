@@ -1,0 +1,36 @@
+{
+  "version": "1.1",
+  "reference_path": "Binary/wozmon",
+  "architectures": {
+    "x86_64": {
+      "reference_sha256": "0da689241e4b256e341cef38a17ccec349f83901e4a703aa5c121142046640a5",
+      "source_build": true,
+      "guarded_hex_cases": 140,
+      "console_memory_guest_code_workflows": 9
+    },
+    "i386": {
+      "reference_sha256": "ab9777f97bec3e4b95573b5631cf6ee64c7a41e1a17b0bf3552068931b485f36",
+      "source_build": true,
+      "guarded_hex_cases": 140,
+      "console_memory_guest_code_workflows": 9
+    },
+    "armv7": {
+      "reference_sha256": "4ef945de51a5f963a63e2102d738ee875cf551aa74417aaa48b64434031c13b3",
+      "source_build": true,
+      "guarded_hex_cases": 140,
+      "console_memory_guest_code_workflows": 9
+    },
+    "arm64": {
+      "reference_sha256": "11a51b56a370f43baadeaaff14427297ac307159e8c994ad7f72b6dbbca71fcd",
+      "source_build": true,
+      "guarded_hex_cases": 140,
+      "console_memory_guest_code_workflows": 9
+    }
+  },
+  "pending": [
+    "booted VM integration",
+    "release-wide source recovery and parity"
+  ],
+  "status": "source checkpoint; full VM parity remains incomplete",
+  "branding": "Permafrost replaces the historical WinterBoot display name; native transcript comparisons normalize only that requested naming change."
+}

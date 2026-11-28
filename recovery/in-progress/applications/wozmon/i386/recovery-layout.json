@@ -1,0 +1,49 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268435456,
+  "text_end": 268439018,
+  "state_end": 268443648,
+  "translation": {
+    "pointer_bytes": 4,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "state_base": 268439018,
+    "state_end": 268443648,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];"
+    ],
+    "source_replacements": {
+      "10000b00": {},
+      "10000000": {
+        "_DAT_08001064": "(*(uint32_t *)((uintptr_t)pf_module_state+0x27aU))",
+        "DAT_08001000": "(*(uint8_t *)((uintptr_t)pf_module_state+0x216U))",
+        "DAT_08001060": "(*(uint8_t *)((uintptr_t)pf_module_state+0x276U))",
+        "DAT_08001064": "(*(uint8_t *)((uintptr_t)pf_module_state+0x27aU))",
+        "DAT_08001001": "(*(uint8_t *)((uintptr_t)pf_module_state+0x217U))",
+        "0x8000e5c": "((uintptr_t)pf_module_state+0x72U)",
+        "0x8000f08": "((uintptr_t)pf_module_state+0x11eU)",
+        "0x8000e74": "((uintptr_t)pf_module_state+0x8aU)",
+        "0x8000e90": "((uintptr_t)pf_module_state+0xa6U)",
+        "0x8000ec7": "((uintptr_t)pf_module_state+0xddU)",
+        "0x8000eaa": "((uintptr_t)pf_module_state+0xc0U)",
+        "0x8000f20": "((uintptr_t)pf_module_state+0x136U)",
+        "0x8000fff": "((uintptr_t)pf_module_state+0x215U)",
+        "0x8000edc": "((uintptr_t)pf_module_state+0xf2U)",
+        "*pcVar6 = SUB41(local_18[0],0);": "*(uint8_t *)(uintptr_t)pcVar6 = (uint8_t)(uintptr_t)local_18[0];"
+      },
+      "10000840": {
+        "_DAT_08001064": "(*(uint32_t *)((uintptr_t)pf_module_state+0x27aU))",
+        "DAT_08001064": "(*(uint8_t *)((uintptr_t)pf_module_state+0x27aU))",
+        "DAT_08001060": "(*(uint8_t *)((uintptr_t)pf_module_state+0x276U))",
+        "0x8000f08": "((uintptr_t)pf_module_state+0x11eU)",
+        "0x8000f0d": "((uintptr_t)pf_module_state+0x123U)",
+        "0x8000f0b": "((uintptr_t)pf_module_state+0x121U)",
+        "0x8000f0f": "((uintptr_t)pf_module_state+0x125U)"
+      }
+    },
+    "source_replacement_groups": {}
+  }
+}

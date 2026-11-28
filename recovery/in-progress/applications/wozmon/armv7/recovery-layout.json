@@ -1,0 +1,67 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268435456,
+  "text_end": 268440996,
+  "state_end": 268447744,
+  "translation": {
+    "pointer_bytes": 4,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "state_base": 268440996,
+    "state_end": 268447744,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];"
+    ],
+    "source_replacements": {
+      "10000604": {},
+      "10000050": {},
+      "10000244": {},
+      "100002c4": {},
+      "10000088": {},
+      "10000000": {},
+      "10000528": {},
+      "10001278": {},
+      "1000063c": {
+        "_DAT_60002064": "(*(uint32_t *)((uintptr_t)pf_module_state+0xac0U))",
+        "DAT_60002000": "(*(uint8_t *)((uintptr_t)pf_module_state+0xa5cU))",
+        "DAT_60002060": "(*(uint8_t *)((uintptr_t)pf_module_state+0xabcU))",
+        "DAT_60002064": "(*(uint8_t *)((uintptr_t)pf_module_state+0xac0U))",
+        "DAT_60002001": "(*(uint8_t *)((uintptr_t)pf_module_state+0xa5dU))",
+        "*pcVar5 = SUB41(local_24,0);": "*(uint8_t *)(uintptr_t)pcVar5 = (uint8_t)(uintptr_t)local_24;",
+        "0x600015bc": "((uintptr_t)pf_module_state+0x18U)",
+        "0x600015f2": "((uintptr_t)pf_module_state+0x4eU)",
+        "0x60001fff": "((uintptr_t)pf_module_state+0xa5bU)",
+        "0x60001650": "((uintptr_t)pf_module_state+0xacU)",
+        "0x600015d8": "((uintptr_t)pf_module_state+0x34U)",
+        "0x6000160f": "((uintptr_t)pf_module_state+0x6bU)",
+        "0x600015a4": "((uintptr_t)pf_module_state+0x0U)",
+        "0x60001624": "((uintptr_t)pf_module_state+0x80U)",
+        "0x60001668": "((uintptr_t)pf_module_state+0xc4U)"
+      },
+      "100000f8": {},
+      "10000f94": {
+        "_DAT_60002064": "(*(uint32_t *)((uintptr_t)pf_module_state+0xac0U))",
+        "DAT_60002060": "(*(uint8_t *)((uintptr_t)pf_module_state+0xabcU))",
+        "DAT_60002064": "(*(uint8_t *)((uintptr_t)pf_module_state+0xac0U))",
+        "DAT_60001657": "(*(uint8_t *)((uintptr_t)pf_module_state+0xb3U))",
+        "0x60001650": "((uintptr_t)pf_module_state+0xacU)",
+        "0x60001655": "((uintptr_t)pf_module_state+0xb1U)",
+        "0x60001653": "((uintptr_t)pf_module_state+0xafU)"
+      },
+      "10000584": {},
+      "100005dc": {},
+      "10000594": {},
+      "10000620": {},
+      "100004a0": {
+        "DAT_10000520": "pf_bits_double(0x43e0000000000000ULL)"
+      },
+      "100003e4": {},
+      "10000574": {},
+      "10000160": {}
+    },
+    "source_replacement_groups": {}
+  }
+}

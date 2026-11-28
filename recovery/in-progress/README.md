@@ -513,3 +513,10 @@ library interfaces. ARM32 unsigned-to-double helpers additionally match 561
 native word-ABI cases, including the reference accumulation order. Positive
 script files, full exception/callback interoperability and booted VM parity
 remain release gates.
+
+The standalone monitor now has C source checkpoints on all four architectures.
+Each matches 140 guarded hexadecimal-parser cases and nine console workflows
+covering invalid input, memory ranges, byte storage, backspace, Escape, and
+returning from guest code. Native transcripts normalize the requested Permafrost
+display-name change. These controlled kernel-service checks do not establish
+full booted release parity.
