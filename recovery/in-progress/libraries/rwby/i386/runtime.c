@@ -13694,7 +13694,7 @@ int * recovered_1000d710(int *param_1,double param_2)
         uStack_8c = (uint)(dVar5 <= dVar3) << 0x1f ^ PF_PART4(local_88, 4);
         PF_PART4(local_88, 0) = (uint)lVar1;
         local_90 = (uint)local_88;
-        local_80 = (double)(pf_bits_float(CONCAT44(uStack_8c,(uint)local_88)) +
+        local_80 = (double)((double)(longlong)CONCAT44(uStack_8c,(uint)local_88) +
                            *(float *)(&DAT_10043248 + ((int)uStack_8c >> 0x1f) * -4));
         local_d4 = 0x1000d724;
         dVar3 = (dVar3 - local_80) * (double)DAT_10043230 + (double)DAT_10043150;

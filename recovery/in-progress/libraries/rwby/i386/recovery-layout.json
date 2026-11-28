@@ -1249,7 +1249,8 @@
       "10002010": {},
       "10031280": {},
       "1000d710": {
-        "local_d4 + 0x3823d": "((uintptr_t)pf_module_state+0x2819U)"
+        "local_d4 + 0x3823d": "((uintptr_t)pf_module_state+0x2819U)",
+        "(float)CONCAT44(uStack_8c,(uint)local_88)": "(double)(longlong)CONCAT44(uStack_8c,(uint)local_88)"
       },
       "10031790": {},
       "1001afd0": {},
@@ -1605,5 +1606,9 @@
       "result": ""
     }
   },
-  "reviewed_x87_exponential_argument": "Native expl loads a ten-byte argument from a twelve-byte i386 stack slot and returns through the full ST0 register."
+  "reviewed_x87_exponential_argument": "Native expl loads a ten-byte argument from a twelve-byte i386 stack slot and returns through the full ST0 register.",
+  "reviewed_decimal_integer_conversion": {
+    "function": "1000d710",
+    "basis": "Native x87 FILD loads the signed 64-bit integral decimal component numerically before adding the fractional digits."
+  }
 }
