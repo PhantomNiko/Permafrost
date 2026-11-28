@@ -16,6 +16,11 @@
       "reference_sha256": "9ad510cd7c4569f5bfe8834235343bdff04ce91a278ff42a7935982ebbc5a49c",
       "source_build": true,
       "console_workflows": 6
+    },
+    "i386": {
+      "reference_sha256": "467203dd34e77e13e1d8044cfb947db8ec258ae4c67a4eacfccb9b8d9fc4e46b",
+      "source_build": true,
+      "console_workflows": 6
     }
   },
   "pending": [
