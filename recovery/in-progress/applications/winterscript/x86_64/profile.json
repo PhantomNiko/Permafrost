@@ -1,0 +1,12 @@
+{
+  "module": "winterscript",
+  "architecture": "x86_64",
+  "version": "1.1",
+  "sources": [
+    "runtime.c",
+    "state.c",
+    "entry.c"
+  ],
+  "reference_path": "Binary/winterscript",
+  "recovery_note": "Recovered C console checkpoint; script files, full errors and booted VM parity remain release gates."
+}

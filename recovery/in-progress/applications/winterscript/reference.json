@@ -1,0 +1,18 @@
+{
+  "version": "1.1",
+  "reference_path": "Binary/winterscript",
+  "architectures": {
+    "x86_64": {
+      "reference_sha256": "bb34d6f696cf43e13849f2a1a0e55f86187a3cf702aed891555096fe2a698c6b",
+      "source_build": true,
+      "console_workflows": 6
+    }
+  },
+  "pending": [
+    "remaining architectures",
+    "script-file workflows",
+    "full exception compatibility",
+    "booted VM integration"
+  ],
+  "status": "partial source checkpoint; release VM parity remains incomplete"
+}
