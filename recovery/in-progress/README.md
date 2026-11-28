@@ -613,3 +613,10 @@ port/MMIO notification, failed DMA, invalid IDs, and short/oversized completions
 The ARM32 high address output is an explicit local rather than an unresolved
 stack reference. PCI capability setup and booted entropy integration remain
 release gates.
+
+The 1.1 virtio console driver now has independently built C checkpoints on all
+four CPUs. Each matches eight descriptor/API cases, eight PCI-record cases, and
+42 complete enumeration workflows. Comparisons include parent/child device
+registration strings, legacy and modern console IDs, multifunction devices,
+identity rejection, and configuration-read failures. ARM32 record fields retain
+their actual stack outputs. Booted discovery integration remains a release gate.

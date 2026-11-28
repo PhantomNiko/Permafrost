@@ -1,0 +1,65 @@
+{
+  "module": "DriverSerialVirtio",
+  "architecture": "x86_64",
+  "version": "1.1",
+  "install_name": "/Drivers/serial~virtio~console.kext",
+  "functions": {
+    "0x380": "recovered_10000380",
+    "0x38d": "recovered_1000038d",
+    "0x4cc": "recovered_100004cc",
+    "0x6c0": "recovered_100006c0",
+    "0x83c": "recovered_1000083c",
+    "0x882": "recovered_10000882",
+    "0xb4c": "recovered_10000b4c",
+    "0xb60": "recovered_10000b60",
+    "0xbb4": "recovered_10000bb4",
+    "0xc11": "recovered_10000c11",
+    "0xc88": "recovered_10000c88",
+    "0xca8": "recovered_10000ca8",
+    "0xce2": "recovered_10000ce2"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 896,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 909,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 704,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 16
+      },
+      "tag": 0
+    },
+    {
+      "offset": 712,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 42
+      },
+      "tag": 0
+    },
+    {
+      "offset": 720,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 49
+      },
+      "tag": 0
+    }
+  ],
+  "data_exports": []
+}

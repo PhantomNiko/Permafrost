@@ -1,0 +1,39 @@
+{
+  "version": "1.1",
+  "reference_path": "Drivers/serial~virtio~console.kext",
+  "architectures": {
+    "i386": {
+      "reference_sha256": "3051c34d37f91765436cc651be323227d1888b03a5e75d73d1b6bfbe6b315d2b",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "pci_record_cases": 8,
+      "pci_enumeration_cases": 42
+    },
+    "x86_64": {
+      "reference_sha256": "89c4309b6fb32eaa541487fc89ad270ed0b06d9eebda98ef19b90f9e86cf26a1",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "pci_record_cases": 8,
+      "pci_enumeration_cases": 42
+    },
+    "armv7": {
+      "reference_sha256": "e0611b3a8872a99772c5b95169c8eac83a940e7962aa7d864d64ccd5b7e16309",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "pci_record_cases": 8,
+      "pci_enumeration_cases": 42
+    },
+    "arm64": {
+      "reference_sha256": "e370e2adb8a1343fc442f12999e4fa9fd6265a28f3abc78b290aed66f898ba01",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "pci_record_cases": 8,
+      "pci_enumeration_cases": 42
+    }
+  },
+  "status": "source checkpoint; booted serial-controller integration remains incomplete",
+  "pending": [
+    "booted PCI discovery and serial-controller registration on all four architectures",
+    "release-wide VM parity"
+  ]
+}

@@ -1,0 +1,222 @@
+{
+  "module": "DriverSerialVirtio",
+  "architecture": "armv7",
+  "version": "1.1",
+  "install_name": "/Drivers/serial~virtio~console.kext",
+  "functions": {
+    "0x2c30": "recovered_10002c30",
+    "0x2c40": "recovered_10002c40",
+    "0x2db8": "recovered_10002db8",
+    "0x2fbc": "recovered_10002fbc",
+    "0x315c": "recovered_1000315c",
+    "0x31d4": "recovered_100031d4",
+    "0x3548": "recovered_10003548",
+    "0x355c": "recovered_1000355c",
+    "0x35b0": "recovered_100035b0",
+    "0x3610": "recovered_10003610",
+    "0x36c0": "recovered_100036c0",
+    "0x36e8": "recovered_100036e8",
+    "0x3724": "recovered_10003724",
+    "0x37b8": "recovered_100037b8",
+    "0x3808": "recovered_10003808",
+    "0x3840": "recovered_10003840",
+    "0x38b0": "recovered_100038b0",
+    "0x3918": "recovered_10003918",
+    "0x39fc": "recovered_100039fc",
+    "0x3a7c": "recovered_10003a7c",
+    "0x3b9c": "recovered_10003b9c",
+    "0x3c58": "recovered_10003c58",
+    "0x3ce0": "recovered_10003ce0",
+    "0x3d2c": "recovered_10003d2c",
+    "0x3d3c": "recovered_10003d3c",
+    "0x3d4c": "recovered_10003d4c",
+    "0x3d94": "recovered_10003d94",
+    "0x3dbc": "recovered_10003dbc",
+    "0x3dd8": "recovered_10003dd8"
+  },
+  "exports": [
+    {
+      "name": "___divdi3",
+      "address": 14972,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___divsi3",
+      "address": 14400,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixdfdi",
+      "address": 15584,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixsfdi",
+      "address": 15676,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixunsdfdi",
+      "address": 15448,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixunssfdi",
+      "address": 15660,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatdidf",
+      "address": 15764,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatdisf",
+      "address": 15832,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatundidf",
+      "address": 15692,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatundisf",
+      "address": 15804,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___moddi3",
+      "address": 15260,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___modsi3",
+      "address": 14512,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___udivdi3",
+      "address": 14616,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___udivsi3",
+      "address": 14264,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___umoddi3",
+      "address": 14844,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___umodsi3",
+      "address": 14344,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 11312,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 11328,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 524,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3ce0"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 528,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3c58"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 532,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3d94"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 536,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3d4c"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 540,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x37b8"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 16920,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 52
+      },
+      "tag": 0
+    },
+    {
+      "offset": 16924,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 78
+      },
+      "tag": 0
+    },
+    {
+      "offset": 16928,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 84
+      },
+      "tag": 1
+    }
+  ],
+  "data_exports": []
+}

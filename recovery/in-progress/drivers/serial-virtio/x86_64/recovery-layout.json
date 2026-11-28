@@ -1,0 +1,38 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268436352,
+  "text_end": 268438856,
+  "state_end": 268447744,
+  "translation": {
+    "pointer_bytes": 8,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 268438856,
+    "state_end": 268447744,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"x86_cpu.h\""
+    ],
+    "source_replacements": {
+      "100006c0": {},
+      "10000c88": {},
+      "10000bb4": {},
+      "10000ca8": {},
+      "10000ce2": {},
+      "100004cc": {},
+      "10000b4c": {},
+      "1000083c": {},
+      "1000038d": {},
+      "10000380": {},
+      "10000b60": {},
+      "10000882": {},
+      "10000c11": {}
+    },
+    "source_replacement_groups": {}
+  }
+}
