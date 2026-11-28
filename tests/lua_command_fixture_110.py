@@ -11,11 +11,11 @@ from unicorn.arm_const import UC_ARM_REG_R0, UC_ARM_REG_R1, UC_ARM_REG_R2, UC_AR
 from unicorn.arm64_const import UC_ARM64_REG_X0, UC_ARM64_REG_X1, UC_ARM64_REG_X2, UC_ARM64_REG_X3
 
 
-def run_command(reference, source, provider, which, output, arguments, input_lines=()):
+def run_command(reference, source, provider, which, output, arguments, input_lines=(), command="lua"):
     lib = load(reference, source, output, provider)[which]
     meta, _ = inspect((source if which else reference).read_bytes())
     symbols = {n: a for a, n in meta['symbols']}
-    name = '_main' if which else '_winterboot_lua_entry'
+    name = '_main' if which else '_winterboot_' + command + '_entry'
     lib.exports[name] = lib.base + symbols[name]
     lib.instruction_limit = 5000000
     cpu = lib.cpu
@@ -67,7 +67,7 @@ def run_command(reference, source, provider, which, output, arguments, input_lin
             cpu.mem_write(table + slot, struct.pack('<I', target))
     pointers = []
     guards = []
-    for index, value in enumerate(['lua'] + arguments):
+    for index, value in enumerate([command] + arguments):
         pointer = 0x3100000 + index * 4096
         raw = b'BEFORE!!' + value.encode() + b'\0AFTER!!!'
         cpu.mem_write(pointer, raw)
