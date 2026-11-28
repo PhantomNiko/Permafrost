@@ -1,0 +1,197 @@
+/* Permafrost recovered source; Pooka's Free Software License. */
+#pragma once
+#include "support.h"
+#include "support.h"
+extern unsigned char pf_module_state[];
+#include "x86_cpu.h"
+extern uint8_t pf_module_state[];
+void recovered_10000480(void);
+void recovered_100004e0(void);
+void recovered_100007f0(long param_1,long param_2,long param_3);
+bool recovered_10000840(long param_1,long param_2,long param_3);
+void recovered_10000a80(undefined8 param_1,undefined8 param_2);
+ulong recovered_10000ae0(void);
+long recovered_10000b60(void);
+ulong recovered_10000bd0(void);
+long recovered_10000c60(void);
+void recovered_10000ce0(long param_1);
+ulong * recovered_10000d40(long param_1,ulong *param_2,ulong *param_3);
+void recovered_10000f40(long param_1,ulong *param_2);
+ulong * recovered_10000fa0(long param_1,ulong param_2,ulong param_3);
+void recovered_10001000(long param_1);
+void recovered_10001050(long param_1);
+undefined8 * recovered_10001170(undefined8 *param_1,ulong param_2);
+ulong recovered_10001820(ulong param_1,uint param_2);
+ulong recovered_10001860(ulong param_1,uint param_2);
+long recovered_100018a0(long param_1,uint param_2);
+ulong recovered_100018f0(ulong param_1,ulong param_2);
+long recovered_10001990(ulong param_1,ulong param_2);
+ulong recovered_10001a00(ulong param_1,ulong param_2);
+long recovered_10001ad0(ulong param_1,ulong param_2);
+void recovered_10001b60(void);
+int recovered_10001b80(int param_1);
+undefined8 recovered_10001b90(void);
+void recovered_10001be0(void);
+undefined8 recovered_10001c30(void);
+void recovered_10001c80(undefined8 *param_1,undefined8 *param_2,ulong param_3,undefined8 param_4,
+                       undefined8 *param_5);
+void recovered_100020c0(undefined8 *param_1,undefined8 *param_2,ulong param_3,undefined8 param_4,
+                       undefined8 *param_5,undefined1 *param_6);
+void recovered_10002980(byte *param_1,byte param_2,ulong param_3);
+void recovered_10002cd0(undefined8 *param_1,ulong param_2);
+void recovered_10002fa0(undefined8 *param_1,ulong param_2);
+char * recovered_10003270(char *param_1,char param_2,long param_3);
+int recovered_100032a0(ulong *param_1,ulong *param_2,ulong param_3);
+int recovered_100035a0(byte *param_1,byte *param_2);
+bool recovered_10003610(int param_1);
+bool recovered_10003630(int param_1);
+bool recovered_10003650(uint param_1);
+bool recovered_10003670(uint param_1);
+bool recovered_100036a0(int param_1);
+bool recovered_100036c0(int param_1);
+int recovered_100036e0(int param_1);
+int recovered_10003700(int param_1);
+long recovered_10003720(long param_1);
+int recovered_10003750(byte *param_1,byte *param_2);
+int recovered_10003790(byte *param_1,byte *param_2);
+void recovered_100037d0(long param_1,long param_2);
+undefined8 * recovered_100037f0(undefined8 *param_1);
+char * recovered_10003c70(char *param_1,char param_2);
+long recovered_10003cb0(char *param_1,char *param_2);
+long recovered_10003d10(char *param_1,char *param_2);
+char * recovered_10003d70(char *param_1,char *param_2);
+char * recovered_10003dd0(char *param_1,char *param_2);
+undefined * recovered_10003e30(void);
+undefined ** recovered_10003e40(void);
+void recovered_10003e50(undefined8 *param_1);
+double recovered_10003f50(double param_1,uint param_2);
+ulong recovered_10004020(double param_1,int *param_2);
+double recovered_100040f0(double param_1,double param_2);
+double recovered_10004120(double param_1,double param_2);
+ulong recovered_100041a0(double param_1);
+ulong recovered_100041d0(double param_1);
+double recovered_10004230(double param_1);
+double recovered_100043e0(double param_1);
+long recovered_10004530(double param_1);
+double recovered_10004560(double param_1);
+double recovered_10004610(double param_1);
+double recovered_100046b0(double param_1);
+ulong recovered_100046d0(double param_1);
+ulong recovered_100047a0(double param_1);
+double recovered_10004850(ulong param_1);
+double recovered_100048a0(ulong param_1);
+float recovered_10004930(float param_1,float param_2);
+undefined8 recovered_10004980(float param_1,int *param_2);
+undefined8 recovered_10004a40(float param_1,uint param_2);
+float recovered_10004b30(float param_1,float param_2);
+undefined8 recovered_10004bc0(void);
+float recovered_10004c00(float param_1);
+double recovered_10004c60(double param_1);
+undefined8 recovered_10004cc0(undefined8 param_1);
+float recovered_10004d30(float param_1);
+float recovered_10004d50(float param_1);
+long recovered_10004ea0(double param_1);
+float recovered_10004ed0(float param_1);
+float recovered_10004f80(float param_1);
+undefined8 recovered_10005020(undefined8 param_1);
+long recovered_10005040(byte *param_1,undefined8 *param_2,uint param_3);
+long recovered_10005170(byte *param_1,undefined8 *param_2,uint param_3);
+double recovered_100052a0(byte *param_1,undefined8 *param_2);
+float recovered_10005500(void);
+ulong recovered_10005510(byte *param_1,ulong param_2,byte *param_3,uint *param_4);
+int recovered_100063f0(char *buffer,ulong capacity,char *format,...);
+long * recovered_10006470(long *param_1,ulong param_2,ulong *param_3);
+ulong * recovered_10006630(ulong *param_1,ulong *param_2);
+undefined8 recovered_100066a0(ulong *param_1,long param_2);
+int recovered_10006700(uint argc,char **argv);
+void recovered_1000a9a0(char *text);
+void recovered_1000aa30(char *format,...);
+int recovered_1000ab60(int param_1,uint param_2);
+void recovered_1000af90(uint *param_1,uint param_2);
+void recovered_1000b130(undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+                       undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8,
+                       long param_9,undefined8 param_10,undefined8 *param_11,undefined8 param_12,
+                       undefined8 *param_13,undefined8 param_14);
+void recovered_1000b3d0(uint *param_1);
+void recovered_1000b430(undefined1 *param_1);
+void recovered_1000b560(long param_1,ulong param_2);
+void recovered_1000b770(ulong *param_1,long param_2);
+void recovered_1000b960(undefined8 param_1,undefined1 *param_2,uint param_3,undefined1 *param_4);
+void recovered_1000bbb0(undefined8 param_1,uint *param_2);
+void recovered_1000bd40(long param_1,ulong param_2);
+void recovered_1000c1e0(undefined8 *param_1,undefined8 param_2,undefined8 *param_3,long param_4);
+void recovered_1000c4e0(ulong *param_1,ulong *param_2);
+void recovered_1000c730(long *param_1,undefined8 *param_2);
+void recovered_1000c7c0(uint *param_1,uint *param_2);
+void recovered_1000c9a0(uint128 *param_1,long param_2);
+void recovered_1000d840(long *param_1,long param_2,ulong *param_3);
+void recovered_1000ddc0(long *param_1,long *param_2);
+void recovered_1000ec80(undefined8 *param_1,undefined8 *param_2);
+void recovered_1000ed80(undefined2 *param_1,uint128 *param_2);
+void recovered_1000f410(long *param_1);
+void recovered_1000f460(uint *param_1,long param_2);
+void recovered_1000f630(undefined4 param_1);
+void recovered_1000f680(uint param_1,uint param_2,uint param_3);
+void recovered_1000f7a0(char param_1,int param_2);
+void recovered_1000fb10(undefined8 *param_1,ushort param_2);
+void recovered_1000fb60(int param_1,int param_2,uint param_3,ulong param_4);
+void recovered_1000fcc0(uint param_1);
+uint recovered_1000fd50(long param_1,uint param_2);
+void recovered_1000fdd0(undefined4 param_1,undefined8 *param_2,uint param_3,undefined8 *param_4);
+void recovered_1000fee0(int param_1,undefined8 *param_2);
+void recovered_10010020(char *param_1,uint param_2,int param_3);
+void recovered_10010310(uint param_1,uint param_2,uint param_3);
+void recovered_10010890(ulong param_1,uint param_2);
+void recovered_100109d0(ushort *param_1,uint param_2,int param_3);
+void recovered_10010c10(undefined1 *param_1,int param_2);
+undefined8
+recovered_10010ea0(long param_1,byte param_2,undefined4 param_3,uint param_4,uint param_5);
+void recovered_10011200(int *param_1,int param_2,int param_3,int param_4);
+void recovered_10011320(long param_1,int param_2,uint param_3,long param_4,uint param_5);
+void recovered_10011390(uint *param_1,uint param_2);
+void recovered_100115a0(long param_1);
+undefined8 recovered_10011b10(long param_1,undefined8 *param_2,uint param_3);
+void recovered_100121d0(undefined8 *param_1,long param_2,undefined8 *param_3,long param_4,
+                       long param_5,ulong param_6);
+void recovered_100124f0(uint *param_1,uint *param_2,ulong param_3);
+void recovered_100125b0(uint *param_1,undefined1 *param_2);
+void recovered_10012860(undefined1 *param_1,uint param_2,long param_3,long param_4,uint param_5,
+                       ulong *param_6);
+void recovered_100130f0(undefined1 *param_1,uint param_2,long param_3,long param_4,uint param_5,
+                       uint *param_6);
+void recovered_100137c0(uint *param_1,char *param_2,long param_3,long param_4,ulong param_5);
+void recovered_10013fd0(uint *param_1,uint *param_2,ulong param_3,uint param_4);
+void recovered_10014290(long param_1);
+void recovered_10018660(int *param_1);
+void recovered_100186d0(long param_1);
+void recovered_10018800(void *session,char *format,...);
+uint recovered_100188d0(long *param_1);
+undefined8 recovered_10018920(long *param_1,undefined1 *param_2,uint param_3);
+bool recovered_100189d0(long param_1,ulong param_2,ulong *param_3);
+void recovered_10018a30(long param_1,long param_2,uint param_3);
+bool recovered_10018ed0(long *param_1);
+void recovered_10018f20(long param_1,long param_2,uint param_3);
+void recovered_100192e0(long param_1,long param_2,uint param_3);
+void recovered_10019c00(long param_1,long param_2,uint param_3);
+void recovered_10019de0(long param_1,undefined1 param_2);
+undefined8 recovered_10019e40(long param_1,uint param_2,ulong *param_3);
+char recovered_10019f30(long param_1,uint param_2);
+char recovered_1001a0b0(long param_1,uint param_2);
+bool recovered_1001a200(long param_1,ulong param_2,ulong *param_3);
+void recovered_1001a280(undefined2 *param_1,ulong *param_2,undefined4 *param_3);
+void recovered_1001ba60(int *param_1,int param_2,int param_3,long param_4,long param_5,uint param_6,
+                       long param_7,char param_8);
+void recovered_1001c1c0(long *param_1,long *param_2);
+void recovered_1001c3f0(long param_1,long param_2,uint param_3,long param_4,undefined1 param_5,
+                       long param_6);
+bool recovered_1001c8a0(long param_1,ulong param_2);
+undefined8 recovered_1001c9b0(byte *param_1);
+void recovered_1001cc80(long param_1,undefined8 *param_2);
+void recovered_1001cce0(long param_1,long param_2,uint param_3);
+void recovered_1001cd70(long param_1,long param_2);
+void recovered_1001ce10(long param_1,uint param_2);
+void recovered_1001d210(long param_1);
+void recovered_1001d410(long param_1);
+bool recovered_1001d600(long param_1);
+
+/* Original analysis identifiers for manual recovery units. */

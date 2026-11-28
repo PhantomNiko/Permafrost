@@ -424,6 +424,19 @@
         "booted PNG and filesystem integration",
         "release-wide VM parity"
       ]
+    },
+    "ssh_command": {
+      "x86_64": {
+        "independent_c_source_build": true,
+        "guarded_crypto_workflows": 39,
+        "host_startup_shutdown_workflows": 3
+      },
+      "pending": [
+        "remaining architecture checkpoints",
+        "packet and authenticated session interoperability",
+        "full configuration and key-file workflows",
+        "booted VM integration"
+      ]
     }
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",

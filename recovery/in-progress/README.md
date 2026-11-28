@@ -536,3 +536,10 @@ workflows. Interactive tests compare WBF bytes and console output through
 controlled PNG and filesystem services, including cancellation, invalid input,
 decode failures and write failures. Complete service-error coverage and booted
 PNG/filesystem integration remain release gates.
+
+SSH has an independently built x64 C command checkpoint. Thirty-nine guarded
+comparisons cover HMAC-SHA256, HMAC-SHA512, ChaCha20, X25519 and packet checksums.
+Three controlled host workflows match native host-key fingerprints, unavailable
+adapters, startup and Escape shutdown. Timestamp inputs are held equal for key
+comparisons. Other architecture checkpoints, authenticated sessions, complete
+configuration/key-file workflows and booted VM integration remain incomplete.
