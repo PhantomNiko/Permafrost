@@ -12,6 +12,11 @@
       "source_build": true,
       "console_workflows": 6,
       "result_workflows": 5
+    },
+    "i386": {
+      "reference_sha256": "c378e3a640a828d0a510b0239362a53fa42457587539d72cf2ce3ba7d35e9872",
+      "source_build": true,
+      "console_workflows": 6
     }
   },
   "pending": [

@@ -22,7 +22,8 @@ def run_command(reference, source, provider, which, output, arguments, input_lin
         # diagnostic loader places code above the null page, so reconnect
         # only words that name an actual owned function in native const data.
         word = 8 if lib.wide else 4
-        owned = {address for address, _ in meta['symbols']}
+        text_start, text_size = next((start, size) for section, start, size in meta['sections'] if section == '__text')
+        owned = {address for address, _ in meta['symbols'] if text_start <= address < text_start + text_size}
         for section, start, size in meta['sections']:
             if section != '__const':
                 continue
