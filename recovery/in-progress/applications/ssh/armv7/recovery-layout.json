@@ -1,0 +1,1046 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268442960,
+  "text_end": 268561368,
+  "state_end": 268632064,
+  "translation": {
+    "pointer_bytes": 4,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "state_base": 268561368,
+    "state_end": 268632064,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"cpu.h\"",
+      "#include \"arm_exclusive.h\"",
+      "#include \"armv7-recovery.h\"",
+      "#include \"neon.h\"",
+      "void __udivsi3(void);",
+      "#define recovered_1001fff0 __udivsi3",
+      "void recovered_10010704(uint8_t *output,const int64_t *input);"
+    ],
+    "atomic_views": true,
+    "integer_vector_128": true,
+    "source_replacements": {
+      "10012e18": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1000c22c": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10011da8": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10004f58": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10004e94": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100051dc": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10005f80": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10005c90": {
+        "DAT_10005d28": "pf_bits_double(0x400921fb54442d18ULL)",
+        "DAT_10005d30": "pf_bits_double(0xc01921fb54442d18ULL)",
+        "DAT_10005d38": "pf_bits_double(0xc00921fb54442d18ULL)",
+        "DAT_10005d40": "pf_bits_double(0x401921fb54442d18ULL)",
+        "DAT_10005d48": "pf_bits_double(0x405e000000000000ULL)",
+        "DAT_10005d50": "pf_bits_double(0xc0b3b00000000000ULL)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1001e32c": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10002ba0": {
+        "0x10020048": "((uintptr_t)pf_module_state + 0x1470U)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1001e3b8": {
+        "0x1001f6f9": "((uintptr_t)pf_module_state + 0xb21U)",
+        "0x1001f6f5": "((uintptr_t)pf_module_state + 0xb1dU)",
+        "0x1001f6fe": "((uintptr_t)pf_module_state + 0xb26U)",
+        "0x1001f707": "((uintptr_t)pf_module_state + 0xb2fU)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10004d94": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1001a974": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1001948c": {
+        "0x1001ffeb": "((uintptr_t)pf_module_state + 0x1413U)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1001d518": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1000bbf8": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10003b74": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1000447c": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1001968c": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1000e954": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10011984": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10012db8": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1001111c": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10004a80": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10005b18": {
+        "DAT_10005c58": "pf_bits_float(0xff800000U)",
+        "DAT_10005c50": "pf_bits_double(0x3fe62e42fefa39efULL)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1000dfa0": {
+        "0x1001fa08": "((uintptr_t)pf_module_state + 0xe30U)",
+        "DAT_1000e230": "(*(uint64_t *)(uint64_t[]){0x6666ULL})",
+        "DAT_1000e238": "(*(uint64_t *)(uint64_t[]){0x6666ULL})",
+        "DAT_1000e240": "(*(uint64_t *)(uint64_t[]){0xd51aULL})",
+        "DAT_1000e248": "(*(uint64_t *)(uint64_t[]){0x8f25ULL})",
+        "DAT_1000e250": "(*(uint64_t *)(uint64_t[]){0x2d60ULL})",
+        "DAT_1000e258": "(*(uint64_t *)(uint64_t[]){0xc956ULL})",
+        "DAT_1000e260": "(*(uint64_t *)(uint64_t[]){0xa7b2ULL})",
+        "DAT_1000e268": "(*(uint64_t *)(uint64_t[]){0x9525ULL})",
+        "DAT_1000e270": "(*(uint64_t *)(uint64_t[]){0xc760ULL})",
+        "DAT_1000e278": "(*(uint64_t *)(uint64_t[]){0x692cULL})",
+        "DAT_1000e280": "(*(uint64_t *)(uint64_t[]){0xdc5cULL})",
+        "DAT_1000e288": "(*(uint64_t *)(uint64_t[]){0xfdd6ULL})",
+        "DAT_1000e290": "(*(uint64_t *)(uint64_t[]){0x36d3ULL})",
+        "DAT_1000e298": "(*(uint64_t *)(uint64_t[]){0x2169ULL})",
+        "DAT_1000e2a0": "(*(uint64_t *)(uint64_t[]){0xe231ULL})",
+        "DAT_1000e2a8": "(*(uint64_t *)(uint64_t[]){0xc0a4ULL})",
+        "DAT_1000e2b0": "(*(uint64_t *)(uint64_t[]){0x6658ULL})",
+        "DAT_1000e2b8": "(*(uint64_t *)(uint64_t[]){0x6666ULL})",
+        "DAT_1000e2c0": "(*(uint64_t *)(uint64_t[]){0x53feULL})",
+        "DAT_1000e2c8": "(*(uint64_t *)(uint64_t[]){0xcd6eULL})",
+        "DAT_1000e2d0": "(*(uint64_t *)(uint64_t[]){0x1ULL})",
+        "DAT_1000e2d8": "(*(uint64_t *)(uint64_t[]){0x0ULL})",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100026e4": {
+        "0x10020048": "((uintptr_t)pf_module_state + 0x1470U)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10014e70": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10005658": {
+        "DAT_100056d8": "pf_bits_double(0x43e0000000000000ULL)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10001ec4": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1001a110": {
+        "0x1001f685": "((uintptr_t)pf_module_state + 0xaadU)",
+        "0x1001f6a4": "((uintptr_t)pf_module_state + 0xaccU)",
+        "0x1001f677": "((uintptr_t)pf_module_state + 0xa9fU)",
+        "0x1001f669": "((uintptr_t)pf_module_state + 0xa91U)",
+        "0x1001f671": "((uintptr_t)pf_module_state + 0xa99U)",
+        "0x1001ed67": "((uintptr_t)pf_module_state + 0x18fU)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100024e0": {
+        "0x10020048": "((uintptr_t)pf_module_state + 0x1470U)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100057b8": {
+        "DAT_100057f8": "pf_bits_float(0x0U)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10013c94": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10004e2c": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10005e2c": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1000506c": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1001afc4": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10004dc8": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10001ef0": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10005d58": {
+        "DAT_10005de8": "pf_bits_double(0x400921fb54442d18ULL)",
+        "DAT_10005df0": "pf_bits_double(0xc01921fb54442d18ULL)",
+        "DAT_10005df8": "pf_bits_double(0xc00921fb54442d18ULL)",
+        "DAT_10005e00": "pf_bits_double(0x401921fb54442d18ULL)",
+        "DAT_10005e08": "pf_bits_double(0xc086800000000000ULL)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10004280": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10005408": {
+        "DAT_10005498": "pf_bits_double(0x400921fb54442d18ULL)",
+        "DAT_100054a0": "pf_bits_double(0xc01921fb54442d18ULL)",
+        "DAT_100054a8": "pf_bits_double(0xc00921fb54442d18ULL)",
+        "DAT_100054b0": "pf_bits_double(0x401921fb54442d18ULL)",
+        "DAT_100054b8": "pf_bits_double(0x405e000000000000ULL)",
+        "DAT_100054c0": "pf_bits_double(0xc0b3b00000000000ULL)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1000ca18": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1000cc90": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100028c0": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1001cf60": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100037e4": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10001eb4": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1000e2e0": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3",
+        "*(longlong *)*(uint128 *)": "*(longlong *)",
+        "*(ulonglong *)*(uint128 *)": "*(ulonglong *)"
+      },
+      "1000734c": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10002c30": {
+        "0x10020048": "((uintptr_t)pf_module_state + 0x1470U)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1000491c": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1000d460": {
+        "DAT_1000d750": "(*(uint64_t *)(uint64_t[]){0x3320646e61707865ULL})",
+        "DAT_1000d758": "(*(uint64_t *)(uint64_t[]){0x6b20657479622d32ULL})",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10001d50": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1001b030": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1000278c": {
+        "0x10020048": "((uintptr_t)pf_module_state + 0x1470U)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100038f0": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100046ac": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1000b680": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10004080": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10001f10": {
+        "0x10020048": "((uintptr_t)pf_module_state + 0x1470U)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100054c8": {
+        "DAT_10005550": "pf_bits_double(0x400921fb54442d18ULL)",
+        "DAT_10005558": "pf_bits_double(0xc01921fb54442d18ULL)",
+        "DAT_10005560": "pf_bits_double(0xc00921fb54442d18ULL)",
+        "DAT_10005568": "pf_bits_double(0x401921fb54442d18ULL)",
+        "DAT_10005570": "pf_bits_double(0xc086800000000000ULL)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10003460": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1000d760": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1001309c": {
+        "0x1001f9f8": "((uintptr_t)pf_module_state + 0xe20U)",
+        "0x1001fd1c": "((uintptr_t)pf_module_state + 0x1144U)",
+        "0x1001fce8": "((uintptr_t)pf_module_state + 0x1110U)",
+        "0x1001fe38": "((uintptr_t)pf_module_state + 0x1260U)",
+        "0x1001fcb9": "((uintptr_t)pf_module_state + 0x10e1U)",
+        "0x1001ec07": "((uintptr_t)pf_module_state + 0x2fU)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100156b8": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100034ac": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100048f4": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100037ec": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100062b4": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100117f0": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10005904": {
+        "DAT_10005988": "pf_bits_float(0x0U)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10005124": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10004a20": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100059c4": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10003590": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10002e18": {
+        "0x10020048": "((uintptr_t)pf_module_state + 0x1470U)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100049b4": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100136d0": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10004a64": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100037f8": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10005a64": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100073b0": {
+        "0x10020050": "((uintptr_t)pf_module_state + 0x1478U)",
+        "0x10024f4c": "((uintptr_t)pf_module_state + 0x6374U)",
+        "0x100239b8": "((uintptr_t)pf_module_state + 0x4de0U)",
+        "0x10020e0c": "((uintptr_t)pf_module_state + 0x2234U)",
+        "0x10024f54": "((uintptr_t)pf_module_state + 0x637cU)",
+        "0x10021bc8": "((uintptr_t)pf_module_state + 0x2ff0U)",
+        "0x100239c5": "((uintptr_t)pf_module_state + 0x4dedU)",
+        "0x10024f0c": "((uintptr_t)pf_module_state + 0x6334U)",
+        "0x1001f9f8": "((uintptr_t)pf_module_state + 0xe20U)",
+        "0x1001fc94": "((uintptr_t)pf_module_state + 0x10bcU)",
+        "0x1002016c": "((uintptr_t)pf_module_state + 0x1594U)",
+        "0x10023980": "((uintptr_t)pf_module_state + 0x4da8U)",
+        "0x10022984": "((uintptr_t)pf_module_state + 0x3dacU)",
+        "DAT_10008720": "(*(uint64_t *)(uint64_t[]){0x1f83d9abfb41bd6bULL})",
+        "DAT_10008728": "(*(uint64_t *)(uint64_t[]){0x5be0cd19137e2179ULL})",
+        "DAT_10008730": "(*(uint64_t *)(uint64_t[]){0x6a09e667f3bcc908ULL})",
+        "DAT_10008738": "(*(uint64_t *)(uint64_t[]){0xbb67ae8584caa73bULL})",
+        "DAT_10008740": "(*(uint64_t *)(uint64_t[]){0x510e527fade682d1ULL})",
+        "DAT_10008748": "(*(uint64_t *)(uint64_t[]){0x9b05688c2b3e6c1fULL})",
+        "DAT_10008750": "(*(uint64_t *)(uint64_t[]){0x3c6ef372fe94f82bULL})",
+        "DAT_10008758": "(*(uint64_t *)(uint64_t[]){0xa54ff53a5f1d36f1ULL})",
+        "DAT_10008760": "(*(uint64_t *)(uint64_t[]){0x9b05688c510e527fULL})",
+        "DAT_10008768": "(*(uint64_t *)(uint64_t[]){0x5be0cd191f83d9abULL})",
+        "DAT_10008770": "(*(uint64_t *)(uint64_t[]){0xbb67ae856a09e667ULL})",
+        "DAT_10008778": "(*(uint64_t *)(uint64_t[]){0xa54ff53a3c6ef372ULL})",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3",
+        "DAT_10020de4[0xffff]": "(&DAT_10020de4)[0xffff]",
+        "DAT_10010704(": "recovered_10010704("
+      },
+      "10011250": {
+        "0x10023910": "((uintptr_t)pf_module_state + 0x4d38U)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100056e0": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10013ed0": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1000384c": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1000c530": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3",
+        "local_2a0[0]": "pf_schedule_low",
+        "local_2a0[1]": "pf_schedule_high",
+        "int iVar6;": "int iVar6; uint pf_schedule_low, pf_schedule_high;",
+        "iVar6 = -0x200;": "pf_schedule_low=local_2a0[0]; pf_schedule_high=local_2a0[1]; iVar6 = -0x200;"
+      },
+      "10001dd8": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10007098": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100033b8": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10002cac": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10012940": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10002b18": {
+        "0x10020048": "((uintptr_t)pf_module_state + 0x1470U)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1001eb34": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1001977c": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1000b810": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100126d4": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1001df00": {
+        "0x10023782": "((uintptr_t)pf_module_state + 0x4baaU)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1000cff0": {
+        "0x10025018": "((uintptr_t)pf_module_state + 0x6440U)",
+        "DAT_1000d420": "(*(uint64_t *)(uint64_t[]){0x6a09e667f3bcc908ULL})",
+        "DAT_1000d428": "(*(uint64_t *)(uint64_t[]){0xbb67ae8584caa73bULL})",
+        "DAT_1000d430": "(*(uint64_t *)(uint64_t[]){0x3c6ef372fe94f82bULL})",
+        "DAT_1000d438": "(*(uint64_t *)(uint64_t[]){0xa54ff53a5f1d36f1ULL})",
+        "DAT_1000d440": "(*(uint64_t *)(uint64_t[]){0x510e527fade682d1ULL})",
+        "DAT_1000d448": "(*(uint64_t *)(uint64_t[]){0x9b05688c2b3e6c1fULL})",
+        "DAT_1000d450": "(*(uint64_t *)(uint64_t[]){0x1f83d9abfb41bd6bULL})",
+        "DAT_1000d458": "(*(uint64_t *)(uint64_t[]){0x5be0cd19137e2179ULL})",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10001e48": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10010e70": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10002628": {
+        "0x10020048": "((uintptr_t)pf_module_state + 0x1470U)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1001e250": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10005598": {
+        "DAT_10005650": "pf_bits_double(0x43e0000000000000ULL)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10005a10": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1000340c": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10004934": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100197cc": {
+        "0x1001fe38": "((uintptr_t)pf_module_state + 0x1260U)",
+        "0x1001f576": "((uintptr_t)pf_module_state + 0x99eU)",
+        "0x1001edd3": "((uintptr_t)pf_module_state + 0x1fbU)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100062d0": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1000c1b0": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10004ef4": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1001ae58": {
+        "0x1001f49f": "((uintptr_t)pf_module_state + 0x8c7U)",
+        "0x1001f4ad": "((uintptr_t)pf_module_state + 0x8d5U)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1001d9e0": {
+        "DAT_1001da60": "(*(uint64_t *)(uint64_t[]){0xbb67ae856a09e667ULL})",
+        "DAT_1001da68": "(*(uint64_t *)(uint64_t[]){0xa54ff53a3c6ef372ULL})",
+        "DAT_1001da70": "(*(uint64_t *)(uint64_t[]){0x9b05688c510e527fULL})",
+        "DAT_1001da78": "(*(uint64_t *)(uint64_t[]){0x5be0cd191f83d9abULL})",
+        "DAT_1001def0": "(*(uint64_t *)(uint64_t[]){0x9b05688c510e527fULL})",
+        "DAT_1001def8": "(*(uint64_t *)(uint64_t[]){0x5be0cd191f83d9abULL})",
+        "DAT_1001dee0": "(*(uint64_t *)(uint64_t[]){0xbb67ae856a09e667ULL})",
+        "DAT_1001dee8": "(*(uint64_t *)(uint64_t[]){0xa54ff53a3c6ef372ULL})",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1000221c": {
+        "0x10020048": "((uintptr_t)pf_module_state + 0x1470U)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10015990": {
+        "0x1001f3a0": "((uintptr_t)pf_module_state + 0x7c8U)",
+        "0x1001f3b2": "((uintptr_t)pf_module_state + 0x7daU)",
+        "0x1001fe38": "((uintptr_t)pf_module_state + 0x1260U)",
+        "0x1001f9f8": "((uintptr_t)pf_module_state + 0xe20U)",
+        "0x1001f523": "((uintptr_t)pf_module_state + 0x94bU)",
+        "0x1001fe3d": "((uintptr_t)pf_module_state + 0x1265U)",
+        "DAT_10015f84": "(*(uint32_t *)(uint32_t[]){0x0ULL})",
+        "(*(uint8_t *)(uint8_t[]){0x7fULL})._4_4_": "((0x7fULL >> 32) & 0xffffffffULL)",
+        "DAT_10017f10": "(*(uint64_t *)(uint64_t[]){0x9b05688c510e527fULL})",
+        "(*(uint8_t *)(uint8_t[]){0xabULL})._4_4_": "((0xabULL >> 32) & 0xffffffffULL)",
+        "DAT_10017f18": "(*(uint64_t *)(uint64_t[]){0x5be0cd191f83d9abULL})",
+        "(*(uint8_t *)(uint8_t[]){0x67ULL})._4_4_": "((0x67ULL >> 32) & 0xffffffffULL)",
+        "DAT_10017f20": "(*(uint64_t *)(uint64_t[]){0xbb67ae856a09e667ULL})",
+        "(*(uint8_t *)(uint8_t[]){0x72ULL})._4_4_": "((0x72ULL >> 32) & 0xffffffffULL)",
+        "DAT_10017f28": "(*(uint64_t *)(uint64_t[]){0xa54ff53a3c6ef372ULL})",
+        "(*(uint8_t *)(uint8_t[]){0x6bULL})._4_4_": "((0x6bULL >> 32) & 0xffffffffULL)",
+        "DAT_10018790": "(*(uint64_t *)(uint64_t[]){0x1f83d9abfb41bd6bULL})",
+        "(*(uint8_t *)(uint8_t[]){0x79ULL})._4_4_": "((0x79ULL >> 32) & 0xffffffffULL)",
+        "DAT_10018798": "(*(uint64_t *)(uint64_t[]){0x5be0cd19137e2179ULL})",
+        "(*(uint8_t *)(uint8_t[]){0x8ULL})._4_4_": "((0x8ULL >> 32) & 0xffffffffULL)",
+        "DAT_100187a0": "(*(uint64_t *)(uint64_t[]){0x6a09e667f3bcc908ULL})",
+        "(*(uint8_t *)(uint8_t[]){0x3bULL})._4_4_": "((0x3bULL >> 32) & 0xffffffffULL)",
+        "DAT_100187a8": "(*(uint64_t *)(uint64_t[]){0xbb67ae8584caa73bULL})",
+        "(*(uint8_t *)(uint8_t[]){0xd1ULL})._4_4_": "((0xd1ULL >> 32) & 0xffffffffULL)",
+        "DAT_100187b0": "(*(uint64_t *)(uint64_t[]){0x510e527fade682d1ULL})",
+        "(*(uint8_t *)(uint8_t[]){0x1fULL})._4_4_": "((0x1fULL >> 32) & 0xffffffffULL)",
+        "DAT_100187b8": "(*(uint64_t *)(uint64_t[]){0x9b05688c2b3e6c1fULL})",
+        "(*(uint8_t *)(uint8_t[]){0x2bULL})._4_4_": "((0x2bULL >> 32) & 0xffffffffULL)",
+        "DAT_100187c0": "(*(uint64_t *)(uint64_t[]){0x3c6ef372fe94f82bULL})",
+        "(*(uint8_t *)(uint8_t[]){0xf1ULL})._4_4_": "((0xf1ULL >> 32) & 0xffffffffULL)",
+        "DAT_100187c8": "(*(uint64_t *)(uint64_t[]){0xa54ff53a5f1d36f1ULL})",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3",
+        "(*(uint64_t *)(uint64_t[]){0x5be0cd19137e2179ULL})._4_4_": "0x5be0cd19U",
+        "(*(uint64_t *)(uint64_t[]){0x6a09e667f3bcc908ULL})._4_4_": "0x6a09e667U",
+        "(*(uint64_t *)(uint64_t[]){0x1f83d9abfb41bd6bULL})._4_4_": "0x1f83d9abU",
+        "(*(uint64_t *)(uint64_t[]){0x9b05688c2b3e6c1fULL})._4_4_": "0x9b05688cU",
+        "(*(uint64_t *)(uint64_t[]){0x510e527fade682d1ULL})._4_4_": "0x510e527fU",
+        "(*(uint64_t *)(uint64_t[]){0x3c6ef372fe94f82bULL})._4_4_": "0x3c6ef372U",
+        "(*(uint64_t *)(uint64_t[]){0x9b05688c510e527fULL})._4_4_": "0x9b05688cU",
+        "(*(uint64_t *)(uint64_t[]){0xa54ff53a5f1d36f1ULL})._4_4_": "0xa54ff53aU",
+        "(*(uint64_t *)(uint64_t[]){0xbb67ae856a09e667ULL})._4_4_": "0xbb67ae85U",
+        "(*(uint64_t *)(uint64_t[]){0xa54ff53a3c6ef372ULL})._4_4_": "0xa54ff53aU",
+        "(*(uint64_t *)(uint64_t[]){0xbb67ae8584caa73bULL})._4_4_": "0xbb67ae85U",
+        "(*(uint64_t *)(uint64_t[]){0x5be0cd191f83d9abULL})._4_4_": "0x5be0cd19U"
+      },
+      "1000283c": {
+        "0x10020048": "((uintptr_t)pf_module_state + 0x1470U)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10005298": {
+        "DAT_100053c8": "pf_bits_double(0xfff0000000000000ULL)",
+        "DAT_100053d0": "pf_bits_double(0x3fe62e42fefa39efULL)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100195a8": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1000effc": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10005ac0": {
+        "DAT_10005b14": "pf_bits_float(0x0U)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1001d588": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1001acac": {
+        "0x1001f46b": "((uintptr_t)pf_module_state + 0x893U)",
+        "0x1001f489": "((uintptr_t)pf_module_state + 0x8b1U)",
+        "0x1001f494": "((uintptr_t)pf_module_state + 0x8bcU)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10005250": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10004960": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10010ee4": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3",
+        "local_124[0]": "pf_schedule_word",
+        "int iVar5;": "int iVar5; uint pf_schedule_word;",
+        "} while (iVar5 != 0x40);\n  iVar5 = 0;": "} while (iVar5 != 0x40);\n  pf_schedule_word = local_124[0]; iVar5 = 0;"
+      },
+      "10005e10": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1000598c": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100048a4": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10002578": {
+        "0x10020048": "((uintptr_t)pf_module_state + 0x1470U)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10003728": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10011850": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10012c50": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1001e798": {
+        "0x1001f6fe": "((uintptr_t)pf_module_state + 0xb26U)",
+        "0x1001ed67": "((uintptr_t)pf_module_state + 0x18fU)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10013f98": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100060e0": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100049a4": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1000be98": {
+        "0x1001ec07": "((uintptr_t)pf_module_state + 0x2fU)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1000c340": {
+        "0x10025018": "((uintptr_t)pf_module_state + 0x6440U)",
+        "DAT_1000c4f0": "(*(uint64_t *)(uint64_t[]){0x3c6ef372fe94f82bULL})",
+        "DAT_1000c4f8": "(*(uint64_t *)(uint64_t[]){0xa54ff53a5f1d36f1ULL})",
+        "DAT_1000c500": "(*(uint64_t *)(uint64_t[]){0x510e527fade682d1ULL})",
+        "DAT_1000c508": "(*(uint64_t *)(uint64_t[]){0x9b05688c2b3e6c1fULL})",
+        "DAT_1000c510": "(*(uint64_t *)(uint64_t[]){0x6a09e667f3bcc908ULL})",
+        "DAT_1000c518": "(*(uint64_t *)(uint64_t[]){0xbb67ae8584caa73bULL})",
+        "DAT_1000c520": "(*(uint64_t *)(uint64_t[]){0x1f83d9abfb41bd6bULL})",
+        "DAT_1000c528": "(*(uint64_t *)(uint64_t[]){0x5be0cd19137e2179ULL})",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10011618": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1001dfa8": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10019610": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10014870": {
+        "DAT_10014c10": "(*(uint64_t *)(uint64_t[]){0x9b05688c510e527fULL})",
+        "DAT_10014c18": "(*(uint64_t *)(uint64_t[]){0x5be0cd191f83d9abULL})",
+        "DAT_10014c20": "(*(uint64_t *)(uint64_t[]){0xbb67ae856a09e667ULL})",
+        "DAT_10014c28": "(*(uint64_t *)(uint64_t[]){0xa54ff53a3c6ef372ULL})",
+        "DAT_10014e50": "(*(uint64_t *)(uint64_t[]){0x9b05688c510e527fULL})",
+        "DAT_10014e58": "(*(uint64_t *)(uint64_t[]){0x5be0cd191f83d9abULL})",
+        "DAT_10014e60": "(*(uint64_t *)(uint64_t[]){0xbb67ae856a09e667ULL})",
+        "DAT_10014e68": "(*(uint64_t *)(uint64_t[]){0xa54ff53a3c6ef372ULL})",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10005028": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1001e96c": {
+        "0x1001ed67": "((uintptr_t)pf_module_state + 0x18fU)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100070c8": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10011aac": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10002298": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1000515c": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100105dc": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100072c8": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10003610": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10004f78": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1000dbf0": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10004994": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10019d40": {
+        "0x1001f617": "((uintptr_t)pf_module_state + 0xa3fU)",
+        "0x1001ec07": "((uintptr_t)pf_module_state + 0x2fU)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10001da0": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10005578": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1000389c": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10001f9c": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10012328": {
+        "0x1002472a": "((uintptr_t)pf_module_state + 0x5b52U)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100053d8": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10019cc4": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1000ce68": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1001e2a8": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10004f68": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10005728": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1001173c": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10004908": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10001ed4": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100141c0": {
+        "DAT_10014240": "(*(uint64_t *)(uint64_t[]){0x3c6ef372fe94f82bULL})",
+        "DAT_10014248": "(*(uint64_t *)(uint64_t[]){0xa54ff53a5f1d36f1ULL})",
+        "DAT_10014250": "(*(uint64_t *)(uint64_t[]){0x510e527fade682d1ULL})",
+        "DAT_10014258": "(*(uint64_t *)(uint64_t[]){0x9b05688c2b3e6c1fULL})",
+        "DAT_10014260": "(*(uint64_t *)(uint64_t[]){0x1f83d9abfb41bd6bULL})",
+        "DAT_10014268": "(*(uint64_t *)(uint64_t[]){0x5be0cd19137e2179ULL})",
+        "DAT_10014270": "(*(uint64_t *)(uint64_t[]){0x6a09e667f3bcc908ULL})",
+        "DAT_10014278": "(*(uint64_t *)(uint64_t[]){0xbb67ae8584caa73bULL})",
+        "DAT_10014830": "(*(uint64_t *)(uint64_t[]){0x3c6ef372fe94f82bULL})",
+        "DAT_10014838": "(*(uint64_t *)(uint64_t[]){0xa54ff53a5f1d36f1ULL})",
+        "DAT_10014840": "(*(uint64_t *)(uint64_t[]){0x510e527fade682d1ULL})",
+        "DAT_10014848": "(*(uint64_t *)(uint64_t[]){0x9b05688c2b3e6c1fULL})",
+        "DAT_10014850": "(*(uint64_t *)(uint64_t[]){0x1f83d9abfb41bd6bULL})",
+        "DAT_10014858": "(*(uint64_t *)(uint64_t[]){0x5be0cd19137e2179ULL})",
+        "DAT_10014860": "(*(uint64_t *)(uint64_t[]){0x6a09e667f3bcc908ULL})",
+        "DAT_10014868": "(*(uint64_t *)(uint64_t[]){0xbb67ae8584caa73bULL})",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1001abd0": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10005c5c": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1001ab74": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1001244c": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10004678": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1000b728": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10019404": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100057fc": {
+        "DAT_100058b4": "pf_bits_float(0x0U)",
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100049dc": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "10004980": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1000dcc0": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100110b8": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100115c8": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "100058b8": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      },
+      "1000520c": {
+        "FUN_1001fff0": "__udivsi3",
+        "DAT_1001fff0": "__udivsi3"
+      }
+    },
+    "source_replacement_groups": {}
+  },
+  "reviewed_format_arguments": [
+    "100073b0\t100078bc\t2\tssh: configuration read from %s | ssh: %s missing or invalid, using defaults",
+    "100073b0\t1000827c\t2\tssh: generated a new host key in %s | ssh: generated a host key but could not save %s",
+    "100073b0\t10008864\t4\tSHA256:%s",
+    "100073b0\t10008878\t2\tssh: host key fingerprint %s",
+    "100073b0\t10008df0\t2\tssh: host key read from %s | ssh: %s is not a valid key, regenerating",
+    "100073b0\t100091a0\t9\t%02x:%02x:%02x:%02x:%02x:%02x",
+    "100073b0\t100091c4\t3\tssh: adapter %s (%s)",
+    "100073b0\t100094cc\t4\tssh: listening on port %u (user \"%s\", password %s)",
+    "100073b0\t10009c70\t7\t%u.%u.%u.%u",
+    "100073b0\t10009c98\t5\t%s:%u",
+    "100073b0\t10009cdc\t4\tssh[%u %s]: %s",
+    "100073b0\t1000a11c\t3\tclient %s",
+    "100073b0\t1000a288\t4\tssh[%u %s]: %s",
+    "100073b0\t1000a6b0\t3\tsession ended (exit status %u)",
+    "100073b0\t1000aca4\t3\trun: %s",
+    "100073b0\t1000ae44\t7\t%u.%u.%u.%u",
+    "100073b0\t1000ae98\t4\tssh: ready - connect with: ssh %s@%s -p %u",
+    "100073b0\t1000af44\t5\tssh: %u active session(s), %u accepted, %u frames in, %u out",
+    "1000be98\t1000bed4\t3\tdisconnect: %s",
+    "1001111c\t10011194\t7\t%u.%u.%u.%u",
+    "1001111c\t100111c4\t7\t%u.%u.%u.%u",
+    "1001111c\t100111f4\t7\t%u.%u.%u.%u",
+    "1001111c\t10011210\t4\tssh: address %s netmask %s gateway %s",
+    "10015990\t10016d6c\t3\tclient disconnected: %s",
+    "100195a8\t100195fc\t4\tssh[%u %s]: %s",
+    "100197cc\t10019ab0\t3\tuser \"%s\" authenticated",
+    "100197cc\t10019bc8\t3\tauthentication failed for \"%s\"",
+    "1001a110\t1001a6dc\t3\texec: %s",
+    "1001a110\t1001a854\t4\tWinterShell (%s)",
+    "\\n",
+    "\\n",
+    "1001a110\t1001a8f4\t4\tssh[%u %s]: %s"
+  ],
+  "reviewed_variadic_wrapper": "Forward the C variadic argument list to the recovered native formatter with the host-target ABI."
+}

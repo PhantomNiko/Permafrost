@@ -1,0 +1,14 @@
+{
+  "module": "ssh",
+  "architecture": "armv7",
+  "version": "1.1",
+  "sources": [
+    "runtime.c",
+    "state.c",
+    "entry.c",
+    "compiler.c",
+    "memory.c"
+  ],
+  "reference_path": "Binary/ssh",
+  "recovery_note": "Recovered C source checkpoint; complete service and booted VM compatibility remain release gates."
+}

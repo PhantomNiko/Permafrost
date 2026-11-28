@@ -543,3 +543,14 @@ Three controlled host workflows match native host-key fingerprints, unavailable
 adapters, startup and Escape shutdown. Timestamp inputs are held equal for key
 comparisons. Other architecture checkpoints, authenticated sessions, complete
 configuration/key-file workflows and booted VM integration remain incomplete.
+
+SSH checkpoints now cover independently built C sources on all four CPUs. Each
+passes 42 HMAC, ChaCha20, X25519 and checksum comparisons, 50 guarded field and
+Edwards comparisons, and three host startup/shutdown workflows. Host comparisons
+include deterministic fingerprints, missing adapters, console output, exact
+startup DHCP frames and Escape shutdown. ARM32 and i386 field arithmetic uses
+explicit C convolution, carries and the recovered clamped ladder. Numeric curve
+constants remain numeric during relocation; the native test fixture restricts
+its vtable adjustment to the C++ VM commands. Saved PFZ1 and fontgen checks still
+pass on every CPU. Authenticated sessions, complete configuration/key-file
+handling and booted SSH integration remain release gates.

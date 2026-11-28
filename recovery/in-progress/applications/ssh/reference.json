@@ -5,12 +5,33 @@
     "x86_64": {
       "reference_sha256": "ce4ec688e5017d5e1fd0d10c858067b9cfb822729b12afcc890397baf7a3d05c",
       "source_build": true,
-      "guarded_crypto_workflows": 39,
-      "host_startup_shutdown_workflows": 3
+      "guarded_crypto_workflows": 42,
+      "host_startup_shutdown_workflows": 3,
+      "guarded_field_workflows": 50
+    },
+    "arm64": {
+      "reference_sha256": "c28b6b0163c4981cfb18815a68f4f47ee9e167a212e8668383abd25ac15d3618",
+      "source_build": true,
+      "guarded_crypto_workflows": 42,
+      "host_startup_shutdown_workflows": 3,
+      "guarded_field_workflows": 50
+    },
+    "armv7": {
+      "reference_sha256": "ec3f28efc6da8a80b70648877a428f6791add4c326d7c256048428244bbb8cd3",
+      "source_build": true,
+      "guarded_crypto_workflows": 42,
+      "host_startup_shutdown_workflows": 3,
+      "guarded_field_workflows": 50
+    },
+    "i386": {
+      "reference_sha256": "b81a2530c50dbb2268c6df635bb8db3e7641d7038496955071283a61ef5acdf8",
+      "source_build": true,
+      "guarded_crypto_workflows": 42,
+      "host_startup_shutdown_workflows": 3,
+      "guarded_field_workflows": 50
     }
   },
   "pending": [
-    "remaining architecture checkpoints",
     "packet and authenticated session interoperability",
     "full configuration and key-file workflows",
     "booted VM integration"

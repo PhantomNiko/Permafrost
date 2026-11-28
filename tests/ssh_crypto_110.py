@@ -11,6 +11,7 @@ import random
 import struct
 from pfz1_command_codec_110 import loaded
 from fontgen_core_110 import guard, guarded
+from unicorn.x86_const import UC_X86_REG_ECX, UC_X86_REG_EDX
 
 
 def chacha(key, counter, nonce):
@@ -37,9 +38,17 @@ def checksum(data):
     return ~value & 0xffff
 
 
+def invoke(lib, name, *arguments, **options):
+    if lib.cpu_type == 7 and lib.ssh_native:
+        lib.cpu.reg_write(UC_X86_REG_ECX, arguments[0])
+        lib.cpu.reg_write(UC_X86_REG_EDX, arguments[1])
+        return lib.call(name, *arguments[2:], **options)
+    return lib.call(name, *arguments, **options)
+
+
 def exercise(reference, source, output):
     libs = [loaded(reference, source, output, which) for which in [0, 1]]
-    assert all(lib.wide for lib in libs), '32-bit private register contracts require separate review'
+    for index, lib in enumerate(libs):lib.ssh_native = index == 0
     rng = random.Random(110)
     checks = 0
     for key_size, message_size in [(0, 0), (1, 1), (16, 55), (32, 64), (64, 128),
@@ -57,7 +66,7 @@ def exercise(reference, source, output):
                 data_ptr = guard(lib, 0x3120000, len(message))
                 if message:lib.cpu.mem_write(data_ptr, message)
                 target = guard(lib, 0x3130000, size)
-                lib.call('_ssh_hmac_' + algorithm, key_ptr, len(key), prefix_ptr,
+                invoke(lib, '_ssh_hmac_' + algorithm, key_ptr, len(key), prefix_ptr,
                          data_ptr, len(message), target)
                 assert guarded(lib, key_ptr, len(key)) == key
                 assert guarded(lib, prefix_ptr, 4) == prefix
@@ -77,7 +86,10 @@ def exercise(reference, source, output):
             nonce_ptr = guard(lib, 0x3110000, 8)
             lib.cpu.mem_write(nonce_ptr, nonce)
             target = guard(lib, 0x3120000, 64)
-            lib.call('_ssh_chacha20_block', key_ptr, counter, nonce_ptr, target)
+            if lib.cpu_type in [7, 12]:
+                invoke(lib, '_ssh_chacha20_block', key_ptr, counter & 0xffffffff, counter >> 32, nonce_ptr, target)
+            else:
+                invoke(lib, '_ssh_chacha20_block', key_ptr, counter, nonce_ptr, target)
             assert guarded(lib, key_ptr, 32) == key
             assert guarded(lib, nonce_ptr, 8) == nonce
             results.append(guarded(lib, target, 64))
@@ -90,22 +102,25 @@ def exercise(reference, source, output):
         for lib in libs:
             pointer = guard(lib, 0x3100000, count)
             if data:lib.cpu.mem_write(pointer, data)
-            results.append(lib.call('_ssh_checksum', pointer, count, result_bits=32))
+            results.append(invoke(lib, '_ssh_checksum', pointer, count, result_bits=32))
             assert guarded(lib, pointer, count) == data
         assert results == [checksum(data)] * 2, ('packet checksum', count, results)
         checks += 1
-    for scalar in [bytes(32), bytes(range(32)), bytes(rng.randrange(256) for _ in range(32))]:
+    base = bytes([9]) + bytes(31)
+    curves = [(scalar, base) for scalar in [bytes(32), bytes(range(32)), bytes(rng.randrange(256) for _ in range(32))]]
+    curves += [(bytes(rng.randrange(256) for _ in range(32)), point) for point in [bytes(32), bytes(rng.randrange(256) for _ in range(32)), ((1 << 255) - 10).to_bytes(32, 'little')]]
+    for scalar, public in curves:
         results = []
         for lib in libs:
             lib.instruction_limit = 200000000
             key = guard(lib, 0x3100000, 32)
             lib.cpu.mem_write(key, scalar)
             point = guard(lib, 0x3110000, 32)
-            lib.cpu.mem_write(point, bytes([9]) + bytes(31))
+            lib.cpu.mem_write(point, public)
             target = guard(lib, 0x3120000, 32)
-            lib.call('_ssh_x25519', target, key, point)
+            invoke(lib, '_ssh_x25519', target, key, point)
             assert guarded(lib, key, 32) == scalar
-            assert guarded(lib, point, 32) == bytes([9]) + bytes(31)
+            assert guarded(lib, point, 32) == public
             results.append(guarded(lib, target, 32))
         assert results[0] == results[1], ('X25519 key exchange', results)
         checks += 1

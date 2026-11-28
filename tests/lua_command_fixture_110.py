@@ -22,8 +22,8 @@ def run_command(reference, source, provider, which, output, arguments, input_lin
     symbols = {n: a for a, n in meta['symbols']}
     name = '_main' if which else '_winterboot_' + command + '_entry'
     lib.exports[name] = lib.base + symbols[name] - (meta['base'] if provider is None else 0)
-    if not which:
-        # Fixed-address command vtables have no dyld rebase entries. The
+    if not which and provider is not None:
+        # Fixed-address C++ VM command vtables have no dyld rebase entries. The
         # diagnostic loader places code above the null page, so reconnect
         # only words that name an actual owned function in native const data.
         word = 8 if lib.wide else 4

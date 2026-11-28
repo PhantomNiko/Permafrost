@@ -7,32 +7,45 @@ import argparse
 from pathlib import Path
 import struct
 from unicorn import UC_HOOK_CODE
-from unicorn.x86_const import UC_X86_REG_RAX, UC_X86_REG_RDX
+from unicorn.x86_const import UC_X86_REG_RAX, UC_X86_REG_RDX, UC_X86_REG_EAX, UC_X86_REG_EDX
+import unicorn.arm64_const as arm64
 from lua_command_fixture_110 import run_command
 from native import inspect
 
 
 def execute(reference, source, output, which, adapter):
     frames = []
+    observed = []
     path = source if which else reference
     meta, memory = inspect(path.read_bytes())
     def setup(lib, args, text, events):
-        assert lib.cpu_type == 0x1000007, 'Other timestamp counter ABIs need review.'
+        assert lib.cpu_type in [7, 12, 0x1000007, 0x100000c]
         lib.instruction_limit = 200000000
         cpu = lib.cpu
+        observed.append(events)
         def stamp(c, address, n, u):
-            c.reg_write(UC_X86_REG_RAX, 1000000)
-            c.reg_write(UC_X86_REG_RDX, 0)
-            c.reg_write(lib.pc, address + 2)
+            if lib.cpu_type in [7, 0x1000007]:
+                c.reg_write(UC_X86_REG_EAX if lib.cpu_type == 7 else UC_X86_REG_RAX, 1000000)
+                c.reg_write(UC_X86_REG_EDX if lib.cpu_type == 7 else UC_X86_REG_RDX, 0)
+                c.reg_write(lib.pc, address + 2)
+            else:
+                word = int.from_bytes(c.mem_read(address, 4), 'little')
+                c.reg_write(getattr(arm64, 'UC_ARM64_REG_X' + str(word & 31)), 1000000)
+                c.reg_write(lib.pc, address + 4)
         start, length = next((a, n) for k, a, n in meta['sections'] if k == '__text')
         data = bytes(memory[start - meta['base']:start - meta['base'] + length])
         offset = 0
-        while True:
+        while lib.cpu_type in [7, 0x1000007]:
             offset = data.find(b'\x0f\x31', offset)
             if offset < 0:break
             target = lib.base + start - meta['base'] + offset
             cpu.hook_add(UC_HOOK_CODE, stamp, begin=target, end=target)
             offset += 2
+        if lib.cpu_type == 0x100000c:
+            for offset in range(0, len(data) - 3, 4):
+                if int.from_bytes(data[offset:offset + 4], 'little') & ~31 == 0xd53be040:
+                    target = lib.base + start - meta['base'] + offset
+                    cpu.hook_add(UC_HOOK_CODE, stamp, begin=target, end=target)
         def zero(c, a, n, u):c.reg_write(lib.result, 0)
         def console(c, a, n, u):c.reg_write(lib.result, 1)
         def escape(c, a, n, u):c.reg_write(lib.result, 27)
@@ -61,12 +74,15 @@ def execute(reference, source, output, which, adapter):
                     (0x168, clock), (0x174, zero)]
         for index, (slot, callback) in enumerate(services):
             target = 0x24000 + 0x100 * index
-            cpu.mem_write(target, b'\xc3')
+            cpu.mem_write(target, b'\xc3' if lib.cpu_type in [7, 0x1000007] else struct.pack('<I', 0xe12fff1e if lib.cpu_type == 12 else 0xd65f03c0))
             cpu.hook_add(UC_HOOK_CODE, callback, begin=target, end=target)
             for table in lib.api_tables:
                 cpu.mem_write(table + slot, struct.pack('<I', target))
-    result = run_command(reference, source, None, which, output, [], command='ssh',
-                         raw_console=True, kernel_setup=setup)
+    try:
+        result = run_command(reference, source, None, which, output, [], command='ssh',
+                             raw_console=True, kernel_setup=setup)
+    except Exception as error:
+        raise AssertionError(('source' if which else 'native', adapter, observed[-1][-8:] if observed else [])) from error
     return result, frames
 
 
