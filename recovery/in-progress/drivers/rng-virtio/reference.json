@@ -1,0 +1,40 @@
+{
+  "version": "1.1",
+  "reference_path": "Drivers/rng~virtio~pci.kext",
+  "architectures": {
+    "i386": {
+      "reference_sha256": "2ac77b63c85752cfb097e64af6617b738fe982234b823a5aa618cd78c03fbea6",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "pci_record_cases": 8,
+      "entropy_queue_cases": 60
+    },
+    "x86_64": {
+      "reference_sha256": "a8f0229931d630cb2a13ad29c8ee9f33a9d267285bfe8d97b6477f748b1c6fca",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "pci_record_cases": 8,
+      "entropy_queue_cases": 60
+    },
+    "armv7": {
+      "reference_sha256": "94e3aa677bd76485c9acec6601ceca26e4d25bfa9f0451c5600d73ae7aa11d23",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "pci_record_cases": 8,
+      "entropy_queue_cases": 60
+    },
+    "arm64": {
+      "reference_sha256": "7c2721bcc4c2037e2c57723810a1917a83a01b7cb1ddc200087c93c711b7ad85",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "pci_record_cases": 8,
+      "entropy_queue_cases": 60
+    }
+  },
+  "status": "source checkpoint; complete entropy hardware initialization and booted VM parity remain incomplete",
+  "pending": [
+    "virtio PCI capability discovery and queue initialization",
+    "hardware entropy and DMA-provider integration",
+    "booted entropy services on all four architectures"
+  ]
+}

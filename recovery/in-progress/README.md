@@ -604,3 +604,12 @@ from recovered C. Each matches its descriptor and seven guarded API cases plus
 counts, brand text, and service failures. I386 string helpers retain their
 register arguments; ARM64 outlined text helpers are restored. Booted platform
 provider integration and release-wide VM parity remain incomplete.
+
+The 1.1 virtio entropy driver now builds independently from C on all four
+architectures. Each checkpoint matches eight descriptor/API cases, eight PCI
+records, and 60 entropy queue workflows. Successful fixtures verify returned
+bytes and nonzero high DMA address words; other cases cover size limits,
+port/MMIO notification, failed DMA, invalid IDs, and short/oversized completions.
+The ARM32 high address output is an explicit local rather than an unresolved
+stack reference. PCI capability setup and booted entropy integration remain
+release gates.
