@@ -170919,22 +170919,15 @@ ulong recovered_82489a94(int *param_1)
     }
     recovered_8240114c(&uStack_17f8,0,0x10);
     iVar5 = *param_1;
+    /* Native bounded selector: five low callback words, and version 3 high
+     * words at +0x1c. Version 1 has no optional identity callback. */
     for (uVar8 = 0; uVar8 != 5; uVar8 = uVar8 + 1) {
-      if (0xfffffffc < iVar5 - 4U) {
-                    /* WARNING: Could not recover jumptable at 0x82489ba0. Too many branches */
-                    /* WARNING: Treating indirect jump as call */
-        uVar8 = (*(code *)((long)*(int *)((uVar8 & 0xffffffff) * 4 + 0x8248a058) + 0x82489b94))();
-        return uVar8;
+      uint64_t callback = 0;
+      if (iVar5 >= 1 && iVar5 <= 3 && !(iVar5 == 1 && uVar8 == 4)) {
+        callback = (uint32_t)param_1[2 + uVar8];
+        if (iVar5 == 3) callback |= (uint64_t)(uint32_t)param_1[7 + uVar8] << 32;
       }
-      pbVar10 = abStack_1828 + uVar8 * 8 + 8;
-      pbVar10[0] = 0;
-      pbVar10[1] = 0;
-      pbVar10[2] = 0;
-      pbVar10[3] = 0;
-      pbVar10[4] = 0;
-      pbVar10[5] = 0;
-      pbVar10[6] = 0;
-      pbVar10[7] = 0;
+      *(uint64_t *)(abStack_1828 + uVar8 * 8 + 8) = callback;
     }
     if (pcStack_1820 == (code *)0x0) {
       return 0;

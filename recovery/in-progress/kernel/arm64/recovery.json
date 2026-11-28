@@ -502,6 +502,9 @@
         "param_1[0x15] = (long)(dVar12 * pf_bits_double(param_1[1]));": "param_1[0x15] = pf_double_bits((dVar12 * pf_bits_double(param_1[1])));",
         "param_1[0x11] = (long)(*(double *)(lVar8 + -0x10) + pf_bits_double(param_1[0x11]));": "param_1[0x11] = pf_double_bits((*(double *)(lVar8 + -0x10) + pf_bits_double(param_1[0x11])));",
         "param_1[0x12] = (long)dVar12;": "param_1[0x12] = pf_double_bits(dVar12);"
+      },
+      "82489a94": {
+        "    for (uVar8 = 0; uVar8 != 5; uVar8 = uVar8 + 1) {\n      if (0xfffffffc < iVar5 - 4U) {\n                    /* WARNING: Could not recover jumptable at 0x82489ba0. Too many branches */\n                    /* WARNING: Treating indirect jump as call */\n        uVar8 = (*(code *)((long)*(int *)((uVar8 & 0xffffffff) * 4 + 0x8248a058) + 0x82489b94))();\n        return uVar8;\n      }\n      pbVar10 = abStack_1828 + uVar8 * 8 + 8;\n      pbVar10[0] = 0;\n      pbVar10[1] = 0;\n      pbVar10[2] = 0;\n      pbVar10[3] = 0;\n      pbVar10[4] = 0;\n      pbVar10[5] = 0;\n      pbVar10[6] = 0;\n      pbVar10[7] = 0;\n    }\n": "    /* Native bounded selector: five low callback words, and version 3 high\n     * words at +0x1c. Version 1 has no optional identity callback. */\n    for (uVar8 = 0; uVar8 != 5; uVar8 = uVar8 + 1) {\n      uint64_t callback = 0;\n      if (iVar5 >= 1 && iVar5 <= 3 && !(iVar5 == 1 && uVar8 == 4)) {\n        callback = (uint32_t)param_1[2 + uVar8];\n        if (iVar5 == 3) callback |= (uint64_t)(uint32_t)param_1[7 + uVar8] << 32;\n      }\n      *(uint64_t *)(abStack_1828 + uVar8 * 8 + 8) = callback;\n    }\n"
       }
     },
     "exclusive_expected": {
@@ -616,5 +619,19 @@
       "0x15"
     ],
     "reason": "Native scale, current/start coordinates and glyph advance occupy IEEE double fields. Preserve those bits through the integer pointer view instead of numeric casts."
+  },
+  "reviewed_storage_registration_selector": {
+    "function": "82489a94",
+    "site": "82489ba0",
+    "table": "8248a058",
+    "anchor": "82489b94",
+    "targets": [
+      "82489bc8",
+      "82489ba4",
+      "82489bbc",
+      "82489bc4",
+      "82489bac"
+    ],
+    "contract": "Five bounded callback fields use low words at +8; provider v3 adds high words at +0x1c. Provider v1 omits identity."
   }
 }

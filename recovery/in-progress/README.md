@@ -680,3 +680,12 @@ registration/rollback workflows and 54 queue-transfer workflows. All 24 slices
 pass descriptor/API checks. The repaired ARM64 C graphics and block drivers
 initialize under the reference kernel in a VM; this control does not establish
 complete C-kernel parity.
+
+The C ARM64 kernel now emits all sixteen architectural exception vector slots,
+with the IRQ slot retaining its full register-frame handler. Emulated routes
+match the reference. A recovered five-way storage-provider callback selector
+replaces an unresolved jump into native code; nine native comparisons cover
+provider versions and drive counts. In a separate EFI ExitBootServices test,
+the C kernel initializes native C graphics and storage and enumerates the boot
+disk. USB/platform retirement then refuses handoff. The candidate retains its
+previous firmware path while that failure is investigated.

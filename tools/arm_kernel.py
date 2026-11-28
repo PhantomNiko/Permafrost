@@ -89,12 +89,32 @@ def build_kernel(source, output):
     struct.pack_into('<5I', image, 0, 0x504c4d57, 1, entry,
                      profile['text_start']-base, 0)
     image[entry-base:entry-base+4] = branch(entry, symbols['_pf_kernel_entry'], arch)
+    vectors = profile.get('exception_vectors')
+    if vectors:
+        if arch != 'arm64':
+            raise ValueError('exception vector profile requires ARM64')
+        origin = vectors['base']
+        if origin & 2047 or not base <= origin < origin + 2048 <= start:
+            raise ValueError('invalid ARM64 exception vector range')
+        for index in range(16):
+            address = origin + index * 128
+            if index == vectors['irq_slot']:
+                target = symbols['_' + vectors['irq_handler']]
+                code = branch(address, target, arch)
+            else:
+                # The recovered C fault dispatcher takes the vector number
+                # in its first argument, rather than the native private X4.
+                target = symbols['_' + vectors['fault_handler']]
+                code = struct.pack('<I', 0x52800000 | (index << 5)) + branch(address + 4, target, arch)
+            image[address-base:address-base+len(code)] = code
     for address, values in profile.get('inline_data', {}).items():
         offset = int(address, 16)-base
         if offset < 20 or offset+len(values) > len(image):
             raise ValueError('inline data is outside the kernel')
         image[offset:offset+len(values)] = bytes(values)
     for address,target in entries.items():
+        if vectors and vectors['base'] <= address < vectors['base'] + 2048:
+            continue
         expected=branch(address,symbols['_pf_kernel_entry']if address==entry else target,arch)
         if image[address-base:address-base+4]!=expected:
             raise ValueError('inline data overwrites a compiled entry shim')

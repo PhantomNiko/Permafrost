@@ -2353,5 +2353,11 @@
     "82497dd8": "recovered_82497dd8",
     "82497f3c": "recovered_82497f3c",
     "82497fa8": "recovered_82497fa8"
+  },
+  "exception_vectors": {
+    "base": 2185566208,
+    "irq_slot": 5,
+    "irq_handler": "recovered_8245125c",
+    "fault_handler": "recovered_82451504"
   }
 }
