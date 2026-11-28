@@ -3,6 +3,7 @@
 #include <stddef.h>
 extern int main(int,char **);
 extern void *memset(void *,int,size_t);
+extern void *memcpy(void *,const void *,size_t);
 extern int snprintf(char *,size_t,const char *,...);
 extern void pf_rt_initialize(void);
 extern void tayga_libc_prepare(void *) __attribute__((weak));
@@ -34,8 +35,14 @@ static int space(unsigned char c){return c==' '||c=='\t'||c=='\n'||c=='\r';}
 void winterboot_tayga_c_entry(void){
  struct {unsigned char info[0x620];int argc;char *argv[64];char command[512];char executable[241];} context;
  memset(&context,0,sizeof context);pf_rt_initialize();
+ snprintf(context.executable,sizeof context.executable,"/");
  uintptr_t get_info=service(0x144);
  int available=get_info&&((uint32_t(*)(void *))get_info)(context.info);
+ if(!available){
+  uintptr_t current_device=service(0xbc);
+  int32_t device=current_device?((int32_t(*)(void))current_device)():-1;
+  memcpy(context.info+0x14,&device,sizeof device);
+ }
  if(available){
   snprintf(context.command,sizeof context.command,"%s",context.info+0x21e);
   char *cursor=context.command;
@@ -48,8 +55,10 @@ void winterboot_tayga_c_entry(void){
    if(*cursor)*cursor++=0;
   }
   snprintf(context.executable,sizeof context.executable,"%s",context.info[0x10d]?(char *)context.info+0x10d:"/");
-  if(tayga_libc_prepare)tayga_libc_prepare(&context);
  }
+ /* Standalone 1.1 applications can lack the legacy Tayga process record.
+  * The C runtime still needs its process storage and standard streams. */
+ if(tayga_libc_prepare)tayga_libc_prepare(&context);
  range(data_init_start,data_init_end,0);range(constant_init_start,constant_init_end,0);
  main(available?context.argc:0,available?context.argv:(char **)0);
  range(constant_term_start,constant_term_end,1);range(data_term_start,data_term_end,1);

@@ -689,3 +689,13 @@ provider versions and drive counts. In a separate EFI ExitBootServices test,
 the C kernel initializes native C graphics and storage and enumerates the boot
 disk. USB/platform retirement then refuses handoff. The candidate retains its
 previous firmware path while that failure is investigated.
+
+SDK startup now prepares runtime storage even when a standalone application
+lacks a legacy Tayga process record. It queries the current device instead of
+silently using device zero. Twenty-four emulated executions cover C/C++ startup
+and C file round trips with and without that record on all four CPUs. Full
+source-image VMs on x64, ARM32, and ARM64 also complete the SDK file example:
+write, close, reopen, read, tell, seek, and line read. The payload and a native
+API result file persist. The recovered stdio retains its Tayga virtual paths.
+The BIOS diagnostic instead reports a WinterShell allocation failure before
+its result file appears; that run remains unresolved.

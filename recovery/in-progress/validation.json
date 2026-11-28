@@ -576,7 +576,23 @@
     "arm64_c_virtio_drivers_native_kernel_vm": "Graphics and block drivers initialize after preserving state page offsets and linking block callbacks; this control uses the reference kernel.",
     "arm64_exception_vector_routes": 16,
     "arm64_storage_provider_registration_workflows": 9,
-    "arm64_native_handoff_c_kernel_vm": "C graphics and block drivers initialize and boot disk enumerates; USB/platform retirement refuses handoff, so native-path desktop parity remains incomplete."
+    "arm64_native_handoff_c_kernel_vm": "C graphics and block drivers initialize and boot disk enumerates; USB/platform retirement refuses handoff, so native-path desktop parity remains incomplete.",
+    "sdk_legacy_process_context_modes": [
+      "available",
+      "unavailable"
+    ],
+    "sdk_file_roundtrip_emulated_cpus": [
+      "i386",
+      "x86_64",
+      "armv7",
+      "arm64"
+    ],
+    "sdk_file_roundtrip_full_vm": {
+      "x86_64": "C main, constructor, fwrite/fclose/fread/ftell/fseek/fgets, persisted payload and native result file passed",
+      "armv7": "C main, constructor, fwrite/fclose/fread/ftell/fseek/fgets, persisted payload and native result file passed",
+      "arm64": "C main, constructor, fwrite/fclose/fread/ftell/fseek/fgets, persisted payload and native result file passed",
+      "i386": "WinterShell allocation failure before diagnostic result; unresolved"
+    }
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",
   "kernel_compilation": "All four candidate C kernels link; full VM parity remains incomplete.",
