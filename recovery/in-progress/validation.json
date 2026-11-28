@@ -383,6 +383,28 @@
       "guarded_parser_cases_per_architecture": 140,
       "console_memory_guest_code_workflows_per_architecture": 9,
       "release_vm_parity": false
+    },
+    "pfz1_command": {
+      "architectures": [
+        "i386",
+        "x86_64",
+        "armv7",
+        "arm64"
+      ],
+      "independent_c_source_build": true,
+      "argument_workflows_per_architecture": 15,
+      "archive_file_workflows_per_architecture": 17,
+      "guarded_codec_workflows": {
+        "i386": 37,
+        "x86_64": 37,
+        "armv7": 37
+      },
+      "arm64_codec": "Inlined encoder and decoder exercised by command file workflows.",
+      "pending": [
+        "directory traversal and alternate filesystem services",
+        "remaining allocation and error paths",
+        "booted VM integration"
+      ]
     }
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",

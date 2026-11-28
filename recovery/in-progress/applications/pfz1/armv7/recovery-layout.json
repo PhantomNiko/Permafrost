@@ -1,0 +1,231 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268440096,
+  "text_end": 268482348,
+  "state_end": 268517376,
+  "translation": {
+    "pointer_bytes": 4,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "state_base": 268482348,
+    "state_end": 268517376,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"cpu.h\"",
+      "#include \"arm_exclusive.h\"",
+      "#include \"armv7-recovery.h\"",
+      "#include \"neon.h\""
+    ],
+    "atomic_views": true,
+    "integer_vector_128": true,
+    "source_replacements": {
+      "100048d8": {
+        "DAT_10004968": "pf_bits_double(0x400921fb54442d18ULL)",
+        "DAT_10004970": "pf_bits_double(0xc01921fb54442d18ULL)",
+        "DAT_10004978": "pf_bits_double(0xc00921fb54442d18ULL)",
+        "DAT_10004980": "pf_bits_double(0x401921fb54442d18ULL)",
+        "DAT_10004988": "pf_bits_double(0x405e000000000000ULL)",
+        "DAT_10004990": "pf_bits_double(0xc0b3b00000000000ULL)"
+      },
+      "10004e94": {},
+      "10001bb4": {
+        "0x1000c03c": "((uintptr_t)pf_module_state + 0x910U)"
+      },
+      "100013c0": {},
+      "10004f90": {
+        "DAT_10004fe4": "pf_bits_float(0x0U)"
+      },
+      "10004448": {},
+      "10002ae0": {},
+      "1000b17c": {},
+      "10003e64": {},
+      "1000453c": {},
+      "10002070": {
+        "0x1000c03c": "((uintptr_t)pf_module_state + 0x910U)"
+      },
+      "10002a60": {},
+      "1000a61c": {},
+      "100046dc": {},
+      "10004a48": {},
+      "10006568": {},
+      "100044f8": {},
+      "10004bf8": {},
+      "100048a8": {},
+      "100095dc": {},
+      "1000aefc": {},
+      "10002888": {},
+      "1000462c": {},
+      "1000ac0c": {},
+      "10003d74": {},
+      "10003e30": {},
+      "10007b5c": {},
+      "100046ac": {},
+      "10005784": {},
+      "10006880": {},
+      "1000b290": {},
+      "10003e74": {},
+      "1000512c": {},
+      "10003f34": {},
+      "10004998": {
+        "DAT_10004a20": "pf_bits_double(0x400921fb54442d18ULL)",
+        "DAT_10004a28": "pf_bits_double(0xc01921fb54442d18ULL)",
+        "DAT_10004a30": "pf_bits_double(0xc00921fb54442d18ULL)",
+        "DAT_10004a38": "pf_bits_double(0x401921fb54442d18ULL)",
+        "DAT_10004a40": "pf_bits_double(0xc086800000000000ULL)"
+      },
+      "10004dd4": {
+        "DAT_10004e58": "pf_bits_float(0x0U)"
+      },
+      "10007a54": {},
+      "10004f34": {},
+      "10008d70": {
+        "DAT_10009510": "(*(uint64_t *)(uint64_t[]){0x400000008ULL})",
+        "DAT_10009518": "(*(uint64_t *)(uint64_t[]){0x2000000010ULL})",
+        "DAT_10009520": "(*(uint64_t *)(uint64_t[]){0x76dc4190edb8832ULL})",
+        "DAT_10009528": "(*(uint64_t *)(uint64_t[]){0x3b6e20c81db71064ULL})"
+      },
+      "100012a8": {},
+      "10004720": {},
+      "10009530": {},
+      "10002d6c": {},
+      "100052e0": {},
+      "10003e84": {},
+      "10002cc8": {},
+      "10005160": {
+        "DAT_100051f8": "pf_bits_double(0x400921fb54442d18ULL)",
+        "DAT_10005200": "pf_bits_double(0xc01921fb54442d18ULL)",
+        "DAT_10005208": "pf_bits_double(0xc00921fb54442d18ULL)",
+        "DAT_10005210": "pf_bits_double(0x401921fb54442d18ULL)",
+        "DAT_10005218": "pf_bits_double(0x405e000000000000ULL)",
+        "DAT_10005220": "pf_bits_double(0xc0b3b00000000000ULL)"
+      },
+      "10001fe8": {
+        "0x1000c03c": "((uintptr_t)pf_module_state + 0x910U)"
+      },
+      "10001d0c": {
+        "0x1000c03c": "((uintptr_t)pf_module_state + 0x910U)"
+      },
+      "1000394c": {},
+      "10004364": {},
+      "10006798": {},
+      "1000ad44": {},
+      "10004ee0": {},
+      "10003b48": {},
+      "10003eac": {},
+      "10001768": {},
+      "10001c5c": {
+        "0x1000c03c": "((uintptr_t)pf_module_state + 0x910U)"
+      },
+      "10004264": {},
+      "10002bf8": {},
+      "1000217c": {},
+      "100057a0": {},
+      "10003dec": {},
+      "10003b7c": {},
+      "10006598": {},
+      "10004c88": {
+        "DAT_10004cc8": "pf_bits_float(0x0U)"
+      },
+      "1000146c": {},
+      "100016ec": {
+        "0x1000c03c": "((uintptr_t)pf_module_state + 0x910U)"
+      },
+      "100055b0": {},
+      "1000aa20": {},
+      "10005450": {},
+      "10001af8": {
+        "0x1000c03c": "((uintptr_t)pf_module_state + 0x910U)"
+      },
+      "10002cbc": {},
+      "10001384": {},
+      "100098e0": {
+        "DAT_10009ba0": "(*(uint64_t *)(uint64_t[]){0x400000008ULL})",
+        "DAT_10009ba8": "(*(uint64_t *)(uint64_t[]){0x2000000010ULL})",
+        "DAT_10009bb0": "(*(uint64_t *)(uint64_t[]){0x76dc4190edb8832ULL})",
+        "DAT_10009bb8": "(*(uint64_t *)(uint64_t[]){0x3b6e20c81db71064ULL})"
+      },
+      "10004298": {},
+      "10002d1c": {},
+      "10001394": {},
+      "10009bc0": {},
+      "10001318": {},
+      "100028dc": {},
+      "10004d88": {},
+      "100022e8": {
+        "0x1000c03c": "((uintptr_t)pf_module_state + 0x910U)"
+      },
+      "1000749c": {},
+      "10001d90": {},
+      "10004bb0": {},
+      "100045f4": {},
+      "100076e4": {},
+      "10001a48": {
+        "0x1000c03c": "((uintptr_t)pf_module_state + 0x910U)"
+      },
+      "100043c4": {},
+      "1000297c": {},
+      "10003dd8": {},
+      "10001220": {},
+      "100013e0": {
+        "0x1000c03c": "((uintptr_t)pf_module_state + 0x910U)"
+      },
+      "10009884": {},
+      "100052fc": {},
+      "10004b28": {
+        "DAT_10004ba8": "pf_bits_double(0x43e0000000000000ULL)"
+      },
+      "10004428": {},
+      "10004768": {
+        "DAT_10004898": "pf_bits_double(0xfff0000000000000ULL)",
+        "DAT_100048a0": "pf_bits_double(0x3fe62e42fefa39efULL)"
+      },
+      "10004a68": {
+        "DAT_10004b20": "pf_bits_double(0x43e0000000000000ULL)"
+      },
+      "100013a4": {},
+      "10003044": {},
+      "10003750": {},
+      "10003e04": {},
+      "10003550": {},
+      "1000ae6c": {},
+      "10005228": {
+        "DAT_100052b8": "pf_bits_double(0x400921fb54442d18ULL)",
+        "DAT_100052c0": "pf_bits_double(0xc01921fb54442d18ULL)",
+        "DAT_100052c8": "pf_bits_double(0xc00921fb54442d18ULL)",
+        "DAT_100052d0": "pf_bits_double(0x401921fb54442d18ULL)",
+        "DAT_100052d8": "pf_bits_double(0xc086800000000000ULL)"
+      },
+      "10003dc4": {},
+      "10002930": {},
+      "10001270": {},
+      "10003f50": {},
+      "1000a66c": {},
+      "100097fc": {},
+      "100019b0": {
+        "0x1000c03c": "((uintptr_t)pf_module_state + 0x910U)"
+      },
+      "10003ef0": {},
+      "10004e5c": {},
+      "1000681c": {},
+      "10003e50": {},
+      "10002100": {
+        "0x1000c03c": "((uintptr_t)pf_module_state + 0x910U)"
+      },
+      "10004ccc": {
+        "DAT_10004d84": "pf_bits_float(0x0U)"
+      },
+      "10002dc0": {},
+      "100042fc": {},
+      "10004438": {},
+      "10002cb4": {},
+      "10004fe8": {
+        "DAT_10005128": "pf_bits_float(0xff800000U)",
+        "DAT_10005120": "pf_bits_double(0x3fe62e42fefa39efULL)"
+      }
+    },
+    "source_replacement_groups": {}
+  }
+}

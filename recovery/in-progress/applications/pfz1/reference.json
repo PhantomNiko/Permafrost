@@ -1,0 +1,39 @@
+{
+  "version": "1.1",
+  "reference_path": "Binary/PFZ1",
+  "architectures": {
+    "x86_64": {
+      "reference_sha256": "35d7f951159ac93bf28d8a47fa48d52ed397a38273a1f14719cba33bc92174a9",
+      "source_build": true,
+      "argument_workflows": 15,
+      "file_workflows": 17,
+      "guarded_codec_workflows": 37
+    },
+    "i386": {
+      "reference_sha256": "9562c916c421d911fad354838db078cd1c7392e2d00ae13a024969a3ef82dcfb",
+      "source_build": true,
+      "argument_workflows": 15,
+      "file_workflows": 17,
+      "guarded_codec_workflows": 37
+    },
+    "armv7": {
+      "reference_sha256": "03cc01e1bbeb1561ea49f871a8a58532c212cba8a1bb7cc0a73e9febebfa5bcd",
+      "source_build": true,
+      "argument_workflows": 15,
+      "file_workflows": 17,
+      "guarded_codec_workflows": 37
+    },
+    "arm64": {
+      "reference_sha256": "dee8dd16a83285f5593bde697159329b328ebe6fbf2aa3c92df1d7c1453066a4",
+      "source_build": true,
+      "argument_workflows": 15,
+      "file_workflows": 17
+    }
+  },
+  "pending": [
+    "directory traversal and alternate filesystem services",
+    "remaining allocation and error paths",
+    "booted VM integration"
+  ],
+  "status": "source checkpoint; full VM parity remains incomplete"
+}

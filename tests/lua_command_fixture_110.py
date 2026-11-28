@@ -11,12 +11,17 @@ from unicorn.arm_const import UC_ARM_REG_R0, UC_ARM_REG_R1, UC_ARM_REG_R2, UC_AR
 from unicorn.arm64_const import UC_ARM64_REG_X0, UC_ARM64_REG_X1, UC_ARM64_REG_X2, UC_ARM64_REG_X3
 
 
-def run_command(reference, source, provider, which, output, arguments, input_lines=(), command="lua"):
-    lib = load(reference, source, output, provider)[which]
+def run_command(reference, source, provider, which, output, arguments, input_lines=(), command="lua", raw_console=False, kernel_setup=None):
+    if provider is None:
+        from wozmon_hex_110 import load_command
+        lib = load_command(source if which else reference,
+                           output / ('source' if which else 'native'))
+    else:
+        lib = load(reference, source, output, provider)[which]
     meta, memory = inspect((source if which else reference).read_bytes())
     symbols = {n: a for a, n in meta['symbols']}
     name = '_main' if which else '_winterboot_' + command + '_entry'
-    lib.exports[name] = lib.base + symbols[name]
+    lib.exports[name] = lib.base + symbols[name] - (meta['base'] if provider is None else 0)
     if not which:
         # Fixed-address command vtables have no dyld rebase entries. The
         # diagnostic loader places code above the null page, so reconnect
@@ -37,7 +42,7 @@ def run_command(reference, source, provider, which, output, arguments, input_lin
         cpu.mem_write(0x280800, bytes(cpu.mem_read(0x6800, 412)))
         lib.api_tables.append(0x280800)
     if which:
-        lib.exports['initialize'] = lib.base + symbols['_pf_app_initialize']
+        lib.exports['initialize'] = lib.base + symbols['_pf_app_initialize'] - (meta['base'] if provider is None else 0)
         lib.call('initialize')
     events = []
     pending = list(input_lines)
@@ -73,12 +78,23 @@ def run_command(reference, source, provider, which, output, arguments, input_lin
             cpu.mem_write(pointer, payload + b'\0')
         c.reg_write(lib.result, int(payload is not None))
 
+    def put(c, address, size, user):
+        events.append(('char', args(1)[0] & 255))
+
+    def puts(c, address, size, user):
+        events.append(('text', text(args(1)[0])))
+
     opcode = b'\xc3' if lib.cpu_type in [7, 0x1000007] else struct.pack('<I', 0xe12fff1e if lib.cpu_type == 12 else 0xd65f03c0)
-    for slot, target, callback in [(0x40, 0x23000, line), (0x44, 0x23100, read)]:
+    services = [(0x40, 0x23000, line), (0x44, 0x23100, read)]
+    if raw_console:
+        services += [(0x24, 0x23200, put), (0x28, 0x23300, puts)]
+    for slot, target, callback in services:
         cpu.mem_write(target, opcode)
         cpu.hook_add(UC_HOOK_CODE, callback, begin=target, end=target)
         for table in lib.api_tables:
             cpu.mem_write(table + slot, struct.pack('<I', target))
+    if kernel_setup is not None:
+        kernel_setup(lib, args, text, events)
     pointers = []
     guards = []
     for index, value in enumerate([command] + arguments):

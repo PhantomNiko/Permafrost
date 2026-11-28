@@ -520,3 +520,11 @@ covering invalid input, memory ranges, byte storage, backspace, Escape, and
 returning from guest code. Native transcripts normalize the requested Permafrost
 display-name change. These controlled kernel-service checks do not establish
 full booted release parity.
+
+PFZ1 now has independently built C command checkpoints for all four architectures.
+Each matches 15 guarded argument workflows and 17 file workflows covering exact
+archive bytes, extraction, empty files, missing inputs, existing destinations,
+corrupt checksums and truncated formats. The separately callable codec also
+matches 37 guarded cases on i386, x64 and ARM32; ARM64's inlined codec is exercised
+through the command. Directory traversal, alternate filesystem services, remaining
+allocation failures and booted VM integration remain unverified.
