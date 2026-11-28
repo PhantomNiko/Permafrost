@@ -539,6 +539,18 @@
       },
       "100328fb": {
         "(**(code **)(DAT_1003d00c + 0x3c))": "(*(void (**)(const char *,...))(DAT_1003d00c + 0x3c))"
+      },
+      "1000909a": {
+        "recovered_1001e04b((int)value)": "recovered_1001e04b(name,(int)value)"
+      },
+      "10010aa0": {
+        "recovered_1001e04b((int)in_EDX)": "recovered_1001e04b(*(char **)(in_EDX[8] + 0xc),(int)in_EDX)",
+        "recovered_1001e04b((int)puVar15)": "recovered_1001e04b(*(char **)(*(int *)(in_EDX[8] + 0x38) + (uintptr_t)pppppppuVar13 * 4),(int)puVar15)"
+      },
+      "1001e04b": {
+        "undefined4 recovered_1001e04b(int in_EDX)": "undefined4 recovered_1001e04b(char *name,int in_EDX)",
+        "  char *in_ECX_00;\n": "",
+        "recovered_10030a23(in_ECX,in_ECX_00,in_EDX)": "recovered_10030a23(in_ECX,name,in_EDX)"
       }
     }
   },
@@ -629,5 +641,14 @@
       "10011ee4"
     ],
     "reason": "Retain the boolean return before argument cleanup, including nested protected calls and multiple assignment."
+  },
+  "reviewed_local_variable_name_argument": {
+    "function": "1001e04b",
+    "calls": [
+      "100090d2",
+      "10010ed9",
+      "10010f59"
+    ],
+    "contract": "Native ECX supplies the variable name, saved in EAX before selecting the local frame. Callers provide assignment name, function self-name, or indexed parameter name; EDX supplies the value."
   }
 }

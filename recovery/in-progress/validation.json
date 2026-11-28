@@ -601,7 +601,8 @@
     "arm64_gpu_queue_wrap_workflows": 10,
     "arm64_gpu_queue_wrap_regression": "Before correction index 256 submitted 1 instead of 257. After correction native/source DMA descriptors, responses and available indices match at 255, 511 and 65535.",
     "arm64_changing_mmio_register_polls": 5,
-    "arm64_mmio_poll_regression": "Without volatile, a busy register cleared on the second read was read only once and rejected. Corrected polling observes changes like the native bounded loop; timer gate failure remains under investigation."
+    "arm64_mmio_poll_regression": "Without volatile, a busy register cleared on the second read was read only once and rejected. Corrected polling observes changes like the native bounded loop; timer gate failure remains under investigation.",
+    "wintershell_i386_repeated_file_call_regression": "Local variable name argument and three callers restored; repeated runFile calls plus command, file, provider ownership and 331 lexer comparisons match the reference."
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",
   "kernel_compilation": "All four candidate C kernels link; full VM parity remains incomplete.",

@@ -136,7 +136,7 @@ bool recovered_10011d93(uint *in_ECX,uint *in_EDX);
 void recovered_10011eb8(undefined4 *in_ECX,int in_EDX);
 uchar recovered_10011ee4(void *context,char *name,void *arguments,uint count,void *result);
 undefined4 recovered_1001df90(void);
-undefined4 recovered_1001e04b(int in_EDX);
+undefined4 recovered_1001e04b(char *name,int in_EDX);
 void recovered_1001e091(void);
 undefined4 recovered_1001e0c3(int in_EDX);
 void recovered_1001e169(void);

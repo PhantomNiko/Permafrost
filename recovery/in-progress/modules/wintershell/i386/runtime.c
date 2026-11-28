@@ -7595,7 +7595,7 @@ uchar recovered_1000909a(int mode,char *name,void *value)
   undefined4 uVar2;
 
   if (((mode - 1U < 2) && (DAT_1007e358 != 0)) && (DAT_1007e360 + -0xc + DAT_1007e358 * 0xc != 0)) {
-    uVar2 = recovered_1001e04b((int)value);
+    uVar2 = recovered_1001e04b(name,(int)value);
     uVar1 = (uchar)uVar2;
   }
   else {
@@ -13886,7 +13886,7 @@ LAB_10011135:
     }
     else {
       if (((*(char **)(in_EDX[8] + 0xc) != (char *)0x0) && (**(char **)(in_EDX[8] + 0xc) != '\0'))
-         && (uVar9 = recovered_1001e04b((int)in_EDX), (char)uVar9 == '\0')) {
+         && (uVar9 = recovered_1001e04b(*(char **)(in_EDX[8] + 0xc),(int)in_EDX), (char)uVar9 == '\0')) {
         recovered_1001e091();
         recovered_10011eb8(puVar14,(int)local_13c);
         (**(code **)(DAT_1003d00c + 0xac))(puVar14);
@@ -13918,7 +13918,7 @@ LAB_100114da:
         if (puVar15 == (uint *)0x0) {
           puVar15 = &local_d8;
         }
-        uVar9 = recovered_1001e04b((int)puVar15);
+        uVar9 = recovered_1001e04b(*(char **)(*(int *)(in_EDX[8] + 0x38) + (uintptr_t)pppppppuVar13 * 4),(int)puVar15);
         if ((char)uVar9 == '\0') {
           recovered_1001e091();
           recovered_10011eb8(puVar14,(int)local_13c);
@@ -22674,13 +22674,12 @@ undefined4 recovered_1001df90(void)
  * Address: 0x1001e04b
  */
 
-undefined4 recovered_1001e04b(int in_EDX)
+undefined4 recovered_1001e04b(char *name,int in_EDX)
 
 {
   unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
 
   undefined4 uVar1;
-  char *in_ECX_00;
   int *in_ECX;
 
   in_ECX = (int *)(DAT_1007e358 * 0xc + DAT_1007e360 + -0xc);
@@ -22688,7 +22687,7 @@ undefined4 recovered_1001e04b(int in_EDX)
     uVar1 = 0;
   }
   else {
-    uVar1 = recovered_10030a23(in_ECX,in_ECX_00,in_EDX);
+    uVar1 = recovered_10030a23(in_ECX,name,in_EDX);
   }
   return uVar1;
 }

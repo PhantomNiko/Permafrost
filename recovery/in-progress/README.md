@@ -733,3 +733,10 @@ iteration, preserving native hardware polling. A controlled register that
 clears on read two previously failed after only one C read. Five changing-bit
 scenarios now match the reference. This repairs a real polling defect but does
 not yet resolve the VM timer gate refusal.
+
+IA32 WinterShell local-variable binding now preserves the name supplied in
+native ECX before selecting a frame. Three callers pass assignment, function
+self, and parameter names. Losing that argument could report a binding failure
+as an out-of-memory error during runFile. Repeated file calls now match native
+behavior alongside command, provider ownership, file and 331 lexer comparisons.
+The updated module is being checked in the BIOS image.
