@@ -1,0 +1,222 @@
+{
+  "module": "DriverUsbProbe",
+  "architecture": "armv7",
+  "version": "1.1",
+  "install_name": "/Drivers/usb~qemu~controller-probe.kext",
+  "functions": {
+    "0x2c50": "recovered_10002c50",
+    "0x2c60": "recovered_10002c60",
+    "0x2dd8": "recovered_10002dd8",
+    "0x2fd0": "recovered_10002fd0",
+    "0x3170": "recovered_10003170",
+    "0x31e8": "recovered_100031e8",
+    "0x3550": "recovered_10003550",
+    "0x3564": "recovered_10003564",
+    "0x35b8": "recovered_100035b8",
+    "0x3618": "recovered_10003618",
+    "0x36c8": "recovered_100036c8",
+    "0x36f0": "recovered_100036f0",
+    "0x372c": "recovered_1000372c",
+    "0x37c0": "recovered_100037c0",
+    "0x3810": "recovered_10003810",
+    "0x3848": "recovered_10003848",
+    "0x38b8": "recovered_100038b8",
+    "0x3920": "recovered_10003920",
+    "0x3a04": "recovered_10003a04",
+    "0x3a84": "recovered_10003a84",
+    "0x3ba4": "recovered_10003ba4",
+    "0x3c60": "recovered_10003c60",
+    "0x3ce8": "recovered_10003ce8",
+    "0x3d34": "recovered_10003d34",
+    "0x3d44": "recovered_10003d44",
+    "0x3d54": "recovered_10003d54",
+    "0x3d9c": "recovered_10003d9c",
+    "0x3dc4": "recovered_10003dc4",
+    "0x3de0": "recovered_10003de0"
+  },
+  "exports": [
+    {
+      "name": "___divdi3",
+      "address": 14980,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___divsi3",
+      "address": 14408,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixdfdi",
+      "address": 15592,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixsfdi",
+      "address": 15684,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixunsdfdi",
+      "address": 15456,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixunssfdi",
+      "address": 15668,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatdidf",
+      "address": 15772,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatdisf",
+      "address": 15840,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatundidf",
+      "address": 15700,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatundisf",
+      "address": 15812,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___moddi3",
+      "address": 15268,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___modsi3",
+      "address": 14520,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___udivdi3",
+      "address": 14624,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___udivsi3",
+      "address": 14272,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___umoddi3",
+      "address": 14852,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___umodsi3",
+      "address": 14352,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 11344,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 11360,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 516,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3ce8"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 520,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3c60"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 524,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3d9c"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 528,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3d54"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 532,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x37c0"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 16912,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 52
+      },
+      "tag": 1
+    },
+    {
+      "offset": 16916,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 78
+      },
+      "tag": 1
+    },
+    {
+      "offset": 16920,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 82
+      },
+      "tag": 1
+    }
+  ],
+  "data_exports": []
+}

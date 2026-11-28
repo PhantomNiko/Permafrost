@@ -1,0 +1,65 @@
+{
+  "module": "DriverUsbProbe",
+  "architecture": "arm64",
+  "version": "1.1",
+  "install_name": "/Drivers/usb~qemu~controller-probe.kext",
+  "functions": {
+    "0x3e0": "recovered_100003e0",
+    "0x3ec": "recovered_100003ec",
+    "0x530": "recovered_10000530",
+    "0x6a4": "recovered_100006a4",
+    "0x7f0": "recovered_100007f0",
+    "0x840": "recovered_10000840",
+    "0xae4": "recovered_10000ae4",
+    "0xaf4": "recovered_10000af4",
+    "0xb4c": "recovered_10000b4c",
+    "0xbc4": "recovered_10000bc4",
+    "0xc74": "recovered_10000c74",
+    "0xc90": "recovered_10000c90",
+    "0xcd0": "recovered_10000cd0"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 992,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 1004,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 12932,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 53
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12940,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 79
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12948,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 83
+      },
+      "tag": 0
+    }
+  ],
+  "data_exports": []
+}

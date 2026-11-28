@@ -1,0 +1,39 @@
+{
+  "version": "1.1",
+  "reference_path": "Drivers/usb~qemu~controller-probe.kext",
+  "architectures": {
+    "i386": {
+      "reference_sha256": "dbea0131559412712234b11e162f40652bd9ce255ec614018d82e887968381d2",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "pci_record_cases": 8,
+      "pci_enumeration_cases": 40
+    },
+    "x86_64": {
+      "reference_sha256": "129fc2c82731845ae55ac74a2e9b056b45eddf1891386e6a8120afd21f036a10",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "pci_record_cases": 8,
+      "pci_enumeration_cases": 40
+    },
+    "armv7": {
+      "reference_sha256": "559a65f3898d14d4adb88b79d185edd7210f5c58564832ae00904974886cee6b",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "pci_record_cases": 8,
+      "pci_enumeration_cases": 40
+    },
+    "arm64": {
+      "reference_sha256": "9f9c77653d0f49f86a82223ace3d7e87a76686744f60d2de7a3c07b175f9f626",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "pci_record_cases": 8,
+      "pci_enumeration_cases": 40
+    }
+  },
+  "status": "source checkpoint; booted USB-controller discovery remains incomplete",
+  "pending": [
+    "booted PCI and USB-controller discovery integration",
+    "release-wide VM parity"
+  ]
+}

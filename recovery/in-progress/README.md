@@ -620,3 +620,13 @@ four CPUs. Each matches eight descriptor/API cases, eight PCI-record cases, and
 registration strings, legacy and modern console IDs, multifunction devices,
 identity rejection, and configuration-read failures. ARM32 record fields retain
 their actual stack outputs. Booted discovery integration remains a release gate.
+
+The USB controller probe now has independently built C checkpoints on all four
+architectures. Each matches eight descriptor/API cases, eight PCI records, and
+40 controller-enumeration workflows covering UHCI, OHCI, EHCI, XHCI, unknown
+interfaces, multifunction devices, and service failures. The x86 and x64 PS/2
+drivers also build independently and match eight descriptor/API cases and 198
+input workflows each. PS/2 coverage includes scan codes, modifiers, extended
+keys, mouse packets, mixed keyboard/mouse bytes, and controller errors. Full
+controller initialization, platform registration, and booted input integration
+remain release gates.

@@ -1,0 +1,24 @@
+{
+  "version": "1.1",
+  "reference_path": "Drivers/input~ps2~i8042.kext",
+  "architectures": {
+    "i386": {
+      "reference_sha256": "2aa56c0b6629d9c5c70098a4570e4369256506431d80e241a02cebd8d4a72ee7",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "input_event_cases": 198
+    },
+    "x86_64": {
+      "reference_sha256": "dd579a81f4a7fe53a08d882927c2745ba72884cad12451117e2b0642f64b5f15",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "input_event_cases": 198
+    }
+  },
+  "status": "source checkpoint; complete controller initialization and booted VM parity remain incomplete",
+  "pending": [
+    "controller self-test, configuration, and device initialization",
+    "platform-service registration and booted input integration",
+    "release-wide VM parity"
+  ]
+}

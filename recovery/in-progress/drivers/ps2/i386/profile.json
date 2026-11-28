@@ -1,0 +1,80 @@
+{
+  "module": "DriverPs2",
+  "architecture": "i386",
+  "version": "1.1",
+  "install_name": "/Drivers/input~ps2~i8042.kext",
+  "functions": {
+    "0xc03": "recovered_10000c03",
+    "0xc19": "recovered_10000c19",
+    "0xfc0": "recovered_10000fc0",
+    "0xfd9": "recovered_10000fd9",
+    "0x10de": "recovered_100010de",
+    "0x1148": "recovered_10001148",
+    "0x11cf": "recovered_100011cf",
+    "0x1210": "recovered_10001210",
+    "0x1254": "recovered_10001254",
+    "0x129f": "recovered_1000129f",
+    "0x12d1": "recovered_100012d1",
+    "0x12fb": "recovered_100012fb",
+    "0x1385": "recovered_10001385",
+    "0x13ce": "recovered_100013ce",
+    "0x142f": "recovered_1000142f",
+    "0x1466": "recovered_10001466",
+    "0x1491": "recovered_10001491",
+    "0x14d2": "recovered_100014d2",
+    "0x153d": "recovered_1000153d",
+    "0x1581": "recovered_10001581",
+    "0x1599": "recovered_10001599",
+    "0x15b1": "recovered_100015b1",
+    "0x15f0": "recovered_100015f0",
+    "0x172a": "recovered_1000172a",
+    "0x1755": "recovered_10001755",
+    "0x1bbe": "recovered_10001bbe",
+    "0x1c00": "recovered_10001c00",
+    "0x1c44": "recovered_10001c44"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 3075,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 3097,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 910,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 161
+      },
+      "tag": 0
+    },
+    {
+      "offset": 914,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 184
+      },
+      "tag": 0
+    },
+    {
+      "offset": 918,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 190
+      },
+      "tag": 0
+    }
+  ],
+  "data_exports": []
+}
