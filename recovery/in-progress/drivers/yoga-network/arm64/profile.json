@@ -1,0 +1,157 @@
+{
+  "module": "DriverYogaNetwork",
+  "architecture": "arm64",
+  "version": "1.1",
+  "install_name": "/Drivers/network~qualcomm~yoga-slim7x.kext",
+  "functions": {
+    "0x610": "recovered_10000610",
+    "0x61c": "recovered_1000061c",
+    "0xbe4": "recovered_10000be4",
+    "0xbf8": "recovered_10000bf8",
+    "0xc30": "recovered_10000c30",
+    "0xd64": "recovered_10000d64",
+    "0xe74": "recovered_10000e74",
+    "0xf5c": "recovered_10000f5c",
+    "0x1064": "recovered_10001064",
+    "0x1110": "recovered_10001110",
+    "0x11c0": "recovered_100011c0",
+    "0x11f8": "recovered_100011f8",
+    "0x121c": "recovered_1000121c",
+    "0x164c": "recovered_1000164c",
+    "0x169c": "recovered_1000169c",
+    "0x16ac": "recovered_100016ac",
+    "0x1704": "recovered_10001704",
+    "0x17a8": "recovered_100017a8",
+    "0x17e4": "recovered_100017e4",
+    "0x1840": "recovered_10001840",
+    "0x185c": "recovered_1000185c",
+    "0x18a0": "recovered_100018a0",
+    "0x18d0": "recovered_100018d0",
+    "0x1970": "recovered_10001970"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 1552,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 1564,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 9888,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 582
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9896,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 621
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9904,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 629
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9920,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 705
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9928,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 737
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9936,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 777
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9944,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 818
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9952,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 848
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9960,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 894
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9968,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 940
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9976,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 981
+      },
+      "tag": 0
+    },
+    {
+      "offset": 26256,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 36
+      },
+      "tag": 0
+    }
+  ],
+  "data_exports": []
+}

@@ -1,0 +1,22 @@
+{
+  "version": "1.1",
+  "reference_path": "Drivers/graphics~intel~gen9-scanout.kext",
+  "architectures": {
+    "i386": {
+      "reference_sha256": "0efe7a9598feb0a752d2cea3de650ab28887af20ce412a26ecba51b867fd0535",
+      "source_build": true,
+      "descriptor_and_api_cases": 8
+    },
+    "x86_64": {
+      "reference_sha256": "efc68c397e3a1b19588a1330d01411fdf88a3430162a3b8c471b8aa39c6a2783",
+      "source_build": true,
+      "descriptor_and_api_cases": 8
+    }
+  },
+  "status": "C build and guarded API checkpoint; complete device protocols and booted integration remain unverified",
+  "pending": [
+    "complete hardware-service argument and state review",
+    "device initialization, operation, and failure workflows",
+    "booted VM integration for emulated controllers"
+  ]
+}

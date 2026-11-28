@@ -1,0 +1,98 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268436608,
+  "text_end": 268450932,
+  "state_end": 268517376,
+  "translation": {
+    "pointer_bytes": 8,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 268450932,
+    "state_end": 268517376,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"cpu.h\"",
+      "#include \"arm64-recovery.h\""
+    ],
+    "source_replacements": {
+      "1000329c": {},
+      "10002e8c": {},
+      "100033e0": {},
+      "100035d0": {},
+      "10003950": {},
+      "100038b0": {},
+      "100036a0": {},
+      "10003330": {},
+      "10002de0": {},
+      "1000379c": {
+        "0x1000c004": "((uintptr_t)pf_module_state+0x8390U)",
+        "daif = uVar2 | 0xc0;": "pf_write_daif(uVar2 | 0xc0);",
+        "daif = uVar1;": "pf_write_daif(uVar1);",
+        "uVar1 = daif;": "uVar1 = pf_read_daif();",
+        "uVar2 = daif;": "uVar2 = pf_read_daif();"
+      },
+      "1000391c": {},
+      "1000372c": {},
+      "10000e1c": {},
+      "100039d8": {},
+      "100030b8": {},
+      "10002558": {},
+      "10002cec": {},
+      "10003218": {
+        "0x1000c004": "((uintptr_t)pf_module_state+0x8390U)",
+        "daif = uVar2 | 0xc0;": "pf_write_daif(uVar2 | 0xc0);",
+        "daif = uVar1;": "pf_write_daif(uVar1);",
+        "uVar1 = daif;": "uVar1 = pf_read_daif();",
+        "uVar2 = daif;": "uVar2 = pf_read_daif();"
+      },
+      "100031b8": {},
+      "1000237c": {},
+      "100028a8": {},
+      "1000357c": {},
+      "10003748": {},
+      "10003638": {},
+      "10002ca8": {},
+      "100030e8": {},
+      "10002f38": {},
+      "10000480": {},
+      "1000382c": {
+        "0x1000c004": "((uintptr_t)pf_module_state+0x8390U)",
+        "daif = uVar2 | 0xc0;": "pf_write_daif(uVar2 | 0xc0);",
+        "daif = uVar1;": "pf_write_daif(uVar1);",
+        "uVar1 = daif;": "uVar1 = pf_read_daif();",
+        "uVar2 = daif;": "uVar2 = pf_read_daif();"
+      },
+      "10002a4c": {},
+      "10000d48": {},
+      "1000264c": {},
+      "10001d9c": {
+        "0x10003d98": "((uintptr_t)pf_module_state+0x124U)"
+      },
+      "100011e4": {},
+      "100032c0": {},
+      "100023b0": {},
+      "100038e4": {},
+      "10003088": {},
+      "10000d70": {},
+      "10003050": {},
+      "1000048c": {
+        "0x1000c078": "((uintptr_t)pf_module_state+0x8404U)",
+        "0x1000c0e8": "((uintptr_t)pf_module_state+0x8474U)",
+        "0x1000c130": "((uintptr_t)pf_module_state+0x84bcU)",
+        "0x1000c1a8": "((uintptr_t)pf_module_state+0x8534U)",
+        "0x1000c238": "((uintptr_t)pf_module_state+0x85c4U)",
+        "0x1000c068": "((uintptr_t)pf_module_state+0x83f4U)"
+      },
+      "10003150": {},
+      "10000d60": {},
+      "100024f0": {},
+      "10001134": {}
+    },
+    "source_replacement_groups": {}
+  }
+}

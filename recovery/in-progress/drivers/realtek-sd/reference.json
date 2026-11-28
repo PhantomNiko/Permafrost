@@ -1,0 +1,33 @@
+{
+  "version": "1.1",
+  "reference_path": "Drivers/storage~realtek~rts525a.kext",
+  "architectures": {
+    "arm64": {
+      "reference_sha256": "c53821b3968c18bcebeb64f356d28856eedb7791702decfc751866cd14d5ea6f",
+      "source_build": true,
+      "descriptor_and_api_cases": 8
+    },
+    "armv7": {
+      "reference_sha256": "0a8f68aaf09b03e995765ce836e69be4bfc8ed7455b955b734ee3c526a213b49",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "pci_record_cases": 8
+    },
+    "i386": {
+      "reference_sha256": "b2af3ae9204edf7b2986ba23e48c47dea37831c0ca574c8f7776db75a205b86c",
+      "source_build": true,
+      "descriptor_and_api_cases": 8
+    },
+    "x86_64": {
+      "reference_sha256": "7d881f8684b5f250657a7ab0d8abf6974a09f84354b8b42374592a2d033f5815",
+      "source_build": true,
+      "descriptor_and_api_cases": 8
+    }
+  },
+  "status": "C build and guarded API checkpoint; complete device protocols and booted integration remain unverified",
+  "pending": [
+    "complete hardware-service argument and state review",
+    "device initialization, operation, and failure workflows",
+    "booted VM integration for emulated controllers"
+  ]
+}

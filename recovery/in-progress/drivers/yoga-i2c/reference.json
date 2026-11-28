@@ -1,0 +1,22 @@
+{
+  "version": "1.1",
+  "reference_path": "Drivers/input~i2c-hid~yoga-slim7x.kext",
+  "architectures": {
+    "arm64": {
+      "reference_sha256": "8187fdb51e498a679136147b9c1c6b22f7128ce82a0543540226a74caaf62c2c",
+      "source_build": true,
+      "descriptor_and_api_cases": 8
+    },
+    "armv7": {
+      "reference_sha256": "795a60938e03960fe6d49b29b0c817ac1d4e1556eff806995987070c412d1dbe",
+      "source_build": true,
+      "descriptor_and_api_cases": 8
+    }
+  },
+  "status": "C build and guarded API checkpoint; complete device protocols and booted integration remain unverified",
+  "pending": [
+    "complete hardware-service argument and state review",
+    "device initialization, operation, and failure workflows",
+    "booted VM integration for emulated controllers"
+  ]
+}

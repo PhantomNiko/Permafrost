@@ -1,0 +1,54 @@
+{
+  "module": "DriverGenericI2c",
+  "architecture": "x86_64",
+  "version": "1.1",
+  "install_name": "/Drivers/input~i2c-hid~generic.kext",
+  "functions": {
+    "0x388": "recovered_10000388",
+    "0x395": "recovered_10000395"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 904,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 917,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 3179,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 0
+      },
+      "tag": 0
+    },
+    {
+      "offset": 3187,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 21
+      },
+      "tag": 0
+    },
+    {
+      "offset": 3195,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 27
+      },
+      "tag": 0
+    }
+  ],
+  "data_exports": []
+}

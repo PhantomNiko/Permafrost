@@ -1,0 +1,108 @@
+{
+  "module": "DriverRealtekSd",
+  "architecture": "x86_64",
+  "version": "1.1",
+  "install_name": "/Drivers/storage~realtek~rts525a.kext",
+  "functions": {
+    "0x468": "recovered_10000468",
+    "0x475": "recovered_10000475",
+    "0x7e0": "recovered_100007e0",
+    "0x7fb": "recovered_100007fb",
+    "0x209c": "recovered_1000209c",
+    "0x214a": "recovered_1000214a",
+    "0x2157": "recovered_10002157",
+    "0x2165": "recovered_10002165",
+    "0x21d8": "recovered_100021d8",
+    "0x22d9": "recovered_100022d9",
+    "0x233d": "recovered_1000233d",
+    "0x24ef": "recovered_100024ef",
+    "0x253c": "recovered_1000253c",
+    "0x2684": "recovered_10002684",
+    "0x272f": "recovered_1000272f",
+    "0x2793": "recovered_10002793",
+    "0x27b2": "recovered_100027b2",
+    "0x280f": "recovered_1000280f",
+    "0x2863": "recovered_10002863",
+    "0x28da": "recovered_100028da",
+    "0x2914": "recovered_10002914",
+    "0x2934": "recovered_10002934",
+    "0x296c": "recovered_1000296c",
+    "0x2994": "recovered_10002994",
+    "0x29b5": "recovered_100029b5",
+    "0x2a3b": "recovered_10002a3b",
+    "0x2a8c": "recovered_10002a8c",
+    "0x2aa9": "recovered_10002aa9",
+    "0x2c6d": "recovered_10002c6d",
+    "0x2d08": "recovered_10002d08",
+    "0x2e0d": "recovered_10002e0d",
+    "0x2ea8": "recovered_10002ea8",
+    "0x2ef4": "recovered_10002ef4",
+    "0x2f34": "recovered_10002f34",
+    "0x2f5a": "recovered_10002f5a",
+    "0x2f8c": "recovered_10002f8c",
+    "0x3112": "recovered_10003112",
+    "0x317e": "recovered_1000317e",
+    "0x31a2": "recovered_100031a2",
+    "0x329a": "recovered_1000329a",
+    "0x32c1": "recovered_100032c1",
+    "0x3452": "recovered_10003452",
+    "0x349b": "recovered_1000349b",
+    "0x356f": "recovered_1000356f",
+    "0x35ed": "recovered_100035ed",
+    "0x3769": "recovered_10003769",
+    "0x3791": "recovered_10003791",
+    "0x37e8": "recovered_100037e8",
+    "0x3814": "recovered_10003814",
+    "0x388f": "recovered_1000388f",
+    "0x38c8": "recovered_100038c8",
+    "0x38e3": "recovered_100038e3",
+    "0x4390": "recovered_10004390",
+    "0x463a": "recovered_1000463a",
+    "0x4665": "recovered_10004665",
+    "0x46ce": "recovered_100046ce"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 1128,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 1141,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 1841,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 265
+      },
+      "tag": 0
+    },
+    {
+      "offset": 1849,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 285
+      },
+      "tag": 0
+    },
+    {
+      "offset": 1857,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 293
+      },
+      "tag": 0
+    }
+  ],
+  "data_exports": []
+}

@@ -1,0 +1,79 @@
+{
+  "module": "DriverE1000",
+  "architecture": "arm64",
+  "version": "1.1",
+  "install_name": "/Drivers/network~intel~e1000.kext",
+  "functions": {
+    "0x480": "recovered_10000480",
+    "0x48c": "recovered_1000048c",
+    "0x60c": "recovered_1000060c",
+    "0x61c": "recovered_1000061c",
+    "0xec8": "recovered_10000ec8",
+    "0xf20": "recovered_10000f20",
+    "0xf3c": "recovered_10000f3c",
+    "0x1088": "recovered_10001088",
+    "0x10d4": "recovered_100010d4",
+    "0x114c": "recovered_1000114c",
+    "0x11f0": "recovered_100011f0",
+    "0x1300": "recovered_10001300",
+    "0x1318": "recovered_10001318",
+    "0x13d4": "recovered_100013d4",
+    "0x1448": "recovered_10001448",
+    "0x1490": "recovered_10001490",
+    "0x14c4": "recovered_100014c4",
+    "0x1510": "recovered_10001510",
+    "0x1550": "recovered_10001550",
+    "0x158c": "recovered_1000158c",
+    "0x1608": "recovered_10001608",
+    "0x1648": "recovered_10001648",
+    "0x1678": "recovered_10001678",
+    "0x1828": "recovered_10001828",
+    "0x196c": "recovered_1000196c",
+    "0x199c": "recovered_1000199c",
+    "0x19f4": "recovered_100019f4"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 1152,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 1164,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 9332,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 44
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9340,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 71
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9348,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 79
+      },
+      "tag": 0
+    }
+  ],
+  "data_exports": []
+}

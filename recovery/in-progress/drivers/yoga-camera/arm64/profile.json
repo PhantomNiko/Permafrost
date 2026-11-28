@@ -1,0 +1,72 @@
+{
+  "module": "DriverYogaCamera",
+  "architecture": "arm64",
+  "version": "1.1",
+  "install_name": "/Drivers/camera~qualcomm~yoga-slim7x.kext",
+  "functions": {
+    "0x480": "recovered_10000480",
+    "0x48c": "recovered_1000048c",
+    "0x750": "recovered_10000750",
+    "0x764": "recovered_10000764",
+    "0x89c": "recovered_1000089c",
+    "0x8d4": "recovered_100008d4",
+    "0x9f4": "recovered_100009f4",
+    "0xb28": "recovered_10000b28",
+    "0xb8c": "recovered_10000b8c",
+    "0xcec": "recovered_10000cec",
+    "0xd20": "recovered_10000d20",
+    "0xd8c": "recovered_10000d8c",
+    "0xdc0": "recovered_10000dc0",
+    "0xeac": "recovered_10000eac",
+    "0xebc": "recovered_10000ebc",
+    "0xf1c": "recovered_10000f1c",
+    "0xf38": "recovered_10000f38",
+    "0xfd8": "recovered_10000fd8",
+    "0x10b4": "recovered_100010b4",
+    "0x1158": "recovered_10001158"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 1152,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 1164,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 11816,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 901
+      },
+      "tag": 0
+    },
+    {
+      "offset": 11824,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 956
+      },
+      "tag": 0
+    },
+    {
+      "offset": 11832,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 963
+      },
+      "tag": 0
+    }
+  ],
+  "data_exports": []
+}

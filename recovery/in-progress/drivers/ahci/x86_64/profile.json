@@ -1,0 +1,92 @@
+{
+  "module": "DriverAhci",
+  "architecture": "x86_64",
+  "version": "1.1",
+  "install_name": "/Drivers/storage~ahci~sata.kext",
+  "functions": {
+    "0x468": "recovered_10000468",
+    "0x475": "recovered_10000475",
+    "0x765": "recovered_10000765",
+    "0x780": "recovered_10000780",
+    "0x140b": "recovered_1000140b",
+    "0x145a": "recovered_1000145a",
+    "0x14e1": "recovered_100014e1",
+    "0x14ee": "recovered_100014ee",
+    "0x14fc": "recovered_100014fc",
+    "0x15d5": "recovered_100015d5",
+    "0x1691": "recovered_10001691",
+    "0x1843": "recovered_10001843",
+    "0x1890": "recovered_10001890",
+    "0x18a4": "recovered_100018a4",
+    "0x18cb": "recovered_100018cb",
+    "0x19f7": "recovered_100019f7",
+    "0x1ab0": "recovered_10001ab0",
+    "0x1bc5": "recovered_10001bc5",
+    "0x1c5a": "recovered_10001c5a",
+    "0x1cd1": "recovered_10001cd1",
+    "0x1d25": "recovered_10001d25",
+    "0x1d5f": "recovered_10001d5f",
+    "0x1d7f": "recovered_10001d7f",
+    "0x1ddc": "recovered_10001ddc",
+    "0x1e16": "recovered_10001e16",
+    "0x1e78": "recovered_10001e78",
+    "0x1f49": "recovered_10001f49",
+    "0x1f66": "recovered_10001f66",
+    "0x1f82": "recovered_10001f82",
+    "0x1ff8": "recovered_10001ff8",
+    "0x205c": "recovered_1000205c",
+    "0x2082": "recovered_10002082",
+    "0x20a9": "recovered_100020a9",
+    "0x21ad": "recovered_100021ad",
+    "0x2556": "recovered_10002556",
+    "0x25af": "recovered_100025af",
+    "0x25e8": "recovered_100025e8",
+    "0x2613": "recovered_10002613",
+    "0x27f6": "recovered_100027f6",
+    "0x2811": "recovered_10002811"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 1128,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 1141,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 1701,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 29
+      },
+      "tag": 0
+    },
+    {
+      "offset": 1709,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 49
+      },
+      "tag": 0
+    },
+    {
+      "offset": 1717,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 57
+      },
+      "tag": 0
+    }
+  ],
+  "data_exports": []
+}

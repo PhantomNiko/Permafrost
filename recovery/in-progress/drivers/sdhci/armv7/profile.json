@@ -1,0 +1,257 @@
+{
+  "module": "DriverSdhci",
+  "architecture": "armv7",
+  "version": "1.1",
+  "install_name": "/Drivers/storage~sdhci~pci.kext",
+  "functions": {
+    "0xca8": "recovered_10000ca8",
+    "0xcb8": "recovered_10000cb8",
+    "0xfe8": "recovered_10000fe8",
+    "0x100c": "recovered_1000100c",
+    "0x206c": "recovered_1000206c",
+    "0x20f0": "recovered_100020f0",
+    "0x2188": "recovered_10002188",
+    "0x21a4": "recovered_100021a4",
+    "0x21c0": "recovered_100021c0",
+    "0x2248": "recovered_10002248",
+    "0x2350": "recovered_10002350",
+    "0x2514": "recovered_10002514",
+    "0x2588": "recovered_10002588",
+    "0x25fc": "recovered_100025fc",
+    "0x2650": "recovered_10002650",
+    "0x2734": "recovered_10002734",
+    "0x27a0": "recovered_100027a0",
+    "0x27e0": "recovered_100027e0",
+    "0x2880": "recovered_10002880",
+    "0x296c": "recovered_1000296c",
+    "0x29ac": "recovered_100029ac",
+    "0x2af0": "recovered_10002af0",
+    "0x2b5c": "recovered_10002b5c",
+    "0x2bc0": "recovered_10002bc0",
+    "0x2d98": "recovered_10002d98",
+    "0x2e48": "recovered_10002e48",
+    "0x2ec0": "recovered_10002ec0",
+    "0x2efc": "recovered_10002efc",
+    "0x2fc4": "recovered_10002fc4",
+    "0x3024": "recovered_10003024",
+    "0x303c": "recovered_1000303c",
+    "0x3090": "recovered_10003090",
+    "0x3140": "recovered_10003140",
+    "0x31a0": "recovered_100031a0",
+    "0x31c8": "recovered_100031c8",
+    "0x3204": "recovered_10003204",
+    "0x359c": "recovered_1000359c",
+    "0x35d0": "recovered_100035d0",
+    "0x3770": "recovered_10003770",
+    "0x37c0": "recovered_100037c0",
+    "0x37f8": "recovered_100037f8",
+    "0x3868": "recovered_10003868",
+    "0x38d0": "recovered_100038d0",
+    "0x39b4": "recovered_100039b4",
+    "0x3a34": "recovered_10003a34",
+    "0x3b54": "recovered_10003b54",
+    "0x3c10": "recovered_10003c10",
+    "0x3c98": "recovered_10003c98",
+    "0x3ce4": "recovered_10003ce4",
+    "0x3cf4": "recovered_10003cf4",
+    "0x3d04": "recovered_10003d04",
+    "0x3d4c": "recovered_10003d4c",
+    "0x3d74": "recovered_10003d74",
+    "0x3d90": "recovered_10003d90",
+    "0x3dd0": "recovered_10003dd0"
+  },
+  "exports": [
+    {
+      "name": "___divdi3",
+      "address": 14900,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___divsi3",
+      "address": 14328,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixdfdi",
+      "address": 15512,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixsfdi",
+      "address": 15604,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixunsdfdi",
+      "address": 15376,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixunssfdi",
+      "address": 15588,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatdidf",
+      "address": 15692,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatdisf",
+      "address": 15760,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatundidf",
+      "address": 15620,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatundisf",
+      "address": 15732,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___moddi3",
+      "address": 15188,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___modsi3",
+      "address": 14440,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___udivdi3",
+      "address": 14544,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___udivsi3",
+      "address": 14192,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___umoddi3",
+      "address": 14772,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___umodsi3",
+      "address": 14272,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 3240,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 3256,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 596,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3c98"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 600,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3c10"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 604,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3d4c"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 608,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3d04"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 612,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3770"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 616,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3dd0"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 16992,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 48
+      },
+      "tag": 0
+    },
+    {
+      "offset": 16996,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 68
+      },
+      "tag": 1
+    },
+    {
+      "offset": 17000,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 76
+      },
+      "tag": 1
+    }
+  ],
+  "data_exports": []
+}

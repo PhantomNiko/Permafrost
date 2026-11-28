@@ -1,0 +1,22 @@
+{
+  "version": "1.1",
+  "reference_path": "Drivers/storage~ahci~sata.kext",
+  "architectures": {
+    "i386": {
+      "reference_sha256": "2b8316ae9bd54987a9d485e2441ae81d807d4dbe554965728d98c21b4611899e",
+      "source_build": true,
+      "descriptor_and_api_cases": 8
+    },
+    "x86_64": {
+      "reference_sha256": "5570be6727ec291556bc17b762f663c56b5c82f7a022c22a78d4e3b0656fd6e1",
+      "source_build": true,
+      "descriptor_and_api_cases": 8
+    }
+  },
+  "status": "C build and guarded API checkpoint; complete device protocols and booted integration remain unverified",
+  "pending": [
+    "complete hardware-service argument and state review",
+    "device initialization, operation, and failure workflows",
+    "booted VM integration for emulated controllers"
+  ]
+}

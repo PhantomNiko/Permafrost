@@ -1,0 +1,53 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268450120,
+  "text_end": 268451740,
+  "state_end": 268500992,
+  "translation": {
+    "pointer_bytes": 4,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 268451740,
+    "state_end": 268500992,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"cpu.h\"",
+      "#include \"arm_exclusive.h\"",
+      "#include \"armv7-recovery.h\"",
+      "#include \"neon.h\""
+    ],
+    "source_replacements": {
+      "10003ee4": {
+        "0x10003ff0": "((uintptr_t)pf_module_state+0x54U)"
+      },
+      "10003f64": {},
+      "10003ed4": {},
+      "100039b0": {},
+      "10003ba4": {},
+      "10003c24": {},
+      "10003a58": {},
+      "100039e8": {},
+      "10003f3c": {},
+      "10003f80": {},
+      "10003948": {
+        "(int)&DAT_10003954 + DAT_10003954": "((uintptr_t)pf_module_state + 0x4068U)",
+        "DAT_10003954": "(*(uint32_t *)(uint64_t[]){0xe3a00000000046b0ULL})"
+      },
+      "10003958": {},
+      "10003960": {},
+      "10003e88": {},
+      "10003d44": {},
+      "10003e00": {
+        "DAT_10003e80": "pf_bits_double(0x43e0000000000000ULL)"
+      },
+      "10003ac0": {},
+      "10003ef4": {}
+    },
+    "source_replacement_groups": {}
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "version": "1.1",
+  "reference_path": "Drivers/storage~nvme~pcie.kext",
+  "architectures": {
+    "arm64": {
+      "reference_sha256": "cb1829fe4784839e257a24933aaf736d90c3607c9971a61cff2378c1b0fe4702",
+      "source_build": true,
+      "descriptor_and_api_cases": 8
+    },
+    "armv7": {
+      "reference_sha256": "ee2c4273402172872ea7070b41279949e4959f14668b36a7add78455038111ab",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "pci_record_cases": 8
+    },
+    "i386": {
+      "reference_sha256": "090cf5510286a204fbeb8612515c9d7fd0db6d5c60e6ca39ff93cb2953d92bbe",
+      "source_build": true,
+      "descriptor_and_api_cases": 8
+    },
+    "x86_64": {
+      "reference_sha256": "11b696b33437deac394136caa475bb5c9e37b29b5bdf56ce65108a42d3f3bf36",
+      "source_build": true,
+      "descriptor_and_api_cases": 8
+    }
+  },
+  "status": "C build and guarded API checkpoint; complete device protocols and booted integration remain unverified",
+  "pending": [
+    "complete hardware-service argument and state review",
+    "device initialization, operation, and failure workflows",
+    "booted VM integration for emulated controllers"
+  ]
+}

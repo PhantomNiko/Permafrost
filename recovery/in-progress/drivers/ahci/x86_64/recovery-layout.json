@@ -1,0 +1,71 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268436584,
+  "text_end": 268446051,
+  "state_end": 268460032,
+  "translation": {
+    "pointer_bytes": 8,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 268446051,
+    "state_end": 268460032,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"x86_cpu.h\""
+    ],
+    "source_replacements": {
+      "10000765": {},
+      "10001ab0": {},
+      "100014ee": {},
+      "100015d5": {},
+      "10001cd1": {},
+      "100018a4": {},
+      "10001f82": {},
+      "10001d25": {},
+      "100021ad": {},
+      "10000475": {
+        "0x10004060": "((uintptr_t)pf_module_state+0x16fdU)",
+        "0x10004010": "((uintptr_t)pf_module_state+0x16adU)"
+      },
+      "100014e1": {},
+      "10000468": {},
+      "10001d7f": {},
+      "10001691": {},
+      "10001f49": {},
+      "10001f66": {},
+      "10001e78": {},
+      "10001890": {},
+      "100018cb": {},
+      "100014fc": {},
+      "100027f6": {},
+      "100020a9": {},
+      "10002556": {},
+      "1000140b": {},
+      "10001ddc": {},
+      "10000780": {
+        "0x10004090": "((uintptr_t)pf_module_state+0x172dU)",
+        "0x10002994": "((uintptr_t)pf_module_state+0x31U)"
+      },
+      "10001d5f": {},
+      "10001843": {},
+      "100025e8": {},
+      "100019f7": {},
+      "10002613": {},
+      "1000205c": {},
+      "100025af": {},
+      "10001ff8": {},
+      "10001e16": {},
+      "10002811": {},
+      "10001c5a": {},
+      "10002082": {},
+      "1000145a": {},
+      "10001bc5": {}
+    },
+    "source_replacement_groups": {}
+  }
+}

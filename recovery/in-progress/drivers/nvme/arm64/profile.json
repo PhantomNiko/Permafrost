@@ -1,0 +1,94 @@
+{
+  "module": "DriverNvme",
+  "architecture": "arm64",
+  "version": "1.1",
+  "install_name": "/Drivers/storage~nvme~pcie.kext",
+  "functions": {
+    "0x478": "recovered_10000478",
+    "0x484": "recovered_10000484",
+    "0x754": "recovered_10000754",
+    "0x76c": "recovered_1000076c",
+    "0x11a4": "recovered_100011a4",
+    "0x11d8": "recovered_100011d8",
+    "0x1250": "recovered_10001250",
+    "0x1300": "recovered_10001300",
+    "0x1308": "recovered_10001308",
+    "0x1310": "recovered_10001310",
+    "0x13f0": "recovered_100013f0",
+    "0x14c0": "recovered_100014c0",
+    "0x15fc": "recovered_100015fc",
+    "0x1648": "recovered_10001648",
+    "0x1658": "recovered_10001658",
+    "0x17bc": "recovered_100017bc",
+    "0x1858": "recovered_10001858",
+    "0x18b0": "recovered_100018b0",
+    "0x18f8": "recovered_100018f8",
+    "0x1914": "recovered_10001914",
+    "0x19d8": "recovered_100019d8",
+    "0x19f0": "recovered_100019f0",
+    "0x1a20": "recovered_10001a20",
+    "0x1aa8": "recovered_10001aa8",
+    "0x1b08": "recovered_10001b08",
+    "0x1b3c": "recovered_10001b3c",
+    "0x1b74": "recovered_10001b74",
+    "0x1ba8": "recovered_10001ba8",
+    "0x1c84": "recovered_10001c84",
+    "0x1d08": "recovered_10001d08",
+    "0x1d58": "recovered_10001d58",
+    "0x1d94": "recovered_10001d94",
+    "0x1dfc": "recovered_10001dfc",
+    "0x201c": "recovered_1000201c",
+    "0x2040": "recovered_10002040",
+    "0x20b4": "recovered_100020b4",
+    "0x2154": "recovered_10002154",
+    "0x2194": "recovered_10002194",
+    "0x2200": "recovered_10002200",
+    "0x23f8": "recovered_100023f8",
+    "0x2420": "recovered_10002420",
+    "0x2574": "recovered_10002574"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 1144,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 1156,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 6084,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 97
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6092,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 117
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6100,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 125
+      },
+      "tag": 0
+    }
+  ],
+  "data_exports": []
+}

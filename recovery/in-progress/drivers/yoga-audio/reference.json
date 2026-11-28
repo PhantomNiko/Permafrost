@@ -1,0 +1,17 @@
+{
+  "version": "1.1",
+  "reference_path": "Drivers/audio~qualcomm~yoga-slim7x.kext",
+  "architectures": {
+    "arm64": {
+      "reference_sha256": "a24e059db1800b0bf559777e600bf3d1b154c4f86cf65dc7fad4d00380116213",
+      "source_build": true,
+      "descriptor_and_api_cases": 8
+    }
+  },
+  "status": "C build and guarded API checkpoint; complete device protocols and booted integration remain unverified",
+  "pending": [
+    "complete hardware-service argument and state review",
+    "device initialization, operation, and failure workflows",
+    "booted VM integration for emulated controllers"
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "module": "DriverSnapdragon8cx",
+  "architecture": "arm64",
+  "version": "1.1",
+  "install_name": "/Drivers/cpu~arm64~snapdragon-8cx-gen3.kext",
+  "functions": {
+    "0x3f0": "recovered_100003f0",
+    "0x3fc": "recovered_100003fc"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 1008,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 1020,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 15240,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 215
+      },
+      "tag": 0
+    },
+    {
+      "offset": 15248,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 239
+      },
+      "tag": 0
+    },
+    {
+      "offset": 15256,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 243
+      },
+      "tag": 0
+    }
+  ],
+  "data_exports": []
+}

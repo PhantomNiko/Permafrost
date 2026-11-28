@@ -1,0 +1,22 @@
+{
+  "version": "1.1",
+  "reference_path": "Drivers/input~i2c-hid~generic.kext",
+  "architectures": {
+    "i386": {
+      "reference_sha256": "3be28ab6b4ae80f26ccde9fcf3d24eba67992e8b70cb2828cefd5a8af50e4966",
+      "source_build": true,
+      "descriptor_and_api_cases": 8
+    },
+    "x86_64": {
+      "reference_sha256": "59fa79a90035e3da123573e409a3146d701b7129847ead700b386585aafd6b41",
+      "source_build": true,
+      "descriptor_and_api_cases": 8
+    }
+  },
+  "status": "C build and guarded API checkpoint; complete device protocols and booted integration remain unverified",
+  "pending": [
+    "complete hardware-service argument and state review",
+    "device initialization, operation, and failure workflows",
+    "booted VM integration for emulated controllers"
+  ]
+}

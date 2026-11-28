@@ -1,0 +1,17 @@
+{
+  "version": "1.1",
+  "reference_path": "Drivers/cpu~arm64~snapdragon-8cx-gen3.kext",
+  "architectures": {
+    "arm64": {
+      "reference_sha256": "b7990d21c2a631e943237b022d7886cf40b8d47c8a88e105bc4ac7c6d6241cbf",
+      "source_build": true,
+      "descriptor_and_api_cases": 8
+    }
+  },
+  "status": "C build and guarded API checkpoint; complete device protocols and booted integration remain unverified",
+  "pending": [
+    "complete hardware-service argument and state review",
+    "device initialization, operation, and failure workflows",
+    "booted VM integration for emulated controllers"
+  ]
+}

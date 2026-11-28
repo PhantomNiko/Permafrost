@@ -1,0 +1,33 @@
+{
+  "version": "1.1",
+  "reference_path": "Drivers/storage~sdhci~pci.kext",
+  "architectures": {
+    "arm64": {
+      "reference_sha256": "cd047bdf84e2b1634f5e49019e4f0eab73d2cb786f96054293215fa4eb50b5eb",
+      "source_build": true,
+      "descriptor_and_api_cases": 8
+    },
+    "armv7": {
+      "reference_sha256": "df4058205ff5712819999bf100b159f3f560971c1b0cd51957ce5135414de4fc",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "pci_record_cases": 8
+    },
+    "i386": {
+      "reference_sha256": "4d8ae24db15ee64c2eb67cdf5570a9dc5843280b893a4b306a6a4316dd753eb9",
+      "source_build": true,
+      "descriptor_and_api_cases": 8
+    },
+    "x86_64": {
+      "reference_sha256": "9aa7bd2e70026b7ca7360600c36113351d0ca9e243017f1d138a92c70e44b5ce",
+      "source_build": true,
+      "descriptor_and_api_cases": 8
+    }
+  },
+  "status": "C build and guarded API checkpoint; complete device protocols and booted integration remain unverified",
+  "pending": [
+    "complete hardware-service argument and state review",
+    "device initialization, operation, and failure workflows",
+    "booted VM integration for emulated controllers"
+  ]
+}

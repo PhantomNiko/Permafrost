@@ -1,0 +1,73 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268436608,
+  "text_end": 268442516,
+  "state_end": 268533760,
+  "translation": {
+    "pointer_bytes": 8,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 268442516,
+    "state_end": 268533760,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"cpu.h\"",
+      "#include \"arm64-recovery.h\""
+    ],
+    "source_replacements": {
+      "10001510": {},
+      "10001088": {},
+      "1000199c": {},
+      "10001300": {},
+      "10001550": {},
+      "100014c4": {},
+      "100011f0": {},
+      "1000061c": {
+        "0x10001bdb": "((uintptr_t)pf_module_state+0x47U)",
+        "0x10001bf6": "((uintptr_t)pf_module_state+0x62U)",
+        "0x10010200": "((uintptr_t)pf_module_state+0xe66cU)",
+        "0x10010100": "((uintptr_t)pf_module_state+0xe56cU)",
+        "0x10001c60": "((uintptr_t)pf_module_state+0xccU)"
+      },
+      "10001678": {
+        "0x10010108": "((uintptr_t)pf_module_state+0xe574U)",
+        "0x1001010c": "((uintptr_t)pf_module_state+0xe578U)",
+        "0x1001010d": "((uintptr_t)pf_module_state+0xe579U)"
+      },
+      "1000060c": {},
+      "1000114c": {},
+      "1000196c": {},
+      "10001490": {},
+      "10000480": {},
+      "10001828": {
+        "0x10010200": "((uintptr_t)pf_module_state+0xe66cU)",
+        "0x10010208": "((uintptr_t)pf_module_state+0xe674U)",
+        "0x1001020c": "((uintptr_t)pf_module_state+0xe678U)",
+        "0x1001020e": "((uintptr_t)pf_module_state+0xe67aU)",
+        "0x10010209": "((uintptr_t)pf_module_state+0xe675U)",
+        "0x1001020a": "((uintptr_t)pf_module_state+0xe676U)"
+      },
+      "10000f3c": {
+        "PF_PART2(local_48, 4) != -1": "PF_PART2(local_48, 4) != 0xffffU",
+        "local_48._4_2_ != -1": "local_48._4_2_ != 0xffffU"
+      },
+      "10001608": {},
+      "10001318": {},
+      "10001448": {},
+      "10000ec8": {},
+      "10001648": {},
+      "1000158c": {},
+      "10000f20": {},
+      "100019f4": {},
+      "100013d4": {},
+      "1000048c": {},
+      "100010d4": {}
+    },
+    "source_replacement_groups": {}
+  }
+}

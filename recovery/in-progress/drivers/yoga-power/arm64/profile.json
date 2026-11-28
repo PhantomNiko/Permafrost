@@ -1,0 +1,335 @@
+{
+  "module": "DriverYogaPower",
+  "architecture": "arm64",
+  "version": "1.1",
+  "install_name": "/Drivers/power~qualcomm~yoga-slim7x.kext",
+  "functions": {
+    "0x480": "recovered_10000480",
+    "0x48c": "recovered_1000048c",
+    "0xf48": "recovered_10000f48",
+    "0xf5c": "recovered_10000f5c",
+    "0x1008": "recovered_10001008",
+    "0x10f4": "recovered_100010f4",
+    "0x1128": "recovered_10001128",
+    "0x1180": "recovered_10001180",
+    "0x11a8": "recovered_100011a8",
+    "0x1238": "recovered_10001238",
+    "0x1278": "recovered_10001278",
+    "0x1320": "recovered_10001320",
+    "0x133c": "recovered_1000133c",
+    "0x16b0": "recovered_100016b0",
+    "0x16f4": "recovered_100016f4",
+    "0x18a4": "recovered_100018a4",
+    "0x19c0": "recovered_100019c0",
+    "0x1a2c": "recovered_10001a2c",
+    "0x1ad8": "recovered_10001ad8",
+    "0x1b4c": "recovered_10001b4c",
+    "0x1bac": "recovered_10001bac",
+    "0x1bdc": "recovered_10001bdc",
+    "0x1c20": "recovered_10001c20",
+    "0x1c84": "recovered_10001c84",
+    "0x1ce8": "recovered_10001ce8",
+    "0x1d48": "recovered_10001d48",
+    "0x2218": "recovered_10002218",
+    "0x263c": "recovered_1000263c",
+    "0x264c": "recovered_1000264c",
+    "0x267c": "recovered_1000267c",
+    "0x26a4": "recovered_100026a4"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 1152,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 1164,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 6044,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 667
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6052,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 709
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6060,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 715
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6076,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 829
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6084,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 851
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6092,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 863
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6100,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 885
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6108,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 903
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6116,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 920
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6124,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 946
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6132,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 973
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6140,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 993
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6148,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1024
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6156,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1049
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6164,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1081
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6172,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1112
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6180,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1141
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6188,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1177
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6196,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1204
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6204,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 3717
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6212,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 3738
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6220,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 3761
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6228,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 3780
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6236,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 3807
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6244,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 3835
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6252,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 3860
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6260,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 3880
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6268,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 3897
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6276,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 3902
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6284,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 3909
+      },
+      "tag": 0
+    },
+    {
+      "offset": 6292,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 3913
+      },
+      "tag": 0
+    }
+  ],
+  "data_exports": []
+}

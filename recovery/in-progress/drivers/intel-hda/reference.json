@@ -1,0 +1,33 @@
+{
+  "version": "1.1",
+  "reference_path": "Drivers/audio~intel~hda.kext",
+  "architectures": {
+    "arm64": {
+      "reference_sha256": "d8b37f3407e30509da0b556a2ee832febf6cbe1640018acb121d7bd531797883",
+      "source_build": true,
+      "descriptor_and_api_cases": 8
+    },
+    "armv7": {
+      "reference_sha256": "0886843e972cb5a58eea9a2ead8f53c0e98ecf0ea71abed3777cdc6a609010f6",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "pci_record_cases": 8
+    },
+    "i386": {
+      "reference_sha256": "e2ab05e9587b4dbd7840ea5e8c57321c0f775e6511e43ebc70d538cd3863c42a",
+      "source_build": true,
+      "descriptor_and_api_cases": 8
+    },
+    "x86_64": {
+      "reference_sha256": "d822817bf5d71345921cd5feea0d7cb682ed195746de39b73eff47d652514637",
+      "source_build": true,
+      "descriptor_and_api_cases": 8
+    }
+  },
+  "status": "C build and guarded API checkpoint; complete device protocols and booted integration remain unverified",
+  "pending": [
+    "complete hardware-service argument and state review",
+    "device initialization, operation, and failure workflows",
+    "booted VM integration for emulated controllers"
+  ]
+}

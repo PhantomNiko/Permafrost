@@ -1,0 +1,83 @@
+{
+  "module": "DriverIntelGen9",
+  "architecture": "i386",
+  "version": "1.1",
+  "install_name": "/Drivers/graphics~intel~gen9-scanout.kext",
+  "functions": {
+    "0xaf0": "recovered_10000af0",
+    "0xb06": "recovered_10000b06",
+    "0x18ca": "recovered_100018ca",
+    "0x18e3": "recovered_100018e3",
+    "0x1941": "recovered_10001941",
+    "0x1979": "recovered_10001979",
+    "0x19ea": "recovered_100019ea",
+    "0x1a15": "recovered_10001a15",
+    "0x1a79": "recovered_10001a79",
+    "0x1b56": "recovered_10001b56",
+    "0x1bd0": "recovered_10001bd0",
+    "0x1bfe": "recovered_10001bfe",
+    "0x1e1d": "recovered_10001e1d",
+    "0x1e3c": "recovered_10001e3c",
+    "0x2294": "recovered_10002294",
+    "0x23b1": "recovered_100023b1",
+    "0x252e": "recovered_1000252e",
+    "0x2574": "recovered_10002574",
+    "0x25c6": "recovered_100025c6",
+    "0x25e7": "recovered_100025e7",
+    "0x2615": "recovered_10002615",
+    "0x269c": "recovered_1000269c",
+    "0x26c4": "recovered_100026c4",
+    "0x27fe": "recovered_100027fe",
+    "0x2866": "recovered_10002866",
+    "0x2885": "recovered_10002885",
+    "0x2897": "recovered_10002897",
+    "0x28d2": "recovered_100028d2",
+    "0x2939": "recovered_10002939",
+    "0x297b": "recovered_1000297b",
+    "0x29bf": "recovered_100029bf"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 2800,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 2822,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 1555,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 911
+      },
+      "tag": 0
+    },
+    {
+      "offset": 1559,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 937
+      },
+      "tag": 0
+    },
+    {
+      "offset": 1563,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 946
+      },
+      "tag": 0
+    }
+  ],
+  "data_exports": []
+}

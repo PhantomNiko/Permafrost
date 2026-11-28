@@ -1,0 +1,17 @@
+{
+  "version": "1.1",
+  "reference_path": "Drivers/network~qualcomm~yoga-slim7x.kext",
+  "architectures": {
+    "arm64": {
+      "reference_sha256": "1be9978b48fcc69fe13e8d0bd946333485ede068669602ae1ce6b69fafcf3000",
+      "source_build": true,
+      "descriptor_and_api_cases": 8
+    }
+  },
+  "status": "C build and guarded API checkpoint; complete device protocols and booted integration remain unverified",
+  "pending": [
+    "complete hardware-service argument and state review",
+    "device initialization, operation, and failure workflows",
+    "booted VM integration for emulated controllers"
+  ]
+}

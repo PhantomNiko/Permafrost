@@ -1,0 +1,80 @@
+{
+  "module": "DriverIntelGen9",
+  "architecture": "x86_64",
+  "version": "1.1",
+  "install_name": "/Drivers/graphics~intel~gen9-scanout.kext",
+  "functions": {
+    "0x470": "recovered_10000470",
+    "0x47d": "recovered_1000047d",
+    "0x10a4": "recovered_100010a4",
+    "0x10bf": "recovered_100010bf",
+    "0x1128": "recovered_10001128",
+    "0x115c": "recovered_1000115c",
+    "0x11ca": "recovered_100011ca",
+    "0x11f1": "recovered_100011f1",
+    "0x123e": "recovered_1000123e",
+    "0x131e": "recovered_1000131e",
+    "0x13b3": "recovered_100013b3",
+    "0x13dd": "recovered_100013dd",
+    "0x15e2": "recovered_100015e2",
+    "0x15f6": "recovered_100015f6",
+    "0x19e7": "recovered_100019e7",
+    "0x1af4": "recovered_10001af4",
+    "0x1ca6": "recovered_10001ca6",
+    "0x1cfa": "recovered_10001cfa",
+    "0x1d57": "recovered_10001d57",
+    "0x1d77": "recovered_10001d77",
+    "0x1db1": "recovered_10001db1",
+    "0x1e47": "recovered_10001e47",
+    "0x1e6b": "recovered_10001e6b",
+    "0x1fab": "recovered_10001fab",
+    "0x2009": "recovered_10002009",
+    "0x2029": "recovered_10002029",
+    "0x2038": "recovered_10002038",
+    "0x2069": "recovered_10002069"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 1136,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 1149,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 3880,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 855
+      },
+      "tag": 0
+    },
+    {
+      "offset": 3888,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 881
+      },
+      "tag": 0
+    },
+    {
+      "offset": 3896,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 890
+      },
+      "tag": 0
+    }
+  ],
+  "data_exports": []
+}

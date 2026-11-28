@@ -1,0 +1,78 @@
+{
+  "module": "DriverYogaGraphics",
+  "architecture": "arm64",
+  "version": "1.1",
+  "install_name": "/Drivers/graphics~qualcomm~yoga-slim7x.kext",
+  "functions": {
+    "0x480": "recovered_10000480",
+    "0x48c": "recovered_1000048c",
+    "0xac4": "recovered_10000ac4",
+    "0xad8": "recovered_10000ad8",
+    "0xb14": "recovered_10000b14",
+    "0xbd8": "recovered_10000bd8",
+    "0xc10": "recovered_10000c10",
+    "0xca8": "recovered_10000ca8",
+    "0xd68": "recovered_10000d68",
+    "0xfbc": "recovered_10000fbc",
+    "0xfcc": "recovered_10000fcc",
+    "0x12b8": "recovered_100012b8",
+    "0x13cc": "recovered_100013cc",
+    "0x153c": "recovered_1000153c",
+    "0x16d8": "recovered_100016d8",
+    "0x17ac": "recovered_100017ac",
+    "0x1850": "recovered_10001850",
+    "0x18b0": "recovered_100018b0",
+    "0x18d0": "recovered_100018d0",
+    "0x1904": "recovered_10001904",
+    "0x1a38": "recovered_10001a38",
+    "0x1a84": "recovered_10001a84",
+    "0x1aa4": "recovered_10001aa4",
+    "0x1ab4": "recovered_10001ab4",
+    "0x1ae0": "recovered_10001ae0",
+    "0x1b1c": "recovered_10001b1c"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 1152,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 1164,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 9304,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1927
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9312,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1960
+      },
+      "tag": 0
+    },
+    {
+      "offset": 9320,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1969
+      },
+      "tag": 0
+    }
+  ],
+  "data_exports": []
+}

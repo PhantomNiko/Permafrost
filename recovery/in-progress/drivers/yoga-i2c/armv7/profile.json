@@ -1,0 +1,202 @@
+{
+  "module": "DriverYogaI2c",
+  "architecture": "armv7",
+  "version": "1.1",
+  "install_name": "/Drivers/input~i2c-hid~yoga-slim7x.kext",
+  "functions": {
+    "0x3948": "recovered_10003948",
+    "0x3958": "recovered_10003958",
+    "0x3960": "recovered_10003960",
+    "0x39b0": "recovered_100039b0",
+    "0x39e8": "recovered_100039e8",
+    "0x3a58": "recovered_10003a58",
+    "0x3ac0": "recovered_10003ac0",
+    "0x3ba4": "recovered_10003ba4",
+    "0x3c24": "recovered_10003c24",
+    "0x3d44": "recovered_10003d44",
+    "0x3e00": "recovered_10003e00",
+    "0x3e88": "recovered_10003e88",
+    "0x3ed4": "recovered_10003ed4",
+    "0x3ee4": "recovered_10003ee4",
+    "0x3ef4": "recovered_10003ef4",
+    "0x3f3c": "recovered_10003f3c",
+    "0x3f64": "recovered_10003f64",
+    "0x3f80": "recovered_10003f80"
+  },
+  "exports": [
+    {
+      "name": "___divdi3",
+      "address": 15396,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___divsi3",
+      "address": 14824,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixdfdi",
+      "address": 16008,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixsfdi",
+      "address": 16100,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixunsdfdi",
+      "address": 15872,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixunssfdi",
+      "address": 16084,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatdidf",
+      "address": 16188,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatdisf",
+      "address": 16256,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatundidf",
+      "address": 16116,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatundisf",
+      "address": 16228,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___moddi3",
+      "address": 15684,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___modsi3",
+      "address": 14936,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___udivdi3",
+      "address": 15040,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___udivsi3",
+      "address": 14688,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___umoddi3",
+      "address": 15268,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___umodsi3",
+      "address": 14768,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 14664,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 14680,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 100,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3e88"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 104,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3e00"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 108,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3f3c"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 112,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3ef4"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 16496,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 36
+      },
+      "tag": 0
+    },
+    {
+      "offset": 16500,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 56
+      },
+      "tag": 1
+    },
+    {
+      "offset": 16504,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 62
+      },
+      "tag": 1
+    }
+  ],
+  "data_exports": []
+}

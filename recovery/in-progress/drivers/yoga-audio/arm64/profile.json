@@ -1,0 +1,292 @@
+{
+  "module": "DriverYogaAudio",
+  "architecture": "arm64",
+  "version": "1.1",
+  "install_name": "/Drivers/audio~qualcomm~yoga-slim7x.kext",
+  "functions": {
+    "0x480": "recovered_10000480",
+    "0x48c": "recovered_1000048c",
+    "0x7f4": "recovered_100007f4",
+    "0x808": "recovered_10000808",
+    "0x9bc": "recovered_100009bc",
+    "0x9f4": "recovered_100009f4",
+    "0xb38": "recovered_10000b38",
+    "0xc68": "recovered_10000c68",
+    "0xda0": "recovered_10000da0",
+    "0xe90": "recovered_10000e90",
+    "0xec4": "recovered_10000ec4",
+    "0xf34": "recovered_10000f34",
+    "0xf40": "recovered_10000f40",
+    "0xf4c": "recovered_10000f4c",
+    "0xf94": "recovered_10000f94"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 1152,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 1164,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 11940,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1144
+      },
+      "tag": 0
+    },
+    {
+      "offset": 11948,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1198
+      },
+      "tag": 0
+    },
+    {
+      "offset": 11956,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1204
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12004,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1223
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12044,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1232
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12084,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1241
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12124,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1253
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12164,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1267
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12204,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1272
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12244,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1281
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12284,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1286
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12324,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1297
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12364,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1307
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12404,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1318
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12444,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1330
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12484,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1340
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12524,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1352
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12564,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1367
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12604,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1376
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12644,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1387
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12684,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1402
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12724,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1411
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12764,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1428
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12804,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1444
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12844,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1457
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12884,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1469
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12924,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1482
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12964,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 1495
+      },
+      "tag": 0
+    }
+  ],
+  "data_exports": []
+}

@@ -1,0 +1,32 @@
+{
+  "version": "1.1",
+  "reference_path": "Drivers/network~intel~e1000.kext",
+  "architectures": {
+    "arm64": {
+      "reference_sha256": "946b434d06a06366f86804ee0ecb780ac00d4ffe3a014f28788509158a068e2d",
+      "source_build": true,
+      "descriptor_and_api_cases": 8
+    },
+    "armv7": {
+      "reference_sha256": "ece834c69653145a016f9edebde89b07880d70a554e199d2f62e4cfb1189788c",
+      "source_build": true,
+      "descriptor_and_api_cases": 8
+    },
+    "i386": {
+      "reference_sha256": "870e25bab6caa5a6d95a41addf0ec9b2565806ae7203dcd35a997d72a7900b4e",
+      "source_build": true,
+      "descriptor_and_api_cases": 8
+    },
+    "x86_64": {
+      "reference_sha256": "fdaf1d150ec65930a05c9e9fce6cb8cc0b9f8f628f9d23cb65ff843eed23239e",
+      "source_build": true,
+      "descriptor_and_api_cases": 8
+    }
+  },
+  "status": "C build and guarded API checkpoint; complete device protocols and booted integration remain unverified",
+  "pending": [
+    "complete hardware-service argument and state review",
+    "device initialization, operation, and failure workflows",
+    "booted VM integration for emulated controllers"
+  ]
+}

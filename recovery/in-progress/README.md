@@ -630,3 +630,11 @@ input workflows each. PS/2 coverage includes scan codes, modifiers, extended
 keys, mouse packets, mixed keyboard/mouse bytes, and controller errors. Full
 controller initialization, platform registration, and booted input integration
 remain release gates.
+
+The remaining 39 non-MCU driver targets now have independently rebuilt C
+checkpoints and pass eight guarded descriptor/API cases each. Together with
+the drivers above, all 73 normal driver slices for the four VM architectures
+compile from saved C. The raw Pico SX126X firmware is separate. These additional
+checkpoints cover AHCI, E1000, NVMe, SD controllers, audio, and platform-specific
+Yoga/Snapdragon devices. Their complete device protocols remain unverified;
+compilation and API validation do not establish hardware or release parity.

@@ -1,0 +1,66 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268436608,
+  "text_end": 268442544,
+  "state_end": 268500992,
+  "translation": {
+    "pointer_bytes": 8,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 268442544,
+    "state_end": 268500992,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"cpu.h\"",
+      "#include \"arm64-recovery.h\""
+    ],
+    "source_replacements": {
+      "10001ab4": {},
+      "10000ac4": {},
+      "10000b14": {},
+      "100018d0": {},
+      "10000c10": {
+        "DAT_10008000": "(*(int **)((uintptr_t)pf_module_state+0x6450U))"
+      },
+      "10000ca8": {},
+      "10001a38": {},
+      "100016d8": {},
+      "10000fcc": {},
+      "10000d68": {
+        "DAT_10008000": "(*(int **)((uintptr_t)pf_module_state+0x6450U))"
+      },
+      "10000fbc": {},
+      "10000bd8": {},
+      "10001b1c": {},
+      "100013cc": {
+        "DAT_10008000": "(*(int **)((uintptr_t)pf_module_state+0x6450U))"
+      },
+      "10000ad8": {},
+      "10000480": {},
+      "100017ac": {},
+      "10001a84": {},
+      "1000153c": {
+        "DAT_10008000": "(*(int **)((uintptr_t)pf_module_state+0x6450U))"
+      },
+      "100012b8": {
+        "DAT_10008000": "(*(int **)((uintptr_t)pf_module_state+0x6450U))"
+      },
+      "10001904": {},
+      "10001850": {},
+      "100018b0": {},
+      "1000048c": {
+        "0x1000803c": "((uintptr_t)pf_module_state+0x648cU)",
+        "DAT_10008000": "(*(int **)((uintptr_t)pf_module_state+0x6450U))",
+        "DAT_100080b8_4": "(*(uint32_t *)((uintptr_t)pf_module_state+0x650cU))"
+      },
+      "10001aa4": {},
+      "10001ae0": {}
+    },
+    "source_replacement_groups": {}
+  }
+}

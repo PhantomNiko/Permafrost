@@ -1,0 +1,138 @@
+{
+  "module": "DriverYogaNpu",
+  "architecture": "arm64",
+  "version": "1.1",
+  "install_name": "/Drivers/accelerator~qualcomm~hexagon-npu~yoga-slim7x.kext",
+  "functions": {
+    "0x480": "recovered_10000480",
+    "0x48c": "recovered_1000048c",
+    "0x970": "recovered_10000970",
+    "0x984": "recovered_10000984",
+    "0xb28": "recovered_10000b28",
+    "0xb60": "recovered_10000b60",
+    "0xb94": "recovered_10000b94",
+    "0xc04": "recovered_10000c04",
+    "0xd8c": "recovered_10000d8c",
+    "0xe74": "recovered_10000e74",
+    "0xe84": "recovered_10000e84",
+    "0xee4": "recovered_10000ee4",
+    "0xf00": "recovered_10000f00",
+    "0xfa4": "recovered_10000fa4"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 1152,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 1164,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 12256,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 294
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12264,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 342
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12272,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 354
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12312,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 373
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12344,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 378
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12376,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 392
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12408,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 401
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12440,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 406
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12472,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 415
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12504,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 420
+      },
+      "tag": 0
+    },
+    {
+      "offset": 12536,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 431
+      },
+      "tag": 0
+    }
+  ],
+  "data_exports": []
+}

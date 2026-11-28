@@ -1,0 +1,97 @@
+{
+  "module": "DriverYogaI2c",
+  "architecture": "arm64",
+  "version": "1.1",
+  "install_name": "/Drivers/input~i2c-hid~yoga-slim7x.kext",
+  "functions": {
+    "0x480": "recovered_10000480",
+    "0x48c": "recovered_1000048c",
+    "0xd48": "recovered_10000d48",
+    "0xd60": "recovered_10000d60",
+    "0xd70": "recovered_10000d70",
+    "0xe1c": "recovered_10000e1c",
+    "0x1134": "recovered_10001134",
+    "0x11e4": "recovered_100011e4",
+    "0x1d9c": "recovered_10001d9c",
+    "0x237c": "recovered_1000237c",
+    "0x23b0": "recovered_100023b0",
+    "0x24f0": "recovered_100024f0",
+    "0x2558": "recovered_10002558",
+    "0x264c": "recovered_1000264c",
+    "0x28a8": "recovered_100028a8",
+    "0x2a4c": "recovered_10002a4c",
+    "0x2ca8": "recovered_10002ca8",
+    "0x2cec": "recovered_10002cec",
+    "0x2de0": "recovered_10002de0",
+    "0x2e8c": "recovered_10002e8c",
+    "0x2f38": "recovered_10002f38",
+    "0x3050": "recovered_10003050",
+    "0x3088": "recovered_10003088",
+    "0x30b8": "recovered_100030b8",
+    "0x30e8": "recovered_100030e8",
+    "0x3150": "recovered_10003150",
+    "0x31b8": "recovered_100031b8",
+    "0x3218": "recovered_10003218",
+    "0x329c": "recovered_1000329c",
+    "0x32c0": "recovered_100032c0",
+    "0x3330": "recovered_10003330",
+    "0x33e0": "recovered_100033e0",
+    "0x357c": "recovered_1000357c",
+    "0x35d0": "recovered_100035d0",
+    "0x3638": "recovered_10003638",
+    "0x36a0": "recovered_100036a0",
+    "0x372c": "recovered_1000372c",
+    "0x3748": "recovered_10003748",
+    "0x379c": "recovered_1000379c",
+    "0x382c": "recovered_1000382c",
+    "0x38b0": "recovered_100038b0",
+    "0x38e4": "recovered_100038e4",
+    "0x391c": "recovered_1000391c",
+    "0x3950": "recovered_10003950",
+    "0x39d8": "recovered_100039d8"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 1152,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 1164,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 17300,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 842
+      },
+      "tag": 0
+    },
+    {
+      "offset": 17308,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 863
+      },
+      "tag": 0
+    },
+    {
+      "offset": 17316,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 869
+      },
+      "tag": 0
+    }
+  ],
+  "data_exports": []
+}

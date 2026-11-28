@@ -1,0 +1,92 @@
+{
+  "module": "DriverIntelHda",
+  "architecture": "i386",
+  "version": "1.1",
+  "install_name": "/Drivers/audio~intel~hda.kext",
+  "functions": {
+    "0xd2c": "recovered_10000d2c",
+    "0xd42": "recovered_10000d42",
+    "0xfec": "recovered_10000fec",
+    "0x1005": "recovered_10001005",
+    "0x1024": "recovered_10001024",
+    "0x1a91": "recovered_10001a91",
+    "0x1ef0": "recovered_10001ef0",
+    "0x1f1a": "recovered_10001f1a",
+    "0x1fbe": "recovered_10001fbe",
+    "0x2004": "recovered_10002004",
+    "0x2025": "recovered_10002025",
+    "0x21a2": "recovered_100021a2",
+    "0x2206": "recovered_10002206",
+    "0x2498": "recovered_10002498",
+    "0x24e6": "recovered_100024e6",
+    "0x250d": "recovered_1000250d",
+    "0x2583": "recovered_10002583",
+    "0x25ae": "recovered_100025ae",
+    "0x25d2": "recovered_100025d2",
+    "0x25f7": "recovered_100025f7",
+    "0x261c": "recovered_1000261c",
+    "0x26b3": "recovered_100026b3",
+    "0x2700": "recovered_10002700",
+    "0x2766": "recovered_10002766",
+    "0x27b0": "recovered_100027b0",
+    "0x27fe": "recovered_100027fe",
+    "0x298b": "recovered_1000298b",
+    "0x2a06": "recovered_10002a06",
+    "0x2a2d": "recovered_10002a2d",
+    "0x2ac4": "recovered_10002ac4",
+    "0x2b16": "recovered_10002b16",
+    "0x2b7d": "recovered_10002b7d",
+    "0x2bab": "recovered_10002bab",
+    "0x2c14": "recovered_10002c14",
+    "0x2c3f": "recovered_10002c3f",
+    "0x2c8b": "recovered_10002c8b",
+    "0x2cbd": "recovered_10002cbd",
+    "0x2ce4": "recovered_10002ce4",
+    "0x2d26": "recovered_10002d26",
+    "0x2d6a": "recovered_10002d6a"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 3372,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 3394,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 616,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 53
+      },
+      "tag": 0
+    },
+    {
+      "offset": 620,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 76
+      },
+      "tag": 0
+    },
+    {
+      "offset": 624,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 82
+      },
+      "tag": 0
+    }
+  ],
+  "data_exports": []
+}
