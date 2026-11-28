@@ -638,3 +638,24 @@ compile from saved C. The raw Pico SX126X firmware is separate. These additional
 checkpoints cover AHCI, E1000, NVMe, SD controllers, audio, and platform-specific
 Yoga/Snapdragon devices. Their complete device protocols remain unverified;
 compilation and API validation do not establish hardware or release parity.
+
+The integrated candidate is built with `python3 tools/build_candidate.py`. Its
+compiler stage uses the saved C/C++ checkpoints and sibling Zastruga Engine,
+Sleet, and Amur sources. Packaging reads only explicitly hashed resources from
+the reference image, replaces normal program payloads with compiled products,
+and omits the separate PicoFrost MCU payloads and unsupported architectures.
+The C BIOS loader receives an uncompressed i386 kernel slice. Candidate images
+include C and C++ SDK examples in Home. These are diagnostic artifacts, not a
+completed release or evidence of functional parity.
+
+The relocatable Permafrost1.1.sdk now packages shared standard headers with the
+1.1 public interfaces, all thirteen recovered libraries, and four source-built
+runtimes. Its portability check rebuilds the ARM64 runtime outside the checkout
+and compiles C and C++ examples for all four CPUs without repository headers
+or embedded host paths. Two fallback compiler helpers are weak so the recovered
+i386 runtime exports take precedence. Booted example execution remains pending.
+
+Initial combined-image VM checks reach the x64 and ARM64 desktops and launch
+Activity Monitor. ARM64 window rendering is incomplete. ARM32 has a boot-time
+allocator fault under investigation. Neither these runs nor the source-only
+packaging establish release parity, and 1.1 remains untagged.

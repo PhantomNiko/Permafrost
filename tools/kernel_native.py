@@ -154,5 +154,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--arch', choices=('i386', 'x86_64'), default='i386')
     parser.add_argument('--output', type=Path, default=Path('build/kernel-native'))
+    parser.add_argument('--profile', type=Path)
     args = parser.parse_args()
-    build_kernel(args.output, args.arch)
+    build_kernel(args.output, args.arch, args.profile)

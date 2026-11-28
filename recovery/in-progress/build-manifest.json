@@ -1,0 +1,1590 @@
+{
+  "version": "1.1",
+  "reference_sha256": "0e4c2a3ccbb87b2fbce4b8e1d689b576b53e9c4122440277091c51585073c9d1",
+  "applications": {
+    "activity-monitor": "Applications/ActivityMonitor.app/Contents/Permafrost/ActivityMonitor",
+    "cube": "Applications/3D Demo.app/Contents/Permafrost/3DDemo",
+    "desktop": "Applications/Tundra.app/Contents/Permafrost/Tundra",
+    "diagnostics": "Applications/Diag.app/Contents/Permafrost/Diag",
+    "fontgen": "Binary/fontgen",
+    "glacier": "Applications/Glacier.app/Contents/Permafrost/Glacier",
+    "hex-editor": "Applications/HexEditor.app/Contents/Permafrost/HexEditor",
+    "lua": "Binary/lua",
+    "pfz1": "Binary/PFZ1",
+    "pigeon": "Applications/Pigeon.app/Contents/Permafrost/Pigeon",
+    "rwby": "Binary/rwby",
+    "ssh": "Binary/ssh",
+    "terminal": "Applications/Cancer.app/Contents/Permafrost/Cancer",
+    "text-editor": "Applications/TextEditor.app/Contents/Permafrost/TextEditor",
+    "winterscript": "Binary/winterscript",
+    "wozmon": "Binary/wozmon"
+  },
+  "resources": [
+    {
+      "path": "Acknowledgements",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Acknowledgements/EBGaramond08.txt",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "3cc1dfb6e7d9d72881010aaafe4d45cab4a6765b837ba4cf8d5aabe535ae8f13"
+    },
+    {
+      "path": "Acknowledgements/PolynyaOS.txt",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "110fa0513816e32e0da3ba3bf652e5c4f847f9ddf822da136d0d8b3313edd8f8"
+    },
+    {
+      "path": "Applications",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/3D Demo.app",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/3D Demo.app/Contents",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/3D Demo.app/Contents/Info.plist",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "f75723d65cc42b01a14ae87e0ca70371e5f9dd6412ad660099aa5ca5c939f1fb"
+    },
+    {
+      "path": "Applications/3D Demo.app/Contents/Permafrost",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/ActivityMonitor.app",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/ActivityMonitor.app/Contents",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/ActivityMonitor.app/Contents/Info.plist",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "593fea56972338010b104cfa291c8c10b68857a153185289ad060834cb051233"
+    },
+    {
+      "path": "Applications/ActivityMonitor.app/Contents/Permafrost",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/ActivityMonitor.app/Contents/Resources",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/ActivityMonitor.app/Contents/Resources/deselected-AppIcon.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "0d95cc2d8db4e9e17c8f996e195265fc0c053705c9d39f0d1813fc98ab1a7694"
+    },
+    {
+      "path": "Applications/ActivityMonitor.app/Contents/Resources/selected-AppIcon.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "26d077279b177159f2c381b5499e56f5dc03d1a2c19acacffc7a4f0bcd973f80"
+    },
+    {
+      "path": "Applications/Cancer.app",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Cancer.app/Contents",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Cancer.app/Contents/Info.plist",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "8a804e80f41d1b76e026f8bb0981b02ea1804d0987e2e5d64538900a74a61a8a"
+    },
+    {
+      "path": "Applications/Cancer.app/Contents/Permafrost",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Cancer.app/Contents/Resources",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Cancer.app/Contents/Resources/deselected-AppIcon.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "e42e85e17dc017a21be117769e38dcd5f58ee8617161b61b1d1245a775fba750"
+    },
+    {
+      "path": "Applications/Cancer.app/Contents/Resources/selected-AppIcon.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "6a636fe756b4717b7e38b40c33766446adf101f21ca435568a15efe0533ccfea"
+    },
+    {
+      "path": "Applications/Diag.app",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Diag.app/Contents",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Diag.app/Contents/Info.plist",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "72772cea4f902577dd708e5101f2bd50cf72e42d4522ce5ae3d024eb4b52fcab"
+    },
+    {
+      "path": "Applications/Diag.app/Contents/Permafrost",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Glacier.app",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Glacier.app/Contents",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Glacier.app/Contents/Info.plist",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "11268b3c6a6435754296bb1a49afc8a9cdd047802ff319e5495a1a988ae9f6ec"
+    },
+    {
+      "path": "Applications/Glacier.app/Contents/Permafrost",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Glacier.app/Contents/Resources",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Glacier.app/Contents/Resources/deselected-AppIcon.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "bab7dd4247897851f82b4f0c57e79f4fc9f59b091fc7343e2301370696918086"
+    },
+    {
+      "path": "Applications/Glacier.app/Contents/Resources/selected-AppIcon.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "89e707af2e131a68d30dad84f615e6d209b32287dc197f4576c61befda43bc94"
+    },
+    {
+      "path": "Applications/HexEditor.app",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/HexEditor.app/Contents",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/HexEditor.app/Contents/Info.plist",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "239a7599686c6027c585953661fbfcd193ad37fdbbd805854fa2e6222f69bc6e"
+    },
+    {
+      "path": "Applications/HexEditor.app/Contents/Permafrost",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/HexEditor.app/Contents/Resources",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/HexEditor.app/Contents/Resources/deselected-AppIcon.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "8ff3579971f72d34bdc6fb3f311196c4f39af47bbf08863adab13c566d3ce241"
+    },
+    {
+      "path": "Applications/HexEditor.app/Contents/Resources/selected-AppIcon.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "46c6392af67cfc068b89002f5e253ab5c76cba1ab634f43d73bf1a9e686645f8"
+    },
+    {
+      "path": "Applications/Pigeon.app",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Pigeon.app/Contents",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Pigeon.app/Contents/Info.plist",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "69844dc94407550e19d382dab6ceea08c87f04e7218612e4a1cc6721aa02465f"
+    },
+    {
+      "path": "Applications/Pigeon.app/Contents/Permafrost",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Pigeon.app/Contents/Resources",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Pigeon.app/Contents/Resources/deselected-AppIcon.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "30715486273b96511da9f0e017f88a49dfd6948c01724687a84f64487afdd8eb"
+    },
+    {
+      "path": "Applications/Pigeon.app/Contents/Resources/selected-AppIcon.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "cee6a69ac266dd769a67f6a6230172724d2e2ba51b417a478b3043d8afd8374c"
+    },
+    {
+      "path": "Applications/Sleet.app",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Sleet.app/Contents",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Sleet.app/Contents/Info.plist",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "952d5fa911555cc2638a0c627dc231151d4e67fccc9acd3549c9d7571a4d0d1b"
+    },
+    {
+      "path": "Applications/Sleet.app/Contents/Permafrost",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/TextEditor.app",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/TextEditor.app/Contents",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/TextEditor.app/Contents/Info.plist",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "1127354812f66dad470885e056d2e45c69921860f3ddcc24735c0fdf3e3943aa"
+    },
+    {
+      "path": "Applications/TextEditor.app/Contents/Permafrost",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/TextEditor.app/Contents/Resources",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/TextEditor.app/Contents/Resources/deselected-AppIcon.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "9e424cfae3a90283d133b23129417e0f789ad0f154eba79aecf2da67ba708b3a"
+    },
+    {
+      "path": "Applications/TextEditor.app/Contents/Resources/selected-AppIcon.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "a9e2d0ebf0b01f782bbce68651892fe38ae77713d2620608b4172439ec0ec206"
+    },
+    {
+      "path": "Applications/Tundra.app",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Tundra.app/Contents",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Tundra.app/Contents/Info.plist",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "5b2f72c9a723124de9c59bdb06b454ab75b7a8742691c586d30bb9f999f681bf"
+    },
+    {
+      "path": "Applications/Tundra.app/Contents/Permafrost",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Tundra.app/Contents/Resources",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Tundra.app/Contents/Resources/deselected-AppIcon.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "af08167d39cba8d21588f347c61d9b71a0550da2ba3c6a7e3b5d9f892475e692"
+    },
+    {
+      "path": "Applications/Tundra.app/Contents/Resources/selected-AppIcon.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "24030293d680bd22e450ee2c7ee2a8e5a8a37b3a92f9d3fa4008f9f4c61c4b30"
+    },
+    {
+      "path": "Applications/Zastruga.app",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Info.plist",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "2894bd05af654472bf922bbd51917b1cc36ee00beb925c7dc886e346ff94faa0"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Libraries",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Libraries/anglish",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "c393ea1fd8837529d106e342b3b98145955324ea294696856da14af32fc8b154"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Libraries/gender",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "34b077fe9b9f4272d0cd636f1d4ac272f83ca6a89dd7ac4c1f78be36ef68b137"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Permafrost",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/docs.md",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "748e72cd9ebbe0208409e4d4ec07778ee686b12dae87758142cd3134100d9bf6"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/package",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/package/3d",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/package/3d/plush-desk.ws",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "d83f0c26e57bd8e3894d4279c4c5d39672053fbdc2454e4d9ef088e85a904801"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/package/audio",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/package/audio/Dracortia",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/package/backgrounds",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/package/characters",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/package/characters/lavender",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/package/characters/lavender/placeholder",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/package/characters/lavender/sketch",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/package/characters/lavender/sprite",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/package/characters/lavender/workshop",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/package/characters/merkiat",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/package/characters/merkiat/fuckass",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/package/characters/merkiat/placeholder",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/package/characters/monji",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/package/characters/monji/test",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/package/characters/peronny",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/package/characters/peronny/test",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/package/characters/yuri",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/package/characters/yuri/uniform",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/package/fonts",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/package/fonts/runetest.ps",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "4c5d1a2c72a2ef945f283eefc86716c17443d1654fee31ed16df14ffd052678e"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/package/scripts",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/package/scripts/pages",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/package/tiles",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/package/tiles/mahjong",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/package/tiles/mahjong/_source",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/package/tiles/reflections",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/package/ui",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/package/weather",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/scripts",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/scripts/benchmarks",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/scripts/index.ws",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "e83401de9d565fbfa731c7ebb3c92fcec070e3713a86638562573dbbbc8dc094"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/scripts/shaders",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/scripts/winterscript-selftest-helper.ws",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "060e41776cb2d5e1da60c48fce904beb6c1028ffe58f85e4e4ac73074f61a42c"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/scripts/winterscript-selftest-loader.ws",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "fbb66da51462f5145e01ec475223c5f08dde6f805e9dfe593ab685df378033ea"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/scripts/winterscript-selftest.ws",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "bef99ca6b75eb9ed45ed40f554f0467f39cf6b73c8638fefb06f4e7a03d9ec73"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/vars.txt",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "bf229dab13c001145e06d8b686950069bb3167b19331a2c823a06785234ab859"
+    },
+    {
+      "path": "Applications/Zastruga.app/Contents/Resources/volatile",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Binary",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Config",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Config/Paths",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Config/Theme",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Config/Theme/Abyss.wsh",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "0c9a5c15cfc4ddb273ef333dfec149ee787816c9d4a4aad0731c9501c8041ea6"
+    },
+    {
+      "path": "Config/Theme/Batagaika.wsh",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "f68632eb6d3c1ae9b1c8a1a409d16585c228da84ee8ce3aaa6aa3f21d89f3328"
+    },
+    {
+      "path": "Config/Theme/Misskey.wsh",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "271e62dfe344dd0d5d971c978ed83bc4c4774663adb79f606da22d3bc08b13f3"
+    },
+    {
+      "path": "Config/Theme/PolynyaOS.wsh",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "f220e628be3417fe00cbad2a3f3280bce333fac6af97d177e385b5d17c06bb32"
+    },
+    {
+      "path": "Config/Tundra-config.wsh",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "856fb572ca787a37b94225d4d5f0bfd65b4c38e96abc3b2ac2e66ca846339666"
+    },
+    {
+      "path": "Config/ssh.wsh",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "4b048c2864d0d3a6629a60dd67d525dc7f39a39420011f88915959821f8c0fb0"
+    },
+    {
+      "path": "Config/startup.command",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "d92d1586a225990465cba392fd7f6c33da27206908f00441b41c4d1ca9426b7a"
+    },
+    {
+      "path": "Config/startup.wsh",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "3446715da786d46fba42fcd1807d877c31f5a7ba8513f362549dc1a8c6743eaf"
+    },
+    {
+      "path": "Drivers",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "EFI",
+      "kind": 6,
+      "flags": 0,
+      "sha256": "3bab6885fc732e38dc263ffb6cbdcf72b61404a2578fb5bed9c86a43558dbb37"
+    },
+    {
+      "path": "Fonts",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Fonts/EBGaramond08-Regular.ttf",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "7bf5b4bb50d68c23453c924b982493fa9a9193e04d8a4492d66f350723e839d1"
+    },
+    {
+      "path": "Fonts/system.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "9282a9f15cae36f8cf5c0ae1aa5b4d0258c7e0950a94366f1ac0373b9081ac01"
+    },
+    {
+      "path": "Fonts/system.wbf",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "37fda85e09b626d38f9d287f9dd8bfa904a376bd4a51cecf4122ceab10567eb9"
+    },
+    {
+      "path": "Hardware",
+      "kind": 2,
+      "flags": 5,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Home",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Home/Applications",
+      "kind": 6,
+      "flags": 0,
+      "sha256": "d36d6fc820eb0516569a08b4d960b6dfe0d771a0f5d25bff5b86ad6d9e9433c7"
+    },
+    {
+      "path": "Home/Binary",
+      "kind": 6,
+      "flags": 0,
+      "sha256": "d6ab9fea72c297919eb6e19e9f815b21d22c3bc0ab058910940e9cc97cfb1820"
+    },
+    {
+      "path": "Home/Desktop",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Home/Documents",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Home/Documents/Amur",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Home/Documents/Amur/Amur.ws",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "4a376b961480befc4c09d513808115079e33d561def634516ec5a83236b581b5"
+    },
+    {
+      "path": "Home/Documents/Amur/StarterWindow.h",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "70be2bd54d4835b85f91ed6d34402efa21b6c7798083b5a1306ae66defea4037"
+    },
+    {
+      "path": "Home/Documents/Amur/click-colour.amur",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "f329ea16bb65d6abee0c818caba5737bde64a76002ddfde53aeb4cca426b479b"
+    },
+    {
+      "path": "Home/Documents/Amur/click-pixel.amur",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "f0dc63954c046729c7e437060f45580bda087ecd93bbc583d8646f687f433e96"
+    },
+    {
+      "path": "Home/Documents/Amur/compile.command",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "da09396291c9e285c794d490cb3a361e9925f3e34f9614530b7adcd7c5a9c1ae"
+    },
+    {
+      "path": "Home/Documents/Amur/hello-default-font.amur",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "cac5dbcecb1d22739621ded0fe1aa51c5db87f688c3d6a2726e74f24e908fb05"
+    },
+    {
+      "path": "Home/Documents/Amur/hello-file-font.amur",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "f984d60b77631f173d58c4c257811743a9856e667afbbfa871655e1aa6144a15"
+    },
+    {
+      "path": "Home/Documents/Amur/hello_cli.amur",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "adb0de723e90e09098c38c590dbad53948c84c14d8045ece93c59e66d33e0e63"
+    },
+    {
+      "path": "Home/Documents/Amur/mouse-position.amur",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "ecb948ea4afec9447d657855e5a17ce87d38b1e8b6bc6a1ad0014c738335654c"
+    },
+    {
+      "path": "Home/Documents/Amur/png-window.amur",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "9f3046b222b114ee7f078048dd6d729d152643fd2a26d3031eb5855ee125ff24"
+    },
+    {
+      "path": "Home/Documents/Amur/pull_variable.amur",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "90dbdb759a3bd15049c6b2776d486a9e4b6c8ec489a08e15299530cd4c211d41"
+    },
+    {
+      "path": "Home/Documents/Amur/ruby_repl.amur",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "805a1495bdd6301d8d7a37db7aea60de2a5d81ee608f7918e493b54176b6b14b"
+    },
+    {
+      "path": "Home/Documents/Amur/send_variable.amur",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "65c7055fba67ca3f17949668ecba40a0dbe8f4c66d4a14e596f9d158ea24bc6e"
+    },
+    {
+      "path": "Home/Documents/Amur/setup.wsh",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "d3c7c9bb5f51a3d3af6fd98b2a41ef796e1811405f17792c9106f6938d440bb2"
+    },
+    {
+      "path": "Home/Documents/Amur/starter_console.h",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "b376914aeda31ae02d8ca38878dc0521daa2be9f5996885c4d12484fff449ca6"
+    },
+    {
+      "path": "Home/Documents/Amur/steward_shell.h",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "ef6cd8a22d5fc185b67783a10b7c4aad5e33e616d5d09c792d58fc5ba6ec7d8e"
+    },
+    {
+      "path": "Home/Documents/Amur/type-text.amur",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "cdadb96efca9d3b6e0abedde3557c421c48f92e76ba0659b63ecd78f475bc874"
+    },
+    {
+      "path": "Home/Documents/Amur/winterscript.amur",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "79d2673874b2cbc2bae8c85bbb85926660c216b9ce0a2e8ed29bcd717dfb4530"
+    },
+    {
+      "path": "Home/Documents/Amur/winterscript.command",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "8253afc309fbea25b302b3df50740f3a0f02ae69eaf9d3889ec54965898c88bd"
+    },
+    {
+      "path": "Home/Documents/Amur/winterscript_library.amur",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "ce87b15cd7693d3f2099e7244d3b00e1ba9ca7e24c5a873f2f53b3972d3edd3c"
+    },
+    {
+      "path": "Home/Downloads",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Home/Photos",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Home/Photos/Ants.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "70c8a985c076fe97c97a266c9fa04b4d97bd3e98bf35206bfec4a1f04caeaca1"
+    },
+    {
+      "path": "Home/Photos/Canopy.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "857d66e52ced5caa0972f66fe0c56def3b1c3b8adad40a85e72541070334f1fd"
+    },
+    {
+      "path": "Home/Photos/Caves1.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "a03e6677259c030f19dbc253572aafa93c250cd35d14530f17208729d8f0ab40"
+    },
+    {
+      "path": "Home/Photos/Caves2.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "30b210b33e8be1cc7c867a3eb32e2a6fe2228b637d66df55913f5c6a66c572a3"
+    },
+    {
+      "path": "Home/Photos/Dahlonega.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "6f501ee06296de02bec5a2884c7a8dc01d4dceab9a7c7a0ea318d194ef7dd3ea"
+    },
+    {
+      "path": "Home/Photos/Diamonds.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "286f505e55c5b35d81e5c453d6ff8cfda4bef5813bb33d74783ed33065b2e996"
+    },
+    {
+      "path": "Home/Photos/Hello.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "84793b11c007c37fdc456871431e4fb53495a4fcf6e6937d7534c894a1fb5a63"
+    },
+    {
+      "path": "Home/Photos/Judgement.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "a5568699302117ab5b9b326062ace5b456bc3e0c93ccc65a7ac41f0bb649b489"
+    },
+    {
+      "path": "Home/Photos/Moon.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "083fb332279792b57c5f86a09f74ce781cd754e150953d85d3b2668573a282ce"
+    },
+    {
+      "path": "Home/Photos/Mountains.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "eab8eac53dca8ff41de07c23aedf332ab5795f843cb2355eeb00e5843b6ceba4"
+    },
+    {
+      "path": "Home/Photos/NapTime.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "4829766577934a740c9444b88638429d08824f78c07605b014b9d1e08161e4aa"
+    },
+    {
+      "path": "Home/Photos/NightSky.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "d8feae171589f0f334531aa2ee7b944e4080ed835873431dcdef88c789d2d983"
+    },
+    {
+      "path": "Home/Photos/NorthCarolina.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "bef288aa76752e7844f9aadc3a6a634747a575897b1033df71bf4f353b51a0f9"
+    },
+    {
+      "path": "Home/Photos/PinkRose.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "4bc0bc7b06a77c9e7430f8f748e3413841bde0f871053cae57890c3c357e634d"
+    },
+    {
+      "path": "Home/Photos/Plotting.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "d07ccf74b28bad6c7a7823f4c06ac44852647d9b8cf27b0d333347c79f11da09"
+    },
+    {
+      "path": "Home/Photos/Polynya-chan.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "108d7a829975858083aa161f2f1abca0d524f7eb6519c0db9e6d96dcf03bf377"
+    },
+    {
+      "path": "Home/Photos/Slumber.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "85f9b24c9021c2604afc56b98901be8fdbb075f4248dd6c77e2e9d6d636afdf5"
+    },
+    {
+      "path": "Home/Photos/Sunrise.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "13d485d498a079ed00887c667f666d8c396973d0bfe1872b834e910bf0470dc0"
+    },
+    {
+      "path": "Home/Photos/Sunset.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "20695cc165249944a03d1462ffa6f3021c00870de079231dba82d9ab3c8f602e"
+    },
+    {
+      "path": "Home/Photos/WhiteRose.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "16d9cb38159c66e16b90a455ea862fdfc1ec17f00c6d1cfd0e9af9e7bb132f93"
+    },
+    {
+      "path": "Home/Photos/Yellow.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "21ac086a7f34e7960f1f1968838a01f287972a50e14d27a798326ceca644a45b"
+    },
+    {
+      "path": "Home/Photos/batagaika.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "3a872c59456c0c0bc2b2bbb635d674537a5a2651e98fe71c0caf3186be65f2b9"
+    },
+    {
+      "path": "Home/Photos/connect.xcf",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "b90cda35f0232b71bb33d24b35cb15bd8ebb7fe221e89fb22aebc3682ae13c3d"
+    },
+    {
+      "path": "Home/Photos/froge.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "061be3b7555737586d257cfb8a8b23ec6fafba4f09cd47ace4829998636bbf70"
+    },
+    {
+      "path": "Home/Photos/holly.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "4e2b7c45c3cc95803b05d86986fae090960bf9a9c8371a27f2881a0b1d5d2f5a"
+    },
+    {
+      "path": "Home/Photos/oxygen.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "9670741ac39c4279b3370f5ad6271c9a81d2b033de5fd14684b8f900d75e2c55"
+    },
+    {
+      "path": "Home/Scripts",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Home/Scripts/BinaryWriter.wsh",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "3f9eb8d9e18a5f0dc60a68e68dadcf88826c82cd85bb9884c0a87dc57dc1264d"
+    },
+    {
+      "path": "Home/Scripts/ExpandDisk.wsh",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "40f299f8567e75b390d6cc703af2cc4218978fecd07af8137f61ee77fff3186c"
+    },
+    {
+      "path": "Home/Scripts/index.lua",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "38fc26d8207f6c7077939854feb11836f7bde5ec2dfe2d4c1d15d3c32144a90d"
+    },
+    {
+      "path": "Icons",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Icons/deselected-Erebus.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "30af6fba79d5ddb17ef93a2ce01c6c846f8e814d88a356bc64e3da82ef1b2b0c"
+    },
+    {
+      "path": "Icons/deselected-unknown.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "77ccf87ec6e97d0d69f84b7f1b4376b9a86fb71bdc2d3093961e0032d6aa4c05"
+    },
+    {
+      "path": "Icons/selected-Erebus.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "7d10315d9855ebf8d6dfcc56bb135acd93917054dd7a89683be64aad85f547de"
+    },
+    {
+      "path": "Icons/selected-unknown.png",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "c34e279b533defdd9d4396a5f81d5cd81e7a71b8a2f93264020f02e298299331"
+    },
+    {
+      "path": "Kernel",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Kernel/Modules",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Library",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Library/Headers",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Library/Headers/PlushImage.h",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "a0b926e34d9a73edb5d934c64cce606da4a92876c1cff229e4ede0ad98717331"
+    },
+    {
+      "path": "Library/Headers/Steward.h",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "027411cda586a02f54de72b15cbf54e25bbe5fb23375b00812cc7cf166db9d17"
+    },
+    {
+      "path": "Library/Headers/TundraWindow.h",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "18bb1c8484b900bcf9ffa724819ea35894c56c606671bae4dfd1dc1d077331f5"
+    },
+    {
+      "path": "Library/Headers/WinterPNG.h",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "ff41b97748cfa29e6f32ace2607436fb39e3fcf3350dda7c04082852b72ef370"
+    },
+    {
+      "path": "Library/Headers/WinterRwby.h",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "30a821f1d3d38318403c76f750f46c2dda730423f3f21da54148a7df9e1c1c06"
+    },
+    {
+      "path": "Library/Headers/WinterScript.h",
+      "kind": 1,
+      "flags": 0,
+      "sha256": "23f35a469ecdca4ccad628634474ca4706530fc2db192525de8707e78db27773"
+    },
+    {
+      "path": "Library/Native",
+      "kind": 2,
+      "flags": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "omitted": [
+    {
+      "path": "Drivers/Pico~SX126X.kext",
+      "reason": "PicoFrost MCU source recovery pending"
+    },
+    {
+      "path": "Drivers/cpu~loongarch64~qemu-virt.kext",
+      "reason": "outside four-architecture scope"
+    },
+    {
+      "path": "Drivers/cpu~mips~ci20.kext",
+      "reason": "outside four-architecture scope"
+    },
+    {
+      "path": "Drivers/cpu~powerpc64le~qemu-generic.kext",
+      "reason": "outside four-architecture scope"
+    },
+    {
+      "path": "Drivers/cpu~powerpc64~qemu-pseries.kext",
+      "reason": "outside four-architecture scope"
+    },
+    {
+      "path": "Drivers/cpu~powerpc~qemu-mac99.kext",
+      "reason": "outside four-architecture scope"
+    },
+    {
+      "path": "Drivers/cpu~riscv64~qemu-virt.kext",
+      "reason": "outside four-architecture scope"
+    },
+    {
+      "path": "Drivers/input~usb-hid~ci20.kext",
+      "reason": "outside four-architecture scope"
+    },
+    {
+      "path": "Drivers/storage~ci20~msc0.kext",
+      "reason": "outside four-architecture scope"
+    },
+    {
+      "path": "Kernel/PicoFrost.kernel",
+      "reason": "PicoFrost MCU source recovery pending"
+    }
+  ],
+  "application_libraries": {
+    "activity-monitor": {
+      "i386": [
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "x86_64": [
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "armv7": [
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "arm64": [
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ]
+    },
+    "cube": {
+      "i386": [
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "x86_64": [
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "armv7": [
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "arm64": [
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ]
+    },
+    "desktop": {
+      "i386": [
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "x86_64": [
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "armv7": [
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "arm64": [
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ]
+    },
+    "diagnostics": {
+      "i386": [
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "x86_64": [
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "arm64": [
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ]
+    },
+    "fontgen": {
+      "i386": [
+        "/Library/Native/Steward.dylib"
+      ],
+      "x86_64": [
+        "/Library/Native/Steward.dylib"
+      ],
+      "armv7": [
+        "/Library/Native/Steward.dylib"
+      ],
+      "arm64": [
+        "/Library/Native/Steward.dylib"
+      ]
+    },
+    "glacier": {
+      "i386": [
+        "/Library/Native/WinterJS.dylib",
+        "/Library/Native/WinterTLS.dylib",
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "x86_64": [
+        "/Library/Native/WinterJS.dylib",
+        "/Library/Native/WinterTLS.dylib",
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "armv7": [
+        "/Library/Native/WinterJS.dylib",
+        "/Library/Native/WinterTLS.dylib",
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "arm64": [
+        "/Library/Native/WinterJS.dylib",
+        "/Library/Native/WinterTLS.dylib",
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ]
+    },
+    "hex-editor": {
+      "i386": [
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "x86_64": [
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "armv7": [
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "arm64": [
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ]
+    },
+    "lua": {
+      "i386": [
+        "/Library/Native/WinterLua.dylib",
+        "/Library/Native/TundraWindow.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "x86_64": [
+        "/Library/Native/WinterLua.dylib",
+        "/Library/Native/TundraWindow.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "armv7": [
+        "/Library/Native/WinterLua.dylib",
+        "/Library/Native/TundraWindow.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "arm64": [
+        "/Library/Native/WinterLua.dylib",
+        "/Library/Native/TundraWindow.dylib",
+        "/Library/Native/Steward.dylib"
+      ]
+    },
+    "pfz1": {
+      "i386": [
+        "/Library/Native/Steward.dylib"
+      ],
+      "x86_64": [
+        "/Library/Native/Steward.dylib"
+      ],
+      "armv7": [
+        "/Library/Native/Steward.dylib"
+      ],
+      "arm64": [
+        "/Library/Native/Steward.dylib"
+      ]
+    },
+    "pigeon": {
+      "i386": [
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "x86_64": [
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "armv7": [
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "arm64": [
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ]
+    },
+    "rwby": {
+      "i386": [
+        "/Library/Native/WinterRwby.dylib",
+        "/Library/Native/TundraWindow.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "x86_64": [
+        "/Library/Native/WinterRwby.dylib",
+        "/Library/Native/TundraWindow.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "armv7": [
+        "/Library/Native/WinterRwby.dylib",
+        "/Library/Native/TundraWindow.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "arm64": [
+        "/Library/Native/WinterRwby.dylib",
+        "/Library/Native/TundraWindow.dylib",
+        "/Library/Native/Steward.dylib"
+      ]
+    },
+    "ssh": {
+      "i386": [
+        "/Library/Native/Steward.dylib"
+      ],
+      "x86_64": [
+        "/Library/Native/Steward.dylib"
+      ],
+      "armv7": [
+        "/Library/Native/Steward.dylib"
+      ],
+      "arm64": [
+        "/Library/Native/Steward.dylib"
+      ]
+    },
+    "terminal": {
+      "i386": [
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "x86_64": [
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "armv7": [
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "arm64": [
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ]
+    },
+    "text-editor": {
+      "i386": [
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "x86_64": [
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "armv7": [
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "arm64": [
+        "/Library/Native/TerrorUI.dylib",
+        "/Library/Native/Steward.dylib"
+      ]
+    },
+    "winterscript": {
+      "i386": [
+        "/Library/Native/WinterScript.dylib",
+        "/Library/Native/TundraWindow.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "x86_64": [
+        "/Library/Native/WinterScript.dylib",
+        "/Library/Native/TundraWindow.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "armv7": [
+        "/Library/Native/WinterScript.dylib",
+        "/Library/Native/TundraWindow.dylib",
+        "/Library/Native/Steward.dylib"
+      ],
+      "arm64": [
+        "/Library/Native/WinterScript.dylib",
+        "/Library/Native/TundraWindow.dylib",
+        "/Library/Native/Steward.dylib"
+      ]
+    },
+    "wozmon": {
+      "i386": [],
+      "x86_64": [],
+      "armv7": [],
+      "arm64": []
+    }
+  }
+}
