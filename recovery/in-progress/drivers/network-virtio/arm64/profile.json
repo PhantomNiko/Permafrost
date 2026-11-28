@@ -1,0 +1,92 @@
+{
+  "module": "DriverNetworkVirtio",
+  "architecture": "arm64",
+  "version": "1.1",
+  "install_name": "/Drivers/network~virtio~pci.kext",
+  "functions": {
+    "0x478": "recovered_10000478",
+    "0x484": "recovered_10000484",
+    "0x608": "recovered_10000608",
+    "0x618": "recovered_10000618",
+    "0x1690": "recovered_10001690",
+    "0x16e8": "recovered_100016e8",
+    "0x1704": "recovered_10001704",
+    "0x1850": "recovered_10001850",
+    "0x189c": "recovered_1000189c",
+    "0x18d4": "recovered_100018d4",
+    "0x18ec": "recovered_100018ec",
+    "0x1904": "recovered_10001904",
+    "0x194c": "recovered_1000194c",
+    "0x19a4": "recovered_100019a4",
+    "0x1a4c": "recovered_10001a4c",
+    "0x1bd4": "recovered_10001bd4",
+    "0x1de0": "recovered_10001de0",
+    "0x1e60": "recovered_10001e60",
+    "0x1ea8": "recovered_10001ea8",
+    "0x206c": "recovered_1000206c",
+    "0x2108": "recovered_10002108",
+    "0x2120": "recovered_10002120",
+    "0x2134": "recovered_10002134",
+    "0x217c": "recovered_1000217c",
+    "0x21ac": "recovered_100021ac",
+    "0x21c0": "recovered_100021c0",
+    "0x21f4": "recovered_100021f4",
+    "0x225c": "recovered_1000225c",
+    "0x22cc": "recovered_100022cc",
+    "0x2318": "recovered_10002318",
+    "0x2358": "recovered_10002358",
+    "0x2394": "recovered_10002394",
+    "0x26a4": "recovered_100026a4",
+    "0x26f0": "recovered_100026f0",
+    "0x2768": "recovered_10002768",
+    "0x27a8": "recovered_100027a8",
+    "0x2814": "recovered_10002814",
+    "0x2844": "recovered_10002844",
+    "0x2868": "recovered_10002868",
+    "0x293c": "recovered_1000293c"
+  },
+  "exports": [
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 1144,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 1156,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 5432,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 61
+      },
+      "tag": 0
+    },
+    {
+      "offset": 5440,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 81
+      },
+      "tag": 0
+    },
+    {
+      "offset": 5448,
+      "width": 8,
+      "target": {
+        "kind": "data",
+        "offset": 89
+      },
+      "tag": 0
+    }
+  ],
+  "data_exports": []
+}

@@ -589,3 +589,11 @@ images replacing the GPU, input, and storage drivers reach the desktop and
 open Sleet on x64, ARM32, and ARM64; other reference payloads remain in these
 images. Full hardware initialization, provider/filesystem integration, and
 release-wide VM parity remain incomplete.
+
+The 1.1 virtio Ethernet driver now has independently built C checkpoints on all
+four CPUs. Each matches eight descriptor/API cases, eight PCI-record cases, and
+20 guarded receive/transmit workflows. Frame comparisons include payload bytes,
+10/12-byte headers, buffer capacity, descriptor encoding, DMA forwarding,
+notifications, and malformed completion/error paths. Full PCI capability
+initialization, hardware DMA, network-provider integration, and booted protocol
+interoperability remain unverified.

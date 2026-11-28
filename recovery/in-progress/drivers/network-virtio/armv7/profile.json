@@ -1,0 +1,258 @@
+{
+  "module": "DriverNetworkVirtio",
+  "architecture": "armv7",
+  "version": "1.1",
+  "install_name": "/Drivers/network~virtio~pci.kext",
+  "functions": {
+    "0x8f8": "recovered_100008f8",
+    "0x908": "recovered_10000908",
+    "0xae8": "recovered_10000ae8",
+    "0xafc": "recovered_10000afc",
+    "0x217c": "recovered_1000217c",
+    "0x21d0": "recovered_100021d0",
+    "0x21f8": "recovered_100021f8",
+    "0x23bc": "recovered_100023bc",
+    "0x2430": "recovered_10002430",
+    "0x246c": "recovered_1000246c",
+    "0x2490": "recovered_10002490",
+    "0x24ac": "recovered_100024ac",
+    "0x24f8": "recovered_100024f8",
+    "0x2548": "recovered_10002548",
+    "0x25f8": "recovered_100025f8",
+    "0x27ac": "recovered_100027ac",
+    "0x29f8": "recovered_100029f8",
+    "0x2a78": "recovered_10002a78",
+    "0x2ae8": "recovered_10002ae8",
+    "0x2cf0": "recovered_10002cf0",
+    "0x2dac": "recovered_10002dac",
+    "0x2dc8": "recovered_10002dc8",
+    "0x2de0": "recovered_10002de0",
+    "0x2e2c": "recovered_10002e2c",
+    "0x2e68": "recovered_10002e68",
+    "0x2e80": "recovered_10002e80",
+    "0x2ec0": "recovered_10002ec0",
+    "0x2f24": "recovered_10002f24",
+    "0x2f90": "recovered_10002f90",
+    "0x3008": "recovered_10003008",
+    "0x304c": "recovered_1000304c",
+    "0x3094": "recovered_10003094",
+    "0x3474": "recovered_10003474",
+    "0x34bc": "recovered_100034bc",
+    "0x351c": "recovered_1000351c",
+    "0x3558": "recovered_10003558",
+    "0x35e8": "recovered_100035e8",
+    "0x3624": "recovered_10003624",
+    "0x364c": "recovered_1000364c",
+    "0x372c": "recovered_1000372c",
+    "0x3758": "recovered_10003758",
+    "0x37a8": "recovered_100037a8",
+    "0x37e0": "recovered_100037e0",
+    "0x3850": "recovered_10003850",
+    "0x38b8": "recovered_100038b8",
+    "0x399c": "recovered_1000399c",
+    "0x3a1c": "recovered_10003a1c",
+    "0x3b3c": "recovered_10003b3c",
+    "0x3bf8": "recovered_10003bf8",
+    "0x3c80": "recovered_10003c80",
+    "0x3ccc": "recovered_10003ccc",
+    "0x3cdc": "recovered_10003cdc",
+    "0x3cec": "recovered_10003cec",
+    "0x3d34": "recovered_10003d34",
+    "0x3d5c": "recovered_10003d5c",
+    "0x3d78": "recovered_10003d78"
+  },
+  "exports": [
+    {
+      "name": "___divdi3",
+      "address": 14876,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___divsi3",
+      "address": 14304,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixdfdi",
+      "address": 15488,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixsfdi",
+      "address": 15580,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixunsdfdi",
+      "address": 15352,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___fixunssfdi",
+      "address": 15564,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatdidf",
+      "address": 15668,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatdisf",
+      "address": 15736,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatundidf",
+      "address": 15596,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___floatundisf",
+      "address": 15708,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___moddi3",
+      "address": 15164,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___modsi3",
+      "address": 14416,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___udivdi3",
+      "address": 14520,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___udivsi3",
+      "address": 14168,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___umoddi3",
+      "address": 14748,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "___umodsi3",
+      "address": 14248,
+      "section": 1,
+      "weak": true
+    },
+    {
+      "name": "_winterboot_kext_descriptor",
+      "address": 2296,
+      "section": 1,
+      "weak": false
+    },
+    {
+      "name": "_winterboot_kext_init",
+      "address": 2312,
+      "section": 1,
+      "weak": false
+    }
+  ],
+  "relocations": [
+    {
+      "offset": 620,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3c80"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 624,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3bf8"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 628,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3d34"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 632,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3cec"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 636,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x3758"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 640,
+      "width": 4,
+      "target": {
+        "kind": "function",
+        "address": "0x37a8"
+      },
+      "tag": 0
+    },
+    {
+      "offset": 49784,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 52
+      },
+      "tag": 1
+    },
+    {
+      "offset": 49788,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 72
+      },
+      "tag": 1
+    },
+    {
+      "offset": 49792,
+      "width": 4,
+      "target": {
+        "kind": "data",
+        "offset": 80
+      },
+      "tag": 1
+    }
+  ],
+  "data_exports": []
+}

@@ -1,0 +1,80 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268439804,
+  "text_end": 268451208,
+  "state_end": 268500992,
+  "translation": {
+    "pointer_bytes": 4,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 268451208,
+    "state_end": 268500992,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"x86_cpu.h\""
+    ],
+    "source_replacements": {
+      "1000350a": {},
+      "10002ce0": {},
+      "10003b6d": {},
+      "1000346d": {},
+      "10003bca": {},
+      "10002988": {},
+      "10002c51": {},
+      "100012ee": {
+        "0x10004124": "((uintptr_t)pf_module_state+0x39cU)",
+        "0x1000d500": "((uintptr_t)pf_module_state+0x9778U)",
+        "0x1000d600": "((uintptr_t)pf_module_state+0x9878U)",
+        "0x10004200": "((uintptr_t)pf_module_state+0x478U)",
+        "0x1000d800": "((uintptr_t)pf_module_state+0x9a78U)"
+      },
+      "10002bd0": {},
+      "100030ed": {},
+      "10003d0e": {},
+      "10002c02": {},
+      "10003a33": {},
+      "100010fc": {},
+      "10002c1b": {},
+      "1000317c": {},
+      "100029ef": {},
+      "10002ed7": {
+        "0x1000d708": "((uintptr_t)pf_module_state+0x9980U)",
+        "0x1000d704": "((uintptr_t)pf_module_state+0x997cU)"
+      },
+      "1000366c": {},
+      "100034bb": {},
+      "1000341f": {},
+      "10003a84": {},
+      "100034e3": {},
+      "10003c9d": {},
+      "10003d52": {},
+      "10002b6c": {},
+      "10003446": {},
+      "10003ad6": {},
+      "100031c9": {},
+      "10003ccc": {},
+      "100012cf": {},
+      "10002d47": {
+        "0x10004404": "((uintptr_t)pf_module_state+0x67cU)",
+        "0x10004408": "((uintptr_t)pf_module_state+0x680U)"
+      },
+      "1000369e": {},
+      "1000357f": {},
+      "10001112": {},
+      "10002c9f": {},
+      "10003631": {},
+      "100029ce": {},
+      "10003535": {},
+      "10003b98": {},
+      "10003b04": {},
+      "1000338f": {},
+      "100035e5": {}
+    },
+    "source_replacement_groups": {}
+  }
+}

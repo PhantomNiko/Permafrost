@@ -1,0 +1,40 @@
+{
+  "version": "1.1",
+  "reference_path": "Drivers/network~virtio~pci.kext",
+  "architectures": {
+    "i386": {
+      "reference_sha256": "b527c6713b69f3d2ef33efe09c3bfb30c9c084d6aaaca69a3fce9006952282c5",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "pci_record_cases": 8,
+      "frame_queue_cases": 20
+    },
+    "x86_64": {
+      "reference_sha256": "caa755eb5bfd70a7ddd6b5c385078fd840786423e9e8788db621072cb5c188d3",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "pci_record_cases": 8,
+      "frame_queue_cases": 20
+    },
+    "armv7": {
+      "reference_sha256": "9c07116368fcabf8252bb2a38e007d8d9217e4a2b2ede188334bdad6bc8c7cf4",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "pci_record_cases": 8,
+      "frame_queue_cases": 20
+    },
+    "arm64": {
+      "reference_sha256": "9cdb129d044eeae1e2b6aed231288c470fcc36c29339e5365f73687e0b4e3cfe",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "pci_record_cases": 8,
+      "frame_queue_cases": 20
+    }
+  },
+  "status": "source checkpoint; complete Ethernet hardware initialization and booted VM parity remain incomplete",
+  "pending": [
+    "virtio PCI capability discovery and queue initialization",
+    "DMA hardware services and network-provider integration",
+    "booted Ethernet and protocol interoperability on all four architectures"
+  ]
+}
