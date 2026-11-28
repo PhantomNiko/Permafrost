@@ -659,3 +659,9 @@ Initial combined-image VM checks reach the x64 and ARM64 desktops and launch
 Activity Monitor. ARM64 window rendering is incomplete. ARM32 has a boot-time
 allocator fault under investigation. Neither these runs nor the source-only
 packaging establish release parity, and 1.1 remains untagged.
+
+Generated SDK examples also execute against emulated 1.1 process services on
+all four CPUs. Checks verify exact console output, C++ constructors and
+containers, allocation cleanup, and process termination. This CPU-emulation
+coverage is separate from booted guest execution. The uncompressed i386 kernel
+correction reaches the BIOS desktop in the integrated image.

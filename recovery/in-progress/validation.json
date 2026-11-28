@@ -528,7 +528,38 @@
       "x86_64"
     ],
     "ps2_110_api_cases_per_cpu": 8,
-    "ps2_110_input_cases_per_cpu": 198
+    "ps2_110_input_cases_per_cpu": 198,
+    "integrated_candidate_c_build": [
+      "i386",
+      "x86_64",
+      "armv7",
+      "arm64"
+    ],
+    "sdk_portable_1_1": "runtime rebuilt outside checkout; C and C++ examples compile for all four CPUs",
+    "sdk_program_execution_1_1": {
+      "i386": [
+        "C startup, allocation, stdout, termination",
+        "C++ constructors, containers, stdout, termination"
+      ],
+      "x86_64": [
+        "C startup, allocation, stdout, termination",
+        "C++ constructors, containers, stdout, termination"
+      ],
+      "armv7": [
+        "C startup, allocation, stdout, termination",
+        "C++ constructors, containers, stdout, termination"
+      ],
+      "arm64": [
+        "C startup, allocation, stdout, termination",
+        "C++ constructors, containers, stdout, termination"
+      ]
+    },
+    "integrated_candidate_vm": {
+      "i386": "desktop after uncompressed BIOS kernel correction; input validation pending",
+      "x86_64": "desktop and Activity Monitor launch",
+      "armv7": "boot-time invalid free under investigation",
+      "arm64": "desktop and Activity Monitor launch; graphics parity incomplete"
+    }
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",
   "kernel_compilation": "All four candidate C kernels link; full VM parity remains incomplete.",
