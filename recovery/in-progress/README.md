@@ -561,3 +561,9 @@ PCI record cases, and 50 BAR mapping workflows, including configuration rereads,
 64-bit BARs, unavailable mapping services, and untouched output guards. ARM64
 also matches 216 MMIO, DMA, barrier, and unavailable-service cases. Queue setup,
 GPU commands, presentation, and booted rendering remain incomplete.
+
+The four GPU C checkpoints also match 17 guarded software-provider command and
+raster workflows each, covering clear, clipped rectangles, triangles, degenerate
+geometry, and invalid surfaces. The i386 surface, pixel, and edge helpers now
+carry their recovered register arguments explicitly in C. These callback tests
+do not establish device initialization or booted presentation parity.

@@ -7,21 +7,24 @@
       "source_build": true,
       "descriptor_and_api_cases": 8,
       "pci_record_cases": 8,
-      "pci_bar_mapping_cases": 50
+      "pci_bar_mapping_cases": 50,
+      "guarded_software_raster_cases": 17
     },
     "x86_64": {
       "reference_sha256": "2d3291ea0d68a6161420d2010f1324c81ac69b21b34af8b86d2b4fa423fa786c",
       "source_build": true,
       "descriptor_and_api_cases": 8,
       "pci_record_cases": 8,
-      "pci_bar_mapping_cases": 50
+      "pci_bar_mapping_cases": 50,
+      "guarded_software_raster_cases": 17
     },
     "armv7": {
       "reference_sha256": "c7b8ae030502b760f1750925d99f9edd2c8ffcda5a770dc91a3617936283907e",
       "source_build": true,
       "descriptor_and_api_cases": 8,
       "pci_record_cases": 8,
-      "pci_bar_mapping_cases": 50
+      "pci_bar_mapping_cases": 50,
+      "guarded_software_raster_cases": 17
     },
     "arm64": {
       "reference_sha256": "779e433002c3af9b9ff9c9ca3f052b6fdd25e2a4eaad139f5cfdf4a1fd623efb",
@@ -29,7 +32,8 @@
       "descriptor_and_api_cases": 8,
       "pci_record_cases": 8,
       "pci_bar_mapping_cases": 50,
-      "hardware_transport_cases": 216
+      "hardware_transport_cases": 216,
+      "guarded_software_raster_cases": 17
     }
   },
   "status": "source checkpoint; full GPU initialization, commands, and booted VM parity remain incomplete",
