@@ -567,3 +567,13 @@ raster workflows each, covering clear, clipped rectangles, triangles, degenerate
 geometry, and invalid surfaces. The i386 surface, pixel, and edge helpers now
 carry their recovered register arguments explicitly in C. These callback tests
 do not establish device initialization or booted presentation parity.
+
+The 1.1 virtio input driver now has independently built C checkpoints on all
+four architectures. Each matches its descriptor and seven guarded API cases,
+eight PCI-record workflows, 72 absolute-axis decoder cases, and 290 keyboard,
+modifier, queue, and pointer comparisons. Event coverage includes key codes
+1–128, Shift and other modifier transitions, a saturated key queue, three
+pointer buttons, relative motion, and signed absolute-axis boundaries. Numeric
+button tables embedded in executable sections are represented as C constants.
+Callback integer returns and i386 register arguments are explicit. Hardware
+queue setup, DMA services, and booted keyboard/pointer integration remain gates.

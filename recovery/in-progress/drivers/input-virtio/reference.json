@@ -1,0 +1,44 @@
+{
+  "version": "1.1",
+  "reference_path": "Drivers/input~virtio~pci.kext",
+  "architectures": {
+    "i386": {
+      "reference_sha256": "6dbfe48d4e6fb33de9957f785263eb5cfed1627bc40aab66091c65ce041651b5",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "pci_record_cases": 8,
+      "input_event_workflows": 290,
+      "absolute_axis_cases": 72
+    },
+    "x86_64": {
+      "reference_sha256": "3b063269eaf1fa63846f213d51d467e44d80d13096c468076788a7fda095b5cd",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "pci_record_cases": 8,
+      "input_event_workflows": 290,
+      "absolute_axis_cases": 72
+    },
+    "armv7": {
+      "reference_sha256": "95dd2b0e54df2e0860e55def2f8d6bf428d5221413df3cb7638f362a47004104",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "pci_record_cases": 8,
+      "input_event_workflows": 290,
+      "absolute_axis_cases": 72
+    },
+    "arm64": {
+      "reference_sha256": "b1cfb793c9b8e31e7319836e2abf3329f1a61bae878eee4844b4abebf03a00e8",
+      "source_build": true,
+      "descriptor_and_api_cases": 8,
+      "pci_record_cases": 8,
+      "input_event_workflows": 290,
+      "absolute_axis_cases": 72
+    }
+  },
+  "status": "source checkpoint; full input hardware initialization and booted VM parity remain incomplete",
+  "pending": [
+    "virtio PCI capability discovery and queue setup",
+    "DMA and input hardware service integration",
+    "booted VM keyboard and pointer integration on all four architectures"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "version": "1.1",
+  "base": 268435456,
+  "text_start": 268436584,
+  "text_end": 268448419,
+  "state_end": 268468224,
+  "translation": {
+    "pointer_bytes": 8,
+    "scalar_storage_views": true,
+    "pointer_spills": true,
+    "integer_vector_128": true,
+    "atomic_views": true,
+    "state_base": 268448419,
+    "state_end": 268468224,
+    "state_anchor": "pf_module_state",
+    "declarations": [
+      "#include \"support.h\"",
+      "extern unsigned char pf_module_state[];",
+      "#include \"x86_cpu.h\""
+    ],
+    "source_replacements": {
+      "10002aa4": {},
+      "10000782": {
+        "0x10003312": "((uintptr_t)pf_module_state+0x6fU)"
+      },
+      "100025c1": {},
+      "10002ac5": {
+        "*(uint *)((long)(short)uVar10 * 4 + 0x10002e80)": "((const uint[]){1U,2U,4U})[(uint)uVar10-0x110U]"
+      },
+      "10001acd": {},
+      "10002083": {},
+      "10000475": {
+        "0x10005020": "((uintptr_t)pf_module_state+0x1d7dU)"
+      },
+      "10002555": {},
+      "1000213d": {},
+      "10002264": {},
+      "10001ab9": {},
+      "10000468": {},
+      "10002058": {},
+      "10001b2b": {},
+      "10001b53": {},
+      "100026a9": {},
+      "10002284": {},
+      "10002656": {},
+      "10002903": {},
+      "10002573": {},
+      "10002537": {},
+      "10000767": {},
+      "1000298d": {},
+      "10002191": {},
+      "100020eb": {},
+      "10003278": {},
+      "10002453": {},
+      "1000287c": {},
+      "1000201c": {},
+      "10001d52": {},
+      "10001d05": {},
+      "100025e5": {},
+      "10002a04": {},
+      "1000222a": {},
+      "1000247e": {},
+      "10002a3e": {},
+      "10002930": {},
+      "100020a1": {},
+      "10001a7d": {}
+    },
+    "source_replacement_groups": {}
+  }
+}
