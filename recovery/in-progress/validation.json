@@ -597,7 +597,9 @@
     "driver_guarded_api_after_layout_relink": 73,
     "driver_native_callback_literal_audit": "No remaining original function-address literals in the 73 driver C implementations; seven additional storage slices repaired.",
     "arm64_pointer_probe_complete_pci_records": 2,
-    "arm64_dma_validator_native_comparisons": 1508
+    "arm64_dma_validator_native_comparisons": 1508,
+    "arm64_gpu_queue_wrap_workflows": 10,
+    "arm64_gpu_queue_wrap_regression": "Before correction index 256 submitted 1 instead of 257. After correction native/source DMA descriptors, responses and available indices match at 255, 511 and 65535."
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",
   "kernel_compilation": "All four candidate C kernels link; full VM parity remains incomplete.",

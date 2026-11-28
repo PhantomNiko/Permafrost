@@ -40,7 +40,8 @@
         "0x10008104": "((uintptr_t)pf_module_state+0x4fecU)",
         "0x10008410": "((uintptr_t)pf_module_state+0x52f8U)",
         "0x10008100": "((uintptr_t)pf_module_state+0x4fe8U)",
-        "0x10008200": "((uintptr_t)pf_module_state+0x50e8U)"
+        "0x10008200": "((uintptr_t)pf_module_state+0x50e8U)",
+        "(ushort)DAT_10008570": "PF_PART2(DAT_10008570, 0)"
       },
       "1000048c": {
         "0x10003319": "((uintptr_t)pf_module_state+0x201U)",
@@ -93,5 +94,11 @@
       "10002960": {}
     },
     "source_replacement_groups": {}
+  },
+  "reviewed_queue_counter_width": {
+    "function": "10002688",
+    "counter": "10008570",
+    "bits": 16,
+    "contract": "Read the entire native LDRH available-ring counter; a byte view resets it after index 255 and makes the device reject the queue."
   }
 }

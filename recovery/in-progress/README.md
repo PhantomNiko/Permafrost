@@ -720,3 +720,10 @@ Validators match 1,508 native alignment, crossing, zero, and overflow cases.
 The C native-handoff VM proceeds through USB retirement and reaches a 1280x800
 desktop. Timer preemption, RTC and input behavior remain incomplete; this is
 still an experimental boot path rather than a promoted release.
+
+A separate ARM64 graphics regression read the available queue index through a
+byte view. Submission 256 then reset the index to 1, causing QEMU to reject
+the virtqueue and lose scanout. The restored 16-bit read passes ten native
+queue submission comparisons across 255, 511 and 65535, including DMA records
+and responses. The native-handoff desktop continues rendering in the longer
+VM run after this fix. Native USB pointer input is still unresolved.
