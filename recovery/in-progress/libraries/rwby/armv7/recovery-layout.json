@@ -44,7 +44,8 @@
         "0x100438f2": "((uintptr_t)pf_module_state+0x6aaU)",
         "DAT_10023c4c": "(*(uint32_t *)(uint32_t[]){0x2223cULL})",
         "DAT_10023c64": "(*(uint32_t *)(uint32_t[]){0x1f80ULL})",
-        "DAT_100245fc": "(*(uint8_t *)(uint64_t[]){0x14000004a0ULL})"
+        "DAT_100245fc": "(*(uint8_t *)(uint64_t[]){0x14000004a0ULL})",
+        "switch((int)INT_ARRAY_100245fc + INT_ARRAY_100245fc[local_254] & 0xfffffffe)": "switch((0x100245fcU + (uint)INT_ARRAY_100245fc[local_254]) & 0xfffffffeU)"
       },
       "1003b0a0": {
         "0x1004404c": "((uintptr_t)pf_module_state+0xe04U)",
@@ -98,7 +99,9 @@
         "0x10044623": "((uintptr_t)pf_module_state+0x13dbU)",
         "DAT_1003c618": "(*(uint32_t *)(uint32_t[]){0x92b0ULL})",
         "DAT_1003c61c": "(*(uint32_t *)(uint32_t[]){0x180ULL})",
-        "DAT_1003c610": "pf_bits_double(0x3bf0000000000000ULL)"
+        "DAT_1003c610": "pf_bits_double(0x3bf0000000000000ULL)",
+        "recovered_10004680(value);": "uint64_t pf_unsigned_conversion = recovered_10004680(value);",
+        "(double)CONCAT44(extraout_r1,extraout_r0)": "pf_bits_double(pf_unsigned_conversion)"
       },
       "10038be0": {
         "DAT_10038f98 + 0x10038c5c": "((uintptr_t)pf_module_state + 0x23ecU)",
@@ -604,7 +607,9 @@
         "DAT_1000f874": "(*(uint32_t *)(uint32_t[]){0x35810ULL})",
         "DAT_1000f878": "(*(uint32_t *)(uint32_t[]){0x5c8ULL})",
         "DAT_1000f4d8": "pf_bits_double(0x7ff0000000000000ULL)",
-        "DAT_1000f4e0": "pf_bits_double(0xfff0000000000000ULL)"
+        "DAT_1000f4e0": "pf_bits_double(0xfff0000000000000ULL)",
+        "uVar18 = recovered_100045f8(value);": "value = bVar1 ? -dVar16 : dVar16;\n      uVar18 = recovered_100045f8(value);",
+        "dVar16 = recovered_10004680(uVar18);": "dVar16 = (value - pf_bits_double(recovered_10004680(uVar18))) * 1000000.0 + 0.5;"
       },
       "10037d08": {
         "DAT_10037ff8 + 0x10037d74": "((uintptr_t)pf_module_state + 0x2398U)",
@@ -2113,7 +2118,10 @@
         "DAT_10007d18": "(*(uint32_t *)(uint32_t[]){0x3cULL})"
       },
       "100091a8": {},
-      "10000e74": {},
+      "10000e74": {
+        "recovered_10004680(CONCAT44(param_2,param_1));": "uint64_t pf_unsigned_conversion = recovered_10004680(CONCAT44(param_2,param_1));",
+        "(double)CONCAT44(extraout_r1,extraout_r0)": "pf_bits_double(pf_unsigned_conversion)"
+      },
       "100392c0": {},
       "1003b4f0": {},
       "1000492c": {},
@@ -2998,5 +3006,15 @@
       "address": "0x10003dcc",
       "declaration": "unsigned long reject_span(char *text,char *reject);"
     }
+  },
+  "reviewed_interpreter_result_dispatch": {
+    "function": "10022c20",
+    "table": "100245fc",
+    "entries": 5,
+    "basis": "Native bounded variant result dispatch adds native table PC to stored relative offsets. Source literal-array addresses differ and must not participate in native case selection."
+  },
+  "reviewed_decimal_conversion": {
+    "function": "1000f1c8",
+    "basis": "Native VMOV moves R1/R2 into D8. The magnitude is converted through unsigned soft-float helpers, and the fractional digits use (magnitude - integer_value) * 1000000 + 0.5."
   }
 }

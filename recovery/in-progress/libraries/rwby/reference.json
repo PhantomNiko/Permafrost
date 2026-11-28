@@ -27,7 +27,9 @@
       "serialized_bytecode_cases": 20,
       "heap_workflows": 12,
       "allocator_forwarding_cases": 117,
-      "utf8_length_cases": 238
+      "utf8_length_cases": 238,
+      "unsigned_double_abi_cases": 561,
+      "script_result_workflows": 5
     },
     "i386": {
       "sha256": "0fef961c48ab0c912ae1459e87abeba205a6db339da8242df62d11b698544d96",

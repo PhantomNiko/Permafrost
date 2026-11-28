@@ -90,7 +90,7 @@ double recovered_10004468(undefined4 param_1,undefined4 param_2);
 double recovered_10004518(undefined4 param_1,undefined4 param_2);
 longlong recovered_10004538(double value);
 ulonglong recovered_100045f8(double value);
-double recovered_10004680(ulonglong value);
+uint64_t recovered_10004680(uint64_t value);
 double recovered_100046c8(longlong value);
 float recovered_10004758(float param_1,float param_2);
 float recovered_1000479c(float param_1,float *param_2);

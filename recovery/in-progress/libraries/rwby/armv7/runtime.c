@@ -210,8 +210,8 @@ float recovered_10000e74(undefined4 param_1,undefined4 param_2)
   undefined4 extraout_r0 = 0;
   undefined4 extraout_r1 = 0;
 
-  recovered_10004680(CONCAT44(param_2,param_1));
-  return (float)pf_bits_double(CONCAT44(extraout_r1,extraout_r0));
+  uint64_t pf_unsigned_conversion = recovered_10004680(CONCAT44(param_2,param_1));
+  return (float)pf_bits_double(pf_unsigned_conversion);
 }
 
 
@@ -4416,28 +4416,11 @@ longlong recovered_10004538(double value){int negative=value<0.0;double remainin
 ulonglong recovered_100045f8(double value){if(value<=0.0)return 0;double remaining=value;uint64_t bits=0;double weight=9223372036854775808.0;for(int bit=63;bit>=0;--bit){if(weight<=remaining){bits|=UINT64_C(1)<<bit;remaining-=weight;}weight*=0.5;}return bits;}
 
 
-/* Recovered working notes; Pooka's Free Software License.
- * Address: 0x10004680
- */
-
-double recovered_10004680(ulonglong value)
-
-{
-  unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};
-
-  uint uVar1;
-  uint uVar2;
-  double in_d0;
-
-  if (value == 0) {
-    return in_d0;
-  }
-  do {
-    uVar1 = (uint)(value >> 0x21);
-    uVar2 = (uint)((byte)(value >> 0x20) & 1) << 0x1f | (uint)value >> 1;
-    value = CONCAT44(uVar1,uVar2);
-  } while (uVar2 != 0 || uVar1 != 0);
-  return in_d0;
+/* Pooka's Free Software License. Recovered ARM unsigned integer to binary64 helper. */
+uint64_t recovered_10004680(uint64_t value){
+ double sum=0.0,weight=1.0;
+ while(value){double next=sum+weight;if(value&1)sum=next;weight=weight+weight;value>>=1;}
+ return pf_double_bits(sum);
 }
 
 
@@ -15614,8 +15597,9 @@ void recovered_1000f1c8(int *param_1,undefined4 param_2,undefined4 param_3)
         recovered_1000e9f0(local_98,((uintptr_t)pf_module_state+0x1deU),4);
         goto LAB_1000f7a4;
       }
+      value = bVar1 ? -dVar16 : dVar16;
       uVar18 = recovered_100045f8(value);
-      dVar16 = recovered_10004680(uVar18);
+      dVar16 = (value - pf_bits_double(recovered_10004680(uVar18))) * 1000000.0 + 0.5;
       *local_98 = 0;
       local_98[1] = 0;
       local_98[2] = 0;
@@ -33273,7 +33257,7 @@ switchD_1002324c_default:
             if (local_254 < 5) {
               piVar23 = (int *)(param_1 + 8);
                     /* WARNING: Switch is manually overridden */
-              switch((uintptr_t)((int)INT_ARRAY_100245fc + INT_ARRAY_100245fc[local_254] & 0xfffffffe)) {
+              switch((uintptr_t)((0x100245fcU + (uint)INT_ARRAY_100245fc[local_254]) & 0xfffffffeU)) {
               case 0x10024610:
                 *(undefined4 *)(param_1 + 0xc) = local_25c;
                 *piVar23 = local_260;
@@ -55609,11 +55593,11 @@ void recovered_1003c3d0(undefined1 *param_1,int *param_2,undefined4 param_3,int 
     if (iVar2 == 0) {
       local_90 = 0xffffffff;
       value = recovered_1003c620((uint *)(iVar4 + 0x68));
-      recovered_10004680(value);
+      uint64_t pf_unsigned_conversion = recovered_10004680(value);
       dVar1 = pf_bits_double(0x3bf0000000000000ULL);
       *(undefined4 *)(param_1 + 0x14) = 2;
       *param_1 = 2;
-      *(double *)(param_1 + 8) = pf_bits_double(CONCAT44(extraout_r1,extraout_r0)) * dVar1 + 0.0;
+      *(double *)(param_1 + 8) = pf_bits_double(pf_unsigned_conversion) * dVar1 + 0.0;
       goto LAB_1003c560;
     }
     local_90 = 0xffffffff;
