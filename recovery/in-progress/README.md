@@ -706,3 +706,10 @@ Realtek SD, and SDHCI slices now link their provider callbacks to C functions.
 A source audit finds no remaining original function-address literals in the
 normal driver implementations. Full hardware protocol validation remains a
 separate requirement.
+
+ARM64 pointer discovery now copies the complete 44-byte PCI record, restoring
+subsystem identity and all six BARs lost by decompiled vector assignments.
+Single- and multifunction fixtures match native controller discovery. In the
+native-handoff VM this maps xHCI successfully with zero controller handoff
+failures. Initialization stops later at DMA step 10; that remaining failure
+still prevents promotion of the native boot path.

@@ -576,7 +576,7 @@
     "arm64_c_virtio_drivers_native_kernel_vm": "Graphics and block drivers initialize after preserving state page offsets and linking block callbacks; this control uses the reference kernel.",
     "arm64_exception_vector_routes": 16,
     "arm64_storage_provider_registration_workflows": 9,
-    "arm64_native_handoff_c_kernel_vm": "C graphics and block drivers initialize and boot disk enumerates; USB/platform retirement refuses handoff, so native-path desktop parity remains incomplete.",
+    "arm64_native_handoff_c_kernel_vm": "C graphics and block drivers initialize; full PCI record restoration maps xHCI without controller handoff failures. xHCI initialization stops at DMA step 10; desktop parity remains incomplete.",
     "sdk_legacy_process_context_modes": [
       "available",
       "unavailable"
@@ -595,7 +595,8 @@
     },
     "driver_source_state_page_offsets": 73,
     "driver_guarded_api_after_layout_relink": 73,
-    "driver_native_callback_literal_audit": "No remaining original function-address literals in the 73 driver C implementations; seven additional storage slices repaired."
+    "driver_native_callback_literal_audit": "No remaining original function-address literals in the 73 driver C implementations; seven additional storage slices repaired.",
+    "arm64_pointer_probe_complete_pci_records": 2
   },
   "executable_payloads_in_vm_checks": "Original OS payloads retained only in ignored differential-test images.",
   "kernel_compilation": "All four candidate C kernels link; full VM parity remains incomplete.",

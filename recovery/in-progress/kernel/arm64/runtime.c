@@ -14896,10 +14896,9 @@ LAB_8240ac6c:
           }
           for (; uVar29 != uVar13; uVar29 = uVar29 + 1) {
             if (uVar29 == 0) {
-              uStack_f8 = (ulong)uStack_c8;
-              uStack_100 = CONCAT26(uStack_ca,CONCAT24(sStack_cc,uStack_d0));
-              uStack_f0 = (ulong)uStack_c0;
-              uStack_dc = uStack_ac;
+              /* Native LDP/STP Q copies the complete 44-byte PCI record,
+               * including subsystem identity and all six BARs. */
+              recovered_82400f60(&uStack_100,&uStack_d0,0x2c);
 LAB_8240ad08:
               bVar2 = DAT_826f5780;
               uVar14 = (uint)PF_PART2(uStack_100, 6);
