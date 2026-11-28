@@ -515,6 +515,9 @@
       "82418e90": {
         "CONCAT13(cVar4,CONCAT12(cVar3,uVar1))": "((uint)uVar1)",
         "(param_3 - 1 & param_1)": "((uint32_t)((uint32_t)param_3 - 1U) & param_1)"
+      },
+      "82404b60": {
+        "bool recovered_82404b60(uint *param_1,uint param_2)": "bool recovered_82404b60(volatile uint *param_1,uint param_2)"
       }
     },
     "exclusive_expected": {
@@ -665,5 +668,13 @@
     "basis": "AArch64 scalar UADDLV H0,V0.8B zeroes the remaining vector bits. The following FMOV W8,S0 sees only the reduction, not retained CNT bytes in bits 16..31.",
     "failure": "64 KiB DMA boundaries were rejected because a retained upper count byte made popcount appear greater than one.",
     "alignment_mask": "Native SUB W8,W2,#1 zero-extends its 32-bit mask before TST X8,X0, including zero and bit-31 alignment values."
+  },
+  "reviewed_mmio_busy_poll": {
+    "function": "82404b60",
+    "instructions": [
+      "82404b70",
+      "82404b84"
+    ],
+    "contract": "Each bounded poll performs a fresh 32-bit register load. A volatile lvalue prevents caching the first busy value across iterations."
   }
 }

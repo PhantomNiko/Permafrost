@@ -6652,7 +6652,7 @@ ulong recovered_82404b1c(ulong param_1)
  * Address: 0x82404b60
  */
 
-bool recovered_82404b60(uint *param_1,uint param_2)
+bool recovered_82404b60(volatile uint *param_1,uint param_2)
 
 {
   unsigned char pf_stack_frame[64] __attribute__((aligned(16))) = {0};

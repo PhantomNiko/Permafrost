@@ -165,7 +165,7 @@ ulong recovered_82403bb8(void *param_1,uint param_2);
 ulong recovered_82403d94(uint param_1,ulong *param_2,uint *param_3,undefined8 *param_4,
                         undefined4 *param_5);
 ulong recovered_82404b1c(ulong param_1);
-bool recovered_82404b60(uint *param_1,uint param_2);
+bool recovered_82404b60(volatile uint *param_1,uint param_2);
 char * recovered_82404b94(uint param_1);
 undefined8
 recovered_82404bb8(uint param_1,uint param_2,uint param_3,uint param_4,uint param_5,uint *param_6);

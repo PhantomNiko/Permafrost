@@ -727,3 +727,9 @@ the virtqueue and lose scanout. The restored 16-bit read passes ten native
 queue submission comparisons across 255, 511 and 65535, including DMA records
 and responses. The native-handoff desktop continues rendering in the longer
 VM run after this fix. Native USB pointer input is still unresolved.
+
+The ARM64 MMIO busy-wait helper now reads a volatile 32-bit register on every
+iteration, preserving native hardware polling. A controlled register that
+clears on read two previously failed after only one C read. Five changing-bit
+scenarios now match the reference. This repairs a real polling defect but does
+not yet resolve the VM timer gate refusal.
